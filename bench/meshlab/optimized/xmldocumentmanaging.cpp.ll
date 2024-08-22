@@ -42,7 +42,7 @@ $_ZN7QVectorIP7XMLNodeEC2ERKS2_ = comdat any
 @_ZN15XMLInteriorNodeC1EP6XMLTag = unnamed_addr alias void (ptr, ptr), ptr @_ZN15XMLInteriorNodeC2EP6XMLTag
 @_ZN15XMLInteriorNodeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN15XMLInteriorNodeD2Ev
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN7XMLNodeD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
   tail call void @llvm.trap() #11
   unreachable
@@ -557,7 +557,7 @@ _ZN7XMLNodeD2Ev.exit:                             ; preds = %_ZN7QVectorIP7XMLNo
   unreachable
 }
 
-attributes #0 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

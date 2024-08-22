@@ -2550,7 +2550,7 @@ define void @_ZN5osgeo4proj2io14IWKTExportableD2Ev(ptr nocapture nonnull readnon
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5osgeo4proj2io14IWKTExportableD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
   tail call void @llvm.trap() #38
   unreachable
@@ -116840,7 +116840,7 @@ define void @_ZN5osgeo4proj2io21IPROJStringExportableD2Ev(ptr nocapture nonnull 
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5osgeo4proj2io21IPROJStringExportableD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
   tail call void @llvm.trap() #38
   unreachable
@@ -151272,7 +151272,7 @@ define void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr nocapture nonnull readno
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5osgeo4proj2io15IJSONExportableD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
   tail call void @llvm.trap() #38
   unreachable
@@ -183011,7 +183011,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #37
 attributes #0 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

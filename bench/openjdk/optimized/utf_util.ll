@@ -141,14 +141,14 @@ define hidden i32 @utf8sToUtf8mLength(ptr nocapture noundef readonly %0, i32 nou
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @utf8sToUtf8m(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 {
   %invariant.gep = getelementptr i8, ptr %0, i64 1
-  %invariant.gep74 = getelementptr i8, ptr %0, i64 2
+  %invariant.gep73 = getelementptr i8, ptr %0, i64 2
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %86
-  %.079 = phi i32 [ %87, %86 ], [ 0, %4 ]
-  %.06978 = phi i32 [ %.170, %86 ], [ 0, %4 ]
-  %6 = sext i32 %.079 to i64
+  %.078 = phi i32 [ %87, %86 ], [ 0, %4 ]
+  %.06977 = phi i32 [ %.170, %86 ], [ 0, %4 ]
+  %6 = sext i32 %.078 to i64
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
@@ -160,17 +160,17 @@ define hidden void @utf8sToUtf8m(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %11
-  %14 = sext i32 %.06978 to i64
+  %14 = sext i32 %.06977 to i64
   %15 = getelementptr inbounds i8, ptr %2, i64 %14
   store i8 -64, ptr %15, align 1
-  %16 = add nsw i32 %.06978, 2
+  %16 = add nsw i32 %.06977, 2
   %17 = getelementptr i8, ptr %15, i64 1
   store i8 -128, ptr %17, align 1
   br label %86
 
 18:                                               ; preds = %11
-  %19 = add nsw i32 %.06978, 1
-  %20 = sext i32 %.06978 to i64
+  %19 = add nsw i32 %.06977, 1
+  %20 = sext i32 %.06977 to i64
   %21 = getelementptr inbounds i8, ptr %2, i64 %20
   store i8 %8, ptr %21, align 1
   br label %86
@@ -181,14 +181,14 @@ define hidden void @utf8sToUtf8m(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %22
-  %26 = sext i32 %.06978 to i64
+  %26 = sext i32 %.06977 to i64
   %27 = getelementptr inbounds i8, ptr %2, i64 %26
   store i8 %8, ptr %27, align 1
-  %28 = add nsw i32 %.079, 1
+  %28 = add nsw i32 %.078, 1
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %0, i64 %29
   %31 = load i8, ptr %30, align 1
-  %32 = add nsw i32 %.06978, 2
+  %32 = add nsw i32 %.06977, 2
   %33 = getelementptr i8, ptr %27, i64 1
   store i8 %31, ptr %33, align 1
   br label %86
@@ -199,18 +199,18 @@ define hidden void @utf8sToUtf8m(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %36, label %37, label %48
 
 37:                                               ; preds = %34
-  %38 = sext i32 %.06978 to i64
+  %38 = sext i32 %.06977 to i64
   %39 = getelementptr inbounds i8, ptr %2, i64 %38
   store i8 %8, ptr %39, align 1
-  %gep77 = getelementptr i8, ptr %invariant.gep, i64 %6
-  %40 = load i8, ptr %gep77, align 1
+  %gep76 = getelementptr i8, ptr %invariant.gep, i64 %6
+  %40 = load i8, ptr %gep76, align 1
   %41 = getelementptr i8, ptr %39, i64 1
   store i8 %40, ptr %41, align 1
-  %42 = add nsw i32 %.079, 2
+  %42 = add nsw i32 %.078, 2
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %0, i64 %43
   %45 = load i8, ptr %44, align 1
-  %46 = add nsw i32 %.06978, 3
+  %46 = add nsw i32 %.06977, 3
   %47 = getelementptr i8, ptr %39, i64 2
   store i8 %45, ptr %47, align 1
   br label %86
@@ -223,9 +223,9 @@ define hidden void @utf8sToUtf8m(ptr nocapture noundef readonly %0, i32 noundef 
 51:                                               ; preds = %48
   %gep = getelementptr i8, ptr %invariant.gep, i64 %6
   %52 = load i8, ptr %gep, align 1
-  %gep75 = getelementptr i8, ptr %invariant.gep74, i64 %6
-  %53 = load i8, ptr %gep75, align 1
-  %54 = add nsw i32 %.079, 3
+  %gep74 = getelementptr i8, ptr %invariant.gep73, i64 %6
+  %53 = load i8, ptr %gep74, align 1
+  %54 = add nsw i32 %.078, 3
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds i8, ptr %0, i64 %55
   %57 = load i8, ptr %56, align 1
@@ -239,7 +239,7 @@ define hidden void @utf8sToUtf8m(ptr nocapture noundef readonly %0, i32 noundef 
   %65 = zext nneg i8 %64 to i32
   %66 = shl nuw nsw i32 %65, 6
   %67 = or disjoint i32 %66, %62
-  %68 = sext i32 %.06978 to i64
+  %68 = sext i32 %.06977 to i64
   %69 = getelementptr inbounds i8, ptr %2, i64 %68
   store i8 -19, ptr %69, align 1
   %70 = lshr i32 %63, 16
@@ -260,14 +260,14 @@ define hidden void @utf8sToUtf8m(ptr nocapture noundef readonly %0, i32 noundef 
   %82 = or i8 %64, -80
   %83 = getelementptr i8, ptr %69, i64 4
   store i8 %82, ptr %83, align 1
-  %84 = add nsw i32 %.06978, 6
+  %84 = add nsw i32 %.06977, 6
   %85 = getelementptr i8, ptr %69, i64 5
   store i8 %57, ptr %85, align 1
   br label %86
 
 86:                                               ; preds = %18, %13, %37, %51, %48, %25
-  %.170 = phi i32 [ %16, %13 ], [ %19, %18 ], [ %32, %25 ], [ %46, %37 ], [ %84, %51 ], [ %.06978, %48 ]
-  %.1 = phi i32 [ %.079, %13 ], [ %.079, %18 ], [ %28, %25 ], [ %42, %37 ], [ %54, %51 ], [ %.079, %48 ]
+  %.170 = phi i32 [ %16, %13 ], [ %19, %18 ], [ %32, %25 ], [ %46, %37 ], [ %84, %51 ], [ %.06977, %48 ]
+  %.1 = phi i32 [ %.078, %13 ], [ %.078, %18 ], [ %28, %25 ], [ %42, %37 ], [ %54, %51 ], [ %.078, %48 ]
   %87 = add nsw i32 %.1, 1
   %88 = icmp slt i32 %87, %1
   br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !8
@@ -276,29 +276,33 @@ define hidden void @utf8sToUtf8m(ptr nocapture noundef readonly %0, i32 noundef 
   %.069.lcssa = phi i32 [ 0, %4 ], [ %.170, %86 ]
   %.0.lcssa = phi i32 [ 0, %4 ], [ %87, %86 ]
   %.not = icmp eq i32 %.0.lcssa, %1
-  br i1 %.not, label %92, label %89
+  br i1 %.not, label %90, label %89
 
 89:                                               ; preds = %._crit_edge
-  %90 = load ptr, ptr @stderr, align 8
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 158, ptr noundef nonnull @.str.1) #8
-  tail call void @abort() #9
+  tail call fastcc void @utfError(i32 noundef 158, ptr noundef nonnull @.str.1)
   unreachable
 
-92:                                               ; preds = %._crit_edge
+90:                                               ; preds = %._crit_edge
   %.not72 = icmp eq i32 %.069.lcssa, %3
-  br i1 %.not72, label %96, label %93
+  br i1 %.not72, label %92, label %91
 
-93:                                               ; preds = %92
-  %94 = load ptr, ptr @stderr, align 8
-  %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 159, ptr noundef nonnull @.str.2) #8
-  tail call void @abort() #9
+91:                                               ; preds = %90
+  tail call fastcc void @utfError(i32 noundef 159, ptr noundef nonnull @.str.2)
   unreachable
 
-96:                                               ; preds = %92
-  %97 = sext i32 %3 to i64
-  %98 = getelementptr inbounds i8, ptr %2, i64 %97
-  store i8 0, ptr %98, align 1
+92:                                               ; preds = %90
+  %93 = sext i32 %3 to i64
+  %94 = getelementptr inbounds i8, ptr %2, i64 %93
+  store i8 0, ptr %94, align 1
   ret void
+}
+
+; Function Attrs: cold nofree noreturn nounwind uwtable
+define internal fastcc void @utfError(i32 noundef %0, ptr noundef %1) unnamed_addr #2 {
+  %3 = load ptr, ptr @stderr, align 8
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef %0, ptr noundef %1) #9
+  tail call void @abort() #10
+  unreachable
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -436,9 +440,9 @@ define hidden void @utf8mToUtf8s(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %97
-  %.088 = phi i32 [ %98, %97 ], [ 0, %4 ]
-  %.07687 = phi i32 [ %.177, %97 ], [ 0, %4 ]
-  %6 = sext i32 %.088 to i64
+  %.087 = phi i32 [ %98, %97 ], [ 0, %4 ]
+  %.07686 = phi i32 [ %.177, %97 ], [ 0, %4 ]
+  %6 = sext i32 %.087 to i64
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
@@ -446,8 +450,8 @@ define hidden void @utf8mToUtf8s(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %.lr.ph
-  %12 = add nsw i32 %.07687, 1
-  %13 = sext i32 %.07687 to i64
+  %12 = add nsw i32 %.07686, 1
+  %13 = sext i32 %.07686 to i64
   %14 = getelementptr inbounds i8, ptr %2, i64 %13
   store i8 %8, ptr %14, align 1
   br label %97
@@ -458,7 +462,7 @@ define hidden void @utf8mToUtf8s(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %17, label %18, label %34
 
 18:                                               ; preds = %15
-  %19 = add nsw i32 %.088, 1
+  %19 = add nsw i32 %.087, 1
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %0, i64 %20
   %22 = load i8, ptr %21, align 1
@@ -468,17 +472,17 @@ define hidden void @utf8mToUtf8s(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %or.cond, label %25, label %30
 
 25:                                               ; preds = %18
-  %26 = sext i32 %.07687 to i64
+  %26 = sext i32 %.07686 to i64
   %27 = getelementptr inbounds i8, ptr %2, i64 %26
   store i8 %8, ptr %27, align 1
-  %28 = add nsw i32 %.07687, 2
+  %28 = add nsw i32 %.07686, 2
   %29 = getelementptr i8, ptr %27, i64 1
   store i8 %22, ptr %29, align 1
   br label %97
 
 30:                                               ; preds = %18
-  %31 = add nsw i32 %.07687, 1
-  %32 = sext i32 %.07687 to i64
+  %31 = add nsw i32 %.07686, 1
+  %32 = sext i32 %.07686 to i64
   %33 = getelementptr inbounds i8, ptr %2, i64 %32
   store i8 0, ptr %33, align 1
   br label %97
@@ -492,11 +496,11 @@ define hidden void @utf8mToUtf8s(ptr nocapture noundef readonly %0, i32 noundef 
   %gep = getelementptr i8, ptr %invariant.gep, i64 %6
   %38 = load i8, ptr %gep, align 1
   %39 = zext i8 %38 to i32
-  %40 = add nsw i32 %.088, 2
+  %40 = add nsw i32 %.087, 2
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %0, i64 %41
   %43 = load i8, ptr %42, align 1
-  %44 = add nsw i32 %.088, 5
+  %44 = add nsw i32 %.087, 5
   %45 = icmp slt i32 %44, %1
   %46 = icmp eq i8 %8, -19
   %or.cond3 = and i1 %45, %46
@@ -534,7 +538,7 @@ define hidden void @utf8mToUtf8s(ptr nocapture noundef readonly %0, i32 noundef 
   %72 = lshr i32 %64, 18
   %73 = trunc nuw nsw i32 %72 to i8
   %74 = or disjoint i8 %73, -16
-  %75 = sext i32 %.07687 to i64
+  %75 = sext i32 %.07686 to i64
   %76 = getelementptr inbounds i8, ptr %2, i64 %75
   store i8 %74, ptr %76, align 1
   %77 = lshr i32 %68, 12
@@ -551,25 +555,25 @@ define hidden void @utf8mToUtf8s(ptr nocapture noundef readonly %0, i32 noundef 
   store i8 %85, ptr %86, align 1
   %87 = and i8 %61, 63
   %88 = or disjoint i8 %87, -128
-  %89 = add nsw i32 %.07687, 4
+  %89 = add nsw i32 %.07686, 4
   %90 = getelementptr i8, ptr %76, i64 3
   store i8 %88, ptr %90, align 1
   br label %97
 
 91:                                               ; preds = %49, %37
-  %92 = sext i32 %.07687 to i64
+  %92 = sext i32 %.07686 to i64
   %93 = getelementptr inbounds i8, ptr %2, i64 %92
   store i8 %8, ptr %93, align 1
   %94 = getelementptr i8, ptr %93, i64 1
   store i8 %38, ptr %94, align 1
-  %95 = add nsw i32 %.07687, 3
+  %95 = add nsw i32 %.07686, 3
   %96 = getelementptr i8, ptr %93, i64 2
   store i8 %43, ptr %96, align 1
   br label %97
 
 97:                                               ; preds = %11, %34, %91, %25, %30, %58
-  %.177 = phi i32 [ %12, %11 ], [ %28, %25 ], [ %31, %30 ], [ %89, %58 ], [ %95, %91 ], [ %.07687, %34 ]
-  %.1 = phi i32 [ %.088, %11 ], [ %19, %25 ], [ %19, %30 ], [ %44, %58 ], [ %40, %91 ], [ %.088, %34 ]
+  %.177 = phi i32 [ %12, %11 ], [ %28, %25 ], [ %31, %30 ], [ %89, %58 ], [ %95, %91 ], [ %.07686, %34 ]
+  %.1 = phi i32 [ %.087, %11 ], [ %19, %25 ], [ %19, %30 ], [ %44, %58 ], [ %40, %91 ], [ %.087, %34 ]
   %98 = add nsw i32 %.1, 1
   %99 = icmp slt i32 %98, %1
   br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !10
@@ -578,33 +582,29 @@ define hidden void @utf8mToUtf8s(ptr nocapture noundef readonly %0, i32 noundef 
   %.076.lcssa = phi i32 [ 0, %4 ], [ %.177, %97 ]
   %.0.lcssa = phi i32 [ 0, %4 ], [ %98, %97 ]
   %.not = icmp eq i32 %.0.lcssa, %1
-  br i1 %.not, label %103, label %100
+  br i1 %.not, label %101, label %100
 
 100:                                              ; preds = %._crit_edge
-  %101 = load ptr, ptr @stderr, align 8
-  %102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 292, ptr noundef nonnull @.str.1) #8
-  tail call void @abort() #9
+  tail call fastcc void @utfError(i32 noundef 292, ptr noundef nonnull @.str.1)
   unreachable
 
-103:                                              ; preds = %._crit_edge
+101:                                              ; preds = %._crit_edge
   %.not81 = icmp eq i32 %.076.lcssa, %3
-  br i1 %.not81, label %107, label %104
+  br i1 %.not81, label %103, label %102
 
-104:                                              ; preds = %103
-  %105 = load ptr, ptr @stderr, align 8
-  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 293, ptr noundef nonnull @.str.2) #8
-  tail call void @abort() #9
+102:                                              ; preds = %101
+  tail call fastcc void @utfError(i32 noundef 293, ptr noundef nonnull @.str.2)
   unreachable
 
-107:                                              ; preds = %103
-  %108 = sext i32 %3 to i64
-  %109 = getelementptr inbounds i8, ptr %2, i64 %108
-  store i8 0, ptr %109, align 1
+103:                                              ; preds = %101
+  %104 = sext i32 %3 to i64
+  %105 = getelementptr inbounds i8, ptr %2, i64 %104
+  store i8 0, ptr %105, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @utf8ToPlatform(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden i32 @utf8ToPlatform(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = sext i32 %1 to i64
   %6 = sext i32 %3 to i64
   %7 = tail call fastcc i32 @iconvConvert(i32 noundef 1, ptr noundef %0, i64 noundef %5, ptr noundef %2, i64 noundef %6)
@@ -612,137 +612,131 @@ define hidden i32 @utf8ToPlatform(ptr noundef %0, i32 noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @iconvConvert(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #2 {
+define internal fastcc i32 @iconvConvert(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = icmp eq ptr %1, null
-  br i1 %10, label %11, label %14
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 471, ptr noundef nonnull @.str.4) #8
-  tail call void @abort() #9
+  tail call fastcc void @utfError(i32 noundef 471, ptr noundef nonnull @.str.4)
   unreachable
 
-14:                                               ; preds = %5
-  %15 = icmp eq ptr %3, null
-  br i1 %15, label %16, label %19
+12:                                               ; preds = %5
+  %13 = icmp eq ptr %3, null
+  br i1 %13, label %14, label %15
 
-16:                                               ; preds = %14
-  %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 472, ptr noundef nonnull @.str.5) #8
-  tail call void @abort() #9
+14:                                               ; preds = %12
+  tail call fastcc void @utfError(i32 noundef 472, ptr noundef nonnull @.str.5)
   unreachable
 
-19:                                               ; preds = %14
+15:                                               ; preds = %12
   %.not = icmp ugt i64 %4, %2
-  br i1 %.not, label %23, label %20
+  br i1 %.not, label %17, label %16
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 473, ptr noundef nonnull @.str.6) #8
-  tail call void @abort() #9
+16:                                               ; preds = %15
+  tail call fastcc void @utfError(i32 noundef 473, ptr noundef nonnull @.str.6)
   unreachable
 
-23:                                               ; preds = %19
-  %24 = icmp eq i64 %2, 0
-  br i1 %24, label %25, label %26
+17:                                               ; preds = %15
+  %18 = icmp eq i64 %2, 0
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %17
+  store i8 0, ptr %3, align 1
+  br label %56
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr @iconvConvert.codeset, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %thread-pre-split37
+
+23:                                               ; preds = %20
+  %24 = tail call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str.7) #11
+  %.not36 = icmp eq ptr %24, null
+  br i1 %.not36, label %thread-pre-split, label %25
 
 25:                                               ; preds = %23
-  store i8 0, ptr %3, align 1
-  br label %62
+  %26 = tail call ptr @nl_langinfo(i32 noundef 14) #11
+  store ptr %26, ptr @iconvConvert.codeset, align 8
+  br label %27
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr @iconvConvert.codeset, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %thread-pre-split39
-
-29:                                               ; preds = %26
-  %30 = tail call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str.7) #10
-  %.not36 = icmp eq ptr %30, null
-  br i1 %.not36, label %thread-pre-split, label %31
-
-31:                                               ; preds = %29
-  %32 = tail call ptr @nl_langinfo(i32 noundef 14) #10
-  store ptr %32, ptr @iconvConvert.codeset, align 8
-  br label %33
-
-thread-pre-split:                                 ; preds = %29
+thread-pre-split:                                 ; preds = %23
   %.pr = load ptr, ptr @iconvConvert.codeset, align 8
-  br label %33
+  br label %27
 
-33:                                               ; preds = %thread-pre-split, %31
-  %.pr40 = phi ptr [ %.pr, %thread-pre-split ], [ %32, %31 ]
-  %34 = icmp eq ptr %.pr40, null
-  br i1 %34, label %.sink.split, label %thread-pre-split39
+27:                                               ; preds = %thread-pre-split, %25
+  %.pr38 = phi ptr [ %.pr, %thread-pre-split ], [ %26, %25 ]
+  %28 = icmp eq ptr %.pr38, null
+  br i1 %28, label %.sink.split, label %thread-pre-split37
 
-thread-pre-split39:                               ; preds = %33, %26
-  %35 = phi ptr [ %27, %26 ], [ %.pr40, %33 ]
-  %36 = icmp eq ptr %35, inttoptr (i64 -1 to ptr)
-  br i1 %36, label %59, label %37
+thread-pre-split37:                               ; preds = %27, %20
+  %29 = phi ptr [ %21, %20 ], [ %.pr38, %27 ]
+  %30 = icmp eq ptr %29, inttoptr (i64 -1 to ptr)
+  br i1 %30, label %53, label %31
 
-37:                                               ; preds = %thread-pre-split39
-  %38 = icmp eq i32 %0, 0
-  br i1 %38, label %39, label %41
+31:                                               ; preds = %thread-pre-split37
+  %32 = icmp eq i32 %0, 0
+  br i1 %32, label %33, label %35
 
-39:                                               ; preds = %37
-  %40 = tail call ptr @iconv_open(ptr noundef nonnull %35, ptr noundef nonnull @.str.8) #10
-  br label %43
+33:                                               ; preds = %31
+  %34 = tail call ptr @iconv_open(ptr noundef nonnull %29, ptr noundef nonnull @.str.8) #11
+  br label %37
 
-41:                                               ; preds = %37
-  %42 = tail call ptr @iconv_open(ptr noundef nonnull @.str.8, ptr noundef nonnull %35) #10
-  br label %43
+35:                                               ; preds = %31
+  %36 = tail call ptr @iconv_open(ptr noundef nonnull @.str.8, ptr noundef nonnull %29) #11
+  br label %37
 
-43:                                               ; preds = %41, %39
-  %44 = phi ptr [ %40, %39 ], [ %42, %41 ]
-  %45 = icmp eq ptr %44, inttoptr (i64 -1 to ptr)
-  br i1 %45, label %.sink.split, label %46
+37:                                               ; preds = %35, %33
+  %38 = phi ptr [ %34, %33 ], [ %36, %35 ]
+  %39 = icmp eq ptr %38, inttoptr (i64 -1 to ptr)
+  br i1 %39, label %.sink.split, label %40
 
-46:                                               ; preds = %43
+40:                                               ; preds = %37
   store ptr %1, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i64 %2, ptr %6, align 8
-  %47 = shl i64 %4, 32
-  %sext = add i64 %47, -4294967296
-  %48 = ashr exact i64 %sext, 32
-  store i64 %48, ptr %7, align 8
-  %49 = call i64 @iconv(ptr noundef %44, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %7) #10
-  %50 = add i64 %49, 1
-  %or.cond3 = icmp ult i64 %50, 2
-  %51 = load i64, ptr %6, align 8
-  %52 = icmp ne i64 %51, 0
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %52
-  %53 = call i32 @iconv_close(ptr noundef %44) #10
-  br i1 %or.cond5, label %59, label %54
+  %41 = shl i64 %4, 32
+  %sext = add i64 %41, -4294967296
+  %42 = ashr exact i64 %sext, 32
+  store i64 %42, ptr %7, align 8
+  %43 = call i64 @iconv(ptr noundef %38, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %7) #11
+  %44 = add i64 %43, 1
+  %or.cond3 = icmp ult i64 %44, 2
+  %45 = load i64, ptr %6, align 8
+  %46 = icmp ne i64 %45, 0
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %46
+  %47 = call i32 @iconv_close(ptr noundef %38) #11
+  br i1 %or.cond5, label %53, label %48
 
-54:                                               ; preds = %46
-  %55 = load i64, ptr %7, align 8
-  %56 = sub i64 %48, %55
-  %57 = getelementptr inbounds i8, ptr %3, i64 %56
-  store i8 0, ptr %57, align 1
-  %58 = trunc i64 %56 to i32
-  br label %62
+48:                                               ; preds = %40
+  %49 = load i64, ptr %7, align 8
+  %50 = sub i64 %42, %49
+  %51 = getelementptr inbounds i8, ptr %3, i64 %50
+  store i8 0, ptr %51, align 1
+  %52 = trunc i64 %50 to i32
+  br label %56
 
-.sink.split:                                      ; preds = %43, %33
+.sink.split:                                      ; preds = %37, %27
   store ptr inttoptr (i64 -1 to ptr), ptr @iconvConvert.codeset, align 8
-  br label %59
+  br label %53
 
-59:                                               ; preds = %.sink.split, %46, %thread-pre-split39
+53:                                               ; preds = %.sink.split, %40, %thread-pre-split37
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %60 = getelementptr inbounds i8, ptr %3, i64 %2
-  store i8 0, ptr %60, align 1
-  %61 = trunc nsw i64 %2 to i32
-  br label %62
+  %54 = getelementptr inbounds i8, ptr %3, i64 %2
+  store i8 0, ptr %54, align 1
+  %55 = trunc nsw i64 %2 to i32
+  br label %56
 
-62:                                               ; preds = %59, %54, %25
-  %.0 = phi i32 [ 0, %25 ], [ %61, %59 ], [ %58, %54 ]
+56:                                               ; preds = %53, %48, %19
+  %.0 = phi i32 [ 0, %19 ], [ %55, %53 ], [ %52, %48 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @utf8FromPlatform(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden i32 @utf8FromPlatform(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = sext i32 %1 to i64
   %6 = sext i32 %3 to i64
   %7 = tail call fastcc i32 @iconvConvert(i32 noundef 0, ptr noundef %0, i64 noundef %5, ptr noundef %2, i64 noundef %6)
@@ -750,37 +744,38 @@ define hidden i32 @utf8FromPlatform(ptr noundef %0, i32 noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare ptr @nl_langinfo(i32 noundef) local_unnamed_addr #5
+declare ptr @nl_langinfo(i32 noundef) local_unnamed_addr #6
 
-declare ptr @iconv_open(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @iconv_open(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i64 @iconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i64 @iconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @iconv_close(ptr noundef) local_unnamed_addr #6
+declare i32 @iconv_close(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { cold nounwind }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind }
+attributes #2 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { cold nounwind }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

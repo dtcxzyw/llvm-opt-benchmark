@@ -45,15 +45,15 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @ohci_pci_init() #0 section ".init.text" align 16 {
-  %1 = tail call i32 @usb_disabled() #7
+  %1 = tail call i32 @usb_disabled() #8
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  tail call void @ohci_init_driver(ptr noundef nonnull @ohci_pci_hc_driver, ptr noundef nonnull @pci_overrides) #7
+  tail call void @ohci_init_driver(ptr noundef nonnull @ohci_pci_hc_driver, ptr noundef nonnull @pci_overrides) #8
   store ptr @ohci_suspend, ptr getelementptr inbounds (i8, ptr @ohci_pci_hc_driver, i64 56), align 8
   store ptr @ohci_pci_resume, ptr getelementptr inbounds (i8, ptr @ohci_pci_hc_driver, i64 64), align 8
-  %4 = tail call i32 @__pci_register_driver(ptr noundef nonnull @ohci_pci_driver, ptr noundef null, ptr noundef nonnull @.str) #7
+  %4 = tail call i32 @__pci_register_driver(ptr noundef nonnull @ohci_pci_driver, ptr noundef null, ptr noundef nonnull @.str) #8
   br label %5
 
 5:                                                ; preds = %3, %0
@@ -63,7 +63,7 @@ define internal i32 @ohci_pci_init() #0 section ".init.text" align 16 {
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @ohci_pci_cleanup() #0 section ".exit.text" align 16 {
-  tail call void @pci_unregister_driver(ptr noundef nonnull @ohci_pci_driver) #7
+  tail call void @pci_unregister_driver(ptr noundef nonnull @ohci_pci_driver) #8
   ret void
 }
 
@@ -82,7 +82,7 @@ declare dso_local i32 @ohci_suspend(ptr noundef, i1 noundef zeroext) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ohci_pci_resume(ptr noundef %0, i32 %1) #2 align 16 {
   %3 = icmp eq i32 %1, 64
-  %4 = tail call i32 @ohci_resume(ptr noundef %0, i1 noundef zeroext %3) #7
+  %4 = tail call i32 @ohci_resume(ptr noundef %0, i1 noundef zeroext %3) #8
   ret i32 %4
 }
 
@@ -97,7 +97,7 @@ define internal i32 @ohci_pci_reset(ptr noundef %0) #2 align 16 {
 
 4:                                                ; preds = %1
   %5 = getelementptr i8, ptr %2, i64 -184
-  %6 = tail call ptr @pci_match_id(ptr noundef nonnull @ohci_pci_quirks, ptr noundef %5) #7
+  %6 = tail call ptr @pci_match_id(ptr noundef nonnull @ohci_pci_quirks, ptr noundef %5) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %8
 
@@ -105,12 +105,12 @@ define internal i32 @ohci_pci_reset(ptr noundef %0) #2 align 16 {
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call i32 %11(ptr noundef %0) #7
+  %12 = tail call i32 %11(ptr noundef %0) #8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.thread, label %15
 
 .thread:                                          ; preds = %4, %1, %8
-  %14 = tail call i32 @ohci_setup(ptr noundef %0) #7
+  %14 = tail call i32 @ohci_setup(ptr noundef %0) #8
   br label %15
 
 15:                                               ; preds = %.thread, %8
@@ -145,8 +145,8 @@ define internal noundef i32 @ohci_quirk_amd756(ptr nocapture noundef %0) #2 alig
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 168
-  %6 = tail call i32 @device_wakeup_disable(ptr noundef %5) #7
-  tail call void @device_set_wakeup_capable(ptr noundef %5, i1 noundef zeroext false) #7
+  %6 = tail call i32 @device_wakeup_disable(ptr noundef %5) #8
+  tail call void @device_set_wakeup_capable(ptr noundef %5, i1 noundef zeroext false) #8
   ret i32 0
 }
 
@@ -164,7 +164,7 @@ define internal noundef i32 @ohci_quirk_ns(ptr nocapture noundef %0) #2 align 16
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 248
   %8 = or disjoint i32 %7, 1
-  %9 = tail call ptr @pci_get_slot(ptr noundef %4, i32 noundef %8) #7
+  %9 = tail call ptr @pci_get_slot(ptr noundef %4, i32 noundef %8) #8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %23, label %11
 
@@ -188,7 +188,7 @@ define internal noundef i32 @ohci_quirk_ns(ptr nocapture noundef %0) #2 align 16
   br label %23
 
 23:                                               ; preds = %19, %15, %11, %1
-  tail call void @pci_dev_put(ptr noundef %9) #7
+  tail call void @pci_dev_put(ptr noundef %9) #8
   ret i32 0
 }
 
@@ -201,15 +201,15 @@ define internal noundef i32 @ohci_quirk_zfmicro(ptr nocapture noundef %0) #4 ali
   ret i32 0
 }
 
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ohci_quirk_toshiba_scc(ptr nocapture noundef readonly %0) #2 align 16 {
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @ohci_quirk_toshiba_scc(ptr nocapture noundef readonly %0) #5 align 16 {
   %2 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %2, ptr noundef nonnull @.str.2) #8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %2, ptr noundef nonnull @.str.2) #9
   ret i32 -6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef i32 @ohci_quirk_nec(ptr noundef %0) #5 align 16 {
+define internal noundef i32 @ohci_quirk_nec(ptr noundef %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1664
   %3 = load i64, ptr %2, align 8
   %4 = or i64 %3, 64
@@ -230,14 +230,14 @@ define internal noundef i32 @broken_suspend(ptr nocapture noundef readonly %0) #
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 168
-  %5 = tail call i32 @device_wakeup_disable(ptr noundef %4) #7
-  tail call void @device_set_wakeup_capable(ptr noundef %4, i1 noundef zeroext false) #7
+  %5 = tail call i32 @device_wakeup_disable(ptr noundef %4) #8
+  tail call void @device_set_wakeup_capable(ptr noundef %4, i1 noundef zeroext false) #8
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @ohci_quirk_amd700(ptr nocapture noundef %0) #2 align 16 {
-  %2 = tail call zeroext i1 @usb_amd_quirk_pll_check() #7
+  %2 = tail call zeroext i1 @usb_amd_quirk_pll_check() #8
   br i1 %2, label %3, label %._crit_edge
 
 3:                                                ; preds = %1
@@ -248,7 +248,7 @@ define internal noundef i32 @ohci_quirk_amd700(ptr nocapture noundef %0) #2 alig
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3, %1
-  %7 = tail call zeroext i1 @usb_amd_prefetch_quirk() #7
+  %7 = tail call zeroext i1 @usb_amd_prefetch_quirk() #8
   %8 = getelementptr inbounds i8, ptr %0, i64 1664
   %9 = load i64, ptr %8, align 8
   %10 = or i64 %9, 1024
@@ -275,19 +275,19 @@ declare dso_local ptr @pci_get_slot(ptr noundef, i32 noundef) local_unnamed_addr
 declare dso_local void @pci_dev_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ohci_quirk_nec_worker(ptr noundef %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -1120
-  %3 = tail call i32 @ohci_restart(ptr noundef %2) #7
+  %3 = tail call i32 @ohci_restart(ptr noundef %2) #8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %0, i64 -1728
   %7 = load ptr, ptr %6, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef %3) #8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef %3) #9
   br label %8
 
 8:                                                ; preds = %5, %1
@@ -314,7 +314,7 @@ declare dso_local i32 @ohci_resume(ptr noundef, i1 noundef zeroext) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ohci_pci_probe(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
-  %3 = tail call i32 @usb_hcd_pci_probe(ptr noundef %0, ptr noundef nonnull @ohci_pci_hc_driver) #7
+  %3 = tail call i32 @usb_hcd_pci_probe(ptr noundef %0, ptr noundef nonnull @ohci_pci_hc_driver) #8
   ret i32 %3
 }
 
@@ -332,10 +332,11 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #3 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #4 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #5 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

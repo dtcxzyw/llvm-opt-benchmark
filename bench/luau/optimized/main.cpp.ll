@@ -3032,7 +3032,7 @@ define dso_local noundef nonnull ptr @_ZN7doctest12assertStringENS_10assertType4
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define internal fastcc void @_ZN7doctest12_GLOBAL__N_115throw_exceptionISt11logic_errorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #23 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #9
   tail call void @_ZNSt11logic_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %0) #9
@@ -3192,7 +3192,7 @@ define dso_local void @_ZN7doctest13IContextScopeD2Ev(ptr nocapture nonnull read
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN7doctest13IContextScopeD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #26 align 2 {
   tail call void @llvm.trap() #52
   unreachable
@@ -4477,7 +4477,7 @@ _ZNK7doctest6detail15MultiLaneAtomicIiEcviEv.exit: ; preds = %.split.us21.i.i
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define dso_local void @_ZN7doctest6detail14throwExceptionEv() local_unnamed_addr #23 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 4488
@@ -9314,7 +9314,7 @@ define dso_local void @_ZN7doctest6detail20IExceptionTranslatorD2Ev(ptr nocaptur
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN7doctest6detail20IExceptionTranslatorD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #26 align 2 {
   tail call void @llvm.trap() #52
   unreachable
@@ -15010,7 +15010,7 @@ define dso_local void @_ZN7doctest9IReporterD2Ev(ptr nocapture nonnull readnone 
   ret void
 }
 
-; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN7doctest9IReporterD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #26 align 2 {
   tail call void @llvm.trap() #52
   unreachable
@@ -36515,10 +36515,10 @@ attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #28 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #29 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

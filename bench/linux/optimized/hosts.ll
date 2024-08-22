@@ -176,10 +176,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @scsi_remove_host(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @mutex_lock(ptr noundef %2) #11
+  tail call void @mutex_lock(ptr noundef %2) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #11
+  %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #12
   %6 = getelementptr inbounds i8, ptr %0, i64 584
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %8 [
@@ -192,8 +192,8 @@ define dso_local void @scsi_remove_host(ptr noundef %0) #2 align 16 {
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %9, i64 noundef %5) #11
-  tail call void @mutex_unlock(ptr noundef %2) #11
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %9, i64 noundef %5) #12
+  tail call void @mutex_unlock(ptr noundef %2) #12
   br label %37
 
 .fold.split:                                      ; preds = %1
@@ -206,19 +206,19 @@ define dso_local void @scsi_remove_host(ptr noundef %0) #2 align 16 {
 
 12:                                               ; preds = %1, %10
   %13 = load ptr, ptr %3, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %13, i64 noundef %5) #11
-  %14 = tail call i32 @scsi_autopm_get_host(ptr noundef %0) #11
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %13, i64 noundef %5) #12
+  %14 = tail call i32 @scsi_autopm_get_host(ptr noundef %0) #12
   %15 = getelementptr inbounds i8, ptr %0, i64 536
   %16 = load ptr, ptr %15, align 8
-  tail call void @__flush_workqueue(ptr noundef %16) #11
-  tail call void @scsi_forget_host(ptr noundef %0) #11
-  tail call void @mutex_unlock(ptr noundef %2) #11
-  tail call void @scsi_proc_host_rm(ptr noundef %0) #11
+  tail call void @__flush_workqueue(ptr noundef %16) #12
+  tail call void @scsi_forget_host(ptr noundef %0) #12
+  tail call void @mutex_unlock(ptr noundef %2) #12
+  tail call void @scsi_proc_host_rm(ptr noundef %0) #12
   %17 = getelementptr inbounds i8, ptr %0, i64 168
   %18 = load ptr, ptr %17, align 8
-  tail call void @scsi_proc_hostdir_rm(ptr noundef %18) #11
+  tail call void @scsi_proc_hostdir_rm(ptr noundef %18) #12
   %19 = getelementptr inbounds i8, ptr %0, i64 184
-  %20 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19, i32 -1, ptr elementtype(i32) %19) #11, !srcloc !5
+  %20 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19, i32 -1, ptr elementtype(i32) %19) #12, !srcloc !5
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %25, label %22
 
@@ -227,19 +227,19 @@ define dso_local void @scsi_remove_host(ptr noundef %0) #2 align 16 {
   br i1 %23, label %.thread, label %24, !prof !6
 
 24:                                               ; preds = %22
-  tail call void @refcount_warn_saturate(ptr noundef %19, i32 noundef 3) #11
+  tail call void @refcount_warn_saturate(ptr noundef %19, i32 noundef 3) #12
   br label %.thread
 
 25:                                               ; preds = %12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
-  tail call void @scsi_mq_free_tags(ptr noundef %19) #11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
+  tail call void @scsi_mq_free_tags(ptr noundef %19) #12
   br label %.thread
 
 .thread:                                          ; preds = %22, %24, %25
   %26 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @wait_for_completion(ptr noundef %26) #11
+  tail call void @wait_for_completion(ptr noundef %26) #12
   %27 = load ptr, ptr %3, align 8
-  %28 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %27) #11
+  %28 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %27) #12
   %29 = load i32, ptr %6, align 8
   switch i32 %29, label %30 [
     i32 4, label %33
@@ -249,8 +249,8 @@ define dso_local void @scsi_remove_host(ptr noundef %0) #2 align 16 {
   ]
 
 30:                                               ; preds = %.thread
-  tail call void asm sideeffect "431: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 431b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 431) #11, !srcloc !8
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 197, i32 0, i64 12) #11, !srcloc !9
+  tail call void asm sideeffect "431: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 431b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 431) #12, !srcloc !8
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 197, i32 0, i64 12) #12, !srcloc !9
   unreachable
 
 .fold.split1:                                     ; preds = %.thread
@@ -263,13 +263,13 @@ define dso_local void @scsi_remove_host(ptr noundef %0) #2 align 16 {
 
 33:                                               ; preds = %.thread, %31
   %34 = load ptr, ptr %3, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %34, i64 noundef %28) #11
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %34, i64 noundef %28) #12
   %35 = getelementptr inbounds i8, ptr %0, i64 592
-  tail call void @transport_remove_device(ptr noundef %35) #11
-  tail call void @transport_destroy_device(ptr noundef %35) #11
+  tail call void @transport_remove_device(ptr noundef %35) #12
+  tail call void @transport_destroy_device(ptr noundef %35) #12
   %36 = getelementptr inbounds i8, ptr %0, i64 1320
-  tail call void @device_unregister(ptr noundef %36) #11
-  tail call void @device_del(ptr noundef %35) #11
+  tail call void @device_unregister(ptr noundef %36) #12
+  tail call void @device_del(ptr noundef %35) #12
   br label %37
 
 37:                                               ; preds = %33, %8
@@ -312,8 +312,8 @@ declare dso_local void @device_unregister(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @device_del(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 592
@@ -323,7 +323,7 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call ptr %8(ptr noundef %0) #11
+  %11 = tail call ptr %8(ptr noundef %0) #12
   br label %15
 
 12:                                               ; preds = %3
@@ -333,14 +333,14 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
 
 15:                                               ; preds = %12, %10
   %16 = phi ptr [ %11, %10 ], [ %14, %12 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.1, ptr noundef %6, ptr noundef nonnull @.str.2, ptr noundef %16) #12
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.1, ptr noundef %6, ptr noundef nonnull @.str.2, ptr noundef %16) #13
   %17 = getelementptr inbounds i8, ptr %0, i64 452
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %15
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.3, ptr noundef %6, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.3, ptr noundef %6, ptr noundef nonnull @.str.4) #13
   br label %.thread11
 
 21:                                               ; preds = %15
@@ -350,7 +350,7 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
   %25 = tail call i32 @llvm.smin.i32(i32 %18, i32 %24)
   %26 = trunc i32 %25 to i16
   store i16 %26, ptr %22, align 8
-  %27 = tail call i32 @scsi_init_sense_cache(ptr noundef %0) #11
+  %27 = tail call i32 @scsi_init_sense_cache(ptr noundef %0) #12
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %.thread11
 
@@ -380,7 +380,7 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
 43:                                               ; preds = %36
   %44 = getelementptr inbounds i8, ptr %0, i64 464
   %45 = load i32, ptr %44, align 8
-  %46 = tail call i64 @dma_max_mapping_size(ptr noundef nonnull %spec.select) #11
+  %46 = tail call i64 @dma_max_mapping_size(ptr noundef nonnull %spec.select) #12
   %47 = lshr i64 %46, 9
   %48 = trunc i64 %47 to i32
   %49 = tail call i32 @llvm.umin.i32(i32 %45, i32 %48)
@@ -388,7 +388,7 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
   br label %50
 
 50:                                               ; preds = %43, %36
-  %51 = tail call i32 @scsi_mq_setup_tags(ptr noundef %0) #11
+  %51 = tail call i32 @scsi_mq_setup_tags(ptr noundef %0) #12
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %.thread11
 
@@ -398,11 +398,11 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
   %55 = getelementptr inbounds i8, ptr %0, i64 192
   store i32 0, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 200
-  tail call void @__init_swait_queue_head(ptr noundef %56, ptr noundef nonnull @.str.19, ptr noundef nonnull @init_completion.__key) #11
+  tail call void @__init_swait_queue_head(ptr noundef %56, ptr noundef nonnull @.str.19, ptr noundef nonnull @init_completion.__key) #12
   %57 = getelementptr inbounds i8, ptr %0, i64 1024
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %57, ptr elementtype(i32) %57) #11, !srcloc !10
-  %58 = tail call i32 @__pm_runtime_set_status(ptr noundef %6, i32 noundef 0) #11
-  tail call void @pm_runtime_enable(ptr noundef %6) #11
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %57, ptr elementtype(i32) %57) #12, !srcloc !10
+  %58 = tail call i32 @__pm_runtime_set_status(ptr noundef %6, i32 noundef 0) #12
+  tail call void @pm_runtime_enable(ptr noundef %6) #12
   %59 = getelementptr inbounds i8, ptr %0, i64 812
   %60 = load i16, ptr %59, align 4
   %61 = and i16 %60, 8
@@ -415,7 +415,7 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
   br label %65
 
 65:                                               ; preds = %63, %53
-  %66 = tail call i32 @device_add(ptr noundef %6) #11
+  %66 = tail call i32 @device_add(ptr noundef %6) #12
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %119
 
@@ -433,7 +433,7 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
 
 72:                                               ; preds = %71, %68
   %73 = load ptr, ptr %30, align 8
-  %74 = tail call ptr @get_device(ptr noundef %73) #11
+  %74 = tail call ptr @get_device(ptr noundef %73) #12
   %75 = getelementptr inbounds i8, ptr %0, i64 1320
   %76 = getelementptr inbounds i8, ptr %0, i64 1540
   %77 = load i16, ptr %76, align 4
@@ -447,8 +447,8 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
   br label %82
 
 82:                                               ; preds = %80, %72
-  %83 = tail call ptr @get_device(ptr noundef %6) #11
-  %84 = tail call i32 @device_add(ptr noundef %75) #11
+  %83 = tail call ptr @get_device(ptr noundef %6) #12
+  %84 = tail call i32 @device_add(ptr noundef %75) #12
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %117
 
@@ -462,7 +462,7 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
 
 92:                                               ; preds = %86
   %93 = sext i32 %90 to i64
-  %94 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %93, i32 noundef 3520) #13
+  %94 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %93, i32 noundef 3520) #14
   %95 = getelementptr inbounds i8, ptr %0, i64 2048
   store ptr %94, ptr %95, align 8
   %96 = icmp eq ptr %94, null
@@ -484,32 +484,32 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
   %104 = getelementptr inbounds i8, ptr %0, i64 506
   %105 = getelementptr inbounds i8, ptr %0, i64 404
   %106 = load i32, ptr %105, align 4
-  %107 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %104, i64 noundef 20, ptr noundef nonnull @.str.5, i32 noundef %106) #11
-  %108 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.6, i32 noundef 262218, i32 noundef 1, ptr noundef %104) #11
+  %107 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %104, i64 noundef 20, ptr noundef nonnull @.str.5, i32 noundef %106) #12
+  %108 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.6, i32 noundef 262218, i32 noundef 1, ptr noundef %104) #12
   %109 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %108, ptr %109, align 8
   %110 = icmp eq ptr %108, null
   br i1 %110, label %115, label %111
 
 111:                                              ; preds = %103, %97
-  %112 = tail call i32 @scsi_sysfs_add_host(ptr noundef %0) #11
+  %112 = tail call i32 @scsi_sysfs_add_host(ptr noundef %0) #12
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %115
 
 114:                                              ; preds = %111
-  tail call void @scsi_proc_host_add(ptr noundef %0) #11
-  tail call void @scsi_autopm_put_host(ptr noundef %0) #11
+  tail call void @scsi_proc_host_add(ptr noundef %0) #12
+  tail call void @scsi_autopm_put_host(ptr noundef %0) #12
   br label %.thread11
 
 115:                                              ; preds = %111, %103, %92
   %116 = phi i32 [ %112, %111 ], [ -12, %92 ], [ -22, %103 ]
-  tail call void @device_del(ptr noundef %75) #11
+  tail call void @device_del(ptr noundef %75) #12
   br label %117
 
 117:                                              ; preds = %115, %82
   %118 = phi i32 [ %84, %82 ], [ %116, %115 ]
-  tail call void @put_device(ptr noundef %75) #11
-  tail call void @device_del(ptr noundef %6) #11
+  tail call void @put_device(ptr noundef %75) #12
+  tail call void @device_del(ptr noundef %6) #12
   br label %119
 
 119:                                              ; preds = %117, %65
@@ -525,8 +525,8 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
   br label %126
 
 126:                                              ; preds = %124, %119
-  tail call void @__pm_runtime_disable(ptr noundef %6, i1 noundef zeroext true) #11
-  %127 = tail call i32 @__pm_runtime_set_status(ptr noundef %6, i32 noundef 2) #11
+  tail call void @__pm_runtime_disable(ptr noundef %6, i1 noundef zeroext true) #12
+  %127 = tail call i32 @__pm_runtime_set_status(ptr noundef %6, i32 noundef 2) #12
   %128 = load volatile i32, ptr %57, align 4
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %.thread, label %.lr.ph, !prof !11
@@ -534,7 +534,7 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
 .lr.ph:                                           ; preds = %126, %136
   %130 = phi i32 [ %137, %136 ], [ %128, %126 ]
   %131 = add i32 %130, -1
-  %132 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %57, i32 %131, ptr elementtype(i32) %57, i32 %130) #11, !srcloc !12
+  %132 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %57, i32 %131, ptr elementtype(i32) %57, i32 %130) #12, !srcloc !12
   %133 = extractvalue { i8, i32 } %132, 0
   %134 = icmp ult i8 %133, 2
   tail call void @llvm.assume(i1 %134)
@@ -547,7 +547,7 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
   br i1 %138, label %.thread, label %.lr.ph, !prof !14, !llvm.loop !15
 
 .thread:                                          ; preds = %136, %.lr.ph, %126
-  %139 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %54, i32 -1, ptr elementtype(i32) %54) #11, !srcloc !5
+  %139 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %54, i32 -1, ptr elementtype(i32) %54) #12, !srcloc !5
   %140 = icmp eq i32 %139, 1
   br i1 %140, label %144, label %141
 
@@ -556,12 +556,12 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
   br i1 %142, label %.thread11, label %143, !prof !6
 
 143:                                              ; preds = %141
-  tail call void @refcount_warn_saturate(ptr noundef %54, i32 noundef 3) #11
+  tail call void @refcount_warn_saturate(ptr noundef %54, i32 noundef 3) #12
   br label %.thread11
 
 144:                                              ; preds = %.thread
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
-  tail call void @scsi_mq_free_tags(ptr noundef %54) #11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
+  tail call void @scsi_mq_free_tags(ptr noundef %54) #12
   br label %.thread11
 
 .thread11:                                        ; preds = %141, %143, %144, %114, %50, %21, %20
@@ -570,7 +570,7 @@ define dso_local i32 @scsi_add_host_with_dma(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare dso_local void @_dev_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @scsi_init_sense_cache(ptr noundef) local_unnamed_addr #3
@@ -591,7 +591,7 @@ declare dso_local i32 @device_add(ptr noundef) local_unnamed_addr #3
 declare dso_local ptr @get_device(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @alloc_workqueue(ptr noundef, i32 noundef, i32 noundef, ...) local_unnamed_addr #3
@@ -612,7 +612,7 @@ declare dso_local void @put_device(ptr noundef) local_unnamed_addr #3
 define dso_local ptr @scsi_host_alloc(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = sext i32 %1 to i64
   %4 = add nsw i64 %3, 2064
-  %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 3520) #13
+  %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 3520) #14
   %6 = icmp eq ptr %5, null
   br i1 %6, label %151, label %7
 
@@ -643,15 +643,15 @@ define dso_local ptr @scsi_host_alloc(ptr noundef %0, i32 noundef %1) #2 align 1
   %19 = getelementptr inbounds i8, ptr %5, i64 40
   store volatile ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 144
-  tail call void @__init_waitqueue_head(ptr noundef %20, ptr noundef nonnull @.str.7, ptr noundef nonnull @scsi_host_alloc.__key) #11
+  tail call void @__init_waitqueue_head(ptr noundef %20, ptr noundef nonnull @.str.7, ptr noundef nonnull @scsi_host_alloc.__key) #12
   %21 = getelementptr inbounds i8, ptr %5, i64 64
-  tail call void @__mutex_init(ptr noundef %21, ptr noundef nonnull @.str.9, ptr noundef nonnull @scsi_host_alloc.__key.8) #11
-  %22 = tail call i32 @ida_alloc_range(ptr noundef nonnull @host_index_ida, i32 noundef 0, i32 noundef -1, i32 noundef 3264) #11
+  tail call void @__mutex_init(ptr noundef %21, ptr noundef nonnull @.str.9, ptr noundef nonnull @scsi_host_alloc.__key.8) #12
+  %22 = tail call i32 @ida_alloc_range(ptr noundef nonnull @host_index_ida, i32 noundef 0, i32 noundef -1, i32 noundef 3264) #12
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %7
-  tail call void @kfree(ptr noundef nonnull %5) #11
+  tail call void @kfree(ptr noundef nonnull %5) #12
   br label %151
 
 25:                                               ; preds = %7
@@ -728,7 +728,7 @@ define dso_local ptr @scsi_host_alloc(ptr noundef %0, i32 noundef %1) #2 align 1
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %5, i64 592
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.10, ptr noundef %78, ptr noundef nonnull @.str.11, i32 noundef %67, i32 noundef 2147483) #12
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.10, ptr noundef %78, ptr noundef nonnull @.str.11, i32 noundef %67, i32 noundef 2147483) #13
   %.pre = load i8, ptr %49, align 8
   %.pre5 = load i16, ptr %51, align 8
   br label %81
@@ -788,28 +788,28 @@ define dso_local ptr @scsi_host_alloc(ptr noundef %0, i32 noundef %1) #2 align 1
 
 118:                                              ; preds = %116, %81
   %119 = getelementptr inbounds i8, ptr %5, i64 592
-  tail call void @device_initialize(ptr noundef %119) #11
+  tail call void @device_initialize(ptr noundef %119) #12
   %120 = load i32, ptr %26, align 4
-  %121 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %119, ptr noundef nonnull @.str.12, i32 noundef %120) #11
+  %121 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %119, ptr noundef nonnull @.str.12, i32 noundef %120) #12
   %122 = getelementptr inbounds i8, ptr %5, i64 688
   store ptr @scsi_bus_type, ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %5, i64 680
   store ptr @scsi_host_type, ptr %123, align 8
-  tail call void @scsi_enable_async_suspend(ptr noundef %119) #11
+  tail call void @scsi_enable_async_suspend(ptr noundef %119) #12
   %124 = getelementptr inbounds i8, ptr %5, i64 1320
-  tail call void @device_initialize(ptr noundef %124) #11
+  tail call void @device_initialize(ptr noundef %124) #12
   %125 = getelementptr inbounds i8, ptr %5, i64 1384
   store ptr %119, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %5, i64 1992
   store ptr @shost_class, ptr %126, align 8
   %127 = load i32, ptr %26, align 4
-  %128 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %124, ptr noundef nonnull @.str.12, i32 noundef %127) #11
+  %128 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %124, ptr noundef nonnull @.str.12, i32 noundef %127) #12
   %129 = getelementptr inbounds i8, ptr %0, i64 328
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds i8, ptr %5, i64 2000
   store ptr %130, ptr %131, align 8
   %132 = load i32, ptr %26, align 4
-  %133 = tail call ptr (ptr, ptr, i32, ptr, ...) @kthread_create_on_node(ptr noundef nonnull @scsi_error_handler, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull @.str.13, i32 noundef %132) #11
+  %133 = tail call ptr (ptr, ptr, i32, ptr, ...) @kthread_create_on_node(ptr noundef nonnull @scsi_error_handler, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull @.str.13, i32 noundef %132) #12
   %134 = icmp ugt ptr %133, inttoptr (i64 -4096 to ptr)
   br i1 %134, label %135, label %138
 
@@ -817,33 +817,33 @@ define dso_local ptr @scsi_host_alloc(ptr noundef %0, i32 noundef %1) #2 align 1
   %136 = getelementptr inbounds i8, ptr %5, i64 128
   store ptr %133, ptr %136, align 8
   %137 = ptrtoint ptr %133 to i64
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.10, ptr noundef %119, ptr noundef nonnull @.str.14, i64 noundef %137) #12
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.10, ptr noundef %119, ptr noundef nonnull @.str.14, i64 noundef %137) #13
   store ptr null, ptr %136, align 8
   br label %150
 
 138:                                              ; preds = %118
-  %139 = tail call i32 @wake_up_process(ptr noundef %133) #11
+  %139 = tail call i32 @wake_up_process(ptr noundef %133) #12
   %140 = getelementptr inbounds i8, ptr %5, i64 128
   store ptr %133, ptr %140, align 8
   %141 = load i32, ptr %26, align 4
-  %142 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.15, i32 noundef 74, i32 noundef 1, i32 noundef %141) #11
+  %142 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.15, i32 noundef 74, i32 noundef 1, i32 noundef %141) #12
   %143 = getelementptr inbounds i8, ptr %5, i64 536
   store ptr %142, ptr %143, align 8
   %144 = icmp eq ptr %142, null
   br i1 %144, label %145, label %146
 
 145:                                              ; preds = %138
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.10, ptr noundef %119, ptr noundef nonnull @.str.16) #12
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.10, ptr noundef %119, ptr noundef nonnull @.str.16) #13
   br label %150
 
 146:                                              ; preds = %138
   %147 = load ptr, ptr %33, align 8
-  %148 = tail call i32 @scsi_proc_hostdir_add(ptr noundef %147) #11
+  %148 = tail call i32 @scsi_proc_hostdir_add(ptr noundef %147) #12
   %149 = icmp slt i32 %148, 0
   br i1 %149, label %150, label %151
 
 150:                                              ; preds = %146, %145, %135
-  tail call void @put_device(ptr noundef %119) #11
+  tail call void @put_device(ptr noundef %119) #12
   br label %151
 
 151:                                              ; preds = %150, %146, %24, %2
@@ -885,7 +885,7 @@ declare dso_local i32 @scsi_proc_hostdir_add(ptr noundef) local_unnamed_addr #3
 define dso_local ptr @scsi_host_lookup(i32 noundef %0) #2 align 16 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = call ptr @class_find_device(ptr noundef nonnull @shost_class, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull @__scsi_host_match) #11
+  %3 = call ptr @class_find_device(ptr noundef nonnull @shost_class, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull @__scsi_host_match) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %17, label %5
 
@@ -898,14 +898,14 @@ define dso_local ptr @scsi_host_lookup(i32 noundef %0) #2 align 16 {
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %3, i64 -1320
   %11 = getelementptr i8, ptr %3, i64 -728
-  %12 = call ptr @get_device(ptr noundef %11) #11
+  %12 = call ptr @get_device(ptr noundef %11) #12
   %13 = icmp eq ptr %12, null
   %14 = select i1 %13, ptr null, ptr %10
   br label %15
 
 15:                                               ; preds = %9, %5
   %16 = phi ptr [ null, %5 ], [ %14, %9 ]
-  call void @put_device(ptr noundef nonnull %3) #11
+  call void @put_device(ptr noundef nonnull %3) #12
   br label %17
 
 17:                                               ; preds = %15, %1
@@ -917,7 +917,7 @@ define dso_local ptr @scsi_host_lookup(i32 noundef %0) #2 align 16 {
 declare dso_local ptr @class_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 2) i32 @__scsi_host_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal range(i32 0, 2) i32 @__scsi_host_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -916
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 4
@@ -935,7 +935,7 @@ define dso_local ptr @scsi_host_get(ptr noundef %0) #2 align 16 {
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 592
-  %7 = tail call ptr @get_device(ptr noundef %6) #11
+  %7 = tail call ptr @get_device(ptr noundef %6) #12
   %8 = icmp eq ptr %7, null
   %9 = select i1 %8, ptr null, ptr %0
   br label %10
@@ -948,12 +948,12 @@ define dso_local ptr @scsi_host_get(ptr noundef %0) #2 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @scsi_host_busy(ptr noundef %0) #2 align 16 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 224
-  call void @blk_mq_tagset_busy_iter(ptr noundef %3, ptr noundef nonnull @scsi_host_check_in_flight, ptr noundef nonnull %2) #11
+  call void @blk_mq_tagset_busy_iter(ptr noundef %3, ptr noundef nonnull @scsi_host_check_in_flight, ptr noundef nonnull %2) #12
   %4 = load i32, ptr %2, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   ret i32 %4
 }
 
@@ -961,7 +961,7 @@ define dso_local i32 @scsi_host_busy(ptr noundef %0) #2 align 16 {
 declare dso_local void @blk_mq_tagset_busy_iter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef zeroext i1 @scsi_host_check_in_flight(ptr noundef %0, ptr nocapture noundef %1) #7 align 16 {
+define internal noundef zeroext i1 @scsi_host_check_in_flight(ptr noundef %0, ptr nocapture noundef %1) #8 align 16 {
   %3 = getelementptr i8, ptr %0, i64 512
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 2
@@ -981,13 +981,13 @@ define internal noundef zeroext i1 @scsi_host_check_in_flight(ptr noundef %0, pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @scsi_host_put(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 592
-  tail call void @put_device(ptr noundef %2) #11
+  tail call void @put_device(ptr noundef %2) #12
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @scsi_init_hosts() local_unnamed_addr #2 align 16 {
-  %1 = tail call i32 @class_register(ptr noundef nonnull @shost_class) #11
+  %1 = tail call i32 @class_register(ptr noundef nonnull @shost_class) #12
   ret i32 %1
 }
 
@@ -996,8 +996,8 @@ declare dso_local i32 @class_register(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @scsi_exit_hosts() local_unnamed_addr #2 align 16 {
-  tail call void @class_unregister(ptr noundef nonnull @shost_class) #11
-  tail call void @ida_destroy(ptr noundef nonnull @host_index_ida) #11
+  tail call void @class_unregister(ptr noundef nonnull @shost_class) #12
+  tail call void @ida_destroy(ptr noundef nonnull @host_index_ida) #12
   ret void
 }
 
@@ -1008,7 +1008,7 @@ declare dso_local void @class_unregister(ptr noundef) local_unnamed_addr #3
 declare dso_local void @ida_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 2) i32 @scsi_is_host_device(ptr nocapture noundef readonly %0) #6 align 16 {
+define dso_local range(i32 0, 2) i32 @scsi_is_host_device(ptr nocapture noundef readonly %0) #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @scsi_host_type
@@ -1029,12 +1029,12 @@ define dso_local range(i32 -22, 2) i32 @scsi_queue_work(ptr noundef %0, ptr noun
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef nonnull @.str.17, ptr noundef %11) #12
-  tail call void @dump_stack() #12
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef nonnull @.str.17, ptr noundef %11) #13
+  tail call void @dump_stack() #13
   br label %15
 
 12:                                               ; preds = %2
-  %13 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef nonnull %4, ptr noundef %1) #11
+  %13 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef nonnull %4, ptr noundef %1) #12
   %14 = zext i1 %13 to i32
   br label %15
 
@@ -1044,7 +1044,7 @@ define dso_local range(i32 -22, 2) i32 @scsi_queue_work(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @dump_stack() local_unnamed_addr #4
+declare dso_local void @dump_stack() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @scsi_flush_work(ptr noundef %0) #2 align 16 {
@@ -1059,12 +1059,12 @@ define dso_local void @scsi_flush_work(ptr noundef %0) #2 align 16 {
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.3, ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef %10) #12
-  tail call void @dump_stack() #12
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.3, ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef %10) #13
+  tail call void @dump_stack() #13
   br label %12
 
 11:                                               ; preds = %1
-  tail call void @__flush_workqueue(ptr noundef nonnull %3) #11
+  tail call void @__flush_workqueue(ptr noundef nonnull %3) #12
   br label %12
 
 12:                                               ; preds = %11, %5
@@ -1076,7 +1076,7 @@ define dso_local void @scsi_host_complete_all_commands(ptr noundef %0, i32 nound
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 224
-  call void @blk_mq_tagset_busy_iter(ptr noundef %4, ptr noundef nonnull @complete_all_cmds_iter, ptr noundef nonnull %3) #11
+  call void @blk_mq_tagset_busy_iter(ptr noundef %4, ptr noundef nonnull @complete_all_cmds_iter, ptr noundef nonnull %3) #12
   ret void
 }
 
@@ -1084,25 +1084,25 @@ define dso_local void @scsi_host_complete_all_commands(ptr noundef %0, i32 nound
 define internal noundef zeroext i1 @complete_all_cmds_iter(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 248
   %4 = load i32, ptr %1, align 4
-  tail call void @scsi_dma_unmap(ptr noundef %3) #11
+  tail call void @scsi_dma_unmap(ptr noundef %3) #12
   %5 = getelementptr i8, ptr %0, i64 536
   %6 = shl i32 %4, 16
   %7 = and i32 %6, 16711680
   store i32 %7, ptr %5, align 8
-  tail call void @scsi_done(ptr noundef %3) #11
+  tail call void @scsi_done(ptr noundef %3) #12
   ret i1 true
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @scsi_host_busy_iter(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 align 16 {
   %4 = alloca %struct.scsi_host_busy_iter_data, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 224
-  call void @blk_mq_tagset_busy_iter(ptr noundef %6, ptr noundef nonnull @__scsi_host_busy_iter_fn, ptr noundef nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @blk_mq_tagset_busy_iter(ptr noundef %6, ptr noundef nonnull @__scsi_host_busy_iter_fn, ptr noundef nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
   ret void
 }
 
@@ -1112,7 +1112,7 @@ define internal zeroext i1 @__scsi_host_busy_iter_fn(ptr noundef %0, ptr nocaptu
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call zeroext i1 %4(ptr noundef %3, ptr noundef %6) #11
+  %7 = tail call zeroext i1 %4(ptr noundef %3, ptr noundef %6) #12
   ret i1 %7
 }
 
@@ -1135,13 +1135,13 @@ declare dso_local void @__init_swait_queue_head(ptr noundef, ptr noundef, ptr no
 declare dso_local i32 @__pm_runtime_set_status(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #8
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__pm_runtime_disable(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ida_alloc_range(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -1171,14 +1171,14 @@ define internal void @scsi_host_dev_release(ptr noundef %0) #2 align 16 {
   %13 = phi ptr [ %12, %11 ], [ null, %7 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
-  tail call void @rcu_barrier() #11
+  tail call void @rcu_barrier() #12
   %16 = getelementptr inbounds i8, ptr %13, i64 536
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %.loopexit
-  tail call void @destroy_workqueue(ptr noundef nonnull %17) #11
+  tail call void @destroy_workqueue(ptr noundef nonnull %17) #12
   br label %20
 
 20:                                               ; preds = %19, %.loopexit
@@ -1188,7 +1188,7 @@ define internal void @scsi_host_dev_release(ptr noundef %0) #2 align 16 {
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %20
-  %25 = tail call i32 @kthread_stop(ptr noundef nonnull %22) #11
+  %25 = tail call i32 @kthread_stop(ptr noundef nonnull %22) #12
   br label %26
 
 26:                                               ; preds = %24, %20
@@ -1198,7 +1198,7 @@ define internal void @scsi_host_dev_release(ptr noundef %0) #2 align 16 {
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %26
-  tail call void @destroy_workqueue(ptr noundef nonnull %28) #11
+  tail call void @destroy_workqueue(ptr noundef nonnull %28) #12
   br label %31
 
 31:                                               ; preds = %30, %26
@@ -1220,26 +1220,26 @@ define internal void @scsi_host_dev_release(ptr noundef %0) #2 align 16 {
 
 42:                                               ; preds = %39, %35
   %43 = phi ptr [ %41, %39 ], [ %37, %35 ]
-  tail call void @kfree(ptr noundef %43) #11
+  tail call void @kfree(ptr noundef %43) #12
   br label %44
 
 44:                                               ; preds = %42, %31
   %45 = getelementptr inbounds i8, ptr %13, i64 2048
   %46 = load ptr, ptr %45, align 8
-  tail call void @kfree(ptr noundef %46) #11
+  tail call void @kfree(ptr noundef %46) #12
   %47 = getelementptr inbounds i8, ptr %13, i64 404
   %48 = load i32, ptr %47, align 4
-  tail call void @ida_free(ptr noundef nonnull @host_index_ida, i32 noundef %48) #11
+  tail call void @ida_free(ptr noundef nonnull @host_index_ida, i32 noundef %48) #12
   %49 = load i32, ptr %32, align 8
   %50 = icmp eq i32 %49, 1
   br i1 %50, label %52, label %51
 
 51:                                               ; preds = %44
-  tail call void @put_device(ptr noundef %15) #11
+  tail call void @put_device(ptr noundef %15) #12
   br label %52
 
 52:                                               ; preds = %51, %44
-  tail call void @kfree(ptr noundef %13) #11
+  tail call void @kfree(ptr noundef %13) #12
   ret void
 }
 
@@ -1258,7 +1258,7 @@ declare dso_local void @ida_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @scsi_host_cls_release(ptr noundef %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -728
-  tail call void @put_device(ptr noundef %2) #11
+  tail call void @put_device(ptr noundef %2) #12
   ret void
 }
 
@@ -1272,25 +1272,26 @@ declare dso_local void @scsi_dma_unmap(ptr noundef) local_unnamed_addr #3
 declare dso_local void @scsi_done(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
-attributes #13 = { nounwind allocsize(0) }
+attributes #4 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { cold nounwind }
+attributes #14 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

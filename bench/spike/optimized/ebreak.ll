@@ -75,7 +75,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define noundef i64 @_Z17fast_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
@@ -176,7 +176,7 @@ define linkonce_odr void @_ZN15trap_breakpointD2Ev(ptr noundef nonnull align 8 d
   ret void
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define noundef i64 @_Z17fast_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
@@ -265,7 +265,7 @@ define noundef i64 @_Z17fast_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture no
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define noundef i64 @_Z19logged_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
@@ -354,7 +354,7 @@ define noundef i64 @_Z19logged_rv32i_ebreakP11processor_t6insn_tm(ptr nocapture 
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define noundef i64 @_Z19logged_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
@@ -443,7 +443,7 @@ define noundef i64 @_Z19logged_rv64i_ebreakP11processor_t6insn_tm(ptr nocapture 
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define noundef i64 @_Z17fast_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
@@ -532,7 +532,7 @@ define noundef i64 @_Z17fast_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture no
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define noundef i64 @_Z17fast_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
@@ -621,7 +621,7 @@ define noundef i64 @_Z17fast_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture no
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define noundef i64 @_Z19logged_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
@@ -710,7 +710,7 @@ define noundef i64 @_Z19logged_rv32e_ebreakP11processor_t6insn_tm(ptr nocapture 
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn uwtable
+; Function Attrs: cold mustprogress noreturn uwtable
 define noundef i64 @_Z19logged_rv64e_ebreakP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2248
   %5 = load i8, ptr %4, align 8
@@ -988,7 +988,7 @@ define internal void @_GLOBAL__sub_I_ebreak.cc() #12 section ".text.startup" {
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold noreturn }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

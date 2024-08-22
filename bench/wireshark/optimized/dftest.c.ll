@@ -94,17 +94,17 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %7 = alloca ptr, align 8
   store i32 %0, ptr %6, align 4
   store ptr null, ptr %7, align 8
-  %8 = tail call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str) #13
-  tail call void @cmdarg_err_init(ptr noundef nonnull @dftest_cmdarg_err, ptr noundef nonnull @dftest_cmdarg_err_cont) #13
-  tail call void @ws_log_init(ptr noundef nonnull @.str.1, ptr noundef nonnull @vcmdarg_err) #13
-  %9 = call i32 @ws_log_parse_args(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @vcmdarg_err, i32 noundef 1) #13
-  call void @ws_init_version_info(ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null) #13
+  %8 = tail call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str) #14
+  tail call void @cmdarg_err_init(ptr noundef nonnull @dftest_cmdarg_err, ptr noundef nonnull @dftest_cmdarg_err_cont) #14
+  tail call void @ws_log_init(ptr noundef nonnull @.str.1, ptr noundef nonnull @vcmdarg_err) #14
+  %9 = call i32 @ws_log_parse_args(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull @vcmdarg_err, i32 noundef 1) #14
+  call void @ws_init_version_info(ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null) #14
   %10 = load ptr, ptr @g_ascii_table, align 8
   br label %11
 
 11:                                               ; preds = %.backedge, %2
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 @ws_getopt_long(i32 noundef %12, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @main.long_options, ptr noundef null) #13
+  %13 = call i32 @ws_getopt_long(i32 noundef %12, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @main.long_options, ptr noundef null) #14
   switch i32 %13, label %75 [
     i32 -1, label %76
     i32 86, label %14
@@ -135,7 +135,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not, label %37, label %17
 
 17:                                               ; preds = %15
-  %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #14
+  %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
   %19 = icmp ugt i64 %18, 1
   br i1 %19, label %26, label %20
 
@@ -150,22 +150,22 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 26:                                               ; preds = %20, %17
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef nonnull %16)
-  call fastcc void @print_usage(i32 noundef 1) #15
+  call fastcc void @print_usage(i32 noundef 1) #16
   unreachable
 
 28:                                               ; preds = %20
-  %29 = tail call ptr @__errno_location() #16
+  %29 = tail call ptr @__errno_location() #17
   store i32 0, ptr %29, align 4
   %30 = load ptr, ptr @ws_optarg, align 8
-  %31 = call i64 @strtol(ptr nocapture noundef %30, ptr noundef null, i32 noundef 10) #13
+  %31 = call i64 @strtol(ptr nocapture noundef %30, ptr noundef null, i32 noundef 10) #14
   %32 = load i32, ptr %29, align 4
   %.not3.i = icmp eq i32 %32, 0
   br i1 %.not3.i, label %optarg_to_digit.exit, label %33
 
 33:                                               ; preds = %28
-  %34 = call ptr @g_strerror(i32 noundef %32) #16
+  %34 = call ptr @g_strerror(i32 noundef %32) #17
   %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %34)
-  call fastcc void @print_usage(i32 noundef 1) #15
+  call fastcc void @print_usage(i32 noundef 1) #16
   unreachable
 
 optarg_to_digit.exit:                             ; preds = %28
@@ -220,7 +220,7 @@ optarg_to_digit.exit:                             ; preds = %28
 
 49:                                               ; preds = %11
   %50 = load ptr, ptr @ws_optarg, align 8
-  %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #14
+  %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #15
   %52 = icmp ugt i64 %51, 1
   br i1 %52, label %59, label %53
 
@@ -235,22 +235,22 @@ optarg_to_digit.exit:                             ; preds = %28
 
 59:                                               ; preds = %53, %49
   %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %50)
-  call fastcc void @print_usage(i32 noundef 1) #15
+  call fastcc void @print_usage(i32 noundef 1) #16
   unreachable
 
 61:                                               ; preds = %53
-  %62 = tail call ptr @__errno_location() #16
+  %62 = tail call ptr @__errno_location() #17
   store i32 0, ptr %62, align 4
   %63 = load ptr, ptr @ws_optarg, align 8
-  %64 = call i64 @strtol(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #13
+  %64 = call i64 @strtol(ptr nocapture noundef %63, ptr noundef null, i32 noundef 10) #14
   %65 = load i32, ptr %62, align 4
   %.not3.i61 = icmp eq i32 %65, 0
   br i1 %.not3.i61, label %optarg_to_digit.exit62, label %66
 
 66:                                               ; preds = %61
-  %67 = call ptr @g_strerror(i32 noundef %65) #16
+  %67 = call ptr @g_strerror(i32 noundef %65) #17
   %68 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %67)
-  call fastcc void @print_usage(i32 noundef 1) #15
+  call fastcc void @print_usage(i32 noundef 1) #16
   unreachable
 
 optarg_to_digit.exit62:                           ; preds = %61
@@ -271,21 +271,21 @@ optarg_to_digit.exit62:                           ; preds = %61
   br label %11
 
 72:                                               ; preds = %11
-  call void @show_version() #13
-  call void @exit(i32 noundef 0) #17
+  call void @show_version() #14
+  call void @exit(i32 noundef 0) #18
   unreachable
 
 73:                                               ; preds = %11
-  call void @show_help_header(ptr noundef null) #13
-  call fastcc void @print_usage(i32 noundef 0) #15
+  call void @show_help_header(ptr noundef null) #14
+  call fastcc void @print_usage(i32 noundef 0) #16
   unreachable
 
 74:                                               ; preds = %11
-  call fastcc void @print_usage(i32 noundef 1) #15
+  call fastcc void @print_usage(i32 noundef 1) #16
   unreachable
 
 75:                                               ; preds = %11
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.17, i32 noundef 7, ptr noundef nonnull @.str.18, i64 noundef 369, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.19) #17
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.17, i32 noundef 7, ptr noundef nonnull @.str.18, i64 noundef 369, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.19) #18
   unreachable
 
 76:                                               ; preds = %11
@@ -300,7 +300,7 @@ optarg_to_digit.exit62:                           ; preds = %61
 
 82:                                               ; preds = %76
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  call fastcc void @print_usage(i32 noundef 1) #15
+  call fastcc void @print_usage(i32 noundef 1) #16
   unreachable
 
 83:                                               ; preds = %76
@@ -309,7 +309,7 @@ optarg_to_digit.exit62:                           ; preds = %61
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %83
-  call void @ws_log_set_noisy_filter(ptr noundef nonnull @.str.21) #13
+  call void @ws_log_set_noisy_filter(ptr noundef nonnull @.str.21) #14
   br label %90
 
 87:                                               ; preds = %83
@@ -321,34 +321,34 @@ optarg_to_digit.exit62:                           ; preds = %61
   br i1 %or.cond3, label %89, label %90
 
 89:                                               ; preds = %87
-  call void @ws_log_set_debug_filter(ptr noundef nonnull @.str.21) #13
+  call void @ws_log_set_debug_filter(ptr noundef nonnull @.str.21) #14
   br label %90
 
 90:                                               ; preds = %89, %87, %86
-  call void @init_process_policies() #13
+  call void @init_process_policies() #14
   %91 = load ptr, ptr %1, align 8
-  %92 = call ptr @configuration_init(ptr noundef %91, ptr noundef null) #13
+  %92 = call ptr @configuration_init(ptr noundef %91, ptr noundef null) #14
   %.not54 = icmp eq ptr %92, null
   br i1 %.not54, label %96, label %93
 
 93:                                               ; preds = %90
   %94 = load ptr, ptr @stderr, align 8
-  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.22, ptr noundef nonnull %92) #18
-  call void @g_free(ptr noundef nonnull %92) #13
+  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.22, ptr noundef nonnull %92) #19
+  call void @g_free(ptr noundef nonnull %92) #14
   br label %96
 
 96:                                               ; preds = %93, %90
-  call void @init_report_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @main.dftest_report_routines) #13
-  call void @timestamp_set_type(i32 noundef 0) #13
-  call void @timestamp_set_seconds_type(i32 noundef 0) #13
-  call void @wtap_init(i32 noundef 1) #13
-  %97 = call i32 @epan_init(ptr noundef null, ptr noundef null, i32 noundef 1) #13
+  call void @init_report_message(ptr noundef nonnull @.str.1, ptr noundef nonnull @main.dftest_report_routines) #14
+  call void @timestamp_set_type(i32 noundef 0) #14
+  call void @timestamp_set_seconds_type(i32 noundef 0) #14
+  call void @wtap_init(i32 noundef 1) #14
+  %97 = call i32 @epan_init(ptr noundef null, ptr noundef null, i32 noundef 1) #14
   %.not55 = icmp eq i32 %97, 0
   br i1 %.not55, label %167, label %98
 
 98:                                               ; preds = %96
-  %99 = call ptr @epan_load_settings() #13
-  call void @prefs_apply_all() #13
+  %99 = call ptr @epan_load_settings() #14
+  call void @prefs_apply_all() #14
   %.b51 = load i1, ptr @opt_dump_macros, align 4
   br i1 %.b51, label %100, label %117
 
@@ -356,7 +356,7 @@ optarg_to_digit.exit62:                           ; preds = %61
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %101 = call i64 @dfilter_macro_table_count() #13
+  %101 = call i64 @dfilter_macro_table_count() #14
   %102 = icmp eq i64 %101, 0
   br i1 %102, label %103, label %104
 
@@ -365,9 +365,9 @@ optarg_to_digit.exit62:                           ; preds = %61
   br label %print_macros.exit
 
 104:                                              ; preds = %100
-  call void @dfilter_macro_table_iter_init(ptr noundef nonnull %3) #13
+  call void @dfilter_macro_table_iter_init(ptr noundef nonnull %3) #14
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %105 = call zeroext i1 @dfilter_macro_table_iter_next(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
+  %105 = call zeroext i1 @dfilter_macro_table_iter_next(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   br i1 %105, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %104, %.lr.ph.i
@@ -375,7 +375,7 @@ optarg_to_digit.exit62:                           ; preds = %61
   %107 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, ptr noundef %106)
   %108 = load ptr, ptr %5, align 8
   %109 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, ptr noundef %108)
-  %110 = call zeroext i1 @dfilter_macro_table_iter_next(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
+  %110 = call zeroext i1 @dfilter_macro_table_iter_next(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   br i1 %110, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %104
@@ -394,7 +394,7 @@ print_macros.exit:                                ; preds = %103, %._crit_edge.i
   br i1 %115, label %116, label %.thread
 
 116:                                              ; preds = %print_macros.exit
-  call void @exit(i32 noundef 0) #17
+  call void @exit(i32 noundef 0) #18
   unreachable
 
 117:                                              ; preds = %98
@@ -407,7 +407,7 @@ print_macros.exit:                                ; preds = %103, %._crit_edge.i
 
 119:                                              ; preds = %117
   %puts59 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  call fastcc void @print_usage(i32 noundef 1) #15
+  call fastcc void @print_usage(i32 noundef 1) #16
   unreachable
 
 .thread:                                          ; preds = %print_macros.exit, %117
@@ -427,7 +427,7 @@ print_macros.exit:                                ; preds = %103, %._crit_edge.i
   %124 = getelementptr ptr, ptr %1, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8
   %126 = trunc nsw i64 %indvars.iv to i32
-  %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.23, i32 noundef %126, ptr noundef %125) #18
+  %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.23, i32 noundef %126, ptr noundef %125) #19
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %128 = load i32, ptr %6, align 4
   %129 = sext i32 %128 to i64
@@ -443,14 +443,14 @@ print_macros.exit:                                ; preds = %103, %._crit_edge.i
 132:                                              ; preds = %._crit_edge, %.thread
   %133 = phi i32 [ %.pre78, %._crit_edge ], [ %120, %.thread ]
   %134 = load i32, ptr %6, align 4
-  %135 = call ptr @get_args_as_string(i32 noundef %134, ptr noundef nonnull %1, i32 noundef %133) #13
+  %135 = call ptr @get_args_as_string(i32 noundef %134, ptr noundef nonnull %1, i32 noundef %133) #14
   %136 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %135)
   %137 = call fastcc ptr @expand_filter(ptr noundef %135)
   %138 = icmp eq ptr %137, null
   br i1 %138, label %167, label %139
 
 139:                                              ; preds = %132
-  %140 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %135, ptr noundef nonnull dereferenceable(1) %137) #14
+  %140 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %135, ptr noundef nonnull dereferenceable(1) %137) #15
   %.not56 = icmp eq i32 %140, 0
   br i1 %.not56, label %143, label %141
 
@@ -486,7 +486,7 @@ print_macros.exit:                                ; preds = %103, %._crit_edge.i
   br i1 %.b49, label %154, label %157
 
 154:                                              ; preds = %153
-  %155 = call ptr @dfilter_syntax_tree(ptr noundef nonnull %150) #13
+  %155 = call ptr @dfilter_syntax_tree(ptr noundef nonnull %150) #14
   %156 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.52, ptr noundef %155)
   %.pre79 = load ptr, ptr %7, align 8
   br label %157
@@ -499,7 +499,7 @@ print_macros.exit:                                ; preds = %103, %._crit_edge.i
   %159 = zext i1 %.b53 to i16
   %.1 = or disjoint i16 %spec.select, %159
   %160 = load ptr, ptr @stdout, align 8
-  call void @dfilter_dump(ptr noundef %160, ptr noundef %158, i16 noundef zeroext %.1) #13
+  call void @dfilter_dump(ptr noundef %160, ptr noundef %158, i16 noundef zeroext %.1) #14
   %161 = load ptr, ptr %7, align 8
   call fastcc void @print_warnings(ptr noundef %161)
   %.b52 = load i1, ptr @opt_timer, align 4
@@ -516,12 +516,12 @@ print_macros.exit:                                ; preds = %103, %._crit_edge.i
   %.038 = phi i32 [ 4, %152 ], [ 1, %96 ], [ 4, %132 ], [ 4, %143 ], [ 0, %162 ], [ 0, %157 ]
   %.037 = phi ptr [ %137, %152 ], [ null, %96 ], [ null, %132 ], [ %137, %143 ], [ %137, %162 ], [ %137, %157 ]
   %.036 = phi ptr [ %135, %152 ], [ null, %96 ], [ %135, %132 ], [ %135, %143 ], [ %135, %162 ], [ %135, %157 ]
-  call void @epan_cleanup() #13
+  call void @epan_cleanup() #14
   %168 = load ptr, ptr %7, align 8
-  call void @dfilter_free(ptr noundef %168) #13
-  call void @g_free(ptr noundef %.036) #13
-  call void @g_free(ptr noundef %.037) #13
-  call void @exit(i32 noundef %.038) #17
+  call void @dfilter_free(ptr noundef %168) #14
+  call void @g_free(ptr noundef %.036) #14
+  call void @g_free(ptr noundef %.037) #14
+  call void @exit(i32 noundef %.038) #18
   unreachable
 }
 
@@ -530,21 +530,21 @@ declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @cmdarg_err_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: cold nofree nounwind uwtable
 define internal void @dftest_cmdarg_err(ptr nocapture noundef readonly %0, ptr noundef %1) #3 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 8, i64 1, ptr %3) #19
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 8, i64 1, ptr %3) #20
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef %1) #18
+  %6 = tail call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef %1) #19
   %7 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %7)
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: cold nofree nounwind uwtable
 define internal void @dftest_cmdarg_err_cont(ptr nocapture noundef readonly %0, ptr noundef %1) #3 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef %1) #18
+  %4 = tail call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef %1) #19
   %5 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %5)
   ret void
@@ -588,8 +588,8 @@ define internal fastcc void @print_usage(i32 noundef %0) unnamed_addr #0 {
   %17 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 49, i64 1, ptr %2)
   %18 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 36, i64 1, ptr %2)
   %fputc19 = tail call i32 @fputc(i32 10, ptr %2)
-  tail call void @ws_log_print_usage(ptr noundef %2) #13
-  tail call void @exit(i32 noundef %0) #17
+  tail call void @ws_log_print_usage(ptr noundef %2) #14
+  tail call void @exit(i32 noundef %0) #18
   unreachable
 }
 
@@ -650,8 +650,8 @@ declare ptr @get_args_as_string(i32 noundef, ptr noundef, i32 noundef) local_unn
 define internal fastcc ptr @expand_filter(ptr noundef %0) unnamed_addr #7 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
-  %3 = tail call i64 @g_get_monotonic_time() #13
-  %4 = call ptr @dfilter_expand(ptr noundef %0, ptr noundef nonnull %2) #13
+  %3 = tail call i64 @g_get_monotonic_time() #14
+  %4 = call ptr @dfilter_expand(ptr noundef %0, ptr noundef nonnull %2) #14
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %12
 
@@ -660,12 +660,12 @@ define internal fastcc ptr @expand_filter(ptr noundef %0) unnamed_addr #7 {
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.30, ptr noundef %10) #18
-  call void @df_error_free(ptr noundef nonnull %2) #13
+  %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.30, ptr noundef %10) #19
+  call void @df_error_free(ptr noundef nonnull %2) #14
   br label %12
 
 12:                                               ; preds = %6, %1
-  %13 = call i64 @g_get_monotonic_time() #13
+  %13 = call i64 @g_get_monotonic_time() #14
   %14 = sub i64 %13, %3
   store i64 %14, ptr @elapsed_expand, align 8
   ret ptr %4
@@ -693,8 +693,8 @@ define internal fastcc range(i32 0, 2) i32 @compile_filter(ptr noundef %0, ptr n
   %.b13 = load i1, ptr @opt_return_vals, align 4
   %9 = or i32 %.3, 32
   %.4 = select i1 %.b13, i32 %9, i32 %.3
-  %10 = tail call i64 @g_get_monotonic_time() #13
-  %11 = call zeroext i1 @dfilter_compile_full(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %.4, ptr noundef nonnull @.str.1) #13
+  %10 = tail call i64 @g_get_monotonic_time() #14
+  %11 = call zeroext i1 @dfilter_compile_full(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %.4, ptr noundef nonnull @.str.1) #14
   br i1 %11, label %32, label %12
 
 12:                                               ; preds = %2
@@ -702,7 +702,7 @@ define internal fastcc range(i32 0, 2) i32 @compile_filter(ptr noundef %0, ptr n
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.30, ptr noundef %16) #18
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.30, ptr noundef %16) #19
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8
@@ -711,7 +711,7 @@ define internal fastcc range(i32 0, 2) i32 @compile_filter(ptr noundef %0, ptr n
 
 22:                                               ; preds = %12
   %23 = load ptr, ptr @stderr, align 8
-  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.51, ptr noundef %0) #18
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.51, ptr noundef %0) #19
   %25 = load ptr, ptr @stderr, align 8
   %26 = load ptr, ptr %3, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 16
@@ -722,12 +722,12 @@ define internal fastcc range(i32 0, 2) i32 @compile_filter(ptr noundef %0, ptr n
   br label %31
 
 31:                                               ; preds = %22, %12
-  call void @df_error_free(ptr noundef nonnull %3) #13
+  call void @df_error_free(ptr noundef nonnull %3) #14
   br label %32
 
 32:                                               ; preds = %31, %2
   %33 = zext i1 %11 to i32
-  %34 = call i64 @g_get_monotonic_time() #13
+  %34 = call i64 @g_get_monotonic_time() #14
   %35 = sub i64 %34, %10
   store i64 %35, ptr @elapsed_compile, align 8
   ret i32 %33
@@ -737,7 +737,7 @@ declare void @dfilter_dump(ptr noundef, ptr noundef, i16 noundef zeroext) local_
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @print_warnings(ptr noundef %0) unnamed_addr #7 {
-  %2 = tail call ptr @dfilter_get_warnings(ptr noundef %0) #13
+  %2 = tail call ptr @dfilter_get_warnings(ptr noundef %0) #14
   %.not21 = icmp eq ptr %2, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -754,7 +754,7 @@ define internal fastcc void @print_warnings(ptr noundef %0) unnamed_addr #7 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.016.lcssa = phi i32 [ 0, %1 ], [ %5, %.lr.ph ]
-  %8 = tail call ptr @dfilter_deprecated_tokens(ptr noundef %0) #13
+  %8 = tail call ptr @dfilter_deprecated_tokens(ptr noundef %0) #14
   %.not18 = icmp eq ptr %8, null
   br i1 %.not18, label %.loopexit, label %9
 
@@ -827,7 +827,7 @@ declare void @df_error_free(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @dfilter_compile_full(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @putloc(ptr nocapture noundef %0, i64 %1, i64 %2) unnamed_addr #3 {
+define internal fastcc void @putloc(ptr nocapture noundef %0, i64 %1, i64 %2) unnamed_addr #11 {
   %4 = icmp sgt i64 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -865,24 +865,24 @@ declare ptr @dfilter_get_warnings(ptr noundef) local_unnamed_addr #2
 declare ptr @dfilter_deprecated_tokens(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -890,15 +890,16 @@ attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { noreturn }
-attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { cold nounwind }
-attributes #19 = { cold }
+attributes #11 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { noreturn }
+attributes #17 = { nounwind willreturn memory(none) }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { cold nounwind }
+attributes #20 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

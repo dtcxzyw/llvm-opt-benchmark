@@ -111,12 +111,12 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_get_pci
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 2) i32 @acpi_is_root_bridge(ptr noundef %0) #0 align 16 {
-  %2 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #13
+  %2 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @acpi_match_device_ids(ptr noundef nonnull %2, ptr noundef nonnull @root_device_ids) #13
+  %5 = tail call i32 @acpi_match_device_ids(ptr noundef nonnull %2, ptr noundef nonnull @root_device_ids) #14
   %6 = icmp eq i32 %5, 0
   %7 = zext i1 %6 to i32
   br label %8
@@ -140,12 +140,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @acpi_pci_find_root(ptr noundef %0) #0 align 16 {
-  %2 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #13
+  %2 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @acpi_match_device_ids(ptr noundef nonnull %2, ptr noundef nonnull @root_device_ids) #13
+  %5 = tail call i32 @acpi_match_device_ids(ptr noundef nonnull %2, ptr noundef nonnull @root_device_ids) #14
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %10
 
@@ -161,13 +161,13 @@ define dso_local ptr @acpi_pci_find_root(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @acpi_get_pci_dev(ptr noundef %0) #0 align 16 {
-  %2 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #13
+  %2 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %23, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 1368
-  tail call void @mutex_lock(ptr noundef %5) #13
+  tail call void @mutex_lock(ptr noundef %5) #14
   %6 = getelementptr inbounds i8, ptr %2, i64 1352
   br label %7
 
@@ -187,14 +187,14 @@ define dso_local ptr @acpi_get_pci_dev(ptr noundef %0) #0 align 16 {
 
 17:                                               ; preds = %11
   %18 = getelementptr i8, ptr %9, i64 16
-  %19 = tail call ptr @get_device(ptr noundef %13) #13
+  %19 = tail call ptr @get_device(ptr noundef %13) #14
   %20 = load ptr, ptr %18, align 8
   %21 = getelementptr i8, ptr %20, i64 -184
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %17
   %22 = phi ptr [ %21, %17 ], [ null, %7 ]
-  tail call void @mutex_unlock(ptr noundef %5) #13
+  tail call void @mutex_unlock(ptr noundef %5) #14
   br label %23
 
 23:                                               ; preds = %.loopexit, %1
@@ -216,13 +216,13 @@ define dso_local i32 @acpi_pci_probe_root_resources(ptr noundef %0) local_unname
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @acpi_dev_get_resources(ptr noundef %4, ptr noundef %2, ptr noundef nonnull @acpi_dev_filter_resource_type_cb, ptr noundef nonnull inttoptr (i64 784 to ptr)) #13
+  %5 = tail call i32 @acpi_dev_get_resources(ptr noundef %4, ptr noundef %2, ptr noundef nonnull @acpi_dev_filter_resource_type_cb, ptr noundef nonnull inttoptr (i64 784 to ptr)) #14
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %4, i64 616
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef %5) #14
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef %5) #15
   br label %34
 
 9:                                                ; preds = %1
@@ -257,7 +257,7 @@ define dso_local i32 @acpi_pci_probe_root_resources(ptr noundef %0) local_unname
   store volatile ptr %18, ptr %27, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %17, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %26, align 8
-  tail call void @kfree(ptr noundef %17) #13
+  tail call void @kfree(ptr noundef %17) #14
   br label %31
 
 29:                                               ; preds = %16
@@ -285,7 +285,7 @@ declare dso_local i32 @acpi_dev_get_resources(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal i32 @acpi_dev_filter_resource_type_cb(ptr noundef %0, ptr noundef %1) #3 align 16 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = tail call i32 @acpi_dev_filter_resource_type(ptr noundef %0, i64 noundef %3) #13
+  %4 = tail call i32 @acpi_dev_filter_resource_type(ptr noundef %0, i64 noundef %3) #14
   ret i32 %4
 }
 
@@ -295,7 +295,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @acpi_pci_root_validate_resources(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.list_head, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   store ptr %4, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %4, ptr %5, align 8
@@ -304,8 +304,8 @@ define internal fastcc void @acpi_pci_root_validate_resources(ptr noundef %0, pt
   br i1 %7, label %8, label %9, !prof !9
 
 8:                                                ; preds = %3
-  call void asm sideeffect "364: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 364b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 364) #13, !srcloc !10
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 813, i32 0, i64 12) #13, !srcloc !11
+  call void asm sideeffect "364: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 364b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 364) #14, !srcloc !10
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 813, i32 0, i64 12) #14, !srcloc !11
   unreachable
 
 9:                                                ; preds = %3
@@ -356,7 +356,7 @@ define internal fastcc void @acpi_pci_root_validate_resources(ptr noundef %0, pt
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %30
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %25) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %25) #15
   br label %76
 
 40:                                               ; preds = %30
@@ -365,7 +365,7 @@ define internal fastcc void @acpi_pci_root_validate_resources(ptr noundef %0, pt
 
 42:                                               ; preds = %40
   %43 = add i64 %36, 1
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %25, i64 noundef %43, i64 noundef %32) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %25, i64 noundef %43, i64 noundef %32) #15
   store i64 %36, ptr %31, align 8
   br label %44
 
@@ -404,7 +404,7 @@ define internal fastcc void @acpi_pci_root_validate_resources(ptr noundef %0, pt
   %66 = load i64, ptr %31, align 8
   %67 = call i64 @llvm.umax.i64(i64 %66, i64 %58)
   store i64 %67, ptr %64, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %50, ptr noundef %25) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %50, ptr noundef %25) #15
   br label %76
 
 68:                                               ; preds = %60, %55, %.preheader
@@ -437,7 +437,7 @@ define internal fastcc void @acpi_pci_root_validate_resources(ptr noundef %0, pt
   store volatile ptr %79, ptr %78, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %22, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %77, align 8
-  call void @kfree(ptr noundef %22) #13
+  call void @kfree(ptr noundef %22) #14
   br label %81
 
 81:                                               ; preds = %76, %.loopexit
@@ -445,7 +445,7 @@ define internal fastcc void @acpi_pci_root_validate_resources(ptr noundef %0, pt
   br i1 %82, label %.loopexit12, label %21, !llvm.loop !13
 
 .loopexit12:                                      ; preds = %81, %9, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
   ret void
 }
 
@@ -457,7 +457,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @acpi_get_node(ptr noundef %10) #13
+  %11 = tail call i32 @acpi_get_node(ptr noundef %10) #14
   store ptr %0, ptr %2, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %8, ptr %12, align 8
@@ -471,14 +471,14 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load i16, ptr %17, align 8
   %19 = zext i16 %18 to i32
-  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %19, i32 noundef %7) #13
+  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %16, i64 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %19, i32 noundef %7) #14
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %4
-  %25 = tail call i32 %22(ptr noundef %2) #13
+  %25 = tail call i32 %22(ptr noundef %2) #14
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %164
 
@@ -489,7 +489,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %30, label %33, label %31
 
 31:                                               ; preds = %27
-  %32 = tail call i32 %29(ptr noundef %2) #13
+  %32 = tail call i32 %29(ptr noundef %2) #14
   br label %35
 
 33:                                               ; preds = %27
@@ -528,7 +528,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %54, label %67, label %55
 
 55:                                               ; preds = %52
-  %56 = tail call ptr @insert_resource_conflict(ptr noundef nonnull %53, ptr noundef %44) #13
+  %56 = tail call ptr @insert_resource_conflict(ptr noundef nonnull %53, ptr noundef %44) #14
   %57 = icmp eq ptr %56, null
   br i1 %57, label %67, label %58
 
@@ -537,7 +537,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   %60 = getelementptr inbounds i8, ptr %59, i64 616
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load ptr, ptr %61, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %60, ptr noundef nonnull @.str.9, ptr noundef %44, ptr noundef %62, ptr noundef nonnull %56) #14
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %60, ptr noundef nonnull @.str.9, ptr noundef %44, ptr noundef %62, ptr noundef nonnull %56) #15
   %63 = getelementptr inbounds i8, ptr %41, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %41, align 8
@@ -546,7 +546,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   store volatile ptr %65, ptr %64, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %41, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %63, align 8
-  tail call void @kfree(ptr noundef %41) #13
+  tail call void @kfree(ptr noundef %41) #14
   br label %67
 
 67:                                               ; preds = %58, %55, %52, %49
@@ -554,9 +554,9 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %68, label %.loopexit15, label %.preheader14, !llvm.loop !14
 
 .loopexit15:                                      ; preds = %67, %38
-  tail call void @pci_add_resource(ptr noundef %14, ptr noundef %5) #13
+  tail call void @pci_add_resource(ptr noundef %14, ptr noundef %5) #14
   %69 = load ptr, ptr %1, align 8
-  %70 = tail call ptr @pci_create_root_bus(ptr noundef null, i32 noundef %7, ptr noundef %69, ptr noundef %3, ptr noundef %14) #13
+  %70 = tail call ptr @pci_create_root_bus(ptr noundef null, i32 noundef %7, ptr noundef %69, ptr noundef %3, ptr noundef %14) #14
   %71 = icmp eq ptr %70, null
   br i1 %71, label %164, label %72
 
@@ -664,7 +664,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   %133 = load ptr, ptr %73, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 632
   %135 = load ptr, ptr %134, align 8
-  %136 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %135) #13
+  %136 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %135) #14
   %137 = getelementptr i8, ptr %135, i64 -16
   %138 = icmp ne ptr %137, null
   %139 = and i1 %136, %138
@@ -677,7 +677,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
 
 143:                                              ; preds = %140, %132
   %144 = phi ptr [ %142, %140 ], [ null, %132 ]
-  %145 = tail call ptr @acpi_evaluate_dsm(ptr noundef %144, ptr noundef nonnull @pci_acpi_dsm_guid, i64 noundef 1, i64 noundef 5, ptr noundef null) #13
+  %145 = tail call ptr @acpi_evaluate_dsm(ptr noundef %144, ptr noundef nonnull @pci_acpi_dsm_guid, i64 noundef 1, i64 noundef 5, ptr noundef null) #14
   %146 = icmp eq ptr %145, null
   br i1 %146, label %.thread, label %147
 
@@ -687,7 +687,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %149, label %151, label %150
 
 150:                                              ; preds = %147
-  tail call void @kfree(ptr noundef nonnull %145) #13
+  tail call void @kfree(ptr noundef nonnull %145) #14
   br label %.thread
 
 151:                                              ; preds = %147
@@ -705,16 +705,16 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
 
 .thread:                                          ; preds = %143, %150, %155, %151
   %159 = phi ptr [ %145, %155 ], [ %145, %151 ], [ null, %150 ], [ null, %143 ]
-  tail call void @kfree(ptr noundef %159) #13
-  tail call void @acpi_dev_power_up_children_with_adr(ptr noundef %8) #13
-  %160 = tail call i32 @pci_scan_child_bus(ptr noundef nonnull %70) #13
-  tail call void @pci_set_host_bridge_release(ptr noundef %74, ptr noundef nonnull @acpi_pci_root_release_info, ptr noundef %2) #13
+  tail call void @kfree(ptr noundef %159) #14
+  tail call void @acpi_dev_power_up_children_with_adr(ptr noundef %8) #14
+  %160 = tail call i32 @pci_scan_child_bus(ptr noundef nonnull %70) #14
+  tail call void @pci_set_host_bridge_release(ptr noundef %74, ptr noundef nonnull @acpi_pci_root_release_info, ptr noundef %2) #14
   %161 = icmp eq i32 %11, -1
   br i1 %161, label %192, label %162
 
 162:                                              ; preds = %.thread
   %163 = getelementptr inbounds i8, ptr %70, i64 280
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.2, ptr noundef %163, ptr noundef nonnull @.str.3, i32 noundef %11) #14
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.2, ptr noundef %163, ptr noundef nonnull @.str.3, i32 noundef %11) #15
   br label %192
 
 164:                                              ; preds = %.loopexit15, %35, %24
@@ -744,7 +744,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %180, label %183, label %181
 
 181:                                              ; preds = %176
-  %182 = tail call i32 @release_resource(ptr noundef %172) #13
+  %182 = tail call i32 @release_resource(ptr noundef %172) #14
   %.pre20 = load ptr, ptr %169, align 8
   br label %183
 
@@ -757,7 +757,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   store volatile ptr %184, ptr %186, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %169, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %185, align 8
-  tail call void @kfree(ptr noundef %169) #13
+  tail call void @kfree(ptr noundef %169) #14
   %188 = icmp eq ptr %170, %14
   br i1 %188, label %.loopexit, label %.preheader, !llvm.loop !15
 
@@ -765,7 +765,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   %189 = load ptr, ptr %13, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 16
   %191 = load ptr, ptr %190, align 8
-  tail call void %191(ptr noundef nonnull %2) #13
+  tail call void %191(ptr noundef nonnull %2) #14
   br label %192
 
 192:                                              ; preds = %.loopexit, %164, %162, %.thread
@@ -815,7 +815,7 @@ define internal void @acpi_pci_root_release_info(ptr noundef readonly %0) #0 ali
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %.preheader5
-  tail call void @pci_unmap_iospace(ptr noundef %7) #13
+  tail call void @pci_unmap_iospace(ptr noundef %7) #14
   br label %13
 
 13:                                               ; preds = %12, %.preheader5
@@ -831,7 +831,7 @@ define internal void @acpi_pci_root_release_info(ptr noundef readonly %0) #0 ali
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %17
-  %22 = tail call i32 @release_resource(ptr noundef %7) #13
+  %22 = tail call i32 @release_resource(ptr noundef %7) #14
   br label %23
 
 23:                                               ; preds = %21, %17, %13
@@ -869,7 +869,7 @@ define internal void @acpi_pci_root_release_info(ptr noundef readonly %0) #0 ali
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %40
-  %46 = tail call i32 @release_resource(ptr noundef %36) #13
+  %46 = tail call i32 @release_resource(ptr noundef %36) #14
   %.pre = load ptr, ptr %33, align 8
   br label %47
 
@@ -882,7 +882,7 @@ define internal void @acpi_pci_root_release_info(ptr noundef readonly %0) #0 ali
   store volatile ptr %48, ptr %50, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %33, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %49, align 8
-  tail call void @kfree(ptr noundef %33) #13
+  tail call void @kfree(ptr noundef %33) #14
   %52 = icmp eq ptr %34, %30
   br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !15
 
@@ -891,7 +891,7 @@ define internal void @acpi_pci_root_release_info(ptr noundef readonly %0) #0 ali
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull %27) #13
+  tail call void %56(ptr noundef nonnull %27) #14
   br label %57
 
 57:                                               ; preds = %.loopexit, %.loopexit6
@@ -908,8 +908,8 @@ define dso_local void @acpi_pci_root_init() local_unnamed_addr #6 section ".init
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  tail call void @pci_acpi_crs_quirks() #13
-  %4 = tail call i32 @acpi_scan_add_handler_with_hotplug(ptr noundef nonnull @pci_root_handler, ptr noundef nonnull @.str.4) #13
+  tail call void @pci_acpi_crs_quirks() #14
+  %4 = tail call i32 @acpi_scan_add_handler_with_hotplug(ptr noundef nonnull @pci_root_handler, ptr noundef nonnull @.str.4) #14
   br label %5
 
 5:                                                ; preds = %3, %0
@@ -964,21 +964,21 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %16 = alloca [80 x i8], align 16
   %17 = alloca i64, align 8
   %18 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr @system_state, align 4
   %22 = icmp eq i32 %21, 3
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
-  %24 = tail call noalias noundef align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 112) #15
+  %24 = tail call noalias noundef align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 112) #16
   %25 = icmp eq ptr %24, null
   br i1 %25, label %515, label %26
 
 26:                                               ; preds = %2
   store i64 0, ptr %18, align 8, !annotation !17
   store i64 0, ptr %17, align 8
-  %27 = call i32 @acpi_evaluate_integer(ptr noundef %20, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %17) #13
+  %27 = call i32 @acpi_evaluate_integer(ptr noundef %20, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %17) #14
   switch i32 %27, label %28 [
     i32 5, label %30
     i32 0, label %30
@@ -986,7 +986,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %0, i64 616
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %29, ptr noundef nonnull @.str.11) #14
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %29, ptr noundef nonnull @.str.11) #15
   br label %513
 
 30:                                               ; preds = %26, %26
@@ -994,7 +994,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %32 = getelementptr inbounds i8, ptr %24, i64 48
   store i64 4096, ptr %32, align 8
   store i64 -1, ptr %31, align 8
-  %33 = call i32 @acpi_walk_resources(ptr noundef %20, ptr noundef nonnull @.str.22, ptr noundef nonnull @get_root_bridge_busnr_callback, ptr noundef %31) #13
+  %33 = call i32 @acpi_walk_resources(ptr noundef %20, ptr noundef nonnull @.str.22, ptr noundef nonnull @get_root_bridge_busnr_callback, ptr noundef %31) #14
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %.thread
 
@@ -1007,8 +1007,8 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %37 = getelementptr inbounds i8, ptr %24, i64 32
   store i64 255, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 616
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %38, ptr noundef nonnull @.str.12) #14
-  %39 = call i32 @acpi_evaluate_integer(ptr noundef %20, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef nonnull %18) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %38, ptr noundef nonnull @.str.12) #15
+  %39 = call i32 @acpi_evaluate_integer(ptr noundef %20, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef nonnull %18) #14
   switch i32 %39, label %42 [
     i32 0, label %40
     i32 5, label %43
@@ -1019,7 +1019,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br label %43
 
 42:                                               ; preds = %.thread
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %38, ptr noundef nonnull @.str.14) #14
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %38, ptr noundef nonnull @.str.14) #15
   br label %513
 
 43:                                               ; preds = %40, %.thread
@@ -1035,15 +1035,15 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   store i16 %47, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 120
   %50 = getelementptr inbounds i8, ptr %0, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %50, ptr noundef nonnull align 1 dereferenceable(16) @.str.15, i64 16, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %50, ptr noundef nonnull align 1 dereferenceable(16) @.str.15, i64 16, i1 false) #14
   %51 = getelementptr inbounds i8, ptr %0, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %51, ptr noundef nonnull align 1 dereferenceable(11) @.str.16, i64 11, i1 false) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %51, ptr noundef nonnull align 1 dereferenceable(11) @.str.16, i64 11, i1 false) #14
   %52 = getelementptr inbounds i8, ptr %0, i64 608
   store ptr %24, ptr %52, align 8
   br i1 %22, label %53, label %56
 
 53:                                               ; preds = %45
-  %54 = call i32 @dmar_device_add(ptr noundef %20) #13
+  %54 = call i32 @dmar_device_add(ptr noundef %20) #14
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %._crit_edge, label %513
 
@@ -1054,18 +1054,18 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 56:                                               ; preds = %._crit_edge, %45
   %57 = phi i16 [ %.pre, %._crit_edge ], [ %47, %45 ]
   %58 = zext i16 %57 to i32
-  %59 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, ptr noundef %50, ptr noundef %49, i32 noundef %58, ptr noundef %31) #14
-  %60 = call i64 @acpi_pci_root_get_mcfg_addr(ptr noundef %20) #13
+  %59 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, ptr noundef %50, ptr noundef %49, i32 noundef %58, ptr noundef %31) #15
+  %60 = call i64 @acpi_pci_root_get_mcfg_addr(ptr noundef %20) #14
   %61 = getelementptr inbounds i8, ptr %24, i64 104
   store i64 %60, ptr %61, align 8
   %62 = load ptr, ptr %24, align 8
-  %63 = call ptr @acpi_device_hid(ptr noundef %62) #13
-  %64 = call i32 @strcmp(ptr noundef %63, ptr noundef nonnull dereferenceable(8) @.str.18) #13
+  %63 = call ptr @acpi_device_hid(ptr noundef %62) #14
+  %64 = call i32 @strcmp(ptr noundef %63, ptr noundef nonnull dereferenceable(8) @.str.18) #14
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %69, label %66
 
 66:                                               ; preds = %56
-  %67 = call i32 @strcmp(ptr noundef %63, ptr noundef nonnull dereferenceable(9) @.str.19) #13
+  %67 = call i32 @strcmp(ptr noundef %63, ptr noundef nonnull dereferenceable(9) @.str.19) #14
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %72
 
@@ -1086,7 +1086,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 78:                                               ; preds = %72
   %79 = getelementptr inbounds i8, ptr %24, i64 92
   store i32 -5, ptr %79, align 4
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %16) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %16, i8 0, i64 80, i1 false)
   br label %80
 
@@ -1107,7 +1107,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %92 = select i1 %91, ptr @.str.32, ptr @.str.31
   %93 = getelementptr inbounds i8, ptr %81, i64 8
   %94 = load ptr, ptr %93, align 8
-  %95 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %89, i64 noundef %90, ptr noundef nonnull @.str.30, ptr noundef nonnull %92, ptr noundef %94) #13
+  %95 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %89, i64 noundef %90, ptr noundef nonnull @.str.30, ptr noundef nonnull %92, ptr noundef %94) #14
   %96 = add i32 %95, %82
   br label %97
 
@@ -1121,22 +1121,22 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 102:                                              ; preds = %97
   %103 = load ptr, ptr %24, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %104, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.23, ptr noundef nonnull %16) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %104, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.23, ptr noundef nonnull %16) #15
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #14
   br label %480
 
 105:                                              ; preds = %72
-  %106 = call i32 @pci_ext_cfg_avail() #13
+  %106 = call i32 @pci_ext_cfg_avail() #14
   %107 = icmp eq i32 %106, 0
   %108 = select i1 %107, i32 264, i32 265
-  %109 = call zeroext i1 @pcie_aspm_support_enabled() #13
+  %109 = call zeroext i1 @pcie_aspm_support_enabled() #14
   %110 = or disjoint i32 %108, 6
   %111 = select i1 %109, i32 %110, i32 %108
-  %112 = call i32 @pci_msi_enabled() #13
+  %112 = call i32 @pci_msi_enabled() #14
   %113 = icmp eq i32 %112, 0
   %114 = or disjoint i32 %111, 16
   %115 = select i1 %113, i32 %111, i32 %114
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %15, i8 0, i64 80, i1 false)
   br label %116
 
@@ -1157,7 +1157,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %128 = select i1 %127, ptr @.str.32, ptr @.str.31
   %129 = getelementptr inbounds i8, ptr %117, i64 8
   %130 = load ptr, ptr %129, align 8
-  %131 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %125, i64 noundef %126, ptr noundef nonnull @.str.30, ptr noundef nonnull %128, ptr noundef %130) #13
+  %131 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %125, i64 noundef %126, ptr noundef nonnull @.str.30, ptr noundef nonnull %128, ptr noundef %130) #14
   %132 = add i32 %131, %118
   br label %133
 
@@ -1171,8 +1171,8 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 138:                                              ; preds = %133
   %139 = load ptr, ptr %24, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %140, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.24, ptr noundef nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %140, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.24, ptr noundef nonnull %15) #15
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #14
   %141 = load i8, ptr @pcie_ports_disabled, align 1, !range !18, !noundef !19
   %142 = icmp eq i8 %141, 0
   br i1 %142, label %146, label %143
@@ -1180,7 +1180,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 143:                                              ; preds = %138
   %144 = load ptr, ptr %24, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %145, ptr noundef nonnull @.str.48) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %145, ptr noundef nonnull @.str.48) #15
   br label %175
 
 146:                                              ; preds = %138
@@ -1189,7 +1189,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br i1 %148, label %175, label %149
 
 149:                                              ; preds = %146
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %14, i8 0, i64 80, i1 false)
   br label %150
 
@@ -1210,7 +1210,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %162 = select i1 %161, ptr @.str.32, ptr @.str.31
   %163 = getelementptr inbounds i8, ptr %151, i64 8
   %164 = load ptr, ptr %163, align 8
-  %165 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %159, i64 noundef %160, ptr noundef nonnull @.str.30, ptr noundef nonnull %162, ptr noundef %164) #13
+  %165 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %159, i64 noundef %160, ptr noundef nonnull @.str.30, ptr noundef nonnull %162, ptr noundef %164) #14
   %166 = add i32 %165, %152
   br label %167
 
@@ -1224,8 +1224,8 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 172:                                              ; preds = %167
   %173 = load ptr, ptr %24, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %174, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.49, ptr noundef nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %174, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.49, ptr noundef nonnull %14) #15
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #14
   br label %175
 
 175:                                              ; preds = %172, %146, %143
@@ -1236,7 +1236,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br i1 %179, label %180, label %206
 
 180:                                              ; preds = %175
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %13, i8 0, i64 80, i1 false)
   br label %181
 
@@ -1257,7 +1257,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %193 = select i1 %192, ptr @.str.32, ptr @.str.31
   %194 = getelementptr inbounds i8, ptr %182, i64 8
   %195 = load ptr, ptr %194, align 8
-  %196 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %190, i64 noundef %191, ptr noundef nonnull @.str.30, ptr noundef nonnull %193, ptr noundef %195) #13
+  %196 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %190, i64 noundef %191, ptr noundef nonnull @.str.30, ptr noundef nonnull %193, ptr noundef %195) #14
   %197 = add i32 %196, %183
   br label %198
 
@@ -1271,20 +1271,20 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 203:                                              ; preds = %198
   %204 = load ptr, ptr %24, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %205, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.24, ptr noundef nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %205, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.24, ptr noundef nonnull %13) #15
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #14
   br label %206
 
 206:                                              ; preds = %203, %175
   %207 = phi i32 [ 3, %203 ], [ 0, %175 ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %12, i8 0, i64 20, i1 false), !annotation !17
-  %208 = call ptr @acpi_fetch_acpi_dev(ptr noundef %75) #13
+  %208 = call ptr @acpi_fetch_acpi_dev(ptr noundef %75) #14
   %209 = icmp eq ptr %208, null
   br i1 %209, label %.thread38, label %210
 
 210:                                              ; preds = %206
-  %211 = call i32 @acpi_match_device_ids(ptr noundef nonnull %208, ptr noundef nonnull @root_device_ids) #13
+  %211 = call i32 @acpi_match_device_ids(ptr noundef nonnull %208, ptr noundef nonnull @root_device_ids) #14
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %213, label %.thread38
 
@@ -1329,7 +1329,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %243 = phi i32 [ %228, %227 ], [ %.ph27, %337 ]
   %244 = phi i32 [ %176, %227 ], [ %272, %337 ]
   %245 = phi i32 [ 0, %227 ], [ %.ph27, %337 ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %11, i8 0, i64 20, i1 false), !annotation !17
   %246 = load i32, ptr %229, align 8
   %247 = or i32 %246, %115
@@ -1356,7 +1356,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br label %259
 
 259:                                              ; preds = %285, %257
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false), !annotation !17
   %260 = load i32, ptr %221, align 4
   %261 = icmp eq i32 %260, 2
@@ -1370,7 +1370,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %264 = load ptr, ptr %215, align 8
   %265 = getelementptr inbounds i8, ptr %264, i64 8
   %266 = load ptr, ptr %265, align 8
-  %267 = call i32 @acpi_run_osc(ptr noundef %266, ptr noundef nonnull %10) #13
+  %267 = call i32 @acpi_run_osc(ptr noundef %266, ptr noundef nonnull %10) #14
   %268 = icmp eq i32 %267, 0
   br i1 %268, label %269, label %282
 
@@ -1389,15 +1389,15 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 
 278:                                              ; preds = %269, %275
   %279 = phi i32 [ %277, %275 ], [ 0, %269 ]
-  call void @kfree(ptr noundef %270) #13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #13
+  call void @kfree(ptr noundef %270) #14
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #14
   store i32 %247, ptr %229, align 8
   %280 = load i32, ptr %221, align 4
   %281 = icmp eq i32 %280, 2
   br i1 %281, label %286, label %293
 
 282:                                              ; preds = %259
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #14
   %283 = load i32, ptr %221, align 4
   %284 = icmp eq i32 %283, 2
   br i1 %284, label %285, label %336
@@ -1408,7 +1408,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 
 286:                                              ; preds = %278
   store i32 %258, ptr %237, align 8
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #14
   %287 = icmp eq i32 %244, %272
   %288 = icmp eq i32 %245, %279
   %289 = select i1 %287, i1 %288, i1 false
@@ -1420,7 +1420,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br label %295
 
 293:                                              ; preds = %278
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #14
   %294 = icmp eq i32 %244, %272
   br i1 %294, label %.thread33, label %295
 
@@ -1433,7 +1433,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br i1 %299, label %326, label %300
 
 300:                                              ; preds = %295
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %9, i8 0, i64 80, i1 false)
   br label %301
 
@@ -1454,7 +1454,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %313 = select i1 %312, ptr @.str.32, ptr @.str.31
   %314 = getelementptr inbounds i8, ptr %302, i64 8
   %315 = load ptr, ptr %314, align 8
-  %316 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %310, i64 noundef %311, ptr noundef nonnull @.str.30, ptr noundef nonnull %313, ptr noundef %315) #13
+  %316 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %310, i64 noundef %311, ptr noundef nonnull @.str.30, ptr noundef nonnull %313, ptr noundef %315) #14
   %317 = add i32 %316, %303
   br label %318
 
@@ -1468,8 +1468,8 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 323:                                              ; preds = %318
   %324 = load ptr, ptr %215, align 8
   %325 = getelementptr inbounds i8, ptr %324, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %325, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.54, ptr noundef nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %325, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.54, ptr noundef nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #14
   br label %326
 
 326:                                              ; preds = %323, %295
@@ -1477,25 +1477,25 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br i1 %327, label %337, label %328
 
 328:                                              ; preds = %326
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   %329 = and i32 %296, 1
   %330 = icmp eq i32 %329, 0
   br i1 %330, label %333, label %331
 
 331:                                              ; preds = %328
-  %332 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %8, i64 noundef 80, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.57) #13
+  %332 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %8, i64 noundef 80, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.57) #14
   br label %333
 
 333:                                              ; preds = %331, %328
   %334 = load ptr, ptr %215, align 8
   %335 = getelementptr inbounds i8, ptr %334, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %335, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.55, ptr noundef nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %335, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.55, ptr noundef nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #14
   br label %337
 
 336:                                              ; preds = %282
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #14
   br label %417
 
 337:                                              ; preds = %333, %326
@@ -1525,7 +1525,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br i1 %352, label %353, label %379
 
 353:                                              ; preds = %350
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %7, i8 0, i64 80, i1 false)
   br label %354
 
@@ -1546,7 +1546,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %366 = select i1 %365, ptr @.str.32, ptr @.str.31
   %367 = getelementptr inbounds i8, ptr %355, i64 8
   %368 = load ptr, ptr %367, align 8
-  %369 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %363, i64 noundef %364, ptr noundef nonnull @.str.30, ptr noundef nonnull %366, ptr noundef %368) #13
+  %369 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %363, i64 noundef %364, ptr noundef nonnull @.str.30, ptr noundef nonnull %366, ptr noundef %368) #14
   %370 = add i32 %369, %356
   br label %371
 
@@ -1560,8 +1560,8 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 376:                                              ; preds = %371
   %377 = load ptr, ptr %215, align 8
   %378 = getelementptr inbounds i8, ptr %377, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %378, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.56, ptr noundef nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %378, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.56, ptr noundef nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #14
   br label %.thread38
 
 379:                                              ; preds = %350
@@ -1584,7 +1584,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br label %389
 
 389:                                              ; preds = %385, %379
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !17
   %390 = load i32, ptr %221, align 4
   %391 = icmp eq i32 %390, 2
@@ -1602,7 +1602,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %398 = load ptr, ptr %215, align 8
   %399 = getelementptr inbounds i8, ptr %398, i64 8
   %400 = load ptr, ptr %399, align 8
-  %401 = call i32 @acpi_run_osc(ptr noundef %400, ptr noundef nonnull %6) #13
+  %401 = call i32 @acpi_run_osc(ptr noundef %400, ptr noundef nonnull %6) #14
   %402 = icmp eq i32 %401, 0
   br i1 %402, label %403, label %415
 
@@ -1622,27 +1622,27 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 
 413:                                              ; preds = %410, %403
   %414 = phi i32 [ %412, %410 ], [ %342, %403 ]
-  call void @kfree(ptr noundef %405) #13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #13
+  call void @kfree(ptr noundef %405) #14
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #14
   store i32 %407, ptr %218, align 4
   store i32 %414, ptr %239, align 4
   br label %.thread42
 
 415:                                              ; preds = %389
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #14
   br label %417
 
 .thread38:                                        ; preds = %213, %376, %210, %206
   %.ph35 = phi i32 [ %.lcssa52, %376 ], [ %176, %213 ], [ %176, %210 ], [ %176, %206 ]
   %.ph36 = phi i32 [ %342, %376 ], [ 0, %213 ], [ 0, %210 ], [ 0, %206 ]
   %.ph37 = phi i32 [ 15, %376 ], [ 6, %213 ], [ 6, %210 ], [ 6, %206 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #14
   br label %466
 
 .thread42:                                        ; preds = %346, %413
   %.ph40 = phi i32 [ %407, %413 ], [ %.lcssa52, %346 ]
   %.ph41 = phi i32 [ %414, %413 ], [ %342, %346 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #14
   %416 = icmp eq i32 %.ph40, 0
   br i1 %416, label %447, label %421
 
@@ -1650,12 +1650,12 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %418 = phi i32 [ %.lcssa52, %415 ], [ %242, %336 ]
   %419 = phi i32 [ %342, %415 ], [ %243, %336 ]
   %420 = phi i32 [ %401, %415 ], [ %267, %336 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #14
   %cond = icmp eq i32 %420, 5
   br i1 %cond, label %463, label %466
 
 421:                                              ; preds = %.thread42
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   br label %422
 
@@ -1676,7 +1676,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %434 = select i1 %433, ptr @.str.32, ptr @.str.31
   %435 = getelementptr inbounds i8, ptr %423, i64 8
   %436 = load ptr, ptr %435, align 8
-  %437 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %431, i64 noundef %432, ptr noundef nonnull @.str.30, ptr noundef nonnull %434, ptr noundef %436) #13
+  %437 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %431, i64 noundef %432, ptr noundef nonnull @.str.30, ptr noundef nonnull %434, ptr noundef %436) #14
   %438 = add i32 %437, %424
   br label %439
 
@@ -1690,8 +1690,8 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 444:                                              ; preds = %439
   %445 = load ptr, ptr %24, align 8
   %446 = getelementptr inbounds i8, ptr %445, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %446, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.25, ptr noundef nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %446, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.25, ptr noundef nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #14
   br label %447
 
 447:                                              ; preds = %444, %.thread42
@@ -1699,21 +1699,21 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br i1 %448, label %457, label %449
 
 449:                                              ; preds = %447
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %450 = and i32 %.ph41, 1
   %451 = icmp eq i32 %450, 0
   br i1 %451, label %454, label %452
 
 452:                                              ; preds = %449
-  %453 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %4, i64 noundef 80, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.57) #13
+  %453 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %4, i64 noundef 80, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.57) #14
   br label %454
 
 454:                                              ; preds = %452, %449
   %455 = load ptr, ptr %24, align 8
   %456 = getelementptr inbounds i8, ptr %455, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %456, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.25, ptr noundef nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %456, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.25, ptr noundef nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #14
   br label %457
 
 457:                                              ; preds = %454, %447
@@ -1724,7 +1724,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 
 461:                                              ; preds = %457
   %462 = getelementptr inbounds i8, ptr %73, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %462, ptr noundef nonnull @.str.26) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %462, ptr noundef nonnull @.str.26) #15
   br label %480
 
 463:                                              ; preds = %417
@@ -1749,24 +1749,24 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br i1 %473, label %477, label %474
 
 474:                                              ; preds = %472
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   %475 = load ptr, ptr %24, align 8
   %476 = getelementptr inbounds i8, ptr %475, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %476, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.27, ptr noundef nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %476, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.27, ptr noundef nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #14
   call fastcc void @decode_cxl_osc_control(ptr noundef nonnull %24, i32 noundef %468)
   br label %477
 
 477:                                              ; preds = %474, %472
   %478 = getelementptr inbounds i8, ptr %73, i64 616
-  %479 = call ptr @acpi_format_exception(i32 noundef %467) #13
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %478, ptr noundef nonnull @.str.29, ptr noundef %479) #14
+  %479 = call ptr @acpi_format_exception(i32 noundef %467) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %478, ptr noundef nonnull @.str.29, ptr noundef %479) #15
   br label %480
 
 480:                                              ; preds = %477, %463, %461, %457, %102
   %481 = phi i1 [ true, %457 ], [ false, %461 ], [ false, %477 ], [ false, %463 ], [ true, %102 ]
-  %482 = call ptr @pci_acpi_scan_root(ptr noundef nonnull %24) #13
+  %482 = call ptr @pci_acpi_scan_root(ptr noundef nonnull %24) #14
   %483 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %482, ptr %483, align 8
   %484 = icmp eq ptr %482, null
@@ -1778,7 +1778,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %488 = zext i16 %487 to i32
   %489 = load i64, ptr %31, align 8
   %490 = trunc i64 %489 to i32
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %486, ptr noundef nonnull @.str.20, i32 noundef %488, i32 noundef %490) #14
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %486, ptr noundef nonnull @.str.20, i32 noundef %488, i32 noundef %490) #15
   store ptr null, ptr %52, align 8
   br i1 %22, label %511, label %513
 
@@ -1786,11 +1786,11 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br i1 %481, label %493, label %492
 
 492:                                              ; preds = %491
-  call void @pcie_no_aspm() #13
+  call void @pcie_no_aspm() #14
   br label %493
 
 493:                                              ; preds = %492, %491
-  %494 = call i32 @pci_acpi_add_bus_pm_notifier(ptr noundef %0) #13
+  %494 = call i32 @pci_acpi_add_bus_pm_notifier(ptr noundef %0) #14
   %495 = load ptr, ptr %483, align 8
   %496 = getelementptr inbounds i8, ptr %495, i64 272
   %497 = load ptr, ptr %496, align 8
@@ -1798,40 +1798,40 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %499 = load i8, ptr %498, align 8
   %500 = and i8 %499, 1
   %501 = icmp ne i8 %500, 0
-  call void @device_set_wakeup_capable(ptr noundef %497, i1 noundef zeroext %501) #13
+  call void @device_set_wakeup_capable(ptr noundef %497, i1 noundef zeroext %501) #14
   br i1 %22, label %502, label %509
 
 502:                                              ; preds = %493
   %503 = load ptr, ptr %483, align 8
-  call void @pcibios_resource_survey_bus(ptr noundef %503) #13
+  call void @pcibios_resource_survey_bus(ptr noundef %503) #14
   %504 = load ptr, ptr %483, align 8
-  call void @pci_assign_unassigned_root_bus_resources(ptr noundef %504) #13
+  call void @pci_assign_unassigned_root_bus_resources(ptr noundef %504) #14
   %505 = load ptr, ptr %24, align 8
   %506 = getelementptr inbounds i8, ptr %505, i64 8
   %507 = load ptr, ptr %506, align 8
-  %508 = call i32 @acpi_ioapic_add(ptr noundef %507) #13
+  %508 = call i32 @acpi_ioapic_add(ptr noundef %507) #14
   br label %509
 
 509:                                              ; preds = %502, %493
-  call void @pci_lock_rescan_remove() #13
+  call void @pci_lock_rescan_remove() #14
   %510 = load ptr, ptr %483, align 8
-  call void @pci_bus_add_devices(ptr noundef %510) #13
-  call void @pci_unlock_rescan_remove() #13
+  call void @pci_bus_add_devices(ptr noundef %510) #14
+  call void @pci_unlock_rescan_remove() #14
   br label %515
 
 511:                                              ; preds = %485
-  %512 = call i32 @dmar_device_remove(ptr noundef %20) #13
+  %512 = call i32 @dmar_device_remove(ptr noundef %20) #14
   br label %513
 
 513:                                              ; preds = %511, %485, %53, %42, %28
   %514 = phi i32 [ -19, %28 ], [ -19, %511 ], [ -19, %485 ], [ -19, %42 ], [ -6, %53 ]
-  call void @kfree(ptr noundef nonnull %24) #13
+  call void @kfree(ptr noundef nonnull %24) #14
   br label %515
 
 515:                                              ; preds = %513, %509, %2
   %516 = phi i32 [ %514, %513 ], [ 1, %509 ], [ -12, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
   ret i32 %516
 }
 
@@ -1839,34 +1839,34 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 define internal void @acpi_pci_root_remove(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 608
   %3 = load ptr, ptr %2, align 8
-  tail call void @pci_lock_rescan_remove() #13
+  tail call void @pci_lock_rescan_remove() #14
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  tail call void @pci_stop_root_bus(ptr noundef %5) #13
-  tail call void @pci_ioapic_remove(ptr noundef %3) #13
+  tail call void @pci_stop_root_bus(ptr noundef %5) #14
+  tail call void @pci_ioapic_remove(ptr noundef %3) #14
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 272
   %8 = load ptr, ptr %7, align 8
-  tail call void @device_set_wakeup_capable(ptr noundef %8, i1 noundef zeroext false) #13
-  %9 = tail call i32 @acpi_remove_pm_notifier(ptr noundef %0) #13
+  tail call void @device_set_wakeup_capable(ptr noundef %8, i1 noundef zeroext false) #14
+  %9 = tail call i32 @acpi_remove_pm_notifier(ptr noundef %0) #14
   %10 = load ptr, ptr %4, align 8
-  tail call void @pci_remove_root_bus(ptr noundef %10) #13
-  %11 = tail call i32 @acpi_ioapic_remove(ptr noundef %3) #13
+  tail call void @pci_remove_root_bus(ptr noundef %10) #14
+  %11 = tail call i32 @acpi_ioapic_remove(ptr noundef %3) #14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %14, label %13, !prof !22
 
 13:                                               ; preds = %1
-  tail call void asm sideeffect "362: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 362b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 362) #13, !srcloc !23
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 791, i32 2305, i64 12) #13, !srcloc !24
-  tail call void asm sideeffect "363: nop\0A\09.pushsection .discard.instr_end\0A\09.long 363b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 363) #13, !srcloc !25
+  tail call void asm sideeffect "362: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 362b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 362) #14, !srcloc !23
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 791, i32 2305, i64 12) #14, !srcloc !24
+  tail call void asm sideeffect "363: nop\0A\09.pushsection .discard.instr_end\0A\09.long 363b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 363) #14, !srcloc !25
   br label %14
 
 14:                                               ; preds = %13, %1
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @dmar_device_remove(ptr noundef %16) #13
-  tail call void @pci_unlock_rescan_remove() #13
-  tail call void @kfree(ptr noundef %3) #13
+  %17 = tail call i32 @dmar_device_remove(ptr noundef %16) #14
+  tail call void @pci_unlock_rescan_remove() #14
+  tail call void @kfree(ptr noundef %3) #14
   ret void
 }
 
@@ -1938,9 +1938,9 @@ declare dso_local i32 @acpi_walk_resources(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @get_root_bridge_busnr_callback(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca %struct.acpi_resource_address64, align 1
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %3, i8 0, i64 60, i1 false), !annotation !17
-  %4 = call i32 @acpi_resource_to_address64(ptr noundef %0, ptr noundef nonnull %3) #13
+  %4 = call i32 @acpi_resource_to_address64(ptr noundef %0, ptr noundef nonnull %3) #14
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %19
 
@@ -1964,7 +1964,7 @@ define internal noundef i32 @get_root_bridge_busnr_callback(ptr noundef %0, ptr 
   br label %19
 
 19:                                               ; preds = %13, %6, %2
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %3) #14
   ret i32 0
 }
 
@@ -1974,7 +1974,7 @@ declare dso_local i32 @acpi_resource_to_address64(ptr noundef, ptr noundef) loca
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @decode_osc_control(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca [80 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   br label %5
 
@@ -1995,7 +1995,7 @@ define internal fastcc void @decode_osc_control(ptr nocapture noundef readonly %
   %17 = select i1 %16, ptr @.str.32, ptr @.str.31
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %14, i64 noundef %15, ptr noundef nonnull @.str.30, ptr noundef nonnull %17, ptr noundef %19) #13
+  %20 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %14, i64 noundef %15, ptr noundef nonnull @.str.30, ptr noundef nonnull %17, ptr noundef %19) #14
   %21 = add i32 %20, %7
   br label %22
 
@@ -2009,29 +2009,29 @@ define internal fastcc void @decode_osc_control(ptr nocapture noundef readonly %
 27:                                               ; preds = %22
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %29, ptr noundef nonnull @.str.33, ptr noundef %1, ptr noundef nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %29, ptr noundef nonnull @.str.33, ptr noundef %1, ptr noundef nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #14
   ret void
 }
 
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @decode_cxl_osc_control(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @decode_cxl_osc_control(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #11 align 16 {
   %3 = alloca [80 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   %4 = and i32 %1, 1
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %3, i64 noundef 80, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.57) #13
+  %7 = call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %3, i64 noundef 80, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.57) #14
   br label %8
 
 8:                                                ; preds = %6, %2
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 616
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %10, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.28, ptr noundef nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %10, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.28, ptr noundef nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #14
   ret void
 }
 
@@ -2069,13 +2069,13 @@ declare dso_local i32 @acpi_ioapic_remove(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @acpi_remove_pm_notifier(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -2088,11 +2088,12 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #10 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { nounwind allocsize(2) }
+attributes #11 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { cold nounwind }
+attributes #16 = { nounwind allocsize(2) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

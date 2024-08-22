@@ -87,34 +87,34 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.bac
   %.sroa.29.0 = phi i32 [ 0, %2 ], [ %.sroa.29.0.be, %openFile.exit.i.backedge ]
   %.sroa.5.0 = phi ptr [ null, %2 ], [ %.sroa.5.0.be, %openFile.exit.i.backedge ]
   %.sroa.26.0 = phi i32 [ 0, %2 ], [ %.sroa.26.0.be, %openFile.exit.i.backedge ]
-  %29 = call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.1) #11
+  %29 = call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.1) #12
   switch i32 %29, label %openFile.exit.i.backedge [
     i32 -1, label %init.exit
     i32 109, label %30
-    i32 81, label %41
-    i32 115, label %42
-    i32 104, label %53
-    i32 114, label %76
-    i32 116, label %81
-    i32 63, label %174
-    i32 107, label %87
-    i32 118, label %88
-    i32 68, label %89
-    i32 101, label %90
-    i32 111, label %91
-    i32 79, label %98
-    i32 97, label %99
-    i32 99, label %110
-    i32 100, label %136
-    i32 67, label %147
-    i32 58, label %170
-    i32 122, label %158
-    i32 98, label %160
+    i32 81, label %37
+    i32 115, label %38
+    i32 104, label %45
+    i32 114, label %64
+    i32 116, label %69
+    i32 63, label %146
+    i32 107, label %75
+    i32 118, label %76
+    i32 68, label %77
+    i32 101, label %78
+    i32 111, label %79
+    i32 79, label %86
+    i32 97, label %87
+    i32 99, label %94
+    i32 100, label %116
+    i32 67, label %123
+    i32 58, label %142
+    i32 122, label %130
+    i32 98, label %132
   ]
 
 30:                                               ; preds = %openFile.exit.i
   %31 = load ptr, ptr @optarg, align 8
-  %32 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
+  %32 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #12
   %33 = icmp sgt i32 %32, 0
   %34 = load double, ptr %23, align 8
   %35 = fcmp une double %34, 0.000000e+00
@@ -122,321 +122,285 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.bac
   br i1 %or.cond.i, label %openFile.exit.i.backedge, label %36
 
 36:                                               ; preds = %30
-  %37 = load ptr, ptr @stderr, align 8
-  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.11, ptr noundef %28) #12
-  %39 = load ptr, ptr @stderr, align 8
-  %40 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %39) #13
-  call fastcc void @graphviz_exit(i32 noundef 1) #14
+  call fastcc void @usage(ptr noundef %28, i32 noundef 1)
   unreachable
 
-41:                                               ; preds = %openFile.exit.i
+37:                                               ; preds = %openFile.exit.i
   br label %openFile.exit.i.backedge
 
-42:                                               ; preds = %openFile.exit.i
-  %43 = load ptr, ptr @optarg, align 8
-  %44 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %43, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %46, label %48
+38:                                               ; preds = %openFile.exit.i
+  %39 = load ptr, ptr @optarg, align 8
+  %40 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %39, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #12
+  %41 = icmp sgt i32 %40, 0
+  br i1 %41, label %42, label %44
 
-46:                                               ; preds = %42
-  %47 = load double, ptr %23, align 8
+42:                                               ; preds = %38
+  %43 = load double, ptr %23, align 8
   br label %openFile.exit.i.backedge
 
-48:                                               ; preds = %42
-  %49 = load ptr, ptr @stderr, align 8
-  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.11, ptr noundef %28) #12
-  %51 = load ptr, ptr @stderr, align 8
-  %52 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %51) #13
-  call fastcc void @graphviz_exit(i32 noundef 1) #14
+44:                                               ; preds = %38
+  call fastcc void @usage(ptr noundef %28, i32 noundef 1)
   unreachable
 
-53:                                               ; preds = %openFile.exit.i
-  %54 = load ptr, ptr @optarg, align 8
-  %55 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %54, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #11
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %57, label %60
+45:                                               ; preds = %openFile.exit.i
+  %46 = load ptr, ptr @optarg, align 8
+  %47 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %46, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #12
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %49, label %52
 
-57:                                               ; preds = %53
-  %58 = load i32, ptr %24, align 4
-  %59 = call i32 @llvm.smax.i32(i32 %58, i32 0)
+49:                                               ; preds = %45
+  %50 = load i32, ptr %24, align 4
+  %51 = call i32 @llvm.smax.i32(i32 %50, i32 0)
   br label %openFile.exit.i.backedge
 
-60:                                               ; preds = %53
-  %61 = load ptr, ptr @optarg, align 8
-  %62 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull dereferenceable(10) @.str.4, i64 noundef 9) #15
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %71
+52:                                               ; preds = %45
+  %53 = load ptr, ptr @optarg, align 8
+  %54 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %53, ptr noundef nonnull dereferenceable(10) @.str.4, i64 noundef 9) #13
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %63
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %61, i64 9
-  %66 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %65, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #11
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds i8, ptr %53, i64 9
+  %58 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %57, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #12
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %60, label %63
+
+60:                                               ; preds = %56
+  %61 = load i32, ptr %24, align 4
+  %62 = call i32 @llvm.smax.i32(i32 %61, i32 0)
+  br label %openFile.exit.i.backedge
+
+63:                                               ; preds = %56, %52
+  call fastcc void @usage(ptr noundef %28, i32 noundef 1)
+  unreachable
+
+64:                                               ; preds = %openFile.exit.i
+  %65 = load ptr, ptr @optarg, align 8
+  %66 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %65, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #12
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %68, label %71
-
-68:                                               ; preds = %64
-  %69 = load i32, ptr %24, align 4
-  %70 = call i32 @llvm.smax.i32(i32 %69, i32 0)
+  %68 = load i32, ptr %25, align 4
+  %spec.select = select i1 %67, i32 %68, i32 %.sroa.18.0
   br label %openFile.exit.i.backedge
 
-71:                                               ; preds = %64, %60
-  %72 = load ptr, ptr @stderr, align 8
-  %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.11, ptr noundef %28) #12
-  %74 = load ptr, ptr @stderr, align 8
-  %75 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %74) #13
-  call fastcc void @graphviz_exit(i32 noundef 1) #14
-  unreachable
-
-76:                                               ; preds = %openFile.exit.i
-  %77 = load ptr, ptr @optarg, align 8
-  %78 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %77, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #11
-  %79 = icmp sgt i32 %78, 0
-  %80 = load i32, ptr %25, align 4
-  %spec.select = select i1 %79, i32 %80, i32 %.sroa.18.0
+69:                                               ; preds = %openFile.exit.i
+  %70 = load ptr, ptr @optarg, align 8
+  %71 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %70, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #12
+  %72 = icmp sgt i32 %71, 0
+  %73 = load i32, ptr %25, align 4
+  %74 = icmp sgt i32 %73, 0
+  %or.cond3.i = select i1 %72, i1 %74, i1 false
+  %spec.select19 = select i1 %or.cond3.i, i32 %73, i32 %.sroa.45.0
   br label %openFile.exit.i.backedge
 
-81:                                               ; preds = %openFile.exit.i
-  %82 = load ptr, ptr @optarg, align 8
-  %83 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %82, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #11
-  %84 = icmp sgt i32 %83, 0
-  %85 = load i32, ptr %25, align 4
-  %86 = icmp sgt i32 %85, 0
-  %or.cond3.i = select i1 %84, i1 %86, i1 false
-  %spec.select19 = select i1 %or.cond3.i, i32 %85, i32 %.sroa.45.0
-  br label %openFile.exit.i.backedge
-
-openFile.exit.i.backedge:                         ; preds = %81, %76, %147, %117, %114, %91, %30, %170, %166, %164, %158, %145, %126, %103, %98, %90, %89, %88, %87, %68, %57, %46, %41, %openFile.exit.i
-  %.sroa.40.0.be = phi ptr [ %.sroa.40.0, %openFile.exit.i ], [ %.sroa.40.0, %164 ], [ %.sroa.40.0, %166 ], [ %.sroa.40.0, %158 ], [ %.sroa.40.0, %170 ], [ %.sroa.40.0, %145 ], [ %127, %126 ], [ %.sroa.40.0, %103 ], [ %.sroa.40.0, %98 ], [ %.sroa.40.0, %90 ], [ %.sroa.40.0, %89 ], [ %.sroa.40.0, %88 ], [ %.sroa.40.0, %87 ], [ %.sroa.40.0, %57 ], [ %.sroa.40.0, %68 ], [ %.sroa.40.0, %46 ], [ %.sroa.40.0, %41 ], [ %.sroa.40.0, %30 ], [ %.sroa.40.0, %91 ], [ %.sroa.40.0, %114 ], [ %.sroa.40.0, %117 ], [ %.sroa.40.0, %147 ], [ %.sroa.40.0, %76 ], [ %.sroa.40.0, %81 ]
-  %.sroa.76.0.be = phi i32 [ %.sroa.76.0, %openFile.exit.i ], [ %.sroa.76.0, %164 ], [ %.sroa.76.0, %166 ], [ %.sroa.76.0, %158 ], [ %.sroa.76.0, %170 ], [ %146, %145 ], [ %.sroa.76.0, %126 ], [ %.sroa.76.0, %103 ], [ %.sroa.76.0, %98 ], [ %.sroa.76.0, %90 ], [ %.sroa.76.0, %89 ], [ %.sroa.76.0, %88 ], [ %.sroa.76.0, %87 ], [ %.sroa.76.0, %57 ], [ %.sroa.76.0, %68 ], [ %.sroa.76.0, %46 ], [ %.sroa.76.0, %41 ], [ %.sroa.76.0, %30 ], [ %.sroa.76.0, %91 ], [ %.sroa.76.0, %114 ], [ %.sroa.76.0, %117 ], [ %.sroa.76.0, %147 ], [ %.sroa.76.0, %76 ], [ %.sroa.76.0, %81 ]
-  %.sroa.70.1.be = phi i32 [ %.sroa.70.1, %openFile.exit.i ], [ %.sroa.70.1, %164 ], [ %.sroa.70.1, %166 ], [ %.sroa.70.1, %158 ], [ %.sroa.70.1, %170 ], [ %.sroa.70.1, %145 ], [ %.sroa.70.1, %126 ], [ %.sroa.70.1, %103 ], [ %.sroa.70.1, %98 ], [ %.sroa.70.1, %90 ], [ %.sroa.70.1, %89 ], [ %.sroa.70.1, %88 ], [ %.sroa.70.1, %87 ], [ %.sroa.70.1, %57 ], [ %70, %68 ], [ %.sroa.70.1, %46 ], [ %.sroa.70.1, %41 ], [ %.sroa.70.1, %30 ], [ %.sroa.70.1, %91 ], [ %.sroa.70.1, %114 ], [ %.sroa.70.1, %117 ], [ %.sroa.70.1, %147 ], [ %.sroa.70.1, %76 ], [ %.sroa.70.1, %81 ]
-  %.sroa.65.0.be = phi i1 [ %.sroa.65.0, %openFile.exit.i ], [ %.sroa.65.0, %164 ], [ %.sroa.65.0, %166 ], [ %.sroa.65.0, %158 ], [ %.sroa.65.0, %170 ], [ %.sroa.65.0, %145 ], [ %.sroa.65.0, %126 ], [ %.sroa.65.0, %103 ], [ %.sroa.65.0, %98 ], [ %.sroa.65.0, %90 ], [ %.sroa.65.0, %89 ], [ %.sroa.65.0, %88 ], [ true, %87 ], [ %.sroa.65.0, %57 ], [ %.sroa.65.0, %68 ], [ %.sroa.65.0, %46 ], [ %.sroa.65.0, %41 ], [ %.sroa.65.0, %30 ], [ %.sroa.65.0, %91 ], [ %.sroa.65.0, %114 ], [ %.sroa.65.0, %117 ], [ %.sroa.65.0, %147 ], [ %.sroa.65.0, %76 ], [ %.sroa.65.0, %81 ]
-  %.sroa.62.0.be = phi ptr [ %.sroa.62.0, %openFile.exit.i ], [ %.sroa.62.0, %164 ], [ %.sroa.62.0, %166 ], [ %159, %158 ], [ %.sroa.62.0, %170 ], [ %.sroa.62.0, %145 ], [ %.sroa.62.0, %126 ], [ %.sroa.62.0, %103 ], [ %.sroa.62.0, %98 ], [ %.sroa.62.0, %90 ], [ %.sroa.62.0, %89 ], [ %.sroa.62.0, %88 ], [ %.sroa.62.0, %87 ], [ %.sroa.62.0, %57 ], [ %.sroa.62.0, %68 ], [ %.sroa.62.0, %46 ], [ %.sroa.62.0, %41 ], [ %.sroa.62.0, %30 ], [ %.sroa.62.0, %91 ], [ %.sroa.62.0, %114 ], [ %.sroa.62.0, %117 ], [ %.sroa.62.0, %147 ], [ %.sroa.62.0, %76 ], [ %.sroa.62.0, %81 ]
-  %.sroa.57.0.be = phi i32 [ %.sroa.57.0, %openFile.exit.i ], [ %.sroa.57.0, %164 ], [ %.sroa.57.0, %166 ], [ %.sroa.57.0, %158 ], [ %.sroa.57.0, %170 ], [ %.sroa.57.0, %145 ], [ %.sroa.57.0, %126 ], [ %.sroa.57.0, %103 ], [ %.sroa.57.0, %98 ], [ %.sroa.57.0, %90 ], [ %.sroa.57.0, %89 ], [ %.sroa.57.0, %88 ], [ %.sroa.57.0, %87 ], [ %59, %57 ], [ %.sroa.57.0, %68 ], [ %.sroa.57.0, %46 ], [ %.sroa.57.0, %41 ], [ %.sroa.57.0, %30 ], [ %.sroa.57.0, %91 ], [ %.sroa.57.0, %114 ], [ %.sroa.57.0, %117 ], [ %.sroa.57.0, %147 ], [ %.sroa.57.0, %76 ], [ %.sroa.57.0, %81 ]
-  %.sroa.54.0.be = phi i32 [ %.sroa.54.0, %openFile.exit.i ], [ %.sroa.54.0, %164 ], [ %.sroa.54.0, %166 ], [ %.sroa.54.0, %158 ], [ %.sroa.54.0, %170 ], [ %.sroa.54.0, %145 ], [ %.sroa.54.0, %126 ], [ %.sroa.54.0, %103 ], [ %.sroa.54.0, %98 ], [ %.sroa.54.0, %90 ], [ %.sroa.54.0, %89 ], [ %.sroa.54.0, %88 ], [ %.sroa.54.0, %87 ], [ %.sroa.54.0, %57 ], [ %.sroa.54.0, %68 ], [ %.sroa.54.0, %46 ], [ %.sroa.54.0, %41 ], [ %.sroa.54.0, %30 ], [ %.sroa.54.0, %91 ], [ %.sroa.54.0, %114 ], [ %.sroa.54.0, %117 ], [ %151, %147 ], [ %.sroa.54.0, %76 ], [ %.sroa.54.0, %81 ]
-  %.sroa.51.0.be = phi i1 [ %.sroa.51.0, %openFile.exit.i ], [ %.sroa.51.0, %164 ], [ %.sroa.51.0, %166 ], [ %.sroa.51.0, %158 ], [ %.sroa.51.0, %170 ], [ %.sroa.51.0, %145 ], [ %.sroa.51.0, %126 ], [ %.sroa.51.0, %103 ], [ false, %98 ], [ %.sroa.51.0, %90 ], [ %.sroa.51.0, %89 ], [ %.sroa.51.0, %88 ], [ %.sroa.51.0, %87 ], [ %.sroa.51.0, %57 ], [ %.sroa.51.0, %68 ], [ %.sroa.51.0, %46 ], [ %.sroa.51.0, %41 ], [ %.sroa.51.0, %30 ], [ %.sroa.51.0, %91 ], [ %.sroa.51.0, %114 ], [ %.sroa.51.0, %117 ], [ %.sroa.51.0, %147 ], [ %.sroa.51.0, %76 ], [ %.sroa.51.0, %81 ]
-  %.sroa.48.0.be = phi i32 [ %.sroa.48.0, %openFile.exit.i ], [ %.sroa.48.0, %164 ], [ %.sroa.48.0, %166 ], [ %.sroa.48.0, %158 ], [ %.sroa.48.0, %170 ], [ %.sroa.48.0, %145 ], [ %.sroa.48.0, %126 ], [ %104, %103 ], [ %.sroa.48.0, %98 ], [ %.sroa.48.0, %90 ], [ %.sroa.48.0, %89 ], [ %.sroa.48.0, %88 ], [ %.sroa.48.0, %87 ], [ %.sroa.48.0, %57 ], [ %.sroa.48.0, %68 ], [ %.sroa.48.0, %46 ], [ %.sroa.48.0, %41 ], [ %.sroa.48.0, %30 ], [ %.sroa.48.0, %91 ], [ %.sroa.48.0, %114 ], [ %.sroa.48.0, %117 ], [ %.sroa.48.0, %147 ], [ %.sroa.48.0, %76 ], [ %.sroa.48.0, %81 ]
-  %.sroa.45.0.be = phi i32 [ %.sroa.45.0, %openFile.exit.i ], [ %.sroa.45.0, %164 ], [ %.sroa.45.0, %166 ], [ %.sroa.45.0, %158 ], [ %.sroa.45.0, %170 ], [ %.sroa.45.0, %145 ], [ %.sroa.45.0, %126 ], [ %.sroa.45.0, %103 ], [ %.sroa.45.0, %98 ], [ %.sroa.45.0, %90 ], [ %.sroa.45.0, %89 ], [ %.sroa.45.0, %88 ], [ %.sroa.45.0, %87 ], [ %.sroa.45.0, %57 ], [ %.sroa.45.0, %68 ], [ %.sroa.45.0, %46 ], [ %.sroa.45.0, %41 ], [ %.sroa.45.0, %30 ], [ %.sroa.45.0, %91 ], [ %.sroa.45.0, %114 ], [ %.sroa.45.0, %117 ], [ %.sroa.45.0, %147 ], [ %.sroa.45.0, %76 ], [ %spec.select19, %81 ]
-  %.sroa.43.0.be = phi ptr [ %.sroa.43.0, %openFile.exit.i ], [ %.sroa.43.0, %164 ], [ %.sroa.43.0, %166 ], [ %.sroa.43.0, %158 ], [ %.sroa.43.0, %170 ], [ %.sroa.43.0, %145 ], [ %.sroa.43.0, %126 ], [ %.sroa.43.0, %103 ], [ %.sroa.43.0, %98 ], [ %.sroa.43.0, %90 ], [ %.sroa.43.0, %89 ], [ %.sroa.43.0, %88 ], [ %.sroa.43.0, %87 ], [ %.sroa.43.0, %57 ], [ %.sroa.43.0, %68 ], [ %.sroa.43.0, %46 ], [ %.sroa.43.0, %41 ], [ %.sroa.43.0, %30 ], [ %.sroa.43.0, %91 ], [ %26, %114 ], [ %.sroa.43.0, %117 ], [ %.sroa.43.0, %147 ], [ %.sroa.43.0, %76 ], [ %.sroa.43.0, %81 ]
-  %.sroa.37.0.be = phi double [ %.sroa.37.0, %openFile.exit.i ], [ %165, %164 ], [ %.sroa.37.0, %166 ], [ %.sroa.37.0, %158 ], [ %.sroa.37.0, %170 ], [ %.sroa.37.0, %145 ], [ %.sroa.37.0, %126 ], [ %.sroa.37.0, %103 ], [ %.sroa.37.0, %98 ], [ %.sroa.37.0, %90 ], [ %.sroa.37.0, %89 ], [ %.sroa.37.0, %88 ], [ %.sroa.37.0, %87 ], [ %.sroa.37.0, %57 ], [ %.sroa.37.0, %68 ], [ %.sroa.37.0, %46 ], [ %.sroa.37.0, %41 ], [ %.sroa.37.0, %30 ], [ %.sroa.37.0, %91 ], [ %.sroa.37.0, %114 ], [ %.sroa.37.0, %117 ], [ %.sroa.37.0, %147 ], [ %.sroa.37.0, %76 ], [ %.sroa.37.0, %81 ]
-  %.sroa.33.0.be = phi i32 [ %.sroa.33.0, %openFile.exit.i ], [ %.sroa.33.0, %164 ], [ %.sroa.33.0, %166 ], [ %.sroa.33.0, %158 ], [ %.sroa.33.0, %170 ], [ %.sroa.33.0, %145 ], [ 0, %126 ], [ %.sroa.33.0, %103 ], [ %.sroa.33.0, %98 ], [ %.sroa.33.0, %90 ], [ %.sroa.33.0, %89 ], [ %.sroa.33.0, %88 ], [ %.sroa.33.0, %87 ], [ %.sroa.33.0, %57 ], [ %.sroa.33.0, %68 ], [ %.sroa.33.0, %46 ], [ %.sroa.33.0, %41 ], [ %.sroa.33.0, %30 ], [ %.sroa.33.0, %91 ], [ %.sroa.33.0, %114 ], [ %121, %117 ], [ %.sroa.33.0, %147 ], [ %.sroa.33.0, %76 ], [ %.sroa.33.0, %81 ]
-  %.sroa.31.0.be = phi i1 [ %.sroa.31.0, %openFile.exit.i ], [ %.sroa.31.0, %164 ], [ %.sroa.31.0, %166 ], [ %.sroa.31.0, %158 ], [ %.sroa.31.0, %170 ], [ %.sroa.31.0, %145 ], [ %.sroa.31.0, %126 ], [ %.sroa.31.0, %103 ], [ %.sroa.31.0, %98 ], [ true, %90 ], [ %.sroa.31.0, %89 ], [ %.sroa.31.0, %88 ], [ %.sroa.31.0, %87 ], [ %.sroa.31.0, %57 ], [ %.sroa.31.0, %68 ], [ %.sroa.31.0, %46 ], [ %.sroa.31.0, %41 ], [ %.sroa.31.0, %30 ], [ %.sroa.31.0, %91 ], [ %.sroa.31.0, %114 ], [ %.sroa.31.0, %117 ], [ %.sroa.31.0, %147 ], [ %.sroa.31.0, %76 ], [ %.sroa.31.0, %81 ]
-  %.sroa.21.0.be = phi double [ %.sroa.21.0, %openFile.exit.i ], [ %.sroa.21.0, %164 ], [ %.sroa.21.0, %166 ], [ %.sroa.21.0, %158 ], [ %.sroa.21.0, %170 ], [ %.sroa.21.0, %145 ], [ %.sroa.21.0, %126 ], [ %.sroa.21.0, %103 ], [ %.sroa.21.0, %98 ], [ %.sroa.21.0, %90 ], [ %.sroa.21.0, %89 ], [ %.sroa.21.0, %88 ], [ %.sroa.21.0, %87 ], [ %.sroa.21.0, %57 ], [ %.sroa.21.0, %68 ], [ %.sroa.21.0, %46 ], [ %.sroa.21.0, %41 ], [ %34, %30 ], [ %.sroa.21.0, %91 ], [ %.sroa.21.0, %114 ], [ %.sroa.21.0, %117 ], [ %.sroa.21.0, %147 ], [ %.sroa.21.0, %76 ], [ %.sroa.21.0, %81 ]
-  %.sroa.18.0.be = phi i32 [ %.sroa.18.0, %openFile.exit.i ], [ %.sroa.18.0, %164 ], [ %.sroa.18.0, %166 ], [ %.sroa.18.0, %158 ], [ %.sroa.18.0, %170 ], [ %.sroa.18.0, %145 ], [ %.sroa.18.0, %126 ], [ %.sroa.18.0, %103 ], [ %.sroa.18.0, %98 ], [ %.sroa.18.0, %90 ], [ %.sroa.18.0, %89 ], [ %.sroa.18.0, %88 ], [ %.sroa.18.0, %87 ], [ %.sroa.18.0, %57 ], [ %.sroa.18.0, %68 ], [ %.sroa.18.0, %46 ], [ %.sroa.18.0, %41 ], [ %.sroa.18.0, %30 ], [ %.sroa.18.0, %91 ], [ %.sroa.18.0, %114 ], [ %.sroa.18.0, %117 ], [ %.sroa.18.0, %147 ], [ %spec.select, %76 ], [ %.sroa.18.0, %81 ]
-  %.sroa.13.0.be = phi double [ %.sroa.13.0, %openFile.exit.i ], [ %.sroa.13.0, %164 ], [ %.sroa.13.0, %166 ], [ %.sroa.13.0, %158 ], [ %.sroa.13.0, %170 ], [ %.sroa.13.0, %145 ], [ %.sroa.13.0, %126 ], [ %.sroa.13.0, %103 ], [ %.sroa.13.0, %98 ], [ %.sroa.13.0, %90 ], [ %.sroa.13.0, %89 ], [ %.sroa.13.0, %88 ], [ %.sroa.13.0, %87 ], [ %.sroa.13.0, %57 ], [ %.sroa.13.0, %68 ], [ %47, %46 ], [ %.sroa.13.0, %41 ], [ %.sroa.13.0, %30 ], [ %.sroa.13.0, %91 ], [ %.sroa.13.0, %114 ], [ %.sroa.13.0, %117 ], [ %.sroa.13.0, %147 ], [ %.sroa.13.0, %76 ], [ %.sroa.13.0, %81 ]
-  %.sroa.29.0.be = phi i32 [ %.sroa.29.0, %openFile.exit.i ], [ %.sroa.29.0, %164 ], [ %.sroa.29.0, %166 ], [ %.sroa.29.0, %158 ], [ %.sroa.29.0, %170 ], [ %.sroa.29.0, %145 ], [ %.sroa.29.0, %126 ], [ %.sroa.29.0, %103 ], [ %.sroa.29.0, %98 ], [ %.sroa.29.0, %90 ], [ %.sroa.29.0, %89 ], [ %.sroa.29.0, %88 ], [ %.sroa.29.0, %87 ], [ %.sroa.29.0, %57 ], [ %.sroa.29.0, %68 ], [ %.sroa.29.0, %46 ], [ 1, %41 ], [ %.sroa.29.0, %30 ], [ %.sroa.29.0, %91 ], [ %.sroa.29.0, %114 ], [ %.sroa.29.0, %117 ], [ %.sroa.29.0, %147 ], [ %.sroa.29.0, %76 ], [ %.sroa.29.0, %81 ]
-  %.sroa.5.0.be = phi ptr [ %.sroa.5.0, %openFile.exit.i ], [ %.sroa.5.0, %164 ], [ %.sroa.5.0, %166 ], [ %.sroa.5.0, %158 ], [ %.sroa.5.0, %170 ], [ %.sroa.5.0, %145 ], [ %.sroa.5.0, %126 ], [ %.sroa.5.0, %103 ], [ %.sroa.5.0, %98 ], [ %.sroa.5.0, %90 ], [ %.sroa.5.0, %89 ], [ %.sroa.5.0, %88 ], [ %.sroa.5.0, %87 ], [ %.sroa.5.0, %57 ], [ %.sroa.5.0, %68 ], [ %.sroa.5.0, %46 ], [ %.sroa.5.0, %41 ], [ %.sroa.5.0, %30 ], [ %93, %91 ], [ %.sroa.5.0, %114 ], [ %.sroa.5.0, %117 ], [ %.sroa.5.0, %147 ], [ %.sroa.5.0, %76 ], [ %.sroa.5.0, %81 ]
-  %.sroa.26.0.be = phi i32 [ %.sroa.26.0, %openFile.exit.i ], [ %.sroa.26.0, %164 ], [ %.sroa.26.0, %166 ], [ %.sroa.26.0, %158 ], [ %.sroa.26.0, %170 ], [ %.sroa.26.0, %145 ], [ %.sroa.26.0, %126 ], [ %.sroa.26.0, %103 ], [ %.sroa.26.0, %98 ], [ %.sroa.26.0, %90 ], [ 1, %89 ], [ %.sroa.26.0, %88 ], [ %.sroa.26.0, %87 ], [ %.sroa.26.0, %57 ], [ %.sroa.26.0, %68 ], [ %.sroa.26.0, %46 ], [ %.sroa.26.0, %41 ], [ %.sroa.26.0, %30 ], [ %.sroa.26.0, %91 ], [ %.sroa.26.0, %114 ], [ %.sroa.26.0, %117 ], [ %.sroa.26.0, %147 ], [ %.sroa.26.0, %76 ], [ %.sroa.26.0, %81 ]
+openFile.exit.i.backedge:                         ; preds = %69, %64, %123, %101, %98, %79, %30, %142, %138, %136, %130, %121, %110, %91, %86, %78, %77, %76, %75, %60, %49, %42, %37, %openFile.exit.i
+  %.sroa.40.0.be = phi ptr [ %.sroa.40.0, %openFile.exit.i ], [ %.sroa.40.0, %136 ], [ %.sroa.40.0, %138 ], [ %.sroa.40.0, %130 ], [ %.sroa.40.0, %142 ], [ %.sroa.40.0, %121 ], [ %111, %110 ], [ %.sroa.40.0, %91 ], [ %.sroa.40.0, %86 ], [ %.sroa.40.0, %78 ], [ %.sroa.40.0, %77 ], [ %.sroa.40.0, %76 ], [ %.sroa.40.0, %75 ], [ %.sroa.40.0, %49 ], [ %.sroa.40.0, %60 ], [ %.sroa.40.0, %42 ], [ %.sroa.40.0, %37 ], [ %.sroa.40.0, %30 ], [ %.sroa.40.0, %79 ], [ %.sroa.40.0, %98 ], [ %.sroa.40.0, %101 ], [ %.sroa.40.0, %123 ], [ %.sroa.40.0, %64 ], [ %.sroa.40.0, %69 ]
+  %.sroa.76.0.be = phi i32 [ %.sroa.76.0, %openFile.exit.i ], [ %.sroa.76.0, %136 ], [ %.sroa.76.0, %138 ], [ %.sroa.76.0, %130 ], [ %.sroa.76.0, %142 ], [ %122, %121 ], [ %.sroa.76.0, %110 ], [ %.sroa.76.0, %91 ], [ %.sroa.76.0, %86 ], [ %.sroa.76.0, %78 ], [ %.sroa.76.0, %77 ], [ %.sroa.76.0, %76 ], [ %.sroa.76.0, %75 ], [ %.sroa.76.0, %49 ], [ %.sroa.76.0, %60 ], [ %.sroa.76.0, %42 ], [ %.sroa.76.0, %37 ], [ %.sroa.76.0, %30 ], [ %.sroa.76.0, %79 ], [ %.sroa.76.0, %98 ], [ %.sroa.76.0, %101 ], [ %.sroa.76.0, %123 ], [ %.sroa.76.0, %64 ], [ %.sroa.76.0, %69 ]
+  %.sroa.70.1.be = phi i32 [ %.sroa.70.1, %openFile.exit.i ], [ %.sroa.70.1, %136 ], [ %.sroa.70.1, %138 ], [ %.sroa.70.1, %130 ], [ %.sroa.70.1, %142 ], [ %.sroa.70.1, %121 ], [ %.sroa.70.1, %110 ], [ %.sroa.70.1, %91 ], [ %.sroa.70.1, %86 ], [ %.sroa.70.1, %78 ], [ %.sroa.70.1, %77 ], [ %.sroa.70.1, %76 ], [ %.sroa.70.1, %75 ], [ %.sroa.70.1, %49 ], [ %62, %60 ], [ %.sroa.70.1, %42 ], [ %.sroa.70.1, %37 ], [ %.sroa.70.1, %30 ], [ %.sroa.70.1, %79 ], [ %.sroa.70.1, %98 ], [ %.sroa.70.1, %101 ], [ %.sroa.70.1, %123 ], [ %.sroa.70.1, %64 ], [ %.sroa.70.1, %69 ]
+  %.sroa.65.0.be = phi i1 [ %.sroa.65.0, %openFile.exit.i ], [ %.sroa.65.0, %136 ], [ %.sroa.65.0, %138 ], [ %.sroa.65.0, %130 ], [ %.sroa.65.0, %142 ], [ %.sroa.65.0, %121 ], [ %.sroa.65.0, %110 ], [ %.sroa.65.0, %91 ], [ %.sroa.65.0, %86 ], [ %.sroa.65.0, %78 ], [ %.sroa.65.0, %77 ], [ %.sroa.65.0, %76 ], [ true, %75 ], [ %.sroa.65.0, %49 ], [ %.sroa.65.0, %60 ], [ %.sroa.65.0, %42 ], [ %.sroa.65.0, %37 ], [ %.sroa.65.0, %30 ], [ %.sroa.65.0, %79 ], [ %.sroa.65.0, %98 ], [ %.sroa.65.0, %101 ], [ %.sroa.65.0, %123 ], [ %.sroa.65.0, %64 ], [ %.sroa.65.0, %69 ]
+  %.sroa.62.0.be = phi ptr [ %.sroa.62.0, %openFile.exit.i ], [ %.sroa.62.0, %136 ], [ %.sroa.62.0, %138 ], [ %131, %130 ], [ %.sroa.62.0, %142 ], [ %.sroa.62.0, %121 ], [ %.sroa.62.0, %110 ], [ %.sroa.62.0, %91 ], [ %.sroa.62.0, %86 ], [ %.sroa.62.0, %78 ], [ %.sroa.62.0, %77 ], [ %.sroa.62.0, %76 ], [ %.sroa.62.0, %75 ], [ %.sroa.62.0, %49 ], [ %.sroa.62.0, %60 ], [ %.sroa.62.0, %42 ], [ %.sroa.62.0, %37 ], [ %.sroa.62.0, %30 ], [ %.sroa.62.0, %79 ], [ %.sroa.62.0, %98 ], [ %.sroa.62.0, %101 ], [ %.sroa.62.0, %123 ], [ %.sroa.62.0, %64 ], [ %.sroa.62.0, %69 ]
+  %.sroa.57.0.be = phi i32 [ %.sroa.57.0, %openFile.exit.i ], [ %.sroa.57.0, %136 ], [ %.sroa.57.0, %138 ], [ %.sroa.57.0, %130 ], [ %.sroa.57.0, %142 ], [ %.sroa.57.0, %121 ], [ %.sroa.57.0, %110 ], [ %.sroa.57.0, %91 ], [ %.sroa.57.0, %86 ], [ %.sroa.57.0, %78 ], [ %.sroa.57.0, %77 ], [ %.sroa.57.0, %76 ], [ %.sroa.57.0, %75 ], [ %51, %49 ], [ %.sroa.57.0, %60 ], [ %.sroa.57.0, %42 ], [ %.sroa.57.0, %37 ], [ %.sroa.57.0, %30 ], [ %.sroa.57.0, %79 ], [ %.sroa.57.0, %98 ], [ %.sroa.57.0, %101 ], [ %.sroa.57.0, %123 ], [ %.sroa.57.0, %64 ], [ %.sroa.57.0, %69 ]
+  %.sroa.54.0.be = phi i32 [ %.sroa.54.0, %openFile.exit.i ], [ %.sroa.54.0, %136 ], [ %.sroa.54.0, %138 ], [ %.sroa.54.0, %130 ], [ %.sroa.54.0, %142 ], [ %.sroa.54.0, %121 ], [ %.sroa.54.0, %110 ], [ %.sroa.54.0, %91 ], [ %.sroa.54.0, %86 ], [ %.sroa.54.0, %78 ], [ %.sroa.54.0, %77 ], [ %.sroa.54.0, %76 ], [ %.sroa.54.0, %75 ], [ %.sroa.54.0, %49 ], [ %.sroa.54.0, %60 ], [ %.sroa.54.0, %42 ], [ %.sroa.54.0, %37 ], [ %.sroa.54.0, %30 ], [ %.sroa.54.0, %79 ], [ %.sroa.54.0, %98 ], [ %.sroa.54.0, %101 ], [ %127, %123 ], [ %.sroa.54.0, %64 ], [ %.sroa.54.0, %69 ]
+  %.sroa.51.0.be = phi i1 [ %.sroa.51.0, %openFile.exit.i ], [ %.sroa.51.0, %136 ], [ %.sroa.51.0, %138 ], [ %.sroa.51.0, %130 ], [ %.sroa.51.0, %142 ], [ %.sroa.51.0, %121 ], [ %.sroa.51.0, %110 ], [ %.sroa.51.0, %91 ], [ false, %86 ], [ %.sroa.51.0, %78 ], [ %.sroa.51.0, %77 ], [ %.sroa.51.0, %76 ], [ %.sroa.51.0, %75 ], [ %.sroa.51.0, %49 ], [ %.sroa.51.0, %60 ], [ %.sroa.51.0, %42 ], [ %.sroa.51.0, %37 ], [ %.sroa.51.0, %30 ], [ %.sroa.51.0, %79 ], [ %.sroa.51.0, %98 ], [ %.sroa.51.0, %101 ], [ %.sroa.51.0, %123 ], [ %.sroa.51.0, %64 ], [ %.sroa.51.0, %69 ]
+  %.sroa.48.0.be = phi i32 [ %.sroa.48.0, %openFile.exit.i ], [ %.sroa.48.0, %136 ], [ %.sroa.48.0, %138 ], [ %.sroa.48.0, %130 ], [ %.sroa.48.0, %142 ], [ %.sroa.48.0, %121 ], [ %.sroa.48.0, %110 ], [ %92, %91 ], [ %.sroa.48.0, %86 ], [ %.sroa.48.0, %78 ], [ %.sroa.48.0, %77 ], [ %.sroa.48.0, %76 ], [ %.sroa.48.0, %75 ], [ %.sroa.48.0, %49 ], [ %.sroa.48.0, %60 ], [ %.sroa.48.0, %42 ], [ %.sroa.48.0, %37 ], [ %.sroa.48.0, %30 ], [ %.sroa.48.0, %79 ], [ %.sroa.48.0, %98 ], [ %.sroa.48.0, %101 ], [ %.sroa.48.0, %123 ], [ %.sroa.48.0, %64 ], [ %.sroa.48.0, %69 ]
+  %.sroa.45.0.be = phi i32 [ %.sroa.45.0, %openFile.exit.i ], [ %.sroa.45.0, %136 ], [ %.sroa.45.0, %138 ], [ %.sroa.45.0, %130 ], [ %.sroa.45.0, %142 ], [ %.sroa.45.0, %121 ], [ %.sroa.45.0, %110 ], [ %.sroa.45.0, %91 ], [ %.sroa.45.0, %86 ], [ %.sroa.45.0, %78 ], [ %.sroa.45.0, %77 ], [ %.sroa.45.0, %76 ], [ %.sroa.45.0, %75 ], [ %.sroa.45.0, %49 ], [ %.sroa.45.0, %60 ], [ %.sroa.45.0, %42 ], [ %.sroa.45.0, %37 ], [ %.sroa.45.0, %30 ], [ %.sroa.45.0, %79 ], [ %.sroa.45.0, %98 ], [ %.sroa.45.0, %101 ], [ %.sroa.45.0, %123 ], [ %.sroa.45.0, %64 ], [ %spec.select19, %69 ]
+  %.sroa.43.0.be = phi ptr [ %.sroa.43.0, %openFile.exit.i ], [ %.sroa.43.0, %136 ], [ %.sroa.43.0, %138 ], [ %.sroa.43.0, %130 ], [ %.sroa.43.0, %142 ], [ %.sroa.43.0, %121 ], [ %.sroa.43.0, %110 ], [ %.sroa.43.0, %91 ], [ %.sroa.43.0, %86 ], [ %.sroa.43.0, %78 ], [ %.sroa.43.0, %77 ], [ %.sroa.43.0, %76 ], [ %.sroa.43.0, %75 ], [ %.sroa.43.0, %49 ], [ %.sroa.43.0, %60 ], [ %.sroa.43.0, %42 ], [ %.sroa.43.0, %37 ], [ %.sroa.43.0, %30 ], [ %.sroa.43.0, %79 ], [ %26, %98 ], [ %.sroa.43.0, %101 ], [ %.sroa.43.0, %123 ], [ %.sroa.43.0, %64 ], [ %.sroa.43.0, %69 ]
+  %.sroa.37.0.be = phi double [ %.sroa.37.0, %openFile.exit.i ], [ %137, %136 ], [ %.sroa.37.0, %138 ], [ %.sroa.37.0, %130 ], [ %.sroa.37.0, %142 ], [ %.sroa.37.0, %121 ], [ %.sroa.37.0, %110 ], [ %.sroa.37.0, %91 ], [ %.sroa.37.0, %86 ], [ %.sroa.37.0, %78 ], [ %.sroa.37.0, %77 ], [ %.sroa.37.0, %76 ], [ %.sroa.37.0, %75 ], [ %.sroa.37.0, %49 ], [ %.sroa.37.0, %60 ], [ %.sroa.37.0, %42 ], [ %.sroa.37.0, %37 ], [ %.sroa.37.0, %30 ], [ %.sroa.37.0, %79 ], [ %.sroa.37.0, %98 ], [ %.sroa.37.0, %101 ], [ %.sroa.37.0, %123 ], [ %.sroa.37.0, %64 ], [ %.sroa.37.0, %69 ]
+  %.sroa.33.0.be = phi i32 [ %.sroa.33.0, %openFile.exit.i ], [ %.sroa.33.0, %136 ], [ %.sroa.33.0, %138 ], [ %.sroa.33.0, %130 ], [ %.sroa.33.0, %142 ], [ %.sroa.33.0, %121 ], [ 0, %110 ], [ %.sroa.33.0, %91 ], [ %.sroa.33.0, %86 ], [ %.sroa.33.0, %78 ], [ %.sroa.33.0, %77 ], [ %.sroa.33.0, %76 ], [ %.sroa.33.0, %75 ], [ %.sroa.33.0, %49 ], [ %.sroa.33.0, %60 ], [ %.sroa.33.0, %42 ], [ %.sroa.33.0, %37 ], [ %.sroa.33.0, %30 ], [ %.sroa.33.0, %79 ], [ %.sroa.33.0, %98 ], [ %105, %101 ], [ %.sroa.33.0, %123 ], [ %.sroa.33.0, %64 ], [ %.sroa.33.0, %69 ]
+  %.sroa.31.0.be = phi i1 [ %.sroa.31.0, %openFile.exit.i ], [ %.sroa.31.0, %136 ], [ %.sroa.31.0, %138 ], [ %.sroa.31.0, %130 ], [ %.sroa.31.0, %142 ], [ %.sroa.31.0, %121 ], [ %.sroa.31.0, %110 ], [ %.sroa.31.0, %91 ], [ %.sroa.31.0, %86 ], [ true, %78 ], [ %.sroa.31.0, %77 ], [ %.sroa.31.0, %76 ], [ %.sroa.31.0, %75 ], [ %.sroa.31.0, %49 ], [ %.sroa.31.0, %60 ], [ %.sroa.31.0, %42 ], [ %.sroa.31.0, %37 ], [ %.sroa.31.0, %30 ], [ %.sroa.31.0, %79 ], [ %.sroa.31.0, %98 ], [ %.sroa.31.0, %101 ], [ %.sroa.31.0, %123 ], [ %.sroa.31.0, %64 ], [ %.sroa.31.0, %69 ]
+  %.sroa.21.0.be = phi double [ %.sroa.21.0, %openFile.exit.i ], [ %.sroa.21.0, %136 ], [ %.sroa.21.0, %138 ], [ %.sroa.21.0, %130 ], [ %.sroa.21.0, %142 ], [ %.sroa.21.0, %121 ], [ %.sroa.21.0, %110 ], [ %.sroa.21.0, %91 ], [ %.sroa.21.0, %86 ], [ %.sroa.21.0, %78 ], [ %.sroa.21.0, %77 ], [ %.sroa.21.0, %76 ], [ %.sroa.21.0, %75 ], [ %.sroa.21.0, %49 ], [ %.sroa.21.0, %60 ], [ %.sroa.21.0, %42 ], [ %.sroa.21.0, %37 ], [ %34, %30 ], [ %.sroa.21.0, %79 ], [ %.sroa.21.0, %98 ], [ %.sroa.21.0, %101 ], [ %.sroa.21.0, %123 ], [ %.sroa.21.0, %64 ], [ %.sroa.21.0, %69 ]
+  %.sroa.18.0.be = phi i32 [ %.sroa.18.0, %openFile.exit.i ], [ %.sroa.18.0, %136 ], [ %.sroa.18.0, %138 ], [ %.sroa.18.0, %130 ], [ %.sroa.18.0, %142 ], [ %.sroa.18.0, %121 ], [ %.sroa.18.0, %110 ], [ %.sroa.18.0, %91 ], [ %.sroa.18.0, %86 ], [ %.sroa.18.0, %78 ], [ %.sroa.18.0, %77 ], [ %.sroa.18.0, %76 ], [ %.sroa.18.0, %75 ], [ %.sroa.18.0, %49 ], [ %.sroa.18.0, %60 ], [ %.sroa.18.0, %42 ], [ %.sroa.18.0, %37 ], [ %.sroa.18.0, %30 ], [ %.sroa.18.0, %79 ], [ %.sroa.18.0, %98 ], [ %.sroa.18.0, %101 ], [ %.sroa.18.0, %123 ], [ %spec.select, %64 ], [ %.sroa.18.0, %69 ]
+  %.sroa.13.0.be = phi double [ %.sroa.13.0, %openFile.exit.i ], [ %.sroa.13.0, %136 ], [ %.sroa.13.0, %138 ], [ %.sroa.13.0, %130 ], [ %.sroa.13.0, %142 ], [ %.sroa.13.0, %121 ], [ %.sroa.13.0, %110 ], [ %.sroa.13.0, %91 ], [ %.sroa.13.0, %86 ], [ %.sroa.13.0, %78 ], [ %.sroa.13.0, %77 ], [ %.sroa.13.0, %76 ], [ %.sroa.13.0, %75 ], [ %.sroa.13.0, %49 ], [ %.sroa.13.0, %60 ], [ %43, %42 ], [ %.sroa.13.0, %37 ], [ %.sroa.13.0, %30 ], [ %.sroa.13.0, %79 ], [ %.sroa.13.0, %98 ], [ %.sroa.13.0, %101 ], [ %.sroa.13.0, %123 ], [ %.sroa.13.0, %64 ], [ %.sroa.13.0, %69 ]
+  %.sroa.29.0.be = phi i32 [ %.sroa.29.0, %openFile.exit.i ], [ %.sroa.29.0, %136 ], [ %.sroa.29.0, %138 ], [ %.sroa.29.0, %130 ], [ %.sroa.29.0, %142 ], [ %.sroa.29.0, %121 ], [ %.sroa.29.0, %110 ], [ %.sroa.29.0, %91 ], [ %.sroa.29.0, %86 ], [ %.sroa.29.0, %78 ], [ %.sroa.29.0, %77 ], [ %.sroa.29.0, %76 ], [ %.sroa.29.0, %75 ], [ %.sroa.29.0, %49 ], [ %.sroa.29.0, %60 ], [ %.sroa.29.0, %42 ], [ 1, %37 ], [ %.sroa.29.0, %30 ], [ %.sroa.29.0, %79 ], [ %.sroa.29.0, %98 ], [ %.sroa.29.0, %101 ], [ %.sroa.29.0, %123 ], [ %.sroa.29.0, %64 ], [ %.sroa.29.0, %69 ]
+  %.sroa.5.0.be = phi ptr [ %.sroa.5.0, %openFile.exit.i ], [ %.sroa.5.0, %136 ], [ %.sroa.5.0, %138 ], [ %.sroa.5.0, %130 ], [ %.sroa.5.0, %142 ], [ %.sroa.5.0, %121 ], [ %.sroa.5.0, %110 ], [ %.sroa.5.0, %91 ], [ %.sroa.5.0, %86 ], [ %.sroa.5.0, %78 ], [ %.sroa.5.0, %77 ], [ %.sroa.5.0, %76 ], [ %.sroa.5.0, %75 ], [ %.sroa.5.0, %49 ], [ %.sroa.5.0, %60 ], [ %.sroa.5.0, %42 ], [ %.sroa.5.0, %37 ], [ %.sroa.5.0, %30 ], [ %81, %79 ], [ %.sroa.5.0, %98 ], [ %.sroa.5.0, %101 ], [ %.sroa.5.0, %123 ], [ %.sroa.5.0, %64 ], [ %.sroa.5.0, %69 ]
+  %.sroa.26.0.be = phi i32 [ %.sroa.26.0, %openFile.exit.i ], [ %.sroa.26.0, %136 ], [ %.sroa.26.0, %138 ], [ %.sroa.26.0, %130 ], [ %.sroa.26.0, %142 ], [ %.sroa.26.0, %121 ], [ %.sroa.26.0, %110 ], [ %.sroa.26.0, %91 ], [ %.sroa.26.0, %86 ], [ %.sroa.26.0, %78 ], [ 1, %77 ], [ %.sroa.26.0, %76 ], [ %.sroa.26.0, %75 ], [ %.sroa.26.0, %49 ], [ %.sroa.26.0, %60 ], [ %.sroa.26.0, %42 ], [ %.sroa.26.0, %37 ], [ %.sroa.26.0, %30 ], [ %.sroa.26.0, %79 ], [ %.sroa.26.0, %98 ], [ %.sroa.26.0, %101 ], [ %.sroa.26.0, %123 ], [ %.sroa.26.0, %64 ], [ %.sroa.26.0, %69 ]
   br label %openFile.exit.i
 
-87:                                               ; preds = %openFile.exit.i
+75:                                               ; preds = %openFile.exit.i
   br label %openFile.exit.i.backedge
 
-88:                                               ; preds = %openFile.exit.i
+76:                                               ; preds = %openFile.exit.i
   store i8 1, ptr @Verbose, align 1
   br label %openFile.exit.i.backedge
 
-89:                                               ; preds = %openFile.exit.i
+77:                                               ; preds = %openFile.exit.i
   br label %openFile.exit.i.backedge
 
-90:                                               ; preds = %openFile.exit.i
+78:                                               ; preds = %openFile.exit.i
   br label %openFile.exit.i.backedge
 
-91:                                               ; preds = %openFile.exit.i
-  %92 = load ptr, ptr @optarg, align 8
-  %93 = call noalias ptr @fopen(ptr noundef %92, ptr noundef nonnull @.str.5)
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %95, label %openFile.exit.i.backedge
+79:                                               ; preds = %openFile.exit.i
+  %80 = load ptr, ptr @optarg, align 8
+  %81 = call noalias ptr @fopen(ptr noundef %80, ptr noundef nonnull @.str.5)
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %83, label %openFile.exit.i.backedge
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr @stderr, align 8
-  %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.15, ptr noundef %28, ptr noundef %92, ptr noundef nonnull @.str.14) #12
-  call void @perror(ptr noundef %92) #13
-  call fastcc void @graphviz_exit(i32 noundef 1) #14
+83:                                               ; preds = %79
+  %84 = load ptr, ptr @stderr, align 8
+  %85 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull @.str.15, ptr noundef %28, ptr noundef %80, ptr noundef nonnull @.str.14) #14
+  call void @perror(ptr noundef %80) #15
+  call fastcc void @graphviz_exit(i32 noundef 1) #16
   unreachable
 
-98:                                               ; preds = %openFile.exit.i
+86:                                               ; preds = %openFile.exit.i
   br label %openFile.exit.i.backedge
 
-99:                                               ; preds = %openFile.exit.i
-  %100 = load ptr, ptr @optarg, align 8
-  %101 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %100, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #11
-  %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %103, label %105
+87:                                               ; preds = %openFile.exit.i
+  %88 = load ptr, ptr @optarg, align 8
+  %89 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %88, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #12
+  %90 = icmp sgt i32 %89, 0
+  br i1 %90, label %91, label %93
 
-103:                                              ; preds = %99
-  %104 = load i32, ptr %25, align 4
+91:                                               ; preds = %87
+  %92 = load i32, ptr %25, align 4
   br label %openFile.exit.i.backedge
 
-105:                                              ; preds = %99
-  %106 = load ptr, ptr @stderr, align 8
-  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.11, ptr noundef %28) #12
-  %108 = load ptr, ptr @stderr, align 8
-  %109 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %108) #13
-  call fastcc void @graphviz_exit(i32 noundef 1) #14
+93:                                               ; preds = %87
+  call fastcc void @usage(ptr noundef %28, i32 noundef 1)
   unreachable
 
-110:                                              ; preds = %openFile.exit.i
+94:                                               ; preds = %openFile.exit.i
+  %95 = load ptr, ptr @optarg, align 8
+  %96 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %95, ptr noundef nonnull @.str.6, ptr noundef nonnull %26) #12
+  %97 = icmp sgt i32 %96, 0
+  br i1 %97, label %98, label %101
+
+98:                                               ; preds = %94
+  %99 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #13
+  %100 = icmp eq i64 %99, 2
+  br i1 %100, label %openFile.exit.i.backedge, label %101
+
+101:                                              ; preds = %98, %94
+  %102 = load ptr, ptr @optarg, align 8
+  %103 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %102, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #12
+  %104 = icmp sgt i32 %103, 0
+  %105 = load i32, ptr %25, align 4
+  %106 = icmp ult i32 %105, 11
+  %or.cond7.i = select i1 %104, i1 %106, i1 false
+  br i1 %or.cond7.i, label %openFile.exit.i.backedge, label %107
+
+107:                                              ; preds = %101
+  %108 = load ptr, ptr @optarg, align 8
+  %109 = call i32 @knownColorScheme(ptr noundef %108) #12
+  %.not84.i = icmp eq i32 %109, 0
+  br i1 %.not84.i, label %112, label %110
+
+110:                                              ; preds = %107
   %111 = load ptr, ptr @optarg, align 8
-  %112 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %111, ptr noundef nonnull @.str.6, ptr noundef nonnull %26) #11
-  %113 = icmp sgt i32 %112, 0
-  br i1 %113, label %114, label %117
+  br label %openFile.exit.i.backedge
 
-114:                                              ; preds = %110
-  %115 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #15
-  %116 = icmp eq i64 %115, 2
-  br i1 %116, label %openFile.exit.i.backedge, label %117
+112:                                              ; preds = %107
+  %113 = load ptr, ptr @stderr, align 8
+  %114 = load ptr, ptr @optarg, align 8
+  %115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.7, ptr noundef %114) #14
+  call fastcc void @usage(ptr noundef %28, i32 noundef 1)
+  unreachable
 
-117:                                              ; preds = %114, %110
-  %118 = load ptr, ptr @optarg, align 8
-  %119 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %118, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #11
-  %120 = icmp sgt i32 %119, 0
-  %121 = load i32, ptr %25, align 4
-  %122 = icmp ult i32 %121, 11
-  %or.cond7.i = select i1 %120, i1 %122, i1 false
-  br i1 %or.cond7.i, label %openFile.exit.i.backedge, label %123
+116:                                              ; preds = %openFile.exit.i
+  %117 = load ptr, ptr @optarg, align 8
+  %118 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %117, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #12
+  %119 = icmp slt i32 %118, 1
+  br i1 %119, label %120, label %121
 
-123:                                              ; preds = %117
+120:                                              ; preds = %116
+  call fastcc void @usage(ptr noundef %28, i32 noundef 1)
+  unreachable
+
+121:                                              ; preds = %116
+  %122 = load i32, ptr %24, align 4
+  br label %openFile.exit.i.backedge
+
+123:                                              ; preds = %openFile.exit.i
   %124 = load ptr, ptr @optarg, align 8
-  %125 = call i32 @knownColorScheme(ptr noundef %124) #11
-  %.not84.i = icmp eq i32 %125, 0
-  br i1 %.not84.i, label %128, label %126
+  %125 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %124, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #12
+  %126 = icmp sgt i32 %125, 0
+  %127 = load i32, ptr %24, align 4
+  %128 = icmp sgt i32 %127, -1
+  %or.cond9.i = select i1 %126, i1 %128, i1 false
+  br i1 %or.cond9.i, label %openFile.exit.i.backedge, label %129
 
-126:                                              ; preds = %123
-  %127 = load ptr, ptr @optarg, align 8
-  br label %openFile.exit.i.backedge
-
-128:                                              ; preds = %123
-  %129 = load ptr, ptr @stderr, align 8
-  %130 = load ptr, ptr @optarg, align 8
-  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.7, ptr noundef %130) #12
-  %132 = load ptr, ptr @stderr, align 8
-  %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.11, ptr noundef %28) #12
-  %134 = load ptr, ptr @stderr, align 8
-  %135 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %134) #13
-  call fastcc void @graphviz_exit(i32 noundef 1) #14
+129:                                              ; preds = %123
+  call fastcc void @usage(ptr noundef %28, i32 noundef 1)
   unreachable
 
-136:                                              ; preds = %openFile.exit.i
-  %137 = load ptr, ptr @optarg, align 8
-  %138 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %137, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #11
-  %139 = icmp slt i32 %138, 1
-  br i1 %139, label %140, label %145
+130:                                              ; preds = %openFile.exit.i
+  %131 = load ptr, ptr @optarg, align 8
+  br label %openFile.exit.i.backedge
 
-140:                                              ; preds = %136
-  %141 = load ptr, ptr @stderr, align 8
-  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.11, ptr noundef %28) #12
+132:                                              ; preds = %openFile.exit.i
+  %133 = load ptr, ptr @optarg, align 8
+  %134 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %133, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #12
+  %135 = icmp sgt i32 %134, 0
+  br i1 %135, label %136, label %138
+
+136:                                              ; preds = %132
+  %137 = load double, ptr %23, align 8
+  br label %openFile.exit.i.backedge
+
+138:                                              ; preds = %132
+  %139 = load ptr, ptr @stderr, align 8
+  %140 = load ptr, ptr @optarg, align 8
+  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.8, ptr noundef %28, ptr noundef %140) #14
+  br label %openFile.exit.i.backedge
+
+142:                                              ; preds = %openFile.exit.i
   %143 = load ptr, ptr @stderr, align 8
-  %144 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %143) #13
-  call fastcc void @graphviz_exit(i32 noundef 1) #14
-  unreachable
-
-145:                                              ; preds = %136
-  %146 = load i32, ptr %24, align 4
+  %144 = load i32, ptr @optopt, align 4
+  %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.9, i32 noundef %144) #14
   br label %openFile.exit.i.backedge
 
-147:                                              ; preds = %openFile.exit.i
-  %148 = load ptr, ptr @optarg, align 8
-  %149 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %148, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #11
-  %150 = icmp sgt i32 %149, 0
-  %151 = load i32, ptr %24, align 4
-  %152 = icmp sgt i32 %151, -1
-  %or.cond9.i = select i1 %150, i1 %152, i1 false
-  br i1 %or.cond9.i, label %openFile.exit.i.backedge, label %153
-
-153:                                              ; preds = %147
-  %154 = load ptr, ptr @stderr, align 8
-  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.11, ptr noundef %28) #12
-  %156 = load ptr, ptr @stderr, align 8
-  %157 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %156) #13
-  call fastcc void @graphviz_exit(i32 noundef 1) #14
-  unreachable
-
-158:                                              ; preds = %openFile.exit.i
-  %159 = load ptr, ptr @optarg, align 8
-  br label %openFile.exit.i.backedge
-
-160:                                              ; preds = %openFile.exit.i
-  %161 = load ptr, ptr @optarg, align 8
-  %162 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %161, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
-  %163 = icmp sgt i32 %162, 0
-  br i1 %163, label %164, label %166
-
-164:                                              ; preds = %160
-  %165 = load double, ptr %23, align 8
-  br label %openFile.exit.i.backedge
-
-166:                                              ; preds = %160
-  %167 = load ptr, ptr @stderr, align 8
-  %168 = load ptr, ptr @optarg, align 8
-  %169 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef nonnull @.str.8, ptr noundef %28, ptr noundef %168) #12
-  br label %openFile.exit.i.backedge
-
-170:                                              ; preds = %openFile.exit.i
-  %171 = load ptr, ptr @stderr, align 8
-  %172 = load i32, ptr @optopt, align 4
-  %173 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef nonnull @.str.9, i32 noundef %172) #12
-  br label %openFile.exit.i.backedge
-
-174:                                              ; preds = %openFile.exit.i
-  %175 = load i32, ptr @optopt, align 4
-  switch i32 %175, label %181 [
-    i32 63, label %176
-    i32 0, label %176
+146:                                              ; preds = %openFile.exit.i
+  %147 = load i32, ptr @optopt, align 4
+  switch i32 %147, label %149 [
+    i32 63, label %148
+    i32 0, label %148
   ]
 
-176:                                              ; preds = %174, %174
-  %177 = load ptr, ptr @stderr, align 8
-  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef nonnull @.str.11, ptr noundef %28) #12
-  %179 = load ptr, ptr @stderr, align 8
-  %180 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %179) #13
-  call fastcc void @graphviz_exit(i32 noundef 0) #14
+148:                                              ; preds = %146, %146
+  call fastcc void @usage(ptr noundef %28, i32 noundef 0)
   unreachable
 
-181:                                              ; preds = %174
-  %182 = load ptr, ptr @stderr, align 8
-  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.10, i32 noundef %175) #12
-  %184 = load ptr, ptr @stderr, align 8
-  %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.11, ptr noundef %28) #12
-  %186 = load ptr, ptr @stderr, align 8
-  %187 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %186) #13
-  call fastcc void @graphviz_exit(i32 noundef 1) #14
+149:                                              ; preds = %146
+  %150 = load ptr, ptr @stderr, align 8
+  %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef nonnull @.str.10, i32 noundef %147) #14
+  call fastcc void @usage(ptr noundef %28, i32 noundef 1)
   unreachable
 
 init.exit:                                        ; preds = %openFile.exit.i
-  %188 = load i32, ptr @optind, align 4
-  %.not82.i = icmp eq i32 %0, %188
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds ptr, ptr %1, i64 %189
-  %.sroa.2.0 = select i1 %.not82.i, ptr null, ptr %190
+  %152 = load i32, ptr @optind, align 4
+  %.not82.i = icmp eq i32 %0, %152
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds ptr, ptr %1, i64 %153
+  %.sroa.2.0 = select i1 %.not82.i, ptr null, ptr %154
   %.not83.i = icmp eq ptr %.sroa.5.0, null
-  %191 = load ptr, ptr @stdout, align 8
-  %.sroa.5.2 = select i1 %.not83.i, ptr %191, ptr %.sroa.5.0
+  %155 = load ptr, ptr @stdout, align 8
+  %.sroa.5.2 = select i1 %.not83.i, ptr %155, ptr %.sroa.5.0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %26)
-  %192 = call ptr @newIngraph(ptr noundef nonnull %27, ptr noundef %.sroa.2.0) #11
-  %193 = call ptr @nextGraph(ptr noundef nonnull %27) #11
-  %.not200 = icmp eq ptr %193, null
+  %156 = call ptr @newIngraph(ptr noundef nonnull %27, ptr noundef %.sroa.2.0) #12
+  %157 = call ptr @nextGraph(ptr noundef nonnull %27) #12
+  %.not200 = icmp eq ptr %157, null
   br i1 %.not200, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %init.exit
   %.not97.i.i = icmp eq ptr %.sroa.40.0, null
-  %194 = icmp ne i32 %.sroa.45.0, 0
-  %195 = icmp sgt i32 %.sroa.45.0, 0
-  br label %196
+  %158 = icmp ne i32 %.sroa.45.0, 0
+  %159 = icmp sgt i32 %.sroa.45.0, 0
+  br label %160
 
-196:                                              ; preds = %.lr.ph, %mapFromGraph.exit
-  %197 = phi ptr [ %193, %.lr.ph ], [ %257, %mapFromGraph.exit ]
-  %.0202 = phi ptr [ null, %.lr.ph ], [ %197, %mapFromGraph.exit ]
+160:                                              ; preds = %.lr.ph, %mapFromGraph.exit
+  %161 = phi ptr [ %157, %.lr.ph ], [ %221, %mapFromGraph.exit ]
+  %.0202 = phi ptr [ null, %.lr.ph ], [ %161, %mapFromGraph.exit ]
   %.sroa.70.0201 = phi i32 [ %.sroa.70.1, %.lr.ph ], [ %.sroa.70.3, %mapFromGraph.exit ]
   %.not6 = icmp eq ptr %.0202, null
-  br i1 %.not6, label %200, label %198
+  br i1 %.not6, label %164, label %162
 
-198:                                              ; preds = %196
-  %199 = call i32 @agclose(ptr noundef nonnull %.0202) #11
-  br label %200
+162:                                              ; preds = %160
+  %163 = call i32 @agclose(ptr noundef nonnull %.0202) #12
+  br label %164
 
-200:                                              ; preds = %198, %196
+164:                                              ; preds = %162, %160
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
@@ -451,17 +415,17 @@ init.exit:                                        ; preds = %openFile.exit.i
   store ptr null, ptr %19, align 8
   store ptr null, ptr %20, align 8
   store ptr null, ptr %21, align 8
-  call void @initDotIO(ptr noundef nonnull %197) #11
-  %201 = call ptr @Import_coord_clusters_from_dot(ptr noundef nonnull %197, i32 noundef %.sroa.54.0, i32 noundef 2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %17, i32 noundef %.sroa.33.0, i32 noundef %.sroa.29.0, i32 noundef %.sroa.26.0) #11
-  %202 = load i32, ptr %14, align 4
-  %203 = load ptr, ptr %16, align 8
-  %204 = load ptr, ptr %15, align 8
-  %205 = load ptr, ptr %18, align 8
-  %206 = load ptr, ptr %17, align 8
-  %207 = load ptr, ptr %22, align 8
-  %208 = load ptr, ptr %19, align 8
-  %209 = load ptr, ptr %20, align 8
-  %210 = load ptr, ptr %21, align 8
+  call void @initDotIO(ptr noundef nonnull %161) #12
+  %165 = call ptr @Import_coord_clusters_from_dot(ptr noundef nonnull %161, i32 noundef %.sroa.54.0, i32 noundef 2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %17, i32 noundef %.sroa.33.0, i32 noundef %.sroa.29.0, i32 noundef %.sroa.26.0) #12
+  %166 = load i32, ptr %14, align 4
+  %167 = load ptr, ptr %16, align 8
+  %168 = load ptr, ptr %15, align 8
+  %169 = load ptr, ptr %18, align 8
+  %170 = load ptr, ptr %17, align 8
+  %171 = load ptr, ptr %22, align 8
+  %172 = load ptr, ptr %19, align 8
+  %173 = load ptr, ptr %20, align 8
+  %174 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -473,124 +437,124 @@ init.exit:                                        ; preds = %openFile.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  store ptr %208, ptr %3, align 8
-  store ptr %209, ptr %4, align 8
-  store ptr %210, ptr %5, align 8
+  store ptr %172, ptr %3, align 8
+  store ptr %173, ptr %4, align 8
+  store ptr %174, ptr %5, align 8
   store i32 %.sroa.48.0, ptr %13, align 4
   %.not.i.i = icmp eq i32 %.sroa.70.0201, 0
-  br i1 %.not.i.i, label %validateCluster.exit.i.i, label %211
+  br i1 %.not.i.i, label %validateCluster.exit.i.i, label %175
 
-211:                                              ; preds = %200
-  %212 = icmp sgt i32 %202, 0
-  br i1 %212, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i
+175:                                              ; preds = %164
+  %176 = icmp sgt i32 %166, 0
+  br i1 %176, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %211
-  %wide.trip.count.i.i.i = zext nneg i32 %202 to i64
+.lr.ph.preheader.i.i.i:                           ; preds = %175
+  %wide.trip.count.i.i.i = zext nneg i32 %166 to i64
   br label %.lr.ph.i.i.i
 
-213:                                              ; preds = %.lr.ph.i.i.i
+177:                                              ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %213, %.lr.ph.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %213 ]
-  %214 = getelementptr inbounds i32, ptr %205, i64 %indvars.iv.i.i.i
-  %215 = load i32, ptr %214, align 4
-  %216 = icmp eq i32 %215, %.sroa.70.0201
-  br i1 %216, label %validateCluster.exit.i.i, label %213
+.lr.ph.i.i.i:                                     ; preds = %177, %.lr.ph.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %177 ]
+  %178 = getelementptr inbounds i32, ptr %169, i64 %indvars.iv.i.i.i
+  %179 = load i32, ptr %178, align 4
+  %180 = icmp eq i32 %179, %.sroa.70.0201
+  br i1 %180, label %validateCluster.exit.i.i, label %177
 
-._crit_edge.i.i.i:                                ; preds = %213, %211
-  %217 = load ptr, ptr @stderr, align 8
-  %218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %217, ptr noundef nonnull @.str.17, i32 noundef %.sroa.70.0201) #12
+._crit_edge.i.i.i:                                ; preds = %177, %175
+  %181 = load ptr, ptr @stderr, align 8
+  %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.17, i32 noundef %.sroa.70.0201) #14
   br label %validateCluster.exit.i.i
 
-validateCluster.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %200
-  %.sroa.70.3 = phi i32 [ 0, %200 ], [ 0, %._crit_edge.i.i.i ], [ %.sroa.70.0201, %.lr.ph.i.i.i ]
-  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef %201, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #11
-  %219 = load i8, ptr @Verbose, align 1
-  %.not96.i.i = icmp eq i8 %219, 0
-  br i1 %.not96.i.i, label %224, label %220
+validateCluster.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %164
+  %.sroa.70.3 = phi i32 [ 0, %164 ], [ 0, %._crit_edge.i.i.i ], [ %.sroa.70.0201, %.lr.ph.i.i.i ]
+  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %166, i32 noundef 2, ptr noundef %167, ptr noundef %168, ptr noundef %169, ptr noundef %165, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #12
+  %183 = load i8, ptr @Verbose, align 1
+  %.not96.i.i = icmp eq i8 %183, 0
+  br i1 %.not96.i.i, label %188, label %184
 
-220:                                              ; preds = %validateCluster.exit.i.i
-  %221 = load ptr, ptr @stderr, align 8
-  %222 = load i32, ptr %13, align 4
-  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef nonnull @.str.16, i32 noundef %222) #12
-  br label %224
+184:                                              ; preds = %validateCluster.exit.i.i
+  %185 = load ptr, ptr @stderr, align 8
+  %186 = load i32, ptr %13, align 4
+  %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.16, i32 noundef %186) #14
+  br label %188
 
-224:                                              ; preds = %220, %validateCluster.exit.i.i
-  %225 = load ptr, ptr %12, align 8
-  %226 = icmp ne ptr %225, null
-  %or.cond.i.i = select i1 %.sroa.51.0, i1 %226, i1 false
-  %227 = icmp ne ptr %208, null
-  %or.cond3.i.i = and i1 %227, %or.cond.i.i
-  %228 = icmp ne ptr %209, null
-  %or.cond5.i.i = and i1 %228, %or.cond3.i.i
-  %229 = icmp ne ptr %210, null
-  %or.cond7.i.i = and i1 %229, %or.cond5.i.i
-  br i1 %or.cond7.i.i, label %230, label %231
+188:                                              ; preds = %184, %validateCluster.exit.i.i
+  %189 = load ptr, ptr %12, align 8
+  %190 = icmp ne ptr %189, null
+  %or.cond.i.i = select i1 %.sroa.51.0, i1 %190, i1 false
+  %191 = icmp ne ptr %172, null
+  %or.cond3.i.i = and i1 %191, %or.cond.i.i
+  %192 = icmp ne ptr %173, null
+  %or.cond5.i.i = and i1 %192, %or.cond3.i.i
+  %193 = icmp ne ptr %174, null
+  %or.cond7.i.i = and i1 %193, %or.cond5.i.i
+  br i1 %or.cond7.i.i, label %194, label %195
 
-230:                                              ; preds = %224
-  call void @map_optimal_coloring(i32 noundef %.sroa.76.0, ptr noundef nonnull %225, ptr noundef nonnull %208, ptr noundef nonnull %209, ptr noundef nonnull %210) #11
-  br label %233
+194:                                              ; preds = %188
+  call void @map_optimal_coloring(i32 noundef %.sroa.76.0, ptr noundef nonnull %189, ptr noundef nonnull %172, ptr noundef nonnull %173, ptr noundef nonnull %174) #12
+  br label %197
 
-231:                                              ; preds = %224
-  br i1 %.not97.i.i, label %233, label %232
+195:                                              ; preds = %188
+  br i1 %.not97.i.i, label %197, label %196
 
-232:                                              ; preds = %231
-  call void @map_palette_optimal_coloring(ptr noundef nonnull %.sroa.40.0, ptr noundef %225, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
-  br label %233
+196:                                              ; preds = %195
+  call void @map_palette_optimal_coloring(ptr noundef nonnull %.sroa.40.0, ptr noundef %189, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
+  br label %197
 
-233:                                              ; preds = %232, %231, %230
-  %234 = icmp ne ptr %201, null
-  %or.cond9.i.i = select i1 %234, i1 %194, i1 false
+197:                                              ; preds = %196, %195, %194
+  %198 = icmp ne ptr %165, null
+  %or.cond9.i.i = select i1 %198, i1 %158, i1 false
   br i1 %or.cond9.i.i, label %.preheader.i.i, label %mapFromGraph.exit
 
-.preheader.i.i:                                   ; preds = %233
-  br i1 %195, label %.lr.ph.i.i, label %._crit_edge.i.i
+.preheader.i.i:                                   ; preds = %197
+  br i1 %159, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.098.i.i = phi i32 [ %236, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %235 = load ptr, ptr %8, align 8
-  call void @improve_contiguity(i32 noundef %202, i32 noundef 2, ptr noundef %205, ptr noundef %235, ptr noundef %203, ptr noundef nonnull %201) #11
+  %.098.i.i = phi i32 [ %200, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
+  %199 = load ptr, ptr %8, align 8
+  call void @improve_contiguity(i32 noundef %166, i32 noundef 2, ptr noundef %169, ptr noundef %199, ptr noundef %167, ptr noundef nonnull %165) #12
   store i32 %.sroa.48.0, ptr %13, align 4
-  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef nonnull %201, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #11
-  %236 = add nuw nsw i32 %.098.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %236, %.sroa.45.0
+  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %166, i32 noundef 2, ptr noundef %167, ptr noundef %168, ptr noundef %169, ptr noundef nonnull %165, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #12
+  %200 = add nuw nsw i32 %.098.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %200, %.sroa.45.0
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %237 = call ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef nonnull %201) #11
-  call void @remove_overlap(i32 noundef 2, ptr noundef %237, ptr noundef %203, ptr noundef %204, i32 noundef 1000, double noundef 5.000000e+03, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #11
-  call void @SparseMatrix_delete(ptr noundef %237) #11
+  %201 = call ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef nonnull %165) #12
+  call void @remove_overlap(i32 noundef 2, ptr noundef %201, ptr noundef %167, ptr noundef %168, i32 noundef 1000, double noundef 5.000000e+03, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #12
+  call void @SparseMatrix_delete(ptr noundef %201) #12
   store i32 %.sroa.48.0, ptr %13, align 4
-  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef nonnull %201, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #11
+  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %166, i32 noundef 2, ptr noundef %167, ptr noundef %168, ptr noundef %169, ptr noundef nonnull %165, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #12
   br label %mapFromGraph.exit
 
-mapFromGraph.exit:                                ; preds = %233, %._crit_edge.i.i
-  %238 = load ptr, ptr %3, align 8
-  %239 = load ptr, ptr %4, align 8
-  %240 = load ptr, ptr %5, align 8
-  call void @Dot_SetClusterColor(ptr noundef nonnull %197, ptr noundef %238, ptr noundef %239, ptr noundef %240, ptr noundef %205) #11
-  %241 = load ptr, ptr %7, align 8
-  %242 = load ptr, ptr %6, align 8
-  %243 = load ptr, ptr %11, align 8
-  %244 = load ptr, ptr %10, align 8
-  %245 = load ptr, ptr %3, align 8
-  %246 = load ptr, ptr %4, align 8
-  %247 = load ptr, ptr %5, align 8
-  %248 = select i1 %.sroa.31.0, ptr %201, ptr null
-  call void @plot_dot_map(ptr noundef nonnull %197, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %241, ptr noundef %242, double noundef %.sroa.37.0, ptr noundef %.sroa.62.0, ptr noundef %243, ptr noundef %244, ptr noundef %206, ptr noundef %207, ptr noundef %245, ptr noundef %246, ptr noundef %247, ptr noundef %.sroa.43.0, ptr noundef %248, ptr noundef %.sroa.5.2) #11
-  %249 = load ptr, ptr %7, align 8
-  call void @SparseMatrix_delete(ptr noundef %249) #11
-  %250 = load ptr, ptr %6, align 8
-  call void @SparseMatrix_delete(ptr noundef %250) #11
-  %251 = load ptr, ptr %8, align 8
-  call void @SparseMatrix_delete(ptr noundef %251) #11
-  %252 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %252) #11
-  %253 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %253) #11
+mapFromGraph.exit:                                ; preds = %197, %._crit_edge.i.i
+  %202 = load ptr, ptr %3, align 8
+  %203 = load ptr, ptr %4, align 8
+  %204 = load ptr, ptr %5, align 8
+  call void @Dot_SetClusterColor(ptr noundef nonnull %161, ptr noundef %202, ptr noundef %203, ptr noundef %204, ptr noundef %169) #12
+  %205 = load ptr, ptr %7, align 8
+  %206 = load ptr, ptr %6, align 8
+  %207 = load ptr, ptr %11, align 8
+  %208 = load ptr, ptr %10, align 8
+  %209 = load ptr, ptr %3, align 8
+  %210 = load ptr, ptr %4, align 8
+  %211 = load ptr, ptr %5, align 8
+  %212 = select i1 %.sroa.31.0, ptr %165, ptr null
+  call void @plot_dot_map(ptr noundef nonnull %161, i32 noundef %166, i32 noundef 2, ptr noundef %167, ptr noundef %205, ptr noundef %206, double noundef %.sroa.37.0, ptr noundef %.sroa.62.0, ptr noundef %207, ptr noundef %208, ptr noundef %170, ptr noundef %171, ptr noundef %209, ptr noundef %210, ptr noundef %211, ptr noundef %.sroa.43.0, ptr noundef %212, ptr noundef %.sroa.5.2) #12
+  %213 = load ptr, ptr %7, align 8
+  call void @SparseMatrix_delete(ptr noundef %213) #12
+  %214 = load ptr, ptr %6, align 8
+  call void @SparseMatrix_delete(ptr noundef %214) #12
+  %215 = load ptr, ptr %8, align 8
+  call void @SparseMatrix_delete(ptr noundef %215) #12
+  %216 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %216) #12
+  %217 = load ptr, ptr %10, align 8
+  call void @free(ptr noundef %217) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -602,12 +566,12 @@ mapFromGraph.exit:                                ; preds = %233, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  %254 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %254) #11
-  %255 = load ptr, ptr %20, align 8
-  call void @free(ptr noundef %255) #11
-  %256 = load ptr, ptr %21, align 8
-  call void @free(ptr noundef %256) #11
+  %218 = load ptr, ptr %19, align 8
+  call void @free(ptr noundef %218) #12
+  %219 = load ptr, ptr %20, align 8
+  call void @free(ptr noundef %219) #12
+  %220 = load ptr, ptr %21, align 8
+  call void @free(ptr noundef %220) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
@@ -617,12 +581,12 @@ mapFromGraph.exit:                                ; preds = %233, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  %257 = call ptr @nextGraph(ptr noundef nonnull %27) #11
-  %.not = icmp eq ptr %257, null
-  br i1 %.not, label %._crit_edge, label %196
+  %221 = call ptr @nextGraph(ptr noundef nonnull %27) #12
+  %.not = icmp eq ptr %221, null
+  br i1 %.not, label %._crit_edge, label %160
 
 ._crit_edge:                                      ; preds = %mapFromGraph.exit, %init.exit
-  call fastcc void @graphviz_exit(i32 noundef 0) #14
+  call fastcc void @graphviz_exit(i32 noundef 0) #16
   unreachable
 }
 
@@ -634,7 +598,7 @@ declare i32 @agclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #2 {
-  tail call void @exit(i32 noundef %0) #16
+  tail call void @exit(i32 noundef %0) #17
   unreachable
 }
 
@@ -644,8 +608,18 @@ declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
+; Function Attrs: cold nofree noreturn nounwind uwtable
+define internal fastcc void @usage(ptr noundef %0, i32 noundef %1) unnamed_addr #5 {
+  %3 = load ptr, ptr @stderr, align 8
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.11, ptr noundef %0) #14
+  %5 = load ptr, ptr @stderr, align 8
+  %6 = tail call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %5) #15
+  tail call fastcc void @graphviz_exit(i32 noundef %1) #16
+  unreachable
+}
+
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 declare i32 @knownColorScheme(ptr noundef) local_unnamed_addr #1
 
@@ -653,7 +627,7 @@ declare i32 @knownColorScheme(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
@@ -666,7 +640,7 @@ declare void @initDotIO(ptr noundef) local_unnamed_addr #1
 declare ptr @Import_coord_clusters_from_dot(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 declare void @make_map_from_rectangle_groups(i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef, i32 noundef, ptr noundef, i32 noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -687,37 +661,38 @@ declare void @Dot_SetClusterColor(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare void @plot_dot_map(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nofree nounwind }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
-attributes #13 = { cold }
-attributes #14 = { noreturn }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { noreturn nounwind }
+attributes #5 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nofree nounwind }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { cold nounwind }
+attributes #15 = { cold }
+attributes #16 = { noreturn }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

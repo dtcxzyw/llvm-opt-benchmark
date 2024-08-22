@@ -96,7 +96,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pciserial_init_ports(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.uart_8250_port, align 8
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %3) #15
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 60
@@ -156,7 +156,7 @@ define dso_local ptr @pciserial_init_ports(ptr noundef %0, ptr noundef %1) #0 al
   br i1 %47, label %57, label %48
 
 48:                                               ; preds = %44
-  %49 = tail call i32 %46(ptr noundef %0) #14
+  %49 = tail call i32 %46(ptr noundef %0) #15
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %54
 
@@ -177,7 +177,7 @@ define dso_local ptr @pciserial_init_ports(ptr noundef %0, ptr noundef %1) #0 al
   %61 = shl nsw i64 %60, 2
   %62 = tail call noundef i64 @llvm.uadd.sat.i64(i64 %61, i64 32)
   %63 = select i1 %59, i64 -1, i64 %62
-  %64 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %63, i32 noundef 3520) #15
+  %64 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %63, i32 noundef 3520) #16
   %65 = icmp eq ptr %64, null
   br i1 %65, label %122, label %66
 
@@ -199,29 +199,29 @@ define dso_local ptr @pciserial_init_ports(ptr noundef %0, ptr noundef %1) #0 al
   br i1 %75, label %76, label %89
 
 76:                                               ; preds = %66
-  %77 = tail call ptr @pci_match_id(ptr noundef nonnull @pci_use_msi, ptr noundef %0) #14
+  %77 = tail call ptr @pci_match_id(ptr noundef nonnull @pci_use_msi, ptr noundef %0) #15
   %78 = icmp eq ptr %77, null
   br i1 %78, label %80, label %79
 
 79:                                               ; preds = %76
-  tail call void @pci_set_master(ptr noundef %0) #14
+  tail call void @pci_set_master(ptr noundef %0) #15
   store i64 268435520, ptr %68, align 8
   br label %80
 
 80:                                               ; preds = %79, %76
   %81 = phi i32 [ 7, %79 ], [ 1, %76 ]
-  %82 = tail call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %81) #14
+  %82 = tail call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %81) #15
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %80
-  tail call void @kfree(ptr noundef nonnull %64) #14
+  tail call void @kfree(ptr noundef nonnull %64) #15
   %85 = sext i32 %82 to i64
   %86 = inttoptr i64 %85 to ptr
   br label %122
 
 87:                                               ; preds = %80
-  %88 = tail call i32 @pci_irq_vector(ptr noundef %0, i32 noundef 0) #14
+  %88 = tail call i32 @pci_irq_vector(ptr noundef %0, i32 noundef 0) #15
   br label %89
 
 89:                                               ; preds = %87, %66
@@ -244,12 +244,12 @@ define dso_local ptr @pciserial_init_ports(ptr noundef %0, ptr noundef %1) #0 al
   %100 = phi i64 [ 0, %95 ], [ %117, %116 ]
   %101 = load ptr, ptr %96, align 8
   %102 = trunc i64 %100 to i32
-  %103 = call i32 %101(ptr noundef nonnull %64, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %102) #14
+  %103 = call i32 %101(ptr noundef nonnull %64, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %102) #15
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %.loopexit
 
 105:                                              ; preds = %99
-  %106 = call i32 @serial8250_register_8250_port(ptr noundef nonnull %3) #14
+  %106 = call i32 @serial8250_register_8250_port(ptr noundef nonnull %3) #15
   %107 = getelementptr [0 x i32], ptr %97, i64 0, i64 %100
   store i32 %106, ptr %107, align 4
   %108 = icmp slt i32 %106, 0
@@ -262,7 +262,7 @@ define dso_local ptr @pciserial_init_ports(ptr noundef %0, ptr noundef %1) #0 al
   %113 = getelementptr inbounds i8, ptr %3, i64 194
   %114 = load i8, ptr %113, align 2
   %115 = zext i8 %114 to i32
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %92, ptr noundef nonnull @.str, i64 noundef %111, i32 noundef %112, i32 noundef %115, i32 noundef %106) #16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %92, ptr noundef nonnull @.str, i64 noundef %111, i32 noundef %112, i32 noundef %115, i32 noundef %106) #17
   br label %.loopexit
 
 116:                                              ; preds = %105
@@ -286,12 +286,12 @@ define dso_local ptr @pciserial_init_ports(ptr noundef %0, ptr noundef %1) #0 al
   br i1 %126, label %128, label %127
 
 127:                                              ; preds = %122
-  tail call void %125(ptr noundef %0) #14
+  tail call void %125(ptr noundef %0) #15
   br label %128
 
 128:                                              ; preds = %127, %122, %.loopexit, %51
   %129 = phi ptr [ %64, %.loopexit ], [ %53, %51 ], [ %123, %127 ], [ %123, %122 ]
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %3) #15
   ret ptr %129
 }
 
@@ -341,7 +341,7 @@ define dso_local void @pciserial_remove_ports(ptr noundef %0) #0 align 16 {
   %9 = sext i32 %8 to i64
   %10 = getelementptr [0 x i32], ptr %6, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
-  tail call void @serial8250_unregister_port(i32 noundef %11) #14
+  tail call void @serial8250_unregister_port(i32 noundef %11) #15
   %12 = add nuw i32 %8, 1
   %13 = load i32, ptr %2, align 8
   %14 = icmp ult i32 %12, %13
@@ -406,11 +406,11 @@ define dso_local void @pciserial_remove_ports(ptr noundef %0) #0 align 16 {
   br i1 %57, label %59, label %58
 
 58:                                               ; preds = %54
-  tail call void %56(ptr noundef %15) #14
+  tail call void %56(ptr noundef %15) #15
   br label %59
 
 59:                                               ; preds = %58, %54
-  tail call void @kfree(ptr noundef %0) #14
+  tail call void @kfree(ptr noundef %0) #15
   ret void
 }
 
@@ -435,7 +435,7 @@ define dso_local void @pciserial_suspend_ports(ptr nocapture noundef readonly %0
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %7
-  tail call void @serial8250_suspend_port(i32 noundef %12) #14
+  tail call void @serial8250_suspend_port(i32 noundef %12) #15
   %.pre = load i32, ptr %2, align 8
   br label %15
 
@@ -455,7 +455,7 @@ define dso_local void @pciserial_suspend_ports(ptr nocapture noundef readonly %0
 
 24:                                               ; preds = %.loopexit
   %25 = load ptr, ptr %0, align 8
-  tail call void %22(ptr noundef %25) #14
+  tail call void %22(ptr noundef %25) #15
   br label %26
 
 26:                                               ; preds = %24, %.loopexit
@@ -476,7 +476,7 @@ define dso_local void @pciserial_resume_ports(ptr nocapture noundef readonly %0)
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
-  %9 = tail call i32 %5(ptr noundef %8) #14
+  %9 = tail call i32 %5(ptr noundef %8) #15
   br label %10
 
 10:                                               ; preds = %7, %1
@@ -499,7 +499,7 @@ define dso_local void @pciserial_resume_ports(ptr nocapture noundef readonly %0)
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %16
-  tail call void @serial8250_resume_port(i32 noundef %21) #14
+  tail call void @serial8250_resume_port(i32 noundef %21) #15
   %.pre = load i32, ptr %11, align 8
   br label %24
 
@@ -518,13 +518,13 @@ declare dso_local void @serial8250_resume_port(i32 noundef) local_unnamed_addr #
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @serial_pci_driver_init() #5 section ".init.text" align 16 {
-  %1 = tail call i32 @__pci_register_driver(ptr noundef nonnull @serial_pci_driver, ptr noundef null, ptr noundef nonnull @.str.15) #14
+  %1 = tail call i32 @__pci_register_driver(ptr noundef nonnull @serial_pci_driver, ptr noundef null, ptr noundef nonnull @.str.15) #15
   ret i32 %1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @serial_pci_driver_exit() #5 section ".exit.text" align 16 {
-  tail call void @pci_unregister_driver(ptr noundef nonnull @serial_pci_driver) #14
+  tail call void @pci_unregister_driver(ptr noundef nonnull @serial_pci_driver) #15
   ret void
 }
 
@@ -584,7 +584,7 @@ define internal i32 @addidata_apci7800_setup(ptr nocapture noundef readonly %0, 
   %39 = getelementptr inbounds i8, ptr %1, i64 16
   %40 = load i32, ptr %39, align 4
   %41 = load ptr, ptr %0, align 8
-  %42 = tail call i32 @serial8250_pci_setup_port(ptr noundef %41, ptr noundef %2, i8 noundef zeroext %38, i32 noundef %37, i32 noundef %40) #14
+  %42 = tail call i32 @serial8250_pci_setup_port(ptr noundef %41, ptr noundef %2, i8 noundef zeroext %38, i32 noundef %37, i32 noundef %40) #15
   ret i32 %42
 }
 
@@ -616,7 +616,7 @@ define internal i32 @afavlab_setup(ptr nocapture noundef readonly %0, ptr nocapt
   %22 = getelementptr inbounds i8, ptr %1, i64 16
   %23 = load i32, ptr %22, align 4
   %24 = load ptr, ptr %0, align 8
-  %25 = tail call i32 @serial8250_pci_setup_port(ptr noundef %24, ptr noundef %2, i8 noundef zeroext %20, i32 noundef %21, i32 noundef %23) #14
+  %25 = tail call i32 @serial8250_pci_setup_port(ptr noundef %24, ptr noundef %2, i8 noundef zeroext %20, i32 noundef %21, i32 noundef %23) #15
   ret i32 %25
 }
 
@@ -691,14 +691,14 @@ define internal i32 @pci_hp_diva_setup(ptr nocapture noundef readonly %0, ptr no
   %30 = and i8 %29, 7
   %31 = getelementptr inbounds i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 4
-  %33 = tail call i32 @serial8250_pci_setup_port(ptr noundef %8, ptr noundef %2, i8 noundef zeroext %30, i32 noundef %28, i32 noundef %32) #14
+  %33 = tail call i32 @serial8250_pci_setup_port(ptr noundef %8, ptr noundef %2, i8 noundef zeroext %30, i32 noundef %28, i32 noundef %32) #15
   ret i32 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -19, 1) i32 @pci_inteli960ni_init(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 66
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 4096
@@ -707,7 +707,7 @@ define internal range(i32 -19, 1) i32 @pci_inteli960ni_init(ptr noundef %0) #0 a
 
 7:                                                ; preds = %1
   store i32 0, ptr %2, align 4, !annotation !12
-  %8 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 68, ptr noundef nonnull %2) #14
+  %8 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 68, ptr noundef nonnull %2) #15
   %9 = load i32, ptr %2, align 4
   %10 = icmp eq i32 %9, 4096
   %11 = select i1 %10, i32 -19, i32 0
@@ -715,7 +715,7 @@ define internal range(i32 -19, 1) i32 @pci_inteli960ni_init(ptr noundef %0) #0 a
 
 12:                                               ; preds = %7, %1
   %13 = phi i32 [ -19, %1 ], [ %11, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
   ret i32 %13
 }
 
@@ -778,7 +778,7 @@ define internal i32 @pci_default_setup(ptr nocapture noundef readonly %0, ptr no
 
 45:                                               ; preds = %37, %32
   %46 = trunc i32 %19 to i8
-  %47 = tail call i32 @serial8250_pci_setup_port(ptr noundef %21, ptr noundef %2, i8 noundef zeroext %46, i32 noundef %20, i32 noundef %.pre) #14
+  %47 = tail call i32 @serial8250_pci_setup_port(ptr noundef %21, ptr noundef %2, i8 noundef zeroext %46, i32 noundef %20, i32 noundef %.pre) #15
   br label %48
 
 48:                                               ; preds = %45, %37
@@ -849,7 +849,7 @@ define internal i32 @skip_tx_en_setup(ptr nocapture noundef readonly %0, ptr noc
 
 48:                                               ; preds = %40, %35
   %49 = trunc i32 %22 to i8
-  %50 = tail call i32 @serial8250_pci_setup_port(ptr noundef %24, ptr noundef %2, i8 noundef zeroext %49, i32 noundef %23, i32 noundef %.pre) #14
+  %50 = tail call i32 @serial8250_pci_setup_port(ptr noundef %24, ptr noundef %2, i8 noundef zeroext %49, i32 noundef %23, i32 noundef %.pre) #15
   br label %51
 
 51:                                               ; preds = %48, %40
@@ -863,7 +863,7 @@ define internal i32 @ce4100_serial_setup(ptr nocapture noundef readonly %0, ptr 
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %0, align 8
-  %9 = tail call i32 @serial8250_pci_setup_port(ptr noundef %8, ptr noundef %2, i8 noundef zeroext %5, i32 noundef 0, i32 noundef %7) #14
+  %9 = tail call i32 @serial8250_pci_setup_port(ptr noundef %8, ptr noundef %2, i8 noundef zeroext %5, i32 noundef 0, i32 noundef %7) #15
   %10 = getelementptr inbounds i8, ptr %2, i64 194
   store i8 3, ptr %10, align 2
   %11 = getelementptr inbounds i8, ptr %2, i64 296
@@ -948,7 +948,7 @@ define internal i32 @kt_serial_setup(ptr nocapture noundef readonly %0, ptr noca
 
 53:                                               ; preds = %45, %40
   %54 = trunc i32 %27 to i8
-  %55 = tail call i32 @serial8250_pci_setup_port(ptr noundef %29, ptr noundef %2, i8 noundef zeroext %54, i32 noundef %28, i32 noundef %.pre) #14
+  %55 = tail call i32 @serial8250_pci_setup_port(ptr noundef %29, ptr noundef %2, i8 noundef zeroext %54, i32 noundef %28, i32 noundef %.pre) #15
   br label %56
 
 56:                                               ; preds = %53, %45
@@ -961,9 +961,9 @@ define internal noundef i32 @pci_ite887x_init(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
   br label %5
 
 5:                                                ; preds = %21, %1
@@ -971,22 +971,22 @@ define internal noundef i32 @pci_ite887x_init(ptr noundef %0) #0 align 16 {
   %7 = getelementptr [7 x i16], ptr @inta_addr, i64 0, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i64
-  %10 = tail call ptr @__request_region(ptr noundef nonnull @ioport_resource, i64 noundef %9, i64 noundef 32, ptr noundef nonnull @.str.1, i32 noundef 0) #14
+  %10 = tail call ptr @__request_region(ptr noundef nonnull @ioport_resource, i64 noundef %9, i64 noundef 32, ptr noundef nonnull @.str.1, i32 noundef 0) #15
   %11 = icmp eq ptr %10, null
   br i1 %11, label %21, label %12
 
 12:                                               ; preds = %5
   %13 = sext i16 %8 to i32
   %14 = or i32 %13, -452984832
-  %15 = tail call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 96, i32 noundef %14) #14
-  %16 = tail call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 120, i32 noundef %13) #14
-  %17 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %8) #14, !srcloc !13
+  %15 = tail call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 96, i32 noundef %14) #15
+  %16 = tail call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 120, i32 noundef %13) #15
+  %17 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %8) #15, !srcloc !13
   %18 = icmp eq i8 %17, -1
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %12
   %20 = load i64, ptr %10, align 8
-  tail call void @__release_region(ptr noundef nonnull @ioport_resource, i64 noundef %20, i64 noundef 32) #14
+  tail call void @__release_region(ptr noundef nonnull @ioport_resource, i64 noundef %20, i64 noundef 32) #15
   br label %21
 
 21:                                               ; preds = %19, %5
@@ -1001,14 +1001,14 @@ define internal noundef i32 @pci_ite887x_init(ptr noundef %0) #0 align 16 {
 
 .critedge:                                        ; preds = %21, %24
   %27 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %27, ptr noundef nonnull @.str.2) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %27, ptr noundef nonnull @.str.2) #17
   br label %.loopexit
 
 28:                                               ; preds = %24
   %29 = load i64, ptr %10, align 8
   %30 = trunc i64 %29 to i16
   %31 = add i16 %30, 24
-  %32 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %31) #14, !srcloc !13
+  %32 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %31) #15, !srcloc !13
   %33 = and i8 %32, 15
   %34 = zext nneg i8 %33 to i32
   %35 = add nsw i32 %34, -2
@@ -1038,7 +1038,7 @@ define internal noundef i32 @pci_ite887x_init(ptr noundef %0) #0 align 16 {
   %49 = getelementptr inbounds i8, ptr %0, i64 66
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %39, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef %42, i32 noundef %45, i32 noundef %48, i32 noundef %51) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %39, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef %42, i32 noundef %45, i32 noundef %48, i32 noundef %51) #17
   br label %86
 
 52:                                               ; preds = %28, %28, %37
@@ -1053,14 +1053,14 @@ define internal noundef i32 @pci_ite887x_init(ptr noundef %0) #0 align 16 {
   %55 = add nuw nsw i32 %54, 1
   %56 = shl nuw nsw i32 %55, 2
   %57 = add nuw nsw i32 %56, 16
-  %58 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %57, ptr noundef nonnull %4) #14
+  %58 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %57, ptr noundef nonnull %4) #15
   %59 = load i32, ptr %4, align 4
   %60 = and i32 %59, 65280
   store i32 %60, ptr %4, align 4
   %61 = add nuw nsw i32 %56, 96
   %62 = or disjoint i32 %60, -486539264
-  %63 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef %61, i32 noundef %62) #14
-  %64 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 124, ptr noundef nonnull %3) #14
+  %63 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef %61, i32 noundef %62) #15
+  %64 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 124, ptr noundef nonnull %3) #15
   %65 = shl nuw nsw i32 %54, 4
   %66 = shl nuw i32 65535, %65
   %67 = xor i32 %66, -1
@@ -1070,8 +1070,8 @@ define internal noundef i32 @pci_ite887x_init(ptr noundef %0) #0 align 16 {
   %71 = shl i32 %70, %65
   %72 = or i32 %71, %69
   store i32 %72, ptr %3, align 4
-  %73 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 124, i32 noundef %72) #14
-  %74 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 156, ptr noundef nonnull %2) #14
+  %73 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 124, i32 noundef %72) #15
+  %74 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 156, ptr noundef nonnull %2) #15
   %75 = shl nuw nsw i32 %54, 2
   %76 = sub nuw nsw i32 12, %75
   %77 = shl nuw nsw i32 15, %76
@@ -1082,36 +1082,36 @@ define internal noundef i32 @pci_ite887x_init(ptr noundef %0) #0 align 16 {
   %82 = shl nuw nsw i32 1, %81
   %83 = or i32 %80, %82
   store i32 %83, ptr %2, align 4
-  %84 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 156, i32 noundef %83) #14
+  %84 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 156, i32 noundef %83) #15
   %85 = icmp eq i32 %55, %.ph
   br i1 %85, label %.loopexit, label %53, !llvm.loop !15
 
 86:                                               ; preds = %38, %28, %28
   %.ph3 = phi i32 [ 0, %28 ], [ 0, %28 ], [ -19, %38 ]
   %87 = load i64, ptr %10, align 8
-  tail call void @__release_region(ptr noundef nonnull @ioport_resource, i64 noundef %87, i64 noundef 32) #14
+  tail call void @__release_region(ptr noundef nonnull @ioport_resource, i64 noundef %87, i64 noundef 32) #15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %86, %.critedge
   %88 = phi i32 [ -19, %.critedge ], [ %.ph3, %86 ], [ %.ph, %53 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
   ret i32 %88
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @pci_ite887x_exit(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
   store i32 0, ptr %2, align 4, !annotation !12
-  %3 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 96, ptr noundef nonnull %2) #14
+  %3 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 96, ptr noundef nonnull %2) #15
   %4 = load i32, ptr %2, align 4
   %5 = and i32 %4, 65535
   store i32 %5, ptr %2, align 4
   %6 = zext nneg i32 %5 to i64
-  call void @__release_region(ptr noundef nonnull @ioport_resource, i64 noundef %6, i64 noundef 32) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @__release_region(ptr noundef nonnull @ioport_resource, i64 noundef %6, i64 noundef 32) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
   ret void
 }
 
@@ -1137,20 +1137,20 @@ define internal noundef range(i32 -12, 1) i32 @pci_ni8420_init(ptr noundef %0) #
   %17 = getelementptr inbounds i8, ptr %0, i64 66
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %10, i32 noundef %13, i32 noundef %16, i32 noundef %19) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %10, i32 noundef %13, i32 noundef %16, i32 noundef %19) #17
   br label %27
 
 20:                                               ; preds = %1
-  %21 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #14
+  %21 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #15
   %22 = icmp eq ptr %21, null
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr i8, ptr %21, i64 56
-  %25 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24) #14, !srcloc !16
+  %25 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24) #15, !srcloc !16
   %26 = or i32 %25, 8192
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %26, ptr elementtype(i32) %24) #14, !srcloc !17
-  tail call void @iounmap(ptr noundef nonnull %21) #14
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %26, ptr elementtype(i32) %24) #15, !srcloc !17
+  tail call void @iounmap(ptr noundef nonnull %21) #15
   br label %27
 
 27:                                               ; preds = %23, %20, %6
@@ -1180,20 +1180,20 @@ define internal void @pci_ni8420_exit(ptr noundef %0) #0 align 16 {
   %17 = getelementptr inbounds i8, ptr %0, i64 66
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %10, i32 noundef %13, i32 noundef %16, i32 noundef %19) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %10, i32 noundef %13, i32 noundef %16, i32 noundef %19) #17
   br label %27
 
 20:                                               ; preds = %1
-  %21 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #14
+  %21 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #15
   %22 = icmp eq ptr %21, null
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr i8, ptr %21, i64 56
-  %25 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24) #14, !srcloc !16
+  %25 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24) #15, !srcloc !16
   %26 = and i32 %25, -8193
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %26, ptr elementtype(i32) %24) #14, !srcloc !17
-  tail call void @iounmap(ptr noundef nonnull %21) #14
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %26, ptr elementtype(i32) %24) #15, !srcloc !17
+  tail call void @iounmap(ptr noundef nonnull %21) #15
   br label %27
 
 27:                                               ; preds = %23, %20, %6
@@ -1203,7 +1203,7 @@ define internal void @pci_ni8420_exit(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @pci_ni8430_init(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.pci_bus_region, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 920
   %4 = getelementptr inbounds i8, ptr %0, i64 944
   %5 = load i64, ptr %4, align 8
@@ -1225,11 +1225,11 @@ define internal noundef range(i32 -12, 1) i32 @pci_ni8430_init(ptr noundef %0) #
   %19 = getelementptr inbounds i8, ptr %0, i64 66
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %12, i32 noundef %15, i32 noundef %18, i32 noundef %21) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %12, i32 noundef %15, i32 noundef %18, i32 noundef %21) #17
   br label %38
 
 22:                                               ; preds = %1
-  %23 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #14
+  %23 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #15
   %24 = icmp eq ptr %23, null
   br i1 %24, label %38, label %25
 
@@ -1237,27 +1237,27 @@ define internal noundef range(i32 -12, 1) i32 @pci_ni8430_init(ptr noundef %0) #
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !12
   %26 = getelementptr inbounds i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
-  call void @pcibios_resource_to_bus(ptr noundef %27, ptr noundef nonnull %2, ptr noundef %3) #14
+  call void @pcibios_resource_to_bus(ptr noundef %27, ptr noundef nonnull %2, ptr noundef %3) #15
   %28 = load i64, ptr %2, align 8
   %29 = trunc i64 %28 to i32
   %30 = and i32 %29, -256
   %31 = add i32 %30, 2186
   %32 = getelementptr i8, ptr %23, i64 196
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %31, ptr elementtype(i32) %32) #14, !srcloc !17
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %31, ptr elementtype(i32) %32) #15, !srcloc !17
   %33 = getelementptr i8, ptr %23, i64 244
-  %34 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #14, !srcloc !16
+  %34 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #15, !srcloc !16
   %35 = and i32 %34, -2
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %35, ptr elementtype(i32) %33) #14, !srcloc !17
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %35, ptr elementtype(i32) %33) #15, !srcloc !17
   %36 = getelementptr i8, ptr %23, i64 8
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 16777216, ptr elementtype(i32) %36) #14, !srcloc !17
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 16777216, ptr elementtype(i32) %36) #15, !srcloc !17
   %37 = getelementptr i8, ptr %23, i64 16
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648, ptr elementtype(i32) %37) #14, !srcloc !17
-  call void @iounmap(ptr noundef nonnull %23) #14
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648, ptr elementtype(i32) %37) #15, !srcloc !17
+  call void @iounmap(ptr noundef nonnull %23) #15
   br label %38
 
 38:                                               ; preds = %25, %22, %8
   %39 = phi i32 [ 0, %8 ], [ 0, %25 ], [ -12, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
   ret i32 %39
 }
 
@@ -1276,7 +1276,7 @@ define internal i32 @pci_ni8430_setup(ptr nocapture noundef readonly %0, ptr noc
   %13 = and i32 %12, 7
   %14 = getelementptr inbounds i8, ptr %1, i64 12
   %15 = load i32, ptr %14, align 4
-  %16 = tail call ptr @pci_ioremap_bar(ptr noundef %11, i32 noundef %13) #14
+  %16 = tail call ptr @pci_ioremap_bar(ptr noundef %11, i32 noundef %13) #15
   %17 = icmp eq ptr %16, null
   br i1 %17, label %31, label %18
 
@@ -1286,15 +1286,15 @@ define internal i32 @pci_ni8430_setup(ptr nocapture noundef readonly %0, ptr noc
   %21 = zext i32 %20 to i64
   %22 = getelementptr i8, ptr %16, i64 %21
   %23 = getelementptr i8, ptr %22, i64 15
-  %24 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %23) #14, !srcloc !18
+  %24 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %23) #15, !srcloc !18
   %25 = or i8 %24, 8
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %25, ptr elementtype(i8) %23) #14, !srcloc !19
-  tail call void @iounmap(ptr noundef nonnull %16) #14
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %25, ptr elementtype(i8) %23) #15, !srcloc !19
+  tail call void @iounmap(ptr noundef nonnull %16) #15
   %26 = trunc nuw nsw i32 %13 to i8
   %27 = getelementptr inbounds i8, ptr %1, i64 16
   %28 = load i32, ptr %27, align 4
   %29 = load ptr, ptr %0, align 8
-  %30 = tail call i32 @serial8250_pci_setup_port(ptr noundef %29, ptr noundef %2, i8 noundef zeroext %26, i32 noundef %20, i32 noundef %28) #14
+  %30 = tail call i32 @serial8250_pci_setup_port(ptr noundef %29, ptr noundef %2, i8 noundef zeroext %26, i32 noundef %20, i32 noundef %28) #15
   br label %31
 
 31:                                               ; preds = %18, %8, %4
@@ -1324,18 +1324,18 @@ define internal void @pci_ni8430_exit(ptr noundef %0) #0 align 16 {
   %17 = getelementptr inbounds i8, ptr %0, i64 66
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %10, i32 noundef %13, i32 noundef %16, i32 noundef %19) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %7, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %10, i32 noundef %13, i32 noundef %16, i32 noundef %19) #17
   br label %25
 
 20:                                               ; preds = %1
-  %21 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #14
+  %21 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #15
   %22 = icmp eq ptr %21, null
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr i8, ptr %21, i64 16
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1073741824, ptr elementtype(i32) %24) #14, !srcloc !17
-  tail call void @iounmap(ptr noundef nonnull %21) #14
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1073741824, ptr elementtype(i32) %24) #15, !srcloc !17
+  tail call void @iounmap(ptr noundef nonnull %21) #15
   br label %25
 
 25:                                               ; preds = %23, %20, %6
@@ -1344,7 +1344,7 @@ define internal void @pci_ni8430_exit(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pci_quatech_init(ptr noundef %0) #0 align 16 {
-  %2 = tail call ptr @pci_match_id(ptr noundef nonnull @quatech_cards, ptr noundef %0) #14
+  %2 = tail call ptr @pci_match_id(ptr noundef nonnull @quatech_cards, ptr noundef %0) #15
   %3 = icmp eq ptr %2, null
   br i1 %3, label %8, label %4
 
@@ -1359,7 +1359,7 @@ define internal noundef i32 @pci_quatech_init(ptr noundef %0) #0 align 16 {
   %10 = getelementptr inbounds i8, ptr %0, i64 62
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %9, ptr noundef nonnull @.str.6, i32 noundef %12) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %9, ptr noundef nonnull @.str.6, i32 noundef %12) #17
   br label %26
 
 13:                                               ; preds = %4
@@ -1371,15 +1371,15 @@ define internal noundef i32 @pci_quatech_init(ptr noundef %0) #0 align 16 {
 17:                                               ; preds = %13
   %18 = trunc i64 %15 to i16
   %19 = add i16 %18, 56
-  %20 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %19) #14, !srcloc !20
+  %20 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %19) #15, !srcloc !20
   %21 = or i32 %20, 8192
-  tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %21, i16 %19) #14, !srcloc !21
+  tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %21, i16 %19) #15, !srcloc !21
   %22 = add i16 %18, 60
-  %23 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %22) #14, !srcloc !20
+  %23 = tail call i32 asm sideeffect "inl ${1:w}, $0", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %22) #15, !srcloc !20
   %24 = or i32 %23, 16777216
-  tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %24, i16 %22) #14, !srcloc !21
+  tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %24, i16 %22) #15, !srcloc !21
   %25 = and i32 %23, -16777217
-  tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %25, i16 %22) #14, !srcloc !21
+  tail call void asm sideeffect "outl $0, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i32 %25, i16 %22) #15, !srcloc !21
   br label %26
 
 26:                                               ; preds = %17, %13, %8, %4
@@ -1399,29 +1399,29 @@ define internal i32 @pci_quatech_setup(ptr nocapture noundef readonly %0, ptr no
   store i64 %11, ptr %12, align 8
   %13 = trunc i64 %11 to i16
   %14 = add i16 %13, 3
-  %15 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %14) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %14) #14, !srcloc !22
+  %15 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %14) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %14) #15, !srcloc !22
   %16 = add i16 %13, 7
-  %17 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %16) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %15, i16 %14) #14, !srcloc !22
+  %17 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %16) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %15, i16 %14) #15, !srcloc !22
   %18 = and i8 %17, 63
   %19 = load i64, ptr %12, align 8
   %20 = trunc i64 %19 to i16
   %21 = add i16 %20, 3
-  %22 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %21) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %21) #14, !srcloc !22
+  %22 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %21) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %21) #15, !srcloc !22
   %23 = add i16 %20, 7
-  %24 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %23) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %18, i16 %23) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %22, i16 %21) #14, !srcloc !22
+  %24 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %23) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %18, i16 %23) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %22, i16 %21) #15, !srcloc !22
   %25 = load i64, ptr %12, align 8
   %26 = trunc i64 %25 to i16
   %27 = add i16 %26, 3
-  %28 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %27) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %27) #14, !srcloc !22
+  %28 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %27) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %27) #15, !srcloc !22
   %29 = add i16 %26, 7
-  %30 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %29) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %28, i16 %27) #14, !srcloc !22
+  %30 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %29) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %28, i16 %27) #15, !srcloc !22
   %31 = icmp ult i8 %30, 64
   br i1 %31, label %32, label %137
 
@@ -1430,20 +1430,20 @@ define internal i32 @pci_quatech_setup(ptr nocapture noundef readonly %0, ptr no
   %34 = load i64, ptr %12, align 8
   %35 = trunc i64 %34 to i16
   %36 = add i16 %35, 3
-  %37 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %36) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %36) #14, !srcloc !22
+  %37 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %36) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %36) #15, !srcloc !22
   %38 = add i16 %35, 7
-  %39 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %38) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %33, i16 %38) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %37, i16 %36) #14, !srcloc !22
+  %39 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %38) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %33, i16 %38) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %37, i16 %36) #15, !srcloc !22
   %40 = load i64, ptr %12, align 8
   %41 = trunc i64 %40 to i16
   %42 = add i16 %41, 3
-  %43 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %42) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %42) #14, !srcloc !22
+  %43 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %42) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %42) #15, !srcloc !22
   %44 = add i16 %41, 7
-  %45 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %44) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %43, i16 %42) #14, !srcloc !22
+  %45 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %44) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %43, i16 %42) #15, !srcloc !22
   %46 = and i8 %45, -64
   %47 = icmp eq i8 %46, 64
   br i1 %47, label %48, label %137
@@ -1453,20 +1453,20 @@ define internal i32 @pci_quatech_setup(ptr nocapture noundef readonly %0, ptr no
   %50 = load i64, ptr %12, align 8
   %51 = trunc i64 %50 to i16
   %52 = add i16 %51, 3
-  %53 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %52) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %52) #14, !srcloc !22
+  %53 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %52) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %52) #15, !srcloc !22
   %54 = add i16 %51, 7
-  %55 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %54) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %49, i16 %54) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %53, i16 %52) #14, !srcloc !22
+  %55 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %54) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %49, i16 %54) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %53, i16 %52) #15, !srcloc !22
   %56 = load i64, ptr %12, align 8
   %57 = trunc i64 %56 to i16
   %58 = add i16 %57, 3
-  %59 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %58) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %58) #14, !srcloc !22
+  %59 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %58) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %58) #15, !srcloc !22
   %60 = add i16 %57, 7
-  %61 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %60) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %59, i16 %58) #14, !srcloc !22
+  %61 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %60) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %59, i16 %58) #15, !srcloc !22
   %62 = and i8 %61, -64
   %63 = icmp eq i8 %62, 64
   br i1 %63, label %64, label %137
@@ -1476,20 +1476,20 @@ define internal i32 @pci_quatech_setup(ptr nocapture noundef readonly %0, ptr no
   %66 = load i64, ptr %12, align 8
   %67 = trunc i64 %66 to i16
   %68 = add i16 %67, 3
-  %69 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %68) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %68) #14, !srcloc !22
+  %69 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %68) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %68) #15, !srcloc !22
   %70 = add i16 %67, 7
-  %71 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %70) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %65, i16 %70) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %69, i16 %68) #14, !srcloc !22
+  %71 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %70) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %65, i16 %70) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %69, i16 %68) #15, !srcloc !22
   %72 = load i64, ptr %12, align 8
   %73 = trunc i64 %72 to i16
   %74 = add i16 %73, 3
-  %75 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %74) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %74) #14, !srcloc !22
+  %75 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %74) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %74) #15, !srcloc !22
   %76 = add i16 %73, 7
-  %77 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %76) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %75, i16 %74) #14, !srcloc !22
+  %77 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %76) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %75, i16 %74) #15, !srcloc !22
   %78 = and i8 %77, -64
   %79 = icmp eq i8 %78, -128
   br i1 %79, label %80, label %137
@@ -1498,38 +1498,38 @@ define internal i32 @pci_quatech_setup(ptr nocapture noundef readonly %0, ptr no
   %81 = load i64, ptr %12, align 8
   %82 = trunc i64 %81 to i16
   %83 = add i16 %82, 3
-  %84 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %83) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %83) #14, !srcloc !22
+  %84 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %83) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %83) #15, !srcloc !22
   %85 = add i16 %82, 7
-  %86 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %85) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %17, i16 %85) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %84, i16 %83) #14, !srcloc !22
+  %86 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %85) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %17, i16 %85) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %84, i16 %83) #15, !srcloc !22
   %87 = load i64, ptr %12, align 8
   %88 = trunc i64 %87 to i16
   %89 = add i16 %88, 3
-  %90 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %89) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %89) #14, !srcloc !22
+  %90 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %89) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %89) #15, !srcloc !22
   %91 = add i16 %88, 7
-  %92 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %91) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %90, i16 %89) #14, !srcloc !22
+  %92 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %91) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %90, i16 %89) #15, !srcloc !22
   %93 = and i8 %92, -4
   %94 = load i64, ptr %12, align 8
   %95 = trunc i64 %94 to i16
   %96 = add i16 %95, 3
-  %97 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %96) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %96) #14, !srcloc !22
+  %97 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %96) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %96) #15, !srcloc !22
   %98 = add i16 %95, 7
-  %99 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %98) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %93, i16 %98) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %97, i16 %96) #14, !srcloc !22
+  %99 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %98) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %93, i16 %98) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %97, i16 %96) #15, !srcloc !22
   %100 = load i64, ptr %12, align 8
   %101 = trunc i64 %100 to i16
   %102 = add i16 %101, 3
-  %103 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %102) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %102) #14, !srcloc !22
+  %103 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %102) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %102) #15, !srcloc !22
   %104 = add i16 %101, 7
-  %105 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %104) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %103, i16 %102) #14, !srcloc !22
+  %105 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %104) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %103, i16 %102) #15, !srcloc !22
   %106 = and i8 %105, 3
   %107 = icmp eq i8 %106, 0
   br i1 %107, label %108, label %128
@@ -1539,20 +1539,20 @@ define internal i32 @pci_quatech_setup(ptr nocapture noundef readonly %0, ptr no
   %110 = load i64, ptr %12, align 8
   %111 = trunc i64 %110 to i16
   %112 = add i16 %111, 3
-  %113 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %112) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %112) #14, !srcloc !22
+  %113 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %112) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %112) #15, !srcloc !22
   %114 = add i16 %111, 7
-  %115 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %114) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %109, i16 %114) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %113, i16 %112) #14, !srcloc !22
+  %115 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %114) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %109, i16 %114) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %113, i16 %112) #15, !srcloc !22
   %116 = load i64, ptr %12, align 8
   %117 = trunc i64 %116 to i16
   %118 = add i16 %117, 3
-  %119 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %118) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %118) #14, !srcloc !22
+  %119 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %118) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %118) #15, !srcloc !22
   %120 = add i16 %117, 7
-  %121 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %120) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %119, i16 %118) #14, !srcloc !22
+  %121 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %120) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %119, i16 %118) #15, !srcloc !22
   %122 = and i8 %121, 3
   switch i8 %122, label %default.unreachable2 [
     i8 0, label %128
@@ -1581,12 +1581,12 @@ default.unreachable2:                             ; preds = %108
   %131 = load i64, ptr %12, align 8
   %132 = trunc i64 %131 to i16
   %133 = add i16 %132, 3
-  %134 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %133) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %133) #14, !srcloc !22
+  %134 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %133) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %133) #15, !srcloc !22
   %135 = add i16 %132, 7
-  %136 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %135) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %129, i16 %135) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %134, i16 %133) #14, !srcloc !22
+  %136 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %135) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %129, i16 %135) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %134, i16 %133) #15, !srcloc !22
   br label %137
 
 137:                                              ; preds = %128, %64, %48, %32, %4
@@ -1596,82 +1596,82 @@ default.unreachable2:                             ; preds = %108
   %140 = load i64, ptr %12, align 8
   %141 = trunc i64 %140 to i16
   %142 = add i16 %141, 3
-  %143 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %142) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %142) #14, !srcloc !22
+  %143 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %142) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %142) #15, !srcloc !22
   %144 = add i16 %141, 7
-  %145 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %144) #14, !srcloc !13
+  %145 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %144) #15, !srcloc !13
   %146 = and i8 %145, 32
   %147 = icmp eq i8 %146, 0
   br i1 %147, label %191, label %148
 
 148:                                              ; preds = %137
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -128, i16 3) #14, !srcloc !22
-  %149 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 7) #14, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -128, i16 3) #15, !srcloc !22
+  %149 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 7) #15, !srcloc !13
   %150 = and i8 %149, 32
   %151 = icmp eq i8 %150, 0
   br i1 %151, label %152, label %191
 
 152:                                              ; preds = %148
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %143, i16 %142) #14, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %143, i16 %142) #15, !srcloc !22
   %153 = load i64, ptr %12, align 8
   %154 = trunc i64 %153 to i16
   %155 = add i16 %154, 3
-  %156 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %155) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %155) #14, !srcloc !22
+  %156 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %155) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %155) #15, !srcloc !22
   %157 = add i16 %154, 7
-  %158 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %157) #14, !srcloc !13
+  %158 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %157) #15, !srcloc !13
   %159 = or i8 %158, 16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %159, i16 %157) #14, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %159, i16 %157) #15, !srcloc !22
   %160 = add i16 %154, 4
-  %161 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %160) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %158, i16 %157) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %156, i16 %155) #14, !srcloc !22
+  %161 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %160) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %158, i16 %157) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %156, i16 %155) #15, !srcloc !22
   %162 = load i64, ptr %12, align 8
   %163 = trunc i64 %162 to i16
   %164 = add i16 %163, 3
-  %165 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %164) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %164) #14, !srcloc !22
+  %165 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %164) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %164) #15, !srcloc !22
   %166 = add i16 %163, 7
-  %167 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %166) #14, !srcloc !13
+  %167 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %166) #15, !srcloc !13
   %168 = or i8 %167, 16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %168, i16 %166) #14, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %168, i16 %166) #15, !srcloc !22
   %169 = add i16 %163, 4
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -1, i16 %169) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %167, i16 %166) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %165, i16 %164) #14, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -1, i16 %169) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %167, i16 %166) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %165, i16 %164) #15, !srcloc !22
   %170 = load i64, ptr %12, align 8
   %171 = trunc i64 %170 to i16
   %172 = add i16 %171, 3
-  %173 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %172) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %172) #14, !srcloc !22
+  %173 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %172) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %172) #15, !srcloc !22
   %174 = add i16 %171, 7
-  %175 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %174) #14, !srcloc !13
+  %175 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %174) #15, !srcloc !13
   %176 = or i8 %175, 16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %176, i16 %174) #14, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %176, i16 %174) #15, !srcloc !22
   %177 = add i16 %171, 4
-  %178 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %177) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %175, i16 %174) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %173, i16 %172) #14, !srcloc !22
+  %178 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %177) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %175, i16 %174) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %173, i16 %172) #15, !srcloc !22
   %179 = icmp eq i8 %178, 0
   %180 = load i64, ptr %12, align 8
   %181 = trunc i64 %180 to i16
   %182 = add i16 %181, 3
-  %183 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %182) #14, !srcloc !13
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %182) #14, !srcloc !22
+  %183 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %182) #15, !srcloc !13
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -65, i16 %182) #15, !srcloc !22
   %184 = add i16 %181, 7
-  %185 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %184) #14, !srcloc !13
+  %185 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %184) #15, !srcloc !13
   %186 = or i8 %185, 16
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %186, i16 %184) #14, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %186, i16 %184) #15, !srcloc !22
   %187 = add i16 %181, 4
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %161, i16 %187) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %185, i16 %184) #14, !srcloc !22
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %183, i16 %182) #14, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %161, i16 %187) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %185, i16 %184) #15, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %183, i16 %182) #15, !srcloc !22
   br i1 %179, label %191, label %188
 
 188:                                              ; preds = %152
   %189 = load ptr, ptr %0, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 184
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %190, ptr noundef nonnull @.str.7) #16
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %190, ptr noundef nonnull @.str.7) #17
   br label %191
 
 191:                                              ; preds = %188, %152, %148, %137
@@ -1732,7 +1732,7 @@ default.unreachable2:                             ; preds = %108
 
 232:                                              ; preds = %224, %219
   %233 = trunc i32 %206 to i8
-  %234 = tail call i32 @serial8250_pci_setup_port(ptr noundef %208, ptr noundef %2, i8 noundef zeroext %233, i32 noundef %207, i32 noundef %.pre) #14
+  %234 = tail call i32 @serial8250_pci_setup_port(ptr noundef %208, ptr noundef %2, i8 noundef zeroext %233, i32 noundef %207, i32 noundef %.pre) #15
   br label %235
 
 235:                                              ; preds = %232, %224
@@ -1763,7 +1763,7 @@ define internal noundef range(i32 -12, 1) i32 @pci_plx9050_init(ptr noundef %0) 
   %18 = getelementptr inbounds i8, ptr %0, i64 66
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %8, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, i32 noundef %11, i32 noundef %14, i32 noundef %17, i32 noundef %20) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %8, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, i32 noundef %11, i32 noundef %14, i32 noundef %17, i32 noundef %20) #17
   br label %47
 
 21:                                               ; preds = %1
@@ -1796,16 +1796,16 @@ define internal noundef range(i32 -12, 1) i32 @pci_plx9050_init(ptr noundef %0) 
 38:                                               ; preds = %33, %30
   %39 = phi i8 [ %31, %30 ], [ %37, %33 ]
   %40 = load i64, ptr %2, align 8
-  %41 = tail call ptr @ioremap(i64 noundef %40, i64 noundef 128) #14
+  %41 = tail call ptr @ioremap(i64 noundef %40, i64 noundef 128) #15
   %42 = icmp eq ptr %41, null
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %38
   %44 = zext nneg i8 %39 to i32
   %45 = getelementptr i8, ptr %41, i64 76
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %44, ptr elementtype(i32) %45) #14, !srcloc !17
-  %46 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45) #14, !srcloc !16
-  tail call void @iounmap(ptr noundef nonnull %41) #14
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %44, ptr elementtype(i32) %45) #15, !srcloc !17
+  %46 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %45) #15, !srcloc !16
+  tail call void @iounmap(ptr noundef nonnull %41) #15
   br label %47
 
 47:                                               ; preds = %43, %38, %7
@@ -1824,15 +1824,15 @@ define internal void @pci_plx9050_exit(ptr nocapture noundef readonly %0) #0 ali
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 920
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @ioremap(i64 noundef %8, i64 noundef 128) #14
+  %9 = tail call ptr @ioremap(i64 noundef %8, i64 noundef 128) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr i8, ptr %9, i64 76
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %12) #14, !srcloc !17
-  %13 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12) #14, !srcloc !16
-  tail call void @iounmap(ptr noundef nonnull %9) #14
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %12) #15, !srcloc !17
+  %13 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12) #15, !srcloc !16
+  tail call void @iounmap(ptr noundef nonnull %9) #15
   br label %14
 
 14:                                               ; preds = %11, %6, %1
@@ -1841,17 +1841,17 @@ define internal void @pci_plx9050_exit(ptr nocapture noundef readonly %0) #0 ali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @sbs_init(ptr noundef %0) #0 align 16 {
-  %2 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #14
+  %2 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #15
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr i8, ptr %2, i64 1280
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 16, ptr elementtype(i8) %5) #14, !srcloc !19
-  tail call void @__const_udelay(i64 noundef 214750) #14
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %5) #14, !srcloc !19
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 4, ptr elementtype(i8) %5) #14, !srcloc !19
-  tail call void @iounmap(ptr noundef nonnull %2) #14
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 16, ptr elementtype(i8) %5) #15, !srcloc !19
+  tail call void @__const_udelay(i64 noundef 214750) #15
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %5) #15, !srcloc !19
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 4, ptr elementtype(i8) %5) #15, !srcloc !19
+  tail call void @iounmap(ptr noundef nonnull %2) #15
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -1889,7 +1889,7 @@ define internal i32 @sbs_setup(ptr nocapture noundef readonly %0, ptr nocapture 
   %22 = getelementptr inbounds i8, ptr %1, i64 16
   %23 = load i32, ptr %22, align 4
   %24 = load ptr, ptr %0, align 8
-  %25 = tail call i32 @serial8250_pci_setup_port(ptr noundef %24, ptr noundef %2, i8 noundef zeroext 0, i32 noundef %21, i32 noundef %23) #14
+  %25 = tail call i32 @serial8250_pci_setup_port(ptr noundef %24, ptr noundef %2, i8 noundef zeroext 0, i32 noundef %21, i32 noundef %23) #15
   br label %26
 
 26:                                               ; preds = %19, %12
@@ -1899,17 +1899,17 @@ define internal i32 @sbs_setup(ptr nocapture noundef readonly %0, ptr nocapture 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @sbs_exit(ptr noundef %0) #0 align 16 {
-  %2 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #14
+  %2 = tail call ptr @pci_ioremap_bar(ptr noundef %0, i32 noundef 0) #15
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr i8, ptr %2, i64 1280
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %5) #14, !srcloc !19
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr elementtype(i8) %5) #15, !srcloc !19
   br label %6
 
 6:                                                ; preds = %4, %1
-  tail call void @iounmap(ptr noundef %2) #14
+  tail call void @iounmap(ptr noundef %2) #15
   ret void
 }
 
@@ -1927,7 +1927,7 @@ define internal noundef range(i32 -19, 1) i32 @pci_siig_init(ptr noundef %0) #0 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 920
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @ioremap(i64 noundef %8, i64 noundef 128) #14
+  %9 = tail call ptr @ioremap(i64 noundef %8, i64 noundef 128) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %46, label %11
 
@@ -1938,20 +1938,20 @@ define internal noundef range(i32 -19, 1) i32 @pci_siig_init(ptr noundef %0) #0 
   %15 = select i1 %14, i16 -2049, i16 -5
   %16 = select i1 %13, i16 -33, i16 %15
   %17 = getelementptr i8, ptr %9, i64 40
-  %18 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %17) #14, !srcloc !23
+  %18 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %17) #15, !srcloc !23
   %19 = and i16 %18, %16
-  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %19, ptr elementtype(i16) %17) #14, !srcloc !24
-  %20 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %17) #14, !srcloc !23
-  tail call void @iounmap(ptr noundef nonnull %9) #14
+  tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %19, ptr elementtype(i16) %17) #15, !srcloc !24
+  %20 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %17) #15, !srcloc !23
+  tail call void @iounmap(ptr noundef nonnull %9) #15
   br label %46
 
 21:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #15
   store i8 0, ptr %2, align 1, !annotation !12
-  %22 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef 111, ptr noundef nonnull %2) #14
+  %22 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef 111, ptr noundef nonnull %2) #15
   %23 = load i8, ptr %2, align 1
   %24 = and i8 %23, -17
-  %25 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 111, i8 noundef zeroext %24) #14
+  %25 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 111, i8 noundef zeroext %24) #15
   %26 = load i16, ptr %3, align 2
   %27 = and i16 %26, -4
   switch i16 %27, label %33 [
@@ -1960,14 +1960,14 @@ define internal noundef range(i32 -19, 1) i32 @pci_siig_init(ptr noundef %0) #0 
   ]
 
 28:                                               ; preds = %21, %21
-  %29 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef 115, ptr noundef nonnull %2) #14
+  %29 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef 115, ptr noundef nonnull %2) #15
   %30 = load i8, ptr %2, align 1
   %31 = and i8 %30, -17
-  %32 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 115, i8 noundef zeroext %31) #14
+  %32 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 115, i8 noundef zeroext %31) #15
   br label %33
 
 33:                                               ; preds = %28, %21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #15
   br label %46
 
 34:                                               ; preds = %1
@@ -1982,7 +1982,7 @@ define internal noundef range(i32 -19, 1) i32 @pci_siig_init(ptr noundef %0) #0 
   %43 = getelementptr inbounds i8, ptr %0, i64 66
   %44 = load i16, ptr %43, align 2
   %45 = zext i16 %44 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %35, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef %38, i32 noundef %39, i32 noundef %42, i32 noundef %45) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %35, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef %38, i32 noundef %39, i32 noundef %42, i32 noundef %45) #17
   br label %46
 
 46:                                               ; preds = %34, %33, %11, %6
@@ -2002,7 +2002,7 @@ define internal i32 @pci_siig_setup(ptr nocapture noundef readonly %0, ptr nocap
   %12 = select i1 %8, i32 %10, i32 0
   %13 = select i1 %8, i8 4, i8 %11
   %14 = load ptr, ptr %0, align 8
-  %15 = tail call i32 @serial8250_pci_setup_port(ptr noundef %14, ptr noundef %2, i8 noundef zeroext %13, i32 noundef %12, i32 noundef 0) #14
+  %15 = tail call i32 @serial8250_pci_setup_port(ptr noundef %14, ptr noundef %2, i8 noundef zeroext %13, i32 noundef %12, i32 noundef 0) #15
   ret i32 %15
 }
 
@@ -2031,7 +2031,7 @@ define internal i32 @titan_400l_800l_setup(ptr nocapture noundef readonly %0, pt
   %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = load i32, ptr %16, align 4
   %18 = load ptr, ptr %0, align 8
-  %19 = tail call i32 @serial8250_pci_setup_port(ptr noundef %18, ptr noundef %2, i8 noundef zeroext %14, i32 noundef %15, i32 noundef %17) #14
+  %19 = tail call i32 @serial8250_pci_setup_port(ptr noundef %18, ptr noundef %2, i8 noundef zeroext %14, i32 noundef %15, i32 noundef %17) #15
   ret i32 %19
 }
 
@@ -2046,7 +2046,7 @@ define internal noundef range(i32 -19, 1) i32 @pci_timedia_probe(ptr noundef %0)
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %8, ptr noundef nonnull @.str.10, i32 noundef %4) #16
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %8, ptr noundef nonnull @.str.10, i32 noundef %4) #17
   br label %9
 
 9:                                                ; preds = %7, %1
@@ -2139,7 +2139,7 @@ define internal i32 @pci_timedia_setup(ptr nocapture noundef readonly %0, ptr no
   %21 = getelementptr inbounds i8, ptr %1, i64 16
   %22 = load i32, ptr %21, align 4
   %23 = load ptr, ptr %0, align 8
-  %24 = tail call i32 @serial8250_pci_setup_port(ptr noundef %23, ptr noundef %2, i8 noundef zeroext %19, i32 noundef %20, i32 noundef %22) #14
+  %24 = tail call i32 @serial8250_pci_setup_port(ptr noundef %23, ptr noundef %2, i8 noundef zeroext %19, i32 noundef %20, i32 noundef %22) #15
   ret i32 %24
 }
 
@@ -2175,13 +2175,13 @@ define internal i32 @pci_sunix_setup(ptr nocapture noundef readonly %0, ptr noca
   %24 = phi i32 [ %22, %14 ], [ %13, %10 ]
   %25 = phi i8 [ 1, %14 ], [ 0, %10 ]
   %26 = load ptr, ptr %0, align 8
-  %27 = tail call i32 @serial8250_pci_setup_port(ptr noundef %26, ptr noundef %2, i8 noundef zeroext %25, i32 noundef %24, i32 noundef 0) #14
+  %27 = tail call i32 @serial8250_pci_setup_port(ptr noundef %26, ptr noundef %2, i8 noundef zeroext %25, i32 noundef %24, i32 noundef 0) #15
   ret i32 %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pci_xircom_init(ptr nocapture readnone %0) #0 align 16 {
-  tail call void @msleep(i32 noundef 100) #14
+  tail call void @msleep(i32 noundef 100) #15
   ret i32 0
 }
 
@@ -2232,7 +2232,7 @@ define internal range(i32 -19, 16) i32 @pci_netmos_init(ptr noundef %0) #0 align
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %23, ptr noundef nonnull @.str.12) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %23, ptr noundef nonnull @.str.12) #17
   br label %.thread
 
 24:                                               ; preds = %18, %14
@@ -2243,7 +2243,7 @@ define internal range(i32 -19, 16) i32 @pci_netmos_init(ptr noundef %0) #0 align
   %29 = zext i16 %6 to i32
   %30 = zext i16 %9 to i32
   %31 = zext i16 %3 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.13, i32 noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.13, i32 noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31) #17
   br label %.thread
 
 .thread2:                                         ; preds = %14, %20
@@ -2267,7 +2267,7 @@ define internal range(i32 -19, 16) i32 @pci_netmos_init(ptr noundef %0) #0 align
   %43 = zext i16 %42 to i32
   %44 = load i16, ptr %2, align 2
   %45 = zext i16 %44 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %36, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11, i32 noundef %39, i32 noundef %41, i32 noundef %43, i32 noundef %45) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %36, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.11, i32 noundef %39, i32 noundef %41, i32 noundef %43, i32 noundef %45) #17
   br label %46
 
 46:                                               ; preds = %.thread2, %.thread, %33, %7, %1, %1
@@ -2295,7 +2295,7 @@ define internal i32 @pci_netmos_9900_setup(ptr nocapture noundef readonly %0, pt
   %16 = mul i8 %15, 3
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 4
-  %19 = tail call i32 @serial8250_pci_setup_port(ptr noundef %5, ptr noundef %2, i8 noundef zeroext %16, i32 noundef 0, i32 noundef %18) #14
+  %19 = tail call i32 @serial8250_pci_setup_port(ptr noundef %5, ptr noundef %2, i8 noundef zeroext %16, i32 noundef 0, i32 noundef %18) #15
   br label %63
 
 20:                                               ; preds = %9, %4
@@ -2355,7 +2355,7 @@ define internal i32 @pci_netmos_9900_setup(ptr nocapture noundef readonly %0, pt
 
 60:                                               ; preds = %52, %47
   %61 = trunc i32 %35 to i8
-  %62 = tail call i32 @serial8250_pci_setup_port(ptr noundef %5, ptr noundef %2, i8 noundef zeroext %61, i32 noundef %36, i32 noundef %.pre) #14
+  %62 = tail call i32 @serial8250_pci_setup_port(ptr noundef %5, ptr noundef %2, i8 noundef zeroext %61, i32 noundef %36, i32 noundef %.pre) #15
   br label %63
 
 63:                                               ; preds = %60, %52, %14
@@ -2387,23 +2387,23 @@ define internal i32 @pci_oxsemi_tornado_init(ptr noundef %0) #0 align 16 {
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %4, %9, %1
-  %15 = tail call ptr @pci_iomap(ptr noundef %0, i32 noundef 0, i64 noundef 5) #14
+  %15 = tail call ptr @pci_iomap(ptr noundef %0, i32 noundef 0, i64 noundef 5) #15
   %16 = icmp eq ptr %15, null
   br i1 %16, label %25, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @ioread32(ptr noundef nonnull %15) #14
+  %18 = tail call i32 @ioread32(ptr noundef nonnull %15) #15
   %19 = icmp eq i32 %18, 117441024
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
   %21 = getelementptr i8, ptr %15, i64 4
-  %22 = tail call i32 @ioread8(ptr noundef %21) #14
+  %22 = tail call i32 @ioread8(ptr noundef %21) #15
   br label %23
 
 23:                                               ; preds = %20, %17
   %24 = phi i32 [ %22, %20 ], [ 0, %17 ]
-  tail call void @pci_iounmap(ptr noundef %0, ptr noundef nonnull %15) #14
+  tail call void @pci_iounmap(ptr noundef %0, ptr noundef nonnull %15) #15
   br label %25
 
 25:                                               ; preds = %23, %14, %9, %4
@@ -2506,7 +2506,7 @@ define internal i32 @pci_oxsemi_tornado_setup(ptr nocapture noundef readonly %0,
 
 66:                                               ; preds = %58, %53
   %67 = trunc i32 %40 to i8
-  %68 = tail call i32 @serial8250_pci_setup_port(ptr noundef %42, ptr noundef %2, i8 noundef zeroext %67, i32 noundef %41, i32 noundef %.pre) #14
+  %68 = tail call i32 @serial8250_pci_setup_port(ptr noundef %42, ptr noundef %2, i8 noundef zeroext %67, i32 noundef %41, i32 noundef %.pre) #15
   br label %69
 
 69:                                               ; preds = %66, %58
@@ -2523,7 +2523,7 @@ define internal noundef i32 @pci_eg20t_init(ptr nocapture readnone %0) #8 align 
 define internal i32 @pci_omegapci_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = shl i32 %3, 3
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call i32 @serial8250_pci_setup_port(ptr noundef %6, ptr noundef %2, i8 noundef zeroext 2, i32 noundef %5, i32 noundef 0) #14
+  %7 = tail call i32 @serial8250_pci_setup_port(ptr noundef %6, ptr noundef %2, i8 noundef zeroext 2, i32 noundef %5, i32 noundef 0) #15
   ret i32 %7
 }
 
@@ -2592,7 +2592,7 @@ define internal i32 @pci_wch_ch353_setup(ptr nocapture noundef readonly %0, ptr 
 
 49:                                               ; preds = %41, %36
   %50 = trunc i32 %23 to i8
-  %51 = tail call i32 @serial8250_pci_setup_port(ptr noundef %25, ptr noundef %2, i8 noundef zeroext %50, i32 noundef %24, i32 noundef %.pre) #14
+  %51 = tail call i32 @serial8250_pci_setup_port(ptr noundef %25, ptr noundef %2, i8 noundef zeroext %50, i32 noundef %24, i32 noundef %.pre) #15
   br label %52
 
 52:                                               ; preds = %49, %41
@@ -2665,7 +2665,7 @@ define internal i32 @pci_wch_ch355_setup(ptr nocapture noundef readonly %0, ptr 
 
 49:                                               ; preds = %41, %36
   %50 = trunc i32 %23 to i8
-  %51 = tail call i32 @serial8250_pci_setup_port(ptr noundef %25, ptr noundef %2, i8 noundef zeroext %50, i32 noundef %24, i32 noundef %.pre) #14
+  %51 = tail call i32 @serial8250_pci_setup_port(ptr noundef %25, ptr noundef %2, i8 noundef zeroext %50, i32 noundef %24, i32 noundef %.pre) #15
   br label %52
 
 52:                                               ; preds = %49, %41
@@ -2738,7 +2738,7 @@ define internal i32 @pci_wch_ch38x_setup(ptr nocapture noundef readonly %0, ptr 
 
 49:                                               ; preds = %41, %36
   %50 = trunc i32 %23 to i8
-  %51 = tail call i32 @serial8250_pci_setup_port(ptr noundef %25, ptr noundef %2, i8 noundef zeroext %50, i32 noundef %24, i32 noundef %.pre) #14
+  %51 = tail call i32 @serial8250_pci_setup_port(ptr noundef %25, ptr noundef %2, i8 noundef zeroext %50, i32 noundef %24, i32 noundef %.pre) #15
   br label %52
 
 52:                                               ; preds = %49, %41
@@ -2758,7 +2758,7 @@ define internal noundef range(i32 -22, 9) i32 @pci_wch_ch38x_init(ptr nocapture 
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i16
   %9 = add i16 %8, 235
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 2, i16 %9) #14, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 2, i16 %9) #15, !srcloc !22
   br label %10
 
 10:                                               ; preds = %5, %1
@@ -2772,7 +2772,7 @@ define internal void @pci_wch_ch38x_exit(ptr nocapture noundef readonly %0) #0 a
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i16
   %5 = add i16 %4, 235
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 %5) #14, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 %5) #15, !srcloc !22
   ret void
 }
 
@@ -2835,7 +2835,7 @@ define internal i32 @pci_brcm_trumanage_setup(ptr nocapture noundef readonly %0,
 
 45:                                               ; preds = %37, %32
   %46 = trunc i32 %19 to i8
-  %47 = tail call i32 @serial8250_pci_setup_port(ptr noundef %21, ptr noundef %2, i8 noundef zeroext %46, i32 noundef %20, i32 noundef %.pre) #14
+  %47 = tail call i32 @serial8250_pci_setup_port(ptr noundef %21, ptr noundef %2, i8 noundef zeroext %46, i32 noundef %20, i32 noundef %.pre) #15
   br label %48
 
 48:                                               ; preds = %45, %37
@@ -2852,7 +2852,7 @@ define internal i32 @pci_brcm_trumanage_setup(ptr nocapture noundef readonly %0,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -22, 256) i32 @pci_fintek_init(ptr noundef %0) #0 align 16 {
   %2 = alloca [3 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 1240
@@ -2924,22 +2924,22 @@ define internal range(i32 -22, 256) i32 @pci_fintek_init(ptr noundef %0) #0 alig
   %48 = zext nneg i32 %47 to i64
   %49 = or disjoint i64 %46, %48
   %50 = and i32 %41, 248
-  %51 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %50, i8 noundef zeroext 1) #14
+  %51 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %50, i8 noundef zeroext 1) #15
   %52 = or disjoint i32 %50, 1
-  %53 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %52, i8 noundef zeroext 51) #14
+  %53 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %52, i8 noundef zeroext 51) #15
   %54 = or disjoint i32 %50, 4
   %55 = trunc nuw i64 %49 to i8
-  %56 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %54, i8 noundef zeroext %55) #14
+  %56 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %54, i8 noundef zeroext %55) #15
   %57 = or disjoint i32 %50, 5
   %58 = lshr i64 %45, 8
   %59 = trunc i64 %58 to i8
-  %60 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %57, i8 noundef zeroext %59) #14
+  %60 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %57, i8 noundef zeroext %59) #15
   %61 = or disjoint i32 %50, 6
   %62 = load i32, ptr %37, align 4
   %63 = trunc i32 %62 to i8
-  %64 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %61, i8 noundef zeroext %63) #14
+  %64 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %61, i8 noundef zeroext %63) #15
   %65 = or disjoint i32 %50, 7
-  %66 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %65, i8 noundef zeroext 1) #14
+  %66 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %65, i8 noundef zeroext 1) #15
   %67 = add nuw nsw i32 %39, 1
   %68 = icmp eq i32 %67, %29
   br i1 %68, label %.loopexit, label %.split.us, !llvm.loop !27
@@ -2957,27 +2957,27 @@ define internal range(i32 -22, 256) i32 @pci_fintek_init(ptr noundef %0) #0 alig
   %78 = zext nneg i32 %77 to i64
   %79 = or disjoint i64 %76, %78
   %80 = and i32 %71, 248
-  %81 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %80, i8 noundef zeroext 1) #14
+  %81 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %80, i8 noundef zeroext 1) #15
   %82 = or disjoint i32 %80, 1
-  %83 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %82, i8 noundef zeroext 51) #14
+  %83 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %82, i8 noundef zeroext 51) #15
   %84 = or disjoint i32 %80, 4
   %85 = trunc nuw i64 %79 to i8
-  %86 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %84, i8 noundef zeroext %85) #14
+  %86 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %84, i8 noundef zeroext %85) #15
   %87 = or disjoint i32 %80, 5
   %88 = lshr i64 %75, 8
   %89 = trunc i64 %88 to i8
-  %90 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %87, i8 noundef zeroext %89) #14
+  %90 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %87, i8 noundef zeroext %89) #15
   %91 = or disjoint i32 %80, 6
   %92 = load i32, ptr %37, align 4
   %93 = trunc i32 %92 to i8
-  %94 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %91, i8 noundef zeroext %93) #14
+  %94 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %91, i8 noundef zeroext %93) #15
   %95 = add nuw nsw i32 %69, 1
   %96 = icmp eq i32 %95, %29
   br i1 %96, label %.loopexit, label %.split, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.split, %.split.us, %28, %22, %16, %10, %1
   %97 = phi i32 [ -19, %16 ], [ -19, %10 ], [ -19, %1 ], [ -22, %22 ], [ 0, %28 ], [ %29, %.split.us ], [ %29, %.split ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #15
   ret i32 %97
 }
 
@@ -2985,13 +2985,13 @@ define internal range(i32 -22, 256) i32 @pci_fintek_init(ptr noundef %0) #0 alig
 define internal noundef range(i32 -12, 1) i32 @pci_fintek_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i16, align 2
   %6 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #15
   store i16 0, ptr %5, align 2, !annotation !12
   %7 = shl i32 %3, 3
   %8 = add i32 %7, 64
   %9 = and i32 %8, 248
   %10 = or disjoint i32 %9, 4
-  %11 = call i32 @pci_read_config_word(ptr noundef %6, i32 noundef %10, ptr noundef nonnull %5) #14
+  %11 = call i32 @pci_read_config_word(ptr noundef %6, i32 noundef %10, ptr noundef nonnull %5) #15
   %12 = getelementptr inbounds i8, ptr %2, i64 194
   store i8 0, ptr %12, align 2
   %13 = load i16, ptr %5, align 2
@@ -3003,7 +3003,7 @@ define internal noundef range(i32 -12, 1) i32 @pci_fintek_setup(ptr nocapture no
   %17 = getelementptr inbounds i8, ptr %2, i64 432
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %17, ptr noundef nonnull align 4 dereferenceable(32) @pci_fintek_rs485_supported, i64 32, i1 false)
   %18 = getelementptr inbounds i8, ptr %6, i64 184
-  %19 = call noalias dereferenceable_or_null(1) ptr @devm_kmalloc(ptr noundef %18, i64 noundef 1, i32 noundef 3520) #17
+  %19 = call noalias dereferenceable_or_null(1) ptr @devm_kmalloc(ptr noundef %18, i64 noundef 1, i32 noundef 3520) #18
   %20 = icmp eq ptr %19, null
   br i1 %20, label %24, label %21
 
@@ -3016,7 +3016,7 @@ define internal noundef range(i32 -12, 1) i32 @pci_fintek_setup(ptr nocapture no
 
 24:                                               ; preds = %21, %4
   %25 = phi i32 [ 0, %21 ], [ -12, %4 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #15
   ret i32 %25
 }
 
@@ -3061,7 +3061,7 @@ define internal range(i32 0, 16) i32 @pci_moxa_init(ptr nocapture noundef readon
   %23 = zext nneg i32 %22 to i64
   %24 = add i64 %20, %23
   %25 = trunc i64 %24 to i16
-  %26 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %25) #14, !srcloc !13
+  %26 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %25) #15, !srcloc !13
   %27 = and i32 %19, 1
   %28 = icmp eq i32 %27, 0
   %29 = and i8 %26, 15
@@ -3069,7 +3069,7 @@ define internal range(i32 0, 16) i32 @pci_moxa_init(ptr nocapture noundef readon
   %31 = and i8 %26, -16
   %32 = or disjoint i8 %31, %14
   %33 = select i1 %28, i8 %32, i8 %30
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %33, i16 %25) #14, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %33, i16 %25) #15, !srcloc !22
   %34 = add nuw nsw i32 %19, 1
   %35 = icmp eq i32 %34, %8
   br i1 %35, label %.loopexit, label %18, !llvm.loop !28
@@ -3087,13 +3087,13 @@ define internal range(i32 0, 16) i32 @pci_moxa_init(ptr nocapture noundef readon
 36:                                               ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
   %37 = trunc i64 %5 to i16
   %38 = add i16 %37, 9
-  %39 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %38) #14, !srcloc !13
+  %39 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %38) #15, !srcloc !13
   %40 = or i8 %39, 4
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %40, i16 %38) #14, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %40, i16 %38) #15, !srcloc !22
   %41 = add i16 %37, 10
-  %42 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %41) #14, !srcloc !13
+  %42 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %41) #15, !srcloc !13
   %43 = and i8 %42, -5
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %43, i16 %41) #14, !srcloc !22
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %43, i16 %41) #15, !srcloc !22
   br label %44
 
 44:                                               ; preds = %36, %.loopexit
@@ -3115,7 +3115,7 @@ define internal i32 @pci_moxa_setup(ptr nocapture noundef readonly %0, ptr nocap
   %15 = trunc i32 %5 to i8
   %16 = and i8 %15, 7
   %17 = load ptr, ptr %0, align 8
-  %18 = tail call i32 @serial8250_pci_setup_port(ptr noundef %17, ptr noundef %2, i8 noundef zeroext %16, i32 noundef %14, i32 noundef 0) #14
+  %18 = tail call i32 @serial8250_pci_setup_port(ptr noundef %17, ptr noundef %2, i8 noundef zeroext %16, i32 noundef %14, i32 noundef 0) #15
   ret i32 %18
 }
 
@@ -3137,13 +3137,13 @@ define internal range(i32 -22, 256) i32 @pci_fintek_f815xxa_init(ptr noundef %0)
   ]
 
 .thread:                                          ; preds = %6
-  %9 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 521, i8 noundef zeroext 64) #14
+  %9 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 521, i8 noundef zeroext 64) #15
   br label %.preheader.preheader
 
 10:                                               ; preds = %6, %6
   %11 = and i16 %8, 255
   %12 = zext nneg i16 %11 to i32
-  %13 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 521, i8 noundef zeroext 64) #14
+  %13 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef 521, i8 noundef zeroext 64) #15
   %14 = icmp eq i16 %11, 0
   br i1 %14, label %.loopexit, label %.preheader.preheader
 
@@ -3156,8 +3156,8 @@ define internal range(i32 -22, 256) i32 @pci_fintek_f815xxa_init(ptr noundef %0)
   %17 = shl nuw nsw i32 %16, 3
   %18 = add nuw nsw i32 %17, 672
   %19 = add nuw nsw i32 %17, 673
-  %20 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %19, i8 noundef zeroext 51) #14
-  %21 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %18, i8 noundef zeroext 1) #14
+  %20 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %19, i8 noundef zeroext 51) #15
+  %21 = tail call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %18, i8 noundef zeroext 1) #15
   %22 = add nuw nsw i32 %16, 1
   %23 = icmp eq i32 %22, %15
   br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !29
@@ -3171,7 +3171,7 @@ define internal range(i32 -22, 256) i32 @pci_fintek_f815xxa_init(ptr noundef %0)
 define internal noundef range(i32 -12, 1) i32 @pci_fintek_f815xxa_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef %2, i32 noundef %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 184
-  %7 = tail call noalias dereferenceable_or_null(8) ptr @devm_kmalloc(ptr noundef %6, i64 noundef 8, i32 noundef 3520) #17
+  %7 = tail call noalias dereferenceable_or_null(8) ptr @devm_kmalloc(ptr noundef %6, i64 noundef 8, i32 noundef 3520) #18
   %8 = icmp eq ptr %7, null
   br i1 %8, label %23, label %9
 
@@ -3216,7 +3216,7 @@ define internal range(i32 0, 256) i32 @kt_serial_in(ptr nocapture noundef readon
   %5 = zext i32 %1 to i64
   %6 = add i64 %4, %5
   %7 = trunc i64 %6 to i16
-  %8 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %7) #14, !srcloc !13
+  %8 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %7) #15, !srcloc !13
   %9 = icmp eq i32 %1, 1
   %10 = icmp eq i8 %8, 0
   %11 = select i1 %9, i1 %10, i1 false
@@ -3235,7 +3235,7 @@ define internal range(i32 0, 256) i32 @kt_serial_in(ptr nocapture noundef readon
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kt_handle_break(ptr noundef %0) #0 align 16 {
-  tail call void @serial8250_clear_and_reinit_fifos(ptr noundef %0) #14
+  tail call void @serial8250_clear_and_reinit_fifos(ptr noundef %0) #15
   ret void
 }
 
@@ -3251,8 +3251,8 @@ declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noun
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__release_region(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @moan_device(ptr noundef %0) unnamed_addr #0 align 16 {
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @moan_device(ptr noundef %0) unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   %4 = load i16, ptr %3, align 4
@@ -3266,7 +3266,7 @@ define internal fastcc void @moan_device(ptr noundef %0) unnamed_addr #0 align 1
   %12 = getelementptr inbounds i8, ptr %0, i64 66
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %2, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.19, i32 noundef %5, i32 noundef %8, i32 noundef %11, i32 noundef %14) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %2, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.19, i32 noundef %5, i32 noundef %8, i32 noundef %11, i32 noundef %14) #17
   ret void
 }
 
@@ -3313,7 +3313,7 @@ declare dso_local i32 @ioread8(ptr noundef) local_unnamed_addr #3
 declare dso_local void @pci_iounmap(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal range(i32 0, 65536) i32 @pci_oxsemi_tornado_get_divisor(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #9 align 16 {
+define internal range(i32 0, 65536) i32 @pci_oxsemi_tornado_get_divisor(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   %5 = load i32, ptr %4, align 8
   %6 = shl i32 %5, 1
@@ -3474,20 +3474,20 @@ define internal void @pci_oxsemi_tornado_set_divisor(ptr noundef %0, i32 noundef
   %7 = and i32 %3, 255
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  tail call void %9(ptr noundef %0, i32 noundef 7, i32 noundef 2) #14
+  tail call void %9(ptr noundef %0, i32 noundef 7, i32 noundef 2) #15
   %10 = load ptr, ptr %8, align 8
-  tail call void %10(ptr noundef %0, i32 noundef 5, i32 noundef %7) #14
+  tail call void %10(ptr noundef %0, i32 noundef 5, i32 noundef %7) #15
   %11 = and i32 %6, 255
   %12 = load ptr, ptr %8, align 8
-  tail call void %12(ptr noundef %0, i32 noundef 7, i32 noundef 1) #14
+  tail call void %12(ptr noundef %0, i32 noundef 7, i32 noundef 1) #15
   %13 = load ptr, ptr %8, align 8
-  tail call void %13(ptr noundef %0, i32 noundef 5, i32 noundef %11) #14
+  tail call void %13(ptr noundef %0, i32 noundef 5, i32 noundef %11) #15
   %14 = and i32 %5, 255
   %15 = load ptr, ptr %8, align 8
-  tail call void %15(ptr noundef %0, i32 noundef 7, i32 noundef 3) #14
+  tail call void %15(ptr noundef %0, i32 noundef 7, i32 noundef 3) #15
   %16 = load ptr, ptr %8, align 8
-  tail call void %16(ptr noundef %0, i32 noundef 5, i32 noundef %14) #14
-  tail call void @serial8250_do_set_divisor(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #14
+  tail call void %16(ptr noundef %0, i32 noundef 5, i32 noundef %14) #15
+  tail call void @serial8250_do_set_divisor(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #15
   ret void
 }
 
@@ -3497,7 +3497,7 @@ define internal void @pci_oxsemi_tornado_set_mctrl(ptr noundef %0, i32 noundef %
   %4 = load i8, ptr %3, align 8
   %5 = or i8 %4, -128
   store i8 %5, ptr %3, align 8
-  tail call void @serial8250_do_set_mctrl(ptr noundef %0, i32 noundef %1) #14
+  tail call void @serial8250_do_set_mctrl(ptr noundef %0, i32 noundef %1) #15
   ret void
 }
 
@@ -3516,7 +3516,7 @@ define internal noundef i32 @pci_fintek_rs485_config(ptr nocapture noundef reado
   %5 = getelementptr inbounds i8, ptr %0, i64 344
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -184
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
   store i8 0, ptr %4, align 1, !annotation !12
   %8 = getelementptr inbounds i8, ptr %0, i64 520
   %9 = load ptr, ptr %8, align 8
@@ -3524,7 +3524,7 @@ define internal noundef i32 @pci_fintek_rs485_config(ptr nocapture noundef reado
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 3
   %13 = add nuw nsw i32 %12, 71
-  %14 = call i32 @pci_read_config_byte(ptr noundef %7, i32 noundef %13, ptr noundef nonnull %4) #14
+  %14 = call i32 @pci_read_config_byte(ptr noundef %7, i32 noundef %13, ptr noundef nonnull %4) #15
   %15 = load i32, ptr %2, align 4
   %16 = and i32 %15, 1
   %17 = icmp eq i32 %16, 0
@@ -3556,32 +3556,32 @@ define internal noundef i32 @pci_fintek_rs485_config(ptr nocapture noundef reado
   %31 = zext i8 %30 to i32
   %32 = shl nuw nsw i32 %31, 3
   %33 = add nuw nsw i32 %32, 71
-  %34 = call i32 @pci_write_config_byte(ptr noundef %7, i32 noundef %33, i8 noundef zeroext %.sink) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  %34 = call i32 @pci_write_config_byte(ptr noundef %7, i32 noundef %33, i8 noundef zeroext %.sink) #15
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare dso_local noalias ptr @devm_kmalloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #11
+declare dso_local noalias ptr @devm_kmalloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @f815xxa_mem_serial_out(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 520
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #14
+  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #15
   %7 = trunc i32 %2 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %1 to i64
   %11 = getelementptr i8, ptr %9, i64 %10
-  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %7, ptr elementtype(i8) %11) #14, !srcloc !19
+  tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %7, ptr elementtype(i8) %11) #15, !srcloc !19
   %12 = load ptr, ptr %8, align 8
   %13 = getelementptr i8, ptr %12, i64 7
-  %14 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %13) #14, !srcloc !18
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #14
+  %14 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %13) #15, !srcloc !18
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #15
   ret void
 }
 
@@ -3592,7 +3592,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #12
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @serial8250_unregister_port(i32 noundef) local_unnamed_addr #3
@@ -3603,7 +3603,7 @@ declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @pciserial_init_one(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.pciserial_board, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i32
@@ -3661,7 +3661,7 @@ define internal i32 @pciserial_init_one(ptr noundef %0, ptr nocapture noundef re
   br i1 %45, label %49, label %46
 
 46:                                               ; preds = %42
-  %47 = tail call i32 %44(ptr noundef %0) #14
+  %47 = tail call i32 %44(ptr noundef %0) #15
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %119
 
@@ -3673,12 +3673,12 @@ define internal i32 @pciserial_init_one(ptr noundef %0, ptr nocapture noundef re
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %54, ptr noundef nonnull @.str.17, i64 noundef %51) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %54, ptr noundef nonnull @.str.17, i64 noundef %51) #17
   br label %119
 
 55:                                               ; preds = %49
   %56 = getelementptr [116 x %struct.pciserial_board], ptr @pci_boards, i64 0, i64 %51
-  %57 = tail call ptr @pci_match_id(ptr noundef nonnull @blacklist, ptr noundef %0) #14
+  %57 = tail call ptr @pci_match_id(ptr noundef nonnull @blacklist, ptr noundef %0) #15
   %58 = icmp eq ptr %57, null
   br i1 %58, label %66, label %59
 
@@ -3691,12 +3691,12 @@ define internal i32 @pciserial_init_one(ptr noundef %0, ptr nocapture noundef re
 63:                                               ; preds = %59
   %64 = getelementptr inbounds i8, ptr %0, i64 184
   %65 = inttoptr i64 %61 to ptr
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %64, ptr noundef nonnull @.str.18, ptr noundef nonnull %65) #16
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %64, ptr noundef nonnull @.str.18, ptr noundef nonnull %65) #17
   br label %119
 
 66:                                               ; preds = %55
-  %67 = tail call i32 @pcim_enable_device(ptr noundef %0) #14
-  %68 = tail call i32 @pci_save_state(ptr noundef %0) #14
+  %67 = tail call i32 @pcim_enable_device(ptr noundef %0) #15
+  %68 = tail call i32 @pci_save_state(ptr noundef %0) #15
   %69 = icmp eq i32 %67, 0
   br i1 %69, label %70, label %119
 
@@ -3779,7 +3779,7 @@ define internal i32 @pciserial_init_one(ptr noundef %0, ptr nocapture noundef re
 
 119:                                              ; preds = %117, %114, %73, %66, %63, %59, %53, %46
   %120 = phi i32 [ -22, %53 ], [ %116, %114 ], [ 0, %117 ], [ %47, %46 ], [ -19, %63 ], [ -19, %59 ], [ %67, %66 ], [ %74, %73 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
   ret i32 %120
 }
 
@@ -3801,7 +3801,7 @@ define internal void @pciserial_remove_one(ptr nocapture noundef readonly %0) #0
   %11 = sext i32 %10 to i64
   %12 = getelementptr [0 x i32], ptr %8, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
-  tail call void @serial8250_unregister_port(i32 noundef %13) #14
+  tail call void @serial8250_unregister_port(i32 noundef %13) #15
   %14 = add nuw i32 %10, 1
   %15 = load i32, ptr %4, align 8
   %16 = icmp ult i32 %14, %15
@@ -3866,11 +3866,11 @@ define internal void @pciserial_remove_one(ptr nocapture noundef readonly %0) #0
   br i1 %59, label %pciserial_remove_ports.exit, label %60
 
 60:                                               ; preds = %56
-  tail call void %58(ptr noundef %17) #14
+  tail call void %58(ptr noundef %17) #15
   br label %pciserial_remove_ports.exit
 
 pciserial_remove_ports.exit:                      ; preds = %56, %60
-  tail call void @kfree(ptr noundef %3) #14
+  tail call void @kfree(ptr noundef %3) #15
   ret void
 }
 
@@ -3881,7 +3881,7 @@ declare dso_local i32 @pcim_enable_device(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @pci_save_state(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc range(i32 -19, 1) i32 @serial_pci_guess_board(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #9 align 16 {
+define internal fastcc range(i32 -19, 1) i32 @serial_pci_guess_board(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #10 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %4, 8
@@ -4041,7 +4041,7 @@ define internal noundef range(i32 3, 5) i32 @serial8250_io_error_detected(ptr no
   %16 = sext i32 %15 to i64
   %17 = getelementptr [0 x i32], ptr %13, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
-  tail call void @serial8250_unregister_port(i32 noundef %18) #14
+  tail call void @serial8250_unregister_port(i32 noundef %18) #15
   %19 = add nuw i32 %15, 1
   %20 = load i32, ptr %9, align 8
   %21 = icmp ult i32 %19, %20
@@ -4106,11 +4106,11 @@ define internal noundef range(i32 3, 5) i32 @serial8250_io_error_detected(ptr no
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %61
-  tail call void %63(ptr noundef %22) #14
+  tail call void %63(ptr noundef %22) #15
   br label %66
 
 66:                                               ; preds = %65, %61, %6
-  tail call void @pci_disable_device(ptr noundef %0) #14
+  tail call void @pci_disable_device(ptr noundef %0) #15
   br label %67
 
 67:                                               ; preds = %66, %2
@@ -4120,13 +4120,13 @@ define internal noundef range(i32 3, 5) i32 @serial8250_io_error_detected(ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 4, 6) i32 @serial8250_io_slot_reset(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @pci_enable_device(ptr noundef %0) #14
+  %2 = tail call i32 @pci_enable_device(ptr noundef %0) #15
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
-  tail call void @pci_restore_state(ptr noundef %0) #14
-  %5 = tail call i32 @pci_save_state(ptr noundef %0) #14
+  tail call void @pci_restore_state(ptr noundef %0) #15
+  %5 = tail call i32 @pci_save_state(ptr noundef %0) #15
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -4150,7 +4150,7 @@ define internal void @serial8250_io_resume(ptr noundef %0) #0 align 16 {
 
 10:                                               ; preds = %5
   store ptr %8, ptr %2, align 8
-  tail call void @kfree(ptr noundef nonnull %3) #14
+  tail call void @kfree(ptr noundef nonnull %3) #15
   br label %11
 
 11:                                               ; preds = %10, %5, %1
@@ -4193,7 +4193,7 @@ define internal noundef i32 @pciserial_suspend_one(ptr nocapture noundef readonl
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %11
-  tail call void @serial8250_suspend_port(i32 noundef %16) #14
+  tail call void @serial8250_suspend_port(i32 noundef %16) #15
   %.pre = load i32, ptr %6, align 8
   br label %19
 
@@ -4213,7 +4213,7 @@ define internal noundef i32 @pciserial_suspend_one(ptr nocapture noundef readonl
 
 28:                                               ; preds = %.loopexit
   %29 = load ptr, ptr %3, align 8
-  tail call void %26(ptr noundef %29) #14
+  tail call void %26(ptr noundef %29) #15
   br label %30
 
 30:                                               ; preds = %28, %.loopexit, %1
@@ -4229,12 +4229,12 @@ define internal noundef i32 @pciserial_resume_one(ptr noundef %0) #0 align 16 {
 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %0, i64 -184
-  %7 = tail call i32 @pci_enable_device(ptr noundef %6) #14
+  %7 = tail call i32 @pci_enable_device(ptr noundef %6) #15
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.21) #16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.21) #17
   br label %10
 
 10:                                               ; preds = %9, %5
@@ -4247,7 +4247,7 @@ define internal noundef i32 @pciserial_resume_one(ptr noundef %0) #0 align 16 {
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %3, align 8
-  %18 = tail call i32 %14(ptr noundef %17) #14
+  %18 = tail call i32 %14(ptr noundef %17) #15
   br label %19
 
 19:                                               ; preds = %16, %10
@@ -4270,7 +4270,7 @@ define internal noundef i32 @pciserial_resume_one(ptr noundef %0) #0 align 16 {
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %25
-  tail call void @serial8250_resume_port(i32 noundef %30) #14
+  tail call void @serial8250_resume_port(i32 noundef %30) #15
   %.pre = load i32, ptr %20, align 8
   br label %33
 
@@ -4285,10 +4285,10 @@ define internal noundef i32 @pciserial_resume_one(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #13
+declare i32 @llvm.fshl.i32(i32, i32, i32) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.uadd.sat.i64(i64, i64) #13
+declare i64 @llvm.uadd.sat.i64(i64, i64) #14
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -4299,15 +4299,16 @@ attributes #5 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsiz
 attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #7 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #8 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #12 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind allocsize(0) }
-attributes #16 = { cold nounwind }
-attributes #17 = { nounwind allocsize(1) }
+attributes #9 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #13 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind allocsize(0) }
+attributes #17 = { cold nounwind }
+attributes #18 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -269,7 +269,7 @@ define dso_local ptr @js_load_file(ptr noundef %0, ptr nocapture noundef writeon
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call ptr @__errno_location() #28
+  %14 = tail call ptr @__errno_location() #29
   store i32 21, ptr %14, align 4
   br label %31
 
@@ -284,11 +284,11 @@ define dso_local ptr @js_load_file(ptr noundef %0, ptr nocapture noundef writeon
   br i1 %.not32, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call ptr @js_malloc(ptr noundef nonnull %0, i64 noundef %19) #29
+  %21 = tail call ptr @js_malloc(ptr noundef nonnull %0, i64 noundef %19) #30
   br label %24
 
 22:                                               ; preds = %18
-  %23 = tail call noalias ptr @malloc(i64 noundef %19) #30
+  %23 = tail call noalias ptr @malloc(i64 noundef %19) #31
   br label %24
 
 24:                                               ; preds = %22, %20
@@ -302,16 +302,16 @@ define dso_local ptr @js_load_file(ptr noundef %0, ptr nocapture noundef writeon
   br i1 %.not34, label %33, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call ptr @__errno_location() #28
+  %28 = tail call ptr @__errno_location() #29
   store i32 5, ptr %28, align 4
   br i1 %.not32, label %30, label %29
 
 29:                                               ; preds = %27
-  tail call void @js_free(ptr noundef nonnull %0, ptr noundef nonnull %.028) #29
+  tail call void @js_free(ptr noundef nonnull %0, ptr noundef nonnull %.028) #30
   br label %31
 
 30:                                               ; preds = %27
-  tail call void @free(ptr noundef nonnull %.028) #29
+  tail call void @free(ptr noundef nonnull %.028) #30
   br label %31
 
 31:                                               ; preds = %29, %30, %24, %15, %8, %5, %13
@@ -362,14 +362,14 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 define dso_local range(i32 -1, 1) i32 @js_module_set_import_meta(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4112 x i8], align 16
   %.sroa.037.0..sroa.037.0..cast = inttoptr i64 %1 to ptr
-  %7 = tail call i32 @JS_GetModuleName(ptr noundef %0, ptr noundef %.sroa.037.0..sroa.037.0..cast) #29
-  %8 = tail call ptr @JS_AtomToCString(ptr noundef %0, i32 noundef %7) #29
-  tail call void @JS_FreeAtom(ptr noundef %0, i32 noundef %7) #29
+  %7 = tail call i32 @JS_GetModuleName(ptr noundef %0, ptr noundef %.sroa.037.0..sroa.037.0..cast) #30
+  %8 = tail call ptr @JS_AtomToCString(ptr noundef %0, i32 noundef %7) #30
+  tail call void @JS_FreeAtom(ptr noundef %0, i32 noundef %7) #30
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %JS_FreeValue.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 58) #31
+  %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 58) #32
   %.not44 = icmp eq ptr %10, null
   br i1 %.not44, label %11, label %20
 
@@ -379,28 +379,28 @@ define dso_local range(i32 -1, 1) i32 @js_module_set_import_meta(ptr noundef %0,
   br i1 %.not45, label %18, label %12
 
 12:                                               ; preds = %11
-  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #31
+  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #32
   %14 = getelementptr i8, ptr %6, i64 %13
-  %15 = call ptr @realpath(ptr noundef nonnull %8, ptr noundef %14) #29
+  %15 = call ptr @realpath(ptr noundef nonnull %8, ptr noundef %14) #30
   %.not46 = icmp eq ptr %15, null
   br i1 %.not46, label %16, label %21
 
 16:                                               ; preds = %12
-  %17 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.2) #29
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %8) #29
+  %17 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.2) #30
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %8) #30
   br label %JS_FreeValue.exit
 
 18:                                               ; preds = %11
-  %19 = call ptr @pstrcat(ptr noundef nonnull %6, i32 noundef 4112, ptr noundef nonnull %8) #29
+  %19 = call ptr @pstrcat(ptr noundef nonnull %6, i32 noundef 4112, ptr noundef nonnull %8) #30
   br label %21
 
 20:                                               ; preds = %9
-  call void @pstrcpy(ptr noundef nonnull %6, i32 noundef 4112, ptr noundef nonnull %8) #29
+  call void @pstrcpy(ptr noundef nonnull %6, i32 noundef 4112, ptr noundef nonnull %8) #30
   br label %21
 
 21:                                               ; preds = %18, %12, %20
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %8) #29
-  %22 = call { i64, i64 } @JS_GetImportMeta(ptr noundef %0, ptr noundef %.sroa.037.0..sroa.037.0..cast) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %8) #30
+  %22 = call { i64, i64 } @JS_GetImportMeta(ptr noundef %0, ptr noundef %.sroa.037.0..sroa.037.0..cast) #30
   %23 = extractvalue { i64, i64 } %22, 0
   %24 = extractvalue { i64, i64 } %22, 1
   %25 = and i64 %24, 4294967295
@@ -408,13 +408,13 @@ define dso_local range(i32 -1, 1) i32 @js_module_set_import_meta(ptr noundef %0,
   br i1 %.not48, label %JS_FreeValue.exit, label %26
 
 26:                                               ; preds = %21
-  %27 = call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef nonnull %6) #29
+  %27 = call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef nonnull %6) #30
   %28 = extractvalue { i64, i64 } %27, 0
   %29 = extractvalue { i64, i64 } %27, 1
-  %30 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %23, i64 %24, ptr noundef nonnull @.str.3, i64 %28, i64 %29, i32 noundef 7) #29
+  %30 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %23, i64 %24, ptr noundef nonnull @.str.3, i64 %28, i64 %29, i32 noundef 7) #30
   %31 = icmp ne i32 %4, 0
   %.sroa.041.0.insert.ext = zext i1 %31 to i64
-  %32 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %23, i64 %24, ptr noundef nonnull @.str.4, i64 %.sroa.041.0.insert.ext, i64 1, i32 noundef 7) #29
+  %32 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %23, i64 %24, ptr noundef nonnull @.str.4, i64 %.sroa.041.0.insert.ext, i64 1, i32 noundef 7) #30
   %33 = trunc i64 %24 to i32
   %34 = icmp ugt i32 %33, -12
   br i1 %34, label %35, label %JS_FreeValue.exit
@@ -428,7 +428,7 @@ define dso_local range(i32 -1, 1) i32 @js_module_set_import_meta(ptr noundef %0,
   br i1 %39, label %40, label %JS_FreeValue.exit
 
 40:                                               ; preds = %35
-  call void @__JS_FreeValue(ptr noundef %0, i64 %23, i64 %24) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %23, i64 %24) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %40, %35, %26, %21, %5, %16
@@ -474,36 +474,36 @@ declare { i64, i64 } @JS_NewString(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @js_module_loader(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca i64, align 8
-  %5 = tail call i32 @has_suffix(ptr noundef %1, ptr noundef nonnull @.str.5) #29
+  %5 = tail call i32 @has_suffix(ptr noundef %1, ptr noundef nonnull @.str.5) #30
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %29, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #31
+  %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #32
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %9, label %.thread.i
 
 .thread.i:                                        ; preds = %6
-  %8 = tail call ptr @dlopen(ptr noundef %1, i32 noundef 2) #29
+  %8 = tail call ptr @dlopen(ptr noundef %1, i32 noundef 2) #30
   br label %18
 
 9:                                                ; preds = %6
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #32
   %11 = add i64 %10, 3
-  %12 = tail call ptr @js_malloc(ptr noundef %0, i64 noundef %11) #29
+  %12 = tail call ptr @js_malloc(ptr noundef %0, i64 noundef %11) #30
   %.not39.i = icmp eq ptr %12, null
   br i1 %.not39.i, label %js_module_loader_so.exit, label %13
 
 13:                                               ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %12, ptr noundef nonnull align 1 dereferenceable(3) @.str.18, i64 3, i1 false) #29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %12, ptr noundef nonnull align 1 dereferenceable(3) @.str.18, i64 3, i1 false) #30
   %14 = getelementptr i8, ptr %12, i64 2
-  %15 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %1) #29
-  %16 = tail call ptr @dlopen(ptr noundef nonnull %12, i32 noundef 2) #29
+  %15 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %1) #30
+  %16 = tail call ptr @dlopen(ptr noundef nonnull %12, i32 noundef 2) #30
   %.not40.i = icmp eq ptr %12, %1
   br i1 %.not40.i, label %18, label %17
 
 17:                                               ; preds = %13
-  tail call void @js_free(ptr noundef %0, ptr noundef nonnull %12) #29
+  tail call void @js_free(ptr noundef %0, ptr noundef nonnull %12) #30
   br label %18
 
 18:                                               ; preds = %17, %13, %.thread.i
@@ -512,23 +512,23 @@ define dso_local ptr @js_module_loader(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %.not41.i, label %24, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call ptr @dlsym(ptr noundef nonnull %19, ptr noundef nonnull @.str.20) #29
+  %21 = tail call ptr @dlsym(ptr noundef nonnull %19, ptr noundef nonnull @.str.20) #30
   %.not42.i = icmp eq ptr %21, null
   br i1 %.not42.i, label %26, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call ptr %21(ptr noundef %0, ptr noundef %1) #29
+  %23 = tail call ptr %21(ptr noundef %0, ptr noundef %1) #30
   %.not43.i = icmp eq ptr %23, null
   br i1 %.not43.i, label %26, label %js_module_loader_so.exit
 
 24:                                               ; preds = %18
-  %25 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %1) #29
+  %25 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %1) #30
   br label %js_module_loader_so.exit
 
 26:                                               ; preds = %22, %20
   %.str.22.sink.i = phi ptr [ @.str.21, %20 ], [ @.str.22, %22 ]
-  %27 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull %.str.22.sink.i, ptr noundef %1) #29
-  %28 = tail call i32 @dlclose(ptr noundef nonnull %19) #29
+  %27 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull %.str.22.sink.i, ptr noundef %1) #30
+  %28 = tail call i32 @dlclose(ptr noundef nonnull %19) #30
   br label %js_module_loader_so.exit
 
 29:                                               ; preds = %3
@@ -537,15 +537,15 @@ define dso_local ptr @js_module_loader(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %.not26, label %31, label %33
 
 31:                                               ; preds = %29
-  %32 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %1) #29
+  %32 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %1) #30
   br label %js_module_loader_so.exit
 
 33:                                               ; preds = %29
   %34 = load i64, ptr %4, align 8
-  %35 = tail call { i64, i64 } @JS_Eval(ptr noundef %0, ptr noundef nonnull %30, i64 noundef %34, ptr noundef %1, i32 noundef 33) #29
+  %35 = tail call { i64, i64 } @JS_Eval(ptr noundef %0, ptr noundef nonnull %30, i64 noundef %34, ptr noundef %1, i32 noundef 33) #30
   %36 = extractvalue { i64, i64 } %35, 0
   %37 = extractvalue { i64, i64 } %35, 1
-  tail call void @js_free(ptr noundef %0, ptr noundef nonnull %30) #29
+  tail call void @js_free(ptr noundef %0, ptr noundef nonnull %30) #30
   %38 = and i64 %37, 4294967295
   %.not31 = icmp eq i64 %38, 6
   br i1 %.not31, label %js_module_loader_so.exit, label %39
@@ -565,7 +565,7 @@ define dso_local ptr @js_module_loader(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %46, label %47, label %js_module_loader_so.exit
 
 47:                                               ; preds = %43
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %36, i64 %37) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %36, i64 %37) #30
   br label %js_module_loader_so.exit
 
 js_module_loader_so.exit:                         ; preds = %47, %43, %39, %26, %24, %22, %9, %33, %31
@@ -581,15 +581,15 @@ declare { i64, i64 } @JS_Eval(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @js_init_module_std(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @JS_NewCModule(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @js_std_init) #29
+  %3 = tail call ptr @JS_NewCModule(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @js_std_init) #30
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @JS_AddModuleExportList(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @js_std_funcs, i32 noundef 23) #29
-  %6 = tail call i32 @JS_AddModuleExport(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.7) #29
-  %7 = tail call i32 @JS_AddModuleExport(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.8) #29
-  %8 = tail call i32 @JS_AddModuleExport(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.9) #29
+  %5 = tail call i32 @JS_AddModuleExportList(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @js_std_funcs, i32 noundef 23) #30
+  %6 = tail call i32 @JS_AddModuleExport(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.7) #30
+  %7 = tail call i32 @JS_AddModuleExport(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.8) #30
+  %8 = tail call i32 @JS_AddModuleExport(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.9) #30
   br label %9
 
 9:                                                ; preds = %2, %4
@@ -600,20 +600,20 @@ declare ptr @JS_NewCModule(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @js_std_init(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @JS_NewClassID(ptr noundef nonnull @js_std_file_class_id) #29
-  %4 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
+  %3 = tail call i32 @JS_NewClassID(ptr noundef nonnull @js_std_file_class_id) #30
+  %4 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %5 = load i32, ptr @js_std_file_class_id, align 4
-  %6 = tail call i32 @JS_NewClass(ptr noundef %4, i32 noundef %5, ptr noundef nonnull @js_std_file_class) #29
-  %7 = tail call { i64, i64 } @JS_NewObject(ptr noundef %0) #29
+  %6 = tail call i32 @JS_NewClass(ptr noundef %4, i32 noundef %5, ptr noundef nonnull @js_std_file_class) #30
+  %7 = tail call { i64, i64 } @JS_NewObject(ptr noundef %0) #30
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = extractvalue { i64, i64 } %7, 1
-  tail call void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %8, i64 %9, ptr noundef nonnull @js_std_file_proto_funcs, i32 noundef 17) #29
+  tail call void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %8, i64 %9, ptr noundef nonnull @js_std_file_proto_funcs, i32 noundef 17) #30
   %10 = load i32, ptr @js_std_file_class_id, align 4
-  tail call void @JS_SetClassProto(ptr noundef %0, i32 noundef %10, i64 %8, i64 %9) #29
-  %11 = tail call i32 @JS_SetModuleExportList(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @js_std_funcs, i32 noundef 23) #29
+  tail call void @JS_SetClassProto(ptr noundef %0, i32 noundef %10, i64 %8, i64 %9) #30
+  %11 = tail call i32 @JS_SetModuleExportList(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @js_std_funcs, i32 noundef 23) #30
   %12 = load ptr, ptr @stdin, align 8
   %13 = load i32, ptr @js_std_file_class_id, align 4
-  %14 = tail call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %13) #29
+  %14 = tail call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %13) #30
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = extractvalue { i64, i64 } %14, 1
   %17 = and i64 %16, 4294967295
@@ -625,7 +625,7 @@ define internal noundef i32 @js_std_init(ptr noundef %0, ptr noundef %1) #0 {
   br label %js_new_std_file.exit
 
 19:                                               ; preds = %2
-  %20 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #29
+  %20 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #30
   %.not24.i = icmp eq ptr %20, null
   br i1 %.not24.i, label %21, label %30
 
@@ -643,7 +643,7 @@ define internal noundef i32 @js_std_init(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %28, label %29, label %js_new_std_file.exit
 
 29:                                               ; preds = %24
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %15, i64 %16) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %15, i64 %16) #30
   br label %js_new_std_file.exit
 
 30:                                               ; preds = %19
@@ -652,7 +652,7 @@ define internal noundef i32 @js_std_init(ptr noundef %0, ptr noundef %1) #0 {
   %32 = getelementptr inbounds i8, ptr %20, i64 12
   store i32 0, ptr %32, align 4
   store ptr %12, ptr %20, align 8
-  tail call void @JS_SetOpaque(i64 %15, i64 %16, ptr noundef nonnull %20) #29
+  tail call void @JS_SetOpaque(i64 %15, i64 %16, ptr noundef nonnull %20) #30
   %.sroa.4.0.extract.shift20.i = and i64 %15, -4294967296
   br label %js_new_std_file.exit
 
@@ -662,10 +662,10 @@ js_new_std_file.exit:                             ; preds = %18, %21, %24, %29, 
   %.sroa.4.sroa.3.0.i = phi i64 [ %16, %18 ], [ %16, %30 ], [ 6, %21 ], [ 6, %24 ], [ 6, %29 ]
   %.sroa.018.0.insert.ext.i = and i64 %.sroa.018.0.i, 4294967295
   %.sroa.018.0.insert.insert.i = or disjoint i64 %.sroa.4.sroa.0.0.i, %.sroa.018.0.insert.ext.i
-  %33 = tail call i32 @JS_SetModuleExport(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.7, i64 %.sroa.018.0.insert.insert.i, i64 %.sroa.4.sroa.3.0.i) #29
+  %33 = tail call i32 @JS_SetModuleExport(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.7, i64 %.sroa.018.0.insert.insert.i, i64 %.sroa.4.sroa.3.0.i) #30
   %34 = load ptr, ptr @stdout, align 8
   %35 = load i32, ptr @js_std_file_class_id, align 4
-  %36 = tail call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %35) #29
+  %36 = tail call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %35) #30
   %37 = extractvalue { i64, i64 } %36, 0
   %38 = extractvalue { i64, i64 } %36, 1
   %39 = and i64 %38, 4294967295
@@ -677,7 +677,7 @@ js_new_std_file.exit:                             ; preds = %18, %21, %24, %29, 
   br label %js_new_std_file.exit35
 
 41:                                               ; preds = %js_new_std_file.exit
-  %42 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #29
+  %42 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #30
   %.not24.i25 = icmp eq ptr %42, null
   br i1 %.not24.i25, label %43, label %52
 
@@ -695,7 +695,7 @@ js_new_std_file.exit:                             ; preds = %18, %21, %24, %29, 
   br i1 %50, label %51, label %js_new_std_file.exit35
 
 51:                                               ; preds = %46
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %37, i64 %38) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %37, i64 %38) #30
   br label %js_new_std_file.exit35
 
 52:                                               ; preds = %41
@@ -704,7 +704,7 @@ js_new_std_file.exit:                             ; preds = %18, %21, %24, %29, 
   %54 = getelementptr inbounds i8, ptr %42, i64 12
   store i32 0, ptr %54, align 4
   store ptr %34, ptr %42, align 8
-  tail call void @JS_SetOpaque(i64 %37, i64 %38, ptr noundef nonnull %42) #29
+  tail call void @JS_SetOpaque(i64 %37, i64 %38, ptr noundef nonnull %42) #30
   %.sroa.4.0.extract.shift20.i26 = and i64 %37, -4294967296
   br label %js_new_std_file.exit35
 
@@ -714,10 +714,10 @@ js_new_std_file.exit35:                           ; preds = %40, %43, %46, %51, 
   %.sroa.4.sroa.3.0.i29 = phi i64 [ %38, %40 ], [ %38, %52 ], [ 6, %43 ], [ 6, %46 ], [ 6, %51 ]
   %.sroa.018.0.insert.ext.i30 = and i64 %.sroa.018.0.i27, 4294967295
   %.sroa.018.0.insert.insert.i31 = or disjoint i64 %.sroa.4.sroa.0.0.i28, %.sroa.018.0.insert.ext.i30
-  %55 = tail call i32 @JS_SetModuleExport(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.8, i64 %.sroa.018.0.insert.insert.i31, i64 %.sroa.4.sroa.3.0.i29) #29
+  %55 = tail call i32 @JS_SetModuleExport(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.8, i64 %.sroa.018.0.insert.insert.i31, i64 %.sroa.4.sroa.3.0.i29) #30
   %56 = load ptr, ptr @stderr, align 8
   %57 = load i32, ptr @js_std_file_class_id, align 4
-  %58 = tail call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %57) #29
+  %58 = tail call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %57) #30
   %59 = extractvalue { i64, i64 } %58, 0
   %60 = extractvalue { i64, i64 } %58, 1
   %61 = and i64 %60, 4294967295
@@ -729,7 +729,7 @@ js_new_std_file.exit35:                           ; preds = %40, %43, %46, %51, 
   br label %js_new_std_file.exit47
 
 63:                                               ; preds = %js_new_std_file.exit35
-  %64 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #29
+  %64 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #30
   %.not24.i37 = icmp eq ptr %64, null
   br i1 %.not24.i37, label %65, label %74
 
@@ -747,7 +747,7 @@ js_new_std_file.exit35:                           ; preds = %40, %43, %46, %51, 
   br i1 %72, label %73, label %js_new_std_file.exit47
 
 73:                                               ; preds = %68
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %59, i64 %60) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %59, i64 %60) #30
   br label %js_new_std_file.exit47
 
 74:                                               ; preds = %63
@@ -756,7 +756,7 @@ js_new_std_file.exit35:                           ; preds = %40, %43, %46, %51, 
   %76 = getelementptr inbounds i8, ptr %64, i64 12
   store i32 0, ptr %76, align 4
   store ptr %56, ptr %64, align 8
-  tail call void @JS_SetOpaque(i64 %59, i64 %60, ptr noundef nonnull %64) #29
+  tail call void @JS_SetOpaque(i64 %59, i64 %60, ptr noundef nonnull %64) #30
   %.sroa.4.0.extract.shift20.i38 = and i64 %59, -4294967296
   br label %js_new_std_file.exit47
 
@@ -766,7 +766,7 @@ js_new_std_file.exit47:                           ; preds = %62, %65, %68, %73, 
   %.sroa.4.sroa.3.0.i41 = phi i64 [ %60, %62 ], [ %60, %74 ], [ 6, %65 ], [ 6, %68 ], [ 6, %73 ]
   %.sroa.018.0.insert.ext.i42 = and i64 %.sroa.018.0.i39, 4294967295
   %.sroa.018.0.insert.insert.i43 = or disjoint i64 %.sroa.4.sroa.0.0.i40, %.sroa.018.0.insert.ext.i42
-  %77 = tail call i32 @JS_SetModuleExport(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.9, i64 %.sroa.018.0.insert.insert.i43, i64 %.sroa.4.sroa.3.0.i41) #29
+  %77 = tail call i32 @JS_SetModuleExport(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.9, i64 %.sroa.018.0.insert.insert.i43, i64 %.sroa.4.sroa.3.0.i41) #30
   ret i32 0
 }
 
@@ -782,13 +782,13 @@ define dso_local void @js_std_set_worker_new_context_func(ptr noundef %0) local_
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @js_init_module_os(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @JS_NewCModule(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @js_os_init) #29
+  %3 = tail call ptr @JS_NewCModule(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @js_os_init) #30
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @JS_AddModuleExportList(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @js_os_funcs, i32 noundef 71) #29
-  %6 = tail call i32 @JS_AddModuleExport(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.10) #29
+  %5 = tail call i32 @JS_AddModuleExportList(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @js_os_funcs, i32 noundef 71) #30
+  %6 = tail call i32 @JS_AddModuleExport(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.10) #30
   br label %7
 
 7:                                                ; preds = %2, %4
@@ -798,22 +798,22 @@ define dso_local ptr @js_init_module_os(ptr noundef %0, ptr noundef %1) local_un
 ; Function Attrs: nounwind uwtable
 define internal i32 @js_os_init(ptr noundef %0, ptr noundef %1) #0 {
   store ptr @js_os_poll, ptr @os_poll_func, align 8
-  %3 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  %4 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %3) #29
-  %5 = tail call i32 @JS_NewClassID(ptr noundef nonnull @js_worker_class_id) #29
-  %6 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
+  %3 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  %4 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %3) #30
+  %5 = tail call i32 @JS_NewClassID(ptr noundef nonnull @js_worker_class_id) #30
+  %6 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %7 = load i32, ptr @js_worker_class_id, align 4
-  %8 = tail call i32 @JS_NewClass(ptr noundef %6, i32 noundef %7, ptr noundef nonnull @js_worker_class) #29
-  %9 = tail call { i64, i64 } @JS_NewObject(ptr noundef %0) #29
+  %8 = tail call i32 @JS_NewClass(ptr noundef %6, i32 noundef %7, ptr noundef nonnull @js_worker_class) #30
+  %9 = tail call { i64, i64 } @JS_NewObject(ptr noundef %0) #30
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = extractvalue { i64, i64 } %9, 1
-  tail call void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %10, i64 %11, ptr noundef nonnull @js_worker_proto_funcs, i32 noundef 2) #29
-  %12 = tail call { i64, i64 } @JS_NewCFunction2(ptr noundef %0, ptr noundef nonnull @js_worker_ctor, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 2, i32 noundef 0) #29
+  tail call void @JS_SetPropertyFunctionList(ptr noundef %0, i64 %10, i64 %11, ptr noundef nonnull @js_worker_proto_funcs, i32 noundef 2) #30
+  %12 = tail call { i64, i64 } @JS_NewCFunction2(ptr noundef %0, ptr noundef nonnull @js_worker_ctor, ptr noundef nonnull @.str.10, i32 noundef 1, i32 noundef 2, i32 noundef 0) #30
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
-  tail call void @JS_SetConstructor(ptr noundef %0, i64 %13, i64 %14, i64 %10, i64 %11) #29
+  tail call void @JS_SetConstructor(ptr noundef %0, i64 %13, i64 %14, i64 %10, i64 %11) #30
   %15 = load i32, ptr @js_worker_class_id, align 4
-  tail call void @JS_SetClassProto(ptr noundef %0, i32 noundef %15, i64 %10, i64 %11) #29
+  tail call void @JS_SetClassProto(ptr noundef %0, i32 noundef %15, i64 %10, i64 %11) #30
   %16 = getelementptr inbounds i8, ptr %4, i64 72
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
@@ -829,33 +829,33 @@ define internal i32 @js_os_init(ptr noundef %0, ptr noundef %1) #0 {
   %22 = tail call fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64 0, i64 3, ptr noundef nonnull %17, ptr noundef nonnull %20)
   %23 = extractvalue { i64, i64 } %22, 0
   %24 = extractvalue { i64, i64 } %22, 1
-  %25 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %13, i64 %14, ptr noundef nonnull @.str.101, i64 %23, i64 %24, i32 noundef 7) #29
+  %25 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %13, i64 %14, ptr noundef nonnull @.str.101, i64 %23, i64 %24, i32 noundef 7) #30
   br label %26
 
 26:                                               ; preds = %21, %18, %2
-  %27 = tail call i32 @JS_SetModuleExport(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.10, i64 %13, i64 %14) #29
-  %28 = tail call i32 @JS_SetModuleExportList(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @js_os_funcs, i32 noundef 71) #29
+  %27 = tail call i32 @JS_SetModuleExport(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.10, i64 %13, i64 %14) #30
+  %28 = tail call i32 @JS_SetModuleExportList(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @js_os_funcs, i32 noundef 71) #30
   ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @js_std_add_helpers(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = tail call { i64, i64 } @JS_GetGlobalObject(ptr noundef %0) #29
+  %4 = tail call { i64, i64 } @JS_GetGlobalObject(ptr noundef %0) #30
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
-  %7 = tail call { i64, i64 } @JS_NewObject(ptr noundef %0) #29
+  %7 = tail call { i64, i64 } @JS_NewObject(ptr noundef %0) #30
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = extractvalue { i64, i64 } %7, 1
-  %10 = tail call { i64, i64 } @JS_NewCFunction2(ptr noundef %0, ptr noundef nonnull @js_print, ptr noundef nonnull @.str.11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #29
+  %10 = tail call { i64, i64 } @JS_NewCFunction2(ptr noundef %0, ptr noundef nonnull @js_print, ptr noundef nonnull @.str.11, i32 noundef 1, i32 noundef 0, i32 noundef 0) #30
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
-  %13 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %8, i64 %9, ptr noundef nonnull @.str.11, i64 %11, i64 %12) #29
-  %14 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %5, i64 %6, ptr noundef nonnull @.str.12, i64 %8, i64 %9) #29
+  %13 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %8, i64 %9, ptr noundef nonnull @.str.11, i64 %11, i64 %12) #30
+  %14 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %5, i64 %6, ptr noundef nonnull @.str.12, i64 %8, i64 %9) #30
   %15 = icmp sgt i32 %1, -1
   br i1 %15, label %16, label %28
 
 16:                                               ; preds = %3
-  %17 = tail call { i64, i64 } @JS_NewArray(ptr noundef %0) #29
+  %17 = tail call { i64, i64 } @JS_NewArray(ptr noundef %0) #30
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
   %.not = icmp eq i32 %1, 0
@@ -869,28 +869,28 @@ define dso_local void @js_std_add_helpers(ptr noundef %0, i32 noundef %1, ptr no
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %20 = getelementptr ptr, ptr %2, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef %21) #29
+  %22 = tail call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef %21) #30
   %23 = extractvalue { i64, i64 } %22, 0
   %24 = extractvalue { i64, i64 } %22, 1
   %25 = trunc nuw nsw i64 %indvars.iv to i32
-  %26 = tail call i32 @JS_SetPropertyUint32(ptr noundef %0, i64 %18, i64 %19, i32 noundef %25, i64 %23, i64 %24) #29
+  %26 = tail call i32 @JS_SetPropertyUint32(ptr noundef %0, i64 %18, i64 %19, i32 noundef %25, i64 %23, i64 %24) #30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
-  %27 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %5, i64 %6, ptr noundef nonnull @.str.13, i64 %18, i64 %19) #29
+  %27 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %5, i64 %6, ptr noundef nonnull @.str.13, i64 %18, i64 %19) #30
   br label %28
 
 28:                                               ; preds = %._crit_edge, %3
-  %29 = tail call { i64, i64 } @JS_NewCFunction2(ptr noundef %0, ptr noundef nonnull @js_print, ptr noundef nonnull @.str.14, i32 noundef 1, i32 noundef 0, i32 noundef 0) #29
+  %29 = tail call { i64, i64 } @JS_NewCFunction2(ptr noundef %0, ptr noundef nonnull @js_print, ptr noundef nonnull @.str.14, i32 noundef 1, i32 noundef 0, i32 noundef 0) #30
   %30 = extractvalue { i64, i64 } %29, 0
   %31 = extractvalue { i64, i64 } %29, 1
-  %32 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %5, i64 %6, ptr noundef nonnull @.str.14, i64 %30, i64 %31) #29
-  %33 = tail call { i64, i64 } @JS_NewCFunction2(ptr noundef %0, ptr noundef nonnull @js_loadScript, ptr noundef nonnull @.str.15, i32 noundef 1, i32 noundef 0, i32 noundef 0) #29
+  %32 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %5, i64 %6, ptr noundef nonnull @.str.14, i64 %30, i64 %31) #30
+  %33 = tail call { i64, i64 } @JS_NewCFunction2(ptr noundef %0, ptr noundef nonnull @js_loadScript, ptr noundef nonnull @.str.15, i32 noundef 1, i32 noundef 0, i32 noundef 0) #30
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  %36 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %5, i64 %6, ptr noundef nonnull @.str.15, i64 %34, i64 %35) #29
+  %36 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %5, i64 %6, ptr noundef nonnull @.str.15, i64 %34, i64 %35) #30
   %37 = trunc i64 %6 to i32
   %38 = icmp ugt i32 %37, -12
   br i1 %38, label %39, label %JS_FreeValue.exit
@@ -904,7 +904,7 @@ define dso_local void @js_std_add_helpers(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %43, label %44, label %JS_FreeValue.exit
 
 44:                                               ; preds = %39
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %5, i64 %6) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %5, i64 %6) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %28, %39, %44
@@ -941,7 +941,7 @@ define internal { i64, i64 } @js_print(ptr noundef %0, i64 %1, i64 %2, i32 nound
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8
-  %15 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %6, i64 %12, i64 %14, i32 noundef 0) #29
+  %15 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %6, i64 %12, i64 %14, i32 noundef 0) #30
   %.not13 = icmp eq ptr %15, null
   br i1 %.not13, label %.loopexit, label %16
 
@@ -949,7 +949,7 @@ define internal { i64, i64 } @js_print(ptr noundef %0, i64 %1, i64 %2, i32 nound
   %17 = load i64, ptr %6, align 8
   %18 = load ptr, ptr @stdout, align 8
   %19 = call i64 @fwrite(ptr noundef nonnull %15, i64 noundef 1, i64 noundef %17, ptr noundef %18)
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %15) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %15) #30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -974,7 +974,7 @@ define internal { i64, i64 } @js_loadScript(ptr noundef %0, i64 %1, i64 %2, i32 
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %7, i64 %9, i32 noundef 0) #29
+  %10 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %7, i64 %9, i32 noundef 0) #30
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %21, label %11
 
@@ -984,17 +984,17 @@ define internal { i64, i64 } @js_loadScript(ptr noundef %0, i64 %1, i64 %2, i32 
   br i1 %.not26, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.208, ptr noundef nonnull %10) #29
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %10) #29
+  %14 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.208, ptr noundef nonnull %10) #30
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %10) #30
   br label %21
 
 15:                                               ; preds = %11
   %16 = load i64, ptr %6, align 8
-  %17 = tail call { i64, i64 } @JS_Eval(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %16, ptr noundef nonnull %10, i32 noundef 0) #29
+  %17 = tail call { i64, i64 } @JS_Eval(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %16, ptr noundef nonnull %10, i32 noundef 0) #30
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
-  tail call void @js_free(ptr noundef %0, ptr noundef nonnull %12) #29
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %10) #29
+  tail call void @js_free(ptr noundef %0, ptr noundef nonnull %12) #30
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %10) #30
   %.sroa.4.0.extract.shift = and i64 %18, -4294967296
   %20 = and i64 %18, 4294967295
   br label %21
@@ -1018,8 +1018,8 @@ define dso_local void @js_std_init_handlers(ptr noundef %0) local_unnamed_addr #
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 40, i64 1, ptr %4) #32
-  tail call void @exit(i32 noundef 1) #33
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 40, i64 1, ptr %4) #33
+  tail call void @exit(i32 noundef 1) #34
   unreachable
 
 6:                                                ; preds = %1
@@ -1040,7 +1040,7 @@ define dso_local void @js_std_init_handlers(ptr noundef %0) local_unnamed_addr #
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %calloc, i64 68
   store i32 1, ptr %14, align 4
-  tail call void @JS_SetRuntimeOpaque(ptr noundef %0, ptr noundef nonnull %calloc) #29
+  tail call void @JS_SetRuntimeOpaque(ptr noundef %0, ptr noundef nonnull %calloc) #30
   %15 = getelementptr inbounds i8, ptr %2, i64 24
   store i64 0, ptr %15, align 8
   store ptr @js_sab_alloc, ptr %2, align 8
@@ -1048,7 +1048,7 @@ define dso_local void @js_std_init_handlers(ptr noundef %0) local_unnamed_addr #
   store ptr @js_sab_free, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr @js_sab_dup, ptr %17, align 8
-  call void @JS_SetSharedArrayBufferFunctions(ptr noundef %0, ptr noundef nonnull %2) #29
+  call void @JS_SetSharedArrayBufferFunctions(ptr noundef %0, ptr noundef nonnull %2) #30
   ret void
 }
 
@@ -1066,7 +1066,7 @@ declare void @JS_SetRuntimeOpaque(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define internal noalias ptr @js_sab_alloc(ptr nocapture readnone %0, i64 noundef %1) #12 {
   %3 = add i64 %1, 8
-  %4 = tail call noalias ptr @malloc(i64 noundef %3) #30
+  %4 = tail call noalias ptr @malloc(i64 noundef %3) #31
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 
@@ -1088,7 +1088,7 @@ define internal void @js_sab_free(ptr nocapture readnone %0, ptr nocapture nound
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  tail call void @free(ptr noundef %3) #29
+  tail call void @free(ptr noundef %3) #30
   br label %7
 
 7:                                                ; preds = %6, %2
@@ -1106,7 +1106,7 @@ declare void @JS_SetSharedArrayBufferFunctions(ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @js_std_free_handlers(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %0) #29
+  %2 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %0) #30
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not40 = icmp eq ptr %4, %2
@@ -1144,14 +1144,14 @@ define dso_local void @js_std_free_handlers(ptr noundef %0) local_unnamed_addr #
   br i1 %20, label %21, label %JS_FreeValueRT.exit.i
 
 21:                                               ; preds = %16
-  tail call void @__JS_FreeValueRT(ptr noundef %0, i64 %11, i64 %13) #29
+  tail call void @__JS_FreeValueRT(ptr noundef %0, i64 %11, i64 %13) #30
   br label %JS_FreeValueRT.exit.i
 
 JS_FreeValueRT.exit.i:                            ; preds = %21, %16, %8
   br i1 %9, label %8, label %free_rw_handler.exit, !llvm.loop !10
 
 free_rw_handler.exit:                             ; preds = %JS_FreeValueRT.exit.i
-  tail call void @js_free_rt(ptr noundef %0, ptr noundef nonnull %.041) #29
+  tail call void @js_free_rt(ptr noundef %0, ptr noundef nonnull %.041) #30
   %.not = icmp eq ptr %.032, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
@@ -1188,11 +1188,11 @@ free_rw_handler.exit:                             ; preds = %JS_FreeValueRT.exit
   br i1 %37, label %38, label %free_sh.exit
 
 38:                                               ; preds = %33
-  tail call void @__JS_FreeValueRT(ptr noundef %0, i64 %28, i64 %30) #29
+  tail call void @__JS_FreeValueRT(ptr noundef %0, i64 %28, i64 %30) #30
   br label %free_sh.exit
 
 free_sh.exit:                                     ; preds = %.lr.ph45, %33, %38
-  tail call void @js_free_rt(ptr noundef %0, ptr noundef nonnull %.143) #29
+  tail call void @js_free_rt(ptr noundef %0, ptr noundef nonnull %.143) #30
   %.not36 = icmp eq ptr %.133, %22
   br i1 %.not36, label %._crit_edge46, label %.lr.ph45, !llvm.loop !12
 
@@ -1229,11 +1229,11 @@ free_sh.exit:                                     ; preds = %.lr.ph45, %33, %38
   br i1 %54, label %55, label %free_timer.exit
 
 55:                                               ; preds = %50
-  tail call void @__JS_FreeValueRT(ptr noundef %0, i64 %45, i64 %47) #29
+  tail call void @__JS_FreeValueRT(ptr noundef %0, i64 %45, i64 %47) #30
   br label %free_timer.exit
 
 free_timer.exit:                                  ; preds = %.lr.ph50, %50, %55
-  tail call void @js_free_rt(ptr noundef %0, ptr noundef nonnull %.248) #29
+  tail call void @js_free_rt(ptr noundef %0, ptr noundef nonnull %.248) #30
   %.not37 = icmp eq ptr %.234, %39
   br i1 %.not37, label %._crit_edge51, label %.lr.ph50, !llvm.loop !13
 
@@ -1244,8 +1244,8 @@ free_timer.exit:                                  ; preds = %.lr.ph50, %50, %55
   %58 = getelementptr inbounds i8, ptr %2, i64 80
   %59 = load ptr, ptr %58, align 8
   tail call fastcc void @js_free_message_pipe(ptr noundef %59)
-  tail call void @free(ptr noundef %2) #29
-  tail call void @JS_SetRuntimeOpaque(ptr noundef %0, ptr noundef null) #29
+  tail call void @free(ptr noundef %2) #30
+  tail call void @JS_SetRuntimeOpaque(ptr noundef %0, ptr noundef null) #30
   ret void
 }
 
@@ -1292,7 +1292,7 @@ define internal fastcc void @js_free_message_pipe(ptr noundef %0) unnamed_addr #
   br i1 %18, label %19, label %js_sab_free.exit.i
 
 19:                                               ; preds = %12
-  tail call void @free(ptr noundef %16) #29
+  tail call void @free(ptr noundef %16) #30
   br label %js_sab_free.exit.i
 
 js_sab_free.exit.i:                               ; preds = %19, %12
@@ -1304,33 +1304,33 @@ js_sab_free.exit.i:                               ; preds = %19, %12
 js_free_message.exit:                             ; preds = %js_sab_free.exit.i, %.lr.ph
   %23 = getelementptr inbounds i8, ptr %.018, i64 32
   %24 = load ptr, ptr %23, align 8
-  tail call void @free(ptr noundef %24) #29
+  tail call void @free(ptr noundef %24) #30
   %25 = getelementptr inbounds i8, ptr %.018, i64 16
   %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %26) #29
-  tail call void @free(ptr noundef nonnull %.018) #29
+  tail call void @free(ptr noundef %26) #30
+  tail call void @free(ptr noundef nonnull %.018) #30
   %.not16 = icmp eq ptr %.014, %6
   br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %js_free_message.exit, %5
   %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %27) #29
+  %28 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %27) #30
   %29 = getelementptr inbounds i8, ptr %0, i64 64
   %30 = load i32, ptr %29, align 8
-  %31 = tail call i32 @close(i32 noundef %30) #29
+  %31 = tail call i32 @close(i32 noundef %30) #30
   %32 = getelementptr inbounds i8, ptr %0, i64 68
   %33 = load i32, ptr %32, align 4
-  %34 = tail call i32 @close(i32 noundef %33) #29
-  tail call void @free(ptr noundef %0) #29
+  %34 = tail call i32 @close(i32 noundef %33) #30
+  tail call void @free(ptr noundef %0) #30
   br label %35
 
 35:                                               ; preds = %1, %._crit_edge, %2
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local void @js_std_dump_error(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call { i64, i64 } @JS_GetException(ptr noundef %0) #29
+; Function Attrs: cold nounwind uwtable
+define dso_local void @js_std_dump_error(ptr noundef %0) local_unnamed_addr #15 {
+  %2 = tail call { i64, i64 } @JS_GetException(ptr noundef %0) #30
   %3 = extractvalue { i64, i64 } %2, 0
   %4 = extractvalue { i64, i64 } %2, 1
   tail call fastcc void @js_std_dump_error1(ptr noundef %0, i64 %3, i64 %4)
@@ -1347,7 +1347,7 @@ define dso_local void @js_std_dump_error(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %12, label %JS_FreeValue.exit
 
 12:                                               ; preds = %7
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %3, i64 %4) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %3, i64 %4) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %1, %7, %12
@@ -1356,21 +1356,21 @@ JS_FreeValue.exit:                                ; preds = %1, %7, %12
 
 declare { i64, i64 } @JS_GetException(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @js_std_dump_error1(ptr noundef %0, i64 %1, i64 %2) unnamed_addr #0 {
-  %4 = tail call i32 @JS_IsError(ptr noundef %0, i64 %1, i64 %2) #29
+; Function Attrs: cold nounwind uwtable
+define internal fastcc void @js_std_dump_error1(ptr noundef %0, i64 %1, i64 %2) unnamed_addr #15 {
+  %4 = tail call i32 @JS_IsError(ptr noundef %0, i64 %1, i64 %2) #30
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %1, i64 %2, i32 noundef 0) #29
+  %6 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %1, i64 %2, i32 noundef 0) #30
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.210, ptr noundef nonnull %6) #34
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %6) #29
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.210, ptr noundef nonnull %6) #35
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %6) #30
   br label %js_dump_obj.exit
 
 9:                                                ; preds = %3
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.211, i64 12, i64 1, ptr %5) #32
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.211, i64 12, i64 1, ptr %5) #33
   br label %js_dump_obj.exit
 
 js_dump_obj.exit:                                 ; preds = %7, %9
@@ -1378,7 +1378,7 @@ js_dump_obj.exit:                                 ; preds = %7, %9
   br i1 %.not, label %JS_FreeValue.exit, label %11
 
 11:                                               ; preds = %js_dump_obj.exit
-  %12 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull @.str.209) #29
+  %12 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull @.str.209) #30
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
   %15 = and i64 %14, 4294967295
@@ -1387,17 +1387,17 @@ js_dump_obj.exit:                                 ; preds = %7, %9
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %13, i64 %14, i32 noundef 0) #29
+  %18 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %13, i64 %14, i32 noundef 0) #30
   %.not.i17 = icmp eq ptr %18, null
   br i1 %.not.i17, label %21, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.210, ptr noundef nonnull %18) #34
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %18) #29
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.210, ptr noundef nonnull %18) #35
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %18) #30
   br label %js_dump_obj.exit18
 
 21:                                               ; preds = %16
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.211, i64 12, i64 1, ptr %17) #32
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.211, i64 12, i64 1, ptr %17) #33
   br label %js_dump_obj.exit18
 
 js_dump_obj.exit18:                               ; preds = %21, %19, %11
@@ -1414,7 +1414,7 @@ js_dump_obj.exit18:                               ; preds = %21, %19, %11
   br i1 %29, label %30, label %JS_FreeValue.exit
 
 30:                                               ; preds = %25
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %13, i64 %14) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %13, i64 %14) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %30, %25, %js_dump_obj.exit18, %js_dump_obj.exit
@@ -1428,7 +1428,7 @@ define dso_local void @js_std_promise_rejection_tracker(ptr noundef %0, i64 %1, 
 
 8:                                                ; preds = %7
   %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 38, i64 1, ptr %9) #32
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 38, i64 1, ptr %9) #33
   tail call fastcc void @js_std_dump_error1(ptr noundef %0, i64 %3, i64 %4)
   br label %11
 
@@ -1442,51 +1442,34 @@ define dso_local void @js_std_loop(ptr noundef %0) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %.backedge, %1
-  %4 = call ptr @JS_GetRuntime(ptr noundef %0) #29
-  %5 = call i32 @JS_ExecutePendingJob(ptr noundef %4, ptr noundef nonnull %2) #29
+  %4 = call ptr @JS_GetRuntime(ptr noundef %0) #30
+  %5 = call i32 @JS_ExecutePendingJob(ptr noundef %4, ptr noundef nonnull %2) #30
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %.backedge
 
-.backedge:                                        ; preds = %3, %23
+.backedge:                                        ; preds = %3, %13
   br label %3
 
 7:                                                ; preds = %3
   %8 = icmp slt i32 %5, 0
-  br i1 %8, label %9, label %js_std_dump_error.exit
+  br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %2, align 8
-  %11 = call { i64, i64 } @JS_GetException(ptr noundef %10) #29
-  %12 = extractvalue { i64, i64 } %11, 0
-  %13 = extractvalue { i64, i64 } %11, 1
-  call fastcc void @js_std_dump_error1(ptr noundef %10, i64 %12, i64 %13)
-  %14 = trunc i64 %13 to i32
-  %15 = icmp ugt i32 %14, -12
-  br i1 %15, label %16, label %js_std_dump_error.exit
+  call void @js_std_dump_error(ptr noundef %10)
+  br label %11
 
-16:                                               ; preds = %9
-  %17 = inttoptr i64 %12 to ptr
-  %18 = load i32, ptr %17, align 4
-  %19 = add i32 %18, -1
-  store i32 %19, ptr %17, align 4
-  %20 = icmp slt i32 %19, 1
-  br i1 %20, label %21, label %js_std_dump_error.exit
+11:                                               ; preds = %7, %9
+  %12 = load ptr, ptr @os_poll_func, align 8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %15, label %13
 
-21:                                               ; preds = %16
-  call void @__JS_FreeValue(ptr noundef %10, i64 %12, i64 %13) #29
-  br label %js_std_dump_error.exit
+13:                                               ; preds = %11
+  %14 = call i32 @js_os_poll(ptr noundef %0), !callees !16
+  %.not4 = icmp eq i32 %14, 0
+  br i1 %.not4, label %.backedge, label %15
 
-js_std_dump_error.exit:                           ; preds = %21, %16, %9, %7
-  %22 = load ptr, ptr @os_poll_func, align 8
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %25, label %23
-
-23:                                               ; preds = %js_std_dump_error.exit
-  %24 = call i32 @js_os_poll(ptr noundef %0), !callees !16
-  %.not4 = icmp eq i32 %24, 0
-  br i1 %.not4, label %.backedge, label %25
-
-25:                                               ; preds = %js_std_dump_error.exit, %23
+15:                                               ; preds = %11, %13
   ret void
 }
 
@@ -1500,7 +1483,7 @@ define dso_local { i64, i64 } @js_std_await(ptr noundef %0, i64 %1, i64 %2) loca
   br label %5
 
 5:                                                ; preds = %.backedge, %3
-  %6 = call i32 @JS_PromiseState(ptr noundef %0, i64 %1, i64 %2) #29
+  %6 = call i32 @JS_PromiseState(ptr noundef %0, i64 %1, i64 %2) #30
   switch i32 %6, label %JS_FreeValue.exit [
     i32 1, label %7
     i32 2, label %18
@@ -1508,7 +1491,7 @@ define dso_local { i64, i64 } @js_std_await(ptr noundef %0, i64 %1, i64 %2) loca
   ]
 
 7:                                                ; preds = %5
-  %8 = call { i64, i64 } @JS_PromiseResult(ptr noundef %0, i64 %1, i64 %2) #29
+  %8 = call { i64, i64 } @JS_PromiseResult(ptr noundef %0, i64 %1, i64 %2) #30
   %9 = extractvalue { i64, i64 } %8, 0
   %10 = extractvalue { i64, i64 } %8, 1
   %11 = trunc i64 %2 to i32
@@ -1524,10 +1507,10 @@ define dso_local { i64, i64 } @js_std_await(ptr noundef %0, i64 %1, i64 %2) loca
   br i1 %17, label %JS_FreeValue.exit.sink.split, label %JS_FreeValue.exit
 
 18:                                               ; preds = %5
-  %19 = call { i64, i64 } @JS_PromiseResult(ptr noundef %0, i64 %1, i64 %2) #29
+  %19 = call { i64, i64 } @JS_PromiseResult(ptr noundef %0, i64 %1, i64 %2) #30
   %20 = extractvalue { i64, i64 } %19, 0
   %21 = extractvalue { i64, i64 } %19, 1
-  %22 = call { i64, i64 } @JS_Throw(ptr noundef %0, i64 %20, i64 %21) #29
+  %22 = call { i64, i64 } @JS_Throw(ptr noundef %0, i64 %20, i64 %21) #30
   %23 = extractvalue { i64, i64 } %22, 0
   %24 = extractvalue { i64, i64 } %22, 1
   %25 = trunc i64 %2 to i32
@@ -1543,49 +1526,32 @@ define dso_local { i64, i64 } @js_std_await(ptr noundef %0, i64 %1, i64 %2) loca
   br i1 %31, label %JS_FreeValue.exit.sink.split, label %JS_FreeValue.exit
 
 32:                                               ; preds = %5
-  %33 = call ptr @JS_GetRuntime(ptr noundef %0) #29
-  %34 = call i32 @JS_ExecutePendingJob(ptr noundef %33, ptr noundef nonnull %4) #29
+  %33 = call ptr @JS_GetRuntime(ptr noundef %0) #30
+  %34 = call i32 @JS_ExecutePendingJob(ptr noundef %33, ptr noundef nonnull %4) #30
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %js_std_dump_error.exit
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %4, align 8
-  %38 = call { i64, i64 } @JS_GetException(ptr noundef %37) #29
-  %39 = extractvalue { i64, i64 } %38, 0
-  %40 = extractvalue { i64, i64 } %38, 1
-  call fastcc void @js_std_dump_error1(ptr noundef %37, i64 %39, i64 %40)
-  %41 = trunc i64 %40 to i32
-  %42 = icmp ugt i32 %41, -12
-  br i1 %42, label %43, label %js_std_dump_error.exit
+  call void @js_std_dump_error(ptr noundef %37)
+  br label %38
 
-43:                                               ; preds = %36
-  %44 = inttoptr i64 %39 to ptr
-  %45 = load i32, ptr %44, align 4
-  %46 = add i32 %45, -1
-  store i32 %46, ptr %44, align 4
-  %47 = icmp slt i32 %46, 1
-  br i1 %47, label %48, label %js_std_dump_error.exit
+38:                                               ; preds = %36, %32
+  %39 = load ptr, ptr @os_poll_func, align 8
+  %.not = icmp eq ptr %39, null
+  br i1 %.not, label %.backedge, label %40
 
-48:                                               ; preds = %43
-  call void @__JS_FreeValue(ptr noundef %37, i64 %39, i64 %40) #29
-  br label %js_std_dump_error.exit
-
-js_std_dump_error.exit:                           ; preds = %48, %43, %36, %32
-  %49 = load ptr, ptr @os_poll_func, align 8
-  %.not = icmp eq ptr %49, null
-  br i1 %.not, label %.backedge, label %50
-
-.backedge:                                        ; preds = %js_std_dump_error.exit, %50
+.backedge:                                        ; preds = %38, %40
   br label %5
 
-50:                                               ; preds = %js_std_dump_error.exit
-  %51 = call i32 @js_os_poll(ptr noundef %0), !callees !16
+40:                                               ; preds = %38
+  %41 = call i32 @js_os_poll(ptr noundef %0), !callees !16
   br label %.backedge
 
 JS_FreeValue.exit.sink.split:                     ; preds = %27, %13
   %.sroa.024.0.ph = phi i64 [ %9, %13 ], [ %23, %27 ]
   %.sroa.4.0.ph = phi i64 [ %10, %13 ], [ %24, %27 ]
-  call void @__JS_FreeValue(ptr noundef %0, i64 %1, i64 %2) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %1, i64 %2) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %5, %JS_FreeValue.exit.sink.split, %27, %18, %13, %7
@@ -1604,7 +1570,7 @@ declare { i64, i64 } @JS_Throw(ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @js_std_eval_binary(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call { i64, i64 } @JS_ReadObject(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 1) #29
+  %5 = tail call { i64, i64 } @JS_ReadObject(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 1) #30
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
   %8 = and i64 %7, 4294967295
@@ -1627,7 +1593,7 @@ define dso_local void @js_std_eval_binary(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %10, label %15, label %30
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @JS_ResolveModule(ptr noundef %0, i64 %6, i64 %7) #29
+  %16 = tail call i32 @JS_ResolveModule(ptr noundef %0, i64 %6, i64 %7) #30
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %24
 
@@ -1640,19 +1606,19 @@ define dso_local void @js_std_eval_binary(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %22, label %23, label %JS_FreeValue.exit
 
 23:                                               ; preds = %18
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %6, i64 %7) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %6, i64 %7) #30
   br label %JS_FreeValue.exit
 
 24:                                               ; preds = %15
   %25 = tail call i32 @js_module_set_import_meta(ptr noundef %0, i64 %6, i64 poison, i32 noundef 0, i32 noundef 1)
-  %26 = tail call { i64, i64 } @JS_EvalFunction(ptr noundef %0, i64 %6, i64 %7) #29
+  %26 = tail call { i64, i64 } @JS_EvalFunction(ptr noundef %0, i64 %6, i64 %7) #30
   %27 = extractvalue { i64, i64 } %26, 0
   %28 = extractvalue { i64, i64 } %26, 1
   %29 = tail call { i64, i64 } @js_std_await(ptr noundef %0, i64 %27, i64 %28)
   br label %32
 
 30:                                               ; preds = %14
-  %31 = tail call { i64, i64 } @JS_EvalFunction(ptr noundef %0, i64 %6, i64 %7) #29
+  %31 = tail call { i64, i64 } @JS_EvalFunction(ptr noundef %0, i64 %6, i64 %7) #30
   br label %32
 
 32:                                               ; preds = %30, %24
@@ -1665,7 +1631,7 @@ define dso_local void @js_std_eval_binary(ptr noundef %0, ptr noundef %1, i64 no
 
 JS_FreeValue.exit:                                ; preds = %23, %18, %32, %4
   tail call void @js_std_dump_error(ptr noundef %0)
-  tail call void @exit(i32 noundef 1) #33
+  tail call void @exit(i32 noundef 1) #34
   unreachable
 
 34:                                               ; preds = %32
@@ -1682,7 +1648,7 @@ JS_FreeValue.exit:                                ; preds = %23, %18, %32, %4
   br i1 %41, label %42, label %JS_FreeValue.exit41
 
 42:                                               ; preds = %37
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.07.0, i64 %.sroa.6.0) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.07.0, i64 %.sroa.6.0) #30
   br label %JS_FreeValue.exit41
 
 JS_FreeValue.exit41:                              ; preds = %42, %37, %34, %11, %12
@@ -1698,13 +1664,13 @@ declare { i64, i64 } @JS_EvalFunction(ptr noundef, i64, i64) local_unnamed_addr 
 declare void @__JS_FreeValue(ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #15
+declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #15
+declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @dlclose(ptr noundef) local_unnamed_addr #15
+declare i32 @dlclose(ptr noundef) local_unnamed_addr #16
 
 declare i32 @JS_NewClassID(ptr noundef) local_unnamed_addr #3
 
@@ -1721,7 +1687,7 @@ declare i32 @JS_SetModuleExport(ptr noundef, ptr noundef, ptr noundef, i64, i64)
 ; Function Attrs: nounwind uwtable
 define internal void @js_std_file_finalizer(ptr noundef %0, i64 %1, i64 %2) #0 {
   %4 = load i32, ptr @js_std_file_class_id, align 4
-  %5 = tail call ptr @JS_GetOpaque(i64 %1, i64 %2, i32 noundef %4) #29
+  %5 = tail call ptr @JS_GetOpaque(i64 %1, i64 %2, i32 noundef %4) #30
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %6
 
@@ -1751,7 +1717,7 @@ define internal void @js_std_file_finalizer(ptr noundef %0, i64 %1, i64 %2) #0 {
   br label %18
 
 18:                                               ; preds = %14, %16, %8, %6
-  tail call void @js_free_rt(ptr noundef %0, ptr noundef nonnull %5) #29
+  tail call void @js_free_rt(ptr noundef %0, ptr noundef nonnull %5) #30
   br label %19
 
 19:                                               ; preds = %18, %3
@@ -1768,7 +1734,7 @@ declare void @js_free_rt(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_file_close(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
-  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #29
+  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %26, label %8
 
@@ -1778,7 +1744,7 @@ define internal { i64, i64 } @js_std_file_close(ptr noundef %0, i64 %1, i64 %2, 
   br i1 %.not22, label %10, label %14
 
 10:                                               ; preds = %8
-  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   %12 = extractvalue { i64, i64 } %11, 0
   %.sroa.4.0.extract.shift = and i64 %12, -4294967296
   %13 = extractvalue { i64, i64 } %11, 1
@@ -1801,7 +1767,7 @@ define internal { i64, i64 } @js_std_file_close(ptr noundef %0, i64 %1, i64 %2, 
   br i1 %22, label %js_get_errno.exit.sink.split, label %js_get_errno.exit
 
 js_get_errno.exit.sink.split:                     ; preds = %20, %17
-  %23 = tail call ptr @__errno_location() #28
+  %23 = tail call ptr @__errno_location() #29
   %24 = load i32, ptr %23, align 4
   %25 = sub i32 0, %24
   br label %js_get_errno.exit
@@ -1835,7 +1801,7 @@ define internal { i64, i64 } @js_std_file_puts(ptr noundef %0, i64 %1, i64 %2, i
 
 11:                                               ; preds = %6
   %12 = load i32, ptr @js_std_file_class_id, align 4
-  %13 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %12) #29
+  %13 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %12) #30
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %14
 
@@ -1845,7 +1811,7 @@ define internal { i64, i64 } @js_std_file_puts(ptr noundef %0, i64 %1, i64 %2, i
   br i1 %.not9.i, label %16, label %js_std_file_get.exit
 
 16:                                               ; preds = %14
-  %17 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %17 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %14, %9
@@ -1863,14 +1829,14 @@ js_std_file_get.exit:                             ; preds = %14, %9
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 8
   %22 = load i64, ptr %21, align 8
-  %23 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %7, i64 %20, i64 %22, i32 noundef 0) #29
+  %23 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %7, i64 %20, i64 %22, i32 noundef 0) #30
   %.not19 = icmp eq ptr %23, null
   br i1 %.not19, label %js_std_file_get.exit.thread, label %24
 
 24:                                               ; preds = %.lr.ph
   %25 = load i64, ptr %7, align 8
   %26 = call i64 @fwrite(ptr noundef nonnull %23, i64 noundef 1, i64 noundef %25, ptr noundef %.016)
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %23) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %23) #30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %js_std_file_get.exit.thread, label %.lr.ph, !llvm.loop !17
@@ -1884,7 +1850,7 @@ js_std_file_get.exit.thread:                      ; preds = %.lr.ph, %24, %js_st
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_file_printf(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
-  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #29
+  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %8
 
@@ -1894,7 +1860,7 @@ define internal { i64, i64 } @js_std_file_printf(ptr noundef %0, i64 %1, i64 %2,
   br i1 %.not9.i, label %10, label %js_std_file_get.exit
 
 10:                                               ; preds = %8
-  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %8
@@ -1914,7 +1880,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_fil
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_file_flush(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
-  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #29
+  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %8
 
@@ -1924,7 +1890,7 @@ define internal { i64, i64 } @js_std_file_flush(ptr noundef %0, i64 %1, i64 %2, 
   br i1 %.not9.i, label %10, label %js_std_file_get.exit
 
 10:                                               ; preds = %8
-  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %8
@@ -1940,7 +1906,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_fil
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_file_tell(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @js_std_file_class_id, align 4
-  %8 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %7) #29
+  %8 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %7) #30
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %9
 
@@ -1950,7 +1916,7 @@ define internal { i64, i64 } @js_std_file_tell(ptr noundef %0, i64 %1, i64 %2, i
   br i1 %.not9.i, label %11, label %js_std_file_get.exit
 
 11:                                               ; preds = %9
-  %12 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %12 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %9
@@ -1959,7 +1925,7 @@ js_std_file_get.exit:                             ; preds = %9
   br i1 %.not32, label %18, label %14
 
 14:                                               ; preds = %js_std_file_get.exit
-  %15 = tail call { i64, i64 } @JS_NewBigInt64(ptr noundef %0, i64 noundef %13) #29
+  %15 = tail call { i64, i64 } @JS_NewBigInt64(ptr noundef %0, i64 noundef %13) #30
   %16 = extractvalue { i64, i64 } %15, 0
   %.sroa.4.0.extract.shift = and i64 %16, -4294967296
   %17 = extractvalue { i64, i64 } %15, 1
@@ -1992,7 +1958,7 @@ define internal { i64, i64 } @js_std_file_seek(ptr noundef %0, i64 %1, i64 %2, i
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = load i32, ptr @js_std_file_class_id, align 4
-  %9 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %8) #29
+  %9 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %8) #30
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %10
 
@@ -2002,14 +1968,14 @@ define internal { i64, i64 } @js_std_file_seek(ptr noundef %0, i64 %1, i64 %2, i
   br i1 %.not9.i, label %12, label %js_std_file_get.exit
 
 12:                                               ; preds = %10
-  %13 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %13 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %10
   %14 = load i64, ptr %4, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = call i32 @JS_ToInt64Ext(ptr noundef %0, ptr noundef nonnull %6, i64 %14, i64 %16) #29
+  %17 = call i32 @JS_ToInt64Ext(ptr noundef %0, ptr noundef nonnull %6, i64 %14, i64 %16) #30
   %.not20 = icmp eq i32 %17, 0
   br i1 %.not20, label %18, label %js_std_file_get.exit.thread
 
@@ -2018,7 +1984,7 @@ js_std_file_get.exit:                             ; preds = %10
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr i8, ptr %4, i64 24
   %22 = load i64, ptr %21, align 8
-  %23 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %20, i64 %22) #29
+  %23 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %20, i64 %22) #30
   %.not21 = icmp eq i32 %23, 0
   br i1 %.not21, label %24, label %js_std_file_get.exit.thread
 
@@ -2030,7 +1996,7 @@ js_std_file_get.exit:                             ; preds = %10
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %24
-  %30 = tail call ptr @__errno_location() #28
+  %30 = tail call ptr @__errno_location() #29
   %31 = load i32, ptr %30, align 4
   %32 = sub i32 0, %31
   br label %33
@@ -2051,7 +2017,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %12, %18, %js_st
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_file_eof(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
-  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #29
+  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %8
 
@@ -2061,11 +2027,11 @@ define internal { i64, i64 } @js_std_file_eof(ptr noundef %0, i64 %1, i64 %2, i3
   br i1 %.not9.i, label %10, label %js_std_file_get.exit
 
 10:                                               ; preds = %8
-  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %8
-  %12 = tail call i32 @feof(ptr noundef nonnull %9) #29
+  %12 = tail call i32 @feof(ptr noundef nonnull %9) #30
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i64
   br label %js_std_file_get.exit.thread
@@ -2081,7 +2047,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_fil
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_file_fileno(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
-  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #29
+  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %8
 
@@ -2091,11 +2057,11 @@ define internal { i64, i64 } @js_std_file_fileno(ptr noundef %0, i64 %1, i64 %2,
   br i1 %.not9.i, label %10, label %js_std_file_get.exit
 
 10:                                               ; preds = %8
-  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %8
-  %12 = tail call i32 @fileno(ptr noundef nonnull %9) #29
+  %12 = tail call i32 @fileno(ptr noundef nonnull %9) #30
   %13 = zext i32 %12 to i64
   br label %js_std_file_get.exit.thread
 
@@ -2110,7 +2076,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_fil
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_file_error(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
-  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #29
+  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %8
 
@@ -2120,11 +2086,11 @@ define internal { i64, i64 } @js_std_file_error(ptr noundef %0, i64 %1, i64 %2, 
   br i1 %.not9.i, label %10, label %js_std_file_get.exit
 
 10:                                               ; preds = %8
-  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %8
-  %12 = tail call i32 @ferror(ptr noundef nonnull %9) #29
+  %12 = tail call i32 @ferror(ptr noundef nonnull %9) #30
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i64
   br label %js_std_file_get.exit.thread
@@ -2140,7 +2106,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_fil
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_file_clearerr(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
-  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #29
+  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %8
 
@@ -2150,11 +2116,11 @@ define internal { i64, i64 } @js_std_file_clearerr(ptr noundef %0, i64 %1, i64 %
   br i1 %.not9.i, label %10, label %js_std_file_get.exit
 
 10:                                               ; preds = %8
-  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %8
-  tail call void @clearerr(ptr noundef nonnull %9) #29
+  tail call void @clearerr(ptr noundef nonnull %9) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_file_get.exit
@@ -2169,7 +2135,7 @@ define internal { i64, i64 } @js_std_file_read_write(ptr noundef %0, i64 %1, i64
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = load i32, ptr @js_std_file_class_id, align 4
-  %11 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %10) #29
+  %11 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %10) #30
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %12
 
@@ -2179,7 +2145,7 @@ define internal { i64, i64 } @js_std_file_read_write(ptr noundef %0, i64 %1, i64
   br i1 %.not9.i, label %14, label %js_std_file_get.exit
 
 14:                                               ; preds = %12
-  %15 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %15 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %12
@@ -2187,7 +2153,7 @@ js_std_file_get.exit:                             ; preds = %12
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr i8, ptr %4, i64 24
   %19 = load i64, ptr %18, align 8
-  %20 = call i32 @JS_ToIndex(ptr noundef %0, ptr noundef nonnull %7, i64 %17, i64 %19) #29
+  %20 = call i32 @JS_ToIndex(ptr noundef %0, ptr noundef nonnull %7, i64 %17, i64 %19) #30
   %.not45 = icmp eq i32 %20, 0
   br i1 %.not45, label %21, label %js_std_file_get.exit.thread
 
@@ -2196,7 +2162,7 @@ js_std_file_get.exit:                             ; preds = %12
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr i8, ptr %4, i64 40
   %25 = load i64, ptr %24, align 8
-  %26 = call i32 @JS_ToIndex(ptr noundef %0, ptr noundef nonnull %8, i64 %23, i64 %25) #29
+  %26 = call i32 @JS_ToIndex(ptr noundef %0, ptr noundef nonnull %8, i64 %23, i64 %25) #30
   %.not46 = icmp eq i32 %26, 0
   br i1 %.not46, label %27, label %js_std_file_get.exit.thread
 
@@ -2204,7 +2170,7 @@ js_std_file_get.exit:                             ; preds = %12
   %28 = load i64, ptr %4, align 8
   %29 = getelementptr inbounds i8, ptr %4, i64 8
   %30 = load i64, ptr %29, align 8
-  %31 = call ptr @JS_GetArrayBuffer(ptr noundef %0, ptr noundef nonnull %9, i64 %28, i64 %30) #29
+  %31 = call ptr @JS_GetArrayBuffer(ptr noundef %0, ptr noundef nonnull %9, i64 %28, i64 %30) #30
   %.not47 = icmp eq ptr %31, null
   br i1 %.not47, label %js_std_file_get.exit.thread, label %32
 
@@ -2217,7 +2183,7 @@ js_std_file_get.exit:                             ; preds = %12
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %32
-  %39 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowRangeError(ptr noundef %0, ptr noundef nonnull @.str.45) #29
+  %39 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowRangeError(ptr noundef %0, ptr noundef nonnull @.str.45) #30
   %40 = extractvalue { i64, i64 } %39, 0
   %.sroa.7.0.extract.shift = and i64 %40, -4294967296
   %41 = extractvalue { i64, i64 } %39, 1
@@ -2263,7 +2229,7 @@ js_std_file_get.exit.thread:                      ; preds = %6, %14, %27, %21, %
 define internal { i64, i64 } @js_std_file_getline(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.DynBuf, align 8
   %7 = load i32, ptr @js_std_file_class_id, align 4
-  %8 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %7) #29
+  %8 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %7) #30
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %9
 
@@ -2273,12 +2239,12 @@ define internal { i64, i64 } @js_std_file_getline(ptr noundef %0, i64 %1, i64 %2
   br i1 %.not9.i, label %11, label %js_std_file_get.exit
 
 11:                                               ; preds = %9
-  %12 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %12 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %9
-  %13 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  call void @dbuf_init2(ptr noundef nonnull %6, ptr noundef %13, ptr noundef nonnull @js_realloc_rt) #29
+  %13 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  call void @dbuf_init2(ptr noundef nonnull %6, ptr noundef %13, ptr noundef nonnull @js_realloc_rt) #30
   br label %14
 
 14:                                               ; preds = %21, %js_std_file_get.exit
@@ -2295,18 +2261,18 @@ js_std_file_get.exit:                             ; preds = %9
   br i1 %19, label %20, label %.loopexit
 
 20:                                               ; preds = %16
-  call void @dbuf_free(ptr noundef nonnull %6) #29
+  call void @dbuf_free(ptr noundef nonnull %6) #30
   br label %js_std_file_get.exit.thread
 
 21:                                               ; preds = %14
   %22 = trunc i32 %15 to i8
-  %23 = call i32 @dbuf_putc(ptr noundef nonnull %6, i8 noundef zeroext %22) #29
+  %23 = call i32 @dbuf_putc(ptr noundef nonnull %6, i8 noundef zeroext %22) #30
   %.not20 = icmp eq i32 %23, 0
   br i1 %.not20, label %14, label %24
 
 24:                                               ; preds = %21
-  call void @dbuf_free(ptr noundef nonnull %6) #29
-  %25 = call { i64, i64 } @JS_ThrowOutOfMemory(ptr noundef %0) #29
+  call void @dbuf_free(ptr noundef nonnull %6) #30
+  %25 = call { i64, i64 } @JS_ThrowOutOfMemory(ptr noundef %0) #30
   %26 = extractvalue { i64, i64 } %25, 0
   %.sroa.5.0.extract.shift = and i64 %26, -4294967296
   %27 = extractvalue { i64, i64 } %25, 1
@@ -2320,10 +2286,10 @@ js_std_file_get.exit:                             ; preds = %9
 .loopexit:                                        ; preds = %.loopexit.loopexit, %16
   %28 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %18, %16 ]
   %29 = load ptr, ptr %6, align 8
-  %30 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %29, i64 noundef %28) #29
+  %30 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %29, i64 noundef %28) #30
   %31 = extractvalue { i64, i64 } %30, 0
   %32 = extractvalue { i64, i64 } %30, 1
-  call void @dbuf_free(ptr noundef nonnull %6) #29
+  call void @dbuf_free(ptr noundef nonnull %6) #30
   %.sroa.5.0.extract.shift14 = and i64 %31, -4294967296
   br label %js_std_file_get.exit.thread
 
@@ -2343,7 +2309,7 @@ define internal { i64, i64 } @js_std_file_readAsString(ptr noundef %0, i64 %1, i
   %6 = alloca %struct.DynBuf, align 8
   %7 = alloca i64, align 8
   %8 = load i32, ptr @js_std_file_class_id, align 4
-  %9 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %8) #29
+  %9 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %8) #30
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %10
 
@@ -2353,7 +2319,7 @@ define internal { i64, i64 } @js_std_file_readAsString(ptr noundef %0, i64 %1, i
   br i1 %.not9.i, label %12, label %js_std_file_get.exit
 
 12:                                               ; preds = %10
-  %13 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %13 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %10
@@ -2369,7 +2335,7 @@ js_std_file_get.exit:                             ; preds = %10
 
 17:                                               ; preds = %15
   %.sroa.04.0.copyload = load i64, ptr %4, align 8
-  %18 = call i32 @JS_ToIndex(ptr noundef %0, ptr noundef nonnull %7, i64 %.sroa.04.0.copyload, i64 %.sroa.5.0.copyload) #29
+  %18 = call i32 @JS_ToIndex(ptr noundef %0, ptr noundef nonnull %7, i64 %.sroa.04.0.copyload, i64 %.sroa.5.0.copyload) #30
   %.not38 = icmp eq i32 %18, 0
   br i1 %.not38, label %19, label %js_std_file_get.exit.thread
 
@@ -2379,8 +2345,8 @@ js_std_file_get.exit:                             ; preds = %10
 
 .thread:                                          ; preds = %js_std_file_get.exit, %19, %15
   %.0 = phi i64 [ -1, %15 ], [ %20, %19 ], [ -1, %js_std_file_get.exit ]
-  %21 = call ptr @JS_GetRuntime(ptr noundef %0) #29
-  call void @dbuf_init2(ptr noundef nonnull %6, ptr noundef %21, ptr noundef nonnull @js_realloc_rt) #29
+  %21 = call ptr @JS_GetRuntime(ptr noundef %0) #30
+  call void @dbuf_init2(ptr noundef nonnull %6, ptr noundef %21, ptr noundef nonnull @js_realloc_rt) #30
   %.not4047 = icmp eq i64 %.0, 0
   br i1 %.not4047, label %._crit_edge, label %.lr.ph
 
@@ -2397,22 +2363,22 @@ js_std_file_get.exit:                             ; preds = %10
 
 26:                                               ; preds = %.lr.ph
   %27 = trunc i32 %24 to i8
-  %28 = call i32 @dbuf_putc(ptr noundef nonnull %6, i8 noundef zeroext %27) #29
+  %28 = call i32 @dbuf_putc(ptr noundef nonnull %6, i8 noundef zeroext %27) #30
   %.not41 = icmp eq i32 %28, 0
   br i1 %.not41, label %22, label %29
 
 29:                                               ; preds = %26
-  call void @dbuf_free(ptr noundef nonnull %6) #29
+  call void @dbuf_free(ptr noundef nonnull %6) #30
   br label %js_std_file_get.exit.thread
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph, %.thread
   %30 = load ptr, ptr %6, align 8
   %31 = getelementptr inbounds i8, ptr %6, i64 8
   %32 = load i64, ptr %31, align 8
-  %33 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %30, i64 noundef %32) #29
+  %33 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %30, i64 noundef %32) #30
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
-  call void @dbuf_free(ptr noundef nonnull %6) #29
+  call void @dbuf_free(ptr noundef nonnull %6) #30
   %.sroa.530.0.extract.shift = and i64 %34, -4294967296
   %36 = and i64 %34, 4294967295
   br label %js_std_file_get.exit.thread
@@ -2430,7 +2396,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %12, %17, %._cri
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_file_getByte(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr @js_std_file_class_id, align 4
-  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #29
+  %7 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %6) #30
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %8
 
@@ -2440,7 +2406,7 @@ define internal { i64, i64 } @js_std_file_getByte(ptr noundef %0, i64 %1, i64 %2
   br i1 %.not9.i, label %10, label %js_std_file_get.exit
 
 10:                                               ; preds = %8
-  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %11 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %8
@@ -2460,7 +2426,7 @@ js_std_file_get.exit.thread:                      ; preds = %5, %10, %js_std_fil
 define internal { i64, i64 } @js_std_file_putByte(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @js_std_file_class_id, align 4
-  %8 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %7) #29
+  %8 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %7) #30
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %js_std_file_get.exit.thread, label %9
 
@@ -2470,14 +2436,14 @@ define internal { i64, i64 } @js_std_file_putByte(ptr noundef %0, i64 %1, i64 %2
   br i1 %.not9.i, label %11, label %js_std_file_get.exit
 
 11:                                               ; preds = %9
-  %12 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #29
+  %12 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.41) #30
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit:                             ; preds = %9
   %13 = load i64, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %13, i64 %15) #29
+  %16 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %13, i64 %15) #30
   %.not13 = icmp eq i32 %16, 0
   br i1 %.not13, label %17, label %js_std_file_get.exit.thread
 
@@ -2512,8 +2478,8 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
   %12 = alloca double, align 8
-  %13 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  call void @dbuf_init2(ptr noundef nonnull %7, ptr noundef %13, ptr noundef nonnull @js_realloc_rt) #29
+  %13 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  call void @dbuf_init2(ptr noundef nonnull %7, ptr noundef %13, ptr noundef nonnull @js_realloc_rt) #30
   %14 = icmp sgt i32 %1, 0
   br i1 %14, label %15, label %192
 
@@ -2521,7 +2487,7 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   %16 = load i64, ptr %2, align 8
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load i64, ptr %17, align 8
-  %19 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %9, i64 %16, i64 %18, i32 noundef 0) #29
+  %19 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %9, i64 %16, i64 %18, i32 noundef 0) #30
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.loopexit203, label %20
 
@@ -2559,14 +2525,14 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   %34 = ptrtoint ptr %32 to i64
   %35 = ptrtoint ptr %.0233 to i64
   %36 = sub i64 %34, %35
-  %37 = call i32 @dbuf_put(ptr noundef nonnull %7, ptr noundef %.0233, i64 noundef %36) #29
+  %37 = call i32 @dbuf_put(ptr noundef nonnull %7, ptr noundef %.0233, i64 noundef %36) #30
   br label %.loopexit202
 
 38:                                               ; preds = %29
   %39 = ptrtoint ptr %.1223 to i64
   %40 = ptrtoint ptr %.0233 to i64
   %41 = sub i64 %39, %40
-  %42 = call i32 @dbuf_put(ptr noundef nonnull %7, ptr noundef %.0233, i64 noundef %41) #29
+  %42 = call i32 @dbuf_put(ptr noundef nonnull %7, ptr noundef %.0233, i64 noundef %41) #30
   %43 = load i8, ptr %.1223, align 1
   store i8 %43, ptr %5, align 16
   br label %44
@@ -2611,7 +2577,7 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   %55 = load i64, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %54, i64 8
   %57 = load i64, ptr %56, align 8
-  %58 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %55, i64 %57) #29
+  %58 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %55, i64 %57) #30
   %.not176 = icmp eq i32 %58, 0
   br i1 %.not176, label %59, label %.loopexit203
 
@@ -2620,7 +2586,7 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   %61 = ptrtoint ptr %.0150 to i64
   %62 = sub i64 %26, %61
   %63 = load i32, ptr %10, align 4
-  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0150, i64 noundef %62, ptr noundef nonnull @.str.42, i32 noundef %63) #29
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0150, i64 noundef %62, ptr noundef nonnull @.str.42, i32 noundef %63) #30
   %65 = sext i32 %64 to i64
   %66 = getelementptr i8, ptr %.0150, i64 %65
   %67 = getelementptr i8, ptr %.1.pn, i64 2
@@ -2680,7 +2646,7 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   %91 = load i64, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %90, i64 8
   %93 = load i64, ptr %92, align 8
-  %94 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %91, i64 %93) #29
+  %94 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %91, i64 %93) #30
   %.not181 = icmp eq i32 %94, 0
   br i1 %.not181, label %95, label %.loopexit203
 
@@ -2689,7 +2655,7 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   %97 = ptrtoint ptr %81 to i64
   %98 = sub i64 %26, %97
   %99 = load i32, ptr %10, align 4
-  %100 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %81, i64 noundef %98, ptr noundef nonnull @.str.42, i32 noundef %99) #29
+  %100 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %81, i64 noundef %98, ptr noundef nonnull @.str.42, i32 noundef %99) #30
   %101 = sext i32 %100 to i64
   %102 = getelementptr i8, ptr %81, i64 %101
   %103 = getelementptr i8, ptr %.3, i64 2
@@ -2765,18 +2731,18 @@ thread-pre-split:                                 ; preds = %105, %95, %.prehead
   br i1 %.not197, label %126, label %130
 
 126:                                              ; preds = %119
-  %127 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %125, i64 %123, i32 noundef 0) #29
+  %127 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %125, i64 %123, i32 noundef 0) #30
   %.not193 = icmp eq ptr %127, null
   br i1 %.not193, label %.loopexit203, label %128
 
 128:                                              ; preds = %126
-  %129 = call i32 @unicode_from_utf8(ptr noundef nonnull %127, i32 noundef 6, ptr noundef nonnull %8) #29
+  %129 = call i32 @unicode_from_utf8(ptr noundef nonnull %127, i32 noundef 6, ptr noundef nonnull %8) #30
   store i32 %129, ptr %10, align 4
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %127) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %127) #30
   br label %132
 
 130:                                              ; preds = %119
-  %131 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %125, i64 %123) #29
+  %131 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %10, i64 %125, i64 %123) #30
   %.not192 = icmp eq i32 %131, 0
   br i1 %.not192, label %132, label %.loopexit203
 
@@ -2792,9 +2758,9 @@ thread-pre-split:                                 ; preds = %105, %95, %.prehead
 
 136:                                              ; preds = %135, %132
   %137 = phi i32 [ 65533, %135 ], [ %133, %132 ]
-  %138 = call i32 @unicode_to_utf8(ptr noundef nonnull %6, i32 noundef %137) #29
+  %138 = call i32 @unicode_to_utf8(ptr noundef nonnull %6, i32 noundef %137) #30
   %139 = sext i32 %138 to i64
-  %140 = call i32 @dbuf_put(ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef %139) #29
+  %140 = call i32 @dbuf_put(ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef %139) #30
   br label %190
 
 141:                                              ; preds = %115, %115, %115, %115, %115, %115
@@ -2808,7 +2774,7 @@ thread-pre-split:                                 ; preds = %105, %95, %.prehead
   %146 = load i64, ptr %145, align 8
   %147 = getelementptr inbounds i8, ptr %145, i64 8
   %148 = load i64, ptr %147, align 8
-  %149 = call i32 @JS_ToInt64Ext(ptr noundef %0, ptr noundef nonnull %11, i64 %146, i64 %148) #29
+  %149 = call i32 @JS_ToInt64Ext(ptr noundef %0, ptr noundef nonnull %11, i64 %146, i64 %148) #30
   %.not188 = icmp eq i32 %149, 0
   br i1 %.not188, label %150, label %.loopexit203
 
@@ -2828,13 +2794,13 @@ thread-pre-split:                                 ; preds = %105, %95, %.prehead
   %155 = getelementptr i8, ptr %.3153, i64 3
   store i8 0, ptr %155, align 1
   %156 = load i64, ptr %11, align 8
-  %157 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, i64 noundef %156) #29
+  %157 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, i64 noundef %156) #30
   br label %190
 
 158:                                              ; preds = %150
   %159 = load i64, ptr %11, align 8
   %160 = trunc i64 %159 to i32
-  %161 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef %160) #29
+  %161 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef %160) #30
   br label %190
 
 162:                                              ; preds = %115
@@ -2847,14 +2813,14 @@ thread-pre-split:                                 ; preds = %105, %95, %.prehead
   %166 = load i64, ptr %165, align 8
   %167 = getelementptr inbounds i8, ptr %165, i64 8
   %168 = load i64, ptr %167, align 8
-  %169 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %166, i64 %168, i32 noundef 0) #29
+  %169 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %166, i64 %168, i32 noundef 0) #30
   %.not186 = icmp eq ptr %169, null
   br i1 %.not186, label %.loopexit203, label %170
 
 170:                                              ; preds = %163
   %171 = add nsw i32 %.2157, 1
-  %172 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %169) #29
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %169) #29
+  %172 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %169) #30
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %169) #30
   br label %190
 
 173:                                              ; preds = %115, %115, %115, %115, %115, %115, %115, %115
@@ -2867,26 +2833,26 @@ thread-pre-split:                                 ; preds = %105, %95, %.prehead
   %177 = load i64, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %176, i64 8
   %179 = load i64, ptr %178, align 8
-  %180 = call i32 @JS_ToFloat64(ptr noundef %0, ptr noundef nonnull %12, i64 %177, i64 %179) #29
+  %180 = call i32 @JS_ToFloat64(ptr noundef %0, ptr noundef nonnull %12, i64 %177, i64 %179) #30
   %.not184 = icmp eq i32 %180, 0
   br i1 %.not184, label %181, label %.loopexit203
 
 181:                                              ; preds = %174
   %182 = add nsw i32 %.2157, 1
   %183 = load double, ptr %12, align 8
-  %184 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, double noundef %183) #29
+  %184 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %7, ptr noundef nonnull %5, double noundef %183) #30
   br label %190
 
 185:                                              ; preds = %115
-  %186 = call i32 @dbuf_putc(ptr noundef nonnull %7, i8 noundef zeroext 37) #29
+  %186 = call i32 @dbuf_putc(ptr noundef nonnull %7, i8 noundef zeroext 37) #30
   br label %190
 
 .loopexit:                                        ; preds = %115, %151, %thread-pre-split, %78, %49, %.lr.ph, %.lr.ph229
-  %187 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.43) #29
+  %187 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.43) #30
   br label %.loopexit203
 
 188:                                              ; preds = %173, %162, %141, %118, %87, %51
-  %189 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.44) #29
+  %189 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.44) #30
   br label %.loopexit203
 
 190:                                              ; preds = %152, %158, %185, %181, %170, %136
@@ -2895,7 +2861,7 @@ thread-pre-split:                                 ; preds = %105, %95, %.prehead
   br i1 %191, label %28, label %.loopexit202, !llvm.loop !22
 
 .loopexit202:                                     ; preds = %190, %20, %.critedge
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %19) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %19) #30
   br label %192
 
 192:                                              ; preds = %.loopexit202, %4
@@ -2905,7 +2871,7 @@ thread-pre-split:                                 ; preds = %105, %95, %.prehead
   br i1 %.not195, label %199, label %195
 
 195:                                              ; preds = %192
-  %196 = call { i64, i64 } @JS_ThrowOutOfMemory(ptr noundef %0) #29
+  %196 = call { i64, i64 } @JS_ThrowOutOfMemory(ptr noundef %0) #30
   %197 = extractvalue { i64, i64 } %196, 0
   %198 = extractvalue { i64, i64 } %196, 1
   br label %209
@@ -2923,19 +2889,19 @@ thread-pre-split:                                 ; preds = %105, %95, %.prehead
   br label %209
 
 205:                                              ; preds = %199
-  %206 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %200, i64 noundef %202) #29
+  %206 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %200, i64 noundef %202) #30
   %207 = extractvalue { i64, i64 } %206, 0
   %208 = extractvalue { i64, i64 } %206, 1
   br label %209
 
 .loopexit203:                                     ; preds = %174, %163, %142, %130, %126, %88, %52, %15, %188, %.loopexit
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef %19) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef %19) #30
   br label %209
 
 209:                                              ; preds = %195, %205, %203, %.loopexit203
   %.sroa.3.sroa.2.0 = phi i64 [ 6, %.loopexit203 ], [ %198, %195 ], [ 0, %203 ], [ %208, %205 ]
   %.sroa.0143.0.insert.insert = phi i64 [ 0, %.loopexit203 ], [ %197, %195 ], [ %.sroa.0148.0.insert.ext, %203 ], [ %207, %205 ]
-  call void @dbuf_free(ptr noundef nonnull %7) #29
+  call void @dbuf_free(ptr noundef nonnull %7) #30
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0143.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -2988,7 +2954,7 @@ declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #1
 declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
 declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #1
@@ -3012,12 +2978,12 @@ declare ptr @js_mallocz(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @JS_SetOpaque(i64, i64, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef { i64, i64 } @js_std_exit(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #17 {
+define internal noundef { i64, i64 } @js_std_exit(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #18 {
   %6 = alloca i32, align 4
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #29
+  %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #30
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %11
 
@@ -3031,22 +2997,22 @@ define internal noundef { i64, i64 } @js_std_exit(ptr noundef %0, i64 %1, i64 %2
 
 12:                                               ; preds = %._crit_edge, %11
   %13 = phi i32 [ %.pre, %._crit_edge ], [ -1, %11 ]
-  call void @exit(i32 noundef %13) #35
+  call void @exit(i32 noundef %13) #36
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_gc(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
-  %6 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  tail call void @JS_RunGC(ptr noundef %6) #29
+  %6 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  tail call void @JS_RunGC(ptr noundef %6) #30
   ret { i64, i64 } { i64 0, i64 3 }
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_evalScript(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca i64, align 8
-  %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #29
+  %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
   %9 = icmp sgt i32 %3, 1
   br i1 %9, label %10, label %get_bool_option.exit43.thread
 
@@ -3055,7 +3021,7 @@ define internal { i64, i64 } @js_evalScript(ptr noundef %0, i64 %1, i64 %2, i32 
   %.sroa.03.0.copyload = load i64, ptr %11, align 8
   %.sroa.3.0..sroa_idx = getelementptr i8, ptr %4, i64 24
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %12 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.03.0.copyload, i64 %.sroa.3.0.copyload, ptr noundef nonnull @.str.68) #29
+  %12 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.03.0.copyload, i64 %.sroa.3.0.copyload, ptr noundef nonnull @.str.68) #30
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
   %trunc.i = trunc i64 %14 to i32
@@ -3065,7 +3031,7 @@ define internal { i64, i64 } @js_evalScript(ptr noundef %0, i64 %1, i64 %2, i32 
   ]
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @JS_ToBool(ptr noundef %0, i64 %13, i64 %14) #29
+  %16 = tail call i32 @JS_ToBool(ptr noundef %0, i64 %13, i64 %14) #30
   %17 = icmp ugt i32 %trunc.i, -12
   br i1 %17, label %18, label %.thread.i
 
@@ -3078,12 +3044,12 @@ define internal { i64, i64 } @js_evalScript(ptr noundef %0, i64 %1, i64 %2, i32 
   br i1 %22, label %23, label %.thread.i
 
 23:                                               ; preds = %18
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %13, i64 %14) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %13, i64 %14) #30
   br label %.thread.i
 
 .thread.i:                                        ; preds = %10, %15, %18, %23
   %.147.ph = phi i32 [ %16, %15 ], [ %16, %18 ], [ %16, %23 ], [ 0, %10 ]
-  %24 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.03.0.copyload, i64 %.sroa.3.0.copyload, ptr noundef nonnull @.str.69) #29
+  %24 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.03.0.copyload, i64 %.sroa.3.0.copyload, ptr noundef nonnull @.str.69) #30
   %25 = extractvalue { i64, i64 } %24, 0
   %26 = extractvalue { i64, i64 } %24, 1
   %trunc.i40 = trunc i64 %26 to i32
@@ -3093,7 +3059,7 @@ define internal { i64, i64 } @js_evalScript(ptr noundef %0, i64 %1, i64 %2, i32 
   ]
 
 27:                                               ; preds = %.thread.i
-  %28 = tail call i32 @JS_ToBool(ptr noundef %0, i64 %25, i64 %26) #29
+  %28 = tail call i32 @JS_ToBool(ptr noundef %0, i64 %25, i64 %26) #30
   %29 = icmp ugt i32 %trunc.i40, -12
   br i1 %29, label %30, label %get_bool_option.exit43.thread
 
@@ -3106,7 +3072,7 @@ define internal { i64, i64 } @js_evalScript(ptr noundef %0, i64 %1, i64 %2, i32 
   br i1 %34, label %35, label %get_bool_option.exit43.thread
 
 35:                                               ; preds = %30
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %25, i64 %26) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %25, i64 %26) #30
   br label %get_bool_option.exit43.thread
 
 get_bool_option.exit43.thread:                    ; preds = %.thread.i, %35, %30, %27, %5
@@ -3115,7 +3081,7 @@ get_bool_option.exit43.thread:                    ; preds = %.thread.i, %35, %30
   %36 = load i64, ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = load i64, ptr %37, align 8
-  %39 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %6, i64 %36, i64 %38, i32 noundef 0) #29
+  %39 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %6, i64 %36, i64 %38, i32 noundef 0) #30
   %.not34 = icmp eq ptr %39, null
   br i1 %.not34, label %get_bool_option.exit, label %40
 
@@ -3134,8 +3100,8 @@ get_bool_option.exit43.thread:                    ; preds = %.thread.i, %35, %30
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %43
-  %49 = call ptr @JS_GetRuntime(ptr noundef %0) #29
-  call void @JS_SetInterruptHandler(ptr noundef %49, ptr noundef nonnull @interrupt_handler, ptr noundef null) #29
+  %49 = call ptr @JS_GetRuntime(ptr noundef %0) #30
+  call void @JS_SetInterruptHandler(ptr noundef %49, ptr noundef nonnull @interrupt_handler, ptr noundef null) #30
   br label %50
 
 50:                                               ; preds = %48, %43, %40
@@ -3145,10 +3111,10 @@ get_bool_option.exit43.thread:                    ; preds = %.thread.i, %35, %30
   %51 = or disjoint i32 %spec.select, 128
   %.1 = select i1 %.not37, i32 %spec.select, i32 %51
   %52 = load i64, ptr %6, align 8
-  %53 = call { i64, i64 } @JS_Eval(ptr noundef %0, ptr noundef nonnull %39, i64 noundef %52, ptr noundef nonnull @.str.70, i32 noundef %.1) #29
+  %53 = call { i64, i64 } @JS_Eval(ptr noundef %0, ptr noundef nonnull %39, i64 noundef %52, ptr noundef nonnull @.str.70, i32 noundef %.1) #30
   %54 = extractvalue { i64, i64 } %53, 0
   %55 = extractvalue { i64, i64 } %53, 1
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %39) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %39) #30
   %56 = load ptr, ptr %41, align 8
   %.not38 = icmp eq ptr %56, null
   br i1 %.not38, label %57, label %68
@@ -3162,8 +3128,8 @@ get_bool_option.exit43.thread:                    ; preds = %.thread.i, %35, %30
   br i1 %61, label %62, label %68
 
 62:                                               ; preds = %57
-  %63 = call ptr @JS_GetRuntime(ptr noundef %0) #29
-  call void @JS_SetInterruptHandler(ptr noundef %63, ptr noundef null, ptr noundef null) #29
+  %63 = call ptr @JS_GetRuntime(ptr noundef %0) #30
+  call void @JS_SetInterruptHandler(ptr noundef %63, ptr noundef null, ptr noundef null) #30
   %64 = load i64, ptr @os_pending_signals, align 8
   %65 = and i64 %64, -5
   store i64 %65, ptr @os_pending_signals, align 8
@@ -3172,7 +3138,7 @@ get_bool_option.exit43.thread:                    ; preds = %.thread.i, %35, %30
   br i1 %.not, label %67, label %68
 
 67:                                               ; preds = %62
-  call void @JS_ResetUncatchableError(ptr noundef %0) #29
+  call void @JS_ResetUncatchableError(ptr noundef %0) #30
   br label %68
 
 68:                                               ; preds = %62, %67, %57, %50
@@ -3195,18 +3161,18 @@ define internal { i64, i64 } @js_std_getenv(ptr noundef %0, i64 %1, i64 %2, i32 
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #29
+  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call ptr @getenv(ptr noundef nonnull %9) #29
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #29
+  %11 = tail call ptr @getenv(ptr noundef nonnull %9) #30
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #30
   %.not13 = icmp eq ptr %11, null
   br i1 %.not13, label %17, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef nonnull %11) #29
+  %13 = tail call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef nonnull %11) #30
   %14 = extractvalue { i64, i64 } %13, 0
   %.sroa.4.0.extract.shift = and i64 %14, -4294967296
   %15 = extractvalue { i64, i64 } %13, 1
@@ -3228,7 +3194,7 @@ define internal { i64, i64 } @js_std_setenv(ptr noundef %0, i64 %1, i64 %2, i32 
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #29
+  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %18, label %10
 
@@ -3237,19 +3203,19 @@ define internal { i64, i64 } @js_std_setenv(ptr noundef %0, i64 %1, i64 %2, i32 
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr i8, ptr %4, i64 24
   %14 = load i64, ptr %13, align 8
-  %15 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %12, i64 %14, i32 noundef 0) #29
+  %15 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %12, i64 %14, i32 noundef 0) #30
   %.not18 = icmp eq ptr %15, null
   br i1 %.not18, label %.sink.split, label %16
 
 16:                                               ; preds = %10
-  %17 = tail call i32 @setenv(ptr noundef nonnull %9, ptr noundef nonnull %15, i32 noundef 1) #29
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #29
+  %17 = tail call i32 @setenv(ptr noundef nonnull %9, ptr noundef nonnull %15, i32 noundef 1) #30
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #30
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %16
   %.sink = phi ptr [ %15, %16 ], [ %9, %10 ]
   %.sroa.4.sroa.1.0.ph = phi i64 [ 3, %16 ], [ 6, %10 ]
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %.sink) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %.sink) #30
   br label %18
 
 18:                                               ; preds = %.sink.split, %5
@@ -3263,13 +3229,13 @@ define internal { i64, i64 } @js_std_unsetenv(ptr noundef %0, i64 %1, i64 %2, i3
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #29
+  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @unsetenv(ptr noundef nonnull %9) #29
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #29
+  %11 = tail call i32 @unsetenv(ptr noundef nonnull %9) #30
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #30
   br label %12
 
 12:                                               ; preds = %5, %10
@@ -3280,7 +3246,7 @@ define internal { i64, i64 } @js_std_unsetenv(ptr noundef %0, i64 %1, i64 %2, i3
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_getenviron(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
-  %6 = tail call { i64, i64 } @JS_NewObject(ptr noundef %0) #29
+  %6 = tail call { i64, i64 } @JS_NewObject(ptr noundef %0) #30
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
   %9 = and i64 %8, 4294967295
@@ -3296,7 +3262,7 @@ define internal { i64, i64 } @js_std_getenviron(ptr noundef %0, i64 %1, i64 %2, 
 .lr.ph:                                           ; preds = %10, %28
   %13 = phi ptr [ %32, %28 ], [ %12, %10 ]
   %.039 = phi i32 [ %29, %28 ], [ 0, %10 ]
-  %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 61) #31
+  %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 61) #32
   %.not37 = icmp eq ptr %14, null
   br i1 %.not37, label %28, label %15
 
@@ -3304,17 +3270,17 @@ define internal { i64, i64 } @js_std_getenviron(ptr noundef %0, i64 %1, i64 %2, 
   %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %13 to i64
   %18 = sub i64 %16, %17
-  %19 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef nonnull %13, i64 noundef %18) #29
+  %19 = tail call i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef nonnull %13, i64 noundef %18) #30
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr i8, ptr %14, i64 1
-  %23 = tail call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef %22) #29
+  %23 = tail call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef %22) #30
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = extractvalue { i64, i64 } %23, 1
-  %26 = tail call i32 @JS_DefinePropertyValue(ptr noundef %0, i64 %7, i64 %8, i32 noundef %19, i64 %24, i64 %25, i32 noundef 7) #29
-  tail call void @JS_FreeAtom(ptr noundef %0, i32 noundef %19) #29
+  %26 = tail call i32 @JS_DefinePropertyValue(ptr noundef %0, i64 %7, i64 %8, i32 noundef %19, i64 %24, i64 %25, i32 noundef 7) #30
+  tail call void @JS_FreeAtom(ptr noundef %0, i32 noundef %19) #30
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %34, label %28
 
@@ -3345,7 +3311,7 @@ define internal { i64, i64 } @js_std_getenviron(ptr noundef %0, i64 %1, i64 %2, 
   br i1 %41, label %42, label %JS_FreeValue.exit
 
 42:                                               ; preds = %37
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %7, i64 %8) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %7, i64 %8) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %42, %37, %34, %5, %._crit_edge
@@ -3366,7 +3332,7 @@ define internal { i64, i64 } @js_std_urlGet(ptr noundef %0, i64 %1, i64 %2, i32 
   %9 = load i64, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %9, i64 %11, i32 noundef 0) #29
+  %12 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %9, i64 %11, i32 noundef 0) #30
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %JS_FreeValue.exit, label %13
 
@@ -3379,7 +3345,7 @@ define internal { i64, i64 } @js_std_urlGet(ptr noundef %0, i64 %1, i64 %2, i32 
   %.sroa.020.0.copyload = load i64, ptr %16, align 8
   %.sroa.3.0..sroa_idx = getelementptr i8, ptr %4, i64 24
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %17 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.020.0.copyload, i64 %.sroa.3.0.copyload, ptr noundef nonnull @.str.71) #29
+  %17 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.020.0.copyload, i64 %.sroa.3.0.copyload, ptr noundef nonnull @.str.71) #30
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
   %trunc.i = trunc i64 %19 to i32
@@ -3389,7 +3355,7 @@ define internal { i64, i64 } @js_std_urlGet(ptr noundef %0, i64 %1, i64 %2, i32 
   ]
 
 20:                                               ; preds = %15
-  %21 = tail call i32 @JS_ToBool(ptr noundef %0, i64 %18, i64 %19) #29
+  %21 = tail call i32 @JS_ToBool(ptr noundef %0, i64 %18, i64 %19) #30
   %22 = icmp ugt i32 %trunc.i, -12
   br i1 %22, label %23, label %.thread.i
 
@@ -3402,12 +3368,12 @@ define internal { i64, i64 } @js_std_urlGet(ptr noundef %0, i64 %1, i64 %2, i32 
   br i1 %27, label %28, label %.thread.i
 
 28:                                               ; preds = %23
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %18, i64 %19) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %18, i64 %19) #30
   br label %.thread.i
 
 .thread.i:                                        ; preds = %15, %20, %23, %28
   %.1205.ph = phi i32 [ %21, %20 ], [ %21, %23 ], [ %21, %28 ], [ 0, %15 ]
-  %29 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.020.0.copyload, i64 %.sroa.3.0.copyload, ptr noundef nonnull @.str.72) #29
+  %29 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.020.0.copyload, i64 %.sroa.3.0.copyload, ptr noundef nonnull @.str.72) #30
   %30 = extractvalue { i64, i64 } %29, 0
   %31 = extractvalue { i64, i64 } %29, 1
   %trunc.i187 = trunc i64 %31 to i32
@@ -3417,7 +3383,7 @@ define internal { i64, i64 } @js_std_urlGet(ptr noundef %0, i64 %1, i64 %2, i32 
   ]
 
 32:                                               ; preds = %.thread.i
-  %33 = tail call i32 @JS_ToBool(ptr noundef %0, i64 %30, i64 %31) #29
+  %33 = tail call i32 @JS_ToBool(ptr noundef %0, i64 %30, i64 %31) #30
   %34 = icmp ugt i32 %trunc.i187, -12
   br i1 %34, label %35, label %get_bool_option.exit190.thread
 
@@ -3430,19 +3396,19 @@ define internal { i64, i64 } @js_std_urlGet(ptr noundef %0, i64 %1, i64 %2, i32 
   br i1 %39, label %40, label %get_bool_option.exit190.thread
 
 40:                                               ; preds = %35
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %30, i64 %31) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %30, i64 %31) #30
   br label %get_bool_option.exit190.thread
 
 get_bool_option.exit:                             ; preds = %.thread.i, %15
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %12) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %12) #30
   br label %JS_FreeValue.exit
 
 get_bool_option.exit190.thread:                   ; preds = %.thread.i, %40, %35, %32, %13
   %.0204 = phi i32 [ 0, %13 ], [ %.1205.ph, %32 ], [ %.1205.ph, %35 ], [ %.1205.ph, %40 ], [ %.1205.ph, %.thread.i ]
   %.0202 = phi i32 [ 0, %13 ], [ %33, %32 ], [ %33, %35 ], [ %33, %40 ], [ 0, %.thread.i ]
-  %41 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  call void @dbuf_init2(ptr noundef nonnull %6, ptr noundef %41, ptr noundef nonnull @js_realloc_rt) #29
-  %42 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74) #29
+  %41 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  call void @dbuf_init2(ptr noundef nonnull %6, ptr noundef %41, ptr noundef nonnull @js_realloc_rt) #30
+  %42 = call i32 (ptr, ptr, ...) @dbuf_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74) #30
   br label %43
 
 43:                                               ; preds = %52, %get_bool_option.exit190.thread
@@ -3460,15 +3426,15 @@ get_bool_option.exit190.thread:                   ; preds = %.thread.i, %40, %35
   ]
 
 46:                                               ; preds = %43
-  %47 = call i32 @dbuf_putstr(ptr noundef nonnull %6, ptr noundef nonnull @.str.75) #29
+  %47 = call i32 @dbuf_putstr(ptr noundef nonnull %6, ptr noundef nonnull @.str.75) #30
   br label %52
 
 48:                                               ; preds = %43, %43, %43, %43, %43
-  %49 = call i32 @dbuf_putc(ptr noundef nonnull %6, i8 noundef zeroext 92) #29
+  %49 = call i32 @dbuf_putc(ptr noundef nonnull %6, i8 noundef zeroext 92) #30
   br label %50
 
 50:                                               ; preds = %43, %48
-  %51 = call i32 @dbuf_putc(ptr noundef nonnull %6, i8 noundef zeroext %45) #29
+  %51 = call i32 @dbuf_putc(ptr noundef nonnull %6, i8 noundef zeroext %45) #30
   br label %52
 
 52:                                               ; preds = %46, %50
@@ -3476,38 +3442,38 @@ get_bool_option.exit190.thread:                   ; preds = %.thread.i, %40, %35
   br label %43, !llvm.loop !24
 
 54:                                               ; preds = %43
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %12) #29
-  %55 = call i32 @dbuf_putstr(ptr noundef nonnull %6, ptr noundef nonnull @.str.76) #29
-  %56 = call i32 @dbuf_putc(ptr noundef nonnull %6, i8 noundef zeroext 0) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %12) #30
+  %55 = call i32 @dbuf_putstr(ptr noundef nonnull %6, ptr noundef nonnull @.str.76) #30
+  %56 = call i32 @dbuf_putc(ptr noundef nonnull %6, i8 noundef zeroext 0) #30
   %57 = getelementptr inbounds i8, ptr %6, i64 24
   %.val = load i32, ptr %57, align 8
   %.not169 = icmp eq i32 %.val, 0
   br i1 %.not169, label %59, label %58
 
 58:                                               ; preds = %54
-  call void @dbuf_free(ptr noundef nonnull %6) #29
+  call void @dbuf_free(ptr noundef nonnull %6) #30
   br label %JS_FreeValue.exit
 
 59:                                               ; preds = %54
   %60 = load ptr, ptr %6, align 8
   %61 = call noalias ptr @popen(ptr noundef %60, ptr noundef nonnull @.str.77)
-  call void @dbuf_free(ptr noundef nonnull %6) #29
+  call void @dbuf_free(ptr noundef nonnull %6) #30
   %.not170 = icmp eq ptr %61, null
   br i1 %.not170, label %62, label %66
 
 62:                                               ; preds = %59
-  %63 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.78) #29
+  %63 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.78) #30
   %64 = extractvalue { i64, i64 } %63, 0
   %.sroa.7143.0.extract.shift = and i64 %64, -4294967296
   %65 = extractvalue { i64, i64 } %63, 1
   br label %JS_FreeValue.exit
 
 66:                                               ; preds = %59
-  %67 = call ptr @JS_GetRuntime(ptr noundef %0) #29
-  call void @dbuf_init2(ptr noundef nonnull %7, ptr noundef %67, ptr noundef nonnull @js_realloc_rt) #29
-  %68 = call ptr @JS_GetRuntime(ptr noundef %0) #29
-  call void @dbuf_init2(ptr noundef nonnull %8, ptr noundef %68, ptr noundef nonnull @js_realloc_rt) #29
-  %69 = call ptr @js_malloc(ptr noundef %0, i64 noundef 4096) #29
+  %67 = call ptr @JS_GetRuntime(ptr noundef %0) #30
+  call void @dbuf_init2(ptr noundef nonnull %7, ptr noundef %67, ptr noundef nonnull @js_realloc_rt) #30
+  %68 = call ptr @JS_GetRuntime(ptr noundef %0) #30
+  call void @dbuf_init2(ptr noundef nonnull %8, ptr noundef %68, ptr noundef nonnull @js_realloc_rt) #30
+  %69 = call ptr @js_malloc(ptr noundef %0, i64 noundef 4096) #30
   %.not171 = icmp eq ptr %69, null
   br i1 %.not171, label %.thread227, label %70
 
@@ -3562,7 +3528,7 @@ get_bool_option.exit190.thread:                   ; preds = %.thread.i, %40, %35
   br i1 %89, label %.preheaderthread-pre-split.i, label %90, !llvm.loop !26
 
 90:                                               ; preds = %.preheaderthread-pre-split.i
-  %91 = call i32 @atoi(ptr nocapture noundef nonnull %88) #31
+  %91 = call i32 @atoi(ptr nocapture noundef nonnull %88) #32
   br label %http_get_status.exit
 
 http_get_status.exit:                             ; preds = %84, %90
@@ -3598,7 +3564,7 @@ http_get_status.exit:                             ; preds = %84, %90
 
 ._crit_edge.i:                                    ; preds = %102, %97
   %.1.i193 = phi ptr [ %103, %102 ], [ %.0.i192, %97 ]
-  %104 = call i32 @dbuf_putc(ptr noundef nonnull %8, i8 noundef zeroext %101) #29
+  %104 = call i32 @dbuf_putc(ptr noundef nonnull %8, i8 noundef zeroext %101) #30
   %105 = icmp eq i32 %95, 10
   br i1 %105, label %sub_0, label %.split.i.backedge
 
@@ -3648,7 +3614,7 @@ sub_2:                                            ; preds = %sub_1
 
 .lr.ph:                                           ; preds = %117, %.lr.ph
   %123 = phi i64 [ %125, %.lr.ph ], [ %121, %117 ]
-  %124 = call i32 @dbuf_put(ptr noundef nonnull %7, ptr noundef nonnull %69, i64 noundef %123) #29
+  %124 = call i32 @dbuf_put(ptr noundef nonnull %7, ptr noundef nonnull %69, i64 noundef %123) #30
   %125 = call i64 @fread(ptr noundef nonnull %69, i64 noundef 1, i64 noundef 4096, ptr noundef nonnull %61)
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %._crit_edge, label %.lr.ph
@@ -3667,11 +3633,11 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not176, label %134, label %132
 
 132:                                              ; preds = %128
-  %133 = call { i64, i64 } @JS_NewArrayBufferCopy(ptr noundef %0, ptr noundef %129, i64 noundef %131) #29
+  %133 = call { i64, i64 } @JS_NewArrayBufferCopy(ptr noundef %0, ptr noundef %129, i64 noundef %131) #30
   br label %136
 
 134:                                              ; preds = %128
-  %135 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %129, i64 noundef %131) #29
+  %135 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %129, i64 noundef %131) #30
   br label %136
 
 136:                                              ; preds = %134, %132
@@ -3690,14 +3656,14 @@ http_get_header_line.exit.thread:                 ; preds = %.split.us.i, %.spli
   %.sroa.033.sroa.0.1 = phi i32 [ %.sroa.033.sroa.0.2, %136 ], [ 0, %http_get_status.exit ], [ 0, %.split.i ], [ 0, %.split.us.i ]
   %.sroa.033.sroa.9.1 = phi i32 [ %.sroa.033.sroa.9.2, %136 ], [ undef, %http_get_status.exit ], [ undef, %.split.i ], [ undef, %.split.us.i ]
   %.1 = phi i32 [ %.08.i, %136 ], [ %.08.i, %http_get_status.exit ], [ %.08.i, %.split.i ], [ 0, %.split.us.i ]
-  call void @js_free(ptr noundef %0, ptr noundef nonnull %69) #29
+  call void @js_free(ptr noundef %0, ptr noundef nonnull %69) #30
   %138 = call i32 @pclose(ptr noundef nonnull %61)
-  call void @dbuf_free(ptr noundef nonnull %7) #29
+  call void @dbuf_free(ptr noundef nonnull %7) #30
   %.not179 = icmp eq i32 %.0202, 0
   br i1 %.not179, label %156, label %139
 
 139:                                              ; preds = %http_get_header_line.exit.thread
-  %140 = call { i64, i64 } @JS_NewObject(ptr noundef %0) #29
+  %140 = call { i64, i64 } @JS_NewObject(ptr noundef %0) #30
   %141 = extractvalue { i64, i64 } %140, 0
   %142 = extractvalue { i64, i64 } %140, 1
   %143 = and i64 %142, 4294967295
@@ -3709,7 +3675,7 @@ http_get_header_line.exit.thread:                 ; preds = %.split.us.i, %.spli
   %.sroa.033.sroa.9.0.insert.shift56 = shl nuw i64 %.sroa.033.sroa.9.0.insert.ext55, 32
   %.sroa.033.sroa.0.0.insert.ext41 = zext i32 %.sroa.033.sroa.0.1 to i64
   %.sroa.033.sroa.0.0.insert.insert43 = or disjoint i64 %.sroa.033.sroa.9.0.insert.shift56, %.sroa.033.sroa.0.0.insert.ext41
-  %145 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %141, i64 %142, ptr noundef nonnull @.str.80, i64 %.sroa.033.sroa.0.0.insert.insert43, i64 %.sroa.10.1, i32 noundef 7) #29
+  %145 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %141, i64 %142, ptr noundef nonnull @.str.80, i64 %.sroa.033.sroa.0.0.insert.insert43, i64 %.sroa.10.1, i32 noundef 7) #30
   %146 = and i64 %.sroa.10.1, 4294967295
   %.not257 = icmp eq i64 %146, 2
   br i1 %.not257, label %157, label %147
@@ -3718,12 +3684,12 @@ http_get_header_line.exit.thread:                 ; preds = %.split.us.i, %.spli
   %148 = load ptr, ptr %8, align 8
   %149 = getelementptr inbounds i8, ptr %8, i64 8
   %150 = load i64, ptr %149, align 8
-  %151 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %148, i64 noundef %150) #29
+  %151 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %148, i64 noundef %150) #30
   %152 = extractvalue { i64, i64 } %151, 0
   %153 = extractvalue { i64, i64 } %151, 1
-  %154 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %141, i64 %142, ptr noundef nonnull @.str.81, i64 %152, i64 %153, i32 noundef 7) #29
+  %154 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %141, i64 %142, ptr noundef nonnull @.str.81, i64 %152, i64 %153, i32 noundef 7) #30
   %.sroa.0154.0.insert.ext = zext i32 %.1 to i64
-  %155 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %141, i64 %142, ptr noundef nonnull @.str.82, i64 %.sroa.0154.0.insert.ext, i64 0, i32 noundef 7) #29
+  %155 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %141, i64 %142, ptr noundef nonnull @.str.82, i64 %.sroa.0154.0.insert.ext, i64 0, i32 noundef 7) #30
   br label %157
 
 156:                                              ; preds = %http_get_header_line.exit.thread
@@ -3736,7 +3702,7 @@ http_get_header_line.exit.thread:                 ; preds = %.split.us.i, %.spli
 157:                                              ; preds = %144, %147, %156
   %.sroa.023.0 = phi i64 [ %141, %144 ], [ %141, %147 ], [ %.sroa.033.sroa.0.0.insert.insert53, %156 ]
   %.sroa.7.0 = phi i64 [ %142, %144 ], [ %142, %147 ], [ %.sroa.10.1, %156 ]
-  call void @dbuf_free(ptr noundef nonnull %8) #29
+  call void @dbuf_free(ptr noundef nonnull %8) #30
   %.sroa.7143.0.extract.shift144 = and i64 %.sroa.023.0, -4294967296
   br label %JS_FreeValue.exit
 
@@ -3745,19 +3711,19 @@ http_get_header_line.exit.thread:                 ; preds = %.split.us.i, %.spli
   %.sroa.033.sroa.0.0237 = phi i32 [ 0, %66 ], [ %.sroa.033.sroa.0.2, %136 ], [ 0, %._crit_edge ], [ 0, %115 ]
   %.sroa.10.0236 = phi i64 [ 3, %66 ], [ %.sroa.10.2, %136 ], [ 3, %._crit_edge ], [ 3, %115 ]
   %158 = call i32 @pclose(ptr noundef nonnull %61)
-  call void @js_free(ptr noundef %0, ptr noundef %69) #29
-  call void @dbuf_free(ptr noundef nonnull %7) #29
+  call void @js_free(ptr noundef %0, ptr noundef %69) #30
+  call void @dbuf_free(ptr noundef nonnull %7) #30
   br label %160
 
 159:                                              ; preds = %139
-  call void @js_free(ptr noundef %0, ptr noundef null) #29
+  call void @js_free(ptr noundef %0, ptr noundef null) #30
   br label %160
 
 160:                                              ; preds = %159, %.thread227
   %.sroa.10.0222254 = phi i64 [ %.sroa.10.1, %159 ], [ %.sroa.10.0236, %.thread227 ]
   %.sroa.033.sroa.0.0223252 = phi i32 [ %.sroa.033.sroa.0.1, %159 ], [ %.sroa.033.sroa.0.0237, %.thread227 ]
   %.sroa.033.sroa.9.0224250 = phi i32 [ %.sroa.033.sroa.9.1, %159 ], [ %.sroa.033.sroa.9.0238, %.thread227 ]
-  call void @dbuf_free(ptr noundef nonnull %8) #29
+  call void @dbuf_free(ptr noundef nonnull %8) #30
   %.sroa.033.sroa.9.0.insert.ext63 = zext i32 %.sroa.033.sroa.9.0224250 to i64
   %.sroa.033.sroa.9.0.insert.shift64 = shl nuw i64 %.sroa.033.sroa.9.0.insert.ext63, 32
   %.sroa.033.sroa.0.0.insert.ext47 = zext i32 %.sroa.033.sroa.0.0223252 to i64
@@ -3775,7 +3741,7 @@ http_get_header_line.exit.thread:                 ; preds = %.split.us.i, %.spli
   br i1 %167, label %168, label %JS_FreeValue.exit
 
 168:                                              ; preds = %163
-  call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.033.sroa.0.0.insert.insert49, i64 %.sroa.10.0222254) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.033.sroa.0.0.insert.insert49, i64 %.sroa.10.0222254) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %168, %163, %160, %5, %157, %62, %58, %get_bool_option.exit
@@ -3795,22 +3761,22 @@ define internal { i64, i64 } @js_std_loadFile(ptr noundef %0, i64 %1, i64 %2, i3
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %7, i64 %9, i32 noundef 0) #29
+  %10 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %7, i64 %9, i32 noundef 0) #30
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %5
   %12 = call ptr @js_load_file(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %10)
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %10) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %10) #30
   %.not19 = icmp eq ptr %12, null
   br i1 %.not19, label %19, label %13
 
 13:                                               ; preds = %11
   %14 = load i64, ptr %6, align 8
-  %15 = tail call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %14) #29
+  %15 = tail call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %14) #30
   %16 = extractvalue { i64, i64 } %15, 0
   %17 = extractvalue { i64, i64 } %15, 1
-  tail call void @js_free(ptr noundef %0, ptr noundef nonnull %12) #29
+  tail call void @js_free(ptr noundef %0, ptr noundef nonnull %12) #30
   %.sroa.4.0.extract.shift = and i64 %16, -4294967296
   %18 = and i64 %16, 4294967295
   br label %19
@@ -3831,14 +3797,14 @@ define internal { i64, i64 } @js_std_strerror(ptr noundef %0, i64 %1, i64 %2, i3
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #29
+  %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #30
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %17
 
 11:                                               ; preds = %5
   %12 = load i32, ptr %6, align 4
-  %13 = call ptr @strerror(i32 noundef %12) #29
-  %14 = call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef %13) #29
+  %13 = call ptr @strerror(i32 noundef %12) #30
+  %14 = call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef %13) #30
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = extractvalue { i64, i64 } %14, 1
   br label %17
@@ -3857,16 +3823,16 @@ define internal { i64, i64 } @js_std_parseExtJSON(ptr noundef %0, i64 %1, i64 %2
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9, i32 noundef 0) #29
+  %10 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9, i32 noundef 0) #30
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %5
   %12 = load i64, ptr %6, align 8
-  %13 = call { i64, i64 } @JS_ParseJSON2(ptr noundef %0, ptr noundef nonnull %10, i64 noundef %12, ptr noundef nonnull @.str.83, i32 noundef 1) #29
+  %13 = call { i64, i64 } @JS_ParseJSON2(ptr noundef %0, ptr noundef nonnull %10, i64 noundef %12, ptr noundef nonnull @.str.83, i32 noundef 1) #30
   %14 = extractvalue { i64, i64 } %13, 0
   %15 = extractvalue { i64, i64 } %13, 1
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %10) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %10) #30
   br label %16
 
 16:                                               ; preds = %5, %11
@@ -3882,7 +3848,7 @@ define internal { i64, i64 } @js_std_open(ptr noundef %0, i64 %1, i64 %2, i32 no
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #29
+  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %59, label %10
 
@@ -3891,19 +3857,19 @@ define internal { i64, i64 } @js_std_open(ptr noundef %0, i64 %1, i64 %2, i32 no
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr i8, ptr %4, i64 24
   %14 = load i64, ptr %13, align 8
-  %15 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %12, i64 %14, i32 noundef 0) #29
+  %15 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %12, i64 %14, i32 noundef 0) #30
   %.not35 = icmp eq ptr %15, null
   br i1 %.not35, label %59, label %16
 
 16:                                               ; preds = %10
-  %17 = tail call i64 @strspn(ptr noundef nonnull %15, ptr noundef nonnull @.str.84) #31
+  %17 = tail call i64 @strspn(ptr noundef nonnull %15, ptr noundef nonnull @.str.84) #32
   %18 = getelementptr i8, ptr %15, i64 %17
   %19 = load i8, ptr %18, align 1
   %.not36 = icmp eq i8 %19, 0
   br i1 %.not36, label %22, label %20
 
 20:                                               ; preds = %16
-  %21 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.85) #29
+  %21 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.85) #30
   br label %59
 
 22:                                               ; preds = %16
@@ -3912,7 +3878,7 @@ define internal { i64, i64 } @js_std_open(ptr noundef %0, i64 %1, i64 %2, i32 no
   br i1 %.not37, label %24, label %28
 
 24:                                               ; preds = %22
-  %25 = tail call ptr @__errno_location() #28
+  %25 = tail call ptr @__errno_location() #29
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
   br label %28
@@ -3932,17 +3898,17 @@ define internal { i64, i64 } @js_std_open(ptr noundef %0, i64 %1, i64 %2, i32 no
 34:                                               ; preds = %30
   %35 = getelementptr i8, ptr %4, i64 32
   %36 = load i64, ptr %35, align 8
-  %37 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %36, i64 %32, ptr noundef nonnull @.str.86, i64 %.0, i64 0) #29
+  %37 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %36, i64 %32, ptr noundef nonnull @.str.86, i64 %.0, i64 0) #30
   br label %js_set_error_object.exit
 
 js_set_error_object.exit:                         ; preds = %34, %30, %28
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #29
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %15) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #30
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %15) #30
   br i1 %.not37, label %60, label %38
 
 38:                                               ; preds = %js_set_error_object.exit
   %39 = load i32, ptr @js_std_file_class_id, align 4
-  %40 = tail call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %39) #29
+  %40 = tail call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %39) #30
   %41 = extractvalue { i64, i64 } %40, 0
   %42 = extractvalue { i64, i64 } %40, 1
   %43 = and i64 %42, 4294967295
@@ -3954,7 +3920,7 @@ js_set_error_object.exit:                         ; preds = %34, %30, %28
   br label %js_new_std_file.exit
 
 45:                                               ; preds = %38
-  %46 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #29
+  %46 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #30
   %.not24.i = icmp eq ptr %46, null
   br i1 %.not24.i, label %47, label %56
 
@@ -3972,7 +3938,7 @@ js_set_error_object.exit:                         ; preds = %34, %30, %28
   br i1 %54, label %55, label %js_new_std_file.exit
 
 55:                                               ; preds = %50
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %41, i64 %42) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %41, i64 %42) #30
   br label %js_new_std_file.exit
 
 56:                                               ; preds = %45
@@ -3981,7 +3947,7 @@ js_set_error_object.exit:                         ; preds = %34, %30, %28
   %58 = getelementptr inbounds i8, ptr %46, i64 12
   store i32 0, ptr %58, align 4
   store ptr %23, ptr %46, align 8
-  tail call void @JS_SetOpaque(i64 %41, i64 %42, ptr noundef nonnull %46) #29
+  tail call void @JS_SetOpaque(i64 %41, i64 %42, ptr noundef nonnull %46) #30
   %.sroa.4.0.extract.shift20.i = and i64 %41, -4294967296
   br label %js_new_std_file.exit
 
@@ -3994,8 +3960,8 @@ js_new_std_file.exit:                             ; preds = %44, %47, %50, %55, 
 
 59:                                               ; preds = %10, %5, %20
   %.031 = phi ptr [ %15, %20 ], [ null, %10 ], [ null, %5 ]
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef %9) #29
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef %.031) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef %9) #30
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef %.031) #30
   br label %60
 
 60:                                               ; preds = %js_set_error_object.exit, %59, %js_new_std_file.exit
@@ -4013,7 +3979,7 @@ define internal { i64, i64 } @js_std_popen(ptr noundef %0, i64 %1, i64 %2, i32 n
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #29
+  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %59, label %10
 
@@ -4022,19 +3988,19 @@ define internal { i64, i64 } @js_std_popen(ptr noundef %0, i64 %1, i64 %2, i32 n
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr i8, ptr %4, i64 24
   %14 = load i64, ptr %13, align 8
-  %15 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %12, i64 %14, i32 noundef 0) #29
+  %15 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %12, i64 %14, i32 noundef 0) #30
   %.not35 = icmp eq ptr %15, null
   br i1 %.not35, label %59, label %16
 
 16:                                               ; preds = %10
-  %17 = tail call i64 @strspn(ptr noundef nonnull %15, ptr noundef nonnull @.str.87) #31
+  %17 = tail call i64 @strspn(ptr noundef nonnull %15, ptr noundef nonnull @.str.87) #32
   %18 = getelementptr i8, ptr %15, i64 %17
   %19 = load i8, ptr %18, align 1
   %.not36 = icmp eq i8 %19, 0
   br i1 %.not36, label %22, label %20
 
 20:                                               ; preds = %16
-  %21 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.85) #29
+  %21 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.85) #30
   br label %59
 
 22:                                               ; preds = %16
@@ -4043,7 +4009,7 @@ define internal { i64, i64 } @js_std_popen(ptr noundef %0, i64 %1, i64 %2, i32 n
   br i1 %.not37, label %24, label %28
 
 24:                                               ; preds = %22
-  %25 = tail call ptr @__errno_location() #28
+  %25 = tail call ptr @__errno_location() #29
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
   br label %28
@@ -4063,17 +4029,17 @@ define internal { i64, i64 } @js_std_popen(ptr noundef %0, i64 %1, i64 %2, i32 n
 34:                                               ; preds = %30
   %35 = getelementptr i8, ptr %4, i64 32
   %36 = load i64, ptr %35, align 8
-  %37 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %36, i64 %32, ptr noundef nonnull @.str.86, i64 %.0, i64 0) #29
+  %37 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %36, i64 %32, ptr noundef nonnull @.str.86, i64 %.0, i64 0) #30
   br label %js_set_error_object.exit
 
 js_set_error_object.exit:                         ; preds = %34, %30, %28
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #29
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %15) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #30
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %15) #30
   br i1 %.not37, label %60, label %38
 
 38:                                               ; preds = %js_set_error_object.exit
   %39 = load i32, ptr @js_std_file_class_id, align 4
-  %40 = tail call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %39) #29
+  %40 = tail call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %39) #30
   %41 = extractvalue { i64, i64 } %40, 0
   %42 = extractvalue { i64, i64 } %40, 1
   %43 = and i64 %42, 4294967295
@@ -4085,7 +4051,7 @@ js_set_error_object.exit:                         ; preds = %34, %30, %28
   br label %js_new_std_file.exit
 
 45:                                               ; preds = %38
-  %46 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #29
+  %46 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #30
   %.not24.i = icmp eq ptr %46, null
   br i1 %.not24.i, label %47, label %56
 
@@ -4103,7 +4069,7 @@ js_set_error_object.exit:                         ; preds = %34, %30, %28
   br i1 %54, label %55, label %js_new_std_file.exit
 
 55:                                               ; preds = %50
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %41, i64 %42) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %41, i64 %42) #30
   br label %js_new_std_file.exit
 
 56:                                               ; preds = %45
@@ -4112,7 +4078,7 @@ js_set_error_object.exit:                         ; preds = %34, %30, %28
   %58 = getelementptr inbounds i8, ptr %46, i64 12
   store i32 1, ptr %58, align 4
   store ptr %23, ptr %46, align 8
-  tail call void @JS_SetOpaque(i64 %41, i64 %42, ptr noundef nonnull %46) #29
+  tail call void @JS_SetOpaque(i64 %41, i64 %42, ptr noundef nonnull %46) #30
   %.sroa.4.0.extract.shift20.i = and i64 %41, -4294967296
   br label %js_new_std_file.exit
 
@@ -4125,8 +4091,8 @@ js_new_std_file.exit:                             ; preds = %44, %47, %50, %55, 
 
 59:                                               ; preds = %10, %5, %20
   %.031 = phi ptr [ %15, %20 ], [ null, %10 ], [ null, %5 ]
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef %9) #29
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef %.031) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef %9) #30
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef %.031) #30
   br label %60
 
 60:                                               ; preds = %js_set_error_object.exit, %59, %js_new_std_file.exit
@@ -4145,7 +4111,7 @@ define internal { i64, i64 } @js_std_fdopen(ptr noundef %0, i64 %1, i64 %2, i32 
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #29
+  %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #30
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %62
 
@@ -4154,29 +4120,29 @@ define internal { i64, i64 } @js_std_fdopen(ptr noundef %0, i64 %1, i64 %2, i32 
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr i8, ptr %4, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %13, i64 %15, i32 noundef 0) #29
+  %16 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %13, i64 %15, i32 noundef 0) #30
   %.not28 = icmp eq ptr %16, null
   br i1 %.not28, label %61, label %17
 
 17:                                               ; preds = %11
-  %18 = call i64 @strspn(ptr noundef nonnull %16, ptr noundef nonnull @.str.88) #31
+  %18 = call i64 @strspn(ptr noundef nonnull %16, ptr noundef nonnull @.str.88) #32
   %19 = getelementptr i8, ptr %16, i64 %18
   %20 = load i8, ptr %19, align 1
   %.not29 = icmp eq i8 %20, 0
   br i1 %.not29, label %23, label %21
 
 21:                                               ; preds = %17
-  %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.85) #29
+  %22 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.85) #30
   br label %61
 
 23:                                               ; preds = %17
   %24 = load i32, ptr %6, align 4
-  %25 = call noalias ptr @fdopen(i32 noundef %24, ptr noundef nonnull %16) #29
+  %25 = call noalias ptr @fdopen(i32 noundef %24, ptr noundef nonnull %16) #30
   %.not30 = icmp eq ptr %25, null
   br i1 %.not30, label %26, label %30
 
 26:                                               ; preds = %23
-  %27 = tail call ptr @__errno_location() #28
+  %27 = tail call ptr @__errno_location() #29
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   br label %30
@@ -4196,16 +4162,16 @@ define internal { i64, i64 } @js_std_fdopen(ptr noundef %0, i64 %1, i64 %2, i32 
 36:                                               ; preds = %32
   %37 = getelementptr i8, ptr %4, i64 32
   %38 = load i64, ptr %37, align 8
-  %39 = call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %38, i64 %34, ptr noundef nonnull @.str.86, i64 %.0, i64 0) #29
+  %39 = call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %38, i64 %34, ptr noundef nonnull @.str.86, i64 %.0, i64 0) #30
   br label %js_set_error_object.exit
 
 js_set_error_object.exit:                         ; preds = %36, %32, %30
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %16) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %16) #30
   br i1 %.not30, label %62, label %40
 
 40:                                               ; preds = %js_set_error_object.exit
   %41 = load i32, ptr @js_std_file_class_id, align 4
-  %42 = call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %41) #29
+  %42 = call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %41) #30
   %43 = extractvalue { i64, i64 } %42, 0
   %44 = extractvalue { i64, i64 } %42, 1
   %45 = and i64 %44, 4294967295
@@ -4217,7 +4183,7 @@ js_set_error_object.exit:                         ; preds = %36, %32, %30
   br label %js_new_std_file.exit
 
 47:                                               ; preds = %40
-  %48 = call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #29
+  %48 = call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #30
   %.not24.i = icmp eq ptr %48, null
   br i1 %.not24.i, label %49, label %58
 
@@ -4235,7 +4201,7 @@ js_set_error_object.exit:                         ; preds = %36, %32, %30
   br i1 %56, label %57, label %js_new_std_file.exit
 
 57:                                               ; preds = %52
-  call void @__JS_FreeValue(ptr noundef %0, i64 %43, i64 %44) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %43, i64 %44) #30
   br label %js_new_std_file.exit
 
 58:                                               ; preds = %47
@@ -4244,7 +4210,7 @@ js_set_error_object.exit:                         ; preds = %36, %32, %30
   %60 = getelementptr inbounds i8, ptr %48, i64 12
   store i32 0, ptr %60, align 4
   store ptr %25, ptr %48, align 8
-  call void @JS_SetOpaque(i64 %43, i64 %44, ptr noundef nonnull %48) #29
+  call void @JS_SetOpaque(i64 %43, i64 %44, ptr noundef nonnull %48) #30
   %.sroa.4.0.extract.shift20.i = and i64 %43, -4294967296
   br label %js_new_std_file.exit
 
@@ -4256,7 +4222,7 @@ js_new_std_file.exit:                             ; preds = %46, %49, %52, %57, 
   br label %62
 
 61:                                               ; preds = %11, %21
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef %16) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef %16) #30
   br label %62
 
 62:                                               ; preds = %js_set_error_object.exit, %5, %61, %js_new_std_file.exit
@@ -4280,7 +4246,7 @@ define internal { i64, i64 } @js_std_tmpfile(ptr noundef %0, i64 %1, i64 %2, i32
   br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %8
-  %10 = tail call ptr @__errno_location() #28
+  %10 = tail call ptr @__errno_location() #29
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
   br label %13
@@ -4295,7 +4261,7 @@ define internal { i64, i64 } @js_std_tmpfile(ptr noundef %0, i64 %1, i64 %2, i32
 
 17:                                               ; preds = %13
   %18 = load i64, ptr %4, align 8
-  %19 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %18, i64 %15, ptr noundef nonnull @.str.86, i64 %.sroa.06.0.insert.ext.i, i64 0) #29
+  %19 = tail call i32 @JS_SetPropertyStr(ptr noundef %0, i64 %18, i64 %15, ptr noundef nonnull @.str.86, i64 %.sroa.06.0.insert.ext.i, i64 0) #30
   br label %js_set_error_object.exit
 
 js_set_error_object.exit:                         ; preds = %17, %13, %5
@@ -4304,7 +4270,7 @@ js_set_error_object.exit:                         ; preds = %17, %13, %5
 
 20:                                               ; preds = %js_set_error_object.exit
   %21 = load i32, ptr @js_std_file_class_id, align 4
-  %22 = tail call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %21) #29
+  %22 = tail call { i64, i64 } @JS_NewObjectClass(ptr noundef %0, i32 noundef %21) #30
   %23 = extractvalue { i64, i64 } %22, 0
   %24 = extractvalue { i64, i64 } %22, 1
   %25 = and i64 %24, 4294967295
@@ -4316,7 +4282,7 @@ js_set_error_object.exit:                         ; preds = %17, %13, %5
   br label %js_new_std_file.exit
 
 27:                                               ; preds = %20
-  %28 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #29
+  %28 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 16) #30
   %.not24.i = icmp eq ptr %28, null
   br i1 %.not24.i, label %29, label %38
 
@@ -4334,7 +4300,7 @@ js_set_error_object.exit:                         ; preds = %17, %13, %5
   br i1 %36, label %37, label %js_new_std_file.exit
 
 37:                                               ; preds = %32
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %23, i64 %24) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %23, i64 %24) #30
   br label %js_new_std_file.exit
 
 38:                                               ; preds = %27
@@ -4343,7 +4309,7 @@ js_set_error_object.exit:                         ; preds = %17, %13, %5
   %40 = getelementptr inbounds i8, ptr %28, i64 12
   store i32 0, ptr %40, align 4
   store ptr %6, ptr %28, align 8
-  tail call void @JS_SetOpaque(i64 %23, i64 %24, ptr noundef nonnull %28) #29
+  tail call void @JS_SetOpaque(i64 %23, i64 %24, ptr noundef nonnull %28) #30
   %.sroa.4.0.extract.shift20.i = and i64 %23, -4294967296
   br label %js_new_std_file.exit
 
@@ -4380,7 +4346,7 @@ declare void @JS_RunGC(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @get_bool_option(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %2, i64 %3, ptr noundef %4) #29
+  %6 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %2, i64 %3, ptr noundef %4) #30
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
   %trunc = trunc i64 %8 to i32
@@ -4393,7 +4359,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_bool_option(ptr noundef %0, ptr
   br label %JS_FreeValue.exit
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @JS_ToBool(ptr noundef %0, i64 %7, i64 %8) #29
+  %10 = tail call i32 @JS_ToBool(ptr noundef %0, i64 %7, i64 %8) #30
   store i32 %10, ptr %1, align 4
   %11 = icmp ugt i32 %trunc, -12
   br i1 %11, label %12, label %JS_FreeValue.exit
@@ -4407,7 +4373,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_bool_option(ptr noundef %0, ptr
   br i1 %16, label %17, label %JS_FreeValue.exit
 
 17:                                               ; preds = %12
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %7, i64 %8) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %7, i64 %8) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %.thread, %5, %17, %12, %9
@@ -4418,7 +4384,7 @@ JS_FreeValue.exit:                                ; preds = %.thread, %5, %17, %
 declare void @JS_SetInterruptHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @interrupt_handler(ptr nocapture readnone %0, ptr nocapture readnone %1) #18 {
+define internal range(i32 0, 2) i32 @interrupt_handler(ptr nocapture readnone %0, ptr nocapture readnone %1) #19 {
   %3 = load i64, ptr @os_pending_signals, align 8
   %4 = trunc i64 %3 to i32
   %5 = lshr i32 %4, 2
@@ -4433,10 +4399,10 @@ declare { i64, i64 } @JS_GetPropertyStr(ptr noundef, i64, i64, ptr noundef) loca
 declare i32 @JS_ToBool(ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #16
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
-declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #15
+declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @unsetenv(ptr nocapture noundef readonly) local_unnamed_addr #1
@@ -4453,10 +4419,10 @@ declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture
 declare { i64, i64 } @JS_NewArrayBufferCopy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #19
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #15
+declare ptr @strerror(i32 noundef) local_unnamed_addr #16
 
 declare { i64, i64 } @JS_ParseJSON2(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -4477,8 +4443,8 @@ define internal range(i32 -1, 1) i32 @js_os_poll(ptr noundef %0) #0 {
   %5 = alloca %struct.fd_set, align 8
   %6 = alloca %struct.fd_set, align 8
   %7 = alloca %struct.timeval, align 8
-  %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %8) #29
+  %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %8) #30
   %10 = getelementptr inbounds i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not = icmp ne ptr %11, null
@@ -4555,7 +4521,7 @@ define internal range(i32 -1, 1) i32 @js_os_poll(ptr noundef %0) #0 {
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %9, i64 40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %45 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #29
+  %45 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #30
   %46 = load i64, ptr %4, align 8
   %.neg145 = mul i64 %46, -1000
   %47 = getelementptr inbounds i8, ptr %4, i64 8
@@ -4605,11 +4571,11 @@ define internal range(i32 -1, 1) i32 @js_os_poll(ptr noundef %0) #0 {
   br i1 %67, label %68, label %free_timer.exit
 
 68:                                               ; preds = %63
-  call void @__JS_FreeValueRT(ptr noundef %8, i64 %59, i64 %60) #29
+  call void @__JS_FreeValueRT(ptr noundef %8, i64 %59, i64 %60) #30
   br label %free_timer.exit
 
 free_timer.exit:                                  ; preds = %53, %63, %68
-  call void @js_free_rt(ptr noundef %8, ptr noundef nonnull %.1106178) #29
+  call void @js_free_rt(ptr noundef %8, ptr noundef nonnull %.1106178) #30
   call fastcc void @call_handler(ptr noundef %0, i64 %.sroa.018.0.copyload, i64 %.sroa.3.0.copyload)
   %69 = trunc i64 %.sroa.3.0.copyload to i32
   %70 = icmp ugt i32 %69, -12
@@ -4624,7 +4590,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   br i1 %75, label %76, label %JS_FreeValue.exit
 
 76:                                               ; preds = %71
-  call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.018.0.copyload, i64 %.sroa.3.0.copyload) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.018.0.copyload, i64 %.sroa.3.0.copyload) #30
   br label %JS_FreeValue.exit
 
 77:                                               ; preds = %.lr.ph179
@@ -4752,7 +4718,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
 ._crit_edge195:                                   ; preds = %136, %._crit_edge187
   %.1.lcssa = phi i32 [ %.0102.lcssa, %._crit_edge187 ], [ %.2, %136 ]
   %138 = add i32 %.1.lcssa, 1
-  %139 = call i32 @select(i32 noundef %138, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null, ptr noundef %.0109) #29
+  %139 = call i32 @select(i32 noundef %138, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null, ptr noundef %.0109) #30
   %140 = icmp sgt i32 %139, 0
   br i1 %140, label %.preheader153, label %JS_FreeValue.exit
 
@@ -4827,13 +4793,13 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   %.not126 = icmp eq ptr %.4, %9
   br i1 %.not126, label %.preheader, label %.lr.ph201, !llvm.loop !31
 
-.lr.ph208:                                        ; preds = %.preheader, %313
-  %.5207 = phi ptr [ %.5, %313 ], [ %.5205, %.preheader ]
+.lr.ph208:                                        ; preds = %.preheader, %302
+  %.5207 = phi ptr [ %.5, %302 ], [ %.5205, %.preheader ]
   %178 = getelementptr inbounds i8, ptr %.5207, i64 32
   %179 = load i64, ptr %178, align 8
   %180 = and i64 %179, 4294967295
   %.not152 = icmp eq i64 %180, 2
-  br i1 %.not152, label %313, label %181
+  br i1 %.not152, label %302, label %181
 
 181:                                              ; preds = %.lr.ph208
   %182 = getelementptr inbounds i8, ptr %.5207, i64 16
@@ -4849,13 +4815,13 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   %192 = shl nuw i64 1, %191
   %193 = and i64 %192, %189
   %.not129 = icmp eq i64 %193, 0
-  br i1 %.not129, label %313, label %194
+  br i1 %.not129, label %302, label %194
 
 194:                                              ; preds = %181
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %195 = getelementptr inbounds i8, ptr %183, i64 8
-  %196 = call i32 @pthread_mutex_lock(ptr noundef nonnull %195) #29
+  %196 = call i32 @pthread_mutex_lock(ptr noundef nonnull %195) #30
   %197 = getelementptr inbounds i8, ptr %183, i64 48
   %198 = getelementptr inbounds i8, ptr %183, i64 56
   %199 = load ptr, ptr %198, align 8
@@ -4880,13 +4846,13 @@ free_timer.exit:                                  ; preds = %53, %63, %68
 
 .preheader.i:                                     ; preds = %200
   %210 = load i32, ptr %202, align 8
-  %211 = call i64 @read(i32 noundef %210, ptr noundef nonnull %3, i64 noundef 16) #29
+  %211 = call i64 @read(i32 noundef %210, ptr noundef nonnull %3, i64 noundef 16) #30
   %212 = and i64 %211, 2147483648
   %213 = icmp eq i64 %212, 0
   br i1 %213, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %214 = tail call ptr @__errno_location() #28
+  %214 = tail call ptr @__errno_location() #29
   br label %215
 
 215:                                              ; preds = %217, %.lr.ph.i
@@ -4898,18 +4864,18 @@ free_timer.exit:                                  ; preds = %53, %63, %68
 
 217:                                              ; preds = %215, %215
   %218 = load i32, ptr %202, align 8
-  %219 = call i64 @read(i32 noundef %218, ptr noundef nonnull %3, i64 noundef 16) #29
+  %219 = call i64 @read(i32 noundef %218, ptr noundef nonnull %3, i64 noundef 16) #30
   %220 = and i64 %219, 2147483648
   %221 = icmp eq i64 %220, 0
   br i1 %221, label %.loopexit.i, label %215
 
 .loopexit.i:                                      ; preds = %217, %215, %.preheader.i, %200
-  %222 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %195) #29
+  %222 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %195) #30
   %223 = getelementptr inbounds i8, ptr %199, i64 16
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds i8, ptr %199, i64 24
   %226 = load i64, ptr %225, align 8
-  %227 = call { i64, i64 } @JS_ReadObject(ptr noundef %0, ptr noundef %224, i64 noundef %226, i32 noundef 12) #29
+  %227 = call { i64, i64 } @JS_ReadObject(ptr noundef %0, ptr noundef %224, i64 noundef %226, i32 noundef 12) #30
   %228 = extractvalue { i64, i64 } %227, 0
   %229 = extractvalue { i64, i64 } %227, 1
   %230 = getelementptr inbounds i8, ptr %199, i64 40
@@ -4932,7 +4898,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   br i1 %239, label %240, label %js_sab_free.exit.i.i
 
 240:                                              ; preds = %233
-  call void @free(ptr noundef %237) #29
+  call void @free(ptr noundef %237) #30
   br label %js_sab_free.exit.i.i
 
 js_sab_free.exit.i.i:                             ; preds = %240, %233
@@ -4944,16 +4910,16 @@ js_sab_free.exit.i.i:                             ; preds = %240, %233
 js_free_message.exit.i:                           ; preds = %js_sab_free.exit.i.i, %.loopexit.i
   %244 = getelementptr inbounds i8, ptr %199, i64 32
   %245 = load ptr, ptr %244, align 8
-  call void @free(ptr noundef %245) #29
+  call void @free(ptr noundef %245) #30
   %246 = load ptr, ptr %223, align 8
-  call void @free(ptr noundef %246) #29
-  call void @free(ptr noundef nonnull %199) #29
+  call void @free(ptr noundef %246) #30
+  call void @free(ptr noundef nonnull %199) #30
   %247 = and i64 %229, 4294967295
   %.not2.i = icmp eq i64 %247, 6
   br i1 %.not2.i, label %JS_FreeValue.exit.i, label %248
 
 248:                                              ; preds = %js_free_message.exit.i
-  %249 = call { i64, i64 } @JS_NewObject(ptr noundef %0) #29
+  %249 = call { i64, i64 } @JS_NewObject(ptr noundef %0) #30
   %250 = extractvalue { i64, i64 } %249, 0
   %251 = extractvalue { i64, i64 } %249, 1
   store i64 %250, ptr %2, align 8
@@ -4977,11 +4943,11 @@ js_free_message.exit.i:                           ; preds = %js_sab_free.exit.i.
   br i1 %260, label %261, label %JS_FreeValue.exit.i
 
 261:                                              ; preds = %256
-  call void @__JS_FreeValue(ptr noundef %0, i64 %228, i64 %229) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %228, i64 %229) #30
   br label %JS_FreeValue.exit.i
 
 262:                                              ; preds = %248
-  %263 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %250, i64 %251, ptr noundef nonnull @.str.102, i64 %228, i64 %229, i32 noundef 7) #29
+  %263 = call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %250, i64 %251, ptr noundef nonnull @.str.102, i64 %228, i64 %229, i32 noundef 7) #30
   %264 = load i64, ptr %204, align 8
   %265 = load i64, ptr %201, align 8
   %266 = trunc i64 %265 to i32
@@ -4996,7 +4962,7 @@ js_free_message.exit.i:                           ; preds = %js_sab_free.exit.i.
   br label %JS_DupValue.exit.i
 
 JS_DupValue.exit.i:                               ; preds = %268, %262
-  %272 = call { i64, i64 } @JS_Call(ptr noundef %0, i64 %264, i64 %265, i64 0, i64 3, i32 noundef 1, ptr noundef nonnull %2) #29
+  %272 = call { i64, i64 } @JS_Call(ptr noundef %0, i64 %264, i64 %265, i64 0, i64 3, i32 noundef 1, ptr noundef nonnull %2) #30
   %273 = extractvalue { i64, i64 } %272, 0
   %274 = extractvalue { i64, i64 } %272, 1
   %275 = load i64, ptr %2, align 8
@@ -5014,7 +4980,7 @@ JS_DupValue.exit.i:                               ; preds = %268, %262
   br i1 %283, label %284, label %JS_FreeValue.exit52.i
 
 284:                                              ; preds = %279
-  call void @__JS_FreeValue(ptr noundef %0, i64 %275, i64 %276) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %275, i64 %276) #30
   br label %JS_FreeValue.exit52.i
 
 JS_FreeValue.exit52.i:                            ; preds = %284, %279, %JS_DupValue.exit.i
@@ -5029,71 +4995,54 @@ JS_FreeValue.exit52.i:                            ; preds = %284, %279, %JS_DupV
   br i1 %289, label %290, label %JS_FreeValue.exit53.i
 
 290:                                              ; preds = %285
-  call void @__JS_FreeValue(ptr noundef %0, i64 %264, i64 %265) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %264, i64 %265) #30
   br label %JS_FreeValue.exit53.i
 
 JS_FreeValue.exit53.i:                            ; preds = %290, %285, %JS_FreeValue.exit52.i
   %291 = and i64 %274, 4294967295
   %.not4.i = icmp eq i64 %291, 6
-  br i1 %.not4.i, label %JS_FreeValue.exit.i, label %303
+  br i1 %.not4.i, label %JS_FreeValue.exit.i, label %292
 
 JS_FreeValue.exit.i:                              ; preds = %JS_FreeValue.exit53.i, %261, %256, %253, %js_free_message.exit.i
-  %292 = call { i64, i64 } @JS_GetException(ptr noundef %0) #29
-  %293 = extractvalue { i64, i64 } %292, 0
-  %294 = extractvalue { i64, i64 } %292, 1
-  call fastcc void @js_std_dump_error1(ptr noundef %0, i64 %293, i64 %294)
-  %295 = trunc i64 %294 to i32
-  %296 = icmp ugt i32 %295, -12
-  br i1 %296, label %297, label %handle_posted_message.exit.thread
-
-297:                                              ; preds = %JS_FreeValue.exit.i
-  %298 = inttoptr i64 %293 to ptr
-  %299 = load i32, ptr %298, align 4
-  %300 = add i32 %299, -1
-  store i32 %300, ptr %298, align 4
-  %301 = icmp slt i32 %300, 1
-  br i1 %301, label %302, label %handle_posted_message.exit.thread
-
-302:                                              ; preds = %297
-  call void @__JS_FreeValue(ptr noundef %0, i64 %293, i64 %294) #29
+  call void @js_std_dump_error(ptr noundef %0)
   br label %handle_posted_message.exit.thread
 
-303:                                              ; preds = %JS_FreeValue.exit53.i
-  %304 = trunc i64 %274 to i32
-  %305 = icmp ugt i32 %304, -12
-  br i1 %305, label %306, label %handle_posted_message.exit.thread
+292:                                              ; preds = %JS_FreeValue.exit53.i
+  %293 = trunc i64 %274 to i32
+  %294 = icmp ugt i32 %293, -12
+  br i1 %294, label %295, label %handle_posted_message.exit.thread
 
-306:                                              ; preds = %303
-  %307 = inttoptr i64 %273 to ptr
-  %308 = load i32, ptr %307, align 4
-  %309 = add i32 %308, -1
-  store i32 %309, ptr %307, align 4
-  %310 = icmp slt i32 %309, 1
-  br i1 %310, label %311, label %handle_posted_message.exit.thread
+295:                                              ; preds = %292
+  %296 = inttoptr i64 %273 to ptr
+  %297 = load i32, ptr %296, align 4
+  %298 = add i32 %297, -1
+  store i32 %298, ptr %296, align 4
+  %299 = icmp slt i32 %298, 1
+  br i1 %299, label %300, label %handle_posted_message.exit.thread
 
-311:                                              ; preds = %306
-  call void @__JS_FreeValue(ptr noundef %0, i64 %273, i64 %274) #29
+300:                                              ; preds = %295
+  call void @__JS_FreeValue(ptr noundef %0, i64 %273, i64 %274) #30
   br label %handle_posted_message.exit.thread
 
-handle_posted_message.exit.thread:                ; preds = %JS_FreeValue.exit.i, %297, %302, %303, %306, %311
+handle_posted_message.exit.thread:                ; preds = %JS_FreeValue.exit.i, %292, %295, %300
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %JS_FreeValue.exit
 
 handle_posted_message.exit:                       ; preds = %194
-  %312 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %195) #29
+  %301 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %195) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %313
+  br label %302
 
-313:                                              ; preds = %handle_posted_message.exit, %.lr.ph208, %181
-  %314 = getelementptr inbounds i8, ptr %.5207, i64 8
-  %.5 = load ptr, ptr %314, align 8
+302:                                              ; preds = %handle_posted_message.exit, %.lr.ph208, %181
+  %303 = getelementptr inbounds i8, ptr %.5207, i64 8
+  %.5 = load ptr, ptr %303, align 8
   %.not127 = icmp eq ptr %.5, %118
   br i1 %.not127, label %JS_FreeValue.exit, label %.lr.ph208, !llvm.loop !32
 
-JS_FreeValue.exit:                                ; preds = %313, %.preheader, %handle_posted_message.exit.thread, %76, %71, %free_timer.exit, %155, %173, %._crit_edge195, %36, %21
-  %.0 = phi i32 [ 0, %21 ], [ -1, %36 ], [ 0, %._crit_edge195 ], [ 0, %173 ], [ 0, %155 ], [ 0, %free_timer.exit ], [ 0, %71 ], [ 0, %76 ], [ 0, %handle_posted_message.exit.thread ], [ 0, %.preheader ], [ 0, %313 ]
+JS_FreeValue.exit:                                ; preds = %302, %.preheader, %handle_posted_message.exit.thread, %76, %71, %free_timer.exit, %155, %173, %._crit_edge195, %36, %21
+  %.0 = phi i32 [ 0, %21 ], [ -1, %36 ], [ 0, %._crit_edge195 ], [ 0, %173 ], [ 0, %155 ], [ 0, %free_timer.exit ], [ 0, %71 ], [ 0, %76 ], [ 0, %handle_posted_message.exit.thread ], [ 0, %.preheader ], [ 0, %302 ]
   ret i32 %.0
 }
 
@@ -5105,35 +5054,35 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
   %7 = alloca [2 x i32], align 4
   %8 = alloca i64, align 8
   %9 = alloca %union.pthread_attr_t, align 8
-  %10 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  %11 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %10) #29
+  %10 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  %11 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %10) #30
   %12 = getelementptr inbounds i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
   %.not.i.not = icmp eq ptr %13, null
   br i1 %.not.i.not, label %18, label %14
 
 14:                                               ; preds = %5
-  %15 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.107) #29
+  %15 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.107) #30
   %16 = extractvalue { i64, i64 } %15, 0
   %.sroa.558.0.extract.shift = and i64 %16, -4294967296
   %17 = extractvalue { i64, i64 } %15, 1
   br label %JS_FreeValue.exit
 
 18:                                               ; preds = %5
-  %19 = tail call i32 @JS_GetScriptOrModuleName(ptr noundef %0, i32 noundef 1) #29
+  %19 = tail call i32 @JS_GetScriptOrModuleName(ptr noundef %0, i32 noundef 1) #30
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %18
-  %22 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.108) #29
+  %22 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.108) #30
   %23 = extractvalue { i64, i64 } %22, 0
   %.sroa.558.0.extract.shift59 = and i64 %23, -4294967296
   %24 = extractvalue { i64, i64 } %22, 1
   br label %JS_FreeValue.exit
 
 25:                                               ; preds = %18
-  %26 = tail call ptr @JS_AtomToCString(ptr noundef %0, i32 noundef %19) #29
-  tail call void @JS_FreeAtom(ptr noundef %0, i32 noundef %19) #29
+  %26 = tail call ptr @JS_AtomToCString(ptr noundef %0, i32 noundef %19) #30
+  tail call void @JS_FreeAtom(ptr noundef %0, i32 noundef %19) #30
   %.not72 = icmp eq ptr %26, null
   br i1 %.not72, label %95, label %27
 
@@ -5141,7 +5090,7 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
   %28 = load i64, ptr %4, align 8
   %29 = getelementptr inbounds i8, ptr %4, i64 8
   %30 = load i64, ptr %29, align 8
-  %31 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %28, i64 %30, i32 noundef 0) #29
+  %31 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %28, i64 %30, i32 noundef 0) #30
   %.not73 = icmp eq ptr %31, null
   br i1 %.not73, label %95, label %32
 
@@ -5151,27 +5100,27 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
   br i1 %.not74, label %93, label %33
 
 33:                                               ; preds = %32
-  %34 = tail call noalias ptr @strdup(ptr noundef nonnull %31) #29
+  %34 = tail call noalias ptr @strdup(ptr noundef nonnull %31) #30
   store ptr %34, ptr %calloc, align 8
-  %35 = tail call noalias ptr @strdup(ptr noundef nonnull %26) #29
+  %35 = tail call noalias ptr @strdup(ptr noundef nonnull %26) #30
   %36 = getelementptr inbounds i8, ptr %calloc, i64 8
   store ptr %35, ptr %36, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %37 = call i32 @pipe(ptr noundef nonnull %7) #29
+  %37 = call i32 @pipe(ptr noundef nonnull %7) #30
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %js_new_message_pipe.exit.thread, label %39
 
 39:                                               ; preds = %33
-  %40 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #30
+  %40 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #31
   %.not.i80 = icmp eq ptr %40, null
   br i1 %.not.i80, label %41, label %47
 
 41:                                               ; preds = %39
   %42 = load i32, ptr %7, align 4
-  %43 = call i32 @close(i32 noundef %42) #29
+  %43 = call i32 @close(i32 noundef %42) #30
   %44 = getelementptr inbounds i8, ptr %7, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = call i32 @close(i32 noundef %45) #29
+  %46 = call i32 @close(i32 noundef %45) #30
   br label %js_new_message_pipe.exit.thread
 
 js_new_message_pipe.exit.thread:                  ; preds = %41, %33
@@ -5185,7 +5134,7 @@ js_new_message_pipe.exit.thread:                  ; preds = %41, %33
   %49 = getelementptr inbounds i8, ptr %40, i64 56
   store ptr %48, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %40, i64 8
-  %51 = call i32 @pthread_mutex_init(ptr noundef nonnull %50, ptr noundef null) #29
+  %51 = call i32 @pthread_mutex_init(ptr noundef nonnull %50, ptr noundef null) #30
   %52 = load i32, ptr %7, align 4
   %53 = getelementptr inbounds i8, ptr %40, i64 64
   store i32 %52, ptr %53, align 8
@@ -5197,21 +5146,21 @@ js_new_message_pipe.exit.thread:                  ; preds = %41, %33
   %57 = getelementptr inbounds i8, ptr %calloc, i64 16
   store ptr %40, ptr %57, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %58 = call i32 @pipe(ptr noundef nonnull %6) #29
+  %58 = call i32 @pipe(ptr noundef nonnull %6) #30
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %js_new_message_pipe.exit83.thread, label %60
 
 60:                                               ; preds = %47
-  %61 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #30
+  %61 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #31
   %.not.i81 = icmp eq ptr %61, null
   br i1 %.not.i81, label %62, label %68
 
 62:                                               ; preds = %60
   %63 = load i32, ptr %6, align 4
-  %64 = call i32 @close(i32 noundef %63) #29
+  %64 = call i32 @close(i32 noundef %63) #30
   %65 = getelementptr inbounds i8, ptr %6, i64 4
   %66 = load i32, ptr %65, align 4
-  %67 = call i32 @close(i32 noundef %66) #29
+  %67 = call i32 @close(i32 noundef %66) #30
   br label %js_new_message_pipe.exit83.thread
 
 js_new_message_pipe.exit83.thread:                ; preds = %62, %47
@@ -5225,7 +5174,7 @@ js_new_message_pipe.exit83.thread:                ; preds = %62, %47
   %70 = getelementptr inbounds i8, ptr %61, i64 56
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %61, i64 8
-  %72 = call i32 @pthread_mutex_init(ptr noundef nonnull %71, ptr noundef null) #29
+  %72 = call i32 @pthread_mutex_init(ptr noundef nonnull %71, ptr noundef null) #30
   %73 = load i32, ptr %6, align 4
   %74 = getelementptr inbounds i8, ptr %61, i64 64
   store i32 %73, ptr %74, align 8
@@ -5245,20 +5194,20 @@ js_new_message_pipe.exit83.thread:                ; preds = %62, %47
   br i1 %.not, label %95, label %84
 
 84:                                               ; preds = %68
-  %85 = call i32 @pthread_attr_init(ptr noundef nonnull %9) #29
-  %86 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %9, i32 noundef 1) #29
-  %87 = call i32 @pthread_create(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @worker_func, ptr noundef nonnull %calloc) #29
-  %88 = call i32 @pthread_attr_destroy(ptr noundef nonnull %9) #29
+  %85 = call i32 @pthread_attr_init(ptr noundef nonnull %9) #30
+  %86 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %9, i32 noundef 1) #30
+  %87 = call i32 @pthread_create(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @worker_func, ptr noundef nonnull %calloc) #30
+  %88 = call i32 @pthread_attr_destroy(ptr noundef nonnull %9) #30
   %.not78 = icmp eq i32 %87, 0
   br i1 %.not78, label %91, label %89
 
 89:                                               ; preds = %84
-  %90 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.109) #29
+  %90 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.109) #30
   br label %95
 
 91:                                               ; preds = %84
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %26) #29
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %31) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %26) #30
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %31) #30
   %.sroa.558.0.extract.shift61 = and i64 %81, -4294967296
   br label %JS_FreeValue.exit
 
@@ -5269,7 +5218,7 @@ js_new_message_pipe.exit83.thread:                ; preds = %62, %47
   br label %93
 
 93:                                               ; preds = %.sink.split, %32
-  %94 = call { i64, i64 } @JS_ThrowOutOfMemory(ptr noundef %0) #29
+  %94 = call { i64, i64 } @JS_ThrowOutOfMemory(ptr noundef %0) #30
   br label %95
 
 95:                                               ; preds = %68, %27, %25, %93, %89
@@ -5277,24 +5226,24 @@ js_new_message_pipe.exit83.thread:                ; preds = %62, %47
   %.sroa.014.0 = phi i64 [ %81, %68 ], [ %81, %89 ], [ 0, %93 ], [ 0, %27 ], [ 0, %25 ]
   %.sroa.5.0 = phi i64 [ %82, %68 ], [ %82, %89 ], [ 3, %93 ], [ 3, %27 ], [ 3, %25 ]
   %.0 = phi ptr [ %calloc, %68 ], [ %calloc, %89 ], [ %calloc, %93 ], [ null, %27 ], [ null, %25 ]
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef %26) #29
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef %.066) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef %26) #30
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef %.066) #30
   %.not79 = icmp eq ptr %.0, null
   br i1 %.not79, label %104, label %96
 
 96:                                               ; preds = %95
   %97 = load ptr, ptr %.0, align 8
-  call void @free(ptr noundef %97) #29
+  call void @free(ptr noundef %97) #30
   %98 = getelementptr inbounds i8, ptr %.0, i64 8
   %99 = load ptr, ptr %98, align 8
-  call void @free(ptr noundef %99) #29
+  call void @free(ptr noundef %99) #30
   %100 = getelementptr inbounds i8, ptr %.0, i64 16
   %101 = load ptr, ptr %100, align 8
   call fastcc void @js_free_message_pipe(ptr noundef %101)
   %102 = getelementptr inbounds i8, ptr %.0, i64 24
   %103 = load ptr, ptr %102, align 8
   call fastcc void @js_free_message_pipe(ptr noundef %103)
-  call void @free(ptr noundef nonnull %.0) #29
+  call void @free(ptr noundef nonnull %.0) #30
   br label %104
 
 104:                                              ; preds = %96, %95
@@ -5311,7 +5260,7 @@ js_new_message_pipe.exit83.thread:                ; preds = %62, %47
   br i1 %111, label %112, label %JS_FreeValue.exit
 
 112:                                              ; preds = %107
-  call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.014.0, i64 %.sroa.5.0) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.014.0, i64 %.sroa.5.0) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %112, %107, %104, %91, %21, %14
@@ -5335,12 +5284,12 @@ define internal fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64
 
 7:                                                ; preds = %5
   %8 = load i32, ptr @js_worker_class_id, align 4
-  %9 = tail call { i64, i64 } @JS_GetClassProto(ptr noundef %0, i32 noundef %8) #29
+  %9 = tail call { i64, i64 } @JS_GetClassProto(ptr noundef %0, i32 noundef %8) #30
   %10 = extractvalue { i64, i64 } %9, 1
   br label %15
 
 11:                                               ; preds = %5
-  %12 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull @.str.112) #29
+  %12 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull @.str.112) #30
   %13 = extractvalue { i64, i64 } %12, 1
   %14 = and i64 %13, 4294967295
   %.not40 = icmp eq i64 %14, 6
@@ -5351,7 +5300,7 @@ define internal fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64
   %.sroa.5.0 = phi i64 [ %10, %7 ], [ %13, %11 ]
   %.sroa.08.0 = extractvalue { i64, i64 } %.pn, 0
   %16 = load i32, ptr @js_worker_class_id, align 4
-  %17 = tail call { i64, i64 } @JS_NewObjectProtoClass(ptr noundef %0, i64 %.sroa.08.0, i64 %.sroa.5.0, i32 noundef %16) #29
+  %17 = tail call { i64, i64 } @JS_NewObjectProtoClass(ptr noundef %0, i64 %.sroa.08.0, i64 %.sroa.5.0, i32 noundef %16) #30
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
   %20 = trunc i64 %.sroa.5.0 to i32
@@ -5367,7 +5316,7 @@ define internal fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64
   br i1 %26, label %27, label %JS_FreeValue.exit
 
 27:                                               ; preds = %22
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.08.0, i64 %.sroa.5.0) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %.sroa.08.0, i64 %.sroa.5.0) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %15, %22, %27
@@ -5376,7 +5325,7 @@ JS_FreeValue.exit:                                ; preds = %15, %22, %27
   br i1 %.not41, label %35, label %29
 
 29:                                               ; preds = %JS_FreeValue.exit
-  %30 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 24) #29
+  %30 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 24) #30
   %.not36 = icmp eq ptr %30, null
   br i1 %.not36, label %35, label %31
 
@@ -5386,7 +5335,7 @@ JS_FreeValue.exit:                                ; preds = %15, %22, %27
   %33 = atomicrmw add ptr %4, i32 1 seq_cst, align 4
   %34 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %4, ptr %34, align 8
-  tail call void @JS_SetOpaque(i64 %18, i64 %19, ptr noundef nonnull %30) #29
+  tail call void @JS_SetOpaque(i64 %18, i64 %19, ptr noundef nonnull %30) #30
   br label %JS_FreeValue.exit37
 
 35:                                               ; preds = %29, %JS_FreeValue.exit
@@ -5403,7 +5352,7 @@ JS_FreeValue.exit:                                ; preds = %15, %22, %27
   br i1 %42, label %43, label %JS_FreeValue.exit37
 
 43:                                               ; preds = %38
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %18, i64 %19) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %18, i64 %19) #30
   br label %JS_FreeValue.exit37
 
 JS_FreeValue.exit37:                              ; preds = %11, %43, %38, %35, %31
@@ -5421,7 +5370,7 @@ define internal fastcc void @call_handler(ptr noundef %0, i64 %1, i64 %2) unname
   br i1 %5, label %7, label %JS_DupValue.exit
 
 JS_DupValue.exit:                                 ; preds = %3
-  %6 = tail call { i64, i64 } @JS_Call(ptr noundef %0, i64 %1, i64 %2, i64 0, i64 3, i32 noundef 0, ptr noundef null) #29
+  %6 = tail call { i64, i64 } @JS_Call(ptr noundef %0, i64 %1, i64 %2, i64 0, i64 3, i32 noundef 0, ptr noundef null) #30
   br label %JS_FreeValue.exit
 
 7:                                                ; preds = %3
@@ -5429,7 +5378,7 @@ JS_DupValue.exit:                                 ; preds = %3
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, 1
   store i32 %10, ptr %8, align 4
-  %11 = tail call { i64, i64 } @JS_Call(ptr noundef %0, i64 %1, i64 %2, i64 0, i64 3, i32 noundef 0, ptr noundef null) #29
+  %11 = tail call { i64, i64 } @JS_Call(ptr noundef %0, i64 %1, i64 %2, i64 0, i64 3, i32 noundef 0, ptr noundef null) #30
   %12 = load i32, ptr %8, align 4
   %13 = add i32 %12, -1
   store i32 %13, ptr %8, align 4
@@ -5437,7 +5386,7 @@ JS_DupValue.exit:                                 ; preds = %3
   br i1 %14, label %15, label %JS_FreeValue.exit
 
 15:                                               ; preds = %7
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %1, i64 %2) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %1, i64 %2) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %JS_DupValue.exit, %7, %15
@@ -5446,47 +5395,30 @@ JS_FreeValue.exit:                                ; preds = %JS_DupValue.exit, %
   %17 = extractvalue { i64, i64 } %.pn, 1
   %18 = and i64 %17, 4294967295
   %.not = icmp eq i64 %18, 6
-  br i1 %.not, label %19, label %js_std_dump_error.exit
+  br i1 %.not, label %19, label %20
 
 19:                                               ; preds = %JS_FreeValue.exit
-  %20 = tail call { i64, i64 } @JS_GetException(ptr noundef %0) #29
-  %21 = extractvalue { i64, i64 } %20, 0
-  %22 = extractvalue { i64, i64 } %20, 1
-  tail call fastcc void @js_std_dump_error1(ptr noundef %0, i64 %21, i64 %22)
-  %23 = trunc i64 %22 to i32
-  %24 = icmp ugt i32 %23, -12
-  br i1 %24, label %25, label %js_std_dump_error.exit
+  tail call void @js_std_dump_error(ptr noundef %0)
+  br label %20
 
-25:                                               ; preds = %19
-  %26 = inttoptr i64 %21 to ptr
-  %27 = load i32, ptr %26, align 4
-  %28 = add i32 %27, -1
-  store i32 %28, ptr %26, align 4
-  %29 = icmp slt i32 %28, 1
-  br i1 %29, label %30, label %js_std_dump_error.exit
+20:                                               ; preds = %19, %JS_FreeValue.exit
+  %21 = trunc i64 %17 to i32
+  %22 = icmp ugt i32 %21, -12
+  br i1 %22, label %23, label %JS_FreeValue.exit18
 
-30:                                               ; preds = %25
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %21, i64 %22) #29
-  br label %js_std_dump_error.exit
+23:                                               ; preds = %20
+  %24 = inttoptr i64 %16 to ptr
+  %25 = load i32, ptr %24, align 4
+  %26 = add i32 %25, -1
+  store i32 %26, ptr %24, align 4
+  %27 = icmp slt i32 %26, 1
+  br i1 %27, label %28, label %JS_FreeValue.exit18
 
-js_std_dump_error.exit:                           ; preds = %30, %25, %19, %JS_FreeValue.exit
-  %31 = trunc i64 %17 to i32
-  %32 = icmp ugt i32 %31, -12
-  br i1 %32, label %33, label %JS_FreeValue.exit18
-
-33:                                               ; preds = %js_std_dump_error.exit
-  %34 = inttoptr i64 %16 to ptr
-  %35 = load i32, ptr %34, align 4
-  %36 = add i32 %35, -1
-  store i32 %36, ptr %34, align 4
-  %37 = icmp slt i32 %36, 1
-  br i1 %37, label %38, label %JS_FreeValue.exit18
-
-38:                                               ; preds = %33
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %16, i64 %17) #29
+28:                                               ; preds = %23
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %16, i64 %17) #30
   br label %JS_FreeValue.exit18
 
-JS_FreeValue.exit18:                              ; preds = %js_std_dump_error.exit, %33, %38
+JS_FreeValue.exit18:                              ; preds = %20, %23, %28
   ret void
 }
 
@@ -5495,21 +5427,21 @@ declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare { i64, i64 } @JS_Call(ptr noundef, i64, i64, i64, i64, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #15
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #15
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #15
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define internal void @js_worker_finalizer(ptr noundef %0, i64 %1, i64 %2) #0 {
   %4 = load i32, ptr @js_worker_class_id, align 4
-  %5 = tail call ptr @JS_GetOpaque(i64 %1, i64 %2, i32 noundef %4) #29
+  %5 = tail call ptr @JS_GetOpaque(i64 %1, i64 %2, i32 noundef %4) #30
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %31, label %6
 
@@ -5545,7 +5477,7 @@ define internal void @js_worker_finalizer(ptr noundef %0, i64 %1, i64 %2) #0 {
   br i1 %25, label %26, label %JS_FreeValueRT.exit.i
 
 26:                                               ; preds = %21
-  tail call void @__JS_FreeValueRT(ptr noundef %0, i64 %16, i64 %18) #29
+  tail call void @__JS_FreeValueRT(ptr noundef %0, i64 %16, i64 %18) #30
   br label %JS_FreeValueRT.exit.i
 
 JS_FreeValueRT.exit.i:                            ; preds = %26, %21, %12
@@ -5556,11 +5488,11 @@ JS_FreeValueRT.exit.i:                            ; preds = %26, %21, %12
   store ptr %29, ptr %30, align 8
   store ptr %27, ptr %29, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  tail call void @js_free_rt(ptr noundef %0, ptr noundef nonnull %11) #29
+  tail call void @js_free_rt(ptr noundef %0, ptr noundef nonnull %11) #30
   br label %js_free_port.exit
 
 js_free_port.exit:                                ; preds = %6, %JS_FreeValueRT.exit.i
-  tail call void @js_free_rt(ptr noundef %0, ptr noundef nonnull %5) #29
+  tail call void @js_free_rt(ptr noundef %0, ptr noundef nonnull %5) #30
   br label %31
 
 31:                                               ; preds = %js_free_port.exit, %3
@@ -5576,7 +5508,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   %8 = alloca ptr, align 8
   %9 = alloca i8, align 1
   %10 = load i32, ptr @js_worker_class_id, align 4
-  %11 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %10) #29
+  %11 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %10) #30
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %62, label %12
 
@@ -5584,12 +5516,12 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   %13 = load i64, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = call ptr @JS_WriteObject2(ptr noundef %0, ptr noundef nonnull %6, i64 %13, i64 %15, i32 noundef 12, ptr noundef nonnull %8, ptr noundef nonnull %7) #29
+  %16 = call ptr @JS_WriteObject2(ptr noundef %0, ptr noundef nonnull %6, i64 %13, i64 %15, i32 noundef 12, ptr noundef nonnull %8, ptr noundef nonnull %7) #30
   %.not50 = icmp eq ptr %16, null
   br i1 %.not50, label %62, label %17
 
 17:                                               ; preds = %12
-  %18 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #30
+  %18 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #31
   %.not51 = icmp eq ptr %18, null
   br i1 %.not51, label %.critedge, label %19
 
@@ -5598,7 +5530,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   %21 = getelementptr inbounds i8, ptr %18, i64 32
   store ptr null, ptr %21, align 8
   %22 = load i64, ptr %6, align 8
-  %23 = call noalias ptr @malloc(i64 noundef %22) #30
+  %23 = call noalias ptr @malloc(i64 noundef %22) #31
   store ptr %23, ptr %20, align 8
   %.not52 = icmp eq ptr %23, null
   br i1 %.not52, label %60, label %24
@@ -5609,7 +5541,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   store i64 %22, ptr %25, align 8
   %26 = load i64, ptr %7, align 8
   %27 = shl i64 %26, 3
-  %28 = call noalias ptr @malloc(i64 noundef %27) #30
+  %28 = call noalias ptr @malloc(i64 noundef %27) #31
   store ptr %28, ptr %21, align 8
   %.not53 = icmp eq ptr %28, null
   br i1 %.not53, label %60, label %29
@@ -5619,9 +5551,9 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %30, i64 %27, i1 false)
   %31 = getelementptr inbounds i8, ptr %18, i64 40
   store i64 %26, ptr %31, align 8
-  call void @js_free(ptr noundef %0, ptr noundef nonnull %16) #29
+  call void @js_free(ptr noundef %0, ptr noundef nonnull %16) #30
   %32 = load ptr, ptr %8, align 8
-  call void @js_free(ptr noundef %0, ptr noundef %32) #29
+  call void @js_free(ptr noundef %0, ptr noundef %32) #30
   %.not58 = icmp eq i64 %26, 0
   br i1 %.not58, label %._crit_edge, label %.lr.ph
 
@@ -5641,7 +5573,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   %41 = getelementptr inbounds i8, ptr %11, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = call i32 @pthread_mutex_lock(ptr noundef nonnull %43) #29
+  %44 = call i32 @pthread_mutex_lock(ptr noundef nonnull %43) #30
   %45 = getelementptr inbounds i8, ptr %42, i64 48
   %46 = getelementptr inbounds i8, ptr %42, i64 56
   %47 = load ptr, ptr %46, align 8
@@ -5655,7 +5587,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
 
 50:                                               ; preds = %50, %48
   %51 = load i32, ptr %49, align 4
-  %52 = call i64 @write(i32 noundef %51, ptr noundef nonnull %9, i64 noundef 1) #29
+  %52 = call i64 @write(i32 noundef %51, ptr noundef nonnull %9, i64 noundef 1) #30
   %53 = trunc i64 %52 to i32
   %54 = icmp eq i32 %53, 1
   %55 = icmp slt i32 %53, 0
@@ -5670,18 +5602,18 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   %58 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %45, ptr %58, align 8
   store ptr %18, ptr %45, align 8
-  %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %43) #29
+  %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %43) #30
   br label %62
 
 60:                                               ; preds = %19, %24
-  call void @free(ptr noundef %23) #29
-  call void @free(ptr noundef nonnull %18) #29
+  call void @free(ptr noundef %23) #30
+  call void @free(ptr noundef nonnull %18) #30
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %60
-  call void @js_free(ptr noundef %0, ptr noundef nonnull %16) #29
+  call void @js_free(ptr noundef %0, ptr noundef nonnull %16) #30
   %61 = load ptr, ptr %8, align 8
-  call void @js_free(ptr noundef %0, ptr noundef %61) #29
+  call void @js_free(ptr noundef %0, ptr noundef %61) #30
   br label %62
 
 62:                                               ; preds = %12, %5, %.critedge, %.loopexit
@@ -5693,7 +5625,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_worker_get_onmessage(ptr noundef %0, i64 %1, i64 %2) #0 {
   %4 = load i32, ptr @js_worker_class_id, align 4
-  %5 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %4) #29
+  %5 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %4) #30
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %21, label %6
 
@@ -5736,10 +5668,10 @@ JS_DupValue.exit:                                 ; preds = %9, %16
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_worker_set_onmessage(ptr noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 {
-  %6 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  %7 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %6) #29
+  %6 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  %7 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %6) #30
   %8 = load i32, ptr @js_worker_class_id, align 4
-  %9 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %8) #29
+  %9 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %8) #30
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %72, label %10
 
@@ -5775,7 +5707,7 @@ define internal { i64, i64 } @js_worker_set_onmessage(ptr noundef %0, i64 %1, i6
   br i1 %28, label %29, label %js_free_port.exit
 
 29:                                               ; preds = %24
-  tail call void @__JS_FreeValueRT(ptr noundef %6, i64 %19, i64 %21) #29
+  tail call void @__JS_FreeValueRT(ptr noundef %6, i64 %19, i64 %21) #30
   br label %js_free_port.exit
 
 js_free_port.exit:                                ; preds = %15, %24, %29
@@ -5786,17 +5718,17 @@ js_free_port.exit:                                ; preds = %15, %24, %29
   store ptr %32, ptr %33, align 8
   store ptr %30, ptr %32, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  tail call void @js_free_rt(ptr noundef %6, ptr noundef nonnull %12) #29
+  tail call void @js_free_rt(ptr noundef %6, ptr noundef nonnull %12) #30
   store ptr null, ptr %11, align 8
   br label %72
 
 34:                                               ; preds = %10
-  %35 = tail call i32 @JS_IsFunction(ptr noundef %0, i64 %3, i64 %4) #29
+  %35 = tail call i32 @JS_IsFunction(ptr noundef %0, i64 %3, i64 %4) #30
   %.not43 = icmp eq i32 %35, 0
   br i1 %.not43, label %36, label %41
 
 36:                                               ; preds = %34
-  %37 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.106) #29
+  %37 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.106) #30
   %38 = extractvalue { i64, i64 } %37, 0
   %.sroa.5.0.extract.shift = and i64 %38, -4294967296
   %39 = extractvalue { i64, i64 } %37, 1
@@ -5808,7 +5740,7 @@ js_free_port.exit:                                ; preds = %15, %24, %29
   br i1 %.not44, label %42, label %53
 
 42:                                               ; preds = %41
-  %43 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 40) #29
+  %43 = tail call ptr @js_mallocz(ptr noundef %0, i64 noundef 40) #30
   %.not45 = icmp eq ptr %43, null
   br i1 %.not45, label %72, label %44
 
@@ -5851,7 +5783,7 @@ js_free_port.exit:                                ; preds = %15, %24, %29
   br i1 %64, label %65, label %JS_FreeValue.exit
 
 65:                                               ; preds = %60
-  tail call void @__JS_FreeValue(ptr noundef %0, i64 %55, i64 %57) #29
+  tail call void @__JS_FreeValue(ptr noundef %0, i64 %55, i64 %57) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %53, %60, %65
@@ -5884,140 +5816,156 @@ JS_DupValue.exit:                                 ; preds = %JS_FreeValue.exit, 
 declare ptr @JS_WriteObject2(ptr noundef, ptr noundef, i64, i64, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #20
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #21
 
 declare i32 @JS_IsFunction(ptr noundef, i64, i64) local_unnamed_addr #3
 
 declare i32 @JS_GetScriptOrModuleName(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #21
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #22
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_init(ptr noundef) local_unnamed_addr #15
+declare i32 @pthread_attr_init(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed_addr #15
+declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #15
+declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @worker_func(ptr nocapture noundef %0) #0 {
-  %2 = tail call ptr @JS_NewRuntime() #29
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %4, label %7
+  %2 = alloca ptr, align 8
+  %3 = tail call ptr @JS_NewRuntime() #30
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %8
 
-4:                                                ; preds = %1
-  %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i64 @fwrite(ptr nonnull @.str.110, i64 21, i64 1, ptr %5) #32
-  tail call void @exit(i32 noundef 1) #33
+5:                                                ; preds = %1
+  %6 = load ptr, ptr @stderr, align 8
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.110, i64 21, i64 1, ptr %6) #33
+  tail call void @exit(i32 noundef 1) #34
   unreachable
 
-7:                                                ; preds = %1
-  tail call void @js_std_init_handlers(ptr noundef nonnull %2)
-  tail call void @JS_SetModuleLoaderFunc(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @js_module_loader, ptr noundef null) #29
-  %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef nonnull %2) #29
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 72
-  store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 80
-  store ptr %13, ptr %14, align 8
-  %15 = load ptr, ptr @js_worker_new_context_func, align 8
-  %16 = tail call ptr %15(ptr noundef nonnull %2) #29
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %.split34, label %.split
+8:                                                ; preds = %1
+  tail call void @js_std_init_handlers(ptr noundef nonnull %3)
+  tail call void @JS_SetModuleLoaderFunc(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @js_module_loader, ptr noundef null) #30
+  %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef nonnull %3) #30
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 72
+  store ptr %11, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 80
+  store ptr %14, ptr %15, align 8
+  %16 = load ptr, ptr @js_worker_new_context_func, align 8
+  %17 = tail call ptr %16(ptr noundef nonnull %3) #30
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %.split34, label %.split
 
-.split:                                           ; preds = %7
-  tail call void @JS_SetCanBlock(ptr noundef nonnull %2, i32 noundef 1) #29
-  tail call void @js_std_add_helpers(ptr noundef nonnull %16, i32 noundef -1, ptr noundef null)
-  br label %20
+.split:                                           ; preds = %8
+  tail call void @JS_SetCanBlock(ptr noundef nonnull %3, i32 noundef 1) #30
+  tail call void @js_std_add_helpers(ptr noundef nonnull %17, i32 noundef -1, ptr noundef null)
+  br label %21
 
-.split34:                                         ; preds = %7
-  %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.111, i64 21, i64 1, ptr %18) #32
-  tail call void @JS_SetCanBlock(ptr noundef nonnull %2, i32 noundef 1) #29
+.split34:                                         ; preds = %8
+  %19 = load ptr, ptr @stderr, align 8
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.111, i64 21, i64 1, ptr %19) #33
+  tail call void @JS_SetCanBlock(ptr noundef nonnull %3, i32 noundef 1) #30
   tail call void @js_std_add_helpers(ptr noundef null, i32 noundef -1, ptr noundef null)
-  br label %20
+  br label %21
 
-20:                                               ; preds = %.split, %.split34
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %0, align 8
-  %24 = tail call { i64, i64 } @JS_LoadModule(ptr noundef %16, ptr noundef %22, ptr noundef %23) #29
-  %25 = extractvalue { i64, i64 } %24, 0
-  %26 = extractvalue { i64, i64 } %24, 1
-  %27 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %27) #29
-  %28 = load ptr, ptr %21, align 8
-  tail call void @free(ptr noundef %28) #29
-  tail call void @free(ptr noundef nonnull %0) #29
-  %29 = tail call { i64, i64 } @js_std_await(ptr noundef %16, i64 %25, i64 %26)
-  %30 = extractvalue { i64, i64 } %29, 0
-  %31 = extractvalue { i64, i64 } %29, 1
-  %32 = and i64 %31, 4294967295
-  %.not = icmp eq i64 %32, 6
-  br i1 %.not, label %33, label %js_std_dump_error.exit
+21:                                               ; preds = %.split, %.split34
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %0, align 8
+  %25 = tail call { i64, i64 } @JS_LoadModule(ptr noundef %17, ptr noundef %23, ptr noundef %24) #30
+  %26 = extractvalue { i64, i64 } %25, 0
+  %27 = extractvalue { i64, i64 } %25, 1
+  %28 = load ptr, ptr %0, align 8
+  tail call void @free(ptr noundef %28) #30
+  %29 = load ptr, ptr %22, align 8
+  tail call void @free(ptr noundef %29) #30
+  tail call void @free(ptr noundef nonnull %0) #30
+  %30 = tail call { i64, i64 } @js_std_await(ptr noundef %17, i64 %26, i64 %27)
+  %31 = extractvalue { i64, i64 } %30, 0
+  %32 = extractvalue { i64, i64 } %30, 1
+  %33 = and i64 %32, 4294967295
+  %.not = icmp eq i64 %33, 6
+  br i1 %.not, label %34, label %35
 
-33:                                               ; preds = %20
-  %34 = tail call { i64, i64 } @JS_GetException(ptr noundef %16) #29
-  %35 = extractvalue { i64, i64 } %34, 0
-  %36 = extractvalue { i64, i64 } %34, 1
-  tail call fastcc void @js_std_dump_error1(ptr noundef %16, i64 %35, i64 %36)
-  %37 = trunc i64 %36 to i32
-  %38 = icmp ugt i32 %37, -12
-  br i1 %38, label %39, label %js_std_dump_error.exit
+34:                                               ; preds = %21
+  tail call void @js_std_dump_error(ptr noundef %17)
+  br label %35
 
-39:                                               ; preds = %33
-  %40 = inttoptr i64 %35 to ptr
-  %41 = load i32, ptr %40, align 4
-  %42 = add i32 %41, -1
-  store i32 %42, ptr %40, align 4
-  %43 = icmp slt i32 %42, 1
-  br i1 %43, label %44, label %js_std_dump_error.exit
+35:                                               ; preds = %34, %21
+  %36 = trunc i64 %32 to i32
+  %37 = icmp ugt i32 %36, -12
+  br i1 %37, label %38, label %JS_FreeValue.exit
 
-44:                                               ; preds = %39
-  tail call void @__JS_FreeValue(ptr noundef %16, i64 %35, i64 %36) #29
-  br label %js_std_dump_error.exit
+38:                                               ; preds = %35
+  %39 = inttoptr i64 %31 to ptr
+  %40 = load i32, ptr %39, align 4
+  %41 = add i32 %40, -1
+  store i32 %41, ptr %39, align 4
+  %42 = icmp slt i32 %41, 1
+  br i1 %42, label %43, label %JS_FreeValue.exit
 
-js_std_dump_error.exit:                           ; preds = %44, %39, %33, %20
-  %45 = trunc i64 %31 to i32
-  %46 = icmp ugt i32 %45, -12
-  br i1 %46, label %47, label %JS_FreeValue.exit
-
-47:                                               ; preds = %js_std_dump_error.exit
-  %48 = inttoptr i64 %30 to ptr
-  %49 = load i32, ptr %48, align 4
-  %50 = add i32 %49, -1
-  store i32 %50, ptr %48, align 4
-  %51 = icmp slt i32 %50, 1
-  br i1 %51, label %52, label %JS_FreeValue.exit
-
-52:                                               ; preds = %47
-  tail call void @__JS_FreeValue(ptr noundef %16, i64 %30, i64 %31) #29
+43:                                               ; preds = %38
+  tail call void @__JS_FreeValue(ptr noundef %17, i64 %31, i64 %32) #30
   br label %JS_FreeValue.exit
 
-JS_FreeValue.exit:                                ; preds = %js_std_dump_error.exit, %47, %52
-  tail call void @js_std_loop(ptr noundef %16)
-  tail call void @JS_FreeContext(ptr noundef %16) #29
-  tail call void @js_std_free_handlers(ptr noundef nonnull %2)
-  tail call void @JS_FreeRuntime(ptr noundef nonnull %2) #29
+JS_FreeValue.exit:                                ; preds = %35, %38, %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  br label %44
+
+44:                                               ; preds = %.backedge, %JS_FreeValue.exit
+  %45 = call ptr @JS_GetRuntime(ptr noundef %17) #30
+  %46 = call i32 @JS_ExecutePendingJob(ptr noundef %45, ptr noundef nonnull %2) #30
+  %47 = icmp slt i32 %46, 1
+  br i1 %47, label %48, label %.backedge
+
+.backedge:                                        ; preds = %44, %54
+  br label %44
+
+48:                                               ; preds = %44
+  %49 = icmp slt i32 %46, 0
+  br i1 %49, label %50, label %52
+
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %2, align 8
+  call void @js_std_dump_error(ptr noundef %51)
+  br label %52
+
+52:                                               ; preds = %50, %48
+  %53 = load ptr, ptr @os_poll_func, align 8
+  %.not.i = icmp eq ptr %53, null
+  br i1 %.not.i, label %js_std_loop.exit, label %54
+
+54:                                               ; preds = %52
+  %55 = call i32 @js_os_poll(ptr noundef %17), !callees !16
+  %.not4.i = icmp eq i32 %55, 0
+  br i1 %.not4.i, label %.backedge, label %js_std_loop.exit
+
+js_std_loop.exit:                                 ; preds = %52, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @JS_FreeContext(ptr noundef %17) #30
+  call void @js_std_free_handlers(ptr noundef nonnull %3)
+  call void @JS_FreeRuntime(ptr noundef nonnull %3) #30
   ret ptr null
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #15
+declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @pipe(ptr noundef) local_unnamed_addr #15
+declare i32 @pipe(ptr noundef) local_unnamed_addr #16
 
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #15
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #16
 
 declare ptr @JS_NewRuntime() local_unnamed_addr #3
 
@@ -6042,7 +5990,7 @@ define internal { i64, i64 } @js_os_open(ptr noundef %0, i64 %1, i64 %2, i32 nou
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %8, i64 %10, i32 noundef 0) #29
+  %11 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %8, i64 %10, i32 noundef 0) #30
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %38, label %12
 
@@ -6051,7 +5999,7 @@ define internal { i64, i64 } @js_os_open(ptr noundef %0, i64 %1, i64 %2, i32 nou
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr i8, ptr %4, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %14, i64 %16) #29
+  %17 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %14, i64 %16) #30
   %.not22 = icmp eq i32 %17, 0
   br i1 %.not22, label %18, label %.sink.split
 
@@ -6069,7 +6017,7 @@ define internal { i64, i64 } @js_os_open(ptr noundef %0, i64 %1, i64 %2, i32 nou
 24:                                               ; preds = %20
   %25 = getelementptr i8, ptr %4, i64 32
   %26 = load i64, ptr %25, align 8
-  %27 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %26, i64 %22) #29
+  %27 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %26, i64 %22) #30
   %.not24 = icmp eq i32 %27, 0
   br i1 %.not24, label %._crit_edge, label %.sink.split
 
@@ -6084,12 +6032,12 @@ define internal { i64, i64 } @js_os_open(ptr noundef %0, i64 %1, i64 %2, i32 nou
 29:                                               ; preds = %._crit_edge, %28
   %30 = phi i32 [ %.pre, %._crit_edge ], [ 438, %28 ]
   %31 = load i32, ptr %6, align 4
-  %32 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %11, i32 noundef %31, i32 noundef %30) #29
+  %32 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %11, i32 noundef %31, i32 noundef %30) #30
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %34, label %js_get_errno.exit
 
 34:                                               ; preds = %29
-  %35 = tail call ptr @__errno_location() #28
+  %35 = tail call ptr @__errno_location() #29
   %36 = load i32, ptr %35, align 4
   %37 = sub i32 0, %36
   br label %js_get_errno.exit
@@ -6102,7 +6050,7 @@ js_get_errno.exit:                                ; preds = %29, %34
 .sink.split:                                      ; preds = %12, %24, %js_get_errno.exit
   %.sroa.015.0.ph = phi i64 [ %.0.i, %js_get_errno.exit ], [ 0, %24 ], [ 0, %12 ]
   %.sroa.4.sroa.2.0.ph = phi i64 [ 0, %js_get_errno.exit ], [ 6, %24 ], [ 6, %12 ]
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %11) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %11) #30
   br label %38
 
 38:                                               ; preds = %.sink.split, %5
@@ -6119,18 +6067,18 @@ define internal { i64, i64 } @js_os_close(ptr noundef %0, i64 %1, i64 %2, i32 %3
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #29
+  %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #30
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %19
 
 11:                                               ; preds = %5
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 @close(i32 noundef %12) #29
+  %13 = call i32 @close(i32 noundef %12) #30
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %15, label %js_get_errno.exit
 
 15:                                               ; preds = %11
-  %16 = tail call ptr @__errno_location() #28
+  %16 = tail call ptr @__errno_location() #29
   %17 = load i32, ptr %16, align 4
   %18 = sub i32 0, %17
   br label %js_get_errno.exit
@@ -6156,7 +6104,7 @@ define internal { i64, i64 } @js_os_seek(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %9 = load i64, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %9, i64 %11) #29
+  %12 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %9, i64 %11) #30
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %47
 
@@ -6167,7 +6115,7 @@ define internal { i64, i64 } @js_os_seek(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %17 = and i64 %16, 4294967295
   %.not42 = icmp eq i64 %17, 4294967286
   %18 = load i64, ptr %14, align 8
-  %19 = call i32 @JS_ToInt64Ext(ptr noundef %0, ptr noundef nonnull %8, i64 %18, i64 %16) #29
+  %19 = call i32 @JS_ToInt64Ext(ptr noundef %0, ptr noundef nonnull %8, i64 %18, i64 %16) #30
   %.not39 = icmp eq i32 %19, 0
   br i1 %.not39, label %20, label %47
 
@@ -6176,7 +6124,7 @@ define internal { i64, i64 } @js_os_seek(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr i8, ptr %4, i64 40
   %24 = load i64, ptr %23, align 8
-  %25 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %22, i64 %24) #29
+  %25 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %22, i64 %24) #30
   %.not40 = icmp eq i32 %25, 0
   br i1 %.not40, label %26, label %47
 
@@ -6184,12 +6132,12 @@ define internal { i64, i64 } @js_os_seek(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %27 = load i32, ptr %6, align 4
   %28 = load i64, ptr %8, align 8
   %29 = load i32, ptr %7, align 4
-  %30 = call i64 @lseek(i32 noundef %27, i64 noundef %28, i32 noundef %29) #29
+  %30 = call i64 @lseek(i32 noundef %27, i64 noundef %28, i32 noundef %29) #30
   %31 = icmp eq i64 %30, -1
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %26
-  %33 = tail call ptr @__errno_location() #28
+  %33 = tail call ptr @__errno_location() #29
   %34 = load i32, ptr %33, align 4
   %35 = sub i32 0, %34
   %36 = sext i32 %35 to i64
@@ -6200,7 +6148,7 @@ define internal { i64, i64 } @js_os_seek(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   br i1 %.not42, label %38, label %42
 
 38:                                               ; preds = %37
-  %39 = call { i64, i64 } @JS_NewBigInt64(ptr noundef %0, i64 noundef %.0) #29
+  %39 = call { i64, i64 } @JS_NewBigInt64(ptr noundef %0, i64 noundef %.0) #30
   %40 = extractvalue { i64, i64 } %39, 0
   %.sroa.6.0.extract.shift = and i64 %40, -4294967296
   %41 = extractvalue { i64, i64 } %39, 1
@@ -6237,7 +6185,7 @@ define internal { i64, i64 } @js_os_read_write(ptr noundef %0, i64 %1, i64 %2, i
   %11 = load i64, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %11, i64 %13) #29
+  %14 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %11, i64 %13) #30
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %60
 
@@ -6246,7 +6194,7 @@ define internal { i64, i64 } @js_os_read_write(ptr noundef %0, i64 %1, i64 %2, i
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr i8, ptr %4, i64 40
   %19 = load i64, ptr %18, align 8
-  %20 = call i32 @JS_ToIndex(ptr noundef %0, ptr noundef nonnull %8, i64 %17, i64 %19) #29
+  %20 = call i32 @JS_ToIndex(ptr noundef %0, ptr noundef nonnull %8, i64 %17, i64 %19) #30
   %.not41 = icmp eq i32 %20, 0
   br i1 %.not41, label %21, label %60
 
@@ -6255,7 +6203,7 @@ define internal { i64, i64 } @js_os_read_write(ptr noundef %0, i64 %1, i64 %2, i
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr i8, ptr %4, i64 56
   %25 = load i64, ptr %24, align 8
-  %26 = call i32 @JS_ToIndex(ptr noundef %0, ptr noundef nonnull %9, i64 %23, i64 %25) #29
+  %26 = call i32 @JS_ToIndex(ptr noundef %0, ptr noundef nonnull %9, i64 %23, i64 %25) #30
   %.not42 = icmp eq i32 %26, 0
   br i1 %.not42, label %27, label %60
 
@@ -6264,7 +6212,7 @@ define internal { i64, i64 } @js_os_read_write(ptr noundef %0, i64 %1, i64 %2, i
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr i8, ptr %4, i64 24
   %31 = load i64, ptr %30, align 8
-  %32 = call ptr @JS_GetArrayBuffer(ptr noundef %0, ptr noundef nonnull %10, i64 %29, i64 %31) #29
+  %32 = call ptr @JS_GetArrayBuffer(ptr noundef %0, ptr noundef nonnull %10, i64 %29, i64 %31) #30
   %.not43 = icmp eq ptr %32, null
   br i1 %.not43, label %60, label %33
 
@@ -6277,7 +6225,7 @@ define internal { i64, i64 } @js_os_read_write(ptr noundef %0, i64 %1, i64 %2, i
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %33
-  %40 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowRangeError(ptr noundef %0, ptr noundef nonnull @.str.45) #29
+  %40 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowRangeError(ptr noundef %0, ptr noundef nonnull @.str.45) #30
   %41 = extractvalue { i64, i64 } %40, 0
   %.sroa.7.0.extract.shift = and i64 %41, -4294967296
   %42 = extractvalue { i64, i64 } %40, 1
@@ -6290,17 +6238,17 @@ define internal { i64, i64 } @js_os_read_write(ptr noundef %0, i64 %1, i64 %2, i
   br i1 %.not44, label %49, label %46
 
 46:                                               ; preds = %43
-  %47 = call i64 @write(i32 noundef %44, ptr noundef %45, i64 noundef %35) #29
+  %47 = call i64 @write(i32 noundef %44, ptr noundef %45, i64 noundef %35) #30
   %48 = icmp eq i64 %47, -1
   br i1 %48, label %js_get_errno.exit.sink.split, label %js_get_errno.exit
 
 49:                                               ; preds = %43
-  %50 = call i64 @read(i32 noundef %44, ptr noundef %45, i64 noundef %35) #29
+  %50 = call i64 @read(i32 noundef %44, ptr noundef %45, i64 noundef %35) #30
   %51 = icmp eq i64 %50, -1
   br i1 %51, label %js_get_errno.exit.sink.split, label %js_get_errno.exit
 
 js_get_errno.exit.sink.split:                     ; preds = %49, %46
-  %52 = tail call ptr @__errno_location() #28
+  %52 = tail call ptr @__errno_location() #29
   %53 = load i32, ptr %52, align 4
   %54 = sub i32 0, %53
   %55 = sext i32 %54 to i64
@@ -6335,13 +6283,13 @@ define internal { i64, i64 } @js_os_isatty(ptr noundef %0, i64 %1, i64 %2, i32 %
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #29
+  %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #30
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %16
 
 11:                                               ; preds = %5
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 @isatty(i32 noundef %12) #29
+  %13 = call i32 @isatty(i32 noundef %12) #30
   %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i64
   br label %16
@@ -6361,13 +6309,13 @@ define internal { i64, i64 } @js_os_ttyGetWinSize(ptr noundef %0, i64 %1, i64 %2
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %8, i64 %10) #29
+  %11 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %8, i64 %10) #30
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %32
 
 12:                                               ; preds = %5
   %13 = load i32, ptr %6, align 4
-  %14 = call i32 (i32, i64, ...) @ioctl(i32 noundef %13, i64 noundef 21523, ptr noundef nonnull %7) #29
+  %14 = call i32 (i32, i64, ...) @ioctl(i32 noundef %13, i64 noundef 21523, ptr noundef nonnull %7) #30
   %15 = icmp eq i32 %14, 0
   %16 = getelementptr inbounds i8, ptr %7, i64 2
   %17 = load i16, ptr %16, align 2
@@ -6379,7 +6327,7 @@ define internal { i64, i64 } @js_os_ttyGetWinSize(ptr noundef %0, i64 %1, i64 %2
   br i1 %or.cond7, label %21, label %32
 
 21:                                               ; preds = %12
-  %22 = call { i64, i64 } @JS_NewArray(ptr noundef %0) #29
+  %22 = call { i64, i64 } @JS_NewArray(ptr noundef %0) #30
   %23 = extractvalue { i64, i64 } %22, 0
   %24 = extractvalue { i64, i64 } %22, 1
   %25 = and i64 %24, 4294967295
@@ -6393,10 +6341,10 @@ define internal { i64, i64 } @js_os_ttyGetWinSize(ptr noundef %0, i64 %1, i64 %2
 27:                                               ; preds = %21
   %28 = load i16, ptr %16, align 2
   %.sroa.041.0.insert.ext = zext i16 %28 to i64
-  %29 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %23, i64 %24, i32 noundef 0, i64 %.sroa.041.0.insert.ext, i64 0, i32 noundef 7) #29
+  %29 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %23, i64 %24, i32 noundef 0, i64 %.sroa.041.0.insert.ext, i64 0, i32 noundef 7) #30
   %30 = load i16, ptr %7, align 2
   %.sroa.036.0.insert.ext = zext i16 %30 to i64
-  %31 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %23, i64 %24, i32 noundef 1, i64 %.sroa.036.0.insert.ext, i64 0, i32 noundef 7) #29
+  %31 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %23, i64 %24, i32 noundef 1, i64 %.sroa.036.0.insert.ext, i64 0, i32 noundef 7) #30
   %.sroa.5.0.extract.shift29 = and i64 %23, -4294967296
   br label %32
 
@@ -6418,14 +6366,14 @@ define internal { i64, i64 } @js_os_ttySetRaw(ptr noundef %0, i64 %1, i64 %2, i3
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %8, i64 %10) #29
+  %11 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %8, i64 %10) #30
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %32
 
 12:                                               ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %6, i8 0, i64 60, i1 false)
   %13 = load i32, ptr %7, align 4
-  %14 = call i32 @tcgetattr(i32 noundef %13, ptr noundef nonnull %6) #29
+  %14 = call i32 @tcgetattr(i32 noundef %13, ptr noundef nonnull %6) #30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) @oldtty, ptr noundef nonnull align 4 dereferenceable(60) %6, i64 60, i1 false)
   %15 = load i32, ptr %6, align 4
   %16 = and i32 %15, -1516
@@ -6448,8 +6396,8 @@ define internal { i64, i64 } @js_os_ttySetRaw(ptr noundef %0, i64 %1, i64 %2, i3
   %28 = getelementptr inbounds i8, ptr %6, i64 22
   store i8 0, ptr %28, align 2
   %29 = load i32, ptr %7, align 4
-  %30 = call i32 @tcsetattr(i32 noundef %29, i32 noundef 0, ptr noundef nonnull %6) #29
-  %31 = call i32 @atexit(ptr noundef nonnull @term_exit) #29
+  %30 = call i32 @tcsetattr(i32 noundef %29, i32 noundef 0, ptr noundef nonnull %6) #30
+  %31 = call i32 @atexit(ptr noundef nonnull @term_exit) #30
   br label %32
 
 32:                                               ; preds = %5, %12
@@ -6463,17 +6411,17 @@ define internal { i64, i64 } @js_os_remove(ptr noundef %0, i64 %1, i64 %2, i32 %
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #29
+  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @remove(ptr noundef nonnull %9) #29
+  %11 = tail call i32 @remove(ptr noundef nonnull %9) #30
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %13, label %js_get_errno.exit
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @__errno_location() #28
+  %14 = tail call ptr @__errno_location() #29
   %15 = load i32, ptr %14, align 4
   %16 = sub i32 0, %15
   br label %js_get_errno.exit
@@ -6481,7 +6429,7 @@ define internal { i64, i64 } @js_os_remove(ptr noundef %0, i64 %1, i64 %2, i32 %
 js_get_errno.exit:                                ; preds = %10, %13
   %.0.i.in = phi i32 [ %16, %13 ], [ %11, %10 ]
   %.0.i = zext i32 %.0.i.in to i64
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #30
   br label %17
 
 17:                                               ; preds = %5, %js_get_errno.exit
@@ -6497,7 +6445,7 @@ define internal { i64, i64 } @js_os_rename(ptr noundef %0, i64 %1, i64 %2, i32 %
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #29
+  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %23, label %10
 
@@ -6506,17 +6454,17 @@ define internal { i64, i64 } @js_os_rename(ptr noundef %0, i64 %1, i64 %2, i32 %
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr i8, ptr %4, i64 24
   %14 = load i64, ptr %13, align 8
-  %15 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %12, i64 %14, i32 noundef 0) #29
+  %15 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %12, i64 %14, i32 noundef 0) #30
   %.not23 = icmp eq ptr %15, null
   br i1 %.not23, label %.sink.split, label %16
 
 16:                                               ; preds = %10
-  %17 = tail call i32 @rename(ptr noundef nonnull %9, ptr noundef nonnull %15) #29
+  %17 = tail call i32 @rename(ptr noundef nonnull %9, ptr noundef nonnull %15) #30
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %js_get_errno.exit
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @__errno_location() #28
+  %20 = tail call ptr @__errno_location() #29
   %21 = load i32, ptr %20, align 4
   %22 = sub i32 0, %21
   br label %js_get_errno.exit
@@ -6524,14 +6472,14 @@ define internal { i64, i64 } @js_os_rename(ptr noundef %0, i64 %1, i64 %2, i32 %
 js_get_errno.exit:                                ; preds = %16, %19
   %.0.i.in = phi i32 [ %22, %19 ], [ %17, %16 ]
   %.0.i = zext i32 %.0.i.in to i64
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #30
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %js_get_errno.exit
   %.sink = phi ptr [ %15, %js_get_errno.exit ], [ %9, %10 ]
   %.sroa.015.0.ph = phi i64 [ %.0.i, %js_get_errno.exit ], [ 0, %10 ]
   %.sroa.4.sroa.2.0.ph = phi i64 [ 0, %js_get_errno.exit ], [ 6, %10 ]
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %.sink) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %.sink) #30
   br label %23
 
 23:                                               ; preds = %.sink.split, %5
@@ -6545,12 +6493,12 @@ js_get_errno.exit:                                ; preds = %16, %19
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_setReadHandler(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %8) #29
+  %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %8) #30
   %10 = load i64, ptr %4, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %10, i64 %12) #29
+  %13 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %10, i64 %12) #30
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %find_rh.exit.thread
 
@@ -6600,7 +6548,7 @@ find_rh.exit:                                     ; preds = %20
   br i1 %36, label %37, label %JS_FreeValue.exit
 
 37:                                               ; preds = %32
-  call void @__JS_FreeValue(ptr noundef %0, i64 %27, i64 %29) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %27, i64 %29) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %find_rh.exit, %32, %37
@@ -6620,7 +6568,7 @@ JS_FreeValue.exit:                                ; preds = %find_rh.exit, %32, 
   br i1 %.not74, label %45, label %find_rh.exit.thread
 
 45:                                               ; preds = %41
-  %46 = call ptr @JS_GetRuntime(ptr noundef %0) #29
+  %46 = call ptr @JS_GetRuntime(ptr noundef %0) #30
   %47 = load ptr, ptr %.0.i, align 8
   %48 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %49 = load ptr, ptr %48, align 8
@@ -6650,23 +6598,23 @@ JS_FreeValue.exit:                                ; preds = %find_rh.exit, %32, 
   br i1 %63, label %64, label %JS_FreeValueRT.exit.i
 
 64:                                               ; preds = %59
-  call void @__JS_FreeValueRT(ptr noundef %46, i64 %54, i64 %56) #29
+  call void @__JS_FreeValueRT(ptr noundef %46, i64 %54, i64 %56) #30
   br label %JS_FreeValueRT.exit.i
 
 JS_FreeValueRT.exit.i:                            ; preds = %64, %59, %51
   br i1 %52, label %51, label %free_rw_handler.exit, !llvm.loop !10
 
 free_rw_handler.exit:                             ; preds = %JS_FreeValueRT.exit.i
-  call void @js_free_rt(ptr noundef %46, ptr noundef nonnull %.0.i) #29
+  call void @js_free_rt(ptr noundef %46, ptr noundef nonnull %.0.i) #30
   br label %find_rh.exit.thread
 
 65:                                               ; preds = %14
-  %66 = call i32 @JS_IsFunction(ptr noundef %0, i64 %.sroa.010.0.copyload, i64 %.sroa.4.0.copyload) #29
+  %66 = call i32 @JS_IsFunction(ptr noundef %0, i64 %.sroa.010.0.copyload, i64 %.sroa.4.0.copyload) #30
   %.not55 = icmp eq i32 %66, 0
   br i1 %.not55, label %67, label %72
 
 67:                                               ; preds = %65
-  %68 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.106) #29
+  %68 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.106) #30
   %69 = extractvalue { i64, i64 } %68, 0
   %.sroa.5.0.extract.shift = and i64 %69, -4294967296
   %70 = extractvalue { i64, i64 } %68, 1
@@ -6691,7 +6639,7 @@ free_rw_handler.exit:                             ; preds = %JS_FreeValueRT.exit
   br i1 %78, label %find_rh.exit66, label %74, !llvm.loop !34
 
 79:                                               ; preds = %74
-  %80 = call ptr @js_mallocz(ptr noundef %0, i64 noundef 56) #29
+  %80 = call ptr @js_mallocz(ptr noundef %0, i64 noundef 56) #30
   %.not57 = icmp eq ptr %80, null
   br i1 %.not57, label %find_rh.exit.thread, label %81
 
@@ -6737,7 +6685,7 @@ find_rh.exit66:                                   ; preds = %75, %81
   br i1 %101, label %102, label %JS_FreeValue.exit67
 
 102:                                              ; preds = %97
-  call void @__JS_FreeValue(ptr noundef %0, i64 %92, i64 %94) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %92, i64 %94) #30
   br label %JS_FreeValue.exit67
 
 JS_FreeValue.exit67:                              ; preds = %find_rh.exit66, %97, %102
@@ -6770,16 +6718,16 @@ find_rh.exit.thread:                              ; preds = %19, %JS_DupValue.ex
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca i32, align 4
-  %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #29
-  %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #29
+  %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
+  %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
   %10 = getelementptr inbounds i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not.i.not = icmp eq ptr %11, null
   br i1 %.not.i.not, label %16, label %12
 
 12:                                               ; preds = %5
-  %13 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.181) #29
+  %13 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.181) #30
   %14 = extractvalue { i64, i64 } %13, 0
   %.sroa.7.0.extract.shift = and i64 %14, -4294967296
   %15 = extractvalue { i64, i64 } %13, 1
@@ -6789,7 +6737,7 @@ define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 %
   %17 = load i64, ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   %19 = load i64, ptr %18, align 8
-  %20 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %17, i64 %19) #29
+  %20 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %17, i64 %19) #30
   %.not52 = icmp eq i32 %20, 0
   br i1 %.not52, label %21, label %101
 
@@ -6799,7 +6747,7 @@ define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 %
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %21
-  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowRangeError(ptr noundef %0, ptr noundef nonnull @.str.182) #29
+  %25 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowRangeError(ptr noundef %0, ptr noundef nonnull @.str.182) #30
   %26 = extractvalue { i64, i64 } %25, 0
   %.sroa.7.0.extract.shift39 = and i64 %26, -4294967296
   %27 = extractvalue { i64, i64 } %25, 1
@@ -6837,7 +6785,7 @@ define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 %
   br i1 %.not.i60, label %find_sh.exit.thread, label %.lr.ph.i, !llvm.loop !35
 
 find_sh.exit:                                     ; preds = %.lr.ph.i
-  %40 = call ptr @JS_GetRuntime(ptr noundef %0) #29
+  %40 = call ptr @JS_GetRuntime(ptr noundef %0) #30
   %41 = load ptr, ptr %.011.i, align 8
   %42 = getelementptr inbounds i8, ptr %.011.i, i64 8
   %43 = load ptr, ptr %42, align 8
@@ -6862,27 +6810,27 @@ find_sh.exit:                                     ; preds = %.lr.ph.i
   br i1 %55, label %56, label %free_sh.exit
 
 56:                                               ; preds = %51
-  call void @__JS_FreeValueRT(ptr noundef %40, i64 %46, i64 %48) #29
+  call void @__JS_FreeValueRT(ptr noundef %40, i64 %46, i64 %48) #30
   br label %free_sh.exit
 
 free_sh.exit:                                     ; preds = %find_sh.exit, %51, %56
-  call void @js_free_rt(ptr noundef %40, ptr noundef nonnull %.011.i) #29
+  call void @js_free_rt(ptr noundef %40, ptr noundef nonnull %.011.i) #30
   %.pre = load i32, ptr %6, align 4
   br label %find_sh.exit.thread
 
 find_sh.exit.thread:                              ; preds = %38, %32, %free_sh.exit
   %57 = phi i32 [ %22, %32 ], [ %.pre, %free_sh.exit ], [ %22, %38 ]
   %. = select i1 %.not, ptr null, ptr inttoptr (i64 1 to ptr)
-  %58 = call ptr @signal(i32 noundef %57, ptr noundef %.) #29
+  %58 = call ptr @signal(i32 noundef %57, ptr noundef %.) #30
   br label %101
 
 59:                                               ; preds = %28
-  %60 = call i32 @JS_IsFunction(ptr noundef %0, i64 %.sroa.01.0.copyload, i64 %.sroa.6.0.copyload) #29
+  %60 = call i32 @JS_IsFunction(ptr noundef %0, i64 %.sroa.01.0.copyload, i64 %.sroa.6.0.copyload) #30
   %.not55 = icmp eq i32 %60, 0
   br i1 %.not55, label %61, label %65
 
 61:                                               ; preds = %59
-  %62 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.106) #29
+  %62 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.106) #30
   %63 = extractvalue { i64, i64 } %62, 0
   %.sroa.7.0.extract.shift41 = and i64 %63, -4294967296
   %64 = extractvalue { i64, i64 } %62, 1
@@ -6910,7 +6858,7 @@ find_sh.exit.thread:                              ; preds = %38, %32, %free_sh.e
   br i1 %.not.i66, label %.loopexit, label %.lr.ph.i63, !llvm.loop !35
 
 .loopexit:                                        ; preds = %72, %65
-  %74 = call ptr @js_mallocz(ptr noundef %0, i64 noundef 40) #29
+  %74 = call ptr @js_mallocz(ptr noundef %0, i64 noundef 40) #30
   %.not57 = icmp eq ptr %74, null
   br i1 %.not57, label %101, label %75
 
@@ -6946,7 +6894,7 @@ find_sh.exit68:                                   ; preds = %.lr.ph.i63, %75
   br i1 %91, label %92, label %JS_FreeValue.exit
 
 92:                                               ; preds = %87
-  call void @__JS_FreeValue(ptr noundef %0, i64 %82, i64 %84) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %82, i64 %84) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %find_sh.exit68, %87, %92
@@ -6965,7 +6913,7 @@ JS_DupValue.exit:                                 ; preds = %JS_FreeValue.exit, 
   store i64 %.sroa.01.0.copyload, ptr %81, align 8
   store i64 %.sroa.6.0.copyload, ptr %83, align 8
   %99 = load i32, ptr %6, align 4
-  %100 = call ptr @signal(i32 noundef %99, ptr noundef nonnull @os_signal_handler) #29
+  %100 = call ptr @signal(i32 noundef %99, ptr noundef nonnull @os_signal_handler) #30
   br label %101
 
 101:                                              ; preds = %find_sh.exit.thread, %JS_DupValue.exit, %.loopexit, %16, %61, %24, %12
@@ -6983,7 +6931,7 @@ JS_DupValue.exit:                                 ; preds = %JS_FreeValue.exit, 
 define internal { i64, i64 } @js_os_now(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #29
+  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %8 = load i64, ptr %6, align 8
   %9 = mul i64 %8, 1000000000
   %10 = getelementptr inbounds i8, ptr %6, i64 8
@@ -7013,17 +6961,17 @@ define internal { i64, i64 } @js_os_now(ptr nocapture readnone %0, i64 %1, i64 %
 define internal { i64, i64 } @js_os_setTimeout(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca i64, align 8
-  %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %8) #29
+  %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %8) #30
   %.sroa.06.0.copyload = load i64, ptr %4, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %10 = tail call i32 @JS_IsFunction(ptr noundef %0, i64 %.sroa.06.0.copyload, i64 %.sroa.3.0.copyload) #29
+  %10 = tail call i32 @JS_IsFunction(ptr noundef %0, i64 %.sroa.06.0.copyload, i64 %.sroa.3.0.copyload) #30
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %15
 
 11:                                               ; preds = %5
-  %12 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.106) #29
+  %12 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.106) #30
   %13 = extractvalue { i64, i64 } %12, 0
   %.sroa.025.0.extract.trunc = trunc i64 %13 to i32
   %.sroa.5.0.extract.shift = and i64 %13, -4294967296
@@ -7035,12 +6983,12 @@ define internal { i64, i64 } @js_os_setTimeout(ptr noundef %0, i64 %1, i64 %2, i
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr i8, ptr %4, i64 24
   %19 = load i64, ptr %18, align 8
-  %20 = call i32 @JS_ToInt64(ptr noundef %0, ptr noundef nonnull %7, i64 %17, i64 %19) #29
+  %20 = call i32 @JS_ToInt64(ptr noundef %0, ptr noundef nonnull %7, i64 %17, i64 %19) #30
   %.not37 = icmp eq i32 %20, 0
   br i1 %.not37, label %21, label %51
 
 21:                                               ; preds = %15
-  %22 = call ptr @js_mallocz(ptr noundef %0, i64 noundef 48) #29
+  %22 = call ptr @js_mallocz(ptr noundef %0, i64 noundef 48) #30
   %.not38 = icmp eq ptr %22, null
   br i1 %.not38, label %51, label %23
 
@@ -7054,7 +7002,7 @@ define internal { i64, i64 } @js_os_setTimeout(ptr noundef %0, i64 %1, i64 %2, i
   %storemerge = select i1 %27, i32 1, i32 %28
   store i32 %storemerge, ptr %24, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %29 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #29
+  %29 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %30 = load i64, ptr %6, align 8
   %31 = mul i64 %30, 1000
   %32 = getelementptr inbounds i8, ptr %6, i64 8
@@ -7107,12 +7055,12 @@ JS_DupValue.exit:                                 ; preds = %23, %42
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_clearTimeout(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca i32, align 4
-  %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #29
+  %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
   %9 = load i64, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %9, i64 %11) #29
+  %12 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %9, i64 %11) #30
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %find_timer_by_id.exit.thread
 
@@ -7166,11 +7114,11 @@ find_timer_by_id.exit:                            ; preds = %.lr.ph.i
   br i1 %38, label %39, label %free_timer.exit
 
 39:                                               ; preds = %34
-  call void @__JS_FreeValueRT(ptr noundef %7, i64 %29, i64 %31) #29
+  call void @__JS_FreeValueRT(ptr noundef %7, i64 %29, i64 %31) #30
   br label %free_timer.exit
 
 free_timer.exit:                                  ; preds = %find_timer_by_id.exit, %34, %39
-  call void @js_free_rt(ptr noundef %7, ptr noundef nonnull %.0913.i) #29
+  call void @js_free_rt(ptr noundef %7, ptr noundef nonnull %.0913.i) #30
   br label %find_timer_by_id.exit.thread
 
 find_timer_by_id.exit.thread:                     ; preds = %22, %16, %13, %5, %free_timer.exit
@@ -7184,17 +7132,17 @@ define internal { i64, i64 } @js_os_sleepAsync(ptr noundef %0, i64 %1, i64 %2, i
   %6 = alloca %struct.timespec, align 8
   %7 = alloca i64, align 8
   %8 = alloca [2 x %struct.JSValue], align 16
-  %9 = tail call ptr @JS_GetRuntime(ptr noundef %0) #29
-  %10 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %9) #29
+  %9 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
+  %10 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %9) #30
   %11 = load i64, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = call i32 @JS_ToInt64(ptr noundef %0, ptr noundef nonnull %7, i64 %11, i64 %13) #29
+  %14 = call i32 @JS_ToInt64(ptr noundef %0, ptr noundef nonnull %7, i64 %11, i64 %13) #30
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %JS_FreeValue.exit31
 
 15:                                               ; preds = %5
-  %16 = call { i64, i64 } @JS_NewPromiseCapability(ptr noundef %0, ptr noundef nonnull %8) #29
+  %16 = call { i64, i64 } @JS_NewPromiseCapability(ptr noundef %0, ptr noundef nonnull %8) #30
   %17 = extractvalue { i64, i64 } %16, 0
   %18 = extractvalue { i64, i64 } %16, 1
   %19 = and i64 %18, 4294967295
@@ -7202,7 +7150,7 @@ define internal { i64, i64 } @js_os_sleepAsync(ptr noundef %0, i64 %1, i64 %2, i
   br i1 %.not34, label %JS_FreeValue.exit31, label %20
 
 20:                                               ; preds = %15
-  %21 = call ptr @js_mallocz(ptr noundef %0, i64 noundef 48) #29
+  %21 = call ptr @js_mallocz(ptr noundef %0, i64 noundef 48) #30
   %.not29 = icmp eq ptr %21, null
   br i1 %.not29, label %22, label %54
 
@@ -7220,7 +7168,7 @@ define internal { i64, i64 } @js_os_sleepAsync(ptr noundef %0, i64 %1, i64 %2, i
   br i1 %29, label %30, label %JS_FreeValue.exit
 
 30:                                               ; preds = %25
-  call void @__JS_FreeValue(ptr noundef %0, i64 %17, i64 %18) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %17, i64 %18) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %22, %25, %30
@@ -7240,7 +7188,7 @@ JS_FreeValue.exit:                                ; preds = %22, %25, %30
   br i1 %40, label %41, label %JS_FreeValue.exit30
 
 41:                                               ; preds = %36
-  call void @__JS_FreeValue(ptr noundef %0, i64 %31, i64 %33) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %31, i64 %33) #30
   br label %JS_FreeValue.exit30
 
 JS_FreeValue.exit30:                              ; preds = %JS_FreeValue.exit, %36, %41
@@ -7261,14 +7209,14 @@ JS_FreeValue.exit30:                              ; preds = %JS_FreeValue.exit, 
   br i1 %52, label %53, label %JS_FreeValue.exit31
 
 53:                                               ; preds = %48
-  call void @__JS_FreeValue(ptr noundef %0, i64 %43, i64 %45) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %43, i64 %45) #30
   br label %JS_FreeValue.exit31
 
 54:                                               ; preds = %20
   %55 = getelementptr inbounds i8, ptr %21, i64 16
   store i32 -1, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %56 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #29
+  %56 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %57 = load i64, ptr %6, align 8
   %58 = mul i64 %57, 1000
   %59 = getelementptr inbounds i8, ptr %6, i64 8
@@ -7322,7 +7270,7 @@ JS_DupValue.exit:                                 ; preds = %54, %72
   br i1 %88, label %89, label %JS_FreeValue.exit32
 
 89:                                               ; preds = %84
-  call void @__JS_FreeValue(ptr noundef %0, i64 %80, i64 %81) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %80, i64 %81) #30
   br label %JS_FreeValue.exit32
 
 JS_FreeValue.exit32:                              ; preds = %JS_DupValue.exit, %84, %89
@@ -7343,7 +7291,7 @@ JS_FreeValue.exit32:                              ; preds = %JS_DupValue.exit, %
   br i1 %100, label %101, label %JS_FreeValue.exit33
 
 101:                                              ; preds = %96
-  call void @__JS_FreeValue(ptr noundef %0, i64 %91, i64 %93) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %91, i64 %93) #30
   br label %JS_FreeValue.exit33
 
 JS_FreeValue.exit33:                              ; preds = %JS_FreeValue.exit32, %96, %101
@@ -7364,20 +7312,20 @@ JS_FreeValue.exit31:                              ; preds = %53, %48, %JS_FreeVa
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_getcwd(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
   %6 = alloca [4096 x i8], align 16
-  %7 = call ptr @getcwd(ptr noundef nonnull %6, i64 noundef 4096) #29
+  %7 = call ptr @getcwd(ptr noundef nonnull %6, i64 noundef 4096) #30
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %12
 
 8:                                                ; preds = %5
   store i8 0, ptr %6, align 16
-  %9 = tail call ptr @__errno_location() #28
+  %9 = tail call ptr @__errno_location() #29
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   br label %12
 
 12:                                               ; preds = %5, %8
   %.0 = phi i64 [ %11, %8 ], [ 0, %5 ]
-  %13 = call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef nonnull %6) #29
+  %13 = call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef nonnull %6) #30
   %14 = extractvalue { i64, i64 } %13, 0
   %15 = extractvalue { i64, i64 } %13, 1
   %16 = and i64 %15, 4294967295
@@ -7389,7 +7337,7 @@ define internal { i64, i64 } @js_os_getcwd(ptr noundef %0, i64 %1, i64 %2, i32 %
   br label %make_string_error.exit
 
 18:                                               ; preds = %12
-  %19 = call { i64, i64 } @JS_NewArray(ptr noundef %0) #29
+  %19 = call { i64, i64 } @JS_NewArray(ptr noundef %0) #30
   %20 = extractvalue { i64, i64 } %19, 1
   %21 = and i64 %20, 4294967295
   %.not27.i.i = icmp eq i64 %21, 6
@@ -7397,8 +7345,8 @@ define internal { i64, i64 } @js_os_getcwd(ptr noundef %0, i64 %1, i64 %2, i32 %
 
 22:                                               ; preds = %18
   %23 = extractvalue { i64, i64 } %19, 0
-  %24 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %23, i64 %20, i32 noundef 0, i64 %14, i64 %15, i32 noundef 7) #29
-  %25 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %23, i64 %20, i32 noundef 1, i64 %.0, i64 0, i32 noundef 7) #29
+  %24 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %23, i64 %20, i32 noundef 0, i64 %14, i64 %15, i32 noundef 7) #30
+  %25 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %23, i64 %20, i32 noundef 1, i64 %.0, i64 0, i32 noundef 7) #30
   %.sroa.416.0.extract.shift.i.i = and i64 %23, -4294967296
   br label %make_string_error.exit
 
@@ -7418,17 +7366,17 @@ define internal { i64, i64 } @js_os_chdir(ptr noundef %0, i64 %1, i64 %2, i32 %3
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #29
+  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @chdir(ptr noundef nonnull %9) #29
+  %11 = tail call i32 @chdir(ptr noundef nonnull %9) #30
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %13, label %js_get_errno.exit
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @__errno_location() #28
+  %14 = tail call ptr @__errno_location() #29
   %15 = load i32, ptr %14, align 4
   %16 = sub i32 0, %15
   br label %js_get_errno.exit
@@ -7436,7 +7384,7 @@ define internal { i64, i64 } @js_os_chdir(ptr noundef %0, i64 %1, i64 %2, i32 %3
 js_get_errno.exit:                                ; preds = %10, %13
   %.0.i.in = phi i32 [ %16, %13 ], [ %11, %10 ]
   %.0.i = zext i32 %.0.i.in to i64
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #30
   br label %17
 
 17:                                               ; preds = %5, %js_get_errno.exit
@@ -7458,7 +7406,7 @@ define internal { i64, i64 } @js_os_mkdir(ptr noundef %0, i64 %1, i64 %2, i32 no
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr i8, ptr %4, i64 24
   %12 = load i64, ptr %11, align 8
-  %13 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %10, i64 %12) #29
+  %13 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %10, i64 %12) #30
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %15, label %28
 
@@ -7470,18 +7418,18 @@ define internal { i64, i64 } @js_os_mkdir(ptr noundef %0, i64 %1, i64 %2, i32 no
   %16 = load i64, ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   %18 = load i64, ptr %17, align 8
-  %19 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %16, i64 %18, i32 noundef 0) #29
+  %19 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %16, i64 %18, i32 noundef 0) #30
   %.not17 = icmp eq ptr %19, null
   br i1 %.not17, label %28, label %20
 
 20:                                               ; preds = %15
   %21 = load i32, ptr %6, align 4
-  %22 = call i32 @mkdir(ptr noundef nonnull %19, i32 noundef %21) #29
+  %22 = call i32 @mkdir(ptr noundef nonnull %19, i32 noundef %21) #30
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %24, label %js_get_errno.exit
 
 24:                                               ; preds = %20
-  %25 = tail call ptr @__errno_location() #28
+  %25 = tail call ptr @__errno_location() #29
   %26 = load i32, ptr %25, align 4
   %27 = sub i32 0, %26
   br label %js_get_errno.exit
@@ -7489,7 +7437,7 @@ define internal { i64, i64 } @js_os_mkdir(ptr noundef %0, i64 %1, i64 %2, i32 no
 js_get_errno.exit:                                ; preds = %20, %24
   %.0.i.in = phi i32 [ %27, %24 ], [ %22, %20 ]
   %.0.i = zext i32 %.0.i.in to i64
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %19) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %19) #30
   br label %28
 
 28:                                               ; preds = %15, %8, %js_get_errno.exit
@@ -7505,12 +7453,12 @@ define internal { i64, i64 } @js_os_readdir(ptr noundef %0, i64 %1, i64 %2, i32 
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #29
+  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %make_obj_error.exit, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call { i64, i64 } @JS_NewArray(ptr noundef %0) #29
+  %11 = tail call { i64, i64 } @JS_NewArray(ptr noundef %0) #30
   %12 = extractvalue { i64, i64 } %11, 0
   %13 = extractvalue { i64, i64 } %11, 1
   %14 = and i64 %13, 4294967295
@@ -7518,7 +7466,7 @@ define internal { i64, i64 } @js_os_readdir(ptr noundef %0, i64 %1, i64 %2, i32 
   br i1 %.not39, label %15, label %16
 
 15:                                               ; preds = %10
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #30
   br label %make_obj_error.exit
 
 16:                                               ; preds = %10
@@ -7527,16 +7475,16 @@ define internal { i64, i64 } @js_os_readdir(ptr noundef %0, i64 %1, i64 %2, i32 
   br i1 %.not36, label %.thread, label %20
 
 .thread:                                          ; preds = %16
-  %18 = tail call ptr @__errno_location() #28
+  %18 = tail call ptr @__errno_location() #29
   %19 = load i32, ptr %18, align 4
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #30
   br label %33
 
 20:                                               ; preds = %16
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #29
-  %21 = tail call ptr @__errno_location() #28
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #30
+  %21 = tail call ptr @__errno_location() #29
   store i32 0, ptr %21, align 4
-  %22 = tail call ptr @readdir(ptr noundef nonnull %17) #29
+  %22 = tail call ptr @readdir(ptr noundef nonnull %17) #30
   %.not3740 = icmp eq ptr %22, null
   br i1 %.not3740, label %._crit_edge, label %.lr.ph
 
@@ -7550,18 +7498,18 @@ define internal { i64, i64 } @js_os_readdir(ptr noundef %0, i64 %1, i64 %2, i32 
   %.03141 = phi i32 [ %26, %.lr.ph ], [ 0, %20 ]
   %26 = add i32 %.03141, 1
   %27 = getelementptr inbounds i8, ptr %25, i64 19
-  %28 = tail call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef nonnull %27) #29
+  %28 = tail call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef nonnull %27) #30
   %29 = extractvalue { i64, i64 } %28, 0
   %30 = extractvalue { i64, i64 } %28, 1
-  %31 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %12, i64 %13, i32 noundef %.03141, i64 %29, i64 %30, i32 noundef 7) #29
+  %31 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %12, i64 %13, i32 noundef %.03141, i64 %29, i64 %30, i32 noundef 7) #30
   store i32 0, ptr %21, align 4
-  %32 = tail call ptr @readdir(ptr noundef nonnull %17) #29
+  %32 = tail call ptr @readdir(ptr noundef nonnull %17) #30
   %.not37 = icmp eq ptr %32, null
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 33:                                               ; preds = %._crit_edge, %.thread
   %.1 = phi i32 [ %23, %._crit_edge ], [ %19, %.thread ]
-  %34 = tail call { i64, i64 } @JS_NewArray(ptr noundef %0) #29
+  %34 = tail call { i64, i64 } @JS_NewArray(ptr noundef %0) #30
   %35 = extractvalue { i64, i64 } %34, 1
   %36 = and i64 %35, 4294967295
   %.not27.i = icmp eq i64 %36, 6
@@ -7569,9 +7517,9 @@ define internal { i64, i64 } @js_os_readdir(ptr noundef %0, i64 %1, i64 %2, i32 
 
 37:                                               ; preds = %33
   %38 = extractvalue { i64, i64 } %34, 0
-  %39 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %38, i64 %35, i32 noundef 0, i64 %12, i64 %13, i32 noundef 7) #29
+  %39 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %38, i64 %35, i32 noundef 0, i64 %12, i64 %13, i32 noundef 7) #30
   %.sroa.024.0.insert.ext.i = zext i32 %.1 to i64
-  %40 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %38, i64 %35, i32 noundef 1, i64 %.sroa.024.0.insert.ext.i, i64 0, i32 noundef 7) #29
+  %40 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %38, i64 %35, i32 noundef 1, i64 %.sroa.024.0.insert.ext.i, i64 0, i32 noundef 7) #30
   %.sroa.416.0.extract.shift.i = and i64 %38, -4294967296
   %41 = and i64 %38, 4294967295
   br label %make_obj_error.exit
@@ -7592,7 +7540,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %8, i64 %10, i32 noundef 0) #29
+  %11 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %8, i64 %10, i32 noundef 0) #30
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %make_obj_error.exit, label %12
 
@@ -7601,11 +7549,11 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   br i1 %.not425, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = call i32 @lstat(ptr noundef nonnull %11, ptr noundef nonnull %7) #29
+  %14 = call i32 @lstat(ptr noundef nonnull %11, ptr noundef nonnull %7) #30
   br label %17
 
 15:                                               ; preds = %12
-  %16 = call i32 @stat(ptr noundef nonnull %11, ptr noundef nonnull %7) #29
+  %16 = call i32 @stat(ptr noundef nonnull %11, ptr noundef nonnull %7) #30
   br label %17
 
 17:                                               ; preds = %15, %13
@@ -7614,15 +7562,15 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   br i1 %18, label %.thread456, label %22
 
 .thread456:                                       ; preds = %17
-  %19 = tail call ptr @__errno_location() #28
+  %19 = tail call ptr @__errno_location() #29
   %20 = load i32, ptr %19, align 4
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %11) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %11) #30
   %21 = zext i32 %20 to i64
   br label %118
 
 22:                                               ; preds = %17
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %11) #29
-  %23 = tail call { i64, i64 } @JS_NewObject(ptr noundef %0) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %11) #30
+  %23 = tail call { i64, i64 } @JS_NewObject(ptr noundef %0) #30
   %24 = extractvalue { i64, i64 } %23, 1
   %25 = and i64 %24, 4294967295
   %.not464 = icmp eq i64 %25, 6
@@ -7638,7 +7586,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %32 = bitcast double %31 to i64
   %.sroa.0404.0 = select i1 %30, i64 %.sroa.0409.0.insert.ext, i64 %32
   %.sroa.3405.0 = select i1 %30, i64 0, i64 7
-  %33 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.183, i64 %.sroa.0404.0, i64 %.sroa.3405.0, i32 noundef 7) #29
+  %33 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.183, i64 %.sroa.0404.0, i64 %.sroa.3405.0, i32 noundef 7) #30
   %34 = getelementptr inbounds i8, ptr %7, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, 2147483648
@@ -7648,11 +7596,11 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %39 = bitcast double %38 to i64
   %.sroa.0385.0 = select i1 %37, i64 %.sroa.0390.0.insert.ext, i64 %39
   %.sroa.3386.0 = select i1 %37, i64 0, i64 7
-  %40 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.184, i64 %.sroa.0385.0, i64 %.sroa.3386.0, i32 noundef 7) #29
+  %40 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.184, i64 %.sroa.0385.0, i64 %.sroa.3386.0, i32 noundef 7) #30
   %41 = getelementptr inbounds i8, ptr %7, i64 24
   %42 = load i32, ptr %41, align 8
   %.sroa.0201.0.insert.ext = zext i32 %42 to i64
-  %43 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.185, i64 %.sroa.0201.0.insert.ext, i64 0, i32 noundef 7) #29
+  %43 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.185, i64 %.sroa.0201.0.insert.ext, i64 0, i32 noundef 7) #30
   %44 = getelementptr inbounds i8, ptr %7, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, 2147483648
@@ -7662,7 +7610,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %49 = bitcast double %48 to i64
   %.sroa.0366.0 = select i1 %47, i64 %.sroa.0371.0.insert.ext, i64 %49
   %.sroa.3367.0 = select i1 %47, i64 0, i64 7
-  %50 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.186, i64 %.sroa.0366.0, i64 %.sroa.3367.0, i32 noundef 7) #29
+  %50 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.186, i64 %.sroa.0366.0, i64 %.sroa.3367.0, i32 noundef 7) #30
   %51 = getelementptr inbounds i8, ptr %7, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = zext i32 %52 to i64
@@ -7672,7 +7620,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %57 = bitcast double %56 to i64
   %.sroa.0347.0 = select i1 %55, i64 %53, i64 %57
   %.sroa.3348.0 = select i1 %55, i64 0, i64 7
-  %58 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.187, i64 %.sroa.0347.0, i64 %.sroa.3348.0, i32 noundef 7) #29
+  %58 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.187, i64 %.sroa.0347.0, i64 %.sroa.3348.0, i32 noundef 7) #30
   %59 = getelementptr inbounds i8, ptr %7, i64 32
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
@@ -7682,7 +7630,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %65 = bitcast double %64 to i64
   %.sroa.0328.0 = select i1 %63, i64 %61, i64 %65
   %.sroa.3329.0 = select i1 %63, i64 0, i64 7
-  %66 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.188, i64 %.sroa.0328.0, i64 %.sroa.3329.0, i32 noundef 7) #29
+  %66 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.188, i64 %.sroa.0328.0, i64 %.sroa.3329.0, i32 noundef 7) #30
   %67 = getelementptr inbounds i8, ptr %7, i64 40
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %68, 2147483648
@@ -7692,7 +7640,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %72 = bitcast double %71 to i64
   %.sroa.0309.0 = select i1 %70, i64 %.sroa.0314.0.insert.ext, i64 %72
   %.sroa.3310.0 = select i1 %70, i64 0, i64 7
-  %73 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.189, i64 %.sroa.0309.0, i64 %.sroa.3310.0, i32 noundef 7) #29
+  %73 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.189, i64 %.sroa.0309.0, i64 %.sroa.3310.0, i32 noundef 7) #30
   %74 = getelementptr inbounds i8, ptr %7, i64 48
   %75 = load i64, ptr %74, align 8
   %76 = add i64 %75, 2147483648
@@ -7702,7 +7650,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %79 = bitcast double %78 to i64
   %.sroa.0290.0 = select i1 %77, i64 %.sroa.0295.0.insert.ext, i64 %79
   %.sroa.3291.0 = select i1 %77, i64 0, i64 7
-  %80 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.190, i64 %.sroa.0290.0, i64 %.sroa.3291.0, i32 noundef 7) #29
+  %80 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.190, i64 %.sroa.0290.0, i64 %.sroa.3291.0, i32 noundef 7) #30
   %81 = getelementptr inbounds i8, ptr %7, i64 64
   %82 = load i64, ptr %81, align 8
   %83 = add i64 %82, 2147483648
@@ -7712,7 +7660,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %86 = bitcast double %85 to i64
   %.sroa.0271.0 = select i1 %84, i64 %.sroa.0276.0.insert.ext, i64 %86
   %.sroa.3272.0 = select i1 %84, i64 0, i64 7
-  %87 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.191, i64 %.sroa.0271.0, i64 %.sroa.3272.0, i32 noundef 7) #29
+  %87 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.191, i64 %.sroa.0271.0, i64 %.sroa.3272.0, i32 noundef 7) #30
   %88 = getelementptr inbounds i8, ptr %7, i64 72
   %.val = load i64, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %7, i64 80
@@ -7727,7 +7675,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %96 = bitcast double %95 to i64
   %.sroa.0252.0 = select i1 %94, i64 %.sroa.0257.0.insert.ext, i64 %96
   %.sroa.3253.0 = select i1 %94, i64 0, i64 7
-  %97 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.192, i64 %.sroa.0252.0, i64 %.sroa.3253.0, i32 noundef 7) #29
+  %97 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.192, i64 %.sroa.0252.0, i64 %.sroa.3253.0, i32 noundef 7) #30
   %98 = getelementptr inbounds i8, ptr %7, i64 88
   %.val428 = load i64, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %7, i64 96
@@ -7742,7 +7690,7 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %106 = bitcast double %105 to i64
   %.sroa.0233.0 = select i1 %104, i64 %.sroa.0238.0.insert.ext, i64 %106
   %.sroa.3234.0 = select i1 %104, i64 0, i64 7
-  %107 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.193, i64 %.sroa.0233.0, i64 %.sroa.3234.0, i32 noundef 7) #29
+  %107 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.193, i64 %.sroa.0233.0, i64 %.sroa.3234.0, i32 noundef 7) #30
   %108 = getelementptr inbounds i8, ptr %7, i64 104
   %.val430 = load i64, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %7, i64 112
@@ -7757,14 +7705,14 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %116 = bitcast double %115 to i64
   %.sroa.0215.0 = select i1 %114, i64 %.sroa.0219.0.insert.ext, i64 %116
   %.sroa.3.0 = select i1 %114, i64 0, i64 7
-  %117 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.194, i64 %.sroa.0215.0, i64 %.sroa.3.0, i32 noundef 7) #29
+  %117 = tail call i32 @JS_DefinePropertyValueStr(ptr noundef %0, i64 %27, i64 %24, ptr noundef nonnull @.str.194, i64 %.sroa.0215.0, i64 %.sroa.3.0, i32 noundef 7) #30
   br label %118
 
 118:                                              ; preds = %26, %.thread456
   %.sroa.028.0.insert.insert80463 = phi i64 [ 0, %.thread456 ], [ %27, %26 ]
   %.sroa.17.0462 = phi i64 [ 2, %.thread456 ], [ %24, %26 ]
   %.0455461 = phi i64 [ %21, %.thread456 ], [ 0, %26 ]
-  %119 = tail call { i64, i64 } @JS_NewArray(ptr noundef %0) #29
+  %119 = tail call { i64, i64 } @JS_NewArray(ptr noundef %0) #30
   %120 = extractvalue { i64, i64 } %119, 1
   %121 = and i64 %120, 4294967295
   %.not27.i = icmp eq i64 %121, 6
@@ -7772,8 +7720,8 @@ define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3,
 
 122:                                              ; preds = %118
   %123 = extractvalue { i64, i64 } %119, 0
-  %124 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %123, i64 %120, i32 noundef 0, i64 %.sroa.028.0.insert.insert80463, i64 %.sroa.17.0462, i32 noundef 7) #29
-  %125 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %123, i64 %120, i32 noundef 1, i64 %.0455461, i64 0, i32 noundef 7) #29
+  %124 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %123, i64 %120, i32 noundef 0, i64 %.sroa.028.0.insert.insert80463, i64 %.sroa.17.0462, i32 noundef 7) #30
+  %125 = tail call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %123, i64 %120, i32 noundef 1, i64 %.0455461, i64 0, i32 noundef 7) #30
   %.sroa.416.0.extract.shift.i = and i64 %123, -4294967296
   %126 = and i64 %123, 4294967295
   br label %make_obj_error.exit
@@ -7797,7 +7745,7 @@ define internal { i64, i64 } @js_os_utimes(ptr noundef %0, i64 %1, i64 %2, i32 %
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr i8, ptr %4, i64 24
   %12 = load i64, ptr %11, align 8
-  %13 = call i32 @JS_ToInt64(ptr noundef %0, ptr noundef nonnull %6, i64 %10, i64 %12) #29
+  %13 = call i32 @JS_ToInt64(ptr noundef %0, ptr noundef nonnull %6, i64 %10, i64 %12) #30
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %43
 
@@ -7806,7 +7754,7 @@ define internal { i64, i64 } @js_os_utimes(ptr noundef %0, i64 %1, i64 %2, i32 %
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr i8, ptr %4, i64 40
   %18 = load i64, ptr %17, align 8
-  %19 = call i32 @JS_ToInt64(ptr noundef %0, ptr noundef nonnull %7, i64 %16, i64 %18) #29
+  %19 = call i32 @JS_ToInt64(ptr noundef %0, ptr noundef nonnull %7, i64 %16, i64 %18) #30
   %.not19 = icmp eq i32 %19, 0
   br i1 %.not19, label %20, label %43
 
@@ -7814,7 +7762,7 @@ define internal { i64, i64 } @js_os_utimes(ptr noundef %0, i64 %1, i64 %2, i32 %
   %21 = load i64, ptr %4, align 8
   %22 = getelementptr inbounds i8, ptr %4, i64 8
   %23 = load i64, ptr %22, align 8
-  %24 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %21, i64 %23, i32 noundef 0) #29
+  %24 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %21, i64 %23, i32 noundef 0) #30
   %.not20 = icmp eq ptr %24, null
   br i1 %.not20, label %43, label %25
 
@@ -7834,12 +7782,12 @@ define internal { i64, i64 } @js_os_utimes(ptr noundef %0, i64 %1, i64 %2, i32 %
   %35 = mul nuw nsw i64 %34, 1000
   %36 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 %35, ptr %36, align 8
-  %37 = call i32 @utimes(ptr noundef nonnull %24, ptr noundef nonnull %8) #29
+  %37 = call i32 @utimes(ptr noundef nonnull %24, ptr noundef nonnull %8) #30
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %39, label %js_get_errno.exit
 
 39:                                               ; preds = %25
-  %40 = tail call ptr @__errno_location() #28
+  %40 = tail call ptr @__errno_location() #29
   %41 = load i32, ptr %40, align 4
   %42 = sub i32 0, %41
   br label %js_get_errno.exit
@@ -7847,7 +7795,7 @@ define internal { i64, i64 } @js_os_utimes(ptr noundef %0, i64 %1, i64 %2, i32 %
 js_get_errno.exit:                                ; preds = %25, %39
   %.0.i.in = phi i32 [ %42, %39 ], [ %37, %25 ]
   %.0.i = zext i32 %.0.i.in to i64
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %24) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %24) #30
   br label %43
 
 43:                                               ; preds = %20, %14, %5, %js_get_errno.exit
@@ -7865,7 +7813,7 @@ define internal { i64, i64 } @js_os_sleep(ptr noundef %0, i64 %1, i64 %2, i32 %3
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = call i32 @JS_ToInt64(ptr noundef %0, ptr noundef nonnull %6, i64 %8, i64 %10) #29
+  %11 = call i32 @JS_ToInt64(ptr noundef %0, ptr noundef nonnull %6, i64 %8, i64 %10) #30
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %28
 
@@ -7886,12 +7834,12 @@ define internal { i64, i64 } @js_os_sleep(ptr noundef %0, i64 %1, i64 %2, i32 %3
   %20 = mul nuw nsw i64 %19, 1000000
   %21 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %20, ptr %21, align 8
-  %22 = call i32 @nanosleep(ptr noundef nonnull %7, ptr noundef null) #29
+  %22 = call i32 @nanosleep(ptr noundef nonnull %7, ptr noundef null) #30
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %24, label %js_get_errno.exit
 
 24:                                               ; preds = %16
-  %25 = tail call ptr @__errno_location() #28
+  %25 = tail call ptr @__errno_location() #29
   %26 = load i32, ptr %25, align 4
   %27 = sub i32 0, %26
   br label %js_get_errno.exit
@@ -7915,26 +7863,26 @@ define internal { i64, i64 } @js_os_realpath(ptr noundef %0, i64 %1, i64 %2, i32
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %7, i64 %9, i32 noundef 0) #29
+  %10 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %7, i64 %9, i32 noundef 0) #30
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %31, label %11
 
 11:                                               ; preds = %5
-  %12 = call ptr @realpath(ptr noundef nonnull %10, ptr noundef nonnull %6) #29
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %10) #29
+  %12 = call ptr @realpath(ptr noundef nonnull %10, ptr noundef nonnull %6) #30
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %10) #30
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %13, label %17
 
 13:                                               ; preds = %11
   store i8 0, ptr %6, align 16
-  %14 = tail call ptr @__errno_location() #28
+  %14 = tail call ptr @__errno_location() #29
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   br label %17
 
 17:                                               ; preds = %11, %13
   %.0 = phi i64 [ %16, %13 ], [ 0, %11 ]
-  %18 = call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef nonnull %6) #29
+  %18 = call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef nonnull %6) #30
   %19 = extractvalue { i64, i64 } %18, 0
   %20 = extractvalue { i64, i64 } %18, 1
   %21 = and i64 %20, 4294967295
@@ -7946,7 +7894,7 @@ define internal { i64, i64 } @js_os_realpath(ptr noundef %0, i64 %1, i64 %2, i32
   br label %make_string_error.exit
 
 23:                                               ; preds = %17
-  %24 = call { i64, i64 } @JS_NewArray(ptr noundef %0) #29
+  %24 = call { i64, i64 } @JS_NewArray(ptr noundef %0) #30
   %25 = extractvalue { i64, i64 } %24, 1
   %26 = and i64 %25, 4294967295
   %.not27.i.i = icmp eq i64 %26, 6
@@ -7954,8 +7902,8 @@ define internal { i64, i64 } @js_os_realpath(ptr noundef %0, i64 %1, i64 %2, i32
 
 27:                                               ; preds = %23
   %28 = extractvalue { i64, i64 } %24, 0
-  %29 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %28, i64 %25, i32 noundef 0, i64 %19, i64 %20, i32 noundef 7) #29
-  %30 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %28, i64 %25, i32 noundef 1, i64 %.0, i64 0, i32 noundef 7) #29
+  %29 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %28, i64 %25, i32 noundef 0, i64 %19, i64 %20, i32 noundef 7) #30
+  %30 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %28, i64 %25, i32 noundef 1, i64 %.0, i64 0, i32 noundef 7) #30
   %.sroa.416.0.extract.shift.i.i = and i64 %28, -4294967296
   br label %make_string_error.exit
 
@@ -7980,7 +7928,7 @@ define internal { i64, i64 } @js_os_symlink(ptr noundef %0, i64 %1, i64 %2, i32 
   %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #29
+  %9 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %6, i64 %8, i32 noundef 0) #30
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %23, label %10
 
@@ -7989,17 +7937,17 @@ define internal { i64, i64 } @js_os_symlink(ptr noundef %0, i64 %1, i64 %2, i32 
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr i8, ptr %4, i64 24
   %14 = load i64, ptr %13, align 8
-  %15 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %12, i64 %14, i32 noundef 0) #29
+  %15 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %12, i64 %14, i32 noundef 0) #30
   %.not23 = icmp eq ptr %15, null
   br i1 %.not23, label %.sink.split, label %16
 
 16:                                               ; preds = %10
-  %17 = tail call i32 @symlink(ptr noundef nonnull %9, ptr noundef nonnull %15) #29
+  %17 = tail call i32 @symlink(ptr noundef nonnull %9, ptr noundef nonnull %15) #30
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %js_get_errno.exit
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @__errno_location() #28
+  %20 = tail call ptr @__errno_location() #29
   %21 = load i32, ptr %20, align 4
   %22 = sub i32 0, %21
   br label %js_get_errno.exit
@@ -8007,14 +7955,14 @@ define internal { i64, i64 } @js_os_symlink(ptr noundef %0, i64 %1, i64 %2, i32 
 js_get_errno.exit:                                ; preds = %16, %19
   %.0.i.in = phi i32 [ %22, %19 ], [ %17, %16 ]
   %.0.i = zext i32 %.0.i.in to i64
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %9) #30
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %js_get_errno.exit
   %.sink = phi ptr [ %15, %js_get_errno.exit ], [ %9, %10 ]
   %.sroa.015.0.ph = phi i64 [ %.0.i, %js_get_errno.exit ], [ 0, %10 ]
   %.sroa.4.sroa.2.0.ph = phi i64 [ 0, %js_get_errno.exit ], [ 6, %10 ]
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %.sink) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %.sink) #30
   br label %23
 
 23:                                               ; preds = %.sink.split, %5
@@ -8031,18 +7979,18 @@ define internal { i64, i64 } @js_os_readlink(ptr noundef %0, i64 %1, i64 %2, i32
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %7, i64 %9, i32 noundef 0) #29
+  %10 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %7, i64 %9, i32 noundef 0) #30
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %34, label %11
 
 11:                                               ; preds = %5
-  %12 = call i64 @readlink(ptr noundef nonnull %10, ptr noundef nonnull %6, i64 noundef 4095) #29
+  %12 = call i64 @readlink(ptr noundef nonnull %10, ptr noundef nonnull %6, i64 noundef 4095) #30
   %13 = icmp slt i64 %12, 0
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %11
   store i8 0, ptr %6, align 16
-  %15 = tail call ptr @__errno_location() #28
+  %15 = tail call ptr @__errno_location() #29
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
   br label %20
@@ -8054,8 +8002,8 @@ define internal { i64, i64 } @js_os_readlink(ptr noundef %0, i64 %1, i64 %2, i32
 
 20:                                               ; preds = %18, %14
   %.0 = phi i64 [ %17, %14 ], [ 0, %18 ]
-  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %10) #29
-  %21 = call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef nonnull %6) #29
+  tail call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %10) #30
+  %21 = call { i64, i64 } @JS_NewString(ptr noundef %0, ptr noundef nonnull %6) #30
   %22 = extractvalue { i64, i64 } %21, 0
   %23 = extractvalue { i64, i64 } %21, 1
   %24 = and i64 %23, 4294967295
@@ -8067,7 +8015,7 @@ define internal { i64, i64 } @js_os_readlink(ptr noundef %0, i64 %1, i64 %2, i32
   br label %make_string_error.exit
 
 26:                                               ; preds = %20
-  %27 = call { i64, i64 } @JS_NewArray(ptr noundef %0) #29
+  %27 = call { i64, i64 } @JS_NewArray(ptr noundef %0) #30
   %28 = extractvalue { i64, i64 } %27, 1
   %29 = and i64 %28, 4294967295
   %.not27.i.i = icmp eq i64 %29, 6
@@ -8075,8 +8023,8 @@ define internal { i64, i64 } @js_os_readlink(ptr noundef %0, i64 %1, i64 %2, i32
 
 30:                                               ; preds = %26
   %31 = extractvalue { i64, i64 } %27, 0
-  %32 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %31, i64 %28, i32 noundef 0, i64 %22, i64 %23, i32 noundef 7) #29
-  %33 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %31, i64 %28, i32 noundef 1, i64 %.0, i64 0, i32 noundef 7) #29
+  %32 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %31, i64 %28, i32 noundef 0, i64 %22, i64 %23, i32 noundef 7) #30
+  %33 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %31, i64 %28, i32 noundef 1, i64 %.0, i64 0, i32 noundef 7) #30
   %.sroa.416.0.extract.shift.i.i = and i64 %31, -4294967296
   br label %make_string_error.exit
 
@@ -8114,7 +8062,7 @@ define internal { i64, i64 } @js_os_exec(ptr noundef %0, i64 %1, i64 %2, i32 nou
   store i32 1, ptr %9, align 4
   store i32 -1, ptr %11, align 4
   store i32 -1, ptr %12, align 4
-  %15 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0144.0.copyload, i64 %.sroa.3.0.copyload, ptr noundef nonnull @.str.198) #29
+  %15 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0144.0.copyload, i64 %.sroa.3.0.copyload, ptr noundef nonnull @.str.198) #30
   %16 = extractvalue { i64, i64 } %15, 0
   %17 = extractvalue { i64, i64 } %15, 1
   %18 = and i64 %17, 4294967295
@@ -8122,7 +8070,7 @@ define internal { i64, i64 } @js_os_exec(ptr noundef %0, i64 %1, i64 %2, i32 nou
   br i1 %.not, label %234, label %19
 
 19:                                               ; preds = %5
-  %20 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %16, i64 %17) #29
+  %20 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %16, i64 %17) #30
   %21 = trunc i64 %17 to i32
   %22 = icmp ugt i32 %21, -12
   br i1 %22, label %23, label %JS_FreeValue.exit
@@ -8136,7 +8084,7 @@ define internal { i64, i64 } @js_os_exec(ptr noundef %0, i64 %1, i64 %2, i32 nou
   br i1 %27, label %28, label %JS_FreeValue.exit
 
 28:                                               ; preds = %23
-  call void @__JS_FreeValue(ptr noundef %0, i64 %16, i64 %17) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %16, i64 %17) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %19, %23, %28
@@ -8150,7 +8098,7 @@ JS_FreeValue.exit:                                ; preds = %19, %23, %28
   br i1 %or.cond, label %32, label %36
 
 32:                                               ; preds = %29
-  %33 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.199) #29
+  %33 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.199) #30
   %34 = extractvalue { i64, i64 } %33, 0
   %.sroa.0203.0.extract.trunc = trunc i64 %34 to i32
   %.sroa.6.0.extract.shift = and i64 %34, -4294967296
@@ -8161,7 +8109,7 @@ JS_FreeValue.exit:                                ; preds = %19, %23, %28
   %37 = shl nuw nsw i32 %30, 3
   %38 = add nuw nsw i32 %37, 8
   %39 = zext nneg i32 %38 to i64
-  %40 = call ptr @js_mallocz(ptr noundef %0, i64 noundef %39) #29
+  %40 = call ptr @js_mallocz(ptr noundef %0, i64 noundef %39) #30
   %.not248 = icmp eq ptr %40, null
   br i1 %.not248, label %234, label %.preheader302
 
@@ -8173,7 +8121,7 @@ JS_FreeValue.exit:                                ; preds = %19, %23, %28
 .lr.ph:                                           ; preds = %.preheader302, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.preheader302 ]
   %42 = trunc nuw i64 %indvars.iv to i32
-  %43 = call { i64, i64 } @JS_GetPropertyUint32(ptr noundef %0, i64 %.sroa.0144.0.copyload, i64 %.sroa.3.0.copyload, i32 noundef %42) #29
+  %43 = call { i64, i64 } @JS_GetPropertyUint32(ptr noundef %0, i64 %.sroa.0144.0.copyload, i64 %.sroa.3.0.copyload, i32 noundef %42) #30
   %44 = extractvalue { i64, i64 } %43, 0
   %45 = extractvalue { i64, i64 } %43, 1
   %46 = and i64 %45, 4294967295
@@ -8181,7 +8129,7 @@ JS_FreeValue.exit:                                ; preds = %19, %23, %28
   br i1 %.not299, label %.loopexit, label %47
 
 47:                                               ; preds = %.lr.ph
-  %48 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %44, i64 %45, i32 noundef 0) #29
+  %48 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %44, i64 %45, i32 noundef 0) #30
   %49 = trunc i64 %45 to i32
   %50 = icmp ugt i32 %49, -12
   br i1 %50, label %51, label %JS_FreeValue.exit280
@@ -8195,7 +8143,7 @@ JS_FreeValue.exit:                                ; preds = %19, %23, %28
   br i1 %55, label %56, label %JS_FreeValue.exit280
 
 56:                                               ; preds = %51
-  call void @__JS_FreeValue(ptr noundef %0, i64 %44, i64 %45) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %44, i64 %45) #30
   br label %JS_FreeValue.exit280
 
 JS_FreeValue.exit280:                             ; preds = %47, %51, %56
@@ -8246,7 +8194,7 @@ JS_FreeValue.exit280:                             ; preds = %47, %51, %56
   br i1 %.not250, label %74, label %.loopexit
 
 74:                                               ; preds = %72
-  %75 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.202) #29
+  %75 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.202) #30
   %76 = extractvalue { i64, i64 } %75, 0
   %77 = extractvalue { i64, i64 } %75, 1
   %trunc = trunc i64 %77 to i32
@@ -8256,7 +8204,7 @@ JS_FreeValue.exit280:                             ; preds = %47, %51, %56
   ]
 
 78:                                               ; preds = %74
-  %79 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %76, i64 %77, i32 noundef 0) #29
+  %79 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %76, i64 %77, i32 noundef 0) #30
   %80 = icmp ugt i32 %trunc, -12
   br i1 %80, label %81, label %JS_FreeValue.exit281
 
@@ -8269,7 +8217,7 @@ JS_FreeValue.exit280:                             ; preds = %47, %51, %56
   br i1 %85, label %86, label %JS_FreeValue.exit281
 
 86:                                               ; preds = %81
-  call void @__JS_FreeValue(ptr noundef %0, i64 %76, i64 %77) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %76, i64 %77) #30
   br label %JS_FreeValue.exit281
 
 JS_FreeValue.exit281:                             ; preds = %78, %81, %86
@@ -8278,7 +8226,7 @@ JS_FreeValue.exit281:                             ; preds = %78, %81, %86
 
 87:                                               ; preds = %74, %JS_FreeValue.exit281
   %.2 = phi ptr [ %79, %JS_FreeValue.exit281 ], [ null, %74 ]
-  %88 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.203) #29
+  %88 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.203) #30
   %89 = extractvalue { i64, i64 } %88, 0
   %90 = extractvalue { i64, i64 } %88, 1
   %trunc324 = trunc i64 %90 to i32
@@ -8288,7 +8236,7 @@ JS_FreeValue.exit281:                             ; preds = %78, %81, %86
   ]
 
 91:                                               ; preds = %87
-  %92 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %89, i64 %90, i32 noundef 0) #29
+  %92 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %89, i64 %90, i32 noundef 0) #30
   %93 = icmp ugt i32 %trunc324, -12
   br i1 %93, label %94, label %JS_FreeValue.exit282
 
@@ -8301,7 +8249,7 @@ JS_FreeValue.exit281:                             ; preds = %78, %81, %86
   br i1 %98, label %99, label %JS_FreeValue.exit282
 
 99:                                               ; preds = %94
-  call void @__JS_FreeValue(ptr noundef %0, i64 %89, i64 %90) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %89, i64 %90) #30
   br label %JS_FreeValue.exit282
 
 JS_FreeValue.exit282:                             ; preds = %91, %94, %99
@@ -8316,7 +8264,7 @@ JS_FreeValue.exit282:                             ; preds = %91, %94, %99
   %indvars.iv340 = phi i64 [ 0, %100 ], [ %indvars.iv.next341, %119 ]
   %102 = getelementptr [3 x ptr], ptr @js_os_exec.std_name, i64 0, i64 %indvars.iv340
   %103 = load ptr, ptr %102, align 8
-  %104 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef %103) #29
+  %104 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef %103) #30
   %105 = extractvalue { i64, i64 } %104, 0
   %106 = extractvalue { i64, i64 } %104, 1
   %trunc325 = trunc i64 %106 to i32
@@ -8326,7 +8274,7 @@ JS_FreeValue.exit282:                             ; preds = %91, %94, %99
   ]
 
 107:                                              ; preds = %101
-  %108 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %13, i64 %105, i64 %106) #29
+  %108 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %13, i64 %105, i64 %106) #30
   %109 = icmp ugt i32 %trunc325, -12
   br i1 %109, label %110, label %JS_FreeValue.exit283
 
@@ -8339,7 +8287,7 @@ JS_FreeValue.exit282:                             ; preds = %91, %94, %99
   br i1 %114, label %115, label %JS_FreeValue.exit283
 
 115:                                              ; preds = %110
-  call void @__JS_FreeValue(ptr noundef %0, i64 %105, i64 %106) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %105, i64 %106) #30
   br label %JS_FreeValue.exit283
 
 JS_FreeValue.exit283:                             ; preds = %107, %110, %115
@@ -8358,7 +8306,7 @@ JS_FreeValue.exit283:                             ; preds = %107, %110, %115
   br i1 %exitcond343.not, label %120, label %101, !llvm.loop !39
 
 120:                                              ; preds = %119
-  %121 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.204) #29
+  %121 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.204) #30
   %122 = extractvalue { i64, i64 } %121, 0
   %123 = extractvalue { i64, i64 } %121, 1
   %trunc326 = trunc i64 %123 to i32
@@ -8381,7 +8329,7 @@ JS_FreeValue.exit283:                             ; preds = %107, %110, %115
   br i1 %131, label %132, label %JS_FreeValue.exit284
 
 132:                                              ; preds = %127
-  call void @__JS_FreeValue(ptr noundef %0, i64 %122, i64 %123) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %122, i64 %123) #30
   br label %JS_FreeValue.exit284
 
 JS_FreeValue.exit284:                             ; preds = %124, %127, %132
@@ -8390,7 +8338,7 @@ JS_FreeValue.exit284:                             ; preds = %124, %127, %132
 
 133:                                              ; preds = %120, %JS_FreeValue.exit284
   %.2223 = phi ptr [ %125, %JS_FreeValue.exit284 ], [ %14, %120 ]
-  %134 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.187) #29
+  %134 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.187) #30
   %135 = extractvalue { i64, i64 } %134, 0
   %136 = extractvalue { i64, i64 } %134, 1
   %trunc327 = trunc i64 %136 to i32
@@ -8400,7 +8348,7 @@ JS_FreeValue.exit284:                             ; preds = %124, %127, %132
   ]
 
 137:                                              ; preds = %133
-  %138 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %11, i64 %135, i64 %136) #29
+  %138 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %11, i64 %135, i64 %136) #30
   %139 = icmp ugt i32 %trunc327, -12
   br i1 %139, label %140, label %JS_FreeValue.exit285
 
@@ -8413,7 +8361,7 @@ JS_FreeValue.exit284:                             ; preds = %124, %127, %132
   br i1 %144, label %145, label %JS_FreeValue.exit285
 
 145:                                              ; preds = %140
-  call void @__JS_FreeValue(ptr noundef %0, i64 %135, i64 %136) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %135, i64 %136) #30
   br label %JS_FreeValue.exit285
 
 JS_FreeValue.exit285:                             ; preds = %137, %140, %145
@@ -8421,7 +8369,7 @@ JS_FreeValue.exit285:                             ; preds = %137, %140, %145
   br i1 %.not262, label %146, label %.loopexit
 
 146:                                              ; preds = %133, %JS_FreeValue.exit285
-  %147 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.188) #29
+  %147 = call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0147.0.copyload, i64 %.sroa.9.0.copyload, ptr noundef nonnull @.str.188) #30
   %148 = extractvalue { i64, i64 } %147, 0
   %149 = extractvalue { i64, i64 } %147, 1
   %trunc328 = trunc i64 %149 to i32
@@ -8431,7 +8379,7 @@ JS_FreeValue.exit285:                             ; preds = %137, %140, %145
   ]
 
 150:                                              ; preds = %146
-  %151 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %12, i64 %148, i64 %149) #29
+  %151 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %12, i64 %148, i64 %149) #30
   %152 = icmp ugt i32 %trunc328, -12
   br i1 %152, label %153, label %JS_FreeValue.exit286
 
@@ -8444,7 +8392,7 @@ JS_FreeValue.exit285:                             ; preds = %137, %140, %145
   br i1 %157, label %158, label %JS_FreeValue.exit286
 
 158:                                              ; preds = %153
-  call void @__JS_FreeValue(ptr noundef %0, i64 %148, i64 %149) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %148, i64 %149) #30
   br label %JS_FreeValue.exit286
 
 JS_FreeValue.exit286:                             ; preds = %150, %153, %158
@@ -8455,12 +8403,12 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   %.1222 = phi ptr [ %.2223, %JS_FreeValue.exit286 ], [ %14, %67 ], [ %.2223, %146 ]
   %.1218 = phi ptr [ %.2219, %JS_FreeValue.exit286 ], [ null, %67 ], [ %.2219, %146 ]
   %.1 = phi ptr [ %.2, %JS_FreeValue.exit286 ], [ null, %67 ], [ %.2, %146 ]
-  %160 = call i32 @fork() #29
+  %160 = call i32 @fork() #30
   %161 = icmp slt i32 %160, 0
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %159
-  %163 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.205) #29
+  %163 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.205) #30
   br label %.loopexit
 
 164:                                              ; preds = %159
@@ -8468,7 +8416,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   br i1 %165, label %166, label %207
 
 166:                                              ; preds = %164
-  %167 = call i64 @sysconf(i32 noundef 4) #29
+  %167 = call i64 @sysconf(i32 noundef 4) #30
   %168 = trunc i64 %167 to i32
   br label %170
 
@@ -8486,12 +8434,12 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
 
 174:                                              ; preds = %170
   %175 = trunc nuw nsw i64 %indvars.iv344 to i32
-  %176 = call i32 @dup2(i32 noundef %172, i32 noundef %175) #29
+  %176 = call i32 @dup2(i32 noundef %172, i32 noundef %175) #30
   %177 = icmp slt i32 %176, 0
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %174
-  call void @_exit(i32 noundef 127) #35
+  call void @_exit(i32 noundef 127) #36
   unreachable
 
 179:                                              ; preds = %170, %174
@@ -8501,7 +8449,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
 
 .lr.ph313:                                        ; preds = %.preheader300, %.lr.ph313
   %.4229312 = phi i32 [ %181, %.lr.ph313 ], [ 3, %.preheader300 ]
-  %180 = call i32 @close(i32 noundef %.4229312) #29
+  %180 = call i32 @close(i32 noundef %.4229312) #30
   %181 = add nuw i32 %.4229312, 1
   %exitcond348.not = icmp eq i32 %181, %168
   br i1 %exitcond348.not, label %._crit_edge314, label %.lr.ph313, !llvm.loop !41
@@ -8511,12 +8459,12 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   br i1 %.not267, label %186, label %182
 
 182:                                              ; preds = %._crit_edge314
-  %183 = call i32 @chdir(ptr noundef nonnull %.1218) #29
+  %183 = call i32 @chdir(ptr noundef nonnull %.1218) #30
   %184 = icmp slt i32 %183, 0
   br i1 %184, label %185, label %186
 
 185:                                              ; preds = %182
-  call void @_exit(i32 noundef 127) #35
+  call void @_exit(i32 noundef 127) #36
   unreachable
 
 186:                                              ; preds = %182, %._crit_edge314
@@ -8525,12 +8473,12 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   br i1 %.not268, label %192, label %188
 
 188:                                              ; preds = %186
-  %189 = call i32 @setuid(i32 noundef %187) #29
+  %189 = call i32 @setuid(i32 noundef %187) #30
   %190 = icmp slt i32 %189, 0
   br i1 %190, label %191, label %192
 
 191:                                              ; preds = %188
-  call void @_exit(i32 noundef 127) #35
+  call void @_exit(i32 noundef 127) #36
   unreachable
 
 192:                                              ; preds = %188, %186
@@ -8539,12 +8487,12 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   br i1 %.not269, label %198, label %194
 
 194:                                              ; preds = %192
-  %195 = call i32 @setgid(i32 noundef %193) #29
+  %195 = call i32 @setgid(i32 noundef %193) #30
   %196 = icmp slt i32 %195, 0
   br i1 %196, label %197, label %198
 
 197:                                              ; preds = %194
-  call void @_exit(i32 noundef 127) #35
+  call void @_exit(i32 noundef 127) #36
   unreachable
 
 198:                                              ; preds = %194, %192
@@ -8566,11 +8514,11 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   br label %206
 
 204:                                              ; preds = %201
-  %205 = call i32 @execve(ptr noundef %.3, ptr noundef nonnull %40, ptr noundef %.1222) #29
+  %205 = call i32 @execve(ptr noundef %.3, ptr noundef nonnull %40, ptr noundef %.1222) #30
   br label %206
 
 206:                                              ; preds = %204, %203
-  call void @_exit(i32 noundef 127) #35
+  call void @_exit(i32 noundef 127) #36
   unreachable
 
 207:                                              ; preds = %164
@@ -8579,7 +8527,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   br i1 %.not266, label %.loopexit, label %.preheader301
 
 .preheader301:                                    ; preds = %207, %.preheader301.backedge
-  %209 = call i32 @waitpid(i32 noundef %160, ptr noundef nonnull %7, i32 noundef 0) #29
+  %209 = call i32 @waitpid(i32 noundef %160, ptr noundef nonnull %7, i32 noundef 0) #30
   %210 = icmp eq i32 %209, %160
   br i1 %210, label %211, label %.preheader301.backedge
 
@@ -8613,8 +8561,8 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   %.4 = phi ptr [ %.1, %207 ], [ %.1, %215 ], [ %.1, %221 ], [ null, %69 ], [ null, %72 ], [ null, %74 ], [ %.2, %87 ], [ %.2, %120 ], [ %.2, %133 ], [ %.2, %146 ], [ %.1, %162 ], [ %.2, %JS_FreeValue.exit286 ], [ %.2, %JS_FreeValue.exit285 ], [ %.2, %JS_FreeValue.exit284 ], [ %.2, %JS_FreeValue.exit282 ], [ null, %JS_FreeValue.exit281 ], [ %.2, %JS_FreeValue.exit283 ], [ %.2, %101 ], [ null, %JS_FreeValue.exit280 ], [ null, %.lr.ph ]
   %.sroa.4.0 = phi i64 [ 0, %207 ], [ 0, %215 ], [ 0, %221 ], [ 6, %69 ], [ 6, %72 ], [ 6, %74 ], [ 6, %87 ], [ 6, %120 ], [ 6, %133 ], [ 6, %146 ], [ 6, %162 ], [ 6, %JS_FreeValue.exit286 ], [ 6, %JS_FreeValue.exit285 ], [ 6, %JS_FreeValue.exit284 ], [ 6, %JS_FreeValue.exit282 ], [ 6, %JS_FreeValue.exit281 ], [ 6, %JS_FreeValue.exit283 ], [ 6, %101 ], [ 6, %JS_FreeValue.exit280 ], [ 6, %.lr.ph ]
   %.sroa.084.sroa.0.0 = phi i32 [ %160, %207 ], [ %217, %215 ], [ %222, %221 ], [ 0, %69 ], [ 0, %72 ], [ 0, %74 ], [ 0, %87 ], [ 0, %120 ], [ 0, %133 ], [ 0, %146 ], [ 0, %162 ], [ 0, %JS_FreeValue.exit286 ], [ 0, %JS_FreeValue.exit285 ], [ 0, %JS_FreeValue.exit284 ], [ 0, %JS_FreeValue.exit282 ], [ 0, %JS_FreeValue.exit281 ], [ 0, %JS_FreeValue.exit283 ], [ 0, %101 ], [ 0, %JS_FreeValue.exit280 ], [ 0, %.lr.ph ]
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef %.4) #29
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef %.3220) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef %.4) #30
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef %.3220) #30
   %223 = load i32, ptr %6, align 4
   %.not329 = icmp eq i32 %223, 0
   br i1 %.not329, label %._crit_edge318, label %.lr.ph317
@@ -8623,7 +8571,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   %indvars.iv349 = phi i64 [ %indvars.iv.next350, %.lr.ph317 ], [ 0, %.loopexit ]
   %224 = getelementptr ptr, ptr %40, i64 %indvars.iv349
   %225 = load ptr, ptr %224, align 8
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef %225) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef %225) #30
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %226 = load i32, ptr %6, align 4
   %227 = zext i32 %226 to i64
@@ -8631,7 +8579,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   br i1 %228, label %.lr.ph317, label %._crit_edge318, !llvm.loop !42
 
 ._crit_edge318:                                   ; preds = %.lr.ph317, %.loopexit
-  call void @js_free(ptr noundef %0, ptr noundef nonnull %40) #29
+  call void @js_free(ptr noundef %0, ptr noundef nonnull %40) #30
   %229 = load ptr, ptr @environ, align 8
   %.not278 = icmp eq ptr %.3224, %229
   br i1 %.not278, label %234, label %.preheader
@@ -8644,14 +8592,14 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
 .lr.ph321:                                        ; preds = %.preheader, %.lr.ph321
   %231 = phi ptr [ %233, %.lr.ph321 ], [ %230, %.preheader ]
   %.0320 = phi ptr [ %232, %.lr.ph321 ], [ %.3224, %.preheader ]
-  call void @js_free(ptr noundef %0, ptr noundef nonnull %231) #29
+  call void @js_free(ptr noundef %0, ptr noundef nonnull %231) #30
   %232 = getelementptr i8, ptr %.0320, i64 8
   %233 = load ptr, ptr %232, align 8
   %.not279 = icmp eq ptr %233, null
   br i1 %.not279, label %._crit_edge322, label %.lr.ph321, !llvm.loop !43
 
 ._crit_edge322:                                   ; preds = %.lr.ph321, %.preheader
-  call void @js_free(ptr noundef %0, ptr noundef nonnull %.3224) #29
+  call void @js_free(ptr noundef %0, ptr noundef nonnull %.3224) #30
   br label %234
 
 234:                                              ; preds = %._crit_edge318, %._crit_edge322, %36, %JS_FreeValue.exit, %5, %32
@@ -8667,7 +8615,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_getpid(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
-  %6 = tail call i32 @getpid() #29
+  %6 = tail call i32 @getpid() #30
   %.sroa.04.0.insert.ext = zext i32 %6 to i64
   %.fca.0.insert2 = insertvalue { i64, i64 } poison, i64 %.sroa.04.0.insert.ext, 0
   %.fca.1.insert3 = insertvalue { i64, i64 } %.fca.0.insert2, i64 0, 1
@@ -8682,7 +8630,7 @@ define internal { i64, i64 } @js_os_waitpid(ptr noundef %0, i64 %1, i64 %2, i32 
   %9 = load i64, ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %9, i64 %11) #29
+  %12 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %9, i64 %11) #30
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %38
 
@@ -8691,19 +8639,19 @@ define internal { i64, i64 } @js_os_waitpid(ptr noundef %0, i64 %1, i64 %2, i32 
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr i8, ptr %4, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %8, i64 %15, i64 %17) #29
+  %18 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %8, i64 %15, i64 %17) #30
   %.not41 = icmp eq i32 %18, 0
   br i1 %.not41, label %19, label %38
 
 19:                                               ; preds = %13
   %20 = load i32, ptr %6, align 4
   %21 = load i32, ptr %8, align 4
-  %22 = call i32 @waitpid(i32 noundef %20, ptr noundef nonnull %7, i32 noundef %21) #29
+  %22 = call i32 @waitpid(i32 noundef %20, ptr noundef nonnull %7, i32 noundef %21) #30
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %19
-  %25 = tail call ptr @__errno_location() #28
+  %25 = tail call ptr @__errno_location() #29
   %26 = load i32, ptr %25, align 4
   %27 = sub i32 0, %26
   store i32 0, ptr %7, align 4
@@ -8711,7 +8659,7 @@ define internal { i64, i64 } @js_os_waitpid(ptr noundef %0, i64 %1, i64 %2, i32 
 
 28:                                               ; preds = %24, %19
   %.0 = phi i32 [ %27, %24 ], [ %22, %19 ]
-  %29 = call { i64, i64 } @JS_NewArray(ptr noundef %0) #29
+  %29 = call { i64, i64 } @JS_NewArray(ptr noundef %0) #30
   %30 = extractvalue { i64, i64 } %29, 0
   %31 = extractvalue { i64, i64 } %29, 1
   %32 = and i64 %31, 4294967295
@@ -8724,10 +8672,10 @@ define internal { i64, i64 } @js_os_waitpid(ptr noundef %0, i64 %1, i64 %2, i32 
 
 34:                                               ; preds = %28
   %.sroa.038.0.insert.ext = zext i32 %.0 to i64
-  %35 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %30, i64 %31, i32 noundef 0, i64 %.sroa.038.0.insert.ext, i64 0, i32 noundef 7) #29
+  %35 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %30, i64 %31, i32 noundef 0, i64 %.sroa.038.0.insert.ext, i64 0, i32 noundef 7) #30
   %36 = load i32, ptr %7, align 4
   %.sroa.033.0.insert.ext = zext i32 %36 to i64
-  %37 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %30, i64 %31, i32 noundef 1, i64 %.sroa.033.0.insert.ext, i64 0, i32 noundef 7) #29
+  %37 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %30, i64 %31, i32 noundef 1, i64 %.sroa.033.0.insert.ext, i64 0, i32 noundef 7) #30
   %.sroa.5.0.extract.shift25 = and i64 %30, -4294967296
   br label %38
 
@@ -8745,12 +8693,12 @@ define internal { i64, i64 } @js_os_waitpid(ptr noundef %0, i64 %1, i64 %2, i32 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_pipe(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #0 {
   %6 = alloca [2 x i32], align 4
-  %7 = call i32 @pipe(ptr noundef nonnull %6) #29
+  %7 = call i32 @pipe(ptr noundef nonnull %6) #30
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %21, label %9
 
 9:                                                ; preds = %5
-  %10 = call { i64, i64 } @JS_NewArray(ptr noundef %0) #29
+  %10 = call { i64, i64 } @JS_NewArray(ptr noundef %0) #30
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   %13 = and i64 %12, 4294967295
@@ -8764,11 +8712,11 @@ define internal { i64, i64 } @js_os_pipe(ptr noundef %0, i64 %1, i64 %2, i32 %3,
 15:                                               ; preds = %9
   %16 = load i32, ptr %6, align 4
   %.sroa.032.0.insert.ext = zext i32 %16 to i64
-  %17 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %11, i64 %12, i32 noundef 0, i64 %.sroa.032.0.insert.ext, i64 0, i32 noundef 7) #29
+  %17 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %11, i64 %12, i32 noundef 0, i64 %.sroa.032.0.insert.ext, i64 0, i32 noundef 7) #30
   %18 = getelementptr inbounds i8, ptr %6, i64 4
   %19 = load i32, ptr %18, align 4
   %.sroa.027.0.insert.ext = zext i32 %19 to i64
-  %20 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %11, i64 %12, i32 noundef 1, i64 %.sroa.027.0.insert.ext, i64 0, i32 noundef 7) #29
+  %20 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %0, i64 %11, i64 %12, i32 noundef 1, i64 %.sroa.027.0.insert.ext, i64 0, i32 noundef 7) #30
   %.sroa.4.0.extract.shift20 = and i64 %11, -4294967296
   br label %21
 
@@ -8790,7 +8738,7 @@ define internal { i64, i64 } @js_os_kill(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %8, i64 %10) #29
+  %11 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %8, i64 %10) #30
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %27
 
@@ -8799,19 +8747,19 @@ define internal { i64, i64 } @js_os_kill(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr i8, ptr %4, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %14, i64 %16) #29
+  %17 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %14, i64 %16) #30
   %.not12 = icmp eq i32 %17, 0
   br i1 %.not12, label %18, label %27
 
 18:                                               ; preds = %12
   %19 = load i32, ptr %6, align 4
   %20 = load i32, ptr %7, align 4
-  %21 = call i32 @kill(i32 noundef %19, i32 noundef %20) #29
+  %21 = call i32 @kill(i32 noundef %19, i32 noundef %20) #30
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %js_get_errno.exit
 
 23:                                               ; preds = %18
-  %24 = tail call ptr @__errno_location() #28
+  %24 = tail call ptr @__errno_location() #29
   %25 = load i32, ptr %24, align 4
   %26 = sub i32 0, %25
   br label %js_get_errno.exit
@@ -8835,18 +8783,18 @@ define internal { i64, i64 } @js_os_dup(ptr noundef %0, i64 %1, i64 %2, i32 %3, 
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #29
+  %10 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %7, i64 %9) #30
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %19
 
 11:                                               ; preds = %5
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 @dup(i32 noundef %12) #29
+  %13 = call i32 @dup(i32 noundef %12) #30
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %15, label %js_get_errno.exit
 
 15:                                               ; preds = %11
-  %16 = tail call ptr @__errno_location() #28
+  %16 = tail call ptr @__errno_location() #29
   %17 = load i32, ptr %16, align 4
   %18 = sub i32 0, %17
   br label %js_get_errno.exit
@@ -8871,7 +8819,7 @@ define internal { i64, i64 } @js_os_dup2(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %8, i64 %10) #29
+  %11 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %6, i64 %8, i64 %10) #30
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %27
 
@@ -8880,19 +8828,19 @@ define internal { i64, i64 } @js_os_dup2(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr i8, ptr %4, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %14, i64 %16) #29
+  %17 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %7, i64 %14, i64 %16) #30
   %.not12 = icmp eq i32 %17, 0
   br i1 %.not12, label %18, label %27
 
 18:                                               ; preds = %12
   %19 = load i32, ptr %6, align 4
   %20 = load i32, ptr %7, align 4
-  %21 = call i32 @dup2(i32 noundef %19, i32 noundef %20) #29
+  %21 = call i32 @dup2(i32 noundef %19, i32 noundef %20) #30
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %js_get_errno.exit
 
 23:                                               ; preds = %18
-  %24 = tail call ptr @__errno_location() #28
+  %24 = tail call ptr @__errno_location() #29
   %25 = load i32, ptr %24, align 4
   %26 = sub i32 0, %25
   br label %js_get_errno.exit
@@ -8911,31 +8859,31 @@ js_get_errno.exit:                                ; preds = %18, %23
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #20
+declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
-declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #15
+declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #15
+declare i32 @isatty(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #15
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #16
 
 declare i32 @JS_DefinePropertyValueUint32(ptr noundef, i64, i64, i32 noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @tcgetattr(i32 noundef, ptr noundef) local_unnamed_addr #15
+declare i32 @tcgetattr(i32 noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #15
+declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare i32 @atexit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @term_exit() #0 {
-  %1 = tail call i32 @tcsetattr(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @oldtty) #29
+  %1 = tail call i32 @tcsetattr(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @oldtty) #30
   ret void
 }
 
@@ -8946,10 +8894,10 @@ declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #
 declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #15
+declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @os_signal_handler(i32 noundef %0) #22 {
+define internal void @os_signal_handler(i32 noundef %0) #23 {
   %2 = zext nneg i32 %0 to i64
   %3 = shl nuw i64 1, %2
   %4 = load i64, ptr @os_pending_signals, align 8
@@ -8963,10 +8911,10 @@ declare i32 @JS_ToInt64(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #
 declare { i64, i64 } @JS_NewPromiseCapability(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #15
+declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @chdir(ptr noundef) local_unnamed_addr #15
+declare i32 @chdir(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #1
@@ -8991,7 +8939,7 @@ declare noundef i32 @utimes(ptr nocapture noundef readonly, ptr nocapture nounde
 declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #15
+declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
@@ -9002,7 +8950,7 @@ declare { i64, i64 } @JS_GetPropertyUint32(ptr noundef, i64, i64, i32 noundef) l
 define internal fastcc ptr @build_envp(ptr noundef %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  %6 = call i32 @JS_GetOwnPropertyNames(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 %1, i64 %2, i32 noundef 17) #29
+  %6 = call i32 @JS_GetOwnPropertyNames(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 %1, i64 %2, i32 noundef 17) #30
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %65, label %8
 
@@ -9011,7 +8959,7 @@ define internal fastcc ptr @build_envp(ptr noundef %0, i64 %1, i64 %2) unnamed_a
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 3
   %12 = add nuw nsw i64 %11, 8
-  %13 = call ptr @js_mallocz(ptr noundef %0, i64 noundef %12) #29
+  %13 = call ptr @js_mallocz(ptr noundef %0, i64 noundef %12) #30
   %.not = icmp eq ptr %13, null
   %.pre112 = load i32, ptr %4, align 4
   br i1 %.not, label %.critedge, label %.preheader87
@@ -9025,7 +8973,7 @@ define internal fastcc ptr @build_envp(ptr noundef %0, i64 %1, i64 %2) unnamed_a
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr %struct.JSPropertyEnum, ptr %14, i64 %indvars.iv, i32 1
   %16 = load i32, ptr %15, align 4
-  %17 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef %16, i64 %1, i64 %2, i32 noundef 0) #29
+  %17 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %0, i64 %1, i64 %2, i32 noundef %16, i64 %1, i64 %2, i32 noundef 0) #30
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
   %20 = and i64 %19, 4294967295
@@ -9033,7 +8981,7 @@ define internal fastcc ptr @build_envp(ptr noundef %0, i64 %1, i64 %2) unnamed_a
   br i1 %.not86, label %.preheader, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %18, i64 %19, i32 noundef 0) #29
+  %22 = call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %18, i64 %19, i32 noundef 0) #30
   %23 = trunc i64 %19 to i32
   %24 = icmp ugt i32 %23, -12
   br i1 %24, label %25, label %JS_FreeValue.exit
@@ -9047,7 +8995,7 @@ define internal fastcc ptr @build_envp(ptr noundef %0, i64 %1, i64 %2) unnamed_a
   br i1 %29, label %30, label %JS_FreeValue.exit
 
 30:                                               ; preds = %25
-  call void @__JS_FreeValue(ptr noundef %0, i64 %18, i64 %19) #29
+  call void @__JS_FreeValue(ptr noundef %0, i64 %18, i64 %19) #30
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %21, %25, %30
@@ -9058,21 +9006,21 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
   %32 = load ptr, ptr %5, align 8
   %33 = getelementptr %struct.JSPropertyEnum, ptr %32, i64 %indvars.iv, i32 1
   %34 = load i32, ptr %33, align 4
-  %35 = call ptr @JS_AtomToCString(ptr noundef %0, i32 noundef %34) #29
+  %35 = call ptr @JS_AtomToCString(ptr noundef %0, i32 noundef %34) #30
   %.not84 = icmp eq ptr %35, null
   br i1 %.not84, label %.preheader.sink.split, label %36
 
 36:                                               ; preds = %31
-  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #31
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #31
+  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #32
+  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #32
   %39 = add i64 %37, 2
   %40 = add i64 %39, %38
-  %41 = call ptr @js_malloc(ptr noundef %0, i64 noundef %40) #29
+  %41 = call ptr @js_malloc(ptr noundef %0, i64 noundef %40) #30
   %.not85 = icmp eq ptr %41, null
   br i1 %.not85, label %42, label %43
 
 42:                                               ; preds = %36
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %35) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %35) #30
   br label %.preheader.sink.split
 
 43:                                               ; preds = %36
@@ -9085,8 +9033,8 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
   store i8 0, ptr %46, align 1
   %47 = getelementptr ptr, ptr %13, i64 %indvars.iv
   store ptr %41, ptr %47, align 8
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %35) #29
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %22) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %35) #30
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %22) #30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %4, align 4
   %49 = zext i32 %48 to i64
@@ -9104,7 +9052,7 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
   %52 = load ptr, ptr %5, align 8
   %53 = getelementptr %struct.JSPropertyEnum, ptr %52, i64 %indvars.iv109, i32 1
   %54 = load i32, ptr %53, align 4
-  call void @JS_FreeAtom(ptr noundef %0, i32 noundef %54) #29
+  call void @JS_FreeAtom(ptr noundef %0, i32 noundef %54) #30
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %55 = load i32, ptr %4, align 4
   %56 = zext i32 %55 to i64
@@ -9114,11 +9062,11 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
 ._crit_edge96:                                    ; preds = %.lr.ph95, %.preheader87, %.critedge
   %.075115 = phi ptr [ %.075, %.critedge ], [ %13, %.preheader87 ], [ %.075, %.lr.ph95 ]
   %58 = load ptr, ptr %5, align 8
-  call void @js_free(ptr noundef %0, ptr noundef %58) #29
+  call void @js_free(ptr noundef %0, ptr noundef %58) #30
   br label %65
 
 .preheader.sink.split:                            ; preds = %31, %42
-  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %22) #29
+  call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %22) #30
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %JS_FreeValue.exit, %.preheader.sink.split
@@ -9130,7 +9078,7 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph93 ], [ 0, %.preheader ]
   %60 = getelementptr ptr, ptr %13, i64 %indvars.iv106
   %61 = load ptr, ptr %60, align 8
-  call void @js_free(ptr noundef %0, ptr noundef %61) #29
+  call void @js_free(ptr noundef %0, ptr noundef %61) #30
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %62 = load i32, ptr %4, align 4
   %63 = zext i32 %62 to i64
@@ -9138,7 +9086,7 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
   br i1 %64, label %.lr.ph93, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph93, %.preheader
-  call void @js_free(ptr noundef %0, ptr noundef nonnull %13) #29
+  call void @js_free(ptr noundef %0, ptr noundef nonnull %13) #30
   %.pre = load i32, ptr %4, align 4
   br label %.critedge
 
@@ -9151,43 +9099,43 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
 declare i32 @fork() local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #15
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #15
+declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: noreturn
-declare void @_exit(i32 noundef) local_unnamed_addr #23
+declare void @_exit(i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nounwind
-declare i32 @setuid(i32 noundef) local_unnamed_addr #15
+declare i32 @setuid(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @setgid(i32 noundef) local_unnamed_addr #15
+declare i32 @setgid(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #24 {
+define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #25 {
   %4 = alloca [4096 x i8], align 16
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #32
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @__errno_location() #28
+  %8 = tail call ptr @__errno_location() #29
   store i32 2, ptr %8, align 4
   br label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #31
+  %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #32
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @execve(ptr noundef %0, ptr noundef %1, ptr noundef %2) #29
+  %12 = tail call i32 @execve(ptr noundef %0, ptr noundef %1, ptr noundef %2) #30
   br label %.loopexit
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @getenv(ptr noundef nonnull @.str.206) #29
+  %14 = tail call ptr @getenv(ptr noundef nonnull @.str.206) #30
   %.not36 = icmp eq ptr %14, null
   %spec.select = select i1 %.not36, ptr @.str.207, ptr %14
   %15 = add i64 %5, 1
@@ -9201,12 +9149,12 @@ define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef %1, ptr noun
 
 16:                                               ; preds = %.outer, %select.unfold
   %.03241 = phi ptr [ %.033, %select.unfold ], [ %.03241.ph, %.outer ]
-  %17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03241, i32 noundef 58) #31
+  %17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03241, i32 noundef 58) #32
   %.not39 = icmp eq ptr %17, null
   br i1 %.not39, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03241) #31
+  %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03241) #32
   br label %25
 
 20:                                               ; preds = %16
@@ -9232,8 +9180,8 @@ define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef %1, ptr noun
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %gep, ptr align 1 %0, i64 %5, i1 false)
   %31 = getelementptr [4096 x i8], ptr %4, i64 0, i64 %26
   store i8 0, ptr %31, align 1
-  %32 = call i32 @execve(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2) #29
-  %33 = tail call ptr @__errno_location() #28
+  %32 = call i32 @execve(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2) #30
+  %33 = tail call ptr @__errno_location() #29
   %34 = load i32, ptr %33, align 4
   switch i32 %34, label %.loopexit [
     i32 13, label %select.unfold.thread
@@ -9253,7 +9201,7 @@ select.unfold.thread:                             ; preds = %29
   br i1 %.not38, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %select.unfold.thread, %35
-  %36 = tail call ptr @__errno_location() #28
+  %36 = tail call ptr @__errno_location() #29
   store i32 13, ptr %36, align 4
   br label %.loopexit
 
@@ -9271,33 +9219,33 @@ declare i32 @JS_GetOwnPropertyNames(ptr noundef, ptr noundef, ptr noundef, i64, 
 declare { i64, i64 } @JS_GetPropertyInternal(ptr noundef, i64, i64, i32 noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #15
+declare i32 @getpid() local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #15
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @dup(i32 noundef) local_unnamed_addr #15
+declare i32 @dup(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #15
+declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #16
 
 declare i32 @JS_IsError(ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #26
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #27
+declare i32 @llvm.smax.i32(i32, i32) #28
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9314,27 +9262,28 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #26 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #28 = { nounwind willreturn memory(none) }
-attributes #29 = { nounwind }
-attributes #30 = { nounwind allocsize(0) }
-attributes #31 = { nounwind willreturn memory(read) }
-attributes #32 = { cold }
-attributes #33 = { cold noreturn nounwind }
-attributes #34 = { cold nounwind }
-attributes #35 = { noreturn nounwind }
+attributes #15 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #27 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { nounwind willreturn memory(none) }
+attributes #30 = { nounwind }
+attributes #31 = { nounwind allocsize(0) }
+attributes #32 = { nounwind willreturn memory(read) }
+attributes #33 = { cold }
+attributes #34 = { cold noreturn nounwind }
+attributes #35 = { cold nounwind }
+attributes #36 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

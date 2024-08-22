@@ -71,7 +71,7 @@ define dso_local zeroext i1 @intel_lvds_port_enabled(ptr noundef %0, i32 %1, ptr
   %4 = getelementptr inbounds i8, ptr %0, i64 7368
   %5 = getelementptr inbounds i8, ptr %0, i64 7512
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %4, i32 %1, i1 noundef zeroext true) #6
+  %7 = tail call i32 %6(ptr noundef %4, i32 %1, i1 noundef zeroext true) #7
   %8 = getelementptr inbounds i8, ptr %0, i64 8112
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 2
@@ -153,8 +153,8 @@ define dso_local noundef zeroext i1 @intel_is_dual_link_lvds(ptr noundef readonl
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
-  %3 = tail call i32 @dmi_check_system(ptr noundef nonnull @intel_no_lvds) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #7
+  %3 = tail call i32 @dmi_check_system(ptr noundef nonnull @intel_no_lvds) #7
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 6818
   %6 = load i8, ptr %5, align 2
@@ -166,10 +166,10 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %8, label %10, label %229, !prof !10
 
 10:                                               ; preds = %9
-  tail call void asm sideeffect "950: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 950b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 950) #6, !srcloc !11
+  tail call void asm sideeffect "950: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 950b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 950) #7, !srcloc !11
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @dev_driver_string(ptr noundef %12) #6
+  %13 = tail call ptr @dev_driver_string(ptr noundef %12) #7
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 80
   %16 = load ptr, ptr %15, align 8
@@ -182,11 +182,11 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
 
 20:                                               ; preds = %18, %10
   %21 = phi ptr [ %19, %18 ], [ %16, %10 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %13, ptr noundef %21) #6
-  tail call void asm sideeffect "951: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 951b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 951) #6, !srcloc !12
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 854, i32 2313, i64 12) #6, !srcloc !13
-  tail call void asm sideeffect "952: nop\0A\09.pushsection .discard.instr_end\0A\09.long 952b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 952) #6, !srcloc !14
-  tail call void asm sideeffect "953: nop\0A\09.pushsection .discard.instr_end\0A\09.long 953b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 953) #6, !srcloc !15
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %13, ptr noundef %21) #7
+  tail call void asm sideeffect "951: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 951b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 951) #7, !srcloc !12
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 854, i32 2313, i64 12) #7, !srcloc !13
+  tail call void asm sideeffect "952: nop\0A\09.pushsection .discard.instr_end\0A\09.long 952b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 952) #7, !srcloc !14
+  tail call void asm sideeffect "953: nop\0A\09.pushsection .discard.instr_end\0A\09.long 953b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 953) #7, !srcloc !15
   br label %229
 
 22:                                               ; preds = %1
@@ -203,7 +203,7 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
 
 28:                                               ; preds = %25, %23
   %29 = phi ptr [ %27, %25 ], [ null, %23 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %29, i32 noundef 2, ptr noundef nonnull @.str.2) #6
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %29, i32 noundef 2, ptr noundef nonnull @.str.2) #7
   br label %229
 
 30:                                               ; preds = %22
@@ -214,7 +214,7 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
   %35 = getelementptr inbounds i8, ptr %0, i64 7368
   %36 = getelementptr inbounds i8, ptr %0, i64 7512
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call i32 %37(ptr noundef %35, i32 %34, i1 noundef zeroext true) #6
+  %38 = tail call i32 %37(ptr noundef %35, i32 %34, i1 noundef zeroext true) #7
   %39 = load i32, ptr %31, align 8
   %40 = icmp ne i32 %39, 0
   %41 = and i32 %38, 2
@@ -224,7 +224,7 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
 
 44:                                               ; preds = %30
   store i8 3, ptr %2, align 1
-  %45 = call zeroext i1 @intel_bios_is_lvds_present(ptr noundef %0, ptr noundef nonnull %2) #6
+  %45 = call zeroext i1 @intel_bios_is_lvds_present(ptr noundef %0, ptr noundef nonnull %2) #7
   br i1 %45, label %61, label %46
 
 46:                                               ; preds = %44
@@ -242,7 +242,7 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
 
 53:                                               ; preds = %50, %49
   %54 = phi ptr [ %52, %50 ], [ null, %49 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %54, i32 noundef 2, ptr noundef nonnull @.str.3) #6
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %54, i32 noundef 2, ptr noundef nonnull @.str.3) #7
   br label %229
 
 55:                                               ; preds = %46
@@ -255,22 +255,22 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
 
 59:                                               ; preds = %56, %55
   %60 = phi ptr [ %58, %56 ], [ null, %55 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %60, i32 noundef 2, ptr noundef nonnull @.str.4) #6
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %60, i32 noundef 2, ptr noundef nonnull @.str.4) #7
   br label %61
 
 61:                                               ; preds = %59, %44
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
-  %63 = call noalias noundef align 8 dereferenceable_or_null(440) ptr @kmalloc_trace(ptr noundef %62, i32 noundef 3520, i64 noundef 440) #7
+  %63 = call noalias noundef align 8 dereferenceable_or_null(440) ptr @kmalloc_trace(ptr noundef %62, i32 noundef 3520, i64 noundef 440) #8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %229, label %65
 
 65:                                               ; preds = %61
-  %66 = call ptr @intel_connector_alloc() #6
+  %66 = call ptr @intel_connector_alloc() #7
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %65
-  call void @kfree(ptr noundef nonnull %63) #6
+  call void @kfree(ptr noundef nonnull %63) #7
   br label %229
 
 69:                                               ; preds = %65
@@ -278,9 +278,9 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
   store ptr %66, ptr %70, align 8
   %71 = load i8, ptr %2, align 1
   %72 = zext i8 %71 to i32
-  %73 = call ptr @intel_gmbus_get_adapter(ptr noundef %0, i32 noundef %72) #6
-  %74 = call i32 @drm_connector_init_with_ddc(ptr noundef %0, ptr noundef nonnull %66, ptr noundef nonnull @intel_lvds_connector_funcs, i32 noundef 7, ptr noundef %73) #6
-  %75 = call i32 (ptr, ptr, ptr, i32, ptr, ...) @drm_encoder_init(ptr noundef %0, ptr noundef nonnull %63, ptr noundef nonnull @intel_lvds_enc_funcs, i32 noundef 3, ptr noundef nonnull @.str.5) #6
+  %73 = call ptr @intel_gmbus_get_adapter(ptr noundef %0, i32 noundef %72) #7
+  %74 = call i32 @drm_connector_init_with_ddc(ptr noundef %0, ptr noundef nonnull %66, ptr noundef nonnull @intel_lvds_connector_funcs, i32 noundef 7, ptr noundef %73) #7
+  %75 = call i32 (ptr, ptr, ptr, i32, ptr, ...) @drm_encoder_init(ptr noundef %0, ptr noundef nonnull %63, ptr noundef nonnull @intel_lvds_enc_funcs, i32 noundef 3, ptr noundef nonnull @.str.5) #7
   %76 = getelementptr inbounds i8, ptr %63, i64 192
   store ptr @intel_enable_lvds, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %63, i64 184
@@ -310,7 +310,7 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
   store ptr @intel_lvds_shutdown, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %66, i64 1992
   store ptr @intel_connector_get_hw_state, ptr %89, align 8
-  call void @intel_connector_attach_encoder(ptr noundef nonnull %66, ptr noundef nonnull %63) #6
+  call void @intel_connector_attach_encoder(ptr noundef nonnull %66, ptr noundef nonnull %63) #7
   %90 = getelementptr inbounds i8, ptr %63, i64 128
   store i32 4, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %63, i64 372
@@ -331,13 +331,13 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
   store i32 1, ptr %100, align 4
   %101 = getelementptr inbounds i8, ptr %63, i64 388
   store i32 %34, ptr %101, align 4
-  call void @intel_attach_scaling_mode_property(ptr noundef nonnull %66) #6
+  call void @intel_attach_scaling_mode_property(ptr noundef nonnull %66) #7
   %102 = getelementptr inbounds i8, ptr %63, i64 396
   %103 = getelementptr inbounds i8, ptr %0, i64 3280
   %104 = load i32, ptr %103, align 8
   %105 = add i32 %104, 4
   %106 = load ptr, ptr %36, align 8
-  %107 = call i32 %106(ptr noundef %35, i32 %105, i1 noundef zeroext true) #6
+  %107 = call i32 %106(ptr noundef %35, i32 %105, i1 noundef zeroext true) #7
   %108 = getelementptr inbounds i8, ptr %63, i64 424
   %109 = trunc i32 %107 to i8
   %110 = lshr i8 %109, 1
@@ -346,7 +346,7 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
   %112 = load i32, ptr %103, align 8
   %113 = add i32 %112, 8
   %114 = load ptr, ptr %36, align 8
-  %115 = call i32 %114(ptr noundef %35, i32 %113, i1 noundef zeroext true) #6
+  %115 = call i32 %114(ptr noundef %35, i32 %113, i1 noundef zeroext true) #7
   %116 = lshr i32 %115, 30
   %117 = getelementptr inbounds i8, ptr %63, i64 420
   store i32 %116, ptr %117, align 4
@@ -359,7 +359,7 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
   %122 = load i32, ptr %103, align 8
   %123 = add i32 %122, 12
   %124 = load ptr, ptr %36, align 8
-  %125 = call i32 %124(ptr noundef %35, i32 %123, i1 noundef zeroext true) #6
+  %125 = call i32 %124(ptr noundef %35, i32 %123, i1 noundef zeroext true) #7
   %126 = lshr i32 %125, 16
   %127 = and i32 %126, 8191
   %128 = getelementptr inbounds i8, ptr %63, i64 400
@@ -370,7 +370,7 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
   %131 = load i32, ptr %103, align 8
   %132 = add i32 %131, 16
   %133 = load ptr, ptr %36, align 8
-  %134 = call i32 %133(ptr noundef %35, i32 %132, i1 noundef zeroext true) #6
+  %134 = call i32 %133(ptr noundef %35, i32 %132, i1 noundef zeroext true) #7
   %135 = lshr i32 %134, 8
   %136 = getelementptr inbounds i8, ptr %63, i64 416
   store i32 %135, ptr %136, align 8
@@ -416,7 +416,7 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
 
 162:                                              ; preds = %159, %157
   %163 = phi ptr [ %161, %159 ], [ null, %157 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %163, i32 noundef 2, ptr noundef nonnull @.str.45) #6
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %163, i32 noundef 2, ptr noundef nonnull @.str.45) #7
   store i32 400, ptr %102, align 4
   store i32 2000, ptr %121, align 8
   store i32 350, ptr %128, align 8
@@ -443,30 +443,30 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
   %177 = load i32, ptr %117, align 4
   %178 = load i8, ptr %108, align 8, !range !8, !noundef !9
   %179 = zext nneg i8 %178 to i32
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %170, i32 noundef 1, ptr noundef nonnull @.str.46, i32 noundef %171, i32 noundef %172, i32 noundef %173, i32 noundef %174, i32 noundef %175, i32 noundef %176, i32 noundef %177, i32 noundef %179) #6
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %170, i32 noundef 1, ptr noundef nonnull @.str.46, i32 noundef %171, i32 noundef %172, i32 noundef %173, i32 noundef %174, i32 noundef %175, i32 noundef %176, i32 noundef %177, i32 noundef %179) #7
   %180 = getelementptr inbounds i8, ptr %63, i64 428
   store i32 %38, ptr %180, align 4
   %181 = getelementptr inbounds i8, ptr %0, i64 368
-  call void @mutex_lock(ptr noundef %181) #6
+  call void @mutex_lock(ptr noundef %181) #7
   %182 = getelementptr inbounds i8, ptr %66, i64 1872
   %183 = load ptr, ptr %182, align 8
-  %184 = call ptr @drm_edid_read_ddc(ptr noundef nonnull %66, ptr noundef %183) #6
+  %184 = call ptr @drm_edid_read_ddc(ptr noundef nonnull %66, ptr noundef %183) #7
   %185 = icmp eq ptr %184, null
   br i1 %185, label %194, label %186
 
 186:                                              ; preds = %169
-  %187 = call i32 @drm_edid_connector_update(ptr noundef nonnull %66, ptr noundef nonnull %184) #6
+  %187 = call i32 @drm_edid_connector_update(ptr noundef nonnull %66, ptr noundef nonnull %184) #7
   %188 = icmp eq i32 %187, 0
   br i1 %188, label %189, label %192
 
 189:                                              ; preds = %186
-  %190 = call i32 @drm_edid_connector_add_modes(ptr noundef nonnull %66) #6
+  %190 = call i32 @drm_edid_connector_add_modes(ptr noundef nonnull %66) #7
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %189, %186
-  %193 = call i32 @drm_edid_connector_update(ptr noundef nonnull %66, ptr noundef null) #6
-  call void @drm_edid_free(ptr noundef nonnull %184) #6
+  %193 = call i32 @drm_edid_connector_update(ptr noundef nonnull %66, ptr noundef null) #7
+  call void @drm_edid_free(ptr noundef nonnull %184) #7
   br label %194
 
 194:                                              ; preds = %192, %189, %169
@@ -474,34 +474,34 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
   %196 = getelementptr inbounds i8, ptr %66, i64 2000
   %197 = icmp ugt ptr %195, inttoptr (i64 -4096 to ptr)
   %198 = select i1 %197, ptr null, ptr %195
-  call void @intel_bios_init_panel_late(ptr noundef %0, ptr noundef %196, ptr noundef null, ptr noundef %198) #6
-  call void @intel_panel_add_edid_fixed_modes(ptr noundef nonnull %66, i1 noundef zeroext true) #6
-  %199 = call ptr @intel_panel_preferred_fixed_mode(ptr noundef nonnull %66) #6
+  call void @intel_bios_init_panel_late(ptr noundef %0, ptr noundef %196, ptr noundef null, ptr noundef %198) #7
+  call void @intel_panel_add_edid_fixed_modes(ptr noundef nonnull %66, i1 noundef zeroext true) #7
+  %199 = call ptr @intel_panel_preferred_fixed_mode(ptr noundef nonnull %66) #7
   %200 = icmp eq ptr %199, null
   br i1 %200, label %201, label %202
 
 201:                                              ; preds = %194
-  call void @intel_panel_add_vbt_lfp_fixed_mode(ptr noundef nonnull %66) #6
+  call void @intel_panel_add_vbt_lfp_fixed_mode(ptr noundef nonnull %66) #7
   br label %202
 
 202:                                              ; preds = %201, %194
-  %203 = call ptr @intel_panel_preferred_fixed_mode(ptr noundef nonnull %66) #6
+  %203 = call ptr @intel_panel_preferred_fixed_mode(ptr noundef nonnull %66) #7
   %204 = icmp eq ptr %203, null
   br i1 %204, label %205, label %206
 
 205:                                              ; preds = %202
-  call void @intel_panel_add_encoder_fixed_mode(ptr noundef nonnull %66, ptr noundef nonnull %63) #6
+  call void @intel_panel_add_encoder_fixed_mode(ptr noundef nonnull %66, ptr noundef nonnull %63) #7
   br label %206
 
 206:                                              ; preds = %205, %202
-  call void @mutex_unlock(ptr noundef %181) #6
-  %207 = call ptr @intel_panel_preferred_fixed_mode(ptr noundef nonnull %66) #6
+  call void @mutex_unlock(ptr noundef %181) #7
+  %207 = call ptr @intel_panel_preferred_fixed_mode(ptr noundef nonnull %66) #7
   %208 = icmp eq ptr %207, null
   br i1 %208, label %223, label %209
 
 209:                                              ; preds = %206
-  %210 = call i32 @intel_panel_init(ptr noundef nonnull %66, ptr noundef nonnull %195) #6
-  %211 = call i32 @intel_backlight_setup(ptr noundef nonnull %66, i32 noundef -1) #6
+  %210 = call i32 @intel_panel_init(ptr noundef nonnull %66, ptr noundef nonnull %195) #7
+  %211 = call i32 @intel_backlight_setup(ptr noundef nonnull %66, i32 noundef -1) #7
   %212 = call fastcc zeroext i1 @compute_is_dual_link_lvds(ptr noundef nonnull %63)
   %213 = getelementptr inbounds i8, ptr %63, i64 384
   %214 = zext i1 %212 to i8
@@ -516,7 +516,7 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
 218:                                              ; preds = %215, %209
   %219 = phi ptr [ %217, %215 ], [ null, %209 ]
   %220 = select i1 %212, ptr @.str.7, ptr @.str.8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %219, i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef nonnull %220) #6
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %219, i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef nonnull %220) #7
   %221 = and i32 %38, 192
   %222 = getelementptr inbounds i8, ptr %63, i64 392
   store i32 %221, ptr %222, align 8
@@ -532,15 +532,15 @@ define dso_local void @intel_lvds_init(ptr noundef %0) local_unnamed_addr #0 ali
 
 227:                                              ; preds = %224, %223
   %228 = phi ptr [ %226, %224 ], [ null, %223 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %228, i32 noundef 2, ptr noundef nonnull @.str.9) #6
-  call void @drm_connector_cleanup(ptr noundef nonnull %66) #6
-  call void @drm_encoder_cleanup(ptr noundef nonnull %63) #6
-  call void @kfree(ptr noundef nonnull %63) #6
-  call void @intel_connector_free(ptr noundef nonnull %66) #6
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %228, i32 noundef 2, ptr noundef nonnull @.str.9) #7
+  call void @drm_connector_cleanup(ptr noundef nonnull %66) #7
+  call void @drm_encoder_cleanup(ptr noundef nonnull %63) #7
+  call void @kfree(ptr noundef nonnull %63) #7
+  call void @intel_connector_free(ptr noundef nonnull %66) #7
   br label %229
 
 229:                                              ; preds = %227, %218, %68, %61, %53, %30, %28, %20, %9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #7
   ret void
 }
 
@@ -582,24 +582,24 @@ define internal void @intel_enable_lvds(ptr nocapture readnone %0, ptr nocapture
   %8 = getelementptr inbounds i8, ptr %5, i64 7368
   %9 = getelementptr inbounds i8, ptr %5, i64 7512
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %8, i32 %7, i1 noundef zeroext true) #6
+  %11 = tail call i32 %10(ptr noundef %8, i32 %7, i1 noundef zeroext true) #7
   %12 = or i32 %11, -2147483648
   %13 = getelementptr inbounds i8, ptr %5, i64 7544
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef %8, i32 %7, i32 noundef %12, i1 noundef zeroext true) #6
+  tail call void %14(ptr noundef %8, i32 %7, i32 noundef %12, i1 noundef zeroext true) #7
   %15 = getelementptr inbounds i8, ptr %5, i64 3280
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, 4
   %18 = load ptr, ptr %9, align 8
-  %19 = tail call i32 %18(ptr noundef %8, i32 %17, i1 noundef zeroext true) #6
+  %19 = tail call i32 %18(ptr noundef %8, i32 %17, i1 noundef zeroext true) #7
   %20 = or i32 %19, 1
   %21 = load ptr, ptr %13, align 8
-  tail call void %21(ptr noundef %8, i32 %17, i32 noundef %20, i1 noundef zeroext true) #6
+  tail call void %21(ptr noundef %8, i32 %17, i32 noundef %20, i1 noundef zeroext true) #7
   %22 = load i32, ptr %6, align 4
   %23 = load ptr, ptr %9, align 8
-  %24 = tail call i32 %23(ptr noundef %8, i32 %22, i1 noundef zeroext false) #6
+  %24 = tail call i32 %23(ptr noundef %8, i32 %22, i1 noundef zeroext false) #7
   %25 = load i32, ptr %15, align 8
-  %26 = tail call i32 @__intel_wait_for_register(ptr noundef %8, i32 %25, i32 noundef -2147483648, i32 noundef -2147483648, i32 noundef 2, i32 noundef 5000, ptr noundef null) #6
+  %26 = tail call i32 @__intel_wait_for_register(ptr noundef %8, i32 %25, i32 noundef -2147483648, i32 noundef -2147483648, i32 noundef 2, i32 noundef 5000, ptr noundef null) #7
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %35, label %28
 
@@ -614,11 +614,11 @@ define internal void @intel_enable_lvds(ptr nocapture readnone %0, ptr nocapture
 
 33:                                               ; preds = %30, %28
   %34 = phi ptr [ %32, %30 ], [ null, %28 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %34, ptr noundef nonnull @.str.38) #8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %34, ptr noundef nonnull @.str.38) #9
   br label %35
 
 35:                                               ; preds = %33, %4
-  tail call void @intel_backlight_enable(ptr noundef %2, ptr noundef %3) #6
+  tail call void @intel_backlight_enable(ptr noundef %2, ptr noundef %3) #7
   ret void
 }
 
@@ -634,14 +634,14 @@ define internal void @intel_pre_enable_lvds(ptr nocapture readnone %0, ptr nocap
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %4
-  tail call void @assert_fdi_rx_pll_disabled(ptr noundef %5, i32 noundef %8) #6
+  tail call void @assert_fdi_rx_pll_disabled(ptr noundef %5, i32 noundef %8) #7
   %13 = getelementptr inbounds i8, ptr %2, i64 920
   %14 = load ptr, ptr %13, align 8
-  tail call void @assert_shared_dpll(ptr noundef %5, ptr noundef %14, i1 noundef zeroext false) #6
+  tail call void @assert_shared_dpll(ptr noundef %5, ptr noundef %14, i1 noundef zeroext false) #7
   br label %16
 
 15:                                               ; preds = %4
-  tail call void @assert_pll_disabled(ptr noundef %5, i32 noundef %8) #6
+  tail call void @assert_pll_disabled(ptr noundef %5, i32 noundef %8) #7
   br label %16
 
 16:                                               ; preds = %15, %12
@@ -652,16 +652,16 @@ define internal void @intel_pre_enable_lvds(ptr nocapture readnone %0, ptr nocap
   %21 = getelementptr inbounds i8, ptr %5, i64 7368
   %22 = getelementptr inbounds i8, ptr %5, i64 7512
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(ptr noundef %21, i32 %20, i1 noundef zeroext true) #6
+  %24 = tail call i32 %23(ptr noundef %21, i32 %20, i1 noundef zeroext true) #7
   %25 = and i32 %24, -65536
   %26 = icmp eq i32 %25, -1412628480
   br i1 %26, label %39, label %27, !prof !16
 
 27:                                               ; preds = %16
-  tail call void asm sideeffect "946: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 946b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 946) #6, !srcloc !17
+  tail call void asm sideeffect "946: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 946b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 946) #7, !srcloc !17
   %28 = getelementptr inbounds i8, ptr %5, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr @dev_driver_string(ptr noundef %29) #6
+  %30 = tail call ptr @dev_driver_string(ptr noundef %29) #7
   %31 = load ptr, ptr %28, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8
@@ -674,11 +674,11 @@ define internal void @intel_pre_enable_lvds(ptr nocapture readnone %0, ptr nocap
 
 37:                                               ; preds = %35, %27
   %38 = phi ptr [ %36, %35 ], [ %33, %27 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.39, ptr noundef %30, ptr noundef %38, ptr noundef nonnull @.str.40) #6
-  tail call void asm sideeffect "947: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 947b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 947) #6, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 214, i32 2313, i64 12) #6, !srcloc !19
-  tail call void asm sideeffect "948: nop\0A\09.pushsection .discard.instr_end\0A\09.long 948b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 948) #6, !srcloc !20
-  tail call void asm sideeffect "949: nop\0A\09.pushsection .discard.instr_end\0A\09.long 949b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 949) #6, !srcloc !21
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.39, ptr noundef %30, ptr noundef %38, ptr noundef nonnull @.str.40) #7
+  tail call void asm sideeffect "947: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 947b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 947) #7, !srcloc !18
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 214, i32 2313, i64 12) #7, !srcloc !19
+  tail call void asm sideeffect "948: nop\0A\09.pushsection .discard.instr_end\0A\09.long 948b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 948) #7, !srcloc !20
+  tail call void asm sideeffect "949: nop\0A\09.pushsection .discard.instr_end\0A\09.long 949b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 949) #7, !srcloc !21
   br label %39
 
 39:                                               ; preds = %37, %16
@@ -691,7 +691,7 @@ define internal void @intel_pre_enable_lvds(ptr nocapture readnone %0, ptr nocap
   %46 = add i32 %45, 4
   %47 = getelementptr inbounds i8, ptr %5, i64 7544
   %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef %21, i32 %46, i32 noundef %44, i1 noundef zeroext true) #6
+  tail call void %48(ptr noundef %21, i32 %46, i32 noundef %44, i1 noundef zeroext true) #7
   %49 = load i32, ptr %18, align 8
   %50 = add i32 %49, 8
   %51 = getelementptr inbounds i8, ptr %1, i64 420
@@ -706,7 +706,7 @@ define internal void @intel_pre_enable_lvds(ptr nocapture readnone %0, ptr nocap
   %60 = and i32 %59, 8191
   %61 = or disjoint i32 %57, %60
   %62 = load ptr, ptr %47, align 8
-  tail call void %62(ptr noundef %21, i32 %50, i32 noundef %61, i1 noundef zeroext true) #6
+  tail call void %62(ptr noundef %21, i32 %50, i32 noundef %61, i1 noundef zeroext true) #7
   %63 = load i32, ptr %18, align 8
   %64 = add i32 %63, 12
   %65 = getelementptr inbounds i8, ptr %1, i64 400
@@ -718,7 +718,7 @@ define internal void @intel_pre_enable_lvds(ptr nocapture readnone %0, ptr nocap
   %71 = and i32 %70, 8191
   %72 = or disjoint i32 %68, %71
   %73 = load ptr, ptr %47, align 8
-  tail call void %73(ptr noundef %21, i32 %64, i32 noundef %72, i1 noundef zeroext true) #6
+  tail call void %73(ptr noundef %21, i32 %64, i32 noundef %72, i1 noundef zeroext true) #7
   %74 = load i32, ptr %18, align 8
   %75 = add i32 %74, 16
   %76 = getelementptr inbounds i8, ptr %1, i64 416
@@ -732,7 +732,7 @@ define internal void @intel_pre_enable_lvds(ptr nocapture readnone %0, ptr nocap
   %84 = and i32 %83, 31
   %85 = or disjoint i32 %84, %78
   %86 = load ptr, ptr %47, align 8
-  tail call void %86(ptr noundef %21, i32 %75, i32 noundef %85, i1 noundef zeroext true) #6
+  tail call void %86(ptr noundef %21, i32 %75, i32 noundef %85, i1 noundef zeroext true) #7
   %87 = getelementptr inbounds i8, ptr %1, i64 428
   %88 = load i32, ptr %87, align 4
   %89 = or i32 %88, -2147482880
@@ -796,7 +796,7 @@ define internal void @intel_pre_enable_lvds(ptr nocapture readnone %0, ptr nocap
   %137 = getelementptr inbounds i8, ptr %1, i64 388
   %138 = load i32, ptr %137, align 4
   %139 = load ptr, ptr %47, align 8
-  tail call void %139(ptr noundef %21, i32 %138, i32 noundef %136, i1 noundef zeroext true) #6
+  tail call void %139(ptr noundef %21, i32 %138, i32 noundef %136, i1 noundef zeroext true) #7
   ret void
 }
 
@@ -829,7 +829,7 @@ define internal i32 @intel_lvds_compute_config(ptr nocapture noundef readonly %0
 
 21:                                               ; preds = %18, %16
   %22 = phi ptr [ %20, %18 ], [ null, %16 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %22, ptr noundef nonnull @.str.41) #8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %22, ptr noundef nonnull @.str.41) #9
   br label %61
 
 23:                                               ; preds = %11, %3
@@ -841,7 +841,7 @@ define internal i32 @intel_lvds_compute_config(ptr nocapture noundef readonly %0
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %1, i64 860
   store i8 1, ptr %28, align 4
-  %29 = tail call zeroext i1 @intel_fdi_compute_pipe_bpp(ptr noundef %1) #6
+  %29 = tail call zeroext i1 @intel_fdi_compute_pipe_bpp(ptr noundef %1) #7
   br i1 %29, label %30, label %61
 
 30:                                               ; preds = %27, %23
@@ -871,7 +871,7 @@ define internal i32 @intel_lvds_compute_config(ptr nocapture noundef readonly %0
 
 47:                                               ; preds = %44, %42
   %48 = phi ptr [ %46, %44 ], [ null, %42 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %48, i32 noundef 2, ptr noundef nonnull @.str.42, i32 noundef %36, i32 noundef %34) #6
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %48, i32 noundef 2, ptr noundef nonnull @.str.42, i32 noundef %36, i32 noundef %34) #7
   store i32 %34, ptr %35, align 4
   br label %49
 
@@ -880,7 +880,7 @@ define internal i32 @intel_lvds_compute_config(ptr nocapture noundef readonly %0
   store i32 0, ptr %50, align 4
   %51 = getelementptr inbounds i8, ptr %1, i64 4744
   store i32 0, ptr %51, align 8
-  %52 = tail call i32 @intel_panel_compute_config(ptr noundef %6, ptr noundef %7) #6
+  %52 = tail call i32 @intel_panel_compute_config(ptr noundef %6, ptr noundef %7) #7
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %61
 
@@ -892,7 +892,7 @@ define internal i32 @intel_lvds_compute_config(ptr nocapture noundef readonly %0
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %54
-  %60 = tail call i32 @intel_panel_fitting(ptr noundef %1, ptr noundef %2) #6
+  %60 = tail call i32 @intel_panel_fitting(ptr noundef %1, ptr noundef %2) #7
   br label %61
 
 61:                                               ; preds = %59, %54, %49, %27, %21
@@ -902,7 +902,7 @@ define internal i32 @intel_lvds_compute_config(ptr nocapture noundef readonly %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @pch_disable_lvds(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
-  tail call void @intel_backlight_disable(ptr noundef %3) #6
+  tail call void @intel_backlight_disable(ptr noundef %3) #7
   ret void
 }
 
@@ -914,7 +914,7 @@ define internal void @pch_post_disable_lvds(ptr nocapture readnone %0, ptr nocap
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @gmch_disable_lvds(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
-  tail call void @intel_backlight_disable(ptr noundef %3) #6
+  tail call void @intel_backlight_disable(ptr noundef %3) #7
   tail call fastcc void @intel_disable_lvds(ptr noundef %1)
   ret void
 }
@@ -924,7 +924,7 @@ define internal zeroext i1 @intel_lvds_get_hw_state(ptr nocapture noundef readon
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 372
   %5 = load i32, ptr %4, align 4
-  %6 = tail call i64 @intel_display_power_get_if_enabled(ptr noundef %3, i32 noundef %5) #6
+  %6 = tail call i64 @intel_display_power_get_if_enabled(ptr noundef %3, i32 noundef %5) #7
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %25, label %8
 
@@ -934,7 +934,7 @@ define internal zeroext i1 @intel_lvds_get_hw_state(ptr nocapture noundef readon
   %11 = getelementptr inbounds i8, ptr %3, i64 7368
   %12 = getelementptr inbounds i8, ptr %3, i64 7512
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef %11, i32 %10, i1 noundef zeroext true) #6
+  %14 = tail call i32 %13(ptr noundef %11, i32 %10, i1 noundef zeroext true) #7
   %15 = getelementptr inbounds i8, ptr %3, i64 8112
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 2
@@ -946,7 +946,7 @@ define internal zeroext i1 @intel_lvds_get_hw_state(ptr nocapture noundef readon
   store i32 %22, ptr %1, align 4
   %23 = icmp slt i32 %14, 0
   %24 = load i32, ptr %4, align 4
-  tail call void @intel_display_power_put_unchecked(ptr noundef %3, i32 noundef %24) #6
+  tail call void @intel_display_power_put_unchecked(ptr noundef %3, i32 noundef %24) #7
   br label %25
 
 25:                                               ; preds = %8, %2
@@ -966,7 +966,7 @@ define internal void @intel_lvds_get_config(ptr nocapture noundef readonly %0, p
   %9 = getelementptr inbounds i8, ptr %3, i64 7368
   %10 = getelementptr inbounds i8, ptr %3, i64 7512
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %9, i32 %8, i1 noundef zeroext true) #6
+  %12 = tail call i32 %11(ptr noundef %9, i32 %8, i1 noundef zeroext true) #7
   %13 = and i32 %12, 1048576
   %14 = icmp eq i32 %13, 0
   %15 = select i1 %14, i32 1, i32 2
@@ -998,7 +998,7 @@ define internal void @intel_lvds_get_config(ptr nocapture noundef readonly %0, p
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, 397872
   %36 = load ptr, ptr %10, align 8
-  %37 = tail call i32 %36(ptr noundef %9, i32 %35, i1 noundef zeroext true) #6
+  %37 = tail call i32 %36(ptr noundef %9, i32 %35, i1 noundef zeroext true) #7
   %38 = and i32 %37, 8
   %39 = getelementptr inbounds i8, ptr %1, i64 1460
   %40 = load i32, ptr %39, align 4
@@ -1023,7 +1023,7 @@ define internal void @intel_lvds_shutdown(ptr nocapture noundef readonly %0) #0 
   %3 = getelementptr inbounds i8, ptr %2, i64 3280
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 7368
-  %6 = tail call i32 @__intel_wait_for_register(ptr noundef %5, i32 %4, i32 noundef 134217728, i32 noundef 0, i32 noundef 2, i32 noundef 5000, ptr noundef null) #6
+  %6 = tail call i32 @__intel_wait_for_register(ptr noundef %5, i32 %4, i32 noundef 134217728, i32 noundef 0, i32 noundef 2, i32 noundef 5000, ptr noundef null) #7
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %15, label %8
 
@@ -1038,7 +1038,7 @@ define internal void @intel_lvds_shutdown(ptr nocapture noundef readonly %0) #0 
 
 13:                                               ; preds = %10, %8
   %14 = phi ptr [ %12, %10 ], [ null, %8 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %14, ptr noundef nonnull @.str.44) #8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %14, ptr noundef nonnull @.str.44) #9
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -1095,7 +1095,7 @@ define internal fastcc zeroext i1 @compute_is_dual_link_lvds(ptr nocapture nound
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @intel_panel_preferred_fixed_mode(ptr noundef %4) #6
+  %5 = tail call ptr @intel_panel_preferred_fixed_mode(ptr noundef %4) #7
   %6 = getelementptr inbounds i8, ptr %2, i64 6752
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
@@ -1111,7 +1111,7 @@ define internal fastcc zeroext i1 @compute_is_dual_link_lvds(ptr nocapture nound
   br i1 %13, label %37, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @dmi_check_system(ptr noundef nonnull @intel_dual_link_lvds) #6
+  %15 = tail call i32 @dmi_check_system(ptr noundef nonnull @intel_dual_link_lvds) #7
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %37
 
@@ -1121,7 +1121,7 @@ define internal fastcc zeroext i1 @compute_is_dual_link_lvds(ptr nocapture nound
   %20 = getelementptr inbounds i8, ptr %2, i64 7368
   %21 = getelementptr inbounds i8, ptr %2, i64 7512
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %20, i32 %19, i1 noundef zeroext true) #6
+  %23 = tail call i32 %22(ptr noundef %20, i32 %19, i1 noundef zeroext true) #7
   %24 = getelementptr inbounds i8, ptr %2, i64 8112
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 2
@@ -1155,19 +1155,19 @@ declare dso_local void @drm_encoder_cleanup(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @intel_connector_free(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_no_lvds_dmi_callback(ptr nocapture noundef readonly %0) #0 align 16 {
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @intel_no_lvds_dmi_callback(ptr nocapture noundef readonly %0) #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36, ptr noundef %3) #8
+  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36, ptr noundef %3) #9
   ret i32 1
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @intel_panel_detect(ptr noundef, i1 noundef zeroext) #3
@@ -1200,7 +1200,7 @@ declare dso_local i32 @intel_digital_connector_atomic_get_property(ptr noundef, 
 declare dso_local void @intel_encoder_destroy(ptr noundef) #3
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @intel_backlight_enable(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -1238,13 +1238,13 @@ define internal fastcc void @intel_disable_lvds(ptr nocapture noundef readonly %
   %6 = getelementptr inbounds i8, ptr %2, i64 7368
   %7 = getelementptr inbounds i8, ptr %2, i64 7512
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %6, i32 %5, i1 noundef zeroext true) #6
+  %9 = tail call i32 %8(ptr noundef %6, i32 %5, i1 noundef zeroext true) #7
   %10 = and i32 %9, -2
   %11 = getelementptr inbounds i8, ptr %2, i64 7544
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef %6, i32 %5, i32 noundef %10, i1 noundef zeroext true) #6
+  tail call void %12(ptr noundef %6, i32 %5, i32 noundef %10, i1 noundef zeroext true) #7
   %13 = load i32, ptr %3, align 8
-  %14 = tail call i32 @__intel_wait_for_register(ptr noundef %6, i32 %13, i32 noundef -2147483648, i32 noundef 0, i32 noundef 2, i32 noundef 1000, ptr noundef null) #6
+  %14 = tail call i32 @__intel_wait_for_register(ptr noundef %6, i32 %13, i32 noundef -2147483648, i32 noundef 0, i32 noundef 2, i32 noundef 1000, ptr noundef null) #7
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %23, label %16
 
@@ -1259,20 +1259,20 @@ define internal fastcc void @intel_disable_lvds(ptr nocapture noundef readonly %
 
 21:                                               ; preds = %18, %16
   %22 = phi ptr [ %20, %18 ], [ null, %16 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %22, ptr noundef nonnull @.str.43) #8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %22, ptr noundef nonnull @.str.43) #9
   br label %23
 
 23:                                               ; preds = %21, %1
   %24 = getelementptr inbounds i8, ptr %0, i64 388
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr %7, align 8
-  %27 = tail call i32 %26(ptr noundef %6, i32 %25, i1 noundef zeroext true) #6
+  %27 = tail call i32 %26(ptr noundef %6, i32 %25, i1 noundef zeroext true) #7
   %28 = and i32 %27, 2147483647
   %29 = load ptr, ptr %11, align 8
-  tail call void %29(ptr noundef %6, i32 %25, i32 noundef %28, i1 noundef zeroext true) #6
+  tail call void %29(ptr noundef %6, i32 %25, i32 noundef %28, i1 noundef zeroext true) #7
   %30 = load i32, ptr %24, align 4
   %31 = load ptr, ptr %7, align 8
-  %32 = tail call i32 %31(ptr noundef %6, i32 %30, i1 noundef zeroext false) #6
+  %32 = tail call i32 %31(ptr noundef %6, i32 %30, i1 noundef zeroext false) #7
   ret void
 }
 
@@ -1292,12 +1292,12 @@ define internal i32 @intel_lvds_get_modes(ptr noundef %0) #0 align 16 {
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @drm_edid_connector_update(ptr noundef %0, ptr noundef nonnull %3) #6
-  %9 = tail call i32 @drm_edid_connector_add_modes(ptr noundef %0) #6
+  %8 = tail call i32 @drm_edid_connector_update(ptr noundef %0, ptr noundef nonnull %3) #7
+  %9 = tail call i32 @drm_edid_connector_add_modes(ptr noundef %0) #7
   br label %12
 
 10:                                               ; preds = %1
-  %11 = tail call i32 @intel_panel_get_modes(ptr noundef %0) #6
+  %11 = tail call i32 @intel_panel_get_modes(ptr noundef %0) #7
   br label %12
 
 12:                                               ; preds = %10, %7
@@ -1308,11 +1308,11 @@ define internal i32 @intel_lvds_get_modes(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_lvds_mode_valid(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call ptr @intel_panel_fixed_mode(ptr noundef %0, ptr noundef %1) #6
+  %4 = tail call ptr @intel_panel_fixed_mode(ptr noundef %0, ptr noundef %1) #7
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8076
   %7 = load i32, ptr %6, align 4
-  %8 = tail call i32 @intel_cpu_transcoder_mode_valid(ptr noundef %3, ptr noundef %1) #6
+  %8 = tail call i32 @intel_cpu_transcoder_mode_valid(ptr noundef %3, ptr noundef %1) #7
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %22
 
@@ -1324,7 +1324,7 @@ define internal i32 @intel_lvds_mode_valid(ptr noundef %0, ptr noundef %1) #0 al
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %10
-  %16 = tail call i32 @intel_panel_mode_valid(ptr noundef %0, ptr noundef %1) #6
+  %16 = tail call i32 @intel_panel_mode_valid(ptr noundef %0, ptr noundef %1) #7
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %22
 
@@ -1357,11 +1357,11 @@ declare dso_local i32 @intel_panel_mode_valid(ptr noundef, ptr noundef) local_un
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @intel_attach_scaling_mode_property(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_dual_link_lvds_callback(ptr nocapture noundef readonly %0) #0 align 16 {
+; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @intel_dual_link_lvds_callback(ptr nocapture noundef readonly %0) #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.50, ptr noundef %3) #8
+  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.50, ptr noundef %3) #9
   ret i32 1
 }
 
@@ -1369,11 +1369,12 @@ attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind allocsize(2) }
-attributes #8 = { cold nounwind }
+attributes #4 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind allocsize(2) }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

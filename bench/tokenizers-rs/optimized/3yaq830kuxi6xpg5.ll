@@ -14354,8 +14354,8 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN9hashbrown11ru
   ret ptr %3
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN9monostate11deserialize82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$monostate..MustBeStr$LT$V$GT$$GT$11deserialize17h3681fe8780c1018eE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+; Function Attrs: cold nonlazybind uwtable
+define hidden noundef nonnull align 8 ptr @"_ZN9monostate11deserialize82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$monostate..MustBeStr$LT$V$GT$$GT$11deserialize17h3681fe8780c1018eE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #12 personality ptr @rust_eh_personality {
   %3 = tail call noundef nonnull align 8 ptr @_ZN5serde2de5Error13missing_field17h1953d67a0e230fe9E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
   ret ptr %3
 }
@@ -14370,8 +14370,8 @@ define hidden noundef align 8 ptr @"_ZN9monostate11deserialize82_$LT$impl$u20$se
   ret ptr %3
 }
 
-; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN9monostate11deserialize82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$monostate..MustBeStr$LT$V$GT$$GT$11deserialize17h843b5960043950cdE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+; Function Attrs: cold nonlazybind uwtable
+define hidden noundef nonnull align 8 ptr @"_ZN9monostate11deserialize82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$monostate..MustBeStr$LT$V$GT$$GT$11deserialize17h843b5960043950cdE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #12 personality ptr @rust_eh_personality {
   %3 = tail call noundef nonnull align 8 ptr @_ZN5serde2de5Error13missing_field17h1953d67a0e230fe9E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
   ret ptr %3
 }

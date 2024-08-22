@@ -138,11 +138,11 @@ define range(i32 0, 2) i32 @tng_atom_name_get(ptr nocapture noundef readnone %0,
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %3, -1
   %8 = sext i32 %7 to i64
-  %9 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %6, i64 noundef %8) #23
+  %9 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %6, i64 noundef %8) #24
   %10 = getelementptr inbounds i8, ptr %2, i64 %8
   store i8 0, ptr %10, align 1
   %11 = load ptr, ptr %5, align 8
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #24
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #25
   %13 = zext i32 %7 to i64
   %14 = icmp ugt i64 %12, %13
   %. = zext i1 %14 to i32
@@ -157,7 +157,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_atom_name_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
   %6 = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 1024)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
@@ -166,28 +166,28 @@ define range(i32 0, 3) i32 @tng_atom_name_set(ptr nocapture noundef readnone %0,
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #24
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #25
   %11 = icmp ult i64 %10, %6
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %8) #23
+  tail call void @free(ptr noundef nonnull %8) #24
   br label %.thread
 
 .thread:                                          ; preds = %3, %12
-  %13 = tail call noalias ptr @malloc(i64 noundef %6) #25
+  %13 = tail call noalias ptr @malloc(i64 noundef %6) #26
   store ptr %13, ptr %7, align 8
   %.not15 = icmp eq ptr %13, null
   br i1 %.not15, label %14, label %17
 
 14:                                               ; preds = %.thread
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6310) #26
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6310) #27
   br label %20
 
 17:                                               ; preds = %9, %.thread
   %18 = phi ptr [ %13, %.thread ], [ %8, %9 ]
-  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #23
+  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #24
   br label %20
 
 20:                                               ; preds = %17, %14
@@ -210,11 +210,11 @@ define range(i32 0, 2) i32 @tng_atom_type_get(ptr nocapture noundef readnone %0,
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %3, -1
   %8 = sext i32 %7 to i64
-  %9 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %6, i64 noundef %8) #23
+  %9 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %6, i64 noundef %8) #24
   %10 = getelementptr inbounds i8, ptr %2, i64 %8
   store i8 0, ptr %10, align 1
   %11 = load ptr, ptr %5, align 8
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #24
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #25
   %13 = zext i32 %7 to i64
   %14 = icmp ugt i64 %12, %13
   %. = zext i1 %14 to i32
@@ -223,7 +223,7 @@ define range(i32 0, 2) i32 @tng_atom_type_get(ptr nocapture noundef readnone %0,
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_atom_type_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
   %6 = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 1024)
   %7 = getelementptr inbounds i8, ptr %1, i64 16
@@ -232,28 +232,28 @@ define range(i32 0, 3) i32 @tng_atom_type_set(ptr nocapture noundef readnone %0,
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #24
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #25
   %11 = icmp ult i64 %10, %6
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %8) #23
+  tail call void @free(ptr noundef nonnull %8) #24
   br label %.thread
 
 .thread:                                          ; preds = %3, %12
-  %13 = tail call noalias ptr @malloc(i64 noundef %6) #25
+  %13 = tail call noalias ptr @malloc(i64 noundef %6) #26
   store ptr %13, ptr %7, align 8
   %.not15 = icmp eq ptr %13, null
   br i1 %.not15, label %14, label %17
 
 14:                                               ; preds = %.thread
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6363) #26
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6363) #27
   br label %20
 
 17:                                               ; preds = %9, %.thread
   %18 = phi ptr [ %13, %.thread ], [ %8, %9 ]
-  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #23
+  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #24
   br label %20
 
 20:                                               ; preds = %17, %14
@@ -282,7 +282,7 @@ define noundef i32 @tng_version_patchlevel(ptr nocapture noundef readnone %0, pt
 ; Function Attrs: nofree nounwind uwtable
 define noundef i32 @tng_version(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = sext i32 %2 to i64
-  %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #23
+  %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #24
   ret i32 0
 }
 
@@ -319,15 +319,15 @@ define range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr nocapture noundef %0, ptr 
   %8 = load i64, ptr %7, align 8
   %9 = mul i64 %8, 88
   %10 = add i64 %9, 88
-  %11 = tail call ptr @realloc(ptr noundef %6, i64 noundef %10) #27
+  %11 = tail call ptr @realloc(ptr noundef %6, i64 noundef %10) #28
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %16
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6536) #26
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6536) #27
   %15 = load ptr, ptr %5, align 8
-  tail call void @free(ptr noundef %15) #23
+  tail call void @free(ptr noundef %15) #24
   store ptr null, ptr %5, align 8
   br label %47
 
@@ -337,17 +337,17 @@ define range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr nocapture noundef %0, ptr 
   %19 = load i64, ptr %7, align 8
   %20 = shl i64 %19, 3
   %21 = add i64 %20, 8
-  %22 = tail call ptr @realloc(ptr noundef %18, i64 noundef %21) #27
+  %22 = tail call ptr @realloc(ptr noundef %18, i64 noundef %21) #28
   %.not31 = icmp eq ptr %22, null
   br i1 %.not31, label %23, label %.thread.i
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6547) #26
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6547) #27
   %26 = load ptr, ptr %17, align 8
-  tail call void @free(ptr noundef %26) #23
+  tail call void @free(ptr noundef %26) #24
   store ptr null, ptr %17, align 8
-  tail call void @free(ptr noundef nonnull %11) #23
+  tail call void @free(ptr noundef nonnull %11) #24
   br label %47
 
 .thread.i:                                        ; preds = %16
@@ -360,22 +360,22 @@ define range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr nocapture noundef %0, ptr 
   store i64 1, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %28, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, i8 0, i64 72, i1 false)
-  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #24
+  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #25
   %32 = add i64 %31, 1
   %33 = tail call noundef i64 @llvm.umin.i64(i64 %32, i64 1024)
   %34 = getelementptr inbounds i8, ptr %28, i64 48
-  %35 = tail call noalias ptr @malloc(i64 noundef %33) #25
+  %35 = tail call noalias ptr @malloc(i64 noundef %33) #26
   store ptr %35, ptr %34, align 8
   %.not15.i = icmp eq ptr %35, null
   br i1 %.not15.i, label %36, label %39
 
 36:                                               ; preds = %.thread.i
   %37 = load ptr, ptr @stderr, align 8
-  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6678) #26
+  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6678) #27
   br label %tng_molecule_name_set.exit
 
 39:                                               ; preds = %.thread.i
-  %40 = tail call ptr @strncpy(ptr noundef nonnull %35, ptr noundef readonly %1, i64 noundef %33) #23
+  %40 = tail call ptr @strncpy(ptr noundef nonnull %35, ptr noundef readonly %1, i64 noundef %33) #24
   br label %tng_molecule_name_set.exit
 
 tng_molecule_name_set.exit:                       ; preds = %36, %39
@@ -409,7 +409,7 @@ define noundef i32 @tng_molecule_init(ptr nocapture noundef readnone %0, ptr noc
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_molecule_name_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
   %6 = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 1024)
   %7 = getelementptr inbounds i8, ptr %1, i64 48
@@ -418,28 +418,28 @@ define range(i32 0, 3) i32 @tng_molecule_name_set(ptr nocapture noundef readnone
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #24
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #25
   %11 = icmp ult i64 %10, %6
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %8) #23
+  tail call void @free(ptr noundef nonnull %8) #24
   br label %.thread
 
 .thread:                                          ; preds = %3, %12
-  %13 = tail call noalias ptr @malloc(i64 noundef %6) #25
+  %13 = tail call noalias ptr @malloc(i64 noundef %6) #26
   store ptr %13, ptr %7, align 8
   %.not15 = icmp eq ptr %13, null
   br i1 %.not15, label %14, label %17
 
 14:                                               ; preds = %.thread
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6678) #26
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6678) #27
   br label %20
 
 17:                                               ; preds = %9, %.thread
   %18 = phi ptr [ %13, %.thread ], [ %8, %9 ]
-  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #23
+  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #24
   br label %20
 
 20:                                               ; preds = %17, %14
@@ -468,15 +468,15 @@ define range(i32 0, 3) i32 @tng_molecule_existing_add(ptr nocapture noundef %0, 
   %10 = getelementptr inbounds i8, ptr %0, i64 216
   %11 = mul i64 %4, 88
   %12 = add i64 %11, 88
-  %13 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef %12) #27
+  %13 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef %12) #28
   %.not36 = icmp eq ptr %13, null
   br i1 %.not36, label %14, label %18
 
 14:                                               ; preds = %._crit_edge
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6595) #26
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6595) #27
   %17 = load ptr, ptr %10, align 8
-  tail call void @free(ptr noundef %17) #23
+  tail call void @free(ptr noundef %17) #24
   store ptr null, ptr %10, align 8
   br label %39
 
@@ -486,17 +486,17 @@ define range(i32 0, 3) i32 @tng_molecule_existing_add(ptr nocapture noundef %0, 
   %21 = load i64, ptr %3, align 8
   %22 = shl i64 %21, 3
   %23 = add i64 %22, 8
-  %24 = tail call ptr @realloc(ptr noundef %20, i64 noundef %23) #27
+  %24 = tail call ptr @realloc(ptr noundef %20, i64 noundef %23) #28
   %.not37 = icmp eq ptr %24, null
   br i1 %.not37, label %25, label %29
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6606) #26
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6606) #27
   %28 = load ptr, ptr %19, align 8
-  tail call void @free(ptr noundef %28) #23
+  tail call void @free(ptr noundef %28) #24
   store ptr null, ptr %19, align 8
-  tail call void @free(ptr noundef nonnull %13) #23
+  tail call void @free(ptr noundef nonnull %13) #24
   br label %39
 
 29:                                               ; preds = %18
@@ -509,7 +509,7 @@ define range(i32 0, 3) i32 @tng_molecule_existing_add(ptr nocapture noundef %0, 
   %33 = getelementptr inbounds i64, ptr %24, i64 %31
   store i64 0, ptr %33, align 8
   %34 = load ptr, ptr %1, align 8
-  tail call void @free(ptr noundef %34) #23
+  tail call void @free(ptr noundef %34) #24
   %35 = load i64, ptr %3, align 8
   %36 = getelementptr inbounds %struct.tng_molecule, ptr %13, i64 %35
   store ptr %36, ptr %1, align 8
@@ -533,11 +533,11 @@ define range(i32 0, 2) i32 @tng_molecule_name_get(ptr nocapture noundef readnone
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %3, -1
   %8 = sext i32 %7 to i64
-  %9 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %6, i64 noundef %8) #23
+  %9 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %6, i64 noundef %8) #24
   %10 = getelementptr inbounds i8, ptr %2, i64 %8
   store i8 0, ptr %10, align 1
   %11 = load ptr, ptr %5, align 8
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #24
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #25
   %13 = zext i32 %7 to i64
   %14 = icmp ugt i64 %12, %13
   %. = zext i1 %14 to i32
@@ -605,7 +605,7 @@ define range(i32 0, 2) i32 @tng_molecule_cnt_set(ptr nocapture noundef %0, ptr n
 
 ._crit_edge:                                      ; preds = %12, %3
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 6733) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 6733) #27
   br label %46
 
 16:                                               ; preds = %9
@@ -678,7 +678,7 @@ define range(i32 0, 2) i32 @tng_molecule_find(ptr nocapture noundef readonly %0,
 14:                                               ; preds = %.lr.ph.split.us
   %15 = getelementptr inbounds i8, ptr %11, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %16) #24
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %16) #25
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit, label %19
 
@@ -699,7 +699,7 @@ define range(i32 0, 2) i32 @tng_molecule_find(ptr nocapture noundef readonly %0,
 25:                                               ; preds = %.lr.ph.split
   %26 = getelementptr inbounds i8, ptr %22, i64 48
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %27) #24
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %27) #25
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %33
 
@@ -779,16 +779,16 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr nocapture noundef reado
   %21 = getelementptr inbounds i8, ptr %0, i64 208
   %22 = load i64, ptr %21, align 8
   %23 = mul i64 %22, 88
-  %24 = tail call ptr @realloc(ptr noundef %20, i64 noundef %23) #27
+  %24 = tail call ptr @realloc(ptr noundef %20, i64 noundef %23) #28
   store ptr %24, ptr %3, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %29
 
 25:                                               ; preds = %._crit_edge
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6828) #26
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6828) #27
   %28 = load ptr, ptr %19, align 8
-  tail call void @free(ptr noundef %28) #23
+  tail call void @free(ptr noundef %28) #24
   store ptr null, ptr %19, align 8
   br label %.loopexit104
 
@@ -797,17 +797,17 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr nocapture noundef reado
   %31 = load ptr, ptr %30, align 8
   %32 = load i64, ptr %21, align 8
   %33 = shl i64 %32, 3
-  %34 = tail call ptr @realloc(ptr noundef %31, i64 noundef %33) #27
+  %34 = tail call ptr @realloc(ptr noundef %31, i64 noundef %33) #28
   %.not93 = icmp eq ptr %34, null
   br i1 %.not93, label %35, label %39
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr @stderr, align 8
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6837) #26
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6837) #27
   %38 = load ptr, ptr %30, align 8
-  tail call void @free(ptr noundef %38) #23
+  tail call void @free(ptr noundef %38) #24
   store ptr null, ptr %30, align 8
-  tail call void @free(ptr noundef nonnull %24) #23
+  tail call void @free(ptr noundef nonnull %24) #24
   br label %.loopexit104
 
 39:                                               ; preds = %29
@@ -838,7 +838,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr nocapture noundef reado
 
 54:                                               ; preds = %47
   %55 = load ptr, ptr @stderr, align 8
-  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 6854) #26
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 6854) #27
   br label %.loopexit104
 
 57:                                               ; preds = %47
@@ -882,7 +882,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr nocapture noundef reado
 
 80:                                               ; preds = %67
   %81 = load ptr, ptr @stderr, align 8
-  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 6866) #26
+  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 6866) #27
   br label %.loopexit104
 
 83:                                               ; preds = %.lr.ph129, %._crit_edge127
@@ -910,7 +910,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr nocapture noundef reado
 
 96:                                               ; preds = %83
   %97 = load ptr, ptr @stderr, align 8
-  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 6878) #26
+  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 6878) #27
   br label %.loopexit104
 
 99:                                               ; preds = %103
@@ -937,7 +937,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr nocapture noundef reado
 
 115:                                              ; preds = %103
   %116 = load ptr, ptr @stderr, align 8
-  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 6890) #26
+  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 6890) #27
   br label %.loopexit104
 
 ._crit_edge127:                                   ; preds = %99, %.preheader
@@ -964,16 +964,16 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr nocapture noundef reado
   %129 = getelementptr inbounds i8, ptr %60, i64 80
   %130 = load ptr, ptr %129, align 8
   %131 = shl i64 %125, 4
-  %132 = tail call ptr @realloc(ptr noundef %130, i64 noundef %131) #27
+  %132 = tail call ptr @realloc(ptr noundef %130, i64 noundef %131) #28
   %.not95 = icmp eq ptr %132, null
   br i1 %.not95, label %133, label %138
 
 133:                                              ; preds = %128
   %134 = getelementptr inbounds i8, ptr %60, i64 40
   %135 = load ptr, ptr @stderr, align 8
-  %136 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6903) #26
+  %136 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6903) #27
   %137 = load ptr, ptr %129, align 8
-  tail call void @free(ptr noundef %137) #23
+  tail call void @free(ptr noundef %137) #24
   store i64 0, ptr %134, align 8
   br label %.loopexit104
 
@@ -1046,9 +1046,9 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr nocapture noundef reado
 
 .loopexit:                                        ; preds = %.loopexit103, %159
   %177 = load ptr, ptr @stderr, align 8
-  %178 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 6733) #26
+  %178 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 6733) #27
   %179 = load ptr, ptr @stderr, align 8
-  %180 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %179, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 6917) #26
+  %180 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %179, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 6917) #27
   br label %.loopexit104
 
 .loopexit104:                                     ; preds = %161, %39, %.loopexit, %133, %115, %96, %80, %54, %35, %25
@@ -1064,7 +1064,7 @@ define noundef i32 @tng_molecule_destroy(ptr nocapture readnone %0, ptr nocaptur
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %4) #23
+  tail call void @free(ptr noundef nonnull %4) #24
   store ptr null, ptr %3, align 8
   br label %6
 
@@ -1090,7 +1090,7 @@ define noundef i32 @tng_molecule_destroy(ptr nocapture readnone %0, ptr nocaptur
   br i1 %.not50, label %19, label %16
 
 16:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %15) #23
+  tail call void @free(ptr noundef nonnull %15) #24
   %17 = load ptr, ptr %7, align 8
   %18 = getelementptr inbounds %struct.tng_chain, ptr %17, i64 %.053, i32 2
   store ptr null, ptr %18, align 8
@@ -1109,7 +1109,7 @@ define noundef i32 @tng_molecule_destroy(ptr nocapture readnone %0, ptr nocaptur
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader52
   %23 = phi ptr [ %.pre60, %._crit_edge.loopexit ], [ %8, %.preheader52 ]
-  tail call void @free(ptr noundef %23) #23
+  tail call void @free(ptr noundef %23) #24
   store ptr null, ptr %7, align 8
   br label %24
 
@@ -1137,7 +1137,7 @@ define noundef i32 @tng_molecule_destroy(ptr nocapture readnone %0, ptr nocaptur
   br i1 %.not49, label %38, label %35
 
 35:                                               ; preds = %.lr.ph55
-  tail call void @free(ptr noundef nonnull %34) #23
+  tail call void @free(ptr noundef nonnull %34) #24
   %36 = load ptr, ptr %26, align 8
   %37 = getelementptr inbounds %struct.tng_residue, ptr %36, i64 %.154, i32 2
   store ptr null, ptr %37, align 8
@@ -1156,7 +1156,7 @@ define noundef i32 @tng_molecule_destroy(ptr nocapture readnone %0, ptr nocaptur
 
 ._crit_edge56:                                    ; preds = %._crit_edge56.loopexit, %.preheader51
   %42 = phi ptr [ %.pre62, %._crit_edge56.loopexit ], [ %27, %.preheader51 ]
-  tail call void @free(ptr noundef %42) #23
+  tail call void @free(ptr noundef %42) #24
   store ptr null, ptr %26, align 8
   br label %43
 
@@ -1184,7 +1184,7 @@ define noundef i32 @tng_molecule_destroy(ptr nocapture readnone %0, ptr nocaptur
   br i1 %.not.i, label %55, label %54
 
 54:                                               ; preds = %.lr.ph58
-  tail call void @free(ptr noundef nonnull %53) #23
+  tail call void @free(ptr noundef nonnull %53) #24
   store ptr null, ptr %52, align 8
   br label %55
 
@@ -1195,7 +1195,7 @@ define noundef i32 @tng_molecule_destroy(ptr nocapture readnone %0, ptr nocaptur
   br i1 %.not7.i, label %tng_atom_destroy.exit, label %58
 
 58:                                               ; preds = %55
-  tail call void @free(ptr noundef nonnull %57) #23
+  tail call void @free(ptr noundef nonnull %57) #24
   store ptr null, ptr %56, align 8
   br label %tng_atom_destroy.exit
 
@@ -1211,7 +1211,7 @@ tng_atom_destroy.exit:                            ; preds = %55, %58
 
 ._crit_edge59:                                    ; preds = %._crit_edge59.loopexit, %.preheader
   %62 = phi ptr [ %.pre63, %._crit_edge59.loopexit ], [ %46, %.preheader ]
-  tail call void @free(ptr noundef %62) #23
+  tail call void @free(ptr noundef %62) #24
   store ptr null, ptr %45, align 8
   br label %63
 
@@ -1224,7 +1224,7 @@ tng_atom_destroy.exit:                            ; preds = %55, %58
   br i1 %.not48, label %68, label %67
 
 67:                                               ; preds = %63
-  tail call void @free(ptr noundef nonnull %66) #23
+  tail call void @free(ptr noundef nonnull %66) #24
   store ptr null, ptr %65, align 8
   br label %68
 
@@ -1242,15 +1242,15 @@ define range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr nocapture readnone %
   %9 = load i64, ptr %8, align 8
   %10 = mul i64 %9, 40
   %11 = add i64 %10, 40
-  %12 = tail call ptr @realloc(ptr noundef %7, i64 noundef %11) #27
+  %12 = tail call ptr @realloc(ptr noundef %7, i64 noundef %11) #28
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %.thread.i
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7088) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7088) #27
   %16 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %16) #23
+  tail call void @free(ptr noundef %16) #24
   store ptr null, ptr %6, align 8
   br label %36
 
@@ -1260,22 +1260,22 @@ define range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr nocapture readnone %
   %18 = getelementptr inbounds %struct.tng_chain, ptr %12, i64 %17
   store ptr %18, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
-  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #24
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #25
   %21 = add i64 %20, 1
   %22 = tail call noundef i64 @llvm.umin.i64(i64 %21, i64 1024)
-  %23 = tail call noalias ptr @malloc(i64 noundef %22) #25
+  %23 = tail call noalias ptr @malloc(i64 noundef %22) #26
   store ptr %23, ptr %19, align 8
   %.not15.i = icmp eq ptr %23, null
   br i1 %.not15.i, label %24, label %27
 
 24:                                               ; preds = %.thread.i
   %25 = load ptr, ptr @stderr, align 8
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7215) #26
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7215) #27
   %.pre = load ptr, ptr %4, align 8
   br label %tng_chain_name_set.exit
 
 27:                                               ; preds = %.thread.i
-  %28 = tail call ptr @strncpy(ptr noundef nonnull %23, ptr noundef readonly %2, i64 noundef %22) #23
+  %28 = tail call ptr @strncpy(ptr noundef nonnull %23, ptr noundef readonly %2, i64 noundef %22) #24
   br label %tng_chain_name_set.exit
 
 tng_chain_name_set.exit:                          ; preds = %24, %27
@@ -1329,15 +1329,15 @@ define range(i32 0, 3) i32 @tng_chain_residue_w_id_add(ptr nocapture readnone %0
   %22 = load i64, ptr %21, align 8
   %23 = mul i64 %22, 40
   %24 = add i64 %23, 40
-  %25 = tail call ptr @realloc(ptr noundef %19, i64 noundef %24) #27
+  %25 = tail call ptr @realloc(ptr noundef %19, i64 noundef %24) #28
   %.not54 = icmp eq ptr %25, null
   br i1 %.not54, label %26, label %30
 
 26:                                               ; preds = %18
   %27 = load ptr, ptr @stderr, align 8
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7337) #26
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7337) #27
   %29 = load ptr, ptr %20, align 8
-  tail call void @free(ptr noundef %29) #23
+  tail call void @free(ptr noundef %29) #24
   store ptr null, ptr %20, align 8
   br label %118
 
@@ -1457,7 +1457,7 @@ tng_molecule_atoms_residue_pointers_update.exit:  ; preds = %._crit_edge.i, %tng
   %89 = getelementptr inbounds i8, ptr %88, i64 16
   store ptr null, ptr %89, align 8
   %90 = load ptr, ptr %4, align 8
-  %91 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #24
+  %91 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #25
   %92 = add i64 %91, 1
   %93 = tail call noundef i64 @llvm.umin.i64(i64 %92, i64 1024)
   %94 = getelementptr inbounds i8, ptr %90, i64 16
@@ -1466,28 +1466,28 @@ tng_molecule_atoms_residue_pointers_update.exit:  ; preds = %._crit_edge.i, %tng
   br i1 %.not.i, label %.thread.i, label %96
 
 96:                                               ; preds = %tng_molecule_atoms_residue_pointers_update.exit
-  %97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #24
+  %97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #25
   %98 = icmp ult i64 %97, %93
   br i1 %98, label %99, label %104
 
 99:                                               ; preds = %96
-  tail call void @free(ptr noundef nonnull %95) #23
+  tail call void @free(ptr noundef nonnull %95) #24
   br label %.thread.i
 
 .thread.i:                                        ; preds = %99, %tng_molecule_atoms_residue_pointers_update.exit
-  %100 = tail call noalias ptr @malloc(i64 noundef %93) #25
+  %100 = tail call noalias ptr @malloc(i64 noundef %93) #26
   store ptr %100, ptr %94, align 8
   %.not15.i = icmp eq ptr %100, null
   br i1 %.not15.i, label %101, label %104
 
 101:                                              ; preds = %.thread.i
   %102 = load ptr, ptr @stderr, align 8
-  %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7430) #26
+  %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7430) #27
   br label %tng_residue_name_set.exit
 
 104:                                              ; preds = %.thread.i, %96
   %105 = phi ptr [ %100, %.thread.i ], [ %95, %96 ]
-  %106 = tail call ptr @strncpy(ptr noundef nonnull %105, ptr noundef readonly %2, i64 noundef %93) #23
+  %106 = tail call ptr @strncpy(ptr noundef nonnull %105, ptr noundef readonly %2, i64 noundef %93) #24
   br label %tng_residue_name_set.exit
 
 tng_residue_name_set.exit:                        ; preds = %101, %104
@@ -1537,15 +1537,15 @@ define range(i32 0, 3) i32 @tng_residue_atom_w_id_add(ptr nocapture readnone %0,
   %17 = getelementptr inbounds i8, ptr %8, i64 32
   %18 = shl i64 %12, 5
   %19 = add i64 %18, 32
-  %20 = tail call ptr @realloc(ptr noundef %16, i64 noundef %19) #27
+  %20 = tail call ptr @realloc(ptr noundef %16, i64 noundef %19) #28
   %.not29 = icmp eq ptr %20, null
   br i1 %.not29, label %21, label %.thread.i
 
 21:                                               ; preds = %._crit_edge
   %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7532) #26
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7532) #27
   %24 = load ptr, ptr %15, align 8
-  tail call void @free(ptr noundef %24) #23
+  tail call void @free(ptr noundef %24) #24
   store ptr null, ptr %15, align 8
   br label %62
 
@@ -1556,31 +1556,31 @@ define range(i32 0, 3) i32 @tng_residue_atom_w_id_add(ptr nocapture readnone %0,
   store ptr %26, ptr %5, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   store i64 0, ptr %27, align 8
-  %28 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #24
+  %28 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #25
   %29 = add i64 %28, 1
   %30 = tail call noundef i64 @llvm.umin.i64(i64 %29, i64 1024)
   %31 = getelementptr inbounds i8, ptr %26, i64 24
-  %32 = tail call noalias ptr @malloc(i64 noundef %30) #25
+  %32 = tail call noalias ptr @malloc(i64 noundef %30) #26
   store ptr %32, ptr %31, align 8
   %.not15.i = icmp eq ptr %32, null
   br i1 %.not15.i, label %33, label %36
 
 33:                                               ; preds = %.thread.i
   %34 = load ptr, ptr @stderr, align 8
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6310) #26
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6310) #27
   %.pre35 = load ptr, ptr %5, align 8
   %.phi.trans.insert36 = getelementptr inbounds i8, ptr %.pre35, i64 16
   %.pre37 = load ptr, ptr %.phi.trans.insert36, align 8
   br label %tng_atom_name_set.exit
 
 36:                                               ; preds = %.thread.i
-  %37 = tail call ptr @strncpy(ptr noundef nonnull %32, ptr noundef readonly %2, i64 noundef %30) #23
+  %37 = tail call ptr @strncpy(ptr noundef nonnull %32, ptr noundef readonly %2, i64 noundef %30) #24
   br label %tng_atom_name_set.exit
 
 tng_atom_name_set.exit:                           ; preds = %33, %36
   %38 = phi ptr [ %.pre37, %33 ], [ null, %36 ]
   %39 = phi ptr [ %.pre35, %33 ], [ %26, %36 ]
-  %40 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #24
+  %40 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #25
   %41 = add i64 %40, 1
   %42 = tail call noundef i64 @llvm.umin.i64(i64 %41, i64 1024)
   %43 = getelementptr inbounds i8, ptr %39, i64 16
@@ -1588,28 +1588,28 @@ tng_atom_name_set.exit:                           ; preds = %33, %36
   br i1 %.not.i30, label %.thread.i32, label %44
 
 44:                                               ; preds = %tng_atom_name_set.exit
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #24
+  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #25
   %46 = icmp ult i64 %45, %42
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %44
-  tail call void @free(ptr noundef nonnull %38) #23
+  tail call void @free(ptr noundef nonnull %38) #24
   br label %.thread.i32
 
 .thread.i32:                                      ; preds = %47, %tng_atom_name_set.exit
-  %48 = tail call noalias ptr @malloc(i64 noundef %42) #25
+  %48 = tail call noalias ptr @malloc(i64 noundef %42) #26
   store ptr %48, ptr %43, align 8
   %.not15.i33 = icmp eq ptr %48, null
   br i1 %.not15.i33, label %49, label %52
 
 49:                                               ; preds = %.thread.i32
   %50 = load ptr, ptr @stderr, align 8
-  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6363) #26
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 6363) #27
   br label %tng_atom_type_set.exit
 
 52:                                               ; preds = %.thread.i32, %44
   %53 = phi ptr [ %48, %.thread.i32 ], [ %38, %44 ]
-  %54 = tail call ptr @strncpy(ptr noundef nonnull %53, ptr noundef readonly %3, i64 noundef %42) #23
+  %54 = tail call ptr @strncpy(ptr noundef nonnull %53, ptr noundef readonly %3, i64 noundef %42) #24
   br label %tng_atom_type_set.exit
 
 tng_atom_type_set.exit:                           ; preds = %49, %52
@@ -1740,7 +1740,7 @@ define range(i32 0, 2) i32 @tng_molecule_chain_find(ptr nocapture noundef readno
 15:                                               ; preds = %.lr.ph.split.us
   %16 = getelementptr inbounds i8, ptr %12, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %17) #24
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %17) #25
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit, label %20
 
@@ -1761,7 +1761,7 @@ define range(i32 0, 2) i32 @tng_molecule_chain_find(ptr nocapture noundef readno
 26:                                               ; preds = %.lr.ph.split
   %27 = getelementptr inbounds i8, ptr %23, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %28) #24
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %28) #25
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %35
 
@@ -1809,7 +1809,7 @@ define range(i32 0, 3) i32 @tng_molecule_chain_add(ptr nocapture noundef readnon
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_chain_name_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
   %6 = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 1024)
   %7 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1818,28 +1818,28 @@ define range(i32 0, 3) i32 @tng_chain_name_set(ptr nocapture noundef readnone %0
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #24
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #25
   %11 = icmp ult i64 %10, %6
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %8) #23
+  tail call void @free(ptr noundef nonnull %8) #24
   br label %.thread
 
 .thread:                                          ; preds = %3, %12
-  %13 = tail call noalias ptr @malloc(i64 noundef %6) #25
+  %13 = tail call noalias ptr @malloc(i64 noundef %6) #26
   store ptr %13, ptr %7, align 8
   %.not15 = icmp eq ptr %13, null
   br i1 %.not15, label %14, label %17
 
 14:                                               ; preds = %.thread
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7215) #26
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7215) #27
   br label %20
 
 17:                                               ; preds = %9, %.thread
   %18 = phi ptr [ %13, %.thread ], [ %8, %9 ]
-  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #23
+  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #24
   br label %20
 
 20:                                               ; preds = %17, %14
@@ -1855,16 +1855,16 @@ define range(i32 0, 3) i32 @tng_molecule_bond_add(ptr nocapture noundef readnone
   %9 = load i64, ptr %8, align 8
   %10 = shl i64 %9, 4
   %11 = add i64 %10, 16
-  %12 = tail call ptr @realloc(ptr noundef %7, i64 noundef %11) #27
+  %12 = tail call ptr @realloc(ptr noundef %7, i64 noundef %11) #28
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %17
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7124) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7124) #27
   store ptr null, ptr %4, align 8
   %16 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %16) #23
+  tail call void @free(ptr noundef %16) #24
   store ptr null, ptr %6, align 8
   br label %23
 
@@ -1911,7 +1911,7 @@ define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr nocapture noundef readnon
 15:                                               ; preds = %.lr.ph.split.us
   %16 = getelementptr inbounds i8, ptr %12, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %17) #24
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %17) #25
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit, label %20
 
@@ -1932,7 +1932,7 @@ define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr nocapture noundef readnon
 26:                                               ; preds = %.lr.ph.split
   %27 = getelementptr inbounds i8, ptr %23, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %28) #24
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %28) #25
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %35
 
@@ -1962,11 +1962,11 @@ define range(i32 0, 2) i32 @tng_chain_name_get(ptr nocapture noundef readnone %0
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %3, -1
   %8 = sext i32 %7 to i64
-  %9 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %6, i64 noundef %8) #23
+  %9 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %6, i64 noundef %8) #24
   %10 = getelementptr inbounds i8, ptr %2, i64 %8
   store i8 0, ptr %10, align 1
   %11 = load ptr, ptr %5, align 8
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #24
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #25
   %13 = zext i32 %7 to i64
   %14 = icmp ugt i64 %12, %13
   %. = zext i1 %14 to i32
@@ -2026,7 +2026,7 @@ define range(i32 0, 2) i32 @tng_chain_residue_find(ptr nocapture noundef readnon
 15:                                               ; preds = %.lr.ph.split.us
   %16 = getelementptr inbounds i8, ptr %12, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %17) #24
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %17) #25
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit, label %20
 
@@ -2047,7 +2047,7 @@ define range(i32 0, 2) i32 @tng_chain_residue_find(ptr nocapture noundef readnon
 26:                                               ; preds = %.lr.ph.split
   %27 = getelementptr inbounds i8, ptr %23, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %28) #24
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %28) #25
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %35
 
@@ -2098,7 +2098,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_residue_name_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
   %6 = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 1024)
   %7 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2107,28 +2107,28 @@ define range(i32 0, 3) i32 @tng_residue_name_set(ptr nocapture noundef readnone 
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #24
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #25
   %11 = icmp ult i64 %10, %6
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %8) #23
+  tail call void @free(ptr noundef nonnull %8) #24
   br label %.thread
 
 .thread:                                          ; preds = %3, %12
-  %13 = tail call noalias ptr @malloc(i64 noundef %6) #25
+  %13 = tail call noalias ptr @malloc(i64 noundef %6) #26
   store ptr %13, ptr %7, align 8
   %.not15 = icmp eq ptr %13, null
   br i1 %.not15, label %14, label %17
 
 14:                                               ; preds = %.thread
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7430) #26
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7430) #27
   br label %20
 
 17:                                               ; preds = %9, %.thread
   %18 = phi ptr [ %13, %.thread ], [ %8, %9 ]
-  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #23
+  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #24
   br label %20
 
 20:                                               ; preds = %17, %14
@@ -2142,11 +2142,11 @@ define range(i32 0, 2) i32 @tng_residue_name_get(ptr nocapture noundef readnone 
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %3, -1
   %8 = sext i32 %7 to i64
-  %9 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %6, i64 noundef %8) #23
+  %9 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %6, i64 noundef %8) #24
   %10 = getelementptr inbounds i8, ptr %2, i64 %8
   store i8 0, ptr %10, align 1
   %11 = load ptr, ptr %5, align 8
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #24
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #25
   %13 = zext i32 %7 to i64
   %14 = icmp ugt i64 %12, %13
   %. = zext i1 %14 to i32
@@ -2218,14 +2218,14 @@ define range(i32 0, 3) i32 @tng_residue_atom_add(ptr nocapture readnone %0, ptr 
 
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 0, 3) i32 @tng_molecule_alloc(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
-  %3 = tail call noalias dereferenceable_or_null(88) ptr @malloc(i64 noundef 88) #25
+  %3 = tail call noalias dereferenceable_or_null(88) ptr @malloc(i64 noundef 88) #26
   store ptr %3, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7562) #26
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7562) #27
   br label %10
 
 7:                                                ; preds = %2
@@ -2249,7 +2249,7 @@ define noundef i32 @tng_molecule_free(ptr nocapture noundef readnone %0, ptr noc
 4:                                                ; preds = %2
   %5 = tail call i32 @tng_molecule_destroy(ptr poison, ptr noundef nonnull %3)
   %6 = load ptr, ptr %1, align 8
-  tail call void @free(ptr noundef %6) #23
+  tail call void @free(ptr noundef %6) #24
   store ptr null, ptr %1, align 8
   br label %7
 
@@ -2302,11 +2302,11 @@ define range(i32 0, 2) i32 @tng_molecule_name_of_particle_nr_get(ptr nocapture n
   %24 = load ptr, ptr %23, align 8
   %25 = add nsw i32 %3, -1
   %26 = sext i32 %25 to i64
-  %27 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %24, i64 noundef %26) #23
+  %27 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %24, i64 noundef %26) #24
   %28 = getelementptr inbounds i8, ptr %2, i64 %26
   store i8 0, ptr %28, align 1
   %29 = load ptr, ptr %23, align 8
-  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #24
+  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #25
   %31 = zext i32 %25 to i64
   %32 = icmp ugt i64 %30, %31
   %. = zext i1 %32 to i32
@@ -2425,20 +2425,20 @@ define range(i32 0, 3) i32 @tng_molsystem_bonds_get(ptr nocapture noundef readon
 
 26:                                               ; preds = %._crit_edge
   %27 = shl i64 %21, 3
-  %28 = tail call noalias ptr @malloc(i64 noundef %27) #25
+  %28 = tail call noalias ptr @malloc(i64 noundef %27) #26
   store ptr %28, ptr %2, align 8
   %.not54 = icmp eq ptr %28, null
   br i1 %.not54, label %29, label %32
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7790) #26
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7790) #27
   br label %.loopexit
 
 32:                                               ; preds = %26
   %33 = load i64, ptr %1, align 8
   %34 = shl i64 %33, 3
-  %35 = tail call noalias ptr @malloc(i64 noundef %34) #25
+  %35 = tail call noalias ptr @malloc(i64 noundef %34) #26
   store ptr %35, ptr %3, align 8
   %.not55 = icmp eq ptr %35, null
   br i1 %.not55, label %39, label %.preheader58
@@ -2454,9 +2454,9 @@ define range(i32 0, 3) i32 @tng_molsystem_bonds_get(ptr nocapture noundef readon
 
 39:                                               ; preds = %32
   %40 = load ptr, ptr @stderr, align 8
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7796) #26
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7796) #27
   %42 = load ptr, ptr %2, align 8
-  tail call void @free(ptr noundef %42) #23
+  tail call void @free(ptr noundef %42) #24
   store ptr null, ptr %2, align 8
   br label %.loopexit
 
@@ -2601,14 +2601,14 @@ define range(i32 0, 2) i32 @tng_chain_name_of_particle_nr_get(ptr nocapture noun
   %32 = load ptr, ptr %31, align 8
   %33 = add nsw i32 %3, -1
   %34 = sext i32 %33 to i64
-  %35 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %32, i64 noundef %34) #23
+  %35 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %32, i64 noundef %34) #24
   %36 = getelementptr inbounds i8, ptr %2, i64 %34
   store i8 0, ptr %36, align 1
   %37 = load ptr, ptr %26, align 8
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #24
+  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #25
   %42 = zext i32 %33 to i64
   %43 = icmp ugt i64 %41, %42
   %. = zext i1 %43 to i32
@@ -2673,13 +2673,13 @@ define range(i32 0, 2) i32 @tng_residue_name_of_particle_nr_get(ptr nocapture no
   %30 = load ptr, ptr %29, align 8
   %31 = add nsw i32 %3, -1
   %32 = sext i32 %31 to i64
-  %33 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %30, i64 noundef %32) #23
+  %33 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %30, i64 noundef %32) #24
   %34 = getelementptr inbounds i8, ptr %2, i64 %32
   store i8 0, ptr %34, align 1
   %35 = load ptr, ptr %26, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #24
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #25
   %39 = zext i32 %31 to i64
   %40 = icmp ugt i64 %38, %39
   %. = zext i1 %40 to i32
@@ -2870,11 +2870,11 @@ define range(i32 0, 2) i32 @tng_atom_name_of_particle_nr_get(ptr nocapture nound
   %27 = load ptr, ptr %26, align 8
   %28 = add nsw i32 %3, -1
   %29 = sext i32 %28 to i64
-  %30 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %27, i64 noundef %29) #23
+  %30 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %27, i64 noundef %29) #24
   %31 = getelementptr inbounds i8, ptr %2, i64 %29
   store i8 0, ptr %31, align 1
   %32 = load ptr, ptr %26, align 8
-  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #24
+  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #25
   %34 = zext i32 %28 to i64
   %35 = icmp ugt i64 %33, %34
   %. = zext i1 %35 to i32
@@ -2933,11 +2933,11 @@ define range(i32 0, 2) i32 @tng_atom_type_of_particle_nr_get(ptr nocapture nound
   %27 = load ptr, ptr %26, align 8
   %28 = add nsw i32 %3, -1
   %29 = sext i32 %28 to i64
-  %30 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %27, i64 noundef %29) #23
+  %30 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %27, i64 noundef %29) #24
   %31 = getelementptr inbounds i8, ptr %2, i64 %29
   store i8 0, ptr %31, align 1
   %32 = load ptr, ptr %26, align 8
-  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #24
+  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #25
   %34 = zext i32 %28 to i64
   %35 = icmp ugt i64 %33, %34
   %. = zext i1 %35 to i32
@@ -2982,7 +2982,7 @@ define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr nocapture noundef %0, i
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 8134) #26
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 8134) #27
   br label %.loopexit
 
 24:                                               ; preds = %16, %13
@@ -2998,7 +2998,7 @@ define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr nocapture noundef %0, i
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr @stderr, align 8
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 8140) #26
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 8140) #27
   br label %.loopexit
 
 33:                                               ; preds = %25, %24
@@ -3009,7 +3009,7 @@ define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr nocapture noundef %0, i
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr @stderr, align 8
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 8146) #26
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 8146) #27
   br label %.loopexit
 
 38:                                               ; preds = %33
@@ -3023,7 +3023,7 @@ define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr nocapture noundef %0, i
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr @stderr, align 8
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 8152) #26
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 8152) #27
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %11, %4
@@ -3031,15 +3031,15 @@ define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr nocapture noundef %0, i
   store i64 %47, ptr %5, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 280
   %49 = mul i64 %47, 24
-  %50 = tail call ptr @realloc(ptr noundef %9, i64 noundef %49) #27
+  %50 = tail call ptr @realloc(ptr noundef %9, i64 noundef %49) #28
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %51, label %55
 
 51:                                               ; preds = %._crit_edge
   %52 = load ptr, ptr @stderr, align 8
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8164) #26
+  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8164) #27
   %54 = load ptr, ptr %48, align 8
-  tail call void @free(ptr noundef %54) #23
+  tail call void @free(ptr noundef %54) #24
   store ptr null, ptr %48, align 8
   br label %.loopexit
 
@@ -3052,7 +3052,7 @@ define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr nocapture noundef %0, i
   %59 = getelementptr i8, ptr %57, i64 -16
   store i64 %2, ptr %59, align 8
   %60 = shl i64 %2, 3
-  %61 = tail call noalias ptr @malloc(i64 noundef %60) #25
+  %61 = tail call noalias ptr @malloc(i64 noundef %60) #26
   %62 = getelementptr i8, ptr %57, i64 -8
   store ptr %61, ptr %62, align 8
   %.not66 = icmp eq ptr %61, null
@@ -3064,7 +3064,7 @@ define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr nocapture noundef %0, i
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr @stderr, align 8
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8178) #26
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8178) #27
   br label %.loopexit
 
 .lr.ph77:                                         ; preds = %.preheader, %.lr.ph77
@@ -3114,7 +3114,7 @@ define noundef i32 @tng_frame_set_particle_mapping_free(ptr nocapture noundef %0
   br i1 %.not15, label %13, label %12
 
 12:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %11) #23
+  tail call void @free(ptr noundef nonnull %11) #24
   store ptr null, ptr %10, align 8
   %.pre = load i64, ptr %2, align 8
   br label %13
@@ -3131,7 +3131,7 @@ define noundef i32 @tng_frame_set_particle_mapping_free(ptr nocapture noundef %0
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %17 = phi ptr [ %.pre17, %._crit_edge.loopexit ], [ %6, %.preheader ]
-  tail call void @free(ptr noundef %17) #23
+  tail call void @free(ptr noundef %17) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %18
 
@@ -3141,14 +3141,14 @@ define noundef i32 @tng_frame_set_particle_mapping_free(ptr nocapture noundef %0
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_trajectory_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
-  %2 = tail call noalias dereferenceable_or_null(504) ptr @malloc(i64 noundef 504) #25
+  %2 = tail call noalias dereferenceable_or_null(504) ptr @malloc(i64 noundef 504) #26
   store ptr %2, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %6
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8228) #26
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8228) #27
   br label %45
 
 6:                                                ; preds = %1
@@ -3156,13 +3156,13 @@ define range(i32 0, 3) i32 @tng_trajectory_init(ptr nocapture noundef writeonly 
   %8 = getelementptr inbounds i8, ptr %2, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
-  %9 = tail call i64 @time(ptr noundef null) #23
+  %9 = tail call i64 @time(ptr noundef null) #24
   %10 = icmp eq i64 %9, -1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 8255) #26
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 8255) #27
   br label %16
 
 14:                                               ; preds = %6
@@ -3274,7 +3274,7 @@ define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnam
   br i1 %.not353, label %17, label %16
 
 16:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %15) #23
+  tail call void @free(ptr noundef nonnull %15) #24
   store ptr null, ptr %2, align 8
   br label %17
 
@@ -3298,7 +3298,7 @@ define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnam
   br i1 %.not355, label %27, label %26
 
 26:                                               ; preds = %23
-  tail call void @free(ptr noundef nonnull %25) #23
+  tail call void @free(ptr noundef nonnull %25) #24
   store ptr null, ptr %24, align 8
   br label %27
 
@@ -3309,7 +3309,7 @@ define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnam
   br i1 %.not356, label %31, label %30
 
 30:                                               ; preds = %27
-  tail call void @free(ptr noundef nonnull %29) #23
+  tail call void @free(ptr noundef nonnull %29) #24
   store ptr null, ptr %28, align 8
   br label %31
 
@@ -3320,7 +3320,7 @@ define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnam
   br i1 %.not357, label %35, label %34
 
 34:                                               ; preds = %31
-  tail call void @free(ptr noundef nonnull %33) #23
+  tail call void @free(ptr noundef nonnull %33) #24
   store ptr null, ptr %32, align 8
   br label %35
 
@@ -3331,7 +3331,7 @@ define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnam
   br i1 %.not358, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void @free(ptr noundef nonnull %37) #23
+  tail call void @free(ptr noundef nonnull %37) #24
   store ptr null, ptr %36, align 8
   br label %39
 
@@ -3342,7 +3342,7 @@ define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnam
   br i1 %.not359, label %43, label %42
 
 42:                                               ; preds = %39
-  tail call void @free(ptr noundef nonnull %41) #23
+  tail call void @free(ptr noundef nonnull %41) #24
   store ptr null, ptr %40, align 8
   br label %43
 
@@ -3353,7 +3353,7 @@ define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnam
   br i1 %.not360, label %47, label %46
 
 46:                                               ; preds = %43
-  tail call void @free(ptr noundef nonnull %45) #23
+  tail call void @free(ptr noundef nonnull %45) #24
   store ptr null, ptr %44, align 8
   br label %47
 
@@ -3364,7 +3364,7 @@ define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnam
   br i1 %.not361, label %51, label %50
 
 50:                                               ; preds = %47
-  tail call void @free(ptr noundef nonnull %49) #23
+  tail call void @free(ptr noundef nonnull %49) #24
   store ptr null, ptr %48, align 8
   br label %51
 
@@ -3375,7 +3375,7 @@ define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnam
   br i1 %.not362, label %55, label %54
 
 54:                                               ; preds = %51
-  tail call void @free(ptr noundef nonnull %53) #23
+  tail call void @free(ptr noundef nonnull %53) #24
   store ptr null, ptr %52, align 8
   br label %55
 
@@ -3386,7 +3386,7 @@ define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnam
   br i1 %.not363, label %59, label %58
 
 58:                                               ; preds = %55
-  tail call void @free(ptr noundef nonnull %57) #23
+  tail call void @free(ptr noundef nonnull %57) #24
   store ptr null, ptr %56, align 8
   br label %59
 
@@ -3397,7 +3397,7 @@ define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnam
   br i1 %.not364, label %63, label %62
 
 62:                                               ; preds = %59
-  tail call void @free(ptr noundef nonnull %61) #23
+  tail call void @free(ptr noundef nonnull %61) #24
   store ptr null, ptr %60, align 8
   br label %63
 
@@ -3427,7 +3427,7 @@ define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnam
   br i1 %.not15.i, label %75, label %74
 
 74:                                               ; preds = %.lr.ph.i
-  tail call void @free(ptr noundef nonnull %73) #23
+  tail call void @free(ptr noundef nonnull %73) #24
   store ptr null, ptr %72, align 8
   %.pre.i = load i64, ptr %64, align 8
   br label %75
@@ -3444,7 +3444,7 @@ define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnam
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %79 = phi ptr [ %.pre17.i, %._crit_edge.loopexit.i ], [ %68, %.preheader.i ]
-  tail call void @free(ptr noundef %79) #23
+  tail call void @free(ptr noundef %79) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   br label %tng_frame_set_particle_mapping_free.exit
 
@@ -3455,7 +3455,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not365, label %83, label %82
 
 82:                                               ; preds = %tng_frame_set_particle_mapping_free.exit
-  tail call void @free(ptr noundef nonnull %81) #23
+  tail call void @free(ptr noundef nonnull %81) #24
   store ptr null, ptr %80, align 8
   br label %83
 
@@ -3491,7 +3491,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not391, label %99, label %96
 
 96:                                               ; preds = %92
-  tail call void @free(ptr noundef nonnull %95) #23
+  tail call void @free(ptr noundef nonnull %95) #24
   %97 = load ptr, ptr %86, align 8
   %98 = getelementptr inbounds %struct.tng_data, ptr %97, i64 %.0312413, i32 11
   store ptr null, ptr %98, align 8
@@ -3546,7 +3546,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not396.us, label %131, label %123
 
 123:                                              ; preds = %.preheader404.us
-  tail call void @free(ptr noundef nonnull %122) #23
+  tail call void @free(ptr noundef nonnull %122) #24
   %124 = load ptr, ptr %86, align 8
   %125 = getelementptr inbounds %struct.tng_data, ptr %124, i64 %.0312413, i32 12
   %126 = load ptr, ptr %125, align 8
@@ -3574,7 +3574,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds ptr, ptr %138, i64 %.0318410.us
   %140 = load ptr, ptr %139, align 8
-  tail call void @free(ptr noundef %140) #23
+  tail call void @free(ptr noundef %140) #24
   %141 = load ptr, ptr %86, align 8
   %142 = getelementptr inbounds %struct.tng_data, ptr %141, i64 %.0312413, i32 12
   %143 = load ptr, ptr %142, align 8
@@ -3595,7 +3595,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not395, label %157, label %.preheader404
 
 .preheader404:                                    ; preds = %.lr.ph411.split
-  tail call void @free(ptr noundef nonnull %151) #23
+  tail call void @free(ptr noundef nonnull %151) #24
   %152 = load ptr, ptr %86, align 8
   %153 = getelementptr inbounds %struct.tng_data, ptr %152, i64 %.0312413, i32 12
   %154 = load ptr, ptr %153, align 8
@@ -3614,7 +3614,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %160 = getelementptr inbounds %struct.tng_data, ptr %159, i64 %.0312413, i32 12
   %161 = load ptr, ptr %160, align 8
   %162 = load ptr, ptr %161, align 8
-  tail call void @free(ptr noundef %162) #23
+  tail call void @free(ptr noundef %162) #24
   %163 = load ptr, ptr %86, align 8
   %164 = getelementptr inbounds %struct.tng_data, ptr %163, i64 %.0312413, i32 12
   %165 = load ptr, ptr %164, align 8
@@ -3626,7 +3626,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %167 = phi ptr [ %.pre487, %._crit_edge412 ], [ %100, %104 ]
   %168 = getelementptr inbounds %struct.tng_data, ptr %167, i64 %.0312413, i32 12
   %169 = load ptr, ptr %168, align 8
-  tail call void @free(ptr noundef %169) #23
+  tail call void @free(ptr noundef %169) #24
   %170 = load ptr, ptr %86, align 8
   %171 = getelementptr inbounds %struct.tng_data, ptr %170, i64 %.0312413, i32 12
   store ptr null, ptr %171, align 8
@@ -3641,7 +3641,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not394, label %179, label %176
 
 176:                                              ; preds = %172
-  tail call void @free(ptr noundef nonnull %175) #23
+  tail call void @free(ptr noundef nonnull %175) #24
   %177 = load ptr, ptr %86, align 8
   %178 = getelementptr inbounds %struct.tng_data, ptr %177, i64 %.0312413, i32 1
   store ptr null, ptr %178, align 8
@@ -3660,7 +3660,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader406
   %184 = phi ptr [ %.pre489, %._crit_edge.loopexit ], [ %87, %.preheader406 ]
-  tail call void @free(ptr noundef %184) #23
+  tail call void @free(ptr noundef %184) #24
   store ptr null, ptr %86, align 8
   br label %185
 
@@ -3685,7 +3685,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not386, label %197, label %194
 
 194:                                              ; preds = %.lr.ph423
-  tail call void @free(ptr noundef nonnull %193) #23
+  tail call void @free(ptr noundef nonnull %193) #24
   %195 = load ptr, ptr %186, align 8
   %196 = getelementptr inbounds %struct.tng_data, ptr %195, i64 %.1420, i32 11
   store ptr null, ptr %196, align 8
@@ -3725,7 +3725,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not390, label %222, label %215
 
 215:                                              ; preds = %.lr.ph418
-  tail call void @free(ptr noundef nonnull %214) #23
+  tail call void @free(ptr noundef nonnull %214) #24
   %216 = load ptr, ptr %186, align 8
   %217 = getelementptr inbounds %struct.tng_data, ptr %216, i64 %.1420, i32 12
   %218 = load ptr, ptr %217, align 8
@@ -3750,7 +3750,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %226 = load ptr, ptr %225, align 8
   %227 = load ptr, ptr %226, align 8
   %228 = load ptr, ptr %227, align 8
-  tail call void @free(ptr noundef %228) #23
+  tail call void @free(ptr noundef %228) #24
   %229 = load ptr, ptr %186, align 8
   %230 = getelementptr inbounds %struct.tng_data, ptr %229, i64 %.1420, i32 12
   %231 = load ptr, ptr %230, align 8
@@ -3764,7 +3764,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %235 = getelementptr inbounds %struct.tng_data, ptr %234, i64 %.1420, i32 12
   %236 = load ptr, ptr %235, align 8
   %237 = load ptr, ptr %236, align 8
-  tail call void @free(ptr noundef %237) #23
+  tail call void @free(ptr noundef %237) #24
   %238 = load ptr, ptr %186, align 8
   %239 = getelementptr inbounds %struct.tng_data, ptr %238, i64 %.1420, i32 12
   %240 = load ptr, ptr %239, align 8
@@ -3772,7 +3772,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %241 = load ptr, ptr %186, align 8
   %242 = getelementptr inbounds %struct.tng_data, ptr %241, i64 %.1420, i32 12
   %243 = load ptr, ptr %242, align 8
-  tail call void @free(ptr noundef %243) #23
+  tail call void @free(ptr noundef %243) #24
   %244 = load ptr, ptr %186, align 8
   %245 = getelementptr inbounds %struct.tng_data, ptr %244, i64 %.1420, i32 12
   store ptr null, ptr %245, align 8
@@ -3787,7 +3787,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not389, label %253, label %250
 
 250:                                              ; preds = %246
-  tail call void @free(ptr noundef nonnull %249) #23
+  tail call void @free(ptr noundef nonnull %249) #24
   %251 = load ptr, ptr %186, align 8
   %252 = getelementptr inbounds %struct.tng_data, ptr %251, i64 %.1420, i32 1
   store ptr null, ptr %252, align 8
@@ -3806,7 +3806,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 
 ._crit_edge424:                                   ; preds = %._crit_edge424.loopexit, %.preheader403
   %258 = phi ptr [ %.pre494, %._crit_edge424.loopexit ], [ %187, %.preheader403 ]
-  tail call void @free(ptr noundef %258) #23
+  tail call void @free(ptr noundef %258) #24
   store ptr null, ptr %186, align 8
   br label %259
 
@@ -3821,7 +3821,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not369, label %265, label %264
 
 264:                                              ; preds = %259
-  tail call void @free(ptr noundef nonnull %263) #23
+  tail call void @free(ptr noundef nonnull %263) #24
   store ptr null, ptr %262, align 8
   br label %265
 
@@ -3832,7 +3832,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not370, label %269, label %268
 
 268:                                              ; preds = %265
-  tail call void @free(ptr noundef nonnull %267) #23
+  tail call void @free(ptr noundef nonnull %267) #24
   store ptr null, ptr %266, align 8
   br label %269
 
@@ -3861,7 +3861,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not380, label %283, label %280
 
 280:                                              ; preds = %276
-  tail call void @free(ptr noundef nonnull %279) #23
+  tail call void @free(ptr noundef nonnull %279) #24
   %281 = load ptr, ptr %270, align 8
   %282 = getelementptr inbounds %struct.tng_data, ptr %281, i64 %.2445, i32 11
   store ptr null, ptr %282, align 8
@@ -3938,7 +3938,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not385.us.us.us, label %332, label %323
 
 323:                                              ; preds = %.preheader399.us.us.us
-  tail call void @free(ptr noundef nonnull %322) #23
+  tail call void @free(ptr noundef nonnull %322) #24
   %324 = load ptr, ptr %270, align 8
   %325 = getelementptr inbounds %struct.tng_data, ptr %324, i64 %.2445, i32 12
   %326 = load ptr, ptr %325, align 8
@@ -3968,7 +3968,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %340 = load ptr, ptr %339, align 8
   %341 = getelementptr inbounds ptr, ptr %340, i64 %.1316428.us.us.us
   %342 = load ptr, ptr %341, align 8
-  tail call void @free(ptr noundef %342) #23
+  tail call void @free(ptr noundef %342) #24
   %343 = load ptr, ptr %270, align 8
   %344 = getelementptr inbounds %struct.tng_data, ptr %343, i64 %.2445, i32 12
   %345 = load ptr, ptr %344, align 8
@@ -3984,7 +3984,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %351 = load ptr, ptr %350, align 8
   %352 = getelementptr inbounds ptr, ptr %351, i64 %.2320432.us.us
   %353 = load ptr, ptr %352, align 8
-  tail call void @free(ptr noundef %353) #23
+  tail call void @free(ptr noundef %353) #24
   %354 = load ptr, ptr %270, align 8
   %355 = getelementptr inbounds %struct.tng_data, ptr %354, i64 %.2445, i32 12
   %356 = load ptr, ptr %355, align 8
@@ -4030,7 +4030,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %378, label %.lr.ph436.split.us.split, label %._crit_edge437, !llvm.loop !44
 
 .preheader399.us440:                              ; preds = %.preheader400.us
-  tail call void @free(ptr noundef nonnull %369) #23
+  tail call void @free(ptr noundef nonnull %369) #24
   %379 = load ptr, ptr %270, align 8
   %380 = getelementptr inbounds %struct.tng_data, ptr %379, i64 %.2445, i32 12
   %381 = load ptr, ptr %380, align 8
@@ -4046,7 +4046,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %387 = load ptr, ptr %386, align 8
   %388 = getelementptr inbounds ptr, ptr %387, i64 %.2320432.us
   %389 = load ptr, ptr %388, align 8
-  tail call void @free(ptr noundef %389) #23
+  tail call void @free(ptr noundef %389) #24
   %390 = load ptr, ptr %270, align 8
   %391 = getelementptr inbounds %struct.tng_data, ptr %390, i64 %.2445, i32 12
   %392 = load ptr, ptr %391, align 8
@@ -4066,7 +4066,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not383, label %403, label %.preheader400
 
 .preheader400:                                    ; preds = %.lr.ph436.split
-  tail call void @free(ptr noundef nonnull %398) #23
+  tail call void @free(ptr noundef nonnull %398) #24
   %399 = load ptr, ptr %270, align 8
   %400 = getelementptr inbounds %struct.tng_data, ptr %399, i64 %.2445, i32 12
   %401 = load ptr, ptr %400, align 8
@@ -4088,7 +4088,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %.lcssa408 = phi ptr [ %285, %288 ], [ %303, %300 ], [ %375, %372 ], [ %406, %403 ]
   %410 = getelementptr inbounds i8, ptr %.lcssa408, i64 88
   %411 = load ptr, ptr %410, align 8
-  tail call void @free(ptr noundef %411) #23
+  tail call void @free(ptr noundef %411) #24
   %412 = load ptr, ptr %270, align 8
   %413 = getelementptr inbounds %struct.tng_data, ptr %412, i64 %.2445, i32 12
   store ptr null, ptr %413, align 8
@@ -4103,7 +4103,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not382, label %421, label %418
 
 418:                                              ; preds = %414
-  tail call void @free(ptr noundef nonnull %417) #23
+  tail call void @free(ptr noundef nonnull %417) #24
   %419 = load ptr, ptr %270, align 8
   %420 = getelementptr inbounds %struct.tng_data, ptr %419, i64 %.2445, i32 1
   store ptr null, ptr %420, align 8
@@ -4122,7 +4122,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 
 ._crit_edge450:                                   ; preds = %._crit_edge450.loopexit, %.preheader401
   %426 = phi ptr [ %.pre500, %._crit_edge450.loopexit ], [ %271, %.preheader401 ]
-  tail call void @free(ptr noundef %426) #23
+  tail call void @free(ptr noundef %426) #24
   store ptr null, ptr %270, align 8
   br label %427
 
@@ -4147,7 +4147,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not375, label %439, label %436
 
 436:                                              ; preds = %.lr.ph464
-  tail call void @free(ptr noundef nonnull %435) #23
+  tail call void @free(ptr noundef nonnull %435) #24
   %437 = load ptr, ptr %428, align 8
   %438 = getelementptr inbounds %struct.tng_data, ptr %437, i64 %.3461, i32 11
   store ptr null, ptr %438, align 8
@@ -4198,7 +4198,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not379.us, label %470, label %463
 
 463:                                              ; preds = %.preheader397.us
-  tail call void @free(ptr noundef nonnull %462) #23
+  tail call void @free(ptr noundef nonnull %462) #24
   %464 = load ptr, ptr %428, align 8
   %465 = getelementptr inbounds %struct.tng_data, ptr %464, i64 %.3461, i32 12
   %466 = load ptr, ptr %465, align 8
@@ -4228,7 +4228,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %481 = load ptr, ptr %480, align 8
   %482 = getelementptr inbounds ptr, ptr %481, i64 %.3321454.us
   %483 = load ptr, ptr %482, align 8
-  tail call void @free(ptr noundef %483) #23
+  tail call void @free(ptr noundef %483) #24
   %484 = load ptr, ptr %428, align 8
   %485 = getelementptr inbounds %struct.tng_data, ptr %484, i64 %.3461, i32 12
   %486 = load ptr, ptr %485, align 8
@@ -4248,7 +4248,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not378, label %497, label %.preheader397
 
 .preheader397:                                    ; preds = %.lr.ph456.split
-  tail call void @free(ptr noundef nonnull %492) #23
+  tail call void @free(ptr noundef nonnull %492) #24
   %493 = load ptr, ptr %428, align 8
   %494 = getelementptr inbounds %struct.tng_data, ptr %493, i64 %.3461, i32 12
   %495 = load ptr, ptr %494, align 8
@@ -4270,7 +4270,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   %.lcssa407 = phi ptr [ %441, %444 ], [ %475, %472 ], [ %500, %497 ]
   %504 = getelementptr inbounds i8, ptr %.lcssa407, i64 88
   %505 = load ptr, ptr %504, align 8
-  tail call void @free(ptr noundef %505) #23
+  tail call void @free(ptr noundef %505) #24
   %506 = load ptr, ptr %428, align 8
   %507 = getelementptr inbounds %struct.tng_data, ptr %506, i64 %.3461, i32 12
   store ptr null, ptr %507, align 8
@@ -4285,7 +4285,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not377, label %515, label %512
 
 512:                                              ; preds = %508
-  tail call void @free(ptr noundef nonnull %511) #23
+  tail call void @free(ptr noundef nonnull %511) #24
   %513 = load ptr, ptr %428, align 8
   %514 = getelementptr inbounds %struct.tng_data, ptr %513, i64 %.3461, i32 1
   store ptr null, ptr %514, align 8
@@ -4304,7 +4304,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 
 ._crit_edge465:                                   ; preds = %._crit_edge465.loopexit, %.preheader398
   %520 = phi ptr [ %.pre505, %._crit_edge465.loopexit ], [ %429, %.preheader398 ]
-  tail call void @free(ptr noundef %520) #23
+  tail call void @free(ptr noundef %520) #24
   store ptr null, ptr %428, align 8
   br label %521
 
@@ -4340,7 +4340,7 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
 
 ._crit_edge468:                                   ; preds = %._crit_edge468.loopexit, %.preheader
   %535 = phi ptr [ %.pre506, %._crit_edge468.loopexit ], [ %525, %.preheader ]
-  tail call void @free(ptr noundef %535) #23
+  tail call void @free(ptr noundef %535) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %526, i8 0, i64 16, i1 false)
   br label %536
 
@@ -4351,13 +4351,13 @@ tng_frame_set_particle_mapping_free.exit:         ; preds = %63, %66, %._crit_ed
   br i1 %.not374, label %540, label %539
 
 539:                                              ; preds = %536
-  tail call void @free(ptr noundef nonnull %538) #23
+  tail call void @free(ptr noundef nonnull %538) #24
   store ptr null, ptr %537, align 8
   br label %540
 
 540:                                              ; preds = %539, %536
   %541 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %541) #23
+  tail call void @free(ptr noundef %541) #24
   store ptr null, ptr %0, align 8
   br label %542
 
@@ -4391,7 +4391,7 @@ define internal fastcc void @tng_frame_set_finalize(ptr noundef %0) unnamed_addr
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #26
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #27
   br label %tng_output_file_init.exit
 
 18:                                               ; preds = %12
@@ -4403,23 +4403,23 @@ define internal fastcc void @tng_frame_set_finalize(ptr noundef %0) unnamed_addr
 20:                                               ; preds = %18
   %21 = load ptr, ptr @stderr, align 8
   %22 = load ptr, ptr %13, align 8
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.13, ptr noundef %22, ptr noundef nonnull @.str.1, i32 noundef 919) #26
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.13, ptr noundef %22, ptr noundef nonnull @.str.1, i32 noundef 919) #27
   br label %tng_output_file_init.exit
 
 tng_output_file_init.exit:                        ; preds = %20, %15
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 6209) #26
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 6209) #27
   br label %tng_block_destroy.exit
 
 26:                                               ; preds = %18, %9
   %27 = phi ptr [ %19, %18 ], [ %11, %9 ]
-  %28 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %28 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i32 = icmp eq ptr %28, null
   br i1 %.not.i32, label %29, label %32
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   %.pre = load ptr, ptr %10, align 8
   br label %tng_block_init.exit
 
@@ -4449,7 +4449,7 @@ tng_block_init.exit:                              ; preds = %29, %32
 
 44:                                               ; preds = %tng_block_init.exit
   %45 = load ptr, ptr @stderr, align 8
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 6226) #26
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 6226) #27
   store ptr %3, ptr %2, align 8
   br i1 %.not.i32, label %tng_block_destroy.exit, label %47
 
@@ -4460,7 +4460,7 @@ tng_block_init.exit:                              ; preds = %29, %32
   br i1 %.not16.i, label %51, label %50
 
 50:                                               ; preds = %47
-  tail call void @free(ptr noundef nonnull %49) #23
+  tail call void @free(ptr noundef nonnull %49) #24
   store ptr null, ptr %48, align 8
   br label %51
 
@@ -4471,7 +4471,7 @@ tng_block_init.exit:                              ; preds = %29, %32
   br i1 %.not17.i, label %55, label %54
 
 54:                                               ; preds = %51
-  tail call void @free(ptr noundef nonnull %53) #23
+  tail call void @free(ptr noundef nonnull %53) #24
   store ptr null, ptr %52, align 8
   br label %55
 
@@ -4482,11 +4482,11 @@ tng_block_init.exit:                              ; preds = %29, %32
   br i1 %.not18.i, label %59, label %58
 
 58:                                               ; preds = %55
-  tail call void @free(ptr noundef nonnull %57) #23
+  tail call void @free(ptr noundef nonnull %57) #24
   br label %59
 
 59:                                               ; preds = %58, %55
-  tail call void @free(ptr noundef nonnull %28) #23
+  tail call void @free(ptr noundef nonnull %28) #24
   br label %tng_block_destroy.exit
 
 60:                                               ; preds = %tng_block_init.exit
@@ -4508,7 +4508,7 @@ tng_block_init.exit:                              ; preds = %29, %32
   br i1 %.not16.i36, label %70, label %69
 
 69:                                               ; preds = %66
-  tail call void @free(ptr noundef nonnull %68) #23
+  tail call void @free(ptr noundef nonnull %68) #24
   store ptr null, ptr %67, align 8
   br label %70
 
@@ -4519,7 +4519,7 @@ tng_block_init.exit:                              ; preds = %29, %32
   br i1 %.not17.i37, label %74, label %73
 
 73:                                               ; preds = %70
-  tail call void @free(ptr noundef nonnull %72) #23
+  tail call void @free(ptr noundef nonnull %72) #24
   store ptr null, ptr %71, align 8
   br label %74
 
@@ -4530,11 +4530,11 @@ tng_block_init.exit:                              ; preds = %29, %32
   br i1 %.not18.i38, label %78, label %77
 
 77:                                               ; preds = %74
-  tail call void @free(ptr noundef nonnull %76) #23
+  tail call void @free(ptr noundef nonnull %76) #24
   br label %78
 
 78:                                               ; preds = %77, %74
-  tail call void @free(ptr noundef nonnull %28) #23
+  tail call void @free(ptr noundef nonnull %28) #24
   br label %tng_block_destroy.exit
 
 79:                                               ; preds = %60
@@ -4550,7 +4550,7 @@ tng_block_init.exit:                              ; preds = %29, %32
   br i1 %.not16.i41, label %87, label %86
 
 86:                                               ; preds = %79
-  tail call void @free(ptr noundef nonnull %85) #23
+  tail call void @free(ptr noundef nonnull %85) #24
   store ptr null, ptr %84, align 8
   br label %87
 
@@ -4561,7 +4561,7 @@ tng_block_init.exit:                              ; preds = %29, %32
   br i1 %.not17.i42, label %91, label %90
 
 90:                                               ; preds = %87
-  tail call void @free(ptr noundef nonnull %89) #23
+  tail call void @free(ptr noundef nonnull %89) #24
   store ptr null, ptr %88, align 8
   br label %91
 
@@ -4572,11 +4572,11 @@ tng_block_init.exit:                              ; preds = %29, %32
   br i1 %.not18.i43, label %tng_block_destroy.exit44, label %94
 
 94:                                               ; preds = %91
-  tail call void @free(ptr noundef nonnull %93) #23
+  tail call void @free(ptr noundef nonnull %93) #24
   br label %tng_block_destroy.exit44
 
 tng_block_destroy.exit44:                         ; preds = %91, %94
-  tail call void @free(ptr noundef nonnull %28) #23
+  tail call void @free(ptr noundef nonnull %28) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %78, %65, %59, %44, %1, %tng_block_destroy.exit44, %tng_output_file_init.exit
@@ -4588,14 +4588,14 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
-  %3 = tail call noalias dereferenceable_or_null(504) ptr @malloc(i64 noundef 504) #25
+  %3 = tail call noalias dereferenceable_or_null(504) ptr @malloc(i64 noundef 504) #26
   store ptr %3, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8735) #26
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8735) #27
   br label %115
 
 7:                                                ; preds = %2
@@ -4605,20 +4605,20 @@ define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr nocapture noundef r
   br i1 %.not104, label %22, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #24
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
   %12 = add i64 %11, 1
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #25
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #26
   store ptr %13, ptr %3, align 8
   %.not105 = icmp eq ptr %13, null
   br i1 %.not105, label %14, label %17
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8748) #26
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8748) #27
   br label %115
 
 17:                                               ; preds = %10
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #23
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #24
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 16
@@ -4638,9 +4638,9 @@ define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr nocapture noundef r
   br i1 %.not106, label %37, label %27
 
 27:                                               ; preds = %23
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #24
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #25
   %29 = add i64 %28, 1
-  %30 = tail call noalias ptr @malloc(i64 noundef %29) #25
+  %30 = tail call noalias ptr @malloc(i64 noundef %29) #26
   %31 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %30, ptr %31, align 8
   %.not107 = icmp eq ptr %30, null
@@ -4648,11 +4648,11 @@ define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr nocapture noundef r
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr @stderr, align 8
-  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8764) #26
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8764) #27
   br label %115
 
 35:                                               ; preds = %27
-  %36 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %26) #23
+  %36 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %26) #24
   br label %39
 
 37:                                               ; preds = %23
@@ -4789,11 +4789,11 @@ define range(i32 0, 2) i32 @tng_input_file_get(ptr nocapture noundef readonly %0
   %4 = load ptr, ptr %0, align 8
   %5 = add nsw i32 %2, -1
   %6 = sext i32 %5 to i64
-  %7 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %4, i64 noundef %6) #23
+  %7 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %4, i64 noundef %6) #24
   %8 = getelementptr inbounds i8, ptr %1, i64 %6
   store i8 0, ptr %8, align 1
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #24
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
   %11 = zext i32 %5 to i64
   %12 = icmp ugt i64 %10, %11
   %. = zext i1 %12 to i32
@@ -4807,7 +4807,7 @@ define range(i32 0, 3) i32 @tng_input_file_set(ptr nocapture noundef %0, ptr noc
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %1) #24
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %1) #25
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %25, label %7
 
@@ -4824,24 +4824,24 @@ define range(i32 0, 3) i32 @tng_input_file_set(ptr nocapture noundef %0, ptr noc
 
 12:                                               ; preds = %10, %7
   %13 = phi ptr [ %.pre, %10 ], [ %3, %7 ]
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %15 = add i64 %14, 1
   %16 = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 1024)
-  %17 = tail call ptr @realloc(ptr noundef %13, i64 noundef %16) #27
+  %17 = tail call ptr @realloc(ptr noundef %13, i64 noundef %16) #28
   %.not21 = icmp eq ptr %17, null
   br i1 %.not21, label %18, label %22
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr @stderr, align 8
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8891) #26
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8891) #27
   %21 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %21) #23
+  tail call void @free(ptr noundef %21) #24
   store ptr null, ptr %0, align 8
   br label %25
 
 22:                                               ; preds = %12
   store ptr %17, ptr %0, align 8
-  %23 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %16) #23
+  %23 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %16) #24
   %24 = tail call fastcc i32 @tng_input_file_init(ptr noundef nonnull %0)
   br label %25
 
@@ -4864,7 +4864,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_input_file_init(ptr nocapture no
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 875) #26
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 875) #27
   br label %27
 
 9:                                                ; preds = %4
@@ -4876,7 +4876,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_input_file_init(ptr nocapture no
 11:                                               ; preds = %9
   %12 = load ptr, ptr @stderr, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.13, ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 882) #26
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.13, ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 882) #27
   br label %27
 
 15:                                               ; preds = %9, %1
@@ -4908,11 +4908,11 @@ define range(i32 0, 2) i32 @tng_output_file_get(ptr nocapture noundef readonly %
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #23
+  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #24
   %9 = getelementptr inbounds i8, ptr %1, i64 %7
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %4, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #24
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
   %12 = zext i32 %6 to i64
   %13 = icmp ugt i64 %11, %12
   %. = zext i1 %13 to i32
@@ -4927,7 +4927,7 @@ define range(i32 0, 3) i32 @tng_output_file_set(ptr nocapture noundef %0, ptr no
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1) #24
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1) #25
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %tng_output_file_init.exit, label %8
 
@@ -4944,24 +4944,24 @@ define range(i32 0, 3) i32 @tng_output_file_set(ptr nocapture noundef %0, ptr no
 
 13:                                               ; preds = %11, %8
   %14 = phi ptr [ %.pre, %11 ], [ %4, %8 ]
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %16 = add i64 %15, 1
   %17 = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 1024)
-  %18 = tail call ptr @realloc(ptr noundef %14, i64 noundef %17) #27
+  %18 = tail call ptr @realloc(ptr noundef %14, i64 noundef %17) #28
   %.not21 = icmp eq ptr %18, null
   br i1 %.not21, label %19, label %23
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8940) #26
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8940) #27
   %22 = load ptr, ptr %3, align 8
-  tail call void @free(ptr noundef %22) #23
+  tail call void @free(ptr noundef %22) #24
   store ptr null, ptr %3, align 8
   br label %tng_output_file_init.exit
 
 23:                                               ; preds = %13
   store ptr %18, ptr %3, align 8
-  %24 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %1, i64 noundef %17) #23
+  %24 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %1, i64 noundef %17) #24
   %25 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %26, label %tng_output_file_init.exit
@@ -4975,7 +4975,7 @@ define range(i32 0, 3) i32 @tng_output_file_set(ptr nocapture noundef %0, ptr no
 28:                                               ; preds = %26
   %29 = load ptr, ptr @stderr, align 8
   %30 = load ptr, ptr %3, align 8
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.13, ptr noundef %30, ptr noundef nonnull @.str.1, i32 noundef 919) #26
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.13, ptr noundef %30, ptr noundef nonnull @.str.1, i32 noundef 919) #27
   br label %tng_output_file_init.exit
 
 tng_output_file_init.exit:                        ; preds = %28, %26, %23, %5, %19
@@ -4991,7 +4991,7 @@ define range(i32 0, 3) i32 @tng_output_append_file_set(ptr nocapture noundef %0,
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1) #24
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1) #25
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %32, label %8
 
@@ -5008,24 +5008,24 @@ define range(i32 0, 3) i32 @tng_output_append_file_set(ptr nocapture noundef %0,
 
 13:                                               ; preds = %11, %8
   %14 = phi ptr [ %.pre, %11 ], [ %4, %8 ]
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %16 = add i64 %15, 1
   %17 = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 1024)
-  %18 = tail call ptr @realloc(ptr noundef %14, i64 noundef %17) #27
+  %18 = tail call ptr @realloc(ptr noundef %14, i64 noundef %17) #28
   %.not27 = icmp eq ptr %18, null
   br i1 %.not27, label %19, label %23
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8975) #26
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8975) #27
   %22 = load ptr, ptr %3, align 8
-  tail call void @free(ptr noundef %22) #23
+  tail call void @free(ptr noundef %22) #24
   store ptr null, ptr %3, align 8
   br label %32
 
 23:                                               ; preds = %13
   store ptr %18, ptr %3, align 8
-  %24 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %1, i64 noundef %17) #23
+  %24 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %1, i64 noundef %17) #24
   %25 = tail call noalias ptr @fopen64(ptr noundef nonnull %18, ptr noundef nonnull @.str.12)
   store ptr %25, ptr %9, align 8
   %.not28 = icmp eq ptr %25, null
@@ -5034,7 +5034,7 @@ define range(i32 0, 3) i32 @tng_output_append_file_set(ptr nocapture noundef %0,
 26:                                               ; preds = %23
   %27 = load ptr, ptr @stderr, align 8
   %28 = load ptr, ptr %3, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.13, ptr noundef %28, ptr noundef nonnull @.str.1, i32 noundef 8988) #26
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.13, ptr noundef %28, ptr noundef nonnull @.str.1, i32 noundef 8988) #27
   br label %32
 
 30:                                               ; preds = %23
@@ -5345,11 +5345,11 @@ define range(i32 0, 2) i32 @tng_first_program_name_get(ptr nocapture noundef rea
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #23
+  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #24
   %9 = getelementptr inbounds i8, ptr %1, i64 %7
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %4, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #24
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
   %12 = zext i32 %6 to i64
   %13 = icmp ugt i64 %11, %12
   %. = zext i1 %13 to i32
@@ -5358,7 +5358,7 @@ define range(i32 0, 2) i32 @tng_first_program_name_get(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_first_program_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 80
@@ -5367,28 +5367,28 @@ define range(i32 0, 3) i32 @tng_first_program_name_set(ptr nocapture noundef %0,
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #24
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #25
   %10 = icmp ult i64 %9, %5
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   br label %.thread
 
 .thread:                                          ; preds = %2, %11
-  %12 = tail call noalias ptr @malloc(i64 noundef %5) #25
+  %12 = tail call noalias ptr @malloc(i64 noundef %5) #26
   store ptr %12, ptr %6, align 8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %13, label %16
 
 13:                                               ; preds = %.thread
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9164) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9164) #27
   br label %19
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #23
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5402,11 +5402,11 @@ define range(i32 0, 2) i32 @tng_last_program_name_get(ptr nocapture noundef read
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #23
+  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #24
   %9 = getelementptr inbounds i8, ptr %1, i64 %7
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %4, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #24
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
   %12 = zext i32 %6 to i64
   %13 = icmp ugt i64 %11, %12
   %. = zext i1 %13 to i32
@@ -5415,7 +5415,7 @@ define range(i32 0, 2) i32 @tng_last_program_name_get(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_last_program_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 120
@@ -5424,28 +5424,28 @@ define range(i32 0, 3) i32 @tng_last_program_name_set(ptr nocapture noundef %0, 
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #24
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #25
   %10 = icmp ult i64 %9, %5
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   br label %.thread
 
 .thread:                                          ; preds = %2, %11
-  %12 = tail call noalias ptr @malloc(i64 noundef %5) #25
+  %12 = tail call noalias ptr @malloc(i64 noundef %5) #26
   store ptr %12, ptr %6, align 8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %13, label %16
 
 13:                                               ; preds = %.thread
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9211) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9211) #27
   br label %19
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #23
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5459,11 +5459,11 @@ define range(i32 0, 2) i32 @tng_first_user_name_get(ptr nocapture noundef readon
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #23
+  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #24
   %9 = getelementptr inbounds i8, ptr %1, i64 %7
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %4, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #24
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
   %12 = zext i32 %6 to i64
   %13 = icmp ugt i64 %11, %12
   %. = zext i1 %13 to i32
@@ -5472,7 +5472,7 @@ define range(i32 0, 2) i32 @tng_first_user_name_get(ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_first_user_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 96
@@ -5481,28 +5481,28 @@ define range(i32 0, 3) i32 @tng_first_user_name_set(ptr nocapture noundef %0, pt
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #24
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #25
   %10 = icmp ult i64 %9, %5
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   br label %.thread
 
 .thread:                                          ; preds = %2, %11
-  %12 = tail call noalias ptr @malloc(i64 noundef %5) #25
+  %12 = tail call noalias ptr @malloc(i64 noundef %5) #26
   store ptr %12, ptr %6, align 8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %13, label %16
 
 13:                                               ; preds = %.thread
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9260) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9260) #27
   br label %19
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #23
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5516,11 +5516,11 @@ define range(i32 0, 2) i32 @tng_last_user_name_get(ptr nocapture noundef readonl
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #23
+  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #24
   %9 = getelementptr inbounds i8, ptr %1, i64 %7
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %4, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #24
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
   %12 = zext i32 %6 to i64
   %13 = icmp ugt i64 %11, %12
   %. = zext i1 %13 to i32
@@ -5529,7 +5529,7 @@ define range(i32 0, 2) i32 @tng_last_user_name_get(ptr nocapture noundef readonl
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_last_user_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 128
@@ -5538,28 +5538,28 @@ define range(i32 0, 3) i32 @tng_last_user_name_set(ptr nocapture noundef %0, ptr
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #24
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #25
   %10 = icmp ult i64 %9, %5
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   br label %.thread
 
 .thread:                                          ; preds = %2, %11
-  %12 = tail call noalias ptr @malloc(i64 noundef %5) #25
+  %12 = tail call noalias ptr @malloc(i64 noundef %5) #26
   store ptr %12, ptr %6, align 8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %13, label %16
 
 13:                                               ; preds = %.thread
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9309) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9309) #27
   br label %19
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #23
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5573,11 +5573,11 @@ define range(i32 0, 2) i32 @tng_first_computer_name_get(ptr nocapture noundef re
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #23
+  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #24
   %9 = getelementptr inbounds i8, ptr %1, i64 %7
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %4, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #24
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
   %12 = zext i32 %6 to i64
   %13 = icmp ugt i64 %11, %12
   %. = zext i1 %13 to i32
@@ -5586,7 +5586,7 @@ define range(i32 0, 2) i32 @tng_first_computer_name_get(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_first_computer_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 104
@@ -5595,28 +5595,28 @@ define range(i32 0, 3) i32 @tng_first_computer_name_set(ptr nocapture noundef %0
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #24
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #25
   %10 = icmp ult i64 %9, %5
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   br label %.thread
 
 .thread:                                          ; preds = %2, %11
-  %12 = tail call noalias ptr @malloc(i64 noundef %5) #25
+  %12 = tail call noalias ptr @malloc(i64 noundef %5) #26
   store ptr %12, ptr %6, align 8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %13, label %16
 
 13:                                               ; preds = %.thread
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9358) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9358) #27
   br label %19
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #23
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5630,11 +5630,11 @@ define range(i32 0, 2) i32 @tng_last_computer_name_get(ptr nocapture noundef rea
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #23
+  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #24
   %9 = getelementptr inbounds i8, ptr %1, i64 %7
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %4, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #24
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
   %12 = zext i32 %6 to i64
   %13 = icmp ugt i64 %11, %12
   %. = zext i1 %13 to i32
@@ -5643,7 +5643,7 @@ define range(i32 0, 2) i32 @tng_last_computer_name_get(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_last_computer_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 136
@@ -5652,28 +5652,28 @@ define range(i32 0, 3) i32 @tng_last_computer_name_set(ptr nocapture noundef %0,
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #24
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #25
   %10 = icmp ult i64 %9, %5
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   br label %.thread
 
 .thread:                                          ; preds = %2, %11
-  %12 = tail call noalias ptr @malloc(i64 noundef %5) #25
+  %12 = tail call noalias ptr @malloc(i64 noundef %5) #26
   store ptr %12, ptr %6, align 8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %13, label %16
 
 13:                                               ; preds = %.thread
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9407) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9407) #27
   br label %19
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #23
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5687,11 +5687,11 @@ define range(i32 0, 2) i32 @tng_first_signature_get(ptr nocapture noundef readon
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #23
+  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #24
   %9 = getelementptr inbounds i8, ptr %1, i64 %7
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %4, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #24
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
   %12 = zext i32 %6 to i64
   %13 = icmp ugt i64 %11, %12
   %. = zext i1 %13 to i32
@@ -5700,7 +5700,7 @@ define range(i32 0, 2) i32 @tng_first_signature_get(ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_first_signature_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 112
@@ -5709,28 +5709,28 @@ define range(i32 0, 3) i32 @tng_first_signature_set(ptr nocapture noundef %0, pt
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #24
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #25
   %10 = icmp ult i64 %9, %5
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   br label %.thread
 
 .thread:                                          ; preds = %2, %11
-  %12 = tail call noalias ptr @malloc(i64 noundef %5) #25
+  %12 = tail call noalias ptr @malloc(i64 noundef %5) #26
   store ptr %12, ptr %6, align 8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %13, label %16
 
 13:                                               ; preds = %.thread
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9456) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9456) #27
   br label %19
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #23
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5744,11 +5744,11 @@ define range(i32 0, 2) i32 @tng_last_signature_get(ptr nocapture noundef readonl
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #23
+  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #24
   %9 = getelementptr inbounds i8, ptr %1, i64 %7
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %4, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #24
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
   %12 = zext i32 %6 to i64
   %13 = icmp ugt i64 %11, %12
   %. = zext i1 %13 to i32
@@ -5757,7 +5757,7 @@ define range(i32 0, 2) i32 @tng_last_signature_get(ptr nocapture noundef readonl
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_last_signature_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 144
@@ -5766,28 +5766,28 @@ define range(i32 0, 3) i32 @tng_last_signature_set(ptr nocapture noundef %0, ptr
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #24
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #25
   %10 = icmp ult i64 %9, %5
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   br label %.thread
 
 .thread:                                          ; preds = %2, %11
-  %12 = tail call noalias ptr @malloc(i64 noundef %5) #25
+  %12 = tail call noalias ptr @malloc(i64 noundef %5) #26
   store ptr %12, ptr %6, align 8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %13, label %16
 
 13:                                               ; preds = %.thread
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9505) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9505) #27
   br label %19
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #23
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5801,11 +5801,11 @@ define range(i32 0, 2) i32 @tng_forcefield_name_get(ptr nocapture noundef readon
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #23
+  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef %7) #24
   %9 = getelementptr inbounds i8, ptr %1, i64 %7
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %4, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #24
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
   %12 = zext i32 %6 to i64
   %13 = icmp ugt i64 %11, %12
   %. = zext i1 %13 to i32
@@ -5814,7 +5814,7 @@ define range(i32 0, 2) i32 @tng_forcefield_name_get(ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_forcefield_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 88
@@ -5823,28 +5823,28 @@ define range(i32 0, 3) i32 @tng_forcefield_name_set(ptr nocapture noundef %0, pt
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #24
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #25
   %10 = icmp ult i64 %9, %5
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   br label %.thread
 
 .thread:                                          ; preds = %2, %11
-  %12 = tail call noalias ptr @malloc(i64 noundef %5) #25
+  %12 = tail call noalias ptr @malloc(i64 noundef %5) #26
   store ptr %12, ptr %6, align 8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %13, label %16
 
 13:                                               ; preds = %.thread
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9554) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 9554) #27
   br label %19
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #23
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5992,13 +5992,13 @@ define range(i32 0, 3) i32 @tng_frame_set_write(ptr noundef %0, i8 noundef signe
   br label %35
 
 35:                                               ; preds = %34, %30
-  %36 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %36 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %37, label %40
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr @stderr, align 8
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 40:                                               ; preds = %35
@@ -6027,7 +6027,7 @@ tng_block_init.exit:                              ; preds = %37, %40
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr @stderr, align 8
-  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #26
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #27
   br label %tng_frame_set_block_write.exit.thread
 
 52:                                               ; preds = %46
@@ -6039,7 +6039,7 @@ tng_block_init.exit:                              ; preds = %37, %40
 54:                                               ; preds = %52
   %55 = load ptr, ptr @stderr, align 8
   %56 = load ptr, ptr %47, align 8
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.13, ptr noundef %56, ptr noundef nonnull @.str.1, i32 noundef 919) #26
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.13, ptr noundef %56, ptr noundef nonnull @.str.1, i32 noundef 919) #27
   br label %tng_frame_set_block_write.exit.thread
 
 58:                                               ; preds = %52, %tng_block_init.exit
@@ -6049,20 +6049,20 @@ tng_block_init.exit:                              ; preds = %37, %40
   br i1 %.not71.i, label %64, label %61
 
 61:                                               ; preds = %58
-  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #24
+  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #25
   %63 = icmp ult i64 %62, 20
   br i1 %63, label %64, label %71
 
 64:                                               ; preds = %61, %58
-  %65 = tail call dereferenceable_or_null(21) ptr @realloc(ptr noundef %60, i64 noundef 21) #27
+  %65 = tail call dereferenceable_or_null(21) ptr @realloc(ptr noundef %60, i64 noundef 21) #28
   %.not72.i = icmp eq ptr %65, null
   br i1 %.not72.i, label %66, label %70
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr @stderr, align 8
-  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3590) #26
+  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3590) #27
   %69 = load ptr, ptr %59, align 8
-  tail call void @free(ptr noundef %69) #23
+  tail call void @free(ptr noundef %69) #24
   store ptr null, ptr %59, align 8
   br label %tng_frame_set_block_write.exit.thread
 
@@ -6072,7 +6072,7 @@ tng_block_init.exit:                              ; preds = %37, %40
 
 71:                                               ; preds = %70, %61
   %72 = phi ptr [ %65, %70 ], [ %60, %61 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %72, ptr noundef nonnull align 1 dereferenceable(21) @.str.101, i64 21, i1 false) #23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %72, ptr noundef nonnull align 1 dereferenceable(21) @.str.101, i64 21, i1 false) #24
   %73 = getelementptr inbounds i8, ptr %36, i64 16
   store i64 2, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %36, i64 8
@@ -6101,7 +6101,7 @@ tng_frame_set_block_len_calculate.exit.i:         ; preds = %77, %71
   %86 = load ptr, ptr @stderr, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 24
   %88 = load ptr, ptr %87, align 8
-  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.63, ptr noundef %88, ptr noundef nonnull @.str.1, i32 noundef 3612) #26
+  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.63, ptr noundef %88, ptr noundef nonnull @.str.1, i32 noundef 3612) #27
   br label %tng_frame_set_block_write.exit.thread
 
 90:                                               ; preds = %tng_frame_set_block_len_calculate.exit.i
@@ -6109,7 +6109,7 @@ tng_frame_set_block_len_calculate.exit.i:         ; preds = %77, %71
   br i1 %91, label %93, label %92
 
 92:                                               ; preds = %90
-  call void @md5_init(ptr noundef nonnull %16) #23
+  call void @md5_init(ptr noundef nonnull %16) #24
   br label %93
 
 93:                                               ; preds = %92, %90
@@ -6123,13 +6123,13 @@ tng_frame_set_block_len_calculate.exit.i:         ; preds = %77, %71
   br i1 %.not36.i.i, label %103, label %98
 
 98:                                               ; preds = %93
-  %99 = call i32 %97(ptr noundef nonnull %0, ptr noundef nonnull %15) #23
+  %99 = call i32 %97(ptr noundef nonnull %0, ptr noundef nonnull %15) #24
   %.not37.i.i = icmp eq i32 %99, 0
   br i1 %.not37.i.i, label %103, label %100
 
 100:                                              ; preds = %98
   %101 = load ptr, ptr @stderr, align 8
-  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3621) #26
+  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3621) #27
   br label %103
 
 103:                                              ; preds = %100, %98, %93
@@ -6142,12 +6142,12 @@ tng_frame_set_block_len_calculate.exit.i:         ; preds = %77, %71
   br i1 %91, label %110, label %107
 
 107:                                              ; preds = %106
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %15, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %15, i32 noundef 8) #24
   br label %110
 
 tng_file_output_numerical.exit.i:                 ; preds = %103
   %108 = load ptr, ptr @stderr, align 8
-  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3621) #26
+  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3621) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   br label %tng_frame_set_block_write.exit.thread
 
@@ -6161,13 +6161,13 @@ tng_file_output_numerical.exit.i:                 ; preds = %103
   br i1 %.not36.i79.i, label %118, label %113
 
 113:                                              ; preds = %110
-  %114 = call i32 %112(ptr noundef nonnull %0, ptr noundef nonnull %14) #23
+  %114 = call i32 %112(ptr noundef nonnull %0, ptr noundef nonnull %14) #24
   %.not37.i80.i = icmp eq i32 %114, 0
   br i1 %.not37.i80.i, label %118, label %115
 
 115:                                              ; preds = %113
   %116 = load ptr, ptr @stderr, align 8
-  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3628) #26
+  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3628) #27
   br label %118
 
 118:                                              ; preds = %115, %113, %110
@@ -6180,12 +6180,12 @@ tng_file_output_numerical.exit.i:                 ; preds = %103
   br i1 %91, label %125, label %122
 
 122:                                              ; preds = %121
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %14, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %14, i32 noundef 8) #24
   br label %125
 
 tng_file_output_numerical.exit83.i:               ; preds = %118
   %123 = load ptr, ptr @stderr, align 8
-  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3628) #26
+  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3628) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   br label %tng_frame_set_block_write.exit.thread
 
@@ -6217,13 +6217,13 @@ tng_file_output_numerical.exit83.i:               ; preds = %118
   br i1 %.not36.i84.us.i, label %140, label %135
 
 135:                                              ; preds = %.lr.ph.split.us.i
-  %136 = call i32 %134(ptr noundef nonnull %0, ptr noundef nonnull %13) #23
+  %136 = call i32 %134(ptr noundef nonnull %0, ptr noundef nonnull %13) #24
   %.not37.i85.us.i = icmp eq i32 %136, 0
   br i1 %.not37.i85.us.i, label %140, label %137
 
 137:                                              ; preds = %135
   %138 = load ptr, ptr @stderr, align 8
-  %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3639) #26
+  %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3639) #27
   br label %140
 
 140:                                              ; preds = %137, %135, %.lr.ph.split.us.i
@@ -6251,13 +6251,13 @@ tng_file_output_numerical.exit83.i:               ; preds = %118
   br i1 %.not36.i84.i, label %156, label %151
 
 151:                                              ; preds = %.lr.ph.split.i
-  %152 = call i32 %150(ptr noundef nonnull %0, ptr noundef nonnull %13) #23
+  %152 = call i32 %150(ptr noundef nonnull %0, ptr noundef nonnull %13) #24
   %.not37.i85.i = icmp eq i32 %152, 0
   br i1 %.not37.i85.i, label %156, label %153
 
 153:                                              ; preds = %151
   %154 = load ptr, ptr @stderr, align 8
-  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3639) #26
+  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3639) #27
   br label %156
 
 156:                                              ; preds = %153, %151, %.lr.ph.split.i
@@ -6267,7 +6267,7 @@ tng_file_output_numerical.exit83.i:               ; preds = %118
   br i1 %.not38.i86.i, label %159, label %tng_file_output_numerical.exit88.i
 
 159:                                              ; preds = %156
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %13, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %13, i32 noundef 8) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %160 = add nuw nsw i64 %.068106.i, 1
   %161 = load i64, ptr %127, align 8
@@ -6276,7 +6276,7 @@ tng_file_output_numerical.exit83.i:               ; preds = %118
 
 tng_file_output_numerical.exit88.i:               ; preds = %156, %140
   %163 = load ptr, ptr @stderr, align 8
-  %164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3639) #26
+  %164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3639) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   br label %tng_frame_set_block_write.exit.thread
 
@@ -6290,13 +6290,13 @@ tng_file_output_numerical.exit88.i:               ; preds = %156, %140
   br i1 %.not36.i89.i, label %173, label %168
 
 168:                                              ; preds = %.loopexit.i
-  %169 = call i32 %167(ptr noundef nonnull %0, ptr noundef nonnull %12) #23
+  %169 = call i32 %167(ptr noundef nonnull %0, ptr noundef nonnull %12) #24
   %.not37.i90.i = icmp eq i32 %169, 0
   br i1 %.not37.i90.i, label %173, label %170
 
 170:                                              ; preds = %168
   %171 = load ptr, ptr @stderr, align 8
-  %172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3648) #26
+  %172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3648) #27
   br label %173
 
 173:                                              ; preds = %170, %168, %.loopexit.i
@@ -6309,12 +6309,12 @@ tng_file_output_numerical.exit88.i:               ; preds = %156, %140
   br i1 %91, label %180, label %177
 
 177:                                              ; preds = %176
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %12, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %12, i32 noundef 8) #24
   br label %180
 
 tng_file_output_numerical.exit93.i:               ; preds = %173
   %178 = load ptr, ptr @stderr, align 8
-  %179 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %178, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3648) #26
+  %179 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %178, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3648) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %tng_frame_set_block_write.exit.thread
 
@@ -6329,13 +6329,13 @@ tng_file_output_numerical.exit93.i:               ; preds = %173
   br i1 %.not36.i94.i, label %189, label %184
 
 184:                                              ; preds = %180
-  %185 = call i32 %183(ptr noundef nonnull %0, ptr noundef nonnull %11) #23
+  %185 = call i32 %183(ptr noundef nonnull %0, ptr noundef nonnull %11) #24
   %.not37.i95.i = icmp eq i32 %185, 0
   br i1 %.not37.i95.i, label %189, label %186
 
 186:                                              ; preds = %184
   %187 = load ptr, ptr @stderr, align 8
-  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3655) #26
+  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %187, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3655) #27
   br label %189
 
 189:                                              ; preds = %186, %184, %180
@@ -6348,12 +6348,12 @@ tng_file_output_numerical.exit93.i:               ; preds = %173
   br i1 %91, label %196, label %193
 
 193:                                              ; preds = %192
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %11, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %11, i32 noundef 8) #24
   br label %196
 
 tng_file_output_numerical.exit98.i:               ; preds = %189
   %194 = load ptr, ptr @stderr, align 8
-  %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3655) #26
+  %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3655) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %tng_frame_set_block_write.exit.thread
 
@@ -6368,13 +6368,13 @@ tng_file_output_numerical.exit98.i:               ; preds = %189
   br i1 %.not36.i94, label %205, label %200
 
 200:                                              ; preds = %196
-  %201 = call i32 %199(ptr noundef nonnull %0, ptr noundef nonnull %3) #23
+  %201 = call i32 %199(ptr noundef nonnull %0, ptr noundef nonnull %3) #24
   %.not37.i95 = icmp eq i32 %201, 0
   br i1 %.not37.i95, label %205, label %202
 
 202:                                              ; preds = %200
   %203 = load ptr, ptr @stderr, align 8
-  %204 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %203, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3663) #26
+  %204 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %203, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3663) #27
   br label %205
 
 205:                                              ; preds = %202, %200, %196
@@ -6388,12 +6388,12 @@ tng_file_output_numerical.exit98.i:               ; preds = %189
   br i1 %209, label %210, label %213
 
 210:                                              ; preds = %208
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 8) #24
   br label %213
 
 tng_file_output_numerical.exit98:                 ; preds = %205
   %211 = load ptr, ptr @stderr, align 8
-  %212 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %211, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3663) #26
+  %212 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %211, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3663) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %tng_frame_set_block_write.exit.thread
 
@@ -6408,13 +6408,13 @@ tng_file_output_numerical.exit98:                 ; preds = %205
   br i1 %.not36.i89, label %222, label %217
 
 217:                                              ; preds = %213
-  %218 = call i32 %216(ptr noundef nonnull %0, ptr noundef nonnull %4) #23
+  %218 = call i32 %216(ptr noundef nonnull %0, ptr noundef nonnull %4) #24
   %.not37.i90 = icmp eq i32 %218, 0
   br i1 %.not37.i90, label %222, label %219
 
 219:                                              ; preds = %217
   %220 = load ptr, ptr @stderr, align 8
-  %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3671) #26
+  %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3671) #27
   br label %222
 
 222:                                              ; preds = %219, %217, %213
@@ -6427,12 +6427,12 @@ tng_file_output_numerical.exit98:                 ; preds = %205
   br i1 %209, label %226, label %229
 
 226:                                              ; preds = %225
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %4, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %4, i32 noundef 8) #24
   br label %229
 
 tng_file_output_numerical.exit93:                 ; preds = %222
   %227 = load ptr, ptr @stderr, align 8
-  %228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %227, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3671) #26
+  %228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %227, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3671) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %tng_frame_set_block_write.exit.thread
 
@@ -6447,13 +6447,13 @@ tng_file_output_numerical.exit93:                 ; preds = %222
   br i1 %.not36.i84, label %238, label %233
 
 233:                                              ; preds = %229
-  %234 = call i32 %232(ptr noundef nonnull %0, ptr noundef nonnull %5) #23
+  %234 = call i32 %232(ptr noundef nonnull %0, ptr noundef nonnull %5) #24
   %.not37.i85 = icmp eq i32 %234, 0
   br i1 %.not37.i85, label %238, label %235
 
 235:                                              ; preds = %233
   %236 = load ptr, ptr @stderr, align 8
-  %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3679) #26
+  %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3679) #27
   br label %238
 
 238:                                              ; preds = %235, %233, %229
@@ -6466,12 +6466,12 @@ tng_file_output_numerical.exit93:                 ; preds = %222
   br i1 %209, label %242, label %245
 
 242:                                              ; preds = %241
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %5, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %5, i32 noundef 8) #24
   br label %245
 
 tng_file_output_numerical.exit88:                 ; preds = %238
   %243 = load ptr, ptr @stderr, align 8
-  %244 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %243, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3679) #26
+  %244 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %243, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3679) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %tng_frame_set_block_write.exit.thread
 
@@ -6486,13 +6486,13 @@ tng_file_output_numerical.exit88:                 ; preds = %238
   br i1 %.not36.i, label %254, label %249
 
 249:                                              ; preds = %245
-  %250 = call i32 %248(ptr noundef nonnull %0, ptr noundef nonnull %6) #23
+  %250 = call i32 %248(ptr noundef nonnull %0, ptr noundef nonnull %6) #24
   %.not37.i = icmp eq i32 %250, 0
   br i1 %.not37.i, label %254, label %251
 
 251:                                              ; preds = %249
   %252 = load ptr, ptr @stderr, align 8
-  %253 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %252, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3687) #26
+  %253 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %252, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3687) #27
   br label %254
 
 254:                                              ; preds = %251, %249, %245
@@ -6505,12 +6505,12 @@ tng_file_output_numerical.exit88:                 ; preds = %238
   br i1 %209, label %258, label %261
 
 258:                                              ; preds = %257
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %6, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %6, i32 noundef 8) #24
   br label %261
 
 tng_file_output_numerical.exit:                   ; preds = %254
   %259 = load ptr, ptr @stderr, align 8
-  %260 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %259, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3687) #26
+  %260 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %259, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3687) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %tng_frame_set_block_write.exit.thread
 
@@ -6530,7 +6530,7 @@ tng_file_output_numerical.exit:                   ; preds = %254
 
 269:                                              ; preds = %265
   %270 = getelementptr inbounds i8, ptr %36, i64 24
-  call void @md5_finish(ptr noundef nonnull %16, ptr noundef nonnull %270) #23
+  call void @md5_finish(ptr noundef nonnull %16, ptr noundef nonnull %270) #24
   %271 = load ptr, ptr %24, align 8
   %272 = call i64 @ftello64(ptr noundef %271)
   %273 = load ptr, ptr %24, align 8
@@ -6543,7 +6543,7 @@ tng_file_output_numerical.exit:                   ; preds = %254
 
 278:                                              ; preds = %269
   %279 = load ptr, ptr @stderr, align 8
-  %280 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %279, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 3713) #26
+  %280 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %279, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 3713) #27
   br label %tng_frame_set_block_write.exit.thread
 
 tng_frame_set_block_write.exit.thread144:         ; preds = %269
@@ -6580,7 +6580,7 @@ tng_frame_set_block_write.exit:                   ; preds = %265
   br i1 %.not16.i, label %292, label %291
 
 291:                                              ; preds = %288
-  call void @free(ptr noundef nonnull %290) #23
+  call void @free(ptr noundef nonnull %290) #24
   store ptr null, ptr %289, align 8
   br label %292
 
@@ -6591,7 +6591,7 @@ tng_frame_set_block_write.exit:                   ; preds = %265
   br i1 %.not17.i, label %296, label %295
 
 295:                                              ; preds = %292
-  call void @free(ptr noundef nonnull %294) #23
+  call void @free(ptr noundef nonnull %294) #24
   store ptr null, ptr %293, align 8
   br label %296
 
@@ -6602,11 +6602,11 @@ tng_frame_set_block_write.exit:                   ; preds = %265
   br i1 %.not18.i, label %300, label %299
 
 299:                                              ; preds = %296
-  call void @free(ptr noundef nonnull %298) #23
+  call void @free(ptr noundef nonnull %298) #24
   br label %300
 
 300:                                              ; preds = %299, %296
-  call void @free(ptr noundef nonnull %36) #23
+  call void @free(ptr noundef nonnull %36) #24
   br label %tng_block_destroy.exit
 
 301:                                              ; preds = %.lr.ph, %301
@@ -6672,7 +6672,7 @@ tng_frame_set_block_write.exit:                   ; preds = %265
 
 330:                                              ; preds = %328
   %331 = load ptr, ptr @stderr, align 8
-  %332 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %331, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #26
+  %332 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %331, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #27
   br label %tng_trajectory_mapping_block_write.exit
 
 333:                                              ; preds = %328
@@ -6684,7 +6684,7 @@ tng_frame_set_block_write.exit:                   ; preds = %265
 335:                                              ; preds = %333
   %336 = load ptr, ptr @stderr, align 8
   %337 = load ptr, ptr %312, align 8
-  %338 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %336, ptr noundef nonnull @.str.13, ptr noundef %337, ptr noundef nonnull @.str.1, i32 noundef 919) #26
+  %338 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %336, ptr noundef nonnull @.str.13, ptr noundef %337, ptr noundef nonnull @.str.1, i32 noundef 919) #27
   br label %tng_trajectory_mapping_block_write.exit
 
 339:                                              ; preds = %333, %325
@@ -6693,20 +6693,20 @@ tng_frame_set_block_write.exit:                   ; preds = %265
   br i1 %.not59.i, label %344, label %341
 
 341:                                              ; preds = %339
-  %342 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %340) #24
+  %342 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %340) #25
   %343 = icmp ult i64 %342, 16
   br i1 %343, label %344, label %351
 
 344:                                              ; preds = %341, %339
-  %345 = call dereferenceable_or_null(17) ptr @realloc(ptr noundef %340, i64 noundef 17) #27
+  %345 = call dereferenceable_or_null(17) ptr @realloc(ptr noundef %340, i64 noundef 17) #28
   %.not60.i = icmp eq ptr %345, null
   br i1 %.not60.i, label %346, label %350
 
 346:                                              ; preds = %344
   %347 = load ptr, ptr @stderr, align 8
-  %348 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %347, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3901) #26
+  %348 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %347, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3901) #27
   %349 = load ptr, ptr %59, align 8
-  call void @free(ptr noundef %349) #23
+  call void @free(ptr noundef %349) #24
   store ptr null, ptr %59, align 8
   br label %tng_trajectory_mapping_block_write.exit
 
@@ -6716,7 +6716,7 @@ tng_frame_set_block_write.exit:                   ; preds = %265
 
 351:                                              ; preds = %350, %341
   %352 = phi ptr [ %345, %350 ], [ %340, %341 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %352, ptr noundef nonnull align 1 dereferenceable(17) @.str.104, i64 17, i1 false) #23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %352, ptr noundef nonnull align 1 dereferenceable(17) @.str.104, i64 17, i1 false) #24
   store i64 3, ptr %73, align 8
   %353 = getelementptr inbounds i8, ptr %326, i64 8
   %354 = load i64, ptr %353, align 8
@@ -6732,14 +6732,14 @@ tng_frame_set_block_write.exit:                   ; preds = %265
 360:                                              ; preds = %351
   %361 = load ptr, ptr @stderr, align 8
   %362 = load ptr, ptr %312, align 8
-  %363 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %361, ptr noundef nonnull @.str.63, ptr noundef %362, ptr noundef nonnull @.str.1, i32 noundef 3924) #26
+  %363 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %361, ptr noundef nonnull @.str.63, ptr noundef %362, ptr noundef nonnull @.str.1, i32 noundef 3924) #27
   br label %tng_trajectory_mapping_block_write.exit
 
 364:                                              ; preds = %351
   br i1 %209, label %365, label %366
 
 365:                                              ; preds = %364
-  call void @md5_init(ptr noundef nonnull %10) #23
+  call void @md5_init(ptr noundef nonnull %10) #24
   br label %366
 
 366:                                              ; preds = %365, %364
@@ -6751,13 +6751,13 @@ tng_frame_set_block_write.exit:                   ; preds = %265
   br i1 %.not36.i.i68, label %374, label %369
 
 369:                                              ; preds = %366
-  %370 = call i32 %368(ptr noundef nonnull %0, ptr noundef nonnull %9) #23
+  %370 = call i32 %368(ptr noundef nonnull %0, ptr noundef nonnull %9) #24
   %.not37.i.i69 = icmp eq i32 %370, 0
   br i1 %.not37.i.i69, label %374, label %371
 
 371:                                              ; preds = %369
   %372 = load ptr, ptr @stderr, align 8
-  %373 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %372, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3933) #26
+  %373 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %372, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3933) #27
   br label %374
 
 374:                                              ; preds = %371, %369, %366
@@ -6770,12 +6770,12 @@ tng_frame_set_block_write.exit:                   ; preds = %265
   br i1 %209, label %378, label %381
 
 378:                                              ; preds = %377
-  call void @md5_append(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 8) #24
   br label %381
 
 tng_file_output_numerical.exit.i71:               ; preds = %374
   %379 = load ptr, ptr @stderr, align 8
-  %380 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %379, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3933) #26
+  %380 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %379, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3933) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %tng_trajectory_mapping_block_write.exit
 
@@ -6789,13 +6789,13 @@ tng_file_output_numerical.exit.i71:               ; preds = %374
   br i1 %.not36.i66.i, label %389, label %384
 
 384:                                              ; preds = %381
-  %385 = call i32 %383(ptr noundef nonnull %0, ptr noundef nonnull %8) #23
+  %385 = call i32 %383(ptr noundef nonnull %0, ptr noundef nonnull %8) #24
   %.not37.i67.i = icmp eq i32 %385, 0
   br i1 %.not37.i67.i, label %389, label %386
 
 386:                                              ; preds = %384
   %387 = load ptr, ptr @stderr, align 8
-  %388 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %387, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3940) #26
+  %388 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %387, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3940) #27
   br label %389
 
 389:                                              ; preds = %386, %384, %381
@@ -6808,12 +6808,12 @@ tng_file_output_numerical.exit.i71:               ; preds = %374
   br i1 %209, label %393, label %396
 
 393:                                              ; preds = %392
-  call void @md5_append(ptr noundef nonnull %10, ptr noundef nonnull %8, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %10, ptr noundef nonnull %8, i32 noundef 8) #24
   br label %396
 
 tng_file_output_numerical.exit70.i:               ; preds = %389
   %394 = load ptr, ptr @stderr, align 8
-  %395 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %394, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3940) #26
+  %395 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %394, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3940) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %tng_trajectory_mapping_block_write.exit
 
@@ -6844,13 +6844,13 @@ tng_file_output_numerical.exit70.i:               ; preds = %389
   br i1 %.not36.i71.us.i, label %410, label %405
 
 405:                                              ; preds = %.lr.ph.split.us.i75
-  %406 = call i32 %404(ptr noundef nonnull %0, ptr noundef nonnull %7) #23
+  %406 = call i32 %404(ptr noundef nonnull %0, ptr noundef nonnull %7) #24
   %.not37.i72.us.i = icmp eq i32 %406, 0
   br i1 %.not37.i72.us.i, label %410, label %407
 
 407:                                              ; preds = %405
   %408 = load ptr, ptr @stderr, align 8
-  %409 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %408, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3951) #26
+  %409 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %408, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3951) #27
   br label %410
 
 410:                                              ; preds = %407, %405, %.lr.ph.split.us.i75
@@ -6860,7 +6860,7 @@ tng_file_output_numerical.exit70.i:               ; preds = %389
   br i1 %.not38.i73.us.i, label %413, label %tng_file_output_numerical.exit75.i
 
 413:                                              ; preds = %410
-  call void @md5_append(ptr noundef nonnull %10, ptr noundef nonnull %7, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %10, ptr noundef nonnull %7, i32 noundef 8) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
   %414 = load i64, ptr %353, align 8
@@ -6879,13 +6879,13 @@ tng_file_output_numerical.exit70.i:               ; preds = %389
   br i1 %.not36.i71.i, label %425, label %420
 
 420:                                              ; preds = %.lr.ph.split.i74
-  %421 = call i32 %419(ptr noundef nonnull %0, ptr noundef nonnull %7) #23
+  %421 = call i32 %419(ptr noundef nonnull %0, ptr noundef nonnull %7) #24
   %.not37.i72.i = icmp eq i32 %421, 0
   br i1 %.not37.i72.i, label %425, label %422
 
 422:                                              ; preds = %420
   %423 = load ptr, ptr @stderr, align 8
-  %424 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %423, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3951) #26
+  %424 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %423, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3951) #27
   br label %425
 
 425:                                              ; preds = %422, %420, %.lr.ph.split.i74
@@ -6903,7 +6903,7 @@ tng_file_output_numerical.exit70.i:               ; preds = %389
 
 tng_file_output_numerical.exit75.i:               ; preds = %425, %410
   %431 = load ptr, ptr @stderr, align 8
-  %432 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %431, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3951) #26
+  %432 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %431, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3951) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %tng_trajectory_mapping_block_write.exit
 
@@ -6919,7 +6919,7 @@ tng_file_output_numerical.exit75.i:               ; preds = %425, %410
 
 440:                                              ; preds = %433
   %441 = load ptr, ptr @stderr, align 8
-  %442 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %441, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 3963) #26
+  %442 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %441, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 3963) #27
   br label %tng_trajectory_mapping_block_write.exit
 
 443:                                              ; preds = %433
@@ -6930,14 +6930,14 @@ tng_file_output_numerical.exit75.i:               ; preds = %425, %410
   %445 = load i64, ptr %353, align 8
   %.tr.i = trunc i64 %445 to i32
   %446 = shl i32 %.tr.i, 3
-  call void @md5_append(ptr noundef nonnull %10, ptr noundef %444, i32 noundef %446) #23
+  call void @md5_append(ptr noundef nonnull %10, ptr noundef %444, i32 noundef %446) #24
   br label %447
 
 ._crit_edge.i:                                    ; preds = %428, %413, %.preheader.i72
   br i1 %209, label %447, label %tng_trajectory_mapping_block_write.exit
 
 447:                                              ; preds = %._crit_edge.i, %.thread.i
-  call void @md5_finish(ptr noundef nonnull %10, ptr noundef nonnull %313) #23
+  call void @md5_finish(ptr noundef nonnull %10, ptr noundef nonnull %313) #24
   %448 = load ptr, ptr %24, align 8
   %449 = call i64 @ftello64(ptr noundef %448)
   %450 = load ptr, ptr %24, align 8
@@ -6950,7 +6950,7 @@ tng_file_output_numerical.exit75.i:               ; preds = %425, %410
 
 455:                                              ; preds = %447
   %456 = load ptr, ptr @stderr, align 8
-  %457 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %456, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 3980) #26
+  %457 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %456, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 3980) #27
   br label %tng_trajectory_mapping_block_write.exit
 
 458:                                              ; preds = %447
@@ -7017,7 +7017,7 @@ tng_trajectory_mapping_block_write.exit:          ; preds = %330, %335, %346, %3
   br i1 %.not16.i79, label %490, label %489
 
 489:                                              ; preds = %487
-  call void @free(ptr noundef nonnull %488) #23
+  call void @free(ptr noundef nonnull %488) #24
   store ptr null, ptr %59, align 8
   br label %490
 
@@ -7028,7 +7028,7 @@ tng_trajectory_mapping_block_write.exit:          ; preds = %330, %335, %346, %3
   br i1 %.not17.i80, label %494, label %493
 
 493:                                              ; preds = %490
-  call void @free(ptr noundef nonnull %492) #23
+  call void @free(ptr noundef nonnull %492) #24
   store ptr null, ptr %491, align 8
   br label %494
 
@@ -7039,11 +7039,11 @@ tng_trajectory_mapping_block_write.exit:          ; preds = %330, %335, %346, %3
   br i1 %.not18.i81, label %498, label %497
 
 497:                                              ; preds = %494
-  call void @free(ptr noundef nonnull %496) #23
+  call void @free(ptr noundef nonnull %496) #24
   br label %498
 
 498:                                              ; preds = %497, %494
-  call void @free(ptr noundef nonnull %36) #23
+  call void @free(ptr noundef nonnull %36) #24
   br label %tng_block_destroy.exit82
 
 tng_block_destroy.exit82:                         ; preds = %486, %498
@@ -7079,13 +7079,13 @@ define range(i32 0, 3) i32 @tng_num_frames_get(ptr noundef %0, ptr nocapture nou
   br i1 %10, label %tng_block_destroy.exit, label %11
 
 11:                                               ; preds = %2
-  %12 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %12 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %13, label %16
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 16:                                               ; preds = %11
@@ -7115,12 +7115,12 @@ tng_block_init.exit:                              ; preds = %13, %16
 
 .thread:                                          ; preds = %25
   %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.14, i64 noundef %9, ptr noundef nonnull @.str.1, i32 noundef 9687) #26
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.14, i64 noundef %9, ptr noundef nonnull @.str.1, i32 noundef 9687) #27
   br label %33
 
 30:                                               ; preds = %tng_block_init.exit
   %31 = load ptr, ptr @stderr, align 8
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.14, i64 noundef %9, ptr noundef nonnull @.str.1, i32 noundef 9687) #26
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.14, i64 noundef %9, ptr noundef nonnull @.str.1, i32 noundef 9687) #27
   br i1 %.not.i, label %tng_block_destroy.exit, label %33
 
 33:                                               ; preds = %.thread, %30
@@ -7130,7 +7130,7 @@ tng_block_init.exit:                              ; preds = %13, %16
   br i1 %.not16.i, label %37, label %36
 
 36:                                               ; preds = %33
-  tail call void @free(ptr noundef nonnull %35) #23
+  tail call void @free(ptr noundef nonnull %35) #24
   store ptr null, ptr %34, align 8
   br label %37
 
@@ -7141,7 +7141,7 @@ tng_block_init.exit:                              ; preds = %13, %16
   br i1 %.not17.i, label %41, label %40
 
 40:                                               ; preds = %37
-  tail call void @free(ptr noundef nonnull %39) #23
+  tail call void @free(ptr noundef nonnull %39) #24
   store ptr null, ptr %38, align 8
   br label %41
 
@@ -7152,11 +7152,11 @@ tng_block_init.exit:                              ; preds = %13, %16
   br i1 %.not18.i, label %45, label %44
 
 44:                                               ; preds = %41
-  tail call void @free(ptr noundef nonnull %43) #23
+  tail call void @free(ptr noundef nonnull %43) #24
   br label %45
 
 45:                                               ; preds = %44, %41
-  tail call void @free(ptr noundef nonnull %12) #23
+  tail call void @free(ptr noundef nonnull %12) #24
   br label %tng_block_destroy.exit
 
 46:                                               ; preds = %25
@@ -7166,7 +7166,7 @@ tng_block_init.exit:                              ; preds = %13, %16
   br i1 %.not16.i16, label %50, label %49
 
 49:                                               ; preds = %46
-  tail call void @free(ptr noundef nonnull %48) #23
+  tail call void @free(ptr noundef nonnull %48) #24
   store ptr null, ptr %47, align 8
   br label %50
 
@@ -7177,7 +7177,7 @@ tng_block_init.exit:                              ; preds = %13, %16
   br i1 %.not17.i17, label %54, label %53
 
 53:                                               ; preds = %50
-  tail call void @free(ptr noundef nonnull %52) #23
+  tail call void @free(ptr noundef nonnull %52) #24
   store ptr null, ptr %51, align 8
   br label %54
 
@@ -7188,11 +7188,11 @@ tng_block_init.exit:                              ; preds = %13, %16
   br i1 %.not18.i18, label %tng_block_destroy.exit19, label %57
 
 57:                                               ; preds = %54
-  tail call void @free(ptr noundef nonnull %56) #23
+  tail call void @free(ptr noundef nonnull %56) #24
   br label %tng_block_destroy.exit19
 
 tng_block_destroy.exit19:                         ; preds = %54, %57
-  tail call void @free(ptr noundef nonnull %12) #23
+  tail call void @free(ptr noundef nonnull %12) #24
   %58 = load ptr, ptr %5, align 8
   %59 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 1, ptr noundef %58)
   %60 = icmp eq i64 %59, 0
@@ -7200,7 +7200,7 @@ tng_block_destroy.exit19:                         ; preds = %54, %57
 
 tng_file_input_numerical.exit.thread34:           ; preds = %tng_block_destroy.exit19
   %61 = load ptr, ptr @stderr, align 8
-  %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 9693) #26
+  %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 9693) #27
   br label %tng_block_destroy.exit
 
 63:                                               ; preds = %tng_block_destroy.exit19
@@ -7210,13 +7210,13 @@ tng_file_input_numerical.exit.thread34:           ; preds = %tng_block_destroy.e
   br i1 %.not22.i, label %tng_file_input_numerical.exit.thread, label %66
 
 66:                                               ; preds = %63
-  %67 = call i32 %65(ptr noundef nonnull %0, ptr noundef nonnull %3) #23
+  %67 = call i32 %65(ptr noundef nonnull %0, ptr noundef nonnull %3) #24
   %.not23.i = icmp eq i32 %67, 0
   br i1 %.not23.i, label %tng_file_input_numerical.exit.thread, label %tng_file_input_numerical.exit
 
 tng_file_input_numerical.exit:                    ; preds = %66
   %68 = load ptr, ptr @stderr, align 8
-  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 9693) #26
+  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 9693) #27
   br label %tng_file_input_numerical.exit.thread
 
 tng_file_input_numerical.exit.thread:             ; preds = %66, %63, %tng_file_input_numerical.exit
@@ -7227,7 +7227,7 @@ tng_file_input_numerical.exit.thread:             ; preds = %66, %63, %tng_file_
 
 tng_file_input_numerical.exit27.thread38:         ; preds = %tng_file_input_numerical.exit.thread
   %73 = load ptr, ptr @stderr, align 8
-  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 9699) #26
+  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 9699) #27
   br label %tng_block_destroy.exit
 
 75:                                               ; preds = %tng_file_input_numerical.exit.thread
@@ -7236,13 +7236,13 @@ tng_file_input_numerical.exit27.thread38:         ; preds = %tng_file_input_nume
   br i1 %.not22.i21, label %tng_file_input_numerical.exit27.thread, label %77
 
 77:                                               ; preds = %75
-  %78 = call i32 %76(ptr noundef nonnull %0, ptr noundef nonnull %4) #23
+  %78 = call i32 %76(ptr noundef nonnull %0, ptr noundef nonnull %4) #24
   %.not23.i22 = icmp eq i32 %78, 0
   br i1 %.not23.i22, label %tng_file_input_numerical.exit27.thread, label %tng_file_input_numerical.exit27
 
 tng_file_input_numerical.exit27:                  ; preds = %77
   %79 = load ptr, ptr @stderr, align 8
-  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 9699) #26
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 9699) #27
   br label %tng_file_input_numerical.exit27.thread
 
 tng_file_input_numerical.exit27.thread:           ; preds = %77, %75, %tng_file_input_numerical.exit27
@@ -7261,14 +7261,14 @@ tng_block_destroy.exit:                           ; preds = %tng_file_input_nume
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @tng_block_init(ptr nocapture noundef writeonly %0) unnamed_addr #9 {
-  %2 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %2 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %2, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %6
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %11
 
 6:                                                ; preds = %1
@@ -7307,7 +7307,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_block_header_read(ptr noundef %0
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1, i32 noundef 1022) #26
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1, i32 noundef 1022) #27
   br label %109
 
 14:                                               ; preds = %4
@@ -7384,13 +7384,13 @@ define internal fastcc range(i32 0, 3) i32 @tng_block_header_read(ptr noundef %0
 51:                                               ; preds = %.thread70, %49
   %52 = phi ptr [ %48, %.thread70 ], [ %50, %49 ]
   %53 = phi ptr [ %tng_swap_byte_order_little_endian_64.sink, %.thread70 ], [ %.pre, %49 ]
-  %54 = tail call i32 %53(ptr noundef nonnull %0, ptr noundef nonnull %1) #23
+  %54 = tail call i32 %53(ptr noundef nonnull %0, ptr noundef nonnull %1) #24
   %.not41 = icmp eq i32 %54, 0
   br i1 %.not41, label %58, label %55
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr @stderr, align 8
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1088) #26
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1088) #27
   br label %58
 
 58:                                               ; preds = %.thread, %55, %51, %49
@@ -7403,7 +7403,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_block_header_read(ptr noundef %0
 
 tng_file_input_numerical.exit.thread57:           ; preds = %58
   %64 = load ptr, ptr @stderr, align 8
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 1092) #26
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 1092) #27
   br label %109
 
 66:                                               ; preds = %58
@@ -7412,13 +7412,13 @@ tng_file_input_numerical.exit.thread57:           ; preds = %58
   br i1 %.not22.i, label %tng_file_input_numerical.exit.thread, label %68
 
 68:                                               ; preds = %66
-  %69 = tail call i32 %67(ptr noundef nonnull %0, ptr noundef nonnull %60) #23
+  %69 = tail call i32 %67(ptr noundef nonnull %0, ptr noundef nonnull %60) #24
   %.not23.i = icmp eq i32 %69, 0
   br i1 %.not23.i, label %tng_file_input_numerical.exit.thread, label %tng_file_input_numerical.exit
 
 tng_file_input_numerical.exit:                    ; preds = %68
   %70 = load ptr, ptr @stderr, align 8
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1092) #26
+  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1092) #27
   br label %tng_file_input_numerical.exit.thread
 
 tng_file_input_numerical.exit.thread:             ; preds = %68, %66, %tng_file_input_numerical.exit
@@ -7430,7 +7430,7 @@ tng_file_input_numerical.exit.thread:             ; preds = %68, %66, %tng_file_
 
 tng_file_input_numerical.exit48.thread61:         ; preds = %tng_file_input_numerical.exit.thread
   %76 = load ptr, ptr @stderr, align 8
-  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 1098) #26
+  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 1098) #27
   br label %109
 
 78:                                               ; preds = %tng_file_input_numerical.exit.thread
@@ -7439,13 +7439,13 @@ tng_file_input_numerical.exit48.thread61:         ; preds = %tng_file_input_nume
   br i1 %.not22.i42, label %tng_file_input_numerical.exit48.thread, label %80
 
 80:                                               ; preds = %78
-  %81 = tail call i32 %79(ptr noundef nonnull %0, ptr noundef nonnull %72) #23
+  %81 = tail call i32 %79(ptr noundef nonnull %0, ptr noundef nonnull %72) #24
   %.not23.i43 = icmp eq i32 %81, 0
   br i1 %.not23.i43, label %tng_file_input_numerical.exit48.thread, label %tng_file_input_numerical.exit48
 
 tng_file_input_numerical.exit48:                  ; preds = %80
   %82 = load ptr, ptr @stderr, align 8
-  %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1098) #26
+  %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1098) #27
   br label %tng_file_input_numerical.exit48.thread
 
 tng_file_input_numerical.exit48.thread:           ; preds = %80, %78, %tng_file_input_numerical.exit48
@@ -7457,7 +7457,7 @@ tng_file_input_numerical.exit48.thread:           ; preds = %80, %78, %tng_file_
 
 88:                                               ; preds = %tng_file_input_numerical.exit48.thread
   %89 = load ptr, ptr @stderr, align 8
-  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.1, i32 noundef 1106) #26
+  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.1, i32 noundef 1106) #27
   br label %109
 
 91:                                               ; preds = %tng_file_input_numerical.exit48.thread
@@ -7471,7 +7471,7 @@ tng_file_input_numerical.exit48.thread:           ; preds = %80, %78, %tng_file_
 
 tng_file_input_numerical.exit55.thread65:         ; preds = %91
   %97 = load ptr, ptr @stderr, align 8
-  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 1113) #26
+  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 1113) #27
   br label %109
 
 99:                                               ; preds = %91
@@ -7480,13 +7480,13 @@ tng_file_input_numerical.exit55.thread65:         ; preds = %91
   br i1 %.not22.i49, label %tng_file_input_numerical.exit55.thread, label %101
 
 101:                                              ; preds = %99
-  %102 = tail call i32 %100(ptr noundef nonnull %0, ptr noundef nonnull %93) #23
+  %102 = tail call i32 %100(ptr noundef nonnull %0, ptr noundef nonnull %93) #24
   %.not23.i50 = icmp eq i32 %102, 0
   br i1 %.not23.i50, label %tng_file_input_numerical.exit55.thread, label %tng_file_input_numerical.exit55
 
 tng_file_input_numerical.exit55:                  ; preds = %101
   %103 = load ptr, ptr @stderr, align 8
-  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1113) #26
+  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1113) #27
   br label %tng_file_input_numerical.exit55.thread
 
 tng_file_input_numerical.exit55.thread:           ; preds = %101, %99, %tng_file_input_numerical.exit55
@@ -7514,7 +7514,7 @@ define internal fastcc void @tng_block_destroy(ptr nocapture noundef %0) unnamed
   br i1 %.not16, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call void @free(ptr noundef nonnull %5) #23
+  tail call void @free(ptr noundef nonnull %5) #24
   store ptr null, ptr %4, align 8
   br label %7
 
@@ -7525,7 +7525,7 @@ define internal fastcc void @tng_block_destroy(ptr nocapture noundef %0) unnamed
   br i1 %.not17, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void @free(ptr noundef nonnull %9) #23
+  tail call void @free(ptr noundef nonnull %9) #24
   store ptr null, ptr %8, align 8
   br label %11
 
@@ -7536,13 +7536,13 @@ define internal fastcc void @tng_block_destroy(ptr nocapture noundef %0) unnamed
   br i1 %.not18, label %15, label %14
 
 14:                                               ; preds = %11
-  tail call void @free(ptr noundef nonnull %13) #23
+  tail call void @free(ptr noundef nonnull %13) #24
   store ptr null, ptr %12, align 8
   br label %15
 
 15:                                               ; preds = %14, %11
   %16 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %16) #23
+  tail call void @free(ptr noundef %16) #24
   store ptr null, ptr %0, align 8
   br label %17
 
@@ -7564,7 +7564,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_input_numerical(ptr noundef
 
 13:                                               ; preds = %11
   %14 = trunc nuw nsw i64 %2 to i32
-  tail call void @md5_append(ptr noundef %4, ptr noundef %1, i32 noundef %14) #23
+  tail call void @md5_append(ptr noundef %4, ptr noundef %1, i32 noundef %14) #24
   br label %15
 
 15:                                               ; preds = %13, %11
@@ -7580,7 +7580,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_input_numerical(ptr noundef
   br i1 %.not22, label %28, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef %1) #23
+  %20 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef %1) #24
   %.not23 = icmp eq i32 %20, 0
   br i1 %.not23, label %28, label %.sink.split
 
@@ -7591,7 +7591,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_input_numerical(ptr noundef
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef %1) #23
+  %25 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef %1) #24
   %.not21 = icmp eq i32 %25, 0
   br i1 %.not21, label %28, label %.sink.split
 
@@ -7599,7 +7599,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_input_numerical(ptr noundef
   %.str.31.sink = phi ptr [ @.str.30, %6 ], [ @.str.31, %19 ], [ @.str.31, %24 ]
   %.0.ph = phi i32 [ 2, %6 ], [ 0, %19 ], [ 0, %24 ]
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull %.str.31.sink, ptr noundef nonnull @.str.1, i32 noundef %5) #26
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull %.str.31.sink, ptr noundef nonnull @.str.1, i32 noundef %5) #27
   br label %28
 
 28:                                               ; preds = %.sink.split, %19, %16, %24, %21, %15
@@ -7647,7 +7647,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr nocapture noundef
   %15 = getelementptr inbounds %struct.tng_molecule, ptr %14, i64 %.01417.us.i
   %16 = getelementptr inbounds i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(17) @.str.15, ptr noundef nonnull dereferenceable(1) %17) #24
+  %18 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(17) @.str.15, ptr noundef nonnull dereferenceable(1) %17) #25
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.lr.ph.i42, label %20
 
@@ -7667,7 +7667,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr nocapture noundef
 
 .loopexit:                                        ; preds = %23
   %25 = load ptr, ptr @stderr, align 8
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 9752) #26
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 9752) #27
   br label %tng_molecule_cnt_set.exit
 
 27:                                               ; preds = %.lr.ph.i42
@@ -7699,7 +7699,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr nocapture noundef
 
 ._crit_edge.i43:                                  ; preds = %39
   %41 = load ptr, ptr @stderr, align 8
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 6733) #26
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 6733) #27
   br label %tng_molecule_cnt_set.exit
 
 43:                                               ; preds = %.lr.ph.i44
@@ -7747,11 +7747,11 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr nocapture noundef
 
 71:                                               ; preds = %.thread65, %68
   %72 = load ptr, ptr @stderr, align 8
-  %73 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 67, i64 1, ptr %72) #28
+  %73 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 67, i64 1, ptr %72) #29
   %74 = load ptr, ptr @stderr, align 8
-  %75 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 16, i64 1, ptr %74) #28
+  %75 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 16, i64 1, ptr %74) #29
   %76 = load ptr, ptr @stderr, align 8
-  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 9771) #26
+  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 9771) #27
   br label %tng_molecule_cnt_set.exit
 
 78:                                               ; preds = %.thread65
@@ -7839,11 +7839,11 @@ tng_chain_residue_add.exit:                       ; preds = %99, %103
 
 119:                                              ; preds = %116
   %120 = load ptr, ptr @stderr, align 8
-  %121 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 50, i64 1, ptr %120) #28
+  %121 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 50, i64 1, ptr %120) #29
   %122 = load ptr, ptr @stderr, align 8
-  %123 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 53, i64 1, ptr %122) #28
+  %123 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 53, i64 1, ptr %122) #29
   %124 = load ptr, ptr @stderr, align 8
-  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 9809) #26
+  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 9809) #27
   br label %tng_molecule_cnt_set.exit
 
 126:                                              ; preds = %116, %._crit_edge, %114
@@ -7871,7 +7871,7 @@ tng_chain_residue_add.exit:                       ; preds = %99, %103
 
 ._crit_edge.i51:                                  ; preds = %135, %126
   %137 = load ptr, ptr @stderr, align 8
-  %138 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 6733) #26
+  %138 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 6733) #27
   br label %tng_molecule_cnt_set.exit
 
 139:                                              ; preds = %132
@@ -8035,14 +8035,14 @@ define range(i32 0, 3) i32 @tng_num_frame_sets_get(ptr noundef %0, ptr nocapture
   br label %tng_block_destroy.exit
 
 13:                                               ; preds = %2
-  %14 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %14 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %14, ptr %4, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %15, label %18
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 18:                                               ; preds = %13
@@ -8074,12 +8074,12 @@ tng_block_init.exit:                              ; preds = %15, %18
 
 .thread:                                          ; preds = %28
   %31 = load ptr, ptr @stderr, align 8
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.14, i64 noundef %9, ptr noundef nonnull @.str.1, i32 noundef 9984) #26
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.14, i64 noundef %9, ptr noundef nonnull @.str.1, i32 noundef 9984) #27
   br label %36
 
 33:                                               ; preds = %tng_block_init.exit
   %34 = load ptr, ptr @stderr, align 8
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.14, i64 noundef %9, ptr noundef nonnull @.str.1, i32 noundef 9984) #26
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.14, i64 noundef %9, ptr noundef nonnull @.str.1, i32 noundef 9984) #27
   br i1 %.not.i, label %tng_block_destroy.exit, label %36
 
 36:                                               ; preds = %.thread, %33
@@ -8089,7 +8089,7 @@ tng_block_init.exit:                              ; preds = %15, %18
   br i1 %.not16.i, label %40, label %39
 
 39:                                               ; preds = %36
-  tail call void @free(ptr noundef nonnull %38) #23
+  tail call void @free(ptr noundef nonnull %38) #24
   store ptr null, ptr %37, align 8
   br label %40
 
@@ -8100,7 +8100,7 @@ tng_block_init.exit:                              ; preds = %15, %18
   br i1 %.not17.i, label %44, label %43
 
 43:                                               ; preds = %40
-  tail call void @free(ptr noundef nonnull %42) #23
+  tail call void @free(ptr noundef nonnull %42) #24
   store ptr null, ptr %41, align 8
   br label %44
 
@@ -8111,11 +8111,11 @@ tng_block_init.exit:                              ; preds = %15, %18
   br i1 %.not18.i, label %48, label %47
 
 47:                                               ; preds = %44
-  tail call void @free(ptr noundef nonnull %46) #23
+  tail call void @free(ptr noundef nonnull %46) #24
   br label %48
 
 48:                                               ; preds = %47, %44
-  tail call void @free(ptr noundef nonnull %14) #23
+  tail call void @free(ptr noundef nonnull %14) #24
   br label %tng_block_destroy.exit
 
 49:                                               ; preds = %28
@@ -8130,7 +8130,7 @@ tng_block_init.exit:                              ; preds = %15, %18
   br i1 %.not16.i78, label %55, label %54
 
 54:                                               ; preds = %51
-  tail call void @free(ptr noundef nonnull %53) #23
+  tail call void @free(ptr noundef nonnull %53) #24
   store ptr null, ptr %52, align 8
   br label %55
 
@@ -8141,7 +8141,7 @@ tng_block_init.exit:                              ; preds = %15, %18
   br i1 %.not17.i79, label %59, label %58
 
 58:                                               ; preds = %55
-  tail call void @free(ptr noundef nonnull %57) #23
+  tail call void @free(ptr noundef nonnull %57) #24
   store ptr null, ptr %56, align 8
   br label %59
 
@@ -8152,11 +8152,11 @@ tng_block_init.exit:                              ; preds = %15, %18
   br i1 %.not18.i80, label %tng_block_destroy.exit81, label %62
 
 62:                                               ; preds = %59
-  tail call void @free(ptr noundef nonnull %61) #23
+  tail call void @free(ptr noundef nonnull %61) #24
   br label %tng_block_destroy.exit81
 
 tng_block_destroy.exit81:                         ; preds = %59, %62
-  tail call void @free(ptr noundef nonnull %14) #23
+  tail call void @free(ptr noundef nonnull %14) #24
   br label %tng_block_destroy.exit
 
 63:                                               ; preds = %49
@@ -8188,7 +8188,7 @@ tng_block_destroy.exit81:                         ; preds = %59, %62
 
 79:                                               ; preds = %77, %71
   %80 = load ptr, ptr @stderr, align 8
-  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.14, i64 noundef %.065, ptr noundef nonnull @.str.1, i32 noundef 10014) #26
+  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.14, i64 noundef %.065, ptr noundef nonnull @.str.1, i32 noundef 10014) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %tng_block_destroy.exit
 
@@ -8204,7 +8204,7 @@ tng_block_destroy.exit81:                         ; preds = %59, %62
   br i1 %.not16.i83, label %88, label %87
 
 87:                                               ; preds = %84
-  tail call void @free(ptr noundef nonnull %86) #23
+  tail call void @free(ptr noundef nonnull %86) #24
   store ptr null, ptr %85, align 8
   br label %88
 
@@ -8215,7 +8215,7 @@ tng_block_destroy.exit81:                         ; preds = %59, %62
   br i1 %.not17.i84, label %92, label %91
 
 91:                                               ; preds = %88
-  tail call void @free(ptr noundef nonnull %90) #23
+  tail call void @free(ptr noundef nonnull %90) #24
   store ptr null, ptr %89, align 8
   br label %92
 
@@ -8226,11 +8226,11 @@ tng_block_destroy.exit81:                         ; preds = %59, %62
   br i1 %.not18.i85, label %tng_block_destroy.exit86, label %95
 
 95:                                               ; preds = %92
-  tail call void @free(ptr noundef nonnull %94) #23
+  tail call void @free(ptr noundef nonnull %94) #24
   br label %tng_block_destroy.exit86
 
 tng_block_destroy.exit86:                         ; preds = %92, %95
-  tail call void @free(ptr noundef nonnull %14) #23
+  tail call void @free(ptr noundef nonnull %14) #24
   br label %tng_block_destroy.exit
 
 96:                                               ; preds = %69
@@ -8258,7 +8258,7 @@ tng_block_destroy.exit86:                         ; preds = %92, %95
 
 108:                                              ; preds = %106, %100
   %109 = load ptr, ptr @stderr, align 8
-  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.14, i64 noundef %.166, ptr noundef nonnull @.str.1, i32 noundef 10042) #26
+  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.14, i64 noundef %.166, ptr noundef nonnull @.str.1, i32 noundef 10042) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %tng_block_destroy.exit
 
@@ -8274,7 +8274,7 @@ tng_block_destroy.exit86:                         ; preds = %92, %95
   br i1 %.not16.i88, label %117, label %116
 
 116:                                              ; preds = %113
-  tail call void @free(ptr noundef nonnull %115) #23
+  tail call void @free(ptr noundef nonnull %115) #24
   store ptr null, ptr %114, align 8
   br label %117
 
@@ -8285,7 +8285,7 @@ tng_block_destroy.exit86:                         ; preds = %92, %95
   br i1 %.not17.i89, label %121, label %120
 
 120:                                              ; preds = %117
-  tail call void @free(ptr noundef nonnull %119) #23
+  tail call void @free(ptr noundef nonnull %119) #24
   store ptr null, ptr %118, align 8
   br label %121
 
@@ -8296,11 +8296,11 @@ tng_block_destroy.exit86:                         ; preds = %92, %95
   br i1 %.not18.i90, label %tng_block_destroy.exit91, label %124
 
 124:                                              ; preds = %121
-  tail call void @free(ptr noundef nonnull %123) #23
+  tail call void @free(ptr noundef nonnull %123) #24
   br label %tng_block_destroy.exit91
 
 tng_block_destroy.exit91:                         ; preds = %121, %124
-  tail call void @free(ptr noundef nonnull %14) #23
+  tail call void @free(ptr noundef nonnull %14) #24
   br label %tng_block_destroy.exit
 
 125:                                              ; preds = %98
@@ -8328,7 +8328,7 @@ tng_block_destroy.exit91:                         ; preds = %121, %124
 
 137:                                              ; preds = %135, %129
   %138 = load ptr, ptr @stderr, align 8
-  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef nonnull @.str.14, i64 noundef %.267, ptr noundef nonnull @.str.1, i32 noundef 10069) #26
+  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef nonnull @.str.14, i64 noundef %.267, ptr noundef nonnull @.str.1, i32 noundef 10069) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %tng_block_destroy.exit
 
@@ -8344,7 +8344,7 @@ tng_block_destroy.exit91:                         ; preds = %121, %124
   br i1 %.not16.i93, label %146, label %145
 
 145:                                              ; preds = %142
-  tail call void @free(ptr noundef nonnull %144) #23
+  tail call void @free(ptr noundef nonnull %144) #24
   store ptr null, ptr %143, align 8
   br label %146
 
@@ -8355,7 +8355,7 @@ tng_block_destroy.exit91:                         ; preds = %121, %124
   br i1 %.not17.i94, label %150, label %149
 
 149:                                              ; preds = %146
-  tail call void @free(ptr noundef nonnull %148) #23
+  tail call void @free(ptr noundef nonnull %148) #24
   store ptr null, ptr %147, align 8
   br label %150
 
@@ -8366,11 +8366,11 @@ tng_block_destroy.exit91:                         ; preds = %121, %124
   br i1 %.not18.i95, label %tng_block_destroy.exit96, label %153
 
 153:                                              ; preds = %150
-  tail call void @free(ptr noundef nonnull %152) #23
+  tail call void @free(ptr noundef nonnull %152) #24
   br label %tng_block_destroy.exit96
 
 tng_block_destroy.exit96:                         ; preds = %150, %153
-  tail call void @free(ptr noundef nonnull %14) #23
+  tail call void @free(ptr noundef nonnull %14) #24
   br label %tng_block_destroy.exit
 
 154:                                              ; preds = %127
@@ -8380,7 +8380,7 @@ tng_block_destroy.exit96:                         ; preds = %150, %153
   br i1 %.not16.i98, label %158, label %157
 
 157:                                              ; preds = %154
-  tail call void @free(ptr noundef nonnull %156) #23
+  tail call void @free(ptr noundef nonnull %156) #24
   store ptr null, ptr %155, align 8
   br label %158
 
@@ -8391,7 +8391,7 @@ tng_block_destroy.exit96:                         ; preds = %150, %153
   br i1 %.not17.i99, label %162, label %161
 
 161:                                              ; preds = %158
-  tail call void @free(ptr noundef nonnull %160) #23
+  tail call void @free(ptr noundef nonnull %160) #24
   store ptr null, ptr %159, align 8
   br label %162
 
@@ -8402,11 +8402,11 @@ tng_block_destroy.exit96:                         ; preds = %150, %153
   br i1 %.not18.i100, label %tng_block_destroy.exit101, label %165
 
 165:                                              ; preds = %162
-  tail call void @free(ptr noundef nonnull %164) #23
+  tail call void @free(ptr noundef nonnull %164) #24
   br label %tng_block_destroy.exit101
 
 tng_block_destroy.exit101:                        ; preds = %162, %165
-  tail call void @free(ptr noundef nonnull %14) #23
+  tail call void @free(ptr noundef nonnull %14) #24
   %166 = getelementptr inbounds i8, ptr %0, i64 440
   store i64 %.4, ptr %166, align 8
   store i64 %.4, ptr %1, align 8
@@ -8498,7 +8498,7 @@ define i32 @tng_block_read_next(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %.not15.i.i, label %50, label %49
 
 49:                                               ; preds = %.lr.ph.i.i
-  tail call void @free(ptr noundef nonnull %48) #23
+  tail call void @free(ptr noundef nonnull %48) #24
   store ptr null, ptr %47, align 8
   %.pre.i.i = load i64, ptr %39, align 8
   br label %50
@@ -8515,7 +8515,7 @@ define i32 @tng_block_read_next(ptr noundef %0, ptr nocapture noundef readonly %
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
   %54 = phi ptr [ %.pre17.i.i, %._crit_edge.loopexit.i.i ], [ %43, %.preheader.i.i ]
-  tail call void @free(ptr noundef %54) #23
+  tail call void @free(ptr noundef %54) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   br label %tng_frame_set_particle_mapping_free.exit.i
 
@@ -8524,7 +8524,7 @@ tng_frame_set_particle_mapping_free.exit.i:       ; preds = %._crit_edge.i.i, %4
   br i1 %55, label %56, label %.thread.i
 
 56:                                               ; preds = %tng_frame_set_particle_mapping_free.exit.i
-  call void @md5_init(ptr noundef nonnull %27) #23
+  call void @md5_init(ptr noundef nonnull %27) #24
   %57 = getelementptr inbounds i8, ptr %0, i64 288
   %58 = load ptr, ptr %33, align 8
   %59 = call i64 @fread(ptr noundef nonnull %57, i64 noundef 8, i64 noundef 1, ptr noundef %58)
@@ -8539,7 +8539,7 @@ tng_frame_set_particle_mapping_free.exit.i:       ; preds = %._crit_edge.i.i, %4
   br i1 %64, label %tng_file_input_numerical.exit.thread112.i, label %.thread109.i
 
 65:                                               ; preds = %56
-  call void @md5_append(ptr noundef nonnull %27, ptr noundef nonnull %57, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %27, ptr noundef nonnull %57, i32 noundef 8) #24
   br label %.thread109.i
 
 .thread109.i:                                     ; preds = %65, %.thread.i
@@ -8550,18 +8550,18 @@ tng_frame_set_particle_mapping_free.exit.i:       ; preds = %._crit_edge.i.i, %4
   br i1 %.not22.i.i, label %tng_file_input_numerical.exit.thread.i, label %69
 
 69:                                               ; preds = %.thread109.i
-  %70 = call i32 %68(ptr noundef nonnull %0, ptr noundef nonnull %66) #23
+  %70 = call i32 %68(ptr noundef nonnull %0, ptr noundef nonnull %66) #24
   %.not23.i.i = icmp eq i32 %70, 0
   br i1 %.not23.i.i, label %tng_file_input_numerical.exit.thread.i, label %tng_file_input_numerical.exit.i
 
 tng_file_input_numerical.exit.thread112.i:        ; preds = %.thread.i, %56
   %71 = load ptr, ptr @stderr, align 8
-  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3408) #26
+  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3408) #27
   br label %tng_frame_set_block_read.exit
 
 tng_file_input_numerical.exit.i:                  ; preds = %69
   %73 = load ptr, ptr @stderr, align 8
-  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3408) #26
+  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3408) #27
   br label %tng_file_input_numerical.exit.thread.i
 
 tng_file_input_numerical.exit.thread.i:           ; preds = %tng_file_input_numerical.exit.i, %69, %.thread109.i
@@ -8573,14 +8573,14 @@ tng_file_input_numerical.exit.thread.i:           ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit87.thread116.i:      ; preds = %tng_file_input_numerical.exit.thread.i
   %79 = load ptr, ptr @stderr, align 8
-  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3415) #26
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3415) #27
   br label %tng_frame_set_block_read.exit
 
 81:                                               ; preds = %tng_file_input_numerical.exit.thread.i
   br i1 %55, label %82, label %83
 
 82:                                               ; preds = %81
-  call void @md5_append(ptr noundef nonnull %27, ptr noundef nonnull %75, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %27, ptr noundef nonnull %75, i32 noundef 8) #24
   br label %83
 
 83:                                               ; preds = %82, %81
@@ -8589,13 +8589,13 @@ tng_file_input_numerical.exit87.thread116.i:      ; preds = %tng_file_input_nume
   br i1 %.not22.i81.i, label %tng_file_input_numerical.exit87.thread.i, label %85
 
 85:                                               ; preds = %83
-  %86 = call i32 %84(ptr noundef nonnull %0, ptr noundef nonnull %75) #23
+  %86 = call i32 %84(ptr noundef nonnull %0, ptr noundef nonnull %75) #24
   %.not23.i82.i = icmp eq i32 %86, 0
   br i1 %.not23.i82.i, label %tng_file_input_numerical.exit87.thread.i, label %tng_file_input_numerical.exit87.i
 
 tng_file_input_numerical.exit87.i:                ; preds = %85
   %87 = load ptr, ptr @stderr, align 8
-  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3415) #26
+  %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3415) #27
   br label %tng_file_input_numerical.exit87.thread.i
 
 tng_file_input_numerical.exit87.thread.i:         ; preds = %tng_file_input_numerical.exit87.i, %85, %83
@@ -8616,14 +8616,14 @@ tng_file_input_numerical.exit87.thread.i:         ; preds = %tng_file_input_nume
 
 97:                                               ; preds = %91
   %98 = shl i64 %96, 3
-  %99 = call noalias ptr @malloc(i64 noundef %98) #25
+  %99 = call noalias ptr @malloc(i64 noundef %98) #26
   store ptr %99, ptr %93, align 8
   %.not78.i = icmp eq ptr %99, null
   br i1 %.not78.i, label %100, label %._crit_edge.i
 
 100:                                              ; preds = %97
   %101 = load ptr, ptr @stderr, align 8
-  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3433) #26
+  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3433) #27
   br label %tng_frame_set_block_read.exit
 
 ._crit_edge.i:                                    ; preds = %97, %91
@@ -8645,19 +8645,19 @@ tng_file_input_numerical.exit87.thread.i:         ; preds = %tng_file_input_nume
   br i1 %110, label %tng_file_input_numerical.exit94.thread120.i, label %111
 
 111:                                              ; preds = %.lr.ph.split.us.i
-  call void @md5_append(ptr noundef nonnull %27, ptr noundef %107, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %27, ptr noundef %107, i32 noundef 8) #24
   %112 = load ptr, ptr %67, align 8
   %.not22.i88.us.i = icmp eq ptr %112, null
   br i1 %.not22.i88.us.i, label %tng_file_input_numerical.exit94.thread.us.i, label %113
 
 113:                                              ; preds = %111
-  %114 = call i32 %112(ptr noundef nonnull %0, ptr noundef %107) #23
+  %114 = call i32 %112(ptr noundef nonnull %0, ptr noundef %107) #24
   %.not23.i89.us.i = icmp eq i32 %114, 0
   br i1 %.not23.i89.us.i, label %tng_file_input_numerical.exit94.thread.us.i, label %tng_file_input_numerical.exit94.us.i
 
 tng_file_input_numerical.exit94.us.i:             ; preds = %113
   %115 = load ptr, ptr @stderr, align 8
-  %116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3440) #26
+  %116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3440) #27
   br label %tng_file_input_numerical.exit94.thread.us.i
 
 tng_file_input_numerical.exit94.thread.us.i:      ; preds = %tng_file_input_numerical.exit94.us.i, %113, %111
@@ -8687,7 +8687,7 @@ tng_file_input_numerical.exit94.thread.us.i:      ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit94.thread120.i:      ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   %134 = load ptr, ptr @stderr, align 8
-  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3440) #26
+  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3440) #27
   br label %tng_frame_set_block_read.exit
 
 136:                                              ; preds = %.lr.ph.split.i
@@ -8696,13 +8696,13 @@ tng_file_input_numerical.exit94.thread120.i:      ; preds = %.lr.ph.split.i, %.l
   br i1 %.not22.i88.i, label %tng_file_input_numerical.exit94.thread.i, label %138
 
 138:                                              ; preds = %136
-  %139 = call i32 %137(ptr noundef nonnull %0, ptr noundef %130) #23
+  %139 = call i32 %137(ptr noundef nonnull %0, ptr noundef %130) #24
   %.not23.i89.i = icmp eq i32 %139, 0
   br i1 %.not23.i89.i, label %tng_file_input_numerical.exit94.thread.i, label %tng_file_input_numerical.exit94.i
 
 tng_file_input_numerical.exit94.i:                ; preds = %138
   %140 = load ptr, ptr @stderr, align 8
-  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3440) #26
+  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3440) #27
   br label %tng_file_input_numerical.exit94.thread.i
 
 tng_file_input_numerical.exit94.thread.i:         ; preds = %tng_file_input_numerical.exit94.i, %138, %136
@@ -8730,14 +8730,14 @@ tng_file_input_numerical.exit94.thread.i:         ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit101.thread124.i:     ; preds = %.loopexit.i
   %158 = load ptr, ptr @stderr, align 8
-  %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3455) #26
+  %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3455) #27
   br label %tng_frame_set_block_read.exit
 
 160:                                              ; preds = %.loopexit.i
   br i1 %55, label %161, label %162
 
 161:                                              ; preds = %160
-  call void @md5_append(ptr noundef nonnull %27, ptr noundef nonnull %154, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %27, ptr noundef nonnull %154, i32 noundef 8) #24
   br label %162
 
 162:                                              ; preds = %161, %160
@@ -8746,13 +8746,13 @@ tng_file_input_numerical.exit101.thread124.i:     ; preds = %.loopexit.i
   br i1 %.not22.i95.i, label %tng_file_input_numerical.exit101.thread.i, label %164
 
 164:                                              ; preds = %162
-  %165 = call i32 %163(ptr noundef nonnull %0, ptr noundef nonnull %154) #23
+  %165 = call i32 %163(ptr noundef nonnull %0, ptr noundef nonnull %154) #24
   %.not23.i96.i = icmp eq i32 %165, 0
   br i1 %.not23.i96.i, label %tng_file_input_numerical.exit101.thread.i, label %tng_file_input_numerical.exit101.i
 
 tng_file_input_numerical.exit101.i:               ; preds = %164
   %166 = load ptr, ptr @stderr, align 8
-  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %166, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3455) #26
+  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %166, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3455) #27
   br label %tng_file_input_numerical.exit101.thread.i
 
 tng_file_input_numerical.exit101.thread.i:        ; preds = %tng_file_input_numerical.exit101.i, %164, %162
@@ -8764,14 +8764,14 @@ tng_file_input_numerical.exit101.thread.i:        ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit108.thread128.i:     ; preds = %tng_file_input_numerical.exit101.thread.i
   %172 = load ptr, ptr @stderr, align 8
-  %173 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3462) #26
+  %173 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3462) #27
   br label %tng_frame_set_block_read.exit
 
 174:                                              ; preds = %tng_file_input_numerical.exit101.thread.i
   br i1 %55, label %175, label %176
 
 175:                                              ; preds = %174
-  call void @md5_append(ptr noundef nonnull %27, ptr noundef nonnull %168, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %27, ptr noundef nonnull %168, i32 noundef 8) #24
   br label %176
 
 176:                                              ; preds = %175, %174
@@ -8780,13 +8780,13 @@ tng_file_input_numerical.exit108.thread128.i:     ; preds = %tng_file_input_nume
   br i1 %.not22.i102.i, label %tng_file_input_numerical.exit108.thread.i, label %178
 
 178:                                              ; preds = %176
-  %179 = call i32 %177(ptr noundef nonnull %0, ptr noundef nonnull %168) #23
+  %179 = call i32 %177(ptr noundef nonnull %0, ptr noundef nonnull %168) #24
   %.not23.i103.i = icmp eq i32 %179, 0
   br i1 %.not23.i103.i, label %tng_file_input_numerical.exit108.thread.i, label %tng_file_input_numerical.exit108.i
 
 tng_file_input_numerical.exit108.i:               ; preds = %178
   %180 = load ptr, ptr @stderr, align 8
-  %181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %180, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3462) #26
+  %181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %180, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3462) #27
   br label %tng_file_input_numerical.exit108.thread.i
 
 tng_file_input_numerical.exit108.thread.i:        ; preds = %tng_file_input_numerical.exit108.i, %178, %176
@@ -8798,14 +8798,14 @@ tng_file_input_numerical.exit108.thread.i:        ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit50.thread78:         ; preds = %tng_file_input_numerical.exit108.thread.i
   %186 = load ptr, ptr @stderr, align 8
-  %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3470) #26
+  %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3470) #27
   br label %tng_frame_set_block_read.exit
 
 188:                                              ; preds = %tng_file_input_numerical.exit108.thread.i
   br i1 %55, label %189, label %190
 
 189:                                              ; preds = %188
-  call void @md5_append(ptr noundef nonnull %27, ptr noundef nonnull %182, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %27, ptr noundef nonnull %182, i32 noundef 8) #24
   br label %190
 
 190:                                              ; preds = %189, %188
@@ -8814,13 +8814,13 @@ tng_file_input_numerical.exit50.thread78:         ; preds = %tng_file_input_nume
   br i1 %.not22.i44, label %tng_file_input_numerical.exit50.thread, label %192
 
 192:                                              ; preds = %190
-  %193 = call i32 %191(ptr noundef nonnull %0, ptr noundef nonnull %182) #23
+  %193 = call i32 %191(ptr noundef nonnull %0, ptr noundef nonnull %182) #24
   %.not23.i45 = icmp eq i32 %193, 0
   br i1 %.not23.i45, label %tng_file_input_numerical.exit50.thread, label %tng_file_input_numerical.exit50
 
 tng_file_input_numerical.exit50:                  ; preds = %192
   %194 = load ptr, ptr @stderr, align 8
-  %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3470) #26
+  %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3470) #27
   br label %tng_file_input_numerical.exit50.thread
 
 tng_file_input_numerical.exit50.thread:           ; preds = %192, %190, %tng_file_input_numerical.exit50
@@ -8832,14 +8832,14 @@ tng_file_input_numerical.exit50.thread:           ; preds = %192, %190, %tng_fil
 
 tng_file_input_numerical.exit.thread82:           ; preds = %tng_file_input_numerical.exit50.thread
   %200 = load ptr, ptr @stderr, align 8
-  %201 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3478) #26
+  %201 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3478) #27
   br label %tng_frame_set_block_read.exit
 
 202:                                              ; preds = %tng_file_input_numerical.exit50.thread
   br i1 %55, label %203, label %204
 
 203:                                              ; preds = %202
-  call void @md5_append(ptr noundef nonnull %27, ptr noundef nonnull %196, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %27, ptr noundef nonnull %196, i32 noundef 8) #24
   br label %204
 
 204:                                              ; preds = %203, %202
@@ -8848,13 +8848,13 @@ tng_file_input_numerical.exit.thread82:           ; preds = %tng_file_input_nume
   br i1 %.not22.i, label %tng_file_input_numerical.exit.thread, label %206
 
 206:                                              ; preds = %204
-  %207 = call i32 %205(ptr noundef nonnull %0, ptr noundef nonnull %196) #23
+  %207 = call i32 %205(ptr noundef nonnull %0, ptr noundef nonnull %196) #24
   %.not23.i = icmp eq i32 %207, 0
   br i1 %.not23.i, label %tng_file_input_numerical.exit.thread, label %tng_file_input_numerical.exit
 
 tng_file_input_numerical.exit:                    ; preds = %206
   %208 = load ptr, ptr @stderr, align 8
-  %209 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %208, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3478) #26
+  %209 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %208, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3478) #27
   br label %tng_file_input_numerical.exit.thread
 
 tng_file_input_numerical.exit.thread:             ; preds = %206, %204, %tng_file_input_numerical.exit
@@ -8898,21 +8898,21 @@ tng_file_input_numerical.exit.thread:             ; preds = %206, %204, %tng_fil
 
 232:                                              ; preds = %231
   call fastcc void @tng_md5_remaining_append(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i64 noundef %35, ptr noundef nonnull %27)
-  call void @md5_finish(ptr noundef nonnull %27, ptr noundef nonnull %26) #23
+  call void @md5_finish(ptr noundef nonnull %27, ptr noundef nonnull %26) #24
   %233 = getelementptr inbounds i8, ptr %1, i64 24
   %strcmpload.i = load i8, ptr %233, align 1
   %.not79.i = icmp eq i8 %strcmpload.i, 0
   br i1 %.not79.i, label %246, label %234
 
 234:                                              ; preds = %232
-  %235 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %233, ptr noundef nonnull dereferenceable(1) %26, i64 noundef 16) #24
+  %235 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %233, ptr noundef nonnull dereferenceable(1) %26, i64 noundef 16) #25
   %.not80.i = icmp eq i32 %235, 0
   br i1 %.not80.i, label %246, label %236
 
 236:                                              ; preds = %234
   %237 = load ptr, ptr @stderr, align 8
   %238 = load i64, ptr %66, align 8
-  %239 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %237, ptr noundef nonnull @.str.84, i64 noundef %238, ptr noundef nonnull @.str.1, i32 noundef 3537) #26
+  %239 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %237, ptr noundef nonnull @.str.84, i64 noundef %238, ptr noundef nonnull @.str.1, i32 noundef 3537) #27
   br label %246
 
 240:                                              ; preds = %231
@@ -8961,7 +8961,7 @@ tng_frame_set_block_read.exit:                    ; preds = %tng_file_input_nume
   br i1 %262, label %263, label %264
 
 263:                                              ; preds = %258
-  call void @md5_init(ptr noundef nonnull %25) #23
+  call void @md5_init(ptr noundef nonnull %25) #24
   br label %264
 
 264:                                              ; preds = %263, %258
@@ -8991,14 +8991,14 @@ tng_frame_set_block_read.exit:                    ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit.thread95.i:         ; preds = %264
   %278 = load ptr, ptr @stderr, align 8
-  %279 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %278, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2169) #26
+  %279 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %278, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2169) #27
   br label %tng_general_info_block_read.exit
 
 280:                                              ; preds = %264
   br i1 %262, label %281, label %282
 
 281:                                              ; preds = %280
-  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %274, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %274, i32 noundef 8) #24
   br label %282
 
 282:                                              ; preds = %281, %280
@@ -9008,13 +9008,13 @@ tng_file_input_numerical.exit.thread95.i:         ; preds = %264
   br i1 %.not22.i.i21, label %tng_file_input_numerical.exit.thread.i24, label %285
 
 285:                                              ; preds = %282
-  %286 = call i32 %284(ptr noundef nonnull %0, ptr noundef nonnull %274) #23
+  %286 = call i32 %284(ptr noundef nonnull %0, ptr noundef nonnull %274) #24
   %.not23.i.i22 = icmp eq i32 %286, 0
   br i1 %.not23.i.i22, label %tng_file_input_numerical.exit.thread.i24, label %tng_file_input_numerical.exit.i23
 
 tng_file_input_numerical.exit.i23:                ; preds = %285
   %287 = load ptr, ptr @stderr, align 8
-  %288 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %287, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2169) #26
+  %288 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %287, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2169) #27
   br label %tng_file_input_numerical.exit.thread.i24
 
 tng_file_input_numerical.exit.thread.i24:         ; preds = %tng_file_input_numerical.exit.i23, %285, %282
@@ -9029,11 +9029,11 @@ tng_file_input_numerical.exit.thread.i24:         ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit72.i:                ; preds = %tng_file_input_numerical.exit.thread.i24
   %294 = load ptr, ptr @stderr, align 8
-  %295 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %294, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2177) #26
+  %295 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %294, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2177) #27
   br label %tng_general_info_block_read.exit
 
 296:                                              ; preds = %293
-  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %289, i32 noundef 1) #23
+  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %289, i32 noundef 1) #24
   %297 = getelementptr inbounds i8, ptr %0, i64 176
   %298 = load ptr, ptr %259, align 8
   %299 = call i64 @fread(ptr noundef nonnull %297, i64 noundef 8, i64 noundef 1, ptr noundef %298)
@@ -9048,7 +9048,7 @@ tng_file_input_numerical.exit72.i:                ; preds = %tng_file_input_nume
   br i1 %304, label %tng_file_input_numerical.exit79.thread102.i, label %.thread99.i
 
 305:                                              ; preds = %296
-  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %297, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %297, i32 noundef 8) #24
   br label %.thread99.i
 
 .thread99.i:                                      ; preds = %305, %.thread.i25
@@ -9058,18 +9058,18 @@ tng_file_input_numerical.exit72.i:                ; preds = %tng_file_input_nume
   br i1 %.not22.i73.i, label %tng_file_input_numerical.exit79.thread.i, label %308
 
 308:                                              ; preds = %.thread99.i
-  %309 = call i32 %307(ptr noundef nonnull %0, ptr noundef nonnull %306) #23
+  %309 = call i32 %307(ptr noundef nonnull %0, ptr noundef nonnull %306) #24
   %.not23.i74.i = icmp eq i32 %309, 0
   br i1 %.not23.i74.i, label %tng_file_input_numerical.exit79.thread.i, label %tng_file_input_numerical.exit79.i
 
 tng_file_input_numerical.exit79.thread102.i:      ; preds = %.thread.i25, %296
   %310 = load ptr, ptr @stderr, align 8
-  %311 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2184) #26
+  %311 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2184) #27
   br label %tng_general_info_block_read.exit
 
 tng_file_input_numerical.exit79.i:                ; preds = %308
   %312 = load ptr, ptr @stderr, align 8
-  %313 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %312, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2184) #26
+  %313 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %312, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2184) #27
   br label %tng_file_input_numerical.exit79.thread.i
 
 tng_file_input_numerical.exit79.thread.i:         ; preds = %tng_file_input_numerical.exit79.i, %308, %.thread99.i
@@ -9081,14 +9081,14 @@ tng_file_input_numerical.exit79.thread.i:         ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit86.thread106.i:      ; preds = %tng_file_input_numerical.exit79.thread.i
   %318 = load ptr, ptr @stderr, align 8
-  %319 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %318, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2192) #26
+  %319 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %318, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2192) #27
   br label %tng_general_info_block_read.exit
 
 320:                                              ; preds = %tng_file_input_numerical.exit79.thread.i
   br i1 %262, label %321, label %322
 
 321:                                              ; preds = %320
-  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %314, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %314, i32 noundef 8) #24
   br label %322
 
 322:                                              ; preds = %321, %320
@@ -9097,13 +9097,13 @@ tng_file_input_numerical.exit86.thread106.i:      ; preds = %tng_file_input_nume
   br i1 %.not22.i80.i, label %tng_file_input_numerical.exit86.thread.i, label %324
 
 324:                                              ; preds = %322
-  %325 = call i32 %323(ptr noundef nonnull %0, ptr noundef nonnull %314) #23
+  %325 = call i32 %323(ptr noundef nonnull %0, ptr noundef nonnull %314) #24
   %.not23.i81.i = icmp eq i32 %325, 0
   br i1 %.not23.i81.i, label %tng_file_input_numerical.exit86.thread.i, label %tng_file_input_numerical.exit86.i
 
 tng_file_input_numerical.exit86.i:                ; preds = %324
   %326 = load ptr, ptr @stderr, align 8
-  %327 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %326, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2192) #26
+  %327 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %326, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2192) #27
   br label %tng_file_input_numerical.exit86.thread.i
 
 tng_file_input_numerical.exit86.thread.i:         ; preds = %tng_file_input_numerical.exit86.i, %324, %322
@@ -9118,14 +9118,14 @@ tng_file_input_numerical.exit86.thread.i:         ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit93.thread110.i:      ; preds = %tng_file_input_numerical.exit86.thread.i
   %334 = load ptr, ptr @stderr, align 8
-  %335 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %334, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2203) #26
+  %335 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %334, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2203) #27
   br label %tng_general_info_block_read.exit
 
 336:                                              ; preds = %tng_file_input_numerical.exit86.thread.i
   br i1 %262, label %337, label %338
 
 337:                                              ; preds = %336
-  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %330, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %330, i32 noundef 8) #24
   br label %338
 
 338:                                              ; preds = %337, %336
@@ -9134,13 +9134,13 @@ tng_file_input_numerical.exit93.thread110.i:      ; preds = %tng_file_input_nume
   br i1 %.not22.i87.i, label %tng_file_input_numerical.exit93.thread.i, label %340
 
 340:                                              ; preds = %338
-  %341 = call i32 %339(ptr noundef nonnull %0, ptr noundef nonnull %330) #23
+  %341 = call i32 %339(ptr noundef nonnull %0, ptr noundef nonnull %330) #24
   %.not23.i88.i = icmp eq i32 %341, 0
   br i1 %.not23.i88.i, label %tng_file_input_numerical.exit93.thread.i, label %tng_file_input_numerical.exit93.i
 
 tng_file_input_numerical.exit93.i:                ; preds = %340
   %342 = load ptr, ptr @stderr, align 8
-  %343 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %342, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2203) #26
+  %343 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %342, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2203) #27
   br label %tng_file_input_numerical.exit93.thread.i
 
 tng_file_input_numerical.exit93.thread.i:         ; preds = %tng_file_input_numerical.exit93.i, %340, %338
@@ -9152,14 +9152,14 @@ tng_file_input_numerical.exit93.thread.i:         ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit64.thread86:         ; preds = %tng_file_input_numerical.exit93.thread.i
   %348 = load ptr, ptr @stderr, align 8
-  %349 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %348, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2210) #26
+  %349 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %348, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2210) #27
   br label %tng_general_info_block_read.exit
 
 350:                                              ; preds = %tng_file_input_numerical.exit93.thread.i
   br i1 %262, label %351, label %352
 
 351:                                              ; preds = %350
-  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %344, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %344, i32 noundef 8) #24
   br label %352
 
 352:                                              ; preds = %351, %350
@@ -9168,13 +9168,13 @@ tng_file_input_numerical.exit64.thread86:         ; preds = %tng_file_input_nume
   br i1 %.not22.i58, label %tng_file_input_numerical.exit64.thread, label %354
 
 354:                                              ; preds = %352
-  %355 = call i32 %353(ptr noundef nonnull %0, ptr noundef nonnull %344) #23
+  %355 = call i32 %353(ptr noundef nonnull %0, ptr noundef nonnull %344) #24
   %.not23.i59 = icmp eq i32 %355, 0
   br i1 %.not23.i59, label %tng_file_input_numerical.exit64.thread, label %tng_file_input_numerical.exit64
 
 tng_file_input_numerical.exit64:                  ; preds = %354
   %356 = load ptr, ptr @stderr, align 8
-  %357 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %356, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2210) #26
+  %357 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %356, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2210) #27
   br label %tng_file_input_numerical.exit64.thread
 
 tng_file_input_numerical.exit64.thread:           ; preds = %354, %352, %tng_file_input_numerical.exit64
@@ -9186,14 +9186,14 @@ tng_file_input_numerical.exit64.thread:           ; preds = %354, %352, %tng_fil
 
 tng_file_input_numerical.exit57.thread90:         ; preds = %tng_file_input_numerical.exit64.thread
   %362 = load ptr, ptr @stderr, align 8
-  %363 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %362, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2217) #26
+  %363 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %362, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2217) #27
   br label %tng_general_info_block_read.exit
 
 364:                                              ; preds = %tng_file_input_numerical.exit64.thread
   br i1 %262, label %365, label %366
 
 365:                                              ; preds = %364
-  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %358, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %25, ptr noundef nonnull %358, i32 noundef 8) #24
   br label %366
 
 366:                                              ; preds = %365, %364
@@ -9202,13 +9202,13 @@ tng_file_input_numerical.exit57.thread90:         ; preds = %tng_file_input_nume
   br i1 %.not22.i51, label %tng_file_input_numerical.exit57.thread, label %368
 
 368:                                              ; preds = %366
-  %369 = call i32 %367(ptr noundef nonnull %0, ptr noundef nonnull %358) #23
+  %369 = call i32 %367(ptr noundef nonnull %0, ptr noundef nonnull %358) #24
   %.not23.i52 = icmp eq i32 %369, 0
   br i1 %.not23.i52, label %tng_file_input_numerical.exit57.thread, label %tng_file_input_numerical.exit57
 
 tng_file_input_numerical.exit57:                  ; preds = %368
   %370 = load ptr, ptr @stderr, align 8
-  %371 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %370, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2217) #26
+  %371 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %370, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2217) #27
   br label %tng_file_input_numerical.exit57.thread
 
 tng_file_input_numerical.exit57.thread:           ; preds = %368, %366, %tng_file_input_numerical.exit57
@@ -9228,20 +9228,20 @@ tng_file_input_numerical.exit57.thread:           ; preds = %368, %366, %tng_fil
 
 380:                                              ; preds = %379
   call fastcc void @tng_md5_remaining_append(ptr noundef nonnull %0, ptr noundef nonnull readonly %1, i64 noundef %261, ptr noundef nonnull %25)
-  call void @md5_finish(ptr noundef nonnull %25, ptr noundef nonnull %24) #23
+  call void @md5_finish(ptr noundef nonnull %25, ptr noundef nonnull %24) #24
   %381 = getelementptr inbounds i8, ptr %1, i64 24
   %strcmpload.i26 = load i8, ptr %381, align 1
   %.not66.i = icmp eq i8 %strcmpload.i26, 0
   br i1 %.not66.i, label %tng_general_info_block_read.exit, label %382
 
 382:                                              ; preds = %380
-  %383 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %381, ptr noundef nonnull dereferenceable(1) %24, i64 noundef 16) #24
+  %383 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %381, ptr noundef nonnull dereferenceable(1) %24, i64 noundef 16) #25
   %.not67.i = icmp eq i32 %383, 0
   br i1 %.not67.i, label %tng_general_info_block_read.exit, label %384
 
 384:                                              ; preds = %382
   %385 = load ptr, ptr @stderr, align 8
-  %386 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %385, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.1, i32 noundef 2248) #26
+  %386 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %385, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.1, i32 noundef 2248) #27
   br label %tng_general_info_block_read.exit
 
 387:                                              ; preds = %379
@@ -9296,7 +9296,7 @@ tng_general_info_block_read.exit:                 ; preds = %tng_file_input_nume
 
 ._crit_edge.i28:                                  ; preds = %._crit_edge.loopexit.i, %.preheader370.i
   %410 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %400, %.preheader370.i ]
-  tail call void @free(ptr noundef %410) #23
+  tail call void @free(ptr noundef %410) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %401, i8 0, i64 16, i1 false)
   br label %411
 
@@ -9305,7 +9305,7 @@ tng_general_info_block_read.exit:                 ; preds = %tng_file_input_nume
   br i1 %412, label %413, label %.thread.i29
 
 413:                                              ; preds = %411
-  call void @md5_init(ptr noundef nonnull %23) #23
+  call void @md5_init(ptr noundef nonnull %23) #24
   %414 = getelementptr inbounds i8, ptr %0, i64 208
   %415 = load ptr, ptr %396, align 8
   %416 = call i64 @fread(ptr noundef nonnull %414, i64 noundef 8, i64 noundef 1, ptr noundef %415)
@@ -9320,7 +9320,7 @@ tng_general_info_block_read.exit:                 ; preds = %tng_file_input_nume
   br i1 %421, label %tng_file_input_numerical.exit.thread325.i, label %.thread322.i
 
 422:                                              ; preds = %413
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %414, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %414, i32 noundef 8) #24
   br label %.thread322.i
 
 .thread322.i:                                     ; preds = %422, %.thread.i29
@@ -9331,18 +9331,18 @@ tng_general_info_block_read.exit:                 ; preds = %tng_file_input_nume
   br i1 %.not22.i.i30, label %tng_file_input_numerical.exit.thread.i33, label %426
 
 426:                                              ; preds = %.thread322.i
-  %427 = call i32 %425(ptr noundef nonnull %0, ptr noundef nonnull %423) #23
+  %427 = call i32 %425(ptr noundef nonnull %0, ptr noundef nonnull %423) #24
   %.not23.i.i31 = icmp eq i32 %427, 0
   br i1 %.not23.i.i31, label %tng_file_input_numerical.exit.thread.i33, label %tng_file_input_numerical.exit.i32
 
 tng_file_input_numerical.exit.thread325.i:        ; preds = %.thread.i29, %413
   %428 = load ptr, ptr @stderr, align 8
-  %429 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %428, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2806) #26
+  %429 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %428, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2806) #27
   br label %tng_molecules_block_read.exit
 
 tng_file_input_numerical.exit.i32:                ; preds = %426
   %430 = load ptr, ptr @stderr, align 8
-  %431 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %430, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2806) #26
+  %431 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %430, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2806) #27
   br label %tng_file_input_numerical.exit.thread.i33
 
 tng_file_input_numerical.exit.thread.i33:         ; preds = %tng_file_input_numerical.exit.i32, %426, %.thread322.i
@@ -9351,7 +9351,7 @@ tng_file_input_numerical.exit.thread.i33:         ; preds = %tng_file_input_nume
   br i1 %.not229.i, label %434, label %433
 
 433:                                              ; preds = %tng_file_input_numerical.exit.thread.i33
-  call void @free(ptr noundef nonnull %432) #23
+  call void @free(ptr noundef nonnull %432) #24
   br label %434
 
 434:                                              ; preds = %433, %tng_file_input_numerical.exit.thread.i33
@@ -9359,14 +9359,14 @@ tng_file_input_numerical.exit.thread.i33:         ; preds = %tng_file_input_nume
   store i64 0, ptr %435, align 8
   %436 = load i64, ptr %423, align 8
   %437 = mul i64 %436, 88
-  %438 = call noalias ptr @malloc(i64 noundef %437) #25
+  %438 = call noalias ptr @malloc(i64 noundef %437) #26
   store ptr %438, ptr %399, align 8
   %.not230.i = icmp eq ptr %438, null
   br i1 %.not230.i, label %439, label %442
 
 439:                                              ; preds = %434
   %440 = load ptr, ptr @stderr, align 8
-  %441 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %440, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2823) #26
+  %441 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %440, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2823) #27
   br label %tng_molecules_block_read.exit
 
 442:                                              ; preds = %434
@@ -9382,21 +9382,21 @@ tng_file_input_numerical.exit.thread.i33:         ; preds = %tng_file_input_nume
   br i1 %.not232.i, label %449, label %448
 
 448:                                              ; preds = %445
-  call void @free(ptr noundef nonnull %447) #23
+  call void @free(ptr noundef nonnull %447) #24
   %.pre451.i = load i64, ptr %423, align 8
   br label %449
 
 449:                                              ; preds = %448, %445
   %450 = phi i64 [ %.pre451.i, %448 ], [ %436, %445 ]
   %451 = shl i64 %450, 3
-  %452 = call noalias ptr @malloc(i64 noundef %451) #25
+  %452 = call noalias ptr @malloc(i64 noundef %451) #26
   store ptr %452, ptr %446, align 8
   %.not233.i = icmp eq ptr %452, null
   br i1 %.not233.i, label %453, label %456
 
 453:                                              ; preds = %449
   %454 = load ptr, ptr @stderr, align 8
-  %455 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %454, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2836) #26
+  %455 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %454, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2836) #27
   br label %tng_molecules_block_read.exit
 
 456:                                              ; preds = %449, %442
@@ -9421,14 +9421,14 @@ tng_file_input_numerical.exit.thread.i33:         ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit253.thread329.i:     ; preds = %460
   %467 = load ptr, ptr @stderr, align 8
-  %468 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %467, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2849) #26
+  %468 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %467, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2849) #27
   br label %tng_molecules_block_read.exit
 
 469:                                              ; preds = %460
   br i1 %412, label %470, label %471
 
 470:                                              ; preds = %469
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %462, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %462, i32 noundef 8) #24
   br label %471
 
 471:                                              ; preds = %470, %469
@@ -9437,13 +9437,13 @@ tng_file_input_numerical.exit253.thread329.i:     ; preds = %460
   br i1 %.not22.i247.i, label %tng_file_input_numerical.exit253.thread.i, label %473
 
 473:                                              ; preds = %471
-  %474 = call i32 %472(ptr noundef nonnull %0, ptr noundef nonnull %462) #23
+  %474 = call i32 %472(ptr noundef nonnull %0, ptr noundef nonnull %462) #24
   %.not23.i248.i = icmp eq i32 %474, 0
   br i1 %.not23.i248.i, label %tng_file_input_numerical.exit253.thread.i, label %tng_file_input_numerical.exit253.i
 
 tng_file_input_numerical.exit253.i:               ; preds = %473
   %475 = load ptr, ptr @stderr, align 8
-  %476 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %475, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2849) #26
+  %476 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %475, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2849) #27
   br label %tng_file_input_numerical.exit253.thread.i
 
 tng_file_input_numerical.exit253.thread.i:        ; preds = %tng_file_input_numerical.exit253.i, %473, %471
@@ -9456,14 +9456,14 @@ tng_file_input_numerical.exit253.thread.i:        ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit260.thread333.i:     ; preds = %tng_file_input_numerical.exit253.thread.i
   %481 = load ptr, ptr @stderr, align 8
-  %482 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %481, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2859) #26
+  %482 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %481, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2859) #27
   br label %tng_molecules_block_read.exit
 
 483:                                              ; preds = %tng_file_input_numerical.exit253.thread.i
   br i1 %412, label %484, label %485
 
 484:                                              ; preds = %483
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %477, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %477, i32 noundef 8) #24
   br label %485
 
 485:                                              ; preds = %484, %483
@@ -9472,13 +9472,13 @@ tng_file_input_numerical.exit260.thread333.i:     ; preds = %tng_file_input_nume
   br i1 %.not22.i254.i, label %tng_file_input_numerical.exit260.thread.i, label %487
 
 487:                                              ; preds = %485
-  %488 = call i32 %486(ptr noundef nonnull %0, ptr noundef nonnull %477) #23
+  %488 = call i32 %486(ptr noundef nonnull %0, ptr noundef nonnull %477) #24
   %.not23.i255.i = icmp eq i32 %488, 0
   br i1 %.not23.i255.i, label %tng_file_input_numerical.exit260.thread.i, label %tng_file_input_numerical.exit260.i
 
 tng_file_input_numerical.exit260.i:               ; preds = %487
   %489 = load ptr, ptr @stderr, align 8
-  %490 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %489, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2859) #26
+  %490 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %489, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2859) #27
   br label %tng_file_input_numerical.exit260.thread.i
 
 tng_file_input_numerical.exit260.thread.i:        ; preds = %tng_file_input_numerical.exit260.i, %487, %485
@@ -9496,14 +9496,14 @@ tng_file_input_numerical.exit260.thread.i:        ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit267.thread337.i:     ; preds = %492
   %498 = load ptr, ptr @stderr, align 8
-  %499 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %498, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2868) #26
+  %499 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %498, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2868) #27
   br label %tng_molecules_block_read.exit
 
 500:                                              ; preds = %492
   br i1 %412, label %501, label %502
 
 501:                                              ; preds = %500
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef %494, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef %494, i32 noundef 8) #24
   br label %502
 
 502:                                              ; preds = %501, %500
@@ -9512,13 +9512,13 @@ tng_file_input_numerical.exit267.thread337.i:     ; preds = %492
   br i1 %.not22.i261.i, label %tng_file_input_numerical.exit267.thread.i, label %504
 
 504:                                              ; preds = %502
-  %505 = call i32 %503(ptr noundef nonnull %0, ptr noundef %494) #23
+  %505 = call i32 %503(ptr noundef nonnull %0, ptr noundef %494) #24
   %.not23.i262.i = icmp eq i32 %505, 0
   br i1 %.not23.i262.i, label %tng_file_input_numerical.exit267.thread.i, label %tng_file_input_numerical.exit267.i
 
 tng_file_input_numerical.exit267.i:               ; preds = %504
   %506 = load ptr, ptr @stderr, align 8
-  %507 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2868) #26
+  %507 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2868) #27
   br label %tng_file_input_numerical.exit267.thread.i
 
 tng_file_input_numerical.exit267.thread.i:        ; preds = %tng_file_input_numerical.exit267.i, %504, %502, %tng_file_input_numerical.exit260.thread.i
@@ -9530,14 +9530,14 @@ tng_file_input_numerical.exit267.thread.i:        ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit274.thread341.i:     ; preds = %tng_file_input_numerical.exit267.thread.i
   %512 = load ptr, ptr @stderr, align 8
-  %513 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %512, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2876) #26
+  %513 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %512, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2876) #27
   br label %tng_molecules_block_read.exit
 
 514:                                              ; preds = %tng_file_input_numerical.exit267.thread.i
   br i1 %412, label %515, label %516
 
 515:                                              ; preds = %514
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %508, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %508, i32 noundef 8) #24
   br label %516
 
 516:                                              ; preds = %515, %514
@@ -9546,13 +9546,13 @@ tng_file_input_numerical.exit274.thread341.i:     ; preds = %tng_file_input_nume
   br i1 %.not22.i268.i, label %tng_file_input_numerical.exit274.thread.i, label %518
 
 518:                                              ; preds = %516
-  %519 = call i32 %517(ptr noundef nonnull %0, ptr noundef nonnull %508) #23
+  %519 = call i32 %517(ptr noundef nonnull %0, ptr noundef nonnull %508) #24
   %.not23.i269.i = icmp eq i32 %519, 0
   br i1 %.not23.i269.i, label %tng_file_input_numerical.exit274.thread.i, label %tng_file_input_numerical.exit274.i
 
 tng_file_input_numerical.exit274.i:               ; preds = %518
   %520 = load ptr, ptr @stderr, align 8
-  %521 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %520, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2876) #26
+  %521 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %520, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2876) #27
   br label %tng_file_input_numerical.exit274.thread.i
 
 tng_file_input_numerical.exit274.thread.i:        ; preds = %tng_file_input_numerical.exit274.i, %518, %516
@@ -9564,14 +9564,14 @@ tng_file_input_numerical.exit274.thread.i:        ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit281.thread345.i:     ; preds = %tng_file_input_numerical.exit274.thread.i
   %526 = load ptr, ptr @stderr, align 8
-  %527 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %526, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2883) #26
+  %527 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %526, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2883) #27
   br label %tng_molecules_block_read.exit
 
 528:                                              ; preds = %tng_file_input_numerical.exit274.thread.i
   br i1 %412, label %529, label %530
 
 529:                                              ; preds = %528
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %522, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %522, i32 noundef 8) #24
   br label %530
 
 530:                                              ; preds = %529, %528
@@ -9580,13 +9580,13 @@ tng_file_input_numerical.exit281.thread345.i:     ; preds = %tng_file_input_nume
   br i1 %.not22.i275.i, label %tng_file_input_numerical.exit281.thread.i, label %532
 
 532:                                              ; preds = %530
-  %533 = call i32 %531(ptr noundef nonnull %0, ptr noundef nonnull %522) #23
+  %533 = call i32 %531(ptr noundef nonnull %0, ptr noundef nonnull %522) #24
   %.not23.i276.i = icmp eq i32 %533, 0
   br i1 %.not23.i276.i, label %tng_file_input_numerical.exit281.thread.i, label %tng_file_input_numerical.exit281.i
 
 tng_file_input_numerical.exit281.i:               ; preds = %532
   %534 = load ptr, ptr @stderr, align 8
-  %535 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %534, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2883) #26
+  %535 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %534, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2883) #27
   br label %tng_file_input_numerical.exit281.thread.i
 
 tng_file_input_numerical.exit281.thread.i:        ; preds = %tng_file_input_numerical.exit281.i, %532, %530
@@ -9598,14 +9598,14 @@ tng_file_input_numerical.exit281.thread.i:        ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit288.thread349.i:     ; preds = %tng_file_input_numerical.exit281.thread.i
   %540 = load ptr, ptr @stderr, align 8
-  %541 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %540, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2890) #26
+  %541 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %540, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2890) #27
   br label %tng_molecules_block_read.exit
 
 542:                                              ; preds = %tng_file_input_numerical.exit281.thread.i
   br i1 %412, label %543, label %544
 
 543:                                              ; preds = %542
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %536, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %536, i32 noundef 8) #24
   br label %544
 
 544:                                              ; preds = %543, %542
@@ -9614,13 +9614,13 @@ tng_file_input_numerical.exit288.thread349.i:     ; preds = %tng_file_input_nume
   br i1 %.not22.i282.i, label %tng_file_input_numerical.exit288.thread.i, label %546
 
 546:                                              ; preds = %544
-  %547 = call i32 %545(ptr noundef nonnull %0, ptr noundef nonnull %536) #23
+  %547 = call i32 %545(ptr noundef nonnull %0, ptr noundef nonnull %536) #24
   %.not23.i283.i = icmp eq i32 %547, 0
   br i1 %.not23.i283.i, label %tng_file_input_numerical.exit288.thread.i, label %tng_file_input_numerical.exit288.i
 
 tng_file_input_numerical.exit288.i:               ; preds = %546
   %548 = load ptr, ptr @stderr, align 8
-  %549 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %548, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2890) #26
+  %549 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %548, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2890) #27
   br label %tng_file_input_numerical.exit288.thread.i
 
 tng_file_input_numerical.exit288.thread.i:        ; preds = %tng_file_input_numerical.exit288.i, %546, %544
@@ -9638,7 +9638,7 @@ tng_file_input_numerical.exit288.thread.i:        ; preds = %tng_file_input_nume
 
 559:                                              ; preds = %tng_file_input_numerical.exit288.thread.i
   %560 = mul i64 %557, 40
-  %561 = call noalias ptr @malloc(i64 noundef %560) #25
+  %561 = call noalias ptr @malloc(i64 noundef %560) #26
   %562 = getelementptr inbounds i8, ptr %462, i64 56
   store ptr %561, ptr %562, align 8
   %.not237.i = icmp eq ptr %561, null
@@ -9646,7 +9646,7 @@ tng_file_input_numerical.exit288.thread.i:        ; preds = %tng_file_input_nume
 
 563:                                              ; preds = %559
   %564 = load ptr, ptr @stderr, align 8
-  %565 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %564, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2903) #26
+  %565 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %564, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2903) #27
   br label %tng_molecules_block_read.exit
 
 566:                                              ; preds = %559, %tng_file_input_numerical.exit288.thread.i
@@ -9657,7 +9657,7 @@ tng_file_input_numerical.exit288.thread.i:        ; preds = %tng_file_input_nume
 
 569:                                              ; preds = %566
   %570 = mul i64 %567, 40
-  %571 = call noalias ptr @malloc(i64 noundef %570) #25
+  %571 = call noalias ptr @malloc(i64 noundef %570) #26
   %572 = getelementptr inbounds i8, ptr %462, i64 64
   store ptr %571, ptr %572, align 8
   %.not238.i = icmp eq ptr %571, null
@@ -9665,14 +9665,14 @@ tng_file_input_numerical.exit288.thread.i:        ; preds = %tng_file_input_nume
 
 573:                                              ; preds = %569
   %574 = load ptr, ptr @stderr, align 8
-  %575 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %574, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2920) #26
+  %575 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %574, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2920) #27
   %576 = getelementptr inbounds i8, ptr %462, i64 56
   %577 = load ptr, ptr %576, align 8
   %.not239.i = icmp eq ptr %577, null
   br i1 %.not239.i, label %tng_molecules_block_read.exit, label %578
 
 578:                                              ; preds = %573
-  call void @free(ptr noundef nonnull %577) #23
+  call void @free(ptr noundef nonnull %577) #24
   store ptr null, ptr %576, align 8
   br label %tng_molecules_block_read.exit
 
@@ -9680,7 +9680,7 @@ tng_file_input_numerical.exit288.thread.i:        ; preds = %tng_file_input_nume
   %.0196.i = phi ptr [ %571, %569 ], [ null, %566 ]
   %580 = load i64, ptr %536, align 8
   %581 = shl i64 %580, 5
-  %582 = call noalias ptr @malloc(i64 noundef %581) #25
+  %582 = call noalias ptr @malloc(i64 noundef %581) #26
   %583 = getelementptr inbounds i8, ptr %462, i64 72
   store ptr %582, ptr %583, align 8
   %.not240.i = icmp eq ptr %582, null
@@ -9688,14 +9688,14 @@ tng_file_input_numerical.exit288.thread.i:        ; preds = %tng_file_input_nume
 
 584:                                              ; preds = %579
   %585 = load ptr, ptr @stderr, align 8
-  %586 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %585, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2939) #26
+  %586 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %585, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2939) #27
   %587 = getelementptr inbounds i8, ptr %462, i64 56
   %588 = load ptr, ptr %587, align 8
   %.not241.i = icmp eq ptr %588, null
   br i1 %.not241.i, label %590, label %589
 
 589:                                              ; preds = %584
-  call void @free(ptr noundef nonnull %588) #23
+  call void @free(ptr noundef nonnull %588) #24
   store ptr null, ptr %587, align 8
   br label %590
 
@@ -9706,7 +9706,7 @@ tng_file_input_numerical.exit288.thread.i:        ; preds = %tng_file_input_nume
   br i1 %.not242.i, label %tng_molecules_block_read.exit, label %593
 
 593:                                              ; preds = %590
-  call void @free(ptr noundef nonnull %592) #23
+  call void @free(ptr noundef nonnull %592) #24
   store ptr null, ptr %591, align 8
   br label %tng_molecules_block_read.exit
 
@@ -9733,14 +9733,14 @@ tng_file_input_numerical.exit288.thread.i:        ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit.thread20.i.i:       ; preds = %596
   %602 = load ptr, ptr @stderr, align 8
-  %603 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %602, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2456) #26
+  %603 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %602, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2456) #27
   br label %tng_chain_data_read.exit.i
 
 604:                                              ; preds = %596
   br i1 %412, label %605, label %606
 
 605:                                              ; preds = %604
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %598, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %598, i32 noundef 8) #24
   br label %606
 
 606:                                              ; preds = %605, %604
@@ -9749,13 +9749,13 @@ tng_file_input_numerical.exit.thread20.i.i:       ; preds = %596
   br i1 %.not22.i.i.i, label %tng_file_input_numerical.exit.thread.i.i, label %608
 
 608:                                              ; preds = %606
-  %609 = call i32 %607(ptr noundef nonnull %0, ptr noundef nonnull %598) #23
+  %609 = call i32 %607(ptr noundef nonnull %0, ptr noundef nonnull %598) #24
   %.not23.i.i.i = icmp eq i32 %609, 0
   br i1 %.not23.i.i.i, label %tng_file_input_numerical.exit.thread.i.i, label %tng_file_input_numerical.exit.i.i
 
 tng_file_input_numerical.exit.i.i:                ; preds = %608
   %610 = load ptr, ptr @stderr, align 8
-  %611 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %610, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2456) #26
+  %611 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %610, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2456) #27
   br label %tng_file_input_numerical.exit.thread.i.i
 
 tng_file_input_numerical.exit.thread.i.i:         ; preds = %tng_file_input_numerical.exit.i.i, %608, %606
@@ -9770,7 +9770,7 @@ tng_file_input_numerical.exit.thread.i.i:         ; preds = %tng_file_input_nume
   br i1 %412, label %617, label %618
 
 617:                                              ; preds = %616
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %612, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %612, i32 noundef 8) #24
   br label %618
 
 618:                                              ; preds = %617, %616
@@ -9779,18 +9779,18 @@ tng_file_input_numerical.exit.thread.i.i:         ; preds = %tng_file_input_nume
   br i1 %.not22.i12.i.i, label %tng_chain_data_read.exit.i, label %620
 
 620:                                              ; preds = %618
-  %621 = call i32 %619(ptr noundef nonnull %0, ptr noundef nonnull %612) #23
+  %621 = call i32 %619(ptr noundef nonnull %0, ptr noundef nonnull %612) #24
   %.not23.i13.i.i = icmp eq i32 %621, 0
   br i1 %.not23.i13.i.i, label %tng_chain_data_read.exit.i, label %tng_file_input_numerical.exit18.i.i
 
 tng_file_input_numerical.exit18.i.i:              ; preds = %620
   %622 = load ptr, ptr @stderr, align 8
-  %623 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %622, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2465) #26
+  %623 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %622, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2465) #27
   br label %tng_chain_data_read.exit.i
 
 624:                                              ; preds = %tng_file_input_numerical.exit.thread.i.i
   %625 = load ptr, ptr @stderr, align 8
-  %626 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %625, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2465) #26
+  %626 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %625, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2465) #27
   br label %tng_chain_data_read.exit.i
 
 tng_chain_data_read.exit.i:                       ; preds = %624, %tng_file_input_numerical.exit18.i.i, %620, %618, %tng_file_input_numerical.exit.thread20.i.i
@@ -9845,14 +9845,14 @@ tng_chain_data_read.exit.i:                       ; preds = %624, %tng_file_inpu
 
 tng_file_input_numerical.exit.thread13.i.i:       ; preds = %.lr.ph404.i
   %651 = load ptr, ptr @stderr, align 8
-  %652 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %651, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2590) #26
+  %652 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %651, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2590) #27
   br label %tng_atom_data_read.exit.i
 
 653:                                              ; preds = %.lr.ph404.i
   br i1 %412, label %654, label %655
 
 654:                                              ; preds = %653
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %647, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %647, i32 noundef 8) #24
   br label %655
 
 655:                                              ; preds = %654, %653
@@ -9861,13 +9861,13 @@ tng_file_input_numerical.exit.thread13.i.i:       ; preds = %.lr.ph404.i
   br i1 %.not22.i.i290.i, label %tng_file_input_numerical.exit.thread.i293.i, label %657
 
 657:                                              ; preds = %655
-  %658 = call i32 %656(ptr noundef nonnull %0, ptr noundef nonnull %647) #23
+  %658 = call i32 %656(ptr noundef nonnull %0, ptr noundef nonnull %647) #24
   %.not23.i.i291.i = icmp eq i32 %658, 0
   br i1 %.not23.i.i291.i, label %tng_file_input_numerical.exit.thread.i293.i, label %tng_file_input_numerical.exit.i292.i
 
 tng_file_input_numerical.exit.i292.i:             ; preds = %657
   %659 = load ptr, ptr @stderr, align 8
-  %660 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %659, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2590) #26
+  %660 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %659, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2590) #27
   br label %tng_file_input_numerical.exit.thread.i293.i
 
 tng_file_input_numerical.exit.thread.i293.i:      ; preds = %tng_file_input_numerical.exit.i292.i, %657, %655
@@ -9883,7 +9883,7 @@ tng_file_input_numerical.exit.thread.i293.i:      ; preds = %tng_file_input_nume
 
 665:                                              ; preds = %661
   %666 = load ptr, ptr %396, align 8
-  call void @clearerr(ptr noundef %666) #23
+  call void @clearerr(ptr noundef %666) #24
   br label %tng_freadstr.exit321.i
 
 667:                                              ; preds = %661
@@ -9901,25 +9901,25 @@ tng_file_input_numerical.exit.thread.i293.i:      ; preds = %tng_file_input_nume
   %674 = trunc nuw nsw i64 %indvars.iv.next.i317.i to i32
   %675 = load ptr, ptr %645, align 8
   %676 = and i64 %indvars.iv.next.i317.i, 4294967295
-  %677 = call ptr @realloc(ptr noundef %675, i64 noundef %676) #27
+  %677 = call ptr @realloc(ptr noundef %675, i64 noundef %676) #28
   %.not.i319.i = icmp eq ptr %677, null
   br i1 %.not.i319.i, label %678, label %682
 
 678:                                              ; preds = %673
   %679 = load ptr, ptr @stderr, align 8
-  %680 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %679, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2596) #26
+  %680 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %679, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2596) #27
   %681 = load ptr, ptr %645, align 8
-  call void @free(ptr noundef %681) #23
+  call void @free(ptr noundef %681) #24
   store ptr null, ptr %645, align 8
   br label %tng_freadstr.exit321.i
 
 682:                                              ; preds = %673
   store ptr %677, ptr %645, align 8
-  %683 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %677, ptr noundef nonnull dereferenceable(1) %20, i64 noundef %676) #23
+  %683 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %677, ptr noundef nonnull dereferenceable(1) %20, i64 noundef %676) #24
   br i1 %412, label %684, label %tng_freadstr.exit321.i
 
 684:                                              ; preds = %682
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %677, i32 noundef %674) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %677, i32 noundef %674) #24
   br label %tng_freadstr.exit321.i
 
 tng_freadstr.exit321.i:                           ; preds = %684, %682, %678, %665
@@ -9936,7 +9936,7 @@ tng_freadstr.exit321.i:                           ; preds = %684, %682, %678, %6
 
 689:                                              ; preds = %685
   %690 = load ptr, ptr %396, align 8
-  call void @clearerr(ptr noundef %690) #23
+  call void @clearerr(ptr noundef %690) #24
   br label %tng_freadstr.exit.i
 
 691:                                              ; preds = %685
@@ -9954,25 +9954,25 @@ tng_freadstr.exit321.i:                           ; preds = %684, %682, %678, %6
   %698 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   %699 = load ptr, ptr %646, align 8
   %700 = and i64 %indvars.iv.next.i.i, 4294967295
-  %701 = call ptr @realloc(ptr noundef %699, i64 noundef %700) #27
+  %701 = call ptr @realloc(ptr noundef %699, i64 noundef %700) #28
   %.not.i.i36 = icmp eq ptr %701, null
   br i1 %.not.i.i36, label %702, label %706
 
 702:                                              ; preds = %697
   %703 = load ptr, ptr @stderr, align 8
-  %704 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %703, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2598) #26
+  %704 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %703, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2598) #27
   %705 = load ptr, ptr %646, align 8
-  call void @free(ptr noundef %705) #23
+  call void @free(ptr noundef %705) #24
   store ptr null, ptr %646, align 8
   br label %tng_freadstr.exit.i
 
 706:                                              ; preds = %697
   store ptr %701, ptr %646, align 8
-  %707 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %701, ptr noundef nonnull dereferenceable(1) %21, i64 noundef %700) #23
+  %707 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %701, ptr noundef nonnull dereferenceable(1) %21, i64 noundef %700) #24
   br i1 %412, label %708, label %tng_freadstr.exit.i
 
 708:                                              ; preds = %706
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %701, i32 noundef %698) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %701, i32 noundef %698) #24
   br label %tng_freadstr.exit.i
 
 tng_freadstr.exit.i:                              ; preds = %708, %706, %702, %689
@@ -10042,14 +10042,14 @@ tng_atom_data_read.exit.i:                        ; preds = %tng_freadstr.exit.i
 
 tng_file_input_numerical.exit.thread13.i:         ; preds = %.lr.ph395.i
   %737 = load ptr, ptr @stderr, align 8
-  %738 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %737, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2590) #26
+  %738 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %737, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2590) #27
   br label %tng_atom_data_read.exit
 
 739:                                              ; preds = %.lr.ph395.i
   br i1 %412, label %740, label %741
 
 740:                                              ; preds = %739
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %733, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %733, i32 noundef 8) #24
   br label %741
 
 741:                                              ; preds = %740, %739
@@ -10058,13 +10058,13 @@ tng_file_input_numerical.exit.thread13.i:         ; preds = %.lr.ph395.i
   br i1 %.not22.i.i65, label %tng_file_input_numerical.exit.thread.i68, label %743
 
 743:                                              ; preds = %741
-  %744 = call i32 %742(ptr noundef nonnull %0, ptr noundef nonnull %733) #23
+  %744 = call i32 %742(ptr noundef nonnull %0, ptr noundef nonnull %733) #24
   %.not23.i.i66 = icmp eq i32 %744, 0
   br i1 %.not23.i.i66, label %tng_file_input_numerical.exit.thread.i68, label %tng_file_input_numerical.exit.i67
 
 tng_file_input_numerical.exit.i67:                ; preds = %743
   %745 = load ptr, ptr @stderr, align 8
-  %746 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %745, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2590) #26
+  %746 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %745, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2590) #27
   br label %tng_file_input_numerical.exit.thread.i68
 
 tng_file_input_numerical.exit.thread.i68:         ; preds = %tng_file_input_numerical.exit.i67, %743, %741
@@ -10081,7 +10081,7 @@ tng_file_input_numerical.exit.thread.i68:         ; preds = %tng_file_input_nume
 
 752:                                              ; preds = %748
   %753 = load ptr, ptr %396, align 8
-  call void @clearerr(ptr noundef %753) #23
+  call void @clearerr(ptr noundef %753) #24
   br label %tng_freadstr.exit76
 
 754:                                              ; preds = %748
@@ -10099,25 +10099,25 @@ tng_file_input_numerical.exit.thread.i68:         ; preds = %tng_file_input_nume
   %761 = trunc nuw nsw i64 %indvars.iv.next.i72 to i32
   %762 = load ptr, ptr %747, align 8
   %763 = and i64 %indvars.iv.next.i72, 4294967295
-  %764 = call ptr @realloc(ptr noundef %762, i64 noundef %763) #27
+  %764 = call ptr @realloc(ptr noundef %762, i64 noundef %763) #28
   %.not.i74 = icmp eq ptr %764, null
   br i1 %.not.i74, label %765, label %769
 
 765:                                              ; preds = %760
   %766 = load ptr, ptr @stderr, align 8
-  %767 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %766, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2596) #26
+  %767 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %766, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2596) #27
   %768 = load ptr, ptr %747, align 8
-  call void @free(ptr noundef %768) #23
+  call void @free(ptr noundef %768) #24
   store ptr null, ptr %747, align 8
   br label %tng_freadstr.exit76
 
 769:                                              ; preds = %760
   store ptr %764, ptr %747, align 8
-  %770 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %764, ptr noundef nonnull dereferenceable(1) %4, i64 noundef %763) #23
+  %770 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %764, ptr noundef nonnull dereferenceable(1) %4, i64 noundef %763) #24
   br i1 %412, label %771, label %tng_freadstr.exit76
 
 771:                                              ; preds = %769
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %764, i32 noundef %761) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %764, i32 noundef %761) #24
   br label %tng_freadstr.exit76
 
 tng_freadstr.exit76:                              ; preds = %752, %765, %769, %771
@@ -10135,7 +10135,7 @@ tng_freadstr.exit76:                              ; preds = %752, %765, %769, %7
 
 777:                                              ; preds = %773
   %778 = load ptr, ptr %396, align 8
-  call void @clearerr(ptr noundef %778) #23
+  call void @clearerr(ptr noundef %778) #24
   br label %tng_freadstr.exit
 
 779:                                              ; preds = %773
@@ -10153,25 +10153,25 @@ tng_freadstr.exit76:                              ; preds = %752, %765, %769, %7
   %786 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %787 = load ptr, ptr %772, align 8
   %788 = and i64 %indvars.iv.next.i, 4294967295
-  %789 = call ptr @realloc(ptr noundef %787, i64 noundef %788) #27
+  %789 = call ptr @realloc(ptr noundef %787, i64 noundef %788) #28
   %.not.i70 = icmp eq ptr %789, null
   br i1 %.not.i70, label %790, label %794
 
 790:                                              ; preds = %785
   %791 = load ptr, ptr @stderr, align 8
-  %792 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %791, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2598) #26
+  %792 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %791, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2598) #27
   %793 = load ptr, ptr %772, align 8
-  call void @free(ptr noundef %793) #23
+  call void @free(ptr noundef %793) #24
   store ptr null, ptr %772, align 8
   br label %tng_freadstr.exit
 
 794:                                              ; preds = %785
   store ptr %789, ptr %772, align 8
-  %795 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %789, ptr noundef nonnull dereferenceable(1) %5, i64 noundef %788) #23
+  %795 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %789, ptr noundef nonnull dereferenceable(1) %5, i64 noundef %788) #24
   br i1 %412, label %796, label %tng_freadstr.exit
 
 796:                                              ; preds = %794
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %789, i32 noundef %786) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %789, i32 noundef %786) #24
   br label %tng_freadstr.exit
 
 tng_freadstr.exit:                                ; preds = %777, %790, %794, %796
@@ -10215,14 +10215,14 @@ tng_atom_data_read.exit:                          ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit301.thread353.i:     ; preds = %.loopexit365.i
   %814 = load ptr, ptr @stderr, align 8
-  %815 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %814, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3045) #26
+  %815 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %814, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3045) #27
   br label %tng_molecules_block_read.exit
 
 816:                                              ; preds = %.loopexit365.i
   br i1 %412, label %817, label %818
 
 817:                                              ; preds = %816
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %810, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %810, i32 noundef 8) #24
   br label %818
 
 818:                                              ; preds = %817, %816
@@ -10231,13 +10231,13 @@ tng_file_input_numerical.exit301.thread353.i:     ; preds = %.loopexit365.i
   br i1 %.not22.i295.i, label %tng_file_input_numerical.exit301.thread.i, label %820
 
 820:                                              ; preds = %818
-  %821 = call i32 %819(ptr noundef nonnull %0, ptr noundef nonnull %810) #23
+  %821 = call i32 %819(ptr noundef nonnull %0, ptr noundef nonnull %810) #24
   %.not23.i296.i = icmp eq i32 %821, 0
   br i1 %.not23.i296.i, label %tng_file_input_numerical.exit301.thread.i, label %tng_file_input_numerical.exit301.i
 
 tng_file_input_numerical.exit301.i:               ; preds = %820
   %822 = load ptr, ptr @stderr, align 8
-  %823 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %822, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3045) #26
+  %823 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %822, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3045) #27
   br label %tng_file_input_numerical.exit301.thread.i
 
 tng_file_input_numerical.exit301.thread.i:        ; preds = %tng_file_input_numerical.exit301.i, %820, %818
@@ -10247,7 +10247,7 @@ tng_file_input_numerical.exit301.thread.i:        ; preds = %tng_file_input_nume
 
 826:                                              ; preds = %tng_file_input_numerical.exit301.thread.i
   %827 = shl i64 %824, 4
-  %828 = call noalias ptr @malloc(i64 noundef %827) #25
+  %828 = call noalias ptr @malloc(i64 noundef %827) #26
   %829 = load ptr, ptr %399, align 8
   %830 = getelementptr inbounds %struct.tng_molecule, ptr %829, i64 %.1212423.i, i32 10
   store ptr %828, ptr %830, align 8
@@ -10263,14 +10263,14 @@ tng_file_input_numerical.exit301.thread.i:        ; preds = %tng_file_input_nume
 
 835:                                              ; preds = %826
   %836 = load ptr, ptr @stderr, align 8
-  %837 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %836, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3057) #26
+  %837 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %836, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3057) #27
   %838 = getelementptr inbounds i8, ptr %462, i64 56
   %839 = load ptr, ptr %838, align 8
   %.not244.i = icmp eq ptr %839, null
   br i1 %.not244.i, label %841, label %840
 
 840:                                              ; preds = %835
-  call void @free(ptr noundef nonnull %839) #23
+  call void @free(ptr noundef nonnull %839) #24
   store ptr null, ptr %838, align 8
   br label %841
 
@@ -10281,7 +10281,7 @@ tng_file_input_numerical.exit301.thread.i:        ; preds = %tng_file_input_nume
   br i1 %.not245.i, label %845, label %844
 
 844:                                              ; preds = %841
-  call void @free(ptr noundef nonnull %843) #23
+  call void @free(ptr noundef nonnull %843) #24
   store ptr null, ptr %842, align 8
   br label %845
 
@@ -10291,7 +10291,7 @@ tng_file_input_numerical.exit301.thread.i:        ; preds = %tng_file_input_nume
   br i1 %.not246.i, label %tng_molecules_block_read.exit, label %847
 
 847:                                              ; preds = %845
-  call void @free(ptr noundef nonnull %846) #23
+  call void @free(ptr noundef nonnull %846) #24
   store ptr null, ptr %583, align 8
   br label %tng_molecules_block_read.exit
 
@@ -10305,14 +10305,14 @@ tng_file_input_numerical.exit301.thread.i:        ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit308.thread357.i:     ; preds = %.lr.ph422.i
   %851 = load ptr, ptr @stderr, align 8
-  %852 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %851, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3081) #26
+  %852 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %851, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3081) #27
   br label %tng_molecules_block_read.exit
 
 853:                                              ; preds = %.lr.ph422.i
   br i1 %412, label %854, label %855
 
 854:                                              ; preds = %853
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %.0421.i, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %.0421.i, i32 noundef 8) #24
   br label %855
 
 855:                                              ; preds = %854, %853
@@ -10321,13 +10321,13 @@ tng_file_input_numerical.exit308.thread357.i:     ; preds = %.lr.ph422.i
   br i1 %.not22.i302.i, label %tng_file_input_numerical.exit308.thread.i, label %857
 
 857:                                              ; preds = %855
-  %858 = call i32 %856(ptr noundef nonnull %0, ptr noundef nonnull %.0421.i) #23
+  %858 = call i32 %856(ptr noundef nonnull %0, ptr noundef nonnull %.0421.i) #24
   %.not23.i303.i = icmp eq i32 %858, 0
   br i1 %.not23.i303.i, label %tng_file_input_numerical.exit308.thread.i, label %tng_file_input_numerical.exit308.i
 
 tng_file_input_numerical.exit308.i:               ; preds = %857
   %859 = load ptr, ptr @stderr, align 8
-  %860 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %859, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3081) #26
+  %860 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %859, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3081) #27
   br label %tng_file_input_numerical.exit308.thread.i
 
 tng_file_input_numerical.exit308.thread.i:        ; preds = %tng_file_input_numerical.exit308.i, %857, %855
@@ -10339,14 +10339,14 @@ tng_file_input_numerical.exit308.thread.i:        ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit315.thread361.i:     ; preds = %tng_file_input_numerical.exit308.thread.i
   %865 = load ptr, ptr @stderr, align 8
-  %866 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %865, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3088) #26
+  %866 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %865, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3088) #27
   br label %tng_molecules_block_read.exit
 
 867:                                              ; preds = %tng_file_input_numerical.exit308.thread.i
   br i1 %412, label %868, label %869
 
 868:                                              ; preds = %867
-  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %861, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %23, ptr noundef nonnull %861, i32 noundef 8) #24
   br label %869
 
 869:                                              ; preds = %868, %867
@@ -10355,13 +10355,13 @@ tng_file_input_numerical.exit315.thread361.i:     ; preds = %tng_file_input_nume
   br i1 %.not22.i309.i, label %tng_file_input_numerical.exit315.thread.i, label %871
 
 871:                                              ; preds = %869
-  %872 = call i32 %870(ptr noundef nonnull %0, ptr noundef nonnull %861) #23
+  %872 = call i32 %870(ptr noundef nonnull %0, ptr noundef nonnull %861) #24
   %.not23.i310.i = icmp eq i32 %872, 0
   br i1 %.not23.i310.i, label %tng_file_input_numerical.exit315.thread.i, label %tng_file_input_numerical.exit315.i
 
 tng_file_input_numerical.exit315.i:               ; preds = %871
   %873 = load ptr, ptr @stderr, align 8
-  %874 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %873, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3088) #26
+  %874 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %873, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3088) #27
   br label %tng_file_input_numerical.exit315.thread.i
 
 tng_file_input_numerical.exit315.thread.i:        ; preds = %tng_file_input_numerical.exit315.i, %871, %869
@@ -10387,20 +10387,20 @@ tng_file_input_numerical.exit315.thread.i:        ; preds = %tng_file_input_nume
 
 884:                                              ; preds = %._crit_edge426.i
   call fastcc void @tng_md5_remaining_append(ptr noundef nonnull %0, ptr noundef readonly %1, i64 noundef %398, ptr noundef nonnull %23)
-  call void @md5_finish(ptr noundef nonnull %23, ptr noundef nonnull %22) #23
+  call void @md5_finish(ptr noundef nonnull %23, ptr noundef nonnull %22) #24
   %885 = getelementptr inbounds i8, ptr %1, i64 24
   %strcmpload.i34 = load i8, ptr %885, align 1
   %.not234.i = icmp eq i8 %strcmpload.i34, 0
   br i1 %.not234.i, label %tng_molecules_block_read.exit, label %886
 
 886:                                              ; preds = %884
-  %887 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %885, ptr noundef nonnull dereferenceable(1) %22, i64 noundef 16) #24
+  %887 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %885, ptr noundef nonnull dereferenceable(1) %22, i64 noundef 16) #25
   %.not235.i = icmp eq i32 %887, 0
   br i1 %.not235.i, label %tng_molecules_block_read.exit, label %888
 
 888:                                              ; preds = %886
   %889 = load ptr, ptr @stderr, align 8
-  %890 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %889, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.1, i32 noundef 3117) #26
+  %890 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %889, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.1, i32 noundef 3117) #27
   br label %tng_molecules_block_read.exit
 
 891:                                              ; preds = %._crit_edge426.i
@@ -10447,7 +10447,7 @@ tng_molecules_block_read.exit:                    ; preds = %393, %tng_file_inpu
   br i1 %905, label %906, label %907
 
 906:                                              ; preds = %901
-  call void @md5_init(ptr noundef nonnull %19) #23
+  call void @md5_init(ptr noundef nonnull %19) #24
   br label %907
 
 907:                                              ; preds = %906, %901
@@ -10459,7 +10459,7 @@ tng_molecules_block_read.exit:                    ; preds = %393, %tng_file_inpu
   %911 = load ptr, ptr @stderr, align 8
   %912 = getelementptr inbounds i8, ptr %1, i64 40
   %913 = load ptr, ptr %912, align 8
-  %914 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %911, ptr noundef nonnull @.str.89, ptr noundef %913, ptr noundef nonnull @.str.1, i32 noundef 6065) #26
+  %914 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %911, ptr noundef nonnull @.str.89, ptr noundef %913, ptr noundef nonnull @.str.1, i32 noundef 6065) #27
   br label %tng_data_block_contents_read.exit
 
 915:                                              ; preds = %907
@@ -10499,7 +10499,7 @@ switch.lookup:                                    ; preds = %915
 
 936:                                              ; preds = %934
   %937 = load ptr, ptr @stderr, align 8
-  %938 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %937, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.1, i32 noundef 4993) #26
+  %938 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %937, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.1, i32 noundef 4993) #27
   br label %tng_data_read.exit.i
 
 .critedge.i.i:                                    ; preds = %932
@@ -10691,7 +10691,7 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
 
 1019:                                             ; preds = %.thread279.i.i, %.thread276.thread.i.i, %.thread276.i.i
   %1020 = load ptr, ptr @stderr, align 8
-  %1021 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1020, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.1, i32 noundef 5031) #26
+  %1021 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1020, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.1, i32 noundef 5031) #27
   br label %tng_data_read.exit.i
 
 1022:                                             ; preds = %.thread276.i.i
@@ -10715,9 +10715,9 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
   store i64 %1032, ptr %1031, align 8
   %1033 = getelementptr inbounds i8, ptr %1, i64 40
   %1034 = load ptr, ptr %1033, align 8
-  %1035 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1034) #24
+  %1035 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1034) #25
   %1036 = add i64 %1035, 1
-  %1037 = call noalias ptr @malloc(i64 noundef %1036) #25
+  %1037 = call noalias ptr @malloc(i64 noundef %1036) #26
   %1038 = getelementptr i8, ptr %1030, i64 -88
   store ptr %1037, ptr %1038, align 8
   %.not195.i.i = icmp eq ptr %1037, null
@@ -10725,12 +10725,12 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
 
 1039:                                             ; preds = %1023
   %1040 = load ptr, ptr @stderr, align 8
-  %1041 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1040, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5063) #26
+  %1041 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1040, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5063) #27
   br label %tng_data_read.exit.i
 
 1042:                                             ; preds = %1023
   %1043 = load ptr, ptr %1033, align 8
-  %1044 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1037, ptr noundef nonnull dereferenceable(1) %1043) #23
+  %1044 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1037, ptr noundef nonnull dereferenceable(1) %1043) #24
   %1045 = getelementptr i8, ptr %1030, i64 -80
   store i8 %921, ptr %1045, align 8
   %1046 = getelementptr i8, ptr %1030, i64 -16
@@ -10796,13 +10796,13 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
   %1072 = add nsw i64 %926, -1
   %1073 = sdiv i64 %1072, %925
   %1074 = add i64 %1073, 1
-  %1075 = call noalias ptr @malloc(i64 noundef %920) #25
+  %1075 = call noalias ptr @malloc(i64 noundef %920) #26
   %.not199.i.i = icmp eq ptr %1075, null
   br i1 %.not199.i.i, label %1076, label %1079
 
 1076:                                             ; preds = %1071
   %1077 = load ptr, ptr @stderr, align 8
-  %1078 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1077, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5112) #26
+  %1078 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1077, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5112) #27
   br label %tng_data_read.exit.i
 
 1079:                                             ; preds = %1071
@@ -10813,7 +10813,7 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
 
 1083:                                             ; preds = %1079
   %1084 = load ptr, ptr @stderr, align 8
-  %1085 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1084, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5118) #26
+  %1085 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1084, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5118) #27
   br label %tng_data_read.exit.i
 
 1086:                                             ; preds = %1079
@@ -10821,7 +10821,7 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
 
 1087:                                             ; preds = %1086
   %1088 = trunc i64 %920 to i32
-  call void @md5_append(ptr noundef nonnull %19, ptr noundef nonnull %1075, i32 noundef %1088) #23
+  call void @md5_append(ptr noundef nonnull %19, ptr noundef nonnull %1075, i32 noundef %1088) #24
   br label %1089
 
 1089:                                             ; preds = %1087, %1086
@@ -10841,7 +10841,7 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
 
 1094:                                             ; preds = %1090
   %1095 = load ptr, ptr @stderr, align 8
-  %1096 = call i64 @fwrite(ptr nonnull @.str.72, i64 50, i64 1, ptr %1095) #28
+  %1096 = call i64 @fwrite(ptr nonnull @.str.72, i64 50, i64 1, ptr %1095) #29
   br label %tng_uncompress.exit.i.i
 
 1097:                                             ; preds = %1090
@@ -10852,7 +10852,7 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
 
 1098:                                             ; preds = %1097
   %1099 = load ptr, ptr @stderr, align 8
-  %1100 = call i64 @fwrite(ptr nonnull @.str.96, i64 78, i64 1, ptr %1099) #28
+  %1100 = call i64 @fwrite(ptr nonnull @.str.96, i64 78, i64 1, ptr %1099) #29
   br label %1126
 
 1101:                                             ; preds = %1097
@@ -10862,12 +10862,12 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
 
 1103:                                             ; preds = %1101
   %1104 = load ptr, ptr @stderr, align 8
-  %1105 = call i64 @fwrite(ptr nonnull @.str.97, i64 38, i64 1, ptr %1104) #28
+  %1105 = call i64 @fwrite(ptr nonnull @.str.97, i64 38, i64 1, ptr %1104) #29
   br label %1126
 
 1106:                                             ; preds = %1101
   %1107 = icmp eq i8 %921, 2
-  %1108 = call noalias ptr @malloc(i64 noundef %spec.select.i.i) #25
+  %1108 = call noalias ptr @malloc(i64 noundef %spec.select.i.i) #26
   %.not28.i.i.i = icmp eq ptr %1108, null
   br i1 %1107, label %1109, label %1115
 
@@ -10876,11 +10876,11 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
 
 1110:                                             ; preds = %1109
   %1111 = load ptr, ptr @stderr, align 8
-  %1112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1111, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4358) #26
+  %1112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1111, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4358) #27
   br label %1126
 
 1113:                                             ; preds = %1109
-  %1114 = call i32 @tng_compress_uncompress_float(ptr noundef nonnull %1075, ptr noundef nonnull %1108) #23
+  %1114 = call i32 @tng_compress_uncompress_float(ptr noundef nonnull %1075, ptr noundef nonnull %1108) #24
   br label %1121
 
 1115:                                             ; preds = %1106
@@ -10888,50 +10888,50 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
 
 1116:                                             ; preds = %1115
   %1117 = load ptr, ptr @stderr, align 8
-  %1118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1117, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4372) #26
+  %1118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1117, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4372) #27
   br label %1126
 
 1119:                                             ; preds = %1115
-  %1120 = call i32 @tng_compress_uncompress(ptr noundef nonnull %1075, ptr noundef nonnull %1108) #23
+  %1120 = call i32 @tng_compress_uncompress(ptr noundef nonnull %1075, ptr noundef nonnull %1108) #24
   br label %1121
 
 1121:                                             ; preds = %1119, %1113
   %.0.i.i.i = phi i32 [ %1120, %1119 ], [ %1114, %1113 ]
-  call void @free(ptr noundef nonnull %1075) #23
+  call void @free(ptr noundef nonnull %1075) #24
   %1122 = icmp eq i32 %.0.i.i.i, 1
   br i1 %1122, label %1123, label %tng_uncompress.exit.i.i
 
 1123:                                             ; preds = %1121
   %1124 = load ptr, ptr @stderr, align 8
-  %1125 = call i64 @fwrite(ptr nonnull @.str.98, i64 53, i64 1, ptr %1124) #28
+  %1125 = call i64 @fwrite(ptr nonnull @.str.98, i64 53, i64 1, ptr %1124) #29
   br label %1126
 
 1126:                                             ; preds = %1123, %1116, %1110, %1103, %1098
   %.1262.ph.i.i = phi ptr [ %1075, %1098 ], [ %1075, %1116 ], [ %1108, %1123 ], [ %1075, %1110 ], [ %1075, %1103 ]
   %1127 = load ptr, ptr @stderr, align 8
-  %1128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1127, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.1, i32 noundef 5145) #26
-  call void @free(ptr noundef nonnull %.1262.ph.i.i) #23
+  %1128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1127, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.1, i32 noundef 5145) #27
+  call void @free(ptr noundef nonnull %.1262.ph.i.i) #24
   br label %tng_data_read.exit.i
 
 1129:                                             ; preds = %1090
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %spec.select.i.i, ptr %6, align 8
-  %1130 = call noalias ptr @malloc(i64 noundef %spec.select.i.i) #25
+  %1130 = call noalias ptr @malloc(i64 noundef %spec.select.i.i) #26
   %.not.i223.i.i = icmp eq ptr %1130, null
   br i1 %.not.i223.i.i, label %1131, label %1134
 
 1131:                                             ; preds = %1129
   %1132 = load ptr, ptr @stderr, align 8
-  %1133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1132, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4446) #26
+  %1133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1132, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4446) #27
   br label %1149
 
 1134:                                             ; preds = %1129
-  %1135 = call i32 @uncompress(ptr noundef nonnull %1130, ptr noundef nonnull %6, ptr noundef nonnull %1075, i64 noundef %920) #23
+  %1135 = call i32 @uncompress(ptr noundef nonnull %1130, ptr noundef nonnull %6, ptr noundef nonnull %1075, i64 noundef %920) #24
   %.not16.i.i.i = icmp eq i32 %1135, 0
   br i1 %.not16.i.i.i, label %tng_gzip_uncompress.exit.i.i, label %1136
 
 1136:                                             ; preds = %1134
-  call void @free(ptr noundef nonnull %1130) #23
+  call void @free(ptr noundef nonnull %1130) #24
   switch i32 %1135, label %1146 [
     i32 -4, label %1137
     i32 -5, label %1140
@@ -10940,34 +10940,34 @@ tng_particle_data_find.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %.lr.
 
 1137:                                             ; preds = %1136
   %1138 = load ptr, ptr @stderr, align 8
-  %1139 = call i64 @fwrite(ptr nonnull @.str.80, i64 32, i64 1, ptr %1138) #28
+  %1139 = call i64 @fwrite(ptr nonnull @.str.80, i64 32, i64 1, ptr %1138) #29
   br label %1146
 
 1140:                                             ; preds = %1136
   %1141 = load ptr, ptr @stderr, align 8
-  %1142 = call i64 @fwrite(ptr nonnull @.str.81, i64 43, i64 1, ptr %1141) #28
+  %1142 = call i64 @fwrite(ptr nonnull @.str.81, i64 43, i64 1, ptr %1141) #29
   br label %1146
 
 1143:                                             ; preds = %1136
   %1144 = load ptr, ptr @stderr, align 8
-  %1145 = call i64 @fwrite(ptr nonnull @.str.99, i64 27, i64 1, ptr %1144) #28
+  %1145 = call i64 @fwrite(ptr nonnull @.str.99, i64 27, i64 1, ptr %1144) #29
   br label %1146
 
 1146:                                             ; preds = %1143, %1140, %1137, %1136
   %1147 = load ptr, ptr @stderr, align 8
-  %1148 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1147, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.1, i32 noundef 4467) #26
+  %1148 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1147, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.1, i32 noundef 4467) #27
   br label %1149
 
 tng_gzip_uncompress.exit.i.i:                     ; preds = %1134
-  call void @free(ptr noundef nonnull %1075) #23
+  call void @free(ptr noundef nonnull %1075) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %tng_uncompress.exit.i.i
 
 1149:                                             ; preds = %1146, %1131
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %1150 = load ptr, ptr @stderr, align 8
-  %1151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1150, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.1, i32 noundef 5156) #26
-  call void @free(ptr noundef nonnull %1075) #23
+  %1151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1150, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.1, i32 noundef 5156) #27
+  call void @free(ptr noundef nonnull %1075) #24
   br label %tng_data_read.exit.i
 
 tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress.exit.i.i, %1121, %1094, %1090, %1089
@@ -11008,8 +11008,8 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
 
 1166:                                             ; preds = %1165
   %1167 = load ptr, ptr @stderr, align 8
-  %1168 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1167, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.1, i32 noundef 5183) #26
-  call void @free(ptr noundef nonnull %.0261.i.i) #23
+  %1168 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1167, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.1, i32 noundef 5183) #27
+  call void @free(ptr noundef nonnull %.0261.i.i) #24
   br label %tng_data_read.exit.i
 
 1169:                                             ; preds = %1165, %1157
@@ -11050,7 +11050,7 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   %.2179324.us.us.us.i.i = phi i64 [ %.1178326.us.us.us.i.i, %.lr.ph325.us.us.us.i.i ], [ %1193, %1191 ]
   %.0181323.us.us.us.i.i = phi i64 [ 0, %.lr.ph325.us.us.us.i.i ], [ %1194, %1191 ]
   %1182 = getelementptr inbounds i8, ptr %.0261.i.i, i64 %.2179324.us.us.us.i.i
-  %1183 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1182) #24
+  %1183 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1182) #25
   %1184 = add i64 %1183, 1
   %1185 = call noundef i64 @llvm.umin.i64(i64 %1184, i64 1024)
   %1186 = getelementptr inbounds ptr, ptr %1180, i64 %.0181323.us.us.us.i.i
@@ -11059,17 +11059,17 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   br i1 %.not217.us.us.us.i.i, label %1189, label %1188
 
 1188:                                             ; preds = %1181
-  call void @free(ptr noundef nonnull %1187) #23
+  call void @free(ptr noundef nonnull %1187) #24
   br label %1189
 
 1189:                                             ; preds = %1188, %1181
-  %1190 = call noalias ptr @malloc(i64 noundef %1185) #25
+  %1190 = call noalias ptr @malloc(i64 noundef %1185) #26
   store ptr %1190, ptr %1186, align 8
   %.not219.us.us.us.i.i = icmp eq ptr %1190, null
   br i1 %.not219.us.us.us.i.i, label %.split.us.i.i, label %1191
 
 1191:                                             ; preds = %1189
-  %1192 = call ptr @strncpy(ptr noundef nonnull %1190, ptr noundef %1182, i64 noundef %1185) #23
+  %1192 = call ptr @strncpy(ptr noundef nonnull %1190, ptr noundef %1182, i64 noundef %1185) #24
   %1193 = add nsw i64 %1185, %.2179324.us.us.us.i.i
   %1194 = add nuw nsw i64 %.0181323.us.us.us.i.i, 1
   %exitcond376.not.i.i = icmp eq i64 %1194, %927
@@ -11102,7 +11102,7 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   %.1173340.us.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %1225, %1222 ]
   %.4339.us.i.i = phi i64 [ %.3180343.us.i.i, %.preheader.us.i.i ], [ %1224, %1222 ]
   %1201 = getelementptr inbounds i8, ptr %.0261.i.i, i64 %.4339.us.i.i
-  %1202 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1201) #24
+  %1202 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1201) #25
   %1203 = add i64 %1202, 1
   %1204 = call noundef i64 @llvm.umin.i64(i64 %1203, i64 1024)
   %1205 = load ptr, ptr %1199, align 8
@@ -11115,7 +11115,7 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   br i1 %.not214.us.i.i, label %1212, label %1211
 
 1211:                                             ; preds = %1200
-  call void @free(ptr noundef nonnull %1210) #23
+  call void @free(ptr noundef nonnull %1210) #24
   %.pre.i.i42 = load ptr, ptr %1199, align 8
   %.pre380.i.i = load ptr, ptr %.pre.i.i42, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre380.i.i, i64 %.1170344.us.i.i
@@ -11124,7 +11124,7 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
 
 1212:                                             ; preds = %1211, %1200
   %1213 = phi ptr [ %.pre381.i.i, %1211 ], [ %1208, %1200 ]
-  %1214 = call noalias ptr @malloc(i64 noundef %1204) #25
+  %1214 = call noalias ptr @malloc(i64 noundef %1204) #26
   %1215 = getelementptr inbounds ptr, ptr %1213, i64 %.1173340.us.i.i
   store ptr %1214, ptr %1215, align 8
   %1216 = load ptr, ptr %1199, align 8
@@ -11137,7 +11137,7 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   br i1 %.not215.us.i.i, label %.split.us345.i.i, label %1222
 
 1222:                                             ; preds = %1212
-  %1223 = call ptr @strncpy(ptr noundef nonnull %1221, ptr noundef %1201, i64 noundef %1204) #23
+  %1223 = call ptr @strncpy(ptr noundef nonnull %1221, ptr noundef %1201, i64 noundef %1204) #24
   %1224 = add nsw i64 %1204, %.4339.us.i.i
   %1225 = add nuw nsw i64 %.1173340.us.i.i, 1
   %exitcond378.not.i.i = icmp eq i64 %1225, %927
@@ -11150,14 +11150,14 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
 
 .split.us.i.i:                                    ; preds = %1189
   %1227 = load ptr, ptr @stderr, align 8
-  %1228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1227, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5215) #26
-  call void @free(ptr noundef %.0261.i.i) #23
+  %1228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1227, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5215) #27
+  call void @free(ptr noundef %.0261.i.i) #24
   br label %tng_data_read.exit.i
 
 .split.us345.i.i:                                 ; preds = %1212
   %1229 = load ptr, ptr @stderr, align 8
-  %1230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1229, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5239) #26
-  call void @free(ptr noundef %.0261.i.i) #23
+  %1230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1229, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5239) #27
+  call void @free(ptr noundef %.0261.i.i) #24
   br label %tng_data_read.exit.i
 
 1231:                                             ; preds = %1169
@@ -11197,13 +11197,13 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   %1244 = load ptr, ptr %1241, align 8
   %1245 = load ptr, ptr %1152, align 8
   %1246 = getelementptr inbounds i8, ptr %1245, i64 %.2171321.i.i
-  %1247 = call i32 %1244(ptr noundef nonnull %0, ptr noundef %1246) #23
+  %1247 = call i32 %1244(ptr noundef nonnull %0, ptr noundef %1246) #24
   %.not212.i.i = icmp eq i32 %1247, 0
   br i1 %.not212.i.i, label %1251, label %1248
 
 1248:                                             ; preds = %.lr.ph322.i.i
   %1249 = load ptr, ptr @stderr, align 8
-  %1250 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1249, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5276) #26
+  %1250 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1249, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5276) #27
   br label %1251
 
 1251:                                             ; preds = %1248, %.lr.ph322.i.i
@@ -11224,13 +11224,13 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   %1258 = load ptr, ptr %1255, align 8
   %1259 = load ptr, ptr %1152, align 8
   %1260 = getelementptr inbounds i8, ptr %1259, i64 %.3320.i.i
-  %1261 = call i32 %1258(ptr noundef nonnull %0, ptr noundef %1260) #23
+  %1261 = call i32 %1258(ptr noundef nonnull %0, ptr noundef %1260) #24
   %.not210.i.i = icmp eq i32 %1261, 0
   br i1 %.not210.i.i, label %1265, label %1262
 
 1262:                                             ; preds = %.lr.ph.i.i41
   %1263 = load ptr, ptr @stderr, align 8
-  %1264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1263, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5292) #26
+  %1264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1263, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5292) #27
   br label %1265
 
 1265:                                             ; preds = %1262, %.lr.ph.i.i41
@@ -11239,7 +11239,7 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   br i1 %1267, label %.lr.ph.i.i41, label %.loopexit.i.i, !llvm.loop !84
 
 .loopexit.i.i:                                    ; preds = %1265, %1251, %._crit_edge330.split.us.us.us.i.i, %._crit_edge.us.i.i, %1254, %1240, %1239, %1238, %.preheader.lr.ph.i.i, %.preheader293.i.i, %.lr.ph335.split.us.i.i, %.preheader294.i.i
-  call void @free(ptr noundef %.0261.i.i) #23
+  call void @free(ptr noundef %.0261.i.i) #24
   br label %tng_data_read.exit.i
 
 tng_data_read.exit.i:                             ; preds = %.loopexit.i.i, %.split.us345.i.i, %.split.us.i.i, %1166, %1149, %1126, %1083, %1076, %1039, %1019, %936
@@ -11248,14 +11248,14 @@ tng_data_read.exit.i:                             ; preds = %.loopexit.i.i, %.sp
 
 1268:                                             ; preds = %tng_data_read.exit.i
   call fastcc void @tng_md5_remaining_append(ptr noundef %0, ptr noundef readonly %1, i64 noundef %904, ptr noundef nonnull %19)
-  call void @md5_finish(ptr noundef nonnull %19, ptr noundef nonnull %18) #23
+  call void @md5_finish(ptr noundef nonnull %19, ptr noundef nonnull %18) #24
   %1269 = getelementptr inbounds i8, ptr %1, i64 24
   %strcmpload.i40 = load i8, ptr %1269, align 1
   %.not24.i = icmp eq i8 %strcmpload.i40, 0
   br i1 %.not24.i, label %tng_data_block_contents_read.exit, label %1270
 
 1270:                                             ; preds = %1268
-  %1271 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1269, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 16) #24
+  %1271 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %1269, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 16) #25
   %.not25.i = icmp eq i32 %1271, 0
   br i1 %.not25.i, label %tng_data_block_contents_read.exit, label %1272
 
@@ -11263,7 +11263,7 @@ tng_data_read.exit.i:                             ; preds = %.loopexit.i.i, %.sp
   %1273 = load ptr, ptr @stderr, align 8
   %1274 = getelementptr inbounds i8, ptr %1, i64 40
   %1275 = load ptr, ptr %1274, align 8
-  %1276 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1273, ptr noundef nonnull @.str.90, ptr noundef %1275, ptr noundef nonnull @.str.1, i32 noundef 6089) #26
+  %1276 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1273, ptr noundef nonnull @.str.90, ptr noundef %1275, ptr noundef nonnull @.str.1, i32 noundef 6089) #27
   br label %tng_data_block_contents_read.exit
 
 1277:                                             ; preds = %tng_data_read.exit.i
@@ -11339,14 +11339,14 @@ define range(i32 0, 3) i32 @tng_frame_set_nr_find(ptr noundef %0, i64 noundef %1
   br i1 %16, label %219, label %17
 
 17:                                               ; preds = %8
-  %18 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %18 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %18, ptr %4, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %19, label %22
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 22:                                               ; preds = %17
@@ -11379,7 +11379,7 @@ tng_block_init.exit:                              ; preds = %19, %22
 
 36:                                               ; preds = %33, %tng_block_init.exit
   %37 = load ptr, ptr @stderr, align 8
-  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.14, i64 noundef %.0136, ptr noundef nonnull @.str.1, i32 noundef 10164) #26
+  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.14, i64 noundef %.0136, ptr noundef nonnull @.str.1, i32 noundef 10164) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %219
 
@@ -11395,7 +11395,7 @@ tng_block_init.exit:                              ; preds = %19, %22
   br i1 %.not16.i, label %45, label %44
 
 44:                                               ; preds = %41
-  tail call void @free(ptr noundef nonnull %43) #23
+  tail call void @free(ptr noundef nonnull %43) #24
   store ptr null, ptr %42, align 8
   br label %45
 
@@ -11406,7 +11406,7 @@ tng_block_init.exit:                              ; preds = %19, %22
   br i1 %.not17.i, label %49, label %48
 
 48:                                               ; preds = %45
-  tail call void @free(ptr noundef nonnull %47) #23
+  tail call void @free(ptr noundef nonnull %47) #24
   store ptr null, ptr %46, align 8
   br label %49
 
@@ -11417,11 +11417,11 @@ tng_block_init.exit:                              ; preds = %19, %22
   br i1 %.not18.i, label %tng_block_destroy.exit, label %52
 
 52:                                               ; preds = %49
-  tail call void @free(ptr noundef nonnull %51) #23
+  tail call void @free(ptr noundef nonnull %51) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %49, %52
-  tail call void @free(ptr noundef nonnull %18) #23
+  tail call void @free(ptr noundef nonnull %18) #24
   br label %219
 
 53:                                               ; preds = %39
@@ -11466,7 +11466,7 @@ tng_block_destroy.exit:                           ; preds = %49, %52
 
 72:                                               ; preds = %70, %65
   %73 = load ptr, ptr @stderr, align 8
-  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.14, i64 noundef %63, ptr noundef nonnull @.str.1, i32 noundef 10197) #26
+  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.14, i64 noundef %63, ptr noundef nonnull @.str.1, i32 noundef 10197) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %219
 
@@ -11516,7 +11516,7 @@ tng_block_destroy.exit:                           ; preds = %49, %52
 
 94:                                               ; preds = %92, %87
   %95 = load ptr, ptr @stderr, align 8
-  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.14, i64 noundef %85, ptr noundef nonnull @.str.1, i32 noundef 10229) #26
+  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.14, i64 noundef %85, ptr noundef nonnull @.str.1, i32 noundef 10229) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %219
 
@@ -11574,7 +11574,7 @@ tng_block_destroy.exit:                           ; preds = %49, %52
 
 117:                                              ; preds = %115, %.lr.ph255.split.preheader
   %118 = load ptr, ptr @stderr, align 8
-  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.14, i64 noundef %109, ptr noundef nonnull @.str.1, i32 noundef 10261) #26
+  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.14, i64 noundef %109, ptr noundef nonnull @.str.1, i32 noundef 10261) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %219
 
@@ -11624,7 +11624,7 @@ tng_block_destroy.exit:                           ; preds = %49, %52
 
 140:                                              ; preds = %138, %133
   %141 = load ptr, ptr @stderr, align 8
-  %142 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.14, i64 noundef %131, ptr noundef nonnull @.str.1, i32 noundef 10293) #26
+  %142 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.14, i64 noundef %131, ptr noundef nonnull @.str.1, i32 noundef 10293) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %219
 
@@ -11674,7 +11674,7 @@ tng_block_destroy.exit:                           ; preds = %49, %52
 
 162:                                              ; preds = %160, %155
   %163 = load ptr, ptr @stderr, align 8
-  %164 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef nonnull @.str.14, i64 noundef %153, ptr noundef nonnull @.str.1, i32 noundef 10325) #26
+  %164 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef nonnull @.str.14, i64 noundef %153, ptr noundef nonnull @.str.1, i32 noundef 10325) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %219
 
@@ -11738,7 +11738,7 @@ tng_block_destroy.exit:                           ; preds = %49, %52
 
 188:                                              ; preds = %186, %.lr.ph276.split.preheader
   %189 = load ptr, ptr @stderr, align 8
-  %190 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.14, i64 noundef %180, ptr noundef nonnull @.str.1, i32 noundef 10356) #26
+  %190 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.14, i64 noundef %180, ptr noundef nonnull @.str.1, i32 noundef 10356) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %219
 
@@ -11785,7 +11785,7 @@ tng_block_destroy.exit:                           ; preds = %49, %52
 
 208:                                              ; preds = %206, %.lr.ph282.split.preheader
   %209 = load ptr, ptr @stderr, align 8
-  %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.14, i64 noundef %200, ptr noundef nonnull @.str.1, i32 noundef 10388) #26
+  %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.14, i64 noundef %200, ptr noundef nonnull @.str.1, i32 noundef 10388) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %219
 
@@ -11824,14 +11824,14 @@ define range(i32 0, 3) i32 @tng_frame_set_of_frame_find(ptr noundef %0, i64 noun
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  %6 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %6 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %6, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 10:                                               ; preds = %2
@@ -11871,12 +11871,12 @@ tng_block_init.exit:                              ; preds = %7, %10
 
 .thread:                                          ; preds = %26
   %29 = load ptr, ptr @stderr, align 8
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.14, i64 noundef %20, ptr noundef nonnull @.str.1, i32 noundef 10437) #26
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.14, i64 noundef %20, ptr noundef nonnull @.str.1, i32 noundef 10437) #27
   br label %34
 
 31:                                               ; preds = %18
   %32 = load ptr, ptr @stderr, align 8
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.14, i64 noundef %20, ptr noundef nonnull @.str.1, i32 noundef 10437) #26
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.14, i64 noundef %20, ptr noundef nonnull @.str.1, i32 noundef 10437) #27
   br i1 %.not.i, label %tng_block_destroy.exit, label %34
 
 34:                                               ; preds = %.thread, %31
@@ -11886,7 +11886,7 @@ tng_block_init.exit:                              ; preds = %7, %10
   br i1 %.not16.i, label %38, label %37
 
 37:                                               ; preds = %34
-  tail call void @free(ptr noundef nonnull %36) #23
+  tail call void @free(ptr noundef nonnull %36) #24
   store ptr null, ptr %35, align 8
   br label %38
 
@@ -11897,7 +11897,7 @@ tng_block_init.exit:                              ; preds = %7, %10
   br i1 %.not17.i, label %42, label %41
 
 41:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %40) #23
+  tail call void @free(ptr noundef nonnull %40) #24
   store ptr null, ptr %39, align 8
   br label %42
 
@@ -11908,11 +11908,11 @@ tng_block_init.exit:                              ; preds = %7, %10
   br i1 %.not18.i, label %46, label %45
 
 45:                                               ; preds = %42
-  tail call void @free(ptr noundef nonnull %44) #23
+  tail call void @free(ptr noundef nonnull %44) #24
   br label %46
 
 46:                                               ; preds = %45, %42
-  tail call void @free(ptr noundef nonnull %6) #23
+  tail call void @free(ptr noundef nonnull %6) #24
   br label %tng_block_destroy.exit
 
 47:                                               ; preds = %26
@@ -11927,7 +11927,7 @@ tng_block_init.exit:                              ; preds = %7, %10
   br i1 %.not16.i302, label %53, label %52
 
 52:                                               ; preds = %49
-  tail call void @free(ptr noundef nonnull %51) #23
+  tail call void @free(ptr noundef nonnull %51) #24
   store ptr null, ptr %50, align 8
   br label %53
 
@@ -11938,7 +11938,7 @@ tng_block_init.exit:                              ; preds = %7, %10
   br i1 %.not17.i303, label %57, label %56
 
 56:                                               ; preds = %53
-  tail call void @free(ptr noundef nonnull %55) #23
+  tail call void @free(ptr noundef nonnull %55) #24
   store ptr null, ptr %54, align 8
   br label %57
 
@@ -11949,11 +11949,11 @@ tng_block_init.exit:                              ; preds = %7, %10
   br i1 %.not18.i304, label %tng_block_destroy.exit305, label %60
 
 60:                                               ; preds = %57
-  tail call void @free(ptr noundef nonnull %59) #23
+  tail call void @free(ptr noundef nonnull %59) #24
   br label %tng_block_destroy.exit305
 
 tng_block_destroy.exit305:                        ; preds = %57, %60
-  tail call void @free(ptr noundef nonnull %6) #23
+  tail call void @free(ptr noundef nonnull %6) #24
   br label %tng_block_destroy.exit
 
 61:                                               ; preds = %47, %tng_block_init.exit
@@ -11978,7 +11978,7 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   br i1 %.not16.i307, label %73, label %72
 
 72:                                               ; preds = %69
-  tail call void @free(ptr noundef nonnull %71) #23
+  tail call void @free(ptr noundef nonnull %71) #24
   store ptr null, ptr %70, align 8
   br label %73
 
@@ -11989,7 +11989,7 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   br i1 %.not17.i308, label %77, label %76
 
 76:                                               ; preds = %73
-  tail call void @free(ptr noundef nonnull %75) #23
+  tail call void @free(ptr noundef nonnull %75) #24
   store ptr null, ptr %74, align 8
   br label %77
 
@@ -12000,11 +12000,11 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   br i1 %.not18.i309, label %81, label %80
 
 80:                                               ; preds = %77
-  tail call void @free(ptr noundef nonnull %79) #23
+  tail call void @free(ptr noundef nonnull %79) #24
   br label %81
 
 81:                                               ; preds = %80, %77
-  tail call void @free(ptr noundef nonnull %6) #23
+  tail call void @free(ptr noundef nonnull %6) #24
   br label %tng_block_destroy.exit
 
 82:                                               ; preds = %61
@@ -12035,7 +12035,7 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   br i1 %.not16.i312, label %100, label %99
 
 99:                                               ; preds = %96
-  tail call void @free(ptr noundef nonnull %98) #23
+  tail call void @free(ptr noundef nonnull %98) #24
   store ptr null, ptr %97, align 8
   br label %100
 
@@ -12046,7 +12046,7 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   br i1 %.not17.i313, label %104, label %103
 
 103:                                              ; preds = %100
-  tail call void @free(ptr noundef nonnull %102) #23
+  tail call void @free(ptr noundef nonnull %102) #24
   store ptr null, ptr %101, align 8
   br label %104
 
@@ -12057,11 +12057,11 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   br i1 %.not18.i314, label %108, label %107
 
 107:                                              ; preds = %104
-  tail call void @free(ptr noundef nonnull %106) #23
+  tail call void @free(ptr noundef nonnull %106) #24
   br label %108
 
 108:                                              ; preds = %107, %104
-  tail call void @free(ptr noundef nonnull %6) #23
+  tail call void @free(ptr noundef nonnull %6) #24
   br label %tng_block_destroy.exit
 
 109:                                              ; preds = %82
@@ -12095,7 +12095,7 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   br i1 %.not16.i317, label %126, label %125
 
 125:                                              ; preds = %122
-  tail call void @free(ptr noundef nonnull %124) #23
+  tail call void @free(ptr noundef nonnull %124) #24
   store ptr null, ptr %123, align 8
   br label %126
 
@@ -12106,7 +12106,7 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   br i1 %.not17.i318, label %130, label %129
 
 129:                                              ; preds = %126
-  tail call void @free(ptr noundef nonnull %128) #23
+  tail call void @free(ptr noundef nonnull %128) #24
   store ptr null, ptr %127, align 8
   br label %130
 
@@ -12117,11 +12117,11 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   br i1 %.not18.i319, label %134, label %133
 
 133:                                              ; preds = %130
-  tail call void @free(ptr noundef nonnull %132) #23
+  tail call void @free(ptr noundef nonnull %132) #24
   br label %134
 
 134:                                              ; preds = %133, %130
-  tail call void @free(ptr noundef nonnull %6) #23
+  tail call void @free(ptr noundef nonnull %6) #24
   br label %tng_block_destroy.exit
 
 135:                                              ; preds = %111
@@ -12153,7 +12153,7 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
 
 150:                                              ; preds = %147, %.thread331
   %151 = load ptr, ptr @stderr, align 8
-  %152 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.14, i64 noundef %.0214333, ptr noundef nonnull @.str.1, i32 noundef 10515) #26
+  %152 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.14, i64 noundef %.0214333, ptr noundef nonnull @.str.1, i32 noundef 10515) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %5)
   br label %tng_block_destroy.exit
 
@@ -12169,7 +12169,7 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   br i1 %.not16.i322, label %159, label %158
 
 158:                                              ; preds = %155
-  tail call void @free(ptr noundef nonnull %157) #23
+  tail call void @free(ptr noundef nonnull %157) #24
   store ptr null, ptr %156, align 8
   br label %159
 
@@ -12180,7 +12180,7 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   br i1 %.not17.i323, label %163, label %162
 
 162:                                              ; preds = %159
-  tail call void @free(ptr noundef nonnull %161) #23
+  tail call void @free(ptr noundef nonnull %161) #24
   store ptr null, ptr %160, align 8
   br label %163
 
@@ -12191,11 +12191,11 @@ tng_block_destroy.exit305:                        ; preds = %57, %60
   br i1 %.not18.i324, label %tng_block_destroy.exit325, label %166
 
 166:                                              ; preds = %163
-  tail call void @free(ptr noundef nonnull %165) #23
+  tail call void @free(ptr noundef nonnull %165) #24
   br label %tng_block_destroy.exit325
 
 tng_block_destroy.exit325:                        ; preds = %163, %166
-  tail call void @free(ptr noundef nonnull %6) #23
+  tail call void @free(ptr noundef nonnull %6) #24
   br label %tng_block_destroy.exit
 
 167:                                              ; preds = %135, %153, %111
@@ -12218,7 +12218,7 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   br i1 %.not16.i327, label %177, label %176
 
 176:                                              ; preds = %173
-  tail call void @free(ptr noundef nonnull %175) #23
+  tail call void @free(ptr noundef nonnull %175) #24
   store ptr null, ptr %174, align 8
   br label %177
 
@@ -12229,7 +12229,7 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   br i1 %.not17.i328, label %181, label %180
 
 180:                                              ; preds = %177
-  tail call void @free(ptr noundef nonnull %179) #23
+  tail call void @free(ptr noundef nonnull %179) #24
   store ptr null, ptr %178, align 8
   br label %181
 
@@ -12240,11 +12240,11 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   br i1 %.not18.i329, label %185, label %184
 
 184:                                              ; preds = %181
-  tail call void @free(ptr noundef nonnull %183) #23
+  tail call void @free(ptr noundef nonnull %183) #24
   br label %185
 
 185:                                              ; preds = %184, %181
-  tail call void @free(ptr noundef nonnull %6) #23
+  tail call void @free(ptr noundef nonnull %6) #24
   br label %tng_block_destroy.exit
 
 186:                                              ; preds = %167
@@ -12290,7 +12290,7 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
 
 208:                                              ; preds = %206, %201
   %209 = load ptr, ptr @stderr, align 8
-  %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.14, i64 noundef %199, ptr noundef nonnull @.str.1, i32 noundef 10552) #26
+  %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.14, i64 noundef %199, ptr noundef nonnull @.str.1, i32 noundef 10552) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %5)
   br label %tng_block_destroy.exit
 
@@ -12366,7 +12366,7 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
 
 237:                                              ; preds = %235, %230
   %238 = load ptr, ptr @stderr, align 8
-  %239 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef nonnull @.str.14, i64 noundef %228, ptr noundef nonnull @.str.1, i32 noundef 10585) #26
+  %239 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef nonnull @.str.14, i64 noundef %228, ptr noundef nonnull @.str.1, i32 noundef 10585) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %5)
   br label %tng_block_destroy.exit
 
@@ -12455,7 +12455,7 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
 
 272:                                              ; preds = %270, %265
   %273 = load ptr, ptr @stderr, align 8
-  %274 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %273, ptr noundef nonnull @.str.14, i64 noundef %263, ptr noundef nonnull @.str.1, i32 noundef 10617) #26
+  %274 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %273, ptr noundef nonnull @.str.14, i64 noundef %263, ptr noundef nonnull @.str.1, i32 noundef 10617) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %5)
   br label %tng_block_destroy.exit
 
@@ -12516,7 +12516,7 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
 
 297:                                              ; preds = %295, %290
   %298 = load ptr, ptr @stderr, align 8
-  %299 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %298, ptr noundef nonnull @.str.14, i64 noundef %288, ptr noundef nonnull @.str.1, i32 noundef 10650) #26
+  %299 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %298, ptr noundef nonnull @.str.14, i64 noundef %288, ptr noundef nonnull @.str.1, i32 noundef 10650) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %5)
   br label %tng_block_destroy.exit
 
@@ -12590,7 +12590,7 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
 
 324:                                              ; preds = %322, %317
   %325 = load ptr, ptr @stderr, align 8
-  %326 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %325, ptr noundef nonnull @.str.14, i64 noundef %315, ptr noundef nonnull @.str.1, i32 noundef 10683) #26
+  %326 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %325, ptr noundef nonnull @.str.14, i64 noundef %315, ptr noundef nonnull @.str.1, i32 noundef 10683) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %5)
   br label %tng_block_destroy.exit
 
@@ -12667,7 +12667,7 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
 
 354:                                              ; preds = %352, %347
   %355 = load ptr, ptr @stderr, align 8
-  %356 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %355, ptr noundef nonnull @.str.14, i64 noundef %345, ptr noundef nonnull @.str.1, i32 noundef 10715) #26
+  %356 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %355, ptr noundef nonnull @.str.14, i64 noundef %345, ptr noundef nonnull @.str.1, i32 noundef 10715) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %5)
   br label %tng_block_destroy.exit
 
@@ -12731,7 +12731,7 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
 
 381:                                              ; preds = %379, %374
   %382 = load ptr, ptr @stderr, align 8
-  %383 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %382, ptr noundef nonnull @.str.14, i64 noundef %372, ptr noundef nonnull @.str.1, i32 noundef 10748) #26
+  %383 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %382, ptr noundef nonnull @.str.14, i64 noundef %372, ptr noundef nonnull @.str.1, i32 noundef 10748) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %5)
   br label %tng_block_destroy.exit
 
@@ -12790,13 +12790,13 @@ define range(i32 0, 3) i32 @tng_first_frame_nr_of_next_frame_set_get(ptr noundef
 10:                                               ; preds = %2
   %11 = load ptr, ptr %3, align 8
   %12 = tail call i32 @fseeko64(ptr noundef %11, i64 noundef %.015, i32 noundef 0)
-  %13 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %13 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %14, label %17
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 17:                                               ; preds = %10
@@ -12824,7 +12824,7 @@ tng_block_init.exit:                              ; preds = %14, %17
 
 27:                                               ; preds = %24, %tng_block_init.exit
   %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.14, i64 noundef %5, ptr noundef nonnull @.str.1, i32 noundef 11749) #26
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.14, i64 noundef %5, ptr noundef nonnull @.str.1, i32 noundef 11749) #27
   br label %51
 
 30:                                               ; preds = %24
@@ -12834,7 +12834,7 @@ tng_block_init.exit:                              ; preds = %14, %17
   br i1 %.not16.i, label %34, label %33
 
 33:                                               ; preds = %30
-  tail call void @free(ptr noundef nonnull %32) #23
+  tail call void @free(ptr noundef nonnull %32) #24
   store ptr null, ptr %31, align 8
   br label %34
 
@@ -12845,7 +12845,7 @@ tng_block_init.exit:                              ; preds = %14, %17
   br i1 %.not17.i, label %38, label %37
 
 37:                                               ; preds = %34
-  tail call void @free(ptr noundef nonnull %36) #23
+  tail call void @free(ptr noundef nonnull %36) #24
   store ptr null, ptr %35, align 8
   br label %38
 
@@ -12856,11 +12856,11 @@ tng_block_init.exit:                              ; preds = %14, %17
   br i1 %.not18.i, label %tng_block_destroy.exit, label %41
 
 41:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %40) #23
+  tail call void @free(ptr noundef nonnull %40) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %38, %41
-  tail call void @free(ptr noundef nonnull %13) #23
+  tail call void @free(ptr noundef nonnull %13) #24
   %42 = load ptr, ptr %3, align 8
   %43 = tail call i64 @fread(ptr noundef %1, i64 noundef 8, i64 noundef 1, ptr noundef %42)
   %44 = icmp eq i64 %43, 0
@@ -12868,7 +12868,7 @@ tng_block_destroy.exit:                           ; preds = %38, %41
 
 45:                                               ; preds = %tng_block_destroy.exit
   %46 = load ptr, ptr @stderr, align 8
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 11761) #26
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 11761) #27
   br label %51
 
 48:                                               ; preds = %tng_block_destroy.exit
@@ -12922,13 +12922,13 @@ define range(i32 0, 3) i32 @tng_file_headers_read(ptr noundef %0, i8 noundef sig
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @fseeko64(ptr noundef %7, i64 noundef 0, i32 noundef 0)
-  %9 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %9 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %13
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 13:                                               ; preds = %5
@@ -13000,7 +13000,7 @@ tng_block_init.exit:                              ; preds = %10, %13
   br i1 %.not16.i, label %38, label %37
 
 37:                                               ; preds = %.critedge.thread
-  tail call void @free(ptr noundef nonnull %36) #23
+  tail call void @free(ptr noundef nonnull %36) #24
   store ptr null, ptr %35, align 8
   br label %38
 
@@ -13011,7 +13011,7 @@ tng_block_init.exit:                              ; preds = %10, %13
   br i1 %.not17.i, label %42, label %41
 
 41:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %40) #23
+  tail call void @free(ptr noundef nonnull %40) #24
   store ptr null, ptr %39, align 8
   br label %42
 
@@ -13022,11 +13022,11 @@ tng_block_init.exit:                              ; preds = %10, %13
   br i1 %.not18.i, label %tng_block_destroy.exit, label %45
 
 45:                                               ; preds = %42
-  tail call void @free(ptr noundef nonnull %44) #23
+  tail call void @free(ptr noundef nonnull %44) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %42, %45
-  tail call void @free(ptr noundef nonnull %9) #23
+  tail call void @free(ptr noundef nonnull %9) #24
   br label %46
 
 46:                                               ; preds = %2, %tng_block_destroy.exit
@@ -13069,7 +13069,7 @@ define noundef i32 @tng_file_headers_write(ptr noundef %0, i8 noundef signext %1
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @stderr, align 8
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #26
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #27
   br label %tng_output_file_init.exit
 
 31:                                               ; preds = %25
@@ -13081,7 +13081,7 @@ define noundef i32 @tng_file_headers_write(ptr noundef %0, i8 noundef signext %1
 33:                                               ; preds = %31
   %34 = load ptr, ptr @stderr, align 8
   %35 = load ptr, ptr %26, align 8
-  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.13, ptr noundef %35, ptr noundef nonnull @.str.1, i32 noundef 919) #26
+  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.13, ptr noundef %35, ptr noundef nonnull @.str.1, i32 noundef 919) #27
   br label %tng_output_file_init.exit
 
 37:                                               ; preds = %31, %2
@@ -13107,13 +13107,13 @@ define noundef i32 @tng_file_headers_write(ptr noundef %0, i8 noundef signext %1
   %47 = tail call i64 @ftello64(ptr noundef %46)
   %48 = load ptr, ptr %45, align 8
   %49 = tail call i32 @fseeko64(ptr noundef %48, i64 noundef 0, i32 noundef 0)
-  %50 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %50 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i, label %51, label %54
 
 51:                                               ; preds = %44
   %52 = load ptr, ptr @stderr, align 8
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit.i
 
 54:                                               ; preds = %44
@@ -13183,7 +13183,7 @@ tng_block_init.exit.i:                            ; preds = %54, %51
   br i1 %.not16.i.i, label %85, label %84
 
 84:                                               ; preds = %81
-  tail call void @free(ptr noundef nonnull %83) #23
+  tail call void @free(ptr noundef nonnull %83) #24
   store ptr null, ptr %82, align 8
   br label %85
 
@@ -13194,7 +13194,7 @@ tng_block_init.exit.i:                            ; preds = %54, %51
   br i1 %.not17.i.i, label %89, label %88
 
 88:                                               ; preds = %85
-  tail call void @free(ptr noundef nonnull %87) #23
+  tail call void @free(ptr noundef nonnull %87) #24
   store ptr null, ptr %86, align 8
   br label %89
 
@@ -13205,23 +13205,23 @@ tng_block_init.exit.i:                            ; preds = %54, %51
   br i1 %.not18.i.i, label %93, label %92
 
 92:                                               ; preds = %89
-  tail call void @free(ptr noundef nonnull %91) #23
+  tail call void @free(ptr noundef nonnull %91) #24
   br label %93
 
 93:                                               ; preds = %92, %89
-  tail call void @free(ptr noundef nonnull %50) #23
+  tail call void @free(ptr noundef nonnull %50) #24
   br label %94
 
 94:                                               ; preds = %.critedge.i, %93
   %.4.ph = phi i64 [ %.1163, %93 ], [ %.0162, %.critedge.i ]
-  %95 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %95 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %95, ptr %22, align 8
   %.not.i86 = icmp eq ptr %95, null
   br i1 %.not.i86, label %96, label %99
 
 96:                                               ; preds = %94
   %97 = load ptr, ptr @stderr, align 8
-  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 99:                                               ; preds = %94
@@ -13237,7 +13237,7 @@ tng_block_init.exit.i:                            ; preds = %54, %51
   br label %tng_block_init.exit
 
 tng_block_init.exit:                              ; preds = %96, %99
-  %104 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #25
+  %104 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #26
   %105 = getelementptr inbounds i8, ptr %95, i64 40
   store ptr %104, ptr %105, align 8
   %.not81 = icmp eq ptr %104, null
@@ -13245,13 +13245,13 @@ tng_block_init.exit:                              ; preds = %96, %99
 
 106:                                              ; preds = %tng_block_init.exit
   %107 = load ptr, ptr @stderr, align 8
-  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 10991) #26
+  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 10991) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %22)
   br label %tng_output_file_init.exit
 
 tng_block_header_len_calculate.exit:              ; preds = %tng_block_init.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %104, ptr noundef nonnull align 1 dereferenceable(13) @.str.23, i64 13, i1 false) #23
-  %109 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %104, ptr noundef nonnull align 1 dereferenceable(13) @.str.23, i64 13, i1 false) #24
+  %109 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #25
   %110 = add i64 %109, 1
   %111 = tail call noundef i64 @llvm.umin.i64(i64 %110, i64 1024)
   %112 = add nuw nsw i64 %111, 48
@@ -13260,20 +13260,20 @@ tng_block_header_len_calculate.exit:              ; preds = %tng_block_init.exit
   %114 = load i64, ptr %21, align 8
   %115 = add nsw i64 %112, %114
   %116 = load ptr, ptr %105, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %116, ptr noundef nonnull align 1 dereferenceable(10) @.str.24, i64 10, i1 false) #23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %116, ptr noundef nonnull align 1 dereferenceable(10) @.str.24, i64 10, i1 false) #24
   %117 = load ptr, ptr %105, align 8
   %.not.i91 = icmp eq ptr %117, null
   br i1 %.not.i91, label %118, label %124
 
 118:                                              ; preds = %tng_block_header_len_calculate.exit
-  %119 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %119 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %119, ptr %105, align 8
   %.not8.i93 = icmp eq ptr %119, null
   br i1 %.not8.i93, label %120, label %123
 
 120:                                              ; preds = %118
   %121 = load ptr, ptr @stderr, align 8
-  %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1912) #26
+  %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1912) #27
   br label %tng_block_header_len_calculate.exit94
 
 123:                                              ; preds = %118
@@ -13282,7 +13282,7 @@ tng_block_header_len_calculate.exit:              ; preds = %tng_block_init.exit
 
 124:                                              ; preds = %123, %tng_block_header_len_calculate.exit
   %125 = phi ptr [ %119, %123 ], [ %117, %tng_block_header_len_calculate.exit ]
-  %126 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %125) #24
+  %126 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %125) #25
   %127 = add i64 %126, 1
   %128 = tail call noundef i64 @llvm.umin.i64(i64 %127, i64 1024)
   %129 = add nuw nsw i64 %128, 48
@@ -13327,20 +13327,20 @@ tng_block_header_len_calculate.exit94:            ; preds = %120, %124
   %146 = load ptr, ptr %105, align 8
   %147 = getelementptr inbounds %struct.tng_data, ptr %145, i64 %indvars.iv, i32 1
   %148 = load ptr, ptr %147, align 8
-  %149 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull dereferenceable(1) %148) #23
+  %149 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull dereferenceable(1) %148) #24
   %150 = load ptr, ptr %105, align 8
   %.not.i95 = icmp eq ptr %150, null
   br i1 %.not.i95, label %151, label %157
 
 151:                                              ; preds = %144
-  %152 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %152 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %152, ptr %105, align 8
   %.not8.i97 = icmp eq ptr %152, null
   br i1 %.not8.i97, label %153, label %156
 
 153:                                              ; preds = %151
   %154 = load ptr, ptr @stderr, align 8
-  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1912) #26
+  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1912) #27
   br label %tng_block_header_len_calculate.exit98
 
 156:                                              ; preds = %151
@@ -13349,7 +13349,7 @@ tng_block_header_len_calculate.exit94:            ; preds = %120, %124
 
 157:                                              ; preds = %156, %144
   %158 = phi ptr [ %152, %156 ], [ %150, %144 ]
-  %159 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %158) #24
+  %159 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %158) #25
   %160 = add i64 %159, 1
   %161 = tail call noundef i64 @llvm.umin.i64(i64 %160, i64 1024)
   %162 = add nuw nsw i64 %161, 48
@@ -13408,7 +13408,7 @@ switch.lookup:                                    ; preds = %167
   %.114.i = phi i64 [ %194, %.lr.ph.i99 ], [ 0, %.lr.ph16.split.i.preheader ]
   %189 = getelementptr inbounds ptr, ptr %187, i64 %.114.i
   %190 = load ptr, ptr %189, align 8
-  %191 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %190) #24
+  %191 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %190) #25
   %192 = add i64 %188, 1
   %193 = add i64 %192, %191
   %194 = add nuw nsw i64 %.114.i, 1
@@ -13437,20 +13437,20 @@ tng_data_block_len_calculate.exit:                ; preds = %.lr.ph.i99, %tng_bl
   %204 = load ptr, ptr %105, align 8
   %205 = getelementptr inbounds %struct.tng_data, ptr %203, i64 %indvars.iv256, i32 1
   %206 = load ptr, ptr %205, align 8
-  %207 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(1) %206) #23
+  %207 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull dereferenceable(1) %206) #24
   %208 = load ptr, ptr %105, align 8
   %.not.i100 = icmp eq ptr %208, null
   br i1 %.not.i100, label %209, label %215
 
 209:                                              ; preds = %202
-  %210 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %210 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %210, ptr %105, align 8
   %.not8.i102 = icmp eq ptr %210, null
   br i1 %.not8.i102, label %211, label %214
 
 211:                                              ; preds = %209
   %212 = load ptr, ptr @stderr, align 8
-  %213 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1912) #26
+  %213 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1912) #27
   br label %tng_block_header_len_calculate.exit103
 
 214:                                              ; preds = %209
@@ -13459,7 +13459,7 @@ tng_data_block_len_calculate.exit:                ; preds = %.lr.ph.i99, %tng_bl
 
 215:                                              ; preds = %214, %202
   %216 = phi ptr [ %210, %214 ], [ %208, %202 ]
-  %217 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %216) #24
+  %217 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %216) #25
   %218 = add i64 %217, 1
   %219 = tail call noundef i64 @llvm.umin.i64(i64 %218, i64 1024)
   %220 = add nuw nsw i64 %219, 48
@@ -13534,7 +13534,7 @@ switch.lookup315:                                 ; preds = %226
   %.0494.us.i = phi i64 [ %256, %.lr.ph.us.i ], [ 0, %.lr.ph7.split.us13.i ]
   %251 = getelementptr inbounds ptr, ptr %248, i64 %.0494.us.i
   %252 = load ptr, ptr %251, align 8
-  %253 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %252) #24
+  %253 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %252) #25
   %254 = add i64 %250, 1
   %255 = add i64 %254, %253
   %256 = add nuw nsw i64 %.0494.us.i, 1
@@ -13570,7 +13570,7 @@ tng_data_block_len_calculate.exit107:             ; preds = %._crit_edge.us.i, %
   br i1 %.not16.i, label %270, label %269
 
 269:                                              ; preds = %267
-  tail call void @free(ptr noundef nonnull %268) #23
+  tail call void @free(ptr noundef nonnull %268) #24
   store ptr null, ptr %105, align 8
   br label %270
 
@@ -13581,7 +13581,7 @@ tng_data_block_len_calculate.exit107:             ; preds = %._crit_edge.us.i, %
   br i1 %.not17.i, label %274, label %273
 
 273:                                              ; preds = %270
-  tail call void @free(ptr noundef nonnull %272) #23
+  tail call void @free(ptr noundef nonnull %272) #24
   store ptr null, ptr %271, align 8
   br label %274
 
@@ -13592,11 +13592,11 @@ tng_data_block_len_calculate.exit107:             ; preds = %._crit_edge.us.i, %
   br i1 %.not18.i, label %278, label %277
 
 277:                                              ; preds = %274
-  tail call void @free(ptr noundef nonnull %276) #23
+  tail call void @free(ptr noundef nonnull %276) #24
   br label %278
 
 278:                                              ; preds = %277, %274
-  tail call void @free(ptr noundef nonnull %95) #23
+  tail call void @free(ptr noundef nonnull %95) #24
   store ptr null, ptr %22, align 8
   br label %tng_block_destroy.exit
 
@@ -13629,14 +13629,14 @@ tng_block_destroy.exit._crit_edge:                ; preds = %tng_block_destroy.e
 291:                                              ; preds = %283
   %292 = load ptr, ptr %45, align 8
   %293 = tail call i32 @fseeko64(ptr noundef %292, i64 noundef %289, i32 noundef 0)
-  %294 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %294 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %294, ptr %19, align 8
   %.not.i.i.i = icmp eq ptr %294, null
   br i1 %.not.i.i.i, label %295, label %298
 
 295:                                              ; preds = %291
   %296 = load ptr, ptr @stderr, align 8
-  %297 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %296, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %297 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %296, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit.i.i
 
 298:                                              ; preds = %291
@@ -13664,12 +13664,12 @@ tng_block_init.exit.i.i:                          ; preds = %298, %295
 
 .thread.i.i:                                      ; preds = %305
   %308 = load ptr, ptr @stderr, align 8
-  %309 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %308, ptr noundef nonnull @.str.14, i64 noundef %289, ptr noundef nonnull @.str.1, i32 noundef 1627) #26
+  %309 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %308, ptr noundef nonnull @.str.14, i64 noundef %289, ptr noundef nonnull @.str.1, i32 noundef 1627) #27
   br label %313
 
 310:                                              ; preds = %tng_block_init.exit.i.i
   %311 = load ptr, ptr @stderr, align 8
-  %312 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %311, ptr noundef nonnull @.str.14, i64 noundef %289, ptr noundef nonnull @.str.1, i32 noundef 1627) #26
+  %312 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %311, ptr noundef nonnull @.str.14, i64 noundef %289, ptr noundef nonnull @.str.1, i32 noundef 1627) #27
   br i1 %.not.i.i.i, label %tng_file_pos_of_subsequent_trajectory_block_get.exit.thread.i, label %313
 
 313:                                              ; preds = %310, %.thread.i.i
@@ -13679,7 +13679,7 @@ tng_block_init.exit.i.i:                          ; preds = %298, %295
   br i1 %.not16.i.i.i, label %317, label %316
 
 316:                                              ; preds = %313
-  tail call void @free(ptr noundef nonnull %315) #23
+  tail call void @free(ptr noundef nonnull %315) #24
   store ptr null, ptr %314, align 8
   br label %317
 
@@ -13690,7 +13690,7 @@ tng_block_init.exit.i.i:                          ; preds = %298, %295
   br i1 %.not17.i.i.i, label %321, label %320
 
 320:                                              ; preds = %317
-  tail call void @free(ptr noundef nonnull %319) #23
+  tail call void @free(ptr noundef nonnull %319) #24
   store ptr null, ptr %318, align 8
   br label %321
 
@@ -13701,11 +13701,11 @@ tng_block_init.exit.i.i:                          ; preds = %298, %295
   br i1 %.not18.i.i.i, label %325, label %324
 
 324:                                              ; preds = %321
-  tail call void @free(ptr noundef nonnull %323) #23
+  tail call void @free(ptr noundef nonnull %323) #24
   br label %325
 
 325:                                              ; preds = %324, %321
-  tail call void @free(ptr noundef nonnull %294) #23
+  tail call void @free(ptr noundef nonnull %294) #24
   br label %tng_file_pos_of_subsequent_trajectory_block_get.exit.thread.i
 
 326:                                              ; preds = %305
@@ -13726,7 +13726,7 @@ tng_block_init.exit.i.i:                          ; preds = %298, %295
   br i1 %.not16.i43.i.i, label %335, label %334
 
 334:                                              ; preds = %331
-  tail call void @free(ptr noundef nonnull %333) #23
+  tail call void @free(ptr noundef nonnull %333) #24
   store ptr null, ptr %332, align 8
   br label %335
 
@@ -13737,7 +13737,7 @@ tng_block_init.exit.i.i:                          ; preds = %298, %295
   br i1 %.not17.i44.i.i, label %339, label %338
 
 338:                                              ; preds = %335
-  tail call void @free(ptr noundef nonnull %337) #23
+  tail call void @free(ptr noundef nonnull %337) #24
   store ptr null, ptr %336, align 8
   br label %339
 
@@ -13748,11 +13748,11 @@ tng_block_init.exit.i.i:                          ; preds = %298, %295
   br i1 %.not18.i45.i.i, label %tng_block_destroy.exit46.i.i, label %342
 
 342:                                              ; preds = %339
-  tail call void @free(ptr noundef nonnull %341) #23
+  tail call void @free(ptr noundef nonnull %341) #24
   br label %tng_block_destroy.exit46.i.i
 
 tng_block_destroy.exit46.i.i:                     ; preds = %342, %339
-  tail call void @free(ptr noundef nonnull %294) #23
+  tail call void @free(ptr noundef nonnull %294) #24
   br label %tng_file_pos_of_subsequent_trajectory_block_get.exit.thread.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %366
@@ -13768,7 +13768,7 @@ tng_block_destroy.exit46.i.i:                     ; preds = %342, %339
 
 347:                                              ; preds = %.lr.ph.i.i
   %348 = load ptr, ptr @stderr, align 8
-  %349 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %348, ptr noundef nonnull @.str.14, i64 noundef %.181.i, ptr noundef nonnull @.str.1, i32 noundef 1646) #26
+  %349 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %348, ptr noundef nonnull @.str.14, i64 noundef %.181.i, ptr noundef nonnull @.str.1, i32 noundef 1646) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %19)
   br label %tng_file_pos_of_subsequent_trajectory_block_get.exit.thread.i
 
@@ -13789,7 +13789,7 @@ tng_block_destroy.exit46.i.i:                     ; preds = %342, %339
   br i1 %.not16.i48.i.i, label %358, label %357
 
 357:                                              ; preds = %354
-  tail call void @free(ptr noundef nonnull %356) #23
+  tail call void @free(ptr noundef nonnull %356) #24
   store ptr null, ptr %355, align 8
   br label %358
 
@@ -13800,7 +13800,7 @@ tng_block_destroy.exit46.i.i:                     ; preds = %342, %339
   br i1 %.not17.i49.i.i, label %362, label %361
 
 361:                                              ; preds = %358
-  tail call void @free(ptr noundef nonnull %360) #23
+  tail call void @free(ptr noundef nonnull %360) #24
   store ptr null, ptr %359, align 8
   br label %362
 
@@ -13811,11 +13811,11 @@ tng_block_destroy.exit46.i.i:                     ; preds = %342, %339
   br i1 %.not18.i50.i.i, label %tng_block_destroy.exit51.i.i, label %365
 
 365:                                              ; preds = %362
-  tail call void @free(ptr noundef nonnull %364) #23
+  tail call void @free(ptr noundef nonnull %364) #24
   br label %tng_block_destroy.exit51.i.i
 
 tng_block_destroy.exit51.i.i:                     ; preds = %365, %362
-  tail call void @free(ptr noundef nonnull %294) #23
+  tail call void @free(ptr noundef nonnull %294) #24
   br label %tng_file_pos_of_subsequent_trajectory_block_get.exit.thread.i
 
 366:                                              ; preds = %352
@@ -13838,7 +13838,7 @@ tng_block_destroy.exit51.i.i:                     ; preds = %365, %362
   br i1 %.not16.i53.i.i, label %378, label %377
 
 377:                                              ; preds = %.loopexit.i.i
-  tail call void @free(ptr noundef nonnull %376) #23
+  tail call void @free(ptr noundef nonnull %376) #24
   store ptr null, ptr %375, align 8
   br label %378
 
@@ -13849,7 +13849,7 @@ tng_block_destroy.exit51.i.i:                     ; preds = %365, %362
   br i1 %.not17.i54.i.i, label %382, label %381
 
 381:                                              ; preds = %378
-  tail call void @free(ptr noundef nonnull %380) #23
+  tail call void @free(ptr noundef nonnull %380) #24
   store ptr null, ptr %379, align 8
   br label %382
 
@@ -13860,11 +13860,11 @@ tng_block_destroy.exit51.i.i:                     ; preds = %365, %362
   br i1 %.not18.i55.i.i, label %386, label %385
 
 385:                                              ; preds = %382
-  tail call void @free(ptr noundef nonnull %384) #23
+  tail call void @free(ptr noundef nonnull %384) #24
   br label %386
 
 386:                                              ; preds = %385, %382
-  tail call void @free(ptr noundef nonnull %294) #23
+  tail call void @free(ptr noundef nonnull %294) #24
   br label %387
 
 tng_file_pos_of_subsequent_trajectory_block_get.exit.thread.i: ; preds = %350, %.lr.ph.i.i, %tng_block_destroy.exit51.i.i, %347, %tng_block_destroy.exit46.i.i, %325, %310
@@ -13882,14 +13882,14 @@ tng_file_pos_of_subsequent_trajectory_block_get.exit.thread.i: ; preds = %350, %
 389:                                              ; preds = %387
   %390 = load ptr, ptr %45, align 8
   %391 = tail call i64 @ftello64(ptr noundef %390)
-  %392 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %392 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %392, ptr %20, align 8
   %.not.i38.i = icmp eq ptr %392, null
   br i1 %.not.i38.i, label %393, label %396
 
 393:                                              ; preds = %389
   %394 = load ptr, ptr @stderr, align 8
-  %395 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %394, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %395 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %394, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %.lr.ph.i111
 
 396:                                              ; preds = %389
@@ -13923,7 +13923,7 @@ tng_file_pos_of_subsequent_trajectory_block_get.exit.thread.i: ; preds = %350, %
 
 409:                                              ; preds = %405
   %410 = load ptr, ptr @stderr, align 8
-  %411 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %410, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.1, i32 noundef 1867) #26
+  %411 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %410, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.1, i32 noundef 1867) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %20)
   br label %tng_migrate_data_in_file.exit
 
@@ -13942,7 +13942,7 @@ tng_file_pos_of_subsequent_trajectory_block_get.exit.thread.i: ; preds = %350, %
   br i1 %.not16.i.i112, label %418, label %417
 
 417:                                              ; preds = %.thread.i
-  tail call void @free(ptr noundef nonnull %416) #23
+  tail call void @free(ptr noundef nonnull %416) #24
   store ptr null, ptr %415, align 8
   br label %418
 
@@ -13953,7 +13953,7 @@ tng_file_pos_of_subsequent_trajectory_block_get.exit.thread.i: ; preds = %350, %
   br i1 %.not17.i.i113, label %422, label %421
 
 421:                                              ; preds = %418
-  tail call void @free(ptr noundef nonnull %420) #23
+  tail call void @free(ptr noundef nonnull %420) #24
   store ptr null, ptr %419, align 8
   br label %422
 
@@ -13964,11 +13964,11 @@ tng_file_pos_of_subsequent_trajectory_block_get.exit.thread.i: ; preds = %350, %
   br i1 %.not18.i.i114, label %426, label %425
 
 425:                                              ; preds = %422
-  tail call void @free(ptr noundef nonnull %424) #23
+  tail call void @free(ptr noundef nonnull %424) #24
   br label %426
 
 426:                                              ; preds = %425, %422
-  tail call void @free(ptr noundef nonnull %392) #23
+  tail call void @free(ptr noundef nonnull %392) #24
   br label %tng_migrate_data_in_file.exit
 
 427:                                              ; preds = %412
@@ -13977,13 +13977,13 @@ tng_file_pos_of_subsequent_trajectory_block_get.exit.thread.i: ; preds = %350, %
   %430 = load i64, ptr %286, align 8
   %431 = load ptr, ptr %45, align 8
   %432 = tail call i32 @fseeko64(ptr noundef %431, i64 noundef %430, i32 noundef 0)
-  %433 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %433 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i.i41.i = icmp eq ptr %433, null
   br i1 %.not.i.i41.i, label %434, label %437
 
 434:                                              ; preds = %427
   %435 = load ptr, ptr @stderr, align 8
-  %436 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %435, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %436 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %435, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit.i42.i
 
 437:                                              ; preds = %427
@@ -14011,12 +14011,12 @@ tng_block_init.exit.i42.i:                        ; preds = %437, %434
 
 .thread.i44.i:                                    ; preds = %444
   %447 = load ptr, ptr @stderr, align 8
-  %448 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %447, ptr noundef nonnull @.str.14, i64 noundef %430, ptr noundef nonnull @.str.1, i32 noundef 1784) #26
+  %448 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %447, ptr noundef nonnull @.str.14, i64 noundef %430, ptr noundef nonnull @.str.1, i32 noundef 1784) #27
   br label %452
 
 449:                                              ; preds = %tng_block_init.exit.i42.i
   %450 = load ptr, ptr @stderr, align 8
-  %451 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %450, ptr noundef nonnull @.str.14, i64 noundef %430, ptr noundef nonnull @.str.1, i32 noundef 1784) #26
+  %451 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %450, ptr noundef nonnull @.str.14, i64 noundef %430, ptr noundef nonnull @.str.1, i32 noundef 1784) #27
   br i1 %.not.i.i41.i, label %.thread100.i, label %452
 
 452:                                              ; preds = %449, %.thread.i44.i
@@ -14026,7 +14026,7 @@ tng_block_init.exit.i42.i:                        ; preds = %437, %434
   br i1 %.not16.i.i45.i, label %456, label %455
 
 455:                                              ; preds = %452
-  tail call void @free(ptr noundef nonnull %454) #23
+  tail call void @free(ptr noundef nonnull %454) #24
   store ptr null, ptr %453, align 8
   br label %456
 
@@ -14037,7 +14037,7 @@ tng_block_init.exit.i42.i:                        ; preds = %437, %434
   br i1 %.not17.i.i46.i, label %460, label %459
 
 459:                                              ; preds = %456
-  tail call void @free(ptr noundef nonnull %458) #23
+  tail call void @free(ptr noundef nonnull %458) #24
   store ptr null, ptr %457, align 8
   br label %460
 
@@ -14048,7 +14048,7 @@ tng_block_init.exit.i42.i:                        ; preds = %437, %434
   br i1 %.not18.i.i47.i, label %tng_length_of_current_frame_set_contents_get.exit.thread96.i, label %tng_length_of_current_frame_set_contents_get.exit.i
 
 tng_length_of_current_frame_set_contents_get.exit.thread96.i: ; preds = %460
-  tail call void @free(ptr noundef nonnull %433) #23
+  tail call void @free(ptr noundef nonnull %433) #24
   br label %.thread100.i
 
 463:                                              ; preds = %444
@@ -14093,7 +14093,7 @@ tng_length_of_current_frame_set_contents_get.exit.thread96.i: ; preds = %460
   br i1 %.not16.i27.i.i, label %486, label %485
 
 485:                                              ; preds = %.loopexit.i49.i
-  tail call void @free(ptr noundef nonnull %484) #23
+  tail call void @free(ptr noundef nonnull %484) #24
   store ptr null, ptr %483, align 8
   br label %486
 
@@ -14104,7 +14104,7 @@ tng_length_of_current_frame_set_contents_get.exit.thread96.i: ; preds = %460
   br i1 %.not17.i28.i.i, label %490, label %489
 
 489:                                              ; preds = %486
-  tail call void @free(ptr noundef nonnull %488) #23
+  tail call void @free(ptr noundef nonnull %488) #24
   store ptr null, ptr %487, align 8
   br label %490
 
@@ -14115,15 +14115,15 @@ tng_length_of_current_frame_set_contents_get.exit.thread96.i: ; preds = %460
   br i1 %.not18.i29.i.i, label %tng_length_of_current_frame_set_contents_get.exit.thread91.i, label %tng_length_of_current_frame_set_contents_get.exit.i
 
 tng_length_of_current_frame_set_contents_get.exit.thread91.i: ; preds = %490
-  tail call void @free(ptr noundef nonnull %433) #23
+  tail call void @free(ptr noundef nonnull %433) #24
   br label %506
 
 tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
   %.079.i = phi i64 [ 0, %460 ], [ %.2.i, %490 ]
   %.sink.i.i = phi ptr [ %462, %460 ], [ %492, %490 ]
   %.not36.i = phi i1 [ false, %460 ], [ true, %490 ]
-  tail call void @free(ptr noundef nonnull %.sink.i.i) #23
-  tail call void @free(ptr noundef nonnull %433) #23
+  tail call void @free(ptr noundef nonnull %.sink.i.i) #24
+  tail call void @free(ptr noundef nonnull %433) #24
   br i1 %.not36.i, label %506, label %493
 
 493:                                              ; preds = %tng_length_of_current_frame_set_contents_get.exit.i
@@ -14136,7 +14136,7 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
   br i1 %.not16.i53.i, label %497, label %496
 
 496:                                              ; preds = %.thread100.i
-  tail call void @free(ptr noundef nonnull %495) #23
+  tail call void @free(ptr noundef nonnull %495) #24
   store ptr null, ptr %494, align 8
   br label %497
 
@@ -14147,7 +14147,7 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
   br i1 %.not17.i54.i, label %501, label %500
 
 500:                                              ; preds = %497
-  tail call void @free(ptr noundef nonnull %499) #23
+  tail call void @free(ptr noundef nonnull %499) #24
   store ptr null, ptr %498, align 8
   br label %501
 
@@ -14158,11 +14158,11 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
   br i1 %.not18.i55.i, label %505, label %504
 
 504:                                              ; preds = %501
-  tail call void @free(ptr noundef nonnull %503) #23
+  tail call void @free(ptr noundef nonnull %503) #24
   br label %505
 
 505:                                              ; preds = %504, %501
-  tail call void @free(ptr noundef nonnull %392) #23
+  tail call void @free(ptr noundef nonnull %392) #24
   br label %tng_migrate_data_in_file.exit
 
 506:                                              ; preds = %tng_length_of_current_frame_set_contents_get.exit.i, %tng_length_of_current_frame_set_contents_get.exit.thread91.i
@@ -14175,13 +14175,13 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
 509:                                              ; preds = %506
   %510 = load ptr, ptr %45, align 8
   %511 = tail call i32 @fseeko64(ptr noundef %510, i64 noundef %.383.i, i32 noundef 0)
-  %512 = tail call noalias ptr @malloc(i64 noundef %.195.i) #25
+  %512 = tail call noalias ptr @malloc(i64 noundef %.195.i) #26
   %.not44.i.i = icmp eq ptr %512, null
   br i1 %.not44.i.i, label %513, label %516
 
 513:                                              ; preds = %509
   %514 = load ptr, ptr @stderr, align 8
-  %515 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %514, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1707) #26
+  %515 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %514, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1707) #27
   br label %.loopexit.i
 
 516:                                              ; preds = %509
@@ -14192,8 +14192,8 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
 
 520:                                              ; preds = %516
   %521 = load ptr, ptr @stderr, align 8
-  %522 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %521, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.1, i32 noundef 1714) #26
-  tail call void @free(ptr noundef nonnull %512) #23
+  %522 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %521, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.1, i32 noundef 1714) #27
+  tail call void @free(ptr noundef nonnull %512) #24
   br label %.loopexit.i
 
 523:                                              ; preds = %516
@@ -14206,8 +14206,8 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
 
 528:                                              ; preds = %523
   %529 = load ptr, ptr @stderr, align 8
-  %530 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %529, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.1, i32 noundef 1723) #26
-  tail call void @free(ptr noundef nonnull %512) #23
+  %530 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %529, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.1, i32 noundef 1723) #27
+  tail call void @free(ptr noundef nonnull %512) #24
   br label %.loopexit.i
 
 531:                                              ; preds = %523
@@ -14256,7 +14256,7 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
   br i1 %.not16.i61.i, label %550, label %549
 
 549:                                              ; preds = %546
-  tail call void @free(ptr noundef nonnull %548) #23
+  tail call void @free(ptr noundef nonnull %548) #24
   store ptr null, ptr %547, align 8
   br label %550
 
@@ -14267,7 +14267,7 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
   br i1 %.not17.i62.i, label %554, label %553
 
 553:                                              ; preds = %550
-  tail call void @free(ptr noundef nonnull %552) #23
+  tail call void @free(ptr noundef nonnull %552) #24
   store ptr null, ptr %551, align 8
   br label %554
 
@@ -14278,11 +14278,11 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
   br i1 %.not18.i63.i, label %558, label %557
 
 557:                                              ; preds = %554
-  tail call void @free(ptr noundef nonnull %556) #23
+  tail call void @free(ptr noundef nonnull %556) #24
   br label %558
 
 558:                                              ; preds = %557, %554
-  tail call void @free(ptr noundef nonnull %392) #23
+  tail call void @free(ptr noundef nonnull %392) #24
   br label %tng_migrate_data_in_file.exit
 
 559:                                              ; preds = %544, %.thread50.i.i
@@ -14291,7 +14291,7 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
   %561 = tail call i32 @fseeko64(ptr noundef %560, i64 noundef %.383.i, i32 noundef 0)
   %562 = load ptr, ptr %23, align 8
   %563 = tail call i64 @fwrite(ptr noundef nonnull %512, i64 noundef 1, i64 noundef %.195.i, ptr noundef %562)
-  tail call void @free(ptr noundef nonnull %512) #23
+  tail call void @free(ptr noundef nonnull %512) #24
   %564 = add nsw i64 %.195.i, %.026123.i
   %565 = icmp slt i64 %564, %281
   br i1 %565, label %405, label %._crit_edge.i115, !llvm.loop !108
@@ -14308,7 +14308,7 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
   br i1 %.not16.i66.i, label %572, label %571
 
 571:                                              ; preds = %568
-  tail call void @free(ptr noundef nonnull %570) #23
+  tail call void @free(ptr noundef nonnull %570) #24
   store ptr null, ptr %569, align 8
   br label %572
 
@@ -14319,7 +14319,7 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
   br i1 %.not17.i67.i, label %576, label %575
 
 575:                                              ; preds = %572
-  tail call void @free(ptr noundef nonnull %574) #23
+  tail call void @free(ptr noundef nonnull %574) #24
   store ptr null, ptr %573, align 8
   br label %576
 
@@ -14330,11 +14330,11 @@ tng_length_of_current_frame_set_contents_get.exit.i: ; preds = %490, %460
   br i1 %.not18.i68.i, label %580, label %579
 
 579:                                              ; preds = %576
-  tail call void @free(ptr noundef nonnull %578) #23
+  tail call void @free(ptr noundef nonnull %578) #24
   br label %580
 
 580:                                              ; preds = %579, %576
-  tail call void @free(ptr noundef nonnull %392) #23
+  tail call void @free(ptr noundef nonnull %392) #24
   br label %tng_migrate_data_in_file.exit
 
 tng_migrate_data_in_file.exit:                    ; preds = %280, %tng_file_pos_of_subsequent_trajectory_block_get.exit.thread.i, %387, %409, %414, %426, %493, %505, %.loopexit.i, %558, %._crit_edge.i115, %580
@@ -14353,7 +14353,7 @@ tng_migrate_data_in_file.exit:                    ; preds = %280, %tng_file_pos_
 
 588:                                              ; preds = %584
   %589 = load ptr, ptr @stderr, align 8
-  %590 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %589, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 11036) #26
+  %590 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %589, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 11036) #27
   br label %tng_output_file_init.exit
 
 591:                                              ; preds = %584
@@ -14374,7 +14374,7 @@ tng_migrate_data_in_file.exit:                    ; preds = %280, %tng_file_pos_
 
 597:                                              ; preds = %594
   %598 = load ptr, ptr @stderr, align 8
-  %599 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %598, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #26
+  %599 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %598, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #27
   br label %801
 
 600:                                              ; preds = %594
@@ -14386,21 +14386,21 @@ tng_migrate_data_in_file.exit:                    ; preds = %280, %tng_file_pos_
 602:                                              ; preds = %600
   %603 = load ptr, ptr @stderr, align 8
   %604 = load ptr, ptr %595, align 8
-  %605 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %603, ptr noundef nonnull @.str.13, ptr noundef %604, ptr noundef nonnull @.str.1, i32 noundef 919) #26
+  %605 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %603, ptr noundef nonnull @.str.13, ptr noundef %604, ptr noundef nonnull @.str.1, i32 noundef 919) #27
   br label %801
 
 606:                                              ; preds = %.thread, %600, %591
   %.0270 = phi i64 [ %593, %600 ], [ %593, %591 ], [ -1, %.thread ]
   %607 = phi ptr [ %601, %600 ], [ %.pre267, %591 ], [ %38, %.thread ]
   %608 = tail call i32 @fseeko64(ptr noundef nonnull %607, i64 noundef 0, i32 noundef 0)
-  %609 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %609 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %609, ptr %17, align 8
   %.not.i78.i = icmp eq ptr %609, null
   br i1 %.not.i78.i, label %610, label %613
 
 610:                                              ; preds = %606
   %611 = load ptr, ptr @stderr, align 8
-  %612 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %611, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %612 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %611, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit.i117
 
 613:                                              ; preds = %606
@@ -14416,7 +14416,7 @@ tng_migrate_data_in_file.exit:                    ; preds = %280, %tng_file_pos_
   br label %tng_block_init.exit.i117
 
 tng_block_init.exit.i117:                         ; preds = %613, %610
-  %618 = tail call noalias dereferenceable_or_null(13) ptr @malloc(i64 noundef 13) #25
+  %618 = tail call noalias dereferenceable_or_null(13) ptr @malloc(i64 noundef 13) #26
   %619 = getelementptr inbounds i8, ptr %609, i64 40
   store ptr %618, ptr %619, align 8
   %.not66.i = icmp eq ptr %618, null
@@ -14424,13 +14424,13 @@ tng_block_init.exit.i117:                         ; preds = %613, %610
 
 620:                                              ; preds = %tng_block_init.exit.i117
   %621 = load ptr, ptr @stderr, align 8
-  %622 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %621, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2290) #26
+  %622 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %621, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2290) #27
   %623 = load ptr, ptr %619, align 8
   %.not16.i.i119 = icmp eq ptr %623, null
   br i1 %.not16.i.i119, label %625, label %624
 
 624:                                              ; preds = %620
-  tail call void @free(ptr noundef nonnull %623) #23
+  tail call void @free(ptr noundef nonnull %623) #24
   store ptr null, ptr %619, align 8
   br label %625
 
@@ -14441,7 +14441,7 @@ tng_block_init.exit.i117:                         ; preds = %613, %610
   br i1 %.not17.i.i120, label %629, label %628
 
 628:                                              ; preds = %625
-  tail call void @free(ptr noundef nonnull %627) #23
+  tail call void @free(ptr noundef nonnull %627) #24
   store ptr null, ptr %626, align 8
   br label %629
 
@@ -14452,15 +14452,15 @@ tng_block_init.exit.i117:                         ; preds = %613, %610
   br i1 %.not18.i.i121, label %tng_block_destroy.exit.i, label %632
 
 632:                                              ; preds = %629
-  tail call void @free(ptr noundef nonnull %631) #23
+  tail call void @free(ptr noundef nonnull %631) #24
   br label %tng_block_destroy.exit.i
 
 tng_block_destroy.exit.i:                         ; preds = %632, %629
-  tail call void @free(ptr noundef nonnull %609) #23
+  tail call void @free(ptr noundef nonnull %609) #24
   br label %801
 
 633:                                              ; preds = %tng_block_init.exit.i117
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %618, ptr noundef nonnull align 1 dereferenceable(13) @.str.23, i64 13, i1 false) #23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %618, ptr noundef nonnull align 1 dereferenceable(13) @.str.23, i64 13, i1 false) #24
   %634 = getelementptr inbounds i8, ptr %609, i64 16
   store i64 0, ptr %634, align 8
   %635 = getelementptr inbounds i8, ptr %609, i64 8
@@ -14470,13 +14470,13 @@ tng_block_destroy.exit.i:                         ; preds = %632, %629
 
 637:                                              ; preds = %633
   %638 = load ptr, ptr @stderr, align 8
-  %639 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %638, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef 2301) #26
+  %639 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %638, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef 2301) #27
   %640 = load ptr, ptr %619, align 8
   %.not16.i82.i = icmp eq ptr %640, null
   br i1 %.not16.i82.i, label %642, label %641
 
 641:                                              ; preds = %637
-  tail call void @free(ptr noundef nonnull %640) #23
+  tail call void @free(ptr noundef nonnull %640) #24
   store ptr null, ptr %619, align 8
   br label %642
 
@@ -14487,7 +14487,7 @@ tng_block_destroy.exit.i:                         ; preds = %632, %629
   br i1 %.not17.i83.i, label %646, label %645
 
 645:                                              ; preds = %642
-  tail call void @free(ptr noundef nonnull %644) #23
+  tail call void @free(ptr noundef nonnull %644) #24
   store ptr null, ptr %643, align 8
   br label %646
 
@@ -14498,11 +14498,11 @@ tng_block_destroy.exit.i:                         ; preds = %632, %629
   br i1 %.not18.i84.i, label %tng_block_destroy.exit85.i, label %649
 
 649:                                              ; preds = %646
-  tail call void @free(ptr noundef nonnull %648) #23
+  tail call void @free(ptr noundef nonnull %648) #24
   br label %tng_block_destroy.exit85.i
 
 tng_block_destroy.exit85.i:                       ; preds = %649, %646
-  tail call void @free(ptr noundef nonnull %609) #23
+  tail call void @free(ptr noundef nonnull %609) #24
   br label %801
 
 650:                                              ; preds = %633
@@ -14514,7 +14514,7 @@ tng_block_destroy.exit85.i:                       ; preds = %649, %646
   %653 = load ptr, ptr @stderr, align 8
   %654 = getelementptr inbounds i8, ptr %0, i64 24
   %655 = load ptr, ptr %654, align 8
-  %656 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %653, ptr noundef nonnull @.str.63, ptr noundef %655, ptr noundef nonnull @.str.1, i32 noundef 2311) #26
+  %656 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %653, ptr noundef nonnull @.str.63, ptr noundef %655, ptr noundef nonnull @.str.1, i32 noundef 2311) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %17)
   br label %801
 
@@ -14523,14 +14523,14 @@ tng_block_destroy.exit85.i:                       ; preds = %649, %646
   br i1 %658, label %659, label %660
 
 659:                                              ; preds = %657
-  call void @md5_init(ptr noundef nonnull %18) #23
+  call void @md5_init(ptr noundef nonnull %18) #24
   br label %660
 
 660:                                              ; preds = %659, %657
   %661 = getelementptr inbounds i8, ptr %0, i64 80
   %662 = load ptr, ptr %661, align 8
   %.val.i = load ptr, ptr %23, align 8
-  %663 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %662) #24
+  %663 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %662) #25
   %664 = add i64 %663, 1
   %665 = call noundef i64 @llvm.umin.i64(i64 %664, i64 1024)
   %666 = call i64 @fwrite(ptr noundef %662, i64 noundef %665, i64 noundef 1, ptr noundef %.val.i)
@@ -14542,19 +14542,19 @@ tng_block_destroy.exit85.i:                       ; preds = %649, %646
 
 668:                                              ; preds = %667
   %669 = trunc nuw nsw i64 %665 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %662, i32 noundef %669) #23
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef %662, i32 noundef %669) #24
   br label %672
 
 tng_fwritestr.exit.i:                             ; preds = %660
   %670 = load ptr, ptr @stderr, align 8
-  %671 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %670, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2321) #26
+  %671 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %670, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2321) #27
   br label %801
 
 672:                                              ; preds = %668, %667
   %673 = getelementptr inbounds i8, ptr %0, i64 120
   %674 = load ptr, ptr %673, align 8
   %.val70.i = load ptr, ptr %23, align 8
-  %675 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %674) #24
+  %675 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %674) #25
   %676 = add i64 %675, 1
   %677 = call noundef i64 @llvm.umin.i64(i64 %676, i64 1024)
   %678 = call i64 @fwrite(ptr noundef %674, i64 noundef %677, i64 noundef 1, ptr noundef %.val70.i)
@@ -14566,19 +14566,19 @@ tng_fwritestr.exit.i:                             ; preds = %660
 
 680:                                              ; preds = %679
   %681 = trunc nuw nsw i64 %677 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %674, i32 noundef %681) #23
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef %674, i32 noundef %681) #24
   br label %684
 
 tng_fwritestr.exit90.i:                           ; preds = %672
   %682 = load ptr, ptr @stderr, align 8
-  %683 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %682, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2326) #26
+  %683 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %682, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2326) #27
   br label %801
 
 684:                                              ; preds = %680, %679
   %685 = getelementptr inbounds i8, ptr %0, i64 96
   %686 = load ptr, ptr %685, align 8
   %.val71.i = load ptr, ptr %23, align 8
-  %687 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %686) #24
+  %687 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %686) #25
   %688 = add i64 %687, 1
   %689 = call noundef i64 @llvm.umin.i64(i64 %688, i64 1024)
   %690 = call i64 @fwrite(ptr noundef %686, i64 noundef %689, i64 noundef 1, ptr noundef %.val71.i)
@@ -14590,19 +14590,19 @@ tng_fwritestr.exit90.i:                           ; preds = %672
 
 692:                                              ; preds = %691
   %693 = trunc nuw nsw i64 %689 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %686, i32 noundef %693) #23
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef %686, i32 noundef %693) #24
   br label %696
 
 tng_fwritestr.exit93.i:                           ; preds = %684
   %694 = load ptr, ptr @stderr, align 8
-  %695 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %694, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2331) #26
+  %695 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %694, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2331) #27
   br label %801
 
 696:                                              ; preds = %692, %691
   %697 = getelementptr inbounds i8, ptr %0, i64 128
   %698 = load ptr, ptr %697, align 8
   %.val72.i = load ptr, ptr %23, align 8
-  %699 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %698) #24
+  %699 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %698) #25
   %700 = add i64 %699, 1
   %701 = call noundef i64 @llvm.umin.i64(i64 %700, i64 1024)
   %702 = call i64 @fwrite(ptr noundef %698, i64 noundef %701, i64 noundef 1, ptr noundef %.val72.i)
@@ -14614,19 +14614,19 @@ tng_fwritestr.exit93.i:                           ; preds = %684
 
 704:                                              ; preds = %703
   %705 = trunc nuw nsw i64 %701 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %698, i32 noundef %705) #23
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef %698, i32 noundef %705) #24
   br label %708
 
 tng_fwritestr.exit96.i:                           ; preds = %696
   %706 = load ptr, ptr @stderr, align 8
-  %707 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %706, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2336) #26
+  %707 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %706, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2336) #27
   br label %801
 
 708:                                              ; preds = %704, %703
   %709 = getelementptr inbounds i8, ptr %0, i64 104
   %710 = load ptr, ptr %709, align 8
   %.val73.i = load ptr, ptr %23, align 8
-  %711 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %710) #24
+  %711 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %710) #25
   %712 = add i64 %711, 1
   %713 = call noundef i64 @llvm.umin.i64(i64 %712, i64 1024)
   %714 = call i64 @fwrite(ptr noundef %710, i64 noundef %713, i64 noundef 1, ptr noundef %.val73.i)
@@ -14638,19 +14638,19 @@ tng_fwritestr.exit96.i:                           ; preds = %696
 
 716:                                              ; preds = %715
   %717 = trunc nuw nsw i64 %713 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %710, i32 noundef %717) #23
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef %710, i32 noundef %717) #24
   br label %720
 
 tng_fwritestr.exit153:                            ; preds = %708
   %718 = load ptr, ptr @stderr, align 8
-  %719 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %718, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2341) #26
+  %719 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %718, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2341) #27
   br label %801
 
 720:                                              ; preds = %716, %715
   %721 = getelementptr inbounds i8, ptr %0, i64 136
   %722 = load ptr, ptr %721, align 8
   %.val74.i = load ptr, ptr %23, align 8
-  %723 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %722) #24
+  %723 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %722) #25
   %724 = add i64 %723, 1
   %725 = call noundef i64 @llvm.umin.i64(i64 %724, i64 1024)
   %726 = call i64 @fwrite(ptr noundef %722, i64 noundef %725, i64 noundef 1, ptr noundef %.val74.i)
@@ -14662,19 +14662,19 @@ tng_fwritestr.exit153:                            ; preds = %708
 
 728:                                              ; preds = %727
   %729 = trunc nuw nsw i64 %725 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %722, i32 noundef %729) #23
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef %722, i32 noundef %729) #24
   br label %732
 
 tng_fwritestr.exit150:                            ; preds = %720
   %730 = load ptr, ptr @stderr, align 8
-  %731 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %730, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2346) #26
+  %731 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %730, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2346) #27
   br label %801
 
 732:                                              ; preds = %728, %727
   %733 = getelementptr inbounds i8, ptr %0, i64 112
   %734 = load ptr, ptr %733, align 8
   %.val75.i = load ptr, ptr %23, align 8
-  %735 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %734) #24
+  %735 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %734) #25
   %736 = add i64 %735, 1
   %737 = call noundef i64 @llvm.umin.i64(i64 %736, i64 1024)
   %738 = call i64 @fwrite(ptr noundef %734, i64 noundef %737, i64 noundef 1, ptr noundef %.val75.i)
@@ -14686,12 +14686,12 @@ tng_fwritestr.exit150:                            ; preds = %720
 
 740:                                              ; preds = %739
   %741 = trunc nuw nsw i64 %737 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %734, i32 noundef %741) #23
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef %734, i32 noundef %741) #24
   br label %744
 
 tng_fwritestr.exit:                               ; preds = %732
   %742 = load ptr, ptr @stderr, align 8
-  %743 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %742, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2351) #26
+  %743 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %742, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2351) #27
   br label %801
 
 744:                                              ; preds = %740, %739
@@ -14763,7 +14763,7 @@ tng_fwritestr.exit:                               ; preds = %732
 
 787:                                              ; preds = %786
   %788 = getelementptr inbounds i8, ptr %609, i64 24
-  call void @md5_finish(ptr noundef nonnull %18, ptr noundef nonnull %788) #23
+  call void @md5_finish(ptr noundef nonnull %18, ptr noundef nonnull %788) #24
   %789 = load ptr, ptr %23, align 8
   %790 = call i64 @ftello64(ptr noundef %789)
   %791 = load ptr, ptr %23, align 8
@@ -14775,7 +14775,7 @@ tng_fwritestr.exit:                               ; preds = %732
 
 795:                                              ; preds = %787
   %796 = load ptr, ptr @stderr, align 8
-  %797 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %796, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 2431) #26
+  %797 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %796, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 2431) #27
   br label %801
 
 798:                                              ; preds = %787
@@ -14788,7 +14788,7 @@ tng_fwritestr.exit:                               ; preds = %732
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %18)
   %802 = load ptr, ptr @stderr, align 8
   %803 = load ptr, ptr %0, align 8
-  %804 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %802, ptr noundef nonnull @.str.26, ptr noundef %803, ptr noundef nonnull @.str.1, i32 noundef 11049) #26
+  %804 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %802, ptr noundef nonnull @.str.26, ptr noundef %803, ptr noundef nonnull @.str.1, i32 noundef 11049) #27
   br label %tng_output_file_init.exit
 
 805:                                              ; preds = %798, %786
@@ -14809,7 +14809,7 @@ tng_fwritestr.exit:                               ; preds = %732
 
 810:                                              ; preds = %807
   %811 = load ptr, ptr @stderr, align 8
-  %812 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %811, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #26
+  %812 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %811, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #27
   br label %1197
 
 813:                                              ; preds = %807
@@ -14821,18 +14821,18 @@ tng_fwritestr.exit:                               ; preds = %732
 815:                                              ; preds = %813
   %816 = load ptr, ptr @stderr, align 8
   %817 = load ptr, ptr %808, align 8
-  %818 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %816, ptr noundef nonnull @.str.13, ptr noundef %817, ptr noundef nonnull @.str.1, i32 noundef 919) #26
+  %818 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %816, ptr noundef nonnull @.str.13, ptr noundef %817, ptr noundef nonnull @.str.1, i32 noundef 919) #27
   br label %1197
 
 819:                                              ; preds = %813, %805
-  %820 = call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %820 = call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %820, ptr %15, align 8
   %.not.i130.i = icmp eq ptr %820, null
   br i1 %.not.i130.i, label %821, label %824
 
 821:                                              ; preds = %819
   %822 = load ptr, ptr @stderr, align 8
-  %823 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %822, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %823 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %822, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit.i123
 
 824:                                              ; preds = %819
@@ -14848,7 +14848,7 @@ tng_fwritestr.exit:                               ; preds = %732
   br label %tng_block_init.exit.i123
 
 tng_block_init.exit.i123:                         ; preds = %824, %821
-  %829 = call noalias dereferenceable_or_null(10) ptr @malloc(i64 noundef 10) #25
+  %829 = call noalias dereferenceable_or_null(10) ptr @malloc(i64 noundef 10) #26
   %830 = getelementptr inbounds i8, ptr %820, i64 40
   store ptr %829, ptr %830, align 8
   %.not125.i = icmp eq ptr %829, null
@@ -14856,13 +14856,13 @@ tng_block_init.exit.i123:                         ; preds = %824, %821
 
 831:                                              ; preds = %tng_block_init.exit.i123
   %832 = load ptr, ptr @stderr, align 8
-  %833 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %832, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3163) #26
+  %833 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %832, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3163) #27
   %834 = load ptr, ptr %830, align 8
   %.not16.i.i132 = icmp eq ptr %834, null
   br i1 %.not16.i.i132, label %836, label %835
 
 835:                                              ; preds = %831
-  call void @free(ptr noundef nonnull %834) #23
+  call void @free(ptr noundef nonnull %834) #24
   store ptr null, ptr %830, align 8
   br label %836
 
@@ -14873,7 +14873,7 @@ tng_block_init.exit.i123:                         ; preds = %824, %821
   br i1 %.not17.i.i133, label %840, label %839
 
 839:                                              ; preds = %836
-  call void @free(ptr noundef nonnull %838) #23
+  call void @free(ptr noundef nonnull %838) #24
   store ptr null, ptr %837, align 8
   br label %840
 
@@ -14884,15 +14884,15 @@ tng_block_init.exit.i123:                         ; preds = %824, %821
   br i1 %.not18.i.i134, label %tng_block_destroy.exit.i135, label %843
 
 843:                                              ; preds = %840
-  call void @free(ptr noundef nonnull %842) #23
+  call void @free(ptr noundef nonnull %842) #24
   br label %tng_block_destroy.exit.i135
 
 tng_block_destroy.exit.i135:                      ; preds = %843, %840
-  call void @free(ptr noundef nonnull %820) #23
+  call void @free(ptr noundef nonnull %820) #24
   br label %1197
 
 844:                                              ; preds = %tng_block_init.exit.i123
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %829, ptr noundef nonnull align 1 dereferenceable(10) @.str.24, i64 10, i1 false) #23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %829, ptr noundef nonnull align 1 dereferenceable(10) @.str.24, i64 10, i1 false) #24
   %845 = getelementptr inbounds i8, ptr %820, i64 16
   store i64 1, ptr %845, align 8
   %846 = getelementptr inbounds i8, ptr %820, i64 8
@@ -14902,13 +14902,13 @@ tng_block_destroy.exit.i135:                      ; preds = %843, %840
 
 848:                                              ; preds = %844
   %849 = load ptr, ptr @stderr, align 8
-  %850 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %849, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.1, i32 noundef 3174) #26
+  %850 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %849, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.1, i32 noundef 3174) #27
   %851 = load ptr, ptr %830, align 8
   %.not16.i134.i = icmp eq ptr %851, null
   br i1 %.not16.i134.i, label %853, label %852
 
 852:                                              ; preds = %848
-  call void @free(ptr noundef nonnull %851) #23
+  call void @free(ptr noundef nonnull %851) #24
   store ptr null, ptr %830, align 8
   br label %853
 
@@ -14919,7 +14919,7 @@ tng_block_destroy.exit.i135:                      ; preds = %843, %840
   br i1 %.not17.i135.i, label %857, label %856
 
 856:                                              ; preds = %853
-  call void @free(ptr noundef nonnull %855) #23
+  call void @free(ptr noundef nonnull %855) #24
   store ptr null, ptr %854, align 8
   br label %857
 
@@ -14930,11 +14930,11 @@ tng_block_destroy.exit.i135:                      ; preds = %843, %840
   br i1 %.not18.i136.i, label %tng_block_destroy.exit137.i, label %860
 
 860:                                              ; preds = %857
-  call void @free(ptr noundef nonnull %859) #23
+  call void @free(ptr noundef nonnull %859) #24
   br label %tng_block_destroy.exit137.i
 
 tng_block_destroy.exit137.i:                      ; preds = %860, %857
-  call void @free(ptr noundef nonnull %820) #23
+  call void @free(ptr noundef nonnull %820) #24
   br label %1197
 
 861:                                              ; preds = %844
@@ -14948,7 +14948,7 @@ tng_block_destroy.exit137.i:                      ; preds = %860, %857
   %866 = load ptr, ptr @stderr, align 8
   %867 = getelementptr inbounds i8, ptr %0, i64 24
   %868 = load ptr, ptr %867, align 8
-  %869 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %866, ptr noundef nonnull @.str.63, ptr noundef %868, ptr noundef nonnull @.str.1, i32 noundef 3184) #26
+  %869 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %866, ptr noundef nonnull @.str.63, ptr noundef %868, ptr noundef nonnull @.str.1, i32 noundef 3184) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %15)
   br label %1197
 
@@ -14956,7 +14956,7 @@ tng_block_destroy.exit137.i:                      ; preds = %860, %857
   br i1 %658, label %871, label %872
 
 871:                                              ; preds = %870
-  call void @md5_init(ptr noundef nonnull %16) #23
+  call void @md5_init(ptr noundef nonnull %16) #24
   br label %872
 
 872:                                              ; preds = %871, %870
@@ -14970,13 +14970,13 @@ tng_block_destroy.exit137.i:                      ; preds = %860, %857
   br i1 %.not36.i.i, label %882, label %877
 
 877:                                              ; preds = %872
-  %878 = call i32 %876(ptr noundef nonnull %0, ptr noundef nonnull %14) #23
+  %878 = call i32 %876(ptr noundef nonnull %0, ptr noundef nonnull %14) #24
   %.not37.i.i124 = icmp eq i32 %878, 0
   br i1 %.not37.i.i124, label %882, label %879
 
 879:                                              ; preds = %877
   %880 = load ptr, ptr @stderr, align 8
-  %881 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %880, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3195) #26
+  %881 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %880, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3195) #27
   br label %882
 
 882:                                              ; preds = %879, %877, %872
@@ -14987,7 +14987,7 @@ tng_block_destroy.exit137.i:                      ; preds = %860, %857
 
 tng_file_output_numerical.exit.thread.i:          ; preds = %882
   %885 = load ptr, ptr @stderr, align 8
-  %886 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %885, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3195) #26
+  %886 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %885, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3195) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   br label %1197
 
@@ -14995,7 +14995,7 @@ tng_file_output_numerical.exit.thread.i:          ; preds = %882
   br i1 %658, label %888, label %tng_file_output_numerical.exit.i
 
 888:                                              ; preds = %887
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %14, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %14, i32 noundef 8) #24
   br label %tng_file_output_numerical.exit.i
 
 tng_file_output_numerical.exit.i:                 ; preds = %888, %887
@@ -15021,13 +15021,13 @@ tng_file_output_numerical.exit.i:                 ; preds = %888, %887
   br i1 %.not36.i139.i, label %903, label %898
 
 898:                                              ; preds = %893
-  %899 = call i32 %897(ptr noundef nonnull %0, ptr noundef nonnull %13) #23
+  %899 = call i32 %897(ptr noundef nonnull %0, ptr noundef nonnull %13) #24
   %.not37.i140.i = icmp eq i32 %899, 0
   br i1 %.not37.i140.i, label %903, label %900
 
 900:                                              ; preds = %898
   %901 = load ptr, ptr @stderr, align 8
-  %902 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %901, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3206) #26
+  %902 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %901, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3206) #27
   br label %903
 
 903:                                              ; preds = %900, %898, %893
@@ -15040,12 +15040,12 @@ tng_file_output_numerical.exit.i:                 ; preds = %888, %887
   br i1 %658, label %907, label %910
 
 907:                                              ; preds = %906
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %13, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %13, i32 noundef 8) #24
   br label %910
 
 tng_file_output_numerical.exit143.i:              ; preds = %903
   %908 = load ptr, ptr @stderr, align 8
-  %909 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %908, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3206) #26
+  %909 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %908, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3206) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   br label %1197
 
@@ -15054,7 +15054,7 @@ tng_file_output_numerical.exit143.i:              ; preds = %903
   %911 = getelementptr inbounds i8, ptr %895, i64 48
   %912 = load ptr, ptr %911, align 8
   %.val.i125 = load ptr, ptr %23, align 8
-  %913 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %912) #24
+  %913 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %912) #25
   %914 = add i64 %913, 1
   %915 = call noundef i64 @llvm.umin.i64(i64 %914, i64 1024)
   %916 = call i64 @fwrite(ptr noundef %912, i64 noundef %915, i64 noundef 1, ptr noundef %.val.i125)
@@ -15066,12 +15066,12 @@ tng_file_output_numerical.exit143.i:              ; preds = %903
 
 918:                                              ; preds = %917
   %919 = trunc nuw nsw i64 %915 to i32
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef %912, i32 noundef %919) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef %912, i32 noundef %919) #24
   br label %922
 
 tng_fwritestr.exit.i126:                          ; preds = %910
   %920 = load ptr, ptr @stderr, align 8
-  %921 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %920, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 3212) #26
+  %921 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %920, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 3212) #27
   br label %1197
 
 922:                                              ; preds = %918, %917
@@ -15084,13 +15084,13 @@ tng_fwritestr.exit.i126:                          ; preds = %910
   br i1 %.not36.i146.i, label %931, label %926
 
 926:                                              ; preds = %922
-  %927 = call i32 %925(ptr noundef nonnull %0, ptr noundef nonnull %12) #23
+  %927 = call i32 %925(ptr noundef nonnull %0, ptr noundef nonnull %12) #24
   %.not37.i147.i = icmp eq i32 %927, 0
   br i1 %.not37.i147.i, label %931, label %928
 
 928:                                              ; preds = %926
   %929 = load ptr, ptr @stderr, align 8
-  %930 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %929, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3218) #26
+  %930 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %929, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3218) #27
   br label %931
 
 931:                                              ; preds = %928, %926, %922
@@ -15103,12 +15103,12 @@ tng_fwritestr.exit.i126:                          ; preds = %910
   br i1 %658, label %935, label %938
 
 935:                                              ; preds = %934
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %12, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %12, i32 noundef 8) #24
   br label %938
 
 tng_file_output_numerical.exit150.i:              ; preds = %931
   %936 = load ptr, ptr @stderr, align 8
-  %937 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %936, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3218) #26
+  %937 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %936, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3218) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %1197
 
@@ -15129,13 +15129,13 @@ tng_file_output_numerical.exit150.i:              ; preds = %931
   br i1 %.not36.i151.i, label %950, label %945
 
 945:                                              ; preds = %940
-  %946 = call i32 %944(ptr noundef nonnull %0, ptr noundef nonnull %11) #23
+  %946 = call i32 %944(ptr noundef nonnull %0, ptr noundef nonnull %11) #24
   %.not37.i152.i = icmp eq i32 %946, 0
   br i1 %.not37.i152.i, label %950, label %947
 
 947:                                              ; preds = %945
   %948 = load ptr, ptr @stderr, align 8
-  %949 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %948, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3227) #26
+  %949 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %948, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3227) #27
   br label %950
 
 950:                                              ; preds = %947, %945, %940
@@ -15148,7 +15148,7 @@ tng_file_output_numerical.exit150.i:              ; preds = %931
   br i1 %658, label %954, label %tng_file_output_numerical.exit155.thread.i
 
 954:                                              ; preds = %953
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %11, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %11, i32 noundef 8) #24
   br label %tng_file_output_numerical.exit155.thread.i
 
 tng_file_output_numerical.exit155.thread.i:       ; preds = %954, %953
@@ -15157,7 +15157,7 @@ tng_file_output_numerical.exit155.thread.i:       ; preds = %954, %953
 
 tng_file_output_numerical.exit155.i:              ; preds = %950
   %955 = load ptr, ptr @stderr, align 8
-  %956 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %955, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3227) #26
+  %956 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %955, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3227) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %1197
 
@@ -15171,13 +15171,13 @@ tng_file_output_numerical.exit155.i:              ; preds = %950
   br i1 %.not36.i156.i, label %966, label %961
 
 961:                                              ; preds = %957
-  %962 = call i32 %960(ptr noundef nonnull %0, ptr noundef nonnull %10) #23
+  %962 = call i32 %960(ptr noundef nonnull %0, ptr noundef nonnull %10) #24
   %.not37.i157.i = icmp eq i32 %962, 0
   br i1 %.not37.i157.i, label %966, label %963
 
 963:                                              ; preds = %961
   %964 = load ptr, ptr @stderr, align 8
-  %965 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %964, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3235) #26
+  %965 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %964, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3235) #27
   br label %966
 
 966:                                              ; preds = %963, %961, %957
@@ -15190,12 +15190,12 @@ tng_file_output_numerical.exit155.i:              ; preds = %950
   br i1 %658, label %970, label %973
 
 970:                                              ; preds = %969
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %10, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %10, i32 noundef 8) #24
   br label %973
 
 tng_file_output_numerical.exit160.i:              ; preds = %966
   %971 = load ptr, ptr @stderr, align 8
-  %972 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %971, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3235) #26
+  %972 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %971, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3235) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %1197
 
@@ -15210,13 +15210,13 @@ tng_file_output_numerical.exit160.i:              ; preds = %966
   br i1 %.not36.i161.i, label %982, label %977
 
 977:                                              ; preds = %973
-  %978 = call i32 %976(ptr noundef nonnull %0, ptr noundef nonnull %9) #23
+  %978 = call i32 %976(ptr noundef nonnull %0, ptr noundef nonnull %9) #24
   %.not37.i162.i = icmp eq i32 %978, 0
   br i1 %.not37.i162.i, label %982, label %979
 
 979:                                              ; preds = %977
   %980 = load ptr, ptr @stderr, align 8
-  %981 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %980, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3242) #26
+  %981 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %980, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3242) #27
   br label %982
 
 982:                                              ; preds = %979, %977, %973
@@ -15229,12 +15229,12 @@ tng_file_output_numerical.exit160.i:              ; preds = %966
   br i1 %658, label %986, label %989
 
 986:                                              ; preds = %985
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %9, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %9, i32 noundef 8) #24
   br label %989
 
 tng_file_output_numerical.exit165.i:              ; preds = %982
   %987 = load ptr, ptr @stderr, align 8
-  %988 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %987, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3242) #26
+  %988 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %987, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3242) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %1197
 
@@ -15249,13 +15249,13 @@ tng_file_output_numerical.exit165.i:              ; preds = %982
   br i1 %.not36.i166.i, label %998, label %993
 
 993:                                              ; preds = %989
-  %994 = call i32 %992(ptr noundef nonnull %0, ptr noundef nonnull %8) #23
+  %994 = call i32 %992(ptr noundef nonnull %0, ptr noundef nonnull %8) #24
   %.not37.i167.i = icmp eq i32 %994, 0
   br i1 %.not37.i167.i, label %998, label %995
 
 995:                                              ; preds = %993
   %996 = load ptr, ptr @stderr, align 8
-  %997 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %996, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3249) #26
+  %997 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %996, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3249) #27
   br label %998
 
 998:                                              ; preds = %995, %993, %989
@@ -15268,12 +15268,12 @@ tng_file_output_numerical.exit165.i:              ; preds = %982
   br i1 %658, label %1002, label %1005
 
 1002:                                             ; preds = %1001
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %8, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %8, i32 noundef 8) #24
   br label %1005
 
 tng_file_output_numerical.exit170.i:              ; preds = %998
   %1003 = load ptr, ptr @stderr, align 8
-  %1004 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1003, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3249) #26
+  %1004 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1003, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3249) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %1197
 
@@ -15301,13 +15301,13 @@ tng_file_output_numerical.exit170.i:              ; preds = %998
   br i1 %.not36.i.i.i, label %1020, label %1015
 
 1015:                                             ; preds = %1011
-  %1016 = call i32 %1014(ptr noundef nonnull %0, ptr noundef nonnull %7) #23
+  %1016 = call i32 %1014(ptr noundef nonnull %0, ptr noundef nonnull %7) #24
   %.not37.i.i.i = icmp eq i32 %1016, 0
   br i1 %.not37.i.i.i, label %1020, label %1017
 
 1017:                                             ; preds = %1015
   %1018 = load ptr, ptr @stderr, align 8
-  %1019 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1018, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2488) #26
+  %1019 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1018, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2488) #27
   br label %1020
 
 1020:                                             ; preds = %1017, %1015, %1011
@@ -15320,12 +15320,12 @@ tng_file_output_numerical.exit170.i:              ; preds = %998
   br i1 %658, label %1024, label %1027
 
 1024:                                             ; preds = %1023
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %7, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %7, i32 noundef 8) #24
   br label %1027
 
 tng_file_output_numerical.exit.i.i:               ; preds = %1020
   %1025 = load ptr, ptr @stderr, align 8
-  %1026 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1025, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 2488) #26
+  %1026 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1025, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 2488) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %tng_chain_data_write.exit.i
 
@@ -15334,7 +15334,7 @@ tng_file_output_numerical.exit.i.i:               ; preds = %1020
   %1028 = getelementptr inbounds i8, ptr %.0114221.i, i64 16
   %1029 = load ptr, ptr %1028, align 8
   %.val.i.i = load ptr, ptr %23, align 8
-  %1030 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1029) #24
+  %1030 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1029) #25
   %1031 = add i64 %1030, 1
   %1032 = call noundef i64 @llvm.umin.i64(i64 %1031, i64 1024)
   %1033 = call i64 @fwrite(ptr noundef %1029, i64 noundef %1032, i64 noundef 1, ptr noundef %.val.i.i)
@@ -15346,12 +15346,12 @@ tng_file_output_numerical.exit.i.i:               ; preds = %1020
 
 1035:                                             ; preds = %1034
   %1036 = trunc nuw nsw i64 %1032 to i32
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef %1029, i32 noundef %1036) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef %1029, i32 noundef %1036) #24
   br label %1039
 
 tng_fwritestr.exit.i.i:                           ; preds = %1027
   %1037 = load ptr, ptr @stderr, align 8
-  %1038 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1037, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2494) #26
+  %1038 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1037, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2494) #27
   br label %tng_chain_data_write.exit.i
 
 1039:                                             ; preds = %1035, %1034
@@ -15364,13 +15364,13 @@ tng_fwritestr.exit.i.i:                           ; preds = %1027
   br i1 %.not36.i13.i.i, label %1048, label %1043
 
 1043:                                             ; preds = %1039
-  %1044 = call i32 %1042(ptr noundef nonnull %0, ptr noundef nonnull %6) #23
+  %1044 = call i32 %1042(ptr noundef nonnull %0, ptr noundef nonnull %6) #24
   %.not37.i14.i.i = icmp eq i32 %1044, 0
   br i1 %.not37.i14.i.i, label %1048, label %1045
 
 1045:                                             ; preds = %1043
   %1046 = load ptr, ptr @stderr, align 8
-  %1047 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1046, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2500) #26
+  %1047 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1046, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2500) #27
   br label %1048
 
 1048:                                             ; preds = %1045, %1043, %1039
@@ -15383,7 +15383,7 @@ tng_fwritestr.exit.i.i:                           ; preds = %1027
   br i1 %658, label %1052, label %tng_file_output_numerical.exit17.thread.i.i
 
 1052:                                             ; preds = %1051
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %6, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %6, i32 noundef 8) #24
   br label %tng_file_output_numerical.exit17.thread.i.i
 
 tng_file_output_numerical.exit17.thread.i.i:      ; preds = %1052, %1051
@@ -15392,7 +15392,7 @@ tng_file_output_numerical.exit17.thread.i.i:      ; preds = %1052, %1051
 
 1053:                                             ; preds = %1048
   %1054 = load ptr, ptr @stderr, align 8
-  %1055 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1054, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 2500) #26
+  %1055 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1054, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 2500) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %tng_chain_data_write.exit.i
 
@@ -15521,13 +15521,13 @@ tng_chain_data_write.exit.i:                      ; preds = %1053, %tng_file_out
   br i1 %.not36.i172.i, label %1119, label %1114
 
 1114:                                             ; preds = %.loopexit.i127
-  %1115 = call i32 %1113(ptr noundef nonnull %0, ptr noundef nonnull %5) #23
+  %1115 = call i32 %1113(ptr noundef nonnull %0, ptr noundef nonnull %5) #24
   %.not37.i173.i = icmp eq i32 %1115, 0
   br i1 %.not37.i173.i, label %1119, label %1116
 
 1116:                                             ; preds = %1114
   %1117 = load ptr, ptr @stderr, align 8
-  %1118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1117, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3311) #26
+  %1118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1117, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3311) #27
   br label %1119
 
 1119:                                             ; preds = %1116, %1114, %.loopexit.i127
@@ -15540,12 +15540,12 @@ tng_chain_data_write.exit.i:                      ; preds = %1053, %tng_file_out
   br i1 %658, label %1123, label %1126
 
 1123:                                             ; preds = %1122
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %5, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %5, i32 noundef 8) #24
   br label %1126
 
 tng_file_output_numerical.exit176.i:              ; preds = %1119
   %1124 = load ptr, ptr @stderr, align 8
-  %1125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1124, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3311) #26
+  %1125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1124, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3311) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %1197
 
@@ -15571,13 +15571,13 @@ tng_file_output_numerical.exit176.i:              ; preds = %1119
   br i1 %.not36.i177.i, label %1138, label %1133
 
 1133:                                             ; preds = %.lr.ph227.i
-  %1134 = call i32 %1132(ptr noundef nonnull %0, ptr noundef nonnull %4) #23
+  %1134 = call i32 %1132(ptr noundef nonnull %0, ptr noundef nonnull %4) #24
   %.not37.i178.i = icmp eq i32 %1134, 0
   br i1 %.not37.i178.i, label %1138, label %1135
 
 1135:                                             ; preds = %1133
   %1136 = load ptr, ptr @stderr, align 8
-  %1137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1136, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3321) #26
+  %1137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1136, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3321) #27
   br label %1138
 
 1138:                                             ; preds = %1135, %1133, %.lr.ph227.i
@@ -15590,12 +15590,12 @@ tng_file_output_numerical.exit176.i:              ; preds = %1119
   br i1 %658, label %1142, label %1145
 
 1142:                                             ; preds = %1141
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %4, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %4, i32 noundef 8) #24
   br label %1145
 
 tng_file_output_numerical.exit181.i:              ; preds = %1138
   %1143 = load ptr, ptr @stderr, align 8
-  %1144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1143, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3321) #26
+  %1144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1143, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3321) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %1197
 
@@ -15610,13 +15610,13 @@ tng_file_output_numerical.exit181.i:              ; preds = %1138
   br i1 %.not36.i182.i, label %1154, label %1149
 
 1149:                                             ; preds = %1145
-  %1150 = call i32 %1148(ptr noundef nonnull %0, ptr noundef nonnull %3) #23
+  %1150 = call i32 %1148(ptr noundef nonnull %0, ptr noundef nonnull %3) #24
   %.not37.i183.i = icmp eq i32 %1150, 0
   br i1 %.not37.i183.i, label %1154, label %1151
 
 1151:                                             ; preds = %1149
   %1152 = load ptr, ptr @stderr, align 8
-  %1153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1152, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3328) #26
+  %1153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1152, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3328) #27
   br label %1154
 
 1154:                                             ; preds = %1151, %1149, %1145
@@ -15629,12 +15629,12 @@ tng_file_output_numerical.exit181.i:              ; preds = %1138
   br i1 %658, label %1158, label %1161
 
 1158:                                             ; preds = %1157
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 8) #24
   br label %1161
 
 tng_file_output_numerical.exit186.i:              ; preds = %1154
   %1159 = load ptr, ptr @stderr, align 8
-  %1160 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1159, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3328) #26
+  %1160 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1159, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3328) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %1197
 
@@ -15657,7 +15657,7 @@ tng_file_output_numerical.exit186.i:              ; preds = %1154
 
 1169:                                             ; preds = %._crit_edge231.i
   %1170 = getelementptr inbounds i8, ptr %820, i64 24
-  call void @md5_finish(ptr noundef nonnull %16, ptr noundef nonnull %1170) #23
+  call void @md5_finish(ptr noundef nonnull %16, ptr noundef nonnull %1170) #24
   %1171 = load ptr, ptr %23, align 8
   %1172 = call i64 @ftello64(ptr noundef %1171)
   %1173 = load ptr, ptr %23, align 8
@@ -15670,7 +15670,7 @@ tng_file_output_numerical.exit186.i:              ; preds = %1154
 
 1178:                                             ; preds = %1169
   %1179 = load ptr, ptr @stderr, align 8
-  %1180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1179, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 3344) #26
+  %1180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1179, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 3344) #27
   br label %1197
 
 1181:                                             ; preds = %1169
@@ -15687,7 +15687,7 @@ tng_file_output_numerical.exit186.i:              ; preds = %1154
   br i1 %.not16.i155, label %1188, label %1187
 
 1187:                                             ; preds = %1185
-  call void @free(ptr noundef nonnull %1186) #23
+  call void @free(ptr noundef nonnull %1186) #24
   store ptr null, ptr %830, align 8
   br label %1188
 
@@ -15698,7 +15698,7 @@ tng_file_output_numerical.exit186.i:              ; preds = %1154
   br i1 %.not17.i156, label %1192, label %1191
 
 1191:                                             ; preds = %1188
-  call void @free(ptr noundef nonnull %1190) #23
+  call void @free(ptr noundef nonnull %1190) #24
   store ptr null, ptr %1189, align 8
   br label %1192
 
@@ -15709,11 +15709,11 @@ tng_file_output_numerical.exit186.i:              ; preds = %1154
   br i1 %.not18.i157, label %1196, label %1195
 
 1195:                                             ; preds = %1192
-  call void @free(ptr noundef nonnull %1194) #23
+  call void @free(ptr noundef nonnull %1194) #24
   br label %1196
 
 1196:                                             ; preds = %1195, %1192
-  call void @free(ptr noundef nonnull %820) #23
+  call void @free(ptr noundef nonnull %820) #24
   br label %1201
 
 1197:                                             ; preds = %tng_block_destroy.exit137.i, %865, %1178, %tng_block_destroy.exit.i135, %tng_file_output_numerical.exit143.i, %tng_fwritestr.exit.i126, %tng_file_output_numerical.exit150.i, %tng_file_output_numerical.exit155.i, %tng_file_output_numerical.exit160.i, %tng_file_output_numerical.exit165.i, %tng_file_output_numerical.exit170.i, %tng_file_output_numerical.exit176.i, %tng_file_output_numerical.exit181.i, %tng_file_output_numerical.exit186.i, %810, %815, %tng_file_output_numerical.exit.thread.i
@@ -15721,19 +15721,19 @@ tng_file_output_numerical.exit186.i:              ; preds = %1154
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
   %1198 = load ptr, ptr @stderr, align 8
   %1199 = load ptr, ptr %0, align 8
-  %1200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1198, ptr noundef nonnull @.str.27, ptr noundef %1199, ptr noundef nonnull @.str.1, i32 noundef 11056) #26
+  %1200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1198, ptr noundef nonnull @.str.27, ptr noundef %1199, ptr noundef nonnull @.str.1, i32 noundef 11056) #27
   br label %tng_output_file_init.exit
 
 1201:                                             ; preds = %1184, %1196
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
-  %1202 = call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %1202 = call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i138 = icmp eq ptr %1202, null
   br i1 %.not.i138, label %1203, label %1206
 
 1203:                                             ; preds = %1201
   %1204 = load ptr, ptr @stderr, align 8
-  %1205 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1204, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %1205 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1204, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit140
 
 1206:                                             ; preds = %1201
@@ -15806,7 +15806,7 @@ tng_block_init.exit140:                           ; preds = %1203, %1206
   br i1 %.not16.i142, label %1240, label %1239
 
 1239:                                             ; preds = %._crit_edge229.thread
-  call void @free(ptr noundef nonnull %1238) #23
+  call void @free(ptr noundef nonnull %1238) #24
   store ptr null, ptr %1237, align 8
   br label %1240
 
@@ -15817,7 +15817,7 @@ tng_block_init.exit140:                           ; preds = %1203, %1206
   br i1 %.not17.i143, label %1244, label %1243
 
 1243:                                             ; preds = %1240
-  call void @free(ptr noundef nonnull %1242) #23
+  call void @free(ptr noundef nonnull %1242) #24
   store ptr null, ptr %1241, align 8
   br label %1244
 
@@ -15828,11 +15828,11 @@ tng_block_init.exit140:                           ; preds = %1203, %1206
   br i1 %.not18.i144, label %1248, label %1247
 
 1247:                                             ; preds = %1244
-  call void @free(ptr noundef nonnull %1246) #23
+  call void @free(ptr noundef nonnull %1246) #24
   br label %1248
 
 1248:                                             ; preds = %1247, %1244
-  call void @free(ptr noundef nonnull %1202) #23
+  call void @free(ptr noundef nonnull %1202) #24
   br label %tng_block_destroy.exit145
 
 tng_block_destroy.exit145:                        ; preds = %._crit_edge229, %1248
@@ -15859,14 +15859,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
   br i1 %.not, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %6 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %6, ptr %3, align 8
   %.not64 = icmp eq ptr %6, null
   br i1 %.not64, label %7, label %10
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2008) #26
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2008) #27
   br label %129
 
 10:                                               ; preds = %5
@@ -15881,14 +15881,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
   br i1 %.not65, label %15, label %21
 
 15:                                               ; preds = %11
-  %16 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %16 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %16, ptr %13, align 8
   %.not66 = icmp eq ptr %16, null
   br i1 %.not66, label %17, label %20
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2018) #26
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2018) #27
   br label %129
 
 20:                                               ; preds = %15
@@ -15903,14 +15903,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
   br i1 %.not67, label %25, label %31
 
 25:                                               ; preds = %21
-  %26 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %26 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %26, ptr %23, align 8
   %.not68 = icmp eq ptr %26, null
   br i1 %.not68, label %27, label %30
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2028) #26
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2028) #27
   br label %129
 
 30:                                               ; preds = %25
@@ -15925,14 +15925,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
   br i1 %.not69, label %35, label %41
 
 35:                                               ; preds = %31
-  %36 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %36 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %36, ptr %33, align 8
   %.not70 = icmp eq ptr %36, null
   br i1 %.not70, label %37, label %40
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr @stderr, align 8
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2038) #26
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2038) #27
   br label %129
 
 40:                                               ; preds = %35
@@ -15947,14 +15947,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
   br i1 %.not71, label %45, label %51
 
 45:                                               ; preds = %41
-  %46 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %46 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %46, ptr %43, align 8
   %.not72 = icmp eq ptr %46, null
   br i1 %.not72, label %47, label %50
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr @stderr, align 8
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2048) #26
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2048) #27
   br label %129
 
 50:                                               ; preds = %45
@@ -15969,14 +15969,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
   br i1 %.not73, label %55, label %61
 
 55:                                               ; preds = %51
-  %56 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %56 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %56, ptr %53, align 8
   %.not74 = icmp eq ptr %56, null
   br i1 %.not74, label %57, label %60
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr @stderr, align 8
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2058) #26
+  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2058) #27
   br label %129
 
 60:                                               ; preds = %55
@@ -15991,14 +15991,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
   br i1 %.not75, label %65, label %71
 
 65:                                               ; preds = %61
-  %66 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %66 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %66, ptr %63, align 8
   %.not76 = icmp eq ptr %66, null
   br i1 %.not76, label %67, label %70
 
 67:                                               ; preds = %65
   %68 = load ptr, ptr @stderr, align 8
-  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2068) #26
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2068) #27
   br label %129
 
 70:                                               ; preds = %65
@@ -16013,14 +16013,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
   br i1 %.not77, label %75, label %81
 
 75:                                               ; preds = %71
-  %76 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %76 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %76, ptr %73, align 8
   %.not78 = icmp eq ptr %76, null
   br i1 %.not78, label %77, label %80
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr @stderr, align 8
-  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2078) #26
+  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2078) #27
   br label %129
 
 80:                                               ; preds = %75
@@ -16035,14 +16035,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
   br i1 %.not79, label %85, label %91
 
 85:                                               ; preds = %81
-  %86 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %86 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %86, ptr %83, align 8
   %.not80 = icmp eq ptr %86, null
   br i1 %.not80, label %87, label %90
 
 87:                                               ; preds = %85
   %88 = load ptr, ptr @stderr, align 8
-  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2088) #26
+  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2088) #27
   br label %129
 
 90:                                               ; preds = %85
@@ -16051,31 +16051,31 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
 
 91:                                               ; preds = %90, %81
   %92 = phi ptr [ %86, %90 ], [ %84, %81 ]
-  %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #24
+  %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #25
   %94 = add i64 %93, 1
   %95 = tail call noundef i64 @llvm.umin.i64(i64 %94, i64 1024)
-  %96 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #24
+  %96 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #25
   %97 = add i64 %96, 1
   %98 = tail call noundef i64 @llvm.umin.i64(i64 %97, i64 1024)
-  %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #24
+  %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #25
   %100 = add i64 %99, 1
   %101 = tail call noundef i64 @llvm.umin.i64(i64 %100, i64 1024)
-  %102 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #24
+  %102 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #25
   %103 = add i64 %102, 1
   %104 = tail call noundef i64 @llvm.umin.i64(i64 %103, i64 1024)
-  %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #24
+  %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #25
   %106 = add i64 %105, 1
   %107 = tail call noundef i64 @llvm.umin.i64(i64 %106, i64 1024)
-  %108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #24
+  %108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #25
   %109 = add i64 %108, 1
   %110 = tail call noundef i64 @llvm.umin.i64(i64 %109, i64 1024)
-  %111 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #24
+  %111 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #25
   %112 = add i64 %111, 1
   %113 = tail call noundef i64 @llvm.umin.i64(i64 %112, i64 1024)
-  %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #24
+  %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #25
   %115 = add i64 %114, 1
   %116 = tail call noundef i64 @llvm.umin.i64(i64 %115, i64 1024)
-  %117 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #24
+  %117 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #25
   %118 = add i64 %117, 1
   %119 = tail call noundef i64 @llvm.umin.i64(i64 %118, i64 1024)
   %120 = add nuw nsw i64 %95, 57
@@ -16118,14 +16118,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
   br i1 %.not76, label %13, label %19
 
 13:                                               ; preds = %7
-  %14 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %14 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %14, ptr %11, align 8
   %.not77 = icmp eq ptr %14, null
   br i1 %.not77, label %15, label %18
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2656) #26
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2656) #27
   br label %146
 
 18:                                               ; preds = %13
@@ -16136,7 +16136,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
 19:                                               ; preds = %18, %7
   %20 = phi i64 [ %.pre, %18 ], [ %8, %7 ]
   %21 = phi ptr [ %14, %18 ], [ %12, %7 ]
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #24
+  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #25
   %23 = add i64 %22, 1
   %24 = tail call noundef i64 @llvm.umin.i64(i64 %23, i64 1024)
   %25 = add i64 %24, %20
@@ -16163,14 +16163,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
   br i1 %.not84, label %35, label %41
 
 35:                                               ; preds = %.lr.ph
-  %36 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %36 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %36, ptr %33, align 8
   %.not85 = icmp eq ptr %36, null
   br i1 %.not85, label %37, label %40
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr @stderr, align 8
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2673) #26
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2673) #27
   br label %146
 
 40:                                               ; preds = %35
@@ -16181,7 +16181,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
 41:                                               ; preds = %40, %.lr.ph
   %42 = phi i64 [ %.pre116, %40 ], [ %32, %.lr.ph ]
   %43 = phi ptr [ %36, %40 ], [ %34, %.lr.ph ]
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #24
+  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #25
   %45 = add i64 %44, 1
   %46 = tail call noundef i64 @llvm.umin.i64(i64 %45, i64 1024)
   %47 = add i64 %42, 8
@@ -16217,14 +16217,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
   br i1 %.not82, label %63, label %69
 
 63:                                               ; preds = %.lr.ph102
-  %64 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %64 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %64, ptr %61, align 8
   %.not83 = icmp eq ptr %64, null
   br i1 %.not83, label %65, label %68
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr @stderr, align 8
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2695) #26
+  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2695) #27
   br label %146
 
 68:                                               ; preds = %63
@@ -16235,7 +16235,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
 69:                                               ; preds = %68, %.lr.ph102
   %70 = phi i64 [ %.pre117, %68 ], [ %60, %.lr.ph102 ]
   %71 = phi ptr [ %64, %68 ], [ %62, %.lr.ph102 ]
-  %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #24
+  %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #25
   %73 = add i64 %72, 1
   %74 = tail call noundef i64 @llvm.umin.i64(i64 %73, i64 1024)
   %75 = add i64 %70, 8
@@ -16278,14 +16278,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
   br i1 %.not78, label %95, label %101
 
 95:                                               ; preds = %.lr.ph107
-  %96 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %96 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %96, ptr %93, align 8
   %.not79 = icmp eq ptr %96, null
   br i1 %.not79, label %97, label %100
 
 97:                                               ; preds = %95
   %98 = load ptr, ptr @stderr, align 8
-  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2716) #26
+  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2716) #27
   br label %146
 
 100:                                              ; preds = %95
@@ -16296,7 +16296,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
 101:                                              ; preds = %100, %.lr.ph107
   %102 = phi i64 [ %.pre118, %100 ], [ %92, %.lr.ph107 ]
   %103 = phi ptr [ %96, %100 ], [ %94, %.lr.ph107 ]
-  %104 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %103) #24
+  %104 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %103) #25
   %105 = add i64 %104, 1
   %106 = tail call noundef i64 @llvm.umin.i64(i64 %105, i64 1024)
   %107 = add i64 %106, %102
@@ -16307,14 +16307,14 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
   br i1 %.not80, label %110, label %116
 
 110:                                              ; preds = %101
-  %111 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %111 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %111, ptr %108, align 8
   %.not81 = icmp eq ptr %111, null
   br i1 %.not81, label %112, label %115
 
 112:                                              ; preds = %110
   %113 = load ptr, ptr @stderr, align 8
-  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2728) #26
+  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2728) #27
   br label %146
 
 115:                                              ; preds = %110
@@ -16325,7 +16325,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
 116:                                              ; preds = %115, %101
   %117 = phi i64 [ %.pre119, %115 ], [ %107, %101 ]
   %118 = phi ptr [ %111, %115 ], [ %109, %101 ]
-  %119 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #24
+  %119 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #25
   %120 = add i64 %119, 1
   %121 = tail call noundef i64 @llvm.umin.i64(i64 %120, i64 1024)
   %122 = add i64 %121, %117
@@ -16484,7 +16484,7 @@ switch.lookup:                                    ; preds = %11
   %.0494.us = phi i64 [ %61, %.lr.ph.us ], [ 0, %.lr.ph.us.preheader ]
   %56 = getelementptr inbounds ptr, ptr %50, i64 %.0494.us
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #24
+  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #25
   %59 = add i64 %58, 1
   %60 = add i64 %59, %55
   store i64 %60, ptr %8, align 8
@@ -16529,7 +16529,7 @@ switch.lookup:                                    ; preds = %11
   %.114 = phi i64 [ %83, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %78 = getelementptr inbounds ptr, ptr %75, i64 %.114
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #24
+  %80 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #25
   %81 = add i64 %80, 1
   %82 = add i64 %81, %77
   store i64 %82, ptr %8, align 8
@@ -16561,13 +16561,13 @@ switch.lookup:                                    ; preds = %11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @tng_reread_frame_set_at_file_pos(ptr noundef %0, i64 noundef %1) unnamed_addr #4 {
-  %3 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %3 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %tng_block_init.exit, label %tng_block_init.exit.thread
 
 tng_block_init.exit:                              ; preds = %2
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @fseeko64(ptr noundef %7, i64 noundef %1, i32 noundef 0)
@@ -16603,12 +16603,12 @@ tng_block_init.exit.thread:                       ; preds = %2
 
 .thread:                                          ; preds = %21
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.14, i64 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 1584) #26
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.14, i64 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 1584) #27
   br label %29
 
 26:                                               ; preds = %18
   %27 = load ptr, ptr @stderr, align 8
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.14, i64 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 1584) #26
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.14, i64 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 1584) #27
   br i1 %.not.i, label %tng_block_destroy.exit, label %29
 
 29:                                               ; preds = %.thread, %26
@@ -16618,7 +16618,7 @@ tng_block_init.exit.thread:                       ; preds = %2
   br i1 %.not16.i, label %33, label %32
 
 32:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %31) #23
+  tail call void @free(ptr noundef nonnull %31) #24
   store ptr null, ptr %30, align 8
   br label %33
 
@@ -16629,7 +16629,7 @@ tng_block_init.exit.thread:                       ; preds = %2
   br i1 %.not17.i, label %37, label %36
 
 36:                                               ; preds = %33
-  tail call void @free(ptr noundef nonnull %35) #23
+  tail call void @free(ptr noundef nonnull %35) #24
   store ptr null, ptr %34, align 8
   br label %37
 
@@ -16651,7 +16651,7 @@ tng_block_init.exit.thread:                       ; preds = %2
   br i1 %.not16.i16, label %44, label %43
 
 43:                                               ; preds = %42
-  tail call void @free(ptr noundef nonnull %.pre) #23
+  tail call void @free(ptr noundef nonnull %.pre) #24
   store ptr null, ptr %.phi.trans.insert, align 8
   br label %44
 
@@ -16662,7 +16662,7 @@ tng_block_init.exit.thread:                       ; preds = %2
   br i1 %.not17.i12, label %48, label %47
 
 47:                                               ; preds = %44
-  tail call void @free(ptr noundef nonnull %46) #23
+  tail call void @free(ptr noundef nonnull %46) #24
   store ptr null, ptr %45, align 8
   br label %48
 
@@ -16677,7 +16677,7 @@ tng_block_init.exit.thread:                       ; preds = %2
 
 51:                                               ; preds = %.thread28
   %52 = getelementptr inbounds i8, ptr %3, i64 40
-  tail call void @free(ptr noundef nonnull %.pre) #23
+  tail call void @free(ptr noundef nonnull %.pre) #24
   store ptr null, ptr %52, align 8
   br label %.thread28.thread
 
@@ -16688,7 +16688,7 @@ tng_block_init.exit.thread:                       ; preds = %2
   br i1 %.not17.i17, label %56, label %55
 
 55:                                               ; preds = %.thread28.thread
-  tail call void @free(ptr noundef nonnull %54) #23
+  tail call void @free(ptr noundef nonnull %54) #24
   store ptr null, ptr %53, align 8
   br label %56
 
@@ -16701,12 +16701,12 @@ tng_block_init.exit.thread:                       ; preds = %2
 tng_block_destroy.exit.sink.split.sink.split:     ; preds = %56, %48, %37
   %.sink = phi ptr [ %39, %37 ], [ %50, %48 ], [ %58, %56 ]
   %.0.ph.ph = phi i32 [ 1, %37 ], [ 2, %48 ], [ 0, %56 ]
-  tail call void @free(ptr noundef nonnull %.sink) #23
+  tail call void @free(ptr noundef nonnull %.sink) #24
   br label %tng_block_destroy.exit.sink.split
 
 tng_block_destroy.exit.sink.split:                ; preds = %tng_block_destroy.exit.sink.split.sink.split, %56, %48, %37
   %.0.ph = phi i32 [ 1, %37 ], [ 2, %48 ], [ 0, %56 ], [ %.0.ph.ph, %tng_block_destroy.exit.sink.split.sink.split ]
-  tail call void @free(ptr noundef nonnull %3) #23
+  tail call void @free(ptr noundef nonnull %3) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %tng_block_destroy.exit.sink.split, %tng_block_init.exit, %26
@@ -16742,7 +16742,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_write(ptr noundef %0,
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #26
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #27
   br label %tng_output_file_init.exit
 
 28:                                               ; preds = %22
@@ -16754,7 +16754,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_write(ptr noundef %0,
 30:                                               ; preds = %28
   %31 = load ptr, ptr @stderr, align 8
   %32 = load ptr, ptr %23, align 8
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.13, ptr noundef %32, ptr noundef nonnull @.str.1, i32 noundef 919) #26
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.13, ptr noundef %32, ptr noundef nonnull @.str.1, i32 noundef 919) #27
   br label %tng_output_file_init.exit
 
 34:                                               ; preds = %28, %6
@@ -16832,7 +16832,7 @@ switch.lookup:                                    ; preds = %72
   %.0260 = phi i64 [ %switch.load, %switch.lookup ], [ 8, %72 ]
   %78 = getelementptr inbounds i8, ptr %.0253, i64 8
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #24
+  %80 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #25
   %81 = add i64 %80, 1
   %82 = getelementptr inbounds i8, ptr %1, i64 40
   %83 = load ptr, ptr %82, align 8
@@ -16840,20 +16840,20 @@ switch.lookup:                                    ; preds = %72
   br i1 %.not275, label %87, label %84
 
 84:                                               ; preds = %77
-  %85 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #24
+  %85 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #25
   %86 = icmp ult i64 %85, %81
   br i1 %86, label %87, label %94
 
 87:                                               ; preds = %84, %77
-  %88 = tail call ptr @realloc(ptr noundef %83, i64 noundef %81) #27
+  %88 = tail call ptr @realloc(ptr noundef %83, i64 noundef %81) #28
   %.not276 = icmp eq ptr %88, null
   br i1 %.not276, label %89, label %93
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr @stderr, align 8
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5417) #26
+  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5417) #27
   %92 = load ptr, ptr %82, align 8
-  tail call void @free(ptr noundef %92) #23
+  tail call void @free(ptr noundef %92) #24
   store ptr null, ptr %82, align 8
   br label %tng_output_file_init.exit
 
@@ -16865,7 +16865,7 @@ switch.lookup:                                    ; preds = %72
 94:                                               ; preds = %93, %84
   %95 = phi ptr [ %.pre, %93 ], [ %79, %84 ]
   %96 = phi ptr [ %88, %93 ], [ %83, %84 ]
-  %97 = tail call ptr @strncpy(ptr noundef nonnull %96, ptr noundef %95, i64 noundef %81) #23
+  %97 = tail call ptr @strncpy(ptr noundef nonnull %96, ptr noundef %95, i64 noundef %81) #24
   %98 = load i64, ptr %.0253, align 8
   %99 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %98, ptr %99, align 8
@@ -17033,7 +17033,7 @@ switch.lookup436:                                 ; preds = %143
   %.114.i = phi i64 [ %181, %.lr.ph.i ], [ 0, %.lr.ph16.split.i ]
   %176 = getelementptr inbounds ptr, ptr %173, i64 %.114.i
   %177 = load ptr, ptr %176, align 8
-  %178 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %177) #24
+  %178 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %177) #25
   %179 = add i64 %175, 1
   %180 = add i64 %179, %178
   store i64 %180, ptr %144, align 8
@@ -17069,7 +17069,7 @@ tng_data_block_len_calculate.exit:                ; preds = %._crit_edge.i, %186
   %196 = load ptr, ptr @stderr, align 8
   %197 = getelementptr inbounds i8, ptr %0, i64 24
   %198 = load ptr, ptr %197, align 8
-  %199 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.63, ptr noundef %198, ptr noundef nonnull @.str.1, i32 noundef 5517) #26
+  %199 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.63, ptr noundef %198, ptr noundef nonnull @.str.1, i32 noundef 5517) #27
   br label %tng_output_file_init.exit
 
 200:                                              ; preds = %tng_data_block_len_calculate.exit
@@ -17077,7 +17077,7 @@ tng_data_block_len_calculate.exit:                ; preds = %._crit_edge.i, %186
   br i1 %201, label %202, label %.thread
 
 202:                                              ; preds = %200
-  call void @md5_init(ptr noundef nonnull %16) #23
+  call void @md5_init(ptr noundef nonnull %16) #24
   %203 = load ptr, ptr %20, align 8
   %204 = call i64 @fwrite(ptr noundef nonnull %73, i64 noundef 1, i64 noundef 1, ptr noundef %203)
   %.not39.i = icmp eq i64 %204, 1
@@ -17091,7 +17091,7 @@ tng_data_block_len_calculate.exit:                ; preds = %._crit_edge.i, %186
 
 tng_file_output_numerical.exit:                   ; preds = %202, %.thread
   %207 = load ptr, ptr @stderr, align 8
-  %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %207, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 5527) #26
+  %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %207, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 5527) #27
   br label %tng_output_file_init.exit
 
 .thread331:                                       ; preds = %.thread
@@ -17101,19 +17101,19 @@ tng_file_output_numerical.exit:                   ; preds = %202, %.thread
   br i1 %.not39.i315, label %215, label %tng_file_output_numerical.exit317
 
 .thread333:                                       ; preds = %202
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %73, i32 noundef 1) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %73, i32 noundef 1) #24
   %211 = load ptr, ptr %20, align 8
   %212 = call i64 @fwrite(ptr noundef nonnull %123, i64 noundef 1, i64 noundef 1, ptr noundef %211)
   %.not39.i315334 = icmp eq i64 %212, 1
   br i1 %.not39.i315334, label %.thread335, label %tng_file_output_numerical.exit317
 
 .thread335:                                       ; preds = %.thread333
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %123, i32 noundef 1) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %123, i32 noundef 1) #24
   br label %215
 
 tng_file_output_numerical.exit317:                ; preds = %.thread331, %.thread333
   %213 = load ptr, ptr @stderr, align 8
-  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 5534) #26
+  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 5534) #27
   br label %tng_output_file_init.exit
 
 215:                                              ; preds = %.thread331, %.thread335
@@ -17136,12 +17136,12 @@ tng_file_output_numerical.exit317:                ; preds = %.thread331, %.threa
   br i1 %201, label %224, label %tng_file_output_numerical.exit320.thread
 
 224:                                              ; preds = %223
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %14, i32 noundef 1) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %14, i32 noundef 1) #24
   br label %tng_file_output_numerical.exit320.thread
 
 tng_file_output_numerical.exit320:                ; preds = %218
   %225 = load ptr, ptr @stderr, align 8
-  %226 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %225, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 5550) #26
+  %226 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %225, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 5550) #27
   br label %tng_output_file_init.exit
 
 tng_file_output_numerical.exit320.thread:         ; preds = %224, %223, %215
@@ -17155,13 +17155,13 @@ tng_file_output_numerical.exit320.thread:         ; preds = %224, %223, %215
   br i1 %.not36.i, label %236, label %231
 
 231:                                              ; preds = %tng_file_output_numerical.exit320.thread
-  %232 = call i32 %230(ptr noundef nonnull %0, ptr noundef nonnull %8) #23
+  %232 = call i32 %230(ptr noundef nonnull %0, ptr noundef nonnull %8) #24
   %.not37.i = icmp eq i32 %232, 0
   br i1 %.not37.i, label %236, label %233
 
 233:                                              ; preds = %231
   %234 = load ptr, ptr @stderr, align 8
-  %235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %234, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5558) #26
+  %235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %234, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5558) #27
   br label %236
 
 236:                                              ; preds = %233, %231, %tng_file_output_numerical.exit320.thread
@@ -17174,12 +17174,12 @@ tng_file_output_numerical.exit320.thread:         ; preds = %224, %223, %215
   br i1 %201, label %240, label %243
 
 240:                                              ; preds = %239
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %8, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %8, i32 noundef 8) #24
   br label %243
 
 tng_file_output_numerical.exit322:                ; preds = %236
   %241 = load ptr, ptr @stderr, align 8
-  %242 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %241, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 5558) #26
+  %242 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %241, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 5558) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %tng_output_file_init.exit
 
@@ -17193,13 +17193,13 @@ tng_file_output_numerical.exit322:                ; preds = %236
   br i1 %.not36.i323, label %251, label %246
 
 246:                                              ; preds = %243
-  %247 = call i32 %245(ptr noundef nonnull %0, ptr noundef nonnull %7) #23
+  %247 = call i32 %245(ptr noundef nonnull %0, ptr noundef nonnull %7) #24
   %.not37.i324 = icmp eq i32 %247, 0
   br i1 %.not37.i324, label %251, label %248
 
 248:                                              ; preds = %246
   %249 = load ptr, ptr @stderr, align 8
-  %250 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %249, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5565) #26
+  %250 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %249, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5565) #27
   br label %251
 
 251:                                              ; preds = %248, %246, %243
@@ -17212,12 +17212,12 @@ tng_file_output_numerical.exit322:                ; preds = %236
   br i1 %201, label %255, label %258
 
 255:                                              ; preds = %254
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %7, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %7, i32 noundef 8) #24
   br label %258
 
 tng_file_output_numerical.exit327:                ; preds = %251
   %256 = load ptr, ptr @stderr, align 8
-  %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %256, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 5565) #26
+  %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %256, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 5565) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %tng_output_file_init.exit
 
@@ -17419,14 +17419,14 @@ tng_file_output_numerical.exit327:                ; preds = %251
   %.sink420 = mul nsw i64 %356, %358
   %359 = load i64, ptr %227, align 8
   %360 = mul nsw i64 %.sink420, %359
-  %361 = call noalias ptr @malloc(i64 noundef %360) #25
+  %361 = call noalias ptr @malloc(i64 noundef %360) #26
   store ptr %361, ptr %15, align 8
   %.not287 = icmp eq ptr %361, null
   br i1 %.not287, label %362, label %365
 
 362:                                              ; preds = %353
   %363 = load ptr, ptr @stderr, align 8
-  %364 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %363, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5671) #26
+  %364 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %363, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 5671) #27
   br label %tng_output_file_init.exit
 
 365:                                              ; preds = %353
@@ -17471,13 +17471,13 @@ tng_file_output_numerical.exit327:                ; preds = %251
   %.2358 = phi i64 [ %384, %383 ], [ 0, %373 ]
   %377 = load ptr, ptr %374, align 8
   %378 = getelementptr inbounds i8, ptr %361, i64 %.2358
-  %379 = call i32 %377(ptr noundef nonnull %0, ptr noundef nonnull %378) #23
+  %379 = call i32 %377(ptr noundef nonnull %0, ptr noundef nonnull %378) #24
   %.not301 = icmp eq i32 %379, 0
   br i1 %.not301, label %383, label %380
 
 380:                                              ; preds = %.lr.ph359
   %381 = load ptr, ptr @stderr, align 8
-  %382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %381, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5697) #26
+  %382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %381, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5697) #27
   br label %383
 
 383:                                              ; preds = %.lr.ph359, %380
@@ -17542,13 +17542,13 @@ tng_file_output_numerical.exit327:                ; preds = %251
   br i1 %.not298, label %416, label %411
 
 411:                                              ; preds = %.lr.ph361.split
-  %412 = call i32 %410(ptr noundef nonnull %0, ptr noundef nonnull %407) #23
+  %412 = call i32 %410(ptr noundef nonnull %0, ptr noundef nonnull %407) #24
   %.not299 = icmp eq i32 %412, 0
   br i1 %.not299, label %416, label %413
 
 413:                                              ; preds = %411
   %414 = load ptr, ptr @stderr, align 8
-  %415 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %414, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5717) #26
+  %415 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %414, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5717) #27
   br label %416
 
 416:                                              ; preds = %.lr.ph361.split, %411, %413
@@ -17567,13 +17567,13 @@ tng_file_output_numerical.exit327:                ; preds = %251
   %.4356 = phi i64 [ %429, %428 ], [ 0, %419 ]
   %422 = load ptr, ptr %229, align 8
   %423 = getelementptr inbounds i8, ptr %361, i64 %.4356
-  %424 = call i32 %422(ptr noundef nonnull %0, ptr noundef nonnull %423) #23
+  %424 = call i32 %422(ptr noundef nonnull %0, ptr noundef nonnull %423) #24
   %.not296 = icmp eq i32 %424, 0
   br i1 %.not296, label %428, label %425
 
 425:                                              ; preds = %.lr.ph357
   %426 = load ptr, ptr @stderr, align 8
-  %427 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %426, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5733) #26
+  %427 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %426, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5733) #27
   br label %428
 
 428:                                              ; preds = %.lr.ph357, %425
@@ -17598,13 +17598,13 @@ tng_file_output_numerical.exit327:                ; preds = %251
   %.5353 = phi i64 [ %442, %441 ], [ 0, %432 ]
   %435 = load ptr, ptr %229, align 8
   %436 = getelementptr inbounds i8, ptr %361, i64 %.5353
-  %437 = call i32 %435(ptr noundef nonnull %0, ptr noundef nonnull %436) #23
+  %437 = call i32 %435(ptr noundef nonnull %0, ptr noundef nonnull %436) #24
   %.not294 = icmp eq i32 %437, 0
   br i1 %.not294, label %441, label %438
 
 438:                                              ; preds = %.lr.ph
   %439 = load ptr, ptr @stderr, align 8
-  %440 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %439, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5751) #26
+  %440 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %439, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5751) #27
   br label %441
 
 441:                                              ; preds = %.lr.ph, %438
@@ -17660,13 +17660,13 @@ tng_file_output_numerical.exit327:                ; preds = %251
   br i1 %.not291, label %469, label %464
 
 464:                                              ; preds = %.lr.ph355.split
-  %465 = call i32 %463(ptr noundef nonnull %0, ptr noundef nonnull %460) #23
+  %465 = call i32 %463(ptr noundef nonnull %0, ptr noundef nonnull %460) #24
   %.not292 = icmp eq i32 %465, 0
   br i1 %.not292, label %469, label %466
 
 466:                                              ; preds = %464
   %467 = load ptr, ptr @stderr, align 8
-  %468 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %467, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5771) #26
+  %468 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %467, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5771) #27
   br label %469
 
 469:                                              ; preds = %.lr.ph355.split, %464, %466
@@ -17693,7 +17693,7 @@ thread-pre-split:                                 ; preds = %441, %469, %.lr.ph3
 
 475:                                              ; preds = %473
   %476 = load ptr, ptr @stderr, align 8
-  %477 = call i64 @fwrite(ptr nonnull @.str.72, i64 50, i64 1, ptr %476) #28
+  %477 = call i64 @fwrite(ptr nonnull @.str.72, i64 50, i64 1, ptr %476) #29
   br label %.sink.split422
 
 478:                                              ; preds = %.thread340, %473
@@ -17706,11 +17706,11 @@ thread-pre-split:                                 ; preds = %441, %469, %.lr.ph3
 
 482:                                              ; preds = %478
   %483 = load ptr, ptr @stderr, align 8
-  %484 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %483, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.1, i32 noundef 5801) #26
+  %484 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %483, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.1, i32 noundef 5801) #27
   store i64 0, ptr %116, align 8
   %485 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i8 noundef signext %5)
   %486 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %486) #23
+  call void @free(ptr noundef %486) #24
   br label %tng_output_file_init.exit
 
 487:                                              ; preds = %473
@@ -17720,7 +17720,7 @@ thread-pre-split:                                 ; preds = %441, %469, %.lr.ph3
 
 489:                                              ; preds = %487
   %490 = load ptr, ptr @stderr, align 8
-  %491 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %490, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.1, i32 noundef 5821) #26
+  %491 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %490, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.1, i32 noundef 5821) #27
   %492 = icmp eq i32 %488, 2
   br i1 %492, label %tng_output_file_init.exit, label %.sink.split422
 
@@ -17762,7 +17762,7 @@ thread-pre-split:                                 ; preds = %441, %469, %.lr.ph3
 
 513:                                              ; preds = %509
   %514 = load ptr, ptr @stderr, align 8
-  %515 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %514, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.1, i32 noundef 5848) #26
+  %515 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %514, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.1, i32 noundef 5848) #27
   br label %tng_output_file_init.exit
 
 516:                                              ; preds = %509
@@ -17770,11 +17770,11 @@ thread-pre-split:                                 ; preds = %441, %469, %.lr.ph3
 
 517:                                              ; preds = %516
   %518 = trunc i64 %494 to i32
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef %510, i32 noundef %518) #23
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef %510, i32 noundef %518) #24
   br label %519
 
 519:                                              ; preds = %517, %516
-  call void @free(ptr noundef %510) #23
+  call void @free(ptr noundef %510) #24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge367, %._crit_edge373, %.preheader.lr.ph, %.preheader344, %.preheader342, %294, %519
@@ -17782,7 +17782,7 @@ thread-pre-split:                                 ; preds = %441, %469, %.lr.ph3
 
 520:                                              ; preds = %.loopexit
   %521 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @md5_finish(ptr noundef nonnull %16, ptr noundef nonnull %521) #23
+  call void @md5_finish(ptr noundef nonnull %16, ptr noundef nonnull %521) #24
   %522 = load ptr, ptr %20, align 8
   %523 = call i64 @ftello64(ptr noundef %522)
   %524 = load ptr, ptr %20, align 8
@@ -17795,7 +17795,7 @@ thread-pre-split:                                 ; preds = %441, %469, %.lr.ph3
 
 529:                                              ; preds = %520
   %530 = load ptr, ptr @stderr, align 8
-  %531 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %530, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 5866) #26
+  %531 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %530, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 5866) #27
   br label %tng_output_file_init.exit
 
 532:                                              ; preds = %520
@@ -17837,15 +17837,15 @@ define internal fastcc range(i32 0, 3) i32 @tng_trajectory_mapping_block_read(pt
   %14 = getelementptr inbounds i8, ptr %0, i64 280
   %15 = load ptr, ptr %14, align 8
   %16 = mul i64 %13, 24
-  %17 = tail call ptr @realloc(ptr noundef %15, i64 noundef %16) #27
+  %17 = tail call ptr @realloc(ptr noundef %15, i64 noundef %16) #28
   %.not49 = icmp eq ptr %17, null
   br i1 %.not49, label %18, label %22
 
 18:                                               ; preds = %8
   %19 = load ptr, ptr @stderr, align 8
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3768) #26
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3768) #27
   %21 = load ptr, ptr %14, align 8
-  tail call void @free(ptr noundef %21) #23
+  tail call void @free(ptr noundef %21) #24
   store ptr null, ptr %14, align 8
   br label %120
 
@@ -17858,7 +17858,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_trajectory_mapping_block_read(pt
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %22
-  call void @md5_init(ptr noundef nonnull %5) #23
+  call void @md5_init(ptr noundef nonnull %5) #24
   %28 = load ptr, ptr %9, align 8
   %29 = call i64 @fread(ptr noundef %25, i64 noundef 8, i64 noundef 1, ptr noundef %28)
   %30 = icmp eq i64 %29, 0
@@ -17871,7 +17871,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_trajectory_mapping_block_read(pt
   br i1 %33, label %tng_file_input_numerical.exit.thread71, label %.thread68
 
 34:                                               ; preds = %27
-  call void @md5_append(ptr noundef nonnull %5, ptr noundef %25, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %5, ptr noundef %25, i32 noundef 8) #24
   br label %.thread68
 
 .thread68:                                        ; preds = %.thread, %34
@@ -17881,18 +17881,18 @@ define internal fastcc range(i32 0, 3) i32 @tng_trajectory_mapping_block_read(pt
   br i1 %.not22.i, label %tng_file_input_numerical.exit.thread, label %37
 
 37:                                               ; preds = %.thread68
-  %38 = call i32 %36(ptr noundef nonnull %0, ptr noundef %25) #23
+  %38 = call i32 %36(ptr noundef nonnull %0, ptr noundef %25) #24
   %.not23.i = icmp eq i32 %38, 0
   br i1 %.not23.i, label %tng_file_input_numerical.exit.thread, label %tng_file_input_numerical.exit
 
 tng_file_input_numerical.exit.thread71:           ; preds = %27, %.thread
   %39 = load ptr, ptr @stderr, align 8
-  %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3783) #26
+  %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3783) #27
   br label %120
 
 tng_file_input_numerical.exit:                    ; preds = %37
   %41 = load ptr, ptr @stderr, align 8
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3783) #26
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3783) #27
   br label %tng_file_input_numerical.exit.thread
 
 tng_file_input_numerical.exit.thread:             ; preds = %37, %.thread68, %tng_file_input_numerical.exit
@@ -17904,14 +17904,14 @@ tng_file_input_numerical.exit.thread:             ; preds = %37, %.thread68, %tn
 
 tng_file_input_numerical.exit60.thread75:         ; preds = %tng_file_input_numerical.exit.thread
   %47 = load ptr, ptr @stderr, align 8
-  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3790) #26
+  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3790) #27
   br label %120
 
 49:                                               ; preds = %tng_file_input_numerical.exit.thread
   br i1 %26, label %50, label %51
 
 50:                                               ; preds = %49
-  call void @md5_append(ptr noundef nonnull %5, ptr noundef %43, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %5, ptr noundef %43, i32 noundef 8) #24
   br label %51
 
 51:                                               ; preds = %50, %49
@@ -17920,19 +17920,19 @@ tng_file_input_numerical.exit60.thread75:         ; preds = %tng_file_input_nume
   br i1 %.not22.i54, label %tng_file_input_numerical.exit60.thread, label %53
 
 53:                                               ; preds = %51
-  %54 = call i32 %52(ptr noundef nonnull %0, ptr noundef %43) #23
+  %54 = call i32 %52(ptr noundef nonnull %0, ptr noundef %43) #24
   %.not23.i55 = icmp eq i32 %54, 0
   br i1 %.not23.i55, label %tng_file_input_numerical.exit60.thread, label %tng_file_input_numerical.exit60
 
 tng_file_input_numerical.exit60:                  ; preds = %53
   %55 = load ptr, ptr @stderr, align 8
-  %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3790) #26
+  %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3790) #27
   br label %tng_file_input_numerical.exit60.thread
 
 tng_file_input_numerical.exit60.thread:           ; preds = %53, %51, %tng_file_input_numerical.exit60
   %57 = load i64, ptr %43, align 8
   %58 = shl i64 %57, 3
-  %59 = call noalias ptr @malloc(i64 noundef %58) #25
+  %59 = call noalias ptr @malloc(i64 noundef %58) #26
   %60 = getelementptr i8, ptr %24, i64 -8
   store ptr %59, ptr %60, align 8
   %.not50 = icmp eq ptr %59, null
@@ -17940,7 +17940,7 @@ tng_file_input_numerical.exit60.thread:           ; preds = %53, %51, %tng_file_
 
 61:                                               ; preds = %tng_file_input_numerical.exit60.thread
   %62 = load ptr, ptr @stderr, align 8
-  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3799) #26
+  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3799) #27
   br label %120
 
 64:                                               ; preds = %tng_file_input_numerical.exit60.thread
@@ -17965,19 +17965,19 @@ tng_file_input_numerical.exit60.thread:           ; preds = %53, %51, %tng_file_
   br i1 %71, label %tng_file_input_numerical.exit67.thread79, label %72
 
 72:                                               ; preds = %.lr.ph.split.us
-  call void @md5_append(ptr noundef nonnull %5, ptr noundef %68, i32 noundef 8) #23
+  call void @md5_append(ptr noundef nonnull %5, ptr noundef %68, i32 noundef 8) #24
   %73 = load ptr, ptr %35, align 8
   %.not22.i61.us = icmp eq ptr %73, null
   br i1 %.not22.i61.us, label %tng_file_input_numerical.exit67.thread.us, label %74
 
 74:                                               ; preds = %72
-  %75 = call i32 %73(ptr noundef nonnull %0, ptr noundef %68) #23
+  %75 = call i32 %73(ptr noundef nonnull %0, ptr noundef %68) #24
   %.not23.i62.us = icmp eq i32 %75, 0
   br i1 %.not23.i62.us, label %tng_file_input_numerical.exit67.thread.us, label %tng_file_input_numerical.exit67.us
 
 tng_file_input_numerical.exit67.us:               ; preds = %74
   %76 = load ptr, ptr @stderr, align 8
-  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3810) #26
+  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3810) #27
   br label %tng_file_input_numerical.exit67.thread.us
 
 tng_file_input_numerical.exit67.thread.us:        ; preds = %tng_file_input_numerical.exit67.us, %74, %72
@@ -17997,7 +17997,7 @@ tng_file_input_numerical.exit67.thread.us:        ; preds = %tng_file_input_nume
 
 tng_file_input_numerical.exit67.thread79:         ; preds = %.lr.ph.split, %.lr.ph.split.us
   %86 = load ptr, ptr @stderr, align 8
-  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3810) #26
+  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3810) #27
   br label %120
 
 88:                                               ; preds = %.lr.ph.split
@@ -18006,13 +18006,13 @@ tng_file_input_numerical.exit67.thread79:         ; preds = %.lr.ph.split, %.lr.
   br i1 %.not22.i61, label %tng_file_input_numerical.exit67.thread, label %90
 
 90:                                               ; preds = %88
-  %91 = call i32 %89(ptr noundef nonnull %0, ptr noundef %82) #23
+  %91 = call i32 %89(ptr noundef nonnull %0, ptr noundef %82) #24
   %.not23.i62 = icmp eq i32 %91, 0
   br i1 %.not23.i62, label %tng_file_input_numerical.exit67.thread, label %tng_file_input_numerical.exit67
 
 tng_file_input_numerical.exit67:                  ; preds = %90
   %92 = load ptr, ptr @stderr, align 8
-  %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3810) #26
+  %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 3810) #27
   br label %tng_file_input_numerical.exit67.thread
 
 tng_file_input_numerical.exit67.thread:           ; preds = %90, %88, %tng_file_input_numerical.exit67
@@ -18029,7 +18029,7 @@ tng_file_input_numerical.exit67.thread:           ; preds = %90, %88, %tng_file_
 
 101:                                              ; preds = %97
   %102 = load ptr, ptr @stderr, align 8
-  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3823) #26
+  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 3823) #27
   br label %120
 
 104:                                              ; preds = %97
@@ -18040,7 +18040,7 @@ tng_file_input_numerical.exit67.thread:           ; preds = %90, %88, %tng_file_
   %106 = load i64, ptr %43, align 8
   %.tr = trunc i64 %106 to i32
   %107 = shl i32 %.tr, 3
-  call void @md5_append(ptr noundef nonnull %5, ptr noundef %105, i32 noundef %107) #23
+  call void @md5_append(ptr noundef nonnull %5, ptr noundef %105, i32 noundef %107) #24
   br label %108
 
 ._crit_edge:                                      ; preds = %tng_file_input_numerical.exit67.thread, %tng_file_input_numerical.exit67.thread.us, %.preheader
@@ -18048,20 +18048,20 @@ tng_file_input_numerical.exit67.thread:           ; preds = %90, %88, %tng_file_
 
 108:                                              ; preds = %.thread82, %._crit_edge
   call fastcc void @tng_md5_remaining_append(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %11, ptr noundef nonnull %5)
-  call void @md5_finish(ptr noundef nonnull %5, ptr noundef nonnull %4) #23
+  call void @md5_finish(ptr noundef nonnull %5, ptr noundef nonnull %4) #24
   %109 = getelementptr inbounds i8, ptr %1, i64 24
   %strcmpload = load i8, ptr %109, align 1
   %.not52 = icmp eq i8 %strcmpload, 0
   br i1 %.not52, label %120, label %110
 
 110:                                              ; preds = %108
-  %111 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 16) #24
+  %111 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 16) #25
   %.not53 = icmp eq i32 %111, 0
   br i1 %.not53, label %120, label %112
 
 112:                                              ; preds = %110
   %113 = load ptr, ptr @stderr, align 8
-  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.1, i32 noundef 3848) #26
+  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.1, i32 noundef 3848) #27
   br label %120
 
 .critedge:                                        ; preds = %104, %._crit_edge
@@ -18088,14 +18088,14 @@ define range(i32 0, 3) i32 @tng_frame_set_read(ptr noundef %0, i8 noundef signex
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @ftello64(ptr noundef %7)
-  %9 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %9 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %9, ptr %3, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %13
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 13:                                               ; preds = %5
@@ -18123,12 +18123,12 @@ tng_block_init.exit:                              ; preds = %10, %13
 
 .thread:                                          ; preds = %20
   %23 = load ptr, ptr @stderr, align 8
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.14, i64 noundef %8, ptr noundef nonnull @.str.1, i32 noundef 11138) #26
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.14, i64 noundef %8, ptr noundef nonnull @.str.1, i32 noundef 11138) #27
   br label %28
 
 25:                                               ; preds = %tng_block_init.exit
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.14, i64 noundef %8, ptr noundef nonnull @.str.1, i32 noundef 11138) #26
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.14, i64 noundef %8, ptr noundef nonnull @.str.1, i32 noundef 11138) #27
   br i1 %.not.i, label %tng_block_destroy.exit, label %28
 
 28:                                               ; preds = %.thread, %25
@@ -18138,7 +18138,7 @@ tng_block_init.exit:                              ; preds = %10, %13
   br i1 %.not16.i, label %32, label %31
 
 31:                                               ; preds = %28
-  tail call void @free(ptr noundef nonnull %30) #23
+  tail call void @free(ptr noundef nonnull %30) #24
   store ptr null, ptr %29, align 8
   br label %32
 
@@ -18149,7 +18149,7 @@ tng_block_init.exit:                              ; preds = %10, %13
   br i1 %.not17.i, label %36, label %35
 
 35:                                               ; preds = %32
-  tail call void @free(ptr noundef nonnull %34) #23
+  tail call void @free(ptr noundef nonnull %34) #24
   store ptr null, ptr %33, align 8
   br label %36
 
@@ -18160,11 +18160,11 @@ tng_block_init.exit:                              ; preds = %10, %13
   br i1 %.not18.i, label %40, label %39
 
 39:                                               ; preds = %36
-  tail call void @free(ptr noundef nonnull %38) #23
+  tail call void @free(ptr noundef nonnull %38) #24
   br label %40
 
 40:                                               ; preds = %39, %36
-  tail call void @free(ptr noundef nonnull %9) #23
+  tail call void @free(ptr noundef nonnull %9) #24
   br label %tng_block_destroy.exit
 
 41:                                               ; preds = %20
@@ -18230,7 +18230,7 @@ tng_block_init.exit:                              ; preds = %10, %13
 .critedge.thread60:                               ; preds = %57, %.critedge
   %.028.lcssa63 = phi i64 [ %.028.lcssa, %.critedge ], [ %.02850, %57 ]
   %71 = load ptr, ptr @stderr, align 8
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.14, i64 noundef %.028.lcssa63, ptr noundef nonnull @.str.1, i32 noundef 11167) #26
+  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.14, i64 noundef %.028.lcssa63, ptr noundef nonnull @.str.1, i32 noundef 11167) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %3)
   br label %tng_block_destroy.exit
 
@@ -18256,7 +18256,7 @@ tng_block_init.exit:                              ; preds = %10, %13
   br i1 %.not16.i42, label %82, label %81
 
 81:                                               ; preds = %78
-  tail call void @free(ptr noundef nonnull %80) #23
+  tail call void @free(ptr noundef nonnull %80) #24
   store ptr null, ptr %79, align 8
   br label %82
 
@@ -18267,7 +18267,7 @@ tng_block_init.exit:                              ; preds = %10, %13
   br i1 %.not17.i43, label %86, label %85
 
 85:                                               ; preds = %82
-  tail call void @free(ptr noundef nonnull %84) #23
+  tail call void @free(ptr noundef nonnull %84) #24
   store ptr null, ptr %83, align 8
   br label %86
 
@@ -18278,11 +18278,11 @@ tng_block_init.exit:                              ; preds = %10, %13
   br i1 %.not18.i44, label %tng_block_destroy.exit45, label %89
 
 89:                                               ; preds = %86
-  tail call void @free(ptr noundef nonnull %88) #23
+  tail call void @free(ptr noundef nonnull %88) #24
   br label %tng_block_destroy.exit45
 
 tng_block_destroy.exit45:                         ; preds = %86, %89
-  tail call void @free(ptr noundef nonnull %9) #23
+  tail call void @free(ptr noundef nonnull %9) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %40, %25, %2, %tng_block_destroy.exit45, %.critedge.thread60
@@ -18317,14 +18317,14 @@ define i32 @tng_frame_set_read_current_only_data_from_block_id(ptr noundef %0, i
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @fseeko64(ptr noundef %17, i64 noundef %.043, i32 noundef 0)
-  %19 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %19 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %19, ptr %4, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %20, label %23
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 23:                                               ; preds = %15
@@ -18352,12 +18352,12 @@ tng_block_init.exit:                              ; preds = %20, %23
 
 .thread:                                          ; preds = %30
   %33 = load ptr, ptr @stderr, align 8
-  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.14, i64 noundef %.043, ptr noundef nonnull @.str.1, i32 noundef 11227) #26
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.14, i64 noundef %.043, ptr noundef nonnull @.str.1, i32 noundef 11227) #27
   br label %38
 
 35:                                               ; preds = %tng_block_init.exit
   %36 = load ptr, ptr @stderr, align 8
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.14, i64 noundef %.043, ptr noundef nonnull @.str.1, i32 noundef 11227) #26
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.14, i64 noundef %.043, ptr noundef nonnull @.str.1, i32 noundef 11227) #27
   br i1 %.not.i, label %tng_block_destroy.exit, label %38
 
 38:                                               ; preds = %.thread, %35
@@ -18367,7 +18367,7 @@ tng_block_init.exit:                              ; preds = %20, %23
   br i1 %.not16.i, label %42, label %41
 
 41:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %40) #23
+  tail call void @free(ptr noundef nonnull %40) #24
   store ptr null, ptr %39, align 8
   br label %42
 
@@ -18378,7 +18378,7 @@ tng_block_init.exit:                              ; preds = %20, %23
   br i1 %.not17.i, label %46, label %45
 
 45:                                               ; preds = %42
-  tail call void @free(ptr noundef nonnull %44) #23
+  tail call void @free(ptr noundef nonnull %44) #24
   store ptr null, ptr %43, align 8
   br label %46
 
@@ -18389,11 +18389,11 @@ tng_block_init.exit:                              ; preds = %20, %23
   br i1 %.not18.i, label %50, label %49
 
 49:                                               ; preds = %46
-  tail call void @free(ptr noundef nonnull %48) #23
+  tail call void @free(ptr noundef nonnull %48) #24
   br label %50
 
 50:                                               ; preds = %49, %46
-  tail call void @free(ptr noundef nonnull %19) #23
+  tail call void @free(ptr noundef nonnull %19) #24
   br label %tng_block_destroy.exit
 
 51:                                               ; preds = %30
@@ -18413,7 +18413,7 @@ tng_block_init.exit:                              ; preds = %20, %23
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr @stderr, align 8
-  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 11242) #26
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 11242) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %tng_block_destroy.exit
 
@@ -18497,7 +18497,7 @@ tng_block_init.exit:                              ; preds = %20, %23
 .critedge.thread91:                               ; preds = %75, %.critedge
   %.144.lcssa95 = phi i64 [ %.144.lcssa, %.critedge ], [ %.14475, %75 ]
   %100 = load ptr, ptr @stderr, align 8
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.14, i64 noundef %.144.lcssa95, ptr noundef nonnull @.str.1, i32 noundef 11283) #26
+  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.14, i64 noundef %.144.lcssa95, ptr noundef nonnull @.str.1, i32 noundef 11283) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %tng_block_destroy.exit
 
@@ -18524,7 +18524,7 @@ tng_block_init.exit:                              ; preds = %20, %23
   br i1 %.not16.i65, label %111, label %110
 
 110:                                              ; preds = %107
-  tail call void @free(ptr noundef nonnull %109) #23
+  tail call void @free(ptr noundef nonnull %109) #24
   store ptr null, ptr %108, align 8
   br label %111
 
@@ -18535,7 +18535,7 @@ tng_block_init.exit:                              ; preds = %20, %23
   br i1 %.not17.i66, label %115, label %114
 
 114:                                              ; preds = %111
-  tail call void @free(ptr noundef nonnull %113) #23
+  tail call void @free(ptr noundef nonnull %113) #24
   store ptr null, ptr %112, align 8
   br label %115
 
@@ -18546,11 +18546,11 @@ tng_block_init.exit:                              ; preds = %20, %23
   br i1 %.not18.i67, label %tng_block_destroy.exit68, label %118
 
 118:                                              ; preds = %115
-  tail call void @free(ptr noundef nonnull %117) #23
+  tail call void @free(ptr noundef nonnull %117) #24
   br label %tng_block_destroy.exit68
 
 tng_block_destroy.exit68:                         ; preds = %115, %118
-  tail call void @free(ptr noundef nonnull %19) #23
+  tail call void @free(ptr noundef nonnull %19) #24
   %.not61 = icmp eq i32 %.170, 0
   %. = zext i1 %.not61 to i32
   br label %tng_block_destroy.exit
@@ -18632,13 +18632,13 @@ define i32 @tng_frame_set_read_next_only_data_from_block_id(ptr noundef %0, i8 n
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @fseeko64(ptr noundef %20, i64 noundef %.019, i32 noundef 0)
-  %22 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %22 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %23, label %26
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 26:                                               ; preds = %18
@@ -18666,12 +18666,12 @@ tng_block_init.exit:                              ; preds = %23, %26
 
 .thread37:                                        ; preds = %33
   %36 = load ptr, ptr @stderr, align 8
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.14, i64 noundef %.019, ptr noundef nonnull @.str.1, i32 noundef 11375) #26
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.14, i64 noundef %.019, ptr noundef nonnull @.str.1, i32 noundef 11375) #27
   br label %41
 
 38:                                               ; preds = %tng_block_init.exit
   %39 = load ptr, ptr @stderr, align 8
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.14, i64 noundef %.019, ptr noundef nonnull @.str.1, i32 noundef 11375) #26
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.14, i64 noundef %.019, ptr noundef nonnull @.str.1, i32 noundef 11375) #27
   br i1 %.not.i, label %tng_block_destroy.exit, label %41
 
 41:                                               ; preds = %.thread37, %38
@@ -18681,7 +18681,7 @@ tng_block_init.exit:                              ; preds = %23, %26
   br i1 %.not16.i, label %45, label %44
 
 44:                                               ; preds = %41
-  tail call void @free(ptr noundef nonnull %43) #23
+  tail call void @free(ptr noundef nonnull %43) #24
   store ptr null, ptr %42, align 8
   br label %45
 
@@ -18692,7 +18692,7 @@ tng_block_init.exit:                              ; preds = %23, %26
   br i1 %.not17.i, label %49, label %48
 
 48:                                               ; preds = %45
-  tail call void @free(ptr noundef nonnull %47) #23
+  tail call void @free(ptr noundef nonnull %47) #24
   store ptr null, ptr %46, align 8
   br label %49
 
@@ -18721,7 +18721,7 @@ tng_block_init.exit:                              ; preds = %23, %26
   br i1 %.not16.i26, label %62, label %61
 
 61:                                               ; preds = %58
-  tail call void @free(ptr noundef nonnull %60) #23
+  tail call void @free(ptr noundef nonnull %60) #24
   store ptr null, ptr %59, align 8
   br label %62
 
@@ -18732,7 +18732,7 @@ tng_block_init.exit:                              ; preds = %23, %26
   br i1 %.not17.i27, label %66, label %65
 
 65:                                               ; preds = %62
-  tail call void @free(ptr noundef nonnull %64) #23
+  tail call void @free(ptr noundef nonnull %64) #24
   store ptr null, ptr %63, align 8
   br label %66
 
@@ -18745,12 +18745,12 @@ tng_block_init.exit:                              ; preds = %23, %26
 tng_block_destroy.exit.sink.split.sink.split:     ; preds = %66, %49
   %.sink = phi ptr [ %51, %49 ], [ %68, %66 ]
   %.020.ph.ph = phi i32 [ 2, %49 ], [ %.0, %66 ]
-  tail call void @free(ptr noundef nonnull %.sink) #23
+  tail call void @free(ptr noundef nonnull %.sink) #24
   br label %tng_block_destroy.exit.sink.split
 
 tng_block_destroy.exit.sink.split:                ; preds = %tng_block_destroy.exit.sink.split.sink.split, %66, %49
   %.020.ph = phi i32 [ 2, %49 ], [ %.0, %66 ], [ %.020.ph.ph, %tng_block_destroy.exit.sink.split.sink.split ]
-  tail call void @free(ptr noundef nonnull %22) #23
+  tail call void @free(ptr noundef nonnull %22) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %tng_block_destroy.exit.sink.split, %9, %38, %16, %3
@@ -18776,7 +18776,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_header_pointers_update(ptr nound
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #26
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #27
   br label %tng_output_file_init.exit
 
 14:                                               ; preds = %8
@@ -18788,24 +18788,24 @@ define internal fastcc range(i32 0, 3) i32 @tng_header_pointers_update(ptr nound
 16:                                               ; preds = %14
   %17 = load ptr, ptr @stderr, align 8
   %18 = load ptr, ptr %9, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.13, ptr noundef %18, ptr noundef nonnull @.str.1, i32 noundef 919) #26
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.13, ptr noundef %18, ptr noundef nonnull @.str.1, i32 noundef 919) #27
   br label %tng_output_file_init.exit
 
 tng_output_file_init.exit:                        ; preds = %16, %11
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 1225) #26
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 1225) #27
   br label %tng_block_destroy.exit
 
 22:                                               ; preds = %14, %2
   %23 = phi ptr [ %15, %14 ], [ %7, %2 ]
   store ptr %23, ptr %4, align 8
-  %24 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %24 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i37 = icmp eq ptr %24, null
   br i1 %.not.i37, label %25, label %28
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   %.pre = load ptr, ptr %6, align 8
   br label %tng_block_init.exit
 
@@ -18832,7 +18832,7 @@ tng_block_init.exit:                              ; preds = %25, %28
 
 38:                                               ; preds = %tng_block_init.exit
   %39 = load ptr, ptr @stderr, align 8
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.1, i32 noundef 1238) #26
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.1, i32 noundef 1238) #27
   store ptr %5, ptr %4, align 8
   br i1 %.not.i37, label %tng_block_destroy.exit, label %41
 
@@ -18843,7 +18843,7 @@ tng_block_init.exit:                              ; preds = %25, %28
   br i1 %.not16.i, label %45, label %44
 
 44:                                               ; preds = %41
-  tail call void @free(ptr noundef nonnull %43) #23
+  tail call void @free(ptr noundef nonnull %43) #24
   store ptr null, ptr %42, align 8
   br label %45
 
@@ -18854,7 +18854,7 @@ tng_block_init.exit:                              ; preds = %25, %28
   br i1 %.not17.i, label %49, label %48
 
 48:                                               ; preds = %45
-  tail call void @free(ptr noundef nonnull %47) #23
+  tail call void @free(ptr noundef nonnull %47) #24
   store ptr null, ptr %46, align 8
   br label %49
 
@@ -18865,11 +18865,11 @@ tng_block_init.exit:                              ; preds = %25, %28
   br i1 %.not18.i, label %53, label %52
 
 52:                                               ; preds = %49
-  tail call void @free(ptr noundef nonnull %51) #23
+  tail call void @free(ptr noundef nonnull %51) #24
   br label %53
 
 53:                                               ; preds = %52, %49
-  tail call void @free(ptr noundef nonnull %24) #23
+  tail call void @free(ptr noundef nonnull %24) #24
   br label %tng_block_destroy.exit
 
 54:                                               ; preds = %tng_block_init.exit
@@ -18890,13 +18890,13 @@ tng_block_init.exit:                              ; preds = %25, %28
   br i1 %.not31, label %71, label %66
 
 66:                                               ; preds = %54
-  %67 = call i32 %65(ptr noundef nonnull %0, ptr noundef nonnull %3) #23
+  %67 = call i32 %65(ptr noundef nonnull %0, ptr noundef nonnull %3) #24
   %.not32 = icmp eq i32 %67, 0
   br i1 %.not32, label %71, label %68
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr @stderr, align 8
-  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1256) #26
+  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1256) #27
   br label %71
 
 71:                                               ; preds = %66, %68, %54
@@ -18912,7 +18912,7 @@ tng_block_init.exit:                              ; preds = %25, %28
   br i1 %.not16.i41, label %78, label %77
 
 77:                                               ; preds = %74
-  call void @free(ptr noundef nonnull %76) #23
+  call void @free(ptr noundef nonnull %76) #24
   store ptr null, ptr %75, align 8
   br label %78
 
@@ -18923,7 +18923,7 @@ tng_block_init.exit:                              ; preds = %25, %28
   br i1 %.not17.i42, label %82, label %81
 
 81:                                               ; preds = %78
-  call void @free(ptr noundef nonnull %80) #23
+  call void @free(ptr noundef nonnull %80) #24
   store ptr null, ptr %79, align 8
   br label %82
 
@@ -18934,11 +18934,11 @@ tng_block_init.exit:                              ; preds = %25, %28
   br i1 %.not18.i43, label %tng_block_destroy.exit44, label %85
 
 85:                                               ; preds = %82
-  call void @free(ptr noundef nonnull %84) #23
+  call void @free(ptr noundef nonnull %84) #24
   br label %tng_block_destroy.exit44
 
 tng_block_destroy.exit44:                         ; preds = %82, %85
-  call void @free(ptr noundef nonnull %24) #23
+  call void @free(ptr noundef nonnull %24) #24
   br label %tng_block_destroy.exit
 
 86:                                               ; preds = %71
@@ -18950,13 +18950,13 @@ tng_block_destroy.exit44:                         ; preds = %82, %85
   br i1 %.not34, label %95, label %90
 
 90:                                               ; preds = %86
-  %91 = call i32 %89(ptr noundef nonnull %0, ptr noundef nonnull %3) #23
+  %91 = call i32 %89(ptr noundef nonnull %0, ptr noundef nonnull %3) #24
   %.not35 = icmp eq i32 %91, 0
   br i1 %.not35, label %95, label %92
 
 92:                                               ; preds = %90
   %93 = load ptr, ptr @stderr, align 8
-  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1272) #26
+  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1272) #27
   br label %95
 
 95:                                               ; preds = %90, %92, %86
@@ -18972,7 +18972,7 @@ tng_block_destroy.exit44:                         ; preds = %82, %85
   br i1 %.not16.i46, label %102, label %101
 
 101:                                              ; preds = %98
-  call void @free(ptr noundef nonnull %100) #23
+  call void @free(ptr noundef nonnull %100) #24
   store ptr null, ptr %99, align 8
   br label %102
 
@@ -18983,7 +18983,7 @@ tng_block_destroy.exit44:                         ; preds = %82, %85
   br i1 %.not17.i47, label %106, label %105
 
 105:                                              ; preds = %102
-  call void @free(ptr noundef nonnull %104) #23
+  call void @free(ptr noundef nonnull %104) #24
   store ptr null, ptr %103, align 8
   br label %106
 
@@ -18994,11 +18994,11 @@ tng_block_destroy.exit44:                         ; preds = %82, %85
   br i1 %.not18.i48, label %tng_block_destroy.exit49, label %109
 
 109:                                              ; preds = %106
-  call void @free(ptr noundef nonnull %108) #23
+  call void @free(ptr noundef nonnull %108) #24
   br label %tng_block_destroy.exit49
 
 tng_block_destroy.exit49:                         ; preds = %106, %109
-  call void @free(ptr noundef nonnull %24) #23
+  call void @free(ptr noundef nonnull %24) #24
   br label %tng_block_destroy.exit
 
 110:                                              ; preds = %95
@@ -19016,7 +19016,7 @@ tng_block_destroy.exit49:                         ; preds = %106, %109
   br i1 %.not16.i51, label %117, label %116
 
 116:                                              ; preds = %113
-  call void @free(ptr noundef nonnull %115) #23
+  call void @free(ptr noundef nonnull %115) #24
   store ptr null, ptr %114, align 8
   br label %117
 
@@ -19027,7 +19027,7 @@ tng_block_destroy.exit49:                         ; preds = %106, %109
   br i1 %.not17.i52, label %121, label %120
 
 120:                                              ; preds = %117
-  call void @free(ptr noundef nonnull %119) #23
+  call void @free(ptr noundef nonnull %119) #24
   store ptr null, ptr %118, align 8
   br label %121
 
@@ -19038,11 +19038,11 @@ tng_block_destroy.exit49:                         ; preds = %106, %109
   br i1 %.not18.i53, label %tng_block_destroy.exit54, label %124
 
 124:                                              ; preds = %121
-  call void @free(ptr noundef nonnull %123) #23
+  call void @free(ptr noundef nonnull %123) #24
   br label %tng_block_destroy.exit54
 
 tng_block_destroy.exit54:                         ; preds = %121, %124
-  call void @free(ptr noundef nonnull %24) #23
+  call void @free(ptr noundef nonnull %24) #24
   %125 = load ptr, ptr %6, align 8
   %126 = call i32 @fseeko64(ptr noundef %125, i64 noundef %34, i32 noundef 0)
   br label %tng_block_destroy.exit
@@ -19071,7 +19071,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_frame_set_pointers_update(ptr no
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #26
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #27
   br label %tng_output_file_init.exit
 
 15:                                               ; preds = %9
@@ -19083,24 +19083,24 @@ define internal fastcc range(i32 0, 3) i32 @tng_frame_set_pointers_update(ptr no
 17:                                               ; preds = %15
   %18 = load ptr, ptr @stderr, align 8
   %19 = load ptr, ptr %10, align 8
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.13, ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 919) #26
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.13, ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 919) #27
   br label %tng_output_file_init.exit
 
 tng_output_file_init.exit:                        ; preds = %17, %12
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 1313) #26
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 1313) #27
   br label %tng_block_destroy.exit
 
 23:                                               ; preds = %15, %2
   %24 = phi ptr [ %16, %15 ], [ %8, %2 ]
-  %25 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %25 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %25, ptr %3, align 8
   %.not.i155 = icmp eq ptr %25, null
   br i1 %.not.i155, label %26, label %29
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr @stderr, align 8
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   %.pre = load ptr, ptr %7, align 8
   br label %tng_block_init.exit
 
@@ -19137,7 +19137,7 @@ tng_block_init.exit:                              ; preds = %26, %29
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr @stderr, align 8
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.1, i32 noundef 1333) #26
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.1, i32 noundef 1333) #27
   store ptr %6, ptr %5, align 8
   br i1 %.not.i155, label %tng_block_destroy.exit, label %48
 
@@ -19148,7 +19148,7 @@ tng_block_init.exit:                              ; preds = %26, %29
   br i1 %.not16.i, label %52, label %51
 
 51:                                               ; preds = %48
-  tail call void @free(ptr noundef nonnull %50) #23
+  tail call void @free(ptr noundef nonnull %50) #24
   store ptr null, ptr %49, align 8
   br label %52
 
@@ -19159,7 +19159,7 @@ tng_block_init.exit:                              ; preds = %26, %29
   br i1 %.not17.i, label %56, label %55
 
 55:                                               ; preds = %52
-  tail call void @free(ptr noundef nonnull %54) #23
+  tail call void @free(ptr noundef nonnull %54) #24
   store ptr null, ptr %53, align 8
   br label %56
 
@@ -19170,11 +19170,11 @@ tng_block_init.exit:                              ; preds = %26, %29
   br i1 %.not18.i, label %60, label %59
 
 59:                                               ; preds = %56
-  tail call void @free(ptr noundef nonnull %58) #23
+  tail call void @free(ptr noundef nonnull %58) #24
   br label %60
 
 60:                                               ; preds = %59, %56
-  tail call void @free(ptr noundef nonnull %25) #23
+  tail call void @free(ptr noundef nonnull %25) #24
   br label %tng_block_destroy.exit
 
 61:                                               ; preds = %42
@@ -19191,13 +19191,13 @@ tng_block_init.exit:                              ; preds = %26, %29
   br i1 %.not132, label %76, label %71
 
 71:                                               ; preds = %61
-  %72 = call i32 %70(ptr noundef nonnull %0, ptr noundef nonnull %4) #23
+  %72 = call i32 %70(ptr noundef nonnull %0, ptr noundef nonnull %4) #24
   %.not133 = icmp eq i32 %72, 0
   br i1 %.not133, label %76, label %73
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr @stderr, align 8
-  %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1348) #26
+  %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1348) #27
   br label %76
 
 76:                                               ; preds = %71, %73, %61
@@ -19214,7 +19214,7 @@ tng_block_init.exit:                              ; preds = %26, %29
   br i1 %.not16.i159, label %83, label %82
 
 82:                                               ; preds = %79
-  call void @free(ptr noundef nonnull %81) #23
+  call void @free(ptr noundef nonnull %81) #24
   store ptr null, ptr %80, align 8
   br label %83
 
@@ -19225,7 +19225,7 @@ tng_block_init.exit:                              ; preds = %26, %29
   br i1 %.not17.i160, label %87, label %86
 
 86:                                               ; preds = %83
-  call void @free(ptr noundef nonnull %85) #23
+  call void @free(ptr noundef nonnull %85) #24
   store ptr null, ptr %84, align 8
   br label %87
 
@@ -19236,11 +19236,11 @@ tng_block_init.exit:                              ; preds = %26, %29
   br i1 %.not18.i161, label %tng_block_destroy.exit162, label %90
 
 90:                                               ; preds = %87
-  call void @free(ptr noundef nonnull %89) #23
+  call void @free(ptr noundef nonnull %89) #24
   br label %tng_block_destroy.exit162
 
 tng_block_destroy.exit162:                        ; preds = %87, %90
-  call void @free(ptr noundef nonnull %25) #23
+  call void @free(ptr noundef nonnull %25) #24
   br label %tng_block_destroy.exit
 
 91:                                               ; preds = %76
@@ -19267,7 +19267,7 @@ tng_block_destroy.exit162:                        ; preds = %87, %90
 
 103:                                              ; preds = %99
   %104 = load ptr, ptr @stderr, align 8
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.1, i32 noundef 1371) #26
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.1, i32 noundef 1371) #27
   store ptr %6, ptr %5, align 8
   br i1 %.not.i155, label %tng_block_destroy.exit, label %106
 
@@ -19278,7 +19278,7 @@ tng_block_destroy.exit162:                        ; preds = %87, %90
   br i1 %.not16.i164, label %110, label %109
 
 109:                                              ; preds = %106
-  call void @free(ptr noundef nonnull %108) #23
+  call void @free(ptr noundef nonnull %108) #24
   store ptr null, ptr %107, align 8
   br label %110
 
@@ -19289,7 +19289,7 @@ tng_block_destroy.exit162:                        ; preds = %87, %90
   br i1 %.not17.i165, label %114, label %113
 
 113:                                              ; preds = %110
-  call void @free(ptr noundef nonnull %112) #23
+  call void @free(ptr noundef nonnull %112) #24
   store ptr null, ptr %111, align 8
   br label %114
 
@@ -19300,11 +19300,11 @@ tng_block_destroy.exit162:                        ; preds = %87, %90
   br i1 %.not18.i166, label %118, label %117
 
 117:                                              ; preds = %114
-  call void @free(ptr noundef nonnull %116) #23
+  call void @free(ptr noundef nonnull %116) #24
   br label %118
 
 118:                                              ; preds = %117, %114
-  call void @free(ptr noundef nonnull %25) #23
+  call void @free(ptr noundef nonnull %25) #24
   br label %tng_block_destroy.exit
 
 119:                                              ; preds = %99
@@ -19321,13 +19321,13 @@ tng_block_destroy.exit162:                        ; preds = %87, %90
   br i1 %.not136, label %134, label %129
 
 129:                                              ; preds = %119
-  %130 = call i32 %128(ptr noundef nonnull %0, ptr noundef nonnull %4) #23
+  %130 = call i32 %128(ptr noundef nonnull %0, ptr noundef nonnull %4) #24
   %.not137 = icmp eq i32 %130, 0
   br i1 %.not137, label %134, label %131
 
 131:                                              ; preds = %129
   %132 = load ptr, ptr @stderr, align 8
-  %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1386) #26
+  %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1386) #27
   br label %134
 
 134:                                              ; preds = %129, %131, %119
@@ -19344,7 +19344,7 @@ tng_block_destroy.exit162:                        ; preds = %87, %90
   br i1 %.not16.i169, label %141, label %140
 
 140:                                              ; preds = %137
-  call void @free(ptr noundef nonnull %139) #23
+  call void @free(ptr noundef nonnull %139) #24
   store ptr null, ptr %138, align 8
   br label %141
 
@@ -19355,7 +19355,7 @@ tng_block_destroy.exit162:                        ; preds = %87, %90
   br i1 %.not17.i170, label %145, label %144
 
 144:                                              ; preds = %141
-  call void @free(ptr noundef nonnull %143) #23
+  call void @free(ptr noundef nonnull %143) #24
   store ptr null, ptr %142, align 8
   br label %145
 
@@ -19366,11 +19366,11 @@ tng_block_destroy.exit162:                        ; preds = %87, %90
   br i1 %.not18.i171, label %tng_block_destroy.exit172, label %148
 
 148:                                              ; preds = %145
-  call void @free(ptr noundef nonnull %147) #23
+  call void @free(ptr noundef nonnull %147) #24
   br label %tng_block_destroy.exit172
 
 tng_block_destroy.exit172:                        ; preds = %145, %148
-  call void @free(ptr noundef nonnull %25) #23
+  call void @free(ptr noundef nonnull %25) #24
   br label %tng_block_destroy.exit
 
 149:                                              ; preds = %134
@@ -19397,7 +19397,7 @@ tng_block_destroy.exit172:                        ; preds = %145, %148
 
 161:                                              ; preds = %157
   %162 = load ptr, ptr @stderr, align 8
-  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %162, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 1410) #26
+  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %162, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 1410) #27
   store ptr %6, ptr %5, align 8
   call fastcc void @tng_block_destroy(ptr noundef nonnull %3)
   br label %tng_block_destroy.exit
@@ -19416,13 +19416,13 @@ tng_block_destroy.exit172:                        ; preds = %145, %148
   br i1 %.not140, label %179, label %174
 
 174:                                              ; preds = %164
-  %175 = call i32 %173(ptr noundef nonnull %0, ptr noundef nonnull %4) #23
+  %175 = call i32 %173(ptr noundef nonnull %0, ptr noundef nonnull %4) #24
   %.not141 = icmp eq i32 %175, 0
   br i1 %.not141, label %179, label %176
 
 176:                                              ; preds = %174
   %177 = load ptr, ptr @stderr, align 8
-  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1425) #26
+  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1425) #27
   br label %179
 
 179:                                              ; preds = %174, %176, %164
@@ -19439,7 +19439,7 @@ tng_block_destroy.exit172:                        ; preds = %145, %148
   br i1 %.not16.i174, label %186, label %185
 
 185:                                              ; preds = %182
-  call void @free(ptr noundef nonnull %184) #23
+  call void @free(ptr noundef nonnull %184) #24
   store ptr null, ptr %183, align 8
   br label %186
 
@@ -19450,7 +19450,7 @@ tng_block_destroy.exit172:                        ; preds = %145, %148
   br i1 %.not17.i175, label %190, label %189
 
 189:                                              ; preds = %186
-  call void @free(ptr noundef nonnull %188) #23
+  call void @free(ptr noundef nonnull %188) #24
   store ptr null, ptr %187, align 8
   br label %190
 
@@ -19461,11 +19461,11 @@ tng_block_destroy.exit172:                        ; preds = %145, %148
   br i1 %.not18.i176, label %tng_block_destroy.exit177, label %193
 
 193:                                              ; preds = %190
-  call void @free(ptr noundef nonnull %192) #23
+  call void @free(ptr noundef nonnull %192) #24
   br label %tng_block_destroy.exit177
 
 tng_block_destroy.exit177:                        ; preds = %190, %193
-  call void @free(ptr noundef nonnull %25) #23
+  call void @free(ptr noundef nonnull %25) #24
   br label %tng_block_destroy.exit
 
 194:                                              ; preds = %179
@@ -19492,7 +19492,7 @@ tng_block_destroy.exit177:                        ; preds = %190, %193
 
 206:                                              ; preds = %202
   %207 = load ptr, ptr @stderr, align 8
-  %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %207, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 1449) #26
+  %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %207, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 1449) #27
   store ptr %6, ptr %5, align 8
   call fastcc void @tng_block_destroy(ptr noundef nonnull %3)
   br label %tng_block_destroy.exit
@@ -19511,13 +19511,13 @@ tng_block_destroy.exit177:                        ; preds = %190, %193
   br i1 %.not144, label %224, label %219
 
 219:                                              ; preds = %209
-  %220 = call i32 %218(ptr noundef nonnull %0, ptr noundef nonnull %4) #23
+  %220 = call i32 %218(ptr noundef nonnull %0, ptr noundef nonnull %4) #24
   %.not145 = icmp eq i32 %220, 0
   br i1 %.not145, label %224, label %221
 
 221:                                              ; preds = %219
   %222 = load ptr, ptr @stderr, align 8
-  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %222, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1464) #26
+  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %222, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1464) #27
   br label %224
 
 224:                                              ; preds = %219, %221, %209
@@ -19534,7 +19534,7 @@ tng_block_destroy.exit177:                        ; preds = %190, %193
   br i1 %.not16.i179, label %231, label %230
 
 230:                                              ; preds = %227
-  call void @free(ptr noundef nonnull %229) #23
+  call void @free(ptr noundef nonnull %229) #24
   store ptr null, ptr %228, align 8
   br label %231
 
@@ -19545,7 +19545,7 @@ tng_block_destroy.exit177:                        ; preds = %190, %193
   br i1 %.not17.i180, label %235, label %234
 
 234:                                              ; preds = %231
-  call void @free(ptr noundef nonnull %233) #23
+  call void @free(ptr noundef nonnull %233) #24
   store ptr null, ptr %232, align 8
   br label %235
 
@@ -19556,11 +19556,11 @@ tng_block_destroy.exit177:                        ; preds = %190, %193
   br i1 %.not18.i181, label %tng_block_destroy.exit182, label %238
 
 238:                                              ; preds = %235
-  call void @free(ptr noundef nonnull %237) #23
+  call void @free(ptr noundef nonnull %237) #24
   br label %tng_block_destroy.exit182
 
 tng_block_destroy.exit182:                        ; preds = %235, %238
-  call void @free(ptr noundef nonnull %25) #23
+  call void @free(ptr noundef nonnull %25) #24
   br label %tng_block_destroy.exit
 
 239:                                              ; preds = %224
@@ -19587,7 +19587,7 @@ tng_block_destroy.exit182:                        ; preds = %235, %238
 
 251:                                              ; preds = %247
   %252 = load ptr, ptr @stderr, align 8
-  %253 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %252, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 1489) #26
+  %253 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %252, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 1489) #27
   store ptr %6, ptr %5, align 8
   call fastcc void @tng_block_destroy(ptr noundef nonnull %3)
   br label %tng_block_destroy.exit
@@ -19606,13 +19606,13 @@ tng_block_destroy.exit182:                        ; preds = %235, %238
   br i1 %.not148, label %269, label %264
 
 264:                                              ; preds = %254
-  %265 = call i32 %263(ptr noundef nonnull %0, ptr noundef nonnull %4) #23
+  %265 = call i32 %263(ptr noundef nonnull %0, ptr noundef nonnull %4) #24
   %.not149 = icmp eq i32 %265, 0
   br i1 %.not149, label %269, label %266
 
 266:                                              ; preds = %264
   %267 = load ptr, ptr @stderr, align 8
-  %268 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %267, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1504) #26
+  %268 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %267, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1504) #27
   br label %269
 
 269:                                              ; preds = %264, %266, %254
@@ -19629,7 +19629,7 @@ tng_block_destroy.exit182:                        ; preds = %235, %238
   br i1 %.not16.i184, label %276, label %275
 
 275:                                              ; preds = %272
-  call void @free(ptr noundef nonnull %274) #23
+  call void @free(ptr noundef nonnull %274) #24
   store ptr null, ptr %273, align 8
   br label %276
 
@@ -19640,7 +19640,7 @@ tng_block_destroy.exit182:                        ; preds = %235, %238
   br i1 %.not17.i185, label %280, label %279
 
 279:                                              ; preds = %276
-  call void @free(ptr noundef nonnull %278) #23
+  call void @free(ptr noundef nonnull %278) #24
   store ptr null, ptr %277, align 8
   br label %280
 
@@ -19651,11 +19651,11 @@ tng_block_destroy.exit182:                        ; preds = %235, %238
   br i1 %.not18.i186, label %284, label %283
 
 283:                                              ; preds = %280
-  call void @free(ptr noundef nonnull %282) #23
+  call void @free(ptr noundef nonnull %282) #24
   br label %284
 
 284:                                              ; preds = %283, %280
-  call void @free(ptr noundef nonnull %25) #23
+  call void @free(ptr noundef nonnull %25) #24
   br label %tng_block_destroy.exit
 
 285:                                              ; preds = %269
@@ -19682,7 +19682,7 @@ tng_block_destroy.exit182:                        ; preds = %235, %238
 
 297:                                              ; preds = %294
   %298 = load ptr, ptr @stderr, align 8
-  %299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %298, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 1528) #26
+  %299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %298, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 1528) #27
   store ptr %6, ptr %5, align 8
   call fastcc void @tng_block_destroy(ptr noundef nonnull %3)
   br label %tng_block_destroy.exit
@@ -19701,13 +19701,13 @@ tng_block_destroy.exit182:                        ; preds = %235, %238
   br i1 %.not152, label %315, label %310
 
 310:                                              ; preds = %300
-  %311 = call i32 %309(ptr noundef nonnull %0, ptr noundef nonnull %4) #23
+  %311 = call i32 %309(ptr noundef nonnull %0, ptr noundef nonnull %4) #24
   %.not153 = icmp eq i32 %311, 0
   br i1 %.not153, label %315, label %312
 
 312:                                              ; preds = %310
   %313 = load ptr, ptr @stderr, align 8
-  %314 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1543) #26
+  %314 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1543) #27
   br label %315
 
 315:                                              ; preds = %310, %312, %300
@@ -19724,7 +19724,7 @@ tng_block_destroy.exit182:                        ; preds = %235, %238
   br i1 %.not16.i189, label %322, label %321
 
 321:                                              ; preds = %318
-  call void @free(ptr noundef nonnull %320) #23
+  call void @free(ptr noundef nonnull %320) #24
   store ptr null, ptr %319, align 8
   br label %322
 
@@ -19735,7 +19735,7 @@ tng_block_destroy.exit182:                        ; preds = %235, %238
   br i1 %.not17.i190, label %326, label %325
 
 325:                                              ; preds = %322
-  call void @free(ptr noundef nonnull %324) #23
+  call void @free(ptr noundef nonnull %324) #24
   store ptr null, ptr %323, align 8
   br label %326
 
@@ -19746,11 +19746,11 @@ tng_block_destroy.exit182:                        ; preds = %235, %238
   br i1 %.not18.i191, label %tng_block_destroy.exit192, label %329
 
 329:                                              ; preds = %326
-  call void @free(ptr noundef nonnull %328) #23
+  call void @free(ptr noundef nonnull %328) #24
   br label %tng_block_destroy.exit192
 
 tng_block_destroy.exit192:                        ; preds = %326, %329
-  call void @free(ptr noundef nonnull %25) #23
+  call void @free(ptr noundef nonnull %25) #24
   br label %tng_block_destroy.exit
 
 330:                                              ; preds = %315
@@ -19780,7 +19780,7 @@ tng_block_destroy.exit192:                        ; preds = %326, %329
   br i1 %.not16.i194, label %342, label %341
 
 341:                                              ; preds = %338
-  call void @free(ptr noundef nonnull %340) #23
+  call void @free(ptr noundef nonnull %340) #24
   store ptr null, ptr %339, align 8
   br label %342
 
@@ -19791,7 +19791,7 @@ tng_block_destroy.exit192:                        ; preds = %326, %329
   br i1 %.not17.i195, label %346, label %345
 
 345:                                              ; preds = %342
-  call void @free(ptr noundef nonnull %344) #23
+  call void @free(ptr noundef nonnull %344) #24
   store ptr null, ptr %343, align 8
   br label %346
 
@@ -19802,11 +19802,11 @@ tng_block_destroy.exit192:                        ; preds = %326, %329
   br i1 %.not18.i196, label %350, label %349
 
 349:                                              ; preds = %346
-  call void @free(ptr noundef nonnull %348) #23
+  call void @free(ptr noundef nonnull %348) #24
   br label %350
 
 350:                                              ; preds = %349, %346
-  call void @free(ptr noundef nonnull %25) #23
+  call void @free(ptr noundef nonnull %25) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %350, %336, %284, %118, %103, %60, %45, %tng_block_destroy.exit192, %297, %251, %tng_block_destroy.exit182, %206, %tng_block_destroy.exit177, %161, %tng_block_destroy.exit172, %tng_block_destroy.exit162, %tng_output_file_init.exit
@@ -19898,14 +19898,14 @@ define range(i32 0, 3) i32 @tng_frame_set_new(ptr noundef %0, i64 noundef %1, i6
   ]
 
 39:                                               ; preds = %36
-  %40 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %40 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %40, ptr %4, align 8
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %41, label %44
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr @stderr, align 8
-  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 44:                                               ; preds = %39
@@ -19933,7 +19933,7 @@ tng_block_init.exit:                              ; preds = %41, %44
 
 55:                                               ; preds = %tng_block_init.exit
   %56 = load ptr, ptr @stderr, align 8
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 11557) #26
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 11557) #27
   store ptr %6, ptr %5, align 8
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %154
@@ -19951,7 +19951,7 @@ tng_block_init.exit:                              ; preds = %41, %44
 
 67:                                               ; preds = %58
   %68 = load ptr, ptr @stderr, align 8
-  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 11571) #26
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 11571) #27
   store ptr %6, ptr %5, align 8
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %154
@@ -19963,13 +19963,13 @@ tng_block_init.exit:                              ; preds = %41, %44
   br i1 %.not94, label %78, label %73
 
 73:                                               ; preds = %70
-  %74 = tail call i32 %72(ptr noundef nonnull %0, ptr noundef nonnull %37) #23
+  %74 = tail call i32 %72(ptr noundef nonnull %0, ptr noundef nonnull %37) #24
   %.not95 = icmp eq i32 %74, 0
   br i1 %.not95, label %78, label %75
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr @stderr, align 8
-  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 11583) #26
+  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 11583) #27
   br label %78
 
 78:                                               ; preds = %70, %75, %73
@@ -19979,7 +19979,7 @@ tng_block_init.exit:                              ; preds = %41, %44
   br i1 %.not16.i, label %82, label %81
 
 81:                                               ; preds = %78
-  tail call void @free(ptr noundef nonnull %80) #23
+  tail call void @free(ptr noundef nonnull %80) #24
   store ptr null, ptr %79, align 8
   br label %82
 
@@ -19990,7 +19990,7 @@ tng_block_init.exit:                              ; preds = %41, %44
   br i1 %.not17.i, label %86, label %85
 
 85:                                               ; preds = %82
-  tail call void @free(ptr noundef nonnull %84) #23
+  tail call void @free(ptr noundef nonnull %84) #24
   store ptr null, ptr %83, align 8
   br label %86
 
@@ -20001,11 +20001,11 @@ tng_block_init.exit:                              ; preds = %41, %44
   br i1 %.not18.i, label %tng_block_destroy.exit, label %89
 
 89:                                               ; preds = %86
-  tail call void @free(ptr noundef nonnull %88) #23
+  tail call void @free(ptr noundef nonnull %88) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %86, %89
-  tail call void @free(ptr noundef nonnull %40) #23
+  tail call void @free(ptr noundef nonnull %40) #24
   store ptr null, ptr %4, align 8
   %90 = load i64, ptr %14, align 8
   %91 = getelementptr inbounds i8, ptr %0, i64 192
@@ -20048,7 +20048,7 @@ tng_block_destroy.exit:                           ; preds = %86, %89
 
 112:                                              ; preds = %106
   %113 = load ptr, ptr @stderr, align 8
-  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 11610) #26
+  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 11610) #27
   store ptr %6, ptr %5, align 8
   call fastcc void @tng_block_destroy(ptr noundef nonnull %4)
   br label %154
@@ -20067,7 +20067,7 @@ tng_block_destroy.exit:                           ; preds = %86, %89
 
 124:                                              ; preds = %115
   %125 = load ptr, ptr @stderr, align 8
-  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 11628) #26
+  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 11628) #27
   store ptr %6, ptr %5, align 8
   br label %154
 
@@ -20077,13 +20077,13 @@ tng_block_destroy.exit:                           ; preds = %86, %89
   br i1 %.not99, label %134, label %129
 
 129:                                              ; preds = %127
-  %130 = tail call i32 %128(ptr noundef nonnull %0, ptr noundef nonnull %104) #23
+  %130 = tail call i32 %128(ptr noundef nonnull %0, ptr noundef nonnull %104) #24
   %.not100 = icmp eq i32 %130, 0
   br i1 %.not100, label %134, label %131
 
 131:                                              ; preds = %129
   %132 = load ptr, ptr @stderr, align 8
-  %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 11640) #26
+  %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 11640) #27
   br label %134
 
 134:                                              ; preds = %103, %103, %99, %127, %131, %129, %95
@@ -20329,7 +20329,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr nocapture
 
 84:                                               ; preds = %.thread196, %81
   %85 = load ptr, ptr @stderr, align 8
-  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.1, i32 noundef 11821) #26
+  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.1, i32 noundef 11821) #27
   br label %.loopexit
 
 .thread199:                                       ; preds = %.thread196
@@ -20355,10 +20355,10 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr nocapture
   %96 = getelementptr %struct.tng_data, ptr %92, i64 %95
   %97 = getelementptr i8, ptr %96, i64 -96
   store i64 %1, ptr %97, align 8
-  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #24
+  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #25
   %99 = add i64 %98, 1
   %100 = tail call noundef i64 @llvm.umin.i64(i64 %99, i64 1024)
-  %101 = tail call noalias ptr @malloc(i64 noundef %100) #25
+  %101 = tail call noalias ptr @malloc(i64 noundef %100) #26
   %102 = getelementptr i8, ptr %96, i64 -88
   store ptr %101, ptr %102, align 8
   %.not157 = icmp eq ptr %101, null
@@ -20366,11 +20366,11 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr nocapture
 
 103:                                              ; preds = %90
   %104 = load ptr, ptr @stderr, align 8
-  %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 11852) #26
+  %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 11852) #27
   br label %.loopexit
 
 106:                                              ; preds = %90
-  %107 = tail call ptr @strncpy(ptr noundef nonnull %101, ptr noundef %3, i64 noundef %100) #23
+  %107 = tail call ptr @strncpy(ptr noundef nonnull %101, ptr noundef %3, i64 noundef %100) #24
   %108 = getelementptr i8, ptr %96, i64 -16
   %109 = getelementptr i8, ptr %96, i64 -32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, i8 0, i64 16, i1 false)
@@ -20489,7 +20489,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 154:                                              ; preds = %153
   %155 = load ptr, ptr @stderr, align 8
-  %156 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.1, i32 noundef 11919) #26
+  %156 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.1, i32 noundef 11919) #27
   br label %.loopexit
 
 157:                                              ; preds = %153
@@ -20544,7 +20544,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 176:                                              ; preds = %185, %.lr.ph.us.us.us
   %.2135232.us.us.us = phi ptr [ %.1134234.us.us.us, %.lr.ph.us.us.us ], [ %187, %185 ]
   %.0140231.us.us.us = phi i64 [ 0, %.lr.ph.us.us.us ], [ %188, %185 ]
-  %177 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2135232.us.us.us) #24
+  %177 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2135232.us.us.us) #25
   %178 = add i64 %177, 1
   %179 = tail call noundef i64 @llvm.umin.i64(i64 %178, i64 1024)
   %180 = getelementptr inbounds ptr, ptr %175, i64 %.0140231.us.us.us
@@ -20553,17 +20553,17 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br i1 %.not166.us.us.us, label %183, label %182
 
 182:                                              ; preds = %176
-  tail call void @free(ptr noundef nonnull %181) #23
+  tail call void @free(ptr noundef nonnull %181) #24
   br label %183
 
 183:                                              ; preds = %182, %176
-  %184 = tail call noalias ptr @malloc(i64 noundef %179) #25
+  %184 = tail call noalias ptr @malloc(i64 noundef %179) #26
   store ptr %184, ptr %180, align 8
   %.not168.us.us.us = icmp eq ptr %184, null
   br i1 %.not168.us.us.us, label %.split.us, label %185
 
 185:                                              ; preds = %183
-  %186 = tail call ptr @strncpy(ptr noundef nonnull %184, ptr noundef %.2135232.us.us.us, i64 noundef %179) #23
+  %186 = tail call ptr @strncpy(ptr noundef nonnull %184, ptr noundef %.2135232.us.us.us, i64 noundef %179) #24
   %187 = getelementptr inbounds i8, ptr %.2135232.us.us.us, i64 %179
   %188 = add nuw nsw i64 %.0140231.us.us.us, 1
   %exitcond281.not = icmp eq i64 %188, %7
@@ -20599,7 +20599,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 197:                                              ; preds = %.lr.ph247.us, %206
   %.4246.us = phi ptr [ %.3250.us, %.lr.ph247.us ], [ %208, %206 ]
   %.1142245.us = phi i64 [ 0, %.lr.ph247.us ], [ %209, %206 ]
-  %198 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4246.us) #24
+  %198 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4246.us) #25
   %199 = add i64 %198, 1
   %200 = tail call noundef i64 @llvm.umin.i64(i64 %199, i64 1024)
   %201 = getelementptr inbounds ptr, ptr %196, i64 %.1142245.us
@@ -20608,17 +20608,17 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br i1 %.not162.us, label %204, label %203
 
 203:                                              ; preds = %197
-  tail call void @free(ptr noundef nonnull %202) #23
+  tail call void @free(ptr noundef nonnull %202) #24
   br label %204
 
 204:                                              ; preds = %203, %197
-  %205 = tail call noalias ptr @malloc(i64 noundef %200) #25
+  %205 = tail call noalias ptr @malloc(i64 noundef %200) #26
   store ptr %205, ptr %201, align 8
   %.not164.us = icmp eq ptr %205, null
   br i1 %.not164.us, label %.split.us252, label %206
 
 206:                                              ; preds = %204
-  %207 = tail call ptr @strncpy(ptr noundef nonnull %205, ptr noundef %.4246.us, i64 noundef %200) #23
+  %207 = tail call ptr @strncpy(ptr noundef nonnull %205, ptr noundef %.4246.us, i64 noundef %200) #24
   %208 = getelementptr inbounds i8, ptr %.4246.us, i64 %200
   %209 = add nuw nsw i64 %.1142245.us, 1
   %exitcond286.not = icmp eq i64 %209, %7
@@ -20631,12 +20631,12 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .split.us:                                        ; preds = %183
   %210 = load ptr, ptr @stderr, align 8
-  %211 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %210, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 11951) #26
+  %211 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %210, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 11951) #27
   br label %.loopexit
 
 .split.us252:                                     ; preds = %204
   %212 = load ptr, ptr @stderr, align 8
-  %213 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 11976) #26
+  %213 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 11976) #27
   br label %.loopexit
 
 214:                                              ; preds = %162
@@ -21045,7 +21045,7 @@ tng_data_find.exit84.thread.sink.split:           ; preds = %19, %25, %159, %147
   %163 = getelementptr inbounds i8, ptr %.lcssa181.sink, i64 8
   %164 = load ptr, ptr %163, align 8
   %165 = sext i32 %3 to i64
-  %166 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %164, i64 noundef %165) #23
+  %166 = tail call ptr @strncpy(ptr noundef %2, ptr noundef %164, i64 noundef %165) #24
   %167 = getelementptr i8, ptr %2, i64 %165
   %168 = getelementptr i8, ptr %167, i64 -1
   store i8 0, ptr %168, align 1
@@ -21886,13 +21886,13 @@ define i32 @tng_frame_set_n_frames_of_data_block_get(ptr noundef %0, i64 noundef
   %13 = alloca i64, align 8
   %14 = alloca double, align 8
   %15 = alloca %struct.md5_state_s, align 4
-  %16 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %16 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %20
 
 17:                                               ; preds = %3
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 20:                                               ; preds = %3
@@ -21932,7 +21932,7 @@ tng_block_init.exit:                              ; preds = %17, %20
   br i1 %.not16.i, label %38, label %37
 
 37:                                               ; preds = %34
-  tail call void @free(ptr noundef nonnull %36) #23
+  tail call void @free(ptr noundef nonnull %36) #24
   store ptr null, ptr %35, align 8
   br label %38
 
@@ -21943,7 +21943,7 @@ tng_block_init.exit:                              ; preds = %17, %20
   br i1 %.not17.i, label %42, label %41
 
 41:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %40) #23
+  tail call void @free(ptr noundef nonnull %40) #24
   store ptr null, ptr %39, align 8
   br label %42
 
@@ -21954,11 +21954,11 @@ tng_block_init.exit:                              ; preds = %17, %20
   br i1 %.not18.i, label %46, label %45
 
 45:                                               ; preds = %42
-  tail call void @free(ptr noundef nonnull %44) #23
+  tail call void @free(ptr noundef nonnull %44) #24
   br label %46
 
 46:                                               ; preds = %45, %42
-  tail call void @free(ptr noundef nonnull %16) #23
+  tail call void @free(ptr noundef nonnull %16) #24
   br label %tng_block_destroy.exit
 
 47:                                               ; preds = %26, %tng_block_init.exit
@@ -21979,7 +21979,7 @@ tng_block_init.exit:                              ; preds = %17, %20
   br i1 %.not16.i41, label %57, label %56
 
 56:                                               ; preds = %53
-  tail call void @free(ptr noundef nonnull %55) #23
+  tail call void @free(ptr noundef nonnull %55) #24
   store ptr null, ptr %54, align 8
   br label %57
 
@@ -21990,7 +21990,7 @@ tng_block_init.exit:                              ; preds = %17, %20
   br i1 %.not17.i42, label %61, label %60
 
 60:                                               ; preds = %57
-  tail call void @free(ptr noundef nonnull %59) #23
+  tail call void @free(ptr noundef nonnull %59) #24
   store ptr null, ptr %58, align 8
   br label %61
 
@@ -22001,11 +22001,11 @@ tng_block_init.exit:                              ; preds = %17, %20
   br i1 %.not18.i43, label %tng_block_destroy.exit44, label %64
 
 64:                                               ; preds = %61
-  tail call void @free(ptr noundef nonnull %63) #23
+  tail call void @free(ptr noundef nonnull %63) #24
   br label %tng_block_destroy.exit44
 
 tng_block_destroy.exit44:                         ; preds = %61, %64
-  tail call void @free(ptr noundef nonnull %16) #23
+  tail call void @free(ptr noundef nonnull %16) #24
   br label %tng_block_destroy.exit
 
 65:                                               ; preds = %51
@@ -22077,7 +22077,7 @@ tng_block_destroy.exit44:                         ; preds = %61, %64
   br i1 %.not16.i46, label %97, label %96
 
 96:                                               ; preds = %.thread
-  call void @free(ptr noundef nonnull %95) #23
+  call void @free(ptr noundef nonnull %95) #24
   store ptr null, ptr %94, align 8
   br label %97
 
@@ -22088,7 +22088,7 @@ tng_block_destroy.exit44:                         ; preds = %61, %64
   br i1 %.not17.i47, label %101, label %100
 
 100:                                              ; preds = %97
-  call void @free(ptr noundef nonnull %99) #23
+  call void @free(ptr noundef nonnull %99) #24
   store ptr null, ptr %98, align 8
   br label %101
 
@@ -22099,11 +22099,11 @@ tng_block_destroy.exit44:                         ; preds = %61, %64
   br i1 %.not18.i48, label %tng_block_destroy.exit49, label %104
 
 104:                                              ; preds = %101
-  call void @free(ptr noundef nonnull %103) #23
+  call void @free(ptr noundef nonnull %103) #24
   br label %tng_block_destroy.exit49
 
 tng_block_destroy.exit49:                         ; preds = %101, %104
-  call void @free(ptr noundef nonnull %16) #23
+  call void @free(ptr noundef nonnull %16) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %46, %33, %tng_block_destroy.exit49, %tng_block_destroy.exit44
@@ -22125,11 +22125,11 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_meta_information_read
 
 tng_file_input_numerical.exit:                    ; preds = %14
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5914) #26
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5914) #27
   br label %122
 
 23:                                               ; preds = %19
-  tail call void @md5_append(ptr noundef %13, ptr noundef %1, i32 noundef 1) #23
+  tail call void @md5_append(ptr noundef %13, ptr noundef %1, i32 noundef 1) #24
   %24 = load ptr, ptr %15, align 8
   %25 = tail call i64 @fread(ptr noundef %2, i64 noundef 1, i64 noundef 1, ptr noundef %24)
   %26 = icmp eq i64 %25, 0
@@ -22142,12 +22142,12 @@ tng_file_input_numerical.exit:                    ; preds = %14
   br i1 %29, label %tng_file_input_numerical.exit66, label %.thread103
 
 30:                                               ; preds = %23
-  tail call void @md5_append(ptr noundef %13, ptr noundef %2, i32 noundef 1) #23
+  tail call void @md5_append(ptr noundef %13, ptr noundef %2, i32 noundef 1) #24
   br label %.thread103
 
 tng_file_input_numerical.exit66:                  ; preds = %.thread, %23
   %31 = load ptr, ptr @stderr, align 8
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5920) #26
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5920) #27
   br label %122
 
 .thread103:                                       ; preds = %.thread, %30
@@ -22167,7 +22167,7 @@ tng_file_input_numerical.exit66:                  ; preds = %.thread, %23
 
 tng_file_input_numerical.exit69:                  ; preds = %36
   %40 = load ptr, ptr @stderr, align 8
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5928) #26
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5928) #27
   br label %122
 
 tng_file_input_numerical.exit69.thread:           ; preds = %.thread103
@@ -22176,7 +22176,7 @@ tng_file_input_numerical.exit69.thread:           ; preds = %.thread103
   br i1 %43, label %tng_file_input_numerical.exit72.thread91, label %52
 
 tng_file_input_numerical.exit69.thread.thread105: ; preds = %39
-  tail call void @md5_append(ptr noundef %13, ptr noundef %3, i32 noundef 1) #23
+  tail call void @md5_append(ptr noundef %13, ptr noundef %3, i32 noundef 1) #24
   %44 = load ptr, ptr %15, align 8
   %45 = tail call i64 @fread(ptr noundef %4, i64 noundef 8, i64 noundef 1, ptr noundef %44)
   %46 = icmp eq i64 %45, 0
@@ -22190,14 +22190,14 @@ tng_file_input_numerical.exit69.thread.thread:    ; preds = %39
 
 tng_file_input_numerical.exit72.thread91:         ; preds = %tng_file_input_numerical.exit69.thread.thread105, %tng_file_input_numerical.exit69.thread.thread, %tng_file_input_numerical.exit69.thread
   %50 = load ptr, ptr @stderr, align 8
-  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5935) #26
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5935) #27
   br label %122
 
 52:                                               ; preds = %tng_file_input_numerical.exit69.thread
   br i1 %20, label %.thread106, label %.thread104
 
 .thread106:                                       ; preds = %tng_file_input_numerical.exit69.thread.thread105, %52
-  tail call void @md5_append(ptr noundef %13, ptr noundef %4, i32 noundef 8) #23
+  tail call void @md5_append(ptr noundef %13, ptr noundef %4, i32 noundef 8) #24
   br label %.thread104
 
 .thread104:                                       ; preds = %tng_file_input_numerical.exit69.thread.thread, %.thread106, %52
@@ -22207,13 +22207,13 @@ tng_file_input_numerical.exit72.thread91:         ; preds = %tng_file_input_nume
   br i1 %.not22.i, label %tng_file_input_numerical.exit72.thread, label %55
 
 55:                                               ; preds = %.thread104
-  %56 = tail call i32 %54(ptr noundef nonnull %0, ptr noundef %4) #23
+  %56 = tail call i32 %54(ptr noundef nonnull %0, ptr noundef %4) #24
   %.not23.i = icmp eq i32 %56, 0
   br i1 %.not23.i, label %tng_file_input_numerical.exit72.thread, label %tng_file_input_numerical.exit72
 
 tng_file_input_numerical.exit72:                  ; preds = %55
   %57 = load ptr, ptr @stderr, align 8
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5935) #26
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5935) #27
   br label %tng_file_input_numerical.exit72.thread
 
 tng_file_input_numerical.exit72.thread:           ; preds = %55, %.thread104, %tng_file_input_numerical.exit72
@@ -22224,14 +22224,14 @@ tng_file_input_numerical.exit72.thread:           ; preds = %55, %.thread104, %t
 
 tng_file_input_numerical.exit79.thread95:         ; preds = %tng_file_input_numerical.exit72.thread
   %62 = load ptr, ptr @stderr, align 8
-  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5941) #26
+  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5941) #27
   br label %122
 
 64:                                               ; preds = %tng_file_input_numerical.exit72.thread
   br i1 %20, label %65, label %66
 
 65:                                               ; preds = %64
-  tail call void @md5_append(ptr noundef %13, ptr noundef %5, i32 noundef 8) #23
+  tail call void @md5_append(ptr noundef %13, ptr noundef %5, i32 noundef 8) #24
   br label %66
 
 66:                                               ; preds = %65, %64
@@ -22240,13 +22240,13 @@ tng_file_input_numerical.exit79.thread95:         ; preds = %tng_file_input_nume
   br i1 %.not22.i73, label %tng_file_input_numerical.exit79.thread, label %68
 
 68:                                               ; preds = %66
-  %69 = tail call i32 %67(ptr noundef nonnull %0, ptr noundef %5) #23
+  %69 = tail call i32 %67(ptr noundef nonnull %0, ptr noundef %5) #24
   %.not23.i74 = icmp eq i32 %69, 0
   br i1 %.not23.i74, label %tng_file_input_numerical.exit79.thread, label %tng_file_input_numerical.exit79
 
 tng_file_input_numerical.exit79:                  ; preds = %68
   %70 = load ptr, ptr @stderr, align 8
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5941) #26
+  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5941) #27
   br label %tng_file_input_numerical.exit79.thread
 
 tng_file_input_numerical.exit79.thread:           ; preds = %68, %66, %tng_file_input_numerical.exit79
@@ -22262,14 +22262,14 @@ tng_file_input_numerical.exit79.thread:           ; preds = %68, %66, %tng_file_
 
 tng_file_input_numerical.exit86.thread99:         ; preds = %73
   %77 = load ptr, ptr @stderr, align 8
-  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5949) #26
+  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 5949) #27
   br label %122
 
 79:                                               ; preds = %73
   br i1 %20, label %80, label %81
 
 80:                                               ; preds = %79
-  tail call void @md5_append(ptr noundef %13, ptr noundef %11, i32 noundef 8) #23
+  tail call void @md5_append(ptr noundef %13, ptr noundef %11, i32 noundef 8) #24
   br label %81
 
 81:                                               ; preds = %80, %79
@@ -22278,13 +22278,13 @@ tng_file_input_numerical.exit86.thread99:         ; preds = %73
   br i1 %.not22.i80, label %tng_file_input_numerical.exit86.thread, label %83
 
 83:                                               ; preds = %81
-  %84 = tail call i32 %82(ptr noundef nonnull %0, ptr noundef %11) #23
+  %84 = tail call i32 %82(ptr noundef nonnull %0, ptr noundef %11) #24
   %.not23.i81 = icmp eq i32 %84, 0
   br i1 %.not23.i81, label %tng_file_input_numerical.exit86.thread, label %tng_file_input_numerical.exit86
 
 tng_file_input_numerical.exit86:                  ; preds = %83
   %85 = load ptr, ptr @stderr, align 8
-  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5949) #26
+  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 5949) #27
   br label %tng_file_input_numerical.exit86.thread
 
 87:                                               ; preds = %tng_file_input_numerical.exit79.thread
@@ -22397,7 +22397,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_frame_gen_data_write(ptr noundef
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #26
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #27
   br label %tng_output_file_init.exit
 
 26:                                               ; preds = %20
@@ -22409,12 +22409,12 @@ define internal fastcc range(i32 0, 3) i32 @tng_frame_gen_data_write(ptr noundef
 28:                                               ; preds = %26
   %29 = load ptr, ptr @stderr, align 8
   %30 = load ptr, ptr %21, align 8
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.13, ptr noundef %30, ptr noundef nonnull @.str.1, i32 noundef 919) #26
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.13, ptr noundef %30, ptr noundef nonnull @.str.1, i32 noundef 919) #27
   br label %tng_output_file_init.exit
 
 tng_output_file_init.exit:                        ; preds = %28, %23
   %32 = load ptr, ptr @stderr, align 8
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 12400) #26
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 12400) #27
   br label %449
 
 34:                                               ; preds = %26, %8
@@ -22467,13 +22467,13 @@ tng_output_file_init.exit:                        ; preds = %28, %23
   %69 = tail call i64 @ftello64(ptr noundef %68)
   %70 = load ptr, ptr %18, align 8
   %71 = tail call i32 @fseeko64(ptr noundef %70, i64 noundef %65, i32 noundef 0)
-  %72 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %72 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i337 = icmp eq ptr %72, null
   br i1 %.not.i337, label %73, label %76
 
 73:                                               ; preds = %57
   %74 = load ptr, ptr @stderr, align 8
-  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 76:                                               ; preds = %57
@@ -22539,7 +22539,7 @@ tng_block_init.exit:                              ; preds = %73, %76
   br i1 %.not16.i, label %103, label %102
 
 102:                                              ; preds = %.critedge.thread
-  tail call void @free(ptr noundef nonnull %101) #23
+  tail call void @free(ptr noundef nonnull %101) #24
   store ptr null, ptr %100, align 8
   br label %103
 
@@ -22550,7 +22550,7 @@ tng_block_init.exit:                              ; preds = %73, %76
   br i1 %.not17.i, label %107, label %106
 
 106:                                              ; preds = %103
-  tail call void @free(ptr noundef nonnull %105) #23
+  tail call void @free(ptr noundef nonnull %105) #24
   store ptr null, ptr %104, align 8
   br label %107
 
@@ -22561,11 +22561,11 @@ tng_block_init.exit:                              ; preds = %73, %76
   br i1 %.not18.i, label %111, label %110
 
 110:                                              ; preds = %107
-  tail call void @free(ptr noundef nonnull %109) #23
+  tail call void @free(ptr noundef nonnull %109) #24
   br label %111
 
 111:                                              ; preds = %110, %107
-  tail call void @free(ptr noundef nonnull %72) #23
+  tail call void @free(ptr noundef nonnull %72) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %.critedge, %111
@@ -22575,7 +22575,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %111
 
 113:                                              ; preds = %tng_block_destroy.exit
   %114 = load ptr, ptr @stderr, align 8
-  %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.1, i32 noundef 12465) #26
+  %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.1, i32 noundef 12465) #27
   br label %449
 
 116:                                              ; preds = %50
@@ -22586,14 +22586,14 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %111
   br label %449
 
 117:                                              ; preds = %tng_block_destroy.exit, %34
-  %118 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %118 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %118, ptr %11, align 8
   %.not.i340 = icmp eq ptr %118, null
   br i1 %.not.i340, label %119, label %122
 
 119:                                              ; preds = %117
   %120 = load ptr, ptr @stderr, align 8
-  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit342
 
 122:                                              ; preds = %117
@@ -22622,7 +22622,7 @@ tng_block_init.exit342:                           ; preds = %119, %122
 
 136:                                              ; preds = %tng_block_init.exit342
   %137 = load ptr, ptr @stderr, align 8
-  %138 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.14, i64 noundef %127, ptr noundef nonnull @.str.1, i32 noundef 12492) #26
+  %138 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.14, i64 noundef %127, ptr noundef nonnull @.str.1, i32 noundef 12492) #27
   br i1 %.not.i340, label %tng_block_destroy.exit347, label %139
 
 139:                                              ; preds = %136
@@ -22632,7 +22632,7 @@ tng_block_init.exit342:                           ; preds = %119, %122
   br i1 %.not16.i344, label %143, label %142
 
 142:                                              ; preds = %139
-  tail call void @free(ptr noundef nonnull %141) #23
+  tail call void @free(ptr noundef nonnull %141) #24
   store ptr null, ptr %140, align 8
   br label %143
 
@@ -22643,7 +22643,7 @@ tng_block_init.exit342:                           ; preds = %119, %122
   br i1 %.not17.i345, label %147, label %146
 
 146:                                              ; preds = %143
-  tail call void @free(ptr noundef nonnull %145) #23
+  tail call void @free(ptr noundef nonnull %145) #24
   store ptr null, ptr %144, align 8
   br label %147
 
@@ -22654,11 +22654,11 @@ tng_block_init.exit342:                           ; preds = %119, %122
   br i1 %.not18.i346, label %151, label %150
 
 150:                                              ; preds = %147
-  tail call void @free(ptr noundef nonnull %149) #23
+  tail call void @free(ptr noundef nonnull %149) #24
   br label %151
 
 151:                                              ; preds = %150, %147
-  tail call void @free(ptr noundef nonnull %118) #23
+  tail call void @free(ptr noundef nonnull %118) #24
   br label %tng_block_destroy.exit347
 
 tng_block_destroy.exit347:                        ; preds = %136, %151
@@ -22764,7 +22764,7 @@ tng_block_destroy.exit347:                        ; preds = %136, %151
 
 198:                                              ; preds = %.critedge5
   %199 = load ptr, ptr @stderr, align 8
-  %200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef nonnull @.str.14, i64 noundef %.2276.lcssa, ptr noundef nonnull @.str.1, i32 noundef 12550) #26
+  %200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef nonnull @.str.14, i64 noundef %.2276.lcssa, ptr noundef nonnull @.str.1, i32 noundef 12550) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %11)
   store ptr %17, ptr %16, align 8
   store i64 %37, ptr %36, align 8
@@ -22785,7 +22785,7 @@ tng_block_destroy.exit347:                        ; preds = %136, %151
   br i1 %.not16.i349, label %206, label %205
 
 205:                                              ; preds = %202
-  tail call void @free(ptr noundef nonnull %204) #23
+  tail call void @free(ptr noundef nonnull %204) #24
   store ptr null, ptr %203, align 8
   br label %206
 
@@ -22796,7 +22796,7 @@ tng_block_destroy.exit347:                        ; preds = %136, %151
   br i1 %.not17.i350, label %210, label %209
 
 209:                                              ; preds = %206
-  tail call void @free(ptr noundef nonnull %208) #23
+  tail call void @free(ptr noundef nonnull %208) #24
   store ptr null, ptr %207, align 8
   br label %210
 
@@ -22807,11 +22807,11 @@ tng_block_destroy.exit347:                        ; preds = %136, %151
   br i1 %.not18.i351, label %tng_block_destroy.exit352, label %213
 
 213:                                              ; preds = %210
-  tail call void @free(ptr noundef nonnull %212) #23
+  tail call void @free(ptr noundef nonnull %212) #24
   br label %tng_block_destroy.exit352
 
 tng_block_destroy.exit352:                        ; preds = %210, %213
-  tail call void @free(ptr noundef nonnull %118) #23
+  tail call void @free(ptr noundef nonnull %118) #24
   store ptr %17, ptr %16, align 8
   store i64 %37, ptr %36, align 8
   store i64 %39, ptr %38, align 8
@@ -22871,14 +22871,14 @@ tng_block_destroy.exit352:                        ; preds = %210, %213
 
 235:                                              ; preds = %.critedge9
   %236 = load ptr, ptr @stderr, align 8
-  %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.14, i64 noundef %.3277.lcssa, ptr noundef nonnull @.str.1, i32 noundef 12590) #26
+  %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %236, ptr noundef nonnull @.str.14, i64 noundef %.3277.lcssa, ptr noundef nonnull @.str.1, i32 noundef 12590) #27
   %238 = getelementptr inbounds i8, ptr %118, i64 40
   %239 = load ptr, ptr %238, align 8
   %.not16.i354 = icmp eq ptr %239, null
   br i1 %.not16.i354, label %241, label %240
 
 240:                                              ; preds = %235
-  tail call void @free(ptr noundef nonnull %239) #23
+  tail call void @free(ptr noundef nonnull %239) #24
   store ptr null, ptr %238, align 8
   br label %241
 
@@ -22889,7 +22889,7 @@ tng_block_destroy.exit352:                        ; preds = %210, %213
   br i1 %.not17.i355, label %245, label %244
 
 244:                                              ; preds = %241
-  tail call void @free(ptr noundef nonnull %243) #23
+  tail call void @free(ptr noundef nonnull %243) #24
   store ptr null, ptr %242, align 8
   br label %245
 
@@ -22900,11 +22900,11 @@ tng_block_destroy.exit352:                        ; preds = %210, %213
   br i1 %.not18.i356, label %tng_block_destroy.exit357, label %248
 
 248:                                              ; preds = %245
-  tail call void @free(ptr noundef nonnull %247) #23
+  tail call void @free(ptr noundef nonnull %247) #24
   br label %tng_block_destroy.exit357
 
 tng_block_destroy.exit357:                        ; preds = %245, %248
-  tail call void @free(ptr noundef nonnull %118) #23
+  tail call void @free(ptr noundef nonnull %118) #24
   store ptr %17, ptr %16, align 8
   store i64 %37, ptr %36, align 8
   store i64 %39, ptr %38, align 8
@@ -22924,14 +22924,14 @@ tng_block_destroy.exit357:                        ; preds = %245, %248
 
 257:                                              ; preds = %.critedge9.thread
   %258 = load ptr, ptr @stderr, align 8
-  %259 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 12605) #26
+  %259 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 12605) #27
   %260 = getelementptr inbounds i8, ptr %118, i64 40
   %261 = load ptr, ptr %260, align 8
   %.not16.i360 = icmp eq ptr %261, null
   br i1 %.not16.i360, label %263, label %262
 
 262:                                              ; preds = %257
-  tail call void @free(ptr noundef nonnull %261) #23
+  tail call void @free(ptr noundef nonnull %261) #24
   store ptr null, ptr %260, align 8
   br label %263
 
@@ -22942,7 +22942,7 @@ tng_block_destroy.exit357:                        ; preds = %245, %248
   br i1 %.not17.i361, label %267, label %266
 
 266:                                              ; preds = %263
-  tail call void @free(ptr noundef nonnull %265) #23
+  tail call void @free(ptr noundef nonnull %265) #24
   store ptr null, ptr %264, align 8
   br label %267
 
@@ -22953,11 +22953,11 @@ tng_block_destroy.exit357:                        ; preds = %245, %248
   br i1 %.not18.i362, label %tng_block_destroy.exit363, label %270
 
 270:                                              ; preds = %267
-  tail call void @free(ptr noundef nonnull %269) #23
+  tail call void @free(ptr noundef nonnull %269) #24
   br label %tng_block_destroy.exit363
 
 tng_block_destroy.exit363:                        ; preds = %267, %270
-  tail call void @free(ptr noundef nonnull %118) #23
+  tail call void @free(ptr noundef nonnull %118) #24
   br label %449
 
 tng_file_input_numerical.exit:                    ; preds = %.critedge9.thread
@@ -22968,14 +22968,14 @@ tng_file_input_numerical.exit:                    ; preds = %.critedge9.thread
 
 274:                                              ; preds = %tng_file_input_numerical.exit
   %275 = load ptr, ptr @stderr, align 8
-  %276 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %275, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 12611) #26
+  %276 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %275, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 12611) #27
   %277 = getelementptr inbounds i8, ptr %118, i64 40
   %278 = load ptr, ptr %277, align 8
   %.not16.i368 = icmp eq ptr %278, null
   br i1 %.not16.i368, label %280, label %279
 
 279:                                              ; preds = %274
-  tail call void @free(ptr noundef nonnull %278) #23
+  tail call void @free(ptr noundef nonnull %278) #24
   store ptr null, ptr %277, align 8
   br label %280
 
@@ -22986,7 +22986,7 @@ tng_file_input_numerical.exit:                    ; preds = %.critedge9.thread
   br i1 %.not17.i369, label %284, label %283
 
 283:                                              ; preds = %280
-  tail call void @free(ptr noundef nonnull %282) #23
+  tail call void @free(ptr noundef nonnull %282) #24
   store ptr null, ptr %281, align 8
   br label %284
 
@@ -22997,11 +22997,11 @@ tng_file_input_numerical.exit:                    ; preds = %.critedge9.thread
   br i1 %.not18.i370, label %tng_block_destroy.exit371, label %287
 
 287:                                              ; preds = %284
-  tail call void @free(ptr noundef nonnull %286) #23
+  tail call void @free(ptr noundef nonnull %286) #24
   br label %tng_block_destroy.exit371
 
 tng_block_destroy.exit371:                        ; preds = %284, %287
-  tail call void @free(ptr noundef nonnull %118) #23
+  tail call void @free(ptr noundef nonnull %118) #24
   br label %449
 
 tng_file_input_numerical.exit366:                 ; preds = %tng_file_input_numerical.exit
@@ -23034,7 +23034,7 @@ tng_file_input_numerical.exit366:                 ; preds = %tng_file_input_nume
   br i1 %.not16.i373, label %302, label %301
 
 301:                                              ; preds = %298
-  tail call void @free(ptr noundef nonnull %300) #23
+  tail call void @free(ptr noundef nonnull %300) #24
   store ptr null, ptr %299, align 8
   br label %302
 
@@ -23045,7 +23045,7 @@ tng_file_input_numerical.exit366:                 ; preds = %tng_file_input_nume
   br i1 %.not17.i374, label %306, label %305
 
 305:                                              ; preds = %302
-  tail call void @free(ptr noundef nonnull %304) #23
+  tail call void @free(ptr noundef nonnull %304) #24
   store ptr null, ptr %303, align 8
   br label %306
 
@@ -23056,11 +23056,11 @@ tng_file_input_numerical.exit366:                 ; preds = %tng_file_input_nume
   br i1 %.not18.i375, label %tng_block_destroy.exit376, label %309
 
 309:                                              ; preds = %306
-  tail call void @free(ptr noundef nonnull %308) #23
+  tail call void @free(ptr noundef nonnull %308) #24
   br label %tng_block_destroy.exit376
 
 tng_block_destroy.exit376:                        ; preds = %306, %309
-  tail call void @free(ptr noundef nonnull %118) #23
+  tail call void @free(ptr noundef nonnull %118) #24
   store ptr %17, ptr %16, align 8
   store i64 %37, ptr %36, align 8
   store i64 %39, ptr %38, align 8
@@ -23075,7 +23075,7 @@ tng_block_destroy.exit376:                        ; preds = %306, %309
 
 314:                                              ; preds = %310
   %315 = load ptr, ptr @stderr, align 8
-  %316 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %315, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 12632) #26
+  %316 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %315, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 12632) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %11)
   br label %449
 
@@ -23186,7 +23186,7 @@ tng_file_input_numerical.exit379:                 ; preds = %310
 
 363:                                              ; preds = %360
   %364 = load ptr, ptr @stderr, align 8
-  %365 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %364, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.1, i32 noundef 12725) #26
+  %365 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %364, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.1, i32 noundef 12725) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %11)
   br label %449
 
@@ -23214,7 +23214,7 @@ switch.lookup:                                    ; preds = %360
 
 380:                                              ; preds = %switch.lookup
   %381 = load ptr, ptr @stderr, align 8
-  %382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %381, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.1, i32 noundef 12745) #26
+  %382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %381, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.1, i32 noundef 12745) #27
   call fastcc void @tng_block_destroy(ptr noundef nonnull %11)
   br label %449
 
@@ -23236,7 +23236,7 @@ switch.lookup:                                    ; preds = %360
 391:                                              ; preds = %388
   %392 = mul nsw i64 %367, %.
   %393 = mul nsw i64 %392, %switch.load
-  %394 = call noalias ptr @malloc(i64 noundef %393) #25
+  %394 = call noalias ptr @malloc(i64 noundef %393) #26
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %394, ptr align 1 %6, i64 %393, i1 false)
   %395 = icmp sgt i64 %392, 0
   br i1 %395, label %.lr.ph409, label %._crit_edge
@@ -23245,13 +23245,13 @@ switch.lookup:                                    ; preds = %360
   %.0282408 = phi i64 [ %403, %402 ], [ 0, %391 ]
   %396 = load ptr, ptr %389, align 8
   %397 = getelementptr inbounds i64, ptr %394, i64 %.0282408
-  %398 = call i32 %396(ptr noundef nonnull %0, ptr noundef %397) #23
+  %398 = call i32 %396(ptr noundef nonnull %0, ptr noundef %397) #24
   %.not329 = icmp eq i32 %398, 0
   br i1 %.not329, label %402, label %399
 
 399:                                              ; preds = %.lr.ph409
   %400 = load ptr, ptr @stderr, align 8
-  %401 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %400, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 12771) #26
+  %401 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %400, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 12771) #27
   br label %402
 
 402:                                              ; preds = %.lr.ph409, %399
@@ -23262,7 +23262,7 @@ switch.lookup:                                    ; preds = %360
 ._crit_edge:                                      ; preds = %402, %391
   %404 = load ptr, ptr %18, align 8
   %405 = call i64 @fwrite(ptr noundef %394, i64 noundef %392, i64 noundef %switch.load, ptr noundef %404)
-  call void @free(ptr noundef %394) #23
+  call void @free(ptr noundef %394) #24
   br label %430
 
 406:                                              ; preds = %383, %388
@@ -23278,7 +23278,7 @@ switch.lookup:                                    ; preds = %360
 411:                                              ; preds = %408
   %412 = mul nsw i64 %367, %.
   %413 = mul nsw i64 %412, %switch.load
-  %414 = call noalias ptr @malloc(i64 noundef %413) #25
+  %414 = call noalias ptr @malloc(i64 noundef %413) #26
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %414, ptr align 1 %6, i64 %413, i1 false)
   %415 = icmp sgt i64 %412, 0
   br i1 %415, label %.lr.ph412, label %._crit_edge413
@@ -23287,13 +23287,13 @@ switch.lookup:                                    ; preds = %360
   %.1283410 = phi i64 [ %423, %422 ], [ 0, %411 ]
   %416 = load ptr, ptr %409, align 8
   %417 = getelementptr inbounds i32, ptr %414, i64 %.1283410
-  %418 = call i32 %416(ptr noundef nonnull %0, ptr noundef %417) #23
+  %418 = call i32 %416(ptr noundef nonnull %0, ptr noundef %417) #24
   %.not326 = icmp eq i32 %418, 0
   br i1 %.not326, label %422, label %419
 
 419:                                              ; preds = %.lr.ph412
   %420 = load ptr, ptr @stderr, align 8
-  %421 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %420, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 12785) #26
+  %421 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %420, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 12785) #27
   br label %422
 
 422:                                              ; preds = %.lr.ph412, %419
@@ -23304,7 +23304,7 @@ switch.lookup:                                    ; preds = %360
 ._crit_edge413:                                   ; preds = %422, %411
   %424 = load ptr, ptr %18, align 8
   %425 = call i64 @fwrite(ptr noundef %414, i64 noundef %412, i64 noundef %switch.load, ptr noundef %424)
-  call void @free(ptr noundef %414) #23
+  call void @free(ptr noundef %414) #24
   br label %430
 
 426:                                              ; preds = %408, %406
@@ -23393,7 +23393,7 @@ define noundef i32 @tng_data_values_free(ptr nocapture readnone %0, ptr noundef 
   br i1 %.not27.us.us, label %17, label %14
 
 14:                                               ; preds = %.preheader.us.us
-  tail call void @free(ptr noundef nonnull %13) #23
+  tail call void @free(ptr noundef nonnull %13) #24
   %15 = load ptr, ptr %9, align 8
   %16 = getelementptr inbounds %union.data_values, ptr %15, i64 %.029.us.us
   store ptr null, ptr %16, align 8
@@ -23411,7 +23411,7 @@ define noundef i32 @tng_data_values_free(ptr nocapture readnone %0, ptr noundef 
 
 ..loopexit_crit_edge.us.us:                       ; preds = %17
   %21 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %21) #23
+  tail call void @free(ptr noundef %21) #24
   store ptr null, ptr %9, align 8
   br label %19
 
@@ -23423,7 +23423,7 @@ define noundef i32 @tng_data_values_free(ptr nocapture readnone %0, ptr noundef 
   br i1 %.not26.us, label %24, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.lr.ph31.split.us.split
-  tail call void @free(ptr noundef nonnull %23) #23
+  tail call void @free(ptr noundef nonnull %23) #24
   store ptr null, ptr %22, align 8
   br label %24
 
@@ -23440,7 +23440,7 @@ define noundef i32 @tng_data_values_free(ptr nocapture readnone %0, ptr noundef 
   br i1 %.not26, label %29, label %28
 
 28:                                               ; preds = %.lr.ph31.split
-  tail call void @free(ptr noundef nonnull %27) #23
+  tail call void @free(ptr noundef nonnull %27) #24
   store ptr null, ptr %26, align 8
   br label %29
 
@@ -23450,7 +23450,7 @@ define noundef i32 @tng_data_values_free(ptr nocapture readnone %0, ptr noundef 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph31.split, !llvm.loop !161
 
 ._crit_edge:                                      ; preds = %29, %24, %19, %.preheader28
-  tail call void @free(ptr noundef nonnull %1) #23
+  tail call void @free(ptr noundef nonnull %1) #24
   br label %31
 
 31:                                               ; preds = %._crit_edge, %5
@@ -23505,7 +23505,7 @@ define noundef i32 @tng_particle_data_values_free(ptr nocapture readnone %0, ptr
   br i1 %.not40.us.us.us.us.us, label %26, label %21
 
 21:                                               ; preds = %15
-  tail call void @free(ptr noundef nonnull %20) #23
+  tail call void @free(ptr noundef nonnull %20) #24
   %22 = load ptr, ptr %11, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %.03544.us.us.us.us.us
   %24 = load ptr, ptr %23, align 8
@@ -23522,7 +23522,7 @@ define noundef i32 @tng_particle_data_values_free(ptr nocapture readnone %0, ptr
   %28 = load ptr, ptr %11, align 8
   %29 = getelementptr inbounds ptr, ptr %28, i64 %.03544.us.us.us.us.us
   %30 = load ptr, ptr %29, align 8
-  tail call void @free(ptr noundef %30) #23
+  tail call void @free(ptr noundef %30) #24
   %31 = load ptr, ptr %11, align 8
   %32 = getelementptr inbounds ptr, ptr %31, i64 %.03544.us.us.us.us.us
   store ptr null, ptr %32, align 8
@@ -23532,7 +23532,7 @@ define noundef i32 @tng_particle_data_values_free(ptr nocapture readnone %0, ptr
 
 ._crit_edge.split.us.split.us.us.us.us:           ; preds = %..loopexit_crit_edge.us.us.us.us.us
   %34 = load ptr, ptr %11, align 8
-  tail call void @free(ptr noundef %34) #23
+  tail call void @free(ptr noundef %34) #24
   store ptr null, ptr %11, align 8
   br label %13
 
@@ -23553,7 +23553,7 @@ define noundef i32 @tng_particle_data_values_free(ptr nocapture readnone %0, ptr
   %39 = load ptr, ptr %35, align 8
   %40 = getelementptr inbounds ptr, ptr %39, i64 %.03544.us.us53.us
   %41 = load ptr, ptr %40, align 8
-  tail call void @free(ptr noundef %41) #23
+  tail call void @free(ptr noundef %41) #24
   %42 = load ptr, ptr %35, align 8
   %43 = getelementptr inbounds ptr, ptr %42, i64 %.03544.us.us53.us
   store ptr null, ptr %43, align 8
@@ -23563,7 +23563,7 @@ define noundef i32 @tng_particle_data_values_free(ptr nocapture readnone %0, ptr
 
 ._crit_edge.split.us.split.us54.us:               ; preds = %.preheader.us.us52.us
   %45 = load ptr, ptr %35, align 8
-  tail call void @free(ptr noundef %45) #23
+  tail call void @free(ptr noundef %45) #24
   store ptr null, ptr %35, align 8
   br label %37
 
@@ -23579,7 +23579,7 @@ define noundef i32 @tng_particle_data_values_free(ptr nocapture readnone %0, ptr
   %48 = load ptr, ptr %46, align 8
   %49 = getelementptr inbounds ptr, ptr %48, i64 %.03544.us49
   %50 = load ptr, ptr %49, align 8
-  tail call void @free(ptr noundef %50) #23
+  tail call void @free(ptr noundef %50) #24
   %51 = load ptr, ptr %46, align 8
   %52 = getelementptr inbounds ptr, ptr %51, i64 %.03544.us49
   store ptr null, ptr %52, align 8
@@ -23594,7 +23594,7 @@ define noundef i32 @tng_particle_data_values_free(ptr nocapture readnone %0, ptr
 
 ._crit_edge.split.us50:                           ; preds = %.preheader41.us
   %56 = load ptr, ptr %46, align 8
-  tail call void @free(ptr noundef %56) #23
+  tail call void @free(ptr noundef %56) #24
   store ptr null, ptr %46, align 8
   br label %54
 
@@ -23606,7 +23606,7 @@ define noundef i32 @tng_particle_data_values_free(ptr nocapture readnone %0, ptr
   br i1 %.not39, label %59, label %.preheader41
 
 .preheader41:                                     ; preds = %.lr.ph.split
-  tail call void @free(ptr noundef nonnull %58) #23
+  tail call void @free(ptr noundef nonnull %58) #24
   store ptr null, ptr %57, align 8
   br label %59
 
@@ -23616,7 +23616,7 @@ define noundef i32 @tng_particle_data_values_free(ptr nocapture readnone %0, ptr
   br i1 %exitcond.not, label %._crit_edge48, label %.lr.ph.split, !llvm.loop !162
 
 ._crit_edge48:                                    ; preds = %59, %54, %37, %13, %.preheader42
-  tail call void @free(ptr noundef nonnull %1) #23
+  tail call void @free(ptr noundef nonnull %1) #24
   br label %61
 
 61:                                               ; preds = %._crit_edge48, %6
@@ -23779,13 +23779,13 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_get(ptr noundef %0, i64
   br i1 %77, label %.loopexit352, label %.critedge.i250
 
 .loopexit353:                                     ; preds = %.critedge.i250, %.critedge38.i, %.critedge.i, %32, %25, %.critedge.preheader.i, %.critedge38.preheader.i, %.critedge.preheader.i248
-  %78 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %78 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i251 = icmp eq ptr %78, null
   br i1 %.not.i251, label %79, label %82
 
 79:                                               ; preds = %.loopexit353
   %80 = load ptr, ptr @stderr, align 8
-  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 82:                                               ; preds = %.loopexit353
@@ -23861,7 +23861,7 @@ tng_block_init.exit:                              ; preds = %79, %82
   br i1 %.not16.i, label %114, label %113
 
 113:                                              ; preds = %.critedge.thread
-  tail call void @free(ptr noundef nonnull %112) #23
+  tail call void @free(ptr noundef nonnull %112) #24
   store ptr null, ptr %111, align 8
   br label %114
 
@@ -23872,7 +23872,7 @@ tng_block_init.exit:                              ; preds = %79, %82
   br i1 %.not17.i, label %118, label %117
 
 117:                                              ; preds = %114
-  tail call void @free(ptr noundef nonnull %116) #23
+  tail call void @free(ptr noundef nonnull %116) #24
   store ptr null, ptr %115, align 8
   br label %118
 
@@ -23883,11 +23883,11 @@ tng_block_init.exit:                              ; preds = %79, %82
   br i1 %.not18.i, label %122, label %121
 
 121:                                              ; preds = %118
-  tail call void @free(ptr noundef nonnull %120) #23
+  tail call void @free(ptr noundef nonnull %120) #24
   br label %122
 
 122:                                              ; preds = %121, %118
-  tail call void @free(ptr noundef nonnull %78) #23
+  tail call void @free(ptr noundef nonnull %78) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %.critedge, %122
@@ -23898,7 +23898,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %122
 
 124:                                              ; preds = %tng_block_destroy.exit
   %125 = load ptr, ptr @stderr, align 8
-  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.14, i64 noundef %.0217383, ptr noundef nonnull @.str.1, i32 noundef 13103) #26
+  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.14, i64 noundef %.0217383, ptr noundef nonnull @.str.1, i32 noundef 13103) #27
   br label %.thread
 
 127:                                              ; preds = %tng_block_destroy.exit
@@ -24114,9 +24114,9 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %212, %.lr.ph435, %2
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds ptr, ptr %219, i64 %.0219431
   %221 = load ptr, ptr %220, align 8
-  %222 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %221) #24
+  %222 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %221) #25
   %223 = add i64 %222, 1
-  %224 = tail call noalias ptr @malloc(i64 noundef %223) #25
+  %224 = tail call noalias ptr @malloc(i64 noundef %223) #26
   %225 = load ptr, ptr %3, align 8
   %226 = getelementptr inbounds ptr, ptr %225, i64 %.2216437
   %227 = load ptr, ptr %226, align 8
@@ -24138,7 +24138,7 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %212, %.lr.ph435, %2
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds ptr, ptr %242, i64 %.0219431
   %244 = load ptr, ptr %243, align 8
-  %245 = tail call ptr @strncpy(ptr noundef %237, ptr noundef %244, i64 noundef %223) #23
+  %245 = tail call ptr @strncpy(ptr noundef %237, ptr noundef %244, i64 noundef %223) #24
   %246 = add nuw nsw i64 %.0219431, 1
   %247 = load i64, ptr %6, align 8
   %248 = icmp slt i64 %246, %247
@@ -24551,9 +24551,9 @@ thread-pre-split325:                              ; preds = %431
   %449 = load ptr, ptr %448, align 8
   %450 = getelementptr inbounds ptr, ptr %449, i64 %.4227409
   %451 = load ptr, ptr %450, align 8
-  %452 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %451) #24
+  %452 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %451) #25
   %453 = add i64 %452, 1
-  %454 = tail call noalias ptr @malloc(i64 noundef %453) #25
+  %454 = tail call noalias ptr @malloc(i64 noundef %453) #26
   %455 = load ptr, ptr %3, align 8
   %456 = load ptr, ptr %455, align 8
   %457 = getelementptr inbounds ptr, ptr %456, i64 %.6412
@@ -24572,7 +24572,7 @@ thread-pre-split325:                              ; preds = %431
   %469 = load ptr, ptr %468, align 8
   %470 = getelementptr inbounds ptr, ptr %469, i64 %.4227409
   %471 = load ptr, ptr %470, align 8
-  %472 = tail call ptr @strncpy(ptr noundef %465, ptr noundef %471, i64 noundef %453) #23
+  %472 = tail call ptr @strncpy(ptr noundef %465, ptr noundef %471, i64 noundef %453) #24
   %473 = add nuw nsw i64 %.4227409, 1
   %474 = load i64, ptr %6, align 8
   %475 = icmp slt i64 %473, %474
@@ -24873,13 +24873,13 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_get(ptr noundef 
   br i1 %78, label %tng_particle_data_find.exit, label %.critedge.i111
 
 .loopexit134:                                     ; preds = %.critedge.i111, %.critedge38.i, %.critedge.i, %33, %26, %.critedge.preheader.i, %.critedge38.preheader.i, %.critedge.preheader.i109
-  %79 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %79 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i112 = icmp eq ptr %79, null
   br i1 %.not.i112, label %80, label %83
 
 80:                                               ; preds = %.loopexit134
   %81 = load ptr, ptr @stderr, align 8
-  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 83:                                               ; preds = %.loopexit134
@@ -24955,7 +24955,7 @@ tng_block_init.exit:                              ; preds = %80, %83
   br i1 %.not16.i, label %115, label %114
 
 114:                                              ; preds = %.critedge.thread
-  tail call void @free(ptr noundef nonnull %113) #23
+  tail call void @free(ptr noundef nonnull %113) #24
   store ptr null, ptr %112, align 8
   br label %115
 
@@ -24966,7 +24966,7 @@ tng_block_init.exit:                              ; preds = %80, %83
   br i1 %.not17.i, label %119, label %118
 
 118:                                              ; preds = %115
-  tail call void @free(ptr noundef nonnull %117) #23
+  tail call void @free(ptr noundef nonnull %117) #24
   store ptr null, ptr %116, align 8
   br label %119
 
@@ -24977,11 +24977,11 @@ tng_block_init.exit:                              ; preds = %80, %83
   br i1 %.not18.i, label %123, label %122
 
 122:                                              ; preds = %119
-  tail call void @free(ptr noundef nonnull %121) #23
+  tail call void @free(ptr noundef nonnull %121) #24
   br label %123
 
 123:                                              ; preds = %122, %119
-  tail call void @free(ptr noundef nonnull %79) #23
+  tail call void @free(ptr noundef nonnull %79) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %.critedge, %123
@@ -25004,7 +25004,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %123
 
 130:                                              ; preds = %tng_block_destroy.exit
   %131 = load ptr, ptr @stderr, align 8
-  %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.14, i64 noundef %.092151, ptr noundef nonnull @.str.1, i32 noundef 13374) #26
+  %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.14, i64 noundef %.092151, ptr noundef nonnull @.str.1, i32 noundef 13374) #27
   br label %.critedge108
 
 133:                                              ; preds = %135
@@ -25086,15 +25086,15 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i110, %67, %
 171:                                              ; preds = %168, %153
   %.091 = phi i64 [ %170, %168 ], [ %167, %153 ]
   %172 = load ptr, ptr %3, align 8
-  %173 = tail call ptr @realloc(ptr noundef %172, i64 noundef %.091) #27
+  %173 = tail call ptr @realloc(ptr noundef %172, i64 noundef %.091) #28
   %.not104 = icmp eq ptr %173, null
   br i1 %.not104, label %174, label %178
 
 174:                                              ; preds = %171
   %175 = load ptr, ptr @stderr, align 8
-  %176 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 13440) #26
+  %176 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 13440) #27
   %177 = load ptr, ptr %3, align 8
-  tail call void @free(ptr noundef %177) #23
+  tail call void @free(ptr noundef %177) #24
   store ptr null, ptr %3, align 8
   br label %.critedge108
 
@@ -25269,13 +25269,13 @@ define internal fastcc i32 @tng_gen_data_interval_get(ptr noundef %0, i64 nounde
   br i1 %30, label %31, label %.preheader405
 
 31:                                               ; preds = %27, %25, %19, %17
-  %32 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %32 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %33, label %36
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr @stderr, align 8
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 36:                                               ; preds = %31
@@ -25351,7 +25351,7 @@ tng_block_init.exit:                              ; preds = %33, %36
   br i1 %.not16.i, label %68, label %67
 
 67:                                               ; preds = %.critedge.thread
-  tail call void @free(ptr noundef nonnull %66) #23
+  tail call void @free(ptr noundef nonnull %66) #24
   store ptr null, ptr %65, align 8
   br label %68
 
@@ -25362,7 +25362,7 @@ tng_block_init.exit:                              ; preds = %33, %36
   br i1 %.not17.i, label %72, label %71
 
 71:                                               ; preds = %68
-  tail call void @free(ptr noundef nonnull %70) #23
+  tail call void @free(ptr noundef nonnull %70) #24
   store ptr null, ptr %69, align 8
   br label %72
 
@@ -25373,11 +25373,11 @@ tng_block_init.exit:                              ; preds = %33, %36
   br i1 %.not18.i, label %76, label %75
 
 75:                                               ; preds = %72
-  tail call void @free(ptr noundef nonnull %74) #23
+  tail call void @free(ptr noundef nonnull %74) #24
   br label %76
 
 76:                                               ; preds = %75, %72
-  tail call void @free(ptr noundef nonnull %32) #23
+  tail call void @free(ptr noundef nonnull %32) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %.critedge, %76
@@ -25388,7 +25388,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %76
 
 78:                                               ; preds = %tng_block_destroy.exit
   %79 = load ptr, ptr @stderr, align 8
-  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.14, i64 noundef %.0277430, ptr noundef nonnull @.str.1, i32 noundef 13549) #26
+  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.14, i64 noundef %.0277430, ptr noundef nonnull @.str.1, i32 noundef 13549) #27
   br label %tng_frame_set_read_next.exit.thread
 
 81:                                               ; preds = %tng_block_destroy.exit
@@ -25448,7 +25448,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %76
 
 .thread361:                                       ; preds = %98, %91, %.preheader405, %104
   %106 = load ptr, ptr @stderr, align 8
-  %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.114, i64 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 13586) #26
+  %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.114, i64 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 13586) #27
   br label %tng_frame_set_read_next.exit.thread
 
 .thread364:                                       ; preds = %100, %104
@@ -25697,9 +25697,9 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %224, %.lr.ph467, %2
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds ptr, ptr %232, i64 %.0279463
   %234 = load ptr, ptr %233, align 8
-  %235 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %234) #24
+  %235 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %234) #25
   %236 = add i64 %235, 1
-  %237 = tail call noalias ptr @malloc(i64 noundef %236) #25
+  %237 = tail call noalias ptr @malloc(i64 noundef %236) #26
   %238 = load ptr, ptr %6, align 8
   %239 = getelementptr inbounds ptr, ptr %238, i64 %.2470
   %240 = load ptr, ptr %239, align 8
@@ -25721,7 +25721,7 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %224, %.lr.ph467, %2
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr inbounds ptr, ptr %255, i64 %.0279463
   %257 = load ptr, ptr %256, align 8
-  %258 = tail call ptr @strncpy(ptr noundef %250, ptr noundef %257, i64 noundef %236) #23
+  %258 = tail call ptr @strncpy(ptr noundef %250, ptr noundef %257, i64 noundef %236) #24
   %259 = add nuw nsw i64 %.0279463, 1
   %260 = load i64, ptr %8, align 8
   %261 = icmp slt i64 %259, %260
@@ -25745,9 +25745,9 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %224, %.lr.ph467, %2
   %268 = load ptr, ptr %267, align 8
   %269 = getelementptr inbounds ptr, ptr %268, i64 %.1263461
   %270 = load ptr, ptr %269, align 8
-  %271 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %270) #24
+  %271 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %270) #25
   %272 = add i64 %271, 1
-  %273 = tail call noalias ptr @malloc(i64 noundef %272) #25
+  %273 = tail call noalias ptr @malloc(i64 noundef %272) #26
   %274 = load ptr, ptr %6, align 8
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr inbounds ptr, ptr %275, i64 %.2470
@@ -25766,7 +25766,7 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %224, %.lr.ph467, %2
   %288 = load ptr, ptr %287, align 8
   %289 = getelementptr inbounds ptr, ptr %288, i64 %.1263461
   %290 = load ptr, ptr %289, align 8
-  %291 = tail call ptr @strncpy(ptr noundef %284, ptr noundef %290, i64 noundef %272) #23
+  %291 = tail call ptr @strncpy(ptr noundef %284, ptr noundef %290, i64 noundef %272) #24
   %292 = add nuw nsw i64 %.1263461, 1
   %293 = load i64, ptr %8, align 8
   %294 = icmp slt i64 %292, %293
@@ -26480,13 +26480,13 @@ tng_particle_data_find.exit.thread.sink.split:    ; preds = %.critedge.i222, %.c
 
 tng_particle_data_find.exit.thread:               ; preds = %tng_particle_data_find.exit.thread.sink.split, %.critedge.preheader.i220, %.critedge38.preheader.i, %.critedge.preheader.i, %46, %tng_particle_data_find.exit
   %106 = phi i1 [ false, %tng_particle_data_find.exit ], [ true, %46 ], [ true, %.critedge.preheader.i ], [ true, %.critedge38.preheader.i ], [ true, %.critedge.preheader.i220 ], [ true, %tng_particle_data_find.exit.thread.sink.split ]
-  %107 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %107 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i223 = icmp eq ptr %107, null
   br i1 %.not.i223, label %108, label %111
 
 108:                                              ; preds = %tng_particle_data_find.exit.thread
   %109 = load ptr, ptr @stderr, align 8
-  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 111:                                              ; preds = %tng_particle_data_find.exit.thread
@@ -26515,7 +26515,7 @@ tng_block_init.exit:                              ; preds = %108, %111
 
 122:                                              ; preds = %116
   %123 = load ptr, ptr @stderr, align 8
-  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.1, i32 noundef 13883) #26
+  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.1, i32 noundef 13883) #27
   br label %tng_particle_data_find.exit231.thread
 
 125:                                              ; preds = %116
@@ -26599,7 +26599,7 @@ tng_block_init.exit:                              ; preds = %108, %111
   br i1 %.not16.i, label %164, label %163
 
 163:                                              ; preds = %.critedge.thread
-  tail call void @free(ptr noundef nonnull %162) #23
+  tail call void @free(ptr noundef nonnull %162) #24
   store ptr null, ptr %161, align 8
   br label %164
 
@@ -26610,7 +26610,7 @@ tng_block_init.exit:                              ; preds = %108, %111
   br i1 %.not17.i, label %168, label %167
 
 167:                                              ; preds = %164
-  tail call void @free(ptr noundef nonnull %166) #23
+  tail call void @free(ptr noundef nonnull %166) #24
   store ptr null, ptr %165, align 8
   br label %168
 
@@ -26621,11 +26621,11 @@ tng_block_init.exit:                              ; preds = %108, %111
   br i1 %.not18.i, label %172, label %171
 
 171:                                              ; preds = %168
-  tail call void @free(ptr noundef nonnull %170) #23
+  tail call void @free(ptr noundef nonnull %170) #24
   br label %172
 
 172:                                              ; preds = %171, %168
-  tail call void @free(ptr noundef nonnull %107) #23
+  tail call void @free(ptr noundef nonnull %107) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %.critedge, %172
@@ -26636,7 +26636,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %172
 
 174:                                              ; preds = %tng_block_destroy.exit
   %175 = load ptr, ptr @stderr, align 8
-  %176 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.14, i64 noundef %.0173312, ptr noundef nonnull @.str.1, i32 noundef 13912) #26
+  %176 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef nonnull @.str.14, i64 noundef %.0173312, ptr noundef nonnull @.str.1, i32 noundef 13912) #27
   br label %tng_particle_data_find.exit231.thread
 
 177:                                              ; preds = %tng_block_destroy.exit, %tng_particle_data_find.exit
@@ -26804,7 +26804,7 @@ tng_particle_data_find.exit231:                   ; preds = %.lr.ph.i233, %232, 
   br i1 %.not215, label %tng_particle_data_find.exit231.thread, label %251
 
 251:                                              ; preds = %249
-  tail call void @free(ptr noundef nonnull %250) #23
+  tail call void @free(ptr noundef nonnull %250) #24
   br label %tng_particle_data_find.exit231.thread
 
 252:                                              ; preds = %246, %245
@@ -26866,15 +26866,15 @@ tng_particle_data_find.exit231:                   ; preds = %.lr.ph.i233, %232, 
 284:                                              ; preds = %281, %273
   %.0170 = phi i64 [ %283, %281 ], [ %280, %273 ]
   %285 = load ptr, ptr %6, align 8
-  %286 = tail call ptr @realloc(ptr noundef %285, i64 noundef %.0170) #27
+  %286 = tail call ptr @realloc(ptr noundef %285, i64 noundef %.0170) #28
   %.not205 = icmp eq ptr %286, null
   br i1 %.not205, label %287, label %291
 
 287:                                              ; preds = %284
   %288 = load ptr, ptr @stderr, align 8
-  %289 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 13978) #26
+  %289 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 13978) #27
   %290 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %290) #23
+  tail call void @free(ptr noundef %290) #24
   store ptr null, ptr %6, align 8
   br label %tng_particle_data_find.exit231.thread
 
@@ -26992,12 +26992,12 @@ tng_frame_set_read_next.exit.thread:              ; preds = %tng_frame_set_read_
   br i1 %.not212, label %355, label %354
 
 354:                                              ; preds = %tng_frame_set_read_next.exit.thread
-  tail call void @free(ptr noundef nonnull %.lcssa514) #23
+  tail call void @free(ptr noundef nonnull %.lcssa514) #24
   br label %355
 
 355:                                              ; preds = %354, %tng_frame_set_read_next.exit.thread
   %356 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %356) #23
+  tail call void @free(ptr noundef %356) #24
   store ptr null, ptr %6, align 8
   br label %tng_particle_data_find.exit231.thread
 
@@ -27144,12 +27144,12 @@ tng_particle_data_find.exit253:                   ; preds = %.lr.ph.i255, %400, 
   br i1 %.not211, label %416, label %415
 
 415:                                              ; preds = %413
-  tail call void @free(ptr noundef nonnull %414) #23
+  tail call void @free(ptr noundef nonnull %414) #24
   br label %416
 
 416:                                              ; preds = %415, %413
   %417 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %417) #23
+  tail call void @free(ptr noundef %417) #24
   store ptr null, ptr %6, align 8
   br label %tng_particle_data_find.exit231.thread
 
@@ -27191,7 +27191,7 @@ thread-pre-split:                                 ; preds = %298, %thread-pre-sp
   br i1 %.not213, label %440, label %439
 
 439:                                              ; preds = %thread-pre-split
-  tail call void @free(ptr noundef nonnull %438) #23
+  tail call void @free(ptr noundef nonnull %438) #24
   br label %440
 
 440:                                              ; preds = %439, %thread-pre-split
@@ -27608,7 +27608,7 @@ define range(i32 0, 2) i32 @tng_time_get_str(ptr nocapture noundef readonly %0, 
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %3, align 8
-  %6 = call ptr @localtime(ptr noundef nonnull %3) #23
+  %6 = call ptr @localtime(ptr noundef nonnull %3) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, 1900
@@ -27622,7 +27622,7 @@ define range(i32 0, 2) i32 @tng_time_get_str(ptr nocapture noundef readonly %0, 
   %17 = getelementptr inbounds i8, ptr %6, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = load i32, ptr %6, align 8
-  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 24, ptr noundef nonnull @.str.33, i32 noundef %9, i32 noundef %12, i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %19) #23
+  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 24, ptr noundef nonnull @.str.33, i32 noundef %9, i32 noundef %12, i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %19) #24
   %21 = icmp sgt i32 %20, -1
   %22 = zext i1 %21 to i32
   ret i32 %22
@@ -27702,7 +27702,7 @@ define range(i32 0, 3) i32 @tng_util_trajectory_open(ptr nocapture noundef reado
 
 41:                                               ; preds = %28
   %42 = load ptr, ptr @stderr, align 8
-  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.1, i32 noundef 14363) #26
+  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.1, i32 noundef 14363) #27
   br label %44
 
 44:                                               ; preds = %41, %28
@@ -27745,7 +27745,7 @@ define range(i32 0, 3) i32 @tng_util_trajectory_open(ptr nocapture noundef reado
   br i1 %.not61, label %71, label %69
 
 69:                                               ; preds = %66
-  tail call void @free(ptr noundef nonnull %68) #23
+  tail call void @free(ptr noundef nonnull %68) #24
   %70 = load ptr, ptr %2, align 8
   store ptr null, ptr %70, align 8
   %.pre63 = load ptr, ptr %2, align 8
@@ -27782,7 +27782,7 @@ define range(i32 0, 2) i32 @tng_util_trajectory_close(ptr noundef %0) local_unna
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 14402) #26
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 14402) #27
   br label %19
 
 6:                                                ; preds = %1
@@ -27820,7 +27820,7 @@ define i32 @tng_util_time_of_frame_get(ptr noundef %0, i64 noundef %1, ptr nocap
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.36, i64 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 14437) #26
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.36, i64 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 14437) #27
   br label %20
 
 8:                                                ; preds = %3
@@ -27854,27 +27854,27 @@ define noundef i32 @tng_util_molecule_particles_get(ptr nocapture noundef readno
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %2, align 8
   %12 = shl i64 %11, 3
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #25
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #26
   store ptr %13, ptr %3, align 8
   %14 = load i64, ptr %2, align 8
   %15 = shl i64 %14, 3
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #25
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #26
   store ptr %16, ptr %4, align 8
   %17 = load i64, ptr %2, align 8
   %18 = shl i64 %17, 3
-  %19 = tail call noalias ptr @malloc(i64 noundef %18) #25
+  %19 = tail call noalias ptr @malloc(i64 noundef %18) #26
   store ptr %19, ptr %5, align 8
   %20 = load i64, ptr %2, align 8
   %21 = shl i64 %20, 3
-  %22 = tail call noalias ptr @malloc(i64 noundef %21) #25
+  %22 = tail call noalias ptr @malloc(i64 noundef %21) #26
   store ptr %22, ptr %7, align 8
   %23 = load i64, ptr %2, align 8
   %24 = shl i64 %23, 3
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #25
+  %25 = tail call noalias ptr @malloc(i64 noundef %24) #26
   store ptr %25, ptr %6, align 8
   %26 = load i64, ptr %2, align 8
   %27 = shl i64 %26, 3
-  %28 = tail call noalias ptr @malloc(i64 noundef %27) #25
+  %28 = tail call noalias ptr @malloc(i64 noundef %27) #26
   store ptr %28, ptr %8, align 8
   %29 = load i64, ptr %2, align 8
   %30 = icmp sgt i64 %29, 0
@@ -27892,8 +27892,8 @@ define noundef i32 @tng_util_molecule_particles_get(ptr nocapture noundef readno
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %34, i64 24
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #24
-  %40 = tail call noalias ptr @malloc(i64 noundef %39) #25
+  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #25
+  %40 = tail call noalias ptr @malloc(i64 noundef %39) #26
   %41 = load ptr, ptr %3, align 8
   %42 = getelementptr inbounds ptr, ptr %41, i64 %.050
   store ptr %40, ptr %42, align 8
@@ -27901,11 +27901,11 @@ define noundef i32 @tng_util_molecule_particles_get(ptr nocapture noundef readno
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %37, align 8
-  %47 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %46) #23
+  %47 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %46) #24
   %48 = getelementptr inbounds i8, ptr %34, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #24
-  %51 = tail call noalias ptr @malloc(i64 noundef %50) #25
+  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #25
+  %51 = tail call noalias ptr @malloc(i64 noundef %50) #26
   %52 = load ptr, ptr %4, align 8
   %53 = getelementptr inbounds ptr, ptr %52, i64 %.050
   store ptr %51, ptr %53, align 8
@@ -27913,11 +27913,11 @@ define noundef i32 @tng_util_molecule_particles_get(ptr nocapture noundef readno
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %48, align 8
-  %58 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %57) #23
+  %58 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %57) #24
   %59 = getelementptr inbounds i8, ptr %35, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #24
-  %62 = tail call noalias ptr @malloc(i64 noundef %61) #25
+  %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #25
+  %62 = tail call noalias ptr @malloc(i64 noundef %61) #26
   %63 = load ptr, ptr %5, align 8
   %64 = getelementptr inbounds ptr, ptr %63, i64 %.050
   store ptr %62, ptr %64, align 8
@@ -27925,11 +27925,11 @@ define noundef i32 @tng_util_molecule_particles_get(ptr nocapture noundef readno
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %59, align 8
-  %69 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %68) #23
+  %69 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %68) #24
   %70 = getelementptr inbounds i8, ptr %36, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #24
-  %73 = tail call noalias ptr @malloc(i64 noundef %72) #25
+  %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #25
+  %73 = tail call noalias ptr @malloc(i64 noundef %72) #26
   %74 = load ptr, ptr %7, align 8
   %75 = getelementptr inbounds ptr, ptr %74, i64 %.050
   store ptr %73, ptr %75, align 8
@@ -27937,7 +27937,7 @@ define noundef i32 @tng_util_molecule_particles_get(ptr nocapture noundef readno
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %70, align 8
-  %80 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %79) #23
+  %80 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %79) #24
   %81 = getelementptr inbounds i8, ptr %35, i64 8
   %82 = load i64, ptr %81, align 8
   %83 = load ptr, ptr %6, align 8
@@ -28021,7 +28021,7 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr nocapture nounde
   %36 = getelementptr inbounds %struct.tng_chain, ptr %26, i64 %.01417.us.i
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %38) #24
+  %39 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %38) #25
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %tng_molecule_chain_find.exit.thread.loopexit, label %41
 
@@ -28035,7 +28035,7 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr nocapture nounde
   %43 = getelementptr inbounds %struct.tng_chain, ptr %26, i64 %.01417.i
   %44 = getelementptr inbounds i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %45) #24
+  %46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %45) #25
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %52
 
@@ -28131,7 +28131,7 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
   %81 = getelementptr inbounds %struct.tng_residue, ptr %71, i64 %.01417.us.i49
   %82 = getelementptr inbounds i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %83) #24
+  %84 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %83) #25
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %tng_chain_residue_find.exit.thread.loopexit, label %86
 
@@ -28145,7 +28145,7 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
   %88 = getelementptr inbounds %struct.tng_residue, ptr %71, i64 %.01417.i46
   %89 = getelementptr inbounds i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
-  %91 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %90) #24
+  %91 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %90) #25
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %97
 
@@ -28640,15 +28640,15 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %164 = load i64, ptr %163, align 8
   %165 = mul nsw i64 %162, %164
   %166 = load ptr, ptr %2, align 8
-  %167 = tail call ptr @realloc(ptr noundef %166, i64 noundef %165) #27
+  %167 = tail call ptr @realloc(ptr noundef %166, i64 noundef %165) #28
   %.not100 = icmp eq ptr %167, null
   br i1 %.not100, label %168, label %172
 
 168:                                              ; preds = %161
   %169 = load ptr, ptr @stderr, align 8
-  %170 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %169, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 14815) #26
+  %170 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %169, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 14815) #27
   %171 = load ptr, ptr %2, align 8
-  tail call void @free(ptr noundef %171) #23
+  tail call void @free(ptr noundef %171) #24
   store ptr null, ptr %2, align 8
   br label %.critedge
 
@@ -29017,15 +29017,15 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i, %34, %.lr
   %180 = load i64, ptr %179, align 8
   %181 = mul nsw i64 %180, %.079
   %182 = load ptr, ptr %2, align 8
-  %183 = tail call ptr @realloc(ptr noundef %182, i64 noundef %181) #27
+  %183 = tail call ptr @realloc(ptr noundef %182, i64 noundef %181) #28
   %.not99 = icmp eq ptr %183, null
   br i1 %.not99, label %184, label %188
 
 184:                                              ; preds = %178
   %185 = load ptr, ptr @stderr, align 8
-  %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 14969) #26
+  %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 14969) #27
   %187 = load ptr, ptr %2, align 8
-  tail call void @free(ptr noundef %187) #23
+  tail call void @free(ptr noundef %187) #24
   store ptr null, ptr %2, align 8
   br label %.critedge
 
@@ -29105,7 +29105,7 @@ define i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, 
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.37, i64 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 15112) #26
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.37, i64 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 15112) #27
   br label %151
 
 12:                                               ; preds = %7
@@ -29123,7 +29123,7 @@ define i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, 
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 15125) #26
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 15125) #27
   br label %151
 
 23:                                               ; preds = %12
@@ -29214,7 +29214,7 @@ define i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, 
 
 65:                                               ; preds = %.loopexit
   %66 = load ptr, ptr @stderr, align 8
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.39, ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 15150) #26
+  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.39, ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 15150) #27
   br label %151
 
 68:                                               ; preds = %.loopexit
@@ -29231,7 +29231,7 @@ define i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, 
 
 77:                                               ; preds = %68
   %78 = load ptr, ptr @stderr, align 8
-  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15159) #26
+  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15159) #27
   br label %151
 
 tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32.i
@@ -29249,7 +29249,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 84:                                               ; preds = %82
   %85 = load ptr, ptr @stderr, align 8
-  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15173) #26
+  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15173) #27
   br label %151
 
 87:                                               ; preds = %26
@@ -29344,7 +29344,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 129:                                              ; preds = %.loopexit104
   %130 = load ptr, ptr @stderr, align 8
-  %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.39, ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 15188) #26
+  %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.39, ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 15188) #27
   br label %151
 
 132:                                              ; preds = %.loopexit104
@@ -29361,7 +29361,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 141:                                              ; preds = %132
   %142 = load ptr, ptr @stderr, align 8
-  %143 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15196) #26
+  %143 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15196) #27
   br label %151
 
 tng_data_find.exit:                               ; preds = %.lr.ph.i89, %115, %.lr.ph49.i
@@ -29379,7 +29379,7 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i89, %115, %
 
 148:                                              ; preds = %146
   %149 = load ptr, ptr @stderr, align 8
-  %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15209) #26
+  %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15209) #27
   br label %151
 
 151:                                              ; preds = %tng_particle_data_find.exit, %82, %68, %tng_data_find.exit, %146, %132, %28, %148, %141, %129, %84, %77, %65, %20, %9
@@ -29427,7 +29427,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %.0786.us
   %24 = load ptr, ptr %23, align 8
-  tail call void @free(ptr noundef %24) #23
+  tail call void @free(ptr noundef %24) #24
   %25 = add nuw nsw i64 %.0786.us, 1
   %exitcond.not = icmp eq i64 %25, %3
   br i1 %exitcond.not, label %._crit_edge7.us, label %.preheader2.us, !llvm.loop !219
@@ -29446,7 +29446,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
   br i1 %.not91.us, label %35, label %34
 
 34:                                               ; preds = %.lr.ph.us
-  tail call void @free(ptr noundef nonnull %33) #23
+  tail call void @free(ptr noundef nonnull %33) #24
   %.pre = load i64, ptr %19, align 8
   br label %35
 
@@ -29466,7 +29466,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds ptr, ptr %41, i64 %.0808.us
   %43 = load ptr, ptr %42, align 8
-  tail call void @free(ptr noundef %43) #23
+  tail call void @free(ptr noundef %43) #24
   %44 = add nuw nsw i64 %.0808.us, 1
   %45 = load i64, ptr %15, align 8
   %46 = icmp slt i64 %44, %45
@@ -29477,7 +29477,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
   %47 = load ptr, ptr %9, align 8
   %48 = getelementptr inbounds ptr, ptr %47, i64 %.0808
   %49 = load ptr, ptr %48, align 8
-  tail call void @free(ptr noundef %49) #23
+  tail call void @free(ptr noundef %49) #24
   %50 = add nuw nsw i64 %.0808, 1
   %51 = load i64, ptr %15, align 8
   %52 = icmp slt i64 %50, %51
@@ -29485,7 +29485,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 
 ._crit_edge9:                                     ; preds = %.preheader3, %._crit_edge7.us, %.preheader4
   %53 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %53) #23
+  tail call void @free(ptr noundef %53) #24
   br label %54
 
 54:                                               ; preds = %._crit_edge9, %11, %8
@@ -29509,7 +29509,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 
 65:                                               ; preds = %54
   %66 = shl i64 %62, 3
-  %67 = tail call noalias ptr @malloc(i64 noundef %66) #25
+  %67 = tail call noalias ptr @malloc(i64 noundef %66) #26
   store ptr %67, ptr %9, align 8
   %.not8816 = icmp slt i64 %61, 0
   br i1 %.not8816, label %.loopexit, label %.lr.ph
@@ -29526,7 +29526,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %._crit_edge13.split.us.us.us
   %.18117.us.us = phi i64 [ %96, %._crit_edge13.split.us.us.us ], [ 0, %.lr.ph.split.us ]
-  %72 = tail call noalias ptr @malloc(i64 noundef %68) #25
+  %72 = tail call noalias ptr @malloc(i64 noundef %68) #26
   %73 = load ptr, ptr %9, align 8
   %74 = getelementptr inbounds ptr, ptr %73, i64 %.18117.us.us
   store ptr %72, ptr %74, align 8
@@ -29538,7 +29538,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 
 .preheader1.us.us:                                ; preds = %.lr.ph.split.us.split.us, %._crit_edge.us15.us.us
   %.17911.us.us.us = phi i64 [ %95, %._crit_edge.us15.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %78 = tail call noalias ptr @malloc(i64 noundef %70) #25
+  %78 = tail call noalias ptr @malloc(i64 noundef %70) #26
   %79 = load ptr, ptr %9, align 8
   %80 = getelementptr inbounds ptr, ptr %79, i64 %.18117.us.us
   %81 = load ptr, ptr %80, align 8
@@ -29578,7 +29578,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %._crit_edge13.split.us22
   %97 = phi ptr [ %106, %._crit_edge13.split.us22 ], [ %67, %.lr.ph.split.us ]
   %.18117.us = phi i64 [ %112, %._crit_edge13.split.us22 ], [ 0, %.lr.ph.split.us ]
-  %98 = tail call noalias ptr @malloc(i64 noundef %68) #25
+  %98 = tail call noalias ptr @malloc(i64 noundef %68) #26
   %99 = getelementptr inbounds ptr, ptr %97, i64 %.18117.us
   store ptr %98, ptr %99, align 8
   %100 = load ptr, ptr %9, align 8
@@ -29590,7 +29590,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 .preheader1.us:                                   ; preds = %.lr.ph.split.us.split, %.preheader.us21
   %103 = phi ptr [ %108, %.preheader.us21 ], [ %102, %.lr.ph.split.us.split ]
   %.17911.us19 = phi i64 [ %111, %.preheader.us21 ], [ 0, %.lr.ph.split.us.split ]
-  %104 = tail call noalias ptr @malloc(i64 noundef %70) #25
+  %104 = tail call noalias ptr @malloc(i64 noundef %70) #26
   %105 = getelementptr inbounds ptr, ptr %103, i64 %.17911.us19
   store ptr %104, ptr %105, align 8
   %106 = load ptr, ptr %9, align 8
@@ -29614,7 +29614,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 .lr.ph.split:                                     ; preds = %.lr.ph, %.preheader1
   %113 = phi ptr [ %116, %.preheader1 ], [ %67, %.lr.ph ]
   %.18117 = phi i64 [ %119, %.preheader1 ], [ 0, %.lr.ph ]
-  %114 = tail call noalias ptr @malloc(i64 noundef %68) #25
+  %114 = tail call noalias ptr @malloc(i64 noundef %68) #26
   %115 = getelementptr inbounds ptr, ptr %113, i64 %.18117
   store ptr %114, ptr %115, align 8
   %116 = load ptr, ptr %9, align 8
@@ -29630,12 +29630,12 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 
 .split25.us:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us
   %120 = load ptr, ptr @stderr, align 8
-  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4540) #26
+  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4540) #27
   br label %.loopexit
 
 .split.us:                                        ; preds = %.preheader1.us, %.preheader1.us.us
   %122 = load ptr, ptr @stderr, align 8
-  %123 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4548) #26
+  %123 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4548) #27
   br label %.loopexit
 
 124:                                              ; preds = %54
@@ -29648,15 +29648,15 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
   %128 = mul i64 %4, %3
   %129 = mul i64 %128, %62
   %130 = mul i64 %129, %.076
-  %131 = tail call ptr @realloc(ptr noundef %127, i64 noundef %130) #27
+  %131 = tail call ptr @realloc(ptr noundef %127, i64 noundef %130) #28
   %.not87 = icmp eq ptr %131, null
   br i1 %.not87, label %132, label %136
 
 132:                                              ; preds = %125
   %133 = load ptr, ptr @stderr, align 8
-  %134 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4571) #26
+  %134 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4571) #27
   %135 = load ptr, ptr %126, align 8
-  tail call void @free(ptr noundef %135) #23
+  tail call void @free(ptr noundef %135) #24
   store ptr null, ptr %126, align 8
   br label %.loopexit
 
@@ -29715,7 +29715,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr nocapture 
   br i1 %.not73, label %32, label %26
 
 26:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %25) #23
+  tail call void @free(ptr noundef nonnull %25) #24
   %27 = load ptr, ptr %7, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds ptr, ptr %28, i64 %.0644
@@ -29736,7 +29736,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr nocapture 
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds ptr, ptr %37, i64 %.0644
   %39 = load ptr, ptr %38, align 8
-  tail call void @free(ptr noundef %39) #23
+  tail call void @free(ptr noundef %39) #24
   %40 = load ptr, ptr %7, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds ptr, ptr %41, i64 %.0644
@@ -29753,11 +29753,11 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr nocapture 
 ._crit_edge5:                                     ; preds = %._crit_edge5.loopexit, %.preheader2
   %46 = phi ptr [ %.pre17, %._crit_edge5.loopexit ], [ %8, %.preheader2 ]
   %47 = load ptr, ptr %46, align 8
-  tail call void @free(ptr noundef %47) #23
+  tail call void @free(ptr noundef %47) #24
   %48 = load ptr, ptr %7, align 8
   store ptr null, ptr %48, align 8
   %49 = load ptr, ptr %7, align 8
-  tail call void @free(ptr noundef %49) #23
+  tail call void @free(ptr noundef %49) #24
   br label %50
 
 50:                                               ; preds = %._crit_edge5, %9, %6
@@ -29780,10 +29780,10 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr nocapture 
   ]
 
 61:                                               ; preds = %50
-  %62 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #25
+  %62 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #26
   store ptr %62, ptr %7, align 8
   %63 = shl i64 %58, 3
-  %64 = tail call noalias ptr @malloc(i64 noundef %63) #25
+  %64 = tail call noalias ptr @malloc(i64 noundef %63) #26
   store ptr %64, ptr %62, align 8
   %.not719 = icmp slt i64 %57, 0
   br i1 %.not719, label %.loopexit, label %.lr.ph12
@@ -29795,7 +29795,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr nocapture 
 
 .lr.ph12.split.us:                                ; preds = %.lr.ph12, %._crit_edge8.us
   %.16510.us = phi i64 [ %81, %._crit_edge8.us ], [ 0, %.lr.ph12 ]
-  %67 = tail call noalias ptr @malloc(i64 noundef %65) #25
+  %67 = tail call noalias ptr @malloc(i64 noundef %65) #26
   %68 = load ptr, ptr %7, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds ptr, ptr %69, i64 %.16510.us
@@ -29827,7 +29827,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr nocapture 
 .lr.ph12.split:                                   ; preds = %.lr.ph12, %.preheader
   %82 = phi ptr [ %86, %.preheader ], [ %64, %.lr.ph12 ]
   %.16510 = phi i64 [ %89, %.preheader ], [ 0, %.lr.ph12 ]
-  %83 = tail call noalias ptr @malloc(i64 noundef %65) #25
+  %83 = tail call noalias ptr @malloc(i64 noundef %65) #26
   %84 = getelementptr inbounds ptr, ptr %82, i64 %.16510
   store ptr %83, ptr %84, align 8
   %85 = load ptr, ptr %7, align 8
@@ -29844,7 +29844,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr nocapture 
 
 .split.us:                                        ; preds = %.lr.ph12.split, %.lr.ph12.split.us
   %90 = load ptr, ptr @stderr, align 8
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4887) #26
+  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4887) #27
   br label %.loopexit
 
 92:                                               ; preds = %50
@@ -29856,15 +29856,15 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr nocapture 
   %95 = load ptr, ptr %94, align 8
   %96 = mul i64 %58, %3
   %97 = mul i64 %96, %.062
-  %98 = tail call ptr @realloc(ptr noundef %95, i64 noundef %97) #27
+  %98 = tail call ptr @realloc(ptr noundef %95, i64 noundef %97) #28
   %.not70 = icmp eq ptr %98, null
   br i1 %.not70, label %99, label %103
 
 99:                                               ; preds = %93
   %100 = load ptr, ptr @stderr, align 8
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4909) #26
+  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4909) #27
   %102 = load ptr, ptr %94, align 8
-  tail call void @free(ptr noundef %102) #23
+  tail call void @free(ptr noundef %102) #24
   store ptr null, ptr %94, align 8
   br label %.loopexit
 
@@ -29884,7 +29884,7 @@ define i32 @tng_util_generic_write_interval_double_set(ptr noundef %0, i64 nound
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.41, i64 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 15239) #26
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.41, i64 noundef %1, ptr noundef nonnull @.str.1, i32 noundef 15239) #27
   br label %139
 
 12:                                               ; preds = %7
@@ -29902,7 +29902,7 @@ define i32 @tng_util_generic_write_interval_double_set(ptr noundef %0, i64 nound
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 15252) #26
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 15252) #27
   br label %139
 
 23:                                               ; preds = %12
@@ -29993,7 +29993,7 @@ define i32 @tng_util_generic_write_interval_double_set(ptr noundef %0, i64 nound
 
 65:                                               ; preds = %.loopexit
   %66 = load ptr, ptr @stderr, align 8
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.39, ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 15278) #26
+  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.39, ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 15278) #27
   br label %139
 
 68:                                               ; preds = %.loopexit
@@ -30010,7 +30010,7 @@ define i32 @tng_util_generic_write_interval_double_set(ptr noundef %0, i64 nound
 
 77:                                               ; preds = %68
   %78 = load ptr, ptr @stderr, align 8
-  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15287) #26
+  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15287) #27
   br label %139
 
 tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32.i
@@ -30111,7 +30111,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 123:                                              ; preds = %.loopexit81
   %124 = load ptr, ptr @stderr, align 8
-  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.39, ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 15305) #26
+  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.39, ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 15305) #27
   br label %139
 
 126:                                              ; preds = %.loopexit81
@@ -30128,7 +30128,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 135:                                              ; preds = %126
   %136 = load ptr, ptr @stderr, align 8
-  %137 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15313) #26
+  %137 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15313) #27
   br label %139
 
 tng_data_find.exit:                               ; preds = %.lr.ph.i69, %109, %.lr.ph49.i
@@ -30142,10 +30142,10 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i69, %109, %
   ret i32 %.055
 }
 
-; Function Attrs: nounwind uwtable
-define i32 @tng_util_generic_write_frequency_set(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef signext %5, i8 noundef signext %6) local_unnamed_addr #4 {
+; Function Attrs: cold nounwind uwtable
+define i32 @tng_util_generic_write_frequency_set(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef signext %5, i8 noundef signext %6) local_unnamed_addr #19 {
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 15337) #26
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 15337) #27
   %10 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef signext %5, i8 noundef signext %6)
   ret i32 %10
 }
@@ -30162,10 +30162,10 @@ define i32 @tng_util_pos_write_interval_double_set(ptr noundef %0, i64 noundef %
   ret i32 %3
 }
 
-; Function Attrs: nounwind uwtable
-define i32 @tng_util_pos_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+; Function Attrs: cold nounwind uwtable
+define i32 @tng_util_pos_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.1, i32 noundef 15367) #26
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.1, i32 noundef 15367) #27
   %5 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.43, i8 noundef signext 1, i8 noundef signext 2)
   ret i32 %5
 }
@@ -30182,10 +30182,10 @@ define i32 @tng_util_vel_write_interval_double_set(ptr noundef %0, i64 noundef %
   ret i32 %3
 }
 
-; Function Attrs: nounwind uwtable
-define i32 @tng_util_vel_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+; Function Attrs: cold nounwind uwtable
+define i32 @tng_util_vel_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 15398) #26
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 15398) #27
   %5 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435458, ptr noundef nonnull @.str.45, i8 noundef signext 1, i8 noundef signext 2)
   ret i32 %5
 }
@@ -30202,10 +30202,10 @@ define i32 @tng_util_force_write_interval_double_set(ptr noundef %0, i64 noundef
   ret i32 %3
 }
 
-; Function Attrs: nounwind uwtable
-define i32 @tng_util_force_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+; Function Attrs: cold nounwind uwtable
+define i32 @tng_util_force_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 15428) #26
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 15428) #27
   %5 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435459, ptr noundef nonnull @.str.47, i8 noundef signext 1, i8 noundef signext 3)
   ret i32 %5
 }
@@ -30222,10 +30222,10 @@ define i32 @tng_util_box_shape_write_interval_double_set(ptr noundef %0, i64 nou
   ret i32 %3
 }
 
-; Function Attrs: nounwind uwtable
-define i32 @tng_util_box_shape_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+; Function Attrs: cold nounwind uwtable
+define i32 @tng_util_box_shape_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.1, i32 noundef 15459) #26
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.1, i32 noundef 15459) #27
   %5 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 9, i64 noundef 268435456, ptr noundef nonnull @.str.49, i8 noundef signext 0, i8 noundef signext 3)
   ret i32 %5
 }
@@ -30268,7 +30268,7 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr @stderr, align 8
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 15511) #26
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 15511) #27
   br label %233
 
 29:                                               ; preds = %22, %18
@@ -30288,7 +30288,7 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr @stderr, align 8
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 15521) #26
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 15521) #27
   br label %233
 
 41:                                               ; preds = %36
@@ -30308,7 +30308,7 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 47:                                               ; preds = %41
   %48 = load ptr, ptr @stderr, align 8
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 15531) #26
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 15531) #27
   br label %233
 
 50:                                               ; preds = %._crit_edge, %29
@@ -30398,7 +30398,7 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 91:                                               ; preds = %.loopexit
   %92 = load ptr, ptr @stderr, align 8
-  %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.39, ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 15554) #26
+  %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.39, ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 15554) #27
   br label %233
 
 94:                                               ; preds = %.loopexit
@@ -30417,7 +30417,7 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 102:                                              ; preds = %94
   %103 = load ptr, ptr @stderr, align 8
-  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15570) #26
+  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15570) #27
   br label %233
 
 tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32.i
@@ -30436,7 +30436,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 112:                                              ; preds = %108
   %113 = load ptr, ptr @stderr, align 8
-  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15582) #26
+  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15582) #27
   br label %233
 
 115:                                              ; preds = %tng_particle_data_find.exit, %108, %94
@@ -30577,7 +30577,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 183:                                              ; preds = %.loopexit184
   %184 = load ptr, ptr @stderr, align 8
-  %185 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.39, ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 15618) #26
+  %185 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.39, ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 15618) #27
   br label %233
 
 186:                                              ; preds = %.loopexit184
@@ -30596,7 +30596,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 194:                                              ; preds = %186
   %195 = load ptr, ptr @stderr, align 8
-  %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15633) #26
+  %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15633) #27
   br label %233
 
 tng_data_find.exit:                               ; preds = %.lr.ph.i161, %169, %.lr.ph49.i
@@ -30615,7 +30615,7 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i161, %169, 
 
 204:                                              ; preds = %200
   %205 = load ptr, ptr @stderr, align 8
-  %206 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15644) #26
+  %206 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15644) #27
   br label %233
 
 207:                                              ; preds = %tng_data_find.exit, %200, %186
@@ -30707,7 +30707,7 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr @stderr, align 8
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 15723) #26
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 15723) #27
   br label %233
 
 29:                                               ; preds = %22, %18
@@ -30727,7 +30727,7 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr @stderr, align 8
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 15733) #26
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 15733) #27
   br label %233
 
 41:                                               ; preds = %36
@@ -30747,7 +30747,7 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
 
 47:                                               ; preds = %41
   %48 = load ptr, ptr @stderr, align 8
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 15743) #26
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.1, i32 noundef 15743) #27
   br label %233
 
 50:                                               ; preds = %._crit_edge, %29
@@ -30837,7 +30837,7 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
 
 91:                                               ; preds = %.loopexit
   %92 = load ptr, ptr @stderr, align 8
-  %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.39, ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 15767) #26
+  %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.39, ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 15767) #27
   br label %233
 
 94:                                               ; preds = %.loopexit
@@ -30856,7 +30856,7 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
 
 102:                                              ; preds = %94
   %103 = load ptr, ptr @stderr, align 8
-  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15783) #26
+  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15783) #27
   br label %233
 
 tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32.i
@@ -30875,7 +30875,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 112:                                              ; preds = %108
   %113 = load ptr, ptr @stderr, align 8
-  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15795) #26
+  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15795) #27
   br label %233
 
 115:                                              ; preds = %tng_particle_data_find.exit, %108, %94
@@ -31016,7 +31016,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 183:                                              ; preds = %.loopexit184
   %184 = load ptr, ptr @stderr, align 8
-  %185 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.39, ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 15831) #26
+  %185 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.39, ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 15831) #27
   br label %233
 
 186:                                              ; preds = %.loopexit184
@@ -31035,7 +31035,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 194:                                              ; preds = %186
   %195 = load ptr, ptr @stderr, align 8
-  %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15846) #26
+  %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15846) #27
   br label %233
 
 tng_data_find.exit:                               ; preds = %.lr.ph.i161, %169, %.lr.ph49.i
@@ -31054,7 +31054,7 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i161, %169, 
 
 204:                                              ; preds = %200
   %205 = load ptr, ptr @stderr, align 8
-  %206 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15857) #26
+  %206 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15857) #27
   br label %233
 
 207:                                              ; preds = %tng_data_find.exit, %200, %186
@@ -31841,7 +31841,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 148:                                              ; preds = %146
   %149 = load ptr, ptr @stderr, align 8
-  %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.1, i32 noundef 16264) #26
+  %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.1, i32 noundef 16264) #27
   br label %tng_data_find.exit73.thread
 
 151:                                              ; preds = %140, %146
@@ -31866,15 +31866,15 @@ define noundef i32 @tng_util_trajectory_next_frame_present_data_blocks_find(ptr 
 8:                                                ; preds = %7
   %9 = shl i64 %2, 3
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call ptr @realloc(ptr noundef %10, i64 noundef %9) #27
+  %11 = tail call ptr @realloc(ptr noundef %10, i64 noundef %9) #28
   %.not199 = icmp eq ptr %11, null
   br i1 %.not199, label %12, label %16
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 16311) #26
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 16311) #27
   %15 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %15) #23
+  tail call void @free(ptr noundef %15) #24
   store ptr null, ptr %6, align 8
   br label %237
 
@@ -31938,13 +31938,13 @@ define noundef i32 @tng_util_trajectory_next_frame_present_data_blocks_find(ptr 
   br i1 %49, label %50, label %96
 
 50:                                               ; preds = %43
-  %51 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #25
+  %51 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %52, label %55
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr @stderr, align 8
-  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #26
+  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit
 
 55:                                               ; preds = %50
@@ -32016,7 +32016,7 @@ tng_block_init.exit:                              ; preds = %52, %55
   br i1 %.not16.i, label %83, label %82
 
 82:                                               ; preds = %.critedge.thread
-  tail call void @free(ptr noundef nonnull %81) #23
+  tail call void @free(ptr noundef nonnull %81) #24
   store ptr null, ptr %80, align 8
   br label %83
 
@@ -32027,7 +32027,7 @@ tng_block_init.exit:                              ; preds = %52, %55
   br i1 %.not17.i, label %87, label %86
 
 86:                                               ; preds = %83
-  tail call void @free(ptr noundef nonnull %85) #23
+  tail call void @free(ptr noundef nonnull %85) #24
   store ptr null, ptr %84, align 8
   br label %87
 
@@ -32038,11 +32038,11 @@ tng_block_init.exit:                              ; preds = %52, %55
   br i1 %.not18.i, label %91, label %90
 
 90:                                               ; preds = %87
-  tail call void @free(ptr noundef nonnull %89) #23
+  tail call void @free(ptr noundef nonnull %89) #24
   br label %91
 
 91:                                               ; preds = %90, %87
-  tail call void @free(ptr noundef nonnull %51) #23
+  tail call void @free(ptr noundef nonnull %51) #24
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %.critedge, %91
@@ -32053,7 +32053,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
 
 93:                                               ; preds = %tng_block_destroy.exit
   %94 = load ptr, ptr @stderr, align 8
-  %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.14, i64 noundef %.0241, ptr noundef nonnull @.str.1, i32 noundef 16367) #26
+  %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.14, i64 noundef %.0241, ptr noundef nonnull @.str.1, i32 noundef 16367) #27
   br label %237
 
 96:                                               ; preds = %43, %tng_block_destroy.exit, %39, %35
@@ -32133,7 +32133,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
 
 128:                                              ; preds = %126
   %129 = load ptr, ptr @stderr, align 8
-  %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.1, i32 noundef 16408) #26
+  %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.1, i32 noundef 16408) #27
   br label %237
 
 131:                                              ; preds = %._crit_edge262, %123, %.loopexit234
@@ -32187,15 +32187,15 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
 
 155:                                              ; preds = %154
   %156 = shl i64 %storemerge218, 3
-  %157 = tail call ptr @realloc(ptr noundef %.pre264, i64 noundef %156) #27
+  %157 = tail call ptr @realloc(ptr noundef %.pre264, i64 noundef %156) #28
   %.not219 = icmp eq ptr %157, null
   br i1 %.not219, label %158, label %162
 
 158:                                              ; preds = %155
   %159 = load ptr, ptr @stderr, align 8
-  %160 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %159, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 16445) #26
+  %160 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %159, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 16445) #27
   %161 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %161) #23
+  tail call void @free(ptr noundef %161) #24
   store ptr null, ptr %6, align 8
   br label %237
 
@@ -32269,7 +32269,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
 
 190:                                              ; preds = %188
   %191 = load ptr, ptr @stderr, align 8
-  %192 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %191, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.1, i32 noundef 16492) #26
+  %192 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %191, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.1, i32 noundef 16492) #27
   br label %237
 
 193:                                              ; preds = %._crit_edge266, %185, %.loopexit
@@ -32323,15 +32323,15 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
 
 217:                                              ; preds = %216
   %218 = shl i64 %storemerge, 3
-  %219 = tail call ptr @realloc(ptr noundef %.pre269, i64 noundef %218) #27
+  %219 = tail call ptr @realloc(ptr noundef %.pre269, i64 noundef %218) #28
   %.not211 = icmp eq ptr %219, null
   br i1 %.not211, label %220, label %224
 
 220:                                              ; preds = %217
   %221 = load ptr, ptr @stderr, align 8
-  %222 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 16529) #26
+  %222 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 16529) #27
   %223 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef %223) #23
+  tail call void @free(ptr noundef %223) #24
   store ptr null, ptr %6, align 8
   br label %237
 
@@ -32465,20 +32465,20 @@ define internal fastcc void @tng_md5_hash_update(ptr nocapture noundef readonly 
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %4
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   br label %9
 
 9:                                                ; preds = %8, %4
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #25
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #26
   store ptr %12, ptr %6, align 8
   %.not16 = icmp eq ptr %12, null
   br i1 %.not16, label %13, label %16
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1189) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1189) #27
   br label %38
 
 16:                                               ; preds = %9
@@ -32494,18 +32494,18 @@ define internal fastcc void @tng_md5_hash_update(ptr nocapture noundef readonly 
 
 25:                                               ; preds = %16
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 1196) #26
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 1196) #27
   br label %38
 
 28:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
-  call void @md5_init(ptr noundef nonnull %5) #23
+  call void @md5_init(ptr noundef nonnull %5) #24
   %29 = load ptr, ptr %6, align 8
   %30 = load i64, ptr %10, align 8
   %31 = trunc i64 %30 to i32
-  call void @md5_append(ptr noundef nonnull %5, ptr noundef %29, i32 noundef %31) #23
+  call void @md5_append(ptr noundef nonnull %5, ptr noundef %29, i32 noundef %31) #24
   %32 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @md5_finish(ptr noundef nonnull %5, ptr noundef nonnull %32) #23
+  call void @md5_finish(ptr noundef nonnull %5, ptr noundef nonnull %32) #24
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
   %33 = load ptr, ptr %17, align 8
   %34 = add i64 %2, 24
@@ -32518,14 +32518,14 @@ define internal fastcc void @tng_md5_hash_update(ptr nocapture noundef readonly 
   ret void
 }
 
-declare void @md5_init(ptr noundef) local_unnamed_addr #19
+declare void @md5_init(ptr noundef) local_unnamed_addr #20
 
-declare void @md5_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #19
+declare void @md5_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #20
 
-declare void @md5_finish(ptr noundef, ptr noundef) local_unnamed_addr #19
+declare void @md5_finish(ptr noundef, ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tng_freadstr(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i8 noundef signext %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 {
@@ -32542,7 +32542,7 @@ define internal fastcc void @tng_freadstr(ptr nocapture noundef readonly %0, ptr
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %7, align 8
-  tail call void @clearerr(ptr noundef %13) #23
+  tail call void @clearerr(ptr noundef %13) #24
   br label %33
 
 14:                                               ; preds = %8
@@ -32560,26 +32560,26 @@ define internal fastcc void @tng_freadstr(ptr nocapture noundef readonly %0, ptr
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
   %22 = load ptr, ptr %1, align 8
   %23 = and i64 %indvars.iv.next, 4294967295
-  %24 = tail call ptr @realloc(ptr noundef %22, i64 noundef %23) #27
+  %24 = tail call ptr @realloc(ptr noundef %22, i64 noundef %23) #28
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %29
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %4) #26
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %4) #27
   %28 = load ptr, ptr %1, align 8
-  tail call void @free(ptr noundef %28) #23
+  tail call void @free(ptr noundef %28) #24
   store ptr null, ptr %1, align 8
   br label %33
 
 29:                                               ; preds = %20
   store ptr %24, ptr %1, align 8
-  %30 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %6, i64 noundef %23) #23
+  %30 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %6, i64 noundef %23) #24
   %31 = icmp eq i8 %2, 1
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %29
-  tail call void @md5_append(ptr noundef %3, ptr noundef nonnull %24, i32 noundef %21) #23
+  tail call void @md5_append(ptr noundef %3, ptr noundef nonnull %24, i32 noundef %21) #24
   br label %33
 
 33:                                               ; preds = %29, %32, %25, %12
@@ -32611,7 +32611,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_block_header_write(ptr noundef %
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #26
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #27
   br label %tng_output_file_init.exit
 
 15:                                               ; preds = %9
@@ -32623,12 +32623,12 @@ define internal fastcc range(i32 0, 3) i32 @tng_block_header_write(ptr noundef %
 17:                                               ; preds = %15
   %18 = load ptr, ptr @stderr, align 8
   %19 = load ptr, ptr %10, align 8
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.13, ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 919) #26
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.13, ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 919) #27
   br label %tng_output_file_init.exit
 
 tng_output_file_init.exit:                        ; preds = %17, %12
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 1942) #26
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 1942) #27
   br label %109
 
 23:                                               ; preds = %15, %2
@@ -32638,7 +32638,7 @@ tng_output_file_init.exit:                        ; preds = %17, %12
   br i1 %.not.i18, label %26, label %34
 
 26:                                               ; preds = %23
-  %27 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #25
+  %27 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
   store ptr %27, ptr %24, align 8
   %.not8.i20 = icmp eq ptr %27, null
   br i1 %.not8.i20, label %29, label %28
@@ -32649,14 +32649,14 @@ tng_output_file_init.exit:                        ; preds = %17, %12
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1912) #26
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1912) #27
   %32 = load ptr, ptr @stderr, align 8
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.1, i32 noundef 1948) #26
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.1, i32 noundef 1948) #27
   br label %109
 
 34:                                               ; preds = %23, %28
   %35 = phi ptr [ %27, %28 ], [ %25, %23 ]
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #24
+  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #25
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @llvm.umin.i64(i64 %37, i64 1024)
   %39 = add nuw nsw i64 %38, 48
@@ -32669,13 +32669,13 @@ tng_output_file_init.exit:                        ; preds = %17, %12
   br i1 %.not36.i, label %47, label %42
 
 42:                                               ; preds = %34
-  %43 = call i32 %41(ptr noundef nonnull %0, ptr noundef nonnull %6) #23
+  %43 = call i32 %41(ptr noundef nonnull %0, ptr noundef nonnull %6) #24
   %.not37.i = icmp eq i32 %43, 0
   br i1 %.not37.i, label %47, label %44
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr @stderr, align 8
-  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1953) #26
+  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1953) #27
   br label %47
 
 47:                                               ; preds = %44, %42, %34
@@ -32686,7 +32686,7 @@ tng_output_file_init.exit:                        ; preds = %17, %12
 
 tng_file_output_numerical.exit.thread:            ; preds = %47
   %50 = load ptr, ptr @stderr, align 8
-  %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 1953) #26
+  %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 1953) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %109
 
@@ -32701,13 +32701,13 @@ tng_file_output_numerical.exit.thread:            ; preds = %47
   br i1 %.not36.i22, label %61, label %56
 
 56:                                               ; preds = %52
-  %57 = call i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %5) #23
+  %57 = call i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %5) #24
   %.not37.i23 = icmp eq i32 %57, 0
   br i1 %.not37.i23, label %61, label %58
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr @stderr, align 8
-  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1960) #26
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1960) #27
   br label %61
 
 61:                                               ; preds = %58, %56, %52
@@ -32718,7 +32718,7 @@ tng_file_output_numerical.exit.thread:            ; preds = %47
 
 tng_file_output_numerical.exit26.thread:          ; preds = %61
   %64 = load ptr, ptr @stderr, align 8
-  %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 1960) #26
+  %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 1960) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %109
 
@@ -32733,13 +32733,13 @@ tng_file_output_numerical.exit26.thread:          ; preds = %61
   br i1 %.not36.i27, label %75, label %70
 
 70:                                               ; preds = %66
-  %71 = call i32 %69(ptr noundef nonnull %0, ptr noundef nonnull %4) #23
+  %71 = call i32 %69(ptr noundef nonnull %0, ptr noundef nonnull %4) #24
   %.not37.i28 = icmp eq i32 %71, 0
   br i1 %.not37.i28, label %75, label %72
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr @stderr, align 8
-  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1966) #26
+  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1966) #27
   br label %75
 
 75:                                               ; preds = %72, %70, %66
@@ -32750,7 +32750,7 @@ tng_file_output_numerical.exit26.thread:          ; preds = %61
 
 tng_file_output_numerical.exit31.thread:          ; preds = %75
   %78 = load ptr, ptr @stderr, align 8
-  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 1966) #26
+  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 1966) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %109
 
@@ -32764,13 +32764,13 @@ tng_file_output_numerical.exit31.thread:          ; preds = %75
 
 84:                                               ; preds = %80
   %85 = load ptr, ptr @stderr, align 8
-  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.1, i32 noundef 1974) #26
+  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.1, i32 noundef 1974) #27
   br label %109
 
 87:                                               ; preds = %80
   %88 = load ptr, ptr %24, align 8
   %.val = load ptr, ptr %7, align 8
-  %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #24
+  %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #25
   %90 = add i64 %89, 1
   %91 = call noundef i64 @llvm.umin.i64(i64 %90, i64 1024)
   %92 = call i64 @fwrite(ptr noundef %88, i64 noundef %91, i64 noundef 1, ptr noundef %.val)
@@ -32779,7 +32779,7 @@ tng_file_output_numerical.exit31.thread:          ; preds = %75
 
 tng_fwritestr.exit.thread:                        ; preds = %87
   %93 = load ptr, ptr @stderr, align 8
-  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 1978) #26
+  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 1978) #27
   br label %109
 
 tng_fwritestr.exit:                               ; preds = %87
@@ -32792,13 +32792,13 @@ tng_fwritestr.exit:                               ; preds = %87
   br i1 %.not36.i34, label %103, label %98
 
 98:                                               ; preds = %tng_fwritestr.exit
-  %99 = call i32 %97(ptr noundef nonnull %0, ptr noundef nonnull %3) #23
+  %99 = call i32 %97(ptr noundef nonnull %0, ptr noundef nonnull %3) #24
   %.not37.i35 = icmp eq i32 %99, 0
   br i1 %.not37.i35, label %103, label %100
 
 100:                                              ; preds = %98
   %101 = load ptr, ptr @stderr, align 8
-  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1984) #26
+  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 1984) #27
   br label %103
 
 103:                                              ; preds = %100, %98, %tng_fwritestr.exit
@@ -32813,7 +32813,7 @@ tng_file_output_numerical.exit38:                 ; preds = %103
 
 106:                                              ; preds = %103
   %107 = load ptr, ptr @stderr, align 8
-  %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 1984) #26
+  %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 1984) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %109
 
@@ -32824,7 +32824,7 @@ tng_file_output_numerical.exit38:                 ; preds = %103
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @tng_fwritestr(ptr nocapture %.32.val, ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3) unnamed_addr #4 {
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #25
   %6 = add i64 %5, 1
   %7 = tail call noundef i64 @llvm.umin.i64(i64 %6, i64 1024)
   %8 = tail call i64 @fwrite(ptr noundef %0, i64 noundef %7, i64 noundef 1, ptr noundef %.32.val)
@@ -32833,7 +32833,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_fwritestr(ptr nocapture %.32.val
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef %3) #26
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef %3) #27
   br label %16
 
 12:                                               ; preds = %4
@@ -32842,7 +32842,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_fwritestr(ptr nocapture %.32.val
 
 14:                                               ; preds = %12
   %15 = trunc nuw nsw i64 %7 to i32
-  tail call void @md5_append(ptr noundef %2, ptr noundef %0, i32 noundef %15) #23
+  tail call void @md5_append(ptr noundef %2, ptr noundef %0, i32 noundef %15) #24
   br label %16
 
 16:                                               ; preds = %12, %14, %9
@@ -32868,13 +32868,13 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_output_numerical(ptr nounde
   br i1 %.not36, label %18, label %13
 
 13:                                               ; preds = %9
-  %14 = call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %8) #23
+  %14 = call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %8) #24
   %.not37 = icmp eq i32 %14, 0
   br i1 %.not37, label %18, label %15
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr @stderr, align 8
-  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef %5) #26
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef %5) #27
   br label %18
 
 18:                                               ; preds = %15, %13, %9
@@ -32886,7 +32886,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_output_numerical(ptr nounde
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr @stderr, align 8
-  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef %5) #26
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef %5) #27
   br label %58
 
 25:                                               ; preds = %18
@@ -32894,7 +32894,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_output_numerical(ptr nounde
   br i1 %26, label %27, label %58
 
 27:                                               ; preds = %25
-  call void @md5_append(ptr noundef %4, ptr noundef nonnull %8, i32 noundef 8) #23
+  call void @md5_append(ptr noundef %4, ptr noundef nonnull %8, i32 noundef 8) #24
   br label %58
 
 28:                                               ; preds = %6
@@ -32906,13 +32906,13 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_output_numerical(ptr nounde
   br i1 %.not, label %37, label %32
 
 32:                                               ; preds = %28
-  %33 = call i32 %31(ptr noundef nonnull %0, ptr noundef nonnull %7) #23
+  %33 = call i32 %31(ptr noundef nonnull %0, ptr noundef nonnull %7) #24
   %.not34 = icmp eq i32 %33, 0
   br i1 %.not34, label %37, label %34
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr @stderr, align 8
-  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef %5) #26
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef %5) #27
   br label %37
 
 37:                                               ; preds = %34, %32, %28
@@ -32924,7 +32924,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_output_numerical(ptr nounde
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr @stderr, align 8
-  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef %5) #26
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef %5) #27
   br label %58
 
 44:                                               ; preds = %37
@@ -32932,7 +32932,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_output_numerical(ptr nounde
   br i1 %45, label %46, label %58
 
 46:                                               ; preds = %44
-  call void @md5_append(ptr noundef %4, ptr noundef nonnull %7, i32 noundef 4) #23
+  call void @md5_append(ptr noundef %4, ptr noundef nonnull %7, i32 noundef 4) #24
   br label %58
 
 47:                                               ; preds = %6
@@ -32944,7 +32944,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_output_numerical(ptr nounde
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr @stderr, align 8
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef %5) #26
+  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef %5) #27
   br label %58
 
 54:                                               ; preds = %47
@@ -32953,7 +32953,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_output_numerical(ptr nounde
 
 56:                                               ; preds = %54
   %57 = trunc nuw nsw i64 %2 to i32
-  tail call void @md5_append(ptr noundef %4, ptr noundef %1, i32 noundef %57) #23
+  tail call void @md5_append(ptr noundef %4, ptr noundef %1, i32 noundef %57) #24
   br label %58
 
 58:                                               ; preds = %27, %25, %46, %44, %56, %54, %51, %41, %22
@@ -32975,13 +32975,13 @@ define internal fastcc void @tng_residue_data_write(ptr noundef %0, ptr nocaptur
   br i1 %.not36.i, label %16, label %11
 
 11:                                               ; preds = %4
-  %12 = call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6) #23
+  %12 = call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %6) #24
   %.not37.i = icmp eq i32 %12, 0
   br i1 %.not37.i, label %16, label %13
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr @stderr, align 8
-  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2555) #26
+  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2555) #27
   br label %16
 
 16:                                               ; preds = %13, %11, %4
@@ -32996,12 +32996,12 @@ define internal fastcc void @tng_residue_data_write(ptr noundef %0, ptr nocaptur
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %20
-  call void @md5_append(ptr noundef %3, ptr noundef nonnull %6, i32 noundef 8) #23
+  call void @md5_append(ptr noundef %3, ptr noundef nonnull %6, i32 noundef 8) #24
   br label %25
 
 tng_file_output_numerical.exit:                   ; preds = %16
   %23 = load ptr, ptr @stderr, align 8
-  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 2555) #26
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 2555) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %54
 
@@ -33010,7 +33010,7 @@ tng_file_output_numerical.exit:                   ; preds = %16
   %26 = getelementptr inbounds i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
   %.val = load ptr, ptr %17, align 8
-  %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #24
+  %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #25
   %29 = add i64 %28, 1
   %30 = call noundef i64 @llvm.umin.i64(i64 %29, i64 1024)
   %31 = call i64 @fwrite(ptr noundef %27, i64 noundef %30, i64 noundef 1, ptr noundef %.val)
@@ -33022,12 +33022,12 @@ tng_file_output_numerical.exit:                   ; preds = %16
 
 33:                                               ; preds = %32
   %34 = trunc nuw nsw i64 %30 to i32
-  call void @md5_append(ptr noundef %3, ptr noundef %27, i32 noundef %34) #23
+  call void @md5_append(ptr noundef %3, ptr noundef %27, i32 noundef %34) #24
   br label %37
 
 tng_fwritestr.exit:                               ; preds = %25
   %35 = load ptr, ptr @stderr, align 8
-  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2561) #26
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2561) #27
   br label %54
 
 37:                                               ; preds = %33, %32
@@ -33040,13 +33040,13 @@ tng_fwritestr.exit:                               ; preds = %25
   br i1 %.not36.i13, label %46, label %41
 
 41:                                               ; preds = %37
-  %42 = call i32 %40(ptr noundef nonnull %0, ptr noundef nonnull %5) #23
+  %42 = call i32 %40(ptr noundef nonnull %0, ptr noundef nonnull %5) #24
   %.not37.i14 = icmp eq i32 %42, 0
   br i1 %.not37.i14, label %46, label %43
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr @stderr, align 8
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2567) #26
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2567) #27
   br label %46
 
 46:                                               ; preds = %43, %41, %37
@@ -33059,7 +33059,7 @@ tng_fwritestr.exit:                               ; preds = %25
   br i1 %21, label %50, label %tng_file_output_numerical.exit17.thread
 
 50:                                               ; preds = %49
-  call void @md5_append(ptr noundef %3, ptr noundef nonnull %5, i32 noundef 8) #23
+  call void @md5_append(ptr noundef %3, ptr noundef nonnull %5, i32 noundef 8) #24
   br label %tng_file_output_numerical.exit17.thread
 
 tng_file_output_numerical.exit17.thread:          ; preds = %49, %50
@@ -33068,7 +33068,7 @@ tng_file_output_numerical.exit17.thread:          ; preds = %49, %50
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr @stderr, align 8
-  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 2567) #26
+  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 2567) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %54
 
@@ -33089,13 +33089,13 @@ define internal fastcc void @tng_atom_data_write(ptr noundef %0, ptr nocapture n
   br i1 %.not36.i, label %15, label %10
 
 10:                                               ; preds = %4
-  %11 = call i32 %9(ptr noundef nonnull %0, ptr noundef nonnull %5) #23
+  %11 = call i32 %9(ptr noundef nonnull %0, ptr noundef nonnull %5) #24
   %.not37.i = icmp eq i32 %11, 0
   br i1 %.not37.i, label %15, label %12
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr @stderr, align 8
-  %14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2617) #26
+  %14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2617) #27
   br label %15
 
 15:                                               ; preds = %12, %10, %4
@@ -33110,12 +33110,12 @@ define internal fastcc void @tng_atom_data_write(ptr noundef %0, ptr nocapture n
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  call void @md5_append(ptr noundef %3, ptr noundef nonnull %5, i32 noundef 8) #23
+  call void @md5_append(ptr noundef %3, ptr noundef nonnull %5, i32 noundef 8) #24
   br label %24
 
 tng_file_output_numerical.exit:                   ; preds = %15
   %22 = load ptr, ptr @stderr, align 8
-  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 2617) #26
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 2617) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %tng_fwritestr.exit16.thread
 
@@ -33124,7 +33124,7 @@ tng_file_output_numerical.exit:                   ; preds = %15
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8
   %.val12 = load ptr, ptr %16, align 8
-  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #24
+  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #25
   %28 = add i64 %27, 1
   %29 = call noundef i64 @llvm.umin.i64(i64 %28, i64 1024)
   %30 = call i64 @fwrite(ptr noundef %26, i64 noundef %29, i64 noundef 1, ptr noundef %.val12)
@@ -33136,19 +33136,19 @@ tng_file_output_numerical.exit:                   ; preds = %15
 
 32:                                               ; preds = %31
   %33 = trunc nuw nsw i64 %29 to i32
-  call void @md5_append(ptr noundef %3, ptr noundef %26, i32 noundef %33) #23
+  call void @md5_append(ptr noundef %3, ptr noundef %26, i32 noundef %33) #24
   br label %36
 
 tng_fwritestr.exit:                               ; preds = %24
   %34 = load ptr, ptr @stderr, align 8
-  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2623) #26
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2623) #27
   br label %tng_fwritestr.exit16.thread
 
 36:                                               ; preds = %32, %31
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load ptr, ptr %37, align 8
   %.val = load ptr, ptr %16, align 8
-  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #24
+  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #25
   %40 = add i64 %39, 1
   %41 = call noundef i64 @llvm.umin.i64(i64 %40, i64 1024)
   %42 = call i64 @fwrite(ptr noundef %38, i64 noundef %41, i64 noundef 1, ptr noundef %.val)
@@ -33160,12 +33160,12 @@ tng_fwritestr.exit:                               ; preds = %24
 
 44:                                               ; preds = %43
   %45 = trunc nuw nsw i64 %41 to i32
-  call void @md5_append(ptr noundef %3, ptr noundef %38, i32 noundef %45) #23
+  call void @md5_append(ptr noundef %3, ptr noundef %38, i32 noundef %45) #24
   br label %tng_fwritestr.exit16.thread
 
 46:                                               ; preds = %36
   %47 = load ptr, ptr @stderr, align 8
-  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2628) #26
+  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 2628) #27
   br label %tng_fwritestr.exit16.thread
 
 tng_fwritestr.exit16.thread:                      ; preds = %43, %44, %46, %tng_fwritestr.exit, %tng_file_output_numerical.exit
@@ -33181,7 +33181,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr @stderr, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.1, i32 noundef 4057) #26
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.1, i32 noundef 4057) #27
   br label %205
 
 11:                                               ; preds = %6
@@ -33191,7 +33191,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.1, i32 noundef 4062) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.1, i32 noundef 4062) #27
   br label %205
 
 16:                                               ; preds = %11
@@ -33202,7 +33202,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.1, i32 noundef 4071) #26
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.1, i32 noundef 4071) #27
   br label %205
 
 22:                                               ; preds = %16
@@ -33225,10 +33225,10 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   br i1 %33, label %34, label %65
 
 34:                                               ; preds = %30
-  %35 = tail call i32 @tng_compress_nalgo() #23
+  %35 = tail call i32 @tng_compress_nalgo() #24
   %36 = sext i32 %35 to i64
   %37 = shl nsw i64 %36, 2
-  %38 = tail call noalias ptr @malloc(i64 noundef %37) #25
+  %38 = tail call noalias ptr @malloc(i64 noundef %37) #26
   %39 = getelementptr inbounds i8, ptr %0, i64 480
   %40 = load ptr, ptr %39, align 8
   %.not211 = icmp eq ptr %40, null
@@ -33267,11 +33267,11 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   br i1 %56, label %59, label %61
 
 59:                                               ; preds = %54
-  %60 = call ptr @tng_compress_pos_float(ptr noundef %57, i32 noundef %58, i32 noundef 1, float noundef %26, i32 noundef 0, ptr noundef nonnull %38, ptr noundef nonnull %7) #23
+  %60 = call ptr @tng_compress_pos_float(ptr noundef %57, i32 noundef %58, i32 noundef 1, float noundef %26, i32 noundef 0, ptr noundef nonnull %38, ptr noundef nonnull %7) #24
   br label %63
 
 61:                                               ; preds = %54
-  %62 = call ptr @tng_compress_pos(ptr noundef %57, i32 noundef %58, i32 noundef 1, double noundef %27, i32 noundef 0, ptr noundef nonnull %38, ptr noundef nonnull %7) #23
+  %62 = call ptr @tng_compress_pos(ptr noundef %57, i32 noundef %58, i32 noundef 1, double noundef %27, i32 noundef 0, ptr noundef nonnull %38, ptr noundef nonnull %7) #24
   br label %63
 
 63:                                               ; preds = %61, %59
@@ -33300,10 +33300,10 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
 74:                                               ; preds = %65
   %75 = icmp ugt i64 %1, 6
   %.1 = select i1 %75, i64 5, i64 %1
-  %76 = tail call i32 @tng_compress_nalgo() #23
+  %76 = tail call i32 @tng_compress_nalgo() #24
   %77 = sext i32 %76 to i64
   %78 = shl nsw i64 %77, 2
-  %79 = tail call noalias ptr @malloc(i64 noundef %78) #25
+  %79 = tail call noalias ptr @malloc(i64 noundef %78) #26
   store ptr %79, ptr %66, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %79, i8 -1, i64 16, i1 false)
   br label %80
@@ -33319,27 +33319,27 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   br i1 %82, label %87, label %94
 
 87:                                               ; preds = %80
-  %88 = call ptr @tng_compress_pos_float(ptr noundef %83, i32 noundef %84, i32 noundef %85, float noundef %26, i32 noundef 0, ptr noundef nonnull %81, ptr noundef nonnull %7) #23
+  %88 = call ptr @tng_compress_pos_float(ptr noundef %83, i32 noundef %84, i32 noundef %85, float noundef %26, i32 noundef 0, ptr noundef nonnull %81, ptr noundef nonnull %7) #24
   br i1 %86, label %89, label %.thread9
 
 89:                                               ; preds = %87
-  call void @free(ptr noundef %88) #23
+  call void @free(ptr noundef %88) #24
   %90 = load ptr, ptr %4, align 8
   %91 = trunc i64 %1 to i32
   %92 = load ptr, ptr %66, align 8
-  %93 = call ptr @tng_compress_pos_float(ptr noundef %90, i32 noundef %84, i32 noundef %91, float noundef %26, i32 noundef 0, ptr noundef %92, ptr noundef nonnull %7) #23
+  %93 = call ptr @tng_compress_pos_float(ptr noundef %90, i32 noundef %84, i32 noundef %91, float noundef %26, i32 noundef 0, ptr noundef %92, ptr noundef nonnull %7) #24
   br label %.thread9
 
 94:                                               ; preds = %80
-  %95 = call ptr @tng_compress_pos(ptr noundef %83, i32 noundef %84, i32 noundef %85, double noundef %27, i32 noundef 0, ptr noundef nonnull %81, ptr noundef nonnull %7) #23
+  %95 = call ptr @tng_compress_pos(ptr noundef %83, i32 noundef %84, i32 noundef %85, double noundef %27, i32 noundef 0, ptr noundef nonnull %81, ptr noundef nonnull %7) #24
   br i1 %86, label %96, label %.thread9
 
 96:                                               ; preds = %94
-  call void @free(ptr noundef %95) #23
+  call void @free(ptr noundef %95) #24
   %97 = load ptr, ptr %4, align 8
   %98 = trunc i64 %1 to i32
   %99 = load ptr, ptr %66, align 8
-  %100 = call ptr @tng_compress_pos(ptr noundef %97, i32 noundef %84, i32 noundef %98, double noundef %27, i32 noundef 0, ptr noundef %99, ptr noundef nonnull %7) #23
+  %100 = call ptr @tng_compress_pos(ptr noundef %97, i32 noundef %84, i32 noundef %98, double noundef %27, i32 noundef 0, ptr noundef %99, ptr noundef nonnull %7) #24
   br label %.thread9
 
 101:                                              ; preds = %68
@@ -33350,11 +33350,11 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   br i1 %102, label %106, label %108
 
 106:                                              ; preds = %101
-  %107 = call ptr @tng_compress_pos_float(ptr noundef %103, i32 noundef %104, i32 noundef %105, float noundef %26, i32 noundef 0, ptr noundef nonnull %67, ptr noundef nonnull %7) #23
+  %107 = call ptr @tng_compress_pos_float(ptr noundef %103, i32 noundef %104, i32 noundef %105, float noundef %26, i32 noundef 0, ptr noundef nonnull %67, ptr noundef nonnull %7) #24
   br label %.thread9
 
 108:                                              ; preds = %101
-  %109 = call ptr @tng_compress_pos(ptr noundef %103, i32 noundef %104, i32 noundef %105, double noundef %27, i32 noundef 0, ptr noundef nonnull %67, ptr noundef nonnull %7) #23
+  %109 = call ptr @tng_compress_pos(ptr noundef %103, i32 noundef %104, i32 noundef %105, double noundef %27, i32 noundef 0, ptr noundef nonnull %67, ptr noundef nonnull %7) #24
   br label %.thread9
 
 110:                                              ; preds = %22
@@ -33367,10 +33367,10 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   br i1 %114, label %115, label %146
 
 115:                                              ; preds = %111
-  %116 = tail call i32 @tng_compress_nalgo() #23
+  %116 = tail call i32 @tng_compress_nalgo() #24
   %117 = sext i32 %116 to i64
   %118 = shl nsw i64 %117, 2
-  %119 = tail call noalias ptr @malloc(i64 noundef %118) #25
+  %119 = tail call noalias ptr @malloc(i64 noundef %118) #26
   %120 = getelementptr inbounds i8, ptr %0, i64 488
   %121 = load ptr, ptr %120, align 8
   %.not207 = icmp eq ptr %121, null
@@ -33409,11 +33409,11 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   br i1 %137, label %140, label %142
 
 140:                                              ; preds = %135
-  %141 = call ptr @tng_compress_vel_float(ptr noundef %138, i32 noundef %139, i32 noundef 1, float noundef %26, i32 noundef 0, ptr noundef nonnull %119, ptr noundef nonnull %7) #23
+  %141 = call ptr @tng_compress_vel_float(ptr noundef %138, i32 noundef %139, i32 noundef 1, float noundef %26, i32 noundef 0, ptr noundef nonnull %119, ptr noundef nonnull %7) #24
   br label %144
 
 142:                                              ; preds = %135
-  %143 = call ptr @tng_compress_vel(ptr noundef %138, i32 noundef %139, i32 noundef 1, double noundef %27, i32 noundef 0, ptr noundef nonnull %119, ptr noundef nonnull %7) #23
+  %143 = call ptr @tng_compress_vel(ptr noundef %138, i32 noundef %139, i32 noundef 1, double noundef %27, i32 noundef 0, ptr noundef nonnull %119, ptr noundef nonnull %7) #24
   br label %144
 
 144:                                              ; preds = %142, %140
@@ -33442,10 +33442,10 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
 155:                                              ; preds = %146
   %156 = icmp ugt i64 %1, 6
   %.2146 = select i1 %156, i64 5, i64 %1
-  %157 = tail call i32 @tng_compress_nalgo() #23
+  %157 = tail call i32 @tng_compress_nalgo() #24
   %158 = sext i32 %157 to i64
   %159 = shl nsw i64 %158, 2
-  %160 = tail call noalias ptr @malloc(i64 noundef %159) #25
+  %160 = tail call noalias ptr @malloc(i64 noundef %159) #26
   store ptr %160, ptr %147, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %160, i8 -1, i64 16, i1 false)
   br label %161
@@ -33461,27 +33461,27 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   br i1 %163, label %168, label %175
 
 168:                                              ; preds = %161
-  %169 = call ptr @tng_compress_vel_float(ptr noundef %164, i32 noundef %165, i32 noundef %166, float noundef %26, i32 noundef 0, ptr noundef nonnull %162, ptr noundef nonnull %7) #23
+  %169 = call ptr @tng_compress_vel_float(ptr noundef %164, i32 noundef %165, i32 noundef %166, float noundef %26, i32 noundef 0, ptr noundef nonnull %162, ptr noundef nonnull %7) #24
   br i1 %167, label %170, label %.thread9
 
 170:                                              ; preds = %168
-  call void @free(ptr noundef %169) #23
+  call void @free(ptr noundef %169) #24
   %171 = load ptr, ptr %4, align 8
   %172 = trunc i64 %1 to i32
   %173 = load ptr, ptr %147, align 8
-  %174 = call ptr @tng_compress_vel_float(ptr noundef %171, i32 noundef %165, i32 noundef %172, float noundef %26, i32 noundef 0, ptr noundef %173, ptr noundef nonnull %7) #23
+  %174 = call ptr @tng_compress_vel_float(ptr noundef %171, i32 noundef %165, i32 noundef %172, float noundef %26, i32 noundef 0, ptr noundef %173, ptr noundef nonnull %7) #24
   br label %.thread9
 
 175:                                              ; preds = %161
-  %176 = call ptr @tng_compress_vel(ptr noundef %164, i32 noundef %165, i32 noundef %166, double noundef %27, i32 noundef 0, ptr noundef nonnull %162, ptr noundef nonnull %7) #23
+  %176 = call ptr @tng_compress_vel(ptr noundef %164, i32 noundef %165, i32 noundef %166, double noundef %27, i32 noundef 0, ptr noundef nonnull %162, ptr noundef nonnull %7) #24
   br i1 %167, label %177, label %.thread9
 
 177:                                              ; preds = %175
-  call void @free(ptr noundef %176) #23
+  call void @free(ptr noundef %176) #24
   %178 = load ptr, ptr %4, align 8
   %179 = trunc i64 %1 to i32
   %180 = load ptr, ptr %147, align 8
-  %181 = call ptr @tng_compress_vel(ptr noundef %178, i32 noundef %165, i32 noundef %179, double noundef %27, i32 noundef 0, ptr noundef %180, ptr noundef nonnull %7) #23
+  %181 = call ptr @tng_compress_vel(ptr noundef %178, i32 noundef %165, i32 noundef %179, double noundef %27, i32 noundef 0, ptr noundef %180, ptr noundef nonnull %7) #24
   br label %.thread9
 
 182:                                              ; preds = %149
@@ -33492,21 +33492,21 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   br i1 %183, label %187, label %189
 
 187:                                              ; preds = %182
-  %188 = call ptr @tng_compress_vel_float(ptr noundef %184, i32 noundef %185, i32 noundef %186, float noundef %26, i32 noundef 0, ptr noundef nonnull %148, ptr noundef nonnull %7) #23
+  %188 = call ptr @tng_compress_vel_float(ptr noundef %184, i32 noundef %185, i32 noundef %186, float noundef %26, i32 noundef 0, ptr noundef nonnull %148, ptr noundef nonnull %7) #24
   br label %.thread9
 
 189:                                              ; preds = %182
-  %190 = call ptr @tng_compress_vel(ptr noundef %184, i32 noundef %185, i32 noundef %186, double noundef %27, i32 noundef 0, ptr noundef nonnull %148, ptr noundef nonnull %7) #23
+  %190 = call ptr @tng_compress_vel(ptr noundef %184, i32 noundef %185, i32 noundef %186, double noundef %27, i32 noundef 0, ptr noundef nonnull %148, ptr noundef nonnull %7) #24
   br label %.thread9
 
 .sink.split:                                      ; preds = %144, %63
   %.sink29 = phi ptr [ %39, %63 ], [ %120, %144 ]
   %.sink27 = phi ptr [ %38, %63 ], [ %119, %144 ]
   %.1194.ph = phi ptr [ %.0193, %63 ], [ %.2, %144 ]
-  %191 = call i32 @tng_compress_nalgo() #23
+  %191 = call i32 @tng_compress_nalgo() #24
   %192 = sext i32 %191 to i64
   %193 = shl nsw i64 %192, 2
-  %194 = call noalias ptr @malloc(i64 noundef %193) #25
+  %194 = call noalias ptr @malloc(i64 noundef %193) #26
   store ptr %194, ptr %.sink29, align 8
   %195 = load i32, ptr %.sink27, align 4
   store i32 %195, ptr %194, align 4
@@ -33523,13 +33523,13 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
 201:                                              ; preds = %.sink.split, %63, %144
   %.0195 = phi ptr [ %38, %63 ], [ %119, %144 ], [ %.sink27, %.sink.split ]
   %.1194 = phi ptr [ %.0193, %63 ], [ %.2, %144 ], [ %.1194.ph, %.sink.split ]
-  call void @free(ptr noundef nonnull %.0195) #23
+  call void @free(ptr noundef nonnull %.0195) #24
   br label %.thread9
 
 .thread9:                                         ; preds = %189, %187, %175, %177, %168, %170, %108, %106, %94, %96, %87, %89, %201
   %.119413 = phi ptr [ %.1194, %201 ], [ %190, %189 ], [ %188, %187 ], [ %176, %175 ], [ %181, %177 ], [ %169, %168 ], [ %174, %170 ], [ %109, %108 ], [ %107, %106 ], [ %95, %94 ], [ %100, %96 ], [ %88, %87 ], [ %93, %89 ]
   %202 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %202) #23
+  call void @free(ptr noundef %202) #24
   store ptr %.119413, ptr %4, align 8
   %203 = load i32, ptr %7, align 4
   %204 = sext i32 %203 to i64
@@ -33544,25 +33544,25 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @tng_gzip_compress(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
-  %5 = tail call i64 @compressBound(i64 noundef %1) #23
+  %5 = tail call i64 @compressBound(i64 noundef %1) #24
   store i64 %5, ptr %4, align 8
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #25
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #26
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %10
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4404) #26
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4404) #27
   br label %26
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8
-  %12 = call i32 @compress(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %11, i64 noundef %1) #23
+  %12 = call i32 @compress(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %11, i64 noundef %1) #24
   %.not15 = icmp eq i32 %12, 0
   br i1 %.not15, label %23, label %13
 
 13:                                               ; preds = %10
-  call void @free(ptr noundef nonnull %6) #23
+  call void @free(ptr noundef nonnull %6) #24
   switch i32 %12, label %20 [
     i32 -4, label %14
     i32 -5, label %17
@@ -33570,24 +33570,24 @@ define internal fastcc range(i32 0, 3) i32 @tng_gzip_compress(ptr nocapture noun
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr @stderr, align 8
-  %16 = call i64 @fwrite(ptr nonnull @.str.80, i64 32, i64 1, ptr %15) #28
+  %16 = call i64 @fwrite(ptr nonnull @.str.80, i64 32, i64 1, ptr %15) #29
   br label %20
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr @stderr, align 8
-  %19 = call i64 @fwrite(ptr nonnull @.str.81, i64 43, i64 1, ptr %18) #28
+  %19 = call i64 @fwrite(ptr nonnull @.str.81, i64 43, i64 1, ptr %18) #29
   br label %20
 
 20:                                               ; preds = %13, %17, %14
   %21 = load ptr, ptr @stderr, align 8
-  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.1, i32 noundef 4420) #26
+  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.1, i32 noundef 4420) #27
   br label %26
 
 23:                                               ; preds = %10
   %24 = load i64, ptr %4, align 8
   store i64 %24, ptr %2, align 8
   %25 = load ptr, ptr %0, align 8
-  call void @free(ptr noundef %25) #23
+  call void @free(ptr noundef %25) #24
   store ptr %6, ptr %0, align 8
   br label %26
 
@@ -33596,19 +33596,19 @@ define internal fastcc range(i32 0, 3) i32 @tng_gzip_compress(ptr nocapture noun
   ret i32 %.0
 }
 
-declare i32 @tng_compress_nalgo() local_unnamed_addr #19
+declare i32 @tng_compress_nalgo() local_unnamed_addr #20
 
-declare ptr @tng_compress_pos_float(ptr noundef, i32 noundef, i32 noundef, float noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #19
+declare ptr @tng_compress_pos_float(ptr noundef, i32 noundef, i32 noundef, float noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #20
 
-declare ptr @tng_compress_pos(ptr noundef, i32 noundef, i32 noundef, double noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #19
+declare ptr @tng_compress_pos(ptr noundef, i32 noundef, i32 noundef, double noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #20
 
-declare ptr @tng_compress_vel_float(ptr noundef, i32 noundef, i32 noundef, float noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #19
+declare ptr @tng_compress_vel_float(ptr noundef, i32 noundef, i32 noundef, float noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #20
 
-declare ptr @tng_compress_vel(ptr noundef, i32 noundef, i32 noundef, double noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #19
+declare ptr @tng_compress_vel(ptr noundef, i32 noundef, i32 noundef, double noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #20
 
-declare i64 @compressBound(i64 noundef) local_unnamed_addr #19
+declare i64 @compressBound(i64 noundef) local_unnamed_addr #20
 
-declare i32 @compress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #19
+declare i32 @compress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tng_md5_remaining_append(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) unnamed_addr #4 {
@@ -33623,13 +33623,13 @@ define internal fastcc void @tng_md5_remaining_append(ptr nocapture noundef read
 
 12:                                               ; preds = %4
   %13 = sub nsw i64 %10, %7
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #25
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #26
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %18
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 841) #26
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 841) #27
   br label %30
 
 18:                                               ; preds = %12
@@ -33640,8 +33640,8 @@ define internal fastcc void @tng_md5_remaining_append(ptr nocapture noundef read
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr @stderr, align 8
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.1, i32 noundef 850) #26
-  tail call void @free(ptr noundef nonnull %14) #23
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.1, i32 noundef 850) #27
+  tail call void @free(ptr noundef nonnull %14) #24
   br label %30
 
 25:                                               ; preds = %18
@@ -33649,8 +33649,8 @@ define internal fastcc void @tng_md5_remaining_append(ptr nocapture noundef read
   %27 = sub i64 %2, %7
   %28 = add i64 %27, %26
   %29 = trunc i64 %28 to i32
-  tail call void @md5_append(ptr noundef %3, ptr noundef nonnull %14, i32 noundef %29) #23
-  tail call void @free(ptr noundef nonnull %14) #23
+  tail call void @md5_append(ptr noundef %3, ptr noundef nonnull %14, i32 noundef %29) #24
+  tail call void @free(ptr noundef nonnull %14) #24
   br label %30
 
 30:                                               ; preds = %4, %25, %22, %15
@@ -33671,7 +33671,7 @@ define internal fastcc void @tng_residue_data_read(ptr noundef %0, ptr noundef %
 
 tng_file_input_numerical.exit.thread20:           ; preds = %4
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2523) #26
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2523) #27
   br label %tng_file_input_numerical.exit18.thread
 
 12:                                               ; preds = %4
@@ -33679,7 +33679,7 @@ tng_file_input_numerical.exit.thread20:           ; preds = %4
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
-  tail call void @md5_append(ptr noundef %3, ptr noundef nonnull %5, i32 noundef 8) #23
+  tail call void @md5_append(ptr noundef %3, ptr noundef nonnull %5, i32 noundef 8) #24
   br label %15
 
 15:                                               ; preds = %14, %12
@@ -33689,13 +33689,13 @@ tng_file_input_numerical.exit.thread20:           ; preds = %4
   br i1 %.not22.i, label %tng_file_input_numerical.exit.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %5) #23
+  %19 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %5) #24
   %.not23.i = icmp eq i32 %19, 0
   br i1 %.not23.i, label %tng_file_input_numerical.exit.thread, label %tng_file_input_numerical.exit
 
 tng_file_input_numerical.exit:                    ; preds = %18
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2523) #26
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2523) #27
   br label %tng_file_input_numerical.exit.thread
 
 tng_file_input_numerical.exit.thread:             ; preds = %18, %15, %tng_file_input_numerical.exit
@@ -33711,7 +33711,7 @@ tng_file_input_numerical.exit.thread:             ; preds = %18, %15, %tng_file_
   br i1 %13, label %28, label %29
 
 28:                                               ; preds = %27
-  tail call void @md5_append(ptr noundef %3, ptr noundef nonnull %23, i32 noundef 8) #23
+  tail call void @md5_append(ptr noundef %3, ptr noundef nonnull %23, i32 noundef 8) #24
   br label %29
 
 29:                                               ; preds = %28, %27
@@ -33720,18 +33720,18 @@ tng_file_input_numerical.exit.thread:             ; preds = %18, %15, %tng_file_
   br i1 %.not22.i12, label %tng_file_input_numerical.exit18.thread, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call i32 %30(ptr noundef nonnull %0, ptr noundef nonnull %23) #23
+  %32 = tail call i32 %30(ptr noundef nonnull %0, ptr noundef nonnull %23) #24
   %.not23.i13 = icmp eq i32 %32, 0
   br i1 %.not23.i13, label %tng_file_input_numerical.exit18.thread, label %tng_file_input_numerical.exit18
 
 tng_file_input_numerical.exit18:                  ; preds = %31
   %33 = load ptr, ptr @stderr, align 8
-  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2532) #26
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2532) #27
   br label %tng_file_input_numerical.exit18.thread
 
 35:                                               ; preds = %tng_file_input_numerical.exit.thread
   %36 = load ptr, ptr @stderr, align 8
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2532) #26
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2532) #27
   br label %tng_file_input_numerical.exit18.thread
 
 tng_file_input_numerical.exit18.thread:           ; preds = %31, %29, %35, %tng_file_input_numerical.exit18, %tng_file_input_numerical.exit.thread20
@@ -33749,7 +33749,7 @@ define internal fastcc void @tng_atom_data_read(ptr noundef %0, ptr noundef %1, 
 
 tng_file_input_numerical.exit.thread13:           ; preds = %4
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2590) #26
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 2590) #27
   br label %24
 
 12:                                               ; preds = %4
@@ -33757,7 +33757,7 @@ tng_file_input_numerical.exit.thread13:           ; preds = %4
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
-  tail call void @md5_append(ptr noundef %3, ptr noundef nonnull %5, i32 noundef 8) #23
+  tail call void @md5_append(ptr noundef %3, ptr noundef nonnull %5, i32 noundef 8) #24
   br label %15
 
 15:                                               ; preds = %14, %12
@@ -33767,13 +33767,13 @@ tng_file_input_numerical.exit.thread13:           ; preds = %4
   br i1 %.not22.i, label %tng_file_input_numerical.exit.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %5) #23
+  %19 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %5) #24
   %.not23.i = icmp eq i32 %19, 0
   br i1 %.not23.i, label %tng_file_input_numerical.exit.thread, label %tng_file_input_numerical.exit
 
 tng_file_input_numerical.exit:                    ; preds = %18
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2590) #26
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 2590) #27
   br label %tng_file_input_numerical.exit.thread
 
 tng_file_input_numerical.exit.thread:             ; preds = %18, %15, %tng_file_input_numerical.exit
@@ -33801,15 +33801,15 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_block_create(ptr n
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %7 to i64
   %11 = mul nsw i64 %10, 96
-  %12 = tail call ptr @realloc(ptr noundef %9, i64 noundef %11) #27
+  %12 = tail call ptr @realloc(ptr noundef %9, i64 noundef %11) #28
   %.not20 = icmp eq ptr %12, null
   br i1 %.not20, label %13, label %17
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4011) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4011) #27
   %16 = load ptr, ptr %8, align 8
-  tail call void @free(ptr noundef %16) #23
+  tail call void @free(ptr noundef %16) #24
   store ptr null, ptr %8, align 8
   br label %32
 
@@ -33826,15 +33826,15 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_block_create(ptr n
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %21 to i64
   %25 = mul nsw i64 %24, 96
-  %26 = tail call ptr @realloc(ptr noundef %23, i64 noundef %25) #27
+  %26 = tail call ptr @realloc(ptr noundef %23, i64 noundef %25) #28
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %27, label %31
 
 27:                                               ; preds = %18
   %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4025) #26
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4025) #27
   %30 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %30) #23
+  tail call void @free(ptr noundef %30) #24
   store ptr null, ptr %22, align 8
   br label %32
 
@@ -33861,15 +33861,15 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_create(ptr nocapture 
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %7 to i64
   %11 = mul nsw i64 %10, 96
-  %12 = tail call ptr @realloc(ptr noundef %9, i64 noundef %11) #27
+  %12 = tail call ptr @realloc(ptr noundef %9, i64 noundef %11) #28
   %.not20 = icmp eq ptr %12, null
   br i1 %.not20, label %13, label %17
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4802) #26
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4802) #27
   %16 = load ptr, ptr %8, align 8
-  tail call void @free(ptr noundef %16) #23
+  tail call void @free(ptr noundef %16) #24
   store ptr null, ptr %8, align 8
   br label %32
 
@@ -33886,15 +33886,15 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_create(ptr nocapture 
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %21 to i64
   %25 = mul nsw i64 %24, 96
-  %26 = tail call ptr @realloc(ptr noundef %23, i64 noundef %25) #27
+  %26 = tail call ptr @realloc(ptr noundef %23, i64 noundef %25) #28
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %27, label %31
 
 27:                                               ; preds = %18
   %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4815) #26
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4815) #27
   %30 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %30) #23
+  tail call void @free(ptr noundef %30) #24
   store ptr null, ptr %22, align 8
   br label %32
 
@@ -33907,11 +33907,11 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_create(ptr nocapture 
   ret i32 %.0
 }
 
-declare i32 @tng_compress_uncompress_float(ptr noundef, ptr noundef) local_unnamed_addr #19
+declare i32 @tng_compress_uncompress_float(ptr noundef, ptr noundef) local_unnamed_addr #20
 
-declare i32 @tng_compress_uncompress(ptr noundef, ptr noundef) local_unnamed_addr #19
+declare i32 @tng_compress_uncompress(ptr noundef, ptr noundef) local_unnamed_addr #20
 
-declare i32 @uncompress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #19
+declare i32 @uncompress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @tng_particle_data_values_alloc(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5) unnamed_addr #4 {
@@ -33931,7 +33931,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_values_alloc(ptr n
 
 13:                                               ; preds = %11, %9
   %14 = shl i64 %2, 3
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #25
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #26
   store ptr %15, ptr %1, align 8
   %.not49 = icmp eq ptr %15, null
   br i1 %.not49, label %37, label %.preheader52
@@ -33949,7 +33949,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_values_alloc(ptr n
 .lr.ph55.split.us:                                ; preds = %.lr.ph55, %._crit_edge.us
   %20 = phi ptr [ %31, %._crit_edge.us ], [ %15, %.lr.ph55 ]
   %.04354.us = phi i64 [ %36, %._crit_edge.us ], [ 0, %.lr.ph55 ]
-  %21 = tail call noalias ptr @malloc(i64 noundef %17) #25
+  %21 = tail call noalias ptr @malloc(i64 noundef %17) #26
   %22 = getelementptr inbounds ptr, ptr %20, i64 %.04354.us
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %1, align 8
@@ -33966,7 +33966,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_values_alloc(ptr n
 .preheader.us:                                    ; preds = %.lr.ph55.split.us, %26
   %28 = phi ptr [ %33, %26 ], [ %25, %.lr.ph55.split.us ]
   %.04253.us = phi i64 [ %27, %26 ], [ 0, %.lr.ph55.split.us ]
-  %29 = tail call noalias ptr @malloc(i64 noundef %19) #25
+  %29 = tail call noalias ptr @malloc(i64 noundef %19) #26
   %30 = getelementptr inbounds ptr, ptr %28, i64 %.04253.us
   store ptr %29, ptr %30, align 8
   %31 = load ptr, ptr %1, align 8
@@ -33984,13 +33984,13 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_values_alloc(ptr n
 
 37:                                               ; preds = %13
   %38 = load ptr, ptr @stderr, align 8
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 12964) #26
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 12964) #27
   br label %.loopexit
 
 .lr.ph55.split:                                   ; preds = %.lr.ph55, %.preheader
   %40 = phi ptr [ %43, %.preheader ], [ %15, %.lr.ph55 ]
   %.04354 = phi i64 [ %46, %.preheader ], [ 0, %.lr.ph55 ]
-  %41 = tail call noalias ptr @malloc(i64 noundef %17) #25
+  %41 = tail call noalias ptr @malloc(i64 noundef %17) #26
   %42 = getelementptr inbounds ptr, ptr %40, i64 %.04354
   store ptr %41, ptr %42, align 8
   %43 = load ptr, ptr %1, align 8
@@ -34006,15 +34006,15 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_values_alloc(ptr n
 
 .split.us:                                        ; preds = %.lr.ph55.split, %.lr.ph55.split.us
   %47 = load ptr, ptr @stderr, align 8
-  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 12973) #26
+  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 12973) #27
   %49 = load ptr, ptr %1, align 8
-  tail call void @free(ptr noundef %49) #23
+  tail call void @free(ptr noundef %49) #24
   store ptr null, ptr %1, align 8
   br label %.loopexit
 
 .split57.us:                                      ; preds = %.preheader.us
   %50 = load ptr, ptr @stderr, align 8
-  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 12983) #26
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 12983) #27
   %52 = load ptr, ptr %1, align 8
   %53 = tail call i32 @tng_particle_data_values_free(ptr poison, ptr noundef %52, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5)
   store ptr null, ptr %1, align 8
@@ -34043,7 +34043,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_values_alloc(ptr nocapture 
 
 12:                                               ; preds = %10, %8
   %13 = shl i64 %2, 3
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #25
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #26
   store ptr %14, ptr %1, align 8
   %.not28 = icmp eq ptr %14, null
   br i1 %.not28, label %16, label %.lr.ph
@@ -34054,7 +34054,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_values_alloc(ptr nocapture 
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 12880) #26
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 12880) #27
   br label %.loopexit
 
 19:                                               ; preds = %21
@@ -34065,7 +34065,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_values_alloc(ptr nocapture 
 21:                                               ; preds = %.lr.ph, %19
   %22 = phi ptr [ %14, %.lr.ph ], [ %25, %19 ]
   %.02330 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
-  %23 = tail call noalias ptr @malloc(i64 noundef %15) #25
+  %23 = tail call noalias ptr @malloc(i64 noundef %15) #26
   %24 = getelementptr inbounds ptr, ptr %22, i64 %.02330
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %1, align 8
@@ -34076,8 +34076,8 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_values_alloc(ptr nocapture 
 
 28:                                               ; preds = %21
   %29 = load ptr, ptr @stderr, align 8
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 12889) #26
-  tail call void @free(ptr noundef nonnull %1) #23
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 12889) #27
+  tail call void @free(ptr noundef nonnull %1) #24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %5, %28, %16
@@ -34086,31 +34086,31 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_values_alloc(ptr nocapture 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #21
+declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #21
+declare i32 @llvm.fshl.i32(i32, i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #21
+declare i32 @llvm.bswap.i32(i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #21
+declare i64 @llvm.fshl.i64(i64, i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #21
+declare i64 @llvm.bswap.i64(i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #21
+declare i64 @llvm.smax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #21
+declare i64 @llvm.smin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -34131,16 +34131,17 @@ attributes #15 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwta
 attributes #16 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #19 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nounwind }
-attributes #24 = { nounwind willreturn memory(read) }
-attributes #25 = { nounwind allocsize(0) }
-attributes #26 = { cold nounwind }
-attributes #27 = { nounwind allocsize(1) }
-attributes #28 = { cold }
+attributes #19 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #20 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { nounwind }
+attributes #25 = { nounwind willreturn memory(read) }
+attributes #26 = { nounwind allocsize(0) }
+attributes #27 = { cold nounwind }
+attributes #28 = { nounwind allocsize(1) }
+attributes #29 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -46,15 +46,15 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @Init_instrumentation() local_unnamed_addr #0 {
-  %1 = tail call i64 @rb_define_module(ptr noundef nonnull @.str) #6
-  %2 = tail call i64 @rb_define_module_under(i64 noundef %1, ptr noundef nonnull @.str.1) #6
-  tail call void @rb_global_variable(ptr noundef nonnull @timeline_value) #6
-  %3 = tail call i64 @rb_data_typed_object_wrap(i64 noundef 0, ptr noundef null, ptr noundef nonnull @event_timeline_type) #6
+  %1 = tail call i64 @rb_define_module(ptr noundef nonnull @.str) #7
+  %2 = tail call i64 @rb_define_module_under(i64 noundef %1, ptr noundef nonnull @.str.1) #7
+  tail call void @rb_global_variable(ptr noundef nonnull @timeline_value) #7
+  %3 = tail call i64 @rb_data_typed_object_wrap(i64 noundef 0, ptr noundef null, ptr noundef nonnull @event_timeline_type) #7
   store i64 %3, ptr @timeline_value, align 8
-  tail call void @rb_global_variable(ptr noundef nonnull @last_thread) #6
-  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull @thread_register_callback, i32 noundef 1) #6
-  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull @thread_unregister_callback, i32 noundef 0) #6
-  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.4, ptr noundef nonnull @thread_register_and_unregister_callback, i32 noundef 0) #6
+  tail call void @rb_global_variable(ptr noundef nonnull @last_thread) #7
+  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull @thread_register_callback, i32 noundef 1) #7
+  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull @thread_unregister_callback, i32 noundef 0) #7
+  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.4, ptr noundef nonnull @thread_register_and_unregister_callback, i32 noundef 0) #7
   ret void
 }
 
@@ -74,7 +74,7 @@ define internal noundef i64 @thread_register_callback(i64 %0, i64 noundef %1) #0
   %4 = icmp ne i64 %3, 0
   %5 = zext i1 %4 to i64
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 31, ptr noundef %6) #6
+  %7 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 31, ptr noundef %6) #7
   store ptr %7, ptr @single_hook, align 8
   ret i64 4
 }
@@ -86,24 +86,24 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef nonnull %2) #6
+  %4 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef nonnull %2) #7
   store ptr null, ptr @single_hook, align 8
   br label %5
 
 5:                                                ; preds = %3, %1
   %6 = load i32, ptr @timeline_cursor, align 4
   %7 = zext i32 %6 to i64
-  %8 = tail call i64 @rb_ary_new_capa(i64 noundef %7) #6
+  %8 = tail call i64 @rb_ary_new_capa(i64 noundef %7) #7
   %9 = load i32, ptr @timeline_cursor, align 4
   %.not19 = icmp eq i32 %9, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %event_symbol.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %event_symbol.exit ], [ 0, %5 ]
-  %10 = tail call i64 @rb_ary_new_capa(i64 noundef 2) #6
+  %10 = tail call i64 @rb_ary_new_capa(i64 noundef 2) #7
   %11 = getelementptr inbounds [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %indvars.iv
   %12 = load i64, ptr %11, align 16
-  %13 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %12) #6
+  %13 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %12) #7
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %26 [
@@ -120,7 +120,7 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   br i1 %.not4.i.i, label %.lr.ph.i.i, label %event_symbol.exit
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
-  %17 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.13, i64 noundef 7) #6
+  %17 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.13, i64 noundef 7) #7
   store i64 %17, ptr @event_symbol.rbimpl_id, align 8
   %.not.i.i = icmp eq i64 %17, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %event_symbol.exit, !llvm.loop !6
@@ -131,7 +131,7 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   br i1 %.not4.i8.i, label %.lr.ph.i10.i, label %event_symbol.exit
 
 .lr.ph.i10.i:                                     ; preds = %18, %.lr.ph.i10.i
-  %19 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.14, i64 noundef 5) #6
+  %19 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.14, i64 noundef 5) #7
   store i64 %19, ptr @event_symbol.rbimpl_id.19, align 8
   %.not.i11.i = icmp eq i64 %19, 0
   br i1 %.not.i11.i, label %.lr.ph.i10.i, label %event_symbol.exit, !llvm.loop !6
@@ -142,7 +142,7 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   br i1 %.not4.i14.i, label %.lr.ph.i16.i, label %event_symbol.exit
 
 .lr.ph.i16.i:                                     ; preds = %20, %.lr.ph.i16.i
-  %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.15, i64 noundef 7) #6
+  %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.15, i64 noundef 7) #7
   store i64 %21, ptr @event_symbol.rbimpl_id.20, align 8
   %.not.i17.i = icmp eq i64 %21, 0
   br i1 %.not.i17.i, label %.lr.ph.i16.i, label %event_symbol.exit, !llvm.loop !6
@@ -153,7 +153,7 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   br i1 %.not4.i20.i, label %.lr.ph.i22.i, label %event_symbol.exit
 
 .lr.ph.i22.i:                                     ; preds = %22, %.lr.ph.i22.i
-  %23 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.16, i64 noundef 9) #6
+  %23 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.16, i64 noundef 9) #7
   store i64 %23, ptr @event_symbol.rbimpl_id.21, align 8
   %.not.i23.i = icmp eq i64 %23, 0
   br i1 %.not.i23.i, label %.lr.ph.i22.i, label %event_symbol.exit, !llvm.loop !6
@@ -164,20 +164,20 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   br i1 %.not4.i26.i, label %.lr.ph.i28.i, label %event_symbol.exit
 
 .lr.ph.i28.i:                                     ; preds = %24, %.lr.ph.i28.i
-  %25 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.17, i64 noundef 6) #6
+  %25 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.17, i64 noundef 6) #7
   store i64 %25, ptr @event_symbol.rbimpl_id.22, align 8
   %.not.i29.i = icmp eq i64 %25, 0
   br i1 %.not.i29.i, label %.lr.ph.i28.i, label %event_symbol.exit, !llvm.loop !6
 
 26:                                               ; preds = %.lr.ph
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.23) #7
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.23) #8
   unreachable
 
 event_symbol.exit:                                ; preds = %.lr.ph.i28.i, %.lr.ph.i22.i, %.lr.ph.i16.i, %.lr.ph.i10.i, %.lr.ph.i.i, %16, %18, %20, %22, %24
   %.lcssa.i27.sink.i = phi i64 [ %.pr.i.i, %16 ], [ %.pr.i7.i, %18 ], [ %.pr.i13.i, %20 ], [ %.pr.i19.i, %22 ], [ %.pr.i25.i, %24 ], [ %17, %.lr.ph.i.i ], [ %19, %.lr.ph.i10.i ], [ %21, %.lr.ph.i16.i ], [ %23, %.lr.ph.i22.i ], [ %25, %.lr.ph.i28.i ]
-  %27 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i27.sink.i) #6
-  %28 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %27) #6
-  %29 = tail call i64 @rb_ary_push(i64 noundef %8, i64 noundef %10) #6
+  %27 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i27.sink.i) #7
+  %28 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %27) #7
+  %29 = tail call i64 @rb_ary_push(i64 noundef %8, i64 noundef %10) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr @timeline_cursor, align 4
   %31 = zext i32 %30 to i64
@@ -197,7 +197,7 @@ define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i6
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 2, ptr noundef null) #6
+  %4 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 2, ptr noundef null) #7
   %5 = getelementptr inbounds [5 x ptr], ptr %2, i64 0, i64 %indvars.iv
   store ptr %4, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -207,30 +207,30 @@ define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i6
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 32
   %8 = load ptr, ptr %7, align 16
-  %9 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %8) #6
+  %9 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %8) #7
   br i1 %9, label %10, label %25
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %2, align 16
-  %12 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %11) #6
+  %12 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %11) #7
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %2, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %15) #6
+  %16 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %15) #7
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 16
-  %20 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %19) #6
+  %20 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %19) #7
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %23) #6
+  %24 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %23) #7
   %. = select i1 %24, i64 20, i64 0
   br label %25
 
@@ -249,7 +249,7 @@ define internal void @event_timeline_gc_mark(ptr nocapture readnone %0) #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %3 = getelementptr inbounds [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %indvars.iv
   %4 = load i64, ptr %3, align 16
-  tail call void @rb_gc_mark(i64 noundef %4) #6
+  tail call void @rb_gc_mark(i64 noundef %4) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i32, ptr @timeline_cursor, align 4
   %6 = zext i32 %5 to i64
@@ -287,22 +287,13 @@ define internal void @ex_callback(i32 noundef %0, ptr nocapture noundef readonly
 find_last_event.exit:                             ; preds = %.preheader.i
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   %13 = load i32, ptr %12, align 8
-  %.not53 = icmp eq ptr %2, null
+  %14 = icmp ne ptr %2, null
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %find_last_event.exit.thread, label %14
+  br i1 %.not, label %find_last_event.exit.thread, label %15
 
-14:                                               ; preds = %find_last_event.exit
+15:                                               ; preds = %find_last_event.exit
   switch i32 %0, label %find_last_event.exit.thread [
-    i32 1, label %15
-    i32 2, label %24
-    i32 4, label %31
-    i32 8, label %39
-    i32 16, label %47
-  ]
-
-15:                                               ; preds = %14
-  switch i32 %13, label %20 [
-    i32 1, label %event_name.exit.i
+    i32 1, label %find_last_event.exit.thread.sink.split
     i32 2, label %16
     i32 4, label %17
     i32 8, label %18
@@ -310,192 +301,95 @@ find_last_event.exit:                             ; preds = %.preheader.i
   ]
 
 16:                                               ; preds = %15
-  br label %event_name.exit.i
-
-17:                                               ; preds = %15
-  br label %event_name.exit.i
-
-18:                                               ; preds = %15
-  br label %event_name.exit.i
-
-19:                                               ; preds = %15
-  br label %event_name.exit.i
-
-20:                                               ; preds = %15
-  br label %event_name.exit.i
-
-event_name.exit.i:                                ; preds = %20, %19, %18, %17, %16, %15
-  %.0.i.i = phi ptr [ @.str.18, %20 ], [ @.str.17, %19 ], [ @.str.16, %18 ], [ @.str.15, %17 ], [ @.str.14, %16 ], [ @.str.13, %15 ]
-  br i1 %.not53, label %unexpected.exit, label %21
-
-21:                                               ; preds = %event_name.exit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.6, i64 noundef %4, ptr noundef nonnull %.0.i.i) #7
-  unreachable
-
-unexpected.exit:                                  ; preds = %event_name.exit.i
-  %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.6, i64 noundef %4, ptr noundef nonnull %.0.i.i) #8
-  br label %find_last_event.exit.thread.sink.split
-
-24:                                               ; preds = %14
-  switch i32 %13, label %27 [
+  switch i32 %13, label %find_last_event.exit.thread.sink.split [
     i32 8, label %find_last_event.exit.thread
     i32 1, label %find_last_event.exit.thread
-    i32 16, label %26
-    i32 2, label %event_name.exit.i35
-    i32 4, label %25
   ]
 
-25:                                               ; preds = %24
-  br label %event_name.exit.i35
+17:                                               ; preds = %15
+  %.not34 = icmp eq i32 %13, 2
+  br i1 %.not34, label %find_last_event.exit.thread, label %find_last_event.exit.thread.sink.split
 
-26:                                               ; preds = %24
-  br label %event_name.exit.i35
+18:                                               ; preds = %15
+  %.not33 = icmp eq i32 %13, 4
+  br i1 %.not33, label %find_last_event.exit.thread, label %find_last_event.exit.thread.sink.split
 
-27:                                               ; preds = %24
-  br label %event_name.exit.i35
-
-event_name.exit.i35:                              ; preds = %24, %27, %26, %25
-  %.0.i.i36 = phi ptr [ @.str.18, %27 ], [ @.str.17, %26 ], [ @.str.15, %25 ], [ @.str.14, %24 ]
-  br i1 %.not53, label %unexpected.exit38, label %28
-
-28:                                               ; preds = %event_name.exit.i35
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.7, i64 noundef %4, ptr noundef nonnull %.0.i.i36) #7
-  unreachable
-
-unexpected.exit38:                                ; preds = %event_name.exit.i35
-  %29 = load ptr, ptr @stderr, align 8
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.7, i64 noundef %4, ptr noundef nonnull %.0.i.i36) #8
-  br label %find_last_event.exit.thread.sink.split
-
-31:                                               ; preds = %14
-  switch i32 %13, label %35 [
-    i32 2, label %find_last_event.exit.thread
-    i32 1, label %event_name.exit.i39
-    i32 16, label %34
-    i32 4, label %32
-    i32 8, label %33
-  ]
-
-32:                                               ; preds = %31
-  br label %event_name.exit.i39
-
-33:                                               ; preds = %31
-  br label %event_name.exit.i39
-
-34:                                               ; preds = %31
-  br label %event_name.exit.i39
-
-35:                                               ; preds = %31
-  br label %event_name.exit.i39
-
-event_name.exit.i39:                              ; preds = %31, %35, %34, %33, %32
-  %.0.i.i40 = phi ptr [ @.str.18, %35 ], [ @.str.17, %34 ], [ @.str.16, %33 ], [ @.str.15, %32 ], [ @.str.13, %31 ]
-  br i1 %.not53, label %unexpected.exit42, label %36
-
-36:                                               ; preds = %event_name.exit.i39
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.8, i64 noundef %4, ptr noundef nonnull %.0.i.i40) #7
-  unreachable
-
-unexpected.exit42:                                ; preds = %event_name.exit.i39
-  %37 = load ptr, ptr @stderr, align 8
-  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.8, i64 noundef %4, ptr noundef nonnull %.0.i.i40) #8
-  br label %find_last_event.exit.thread.sink.split
-
-39:                                               ; preds = %14
-  switch i32 %13, label %43 [
-    i32 4, label %find_last_event.exit.thread
-    i32 1, label %event_name.exit.i43
-    i32 2, label %40
-    i32 16, label %42
-    i32 8, label %41
-  ]
-
-40:                                               ; preds = %39
-  br label %event_name.exit.i43
-
-41:                                               ; preds = %39
-  br label %event_name.exit.i43
-
-42:                                               ; preds = %39
-  br label %event_name.exit.i43
-
-43:                                               ; preds = %39
-  br label %event_name.exit.i43
-
-event_name.exit.i43:                              ; preds = %39, %43, %42, %41, %40
-  %.0.i.i44 = phi ptr [ @.str.18, %43 ], [ @.str.17, %42 ], [ @.str.16, %41 ], [ @.str.14, %40 ], [ @.str.13, %39 ]
-  br i1 %.not53, label %unexpected.exit46, label %44
-
-44:                                               ; preds = %event_name.exit.i43
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.9, i64 noundef %4, ptr noundef nonnull %.0.i.i44) #7
-  unreachable
-
-unexpected.exit46:                                ; preds = %event_name.exit.i43
-  %45 = load ptr, ptr @stderr, align 8
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.9, i64 noundef %4, ptr noundef nonnull %.0.i.i44) #8
-  br label %find_last_event.exit.thread.sink.split
-
-47:                                               ; preds = %14
-  switch i32 %13, label %50 [
+19:                                               ; preds = %15
+  switch i32 %13, label %find_last_event.exit.thread.sink.split [
     i32 8, label %find_last_event.exit.thread
     i32 4, label %find_last_event.exit.thread
-    i32 1, label %event_name.exit.i47
-    i32 2, label %48
-    i32 16, label %49
   ]
 
-48:                                               ; preds = %47
-  br label %event_name.exit.i47
-
-49:                                               ; preds = %47
-  br label %event_name.exit.i47
-
-50:                                               ; preds = %47
-  br label %event_name.exit.i47
-
-event_name.exit.i47:                              ; preds = %47, %50, %49, %48
-  %.0.i.i48 = phi ptr [ @.str.18, %50 ], [ @.str.17, %49 ], [ @.str.14, %48 ], [ @.str.13, %47 ]
-  br i1 %.not53, label %unexpected.exit50, label %51
-
-51:                                               ; preds = %event_name.exit.i47
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.10, i64 noundef %4, ptr noundef nonnull %.0.i.i48) #7
-  unreachable
-
-unexpected.exit50:                                ; preds = %event_name.exit.i47
-  %52 = load ptr, ptr @stderr, align 8
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.10, i64 noundef %4, ptr noundef nonnull %.0.i.i48) #8
-  br label %find_last_event.exit.thread.sink.split
-
-find_last_event.exit.thread.sink.split:           ; preds = %unexpected.exit50, %unexpected.exit46, %unexpected.exit42, %unexpected.exit38, %unexpected.exit
-  %54 = load ptr, ptr @stderr, align 8
-  %fputc.i = tail call i32 @fputc(i32 10, ptr %54)
+find_last_event.exit.thread.sink.split:           ; preds = %19, %18, %17, %16, %15
+  %.str.6.sink = phi ptr [ @.str.6, %15 ], [ @.str.7, %16 ], [ @.str.8, %17 ], [ @.str.9, %18 ], [ @.str.10, %19 ]
+  tail call fastcc void @unexpected(i1 noundef zeroext %14, ptr noundef nonnull %.str.6.sink, i64 noundef %4, i32 noundef %13)
   br label %find_last_event.exit.thread
 
-find_last_event.exit.thread:                      ; preds = %10, %find_last_event.exit.thread.sink.split, %47, %47, %39, %31, %24, %24, %3, %14, %find_last_event.exit
-  %55 = atomicrmw volatile add ptr @timeline_cursor, i32 1 seq_cst, align 4
-  %56 = icmp ugt i32 %55, 1023
-  br i1 %56, label %57, label %58
+find_last_event.exit.thread:                      ; preds = %10, %find_last_event.exit.thread.sink.split, %3, %19, %19, %16, %16, %15, %17, %18, %find_last_event.exit
+  %20 = atomicrmw volatile add ptr @timeline_cursor, i32 1 seq_cst, align 4
+  %21 = icmp ugt i32 %20, 1023
+  br i1 %21, label %22, label %23
 
-57:                                               ; preds = %find_last_event.exit.thread
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.11) #7
+22:                                               ; preds = %find_last_event.exit.thread
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.11) #8
   unreachable
 
-58:                                               ; preds = %find_last_event.exit.thread
-  %59 = load i64, ptr %1, align 8
-  %60 = zext nneg i32 %55 to i64
-  %61 = getelementptr inbounds [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %60
-  store i64 %59, ptr %61, align 16
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
-  store i32 %0, ptr %62, align 8
+23:                                               ; preds = %find_last_event.exit.thread
+  %24 = load i64, ptr %1, align 8
+  %25 = zext nneg i32 %20 to i64
+  %26 = getelementptr inbounds [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %25
+  store i64 %24, ptr %26, align 16
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  store i32 %0, ptr %27, align 8
+  ret void
+}
+
+; Function Attrs: cold nounwind uwtable
+define internal fastcc void @unexpected(i1 noundef zeroext %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #2 {
+  switch i32 %3, label %9 [
+    i32 1, label %event_name.exit
+    i32 2, label %5
+    i32 4, label %6
+    i32 8, label %7
+    i32 16, label %8
+  ]
+
+5:                                                ; preds = %4
+  br label %event_name.exit
+
+6:                                                ; preds = %4
+  br label %event_name.exit
+
+7:                                                ; preds = %4
+  br label %event_name.exit
+
+8:                                                ; preds = %4
+  br label %event_name.exit
+
+9:                                                ; preds = %4
+  br label %event_name.exit
+
+event_name.exit:                                  ; preds = %4, %5, %6, %7, %8, %9
+  %.0.i = phi ptr [ @.str.18, %9 ], [ @.str.17, %8 ], [ @.str.16, %7 ], [ @.str.15, %6 ], [ @.str.14, %5 ], [ @.str.13, %4 ]
+  br i1 %0, label %10, label %11
+
+10:                                               ; preds = %event_name.exit
+  tail call void (ptr, ...) @rb_bug(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %.0.i) #8
+  unreachable
+
+11:                                               ; preds = %event_name.exit
+  %12 = load ptr, ptr @stderr, align 8
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %.0.i) #9
+  %14 = load ptr, ptr @stderr, align 8
+  %fputc = tail call i32 @fputc(i32 10, ptr %14)
   ret void
 }
 
 ; Function Attrs: cold noreturn
-declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #2
+declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 declare zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef) local_unnamed_addr #1
 
@@ -508,20 +402,21 @@ declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nofree nounwind }
-attributes #6 = { nounwind }
-attributes #7 = { cold noreturn nounwind }
-attributes #8 = { cold nounwind }
+attributes #2 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold noreturn nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -132,14 +132,14 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   store i32 %0, ptr %9, align 4
-  tail call void @cmdarg_err_init(ptr noundef nonnull @text2pcap_cmdarg_err, ptr noundef nonnull @text2pcap_cmdarg_err_cont) #13
-  tail call void @ws_log_init(ptr noundef nonnull @.str, ptr noundef nonnull @vcmdarg_err) #13
-  %14 = call i32 @ws_log_parse_args(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull @vcmdarg_err, i32 noundef 1) #13
-  call void @init_process_policies() #13
-  call void @init_report_message(ptr noundef nonnull @.str, ptr noundef nonnull @main.text2pcap_report_routines) #13
-  call void @wtap_init(i32 noundef 1) #13
+  tail call void @cmdarg_err_init(ptr noundef nonnull @text2pcap_cmdarg_err, ptr noundef nonnull @text2pcap_cmdarg_err_cont) #14
+  tail call void @ws_log_init(ptr noundef nonnull @.str, ptr noundef nonnull @vcmdarg_err) #14
+  %14 = call i32 @ws_log_parse_args(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull @vcmdarg_err, i32 noundef 1) #14
+  call void @init_process_policies() #14
+  call void @init_report_message(ptr noundef nonnull @.str, ptr noundef nonnull @main.text2pcap_report_routines) #14
+  call void @wtap_init(i32 noundef 1) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %10, i8 0, i64 200, i1 false)
-  call void @wtap_dump_params_init(ptr noundef nonnull %11, ptr noundef null) #13
+  call void @wtap_dump_params_init(ptr noundef nonnull %11, ptr noundef null) #14
   %15 = load i32, ptr %9, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -158,7 +158,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %10, i64 176
   store ptr @.str.9, ptr %21, align 8
-  call void @ws_init_version_info(ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef null) #13
+  call void @ws_init_version_info(ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef null) #14
   %22 = getelementptr inbounds i8, ptr %10, i64 88
   %23 = getelementptr inbounds i8, ptr %10, i64 36
   %24 = getelementptr inbounds i8, ptr %10, i64 40
@@ -169,7 +169,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.0130.i = phi i32 [ -1, %2 ], [ %.0130.i.be, %.backedge ]
   %.0128.i = phi i32 [ 1, %2 ], [ %.0128.i.be, %.backedge ]
   %.0.i = phi ptr [ null, %2 ], [ %.0.i.be, %.backedge ]
-  %26 = call i32 @ws_getopt_long(i32 noundef %15, ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef nonnull @parse_options.long_options, ptr noundef null) #13
+  %26 = call i32 @ws_getopt_long(i32 noundef %15, ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef nonnull @parse_options.long_options, ptr noundef null) #14
   switch i32 %26, label %.loopexit.i [
     i32 -1, label %339
     i32 104, label %27
@@ -200,10 +200,10 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ]
 
 27:                                               ; preds = %25
-  call void @show_help_header(ptr noundef nonnull @.str.12) #13
+  call void @show_help_header(ptr noundef nonnull @.str.12) #14
   %28 = load ptr, ptr @stdout, align 8
   call fastcc void @print_usage(ptr noundef %28)
-  call void @exit(i32 noundef 0) #14
+  call void @exit(i32 noundef 0) #15
   unreachable
 
 29:                                               ; preds = %25
@@ -220,20 +220,20 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 32:                                               ; preds = %25
   %33 = load ptr, ptr @ws_optarg, align 8
-  %34 = call i64 @strtol(ptr nocapture noundef %33, ptr noundef null, i32 noundef 0) #13
+  %34 = call i64 @strtol(ptr nocapture noundef %33, ptr noundef null, i32 noundef 0) #14
   %35 = trunc i64 %34 to i32
-  %36 = call i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %35) #13
+  %36 = call i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %35) #14
   br label %.backedge
 
 37:                                               ; preds = %25
   %38 = load ptr, ptr @ws_optarg, align 8
-  %39 = call i64 @strtol(ptr nocapture noundef %38, ptr noundef null, i32 noundef 0) #13
+  %39 = call i64 @strtol(ptr nocapture noundef %38, ptr noundef null, i32 noundef 0) #14
   %40 = trunc i64 %39 to i32
   store i32 %40, ptr @max_offset, align 4
   br label %.backedge
 
 41:                                               ; preds = %25
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.13) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.13) #14
   br label %.backedge
 
 42:                                               ; preds = %25
@@ -242,16 +242,16 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 44:                                               ; preds = %25
   %45 = load ptr, ptr @ws_optarg, align 8
-  %46 = call zeroext i1 @ws_strtou8(ptr noundef %45, ptr noundef null, ptr noundef nonnull %7) #13
+  %46 = call zeroext i1 @ws_strtou8(ptr noundef %45, ptr noundef null, ptr noundef nonnull %7) #14
   br i1 %46, label %52, label %47
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr @ws_optarg, align 8
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.14, ptr noundef %48) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.14, ptr noundef %48) #14
   %49 = load ptr, ptr @stderr, align 8
-  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %49) #13
-  %51 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %49) #16
+  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %49) #14
+  %51 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %49) #17
   br label %parse_options.exit.thread
 
 52:                                               ; preds = %44
@@ -281,11 +281,11 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 58:                                               ; preds = %52
   %59 = load ptr, ptr @ws_optarg, align 8
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.14, ptr noundef %59) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.14, ptr noundef %59) #14
   %60 = load ptr, ptr @stderr, align 8
-  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %60) #13
-  %62 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %60) #16
+  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %60) #14
+  %62 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %60) #17
   br label %parse_options.exit.thread
 
 63:                                               ; preds = %25
@@ -299,11 +299,11 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ]
 
 66:                                               ; preds = %63
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.15, ptr noundef nonnull %64) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.15, ptr noundef nonnull %64) #14
   %67 = load ptr, ptr @stderr, align 8
-  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %67) #13
-  %69 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %67) #16
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %67) #14
+  %69 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %67) #17
   br label %parse_options.exit.thread
 
 70:                                               ; preds = %63
@@ -325,55 +325,55 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 74:                                               ; preds = %25
   store i1 true, ptr @hdr_ethernet, align 4
   %75 = load ptr, ptr @ws_optarg, align 8
-  %76 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %75, ptr noundef nonnull @.str.16, ptr noundef nonnull @hdr_ethernet_proto) #13
+  %76 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %75, ptr noundef nonnull @.str.16, ptr noundef nonnull @hdr_ethernet_proto) #14
   %77 = icmp slt i32 %76, 1
   br i1 %77, label %78, label %.backedge
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr @ws_optarg, align 8
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.17, ptr noundef %79) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.17, ptr noundef %79) #14
   %80 = load ptr, ptr @stderr, align 8
-  %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %80) #13
-  %82 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %80) #16
+  %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %80) #14
+  %82 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %80) #17
   br label %parse_options.exit.thread
 
 83:                                               ; preds = %25
   %84 = load ptr, ptr @ws_optarg, align 8
-  %85 = call i32 @wtap_name_to_encap(ptr noundef %84) #13
+  %85 = call i32 @wtap_name_to_encap(ptr noundef %84) #14
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %87, label %.backedge
 
 87:                                               ; preds = %83
   %88 = load ptr, ptr @ws_optarg, align 8
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.18, ptr noundef %88) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.18, ptr noundef %88) #14
   call fastcc void @list_encap_types()
   br label %parse_options.exit.thread
 
 89:                                               ; preds = %25
   %90 = load ptr, ptr @ws_optarg, align 8
-  %91 = call i32 @wtap_name_to_file_type_subtype(ptr noundef %90) #13
+  %91 = call i32 @wtap_name_to_file_type_subtype(ptr noundef %90) #14
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %93, label %.backedge
 
 93:                                               ; preds = %89
   %94 = load ptr, ptr @ws_optarg, align 8
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.19, ptr noundef %94) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.19, ptr noundef %94) #14
   call fastcc void @list_capture_types()
   br label %parse_options.exit.thread
 
 95:                                               ; preds = %25
   %96 = load ptr, ptr @ws_optarg, align 8
-  %97 = call zeroext i1 @ws_strtou8(ptr noundef %96, ptr noundef null, ptr noundef nonnull %8) #13
+  %97 = call zeroext i1 @ws_strtou8(ptr noundef %96, ptr noundef null, ptr noundef nonnull %8) #14
   br i1 %97, label %103, label %98
 
 98:                                               ; preds = %95
   %99 = load ptr, ptr @ws_optarg, align 8
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.20, ptr noundef %99) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.20, ptr noundef %99) #14
   %100 = load ptr, ptr @stderr, align 8
-  %101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %100) #13
-  %102 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %100) #16
+  %101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %100) #14
+  %102 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %100) #17
   br label %parse_options.exit.thread
 
 103:                                              ; preds = %95
@@ -394,12 +394,12 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not222.i, label %109, label %108
 
 108:                                              ; preds = %107
-  call void @g_regex_unref(ptr noundef nonnull %.0.i) #13
+  call void @g_regex_unref(ptr noundef nonnull %.0.i) #14
   br label %109
 
 109:                                              ; preds = %108, %107
   %110 = load ptr, ptr @ws_optarg, align 8
-  %111 = call ptr @g_regex_new(ptr noundef %110, i32 noundef 532482, i32 noundef 1024, ptr noundef nonnull %6) #13
+  %111 = call ptr @g_regex_new(ptr noundef %110, i32 noundef 532482, i32 noundef 1024, ptr noundef nonnull %6) #14
   %112 = load ptr, ptr %6, align 8
   %.not223.i = icmp eq ptr %112, null
   br i1 %.not223.i, label %120, label %113
@@ -407,27 +407,27 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 113:                                              ; preds = %109
   %114 = getelementptr inbounds i8, ptr %112, i64 8
   %115 = load ptr, ptr %114, align 8
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.21, ptr noundef %115) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.21, ptr noundef %115) #14
   %116 = load ptr, ptr %6, align 8
-  call void @g_error_free(ptr noundef %116) #13
+  call void @g_error_free(ptr noundef %116) #14
   %117 = load ptr, ptr @stderr, align 8
-  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %117) #13
-  %119 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %117) #16
+  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %117) #14
+  %119 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %117) #17
   br label %parse_options.exit.thread
 
 120:                                              ; preds = %109
-  %121 = call i32 @g_regex_get_string_number(ptr noundef %111, ptr noundef nonnull @.str.9) #13
+  %121 = call i32 @g_regex_get_string_number(ptr noundef %111, ptr noundef nonnull @.str.9) #14
   %122 = icmp eq i32 %121, -1
   br i1 %122, label %123, label %.backedge
 
 123:                                              ; preds = %120
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.22) #13
-  call void @g_regex_unref(ptr noundef %111) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.22) #14
+  call void @g_regex_unref(ptr noundef %111) #14
   %124 = load ptr, ptr @stderr, align 8
-  %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %124) #13
-  %126 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %124) #16
+  %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %124) #14
+  %126 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %124) #17
   br label %parse_options.exit.thread
 
 127:                                              ; preds = %25
@@ -436,7 +436,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i1 false, ptr @hdr_tcp, align 4
   store i1 false, ptr @hdr_udp, align 4
   %128 = load ptr, ptr @ws_optarg, align 8
-  %129 = call i64 @strtol(ptr noundef %128, ptr noundef nonnull %3, i32 noundef 10) #13
+  %129 = call i64 @strtol(ptr noundef %128, ptr noundef nonnull %3, i32 noundef 10) #14
   %130 = trunc i64 %129 to i32
   store i32 %130, ptr @hdr_sctp_src, align 4
   %131 = load ptr, ptr %3, align 8
@@ -452,26 +452,26 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ]
 
 136:                                              ; preds = %134, %127
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, i32 noundef 115) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, i32 noundef 115) #14
   %137 = load ptr, ptr @stderr, align 8
-  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %137) #13
-  %139 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %137) #16
+  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %137) #14
+  %139 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %137) #17
   br label %parse_options.exit.thread
 
 140:                                              ; preds = %134
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.24, i32 noundef 115) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.24, i32 noundef 115) #14
   %141 = load ptr, ptr @stderr, align 8
-  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %141) #13
-  %143 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %141) #16
+  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %141) #14
+  %143 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %141) #17
   br label %parse_options.exit.thread
 
 144:                                              ; preds = %134
   %145 = getelementptr i8, ptr %131, i64 1
   store ptr %145, ptr %3, align 8
   store ptr %145, ptr @ws_optarg, align 8
-  %146 = call i64 @strtol(ptr noundef %145, ptr noundef nonnull %3, i32 noundef 10) #13
+  %146 = call i64 @strtol(ptr noundef %145, ptr noundef nonnull %3, i32 noundef 10) #14
   %147 = trunc i64 %146 to i32
   store i32 %147, ptr @hdr_sctp_dest, align 4
   %148 = load ptr, ptr %3, align 8
@@ -487,26 +487,26 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ]
 
 153:                                              ; preds = %151, %144
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.25) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.25) #14
   %154 = load ptr, ptr @stderr, align 8
-  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %154) #13
-  %156 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %154) #16
+  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %154) #14
+  %156 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %154) #17
   br label %parse_options.exit.thread
 
 157:                                              ; preds = %151
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.26, i32 noundef 115) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.26, i32 noundef 115) #14
   %158 = load ptr, ptr @stderr, align 8
-  %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %158) #13
-  %160 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %158) #16
+  %159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %158) #14
+  %160 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %158) #17
   br label %parse_options.exit.thread
 
 161:                                              ; preds = %151
   %162 = getelementptr i8, ptr %148, i64 1
   store ptr %162, ptr %3, align 8
   store ptr %162, ptr @ws_optarg, align 8
-  %163 = call i64 @strtol(ptr noundef %162, ptr noundef nonnull %3, i32 noundef 10) #13
+  %163 = call i64 @strtol(ptr noundef %162, ptr noundef nonnull %3, i32 noundef 10) #14
   %164 = trunc i64 %163 to i32
   store i32 %164, ptr @hdr_sctp_tag, align 4
   %165 = load ptr, ptr %3, align 8
@@ -520,11 +520,11 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not221.i, label %174, label %170
 
 170:                                              ; preds = %168, %161
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.27, i32 noundef 115) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.27, i32 noundef 115) #14
   %171 = load ptr, ptr @stderr, align 8
-  %172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %171) #13
-  %173 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %171) #16
+  %172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %171) #14
+  %173 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %171) #17
   br label %parse_options.exit.thread
 
 174:                                              ; preds = %168
@@ -538,7 +538,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i1 false, ptr @hdr_tcp, align 4
   store i1 false, ptr @hdr_udp, align 4
   %176 = load ptr, ptr @ws_optarg, align 8
-  %177 = call i64 @strtol(ptr noundef %176, ptr noundef nonnull %3, i32 noundef 10) #13
+  %177 = call i64 @strtol(ptr noundef %176, ptr noundef nonnull %3, i32 noundef 10) #14
   %178 = trunc i64 %177 to i32
   store i32 %178, ptr @hdr_sctp_src, align 4
   %179 = load ptr, ptr %3, align 8
@@ -554,26 +554,26 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ]
 
 184:                                              ; preds = %182, %175
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, i32 noundef 83) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, i32 noundef 83) #14
   %185 = load ptr, ptr @stderr, align 8
-  %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %185) #13
-  %187 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %185) #16
+  %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %185) #14
+  %187 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %185) #17
   br label %parse_options.exit.thread
 
 188:                                              ; preds = %182
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.24, i32 noundef 83) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.24, i32 noundef 83) #14
   %189 = load ptr, ptr @stderr, align 8
-  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %189) #13
-  %191 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %189) #16
+  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %189) #14
+  %191 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %189) #17
   br label %parse_options.exit.thread
 
 192:                                              ; preds = %182
   %193 = getelementptr i8, ptr %179, i64 1
   store ptr %193, ptr %3, align 8
   store ptr %193, ptr @ws_optarg, align 8
-  %194 = call i64 @strtol(ptr noundef %193, ptr noundef nonnull %3, i32 noundef 10) #13
+  %194 = call i64 @strtol(ptr noundef %193, ptr noundef nonnull %3, i32 noundef 10) #14
   %195 = trunc i64 %194 to i32
   store i32 %195, ptr @hdr_sctp_dest, align 4
   %196 = load ptr, ptr %3, align 8
@@ -589,26 +589,26 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ]
 
 201:                                              ; preds = %199, %192
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.25) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.25) #14
   %202 = load ptr, ptr @stderr, align 8
-  %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %202, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %202) #13
-  %204 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %202) #16
+  %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %202, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %202) #14
+  %204 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %202) #17
   br label %parse_options.exit.thread
 
 205:                                              ; preds = %199
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.28, i32 noundef 83) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.28, i32 noundef 83) #14
   %206 = load ptr, ptr @stderr, align 8
-  %207 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %206, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %206) #13
-  %208 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %206) #16
+  %207 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %206, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %206) #14
+  %208 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %206) #17
   br label %parse_options.exit.thread
 
 209:                                              ; preds = %199
   %210 = getelementptr i8, ptr %196, i64 1
   store ptr %210, ptr %3, align 8
   store ptr %210, ptr @ws_optarg, align 8
-  %211 = call i64 @strtoul(ptr noundef %210, ptr noundef nonnull %3, i32 noundef 10) #13
+  %211 = call i64 @strtoul(ptr noundef %210, ptr noundef nonnull %3, i32 noundef 10) #14
   %212 = trunc i64 %211 to i32
   store i32 %212, ptr @hdr_data_chunk_ppid, align 4
   %213 = load ptr, ptr %3, align 8
@@ -622,11 +622,11 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not216.i, label %222, label %218
 
 218:                                              ; preds = %216, %209
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.29, i32 noundef 83) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.29, i32 noundef 83) #14
   %219 = load ptr, ptr @stderr, align 8
-  %220 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %219) #13
-  %221 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %219) #16
+  %220 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %219) #14
+  %221 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %219) #17
   br label %parse_options.exit.thread
 
 222:                                              ; preds = %216
@@ -645,7 +645,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i1 false, ptr @hdr_sctp, align 4
   store i1 false, ptr @hdr_data_chunk, align 4
   %226 = load ptr, ptr @ws_optarg, align 8
-  %227 = call i64 @strtol(ptr noundef %226, ptr noundef nonnull %3, i32 noundef 10) #13
+  %227 = call i64 @strtol(ptr noundef %226, ptr noundef nonnull %3, i32 noundef 10) #14
   %228 = trunc i64 %227 to i32
   store i32 %228, ptr @hdr_src_port, align 4
   %229 = load ptr, ptr %3, align 8
@@ -661,26 +661,26 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ]
 
 234:                                              ; preds = %232, %225
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.31) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.31) #14
   %235 = load ptr, ptr @stderr, align 8
-  %236 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %235, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %235) #13
-  %237 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %235) #16
+  %236 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %235, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %235) #14
+  %237 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %235) #17
   br label %parse_options.exit.thread
 
 238:                                              ; preds = %232
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.32) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.32) #14
   %239 = load ptr, ptr @stderr, align 8
-  %240 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %239, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %239) #13
-  %241 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %239) #16
+  %240 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %239, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %239) #14
+  %241 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %239) #17
   br label %parse_options.exit.thread
 
 242:                                              ; preds = %232
   %243 = getelementptr i8, ptr %229, i64 1
   store ptr %243, ptr %3, align 8
   store ptr %243, ptr @ws_optarg, align 8
-  %244 = call i64 @strtol(ptr noundef %243, ptr noundef nonnull %3, i32 noundef 10) #13
+  %244 = call i64 @strtol(ptr noundef %243, ptr noundef nonnull %3, i32 noundef 10) #14
   %245 = trunc i64 %244 to i32
   store i32 %245, ptr @hdr_dest_port, align 4
   %246 = load ptr, ptr %3, align 8
@@ -694,11 +694,11 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not210.i, label %255, label %251
 
 251:                                              ; preds = %249, %242
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.33) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.33) #14
   %252 = load ptr, ptr @stderr, align 8
-  %253 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %252, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %252) #13
-  %254 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %252) #16
+  %253 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %252, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %252) #14
+  %254 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %252) #17
   br label %parse_options.exit.thread
 
 255:                                              ; preds = %249
@@ -712,7 +712,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i1 false, ptr @hdr_sctp, align 4
   store i1 false, ptr @hdr_data_chunk, align 4
   %257 = load ptr, ptr @ws_optarg, align 8
-  %258 = call i64 @strtol(ptr noundef %257, ptr noundef nonnull %3, i32 noundef 10) #13
+  %258 = call i64 @strtol(ptr noundef %257, ptr noundef nonnull %3, i32 noundef 10) #14
   %259 = trunc i64 %258 to i32
   store i32 %259, ptr @hdr_src_port, align 4
   %260 = load ptr, ptr %3, align 8
@@ -728,26 +728,26 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ]
 
 265:                                              ; preds = %263, %256
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.34) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.34) #14
   %266 = load ptr, ptr @stderr, align 8
-  %267 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %266, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %266) #13
-  %268 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %266) #16
+  %267 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %266, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %266) #14
+  %268 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %266) #17
   br label %parse_options.exit.thread
 
 269:                                              ; preds = %263
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.32) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.32) #14
   %270 = load ptr, ptr @stderr, align 8
-  %271 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %270, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %270) #13
-  %272 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %270) #16
+  %271 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %270, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %270) #14
+  %272 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %270) #17
   br label %parse_options.exit.thread
 
 273:                                              ; preds = %263
   %274 = getelementptr i8, ptr %260, i64 1
   store ptr %274, ptr %3, align 8
   store ptr %274, ptr @ws_optarg, align 8
-  %275 = call i64 @strtol(ptr noundef %274, ptr noundef nonnull %3, i32 noundef 10) #13
+  %275 = call i64 @strtol(ptr noundef %274, ptr noundef nonnull %3, i32 noundef 10) #14
   %276 = trunc i64 %275 to i32
   store i32 %276, ptr @hdr_dest_port, align 4
   %277 = load ptr, ptr %3, align 8
@@ -761,11 +761,11 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not207.i, label %286, label %282
 
 282:                                              ; preds = %280, %273
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.35) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.35) #14
   %283 = load ptr, ptr @stderr, align 8
-  %284 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %283, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %283) #13
-  %285 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %283) #16
+  %284 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %283, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %283) #14
+  %285 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %283) #17
   br label %parse_options.exit.thread
 
 286:                                              ; preds = %280
@@ -774,22 +774,22 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %.backedge
 
 287:                                              ; preds = %25
-  call void @show_version() #13
-  call void @exit(i32 noundef 0) #14
+  call void @show_version() #14
+  call void @exit(i32 noundef 0) #15
   unreachable
 
 288:                                              ; preds = %25, %25
   %289 = load ptr, ptr @ws_optarg, align 8
-  %290 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %289, i32 noundef 44) #17
+  %290 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %289, i32 noundef 44) #18
   %.not204.i = icmp eq ptr %290, null
   br i1 %.not204.i, label %291, label %295
 
 291:                                              ; preds = %288
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.36, i32 noundef %26) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.36, i32 noundef %26) #14
   %292 = load ptr, ptr @stderr, align 8
-  %293 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %292, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %292) #13
-  %294 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %292) #16
+  %293 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %292, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %292) #14
+  %294 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %292) #17
   br label %parse_options.exit.thread
 
 295:                                              ; preds = %288
@@ -802,15 +802,15 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i1 false, ptr @hdr_ip, align 4
   store i1 true, ptr @hdr_ethernet, align 4
   %298 = load ptr, ptr @ws_optarg, align 8
-  %299 = call zeroext i1 @ws_inet_pton6(ptr noundef %298, ptr noundef nonnull @hdr_ipv6_src_addr) #13
+  %299 = call zeroext i1 @ws_inet_pton6(ptr noundef %298, ptr noundef nonnull @hdr_ipv6_src_addr) #14
   br i1 %299, label %311, label %300
 
 300:                                              ; preds = %297
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.37, i32 noundef 54, ptr noundef nonnull %290) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.37, i32 noundef 54, ptr noundef nonnull %290) #14
   %301 = load ptr, ptr @stderr, align 8
-  %302 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %301, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %301) #13
-  %303 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %301) #16
+  %302 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %301, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %301) #14
+  %303 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %301) #17
   br label %parse_options.exit.thread
 
 304:                                              ; preds = %295
@@ -818,15 +818,15 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i1 false, ptr @hdr_ipv6, align 4
   store i1 true, ptr @hdr_ethernet, align 4
   %305 = load ptr, ptr @ws_optarg, align 8
-  %306 = call zeroext i1 @ws_inet_pton4(ptr noundef %305, ptr noundef nonnull @hdr_ip_src_addr) #13
+  %306 = call zeroext i1 @ws_inet_pton4(ptr noundef %305, ptr noundef nonnull @hdr_ip_src_addr) #14
   br i1 %306, label %311, label %307
 
 307:                                              ; preds = %304
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.37, i32 noundef %26, ptr noundef nonnull %290) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.37, i32 noundef %26, ptr noundef nonnull %290) #14
   %308 = load ptr, ptr @stderr, align 8
-  %309 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %308, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %308) #13
-  %310 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %308) #16
+  %309 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %308, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %308) #14
+  %310 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %308) #17
   br label %parse_options.exit.thread
 
 311:                                              ; preds = %304, %297
@@ -837,11 +837,11 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %314, label %315, label %319
 
 315:                                              ; preds = %311
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.38, i32 noundef %26) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.38, i32 noundef %26) #14
   %316 = load ptr, ptr @stderr, align 8
-  %317 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %316, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %316) #13
-  %318 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %316) #16
+  %317 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %316, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %316) #14
+  %318 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %316) #17
   br label %parse_options.exit.thread
 
 319:                                              ; preds = %311
@@ -849,19 +849,19 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.b185.i, label %320, label %326
 
 320:                                              ; preds = %319
-  %321 = call zeroext i1 @ws_inet_pton6(ptr noundef nonnull %312, ptr noundef nonnull @hdr_ipv6_dest_addr) #13
+  %321 = call zeroext i1 @ws_inet_pton6(ptr noundef nonnull %312, ptr noundef nonnull @hdr_ipv6_dest_addr) #14
   br i1 %321, label %.backedge, label %322
 
 322:                                              ; preds = %320
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.39, i32 noundef %26, ptr noundef nonnull %312) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.39, i32 noundef %26, ptr noundef nonnull %312) #14
   %323 = load ptr, ptr @stderr, align 8
-  %324 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %323, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %323) #13
-  %325 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %323) #16
+  %324 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %323, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %323) #14
+  %325 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %323) #17
   br label %parse_options.exit.thread
 
 326:                                              ; preds = %319
-  %327 = call zeroext i1 @ws_inet_pton4(ptr noundef nonnull %312, ptr noundef nonnull @hdr_ip_dest_addr) #13
+  %327 = call zeroext i1 @ws_inet_pton4(ptr noundef nonnull %312, ptr noundef nonnull @hdr_ip_dest_addr) #14
   br i1 %327, label %.backedge, label %328
 
 .backedge:                                        ; preds = %326, %320, %286, %255, %223, %222, %174, %120, %105, %103, %89, %83, %74, %73, %72, %71, %70, %57, %56, %55, %54, %42, %41, %37, %32, %31, %30, %29
@@ -872,11 +872,11 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %25, !llvm.loop !5
 
 328:                                              ; preds = %326
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.39, i32 noundef %26, ptr noundef nonnull %312) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.39, i32 noundef %26, ptr noundef nonnull %312) #14
   %329 = load ptr, ptr @stderr, align 8
-  %330 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %329, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %329) #13
-  %331 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %329) #16
+  %330 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %329, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %329) #14
+  %331 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %329) #17
   br label %parse_options.exit.thread
 
 332:                                              ; preds = %25
@@ -896,9 +896,9 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 .loopexit.i:                                      ; preds = %25, %332
   %336 = load ptr, ptr @stderr, align 8
-  %337 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %336, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %336) #13
-  %338 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %336) #16
+  %337 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %336, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %336) #14
+  %338 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %336) #17
   br label %parse_options.exit.thread
 
 339:                                              ; preds = %25
@@ -910,11 +910,11 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %or.cond229.i, label %343, label %347
 
 343:                                              ; preds = %339
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.40) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.40) #14
   %344 = load ptr, ptr @stderr, align 8
-  %345 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %344, ptr noundef nonnull @.str.66, i32 noundef 262144) #15
-  call void @ws_log_print_usage(ptr noundef %344) #13
-  %346 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %344) #16
+  %345 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %344, ptr noundef nonnull @.str.66, i32 noundef 262144) #16
+  call void @ws_log_print_usage(ptr noundef %344) #14
+  %346 = call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %344) #17
   br label %parse_options.exit.thread
 
 347:                                              ; preds = %339
@@ -923,7 +923,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %349, label %350, label %351
 
 350:                                              ; preds = %347
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.41, i32 noundef 262144) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.41, i32 noundef 262144) #14
   br label %parse_options.exit.thread
 
 351:                                              ; preds = %347
@@ -934,7 +934,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 354:                                              ; preds = %351
   %355 = getelementptr inbounds i8, ptr %10, i64 56
   store ptr %.0.i, ptr %355, align 8
-  %356 = call i32 @g_regex_get_string_number(ptr noundef %.0.i, ptr noundef nonnull @.str.42) #13
+  %356 = call i32 @g_regex_get_string_number(ptr noundef %.0.i, ptr noundef nonnull @.str.42) #14
   %357 = icmp sgt i32 %356, -1
   br i1 %357, label %358, label %361
 
@@ -946,7 +946,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %361
 
 361:                                              ; preds = %358, %354
-  %362 = call i32 @g_regex_get_string_number(ptr noundef %.0.i, ptr noundef nonnull @.str.45) #13
+  %362 = call i32 @g_regex_get_string_number(ptr noundef %.0.i, ptr noundef nonnull @.str.45) #14
   %363 = icmp sgt i32 %362, -1
   %364 = load ptr, ptr %22, align 8
   %365 = icmp eq ptr %364, null
@@ -954,7 +954,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %or.cond, label %366, label %367
 
 366:                                              ; preds = %361
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.46) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.46) #14
   br label %parse_options.exit.thread
 
 367:                                              ; preds = %361, %351
@@ -977,7 +977,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %or.cond233.i, label %371, label %372
 
 371:                                              ; preds = %370
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.47) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.47) #14
   br label %parse_options.exit.thread
 
 372:                                              ; preds = %370
@@ -1005,7 +1005,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %or.cond15622.i, label %376, label %.thread624.i
 
 376:                                              ; preds = %.thread.i, %373
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.48) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.48) #14
   br label %parse_options.exit.thread
 
 377:                                              ; preds = %373
@@ -1019,9 +1019,9 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ]
 
 378:                                              ; preds = %.thread624.i
-  %379 = call ptr @wtap_encap_description(i32 noundef %.0128.i) #13
-  %380 = call ptr @wtap_encap_name(i32 noundef %.0128.i) #13
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.49, ptr noundef %379, ptr noundef %380) #13
+  %379 = call ptr @wtap_encap_description(i32 noundef %.0128.i) #14
+  %380 = call ptr @wtap_encap_name(i32 noundef %.0128.i) #14
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.49, ptr noundef %379, ptr noundef %380) #14
   br label %parse_options.exit.thread
 
 381:                                              ; preds = %377
@@ -1035,9 +1035,9 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ]
 
 383:                                              ; preds = %382
-  %384 = call ptr @wtap_encap_description(i32 noundef %.0128.i) #13
-  %385 = call ptr @wtap_encap_name(i32 noundef %.0128.i) #13
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.50, ptr noundef %384, ptr noundef %385) #13
+  %384 = call ptr @wtap_encap_description(i32 noundef %.0128.i) #14
+  %385 = call ptr @wtap_encap_name(i32 noundef %.0128.i) #14
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.50, ptr noundef %384, ptr noundef %385) #14
   br label %parse_options.exit.thread
 
 sub_0.sink.split.i:                               ; preds = %382, %.thread624.i
@@ -1075,7 +1075,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %399, label %400, label %407
 
 400:                                              ; preds = %397
-  %401 = call ptr @g_mapped_file_new(ptr noundef nonnull %389, i32 noundef 1, ptr noundef nonnull %6) #13
+  %401 = call ptr @g_mapped_file_new(ptr noundef nonnull %389, i32 noundef 1, ptr noundef nonnull %6) #14
   store ptr %401, ptr %19, align 8
   %402 = load ptr, ptr %6, align 8
   %.not200.i = icmp eq ptr %402, null
@@ -1084,9 +1084,9 @@ sub_1.i:                                          ; preds = %sub_0.i
 403:                                              ; preds = %400
   %404 = getelementptr inbounds i8, ptr %402, i64 8
   %405 = load ptr, ptr %404, align 8
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.21, ptr noundef %405) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.21, ptr noundef %405) #14
   %406 = load ptr, ptr %6, align 8
-  call void @g_error_free(ptr noundef %406) #13
+  call void @g_error_free(ptr noundef %406) #14
   br label %parse_options.exit.thread
 
 407:                                              ; preds = %397
@@ -1097,9 +1097,9 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 409:                                              ; preds = %407
   %410 = load ptr, ptr @input_filename, align 8
-  %411 = tail call ptr @__errno_location() #18
+  %411 = tail call ptr @__errno_location() #19
   %412 = load i32, ptr %411, align 4
-  call void @open_failure_message(ptr noundef %410, i32 noundef %412, i32 noundef 0) #13
+  call void @open_failure_message(ptr noundef %410, i32 noundef %412, i32 noundef 0) #14
   br label %parse_options.exit.thread
 
 413:                                              ; preds = %.tail.i
@@ -1108,7 +1108,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %415, label %416, label %423
 
 416:                                              ; preds = %413
-  %417 = call ptr @g_mapped_file_new_from_fd(i32 noundef 0, i32 noundef 1, ptr noundef nonnull %6) #13
+  %417 = call ptr @g_mapped_file_new_from_fd(i32 noundef 0, i32 noundef 1, ptr noundef nonnull %6) #14
   store ptr %417, ptr %19, align 8
   %418 = load ptr, ptr %6, align 8
   %.not198.i = icmp eq ptr %418, null
@@ -1117,10 +1117,10 @@ sub_1.i:                                          ; preds = %sub_0.i
 419:                                              ; preds = %416
   %420 = getelementptr inbounds i8, ptr %418, i64 8
   %421 = load ptr, ptr %420, align 8
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.21, ptr noundef %421) #13
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.53) #13
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.21, ptr noundef %421) #14
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.53) #14
   %422 = load ptr, ptr %6, align 8
-  call void @g_error_free(ptr noundef %422) #13
+  call void @g_error_free(ptr noundef %422) #14
   br label %parse_options.exit.thread
 
 423:                                              ; preds = %416, %413
@@ -1138,7 +1138,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %428, label %429, label %431
 
 429:                                              ; preds = %425
-  %430 = call i32 @wtap_pcapng_file_type_subtype() #13
+  %430 = call i32 @wtap_pcapng_file_type_subtype() #14
   br label %431
 
 431:                                              ; preds = %429, %425
@@ -1146,15 +1146,15 @@ sub_1.i:                                          ; preds = %sub_0.i
   %432 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 9, ptr %432, align 8
   %433 = load ptr, ptr @input_filename, align 8
-  %434 = call i32 @text_import_pre_open(ptr noundef nonnull %11, i32 noundef %.2.i, ptr noundef %433, ptr noundef %.0132.i) #13
+  %434 = call i32 @text_import_pre_open(ptr noundef nonnull %11, i32 noundef %.2.i, ptr noundef %433, ptr noundef %.0132.i) #14
   %.not201.i = icmp eq i32 %434, 0
   br i1 %.not201.i, label %sub_0235.i, label %435
 
 435:                                              ; preds = %431
   %436 = getelementptr inbounds i8, ptr %11, i64 32
   %437 = load ptr, ptr %436, align 8
-  call void @wtap_free_idb_info(ptr noundef %437) #13
-  call void @wtap_dump_params_cleanup(ptr noundef nonnull %11) #13
+  call void @wtap_free_idb_info(ptr noundef %437) #14
+  call void @wtap_dump_params_cleanup(ptr noundef nonnull %11) #14
   br label %parse_options.exit.thread
 
 sub_0235.i:                                       ; preds = %431
@@ -1182,12 +1182,12 @@ sub_1236.i:                                       ; preds = %sub_0235.i
 
 450:                                              ; preds = %.tail234.i
   store ptr %442, ptr @output_filename, align 8
-  %451 = call ptr @wtap_dump_open(ptr noundef nonnull %442, i32 noundef %.2.i, i32 noundef 0, ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
+  %451 = call ptr @wtap_dump_open(ptr noundef nonnull %442, i32 noundef %.2.i, i32 noundef 0, ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   br label %454
 
 452:                                              ; preds = %.tail234.i
   store ptr @.str.55, ptr @output_filename, align 8
-  %453 = call ptr @wtap_dump_open_stdout(i32 noundef %.2.i, i32 noundef 0, ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
+  %453 = call ptr @wtap_dump_open_stdout(i32 noundef %.2.i, i32 noundef 0, ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   br label %454
 
 454:                                              ; preds = %452, %450
@@ -1200,11 +1200,11 @@ sub_1236.i:                                       ; preds = %sub_0235.i
   %456 = load ptr, ptr @output_filename, align 8
   %457 = load i32, ptr %4, align 4
   %458 = load ptr, ptr %5, align 8
-  call void @cfile_dump_open_failure_message(ptr noundef %456, i32 noundef %457, ptr noundef %458, i32 noundef %.2.i) #13
+  call void @cfile_dump_open_failure_message(ptr noundef %456, i32 noundef %457, ptr noundef %458, i32 noundef %.2.i) #14
   %459 = getelementptr inbounds i8, ptr %11, i64 32
   %460 = load ptr, ptr %459, align 8
-  call void @wtap_free_idb_info(ptr noundef %460) #13
-  call void @wtap_dump_params_cleanup(ptr noundef nonnull %11) #13
+  call void @wtap_free_idb_info(ptr noundef %460) #14
+  call void @wtap_dump_params_cleanup(ptr noundef nonnull %11) #14
   br label %parse_options.exit.thread
 
 461:                                              ; preds = %454
@@ -1356,20 +1356,20 @@ sub_1236.i:                                       ; preds = %sub_0235.i
 
 518:                                              ; preds = %506
   %519 = load ptr, ptr @stderr, align 8
-  %520 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %519, ptr noundef nonnull @.str.56, ptr noundef %462) #15
+  %520 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %519, ptr noundef nonnull @.str.56, ptr noundef %462) #16
   %521 = load ptr, ptr @stderr, align 8
   %522 = load ptr, ptr @output_filename, align 8
-  %523 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %521, ptr noundef nonnull @.str.57, ptr noundef %522) #15
+  %523 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %521, ptr noundef nonnull @.str.57, ptr noundef %522) #16
   %524 = load ptr, ptr @stderr, align 8
-  %525 = call ptr @wtap_file_type_subtype_name(i32 noundef %.2.i) #13
-  %526 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %524, ptr noundef nonnull @.str.58, ptr noundef %525) #15
+  %525 = call ptr @wtap_file_type_subtype_name(i32 noundef %.2.i) #14
+  %526 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %524, ptr noundef nonnull @.str.58, ptr noundef %525) #16
   %.b162.i = load i1, ptr @hdr_ethernet, align 4
   br i1 %.b162.i, label %527, label %531
 
 527:                                              ; preds = %518
   %528 = load ptr, ptr @stderr, align 8
   %529 = load i32, ptr @hdr_ethernet_proto, align 4
-  %530 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %528, ptr noundef nonnull @.str.59, i32 noundef %529) #15
+  %530 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %528, ptr noundef nonnull @.str.59, i32 noundef %529) #16
   br label %531
 
 531:                                              ; preds = %527, %518
@@ -1380,7 +1380,7 @@ sub_1236.i:                                       ; preds = %sub_0235.i
   %533 = load ptr, ptr @stderr, align 8
   %534 = load i8, ptr @hdr_ip_proto, align 1
   %535 = zext i8 %534 to i32
-  %536 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %533, ptr noundef nonnull @.str.60, i32 noundef %535) #15
+  %536 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %533, ptr noundef nonnull @.str.60, i32 noundef %535) #16
   br label %537
 
 537:                                              ; preds = %532, %531
@@ -1391,7 +1391,7 @@ sub_1236.i:                                       ; preds = %sub_0235.i
   %539 = load ptr, ptr @stderr, align 8
   %540 = load i8, ptr @hdr_ip_proto, align 1
   %541 = zext i8 %540 to i32
-  %542 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %539, ptr noundef nonnull @.str.61, i32 noundef %541) #15
+  %542 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %539, ptr noundef nonnull @.str.61, i32 noundef %541) #16
   br label %543
 
 543:                                              ; preds = %538, %537
@@ -1402,7 +1402,7 @@ sub_1236.i:                                       ; preds = %sub_0235.i
   %545 = load ptr, ptr @stderr, align 8
   %546 = load i32, ptr @hdr_src_port, align 4
   %547 = load i32, ptr @hdr_dest_port, align 4
-  %548 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %545, ptr noundef nonnull @.str.62, i32 noundef %546, i32 noundef %547) #15
+  %548 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %545, ptr noundef nonnull @.str.62, i32 noundef %546, i32 noundef %547) #16
   br label %549
 
 549:                                              ; preds = %544, %543
@@ -1413,7 +1413,7 @@ sub_1236.i:                                       ; preds = %sub_0235.i
   %551 = load ptr, ptr @stderr, align 8
   %552 = load i32, ptr @hdr_src_port, align 4
   %553 = load i32, ptr @hdr_dest_port, align 4
-  %554 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %551, ptr noundef nonnull @.str.63, i32 noundef %552, i32 noundef %553) #15
+  %554 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %551, ptr noundef nonnull @.str.63, i32 noundef %552, i32 noundef %553) #16
   br label %555
 
 555:                                              ; preds = %550, %549
@@ -1425,7 +1425,7 @@ sub_1236.i:                                       ; preds = %sub_0235.i
   %558 = load i32, ptr @hdr_sctp_src, align 4
   %559 = load i32, ptr @hdr_sctp_dest, align 4
   %560 = load i32, ptr @hdr_sctp_tag, align 4
-  %561 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %557, ptr noundef nonnull @.str.64, i32 noundef %558, i32 noundef %559, i32 noundef %560) #15
+  %561 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %557, ptr noundef nonnull @.str.64, i32 noundef %558, i32 noundef %559, i32 noundef %560) #16
   br label %562
 
 562:                                              ; preds = %556, %555
@@ -1435,7 +1435,7 @@ sub_1236.i:                                       ; preds = %sub_0235.i
 563:                                              ; preds = %562
   %564 = load ptr, ptr @stderr, align 8
   %565 = load i32, ptr @hdr_data_chunk_ppid, align 4
-  %566 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %564, ptr noundef nonnull @.str.65, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %565) #15
+  %566 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %564, ptr noundef nonnull @.str.65, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %565) #16
   br label %567
 
 parse_options.exit.thread:                        ; preds = %.loopexit.i, %335, %334, %315, %322, %328, %300, %307, %291, %265, %269, %282, %234, %238, %251, %184, %188, %201, %205, %218, %136, %140, %153, %157, %170, %113, %123, %98, %93, %87, %78, %66, %58, %47, %343, %350, %366, %376, %378, %403, %435, %455, %409, %419, %383, %371
@@ -1455,14 +1455,14 @@ parse_options.exit.thread:                        ; preds = %.loopexit.i, %335, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  %568 = call i32 @text_import(ptr noundef nonnull %10) #13
-  %569 = call i32 @ws_log_get_level() #13
+  %568 = call i32 @text_import(ptr noundef nonnull %10) #14
+  %569 = call i32 @ws_log_get_level() #14
   %570 = icmp ugt i32 %569, 1
   br i1 %570, label %571, label %574
 
 571:                                              ; preds = %567
   %572 = load ptr, ptr @stderr, align 8
-  %573 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %572) #16
+  %573 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %572) #17
   br label %574
 
 574:                                              ; preds = %571, %567
@@ -1471,7 +1471,7 @@ parse_options.exit.thread:                        ; preds = %.loopexit.i, %335, 
 
 575:                                              ; preds = %574
   %576 = load ptr, ptr @wdh, align 8
-  %577 = call i64 @wtap_get_bytes_dumped(ptr noundef %576) #13
+  %577 = call i64 @wtap_get_bytes_dumped(ptr noundef %576) #14
   %578 = load ptr, ptr @stderr, align 8
   %579 = getelementptr inbounds i8, ptr %10, i64 188
   %580 = load i32, ptr %579, align 4
@@ -1483,7 +1483,7 @@ parse_options.exit.thread:                        ; preds = %.loopexit.i, %335, 
   %586 = select i1 %585, ptr @.str.3, ptr @.str.4
   %587 = icmp eq i64 %577, 1
   %588 = select i1 %587, ptr @.str.3, ptr @.str.4
-  %589 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %578, ptr noundef nonnull @.str.2, i32 noundef %580, ptr noundef nonnull %582, i32 noundef %584, ptr noundef nonnull %586, i64 noundef %577, ptr noundef nonnull %588) #15
+  %589 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %578, ptr noundef nonnull @.str.2, i32 noundef %580, ptr noundef nonnull %582, i32 noundef %584, ptr noundef nonnull %586, i64 noundef %577, ptr noundef nonnull %588) #16
   br label %590
 
 590:                                              ; preds = %parse_options.exit.thread, %574, %575
@@ -1502,7 +1502,7 @@ parse_options.exit.thread:                        ; preds = %.loopexit.i, %335, 
   br i1 %.not10, label %597, label %596
 
 596:                                              ; preds = %594
-  call void @g_mapped_file_unref(ptr noundef nonnull %595) #13
+  call void @g_mapped_file_unref(ptr noundef nonnull %595) #14
   br label %597
 
 597:                                              ; preds = %596, %594
@@ -1512,7 +1512,7 @@ parse_options.exit.thread:                        ; preds = %.loopexit.i, %335, 
   br i1 %.not11, label %601, label %600
 
 600:                                              ; preds = %597
-  call void @g_regex_unref(ptr noundef nonnull %599) #13
+  call void @g_regex_unref(ptr noundef nonnull %599) #14
   br label %601
 
 601:                                              ; preds = %600, %597
@@ -1521,7 +1521,7 @@ parse_options.exit.thread:                        ; preds = %.loopexit.i, %335, 
   br i1 %.not12, label %609, label %603
 
 603:                                              ; preds = %601
-  %604 = call i32 @wtap_dump_close(ptr noundef nonnull %602, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %13) #13
+  %604 = call i32 @wtap_dump_close(ptr noundef nonnull %602, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %13) #14
   %.not13 = icmp eq i32 %604, 0
   br i1 %.not13, label %605, label %609
 
@@ -1529,15 +1529,15 @@ parse_options.exit.thread:                        ; preds = %.loopexit.i, %335, 
   %606 = load ptr, ptr @output_filename, align 8
   %607 = load i32, ptr %12, align 4
   %608 = load ptr, ptr %13, align 8
-  call void @cfile_close_failure_message(ptr noundef %606, i32 noundef %607, ptr noundef %608) #13
+  call void @cfile_close_failure_message(ptr noundef %606, i32 noundef %607, ptr noundef %608) #14
   br label %609
 
 609:                                              ; preds = %603, %605, %601
   %.1 = phi i32 [ %.0, %603 ], [ 2, %605 ], [ %.0, %601 ]
   %610 = getelementptr inbounds i8, ptr %11, i64 32
   %611 = load ptr, ptr %610, align 8
-  call void @wtap_free_idb_info(ptr noundef %611) #13
-  call void @wtap_dump_params_cleanup(ptr noundef nonnull %11) #13
+  call void @wtap_free_idb_info(ptr noundef %611) #14
+  call void @wtap_dump_params_cleanup(ptr noundef nonnull %11) #14
   ret i32 %.1
 }
 
@@ -1561,21 +1561,21 @@ declare void @cfile_close_failure_message(ptr noundef, i32 noundef, ptr noundef)
 
 declare void @cmdarg_err_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: cold nofree nounwind uwtable
 define internal void @text2pcap_cmdarg_err(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 11, i64 1, ptr %3) #16
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 11, i64 1, ptr %3) #17
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef %1) #15
+  %6 = tail call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef %1) #16
   %7 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %7)
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: cold nofree nounwind uwtable
 define internal void @text2pcap_cmdarg_err_cont(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef %1) #15
+  %4 = tail call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef %1) #16
   %5 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %5)
   ret void
@@ -1627,8 +1627,8 @@ declare void @show_help_header(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @print_usage(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.66, i32 noundef 262144) #13
-  tail call void @ws_log_print_usage(ptr noundef %0) #13
+  %2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.66, i32 noundef 262144) #14
+  tail call void @ws_log_print_usage(ptr noundef %0) #14
   %3 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 190, i64 1, ptr %0)
   ret void
 }
@@ -1652,11 +1652,11 @@ declare i32 @wtap_name_to_encap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @list_encap_types() unnamed_addr #0 {
-  %1 = tail call i32 @wtap_get_num_encap_types() #13
+  %1 = tail call i32 @wtap_get_num_encap_types() #14
   %2 = sext i32 %1 to i64
-  %3 = tail call noalias ptr @g_malloc_n(i64 noundef %2, i64 noundef 16) #19
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.68) #13
-  %4 = tail call i32 @wtap_get_num_encap_types() #13
+  %3 = tail call noalias ptr @g_malloc_n(i64 noundef %2, i64 noundef 16) #20
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.68) #14
+  %4 = tail call i32 @wtap_get_num_encap_types() #14
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -1664,28 +1664,28 @@ define internal fastcc void @list_encap_types() unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %0 ]
   %.019 = phi ptr [ %.1, %15 ], [ null, %0 ]
   %6 = trunc nuw nsw i64 %indvars.iv to i32
-  %7 = tail call i32 @wtap_encap_requires_phdr(i32 noundef %6) #13
+  %7 = tail call i32 @wtap_encap_requires_phdr(i32 noundef %6) #14
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %15
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call ptr @wtap_encap_name(i32 noundef %6) #13
+  %9 = tail call ptr @wtap_encap_name(i32 noundef %6) #14
   %10 = getelementptr %struct.string_elem, ptr %3, i64 %indvars.iv
   store ptr %9, ptr %10, align 8
   %.not17 = icmp eq ptr %9, null
   br i1 %.not17, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call ptr @wtap_encap_description(i32 noundef %6) #13
+  %12 = tail call ptr @wtap_encap_description(i32 noundef %6) #14
   %13 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8
-  %14 = tail call ptr @g_slist_insert_sorted(ptr noundef %.019, ptr noundef nonnull %10, ptr noundef nonnull @string_nat_compare) #13
+  %14 = tail call ptr @g_slist_insert_sorted(ptr noundef %.019, ptr noundef nonnull %10, ptr noundef nonnull @string_nat_compare) #14
   br label %15
 
 15:                                               ; preds = %.lr.ph, %11, %8
   %.1 = phi ptr [ %.019, %.lr.ph ], [ %14, %11 ], [ %.019, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = tail call i32 @wtap_get_num_encap_types() #13
+  %16 = tail call i32 @wtap_get_num_encap_types() #14
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !7
@@ -1693,9 +1693,9 @@ define internal fastcc void @list_encap_types() unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %15, %0
   %.0.lcssa = phi ptr [ null, %0 ], [ %.1, %15 ]
   %19 = load ptr, ptr @stderr, align 8
-  tail call void @g_slist_foreach(ptr noundef %.0.lcssa, ptr noundef nonnull @string_elem_print, ptr noundef %19) #13
-  tail call void @g_slist_free(ptr noundef %.0.lcssa) #13
-  tail call void @g_free(ptr noundef %3) #13
+  tail call void @g_slist_foreach(ptr noundef %.0.lcssa, ptr noundef nonnull @string_elem_print, ptr noundef %19) #14
+  tail call void @g_slist_free(ptr noundef %.0.lcssa) #14
+  tail call void @g_free(ptr noundef %3) #14
   ret void
 }
 
@@ -1703,8 +1703,8 @@ declare i32 @wtap_name_to_file_type_subtype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @list_capture_types() unnamed_addr #0 {
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.70) #13
-  %1 = tail call ptr @wtap_get_writable_file_types_subtypes(i32 noundef 0) #13
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.70) #14
+  %1 = tail call ptr @wtap_get_writable_file_types_subtypes(i32 noundef 0) #14
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -1716,9 +1716,9 @@ define internal fastcc void @list_capture_types() unnamed_addr #0 {
   %5 = getelementptr i32, ptr %4, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %6) #13
-  %9 = tail call ptr @wtap_file_type_subtype_description(i32 noundef %6) #13
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.69, ptr noundef %8, ptr noundef %9) #15
+  %8 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %6) #14
+  %9 = tail call ptr @wtap_file_type_subtype_description(i32 noundef %6) #14
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.69, ptr noundef %8, ptr noundef %9) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %2, align 8
   %12 = zext i32 %11 to i64
@@ -1726,7 +1726,7 @@ define internal fastcc void @list_capture_types() unnamed_addr #0 {
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
-  %14 = tail call ptr @g_array_free(ptr noundef nonnull %1, i32 noundef 1) #13
+  %14 = tail call ptr @g_array_free(ptr noundef nonnull %1, i32 noundef 1) #14
   ret void
 }
 
@@ -1790,18 +1790,18 @@ declare ptr @g_slist_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_
 define internal i32 @string_nat_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call i32 @ws_ascii_strnatcmp(ptr noundef %3, ptr noundef %4) #13
+  %5 = tail call i32 @ws_ascii_strnatcmp(ptr noundef %3, ptr noundef %4) #14
   ret i32 %5
 }
 
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @string_elem_print(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #2 {
+define internal void @string_elem_print(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #11 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.69, ptr noundef %3, ptr noundef %5) #13
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.69, ptr noundef %3, ptr noundef %5) #14
   ret void
 }
 
@@ -1822,20 +1822,20 @@ declare void @wtap_free_idb_info(ptr noundef) local_unnamed_addr #1
 declare void @wtap_dump_params_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1844,15 +1844,16 @@ attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { cold nounwind }
-attributes #16 = { cold }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { nounwind allocsize(0,1) }
+attributes #11 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { cold nounwind }
+attributes #17 = { cold }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { nounwind willreturn memory(none) }
+attributes #20 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

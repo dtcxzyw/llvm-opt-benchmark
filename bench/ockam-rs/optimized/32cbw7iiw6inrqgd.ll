@@ -17136,32 +17136,32 @@ define hidden noundef zeroext i1 @_ZN9sqlx_core5types4Type10compatible17h8f214a2
   ret i1 %4
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError9not_found17h12cc193bd407aeeaE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError9not_found17h12cc193bd407aeeaE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #27 {
   %3 = tail call noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17he3daa63d27e17ee1E(i8 noundef 4, i8 noundef 4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   ret ptr %3
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError14already_exists17ha2ec4b46266e6e59E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError14already_exists17ha2ec4b46266e6e59E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #27 {
   %3 = tail call noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17he3daa63d27e17ee1E(i8 noundef 4, i8 noundef 5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   ret ptr %3
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError8conflict17hbc165f9e452c6034E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError8conflict17hbc165f9e452c6034E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #27 {
   %3 = tail call noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17he3daa63d27e17ee1E(i8 noundef 4, i8 noundef 11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   ret ptr %3
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError8internal17hc3dcc33b609c5479E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError8internal17hc3dcc33b609c5479E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #27 {
   %3 = tail call noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17he3daa63d27e17ee1E(i8 noundef 4, i8 noundef 1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   ret ptr %3
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError12with_elapsed17hcb6ab89c8c212cdfE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull align 8 ptr @_ZN10ockam_node5error9NodeError12with_elapsed17hcb6ab89c8c212cdfE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #27 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [39 x i8] }, align 8
   %4 = invoke noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17h9447f956706b8c1bE(i8 noundef 4, i8 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %5 unwind label %8

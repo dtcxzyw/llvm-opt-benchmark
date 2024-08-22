@@ -3085,15 +3085,15 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   ret i8 %2
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$4powi17h7c64fffcff668323E"(i8 noundef %0, i32 noundef %1) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.17) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.17) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$4powf17h2aec079476aa4f6eE"(i8 noundef %0, i8 noundef %1) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.18) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.18) #9
   unreachable
 }
 
@@ -3121,9 +3121,9 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   ret i8 %4
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$4exp217h3368d1c818d70291E"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.19) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.19) #9
   unreachable
 }
 
@@ -3143,21 +3143,21 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   ret i8 %.0.i
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$3log17hb36ebc712e774da3E"(i8 noundef %0, i8 noundef %1) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.20) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.20) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$4log217h2126efb04e1b7a9cE"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.21) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.21) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$5log1017hcabacbd6667476bbE"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.22) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.22) #9
   unreachable
 }
 
@@ -3173,99 +3173,99 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   ret i8 %.0.sroa.speculated.i
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$7abs_sub17he3b2d9984e713d30E"(i8 noundef %0, i8 noundef %1) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.24) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.24) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$4cbrt17h31f132eaa21e823cE"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.25) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.25) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$5hypot17h595a8f1edc8a6877E"(i8 noundef %0, i8 noundef %1) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.26) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.26) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$3sin17h99299c98332c94a9E"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.27) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.27) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$3cos17h433171441c525dceE"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.28) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.28) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$3tan17h0f246fedb76c9c00E"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.29) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.29) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$4asin17h0ea4200bf8920b07E"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.30) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.30) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$4acos17hb57f320c7dcae9b1E"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.31) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.31) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$4atan17hf1a3507db8d1f50dE"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.32) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.32) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$5atan217hae98bb469d4eec23E"(i8 noundef %0, i8 noundef %1) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.33) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.33) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef { i8, i8 } @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$7sin_cos17h12b02ec1c1c998c4E"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.27) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.27) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$6exp_m117h79b3f95bb2bd3366E"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.34) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.34) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$5ln_1p17h505baa1fe760c6f0E"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.35) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.35) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$4sinh17h30ea6ff394d228fbE"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.36) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.36) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$4cosh17h7d25aba8360785caE"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.37) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.37) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$4tanh17hf55376a2b893ddaeE"(i8 noundef %0) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.38) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.38) #9
   unreachable
 }
 
@@ -3417,18 +3417,18 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
   ret i8 %.04.i
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$5atanh17h334fc7bdb8030be2E"(i8 noundef %0) unnamed_addr #6 {
   %2 = tail call fastcc noundef i8 @"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3mul17hdc439690f747d63fE"(i8 noundef 96, i8 noundef %0)
   %3 = tail call noundef i8 @"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3sub17h2a4fcfa8e6c784dcE"(i8 noundef 64, i8 noundef %0)
   %4 = tail call noundef i8 @"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3div17h6b5c00df9bb2c78dE"(i8 noundef %2, i8 noundef %3)
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.35) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.35) #9
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define void @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$14integer_decode17h5ad04322f3e34454E"(ptr noalias nocapture noundef readnone sret([16 x i8]) align 8 dereferenceable(16) %0, i8 noundef %1) unnamed_addr #6 {
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.24) #10
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.fae3fd479009f0e17524a001ea6680ff.15, i64 noundef 19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fae3fd479009f0e17524a001ea6680ff.24) #9
   unreachable
 }
 
@@ -3544,43 +3544,43 @@ declare void @"_ZN39_$LT$f64$u20$as$u20$num_traits..Num$GT$14from_str_radix17h0a
 declare noundef i8 @_ZN9softposit4p8e04math7mul_add7mul_add17h0760bb7df08d38c1E(i8 noundef, i8 noundef, i8 noundef, i8 noundef) unnamed_addr #3
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #7
+declare void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #9
+declare float @llvm.fabs.f32(float) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #9
+declare i64 @llvm.abs.i64(i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smin.i8(i8, i8) #9
+declare i8 @llvm.smin.i8(i8, i8) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smax.i8(i8, i8) #9
+declare i8 @llvm.smax.i8(i8, i8) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.abs.i8(i8, i1 immarg) #9
+declare i8 @llvm.abs.i8(i8, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #9
+declare i8 @llvm.umin.i8(i8, i8) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #9
+declare i8 @llvm.umax.i8(i8, i8) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #9
+declare i16 @llvm.abs.i16(i16, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nofree norecurse nosync nounwind nonlazybind memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -3588,11 +3588,10 @@ attributes #2 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory
 attributes #3 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { noreturn }
+attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

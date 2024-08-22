@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.7a12080bc5ed445ab4d283c4f9ff9c75.4 = private unnamed_addr constant <{ [89 x i8] }> <{ [89 x i8] c"/rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/alloc/src/vec/in_place_collect.rs" }>, align 1
 @anon.7a12080bc5ed445ab4d283c4f9ff9c75.5 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.7a12080bc5ed445ab4d283c4f9ff9c75.4, [16 x i8] c"Y\00\00\00\00\00\00\00\C3\00\00\00\09\00\00\00" }>, align 8
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h882e5f1e2fd59490E(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   store ptr @anon.7a12080bc5ed445ab4d283c4f9ff9c75.1, ptr %3, align 8
@@ -21,11 +21,11 @@ define noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h882e
   store ptr @anon.7a12080bc5ed445ab4d283c4f9ff9c75.2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %7, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.7a12080bc5ed445ab4d283c4f9ff9c75.5) #4
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.7a12080bc5ed445ab4d283c4f9ff9c75.5) #3
   unreachable
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h8bb821f5c3a9c2ffE(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   store ptr @anon.7a12080bc5ed445ab4d283c4f9ff9c75.1, ptr %3, align 8
@@ -37,7 +37,7 @@ define noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h8bb8
   store ptr @anon.7a12080bc5ed445ab4d283c4f9ff9c75.2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %7, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.7a12080bc5ed445ab4d283c4f9ff9c75.5) #4
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.7a12080bc5ed445ab4d283c4f9ff9c75.5) #3
   unreachable
 }
 
@@ -51,7 +51,7 @@ define zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h9305d019b244
   ret i1 %.0
 }
 
-; Function Attrs: noreturn nonlazybind uwtable
+; Function Attrs: cold noreturn nonlazybind uwtable
 define noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h9f17af253f585440E(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   store ptr @anon.7a12080bc5ed445ab4d283c4f9ff9c75.1, ptr %3, align 8
@@ -63,7 +63,7 @@ define noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h9f17
   store ptr @anon.7a12080bc5ed445ab4d283c4f9ff9c75.2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %7, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.7a12080bc5ed445ab4d283c4f9ff9c75.5) #4
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.7a12080bc5ed445ab4d283c4f9ff9c75.5) #3
   unreachable
 }
 
@@ -88,13 +88,12 @@ define { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_with_drop2
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8, ptr align 8) unnamed_addr #3
+declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8, ptr align 8) unnamed_addr #0
 
-attributes #0 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #0 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { noreturn }
+attributes #3 = { noreturn }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

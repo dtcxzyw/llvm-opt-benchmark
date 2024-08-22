@@ -610,92 +610,92 @@ define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..Guest
   ret void
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$9not_found17h119c897e70d297c1E"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$9not_found17h119c897e70d297c1E"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 44)
   ret ptr %1
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$7too_big17h9a3dfbe96609b6c2E"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$7too_big17h9a3dfbe96609b6c2E"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 1)
   ret ptr %1
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4badf17h42d9163f62230dbcE"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4badf17h42d9163f62230dbcE"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 8)
   ret ptr %1
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$5exist17hdb1c3e24ead2afa4E"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$5exist17hdb1c3e24ead2afa4E"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 20)
   ret ptr %1
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$21illegal_byte_sequence17hba691fb32d38e788E"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$21illegal_byte_sequence17hba691fb32d38e788E"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 25)
   ret ptr %1
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$16invalid_argument17h959b8a4dd96b11a0E"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$16invalid_argument17h959b8a4dd96b11a0E"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 28)
   ret ptr %1
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$2io17hde5f5ebc8d1d4b5eE"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$2io17hde5f5ebc8d1d4b5eE"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 29)
   ret ptr %1
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$13name_too_long17h6b6d93b25dd13c41E"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$13name_too_long17h6b6d93b25dd13c41E"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 37)
   ret ptr %1
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$7not_dir17hbf1dcbdcb4b0cab6E"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$7not_dir17hbf1dcbdcb4b0cab6E"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 54)
   ret ptr %1
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$13not_supported17h6708974462ff04bbE"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$13not_supported17h6708974462ff04bbE"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 58)
   ret ptr %1
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$8overflow17h48d676e92c13710aE"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$8overflow17h48d676e92c13710aE"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 61)
   ret ptr %1
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$5range17h3cc54296250c9803E"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$5range17h3cc54296250c9803E"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 68)
   ret ptr %1
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$9seek_pipe17hfcc45314b10ca691E"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$9seek_pipe17hfcc45314b10ca691E"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 70)
   ret ptr %1
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4perm17he7966392b5c9402dE"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0128_$LT$impl$u20$wasi_common..snapshots..preview_1..error..ErrorExt$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4perm17he7966392b5c9402dE"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 63)
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN11wasi_common9snapshots9preview_0112_$LT$impl$u20$wiggle..guest_type..GuestErrorType$u20$for$u20$wasi_common..snapshots..preview_0..types..Errno$GT$7success17h34ecd05cdc4c77e4E"() unnamed_addr #3 {
+define noundef i8 @"_ZN11wasi_common9snapshots9preview_0112_$LT$impl$u20$wiggle..guest_type..GuestErrorType$u20$for$u20$wasi_common..snapshots..preview_0..types..Errno$GT$7success17h34ecd05cdc4c77e4E"() unnamed_addr #4 {
   ret i8 0
 }
 
@@ -752,24 +752,24 @@ define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0152_$LT$impl$u2
   ret ptr %.0
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0138_$LT$impl$u20$core..convert..From$LT$core..num..error..TryFromIntError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17h2d60a428f318395dE"() unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN11wasi_common9snapshots9preview_0138_$LT$impl$u20$core..convert..From$LT$core..num..error..TryFromIntError$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Error$GT$4from17h2d60a428f318395dE"() unnamed_addr #3 {
   %1 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef 61)
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN11wasi_common9snapshots9preview_0146_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Fd$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Fd$GT$4from17h1b0aee55fffeab2eE"(i32 noundef returned %0) unnamed_addr #3 {
+define noundef i32 @"_ZN11wasi_common9snapshots9preview_0146_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Fd$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Fd$GT$4from17h1b0aee55fffeab2eE"(i32 noundef returned %0) unnamed_addr #4 {
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN11wasi_common9snapshots9preview_0156_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Prestat$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Prestat$GT$4from17hfd945d80d750f8e0E"(i32 noundef returned %0) unnamed_addr #3 {
+define noundef i32 @"_ZN11wasi_common9snapshots9preview_0156_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Prestat$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Prestat$GT$4from17hfd945d80d750f8e0E"(i32 noundef returned %0) unnamed_addr #4 {
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN11wasi_common9snapshots9preview_0158_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Filestat$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Filestat$GT$4from17h6cd58099aee97258E"(ptr noalias nocapture noundef writeonly sret({ i64, i64, i64, i64, i64, i64, i32, i8, [3 x i8] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #4 {
+define void @"_ZN11wasi_common9snapshots9preview_0158_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Filestat$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Filestat$GT$4from17h6cd58099aee97258E"(ptr noalias nocapture noundef writeonly sret({ i64, i64, i64, i64, i64, i64, i32, i8, [3 x i8] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %3 = load i64, ptr %1, align 8, !noundef !5
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -807,7 +807,7 @@ define void @"_ZN11wasi_common9snapshots9preview_0158_$LT$impl$u20$core..convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef range(i16 0, 2) i16 @"_ZN11wasi_common9snapshots9preview_0162_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..sched..subscription..RwEventFlags$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Eventrwflags$GT$4from17h7e11fa79224a337eE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 {
+define noundef range(i16 0, 2) i16 @"_ZN11wasi_common9snapshots9preview_0162_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..sched..subscription..RwEventFlags$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Eventrwflags$GT$4from17h7e11fa79224a337eE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4, !noundef !5
   %3 = trunc i32 %2 to i16
   %spec.select = and i16 %3, 1
@@ -4698,7 +4698,7 @@ define { ptr, ptr } @"_ZN86_$LT$wasi_common..snapshots..preview_0..types..Error$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN11wasi_common9snapshots9preview_05types5Error4trap17hd72025c55b67b924E(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
+define noundef nonnull ptr @_ZN11wasi_common9snapshots9preview_05types5Error4trap17hd72025c55b67b924E(ptr noundef nonnull readnone returned %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -4766,8 +4766,8 @@ define noundef align 1 dereferenceable_or_null(1) ptr @_ZN11wasi_common9snapshot
   ret ptr %6
 }
 
-; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN142_$LT$wasi_common..snapshots..preview_0..types..Error$u20$as$u20$core..convert..From$LT$wasi_common..snapshots..preview_0..types..Errno$GT$$GT$4from17h921b86828d7dfe32E"(i8 noundef %0) unnamed_addr #0 {
+; Function Attrs: cold nonlazybind uwtable
+define noundef nonnull ptr @"_ZN142_$LT$wasi_common..snapshots..preview_0..types..Error$u20$as$u20$core..convert..From$LT$wasi_common..snapshots..preview_0..types..Errno$GT$$GT$4from17h921b86828d7dfe32E"(i8 noundef %0) unnamed_addr #3 {
   %2 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef %0)
   ret ptr %2
 }
@@ -5039,12 +5039,12 @@ define noundef zeroext i1 @"_ZN83_$LT$wasi_common..snapshots..preview_0..types..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types5Iovec13offset_of_buf17h446e5f1179a484fdE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types5Iovec13offset_of_buf17h446e5f1179a484fdE() unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types5Iovec17offset_of_buf_len17hd3d27726a6a9cfe1E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types5Iovec17offset_of_buf_len17hd3d27726a6a9cfe1E() unnamed_addr #4 {
   ret i32 4
 }
 
@@ -5391,12 +5391,12 @@ define void @"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Iovec$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Ciovec13offset_of_buf17h1123d110a8fe7b3dE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Ciovec13offset_of_buf17h1123d110a8fe7b3dE() unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Ciovec17offset_of_buf_len17h426ef04b738f7fd8E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Ciovec17offset_of_buf_len17h426ef04b738f7fd8E() unnamed_addr #4 {
   ret i32 4
 }
 
@@ -6948,22 +6948,22 @@ define void @"_ZN100_$LT$wasi_common..snapshots..preview_0..types..Filetype$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Dirent16offset_of_d_next17h6c1557203c4e7c84E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Dirent16offset_of_d_next17h6c1557203c4e7c84E() unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Dirent15offset_of_d_ino17h856bf9285b8e47daE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Dirent15offset_of_d_ino17h856bf9285b8e47daE() unnamed_addr #4 {
   ret i32 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Dirent18offset_of_d_namlen17h4ee8a2c44855e241E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Dirent18offset_of_d_namlen17h4ee8a2c44855e241E() unnamed_addr #4 {
   ret i32 16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Dirent16offset_of_d_type17hde0d2daa0473ddaeE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Dirent16offset_of_d_type17hde0d2daa0473ddaeE() unnamed_addr #4 {
   ret i32 20
 }
 
@@ -8513,22 +8513,22 @@ define void @"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Fdstat21offset_of_fs_filetype17h1413c96ee46838bdE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Fdstat21offset_of_fs_filetype17h1413c96ee46838bdE() unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Fdstat18offset_of_fs_flags17hc23fe41bf8dbeb06E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Fdstat18offset_of_fs_flags17hc23fe41bf8dbeb06E() unnamed_addr #4 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Fdstat24offset_of_fs_rights_base17h014ac1132e5e30d3E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Fdstat24offset_of_fs_rights_base17h014ac1132e5e30d3E() unnamed_addr #4 {
   ret i32 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Fdstat30offset_of_fs_rights_inheriting17ha851e3098335081fE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types6Fdstat30offset_of_fs_rights_inheriting17ha851e3098335081fE() unnamed_addr #4 {
   ret i32 16
 }
 
@@ -9754,42 +9754,42 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat13offset_of_dev17h25a745f219e4ec54E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat13offset_of_dev17h25a745f219e4ec54E() unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat13offset_of_ino17h46ccdaa23d8b420cE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat13offset_of_ino17h46ccdaa23d8b420cE() unnamed_addr #4 {
   ret i32 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat18offset_of_filetype17hd52f7a10370b7e6eE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat18offset_of_filetype17hd52f7a10370b7e6eE() unnamed_addr #4 {
   ret i32 16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat15offset_of_nlink17h8aeced4e24d0afd5E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat15offset_of_nlink17h8aeced4e24d0afd5E() unnamed_addr #4 {
   ret i32 20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat14offset_of_size17h4707f4ac3213ebc4E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat14offset_of_size17h4707f4ac3213ebc4E() unnamed_addr #4 {
   ret i32 24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat14offset_of_atim17h0b8663dffe8c4e3eE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat14offset_of_atim17h0b8663dffe8c4e3eE() unnamed_addr #4 {
   ret i32 32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat14offset_of_mtim17h0851955d40490edbE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat14offset_of_mtim17h0851955d40490edbE() unnamed_addr #4 {
   ret i32 40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat14offset_of_ctim17h91883032f46bee42E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types8Filestat14offset_of_ctim17h91883032f46bee42E() unnamed_addr #4 {
   ret i32 48
 }
 
@@ -11417,12 +11417,12 @@ define void @"_ZN104_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types16EventFdReadwrite16offset_of_nbytes17h5c5d4035351d3515E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types16EventFdReadwrite16offset_of_nbytes17h5c5d4035351d3515E() unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types16EventFdReadwrite15offset_of_flags17hbb4bca03458273baE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types16EventFdReadwrite15offset_of_flags17hbb4bca03458273baE() unnamed_addr #4 {
   ret i32 8
 }
 
@@ -11749,22 +11749,22 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_0..types..EventFdReadwr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types5Event18offset_of_userdata17h7ccd4e645baae801E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types5Event18offset_of_userdata17h7ccd4e645baae801E() unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types5Event15offset_of_error17h59ca1696615d8f0cE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types5Event15offset_of_error17h59ca1696615d8f0cE() unnamed_addr #4 {
   ret i32 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types5Event15offset_of_type_17h6d11652d1a9166b1E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types5Event15offset_of_type_17h6d11652d1a9166b1E() unnamed_addr #4 {
   ret i32 10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types5Event22offset_of_fd_readwrite17ha42f128b24e5929bE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types5Event22offset_of_fd_readwrite17ha42f128b24e5929bE() unnamed_addr #4 {
   ret i32 16
 }
 
@@ -12571,27 +12571,27 @@ define void @"_ZN105_$LT$wasi_common..snapshots..preview_0..types..Subclockflags
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types17SubscriptionClock20offset_of_identifier17h9277e55b4dc01a0bE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types17SubscriptionClock20offset_of_identifier17h9277e55b4dc01a0bE() unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types17SubscriptionClock12offset_of_id17h87d2d0c5b44ff8d0E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types17SubscriptionClock12offset_of_id17h87d2d0c5b44ff8d0E() unnamed_addr #4 {
   ret i32 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types17SubscriptionClock17offset_of_timeout17h2c80751414fd9392E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types17SubscriptionClock17offset_of_timeout17h2c80751414fd9392E() unnamed_addr #4 {
   ret i32 16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types17SubscriptionClock19offset_of_precision17h19ac728e30238a5aE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types17SubscriptionClock19offset_of_precision17h19ac728e30238a5aE() unnamed_addr #4 {
   ret i32 24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types17SubscriptionClock15offset_of_flags17h1e4532bd45a7a9beE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types17SubscriptionClock15offset_of_flags17h1e4532bd45a7a9beE() unnamed_addr #4 {
   ret i32 32
 }
 
@@ -13328,7 +13328,7 @@ define void @"_ZN109_$LT$wasi_common..snapshots..preview_0..types..SubscriptionC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types23SubscriptionFdReadwrite25offset_of_file_descriptor17h8c928d333a36637bE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types23SubscriptionFdReadwrite25offset_of_file_descriptor17h8c928d333a36637bE() unnamed_addr #4 {
   ret i32 0
 }
 
@@ -14367,12 +14367,12 @@ define void @"_ZN105_$LT$wasi_common..snapshots..preview_0..types..SubscriptionU
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types12Subscription18offset_of_userdata17h6d7ca8236f0b686cE() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types12Subscription18offset_of_userdata17h6d7ca8236f0b686cE() unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types12Subscription11offset_of_u17hbe54f28dd1731e38E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types12Subscription11offset_of_u17hbe54f28dd1731e38E() unnamed_addr #4 {
   ret i32 8
 }
 
@@ -18419,7 +18419,7 @@ define void @"_ZN103_$LT$wasi_common..snapshots..preview_0..types..Preopentype$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN11wasi_common9snapshots9preview_05types10PrestatDir21offset_of_pr_name_len17hb04fe99d155f4010E() unnamed_addr #3 {
+define noundef i32 @_ZN11wasi_common9snapshots9preview_05types10PrestatDir21offset_of_pr_name_len17hb04fe99d155f4010E() unnamed_addr #4 {
   ret i32 0
 }
 
@@ -18981,13 +18981,13 @@ define void @"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Prestat$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 {
+define noundef i64 @"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc8ea7e034b143556E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #6 {
   %2 = load i64, ptr %0, align 8, !noundef !5
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17hb07e6c293f115d57E"(i64 noundef returned %0) unnamed_addr #3 {
+define noundef i64 @"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17hb07e6c293f115d57E"(i64 noundef returned %0) unnamed_addr #4 {
   ret i64 %0
 }
 
@@ -19088,12 +19088,12 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_0..types.._..InternalBi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u64$GT$$GT$6as_ref17h4bf0d411fc6a7f1fE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u64$GT$$GT$6as_ref17h4bf0d411fc6a7f1fE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u64$GT$$GT$4from17haa19aa30e5f2ac40E"(i64 noundef returned %0) unnamed_addr #3 {
+define noundef i64 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u64$GT$$GT$4from17haa19aa30e5f2ac40E"(i64 noundef returned %0) unnamed_addr #4 {
   ret i64 %0
 }
 
@@ -19122,7 +19122,7 @@ define noundef zeroext i1 @"_ZN101_$LT$wasi_common..snapshots..preview_0..types.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hda1491068f395c22E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i64, i64 }, i8, [7 x i8] }) align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #6 {
+define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hda1491068f395c22E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i64, i64 }, i8, [7 x i8] }) align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.93, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 29, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19162,7 +19162,7 @@ define noundef zeroext i1 @"_ZN11wasi_common9snapshots9preview_05types1_98_$LT$i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN11wasi_common9snapshots9preview_05types1_120_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Rights$GT$9into_iter17hede007ea4656fdd7E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i64, i64 }, i8, [7 x i8] }) align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #6 {
+define void @"_ZN11wasi_common9snapshots9preview_05types1_120_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Rights$GT$9into_iter17hede007ea4656fdd7E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i64, i64 }, i8, [7 x i8] }) align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.93, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 29, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19178,13 +19178,13 @@ define void @"_ZN11wasi_common9snapshots9preview_05types1_120_$LT$impl$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
+define noundef i16 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hec3fb4d7666a11d8E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17hd58059f2cdc1e70cE"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17hd58059f2cdc1e70cE"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -19285,12 +19285,12 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_0..types.._..InternalBi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h5eb14e389068950cE"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h5eb14e389068950cE"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h5660ae3b31e54ab9E"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h5660ae3b31e54ab9E"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -19319,7 +19319,7 @@ define noundef zeroext i1 @"_ZN101_$LT$wasi_common..snapshots..preview_0..types.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd849190fb4ad5135E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd849190fb4ad5135E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.100, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 5, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19359,7 +19359,7 @@ define noundef zeroext i1 @"_ZN11wasi_common9snapshots9preview_05types1_99_$LT$i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN11wasi_common9snapshots9preview_05types1_121_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Fdflags$GT$9into_iter17h02965671f8850253E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN11wasi_common9snapshots9preview_05types1_121_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Fdflags$GT$9into_iter17h02965671f8850253E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.100, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 5, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19375,13 +19375,13 @@ define void @"_ZN11wasi_common9snapshots9preview_05types1_121_$LT$impl$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
+define noundef i16 @"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h243c5cc882ab3ddeE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h78b247492c3446b9E"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN94_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h78b247492c3446b9E"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -19482,12 +19482,12 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_0..types.._..InternalBi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17haddb982ea9813453E"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17haddb982ea9813453E"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h6d8e24be89c69b7bE"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h6d8e24be89c69b7bE"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -19516,7 +19516,7 @@ define noundef zeroext i1 @"_ZN101_$LT$wasi_common..snapshots..preview_0..types.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc6771989b3d05969E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc6771989b3d05969E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.105, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19556,7 +19556,7 @@ define noundef zeroext i1 @"_ZN11wasi_common9snapshots9preview_05types1_100_$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN11wasi_common9snapshots9preview_05types1_122_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Fstflags$GT$9into_iter17ha0551bfe13d1f763E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN11wasi_common9snapshots9preview_05types1_122_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Fstflags$GT$9into_iter17ha0551bfe13d1f763E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.105, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19572,13 +19572,13 @@ define void @"_ZN11wasi_common9snapshots9preview_05types1_122_$LT$impl$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h986c89bdd2a8689dE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 {
+define noundef i32 @"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h986c89bdd2a8689dE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4, !noundef !5
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h30561a1e0a6c4337E"(i32 noundef returned %0) unnamed_addr #3 {
+define noundef i32 @"_ZN97_$LT$wasi_common..snapshots..preview_0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h30561a1e0a6c4337E"(i32 noundef returned %0) unnamed_addr #4 {
   ret i32 %0
 }
 
@@ -19679,12 +19679,12 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_0..types.._..InternalBi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u32$GT$$GT$6as_ref17hbc7d708de443bd30E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #3 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u32$GT$$GT$6as_ref17hbc7d708de443bd30E"(ptr noalias noundef readonly returned align 4 dereferenceable(4) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h192534d23d912ecfE"(i32 noundef returned %0) unnamed_addr #3 {
+define noundef i32 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h192534d23d912ecfE"(i32 noundef returned %0) unnamed_addr #4 {
   ret i32 %0
 }
 
@@ -19713,7 +19713,7 @@ define noundef zeroext i1 @"_ZN101_$LT$wasi_common..snapshots..preview_0..types.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h1a813ed5a33de1fbE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i32, i32 }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #6 {
+define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h1a813ed5a33de1fbE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i32, i32 }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.108, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19753,7 +19753,7 @@ define noundef zeroext i1 @"_ZN11wasi_common9snapshots9preview_05types1_103_$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN11wasi_common9snapshots9preview_05types1_125_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Lookupflags$GT$9into_iter17hd702665791425e8eE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i32, i32 }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #6 {
+define void @"_ZN11wasi_common9snapshots9preview_05types1_125_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Lookupflags$GT$9into_iter17hd702665791425e8eE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i32, i32 }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.108, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19769,13 +19769,13 @@ define void @"_ZN11wasi_common9snapshots9preview_05types1_125_$LT$impl$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
+define noundef i16 @"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h17a3eabcef6055cdE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h2b02b66d7582d6aeE"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN92_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h2b02b66d7582d6aeE"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -19876,12 +19876,12 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_0..types.._..InternalBi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h3837bf9555507cf7E"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h3837bf9555507cf7E"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb4fd7ef320d40180E"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb4fd7ef320d40180E"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -19910,7 +19910,7 @@ define noundef zeroext i1 @"_ZN101_$LT$wasi_common..snapshots..preview_0..types.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0c68d0187c1e5934E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0c68d0187c1e5934E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.114, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19950,7 +19950,7 @@ define noundef zeroext i1 @"_ZN11wasi_common9snapshots9preview_05types1_98_$LT$i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN11wasi_common9snapshots9preview_05types1_120_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Oflags$GT$9into_iter17h12f0ac6c66f697c7E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN11wasi_common9snapshots9preview_05types1_120_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Oflags$GT$9into_iter17h12f0ac6c66f697c7E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.114, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19966,13 +19966,13 @@ define void @"_ZN11wasi_common9snapshots9preview_05types1_120_$LT$impl$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6efe351b13bd2a20E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
+define noundef i16 @"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6efe351b13bd2a20E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h3aad101d1447c77bE"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h3aad101d1447c77bE"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -20073,12 +20073,12 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_0..types.._..InternalBi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h2c3b212a32656485E"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h2c3b212a32656485E"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb508dbebe2f54c15E"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb508dbebe2f54c15E"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -20107,7 +20107,7 @@ define noundef zeroext i1 @"_ZN101_$LT$wasi_common..snapshots..preview_0..types.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hefc679daaed2a536E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hefc679daaed2a536E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.116, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20147,7 +20147,7 @@ define noundef zeroext i1 @"_ZN11wasi_common9snapshots9preview_05types1_104_$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN11wasi_common9snapshots9preview_05types1_126_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Eventrwflags$GT$9into_iter17h3e51a3d0fe06473fE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN11wasi_common9snapshots9preview_05types1_126_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Eventrwflags$GT$9into_iter17h3e51a3d0fe06473fE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.116, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20163,13 +20163,13 @@ define void @"_ZN11wasi_common9snapshots9preview_05types1_126_$LT$impl$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf7313ac2acc9ab1dE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
+define noundef i16 @"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hf7313ac2acc9ab1dE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h7aa8802604ebab87E"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h7aa8802604ebab87E"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -20270,12 +20270,12 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_0..types.._..InternalBi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17hc3d21a1235c46ea7E"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17hc3d21a1235c46ea7E"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h87127013f20522b2E"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h87127013f20522b2E"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -20304,7 +20304,7 @@ define noundef zeroext i1 @"_ZN101_$LT$wasi_common..snapshots..preview_0..types.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h41c67c815d9e1fd5E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h41c67c815d9e1fd5E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.118, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20344,7 +20344,7 @@ define noundef zeroext i1 @"_ZN11wasi_common9snapshots9preview_05types1_105_$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN11wasi_common9snapshots9preview_05types1_127_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Subclockflags$GT$9into_iter17h8ae42a1e60daccbdE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN11wasi_common9snapshots9preview_05types1_127_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Subclockflags$GT$9into_iter17h8ae42a1e60daccbdE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.118, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20360,13 +20360,13 @@ define void @"_ZN11wasi_common9snapshots9preview_05types1_127_$LT$impl$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
+define noundef i16 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hb9865a3759a62c34E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h28657895460b0b62E"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h28657895460b0b62E"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -20467,12 +20467,12 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_0..types.._..InternalBi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h42c2298354102e8dE"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h42c2298354102e8dE"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17ha9729f17d2387c64E"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17ha9729f17d2387c64E"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -20501,7 +20501,7 @@ define noundef zeroext i1 @"_ZN101_$LT$wasi_common..snapshots..preview_0..types.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hbbf82ea090fc68daE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hbbf82ea090fc68daE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.121, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20541,7 +20541,7 @@ define noundef zeroext i1 @"_ZN11wasi_common9snapshots9preview_05types1_99_$LT$i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN11wasi_common9snapshots9preview_05types1_121_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Riflags$GT$9into_iter17h90bdfad71c6771cbE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN11wasi_common9snapshots9preview_05types1_121_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Riflags$GT$9into_iter17h90bdfad71c6771cbE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.121, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20557,13 +20557,13 @@ define void @"_ZN11wasi_common9snapshots9preview_05types1_121_$LT$impl$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17ha491da3f71d05079E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
+define noundef i16 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17ha491da3f71d05079E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h5a0e113404ac37e2E"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17h5a0e113404ac37e2E"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -20664,12 +20664,12 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_0..types.._..InternalBi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h9c3ab3f5f2cc992dE"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef nonnull align 2 dereferenceable(2) ptr @"_ZN113_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u16$GT$$GT$6as_ref17h9c3ab3f5f2cc992dE"(ptr noalias noundef readonly returned align 2 dereferenceable(2) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h39b0e0e6cc2d20bdE"(i16 noundef returned %0) unnamed_addr #3 {
+define noundef i16 @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17h39b0e0e6cc2d20bdE"(i16 noundef returned %0) unnamed_addr #4 {
   ret i16 %0
 }
 
@@ -20698,7 +20698,7 @@ define noundef zeroext i1 @"_ZN101_$LT$wasi_common..snapshots..preview_0..types.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6e7f0093351d2ef9E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6e7f0093351d2ef9E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.123, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20738,7 +20738,7 @@ define noundef zeroext i1 @"_ZN11wasi_common9snapshots9preview_05types1_99_$LT$i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN11wasi_common9snapshots9preview_05types1_121_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Roflags$GT$9into_iter17h974989aebda95b0cE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
+define void @"_ZN11wasi_common9snapshots9preview_05types1_121_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Roflags$GT$9into_iter17h974989aebda95b0cE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.123, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20754,13 +20754,13 @@ define void @"_ZN11wasi_common9snapshots9preview_05types1_121_$LT$impl$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #5 {
+define noundef i8 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h38432267a7f2ca11E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !noundef !5
   ret i8 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17hc1797dfa581ec077E"(i8 noundef returned %0) unnamed_addr #3 {
+define noundef i8 @"_ZN93_$LT$wasi_common..snapshots..preview_0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$16from_bits_retain17hc1797dfa581ec077E"(i8 noundef returned %0) unnamed_addr #4 {
   ret i8 %0
 }
 
@@ -20861,12 +20861,12 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_0..types.._..InternalBi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17ha59fd816ba1be880E"(ptr noalias noundef readonly returned align 1 dereferenceable(1) %0) unnamed_addr #3 {
+define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN112_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17ha59fd816ba1be880E"(ptr noalias noundef readonly returned align 1 dereferenceable(1) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN111_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h9be8c26b2bc62873E"(i8 noundef returned %0) unnamed_addr #3 {
+define noundef i8 @"_ZN111_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h9be8c26b2bc62873E"(i8 noundef returned %0) unnamed_addr #4 {
   ret i8 %0
 }
 
@@ -20895,7 +20895,7 @@ define noundef zeroext i1 @"_ZN101_$LT$wasi_common..snapshots..preview_0..types.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hff3784ca21a10022E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #6 {
+define void @"_ZN123_$LT$wasi_common..snapshots..preview_0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hff3784ca21a10022E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.127, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20935,7 +20935,7 @@ define noundef zeroext i1 @"_ZN11wasi_common9snapshots9preview_05types1_99_$LT$i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN11wasi_common9snapshots9preview_05types1_121_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Sdflags$GT$9into_iter17h571bc0caa45cf955E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #6 {
+define void @"_ZN11wasi_common9snapshots9preview_05types1_121_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasi_common..snapshots..preview_0..types..Sdflags$GT$9into_iter17h571bc0caa45cf955E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #7 {
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.127, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20951,22 +20951,22 @@ define void @"_ZN11wasi_common9snapshots9preview_05types1_121_$LT$impl$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN11wasi_common9snapshots9preview_0152_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Errno$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Errno$GT$4from17hd0012e435c1f0715E"(i8 noundef returned %0) unnamed_addr #3 {
+define noundef i8 @"_ZN11wasi_common9snapshots9preview_0152_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Errno$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Errno$GT$4from17hd0012e435c1f0715E"(i8 noundef returned %0) unnamed_addr #4 {
   ret i8 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i8 0, 8) i8 @"_ZN11wasi_common9snapshots9preview_0158_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Filetype$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Filetype$GT$4from17h7cd3b38f04bc87b2E"(i8 noundef returned %0) unnamed_addr #3 {
+define noundef range(i8 0, 8) i8 @"_ZN11wasi_common9snapshots9preview_0158_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Filetype$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Filetype$GT$4from17h7cd3b38f04bc87b2E"(i8 noundef returned %0) unnamed_addr #4 {
   ret i8 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN11wasi_common9snapshots9preview_0162_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..PrestatDir$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..PrestatDir$GT$4from17h253f5a0e0947b553E"(i32 noundef returned %0) unnamed_addr #3 {
+define noundef i32 @"_ZN11wasi_common9snapshots9preview_0162_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..PrestatDir$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..PrestatDir$GT$4from17h253f5a0e0947b553E"(i32 noundef returned %0) unnamed_addr #4 {
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN11wasi_common9snapshots9preview_0154_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Fdstat$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Fdstat$GT$4from17h4b81a75f1b09448cE"(ptr noalias nocapture noundef writeonly sret({ i64, i64, i16, i8, [5 x i8] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 {
+define void @"_ZN11wasi_common9snapshots9preview_0154_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Fdstat$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Fdstat$GT$4from17h4b81a75f1b09448cE"(ptr noalias nocapture noundef writeonly sret({ i64, i64, i16, i8, [5 x i8] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %1, i64 18
   %4 = load i8, ptr %3, align 2, !range !15, !noundef !5
   %5 = load i64, ptr %1, align 8, !noundef !5
@@ -20988,13 +20988,13 @@ define void @"_ZN11wasi_common9snapshots9preview_0154_$LT$impl$u20$core..convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i16 0, 32) i16 @"_ZN11wasi_common9snapshots9preview_0156_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Fdflags$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Fdflags$GT$4from17h45b6186fdcf57b70E"(i16 noundef %0) unnamed_addr #3 {
+define noundef range(i16 0, 32) i16 @"_ZN11wasi_common9snapshots9preview_0156_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Fdflags$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Fdflags$GT$4from17h45b6186fdcf57b70E"(i16 noundef %0) unnamed_addr #4 {
   %.4 = and i16 %0, 31
   ret i16 %.4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i64 0, 536870912) i64 @"_ZN11wasi_common9snapshots9preview_0154_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Rights$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Rights$GT$4from17hd6ab844a6bb7ae5eE"(i64 noundef %0) unnamed_addr #3 {
+define noundef range(i64 0, 536870912) i64 @"_ZN11wasi_common9snapshots9preview_0154_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_1..types..Rights$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Rights$GT$4from17hd6ab844a6bb7ae5eE"(i64 noundef %0) unnamed_addr #4 {
   %.28 = and i64 %0, 536870911
   ret i64 %.28
 }
@@ -21003,16 +21003,16 @@ define noundef range(i64 0, 536870912) i64 @"_ZN11wasi_common9snapshots9preview_
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
-declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #7
+declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN6wiggle19validate_size_align17h1fb99b171e917751E(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #9
+declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN6wiggle19validate_size_align17h7511fafcfbb2b349E(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #0
@@ -21024,7 +21024,7 @@ declare hidden void @_ZN6wiggle19validate_size_align17hfab9d8c251dfdd4dE(ptr noa
 declare hidden void @_ZN6wiggle19validate_size_align17h471ea62db683fac1E(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: nounwind nonlazybind allockind("free") uwtable
-declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #10
+declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #11
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h02cafb939f480998E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
@@ -21186,13 +21186,13 @@ declare noundef zeroext i1 @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Octal$u2
 declare noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u8$GT$3fmt17h0226473b45a1bd94E"(ptr noalias noundef readonly align 1 dereferenceable(1), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef) unnamed_addr #12
+declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h8588234c203f8a82E"(i8 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.uadd.with.overflow.i32(i32, i32) #13
@@ -21215,16 +21215,16 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #10 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #15 = { nounwind }
