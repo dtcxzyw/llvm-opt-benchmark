@@ -1149,16 +1149,16 @@ define hidden noundef zeroext i1 @_ZN4core3cmp10PartialOrd2lt17hbfa04136e3005f76
   %13 = sext i32 %12 to i64
   %14 = icmp eq i32 %12, 0
   %spec.store.select.i.i.i.i = select i1 %14, i64 %11, i64 %13
-  %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i, i64 0)
   %15 = icmp eq i64 %spec.store.select.i.i.i.i, 0
   %16 = getelementptr inbounds i8, ptr %0, i64 24
   %17 = load i8, ptr %16, align 8, !range !163, !alias.scope !143, !noalias !146
   %18 = getelementptr inbounds i8, ptr %1, i64 24
   %19 = load i8, ptr %18, align 8, !range !163, !alias.scope !146, !noalias !143
   %20 = sub nsw i8 %17, %19
-  %.0.i = select i1 %15, i8 %20, i8 %.0.i.i.i.i
-  %21 = icmp eq i8 %.0.i, -1
-  ret i1 %21
+  %21 = icmp eq i8 %20, -1
+  %22 = icmp slt i64 %spec.store.select.i.i.i.i, 0
+  %23 = select i1 %15, i1 %21, i1 %22
+  ret i1 %23
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read) uwtable
@@ -1214,14 +1214,13 @@ define hidden noundef zeroext i1 @_ZN4core3cmp10PartialOrd2lt17he7d6c667d9730619
   tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
   %5 = load i8, ptr %3, align 8, !range !9, !alias.scope !200, !noalias !201, !noundef !4
   %6 = load i8, ptr %4, align 8, !range !9, !alias.scope !201, !noalias !200, !noundef !4
-  %.0.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %5, i8 %6)
   %7 = icmp eq i8 %5, %6
   %8 = load i64, ptr %0, align 8, !alias.scope !190, !noalias !193
   %9 = load i64, ptr %1, align 8, !alias.scope !193, !noalias !190
-  %.05.i = tail call i8 @llvm.ucmp.i8.i64(i64 %8, i64 %9)
-  %.0.i = select i1 %7, i8 %.05.i, i8 %.0.i.i
-  %10 = icmp eq i8 %.0.i, -1
-  ret i1 %10
+  %10 = icmp ult i64 %8, %9
+  %11 = icmp ult i8 %5, %6
+  %12 = select i1 %7, i1 %10, i1 %11
+  ret i1 %12
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1336,14 +1335,13 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
   %7 = load i8, ptr %5, align 8, !range !9, !alias.scope !226, !noalias !227, !noundef !4
   %8 = load i8, ptr %6, align 8, !range !9, !alias.scope !227, !noalias !226, !noundef !4
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %7, i8 %8)
   %9 = icmp eq i8 %7, %8
   %10 = load i64, ptr %3, align 8, !alias.scope !228, !noalias !229
   %11 = load i64, ptr %4, align 8, !alias.scope !229, !noalias !228
-  %.05.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %10, i64 %11)
-  %.0.i.i = select i1 %9, i8 %.05.i.i, i8 %.0.i.i.i
-  %12 = icmp eq i8 %.0.i.i, -1
-  ret i1 %12
+  %12 = icmp ult i64 %10, %11
+  %13 = icmp ult i8 %7, %8
+  %14 = select i1 %9, i1 %12, i1 %13
+  ret i1 %14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1419,14 +1417,13 @@ define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h2d0947f
   tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
   %6 = load i8, ptr %4, align 8, !range !9, !alias.scope !250, !noalias !251, !noundef !4
   %7 = load i8, ptr %5, align 8, !range !9, !alias.scope !251, !noalias !250, !noundef !4
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %6, i8 %7)
   %8 = icmp eq i8 %6, %7
   %9 = load i64, ptr %1, align 8, !alias.scope !252, !noalias !253
   %10 = load i64, ptr %2, align 8, !alias.scope !253, !noalias !252
-  %.05.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %9, i64 %10)
-  %.0.i.i = select i1 %8, i8 %.05.i.i, i8 %.0.i.i.i
-  %11 = icmp eq i8 %.0.i.i, -1
-  ret i1 %11
+  %11 = icmp ult i64 %9, %10
+  %12 = icmp ult i8 %6, %7
+  %13 = select i1 %8, i1 %11, i1 %12
+  ret i1 %13
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1472,16 +1469,16 @@ define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h9b76c7b
   %14 = sext i32 %13 to i64
   %15 = icmp eq i32 %13, 0
   %spec.store.select.i.i.i.i.i = select i1 %15, i64 %12, i64 %14
-  %.0.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i, i64 0)
   %16 = icmp eq i64 %spec.store.select.i.i.i.i.i, 0
   %17 = getelementptr inbounds i8, ptr %1, i64 24
   %18 = load i8, ptr %17, align 8, !range !163, !alias.scope !290, !noalias !291
   %19 = getelementptr inbounds i8, ptr %2, i64 24
   %20 = load i8, ptr %19, align 8, !range !163, !alias.scope !291, !noalias !290
   %21 = sub nsw i8 %18, %20
-  %.0.i.i = select i1 %16, i8 %21, i8 %.0.i.i.i.i.i
-  %22 = icmp eq i8 %.0.i.i, -1
-  ret i1 %22
+  %22 = icmp eq i8 %21, -1
+  %23 = icmp slt i64 %spec.store.select.i.i.i.i.i, 0
+  %24 = select i1 %16, i1 %22, i1 %23
+  ret i1 %24
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
@@ -1582,14 +1579,13 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !373)
   %8 = load i8, ptr %6, align 8, !range !9, !alias.scope !375, !noalias !376, !noundef !4
   %9 = load i8, ptr %7, align 8, !range !9, !alias.scope !380, !noalias !381, !noundef !4
-  %.0.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %8, i8 %9)
   %10 = icmp eq i8 %8, %9
   %11 = load i64, ptr %4, align 8, !alias.scope !382, !noalias !383
   %12 = load i64, ptr %5, align 8, !alias.scope !384, !noalias !385
-  %.05.i.i.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %11, i64 %12)
-  %.0.i.i.i.i = select i1 %10, i8 %.05.i.i.i.i, i8 %.0.i.i.i.i.i
-  %13 = icmp eq i8 %.0.i.i.i.i, -1
-  ret i1 %13
+  %13 = icmp ult i64 %11, %12
+  %14 = icmp ult i8 %8, %9
+  %15 = select i1 %10, i1 %13, i1 %14
+  ret i1 %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -1634,14 +1630,13 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !421)
   %8 = load i8, ptr %6, align 8, !range !9, !alias.scope !423, !noalias !424, !noundef !4
   %9 = load i8, ptr %7, align 8, !range !9, !alias.scope !428, !noalias !429, !noundef !4
-  %.0.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %8, i8 %9)
   %10 = icmp eq i8 %8, %9
   %11 = load i64, ptr %4, align 8, !alias.scope !430, !noalias !431
   %12 = load i64, ptr %5, align 8, !alias.scope !432, !noalias !433
-  %.05.i.i.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %11, i64 %12)
-  %.0.i.i.i.i = select i1 %10, i8 %.05.i.i.i.i, i8 %.0.i.i.i.i.i
-  %13 = icmp eq i8 %.0.i.i.i.i, -1
-  ret i1 %13
+  %13 = icmp ult i64 %11, %12
+  %14 = icmp ult i8 %8, %9
+  %15 = select i1 %10, i1 %13, i1 %14
+  ret i1 %15
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
@@ -2002,16 +1997,16 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %14 = sext i32 %13 to i64
   %15 = icmp eq i32 %13, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %15, i64 %12, i64 %14
-  %.0.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i, i64 0)
   %16 = icmp eq i64 %spec.store.select.i.i.i.i.i.i, 0
   %17 = getelementptr inbounds i8, ptr %1, i64 24
   %18 = load i8, ptr %17, align 8, !range !163, !alias.scope !668, !noalias !669
   %19 = getelementptr inbounds i8, ptr %2, i64 24
   %20 = load i8, ptr %19, align 8, !range !163, !alias.scope !669, !noalias !668
   %21 = sub nsw i8 %18, %20
-  %.0.i.i.i = select i1 %16, i8 %21, i8 %.0.i.i.i.i.i.i
-  %22 = icmp eq i8 %.0.i.i.i, -1
-  ret i1 %22
+  %22 = icmp eq i8 %21, -1
+  %23 = icmp slt i64 %spec.store.select.i.i.i.i.i.i, 0
+  %24 = select i1 %16, i1 %22, i1 %23
+  ret i1 %24
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2068,14 +2063,13 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   tail call void @llvm.experimental.noalias.scope.decl(metadata !727)
   %6 = load i8, ptr %4, align 8, !range !9, !alias.scope !729, !noalias !730, !noundef !4
   %7 = load i8, ptr %5, align 8, !range !9, !alias.scope !730, !noalias !729, !noundef !4
-  %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %6, i8 %7)
   %8 = icmp eq i8 %6, %7
   %9 = load i64, ptr %1, align 8, !alias.scope !731, !noalias !732
   %10 = load i64, ptr %2, align 8, !alias.scope !732, !noalias !731
-  %.05.i.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %9, i64 %10)
-  %.0.i.i.i = select i1 %8, i8 %.05.i.i.i, i8 %.0.i.i.i.i
-  %11 = icmp eq i8 %.0.i.i.i, -1
-  ret i1 %11
+  %11 = icmp ult i64 %9, %10
+  %12 = icmp ult i8 %6, %7
+  %13 = select i1 %8, i1 %11, i1 %12
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -2158,15 +2152,14 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h603ff493cf0bdbadE.llvm.17454970623020605724.exit"
 
 37:                                               ; preds = %33
-  %.0.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %14, i8 %25)
   %38 = icmp eq i8 %14, %25
-  %.05.i.i.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %12, i64 %23)
-  %.0.i.i.i.i = select i1 %38, i8 %.05.i.i.i.i, i8 %.0.i.i.i.i.i
-  %39 = icmp eq i8 %.0.i.i.i.i, -1
+  %39 = icmp ult i64 %12, %23
+  %40 = icmp ult i8 %14, %25
+  %41 = select i1 %38, i1 %39, i1 %40
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h603ff493cf0bdbadE.llvm.17454970623020605724.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h603ff493cf0bdbadE.llvm.17454970623020605724.exit": ; preds = %27, %31, %35, %37
-  %.0.in.i.i = phi i1 [ %39, %37 ], [ %36, %35 ], [ %32, %31 ], [ %28, %27 ]
+  %.0.in.i.i = phi i1 [ %41, %37 ], [ %36, %35 ], [ %32, %31 ], [ %28, %27 ]
   ret i1 %.0.in.i.i
 }
 
@@ -3914,14 +3907,13 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1463)
   %8 = load i8, ptr %6, align 8, !range !9, !alias.scope !1465, !noalias !1466, !noundef !4
   %9 = load i8, ptr %7, align 8, !range !9, !alias.scope !1470, !noalias !1471, !noundef !4
-  %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %8, i8 %9)
   %10 = icmp eq i8 %8, %9
   %11 = load i64, ptr %4, align 8, !alias.scope !1472, !noalias !1473
   %12 = load i64, ptr %5, align 8, !alias.scope !1474, !noalias !1475
-  %.05.i.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %11, i64 %12)
-  %.0.i.i.i = select i1 %10, i8 %.05.i.i.i, i8 %.0.i.i.i.i
-  %13 = icmp eq i8 %.0.i.i.i, -1
-  ret i1 %13
+  %13 = icmp ult i64 %11, %12
+  %14 = icmp ult i8 %8, %9
+  %15 = select i1 %10, i1 %13, i1 %14
+  ret i1 %15
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -3990,14 +3982,13 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1513)
   %8 = load i8, ptr %6, align 8, !range !9, !alias.scope !1515, !noalias !1516, !noundef !4
   %9 = load i8, ptr %7, align 8, !range !9, !alias.scope !1520, !noalias !1521, !noundef !4
-  %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %8, i8 %9)
   %10 = icmp eq i8 %8, %9
   %11 = load i64, ptr %4, align 8, !alias.scope !1522, !noalias !1523
   %12 = load i64, ptr %5, align 8, !alias.scope !1524, !noalias !1525
-  %.05.i.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %11, i64 %12)
-  %.0.i.i.i = select i1 %10, i8 %.05.i.i.i, i8 %.0.i.i.i.i
-  %13 = icmp eq i8 %.0.i.i.i, -1
-  ret i1 %13
+  %13 = icmp ult i64 %11, %12
+  %14 = icmp ult i8 %8, %9
+  %15 = select i1 %10, i1 %13, i1 %14
+  ret i1 %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4145,15 +4136,14 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   br label %"_ZN4core5tuple73_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$$LP$W$C$V$C$U$C$T$RP$$GT$2lt17h5e3dc1cb797eda3bE.llvm.17454970623020605724.exit"
 
 37:                                               ; preds = %33
-  %.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %14, i8 %25)
   %38 = icmp eq i8 %14, %25
-  %.05.i.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %12, i64 %23)
-  %.0.i.i.i = select i1 %38, i8 %.05.i.i.i, i8 %.0.i.i.i.i
-  %39 = icmp eq i8 %.0.i.i.i, -1
+  %39 = icmp ult i64 %12, %23
+  %40 = icmp ult i8 %14, %25
+  %41 = select i1 %38, i1 %39, i1 %40
   br label %"_ZN4core5tuple73_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$$LP$W$C$V$C$U$C$T$RP$$GT$2lt17h5e3dc1cb797eda3bE.llvm.17454970623020605724.exit"
 
 "_ZN4core5tuple73_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$$LP$W$C$V$C$U$C$T$RP$$GT$2lt17h5e3dc1cb797eda3bE.llvm.17454970623020605724.exit": ; preds = %27, %31, %35, %37
-  %.0.in.i = phi i1 [ %39, %37 ], [ %36, %35 ], [ %32, %31 ], [ %28, %27 ]
+  %.0.in.i = phi i1 [ %41, %37 ], [ %36, %35 ], [ %32, %31 ], [ %28, %27 ]
   ret i1 %.0.in.i
 }
 
@@ -4568,7 +4558,7 @@ define hidden noundef zeroext i1 @"_ZN4core5tuple73_$LT$impl$u20$core..cmp..Part
   br i1 %13, label %17, label %15
 
 14:                                               ; preds = %23, %25, %15, %6
-  %.0.in = phi i1 [ %35, %25 ], [ %24, %23 ], [ %16, %15 ], [ %7, %6 ]
+  %.0.in = phi i1 [ %37, %25 ], [ %24, %23 ], [ %16, %15 ], [ %7, %6 ]
   ret i1 %.0.in
 
 15:                                               ; preds = %8
@@ -4602,13 +4592,12 @@ define hidden noundef zeroext i1 @"_ZN4core5tuple73_$LT$impl$u20$core..cmp..Part
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1776)
   %30 = load i8, ptr %28, align 8, !range !9, !alias.scope !1778, !noalias !1779, !noundef !4
   %31 = load i8, ptr %29, align 8, !range !9, !alias.scope !1779, !noalias !1778, !noundef !4
-  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %30, i8 %31)
   %32 = icmp eq i8 %30, %31
   %33 = load i64, ptr %26, align 8, !alias.scope !1780, !noalias !1781
   %34 = load i64, ptr %27, align 8, !alias.scope !1781, !noalias !1780
-  %.05.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %33, i64 %34)
-  %.0.i.i = select i1 %32, i8 %.05.i.i, i8 %.0.i.i.i
-  %35 = icmp eq i8 %.0.i.i, -1
+  %35 = icmp ult i64 %33, %34
+  %36 = icmp ult i8 %30, %31
+  %37 = select i1 %32, i1 %35, i1 %36
   br label %14
 }
 
