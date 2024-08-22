@@ -13,21 +13,12 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %4 = load ptr, ptr %3, align 8, !alias.scope !16, !noalias !17, !nonnull !4, !align !18, !noundef !4
   %5 = load i32, ptr %4, align 4, !noalias !19, !noundef !4
   %6 = load i32, ptr %1, align 4, !alias.scope !17, !noalias !16, !noundef !4
-  %.08.i.i = tail call i8 @llvm.ucmp.i8.i32(i32 %5, i32 %6)
-  switch i8 %.08.i.i, label %7 [
-    i8 -1, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2ceb6e9df9121e61E.llvm.4272966154850254059.exit"
-    i8 0, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2ceb6e9df9121e61E.llvm.4272966154850254059.exit"
-  ]
-
-7:                                                ; preds = %2
+  %7 = icmp ugt i32 %5, %6
   %8 = getelementptr inbounds i8, ptr %1, i64 4
-  %9 = load i32, ptr %8, align 4, !alias.scope !17, !noalias !16, !noundef !4
+  %9 = load i32, ptr %8, align 4, !alias.scope !17, !noalias !16
   %switch.selectcmp.i.i = icmp ugt i32 %9, %5
-  br label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2ceb6e9df9121e61E.llvm.4272966154850254059.exit"
-
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2ceb6e9df9121e61E.llvm.4272966154850254059.exit": ; preds = %2, %2, %7
-  %.0.i.i = phi i1 [ false, %2 ], [ false, %2 ], [ %switch.selectcmp.i.i, %7 ]
-  ret i1 %.0.i.i
+  %.0.i.not.i = select i1 %7, i1 %switch.selectcmp.i.i, i1 false
+  ret i1 %.0.i.not.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable
@@ -37,56 +28,35 @@ define hidden noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5ch
   %3 = load ptr, ptr %0, align 8, !alias.scope !20, !noalias !23, !nonnull !4, !align !18, !noundef !4
   %4 = load i32, ptr %3, align 4, !noalias !25, !noundef !4
   %5 = load i32, ptr %1, align 4, !alias.scope !23, !noalias !20, !noundef !4
-  %.08.i = tail call i8 @llvm.ucmp.i8.i32(i32 %4, i32 %5)
-  switch i8 %.08.i, label %6 [
-    i8 -1, label %"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059.exit"
-    i8 0, label %"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059.exit"
-  ]
-
-6:                                                ; preds = %2
+  %6 = icmp ugt i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %8 = load i32, ptr %7, align 4, !alias.scope !23, !noalias !20, !noundef !4
+  %8 = load i32, ptr %7, align 4, !alias.scope !23, !noalias !20
   %switch.selectcmp.i = icmp ugt i32 %8, %4
-  br label %"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059.exit"
-
-"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059.exit": ; preds = %2, %2, %6
-  %.0.i = phi i1 [ false, %2 ], [ false, %2 ], [ %switch.selectcmp.i, %6 ]
-  ret i1 %.0.i
+  %.0.i.not = select i1 %6, i1 %switch.selectcmp.i, i1 false
+  ret i1 %.0.i.not
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1) unnamed_addr #2 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !18, !noundef !4
-  %4 = load i32, ptr %3, align 4, !noundef !4
-  %5 = load i32, ptr %1, align 4, !noundef !4
-  %.08 = tail call i8 @llvm.ucmp.i8.i32(i32 %4, i32 %5)
-  switch i8 %.08, label %6 [
-    i8 -1, label %.critedge
-    i8 0, label %.critedge
-  ]
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %8 = load i32, ptr %7, align 4, !noundef !4
-  %switch.selectcmp = icmp ule i32 %8, %4
-  br label %.critedge
-
-.critedge:                                        ; preds = %6, %2, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %2 ], [ %switch.selectcmp, %6 ]
+.critedge:
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !18, !noundef !4
+  %3 = load i32, ptr %2, align 4, !noundef !4
+  %4 = load i32, ptr %1, align 4, !noundef !4
+  %5 = icmp ule i32 %3, %4
+  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = load i32, ptr %6, align 4
+  %switch.selectcmp = icmp ule i32 %7, %3
+  %.0 = select i1 %5, i1 true, i1 %switch.selectcmp
   ret i1 %.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #3
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #4
+declare void @llvm.experimental.noalias.scope.decl(metadata) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

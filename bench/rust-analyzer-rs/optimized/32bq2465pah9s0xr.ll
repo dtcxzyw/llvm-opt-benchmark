@@ -14314,10 +14314,10 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr { { i32, i32 }, { i32, [1 x i32] } }, ptr %0, i64 %7, i32 0, i32 1
   %.val24.i = load i32, ptr %9, align 4, !alias.scope !3808, !noalias !3813, !noundef !9
-  %switch.selectcmp.i.not.i.not.i = icmp ugt i32 %.val24.i, %4
+  %.not.i.not.i = icmp ugt i32 %.val24.i, %4
   %10 = add nuw i64 %7, 1
-  %.022.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %.01926.i, i64 %10
-  %.021.i = select i1 %switch.selectcmp.i.not.i.not.i, i64 %7, i64 %.02025.i
+  %.022.i = select i1 %.not.i.not.i, i64 %.01926.i, i64 %10
+  %.021.i = select i1 %.not.i.not.i, i64 %7, i64 %.02025.i
   %11 = sub i64 %.021.i, %.022.i
   %12 = icmp ult i64 %.022.i, %.021.i
   br i1 %12, label %5, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hf8d5401f05a15d7dE.llvm.9018798831783864632.exit"
@@ -14339,45 +14339,35 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.val.i.i.i = load ptr, ptr %2, align 8, !noalias !3817, !nonnull !9, !align !2717, !noundef !9
   %4 = load i32, ptr %.val.i.i.i, align 4, !noalias !3817, !noundef !9
   %5 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 4
-  br label %6
+  %6 = load i32, ptr %5, align 4, !noalias !3817, !noundef !9
+  br label %7
 
-6:                                                ; preds = %14, %.lr.ph.i
-  %.028.i = phi i64 [ %1, %.lr.ph.i ], [ %17, %14 ]
-  %.01927.i = phi i64 [ 0, %.lr.ph.i ], [ %15, %14 ]
-  %.02026.i = phi i64 [ %1, %.lr.ph.i ], [ %16, %14 ]
-  %7 = lshr i64 %.028.i, 1
-  %8 = add i64 %7, %.01927.i
-  %9 = icmp ult i64 %8, %1
-  tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds { { i32, i32 }, { i32, [1 x i32] } }, ptr %0, i64 %8
-  %11 = getelementptr i8, ptr %10, i64 4
-  %.val24.i = load i32, ptr %11, align 4, !alias.scope !3814, !noalias !3819, !noundef !9
-  %.013.i.i.i.i.i = tail call i8 @llvm.ucmp.i8.i32(i32 %.val24.i, i32 %4)
-  switch i8 %.013.i.i.i.i.i, label %"_ZN4stdx14equal_range_by28_$u7b$$u7b$closure$u7d$$u7d$17hd60b5c0ff5a3f0b6E.exit.i.i" [
-    i8 -1, label %14
-    i8 0, label %14
-  ]
+7:                                                ; preds = %7, %.lr.ph.i
+  %.028.i = phi i64 [ %1, %.lr.ph.i ], [ %15, %7 ]
+  %.01927.i = phi i64 [ 0, %.lr.ph.i ], [ %.022.i, %7 ]
+  %.02026.i = phi i64 [ %1, %.lr.ph.i ], [ %.021.i, %7 ]
+  %8 = lshr i64 %.028.i, 1
+  %9 = add i64 %8, %.01927.i
+  %10 = icmp ult i64 %9, %1
+  tail call void @llvm.assume(i1 %10)
+  %11 = getelementptr inbounds { { i32, i32 }, { i32, [1 x i32] } }, ptr %0, i64 %9
+  %.val23.i = load i32, ptr %11, align 4, !alias.scope !3814, !noalias !3819, !noundef !9
+  %12 = getelementptr i8, ptr %11, i64 4
+  %.val24.i = load i32, ptr %12, align 4, !alias.scope !3814, !noalias !3819, !noundef !9
+  %13 = icmp ule i32 %.val24.i, %4
+  %switch.selectcmp.not.i.i.not.i.i.i = icmp ule i32 %6, %.val23.i
+  %.not25.i = or i1 %switch.selectcmp.not.i.i.not.i.i.i, %13
+  %14 = add nuw i64 %9, 1
+  %.022.i = select i1 %.not25.i, i64 %.01927.i, i64 %14
+  %.021.i = select i1 %.not25.i, i64 %9, i64 %.02026.i
+  %15 = sub i64 %.021.i, %.022.i
+  %16 = icmp ult i64 %.022.i, %.021.i
+  br i1 %16, label %7, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h50c1996dc8def9aeE.llvm.9018798831783864632.exit"
 
-"_ZN4stdx14equal_range_by28_$u7b$$u7b$closure$u7d$$u7d$17hd60b5c0ff5a3f0b6E.exit.i.i": ; preds = %6
-  %.val23.i = load i32, ptr %10, align 4, !alias.scope !3814, !noalias !3819, !noundef !9
-  %12 = load i32, ptr %5, align 4, !noalias !3817, !noundef !9
-  %switch.selectcmp.not.i.i.not.i.i.i = icmp ugt i32 %12, %.val23.i
-  %13 = add nuw i64 %8, 1
-  %spec.select.i = select i1 %switch.selectcmp.not.i.i.not.i.i.i, i64 %13, i64 %.01927.i
-  %spec.select25.i = select i1 %switch.selectcmp.not.i.i.not.i.i.i, i64 %.02026.i, i64 %8
-  br label %14
-
-14:                                               ; preds = %"_ZN4stdx14equal_range_by28_$u7b$$u7b$closure$u7d$$u7d$17hd60b5c0ff5a3f0b6E.exit.i.i", %6, %6
-  %15 = phi i64 [ %.01927.i, %6 ], [ %.01927.i, %6 ], [ %spec.select.i, %"_ZN4stdx14equal_range_by28_$u7b$$u7b$closure$u7d$$u7d$17hd60b5c0ff5a3f0b6E.exit.i.i" ]
-  %16 = phi i64 [ %8, %6 ], [ %8, %6 ], [ %spec.select25.i, %"_ZN4stdx14equal_range_by28_$u7b$$u7b$closure$u7d$$u7d$17hd60b5c0ff5a3f0b6E.exit.i.i" ]
-  %17 = sub i64 %16, %15
-  %18 = icmp ult i64 %15, %16
-  br i1 %18, label %6, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h50c1996dc8def9aeE.llvm.9018798831783864632.exit"
-
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h50c1996dc8def9aeE.llvm.9018798831783864632.exit": ; preds = %14, %3
-  %.019.lcssa.i = phi i64 [ 0, %3 ], [ %15, %14 ]
-  %19 = icmp ule i64 %.019.lcssa.i, %1
-  tail call void @llvm.assume(i1 %19)
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h50c1996dc8def9aeE.llvm.9018798831783864632.exit": ; preds = %7, %3
+  %.019.lcssa.i = phi i64 [ 0, %3 ], [ %.022.i, %7 ]
+  %17 = icmp ule i64 %.019.lcssa.i, %1
+  tail call void @llvm.assume(i1 %17)
   ret i64 %.019.lcssa.i
 }
 
@@ -14391,47 +14381,37 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %.val.i.i = load ptr, ptr %.val.i, align 8, !nonnull !9, !align !2717, !noundef !9
   %4 = load i32, ptr %.val.i.i, align 4, !noundef !9
   %5 = getelementptr inbounds i8, ptr %.val.i.i, i64 4
-  br label %6
+  %6 = load i32, ptr %5, align 4, !noundef !9
+  br label %9
 
-6:                                                ; preds = %.lr.ph, %16
-  %.028 = phi i64 [ %1, %.lr.ph ], [ %19, %16 ]
-  %.01927 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %.02026 = phi i64 [ %1, %.lr.ph ], [ %18, %16 ]
-  %7 = lshr i64 %.028, 1
-  %8 = add i64 %7, %.01927
-  %9 = icmp ult i64 %8, %1
-  tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds { { i32, i32 }, { i32, [1 x i32] } }, ptr %0, i64 %8
-  %11 = getelementptr i8, ptr %10, i64 4
-  %.val24 = load i32, ptr %11, align 4, !noundef !9
-  %.013.i.i.i.i = tail call i8 @llvm.ucmp.i8.i32(i32 %.val24, i32 %4)
-  switch i8 %.013.i.i.i.i, label %"_ZN4stdx14equal_range_by28_$u7b$$u7b$closure$u7d$$u7d$17hd60b5c0ff5a3f0b6E.exit.i" [
-    i8 -1, label %16
-    i8 0, label %16
-  ]
+._crit_edge:                                      ; preds = %9, %3
+  %.019.lcssa = phi i64 [ 0, %3 ], [ %.022, %9 ]
+  %7 = icmp ule i64 %.019.lcssa, %1
+  tail call void @llvm.assume(i1 %7)
+  %8 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.019.lcssa, 1
+  ret { i64, i64 } %8
 
-"_ZN4stdx14equal_range_by28_$u7b$$u7b$closure$u7d$$u7d$17hd60b5c0ff5a3f0b6E.exit.i": ; preds = %6
-  %.val23 = load i32, ptr %10, align 4, !noundef !9
-  %12 = load i32, ptr %5, align 4, !noundef !9
-  %switch.selectcmp.not.i.i.not.i.i = icmp ugt i32 %12, %.val23
-  %13 = add nuw i64 %8, 1
-  %spec.select = select i1 %switch.selectcmp.not.i.i.not.i.i, i64 %13, i64 %.01927
-  %spec.select25 = select i1 %switch.selectcmp.not.i.i.not.i.i, i64 %.02026, i64 %8
-  br label %16
-
-._crit_edge:                                      ; preds = %16, %3
-  %.019.lcssa = phi i64 [ 0, %3 ], [ %17, %16 ]
-  %14 = icmp ule i64 %.019.lcssa, %1
-  tail call void @llvm.assume(i1 %14)
-  %15 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.019.lcssa, 1
-  ret { i64, i64 } %15
-
-16:                                               ; preds = %"_ZN4stdx14equal_range_by28_$u7b$$u7b$closure$u7d$$u7d$17hd60b5c0ff5a3f0b6E.exit.i", %6, %6
-  %17 = phi i64 [ %.01927, %6 ], [ %.01927, %6 ], [ %spec.select, %"_ZN4stdx14equal_range_by28_$u7b$$u7b$closure$u7d$$u7d$17hd60b5c0ff5a3f0b6E.exit.i" ]
-  %18 = phi i64 [ %8, %6 ], [ %8, %6 ], [ %spec.select25, %"_ZN4stdx14equal_range_by28_$u7b$$u7b$closure$u7d$$u7d$17hd60b5c0ff5a3f0b6E.exit.i" ]
-  %19 = sub i64 %18, %17
-  %20 = icmp ult i64 %17, %18
-  br i1 %20, label %6, label %._crit_edge
+9:                                                ; preds = %.lr.ph, %9
+  %.028 = phi i64 [ %1, %.lr.ph ], [ %17, %9 ]
+  %.01927 = phi i64 [ 0, %.lr.ph ], [ %.022, %9 ]
+  %.02026 = phi i64 [ %1, %.lr.ph ], [ %.021, %9 ]
+  %10 = lshr i64 %.028, 1
+  %11 = add i64 %10, %.01927
+  %12 = icmp ult i64 %11, %1
+  tail call void @llvm.assume(i1 %12)
+  %13 = getelementptr inbounds { { i32, i32 }, { i32, [1 x i32] } }, ptr %0, i64 %11
+  %.val23 = load i32, ptr %13, align 4, !noundef !9
+  %14 = getelementptr i8, ptr %13, i64 4
+  %.val24 = load i32, ptr %14, align 4, !noundef !9
+  %15 = icmp ule i32 %.val24, %4
+  %switch.selectcmp.not.i.i.not.i.i = icmp ule i32 %6, %.val23
+  %.not25 = or i1 %15, %switch.selectcmp.not.i.i.not.i.i
+  %16 = add nuw i64 %11, 1
+  %.022 = select i1 %.not25, i64 %.01927, i64 %16
+  %.021 = select i1 %.not25, i64 %11, i64 %.02026
+  %17 = sub i64 %.021, %.022
+  %18 = icmp ult i64 %.022, %.021
+  br i1 %18, label %9, label %._crit_edge
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
@@ -14462,10 +14442,10 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr { { i32, i32 }, { i32, [1 x i32] } }, ptr %0, i64 %9, i32 0, i32 1
   %.val24 = load i32, ptr %11, align 4, !noundef !9
-  %switch.selectcmp.i.not.i.not = icmp ugt i32 %.val24, %4
+  %.not.i.not = icmp ugt i32 %.val24, %4
   %12 = add nuw i64 %9, 1
-  %.022 = select i1 %switch.selectcmp.i.not.i.not, i64 %.01926, i64 %12
-  %.021 = select i1 %switch.selectcmp.i.not.i.not, i64 %9, i64 %.02025
+  %.022 = select i1 %.not.i.not, i64 %.01926, i64 %12
+  %.021 = select i1 %.not.i.not, i64 %9, i64 %.02025
   %13 = sub i64 %.021, %.022
   %14 = icmp ult i64 %.022, %.021
   br i1 %14, label %7, label %._crit_edge
@@ -42035,9 +42015,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #34
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #34

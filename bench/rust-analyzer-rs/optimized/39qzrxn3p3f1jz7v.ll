@@ -23530,11 +23530,11 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 25:                                               ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  br label %175
+  br label %177
 
 26:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdda662e56bc59ba1E.exit", %13
-  %27 = phi i64 [ %.pre, %13 ], [ %171, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdda662e56bc59ba1E.exit" ]
-  %.0 = phi i64 [ 0, %13 ], [ %172, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdda662e56bc59ba1E.exit" ]
+  %27 = phi i64 [ %.pre, %13 ], [ %173, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdda662e56bc59ba1E.exit" ]
+  %.0 = phi i64 [ 0, %13 ], [ %174, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdda662e56bc59ba1E.exit" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %28 = getelementptr inbounds { i32, [1 x i32] }, ptr %1, i64 %.0
@@ -23900,25 +23900,20 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8903)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8906)
   %166 = load i32, ptr %.val.i.i.i, align 4, !noalias !8908, !noundef !4
-  %.010.i.i.i.i.i = tail call i8 @llvm.ucmp.i8.i32(i32 %.sroa.0.0.i.i.i, i32 %166)
-  switch i8 %.010.i.i.i.i.i, label %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17h1397cebf7b634322E.exit.thread.i.i.i.i" [
-    i8 -1, label %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17h1397cebf7b634322E.exit.i.i.i.i"
-    i8 0, label %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17h1397cebf7b634322E.exit.i.i.i.i"
-  ]
+  %167 = icmp ule i32 %.sroa.0.0.i.i.i, %166
+  %switch.selectcmp.i.i.i.i.i = icmp ule i32 %166, %.sroa.5.0.i.i.i
+  %spec.select.i.i.i.i.i = select i1 %167, i1 %switch.selectcmp.i.i.i.i.i, i1 false
+  br i1 %spec.select.i.i.i.i.i, label %169, label %168
 
-"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17h1397cebf7b634322E.exit.i.i.i.i": ; preds = %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17hbd816153c37cff06E.exit.i.i.i", %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17hbd816153c37cff06E.exit.i.i.i"
-  %switch.selectcmp.i.not.i.i.i.i = icmp ugt i32 %166, %.sroa.5.0.i.i.i
-  br i1 %switch.selectcmp.i.not.i.i.i.i, label %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17h1397cebf7b634322E.exit.thread.i.i.i.i", label %167
-
-"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17h1397cebf7b634322E.exit.thread.i.i.i.i": ; preds = %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17h1397cebf7b634322E.exit.i.i.i.i", %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17hbd816153c37cff06E.exit.i.i.i"
+168:                                              ; preds = %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17hbd816153c37cff06E.exit.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false), !alias.scope !8910, !noalias !8911
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdda662e56bc59ba1E.exit"
 
-167:                                              ; preds = %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17h1397cebf7b634322E.exit.i.i.i.i"
+169:                                              ; preds = %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17hbd816153c37cff06E.exit.i.i.i"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !8912
-  %168 = sub i32 %.sroa.5.0.i.i.i, %.sroa.0.0.i.i.i
+  %170 = sub i32 %.sroa.5.0.i.i.i, %.sroa.0.0.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false), !noalias !8917
-  store i32 %168, ptr %24, align 8, !noalias !8912
+  store i32 %170, ptr %24, align 8, !noalias !8912
   store i32 %.sroa.0.0.i.i.i, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i, align 8, !noalias !8912
   store i32 %.sroa.5.0.i.i.i, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i, align 4, !noalias !8912
   store ptr %.sroa.3.0.i.i.i, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i, align 8, !noalias !8912
@@ -23926,30 +23921,30 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8921)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8923)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8926)
-  %169 = load i32, ptr %7, align 8, !alias.scope !8928, !noalias !8939, !noundef !4
-  %switch.i.i.i.i4.i.i.i = icmp ugt i32 %169, %168
+  %171 = load i32, ptr %7, align 8, !alias.scope !8928, !noalias !8939, !noundef !4
+  %switch.i.i.i.i4.i.i.i = icmp ugt i32 %171, %170
   %..i.i.i.i.i.i.i = select i1 %switch.i.i.i.i4.i.i.i, ptr %24, ptr %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %..i.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !8944, !noalias !8945
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !8912
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdda662e56bc59ba1E.exit"
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdda662e56bc59ba1E.exit": ; preds = %31, %.loopexit.i.i.i, %"_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17h1397cebf7b634322E.exit.thread.i.i.i.i", %167
-  %170 = load i64, ptr %18, align 8, !alias.scope !8755, !noalias !8758, !noundef !4
-  %171 = add i64 %170, 1
-  store i64 %171, ptr %18, align 8, !alias.scope !8755, !noalias !8758
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdda662e56bc59ba1E.exit": ; preds = %31, %.loopexit.i.i.i, %168, %169
+  %172 = load i64, ptr %18, align 8, !alias.scope !8755, !noalias !8758, !noundef !4
+  %173 = add i64 %172, 1
+  store i64 %173, ptr %18, align 8, !alias.scope !8755, !noalias !8758
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  %172 = add nuw i64 %.0, 1
-  %173 = icmp eq i64 %172, %17
-  br i1 %173, label %174, label %26
+  %174 = add nuw i64 %.0, 1
+  %175 = icmp eq i64 %174, %17
+  br i1 %175, label %176, label %26
 
-174:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdda662e56bc59ba1E.exit"
+176:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdda662e56bc59ba1E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  br label %175
+  br label %177
 
-175:                                              ; preds = %174, %25
+177:                                              ; preds = %176, %25
   ret void
 }
 
