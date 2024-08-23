@@ -2228,7 +2228,7 @@ bullet3/btTriangleShapeEx.ll 237256550
 bullet3/btTypedConstraint.ll 120287700
 bullet3/btUniformScalingShape.ll 144456205
 bullet3/btUnionFind.ll 138800024
-bullet3/btUniversalConstraint.ll 283199985
+bullet3/btUniversalConstraint.ll 282916730
 bullet3/btVoronoiSimplexSolver.ll 381262130
 bullet3/btWheelInfo.ll 64986887
 bullet3/clew.ll 65709223
@@ -27872,7 +27872,7 @@ proj/param.cpp.ll 87906009
 proj/parammappings.cpp.ll 239849334
 proj/patterson.cpp.ll 51297845
 proj/phi2.cpp.ll 55114082
-proj/pipeline.cpp.ll 615755105
+proj/pipeline.cpp.ll 615139293
 proj/poly.cpp.ll 78770454
 proj/pr_list.cpp.ll 72680920
 proj/proj.cpp.ll 469708237
@@ -28626,7 +28626,7 @@ qemu/fsdev_9p-iov-marshal.c.ll 276488713
 qemu/fsdev_9p-marshal.c.ll 50786826
 qemu/fsdev_qemu-fsdev-throttle.c.ll 57519003
 qemu/fsdev_qemu-fsdev.c.ll 67693280
-qemu/fw_cfg.c.ll 73289869
+qemu/fw_cfg.c.ll 73216558
 qemu/gdbstub.c.ll 955761647
 qemu/gdbstub_syscalls.c.ll 77019354
 qemu/gdbstub_user-target.c.ll 93502822
