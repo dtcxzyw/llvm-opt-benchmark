@@ -14844,7 +14844,7 @@ linux/xt_addrtype.ll 90482892
 linux/xt_conntrack.ll 140785501
 linux/xt_mark.ll 48126706
 linux/xt_policy.ll 110715559
-linux/xt_state.ll 50327652
+linux/xt_state.ll 50378108
 linux/xt_tcpudp.ll 100101626
 linux/xxhash.ll 192492249
 linux/xz_dec_bcj.ll 140193253
