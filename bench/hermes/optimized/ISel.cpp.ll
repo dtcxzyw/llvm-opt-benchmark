@@ -25883,12 +25883,12 @@ if.end37.i:                                       ; preds = %if.then.i.i.i.i.i47
 
 if.then.i.i.i11:                                  ; preds = %if.end37.i
   %29 = load ptr, ptr %coveredBlockList.i, align 8
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i51.i, 3
   %add.ptr39.idx.i = shl nuw nsw i64 %CurSize.0.i, 3
   %add.ptr39.i = getelementptr inbounds i8, ptr %29, i64 %add.ptr39.idx.i
   %30 = load ptr, ptr %coveredBlockList.i4, align 8
   %add.ptr42.i = getelementptr inbounds ptr, ptr %30, i64 %CurSize.0.i
-  %31 = sub nsw i64 %conv.i51.i, %CurSize.0.i
-  %gepdiff.i = shl nsw i64 %31, 3
+  %gepdiff.i = sub nsw i64 %add.ptr.i.idx.i, %add.ptr39.idx.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42.i, ptr align 8 %add.ptr39.i, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
 
@@ -25902,15 +25902,15 @@ return.sink.split.i:                              ; preds = %_ZN4llvh23SmallVect
   br label %_ZN4llvh15SmallVectorImplIPN6hermes10BasicBlockEEaSEOS4_.exit
 
 _ZN4llvh15SmallVectorImplIPN6hermes10BasicBlockEEaSEOS4_.exit: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_.exit, %return.sink.split.i
-  %32 = phi ptr [ %.pre18, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_.exit ], [ %.pre17, %return.sink.split.i ]
-  %33 = load i32, ptr %depth.i, align 8
+  %31 = phi ptr [ %.pre18, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9CatchInstENS2_17CatchCoverageInfoENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_.exit ], [ %.pre17, %return.sink.split.i ]
+  %32 = load i32, ptr %depth.i, align 8
   %depth4.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 96
-  store i32 %33, ptr %depth4.i, align 8
-  %cmp.i.i.i.i7 = icmp eq ptr %32, %add.ptr.i.i.i.i.i.i
+  store i32 %32, ptr %depth4.i, align 8
+  %cmp.i.i.i.i7 = icmp eq ptr %31, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i7, label %_ZN6hermes17CatchCoverageInfoD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4llvh15SmallVectorImplIPN6hermes10BasicBlockEEaSEOS4_.exit
-  call void @free(ptr noundef %32) #19
+  call void @free(ptr noundef %31) #19
   br label %_ZN6hermes17CatchCoverageInfoD2Ev.exit
 
 _ZN6hermes17CatchCoverageInfoD2Ev.exit:           ; preds = %_ZN4llvh15SmallVectorImplIPN6hermes10BasicBlockEEaSEOS4_.exit, %if.then.i.i.i
@@ -51723,12 +51723,12 @@ if.end37:                                         ; preds = %if.then.i.i.i.i.i47
 
 if.then.i.i:                                      ; preds = %if.end37
   %11 = load ptr, ptr %RHS, align 8
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i51, 3
   %add.ptr39.idx = shl nuw nsw i64 %CurSize.0, 3
   %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds ptr, ptr %12, i64 %CurSize.0
-  %13 = sub nsw i64 %conv.i51, %CurSize.0
-  %gepdiff = shl nsw i64 %13, 3
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr39.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 8 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
 

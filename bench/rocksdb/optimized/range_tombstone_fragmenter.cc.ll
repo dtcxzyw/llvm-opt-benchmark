@@ -3295,25 +3295,27 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr.i.i.i.i.i.idx
   %seq_end_idx = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i64, ptr %seq_end_idx, align 8
-  %5 = sub nsw i64 %4, %2
-  %cmp7.i.i = icmp sgt i64 %5, 0
+  %add.ptr.i.i.i.i.i9.idx = shl nsw i64 %4, 3
+  %gepdiff = sub nsw i64 %add.ptr.i.i.i.i.i9.idx, %add.ptr.i.i.i.i.i.idx
+  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %gepdiff, 3
+  %cmp7.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i, 0
   br i1 %cmp7.i.i, label %while.body.lr.ph.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmSt7greaterImEET_SA_SA_RKT0_T1_.exit
 
 while.body.lr.ph.i.i:                             ; preds = %entry
   %upper_bound_ = getelementptr inbounds i8, ptr %this, i64 112
-  %6 = load i64, ptr %upper_bound_, align 8
+  %5 = load i64, ptr %upper_bound_, align 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
-  %__len.09.i.i = phi i64 [ %5, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %while.body.i.i ]
+  %__len.09.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %while.body.i.i ]
   %__first.sroa.0.08.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %while.body.lr.ph.i.i ], [ %__first.sroa.0.1.i.i, %while.body.i.i ]
   %shr.i.i = lshr i64 %__len.09.i.i, 1
   %add.ptr.i.i.i.i.i18 = getelementptr inbounds i64, ptr %__first.sroa.0.08.i.i, i64 %shr.i.i
-  %7 = load i64, ptr %add.ptr.i.i.i.i.i18, align 8
-  %cmp.i.i5.i.i = icmp ugt i64 %7, %6
+  %6 = load i64, ptr %add.ptr.i.i.i.i.i18, align 8
+  %cmp.i.i5.i.i = icmp ugt i64 %6, %5
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i18, i64 8
-  %8 = xor i64 %shr.i.i, -1
-  %sub9.i.i = add nsw i64 %__len.09.i.i, %8
+  %7 = xor i64 %shr.i.i, -1
+  %sub9.i.i = add nsw i64 %__len.09.i.i, %7
   %__first.sroa.0.1.i.i = select i1 %cmp.i.i5.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.sroa.0.08.i.i
   %__len.1.i.i = select i1 %cmp.i.i5.i.i, i64 %sub9.i.i, i64 %shr.i.i
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
@@ -3324,25 +3326,27 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmSt7great
   %seq_pos_ = getelementptr inbounds i8, ptr %this, i64 144
   store ptr %__first.sroa.0.0.lcssa.i.i, ptr %seq_pos_, align 8
   %ts_upper_bound_ = getelementptr inbounds i8, ptr %this, i64 128
-  %9 = load ptr, ptr %ts_upper_bound_, align 8
-  %tobool.not = icmp eq ptr %9, null
+  %8 = load ptr, ptr %ts_upper_bound_, align 8
+  %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.end63, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmSt7greaterImEET_SA_SA_RKT0_T1_.exit
-  %size_.i = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i64, ptr %size_.i, align 8
-  %cmp.i = icmp eq i64 %10, 0
+  %size_.i = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = load i64, ptr %size_.i, align 8
+  %cmp.i = icmp eq i64 %9, 0
   br i1 %cmp.i, label %if.end63, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %11 = load i64, ptr %seq_start_idx, align 8
+  %10 = load i64, ptr %seq_start_idx, align 8
   %tombstone_timestamps_.i = getelementptr inbounds i8, ptr %0, i64 48
-  %12 = load ptr, ptr %tombstone_timestamps_.i, align 8
-  %add.ptr.i.i.i.i.i27.idx = shl nsw i64 %11, 4
-  %add.ptr.i.i.i.i.i27 = getelementptr inbounds i8, ptr %12, i64 %add.ptr.i.i.i.i.i27.idx
-  %13 = load i64, ptr %seq_end_idx, align 8
-  %14 = sub nsw i64 %13, %11
-  %cmp7.i.i51 = icmp sgt i64 %14, 0
+  %11 = load ptr, ptr %tombstone_timestamps_.i, align 8
+  %add.ptr.i.i.i.i.i27.idx = shl nsw i64 %10, 4
+  %add.ptr.i.i.i.i.i27 = getelementptr inbounds i8, ptr %11, i64 %add.ptr.i.i.i.i.i27.idx
+  %12 = load i64, ptr %seq_end_idx, align 8
+  %add.ptr.i.i.i.i.i40.idx = shl nsw i64 %12, 4
+  %gepdiff117 = sub nsw i64 %add.ptr.i.i.i.i.i40.idx, %add.ptr.i.i.i.i.i27.idx
+  %sub.ptr.div.i.i.i.i.i50 = ashr exact i64 %gepdiff117, 4
+  %cmp7.i.i51 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i50, 0
   br i1 %cmp7.i.i51, label %while.body.lr.ph.i.i53, label %_ZNK7rocksdb28FragmentedRangeTombstoneList7ts_iterEm.exit81
 
 while.body.lr.ph.i.i53:                           ; preds = %if.then
@@ -3350,19 +3354,19 @@ while.body.lr.ph.i.i53:                           ; preds = %if.then
   br label %while.body.i.i54
 
 while.body.i.i54:                                 ; preds = %while.body.i.i54, %while.body.lr.ph.i.i53
-  %__len.09.i.i55 = phi i64 [ %14, %while.body.lr.ph.i.i53 ], [ %__len.1.i.i66, %while.body.i.i54 ]
+  %__len.09.i.i55 = phi i64 [ %sub.ptr.div.i.i.i.i.i50, %while.body.lr.ph.i.i53 ], [ %__len.1.i.i66, %while.body.i.i54 ]
   %__first.sroa.0.08.i.i56 = phi ptr [ %add.ptr.i.i.i.i.i27, %while.body.lr.ph.i.i53 ], [ %__first.sroa.0.1.i.i65, %while.body.i.i54 ]
   %shr.i.i57 = lshr i64 %__len.09.i.i55, 1
   %add.ptr.i.i.i.i.i60 = getelementptr inbounds %"class.rocksdb::Slice", ptr %__first.sroa.0.08.i.i56, i64 %shr.i.i57
-  %15 = load ptr, ptr %ucmp_.i.i.i.i, align 8
-  %vtable.i.i.i.i = load ptr, ptr %15, align 8
+  %13 = load ptr, ptr %ucmp_.i.i.i.i, align 8
+  %vtable.i.i.i.i = load ptr, ptr %13, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 200
-  %16 = load ptr, ptr %vfn.i.i.i.i, align 8
-  %call.i.i.i.i = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i60, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %14 = load ptr, ptr %vfn.i.i.i.i, align 8
+  %call.i.i.i.i = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i60, ptr noundef nonnull align 8 dereferenceable(16) %8)
   %cmp.i.i5.i.i63 = icmp sgt i32 %call.i.i.i.i, 0
   %incdec.ptr.i.i.i64 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i60, i64 16
-  %17 = xor i64 %shr.i.i57, -1
-  %sub11.i.i = add nsw i64 %__len.09.i.i55, %17
+  %15 = xor i64 %shr.i.i57, -1
+  %sub11.i.i = add nsw i64 %__len.09.i.i55, %15
   %__first.sroa.0.1.i.i65 = select i1 %cmp.i.i5.i.i63, ptr %incdec.ptr.i.i.i64, ptr %__first.sroa.0.08.i.i56
   %__len.1.i.i66 = select i1 %cmp.i.i5.i.i63, i64 %sub11.i.i, i64 %shr.i.i57
   %cmp.i.i67 = icmp sgt i64 %__len.1.i.i66, 0
@@ -3378,20 +3382,20 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb5SliceESt6vectorIS3_
   br label %_ZNK7rocksdb28FragmentedRangeTombstoneList7ts_iterEm.exit81
 
 _ZNK7rocksdb28FragmentedRangeTombstoneList7ts_iterEm.exit81: ; preds = %if.then, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEES3_ZNS2_32FragmentedRangeTombstoneIterator28SetMaxVisibleSeqAndTimestampEvEUlRS4_SB_E_ET_SD_SD_RKT0_T1_.exit.loopexit
-  %18 = phi ptr [ %12, %if.then ], [ %.pre116, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEES3_ZNS2_32FragmentedRangeTombstoneIterator28SetMaxVisibleSeqAndTimestampEvEUlRS4_SB_E_ET_SD_SD_RKT0_T1_.exit.loopexit ]
-  %19 = phi i64 [ %11, %if.then ], [ %.pre115, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEES3_ZNS2_32FragmentedRangeTombstoneIterator28SetMaxVisibleSeqAndTimestampEvEUlRS4_SB_E_ET_SD_SD_RKT0_T1_.exit.loopexit ]
-  %20 = phi ptr [ %0, %if.then ], [ %.pre, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEES3_ZNS2_32FragmentedRangeTombstoneIterator28SetMaxVisibleSeqAndTimestampEvEUlRS4_SB_E_ET_SD_SD_RKT0_T1_.exit.loopexit ]
+  %16 = phi ptr [ %11, %if.then ], [ %.pre116, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEES3_ZNS2_32FragmentedRangeTombstoneIterator28SetMaxVisibleSeqAndTimestampEvEUlRS4_SB_E_ET_SD_SD_RKT0_T1_.exit.loopexit ]
+  %17 = phi i64 [ %10, %if.then ], [ %.pre115, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEES3_ZNS2_32FragmentedRangeTombstoneIterator28SetMaxVisibleSeqAndTimestampEvEUlRS4_SB_E_ET_SD_SD_RKT0_T1_.exit.loopexit ]
+  %18 = phi ptr [ %0, %if.then ], [ %.pre, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEES3_ZNS2_32FragmentedRangeTombstoneIterator28SetMaxVisibleSeqAndTimestampEvEUlRS4_SB_E_ET_SD_SD_RKT0_T1_.exit.loopexit ]
   %__first.sroa.0.0.lcssa.i.i52 = phi ptr [ %add.ptr.i.i.i.i.i27, %if.then ], [ %__first.sroa.0.1.i.i65, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEES3_ZNS2_32FragmentedRangeTombstoneIterator28SetMaxVisibleSeqAndTimestampEvEUlRS4_SB_E_ET_SD_SD_RKT0_T1_.exit.loopexit ]
-  %add.ptr.i.i.i.i.i75 = getelementptr inbounds %"class.rocksdb::Slice", ptr %18, i64 %19
+  %add.ptr.i.i.i.i.i75 = getelementptr inbounds %"class.rocksdb::Slice", ptr %16, i64 %17
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.0.lcssa.i.i52 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i.i.i.i.i75 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %tombstone_seqs_.i82 = getelementptr inbounds i8, ptr %20, i64 24
-  %21 = load ptr, ptr %tombstone_seqs_.i82, align 8
-  %add.ptr.i.i.i.i.i89 = getelementptr inbounds i64, ptr %21, i64 %19
-  %22 = load ptr, ptr %seq_pos_, align 8
-  %sub.ptr.lhs.cast.i96 = ptrtoint ptr %22 to i64
+  %tombstone_seqs_.i82 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = load ptr, ptr %tombstone_seqs_.i82, align 8
+  %add.ptr.i.i.i.i.i89 = getelementptr inbounds i64, ptr %19, i64 %17
+  %20 = load ptr, ptr %seq_pos_, align 8
+  %sub.ptr.lhs.cast.i96 = ptrtoint ptr %20 to i64
   %sub.ptr.rhs.cast.i97 = ptrtoint ptr %add.ptr.i.i.i.i.i89 to i64
   %sub.ptr.sub.i98 = sub i64 %sub.ptr.lhs.cast.i96, %sub.ptr.rhs.cast.i97
   %sub.ptr.div.i99 = ashr exact i64 %sub.ptr.sub.i98, 3
@@ -3399,8 +3403,8 @@ _ZNK7rocksdb28FragmentedRangeTombstoneList7ts_iterEm.exit81: ; preds = %if.then,
   br i1 %cmp, label %_ZNK7rocksdb28FragmentedRangeTombstoneList8seq_iterEm.exit113, label %if.end63
 
 _ZNK7rocksdb28FragmentedRangeTombstoneList8seq_iterEm.exit113: ; preds = %_ZNK7rocksdb28FragmentedRangeTombstoneList7ts_iterEm.exit81
-  %23 = getelementptr i64, ptr %21, i64 %sub.ptr.div.i
-  %add.ptr.i.i.i.i.i107 = getelementptr i64, ptr %23, i64 %19
+  %21 = getelementptr i64, ptr %19, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i.i.i107 = getelementptr i64, ptr %21, i64 %17
   store ptr %add.ptr.i.i.i.i.i107, ptr %seq_pos_, align 8
   br label %if.end63
 

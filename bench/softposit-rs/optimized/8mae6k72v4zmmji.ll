@@ -164,10 +164,10 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %31 = zext nneg i32 %30 to i64
   %32 = lshr i64 2305843009213693952, %31
   %33 = and i64 %29, %32
-  %34 = add nsw i64 %32, -1
-  %35 = ashr i64 -2305843009213693953, %31
-  %36 = xor i64 %34, %35
-  %37 = and i64 %36, %29
+  %34 = xor i64 %33, %29
+  %35 = add nuw i64 %32, 9223372036854775807
+  %36 = and i64 %35, %29
+  %37 = xor i64 %34, %36
   %38 = icmp eq i64 %33, 0
   br i1 %38, label %39, label %45
 
@@ -182,8 +182,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
 
 45:                                               ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i
   %46 = lshr i64 4611686018427387904, %31
-  %47 = or i64 %34, %46
-  %48 = and i64 %47, %29
+  %47 = and i64 %29, %46
+  %48 = or i64 %36, %47
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %39, label %50
 
@@ -351,10 +351,10 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %38 = zext nneg i32 %37 to i64
   %39 = lshr i64 2305843009213693952, %38
   %40 = and i64 %36, %39
-  %41 = add nsw i64 %39, -1
-  %42 = ashr i64 -2305843009213693953, %38
-  %43 = xor i64 %41, %42
-  %44 = and i64 %43, %36
+  %41 = xor i64 %40, %36
+  %42 = add nuw i64 %39, 9223372036854775807
+  %43 = and i64 %42, %36
+  %44 = xor i64 %41, %43
   %45 = icmp eq i64 %40, 0
   br i1 %45, label %46, label %52
 
@@ -369,8 +369,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
 
 52:                                               ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i
   %53 = lshr i64 4611686018427387904, %38
-  %54 = or i64 %41, %53
-  %55 = and i64 %54, %36
+  %54 = and i64 %36, %53
+  %55 = or i64 %43, %54
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %46, label %57
 
@@ -1004,10 +1004,10 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %49 = zext nneg i32 %48 to i64
   %50 = lshr i64 2305843009213693952, %49
   %51 = and i64 %47, %50
-  %52 = add nsw i64 %50, -1
-  %53 = ashr i64 -2305843009213693953, %49
-  %54 = xor i64 %52, %53
-  %55 = and i64 %54, %47
+  %52 = xor i64 %51, %47
+  %53 = add nuw i64 %50, 9223372036854775807
+  %54 = and i64 %53, %47
+  %55 = xor i64 %52, %54
   %56 = icmp eq i64 %51, 0
   br i1 %56, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %63
 
@@ -1023,8 +1023,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
 
 63:                                               ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i
   %64 = lshr i64 4611686018427387904, %49
-  %65 = or i64 %52, %64
-  %66 = and i64 %65, %47
+  %65 = and i64 %47, %64
+  %66 = or i64 %54, %65
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %68
 
@@ -1089,10 +1089,10 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %97 = zext nneg i32 %96 to i64
   %98 = lshr i64 2305843009213693952, %97
   %99 = and i64 %95, %98
-  %100 = add nsw i64 %98, -1
-  %101 = ashr i64 -2305843009213693953, %97
-  %102 = xor i64 %100, %101
-  %103 = and i64 %102, %95
+  %100 = xor i64 %99, %95
+  %101 = add nuw i64 %98, 9223372036854775807
+  %102 = and i64 %101, %95
+  %103 = xor i64 %100, %102
   %104 = icmp eq i64 %99, 0
   br i1 %104, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit86", label %111
 
@@ -1108,8 +1108,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
 
 111:                                              ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i76
   %112 = lshr i64 4611686018427387904, %97
-  %113 = or i64 %100, %112
-  %114 = and i64 %113, %95
+  %113 = and i64 %95, %112
+  %114 = or i64 %102, %113
   %115 = icmp eq i64 %114, 0
   br i1 %115, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit86", label %116
 
@@ -1219,10 +1219,10 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %166 = zext nneg i32 %165 to i64
   %167 = lshr i64 2305843009213693952, %166
   %168 = and i64 %164, %167
-  %169 = add nsw i64 %167, -1
-  %170 = ashr i64 -2305843009213693953, %166
-  %171 = xor i64 %169, %170
-  %172 = and i64 %171, %164
+  %169 = xor i64 %168, %164
+  %170 = add nuw i64 %167, 9223372036854775807
+  %171 = and i64 %170, %164
+  %172 = xor i64 %169, %171
   %173 = icmp eq i64 %168, 0
   br i1 %173, label %174, label %180
 
@@ -1237,8 +1237,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
 
 180:                                              ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i.i
   %181 = lshr i64 4611686018427387904, %166
-  %182 = or i64 %169, %181
-  %183 = and i64 %182, %164
+  %182 = and i64 %164, %181
+  %183 = or i64 %171, %182
   %184 = icmp eq i64 %183, 0
   br i1 %184, label %174, label %185
 
@@ -1702,10 +1702,10 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %44 = zext nneg i32 %43 to i64
   %45 = lshr i64 2305843009213693952, %44
   %46 = and i64 %42, %45
-  %47 = add nsw i64 %45, -1
-  %48 = ashr i64 -2305843009213693953, %44
-  %49 = xor i64 %47, %48
-  %50 = and i64 %49, %42
+  %47 = xor i64 %46, %42
+  %48 = add nuw i64 %45, 9223372036854775807
+  %49 = and i64 %48, %42
+  %50 = xor i64 %47, %49
   %51 = icmp eq i64 %46, 0
   br i1 %51, label %52, label %59
 
@@ -1721,8 +1721,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
 
 59:                                               ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i
   %60 = lshr i64 4611686018427387904, %44
-  %61 = or i64 %47, %60
-  %62 = and i64 %61, %42
+  %61 = and i64 %42, %60
+  %62 = or i64 %49, %61
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %52, label %64
 
@@ -1904,10 +1904,10 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %51 = zext nneg i32 %50 to i64
   %52 = lshr i64 2305843009213693952, %51
   %53 = and i64 %49, %52
-  %54 = add nsw i64 %52, -1
-  %55 = ashr i64 -2305843009213693953, %51
-  %56 = xor i64 %54, %55
-  %57 = and i64 %56, %49
+  %54 = xor i64 %53, %49
+  %55 = add nuw i64 %52, 9223372036854775807
+  %56 = and i64 %55, %49
+  %57 = xor i64 %54, %56
   %58 = icmp eq i64 %53, 0
   br i1 %58, label %59, label %65
 
@@ -1922,8 +1922,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
 
 65:                                               ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i
   %66 = lshr i64 4611686018427387904, %51
-  %67 = or i64 %54, %66
-  %68 = and i64 %67, %49
+  %67 = and i64 %49, %66
+  %68 = or i64 %56, %67
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %59, label %70
 
@@ -2172,10 +2172,10 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %48 = zext nneg i32 %47 to i64
   %49 = lshr i64 2305843009213693952, %48
   %50 = and i64 %46, %49
-  %51 = add nsw i64 %49, -1
-  %52 = ashr i64 -2305843009213693953, %48
-  %53 = xor i64 %51, %52
-  %54 = and i64 %53, %46
+  %51 = xor i64 %50, %46
+  %52 = add nuw i64 %49, 9223372036854775807
+  %53 = and i64 %52, %46
+  %54 = xor i64 %51, %53
   %55 = icmp eq i64 %50, 0
   br i1 %55, label %56, label %62
 
@@ -2190,8 +2190,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
 
 62:                                               ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i
   %63 = lshr i64 4611686018427387904, %48
-  %64 = or i64 %51, %63
-  %65 = and i64 %64, %46
+  %64 = and i64 %46, %63
+  %65 = or i64 %53, %64
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %56, label %67
 
@@ -2380,10 +2380,10 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %41 = zext nneg i32 %40 to i64
   %42 = lshr i64 2305843009213693952, %41
   %43 = and i64 %39, %42
-  %44 = add nsw i64 %42, -1
-  %45 = ashr i64 -2305843009213693953, %41
-  %46 = xor i64 %44, %45
-  %47 = and i64 %46, %39
+  %44 = xor i64 %43, %39
+  %45 = add nuw i64 %42, 9223372036854775807
+  %46 = and i64 %45, %39
+  %47 = xor i64 %44, %46
   %48 = icmp eq i64 %43, 0
   br i1 %48, label %49, label %56
 
@@ -2399,8 +2399,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
 
 56:                                               ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i
   %57 = lshr i64 4611686018427387904, %41
-  %58 = or i64 %44, %57
-  %59 = and i64 %58, %39
+  %58 = and i64 %39, %57
+  %59 = or i64 %46, %58
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %49, label %61
 
@@ -3122,10 +3122,10 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %58 = zext nneg i32 %57 to i64
   %59 = lshr i64 2305843009213693952, %58
   %60 = and i64 %56, %59
-  %61 = add nsw i64 %59, -1
-  %62 = ashr i64 -2305843009213693953, %58
-  %63 = xor i64 %61, %62
-  %64 = and i64 %63, %56
+  %61 = xor i64 %60, %56
+  %62 = add nuw i64 %59, 9223372036854775807
+  %63 = and i64 %62, %56
+  %64 = xor i64 %61, %63
   %65 = icmp eq i64 %60, 0
   br i1 %65, label %66, label %72
 
@@ -3140,8 +3140,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
 
 72:                                               ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i
   %73 = lshr i64 4611686018427387904, %58
-  %74 = or i64 %61, %73
-  %75 = and i64 %74, %56
+  %74 = and i64 %56, %73
+  %75 = or i64 %63, %74
   %76 = icmp eq i64 %75, 0
   br i1 %76, label %66, label %77
 
@@ -3279,10 +3279,10 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %47 = zext nneg i32 %46 to i64
   %48 = lshr i64 2305843009213693952, %47
   %49 = and i64 %45, %48
-  %50 = add nsw i64 %48, -1
-  %51 = ashr i64 -2305843009213693953, %47
-  %52 = xor i64 %50, %51
-  %53 = and i64 %52, %45
+  %50 = xor i64 %49, %45
+  %51 = add nuw i64 %48, 9223372036854775807
+  %52 = and i64 %51, %45
+  %53 = xor i64 %50, %52
   %54 = icmp eq i64 %49, 0
   br i1 %54, label %55, label %61
 
@@ -3297,8 +3297,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
 
 61:                                               ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i
   %62 = lshr i64 4611686018427387904, %47
-  %63 = or i64 %50, %62
-  %64 = and i64 %63, %45
+  %63 = and i64 %45, %62
+  %64 = or i64 %52, %63
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %55, label %66
 
@@ -3400,10 +3400,10 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %38 = zext nneg i32 %37 to i64
   %39 = lshr i64 2305843009213693952, %38
   %40 = and i64 %36, %39
-  %41 = add nsw i64 %39, -1
-  %42 = ashr i64 -2305843009213693953, %38
-  %43 = xor i64 %41, %42
-  %44 = and i64 %43, %36
+  %41 = xor i64 %40, %36
+  %42 = add nuw i64 %39, 9223372036854775807
+  %43 = and i64 %42, %36
+  %44 = xor i64 %41, %43
   %45 = icmp eq i64 %40, 0
   br i1 %45, label %46, label %52
 
@@ -3418,8 +3418,8 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
 
 52:                                               ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i
   %53 = lshr i64 4611686018427387904, %38
-  %54 = or i64 %41, %53
-  %55 = and i64 %54, %36
+  %54 = and i64 %36, %53
+  %55 = or i64 %43, %54
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %46, label %57
 

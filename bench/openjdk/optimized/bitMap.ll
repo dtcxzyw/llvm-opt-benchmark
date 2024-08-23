@@ -407,9 +407,8 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(p
 .lr.ph.preheader.i.i:                             ; preds = %19
   %27 = shl nuw nsw i64 %8, 3
   %scevgep.i.i = getelementptr i8, ptr %17, i64 %27
-  %28 = sub nuw nsw i64 %10, %8
-  %29 = shl nuw nsw i64 %28, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %29, i1 false)
+  %28 = sub nsw i64 %16, %27
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %28, i1 false)
   br label %_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb.exit
 
 _ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb.exit: ; preds = %12, %13, %19, %.lr.ph.preheader.i.i
@@ -592,8 +591,8 @@ _ZN6BitMap18set_range_of_wordsEmm.exit:           ; preds = %9, %10
   %17 = load ptr, ptr %0, align 8
   %18 = shl nuw nsw i64 %5, 3
   %scevgep.i = getelementptr i8, ptr %17, i64 %18
-  %19 = sub nuw nsw i64 %6, %5
-  %20 = shl nuw nsw i64 %19, 3
+  %19 = shl nuw nsw i64 %6, 3
+  %20 = sub nsw i64 %19, %18
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 -1, i64 %20, i1 false)
   %21 = and i64 %2, 63
   %.not.i19 = icmp eq i64 %21, 0
@@ -687,8 +686,8 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %9, %10
   %18 = load ptr, ptr %0, align 8
   %19 = shl nuw nsw i64 %5, 3
   %scevgep.i.i = getelementptr i8, ptr %18, i64 %19
-  %20 = sub nuw nsw i64 %6, %5
-  %21 = shl nuw nsw i64 %20, 3
+  %20 = shl nuw nsw i64 %6, 3
+  %21 = sub nsw i64 %20, %19
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %21, i1 false)
   %22 = and i64 %2, 63
   %.not.i19 = icmp eq i64 %22, 0
@@ -792,8 +791,8 @@ _ZN6BitMap18set_range_of_wordsEmm.exit.i:         ; preds = %12, %11
   %19 = load ptr, ptr %0, align 8
   %20 = shl nuw nsw i64 %5, 3
   %scevgep.i.i = getelementptr i8, ptr %19, i64 %20
-  %21 = sub nuw nsw i64 %6, %5
-  %22 = shl nuw nsw i64 %21, 3
+  %21 = shl nuw nsw i64 %6, 3
+  %22 = sub nsw i64 %21, %20
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 -1, i64 %22, i1 false)
   %23 = and i64 %2, 63
   %.not.i19.i = icmp eq i64 %23, 0
@@ -925,8 +924,8 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit.i:       ; preds = %12, %11
   %20 = load ptr, ptr %0, align 8
   %21 = shl nuw nsw i64 %5, 3
   %scevgep.i.i.i = getelementptr i8, ptr %20, i64 %21
-  %22 = sub nuw nsw i64 %6, %5
-  %23 = shl nuw nsw i64 %22, 3
+  %22 = shl nuw nsw i64 %6, 3
+  %23 = sub nsw i64 %22, %21
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %23, i1 false)
   %24 = and i64 %2, 63
   %.not.i19.i = icmp eq i64 %24, 0
@@ -1130,8 +1129,8 @@ _ZN6BitMap18set_range_of_wordsEmm.exit.i:         ; preds = %12, %11
   %19 = load ptr, ptr %0, align 8
   %20 = shl nuw nsw i64 %6, 3
   %scevgep.i.i = getelementptr i8, ptr %19, i64 %20
-  %21 = sub nuw nsw i64 %7, %6
-  %22 = shl nuw nsw i64 %21, 3
+  %21 = shl nuw nsw i64 %7, 3
+  %22 = sub nsw i64 %21, %20
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 -1, i64 %22, i1 false)
   %23 = and i64 %2, 63
   %.not.i19.i = icmp eq i64 %23, 0
@@ -1215,8 +1214,8 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit.i:       ; preds = %52, %51
   %60 = load ptr, ptr %0, align 8
   %61 = shl nuw nsw i64 %6, 3
   %scevgep.i.i.i = getelementptr i8, ptr %60, i64 %61
-  %62 = sub nuw nsw i64 %7, %6
-  %63 = shl nuw nsw i64 %62, 3
+  %62 = shl nuw nsw i64 %7, 3
+  %63 = sub nsw i64 %62, %61
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i.i, i8 0, i64 %63, i1 false)
   %64 = and i64 %2, 63
   %.not.i19.i16 = icmp eq i64 %64, 0
@@ -1329,8 +1328,8 @@ _ZN6BitMap25par_put_range_within_wordEmmb.exit:   ; preds = %.lr.ph.split.i, %.l
   %31 = load ptr, ptr %0, align 8
   %32 = shl nuw nsw i64 %6, 3
   %scevgep.i = getelementptr i8, ptr %31, i64 %32
-  %33 = sub nuw nsw i64 %7, %6
-  %34 = shl nuw nsw i64 %33, 3
+  %33 = shl nuw nsw i64 %7, 3
+  %34 = sub nsw i64 %33, %32
   br i1 %3, label %_ZN6BitMap18set_range_of_wordsEmm.exit, label %_ZN6BitMap20clear_range_of_wordsEmm.exit
 
 _ZN6BitMap18set_range_of_wordsEmm.exit:           ; preds = %_ZN6BitMap25par_put_range_within_wordEmmb.exit
@@ -2711,9 +2710,8 @@ _ZNK11ArenaBitMap10reallocateEPmmm.exit:          ; preds = %_ZNK11ArenaBitMap8a
 .lr.ph.preheader.i:                               ; preds = %60
   %68 = shl nuw nsw i64 %8, 3
   %scevgep.i = getelementptr i8, ptr %.0.i.i.i.i.i, i64 %68
-  %69 = sub nuw nsw i64 %10, %8
-  %70 = shl nuw nsw i64 %69, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %70, i1 false)
+  %69 = sub nsw i64 %14, %68
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %69, i1 false)
   br label %_ZN6BitMap20clear_range_of_wordsEPmmm.exit
 
 _ZN6BitMap20clear_range_of_wordsEPmmm.exit:       ; preds = %_ZNK11ArenaBitMap10reallocateEPmmm.exit, %60, %.lr.ph.preheader.i, %3
@@ -2976,9 +2974,8 @@ _ZNK14ResourceBitMap10reallocateEPmmm.exit:       ; preds = %12, %.split11.i.i, 
 .lr.ph.preheader.i:                               ; preds = %49
   %57 = shl nuw nsw i64 %8, 3
   %scevgep.i = getelementptr i8, ptr %14, i64 %57
-  %58 = sub nuw nsw i64 %10, %8
-  %59 = shl nuw nsw i64 %58, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %59, i1 false)
+  %58 = sub nsw i64 %13, %57
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %58, i1 false)
   br label %_ZN6BitMap20clear_range_of_wordsEPmmm.exit
 
 _ZN6BitMap20clear_range_of_wordsEPmmm.exit:       ; preds = %_ZNK14ResourceBitMap10reallocateEPmmm.exit, %49, %.lr.ph.preheader.i, %3
@@ -3150,9 +3147,8 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb(ptr no
 .lr.ph.preheader.i:                               ; preds = %19
   %27 = shl nuw nsw i64 %8, 3
   %scevgep.i = getelementptr i8, ptr %17, i64 %27
-  %28 = sub nuw nsw i64 %10, %8
-  %29 = shl nuw nsw i64 %28, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %29, i1 false)
+  %28 = sub nsw i64 %16, %27
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %28, i1 false)
   br label %_ZN6BitMap20clear_range_of_wordsEPmmm.exit
 
 _ZN6BitMap20clear_range_of_wordsEPmmm.exit:       ; preds = %13, %19, %.lr.ph.preheader.i, %12

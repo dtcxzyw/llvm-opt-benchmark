@@ -1288,9 +1288,10 @@ sw.bb41:                                          ; preds = %_ZN4abslL10SplitToS
   store i24 %exp_dig.sroa.0.sroa.10.0.extract.trunc, ptr %arrayidx22, align 1
   %add.ptr43 = getelementptr inbounds i8, ptr %out.1, i64 4
   %retval.sroa.4.8.insert.ext.i = lshr i32 %conv4.i106.i, 8
+  %exp_dig.sroa.14.9.extract.shift143 = and i32 %retval.sroa.4.8.insert.ext.i, 255
   %exp_dig.sroa.14.9.extract.trunc144 = trunc i32 %retval.sroa.4.8.insert.ext.i to i8
-  %exp_dig.sroa.14.9.extract.shift143176 = or i32 %retval.sroa.4.8.insert.ext.i, %add.i105.i
-  %conv45171.mask = and i32 %exp_dig.sroa.14.9.extract.shift143176, 255
+  %add.i105.i.masked = and i32 %add.i105.i, 255
+  %conv45171.mask = or i32 %exp_dig.sroa.14.9.extract.shift143, %add.i105.i.masked
   %cmp48.not = icmp eq i32 %conv45171.mask, 48
   br i1 %cmp48.not, label %if.end60, label %if.then49
 
@@ -1300,8 +1301,7 @@ if.then49:                                        ; preds = %sw.bb41
   store i8 46, ptr %add.ptr43, align 1
   %incdec.ptr52 = getelementptr inbounds i8, ptr %out.1, i64 6
   store i8 %exp_dig.sroa.14.8.extract.trunc138, ptr %incdec.ptr50, align 1
-  %15 = and i32 %conv4.i106.i, 65280
-  %cmp55.not = icmp eq i32 %15, 12288
+  %cmp55.not = icmp eq i32 %exp_dig.sroa.14.9.extract.shift143, 48
   br i1 %cmp55.not, label %if.end60, label %if.then56
 
 if.then56:                                        ; preds = %if.then49
@@ -1336,8 +1336,8 @@ sw.bb64:                                          ; preds = %_ZN4abslL10SplitToS
 while.cond:                                       ; preds = %while.cond, %sw.bb64
   %out.7 = phi ptr [ %add.ptr69, %sw.bb64 ], [ %arrayidx70, %while.cond ]
   %arrayidx70 = getelementptr inbounds i8, ptr %out.7, i64 -1
-  %16 = load i8, ptr %arrayidx70, align 1
-  switch i8 %16, label %if.end79.loopexit [
+  %15 = load i8, ptr %arrayidx70, align 1
+  switch i8 %15, label %if.end79.loopexit [
     i8 48, label %while.cond
     i8 46, label %if.end79
   ]
@@ -1371,8 +1371,8 @@ sw.bb83:                                          ; preds = %_ZN4abslL10SplitToS
 while.cond89:                                     ; preds = %while.cond89, %sw.bb83
   %out.9 = phi ptr [ %add.ptr88, %sw.bb83 ], [ %arrayidx90, %while.cond89 ]
   %arrayidx90 = getelementptr inbounds i8, ptr %out.9, i64 -1
-  %17 = load i8, ptr %arrayidx90, align 1
-  switch i8 %17, label %if.end101.loopexit [
+  %16 = load i8, ptr %arrayidx90, align 1
+  switch i8 %16, label %if.end101.loopexit [
     i8 48, label %while.cond89
     i8 46, label %if.end101
   ]
@@ -1401,8 +1401,8 @@ sw.bb105:                                         ; preds = %_ZN4abslL10SplitToS
 while.cond111:                                    ; preds = %while.cond111, %sw.bb105
   %out.11 = phi ptr [ %add.ptr110, %sw.bb105 ], [ %arrayidx112, %while.cond111 ]
   %arrayidx112 = getelementptr inbounds i8, ptr %out.11, i64 -1
-  %18 = load i8, ptr %arrayidx112, align 1
-  switch i8 %18, label %if.end123.loopexit [
+  %17 = load i8, ptr %arrayidx112, align 1
+  switch i8 %17, label %if.end123.loopexit [
     i8 48, label %while.cond111
     i8 46, label %if.end123
   ]
@@ -1452,8 +1452,8 @@ sw.bb136:                                         ; preds = %sw.bb133, %_ZN4absl
 while.cond140:                                    ; preds = %while.cond140, %sw.bb136
   %out.13 = phi ptr [ %add.ptr139, %sw.bb136 ], [ %arrayidx141, %while.cond140 ]
   %arrayidx141 = getelementptr inbounds i8, ptr %out.13, i64 -1
-  %19 = load i8, ptr %arrayidx141, align 1
-  %cmp143 = icmp eq i8 %19, 48
+  %18 = load i8, ptr %arrayidx141, align 1
+  %cmp143 = icmp eq i8 %18, 48
   br i1 %cmp143, label %while.cond140, label %while.end146, !llvm.loop !5
 
 while.end146:                                     ; preds = %while.cond140
@@ -1476,8 +1476,8 @@ sw.epilog:                                        ; preds = %_ZN4abslL10SplitToS
 while.cond155:                                    ; preds = %while.cond155, %sw.epilog
   %out.14 = phi ptr [ %add.ptr154, %sw.epilog ], [ %arrayidx156, %while.cond155 ]
   %arrayidx156 = getelementptr inbounds i8, ptr %out.14, i64 -1
-  %20 = load i8, ptr %arrayidx156, align 1
-  switch i8 %20, label %if.end167.loopexit [
+  %19 = load i8, ptr %arrayidx156, align 1
+  switch i8 %19, label %if.end167.loopexit [
     i8 48, label %while.cond155
     i8 46, label %if.end167
   ]
@@ -1491,35 +1491,35 @@ if.end167:                                        ; preds = %while.cond155, %if.
   store i8 101, ptr %out.15, align 1
   %cmp169 = icmp sgt i32 %spec.select81.i, 0
   %spec.select = select i1 %cmp169, i8 43, i8 45
-  %spec.select205 = tail call i32 @llvm.abs.i32(i32 %spec.select81.i, i1 true)
+  %spec.select206 = tail call i32 @llvm.abs.i32(i32 %spec.select81.i, i1 true)
   store i8 %spec.select, ptr %incdec.ptr168, align 1
   %out.16 = getelementptr inbounds i8, ptr %out.15, i64 2
-  %cmp174 = icmp ugt i32 %spec.select205, 99
+  %cmp174 = icmp ugt i32 %spec.select206, 99
   br i1 %cmp174, label %if.then175, label %if.end181
 
 if.then175:                                       ; preds = %if.end167
-  %div = udiv i32 %spec.select205, 100
+  %div = udiv i32 %spec.select206, 100
   %mul.neg = mul nsw i32 %div, -100
-  %sub176 = add nsw i32 %mul.neg, %spec.select205
-  %21 = trunc i32 %div to i8
-  %conv179 = add i8 %21, 48
+  %sub176 = add nsw i32 %mul.neg, %spec.select206
+  %20 = trunc i32 %div to i8
+  %conv179 = add i8 %20, 48
   %incdec.ptr180 = getelementptr inbounds i8, ptr %out.15, i64 3
   store i8 %conv179, ptr %out.16, align 1
   br label %if.end181
 
 if.end181:                                        ; preds = %if.then175, %if.end167
   %out.17 = phi ptr [ %incdec.ptr180, %if.then175 ], [ %out.16, %if.end167 ]
-  %exp.1 = phi i32 [ %sub176, %if.then175 ], [ %spec.select205, %if.end167 ]
-  %conv.i173 = zext i32 %exp.1 to i64
-  %mul.i174 = mul nuw nsw i64 %conv.i173, 103
-  %div4.i = lshr i64 %mul.i174, 10
+  %exp.1 = phi i32 [ %sub176, %if.then175 ], [ %spec.select206, %if.end167 ]
+  %conv.i174 = zext i32 %exp.1 to i64
+  %mul.i175 = mul nuw nsw i64 %conv.i174, 103
+  %div4.i = lshr i64 %mul.i175, 10
   %conv1.i = trunc nuw nsw i64 %div4.i to i32
   %mul2.neg.i = mul i32 %conv1.i, 246
   %sub.i = add i32 %mul2.neg.i, %exp.1
-  %shl.i175 = shl i32 %sub.i, 8
-  %add.i = add i32 %shl.i175, %conv1.i
-  %22 = trunc i32 %add.i to i16
-  %conv4.i = add i16 %22, 12336
+  %shl.i176 = shl i32 %sub.i, 8
+  %add.i = add i32 %shl.i176, %conv1.i
+  %21 = trunc i32 %add.i to i16
+  %conv4.i = add i16 %21, 12336
   store i16 %conv4.i, ptr %out.17, align 1
   %add.ptr182 = getelementptr inbounds i8, ptr %out.17, i64 2
   store i8 0, ptr %add.ptr182, align 1

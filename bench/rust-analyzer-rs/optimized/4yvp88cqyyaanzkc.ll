@@ -1340,12 +1340,13 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %8 = shl i64 %.promoted.i.i, 2
   %9 = getelementptr i8, ptr %1, i64 %8
   %scevgep5.i = getelementptr i8, ptr %9, i64 16
-  %10 = sub i64 %4, %.promoted.i.i
-  %11 = shl i64 %10, 2
+  %10 = shl i64 %4, 2
+  %11 = sub i64 %10, %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i, ptr align 4 %scevgep5.i, i64 %11, i1 false), !noalias !548
-  %12 = add i64 %10, %.promoted5.i.i
+  %12 = sub i64 %4, %.promoted.i.i
+  %13 = add i64 %12, %.promoted5.i.i
   store i64 %4, ptr %1, align 8, !alias.scope !534, !noalias !537
-  store i64 %12, ptr %6, align 8, !alias.scope !540, !noalias !545
+  store i64 %13, ptr %6, align 8, !alias.scope !540, !noalias !545
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6f33155c7341504fE.llvm.6093752533286553222.exit"
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6f33155c7341504fE.llvm.6093752533286553222.exit": ; preds = %2, %.lr.ph.i.i
@@ -1373,12 +1374,13 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %scevgep.i = getelementptr i8, ptr %.pre.i.i, i64 %8
   %9 = shl i64 %.promoted.i.i, 2
   %scevgep5.i = getelementptr i8, ptr %1, i64 %9
-  %10 = sub i64 %5, %.promoted.i.i
-  %11 = shl i64 %10, 2
+  %10 = shl i64 %5, 2
+  %11 = sub i64 %10, %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i, ptr align 4 %scevgep5.i, i64 %11, i1 false), !noalias !571
-  %12 = add i64 %10, %.promoted5.i.i
+  %12 = sub i64 %5, %.promoted.i.i
+  %13 = add i64 %12, %.promoted5.i.i
   store i64 %5, ptr %3, align 8, !alias.scope !557, !noalias !560
-  store i64 %12, ptr %7, align 8, !alias.scope !563, !noalias !568
+  store i64 %13, ptr %7, align 8, !alias.scope !563, !noalias !568
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbe96b092c9da4a8aE.llvm.6093752533286553222.exit"
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbe96b092c9da4a8aE.llvm.6093752533286553222.exit": ; preds = %2, %.lr.ph.i.i
@@ -1406,12 +1408,13 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %8 = shl i64 %.promoted.i.i, 2
   %9 = getelementptr i8, ptr %1, i64 %8
   %scevgep5.i = getelementptr i8, ptr %9, i64 16
-  %10 = sub i64 %4, %.promoted.i.i
-  %11 = shl i64 %10, 2
+  %10 = shl i64 %4, 2
+  %11 = sub i64 %10, %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i, ptr align 4 %scevgep5.i, i64 %11, i1 false), !noalias !594
-  %12 = add i64 %10, %.promoted5.i.i
+  %12 = sub i64 %4, %.promoted.i.i
+  %13 = add i64 %12, %.promoted5.i.i
   store i64 %4, ptr %1, align 8, !alias.scope !580, !noalias !583
-  store i64 %12, ptr %6, align 8, !alias.scope !586, !noalias !591
+  store i64 %13, ptr %6, align 8, !alias.scope !586, !noalias !591
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6100815ea75e458dE.llvm.6093752533286553222.exit"
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6100815ea75e458dE.llvm.6093752533286553222.exit": ; preds = %2, %.lr.ph.i.i
@@ -6967,8 +6970,8 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %8 = shl i64 %.promoted.i, 2
   %9 = getelementptr i8, ptr %0, i64 %8
   %scevgep5 = getelementptr i8, ptr %9, i64 16
-  %10 = sub i64 %4, %.promoted.i
-  %11 = shl i64 %10, 2
+  %10 = shl i64 %4, 2
+  %11 = sub i64 %10, %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 4 %scevgep5, i64 %11, i1 false), !noalias !2389
   %12 = add i64 %4, %.promoted5.i
   %13 = sub i64 %12, %.promoted.i
@@ -6999,8 +7002,8 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %8 = shl i64 %.promoted.i, 2
   %9 = getelementptr i8, ptr %0, i64 %8
   %scevgep5 = getelementptr i8, ptr %9, i64 16
-  %10 = sub i64 %4, %.promoted.i
-  %11 = shl i64 %10, 2
+  %10 = shl i64 %4, 2
+  %11 = sub i64 %10, %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 4 %scevgep5, i64 %11, i1 false), !noalias !2407
   %12 = add i64 %4, %.promoted5.i
   %13 = sub i64 %12, %.promoted.i
@@ -7031,8 +7034,8 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %scevgep = getelementptr i8, ptr %.pre.i, i64 %8
   %9 = shl i64 %.promoted.i, 2
   %scevgep5 = getelementptr i8, ptr %0, i64 %9
-  %10 = sub i64 %5, %.promoted.i
-  %11 = shl i64 %10, 2
+  %10 = shl i64 %5, 2
+  %11 = sub i64 %10, %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 4 %scevgep5, i64 %11, i1 false), !noalias !2425
   %12 = add i64 %5, %.promoted5.i
   %13 = sub i64 %12, %.promoted.i

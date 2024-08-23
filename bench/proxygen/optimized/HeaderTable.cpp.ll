@@ -1843,22 +1843,24 @@ _ZNSt6vectorIN8proxygen11HPACKHeaderESaIS1_EE6resizeEm.exit: ; preds = %if.then.
 define void @_ZN8proxygen11HeaderTable18updateResizedTableEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %oldTail, i32 noundef %oldLength, i32 noundef %newLength) unnamed_addr #5 align 2 {
 entry:
   %conv = zext i32 %oldTail to i64
+  %add.ptr.i.idx = shl nuw nsw i64 %conv, 5
   %conv9 = zext i32 %oldLength to i64
-  %0 = sub nsw i64 %conv9, %conv
-  %cmp4.i.i.i.i.i = icmp sgt i64 %0, 0
+  %add.ptr.i1.idx = shl nuw nsw i64 %conv9, 5
+  %gepdiff = sub nsw i64 %add.ptr.i1.idx, %add.ptr.i.idx
+  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %gepdiff, 5
+  %cmp4.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i, 0
   br i1 %cmp4.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8proxygen11HPACKHeaderESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %entry
   %table_ = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %table_, align 8
+  %0 = load ptr, ptr %table_, align 8
   %conv17 = zext i32 %newLength to i64
-  %add.ptr.i2 = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %1, i64 %conv17
-  %add.ptr.i1.idx = shl nuw nsw i64 %conv9, 5
-  %add.ptr.i1 = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i1.idx
+  %add.ptr.i2 = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %0, i64 %conv17
+  %add.ptr.i1 = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i1.idx
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
-  %__n.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %0, %for.body.i.i.i.i.i.preheader ]
+  %__n.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %__result.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr.i2, %for.body.i.i.i.i.i.preheader ]
   %__last.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr.i1, %for.body.i.i.i.i.i.preheader ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -32

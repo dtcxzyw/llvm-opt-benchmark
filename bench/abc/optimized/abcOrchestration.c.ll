@@ -6443,10 +6443,10 @@ define noalias noundef ptr @Abc_ManResubQuit2_1(ptr nocapture noundef readonly %
   %32 = getelementptr inbounds i8, ptr %17, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = lshr i32 %33, 7
+  %35 = and i32 %34, 1
   br i1 %or.cond, label %Dec_GraphAddNodeAnd.exit, label %Dec_GraphAddNodeOr.exit
 
 Dec_GraphAddNodeOr.exit:                          ; preds = %5
-  %35 = and i32 %34, 1
   %36 = getelementptr inbounds i8, ptr %21, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = lshr i32 %37, 7
@@ -6459,87 +6459,86 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %5
   %44 = or disjoint i32 %43, 16384
   %45 = xor i32 %35, 3
   %46 = xor i32 %39, 5
-  br label %61
+  br label %60
 
 Dec_GraphAddNodeAnd.exit:                         ; preds = %5
-  %47 = xor i32 %34, %29
-  %48 = and i32 %47, 1
-  %49 = or disjoint i32 %48, 2
-  %50 = getelementptr inbounds i8, ptr %21, i64 20
-  %51 = load i32, ptr %50, align 4
-  %52 = lshr i32 %51, 7
-  %53 = trunc i64 %19 to i32
-  %54 = xor i32 %52, %53
-  %55 = and i32 %54, 1
-  %56 = or disjoint i32 %55, 4
-  %57 = getelementptr inbounds i8, ptr %9, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 16, i1 false)
-  %58 = shl nuw nsw i32 %48, 15
-  %59 = shl nuw nsw i32 %55, 16
-  %60 = or disjoint i32 %59, %58
-  br label %61
+  %47 = xor i32 %35, %30
+  %48 = or disjoint i32 %47, 2
+  %49 = getelementptr inbounds i8, ptr %21, i64 20
+  %50 = load i32, ptr %49, align 4
+  %51 = lshr i32 %50, 7
+  %52 = trunc i64 %19 to i32
+  %53 = xor i32 %51, %52
+  %54 = and i32 %53, 1
+  %55 = or disjoint i32 %54, 4
+  %56 = getelementptr inbounds i8, ptr %9, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 16, i1 false)
+  %57 = shl nuw nsw i32 %47, 15
+  %58 = shl nuw nsw i32 %54, 16
+  %59 = or disjoint i32 %58, %57
+  br label %60
 
-61:                                               ; preds = %Dec_GraphAddNodeAnd.exit, %Dec_GraphAddNodeOr.exit
-  %.sink68 = phi i32 [ %49, %Dec_GraphAddNodeAnd.exit ], [ %45, %Dec_GraphAddNodeOr.exit ]
-  %.sink67 = phi i32 [ %56, %Dec_GraphAddNodeAnd.exit ], [ %46, %Dec_GraphAddNodeOr.exit ]
-  %.sink = phi i32 [ %60, %Dec_GraphAddNodeAnd.exit ], [ %44, %Dec_GraphAddNodeOr.exit ]
+60:                                               ; preds = %Dec_GraphAddNodeAnd.exit, %Dec_GraphAddNodeOr.exit
+  %.sink68 = phi i32 [ %48, %Dec_GraphAddNodeAnd.exit ], [ %45, %Dec_GraphAddNodeOr.exit ]
+  %.sink67 = phi i32 [ %55, %Dec_GraphAddNodeAnd.exit ], [ %46, %Dec_GraphAddNodeOr.exit ]
+  %.sink = phi i32 [ %59, %Dec_GraphAddNodeAnd.exit ], [ %44, %Dec_GraphAddNodeOr.exit ]
   %.sroa.015.0 = phi i32 [ 6, %Dec_GraphAddNodeAnd.exit ], [ 7, %Dec_GraphAddNodeOr.exit ]
-  %62 = getelementptr inbounds i8, ptr %9, i64 72
-  store i32 %.sink68, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %9, i64 76
-  store i32 %.sink67, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %9, i64 88
-  store i32 %.sink, ptr %64, align 8
+  %61 = getelementptr inbounds i8, ptr %9, i64 72
+  store i32 %.sink68, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %9, i64 76
+  store i32 %.sink67, ptr %62, align 4
+  %63 = getelementptr inbounds i8, ptr %9, i64 88
+  store i32 %.sink, ptr %63, align 8
   %.not42 = icmp eq i32 %4, 0
   store i32 5, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %9, i64 96
-  %66 = getelementptr inbounds i8, ptr %9, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 16, i1 false)
+  %64 = getelementptr inbounds i8, ptr %9, i64 96
+  %65 = getelementptr inbounds i8, ptr %9, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 16, i1 false)
   br i1 %.not42, label %Dec_GraphAddNodeAnd.exit65, label %Dec_GraphAddNodeOr.exit58
 
-Dec_GraphAddNodeOr.exit58:                        ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %9, i64 100
-  %68 = getelementptr inbounds i8, ptr %9, i64 112
-  %69 = shl nuw nsw i32 %28, 15
-  %70 = shl nuw nsw i32 %.sroa.015.0, 16
-  %71 = and i32 %70, 65536
-  %72 = or disjoint i32 %71, %69
-  %73 = or disjoint i32 %72, 16384
-  store i32 %73, ptr %68, align 8
-  %74 = xor i32 %28, 1
-  store i32 %74, ptr %65, align 8
-  %75 = xor i32 %.sroa.015.0, 1
-  store i32 %75, ptr %67, align 4
-  br label %82
+Dec_GraphAddNodeOr.exit58:                        ; preds = %60
+  %66 = getelementptr inbounds i8, ptr %9, i64 100
+  %67 = getelementptr inbounds i8, ptr %9, i64 112
+  %68 = shl nuw nsw i32 %28, 15
+  %69 = shl nuw nsw i32 %.sroa.015.0, 16
+  %70 = and i32 %69, 65536
+  %71 = or disjoint i32 %70, %68
+  %72 = or disjoint i32 %71, 16384
+  store i32 %72, ptr %67, align 8
+  %73 = xor i32 %28, 1
+  store i32 %73, ptr %64, align 8
+  %74 = xor i32 %.sroa.015.0, 1
+  store i32 %74, ptr %66, align 4
+  br label %81
 
-Dec_GraphAddNodeAnd.exit65:                       ; preds = %61
-  store i32 %28, ptr %65, align 8
-  %76 = getelementptr inbounds i8, ptr %9, i64 100
-  store i32 %.sroa.015.0, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %9, i64 112
-  %78 = shl nuw nsw i32 %28, 15
-  %79 = shl nuw nsw i32 %.sroa.015.0, 16
-  %80 = and i32 %79, 65536
-  %81 = or disjoint i32 %80, %78
-  store i32 %81, ptr %77, align 8
-  br label %82
+Dec_GraphAddNodeAnd.exit65:                       ; preds = %60
+  store i32 %28, ptr %64, align 8
+  %75 = getelementptr inbounds i8, ptr %9, i64 100
+  store i32 %.sroa.015.0, ptr %75, align 4
+  %76 = getelementptr inbounds i8, ptr %9, i64 112
+  %77 = shl nuw nsw i32 %28, 15
+  %78 = shl nuw nsw i32 %.sroa.015.0, 16
+  %79 = and i32 %78, 65536
+  %80 = or disjoint i32 %79, %77
+  store i32 %80, ptr %76, align 8
+  br label %81
 
-82:                                               ; preds = %Dec_GraphAddNodeAnd.exit65, %Dec_GraphAddNodeOr.exit58
+81:                                               ; preds = %Dec_GraphAddNodeAnd.exit65, %Dec_GraphAddNodeOr.exit58
   %.sroa.017.0 = phi i32 [ 9, %Dec_GraphAddNodeOr.exit58 ], [ 8, %Dec_GraphAddNodeAnd.exit65 ]
-  %83 = getelementptr inbounds i8, ptr %calloc.i, i64 24
-  store i32 %.sroa.017.0, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 20
-  %85 = load i32, ptr %84, align 4
-  %86 = and i32 %85, 128
-  %.not43 = icmp eq i32 %86, 0
-  br i1 %.not43, label %89, label %87
+  %82 = getelementptr inbounds i8, ptr %calloc.i, i64 24
+  store i32 %.sroa.017.0, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %0, i64 20
+  %84 = load i32, ptr %83, align 4
+  %85 = and i32 %84, 128
+  %.not43 = icmp eq i32 %85, 0
+  br i1 %.not43, label %88, label %86
 
-87:                                               ; preds = %82
-  %88 = xor i32 %.sroa.017.0, 1
-  store i32 %88, ptr %83, align 8
-  br label %89
+86:                                               ; preds = %81
+  %87 = xor i32 %.sroa.017.0, 1
+  store i32 %87, ptr %82, align 8
+  br label %88
 
-89:                                               ; preds = %87, %82
+88:                                               ; preds = %86, %81
   ret ptr %calloc.i
 }
 
@@ -6584,10 +6583,10 @@ define noalias noundef ptr @Abc_ManResubQuit3_1(ptr nocapture noundef readonly %
   %31 = getelementptr inbounds i8, ptr %14, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = lshr i32 %32, 7
+  %34 = and i32 %33, 1
   br i1 %or.cond, label %Dec_GraphAddNodeAnd.exit109, label %Dec_GraphAddNodeOr.exit
 
 Dec_GraphAddNodeOr.exit:                          ; preds = %6
-  %34 = and i32 %33, 1
   %35 = getelementptr inbounds i8, ptr %18, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = lshr i32 %36, 7
@@ -6638,7 +6637,7 @@ Dec_GraphAddNodeOr.exit96:                        ; preds = %Dec_GraphAddNodeOr.
   store i32 %68, ptr %60, align 8
   %69 = xor i32 %55, 7
   store i32 %69, ptr %62, align 4
-  br label %141
+  br label %140
 
 Dec_GraphAddNodeAnd.exit:                         ; preds = %Dec_GraphAddNodeOr.exit
   %70 = trunc i64 %24 to i32
@@ -6648,8 +6647,8 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %74 = getelementptr inbounds i8, ptr %22, i64 20
   %75 = load i32, ptr %74, align 4
   %76 = lshr i32 %75, 7
-  %77 = xor i32 %76, %49
-  %78 = and i32 %77, 1
+  %77 = and i32 %76, 1
+  %78 = xor i32 %77, %50
   %79 = or disjoint i32 %78, 4
   %80 = getelementptr inbounds i8, ptr %10, i64 120
   %81 = getelementptr inbounds i8, ptr %10, i64 128
@@ -6662,141 +6661,140 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %85 = shl nuw nsw i32 %72, 16
   %86 = or disjoint i32 %85, %84
   store i32 %86, ptr %83, align 8
-  br label %141
+  br label %140
 
 Dec_GraphAddNodeAnd.exit109:                      ; preds = %6
-  %87 = xor i32 %33, %28
-  %88 = and i32 %87, 1
-  %89 = getelementptr inbounds i8, ptr %18, i64 20
-  %90 = load i32, ptr %89, align 4
-  %91 = lshr i32 %90, 7
-  %92 = trunc i64 %16 to i32
-  %93 = xor i32 %91, %92
-  %94 = and i32 %93, 1
-  %95 = or disjoint i32 %94, 2
-  %96 = getelementptr inbounds i8, ptr %10, i64 96
-  %97 = getelementptr inbounds i8, ptr %10, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 16, i1 false)
-  store i32 %88, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %10, i64 100
-  store i32 %95, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %10, i64 112
-  %100 = shl nuw nsw i32 %88, 15
-  %101 = shl nuw nsw i32 %94, 16
-  %102 = or disjoint i32 %101, %100
-  store i32 %102, ptr %99, align 8
-  %103 = trunc i64 %20 to i32
-  %104 = and i32 %103, 1
-  %.not81 = icmp eq i32 %104, 0
-  %105 = and i64 %24, 1
-  %.not82 = icmp eq i64 %105, 0
+  %87 = xor i32 %34, %29
+  %88 = getelementptr inbounds i8, ptr %18, i64 20
+  %89 = load i32, ptr %88, align 4
+  %90 = lshr i32 %89, 7
+  %91 = trunc i64 %16 to i32
+  %92 = xor i32 %90, %91
+  %93 = and i32 %92, 1
+  %94 = or disjoint i32 %93, 2
+  %95 = getelementptr inbounds i8, ptr %10, i64 96
+  %96 = getelementptr inbounds i8, ptr %10, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, i8 0, i64 16, i1 false)
+  store i32 %87, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %10, i64 100
+  store i32 %94, ptr %97, align 4
+  %98 = getelementptr inbounds i8, ptr %10, i64 112
+  %99 = shl nuw nsw i32 %87, 15
+  %100 = shl nuw nsw i32 %93, 16
+  %101 = or disjoint i32 %100, %99
+  store i32 %101, ptr %98, align 8
+  %102 = trunc i64 %20 to i32
+  %103 = and i32 %102, 1
+  %.not81 = icmp eq i32 %103, 0
+  %104 = and i64 %24, 1
+  %.not82 = icmp eq i64 %104, 0
   %or.cond142 = or i1 %.not81, %.not82
-  %106 = getelementptr inbounds i8, ptr %26, i64 20
-  %107 = load i32, ptr %106, align 4
-  %108 = lshr i32 %107, 7
+  %105 = getelementptr inbounds i8, ptr %26, i64 20
+  %106 = load i32, ptr %105, align 4
+  %107 = lshr i32 %106, 7
   br i1 %or.cond142, label %Dec_GraphAddNodeAnd.exit123, label %Dec_GraphAddNodeOr.exit116
 
 Dec_GraphAddNodeOr.exit116:                       ; preds = %Dec_GraphAddNodeAnd.exit109
-  %109 = and i32 %108, 1
-  %110 = getelementptr inbounds i8, ptr %22, i64 20
-  %111 = load i32, ptr %110, align 4
-  %112 = lshr i32 %111, 7
-  %113 = and i32 %112, 1
-  %114 = getelementptr inbounds i8, ptr %10, i64 120
-  %115 = getelementptr inbounds i8, ptr %10, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, i8 0, i64 16, i1 false)
-  %116 = getelementptr inbounds i8, ptr %10, i64 124
-  %117 = getelementptr inbounds i8, ptr %10, i64 136
-  %118 = shl nuw nsw i32 %113, 15
-  %119 = shl nuw nsw i32 %109, 16
-  %120 = or disjoint i32 %119, %118
-  %121 = or disjoint i32 %120, 16384
-  store i32 %121, ptr %117, align 8
-  %122 = xor i32 %113, 5
-  store i32 %122, ptr %114, align 8
-  %123 = xor i32 %109, 7
-  store i32 %123, ptr %116, align 4
-  br label %141
+  %108 = and i32 %107, 1
+  %109 = getelementptr inbounds i8, ptr %22, i64 20
+  %110 = load i32, ptr %109, align 4
+  %111 = lshr i32 %110, 7
+  %112 = and i32 %111, 1
+  %113 = getelementptr inbounds i8, ptr %10, i64 120
+  %114 = getelementptr inbounds i8, ptr %10, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, i8 0, i64 16, i1 false)
+  %115 = getelementptr inbounds i8, ptr %10, i64 124
+  %116 = getelementptr inbounds i8, ptr %10, i64 136
+  %117 = shl nuw nsw i32 %112, 15
+  %118 = shl nuw nsw i32 %108, 16
+  %119 = or disjoint i32 %118, %117
+  %120 = or disjoint i32 %119, 16384
+  store i32 %120, ptr %116, align 8
+  %121 = xor i32 %112, 5
+  store i32 %121, ptr %113, align 8
+  %122 = xor i32 %108, 7
+  store i32 %122, ptr %115, align 4
+  br label %140
 
 Dec_GraphAddNodeAnd.exit123:                      ; preds = %Dec_GraphAddNodeAnd.exit109
-  %124 = trunc i64 %24 to i32
-  %125 = xor i32 %108, %124
-  %126 = and i32 %125, 1
-  %127 = or disjoint i32 %126, 6
-  %128 = getelementptr inbounds i8, ptr %22, i64 20
-  %129 = load i32, ptr %128, align 4
-  %130 = lshr i32 %129, 7
+  %123 = trunc i64 %24 to i32
+  %124 = xor i32 %107, %123
+  %125 = and i32 %124, 1
+  %126 = or disjoint i32 %125, 6
+  %127 = getelementptr inbounds i8, ptr %22, i64 20
+  %128 = load i32, ptr %127, align 4
+  %129 = lshr i32 %128, 7
+  %130 = and i32 %129, 1
   %131 = xor i32 %130, %103
-  %132 = and i32 %131, 1
-  %133 = or disjoint i32 %132, 4
-  %134 = getelementptr inbounds i8, ptr %10, i64 120
-  %135 = getelementptr inbounds i8, ptr %10, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, i8 0, i64 16, i1 false)
-  store i32 %133, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %10, i64 124
-  store i32 %127, ptr %136, align 4
-  %137 = getelementptr inbounds i8, ptr %10, i64 136
-  %138 = shl nuw nsw i32 %132, 15
-  %139 = shl nuw nsw i32 %126, 16
-  %140 = or disjoint i32 %139, %138
-  store i32 %140, ptr %137, align 8
-  br label %141
+  %132 = or disjoint i32 %131, 4
+  %133 = getelementptr inbounds i8, ptr %10, i64 120
+  %134 = getelementptr inbounds i8, ptr %10, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, i8 0, i64 16, i1 false)
+  store i32 %132, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %10, i64 124
+  store i32 %126, ptr %135, align 4
+  %136 = getelementptr inbounds i8, ptr %10, i64 136
+  %137 = shl nuw nsw i32 %131, 15
+  %138 = shl nuw nsw i32 %125, 16
+  %139 = or disjoint i32 %138, %137
+  store i32 %139, ptr %136, align 8
+  br label %140
 
-141:                                              ; preds = %Dec_GraphAddNodeOr.exit116, %Dec_GraphAddNodeAnd.exit123, %Dec_GraphAddNodeOr.exit96, %Dec_GraphAddNodeAnd.exit
+140:                                              ; preds = %Dec_GraphAddNodeOr.exit116, %Dec_GraphAddNodeAnd.exit123, %Dec_GraphAddNodeOr.exit96, %Dec_GraphAddNodeAnd.exit
   %.sroa.032.0 = phi i32 [ 11, %Dec_GraphAddNodeOr.exit96 ], [ 10, %Dec_GraphAddNodeAnd.exit ], [ 11, %Dec_GraphAddNodeOr.exit116 ], [ 10, %Dec_GraphAddNodeAnd.exit123 ]
   %.sroa.034.0 = phi i32 [ 9, %Dec_GraphAddNodeOr.exit96 ], [ 9, %Dec_GraphAddNodeAnd.exit ], [ 8, %Dec_GraphAddNodeOr.exit116 ], [ 8, %Dec_GraphAddNodeAnd.exit123 ]
   %.not85 = icmp eq i32 %5, 0
   store i32 7, ptr %8, align 8
-  %142 = getelementptr inbounds i8, ptr %10, i64 144
-  %143 = getelementptr inbounds i8, ptr %10, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %143, i8 0, i64 16, i1 false)
+  %141 = getelementptr inbounds i8, ptr %10, i64 144
+  %142 = getelementptr inbounds i8, ptr %10, i64 152
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %142, i8 0, i64 16, i1 false)
   br i1 %.not85, label %Dec_GraphAddNodeAnd.exit137, label %Dec_GraphAddNodeOr.exit130
 
-Dec_GraphAddNodeOr.exit130:                       ; preds = %141
-  %144 = getelementptr inbounds i8, ptr %10, i64 148
-  %145 = getelementptr inbounds i8, ptr %10, i64 160
-  %146 = shl nuw nsw i32 %.sroa.034.0, 15
-  %147 = and i32 %146, 32768
-  %148 = shl nuw nsw i32 %.sroa.032.0, 16
-  %149 = and i32 %148, 65536
-  %150 = or disjoint i32 %149, %147
-  %151 = or disjoint i32 %150, 16384
-  store i32 %151, ptr %145, align 8
-  %152 = xor i32 %.sroa.034.0, 1
-  store i32 %152, ptr %142, align 8
-  %153 = xor i32 %.sroa.032.0, 1
-  store i32 %153, ptr %144, align 4
-  br label %161
+Dec_GraphAddNodeOr.exit130:                       ; preds = %140
+  %143 = getelementptr inbounds i8, ptr %10, i64 148
+  %144 = getelementptr inbounds i8, ptr %10, i64 160
+  %145 = shl nuw nsw i32 %.sroa.034.0, 15
+  %146 = and i32 %145, 32768
+  %147 = shl nuw nsw i32 %.sroa.032.0, 16
+  %148 = and i32 %147, 65536
+  %149 = or disjoint i32 %148, %146
+  %150 = or disjoint i32 %149, 16384
+  store i32 %150, ptr %144, align 8
+  %151 = xor i32 %.sroa.034.0, 1
+  store i32 %151, ptr %141, align 8
+  %152 = xor i32 %.sroa.032.0, 1
+  store i32 %152, ptr %143, align 4
+  br label %160
 
-Dec_GraphAddNodeAnd.exit137:                      ; preds = %141
-  store i32 %.sroa.034.0, ptr %142, align 8
-  %154 = getelementptr inbounds i8, ptr %10, i64 148
-  store i32 %.sroa.032.0, ptr %154, align 4
-  %155 = getelementptr inbounds i8, ptr %10, i64 160
-  %156 = shl nuw nsw i32 %.sroa.034.0, 15
-  %157 = and i32 %156, 32768
-  %158 = shl nuw nsw i32 %.sroa.032.0, 16
-  %159 = and i32 %158, 65536
-  %160 = or disjoint i32 %157, %159
-  store i32 %160, ptr %155, align 8
-  br label %161
+Dec_GraphAddNodeAnd.exit137:                      ; preds = %140
+  store i32 %.sroa.034.0, ptr %141, align 8
+  %153 = getelementptr inbounds i8, ptr %10, i64 148
+  store i32 %.sroa.032.0, ptr %153, align 4
+  %154 = getelementptr inbounds i8, ptr %10, i64 160
+  %155 = shl nuw nsw i32 %.sroa.034.0, 15
+  %156 = and i32 %155, 32768
+  %157 = shl nuw nsw i32 %.sroa.032.0, 16
+  %158 = and i32 %157, 65536
+  %159 = or disjoint i32 %156, %158
+  store i32 %159, ptr %154, align 8
+  br label %160
 
-161:                                              ; preds = %Dec_GraphAddNodeAnd.exit137, %Dec_GraphAddNodeOr.exit130
+160:                                              ; preds = %Dec_GraphAddNodeAnd.exit137, %Dec_GraphAddNodeOr.exit130
   %.sroa.036.0 = phi i32 [ 13, %Dec_GraphAddNodeOr.exit130 ], [ 12, %Dec_GraphAddNodeAnd.exit137 ]
-  %162 = getelementptr inbounds i8, ptr %calloc.i, i64 24
-  store i32 %.sroa.036.0, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %0, i64 20
-  %164 = load i32, ptr %163, align 4
-  %165 = and i32 %164, 128
-  %.not86 = icmp eq i32 %165, 0
-  br i1 %.not86, label %168, label %166
+  %161 = getelementptr inbounds i8, ptr %calloc.i, i64 24
+  store i32 %.sroa.036.0, ptr %161, align 8
+  %162 = getelementptr inbounds i8, ptr %0, i64 20
+  %163 = load i32, ptr %162, align 4
+  %164 = and i32 %163, 128
+  %.not86 = icmp eq i32 %164, 0
+  br i1 %.not86, label %167, label %165
 
-166:                                              ; preds = %161
-  %167 = xor i32 %.sroa.036.0, 1
-  store i32 %167, ptr %162, align 8
-  br label %168
+165:                                              ; preds = %160
+  %166 = xor i32 %.sroa.036.0, 1
+  store i32 %166, ptr %161, align 8
+  br label %167
 
-168:                                              ; preds = %166, %161
+167:                                              ; preds = %165, %160
   ret ptr %calloc.i
 }
 

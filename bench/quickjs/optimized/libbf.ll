@@ -7366,127 +7366,127 @@ bf_logic_op1.exit140:                             ; preds = %174, %176, %178
 
 .critedge.i:                                      ; preds = %191
   %202 = getelementptr i8, ptr %192, i64 -8
-  %.neg.i = sub i64 %57, %188
-  %203 = add i64 %.neg.i, %.03443.i
-  %204 = shl i64 %203, 6
-  store i64 %204, ptr %185, align 8
-  %205 = load i64, ptr %202, align 8
-  %206 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %205, i1 false)
-  %.not38.i = icmp eq i64 %206, 0
-  br i1 %.not38.i, label %220, label %.preheader.i
+  %.neg.i = sub i64 %.03443.i, %188
+  %.neg37.i = shl i64 %.neg.i, 6
+  %203 = add i64 %.neg37.i, %184
+  store i64 %203, ptr %185, align 8
+  %204 = load i64, ptr %202, align 8
+  %205 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %204, i1 false)
+  %.not38.i = icmp eq i64 %205, 0
+  br i1 %.not38.i, label %219, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge.i
-  %207 = sub nuw nsw i64 64, %206
-  br label %208
+  %206 = sub nuw nsw i64 64, %205
+  br label %207
 
-208:                                              ; preds = %208, %.preheader.i
-  %.045.i = phi i64 [ 0, %.preheader.i ], [ %215, %208 ]
-  %.03544.i = phi i64 [ 0, %.preheader.i ], [ %211, %208 ]
-  %209 = load ptr, ptr %189, align 8
-  %210 = getelementptr i64, ptr %209, i64 %.045.i
-  %211 = load i64, ptr %210, align 8
-  %212 = shl i64 %211, %206
-  %213 = lshr i64 %.03544.i, %207
-  %214 = or i64 %212, %213
-  store i64 %214, ptr %210, align 8
-  %215 = add nuw i64 %.045.i, 1
-  %216 = icmp ult i64 %215, %.03443.i
-  br i1 %216, label %208, label %217, !llvm.loop !12
+207:                                              ; preds = %207, %.preheader.i
+  %.045.i = phi i64 [ 0, %.preheader.i ], [ %214, %207 ]
+  %.03544.i = phi i64 [ 0, %.preheader.i ], [ %210, %207 ]
+  %208 = load ptr, ptr %189, align 8
+  %209 = getelementptr i64, ptr %208, i64 %.045.i
+  %210 = load i64, ptr %209, align 8
+  %211 = shl i64 %210, %205
+  %212 = lshr i64 %.03544.i, %206
+  %213 = or i64 %211, %212
+  store i64 %213, ptr %209, align 8
+  %214 = add nuw i64 %.045.i, 1
+  %215 = icmp ult i64 %214, %.03443.i
+  br i1 %215, label %207, label %216, !llvm.loop !12
 
-217:                                              ; preds = %208
-  %218 = load i64, ptr %185, align 8
-  %219 = sub i64 %218, %206
-  store i64 %219, ptr %185, align 8
-  br label %220
+216:                                              ; preds = %207
+  %217 = load i64, ptr %185, align 8
+  %218 = sub i64 %217, %205
+  store i64 %218, ptr %185, align 8
+  br label %219
 
-220:                                              ; preds = %217, %.critedge.i
-  %221 = call fastcc i32 @__bf_round(ptr noundef nonnull %0, i64 noundef 4611686018427387903, i32 noundef 1, i64 noundef %.03443.i, i32 noundef 0)
+219:                                              ; preds = %216, %.critedge.i
+  %220 = call fastcc i32 @__bf_round(ptr noundef nonnull %0, i64 noundef 4611686018427387903, i32 noundef 1, i64 noundef %.03443.i, i32 noundef 0)
   br label %bf_normalize_and_round.exit
 
-bf_normalize_and_round.exit:                      ; preds = %._crit_edge.thread.i, %198, %220
-  br i1 %55, label %224, label %222
+bf_normalize_and_round.exit:                      ; preds = %._crit_edge.thread.i, %198, %219
+  br i1 %55, label %223, label %221
 
-222:                                              ; preds = %bf_normalize_and_round.exit
-  %223 = call i32 @bf_add_si(ptr noundef nonnull %0, ptr noundef nonnull %0, i64 noundef -1, i64 noundef 4611686018427387903, i32 noundef 1)
-  %.not128 = icmp eq i32 %223, 0
-  br i1 %.not128, label %224, label %bf_resize.exit
+221:                                              ; preds = %bf_normalize_and_round.exit
+  %222 = call i32 @bf_add_si(ptr noundef nonnull %0, ptr noundef nonnull %0, i64 noundef -1, i64 noundef 4611686018427387903, i32 noundef 1)
+  %.not128 = icmp eq i32 %222, 0
+  br i1 %.not128, label %223, label %bf_resize.exit
 
-224:                                              ; preds = %bf_normalize_and_round.exit, %222, %bf_set_nan.exit
-  %.278 = phi ptr [ %.076, %bf_set_nan.exit ], [ %.pn170, %222 ], [ %.pn170, %bf_normalize_and_round.exit ]
-  %.2 = phi ptr [ %.075, %bf_set_nan.exit ], [ %.1, %222 ], [ %.1, %bf_normalize_and_round.exit ]
-  %.0 = phi i32 [ 32, %bf_set_nan.exit ], [ 0, %222 ], [ 0, %bf_normalize_and_round.exit ]
-  %225 = icmp eq ptr %.2, %6
-  br i1 %225, label %226, label %bf_delete.exit
+223:                                              ; preds = %bf_normalize_and_round.exit, %221, %bf_set_nan.exit
+  %.278 = phi ptr [ %.076, %bf_set_nan.exit ], [ %.pn170, %221 ], [ %.pn170, %bf_normalize_and_round.exit ]
+  %.2 = phi ptr [ %.075, %bf_set_nan.exit ], [ %.1, %221 ], [ %.1, %bf_normalize_and_round.exit ]
+  %.0 = phi i32 [ 32, %bf_set_nan.exit ], [ 0, %221 ], [ 0, %bf_normalize_and_round.exit ]
+  %224 = icmp eq ptr %.2, %6
+  br i1 %224, label %225, label %bf_delete.exit
 
-226:                                              ; preds = %224
-  %227 = load ptr, ptr %.2, align 8
-  %.not.i141 = icmp eq ptr %227, null
-  br i1 %.not.i141, label %bf_delete.exit, label %228
+225:                                              ; preds = %223
+  %226 = load ptr, ptr %.2, align 8
+  %.not.i141 = icmp eq ptr %226, null
+  br i1 %.not.i141, label %bf_delete.exit, label %227
 
-228:                                              ; preds = %226
-  %229 = getelementptr inbounds i8, ptr %.2, i64 32
-  %230 = load ptr, ptr %229, align 8
-  %.not6.i = icmp eq ptr %230, null
-  br i1 %.not6.i, label %bf_delete.exit, label %231
+227:                                              ; preds = %225
+  %228 = getelementptr inbounds i8, ptr %.2, i64 32
+  %229 = load ptr, ptr %228, align 8
+  %.not6.i = icmp eq ptr %229, null
+  br i1 %.not6.i, label %bf_delete.exit, label %230
 
-231:                                              ; preds = %228
-  %.val.i142 = load ptr, ptr %227, align 8
-  %232 = getelementptr i8, ptr %227, i64 8
-  %.val7.i = load ptr, ptr %232, align 8
-  %233 = call ptr %.val7.i(ptr noundef %.val.i142, ptr noundef nonnull %230, i64 noundef 0) #17
+230:                                              ; preds = %227
+  %.val.i142 = load ptr, ptr %226, align 8
+  %231 = getelementptr i8, ptr %226, i64 8
+  %.val7.i = load ptr, ptr %231, align 8
+  %232 = call ptr %.val7.i(ptr noundef %.val.i142, ptr noundef nonnull %229, i64 noundef 0) #17
   br label %bf_delete.exit
 
-bf_delete.exit:                                   ; preds = %231, %228, %226, %224
-  %234 = icmp eq ptr %.278, %5
-  br i1 %234, label %235, label %bf_delete.exit147
+bf_delete.exit:                                   ; preds = %230, %227, %225, %223
+  %233 = icmp eq ptr %.278, %5
+  br i1 %233, label %234, label %bf_delete.exit147
 
-235:                                              ; preds = %bf_delete.exit
-  %236 = load ptr, ptr %.278, align 8
-  %.not.i143 = icmp eq ptr %236, null
-  br i1 %.not.i143, label %bf_delete.exit147, label %237
+234:                                              ; preds = %bf_delete.exit
+  %235 = load ptr, ptr %.278, align 8
+  %.not.i143 = icmp eq ptr %235, null
+  br i1 %.not.i143, label %bf_delete.exit147, label %236
 
-237:                                              ; preds = %235
-  %238 = getelementptr inbounds i8, ptr %.278, i64 32
-  %239 = load ptr, ptr %238, align 8
-  %.not6.i144 = icmp eq ptr %239, null
-  br i1 %.not6.i144, label %bf_delete.exit147, label %240
+236:                                              ; preds = %234
+  %237 = getelementptr inbounds i8, ptr %.278, i64 32
+  %238 = load ptr, ptr %237, align 8
+  %.not6.i144 = icmp eq ptr %238, null
+  br i1 %.not6.i144, label %bf_delete.exit147, label %239
 
-240:                                              ; preds = %237
-  %.val.i145 = load ptr, ptr %236, align 8
-  %241 = getelementptr i8, ptr %236, i64 8
-  %.val7.i146 = load ptr, ptr %241, align 8
-  %242 = call ptr %.val7.i146(ptr noundef %.val.i145, ptr noundef nonnull %239, i64 noundef 0) #17
+239:                                              ; preds = %236
+  %.val.i145 = load ptr, ptr %235, align 8
+  %240 = getelementptr i8, ptr %235, i64 8
+  %.val7.i146 = load ptr, ptr %240, align 8
+  %241 = call ptr %.val7.i146(ptr noundef %.val.i145, ptr noundef nonnull %238, i64 noundef 0) #17
   br label %bf_delete.exit147
 
-bf_delete.exit147:                                ; preds = %240, %237, %235, %bf_delete.exit
+bf_delete.exit147:                                ; preds = %239, %236, %234, %bf_delete.exit
   ret i32 %.0
 
-bf_resize.exit:                                   ; preds = %60, %22, %222, %27
-  %.076 = phi ptr [ %5, %27 ], [ %.pn170, %222 ], [ null, %22 ], [ %.pn170, %60 ]
-  %.075 = phi ptr [ %.1, %27 ], [ %.1, %222 ], [ %6, %22 ], [ %.1, %60 ]
-  %243 = getelementptr inbounds i8, ptr %0, i64 24
-  %244 = load i64, ptr %243, align 8
-  %.not.i.i = icmp eq i64 %244, 0
-  br i1 %.not.i.i, label %bf_set_nan.exit, label %245
+bf_resize.exit:                                   ; preds = %60, %22, %221, %27
+  %.076 = phi ptr [ %5, %27 ], [ %.pn170, %221 ], [ null, %22 ], [ %.pn170, %60 ]
+  %.075 = phi ptr [ %.1, %27 ], [ %.1, %221 ], [ %6, %22 ], [ %.1, %60 ]
+  %242 = getelementptr inbounds i8, ptr %0, i64 24
+  %243 = load i64, ptr %242, align 8
+  %.not.i.i = icmp eq i64 %243, 0
+  br i1 %.not.i.i, label %bf_set_nan.exit, label %244
 
-245:                                              ; preds = %bf_resize.exit
-  %246 = load ptr, ptr %0, align 8
-  %247 = getelementptr inbounds i8, ptr %0, i64 32
-  %248 = load ptr, ptr %247, align 8
-  %.val.i.i148 = load ptr, ptr %246, align 8
-  %249 = getelementptr i8, ptr %246, i64 8
-  %.val13.i.i149 = load ptr, ptr %249, align 8
-  %250 = call ptr %.val13.i.i149(ptr noundef %.val.i.i148, ptr noundef %248, i64 noundef 0) #17
-  store ptr %250, ptr %247, align 8
-  store i64 0, ptr %243, align 8
+244:                                              ; preds = %bf_resize.exit
+  %245 = load ptr, ptr %0, align 8
+  %246 = getelementptr inbounds i8, ptr %0, i64 32
+  %247 = load ptr, ptr %246, align 8
+  %.val.i.i148 = load ptr, ptr %245, align 8
+  %248 = getelementptr i8, ptr %245, i64 8
+  %.val13.i.i149 = load ptr, ptr %248, align 8
+  %249 = call ptr %.val13.i.i149(ptr noundef %.val.i.i148, ptr noundef %247, i64 noundef 0) #17
+  store ptr %249, ptr %246, align 8
+  store i64 0, ptr %242, align 8
   br label %bf_set_nan.exit
 
-bf_set_nan.exit:                                  ; preds = %bf_resize.exit, %245
-  %251 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 9223372036854775807, ptr %251, align 8
-  %252 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %252, align 8
-  br label %224
+bf_set_nan.exit:                                  ; preds = %bf_resize.exit, %244
+  %250 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 9223372036854775807, ptr %250, align 8
+  %251 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %251, align 8
+  br label %223
 }
 
 ; Function Attrs: nounwind uwtable

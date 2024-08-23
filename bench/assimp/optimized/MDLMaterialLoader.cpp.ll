@@ -687,8 +687,8 @@ if.then12:                                        ; preds = %if.end9, %if.end9
   br i1 %cmp.not, label %if.end53, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then12
-  %cmp22166.not = icmp eq i32 %mul52, 0
-  br i1 %cmp22166.not, label %if.end53, label %for.body
+  %cmp22162.not = icmp eq i32 %mul52, 0
+  br i1 %cmp22162.not, label %if.end53, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
@@ -735,11 +735,11 @@ if.end53:                                         ; preds = %if.then12, %if.end5
 if.then56:                                        ; preds = %if.end53
   %shr = lshr i32 %i.1, 2
   %shr57 = lshr i32 %i.1, 4
+  %add = add nuw nsw i32 %shr, %shr57
   %shr58 = lshr i32 %i.1, 6
-  %add = add i32 %shr57, %i.1
-  %add59 = add i32 %add, %shr
-  %mul54164 = add i32 %add59, %shr58
-  %add61 = shl i32 %mul54164, 1
+  %add59 = add nuw nsw i32 %add, %shr58
+  %shl60 = shl nuw i32 %add59, 1
+  %add61 = add i32 %shl60, %mul54
   store i32 %add61, ptr %piSkip, align 4
   %idx.ext62 = zext i32 %add61 to i64
   %add.ptr63 = getelementptr inbounds i8, ptr %szData, i64 %idx.ext62
@@ -768,44 +768,44 @@ if.then69:                                        ; preds = %if.else65, %if.else
   br i1 %cmp.not, label %if.end137, label %for.cond79.preheader
 
 for.cond79.preheader:                             ; preds = %if.then69
-  %cmp83169.not = icmp eq i32 %mul136, 0
-  br i1 %cmp83169.not, label %if.end137, label %for.body84
+  %cmp83165.not = icmp eq i32 %mul136, 0
+  br i1 %cmp83165.not, label %if.end137, label %for.body84
 
 for.body84:                                       ; preds = %for.cond79.preheader, %for.body84
-  %indvars.iv185 = phi i64 [ %indvars.iv.next186, %for.body84 ], [ 0, %for.cond79.preheader ]
-  %arrayidx87 = getelementptr inbounds %"struct.Assimp::MDL::ARGB4", ptr %szData, i64 %indvars.iv185
+  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %for.body84 ], [ 0, %for.cond79.preheader ]
+  %arrayidx87 = getelementptr inbounds %"struct.Assimp::MDL::ARGB4", ptr %szData, i64 %indvars.iv181
   %val85.sroa.0.0.copyload = load i16, ptr %arrayidx87, align 2
   %val85.sroa.0.0.copyload.tr = trunc i16 %val85.sroa.0.0.copyload to i8
   %conv93 = shl i8 %val85.sroa.0.0.copyload.tr, 4
   %24 = load ptr, ptr %pcData, align 8
-  %a97 = getelementptr inbounds %struct.aiTexel, ptr %24, i64 %indvars.iv185, i32 3
+  %a97 = getelementptr inbounds %struct.aiTexel, ptr %24, i64 %indvars.iv181, i32 3
   store i8 %conv93, ptr %a97, align 1
   %conv104 = and i8 %val85.sroa.0.0.copyload.tr, -16
   %25 = load ptr, ptr %pcData, align 8
-  %r108 = getelementptr inbounds %struct.aiTexel, ptr %25, i64 %indvars.iv185, i32 2
+  %r108 = getelementptr inbounds %struct.aiTexel, ptr %25, i64 %indvars.iv181, i32 2
   store i8 %conv104, ptr %r108, align 1
   %26 = lshr i16 %val85.sroa.0.0.copyload, 4
   %27 = trunc i16 %26 to i8
   %conv115 = and i8 %27, -16
   %28 = load ptr, ptr %pcData, align 8
-  %g119 = getelementptr inbounds %struct.aiTexel, ptr %28, i64 %indvars.iv185, i32 1
+  %g119 = getelementptr inbounds %struct.aiTexel, ptr %28, i64 %indvars.iv181, i32 1
   store i8 %conv115, ptr %g119, align 1
   %29 = lshr i16 %val85.sroa.0.0.copyload, 8
   %30 = trunc nuw i16 %29 to i8
   %conv125 = and i8 %30, -16
   %31 = load ptr, ptr %pcData, align 8
-  %arrayidx128 = getelementptr inbounds %struct.aiTexel, ptr %31, i64 %indvars.iv185
+  %arrayidx128 = getelementptr inbounds %struct.aiTexel, ptr %31, i64 %indvars.iv181
   store i8 %conv125, ptr %arrayidx128, align 1
-  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
+  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %32 = load i32, ptr %pcNew, align 8
   %33 = load i32, ptr %mHeight71, align 4
   %mul82 = mul i32 %33, %32
   %34 = zext i32 %mul82 to i64
-  %cmp83 = icmp ult i64 %indvars.iv.next186, %34
+  %cmp83 = icmp ult i64 %indvars.iv.next182, %34
   br i1 %cmp83, label %for.body84, label %if.end137.loopexit, !llvm.loop !10
 
 if.end137.loopexit:                               ; preds = %for.body84
-  %35 = trunc nuw i64 %indvars.iv.next186 to i32
+  %35 = trunc nuw i64 %indvars.iv.next182 to i32
   br label %if.end137
 
 if.end137:                                        ; preds = %if.then69, %if.end137.loopexit, %for.cond79.preheader
@@ -817,11 +817,11 @@ if.end137:                                        ; preds = %if.then69, %if.end1
 if.then140:                                       ; preds = %if.end137
   %shr141 = lshr i32 %i76.1, 2
   %shr142 = lshr i32 %i76.1, 4
+  %add143 = add nuw nsw i32 %shr141, %shr142
   %shr144 = lshr i32 %i76.1, 6
-  %add143 = add i32 %shr142, %i76.1
-  %add145 = add i32 %add143, %shr141
-  %mul138163 = add i32 %add145, %shr144
-  %add147 = shl i32 %mul138163, 1
+  %add145 = add nuw nsw i32 %add143, %shr144
+  %shl146 = shl nuw i32 %add145, 1
+  %add147 = add i32 %shl146, %mul138
   store i32 %add147, ptr %piSkip, align 4
   %idx.ext148 = zext i32 %add147 to i64
   %add.ptr149 = getelementptr inbounds i8, ptr %szData, i64 %idx.ext148
@@ -850,41 +850,41 @@ if.then155:                                       ; preds = %if.else151, %if.els
   br i1 %cmp.not, label %if.end198, label %for.cond165.preheader
 
 for.cond165.preheader:                            ; preds = %if.then155
-  %cmp169173.not = icmp eq i32 %mul197, 0
-  br i1 %cmp169173.not, label %if.end198, label %for.body170
+  %cmp169169.not = icmp eq i32 %mul197, 0
+  br i1 %cmp169169.not, label %if.end198, label %for.body170
 
 for.body170:                                      ; preds = %for.cond165.preheader, %for.body170
-  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %for.body170 ], [ 0, %for.cond165.preheader ]
-  %mul171 = mul nuw nsw i64 %indvars.iv188, 3
+  %indvars.iv184 = phi i64 [ %indvars.iv.next185, %for.body170 ], [ 0, %for.cond165.preheader ]
+  %mul171 = mul nuw nsw i64 %indvars.iv184, 3
   %idxprom172 = and i64 %mul171, 4294967295
   %arrayidx173 = getelementptr inbounds i8, ptr %szData, i64 %idxprom172
   %40 = load ptr, ptr %pcData, align 8
-  %a177 = getelementptr inbounds %struct.aiTexel, ptr %40, i64 %indvars.iv188, i32 3
+  %a177 = getelementptr inbounds %struct.aiTexel, ptr %40, i64 %indvars.iv184, i32 3
   store i8 -1, ptr %a177, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %arrayidx173, i64 1
   %41 = load i8, ptr %arrayidx173, align 1
   %42 = load ptr, ptr %pcData, align 8
-  %arrayidx180 = getelementptr inbounds %struct.aiTexel, ptr %42, i64 %indvars.iv188
+  %arrayidx180 = getelementptr inbounds %struct.aiTexel, ptr %42, i64 %indvars.iv184
   store i8 %41, ptr %arrayidx180, align 1
   %incdec.ptr182 = getelementptr inbounds i8, ptr %arrayidx173, i64 2
   %43 = load i8, ptr %incdec.ptr, align 1
   %44 = load ptr, ptr %pcData, align 8
-  %g186 = getelementptr inbounds %struct.aiTexel, ptr %44, i64 %indvars.iv188, i32 1
+  %g186 = getelementptr inbounds %struct.aiTexel, ptr %44, i64 %indvars.iv184, i32 1
   store i8 %43, ptr %g186, align 1
   %45 = load i8, ptr %incdec.ptr182, align 1
   %46 = load ptr, ptr %pcData, align 8
-  %r190 = getelementptr inbounds %struct.aiTexel, ptr %46, i64 %indvars.iv188, i32 2
+  %r190 = getelementptr inbounds %struct.aiTexel, ptr %46, i64 %indvars.iv184, i32 2
   store i8 %45, ptr %r190, align 1
-  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %47 = load i32, ptr %pcNew, align 8
   %48 = load i32, ptr %mHeight157, align 4
   %mul168 = mul i32 %48, %47
   %49 = zext i32 %mul168 to i64
-  %cmp169 = icmp ult i64 %indvars.iv.next189, %49
+  %cmp169 = icmp ult i64 %indvars.iv.next185, %49
   br i1 %cmp169, label %for.body170, label %if.end198.loopexit, !llvm.loop !11
 
 if.end198.loopexit:                               ; preds = %for.body170
-  %50 = trunc nuw i64 %indvars.iv.next189 to i32
+  %50 = trunc nuw i64 %indvars.iv.next185 to i32
   br label %if.end198
 
 if.end198:                                        ; preds = %if.then155, %if.end198.loopexit, %for.cond165.preheader
@@ -896,11 +896,11 @@ if.end198:                                        ; preds = %if.then155, %if.end
 if.then201:                                       ; preds = %if.end198
   %shr202 = lshr i32 %i162.1, 2
   %shr203 = lshr i32 %i162.1, 4
+  %add204 = add nuw nsw i32 %shr202, %shr203
   %shr205 = lshr i32 %i162.1, 6
-  %add204 = add i32 %shr203, %i162.1
-  %add206 = add i32 %add204, %shr202
-  %mul199162 = add i32 %add206, %shr205
-  %add208 = mul i32 %mul199162, 3
+  %add206 = add nuw nsw i32 %add204, %shr205
+  %mul207 = mul nuw i32 %add206, 3
+  %add208 = add i32 %mul207, %mul199
   store i32 %add208, ptr %piSkip, align 4
   %idx.ext209 = zext i32 %add208 to i64
   %add.ptr210 = getelementptr inbounds i8, ptr %szData, i64 %idx.ext209
@@ -930,43 +930,43 @@ if.then216:                                       ; preds = %if.else212, %if.els
   br i1 %cmp.not, label %if.end262, label %for.cond226.preheader
 
 for.cond226.preheader:                            ; preds = %if.then216
-  %cmp230181.not = icmp eq i32 %mul261, 0
-  br i1 %cmp230181.not, label %if.end262, label %for.body231
+  %cmp230177.not = icmp eq i32 %mul261, 0
+  br i1 %cmp230177.not, label %if.end262, label %for.body231
 
 for.body231:                                      ; preds = %for.cond226.preheader, %for.body231
-  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %for.body231 ], [ 0, %for.cond226.preheader ]
-  %mul233 = shl nuw nsw i64 %indvars.iv194, 2
+  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %for.body231 ], [ 0, %for.cond226.preheader ]
+  %mul233 = shl nuw nsw i64 %indvars.iv190, 2
   %idxprom234 = and i64 %mul233, 4294967292
   %arrayidx235 = getelementptr inbounds i8, ptr %szData, i64 %idxprom234
   %incdec.ptr236 = getelementptr inbounds i8, ptr %arrayidx235, i64 1
   %55 = load i8, ptr %arrayidx235, align 1
   %56 = load ptr, ptr %pcData, align 8
-  %arrayidx239 = getelementptr inbounds %struct.aiTexel, ptr %56, i64 %indvars.iv194
+  %arrayidx239 = getelementptr inbounds %struct.aiTexel, ptr %56, i64 %indvars.iv190
   store i8 %55, ptr %arrayidx239, align 1
   %incdec.ptr241 = getelementptr inbounds i8, ptr %arrayidx235, i64 2
   %57 = load i8, ptr %incdec.ptr236, align 1
   %58 = load ptr, ptr %pcData, align 8
-  %g245 = getelementptr inbounds %struct.aiTexel, ptr %58, i64 %indvars.iv194, i32 1
+  %g245 = getelementptr inbounds %struct.aiTexel, ptr %58, i64 %indvars.iv190, i32 1
   store i8 %57, ptr %g245, align 1
   %incdec.ptr246 = getelementptr inbounds i8, ptr %arrayidx235, i64 3
   %59 = load i8, ptr %incdec.ptr241, align 1
   %60 = load ptr, ptr %pcData, align 8
-  %r250 = getelementptr inbounds %struct.aiTexel, ptr %60, i64 %indvars.iv194, i32 2
+  %r250 = getelementptr inbounds %struct.aiTexel, ptr %60, i64 %indvars.iv190, i32 2
   store i8 %59, ptr %r250, align 1
   %61 = load i8, ptr %incdec.ptr246, align 1
   %62 = load ptr, ptr %pcData, align 8
-  %a254 = getelementptr inbounds %struct.aiTexel, ptr %62, i64 %indvars.iv194, i32 3
+  %a254 = getelementptr inbounds %struct.aiTexel, ptr %62, i64 %indvars.iv190, i32 3
   store i8 %61, ptr %a254, align 1
-  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
+  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %63 = load i32, ptr %pcNew, align 8
   %64 = load i32, ptr %mHeight218, align 4
   %mul229 = mul i32 %64, %63
   %65 = zext i32 %mul229 to i64
-  %cmp230 = icmp ult i64 %indvars.iv.next195, %65
+  %cmp230 = icmp ult i64 %indvars.iv.next191, %65
   br i1 %cmp230, label %for.body231, label %if.end262.loopexit, !llvm.loop !12
 
 if.end262.loopexit:                               ; preds = %for.body231
-  %66 = trunc nuw i64 %indvars.iv.next195 to i32
+  %66 = trunc nuw i64 %indvars.iv.next191 to i32
   br label %if.end262
 
 if.end262:                                        ; preds = %if.then216, %if.end262.loopexit, %for.cond226.preheader
@@ -978,11 +978,11 @@ if.end262:                                        ; preds = %if.then216, %if.end
 if.then265:                                       ; preds = %if.end262
   %shr266 = lshr i32 %i223.1, 2
   %shr267 = lshr i32 %i223.1, 4
+  %add268 = add nuw nsw i32 %shr266, %shr267
   %shr269 = lshr i32 %i223.1, 6
-  %add268 = add i32 %shr267, %i223.1
-  %add270 = add i32 %add268, %shr266
-  %shl263161 = add i32 %add270, %shr269
-  %add272 = shl i32 %shl263161, 2
+  %add270 = add nuw nsw i32 %add268, %shr269
+  %shl271 = shl i32 %add270, 2
+  %add272 = add i32 %shl271, %shl263
   store i32 %add272, ptr %piSkip, align 4
   br label %if.end328
 
@@ -1000,56 +1000,56 @@ if.then284:                                       ; preds = %if.then276
   call void @_ZN6Assimp11MDLImporter13SearchPaletteEPPKh(ptr noundef nonnull align 8 dereferenceable(158) %this, ptr noundef nonnull %szColorMap)
   %69 = load i32, ptr %pcNew, align 8
   %70 = load i32, ptr %mHeight278, align 4
-  %mul288176 = mul i32 %70, %69
-  %cmp289177.not = icmp eq i32 %mul288176, 0
-  %.pre197 = load ptr, ptr %szColorMap, align 8
-  br i1 %cmp289177.not, label %for.end318, label %for.body290
+  %mul288172 = mul i32 %70, %69
+  %cmp289173.not = icmp eq i32 %mul288172, 0
+  %.pre193 = load ptr, ptr %szColorMap, align 8
+  br i1 %cmp289173.not, label %for.end318, label %for.body290
 
 for.body290:                                      ; preds = %if.then284, %for.body290
-  %indvars.iv191 = phi i64 [ %indvars.iv.next192, %for.body290 ], [ 0, %if.then284 ]
-  %arrayidx293 = getelementptr inbounds i8, ptr %szData, i64 %indvars.iv191
+  %indvars.iv187 = phi i64 [ %indvars.iv.next188, %for.body290 ], [ 0, %if.then284 ]
+  %arrayidx293 = getelementptr inbounds i8, ptr %szData, i64 %indvars.iv187
   %71 = load i8, ptr %arrayidx293, align 1
   %conv294 = zext i8 %71 to i64
   %mul295 = mul nuw nsw i64 %conv294, 3
-  %arrayidx297 = getelementptr inbounds i8, ptr %.pre197, i64 %mul295
+  %arrayidx297 = getelementptr inbounds i8, ptr %.pre193, i64 %mul295
   %72 = load ptr, ptr %pcData, align 8
-  %a301 = getelementptr inbounds %struct.aiTexel, ptr %72, i64 %indvars.iv191, i32 3
+  %a301 = getelementptr inbounds %struct.aiTexel, ptr %72, i64 %indvars.iv187, i32 3
   store i8 -1, ptr %a301, align 1
   %incdec.ptr302 = getelementptr inbounds i8, ptr %arrayidx297, i64 1
   %73 = load i8, ptr %arrayidx297, align 1
   %74 = load ptr, ptr %pcData, align 8
-  %r306 = getelementptr inbounds %struct.aiTexel, ptr %74, i64 %indvars.iv191, i32 2
+  %r306 = getelementptr inbounds %struct.aiTexel, ptr %74, i64 %indvars.iv187, i32 2
   store i8 %73, ptr %r306, align 1
   %incdec.ptr307 = getelementptr inbounds i8, ptr %arrayidx297, i64 2
   %75 = load i8, ptr %incdec.ptr302, align 1
   %76 = load ptr, ptr %pcData, align 8
-  %g311 = getelementptr inbounds %struct.aiTexel, ptr %76, i64 %indvars.iv191, i32 1
+  %g311 = getelementptr inbounds %struct.aiTexel, ptr %76, i64 %indvars.iv187, i32 1
   store i8 %75, ptr %g311, align 1
   %77 = load i8, ptr %incdec.ptr307, align 1
   %78 = load ptr, ptr %pcData, align 8
-  %arrayidx314 = getelementptr inbounds %struct.aiTexel, ptr %78, i64 %indvars.iv191
+  %arrayidx314 = getelementptr inbounds %struct.aiTexel, ptr %78, i64 %indvars.iv187
   store i8 %77, ptr %arrayidx314, align 1
-  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
+  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %79 = load i32, ptr %pcNew, align 8
   %80 = load i32, ptr %mHeight278, align 4
   %mul288 = mul i32 %80, %79
   %81 = zext i32 %mul288 to i64
-  %cmp289 = icmp ult i64 %indvars.iv.next192, %81
+  %cmp289 = icmp ult i64 %indvars.iv.next188, %81
   br i1 %cmp289, label %for.body290, label %for.end318.loopexit, !llvm.loop !13
 
 for.end318.loopexit:                              ; preds = %for.body290
-  %82 = trunc nuw i64 %indvars.iv.next192 to i32
+  %82 = trunc nuw i64 %indvars.iv.next188 to i32
   br label %for.end318
 
 for.end318:                                       ; preds = %for.end318.loopexit, %if.then284
   %i282.0.lcssa = phi i32 [ 0, %if.then284 ], [ %82, %for.end318.loopexit ]
-  %cmp.not.i = icmp eq ptr %.pre197, @_ZL21g_aclrDefaultColorMap
-  %isnull.i = icmp eq ptr %.pre197, null
+  %cmp.not.i = icmp eq ptr %.pre193, @_ZL21g_aclrDefaultColorMap
+  %isnull.i = icmp eq ptr %.pre193, null
   %or.cond.i = or i1 %cmp.not.i, %isnull.i
   br i1 %or.cond.i, label %if.end323, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %for.end318
-  tail call void @_ZdaPv(ptr noundef %.pre197) #20
+  tail call void @_ZdaPv(ptr noundef %.pre193) #20
   br label %if.end323
 
 if.else319:                                       ; preds = %if.then276

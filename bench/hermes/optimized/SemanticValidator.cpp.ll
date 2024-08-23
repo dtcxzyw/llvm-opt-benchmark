@@ -7965,8 +7965,8 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes12UniqueStringEjNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E6insertERKSt4pairIS5_jE.exit.thread: ; preds = %if.end13.i.i.i.i, %if.end.i.i.i.i
   %7 = phi i64 [ %idx.ext20.i.i.i.i, %if.end.i.i.i.i ], [ %idx.ext.i.i.i.i, %if.end13.i.i.i.i ]
-  %second64 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.222", ptr %1, i64 %7, i32 0, i32 1
-  %.pre71 = load i32, ptr %second64, align 4
+  %second65 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.222", ptr %1, i64 %7, i32 0, i32 1
+  %.pre72 = load i32, ptr %second65, align 4
   br label %if.end
 
 _ZSt9make_pairIRKPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS0_6ESTree23FunctionDeclarationNodeELj4EEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_.exit: ; preds = %entry, %if.then12.i.i.i.i
@@ -8039,23 +8039,23 @@ if.end24.i39:                                     ; preds = %if.end.i
 if.end37.i46:                                     ; preds = %if.end24.i39
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 noundef %conv.i30.i30, i64 noundef 8) #21
   %.pre = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
-  %.pre72 = zext i32 %.pre to i64
+  %.pre73 = zext i32 %.pre to i64
   %cmp.not.i.i.i49 = icmp eq i32 %.pre, 0
-  br i1 %cmp.not.i.i.i49, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i55, label %if.then.i.i.i50
+  br i1 %cmp.not.i.i.i49, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i56, label %if.then.i.i.i50
 
 if.then.i.i.i50:                                  ; preds = %if.end24.i39, %if.end37.i46
-  %conv.i51.i48.pre-phi75 = phi i64 [ %.pre72, %if.end37.i46 ], [ %conv.i30.i30, %if.end24.i39 ]
+  %conv.i51.i48.pre-phi76 = phi i64 [ %.pre73, %if.end37.i46 ], [ %conv.i30.i30, %if.end24.i39 ]
   %17 = load ptr, ptr %second.i.i, align 8
+  %add.ptr.i.idx.i51 = shl nuw nsw i64 %conv.i51.i48.pre-phi76, 3
   %18 = load ptr, ptr %second.i.i.i.i.i, align 8
-  %gepdiff.i54 = shl nuw nsw i64 %conv.i51.i48.pre-phi75, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 8 %17, i64 %gepdiff.i54, i1 false)
-  br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i55
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 8 %17, i64 %add.ptr.i.idx.i51, i1 false)
+  br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i56
 
-_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i55: ; preds = %if.then.i.i.i50, %if.end37.i46
+_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i56: ; preds = %if.then.i.i.i50, %if.end37.i46
   store i32 %13, ptr %Size.i.i.i.i.i.i.i.i.i.i, align 8
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i55, %if.end8.i23
+return.sink.split.i:                              ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i56, %if.end8.i23
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
   br label %_ZNSt16allocator_traitsISaISt4pairIPKN6hermes12UniqueStringEN4llvh11SmallVectorIPNS1_6ESTree23FunctionDeclarationNodeELj4EEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit.i.i
 
@@ -8100,7 +8100,7 @@ _ZN4llvh11SmallVectorIPN6hermes6ESTree23FunctionDeclarationNodeELj4EED2Ev.exit: 
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes12UniqueStringEjNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E6insertERKSt4pairIS5_jE.exit.thread, %_ZN4llvh11SmallVectorIPN6hermes6ESTree23FunctionDeclarationNodeELj4EED2Ev.exit
-  %25 = phi i32 [ %.pre71, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes12UniqueStringEjNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E6insertERKSt4pairIS5_jE.exit.thread ], [ %conv, %_ZN4llvh11SmallVectorIPN6hermes6ESTree23FunctionDeclarationNodeELj4EED2Ev.exit ]
+  %25 = phi i32 [ %.pre72, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes12UniqueStringEjNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E6insertERKSt4pairIS5_jE.exit.thread ], [ %conv, %_ZN4llvh11SmallVectorIPN6hermes6ESTree23FunctionDeclarationNodeELj4EED2Ev.exit ]
   %Vector9 = getelementptr inbounds i8, ptr %this, i64 24
   %conv10 = zext i32 %25 to i64
   %26 = load ptr, ptr %Vector9, align 8
@@ -15562,12 +15562,12 @@ if.end37:                                         ; preds = %if.then.i.i.i.i.i47
 
 if.then.i.i:                                      ; preds = %if.end37
   %11 = load ptr, ptr %RHS, align 8
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i51, 3
   %add.ptr39.idx = shl nuw nsw i64 %CurSize.0, 3
   %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds ptr, ptr %12, i64 %CurSize.0
-  %13 = sub nsw i64 %conv.i51, %CurSize.0
-  %gepdiff = shl nsw i64 %13, 3
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr39.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 8 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit
 
@@ -16744,8 +16744,8 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end28.i.i.if.the
   %8 = phi i32 [ %.pre.i.i.i.i.i.i.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i ], [ %6, %if.end13.i.i.i.i.i.i.i.i.i ]
   %conv.i35.i.i.i.i.i.i.i.i.i = zext i32 %8 to i64
   %9 = load ptr, ptr %second3.i.i.i.i.i.i.i, align 8
-  %gepdiff.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i.i.i.i.i.i.i, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 8 %9, i64 %gepdiff.i.i.i.i.i.i.i.i.i, i1 false)
+  %add.ptr.i65.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i.i.i.i.i.i.i, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 8 %9, i64 %add.ptr.i65.idx.i.i.i.i.i.i.i.i.i, i1 false)
   br label %return.sink.split.i.i.i.i.i.i.i.i.i
 
 return.sink.split.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i.i.i.i
@@ -16804,8 +16804,8 @@ if.then.i.i.i.i.i.i.i.i.i.i28:                    ; preds = %if.end28.i.i.if.the
   %13 = phi i32 [ %.pre.i.i.i.i.i.i.i.i39, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41 ], [ %11, %if.end13.i.i.i.i.i.i.i.i.i26 ]
   %conv.i35.i.i.i.i.i.i.i.i.i29 = zext i32 %13 to i64
   %14 = load ptr, ptr %second3.i.i.i.i.i.i.i18, align 8
-  %gepdiff.i.i.i.i.i.i.i.i.i30 = shl nuw nsw i64 %conv.i35.i.i.i.i.i.i.i.i.i29, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 8 %14, i64 %gepdiff.i.i.i.i.i.i.i.i.i30, i1 false)
+  %add.ptr.i65.idx.i.i.i.i.i.i.i.i.i30 = shl nuw nsw i64 %conv.i35.i.i.i.i.i.i.i.i.i29, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 8 %14, i64 %add.ptr.i65.idx.i.i.i.i.i.i.i.i.i30, i1 false)
   br label %return.sink.split.i.i.i.i.i.i.i.i.i31
 
 return.sink.split.i.i.i.i.i.i.i.i.i31:            ; preds = %if.then.i.i.i.i.i.i.i.i.i.i28, %if.end28.i.i.i.i.i.i.i.i.i37

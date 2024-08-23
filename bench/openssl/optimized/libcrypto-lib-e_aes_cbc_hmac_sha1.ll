@@ -612,11 +612,10 @@ if.end219:                                        ; preds = %for.body201
   store i32 %conv229, ptr %arrayidx226, align 4
   call void @sha1_block_data_order(ptr noundef nonnull %md, ptr noundef nonnull %data104, i64 noundef 1) #7
   %sub232 = add i64 %sub204, -72
-  %shr222.neg302 = and i64 %sub232, %sub221
-  %and235 = ashr i64 %shr222.neg302, 63
+  %isneg302 = icmp slt i64 %sub232, 0
   %47 = load i32, ptr %md, align 4
   %48 = load i32, ptr %22, align 32
-  %49 = trunc nsw i64 %and235 to i32
+  %49 = select i1 %isneg302, i32 %45, i32 0
   %50 = and i32 %47, %49
   %conv242 = or i32 %50, %48
   store i32 %conv242, ptr %22, align 32
@@ -678,11 +677,10 @@ if.then286:                                       ; preds = %for.end273, %for.en
   call void @sha1_block_data_order(ptr noundef nonnull %md, ptr noundef nonnull %data104, i64 noundef 1) #7
   %reass.sub538 = sub i64 %j.1.lcssa544, %inp_len.0
   %sub299 = add i64 %reass.sub538, -73
-  %shr289.neg298 = and i64 %sub288, %sub299
-  %and302 = ashr i64 %shr289.neg298, 63
+  %isneg = icmp slt i64 %sub299, 0
   %70 = load i32, ptr %md, align 4
   %71 = load i32, ptr %22, align 32
-  %72 = trunc nsw i64 %and302 to i32
+  %72 = select i1 %isneg, i32 %68, i32 0
   %73 = and i32 %70, %72
   %conv310 = or i32 %73, %71
   store i32 %conv310, ptr %22, align 32
@@ -811,8 +809,8 @@ for.body431:                                      ; preds = %sha1_update.exit469
   %109 = trunc i64 %sub434 to i32
   %conv436 = add i32 %109, -20
   %xor = xor i32 %or.i, %conv433
-  %isneg = icmp slt i32 %conv436, 0
-  %and439 = select i1 %isneg, i32 0, i32 %xor
+  %isneg298 = icmp slt i32 %conv436, 0
+  %and439 = select i1 %isneg298, i32 0, i32 %xor
   %110 = xor i64 %j.3537, -1
   %sub442 = add i64 %sub.ptr.sub, %110
   %conv443 = trunc i64 %sub442 to i32

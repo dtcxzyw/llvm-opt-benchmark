@@ -220,50 +220,50 @@ if.then7:                                         ; preds = %if.end
   %cap = getelementptr inbounds i8, ptr %doe_cap, i64 10
   %3 = load i8, ptr %cap, align 2
   %4 = and i8 %3, 1
-  %shl57.i = zext nneg i8 %4 to i32
-  store i32 %shl57.i, ptr %buf, align 4
+  %and6.i = zext nneg i8 %4 to i32
+  store i32 %and6.i, ptr %buf, align 4
   %vec = getelementptr inbounds i8, ptr %doe_cap, i64 12
   %5 = load i16, ptr %vec, align 2
-  %6 = shl i16 %5, 1
-  %7 = and i16 %6, 4094
-  %and6.i = zext nneg i16 %7 to i32
-  %or.i50 = or disjoint i32 %and6.i, %shl57.i
+  %bf.value17 = shl i16 %5, 1
+  %6 = and i16 %bf.value17, 4094
+  %and6.i49 = zext nneg i16 %6 to i32
+  %or.i50 = or disjoint i32 %and6.i49, %and6.i
   br label %if.end123.sink.split
 
 if.then29:                                        ; preds = %if.end
   %intr31 = getelementptr inbounds i8, ptr %doe_cap, i64 15
-  %8 = load i8, ptr %intr31, align 1
-  %9 = shl i8 %8, 1
-  %10 = and i8 %9, 2
-  %and6.i57 = zext nneg i8 %10 to i32
+  %7 = load i8, ptr %intr31, align 1
+  %8 = shl i8 %7, 1
+  %9 = and i8 %8, 2
+  %and6.i57 = zext nneg i8 %9 to i32
   br label %if.end123.sink.split
 
 if.then48:                                        ; preds = %if.end
   %status = getelementptr inbounds i8, ptr %doe_cap, i64 17
-  %11 = load i8, ptr %status, align 1
-  %12 = and i8 %11, 1
-  %shl57.i64 = zext nneg i8 %12 to i32
-  store i32 %shl57.i64, ptr %buf, align 4
+  %10 = load i8, ptr %status, align 1
+  %11 = and i8 %10, 1
+  %and6.i65 = zext nneg i8 %11 to i32
+  store i32 %and6.i65, ptr %buf, align 4
   %intr64 = getelementptr inbounds i8, ptr %doe_cap, i64 18
-  %13 = load i8, ptr %intr64, align 1
-  %14 = shl i8 %13, 1
-  %15 = and i8 %14, 2
-  %or.i7081 = or disjoint i8 %15, %12
+  %12 = load i8, ptr %intr64, align 1
+  %13 = shl i8 %12, 1
+  %14 = and i8 %13, 2
+  %or.i7081 = or disjoint i8 %14, %11
   %or.i70 = zext nneg i8 %or.i7081 to i32
   store i32 %or.i70, ptr %buf, align 4
   %error = getelementptr inbounds i8, ptr %doe_cap, i64 19
-  %16 = load i8, ptr %error, align 1
-  %17 = shl i8 %16, 2
-  %18 = and i8 %17, 4
-  %or.i7482 = or disjoint i8 %18, %or.i7081
+  %15 = load i8, ptr %error, align 1
+  %16 = shl i8 %15, 2
+  %17 = and i8 %16, 4
+  %or.i7482 = or disjoint i8 %17, %or.i7081
   %or.i74 = zext nneg i8 %or.i7482 to i32
   store i32 %or.i74, ptr %buf, align 4
   %ready = getelementptr inbounds i8, ptr %doe_cap, i64 20
-  %19 = load i8, ptr %ready, align 1
-  %20 = and i8 %19, 1
-  %shl57.i76 = zext nneg i8 %20 to i32
-  %and6.i77 = shl nuw i32 %shl57.i76, 31
-  %or.i78 = or disjoint i32 %and6.i77, %or.i74
+  %18 = load i8, ptr %ready, align 1
+  %19 = and i8 %18, 1
+  %bf.cast102 = zext nneg i8 %19 to i32
+  %shl5.i76 = shl nuw i32 %bf.cast102, 31
+  %or.i78 = or disjoint i32 %shl5.i76, %or.i74
   br label %if.end123.sink.split
 
 if.else105:                                       ; preds = %if.end
@@ -274,33 +274,33 @@ if.else105:                                       ; preds = %if.end
 
 if.then109:                                       ; preds = %if.else105
   %ready111 = getelementptr inbounds i8, ptr %doe_cap, i64 20
-  %21 = load i8, ptr %ready111, align 1
-  %tobool112 = trunc i8 %21 to i1
+  %20 = load i8, ptr %ready111, align 1
+  %tobool112 = trunc i8 %20 to i1
   br i1 %tobool112, label %land.lhs.true114, label %if.end123
 
 land.lhs.true114:                                 ; preds = %if.then109
   %error116 = getelementptr inbounds i8, ptr %doe_cap, i64 19
-  %22 = load i8, ptr %error116, align 1
-  %tobool117 = trunc i8 %22 to i1
+  %21 = load i8, ptr %error116, align 1
+  %tobool117 = trunc i8 %21 to i1
   br i1 %tobool117, label %if.end123, label %if.then118
 
 if.then118:                                       ; preds = %land.lhs.true114
   %read_mbox = getelementptr inbounds i8, ptr %doe_cap, i64 32
-  %23 = load ptr, ptr %read_mbox, align 8
+  %22 = load ptr, ptr %read_mbox, align 8
   %read_mbox_idx = getelementptr inbounds i8, ptr %doe_cap, i64 40
-  %24 = load i32, ptr %read_mbox_idx, align 8
-  %idxprom = zext i32 %24 to i64
-  %arrayidx = getelementptr i32, ptr %23, i64 %idxprom
-  %25 = load i32, ptr %arrayidx, align 4
+  %23 = load i32, ptr %read_mbox_idx, align 8
+  %idxprom = zext i32 %23 to i64
+  %arrayidx = getelementptr i32, ptr %22, i64 %idxprom
+  %24 = load i32, ptr %arrayidx, align 4
   br label %if.end123.sink.split
 
 if.end123.sink.split:                             ; preds = %if.then7, %if.then48, %if.then118, %if.then29
-  %and6.i57.sink = phi i32 [ %and6.i57, %if.then29 ], [ %25, %if.then118 ], [ %or.i78, %if.then48 ], [ %or.i50, %if.then7 ]
+  %and6.i57.sink = phi i32 [ %and6.i57, %if.then29 ], [ %24, %if.then118 ], [ %or.i78, %if.then48 ], [ %or.i50, %if.then7 ]
   store i32 %and6.i57.sink, ptr %buf, align 4
   br label %if.end123
 
 if.end123:                                        ; preds = %if.end123.sink.split, %if.else105, %land.lhs.true114, %if.then109
-  %26 = phi i32 [ 0, %if.else105 ], [ 0, %land.lhs.true114 ], [ 0, %if.then109 ], [ %and6.i57.sink, %if.end123.sink.split ]
+  %25 = phi i32 [ 0, %if.else105 ], [ 0, %land.lhs.true114 ], [ 0, %if.then109 ], [ %and6.i57.sink, %if.end123.sink.split ]
   %rem = shl i32 %sub, 3
   %mul = and i32 %rem, 24
   %mul124 = shl i32 %size, 3
@@ -315,7 +315,7 @@ if.else.i:                                        ; preds = %if.end123
   unreachable
 
 extract32.exit:                                   ; preds = %if.end123
-  %shr.i = lshr i32 %26, %mul
+  %shr.i = lshr i32 %25, %mul
   %sub4.i = sub nuw nsw i32 32, %mul124
   %shr5.i = lshr i32 -1, %sub4.i
   %and.i80 = and i32 %shr.i, %shr5.i
@@ -361,9 +361,9 @@ deposit32.exit:                                   ; preds = %if.end
   %shl.i = shl i32 %shr.i, %mul
   %not.i = xor i32 %shl.i, -1
   %and.i = and i32 %val, %not.i
-  %shl57.i = and i32 %shr.i, %val
-  %and6.i = shl i32 %shl57.i, %mul
-  %or.i = or i32 %and.i, %and6.i
+  %shl5.i = shl i32 %val, %mul
+  %and6.i = and i32 %shl.i, %shl5.i
+  %or.i = or disjoint i32 %and.i, %and6.i
   %2 = and i32 %addr, -4
   %sub = add i32 %2, -4
   %3 = sub i32 %sub, %conv

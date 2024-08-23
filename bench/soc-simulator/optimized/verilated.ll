@@ -4173,14 +4173,14 @@ _ZL17VL_MOSTSETBITP1_WiPKj.exit217:               ; preds = %.preheader.i212
 ._crit_edge250:                                   ; preds = %._crit_edge240
   %104 = add nsw i32 %45, -1
   %105 = zext nneg i32 %104 to i64
-  %106 = add nsw i32 %45, -2
-  %107 = zext nneg i32 %106 to i64
-  %108 = shl nuw nsw i64 %107, 2
-  %109 = sub nsw i64 %105, %107
-  %110 = shl nsw i64 %109, 2
+  %106 = shl nuw nsw i64 %105, 2
+  %107 = add nsw i32 %45, -2
+  %108 = zext nneg i32 %107 to i64
+  %109 = shl nuw nsw i64 %108, 2
+  %110 = sub nsw i64 %106, %109
   %scevgep = getelementptr i8, ptr %7, i64 %110
   %scevgep313 = getelementptr i8, ptr %3, i64 %110
-  %111 = add nuw nsw i64 %108, 4
+  %111 = add nuw nsw i64 %109, 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, ptr noundef nonnull align 4 dereferenceable(1) %scevgep313, i64 %111, i1 false)
   %112 = load i32, ptr %3, align 4
   store i32 %112, ptr %7, align 16
@@ -4193,14 +4193,14 @@ _ZL17VL_MOSTSETBITP1_WiPKj.exit217:               ; preds = %.preheader.i212
 .lr.ph253.preheader:                              ; preds = %._crit_edge250
   %116 = add nsw i32 %42, -1
   %117 = zext i32 %116 to i64
-  %118 = tail call i32 @llvm.usub.sat.i32(i32 %42, i32 2)
-  %119 = zext nneg i32 %118 to i64
-  %120 = shl nuw nsw i64 %119, 2
-  %121 = sub nsw i64 %117, %119
-  %122 = shl nsw i64 %121, 2
+  %118 = shl nuw nsw i64 %117, 2
+  %119 = tail call i32 @llvm.usub.sat.i32(i32 %42, i32 2)
+  %120 = shl nuw nsw i32 %119, 2
+  %121 = zext nneg i32 %120 to i64
+  %122 = sub nsw i64 %118, %121
   %scevgep319 = getelementptr i8, ptr %6, i64 %122
   %scevgep320 = getelementptr i8, ptr %2, i64 %122
-  %123 = add nuw nsw i64 %120, 4
+  %123 = add nuw nsw i64 %121, 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep319, ptr noundef nonnull align 4 dereferenceable(1) %scevgep320, i64 %123, i1 false)
   br label %._crit_edge254
 
@@ -5424,17 +5424,17 @@ _ZL8VL_ADD_WiPjPKjS1_.exit.us:                    ; preds = %.lr.ph.i.us, %.lr.p
   %indvars.iv.i47 = phi i64 [ %80, %.lr.ph.i45._crit_edge ], [ 0, %._crit_edge.i ]
   %69 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i47
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i47
-  %72 = load i32, ptr %71, align 4
-  %73 = and i32 %72, 1
-  %74 = shl i32 %70, 1
-  %75 = or disjoint i32 %73, %74
+  %71 = shl i32 %70, 1
+  %72 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i47
+  %73 = load i32, ptr %72, align 4
+  %74 = and i32 %73, 1
+  %75 = or disjoint i32 %74, %71
   %76 = icmp eq i64 %indvars.iv.i47, %42
-  %77 = and i32 %72, %41
+  %77 = and i32 %73, %41
   %78 = and i32 %75, %40
   %79 = or i32 %78, %77
   %storemerge.i = select i1 %76, i32 %79, i32 %75
-  store i32 %storemerge.i, ptr %71, align 4
+  store i32 %storemerge.i, ptr %72, align 4
   %.not118.not.i = icmp slt i64 %indvars.iv.i47, %42
   %80 = add nuw nsw i64 %indvars.iv.i47, 1
   br i1 %.not118.not.i, label %.sink.split.i, label %.lr.ph.i45._crit_edge
@@ -33272,18 +33272,18 @@ define internal void @_ZL13_vl_insert_WWPjPKjiii(ptr nocapture noundef %0, ptr n
   %73 = add nsw i64 %indvars.iv, %70
   %74 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i32, ptr %0, i64 %73
-  %77 = load i32, ptr %76, align 4
-  %78 = and i32 %77, %67
-  %79 = and i32 %75, %59
-  %80 = shl i32 %79, %8
-  %81 = or i32 %78, %80
+  %76 = shl i32 %75, %8
+  %77 = getelementptr inbounds i32, ptr %0, i64 %73
+  %78 = load i32, ptr %77, align 4
+  %79 = and i32 %78, %67
+  %80 = and i32 %76, %60
+  %81 = or i32 %79, %80
   %82 = icmp eq i64 %73, %71
-  %83 = and i32 %77, %68
+  %83 = and i32 %78, %68
   %84 = and i32 %69, %81
   %85 = or i32 %84, %83
   %storemerge = select i1 %82, i32 %85, i32 %81
-  store i32 %storemerge, ptr %76, align 4
+  store i32 %storemerge, ptr %77, align 4
   %.not118.not = icmp slt i64 %73, %71
   br i1 %.not118.not, label %.sink.split, label %98
 

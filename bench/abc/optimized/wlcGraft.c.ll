@@ -311,8 +311,8 @@ Abc_TtNot.exit.thread.us:                         ; preds = %.split.us
 
 Abc_TtNot.exit39.us:                              ; preds = %.lr.ph.i35.us, %Abc_TtNot.exit.thread.us
   %42 = phi i32 [ %41, %Abc_TtNot.exit.thread.us ], [ %37, %.lr.ph.i35.us ]
-  %43 = xor i32 %25, %32
-  %44 = and i32 %43, 1
+  %43 = and i32 %25, 1
+  %44 = xor i32 %33, %43
   %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %42, i32 noundef %44)
   %46 = load ptr, ptr @stdout, align 8
   tail call void @Extra_PrintHex(ptr noundef %46, ptr noundef nonnull %30, i32 noundef 8) #19
@@ -1082,8 +1082,8 @@ Vec_MemHashLookup.exit:                           ; preds = %75, %.lr.ph.i44
   %95 = sub nsw i32 %.val38, %.val39
   %96 = tail call i32 @llvm.abs.i32(i32 %95, i1 true)
   %97 = add nuw nsw i32 %96, 1
-  %98 = xor i32 %31, %38
-  %99 = and i32 %98, 1
+  %98 = and i32 %31, 1
+  %99 = xor i32 %39, %98
   %100 = tail call ptr @Wlc_ObjName(ptr noundef %0, i32 noundef %94) #19
   %101 = trunc nuw nsw i64 %indvars.iv to i32
   %102 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %94, i32 noundef %97, i32 noundef %101, i32 noundef %.pr, i32 noundef %99, ptr noundef %100)

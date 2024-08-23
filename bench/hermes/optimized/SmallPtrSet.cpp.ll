@@ -842,43 +842,40 @@ _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit:       ; preds = %_ZSt11swap_rangesIP
   br i1 %cmp60, label %if.then.i.i.i.i.i57, label %if.else
 
 if.then.i.i.i.i.i57:                              ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit
-  %34 = load ptr, ptr %this, align 8
-  %add.ptr64 = getelementptr inbounds i8, ptr %34, i64 %add.ptr64.idx
-  %narrow = sub nuw i32 %33, %30
-  %35 = zext i32 %narrow to i64
-  %gepdiff69 = shl nuw nsw i64 %35, 3
-  %36 = load ptr, ptr %RHS, align 8
-  %add.ptr71 = getelementptr inbounds ptr, ptr %36, i64 %idx.ext55
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr71, ptr align 8 %add.ptr64, i64 %gepdiff69, i1 false)
-  br label %if.end84
+  %idx.ext67 = zext i32 %33 to i64
+  %add.ptr68.idx = shl nuw nsw i64 %idx.ext67, 3
+  br label %if.end84.sink.split
 
 if.else:                                          ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit
-  %37 = load i32, ptr %NumNonEmpty51, align 4
-  %idx.ext78 = zext i32 %37 to i64
+  %34 = load i32, ptr %NumNonEmpty51, align 4
+  %idx.ext78 = zext i32 %34 to i64
   %add.ptr79.idx = shl nuw nsw i64 %idx.ext78, 3
   %tobool.not.i.i.i.i.i63 = icmp eq i64 %add.ptr79.idx, %add.ptr64.idx
-  br i1 %tobool.not.i.i.i.i.i63, label %if.end84, label %if.then.i.i.i.i.i64
+  br i1 %tobool.not.i.i.i.i.i63, label %if.end84, label %if.end84.sink.split
 
-if.then.i.i.i.i.i64:                              ; preds = %if.else
-  %38 = load ptr, ptr %RHS, align 8
-  %add.ptr75 = getelementptr inbounds i8, ptr %38, i64 %add.ptr64.idx
-  %gepdiff = sub nsw i64 %add.ptr79.idx, %add.ptr64.idx
-  %39 = load ptr, ptr %this, align 8
-  %add.ptr82 = getelementptr inbounds ptr, ptr %39, i64 %idx.ext55
+if.end84.sink.split:                              ; preds = %if.else, %if.then.i.i.i.i.i57
+  %RHS.sink = phi ptr [ %this, %if.then.i.i.i.i.i57 ], [ %RHS, %if.else ]
+  %add.ptr79.idx.sink = phi i64 [ %add.ptr68.idx, %if.then.i.i.i.i.i57 ], [ %add.ptr79.idx, %if.else ]
+  %this.sink = phi ptr [ %RHS, %if.then.i.i.i.i.i57 ], [ %this, %if.else ]
+  %35 = load ptr, ptr %RHS.sink, align 8
+  %add.ptr75 = getelementptr inbounds i8, ptr %35, i64 %add.ptr64.idx
+  %gepdiff = sub nsw i64 %add.ptr79.idx.sink, %add.ptr64.idx
+  %36 = load ptr, ptr %this.sink, align 8
+  %add.ptr82 = getelementptr inbounds ptr, ptr %36, i64 %idx.ext55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr82, ptr align 8 %add.ptr75, i64 %gepdiff, i1 false)
   br label %if.end84
 
-if.end84:                                         ; preds = %if.then.i.i.i.i.i64, %if.else, %if.then.i.i.i.i.i57
-  %40 = load i32, ptr %NumNonEmpty50, align 4
-  %41 = load i32, ptr %NumNonEmpty51, align 4
-  store i32 %41, ptr %NumNonEmpty50, align 4
-  store i32 %40, ptr %NumNonEmpty51, align 4
+if.end84:                                         ; preds = %if.end84.sink.split, %if.else
+  %37 = load i32, ptr %NumNonEmpty50, align 4
+  %38 = load i32, ptr %NumNonEmpty51, align 4
+  store i32 %38, ptr %NumNonEmpty50, align 4
+  store i32 %37, ptr %NumNonEmpty51, align 4
   %NumTombstones87 = getelementptr inbounds i8, ptr %this, i64 24
   %NumTombstones88 = getelementptr inbounds i8, ptr %RHS, i64 24
-  %42 = load i32, ptr %NumTombstones87, align 8
-  %43 = load i32, ptr %NumTombstones88, align 8
-  store i32 %43, ptr %NumTombstones87, align 8
-  store i32 %42, ptr %NumTombstones88, align 8
+  %39 = load i32, ptr %NumTombstones87, align 8
+  %40 = load i32, ptr %NumTombstones88, align 8
+  store i32 %40, ptr %NumTombstones87, align 8
+  store i32 %39, ptr %NumTombstones88, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end84, %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit51, %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit, %if.then3

@@ -3789,8 +3789,9 @@ if.then810:                                       ; preds = %sw.default
   %shl.i = shl nuw i32 255, %mul
   %not.i = xor i32 %shl.i, -1
   %and.i380 = and i32 %128, %not.i
-  %and6.i = shl nuw i32 %conv815, %mul
-  %or.i = or i32 %and.i380, %and6.i
+  %shl5.i = shl nuw i32 %conv815, %mul
+  %and6.i = and i32 %shl5.i, %shl.i
+  %or.i = or disjoint i32 %and.i380, %and6.i
   store i32 %or.i, ptr %arrayidx814, align 4
   br label %sw.epilog
 

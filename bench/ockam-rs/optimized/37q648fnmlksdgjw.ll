@@ -903,8 +903,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %scevgep = getelementptr i8, ptr %13, i64 %14
   %15 = shl i64 %.promoted.i.i.i, 5
   %scevgep34 = getelementptr i8, ptr %4, i64 %15
-  %16 = sub i64 %10, %.promoted.i.i.i
-  %17 = shl i64 %16, 5
+  %16 = shl i64 %10, 5
+  %17 = sub i64 %16, %15
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep34, i64 %17, i1 false), !noalias !33
   %18 = add i64 %10, %.pre.i.i.i
   %19 = sub i64 %18, %.promoted.i.i.i
@@ -915,7 +915,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %20 = getelementptr inbounds i8, ptr %0, i64 56
   %21 = load i64, ptr %20, align 8, !range !9, !noundef !5
   %.not12.not = icmp eq i64 %21, 0
-  br i1 %.not12.not, label %34, label %22
+  br i1 %.not12.not, label %35, label %22
 
 22:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h43c3f90444aea9faE.exit"
   %23 = getelementptr inbounds i8, ptr %0, i64 64
@@ -931,34 +931,35 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %26 = load i64, ptr %25, align 8, !alias.scope !34, !noalias !37, !noundef !5
   %.promoted.i.i.i24 = load i64, ptr %24, align 8, !alias.scope !34, !noalias !37
   %.not.i4.i.i.i25 = icmp eq i64 %26, %.promoted.i.i.i24
-  br i1 %.not.i4.i.i.i25, label %32, label %.lr.ph.i.i.i26
+  br i1 %.not.i4.i.i.i25, label %33, label %.lr.ph.i.i.i26
 
 .lr.ph.i.i.i26:                                   ; preds = %22
   %27 = shl i64 %.sroa.4.0.copyload, 5
   %scevgep.i.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 %27
   %28 = shl i64 %.promoted.i.i.i24, 5
   %scevgep3.i.i = getelementptr i8, ptr %3, i64 %28
-  %29 = sub i64 %26, %.promoted.i.i.i24
-  %30 = shl i64 %29, 5
+  %29 = shl i64 %26, 5
+  %30 = sub i64 %29, %28
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep.i.i, ptr readonly align 8 %scevgep3.i.i, i64 %30, i1 false), !noalias !39
-  %31 = add i64 %29, %.sroa.4.0.copyload
-  br label %32
+  %31 = add i64 %26, %.sroa.4.0.copyload
+  %32 = sub i64 %31, %.promoted.i.i.i24
+  br label %33
 
-32:                                               ; preds = %22, %.lr.ph.i.i.i26
-  %.val3.i = phi i64 [ %31, %.lr.ph.i.i.i26 ], [ %.sroa.4.0.copyload, %22 ]
-  %33 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %33)
+33:                                               ; preds = %22, %.lr.ph.i.i.i26
+  %.val3.i = phi i64 [ %32, %.lr.ph.i.i.i26 ], [ %.sroa.4.0.copyload, %22 ]
+  %34 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %34)
   store i64 %.val3.i, ptr %.sroa.0.0.copyload, align 8, !noalias !46
   br label %"_ZN4core3ptr88drop_in_place$LT$core..array..iter..IntoIter$LT$ockam_abac..expr..Expr$C$1_usize$GT$$GT$17he86cb438e9343b41E.exit"
 
-34:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h43c3f90444aea9faE.exit"
+35:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h43c3f90444aea9faE.exit"
   %.val22 = load ptr, ptr %1, align 8, !nonnull !5, !align !47, !noundef !5
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
-  %.val23 = load i64, ptr %35, align 8, !noundef !5
+  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %.val23 = load i64, ptr %36, align 8, !noundef !5
   store i64 %.val23, ptr %.val22, align 8
   br label %"_ZN4core3ptr88drop_in_place$LT$core..array..iter..IntoIter$LT$ockam_abac..expr..Expr$C$1_usize$GT$$GT$17he86cb438e9343b41E.exit"
 
-"_ZN4core3ptr88drop_in_place$LT$core..array..iter..IntoIter$LT$ockam_abac..expr..Expr$C$1_usize$GT$$GT$17he86cb438e9343b41E.exit": ; preds = %32, %34
+"_ZN4core3ptr88drop_in_place$LT$core..array..iter..IntoIter$LT$ockam_abac..expr..Expr$C$1_usize$GT$$GT$17he86cb438e9343b41E.exit": ; preds = %33, %35
   ret void
 }
 

@@ -2011,24 +2011,24 @@ define range(i32 0, -2147483648) i32 @Abc_NodeEvaluateDsd_rec(ptr noundef %0, pt
   %7 = alloca i32, align 4
   %8 = ptrtoint ptr %2 to i64
   %9 = trunc i64 %8 to i32
-  %10 = and i64 %8, -2
-  %11 = inttoptr i64 %10 to ptr
-  %12 = tail call i32 @Dsd_NodeReadType(ptr noundef %11) #19
-  %.fr587 = freeze i32 %12
-  %13 = icmp eq i32 %.fr587, 2
-  br i1 %13, label %14, label %21
+  %10 = and i32 %9, 1
+  %11 = and i64 %8, -2
+  %12 = inttoptr i64 %11 to ptr
+  %13 = tail call i32 @Dsd_NodeReadType(ptr noundef %12) #19
+  %.fr587 = freeze i32 %13
+  %14 = icmp eq i32 %.fr587, 2
+  br i1 %14, label %15, label %21
 
-14:                                               ; preds = %6
-  %15 = and i32 %9, 1
-  %16 = tail call ptr @Dsd_NodeReadFunc(ptr noundef %11) #19
+15:                                               ; preds = %6
+  %16 = tail call ptr @Dsd_NodeReadFunc(ptr noundef %12) #19
   %17 = load i32, ptr %16, align 8
   %18 = shl i32 %17, 1
   %19 = and i32 %18, 2147483646
-  %20 = or disjoint i32 %19, %15
+  %20 = or disjoint i32 %19, %10
   br label %1099
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %11) #19
+  %22 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %12) #19
   %23 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %24 = add i32 %22, -1
   %or.cond.i = icmp ult i32 %24, 15
@@ -2049,7 +2049,7 @@ Vec_IntAlloc.exit:                                ; preds = %21, %26
   %30 = phi ptr [ %29, %26 ], [ null, %21 ]
   %31 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %30, ptr %31, align 8
-  %32 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %11) #19
+  %32 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %12) #19
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph, label %.critedge
 
@@ -2060,7 +2060,7 @@ Vec_IntAlloc.exit:                                ; preds = %21, %26
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %Vec_IntPush.exit.us
   %.0371578.us = phi i32 [ %68, %Vec_IntPush.exit.us ], [ 0, %.lr.ph ]
-  %36 = tail call ptr @Dsd_NodeReadDec(ptr noundef %11, i32 noundef %.0371578.us) #19
+  %36 = tail call ptr @Dsd_NodeReadDec(ptr noundef %12, i32 noundef %.0371578.us) #19
   %.not.us = icmp eq ptr %36, null
   br i1 %.not.us, label %.critedge, label %37
 
@@ -2133,7 +2133,7 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntGrow.exit.i.
   %67 = getelementptr inbounds i32, ptr %64, i64 %66
   store i32 %38, ptr %67, align 4
   %68 = add nuw nsw i32 %.0371578.us, 1
-  %69 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %11) #19
+  %69 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %12) #19
   %70 = icmp slt i32 %68, %69
   br i1 %70, label %.lr.ph.split.us, label %.critedge, !llvm.loop !20
 
@@ -2141,7 +2141,7 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntGrow.exit.i.
   %71 = phi ptr [ %99, %Abc_NodeEdgeDsdPushOrdered.exit ], [ %30, %.lr.ph ]
   %72 = phi i32 [ %80, %Abc_NodeEdgeDsdPushOrdered.exit ], [ 0, %.lr.ph ]
   %.0371578 = phi i32 [ %102, %Abc_NodeEdgeDsdPushOrdered.exit ], [ 0, %.lr.ph ]
-  %73 = tail call ptr @Dsd_NodeReadDec(ptr noundef %11, i32 noundef %.0371578) #19
+  %73 = tail call ptr @Dsd_NodeReadDec(ptr noundef %12, i32 noundef %.0371578) #19
   %.not = icmp eq ptr %73, null
   br i1 %.not, label %.critedge, label %74
 
@@ -2212,7 +2212,7 @@ Abc_NodeEdgeDsdPushOrdered.exit:                  ; preds = %96, %84, %79
   %101 = getelementptr inbounds i8, ptr %99, i64 %100
   store i32 %75, ptr %101, align 4
   %102 = add nuw nsw i32 %.0371578, 1
-  %103 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %11) #19
+  %103 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %12) #19
   %104 = icmp slt i32 %102, %103
   br i1 %104, label %.lr.ph.split, label %.critedge, !llvm.loop !20
 
@@ -2510,8 +2510,8 @@ Vec_IntFree.exit489:                              ; preds = %Abc_NodeEdgeDsdPush
   %262 = load i32, ptr %261, align 4
   tail call void @free(ptr noundef nonnull %259) #19
   tail call void @free(ptr noundef nonnull %23) #19
-  %263 = xor i32 %262, %9
-  %264 = and i32 %263, 1
+  %263 = and i32 %262, 1
+  %264 = xor i32 %263, %10
   %265 = and i32 %262, 2147483646
   %266 = or disjoint i32 %264, %265
   br label %1099
@@ -3208,8 +3208,8 @@ Vec_IntFree.exit521:                              ; preds = %Abc_NodeEdgeDsdPush
   %654 = load i32, ptr %653, align 4
   call void @free(ptr noundef nonnull %651) #19
   call void @free(ptr noundef nonnull %23) #19
-  %655 = xor i32 %654, %9
-  %656 = and i32 %655, 1
+  %655 = and i32 %654, 1
+  %656 = xor i32 %655, %10
   %657 = and i32 %654, 2147483646
   %658 = or disjoint i32 %656, %657
   br label %1099
@@ -3217,7 +3217,7 @@ Vec_IntFree.exit521:                              ; preds = %Abc_NodeEdgeDsdPush
 659:                                              ; preds = %.critedge
   %660 = getelementptr inbounds i8, ptr %1, i64 24
   %661 = load ptr, ptr %660, align 8
-  %662 = tail call ptr @Dsd_TreeGetPrimeFunction(ptr noundef %661, ptr noundef %11) #19
+  %662 = tail call ptr @Dsd_TreeGetPrimeFunction(ptr noundef %661, ptr noundef %12) #19
   tail call void @Cudd_Ref(ptr noundef %662) #19
   %663 = load ptr, ptr %660, align 8
   %664 = getelementptr inbounds i8, ptr %663, i64 344
@@ -3959,8 +3959,8 @@ Vec_IntFree.exit535:                              ; preds = %1086, %1088
 
 Vec_IntFree.exit537:                              ; preds = %1089, %1091
   call void @free(ptr noundef nonnull %23) #19
-  %1092 = xor i32 %.sroa.031.0.i, %9
-  %1093 = and i32 %1092, 1
+  %1092 = and i32 %.sroa.031.0.i, 1
+  %1093 = xor i32 %1092, %10
   %1094 = and i32 %.sroa.031.0.i, 2147483646
   %1095 = or disjoint i32 %1093, %1094
   br label %1099
@@ -3978,8 +3978,8 @@ Vec_IntFree.exit539:                              ; preds = %1096, %1098
   tail call void @free(ptr noundef nonnull %23) #19
   br label %1099
 
-1099:                                             ; preds = %Vec_IntFree.exit539, %Vec_IntFree.exit537, %Vec_IntFree.exit535, %710, %Vec_IntFree.exit521, %Vec_IntFree.exit511, %Vec_IntFree.exit489, %Vec_IntFree.exit479, %Vec_IntFree.exit, %14
-  %.sroa.0366.0 = phi i32 [ %20, %14 ], [ 4012, %Vec_IntFree.exit ], [ 4012, %Vec_IntFree.exit479 ], [ %266, %Vec_IntFree.exit489 ], [ 4012, %Vec_IntFree.exit511 ], [ %658, %Vec_IntFree.exit521 ], [ 4012, %Vec_IntFree.exit535 ], [ %1095, %Vec_IntFree.exit537 ], [ 4012, %710 ], [ 4012, %Vec_IntFree.exit539 ]
+1099:                                             ; preds = %Vec_IntFree.exit539, %Vec_IntFree.exit537, %Vec_IntFree.exit535, %710, %Vec_IntFree.exit521, %Vec_IntFree.exit511, %Vec_IntFree.exit489, %Vec_IntFree.exit479, %Vec_IntFree.exit, %15
+  %.sroa.0366.0 = phi i32 [ %20, %15 ], [ 4012, %Vec_IntFree.exit ], [ 4012, %Vec_IntFree.exit479 ], [ %266, %Vec_IntFree.exit489 ], [ 4012, %Vec_IntFree.exit511 ], [ %658, %Vec_IntFree.exit521 ], [ 4012, %Vec_IntFree.exit535 ], [ %1095, %Vec_IntFree.exit537 ], [ 4012, %710 ], [ 4012, %Vec_IntFree.exit539 ]
   ret i32 %.sroa.0366.0
 }
 

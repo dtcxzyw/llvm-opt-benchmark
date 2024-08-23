@@ -2939,6 +2939,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 invoke.cont26:                                    ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %15, 4611686018427387903
+  %add.ptr.i71.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i72 = getelementptr inbounds %"class.folly::Range", ptr %spec.select, i64 %pos
   %17 = load ptr, ptr %emplaceFunc, align 8, !tbaa !99
   %18 = load ptr, ptr %17, align 8, !tbaa !10
@@ -2965,8 +2966,7 @@ if.then6.i:                                       ; preds = %if.end.i75
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i72, i64 16
-  %22 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %22, 4
+  %gepdiff = sub nsw i64 %add.ptr.i71.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm1EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -2982,8 +2982,8 @@ invoke.cont34:                                    ; preds = %if.else
 _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm1EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit: ; preds = %invoke.cont34, %if.else, %if.then6.i, %if.end.i75
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE8freeHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
   store ptr %spec.select, ptr %u.i.i, align 8, !tbaa !7
-  %23 = load i64, ptr %this, align 8
-  %and.i = and i64 %23, 4611686018427387903
+  %22 = load i64, ptr %this, align 8
+  %and.i = and i64 %22, 4611686018427387903
   %storemerge.i97 = select i1 %cmp9, i64 -9223372036854775808, i64 -4611686018427387904
   %storemerge.i99 = or disjoint i64 %and.i, %storemerge.i97
   store i64 %storemerge.i99, ptr %this, align 8, !tbaa !92
@@ -4081,6 +4081,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !110
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -4107,8 +4108,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm2EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -4128,15 +4128,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm2EvE16makeS
   br i1 %or.cond, label %_ZN5folly12small_vectorINS_5RangeIPKcEELm2EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm2EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !113
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !113
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -4145,13 +4145,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -4164,8 +4164,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorINS_5RangeIPKcEELm2EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm2EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !113
@@ -5038,6 +5038,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !123
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -5064,8 +5065,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm3EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -5085,15 +5085,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm3EvE16makeS
   br i1 %or.cond, label %_ZN5folly12small_vectorINS_5RangeIPKcEELm3EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm3EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !126
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !126
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -5102,13 +5102,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -5121,8 +5121,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorINS_5RangeIPKcEELm3EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm3EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !126
@@ -5995,6 +5995,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !136
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -6021,8 +6022,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm4EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -6042,15 +6042,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm4EvE16makeS
   br i1 %or.cond, label %_ZN5folly12small_vectorINS_5RangeIPKcEELm4EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm4EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !139
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !139
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -6059,13 +6059,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -6078,8 +6078,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorINS_5RangeIPKcEELm4EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm4EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !139
@@ -6952,6 +6952,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !149
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -6978,8 +6979,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm5EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -6999,15 +6999,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm5EvE16makeS
   br i1 %or.cond, label %_ZN5folly12small_vectorINS_5RangeIPKcEELm5EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm5EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !152
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !152
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -7016,13 +7016,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -7035,8 +7035,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorINS_5RangeIPKcEELm5EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm5EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !152
@@ -7909,6 +7909,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !162
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -7935,8 +7936,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm6EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -7956,15 +7956,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm6EvE16makeS
   br i1 %or.cond, label %_ZN5folly12small_vectorINS_5RangeIPKcEELm6EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm6EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !165
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !165
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -7973,13 +7973,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -7992,8 +7992,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorINS_5RangeIPKcEELm6EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm6EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !165
@@ -8866,6 +8866,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !175
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -8892,8 +8893,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm7EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -8913,15 +8913,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm7EvE16makeS
   br i1 %or.cond, label %_ZN5folly12small_vectorINS_5RangeIPKcEELm7EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm7EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !178
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !178
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -8930,13 +8930,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -8949,8 +8949,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorINS_5RangeIPKcEELm7EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm7EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !178
@@ -9823,6 +9823,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !188
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -9849,8 +9850,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm8EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -9870,15 +9870,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm8EvE16makeS
   br i1 %or.cond, label %_ZN5folly12small_vectorINS_5RangeIPKcEELm8EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm8EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !191
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !191
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -9887,13 +9887,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -9906,8 +9906,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorINS_5RangeIPKcEELm8EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm8EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !191
@@ -12625,6 +12625,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then24:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %15, 4611686018427387903
+  %add.ptr.i71.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i72 = getelementptr inbounds %"class.std::basic_string_view", ptr %spec.select, i64 %pos
   %17 = load ptr, ptr %emplaceFunc, align 8, !tbaa !270
   %18 = load ptr, ptr %17, align 8, !tbaa !10
@@ -12650,8 +12651,7 @@ if.then6.i:                                       ; preds = %if.end.i75
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i72, i64 16
-  %22 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %22, 4
+  %gepdiff = sub nsw i64 %add.ptr.i71.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -12667,8 +12667,8 @@ if.then31:                                        ; preds = %if.else
 _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit: ; preds = %if.then31, %if.else, %if.then6.i, %if.end.i75
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8freeHeapEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
   store ptr %spec.select, ptr %u.i.i, align 8, !tbaa !7
-  %23 = load i64, ptr %this, align 8
-  %and.i = and i64 %23, 4611686018427387903
+  %22 = load i64, ptr %this, align 8
+  %and.i = and i64 %22, 4611686018427387903
   %storemerge.i97 = select i1 %cmp9, i64 -9223372036854775808, i64 -4611686018427387904
   %storemerge.i99 = or disjoint i64 %and.i, %storemerge.i97
   store i64 %storemerge.i99, ptr %this, align 8, !tbaa !92
@@ -13696,6 +13696,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !281
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -13721,8 +13722,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -13742,15 +13742,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11c
   br i1 %or.cond, label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !284
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !284
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -13759,13 +13759,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -13778,8 +13778,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !284
@@ -14636,6 +14636,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !294
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -14661,8 +14662,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -14682,15 +14682,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11c
   br i1 %or.cond, label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !297
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !297
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -14699,13 +14699,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -14718,8 +14718,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !297
@@ -15576,6 +15576,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !307
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -15601,8 +15602,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -15622,15 +15622,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11c
   br i1 %or.cond, label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !310
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !310
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -15639,13 +15639,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -15658,8 +15658,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !310
@@ -16516,6 +16516,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !320
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -16541,8 +16542,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -16562,15 +16562,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11c
   br i1 %or.cond, label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !323
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !323
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -16579,13 +16579,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -16598,8 +16598,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !323
@@ -17456,6 +17456,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !333
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -17481,8 +17482,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -17502,15 +17502,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11c
   br i1 %or.cond, label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !336
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !336
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -17519,13 +17519,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -17538,8 +17538,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !336
@@ -18396,6 +18396,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !346
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -18421,8 +18422,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -18442,15 +18442,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11c
   br i1 %or.cond, label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !349
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !349
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -18459,13 +18459,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -18478,8 +18478,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !349
@@ -19336,6 +19336,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 if.then18:                                        ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i = and i64 %13, 4611686018427387903
+  %add.ptr.i.idx = shl nsw i64 %and.i.i.i, 4
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !359
   %16 = load ptr, ptr %15, align 8, !tbaa !10
@@ -19361,8 +19362,7 @@ if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i.idx = shl nsw i64 %pos, 4
   %add.ptr5.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr5.i.idx
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
-  %20 = sub nsw i64 %and.i.i.i, %pos
-  %gepdiff = shl nsw i64 %20, 4
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr5.i.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr9.i, ptr align 1 %add.ptr5.i, i64 %gepdiff, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -19382,15 +19382,15 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11c
   br i1 %or.cond, label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE8freeHeapEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %21 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !362
-  %mul.i = shl i64 %21, 4
-  %22 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %22, 0
+  %20 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !362
+  %mul.i = shl i64 %20, 4
+  %21 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %guard.uninitialized.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %guard.uninitialized.i.i.i.i.i, label %init.check.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, !prof !81
 
 init.check.i.i.i.i.i:                             ; preds = %if.then4.i
-  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
-  %tobool.not.i.i.i.i.i = icmp eq i32 %23, 0
+  %22 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
+  %tobool.not.i.i.i.i.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly11canSdallocxEv.exit.i.i, label %init.i.i.i.i.i
 
 init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.i
@@ -19399,13 +19399,13 @@ init.i.i.i.i.i:                                   ; preds = %init.check.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i) #26
   %frombool.i.i.i.i.i = zext i1 %call.i.i.i.i.i to i8
   store i8 %frombool.i.i.i.i.i, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82
-  %24 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %23 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #26
   br label %_ZN5folly11canSdallocxEv.exit.i.i
 
 _ZN5folly11canSdallocxEv.exit.i.i:                ; preds = %init.i.i.i.i.i, %init.check.i.i.i.i.i, %if.then4.i
-  %25 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
-  %tobool1.i.i.i.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !82, !range !84, !noundef !85
+  %tobool1.i.i.i.not.i.i = icmp eq i8 %24, 0
   br i1 %tobool1.i.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly11canSdallocxEv.exit.i.i
@@ -19418,8 +19418,8 @@ if.else.i.i:                                      ; preds = %_ZN5folly11canSdall
 
 _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE8freeHeapEv.exit: ; preds = %if.else.i.i, %if.then.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
   store ptr %call.i, ptr %u.i.i, align 8, !tbaa !7
-  %26 = load i64, ptr %this, align 8
-  %and.i85 = and i64 %26, 4611686018427387903
+  %25 = load i64, ptr %this, align 8
+  %and.i85 = and i64 %25, 4611686018427387903
   %storemerge.i86 = or disjoint i64 %and.i85, -9223372036854775808
   store i64 %storemerge.i86, ptr %this, align 8, !tbaa !92
   store i64 %retval.0.i49, ptr %capacity_.i.i.i.i, align 8, !tbaa !362

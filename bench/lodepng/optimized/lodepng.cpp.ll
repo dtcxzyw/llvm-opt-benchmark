@@ -12271,12 +12271,12 @@ if.end11.i:                                       ; preds = %if.end6.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end292.i, %if.end11.i
-  %chunk.0538.i = phi ptr [ %arrayidx.i, %if.end11.i ], [ %chunk.1.i, %if.end292.i ]
-  %idatsize.0537.i = phi i64 [ 0, %if.end11.i ], [ %idatsize.2481490.i, %if.end292.i ]
-  %critical_pos.0536.i = phi i32 [ 1, %if.end11.i ], [ %critical_pos.1480492.i, %if.end292.i ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %chunk.0538.i to i64
+  %chunk.0537.i = phi ptr [ %arrayidx.i, %if.end11.i ], [ %chunk.1.i, %if.end292.i ]
+  %idatsize.0536.i = phi i64 [ 0, %if.end11.i ], [ %idatsize.2481490.i, %if.end292.i ]
+  %critical_pos.0535.i = phi i32 [ 1, %if.end11.i ], [ %critical_pos.1480492.i, %if.end292.i ]
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %chunk.0537.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i = icmp ult ptr %chunk.0538.i, %in
+  %cmp.i = icmp ult ptr %chunk.0537.i, %in
   %add.i = add i64 %sub.ptr.sub.i, 12
   %cmp15.i = icmp ugt i64 %add.i, %insize
   %or.cond208.i = or i1 %cmp.i, %cmp15.i
@@ -12286,15 +12286,15 @@ if.then16.i:                                      ; preds = %while.body.i
   %ignore_end.i = getelementptr inbounds i8, ptr %state, i64 48
   %5 = load i32, ptr %ignore_end.i, align 8
   %tobool17.not.i = icmp eq i32 %5, 0
-  br i1 %tobool17.not.i, label %if.end381.thread579.i.sink.split, label %land.lhs.true295.i
+  br i1 %tobool17.not.i, label %if.end381.thread578.i.sink.split, label %land.lhs.true295.i
 
 if.end21.i:                                       ; preds = %while.body.i
-  %6 = load i8, ptr %chunk.0538.i, align 1
+  %6 = load i8, ptr %chunk.0537.i, align 1
   %conv.i.i.i = zext i8 %6 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i, 24
-  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 1
-  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 2
-  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 3
+  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 1
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 2
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 3
   %cmp23.i = icmp slt i32 %shl.i.i.i, 0
   br i1 %cmp23.i, label %if.then24.i, label %if.end31.i
 
@@ -12302,7 +12302,7 @@ if.then24.i:                                      ; preds = %if.end21.i
   %ignore_end26.i = getelementptr inbounds i8, ptr %state, i64 48
   %7 = load i32, ptr %ignore_end26.i, align 8
   %tobool27.not.i = icmp eq i32 %7, 0
-  br i1 %tobool27.not.i, label %if.end381.thread579.i.sink.split, label %land.lhs.true295.i
+  br i1 %tobool27.not.i, label %if.end381.thread578.i.sink.split, label %land.lhs.true295.i
 
 if.end31.i:                                       ; preds = %if.end21.i
   %8 = load i8, ptr %arrayidx1.i.i.i, align 1
@@ -12321,11 +12321,11 @@ if.end31.i:                                       ; preds = %if.end21.i
   %cmp34.i = icmp ugt i64 %add33.i, %insize
   %cmp39.i = icmp ult i64 %add33.i, %sub.ptr.sub.i
   %or.cond209.i = or i1 %cmp34.i, %cmp39.i
-  br i1 %or.cond209.i, label %if.end381.thread579.i.sink.split, label %if.end.i.i
+  br i1 %or.cond209.i, label %if.end381.thread578.i.sink.split, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end31.i
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 8
-  %arrayidx.i213.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 4
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 8
+  %arrayidx.i213.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 4
   %13 = load i8, ptr %arrayidx.i213.i, align 1
   switch i8 %13, label %if.else135.i [
     i8 73, label %land.lhs.true.i.i
@@ -12336,7 +12336,7 @@ if.end.i.i:                                       ; preds = %if.end31.i
   ]
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 5
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 5
   %14 = load i8, ptr %arrayidx4.i.i, align 1
   switch i8 %14, label %if.else135.i [
     i8 68, label %land.lhs.true9.i.i
@@ -12344,59 +12344,59 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   ]
 
 land.lhs.true9.i.i:                               ; preds = %land.lhs.true.i.i
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 6
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 6
   %15 = load i8, ptr %arrayidx10.i.i, align 1
   %cmp14.i.i = icmp eq i8 %15, 65
   br i1 %cmp14.i.i, label %_Z25lodepng_chunk_type_equalsPKhPKc.exit.i, label %if.else135.i
 
 _Z25lodepng_chunk_type_equalsPKhPKc.exit.i:       ; preds = %land.lhs.true9.i.i
-  %arrayidx15.i.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 7
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 7
   %16 = load i8, ptr %arrayidx15.i.i, align 1
   %cmp19.i.not.i = icmp eq i8 %16, 84
   br i1 %cmp19.i.not.i, label %if.then46.i, label %if.else135.i
 
 if.then46.i:                                      ; preds = %_Z25lodepng_chunk_type_equalsPKhPKc.exit.i
-  %add.i218.i = add i64 %idatsize.0537.i, %conv.i
-  %cmp.i219.not.i = icmp ult i64 %add.i218.i, %idatsize.0537.i
+  %add.i218.i = add i64 %idatsize.0536.i, %conv.i
+  %cmp.i219.not.i = icmp ult i64 %add.i218.i, %idatsize.0536.i
   %cmp53.i = icmp ugt i64 %add.i218.i, %insize
-  %or.cond594.i = or i1 %cmp.i219.not.i, %cmp53.i
-  br i1 %or.cond594.i, label %if.end381.thread579.i.sink.split, label %if.end56.i
+  %or.cond593.i = or i1 %cmp.i219.not.i, %cmp53.i
+  br i1 %or.cond593.i, label %if.end381.thread578.i.sink.split, label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.then46.i
   %cmp4.not.i.i = icmp eq i32 %or10.i.i.i, 0
   br i1 %cmp4.not.i.i, label %if.end276.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.end56.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 %idatsize.0537.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 %idatsize.0536.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %arrayidx.i.i, i64 %conv.i, i1 false), !alias.scope !316
   br label %if.end276.i
 
 land.lhs.true9.i238.i:                            ; preds = %land.lhs.true.i.i
-  %arrayidx10.i239.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 6
+  %arrayidx10.i239.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 6
   %17 = load i8, ptr %arrayidx10.i239.i, align 1
   %cmp14.i241.i = icmp eq i8 %17, 78
   br i1 %cmp14.i241.i, label %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i, label %if.else135.i
 
 _Z25lodepng_chunk_type_equalsPKhPKc.exit246.i:    ; preds = %land.lhs.true9.i238.i
-  %arrayidx15.i243.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 7
+  %arrayidx15.i243.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 7
   %18 = load i8, ptr %arrayidx15.i243.i, align 1
   %cmp19.i245.not.i = icmp eq i8 %18, 68
   br i1 %cmp19.i245.not.i, label %if.end276.i, label %if.else135.i
 
 land.lhs.true.i260.i:                             ; preds = %if.end.i.i
-  %arrayidx4.i261.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 5
+  %arrayidx4.i261.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 5
   %19 = load i8, ptr %arrayidx4.i261.i, align 1
   %cmp8.i263.i = icmp eq i8 %19, 76
   br i1 %cmp8.i263.i, label %land.lhs.true9.i264.i, label %if.else135.i
 
 land.lhs.true9.i264.i:                            ; preds = %land.lhs.true.i260.i
-  %arrayidx10.i265.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 6
+  %arrayidx10.i265.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 6
   %20 = load i8, ptr %arrayidx10.i265.i, align 1
   %cmp14.i267.i = icmp eq i8 %20, 84
   br i1 %cmp14.i267.i, label %_Z25lodepng_chunk_type_equalsPKhPKc.exit272.i, label %if.else135.i
 
 _Z25lodepng_chunk_type_equalsPKhPKc.exit272.i:    ; preds = %land.lhs.true9.i264.i
-  %arrayidx15.i269.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 7
+  %arrayidx15.i269.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 7
   %21 = load i8, ptr %arrayidx15.i269.i, align 1
   %cmp19.i271.not.i = icmp eq i8 %21, 69
   br i1 %cmp19.i271.not.i, label %if.then66.i, label %if.else135.i
@@ -12405,22 +12405,22 @@ if.then66.i:                                      ; preds = %_Z25lodepng_chunk_t
   %call70.i = tail call fastcc noundef i32 @_ZL14readChunk_PLTEP16LodePNGColorModePKhm(ptr noundef nonnull %color.i, ptr noundef nonnull %arrayidx.i.i, i64 noundef %conv.i)
   store i32 %call70.i, ptr %error.i, align 8
   %tobool73.not.i = icmp eq i32 %call70.i, 0
-  br i1 %tobool73.not.i, label %if.end276.i, label %if.end381.thread579.i
+  br i1 %tobool73.not.i, label %if.end276.i, label %if.end381.thread578.i
 
 land.lhs.true.i286.i:                             ; preds = %if.end.i.i
-  %arrayidx4.i287.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 5
+  %arrayidx4.i287.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 5
   %22 = load i8, ptr %arrayidx4.i287.i, align 1
   %cmp8.i289.i = icmp eq i8 %22, 82
   br i1 %cmp8.i289.i, label %land.lhs.true9.i290.i, label %land.lhs.true.i85
 
 land.lhs.true9.i290.i:                            ; preds = %land.lhs.true.i286.i
-  %arrayidx10.i291.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 6
+  %arrayidx10.i291.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 6
   %23 = load i8, ptr %arrayidx10.i291.i, align 1
   %cmp14.i293.i = icmp eq i8 %23, 78
   br i1 %cmp14.i293.i, label %_Z25lodepng_chunk_type_equalsPKhPKc.exit298.i, label %land.lhs.true.i85
 
 _Z25lodepng_chunk_type_equalsPKhPKc.exit298.i:    ; preds = %land.lhs.true9.i290.i
-  %arrayidx15.i295.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 7
+  %arrayidx15.i295.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 7
   %24 = load i8, ptr %arrayidx15.i295.i, align 1
   %cmp19.i297.not.i = icmp eq i8 %24, 83
   br i1 %cmp19.i297.not.i, label %if.then79.i, label %land.lhs.true.i85
@@ -12429,22 +12429,22 @@ if.then79.i:                                      ; preds = %_Z25lodepng_chunk_t
   %call83.i = tail call fastcc noundef i32 @_ZL14readChunk_tRNSP16LodePNGColorModePKhm(ptr noundef nonnull %color.i, ptr noundef nonnull %arrayidx.i.i, i64 noundef %conv.i)
   store i32 %call83.i, ptr %error.i, align 8
   %tobool86.not.i = icmp eq i32 %call83.i, 0
-  br i1 %tobool86.not.i, label %if.end276.i, label %if.end381.thread579.i
+  br i1 %tobool86.not.i, label %if.end276.i, label %if.end381.thread578.i
 
 land.lhs.true.i120:                               ; preds = %if.end.i.i
-  %arrayidx4.i121 = getelementptr inbounds i8, ptr %chunk.0538.i, i64 5
+  %arrayidx4.i121 = getelementptr inbounds i8, ptr %chunk.0537.i, i64 5
   %25 = load i8, ptr %arrayidx4.i121, align 1
   %cmp8.i123 = icmp eq i8 %25, 75
   br i1 %cmp8.i123, label %land.lhs.true9.i124, label %if.else135.i
 
 land.lhs.true9.i124:                              ; preds = %land.lhs.true.i120
-  %arrayidx10.i125 = getelementptr inbounds i8, ptr %chunk.0538.i, i64 6
+  %arrayidx10.i125 = getelementptr inbounds i8, ptr %chunk.0537.i, i64 6
   %26 = load i8, ptr %arrayidx10.i125, align 1
   %cmp14.i127 = icmp eq i8 %26, 71
   br i1 %cmp14.i127, label %_Z25lodepng_chunk_type_equalsPKhPKc.exit132, label %if.else135.i
 
 _Z25lodepng_chunk_type_equalsPKhPKc.exit132:      ; preds = %land.lhs.true9.i124
-  %arrayidx15.i129 = getelementptr inbounds i8, ptr %chunk.0538.i, i64 7
+  %arrayidx15.i129 = getelementptr inbounds i8, ptr %chunk.0537.i, i64 7
   %27 = load i8, ptr %arrayidx15.i129, align 1
   %cmp19.i131.not = icmp eq i8 %27, 68
   br i1 %cmp19.i131.not, label %if.then92.i, label %if.else135.i
@@ -12461,14 +12461,14 @@ if.then92.i:                                      ; preds = %_Z25lodepng_chunk_t
 
 if.then.i102:                                     ; preds = %if.then92.i
   %cmp1.not.i = icmp eq i32 %or10.i.i.i, 1
-  br i1 %cmp1.not.i, label %if.end.i103, label %if.end381.thread579.i.sink.split
+  br i1 %cmp1.not.i, label %if.end.i103, label %if.end381.thread578.i.sink.split
 
 if.end.i103:                                      ; preds = %if.then.i102
   %29 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i104 = zext i8 %29 to i64
   %30 = load i64, ptr %palettesize.i105, align 8
   %cmp4.not.i = icmp ugt i64 %30, %conv.i104
-  br i1 %cmp4.not.i, label %if.end6.i106, label %if.end381.thread579.i.sink.split
+  br i1 %cmp4.not.i, label %if.end6.i106, label %if.end381.thread578.i.sink.split
 
 if.end6.i106:                                     ; preds = %if.end.i103
   store i32 1, ptr %background_defined39.i, align 8
@@ -12480,14 +12480,14 @@ if.end6.i106:                                     ; preds = %if.end.i103
 
 if.then15.i:                                      ; preds = %if.then92.i, %if.then92.i
   %cmp16.not.i = icmp eq i32 %or10.i.i.i, 2
-  br i1 %cmp16.not.i, label %if.end18.i, label %if.end381.thread579.i.sink.split
+  br i1 %cmp16.not.i, label %if.end18.i, label %if.end381.thread578.i.sink.split
 
 if.end18.i:                                       ; preds = %if.then15.i
   store i32 1, ptr %background_defined39.i, align 8
   %32 = load i8, ptr %arrayidx.i.i, align 1
   %conv21.i = zext i8 %32 to i32
   %mul.i100 = shl nuw nsw i32 %conv21.i, 8
-  %arrayidx22.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 9
+  %arrayidx22.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 9
   %33 = load i8, ptr %arrayidx22.i, align 1
   %conv23.i = zext i8 %33 to i32
   %add.i101 = or disjoint i32 %mul.i100, %conv23.i
@@ -12497,32 +12497,32 @@ if.end18.i:                                       ; preds = %if.then15.i
 
 if.then35.i:                                      ; preds = %if.then92.i, %if.then92.i
   %cmp36.not.i = icmp eq i32 %or10.i.i.i, 6
-  br i1 %cmp36.not.i, label %if.end38.i, label %if.end381.thread579.i.sink.split
+  br i1 %cmp36.not.i, label %if.end38.i, label %if.end381.thread578.i.sink.split
 
 if.end38.i:                                       ; preds = %if.then35.i
   store i32 1, ptr %background_defined39.i, align 8
   %34 = load i8, ptr %arrayidx.i.i, align 1
   %conv41.i = zext i8 %34 to i32
   %mul42.i = shl nuw nsw i32 %conv41.i, 8
-  %arrayidx43.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 9
+  %arrayidx43.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 9
   %35 = load i8, ptr %arrayidx43.i, align 1
   %conv44.i = zext i8 %35 to i32
   %add45.i = or disjoint i32 %mul42.i, %conv44.i
   store i32 %add45.i, ptr %background_r46.i, align 4
-  %arrayidx47.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 10
+  %arrayidx47.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 10
   %36 = load i8, ptr %arrayidx47.i, align 1
   %conv48.i = zext i8 %36 to i32
   %mul49.i = shl nuw nsw i32 %conv48.i, 8
-  %arrayidx50.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 11
+  %arrayidx50.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 11
   %37 = load i8, ptr %arrayidx50.i, align 1
   %conv51.i = zext i8 %37 to i32
   %add52.i = or disjoint i32 %mul49.i, %conv51.i
   store i32 %add52.i, ptr %background_g53.i, align 8
-  %arrayidx54.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 12
+  %arrayidx54.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 12
   %38 = load i8, ptr %arrayidx54.i, align 1
   %conv55.i = zext i8 %38 to i32
   %mul56.i = shl nuw nsw i32 %conv55.i, 8
-  %arrayidx57.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 13
+  %arrayidx57.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 13
   %39 = load i8, ptr %arrayidx57.i, align 1
   %conv58.i = zext i8 %39 to i32
   %add59.i = or disjoint i32 %mul56.i, %conv58.i
@@ -12540,19 +12540,19 @@ _ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit:       ; preds = %if.then92.i, %retur
   br label %if.end276.i
 
 land.lhs.true.i85:                                ; preds = %land.lhs.true.i286.i, %land.lhs.true9.i290.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit298.i
-  %arrayidx4.i86 = getelementptr inbounds i8, ptr %chunk.0538.i, i64 5
+  %arrayidx4.i86 = getelementptr inbounds i8, ptr %chunk.0537.i, i64 5
   %40 = load i8, ptr %arrayidx4.i86, align 1
   %cmp8.i88 = icmp eq i8 %40, 69
   br i1 %cmp8.i88, label %land.lhs.true9.i89, label %if.else135.i
 
 land.lhs.true9.i89:                               ; preds = %land.lhs.true.i85
-  %arrayidx10.i90 = getelementptr inbounds i8, ptr %chunk.0538.i, i64 6
+  %arrayidx10.i90 = getelementptr inbounds i8, ptr %chunk.0537.i, i64 6
   %41 = load i8, ptr %arrayidx10.i90, align 1
   %cmp14.i92 = icmp eq i8 %41, 88
   br i1 %cmp14.i92, label %_Z25lodepng_chunk_type_equalsPKhPKc.exit97, label %if.else135.i
 
 _Z25lodepng_chunk_type_equalsPKhPKc.exit97:       ; preds = %land.lhs.true9.i89
-  %arrayidx15.i94 = getelementptr inbounds i8, ptr %chunk.0538.i, i64 7
+  %arrayidx15.i94 = getelementptr inbounds i8, ptr %chunk.0537.i, i64 7
   %42 = load i8, ptr %arrayidx15.i94, align 1
   %cmp19.i96.not = icmp eq i8 %42, 116
   br i1 %cmp19.i96.not, label %if.then104.i, label %if.else135.i
@@ -12566,22 +12566,22 @@ if.then107.i:                                     ; preds = %if.then104.i
   %call110.i = tail call fastcc noundef i32 @_ZL14readChunk_tEXtP11LodePNGInfoPKhm(ptr noundef nonnull %info_png.i, ptr noundef nonnull %arrayidx.i.i, i64 noundef %conv.i)
   store i32 %call110.i, ptr %error.i, align 8
   %tobool113.not.i = icmp eq i32 %call110.i, 0
-  br i1 %tobool113.not.i, label %if.end276.i, label %if.end381.thread579.i
+  br i1 %tobool113.not.i, label %if.end276.i, label %if.end381.thread578.i
 
 land.lhs.true.i71:                                ; preds = %if.end.i.i
-  %arrayidx4.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 5
+  %arrayidx4.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 5
   %44 = load i8, ptr %arrayidx4.i, align 1
   %cmp8.i = icmp eq i8 %44, 84
   br i1 %cmp8.i, label %land.lhs.true9.i, label %if.else135.i
 
 land.lhs.true9.i:                                 ; preds = %land.lhs.true.i71
-  %arrayidx10.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 6
+  %arrayidx10.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 6
   %45 = load i8, ptr %arrayidx10.i, align 1
   %cmp14.i = icmp eq i8 %45, 88
   br i1 %cmp14.i, label %_Z25lodepng_chunk_type_equalsPKhPKc.exit, label %if.else135.i
 
 _Z25lodepng_chunk_type_equalsPKhPKc.exit:         ; preds = %land.lhs.true9.i
-  %arrayidx15.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 7
+  %arrayidx15.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 7
   %46 = load i8, ptr %arrayidx15.i, align 1
   %cmp19.i.not = icmp eq i8 %46, 116
   br i1 %cmp19.i.not, label %if.then120.i, label %if.else135.i
@@ -12595,10 +12595,10 @@ if.then124.i:                                     ; preds = %if.then120.i
   %call128.i = tail call fastcc noundef i32 @_ZL14readChunk_zTXtP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr noundef nonnull %info_png.i, ptr noundef nonnull %state, ptr noundef nonnull %arrayidx.i.i, i64 noundef %conv.i)
   store i32 %call128.i, ptr %error.i, align 8
   %tobool131.not.i = icmp eq i32 %call128.i, 0
-  br i1 %tobool131.not.i, label %if.end276.i, label %if.end381.thread579.i
+  br i1 %tobool131.not.i, label %if.end276.i, label %if.end381.thread578.i
 
 if.else135.i:                                     ; preds = %if.end.i.i, %land.lhs.true.i.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit132, %land.lhs.true9.i124, %land.lhs.true.i120, %land.lhs.true9.i.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit272.i, %land.lhs.true9.i264.i, %land.lhs.true.i260.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i, %land.lhs.true9.i238.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit97, %land.lhs.true9.i89, %land.lhs.true.i85, %land.lhs.true.i71, %land.lhs.true9.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit
-  %call136.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0538.i, ptr noundef nonnull @.str.8)
+  %call136.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0537.i, ptr noundef nonnull @.str.8)
   %tobool137.not.i = icmp eq i8 %call136.i, 0
   br i1 %tobool137.not.i, label %if.else153.i, label %if.then138.i
 
@@ -12611,10 +12611,10 @@ if.then142.i:                                     ; preds = %if.then138.i
   %call146.i = tail call fastcc noundef i32 @_ZL14readChunk_iTXtP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr noundef nonnull %info_png.i, ptr noundef nonnull %state, ptr noundef nonnull %arrayidx.i.i, i64 noundef %conv.i)
   store i32 %call146.i, ptr %error.i, align 8
   %tobool149.not.i = icmp eq i32 %call146.i, 0
-  br i1 %tobool149.not.i, label %if.end276.i, label %if.end381.thread579.i
+  br i1 %tobool149.not.i, label %if.end276.i, label %if.end381.thread578.i
 
 if.else153.i:                                     ; preds = %if.else135.i
-  %call154.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0538.i, ptr noundef nonnull @.str.9)
+  %call154.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0537.i, ptr noundef nonnull @.str.9)
   %tobool155.not.i = icmp eq i8 %call154.i, 0
   br i1 %tobool155.not.i, label %if.else165.i, label %if.then156.i
 
@@ -12622,10 +12622,10 @@ if.then156.i:                                     ; preds = %if.else153.i
   %call159.i = tail call fastcc noundef i32 @_ZL14readChunk_tIMEP11LodePNGInfoPKhm(ptr noundef nonnull %info_png.i, ptr noundef nonnull %arrayidx.i.i, i64 noundef %conv.i)
   store i32 %call159.i, ptr %error.i, align 8
   %tobool162.not.i = icmp eq i32 %call159.i, 0
-  br i1 %tobool162.not.i, label %if.end276.i, label %if.end381.thread579.i
+  br i1 %tobool162.not.i, label %if.end276.i, label %if.end381.thread578.i
 
 if.else165.i:                                     ; preds = %if.else153.i
-  %call166.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0538.i, ptr noundef nonnull @.str.10)
+  %call166.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0537.i, ptr noundef nonnull @.str.10)
   %tobool167.not.i = icmp eq i8 %call166.i, 0
   br i1 %tobool167.not.i, label %if.else177.i, label %if.then168.i
 
@@ -12633,33 +12633,33 @@ if.then168.i:                                     ; preds = %if.else165.i
   %call171.i = tail call fastcc noundef i32 @_ZL14readChunk_pHYsP11LodePNGInfoPKhm(ptr noundef nonnull %info_png.i, ptr noundef nonnull %arrayidx.i.i, i64 noundef %conv.i)
   store i32 %call171.i, ptr %error.i, align 8
   %tobool174.not.i = icmp eq i32 %call171.i, 0
-  br i1 %tobool174.not.i, label %if.end276.i, label %if.end381.thread579.i
+  br i1 %tobool174.not.i, label %if.end276.i, label %if.end381.thread578.i
 
 if.else177.i:                                     ; preds = %if.else165.i
-  %call178.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0538.i, ptr noundef nonnull @.str.11)
+  %call178.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0537.i, ptr noundef nonnull @.str.11)
   %tobool179.not.i = icmp eq i8 %call178.i, 0
   br i1 %tobool179.not.i, label %if.else189.i, label %if.then180.i
 
 if.then180.i:                                     ; preds = %if.else177.i
   %cmp.not.i299.i = icmp eq i32 %or10.i.i.i, 4
-  br i1 %cmp.not.i299.i, label %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i, label %if.end381.thread579.i.sink.split
+  br i1 %cmp.not.i299.i, label %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i, label %if.end381.thread578.i.sink.split
 
 _ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i: ; preds = %if.then180.i
   store i32 1, ptr %gama_defined.i.i, align 4
   %49 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i302.i = zext i8 %49 to i32
   %mul.i303.i = shl nuw i32 %conv.i302.i, 24
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 9
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 9
   %50 = load i8, ptr %arrayidx1.i.i, align 1
   %conv2.i.i = zext i8 %50 to i32
   %mul3.i.i = shl nuw nsw i32 %conv2.i.i, 16
   %add.i304.i = or disjoint i32 %mul3.i.i, %mul.i303.i
-  %arrayidx4.i305.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 10
+  %arrayidx4.i305.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 10
   %51 = load i8, ptr %arrayidx4.i305.i, align 1
   %conv5.i306.i = zext i8 %51 to i32
   %mul6.i.i = shl nuw nsw i32 %conv5.i306.i, 8
   %add7.i.i = or disjoint i32 %add.i304.i, %mul6.i.i
-  %arrayidx8.i.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 11
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 11
   %52 = load i8, ptr %arrayidx8.i.i, align 1
   %conv9.i.i = zext i8 %52 to i32
   %add10.i.i = or disjoint i32 %add7.i.i, %conv9.i.i
@@ -12668,7 +12668,7 @@ _ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i: ; preds = %if.then180.i
   br label %if.end276.i
 
 if.else189.i:                                     ; preds = %if.else177.i
-  %call190.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0538.i, ptr noundef nonnull @.str.12)
+  %call190.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0537.i, ptr noundef nonnull @.str.12)
   %tobool191.not.i = icmp eq i8 %call190.i, 0
   br i1 %tobool191.not.i, label %if.else201.i, label %if.then192.i
 
@@ -12676,16 +12676,16 @@ if.then192.i:                                     ; preds = %if.else189.i
   %call195.i = tail call fastcc noundef i32 @_ZL14readChunk_cHRMP11LodePNGInfoPKhm(ptr noundef nonnull %info_png.i, ptr noundef nonnull %arrayidx.i.i, i64 noundef %conv.i)
   store i32 %call195.i, ptr %error.i, align 8
   %tobool198.not.i = icmp eq i32 %call195.i, 0
-  br i1 %tobool198.not.i, label %if.end276.i, label %if.end381.thread579.i
+  br i1 %tobool198.not.i, label %if.end276.i, label %if.end381.thread578.i
 
 if.else201.i:                                     ; preds = %if.else189.i
-  %call202.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0538.i, ptr noundef nonnull @.str.13)
+  %call202.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0537.i, ptr noundef nonnull @.str.13)
   %tobool203.not.i = icmp eq i8 %call202.i, 0
   br i1 %tobool203.not.i, label %if.else213.i, label %if.then204.i
 
 if.then204.i:                                     ; preds = %if.else201.i
   %cmp.not.i307.i = icmp eq i32 %or10.i.i.i, 1
-  br i1 %cmp.not.i307.i, label %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i, label %if.end381.thread579.i.sink.split
+  br i1 %cmp.not.i307.i, label %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i, label %if.end381.thread578.i.sink.split
 
 _ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i: ; preds = %if.then204.i
   store i32 1, ptr %srgb_defined.i.i, align 8
@@ -12696,7 +12696,7 @@ _ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i: ; preds = %if.then204.i
   br label %if.end276.i
 
 if.else213.i:                                     ; preds = %if.else201.i
-  %call214.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0538.i, ptr noundef nonnull @.str.14)
+  %call214.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0537.i, ptr noundef nonnull @.str.14)
   %tobool215.not.i = icmp eq i8 %call214.i, 0
   br i1 %tobool215.not.i, label %if.else226.i, label %if.then216.i
 
@@ -12704,10 +12704,10 @@ if.then216.i:                                     ; preds = %if.else213.i
   %call220.i = tail call fastcc noundef i32 @_ZL14readChunk_iCCPP11LodePNGInfoPK22LodePNGDecoderSettingsPKhm(ptr noundef nonnull %info_png.i, ptr noundef nonnull %state, ptr noundef nonnull %arrayidx.i.i, i64 noundef %conv.i)
   store i32 %call220.i, ptr %error.i, align 8
   %tobool223.not.i = icmp eq i32 %call220.i, 0
-  br i1 %tobool223.not.i, label %if.end276.i, label %if.end381.thread579.i
+  br i1 %tobool223.not.i, label %if.end276.i, label %if.end381.thread578.i
 
 if.else226.i:                                     ; preds = %if.else213.i
-  %call227.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0538.i, ptr noundef nonnull @.str.15)
+  %call227.i = tail call noundef zeroext i8 @_Z25lodepng_chunk_type_equalsPKhPKc(ptr noundef nonnull %chunk.0537.i, ptr noundef nonnull @.str.15)
   %tobool228.not.i = icmp eq i8 %call227.i, 0
   br i1 %tobool228.not.i, label %if.else238.i, label %if.then229.i
 
@@ -12715,7 +12715,7 @@ if.then229.i:                                     ; preds = %if.else226.i
   %call232.i = tail call fastcc noundef i32 @_ZL14readChunk_sBITP11LodePNGInfoPKhm(ptr noundef nonnull %info_png.i, ptr noundef nonnull %arrayidx.i.i, i64 noundef %conv.i)
   store i32 %call232.i, ptr %error.i, align 8
   %tobool235.not.i = icmp eq i32 %call232.i, 0
-  br i1 %tobool235.not.i, label %if.end276.i, label %if.end381.thread579.i
+  br i1 %tobool235.not.i, label %if.end276.i, label %if.end381.thread578.i
 
 if.else238.i:                                     ; preds = %if.else226.i
   %54 = load i32, ptr %ignore_critical.i, align 4
@@ -12723,7 +12723,7 @@ if.else238.i:                                     ; preds = %if.else226.i
   %55 = and i8 %13, 32
   %tobool242.not.i = icmp eq i8 %55, 0
   %or.cond151 = and i1 %tobool242.not.i, %tobool240.not.i
-  br i1 %or.cond151, label %if.end381.thread579.i.sink.split, label %if.end245.i
+  br i1 %or.cond151, label %if.end381.thread578.i.sink.split, label %if.end245.i
 
 if.end245.i:                                      ; preds = %if.else238.i
   %56 = load i32, ptr %remember_unknown_chunks.i, align 4
@@ -12731,18 +12731,18 @@ if.end245.i:                                      ; preds = %if.else238.i
   br i1 %tobool247.not.i, label %if.then289.i, label %if.then248.i
 
 if.then248.i:                                     ; preds = %if.end245.i
-  %sub.i = add nsw i32 %critical_pos.0536.i, -1
+  %sub.i = add nsw i32 %critical_pos.0535.i, -1
   %idxprom.i = zext nneg i32 %sub.i to i64
   %arrayidx250.i = getelementptr inbounds [3 x ptr], ptr %unknown_chunks_data.i, i64 0, i64 %idxprom.i
   %arrayidx254.i = getelementptr inbounds [3 x i64], ptr %unknown_chunks_size.i, i64 0, i64 %idxprom.i
-  %call255.i = tail call noundef i32 @_Z20lodepng_chunk_appendPPhPmPKh(ptr noundef nonnull %arrayidx250.i, ptr noundef nonnull %arrayidx254.i, ptr noundef nonnull %chunk.0538.i)
+  %call255.i = tail call noundef i32 @_Z20lodepng_chunk_appendPPhPmPKh(ptr noundef nonnull %arrayidx250.i, ptr noundef nonnull %arrayidx254.i, ptr noundef nonnull %chunk.0537.i)
   store i32 %call255.i, ptr %error.i, align 8
   %tobool258.not.i = icmp eq i32 %call255.i, 0
-  br i1 %tobool258.not.i, label %if.then289.i, label %if.end381.thread579.i
+  br i1 %tobool258.not.i, label %if.then289.i, label %if.end381.thread578.i
 
 if.end276.i:                                      ; preds = %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit, %if.then229.i, %if.then216.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i, %if.then192.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i, %if.then168.i, %if.then156.i, %if.then142.i, %if.then138.i, %if.then124.i, %if.then120.i, %if.then107.i, %if.then104.i, %if.then79.i, %if.then66.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i, %for.body.preheader.i.i, %if.end56.i
-  %critical_pos.1.i = phi i32 [ %critical_pos.0536.i, %if.then79.i ], [ %critical_pos.0536.i, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ %critical_pos.0536.i, %if.then107.i ], [ %critical_pos.0536.i, %if.then104.i ], [ %critical_pos.0536.i, %if.then124.i ], [ %critical_pos.0536.i, %if.then120.i ], [ %critical_pos.0536.i, %if.then142.i ], [ %critical_pos.0536.i, %if.then138.i ], [ %critical_pos.0536.i, %if.then156.i ], [ %critical_pos.0536.i, %if.then168.i ], [ %critical_pos.0536.i, %if.then192.i ], [ %critical_pos.0536.i, %if.then216.i ], [ %critical_pos.0536.i, %if.then229.i ], [ %critical_pos.0536.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ 2, %if.then66.i ], [ 3, %if.end56.i ], [ 3, %for.body.preheader.i.i ], [ %critical_pos.0536.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ %critical_pos.0536.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ]
-  %idatsize.2.i = phi i64 [ %idatsize.0537.i, %if.then79.i ], [ %idatsize.0537.i, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ %idatsize.0537.i, %if.then107.i ], [ %idatsize.0537.i, %if.then104.i ], [ %idatsize.0537.i, %if.then124.i ], [ %idatsize.0537.i, %if.then120.i ], [ %idatsize.0537.i, %if.then142.i ], [ %idatsize.0537.i, %if.then138.i ], [ %idatsize.0537.i, %if.then156.i ], [ %idatsize.0537.i, %if.then168.i ], [ %idatsize.0537.i, %if.then192.i ], [ %idatsize.0537.i, %if.then216.i ], [ %idatsize.0537.i, %if.then229.i ], [ %idatsize.0537.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ %idatsize.0537.i, %if.then66.i ], [ %add.i218.i, %if.end56.i ], [ %add.i218.i, %for.body.preheader.i.i ], [ %idatsize.0537.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ %idatsize.0537.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ]
+  %critical_pos.1.i = phi i32 [ %critical_pos.0535.i, %if.then79.i ], [ %critical_pos.0535.i, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ %critical_pos.0535.i, %if.then107.i ], [ %critical_pos.0535.i, %if.then104.i ], [ %critical_pos.0535.i, %if.then124.i ], [ %critical_pos.0535.i, %if.then120.i ], [ %critical_pos.0535.i, %if.then142.i ], [ %critical_pos.0535.i, %if.then138.i ], [ %critical_pos.0535.i, %if.then156.i ], [ %critical_pos.0535.i, %if.then168.i ], [ %critical_pos.0535.i, %if.then192.i ], [ %critical_pos.0535.i, %if.then216.i ], [ %critical_pos.0535.i, %if.then229.i ], [ %critical_pos.0535.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ 2, %if.then66.i ], [ 3, %if.end56.i ], [ 3, %for.body.preheader.i.i ], [ %critical_pos.0535.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ %critical_pos.0535.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ]
+  %idatsize.2.i = phi i64 [ %idatsize.0536.i, %if.then79.i ], [ %idatsize.0536.i, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ %idatsize.0536.i, %if.then107.i ], [ %idatsize.0536.i, %if.then104.i ], [ %idatsize.0536.i, %if.then124.i ], [ %idatsize.0536.i, %if.then120.i ], [ %idatsize.0536.i, %if.then142.i ], [ %idatsize.0536.i, %if.then138.i ], [ %idatsize.0536.i, %if.then156.i ], [ %idatsize.0536.i, %if.then168.i ], [ %idatsize.0536.i, %if.then192.i ], [ %idatsize.0536.i, %if.then216.i ], [ %idatsize.0536.i, %if.then229.i ], [ %idatsize.0536.i, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ %idatsize.0536.i, %if.then66.i ], [ %add.i218.i, %if.end56.i ], [ %add.i218.i, %for.body.preheader.i.i ], [ %idatsize.0536.i, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ %idatsize.0536.i, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ]
   %tobool288.not.i = phi i1 [ true, %if.then79.i ], [ true, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ true, %if.then107.i ], [ true, %if.then104.i ], [ true, %if.then124.i ], [ true, %if.then120.i ], [ true, %if.then142.i ], [ true, %if.then138.i ], [ true, %if.then156.i ], [ true, %if.then168.i ], [ true, %if.then192.i ], [ true, %if.then216.i ], [ true, %if.then229.i ], [ false, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ true, %if.then66.i ], [ true, %if.end56.i ], [ true, %for.body.preheader.i.i ], [ true, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ true, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ]
   %IEND.1.i = phi i8 [ 0, %if.then79.i ], [ 0, %_ZL14readChunk_bKGDP11LodePNGInfoPKhm.exit ], [ 0, %if.then107.i ], [ 0, %if.then104.i ], [ 0, %if.then124.i ], [ 0, %if.then120.i ], [ 0, %if.then142.i ], [ 0, %if.then138.i ], [ 0, %if.then156.i ], [ 0, %if.then168.i ], [ 0, %if.then192.i ], [ 0, %if.then216.i ], [ 0, %if.then229.i ], [ 1, %_Z25lodepng_chunk_type_equalsPKhPKc.exit246.i ], [ 0, %if.then66.i ], [ 0, %if.end56.i ], [ 0, %for.body.preheader.i.i ], [ 0, %_ZL14readChunk_gAMAP11LodePNGInfoPKhm.exit.thread.i ], [ 0, %_ZL14readChunk_sRGBP11LodePNGInfoPKhm.exit.thread.i ]
   %57 = load i32, ptr %ignore_crc.i, align 8
@@ -12750,25 +12750,25 @@ if.end276.i:                                      ; preds = %_ZL14readChunk_bKGD
   br i1 %tobool278.not.i, label %if.then281.i, label %if.end287.i
 
 if.then281.i:                                     ; preds = %if.end276.i
-  %call282.i = tail call noundef i32 @_Z23lodepng_chunk_check_crcPKh(ptr noundef nonnull %chunk.0538.i)
+  %call282.i = tail call noundef i32 @_Z23lodepng_chunk_check_crcPKh(ptr noundef nonnull %chunk.0537.i)
   %tobool283.not.i = icmp eq i32 %call282.i, 0
-  br i1 %tobool283.not.i, label %if.end287.i, label %if.end381.thread579.i.sink.split
+  br i1 %tobool283.not.i, label %if.end287.i, label %if.end381.thread578.i.sink.split
 
 if.end287.i:                                      ; preds = %if.then281.i, %if.end276.i
   br i1 %tobool288.not.i, label %if.then289.i, label %if.end292.i
 
 if.then289.i:                                     ; preds = %if.end287.i, %if.then248.i, %if.end245.i
-  %critical_pos.1480493.i = phi i32 [ %critical_pos.1.i, %if.end287.i ], [ %critical_pos.0536.i, %if.end245.i ], [ %critical_pos.0536.i, %if.then248.i ]
-  %idatsize.2481491.i = phi i64 [ %idatsize.2.i, %if.end287.i ], [ %idatsize.0537.i, %if.end245.i ], [ %idatsize.0537.i, %if.then248.i ]
+  %critical_pos.1480493.i = phi i32 [ %critical_pos.1.i, %if.end287.i ], [ %critical_pos.0535.i, %if.end245.i ], [ %critical_pos.0535.i, %if.then248.i ]
+  %idatsize.2481491.i = phi i64 [ %idatsize.2.i, %if.end287.i ], [ %idatsize.0536.i, %if.end245.i ], [ %idatsize.0536.i, %if.then248.i ]
   %IEND.1483489.i = phi i8 [ %IEND.1.i, %if.end287.i ], [ 0, %if.end245.i ], [ 0, %if.then248.i ]
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.lhs.cast.i
-  %cmp.i312.i = icmp uge ptr %chunk.0538.i, %add.ptr290.i
+  %cmp.i312.i = icmp uge ptr %chunk.0537.i, %add.ptr290.i
   %cmp1.i.i = icmp ult i64 %sub.ptr.sub.i.i, 12
   %or.cond.i.i = or i1 %cmp.i312.i, %cmp1.i.i
   br i1 %or.cond.i.i, label %if.end292.i, label %if.end.i313.i
 
 if.end.i313.i:                                    ; preds = %if.then289.i
-  %58 = load i8, ptr %chunk.0538.i, align 1
+  %58 = load i8, ptr %chunk.0537.i, align 1
   %cmp2.i.i = icmp eq i8 %58, -119
   %59 = load i8, ptr %arrayidx1.i.i.i, align 1
   %cmp5.i.i = icmp eq i8 %59, 80
@@ -12777,13 +12777,13 @@ if.end.i313.i:                                    ; preds = %if.then289.i
   br i1 %or.cond18.i.i, label %land.lhs.true6.i.i, label %if.end.i313.if.end34.i_crit_edge.i
 
 if.end.i313.if.end34.i_crit_edge.i:               ; preds = %if.end.i313.i
-  %.pre553.i = load i8, ptr %arrayidx8.i.i.i, align 1
+  %.pre552.i = load i8, ptr %arrayidx8.i.i.i, align 1
   br label %if.end34.i.i
 
 land.lhs.true6.i.i:                               ; preds = %if.end.i313.i
   %cmp9.i.i = icmp eq i8 %.pre.i, 78
-  %.pre554.i = load i8, ptr %arrayidx8.i.i.i, align 1
-  %cmp13.i.i = icmp eq i8 %.pre554.i, 71
+  %.pre553.i = load i8, ptr %arrayidx8.i.i.i, align 1
+  %cmp13.i.i = icmp eq i8 %.pre553.i, 71
   %or.cond.i = select i1 %cmp9.i.i, i1 %cmp13.i.i, i1 false
   br i1 %or.cond.i, label %land.lhs.true14.i.i, label %if.end34.i.i
 
@@ -12793,25 +12793,25 @@ land.lhs.true14.i.i:                              ; preds = %land.lhs.true6.i.i
   br i1 %cmp17.i.i, label %land.lhs.true18.i.i, label %if.end34.i.i
 
 land.lhs.true18.i.i:                              ; preds = %land.lhs.true14.i.i
-  %arrayidx19.i.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 5
+  %arrayidx19.i.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 5
   %61 = load i8, ptr %arrayidx19.i.i, align 1
   %cmp21.i.i = icmp eq i8 %61, 10
   br i1 %cmp21.i.i, label %land.lhs.true22.i.i, label %if.end34.i.i
 
 land.lhs.true22.i.i:                              ; preds = %land.lhs.true18.i.i
-  %arrayidx23.i.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 6
+  %arrayidx23.i.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 6
   %62 = load i8, ptr %arrayidx23.i.i, align 1
   %cmp25.i.i = icmp eq i8 %62, 26
   br i1 %cmp25.i.i, label %land.lhs.true26.i.i, label %if.end34.i.i
 
 land.lhs.true26.i.i:                              ; preds = %land.lhs.true22.i.i
-  %arrayidx27.i.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 7
+  %arrayidx27.i.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 7
   %63 = load i8, ptr %arrayidx27.i.i, align 1
   %cmp29.i.i = icmp eq i8 %63, 10
   br i1 %cmp29.i.i, label %if.end292.i, label %if.end34.i.i
 
 if.end34.i.i:                                     ; preds = %land.lhs.true26.i.i, %land.lhs.true22.i.i, %land.lhs.true18.i.i, %land.lhs.true14.i.i, %land.lhs.true6.i.i, %if.end.i313.if.end34.i_crit_edge.i
-  %64 = phi i8 [ %.pre554.i, %land.lhs.true6.i.i ], [ 71, %land.lhs.true14.i.i ], [ 71, %land.lhs.true18.i.i ], [ 71, %land.lhs.true22.i.i ], [ 71, %land.lhs.true26.i.i ], [ %.pre553.i, %if.end.i313.if.end34.i_crit_edge.i ]
+  %64 = phi i8 [ %.pre553.i, %land.lhs.true6.i.i ], [ 71, %land.lhs.true14.i.i ], [ 71, %land.lhs.true18.i.i ], [ 71, %land.lhs.true22.i.i ], [ 71, %land.lhs.true26.i.i ], [ %.pre552.i, %if.end.i313.if.end34.i_crit_edge.i ]
   %65 = phi i8 [ 80, %land.lhs.true6.i.i ], [ 80, %land.lhs.true14.i.i ], [ 80, %land.lhs.true18.i.i ], [ 80, %land.lhs.true22.i.i ], [ 80, %land.lhs.true26.i.i ], [ %59, %if.end.i313.if.end34.i_crit_edge.i ]
   %conv2.i.i.i.i = zext i8 %65 to i64
   %shl3.i.i.i.i = shl nuw nsw i64 %conv2.i.i.i.i, 16
@@ -12825,7 +12825,7 @@ if.end34.i.i:                                     ; preds = %land.lhs.true26.i.i
   %or.i.i.i.i = add nuw nsw i64 %or10.i.i.i.i, %conv9.i.i.i.i
   %add.i.i314.i = add nuw nsw i64 %or.i.i.i.i, %shl3.i.i.i.i
   %cmp35.i.i = icmp ugt i64 %add.i.i314.i, %sub.ptr.sub.i.i
-  %add.ptr38.i.i = getelementptr inbounds i8, ptr %chunk.0538.i, i64 %add.i.i314.i
+  %add.ptr38.i.i = getelementptr inbounds i8, ptr %chunk.0537.i, i64 %add.i.i314.i
   %spec.select.i.i = select i1 %cmp35.i.i, ptr %add.ptr290.i, ptr %add.ptr38.i.i
   br label %if.end292.i
 
@@ -12833,12 +12833,12 @@ if.end292.i:                                      ; preds = %if.end34.i.i, %land
   %critical_pos.1480492.i = phi i32 [ %critical_pos.1.i, %if.end287.i ], [ %critical_pos.1480493.i, %land.lhs.true26.i.i ], [ %critical_pos.1480493.i, %if.then289.i ], [ %critical_pos.1480493.i, %if.end34.i.i ]
   %idatsize.2481490.i = phi i64 [ %idatsize.2.i, %if.end287.i ], [ %idatsize.2481491.i, %land.lhs.true26.i.i ], [ %idatsize.2481491.i, %if.then289.i ], [ %idatsize.2481491.i, %if.end34.i.i ]
   %IEND.1483488.i = phi i8 [ %IEND.1.i, %if.end287.i ], [ %IEND.1483489.i, %land.lhs.true26.i.i ], [ %IEND.1483489.i, %if.then289.i ], [ %IEND.1483489.i, %if.end34.i.i ]
-  %chunk.1.i = phi ptr [ %chunk.0538.i, %if.end287.i ], [ %arrayidx.i.i, %land.lhs.true26.i.i ], [ %add.ptr290.i, %if.then289.i ], [ %spec.select.i.i, %if.end34.i.i ]
+  %chunk.1.i = phi ptr [ %chunk.0537.i, %if.end287.i ], [ %arrayidx.i.i, %land.lhs.true26.i.i ], [ %add.ptr290.i, %if.then289.i ], [ %spec.select.i.i, %if.end34.i.i ]
   %tobool12.not.i = icmp eq i8 %IEND.1483488.i, 0
   br i1 %tobool12.not.i, label %while.body.i, label %land.lhs.true295.i, !llvm.loop !320
 
 land.lhs.true295.i:                               ; preds = %if.end292.i, %if.then24.i, %if.then16.i
-  %idatsize.0535.i = phi i64 [ %idatsize.0537.i, %if.then24.i ], [ %idatsize.0537.i, %if.then16.i ], [ %idatsize.2481490.i, %if.end292.i ]
+  %idatsize.0534.i = phi i64 [ %idatsize.0536.i, %if.then24.i ], [ %idatsize.0536.i, %if.then16.i ], [ %idatsize.2481490.i, %if.end292.i ]
   %66 = load i32, ptr %color.i, align 8
   %cmp298.i = icmp eq i32 %66, 3
   br i1 %cmp298.i, label %land.lhs.true299.i, label %if.then308.i
@@ -12847,7 +12847,7 @@ land.lhs.true299.i:                               ; preds = %land.lhs.true295.i
   %palette.i = getelementptr inbounds i8, ptr %state, i64 232
   %67 = load ptr, ptr %palette.i, align 8
   %tobool302.not.i = icmp eq ptr %67, null
-  br i1 %tobool302.not.i, label %if.end381.thread579.i.sink.split, label %if.then308.i
+  br i1 %tobool302.not.i, label %if.end381.thread578.i.sink.split, label %if.then308.i
 
 if.then308.i:                                     ; preds = %land.lhs.true299.i, %land.lhs.true295.i
   %interlace_method.i = getelementptr inbounds i8, ptr %state, i64 216
@@ -12921,6 +12921,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit.i:   ; preds = %sw.default.i.i.i.i,
   %conv5.i331.i = zext nneg i32 %div44.i330.i to i64
   %add6.i332.i = add nuw nsw i64 %add.i326.i, %conv5.i331.i
   %conv7.i333.i = zext nneg i32 %shr323.i to i64
+  %mul8.i334.i = mul i64 %add6.i332.i, %conv7.i333.i
   %cmp326.i = icmp ugt i32 %72, 4
   %add328.i = add i32 %72, 3
   br i1 %cmp326.i, label %if.then327.i, label %if.end334.i
@@ -12937,12 +12938,12 @@ if.then327.i:                                     ; preds = %_Z15lodepng_get_bpp
   %div44.i343.i = lshr i32 %add3.i342.i, 3
   %conv5.i344.i = zext nneg i32 %div44.i343.i to i64
   %add6.i345.i = add nuw nsw i64 %add.i339.i, %conv5.i344.i
-  %mul8.i334522.i = add nuw nsw i64 %add6.i345.i, %add6.i332.i
+  %mul8.i347.i = mul i64 %add6.i345.i, %conv7.i333.i
+  %add333.i = add i64 %mul8.i334.i, %mul8.i347.i
   br label %if.end334.i
 
 if.end334.i:                                      ; preds = %if.then327.i, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit.i
-  %mul8.i334522.pn.i = phi i64 [ %mul8.i334522.i, %if.then327.i ], [ %add6.i332.i, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit.i ]
-  %expected_size.2.i = mul i64 %mul8.i334522.pn.i, %conv7.i333.i
+  %expected_size.2.i = phi i64 [ %add333.i, %if.then327.i ], [ %mul8.i334.i, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit.i ]
   %shr336.i = lshr i32 %add328.i, 2
   %add337.i = add i32 %73, 3
   %shr338.i = lshr i32 %add337.i, 3
@@ -13047,24 +13048,24 @@ if.end370.i:                                      ; preds = %if.end364.i, %if.th
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end370.i
-  %call.i413.i = call noundef i32 %74(ptr noundef nonnull %scanlines.i, ptr noundef nonnull %scanlines_size.i, ptr noundef nonnull %call.i.i, i64 noundef %idatsize.0535.i, ptr noundef nonnull %state)
+  %call.i413.i = call noundef i32 %74(ptr noundef nonnull %scanlines.i, ptr noundef nonnull %scanlines_size.i, ptr noundef nonnull %call.i.i, i64 noundef %idatsize.0534.i, ptr noundef nonnull %state)
   %tobool2.not.i.i = icmp eq i32 %call.i413.i, 0
   br i1 %tobool2.not.i.i, label %if.then.i._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i, label %if.then3.i.i
 
 if.then.i._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i: ; preds = %if.then.i.i
-  %.pre560.pre.i = load i64, ptr %scanlines_size.i, align 8
+  %.pre559.pre.i = load i64, ptr %scanlines_size.i, align 8
   br label %if.end374.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
   %max_output_size.i.i = getelementptr inbounds i8, ptr %state, i64 8
   %75 = load i64, ptr %max_output_size.i.i, align 8
   %tobool4.not.i.i = icmp eq i64 %75, 0
-  %.pre560.pre562.i = load i64, ptr %scanlines_size.i, align 8
-  %cmp.i415.i = icmp ugt i64 %.pre560.pre562.i, %75
+  %.pre559.pre561.i = load i64, ptr %scanlines_size.i, align 8
+  %cmp.i415.i = icmp ugt i64 %.pre559.pre561.i, %75
   %spec.select.i416.i = select i1 %cmp.i415.i, i32 109, i32 110
   %error.0.i.ph.i = select i1 %tobool4.not.i.i, i32 110, i32 %spec.select.i416.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %v.i.i)
-  br label %if.end381.thread579.i.sink.split
+  br label %if.end381.thread578.i.sink.split
 
 if.else.i.i:                                      ; preds = %if.end370.i
   %size1.i.i.i = getelementptr inbounds i8, ptr %v.i.i, i64 8
@@ -13088,7 +13089,7 @@ _ZL15ucvector_resizeP8ucvectorm.exit.i.i:         ; preds = %if.then3.i.i.i.i, %
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %_ZL15ucvector_resizeP8ucvectorm.exit.i.i, %if.else.i.i
-  %call12.i.i = call fastcc noundef i32 @_ZL24lodepng_zlib_decompressvP8ucvectorPKhmPK25LodePNGDecompressSettings(ptr noundef nonnull %v.i.i, ptr noundef nonnull %call.i.i, i64 noundef %idatsize.0535.i, ptr noundef nonnull %state)
+  %call12.i.i = call fastcc noundef i32 @_ZL24lodepng_zlib_decompressvP8ucvectorPKhmPK25LodePNGDecompressSettings(ptr noundef nonnull %v.i.i, ptr noundef nonnull %call.i.i, i64 noundef %idatsize.0534.i, ptr noundef nonnull %state)
   %76 = load ptr, ptr %v.i.i, align 8
   store ptr %76, ptr %scanlines.i, align 8
   %77 = load i64, ptr %size1.i.i.i, align 8
@@ -13096,12 +13097,12 @@ if.end11.i.i:                                     ; preds = %_ZL15ucvector_resiz
   br label %if.end374.i
 
 if.end374.i:                                      ; preds = %if.end11.i.i, %if.then.i._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i
-  %.pre560.i = phi i64 [ %.pre560.pre.i, %if.then.i._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i ], [ %77, %if.end11.i.i ]
+  %.pre559.i = phi i64 [ %.pre559.pre.i, %if.then.i._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i ], [ %77, %if.end11.i.i ]
   %error.0.i.i = phi i32 [ 0, %if.then.i._ZL15zlib_decompressPPhPmmPKhmPK25LodePNGDecompressSettings.exit_crit_edge.i ], [ %call12.i.i, %if.end11.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %v.i.i)
   store i32 %error.0.i.i, ptr %error.i, align 8
   %tobool376.not.i = icmp ne i32 %error.0.i.i, 0
-  %cmp378.not.i = icmp eq i64 %.pre560.i, %expected_size.1.i
+  %cmp378.not.i = icmp eq i64 %.pre559.i, %expected_size.1.i
   %or.cond210.i = select i1 %tobool376.not.i, i1 true, i1 %cmp378.not.i
   br i1 %or.cond210.i, label %if.end381.i, label %if.end381.thread.i
 
@@ -13110,12 +13111,12 @@ if.end381.thread.i:                               ; preds = %if.end374.i
   call void @free(ptr noundef %call.i.i) #31
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
-if.end381.thread579.i.sink.split:                 ; preds = %if.end31.i, %if.then46.i, %if.then180.i, %if.then204.i, %if.then281.i, %if.else238.i, %if.then35.i, %if.then15.i, %if.end.i103, %if.then.i102, %if.then16.i, %if.then24.i, %land.lhs.true299.i, %if.then3.i.i
+if.end381.thread578.i.sink.split:                 ; preds = %if.end31.i, %if.then46.i, %if.then180.i, %if.then204.i, %if.then281.i, %if.else238.i, %if.then35.i, %if.then15.i, %if.end.i103, %if.then.i102, %if.then16.i, %if.then24.i, %land.lhs.true299.i, %if.then3.i.i
   %retval.0.i99.ph.sink = phi i32 [ %error.0.i.ph.i, %if.then3.i.i ], [ 30, %if.then16.i ], [ 63, %if.then24.i ], [ 106, %land.lhs.true299.i ], [ 45, %if.then35.i ], [ 44, %if.then15.i ], [ 103, %if.end.i103 ], [ 43, %if.then.i102 ], [ 69, %if.else238.i ], [ 57, %if.then281.i ], [ 98, %if.then204.i ], [ 96, %if.then180.i ], [ 95, %if.then46.i ], [ 64, %if.end31.i ]
   store i32 %retval.0.i99.ph.sink, ptr %error.i, align 8
-  br label %if.end381.thread579.i
+  br label %if.end381.thread578.i
 
-if.end381.thread579.i:                            ; preds = %if.then248.i, %if.then229.i, %if.then216.i, %if.then192.i, %if.then168.i, %if.then156.i, %if.then142.i, %if.then124.i, %if.then107.i, %if.then79.i, %if.then66.i, %if.end381.thread579.i.sink.split
+if.end381.thread578.i:                            ; preds = %if.then248.i, %if.then229.i, %if.then216.i, %if.then192.i, %if.then168.i, %if.then156.i, %if.then142.i, %if.then124.i, %if.then107.i, %if.then79.i, %if.then66.i, %if.end381.thread578.i.sink.split
   call void @free(ptr noundef %call.i.i) #31
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
@@ -13809,7 +13810,7 @@ _ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit.thread: ; preds = %_ZL13decod
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %scanlines_size.i)
   br label %return
 
-_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit: ; preds = %if.end381.thread.i, %if.end381.thread579.i, %if.end381.i, %if.then390.i, %if.end393.i, %_ZL20postProcessScanlinesPhS_jjPK11LodePNGInfo.exit.i
+_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit: ; preds = %if.end381.thread.i, %if.end381.thread578.i, %if.end381.i, %if.then390.i, %if.end393.i, %_ZL20postProcessScanlinesPhS_jjPK11LodePNGInfo.exit.i
   %163 = load ptr, ptr %scanlines.i, align 8
   call void @free(ptr noundef %163) #31
   %.pr = load i32, ptr %error.i, align 8

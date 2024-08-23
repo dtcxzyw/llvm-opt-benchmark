@@ -39895,8 +39895,8 @@ lpad16.i:                                         ; preds = %_ZNSt10shared_ptrIN
 
 if.end18.i:                                       ; preds = %invoke.cont9.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %non_null_fragments.i, i8 0, i64 24, i1 false), !noalias !366
-  %cmp19229.i = icmp sgt i64 %1, 0
-  br i1 %cmp19229.i, label %while.cond20.preheader.lr.ph.i, label %while.end41.i
+  %cmp19228.i = icmp sgt i64 %1, 0
+  br i1 %cmp19228.i, label %while.cond20.preheader.lr.ph.i, label %while.end41.i
 
 while.cond20.preheader.lr.ph.i:                   ; preds = %if.end18.i
   %null_bitmap_data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -39907,7 +39907,7 @@ while.cond20.preheader.lr.ph.i:                   ; preds = %if.end18.i
   br label %while.cond20.preheader.i
 
 while.cond20.preheader.i:                         ; preds = %if.end40.i, %while.cond20.preheader.lr.ph.i
-  %valid_begin.0230.i = phi i64 [ 0, %while.cond20.preheader.lr.ph.i ], [ %add.i, %if.end40.i ]
+  %valid_begin.0229.i = phi i64 [ 0, %while.cond20.preheader.lr.ph.i ], [ %add.i, %if.end40.i ]
   %35 = load ptr, ptr %null_bitmap_data_.i.i, align 8, !noalias !366
   %36 = icmp eq ptr %35, null
   br i1 %36, label %land.rhs.i, label %while.cond20.preheader.split.us.i
@@ -39919,13 +39919,13 @@ while.cond20.preheader.split.us.i:                ; preds = %while.cond20.prehea
   %39 = load i32, ptr %list_size_.i89.i, align 8, !noalias !366
   %.fr.i = freeze i32 %39
   %cmp27.us.i = icmp eq i32 %.fr.i, 0
-  %40 = add nsw i64 %valid_begin.0230.i, 1
-  %smax235.i = call i64 @llvm.smax.i64(i64 %1, i64 %40)
+  %40 = add nsw i64 %valid_begin.0229.i, 1
+  %smax234.i = call i64 @llvm.smax.i64(i64 %1, i64 %40)
   br i1 %cmp27.us.i, label %while.end.i, label %land.rhs.us.i
 
 land.rhs.us.i:                                    ; preds = %while.cond20.preheader.split.us.i, %while.body28.us.i
-  %valid_end.0226.us.i = phi i64 [ %inc.us.i, %while.body28.us.i ], [ %valid_begin.0230.i, %while.cond20.preheader.split.us.i ]
-  %add.i84.us.i = add nsw i64 %valid_end.0226.us.i, %38
+  %valid_end.0225.us.i = phi i64 [ %inc.us.i, %while.body28.us.i ], [ %valid_begin.0229.i, %while.cond20.preheader.split.us.i ]
+  %add.i84.us.i = add nsw i64 %valid_end.0225.us.i, %38
   %shr.i.i.us.i = lshr i64 %add.i84.us.i, 3
   %arrayidx.i.i.us.i = getelementptr inbounds i8, ptr %35, i64 %shr.i.i.us.i
   %41 = load i8, ptr %arrayidx.i.i.us.i, align 1
@@ -39938,8 +39938,8 @@ land.rhs.us.i:                                    ; preds = %while.cond20.prehea
   br i1 %tobool.i.i.not.us.i, label %while.end.i, label %while.body28.us.i
 
 while.body28.us.i:                                ; preds = %land.rhs.us.i
-  %inc.us.i = add i64 %valid_end.0226.us.i, 1
-  %exitcond.not = icmp eq i64 %inc.us.i, %smax235.i
+  %inc.us.i = add i64 %valid_end.0225.us.i, 1
+  %exitcond.not = icmp eq i64 %inc.us.i, %smax234.i
   br i1 %exitcond.not, label %while.end.i, label %land.rhs.us.i, !llvm.loop !369
 
 land.rhsthread-pre-split.i:                       ; preds = %while.body28.i
@@ -39948,7 +39948,7 @@ land.rhsthread-pre-split.i:                       ; preds = %while.body28.i
 
 land.rhs.i:                                       ; preds = %while.cond20.preheader.i, %land.rhsthread-pre-split.i
   %45 = phi ptr [ %.pr.i, %land.rhsthread-pre-split.i ], [ null, %while.cond20.preheader.i ]
-  %valid_end.0226.i = phi i64 [ %inc.i, %land.rhsthread-pre-split.i ], [ %valid_begin.0230.i, %while.cond20.preheader.i ]
+  %valid_end.0225.i = phi i64 [ %inc.i, %land.rhsthread-pre-split.i ], [ %valid_begin.0229.i, %while.cond20.preheader.i ]
   %cmp.not.i.i = icmp eq ptr %45, null
   %46 = load ptr, ptr %data_.i.i, align 8, !noalias !366
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -39956,7 +39956,7 @@ land.rhs.i:                                       ; preds = %while.cond20.prehea
 if.then.i.i:                                      ; preds = %land.rhs.i
   %offset.i83.i = getelementptr inbounds i8, ptr %46, i64 32
   %47 = load i64, ptr %offset.i83.i, align 8
-  %add.i84.i = add nsw i64 %47, %valid_end.0226.i
+  %add.i84.i = add nsw i64 %47, %valid_end.0225.i
   %shr.i.i.i = lshr i64 %add.i84.i, 3
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %45, i64 %shr.i.i.i
   %48 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -39979,21 +39979,21 @@ if.end.i.i:                                       ; preds = %land.rhs.i
   ]
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
-  %call9.i86.i = invoke noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(104) %46, i64 noundef %valid_end.0226.i)
+  %call9.i86.i = invoke noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(104) %46, i64 noundef %valid_end.0225.i)
           to label %call9.i.noexc.i unwind label %lpad22.loopexit.i
 
 call9.i.noexc.i:                                  ; preds = %if.then6.i.i
   br i1 %call9.i86.i, label %lor.rhs.i, label %while.body28.i
 
 if.then13.i.i:                                    ; preds = %if.end.i.i
-  %call16.i87.i = invoke noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(104) %46, i64 noundef %valid_end.0226.i)
+  %call16.i87.i = invoke noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(104) %46, i64 noundef %valid_end.0225.i)
           to label %call16.i.noexc.i unwind label %lpad22.loopexit.i
 
 call16.i.noexc.i:                                 ; preds = %if.then13.i.i
   br i1 %call16.i87.i, label %lor.rhs.i, label %while.body28.i
 
 if.then21.i.i:                                    ; preds = %if.end.i.i
-  %call24.i88.i = invoke noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(104) %46, i64 noundef %valid_end.0226.i)
+  %call24.i88.i = invoke noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(104) %46, i64 noundef %valid_end.0225.i)
           to label %call24.i.noexc.i unwind label %lpad22.loopexit.i
 
 call24.i.noexc.i:                                 ; preds = %if.then21.i.i
@@ -40014,7 +40014,7 @@ lor.rhs.i:                                        ; preds = %invoke.cont23.i, %c
   br i1 %cmp27.i, label %while.body28.i, label %while.end.i
 
 while.body28.i:                                   ; preds = %lor.rhs.i, %invoke.cont23.i, %call24.i.noexc.i, %call16.i.noexc.i, %call9.i.noexc.i, %if.then.i.i
-  %inc.i = add nsw i64 %valid_end.0226.i, 1
+  %inc.i = add nsw i64 %valid_end.0225.i, 1
   %cmp21.i = icmp slt i64 %inc.i, %1
   br i1 %cmp21.i, label %land.rhsthread-pre-split.i, label %while.end.i, !llvm.loop !370
 
@@ -40024,18 +40024,18 @@ lpad22.loopexit.i:                                ; preds = %if.then21.i.i, %if.
   br label %ehcleanup.i
 
 lpad22.loopexit.split-lp.loopexit.i:              ; preds = %if.then30.i
-  %lpad.loopexit222.i = landingpad { ptr, i32 }
+  %lpad.loopexit221.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
 lpad22.loopexit.split-lp.loopexit.split-lp.i:     ; preds = %if.end55.i
-  %lpad.loopexit.split-lp223.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp222.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
 
 while.end.i:                                      ; preds = %while.body28.us.i, %land.rhs.us.i, %while.body28.i, %lor.rhs.i, %while.cond20.preheader.split.us.i
-  %.us-phi.i = phi i64 [ %smax235.i, %while.cond20.preheader.split.us.i ], [ %valid_end.0226.i, %lor.rhs.i ], [ %inc.i, %while.body28.i ], [ %smax235.i, %while.body28.us.i ], [ %valid_end.0226.us.i, %land.rhs.us.i ]
-  %cmp29.i = icmp slt i64 %valid_begin.0230.i, %.us-phi.i
+  %.us-phi.i = phi i64 [ %smax234.i, %while.cond20.preheader.split.us.i ], [ %valid_end.0225.i, %lor.rhs.i ], [ %inc.i, %while.body28.i ], [ %smax234.i, %while.body28.us.i ], [ %valid_end.0225.us.i, %land.rhs.us.i ]
+  %cmp29.i = icmp slt i64 %valid_begin.0229.i, %.us-phi.i
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %while.end.i
@@ -40043,13 +40043,13 @@ if.then30.i:                                      ; preds = %while.end.i
   %59 = load ptr, ptr %data_.i.i, align 8, !noalias !366
   %offset.i91.i = getelementptr inbounds i8, ptr %59, i64 32
   %60 = load i64, ptr %offset.i91.i, align 8
-  %add.i92.i = add nsw i64 %60, %valid_begin.0230.i
+  %add.i92.i = add nsw i64 %60, %valid_begin.0229.i
   %61 = load i32, ptr %list_size_.i89.i, align 8, !noalias !366
   %conv.i94.i = sext i32 %61 to i64
   %mul.i95.i = mul nsw i64 %add.i92.i, %conv.i94.i
   %add.i98.i = add nsw i64 %60, %.us-phi.i
-  %mul.i101221.i = sub i64 %add.i98.i, %add.i92.i
-  %sub.i102.i = mul i64 %mul.i101221.i, %conv.i94.i
+  %mul.i101.i = mul nsw i64 %add.i98.i, %conv.i94.i
+  %sub.i102.i = sub nsw i64 %mul.i101.i, %mul.i95.i
   invoke void @_ZNK5arrow5Array5SliceEll(ptr nonnull sret(%"class.std::shared_ptr.0") align 8 %ref.tmp31.i, ptr noundef nonnull align 8 dereferenceable(32) %58, i64 noundef %mul.i95.i, i64 noundef %sub.i102.i)
           to label %invoke.cont37.i unwind label %lpad22.loopexit.split-lp.loopexit.i
 
@@ -40163,11 +40163,11 @@ if.end40.i:                                       ; preds = %if.end8.sink.split.
 
 while.end41.loopexit.i:                           ; preds = %if.end40.i
   %.pre.i = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !366
-  %.pre236.i = load ptr, ptr %non_null_fragments.i, align 8, !noalias !366
+  %.pre235.i = load ptr, ptr %non_null_fragments.i, align 8, !noalias !366
   br label %while.end41.i
 
 while.end41.i:                                    ; preds = %while.end41.loopexit.i, %if.end18.i
-  %79 = phi ptr [ %.pre236.i, %while.end41.loopexit.i ], [ null, %if.end18.i ]
+  %79 = phi ptr [ %.pre235.i, %while.end41.loopexit.i ], [ null, %if.end18.i ]
   %80 = phi ptr [ %.pre.i, %while.end41.loopexit.i ], [ null, %if.end18.i ]
   %_M_finish.i.i = getelementptr inbounds i8, ptr %non_null_fragments.i, i64 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %80 to i64
@@ -40423,7 +40423,7 @@ if.then.i.i.i188.i:                               ; preds = %invoke.cont.i.i
   br label %cleanup57.i
 
 ehcleanup.i:                                      ; preds = %lpad52.i, %lpad38.i, %lpad22.loopexit.split-lp.loopexit.split-lp.i, %lpad22.loopexit.split-lp.loopexit.i, %lpad22.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %78, %lpad38.i ], [ %104, %lpad52.i ], [ %lpad.loopexit.i, %lpad22.loopexit.i ], [ %lpad.loopexit222.i, %lpad22.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp223.i, %lpad22.loopexit.split-lp.loopexit.split-lp.i ]
+  %.pn.i = phi { ptr, i32 } [ %78, %lpad38.i ], [ %104, %lpad52.i ], [ %lpad.loopexit.i, %lpad22.loopexit.i ], [ %lpad.loopexit221.i, %lpad22.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp222.i, %lpad22.loopexit.split-lp.loopexit.split-lp.i ]
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %non_null_fragments.i) #19
   br label %ehcleanup58.i
 

@@ -54,8 +54,8 @@ tls_iv_length_within_key_block.exit:              ; preds = %if.else.i
   br i1 %cmp, label %err.sink.split, label %if.end
 
 if.end:                                           ; preds = %if.else.i, %entry, %tls_iv_length_within_key_block.exit
-  %retval.0.i69 = phi i32 [ %call5.i, %tls_iv_length_within_key_block.exit ], [ 4, %entry ], [ 4, %if.else.i ]
-  %conv13 = zext nneg i32 %retval.0.i69 to i64
+  %retval.0.i67 = phi i32 [ %call5.i, %tls_iv_length_within_key_block.exit ], [ 4, %entry ], [ 4, %if.else.i ]
+  %conv13 = zext nneg i32 %retval.0.i67 to i64
   switch i32 %which, label %if.else [
     i32 33, label %if.then18
     i32 18, label %if.then18
@@ -63,10 +63,11 @@ if.end:                                           ; preds = %if.else.i, %entry, 
 
 if.then18:                                        ; preds = %if.end, %if.end
   %add = shl i64 %5, 1
-  %add64 = add i64 %5, %conv
-  %add21 = shl i64 %add64, 1
-  %add2165 = add i64 %add64, %conv13
-  %add24 = shl i64 %add2165, 1
+  %add20 = shl nsw i64 %conv, 1
+  %add21 = add i64 %add20, %add
+  %6 = add nsw i64 %conv, %conv13
+  %7 = shl nsw i64 %6, 1
+  %add24 = add i64 %7, %add
   br label %if.end33
 
 if.else:                                          ; preds = %if.end
@@ -86,8 +87,8 @@ if.end33:                                         ; preds = %if.else, %if.then18
   %key.0 = getelementptr inbounds i8, ptr %4, i64 %add.pn
   %iv.0 = getelementptr inbounds i8, ptr %4, i64 %add21.pn
   %key_block_length = getelementptr inbounds i8, ptr %s, i64 744
-  %6 = load i64, ptr %key_block_length, align 8
-  %cmp36 = icmp ugt i64 %n.0, %6
+  %8 = load i64, ptr %key_block_length, align 8
+  %cmp36 = icmp ugt i64 %n.0, %8
   br i1 %cmp36, label %err.sink.split, label %if.end39
 
 if.end39:                                         ; preds = %if.end33
@@ -99,10 +100,10 @@ if.end39:                                         ; preds = %if.end33
 
 sw.bb41:                                          ; preds = %if.end39
   %new_cipher = getelementptr inbounds i8, ptr %s, i64 696
-  %7 = load ptr, ptr %new_cipher, align 8
-  %algorithm_enc = getelementptr inbounds i8, ptr %7, i64 36
-  %8 = load i32, ptr %algorithm_enc, align 4
-  %and = and i32 %8, 196608
+  %9 = load ptr, ptr %new_cipher, align 8
+  %algorithm_enc = getelementptr inbounds i8, ptr %9, i64 36
+  %10 = load i32, ptr %algorithm_enc, align 4
+  %and = and i32 %10, 196608
   %cmp44.not = icmp eq i32 %and, 0
   %. = select i1 %cmp44.not, i64 16, i64 8
   br label %sw.epilog
@@ -113,38 +114,38 @@ sw.default:                                       ; preds = %if.end39
   br i1 %tobool.not, label %if.else51, label %sw.epilog
 
 if.else51:                                        ; preds = %sw.default
-  %9 = load i64, ptr %new_mac_secret_size, align 8
+  %11 = load i64, ptr %new_mac_secret_size, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb41, %if.end39, %if.else51
-  %taglen.0 = phi i64 [ %9, %if.else51 ], [ 16, %if.end39 ], [ %., %sw.bb41 ], [ 16, %sw.default ]
+  %taglen.0 = phi i64 [ %11, %if.else51 ], [ 16, %if.end39 ], [ %., %sw.bb41 ], [ 16, %sw.default ]
   %and56 = and i32 %which, 1
   %tobool57.not = icmp eq i32 %and56, 0
   %use_etm93 = getelementptr inbounds i8, ptr %s, i64 2676
-  %10 = load i32, ptr %use_etm93, align 4
-  %tobool94.not = icmp eq i32 %10, 0
-  %11 = load i64, ptr %s3, align 8
+  %12 = load i32, ptr %use_etm93, align 4
+  %tobool94.not = icmp eq i32 %12, 0
+  %13 = load i64, ptr %s3, align 8
   %new_cipher106 = getelementptr inbounds i8, ptr %s, i64 696
   %mac_flags114 = getelementptr inbounds i8, ptr %s, i64 1272
   %mac_flags127 = getelementptr inbounds i8, ptr %s, i64 1272
   br i1 %tobool57.not, label %if.else91, label %if.then58
 
 if.then58:                                        ; preds = %sw.epilog
-  %and65 = and i64 %11, -257
+  %and65 = and i64 %13, -257
   %masksel = select i1 %tobool94.not, i64 0, i64 256
-  %storemerge66 = or disjoint i64 %and65, %masksel
-  store i64 %storemerge66, ptr %s3, align 8
-  %12 = load ptr, ptr %new_cipher106, align 8
-  %algorithm2 = getelementptr inbounds i8, ptr %12, i64 64
-  %13 = load i32, ptr %algorithm2, align 8
-  %14 = load i32, ptr %mac_flags114, align 8
-  %and76 = and i32 %14, -2
-  %and70 = lshr i32 %13, 16
+  %storemerge64 = or disjoint i64 %and65, %masksel
+  store i64 %storemerge64, ptr %s3, align 8
+  %14 = load ptr, ptr %new_cipher106, align 8
+  %algorithm2 = getelementptr inbounds i8, ptr %14, i64 64
+  %15 = load i32, ptr %algorithm2, align 8
+  %16 = load i32, ptr %mac_flags114, align 8
+  %and76 = and i32 %16, -2
+  %and70 = lshr i32 %15, 16
   %and70.lobit = and i32 %and70, 1
   %and76.sink = or disjoint i32 %and76, %and70.lobit
   store i32 %and76.sink, ptr %mac_flags114, align 8
-  %15 = load i32, ptr %algorithm2, align 8
-  %and82 = and i32 %15, 131072
+  %17 = load i32, ptr %algorithm2, align 8
+  %and82 = and i32 %17, 131072
   %tobool83.not = icmp eq i32 %and82, 0
   br i1 %tobool83.not, label %if.else87, label %if.then84
 
@@ -157,21 +158,21 @@ if.else87:                                        ; preds = %if.then58
   br label %if.end130
 
 if.else91:                                        ; preds = %sw.epilog
-  %and102 = and i64 %11, -1025
-  %masksel71 = select i1 %tobool94.not, i64 0, i64 1024
-  %storemerge = or disjoint i64 %and102, %masksel71
+  %and102 = and i64 %13, -1025
+  %masksel69 = select i1 %tobool94.not, i64 0, i64 1024
+  %storemerge = or disjoint i64 %and102, %masksel69
   store i64 %storemerge, ptr %s3, align 8
-  %16 = load ptr, ptr %new_cipher106, align 8
-  %algorithm2107 = getelementptr inbounds i8, ptr %16, i64 64
-  %17 = load i32, ptr %algorithm2107, align 8
-  %18 = load i32, ptr %mac_flags114, align 8
-  %and115 = and i32 %18, -3
-  %and108 = lshr i32 %17, 15
-  %masksel72 = and i32 %and108, 2
-  %and115.sink = or disjoint i32 %and115, %masksel72
-  store i32 %and115.sink, ptr %mac_flags114, align 8
+  %18 = load ptr, ptr %new_cipher106, align 8
+  %algorithm2107 = getelementptr inbounds i8, ptr %18, i64 64
   %19 = load i32, ptr %algorithm2107, align 8
-  %and121 = and i32 %19, 131072
+  %20 = load i32, ptr %mac_flags114, align 8
+  %and115 = and i32 %20, -3
+  %and108 = lshr i32 %19, 15
+  %masksel70 = and i32 %and108, 2
+  %and115.sink = or disjoint i32 %and115, %masksel70
+  store i32 %and115.sink, ptr %mac_flags114, align 8
+  %21 = load i32, ptr %algorithm2107, align 8
+  %and121 = and i32 %21, 131072
   %tobool122.not = icmp eq i32 %and121, 0
   br i1 %tobool122.not, label %if.else126, label %if.then123
 
@@ -188,8 +189,8 @@ if.end130:                                        ; preds = %if.then123, %if.els
   %direction.0 = phi i32 [ 1, %if.then123 ], [ 1, %if.else126 ], [ 0, %if.then84 ], [ 0, %if.else87 ]
   store i32 %or125.sink, ptr %mac_flags127, align 8
   %version = getelementptr inbounds i8, ptr %s, i64 64
-  %20 = load i32, ptr %version, align 8
-  %call131 = tail call i32 @ssl_set_new_record_layer(ptr noundef nonnull %s, i32 noundef %20, i32 noundef %direction.0, i32 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef %key.0, i64 noundef %conv, ptr noundef %iv.0, i64 noundef %conv13, ptr noundef %mac_secret.0, i64 noundef %5, ptr noundef %0, i64 noundef %taglen.0, i32 noundef %2, ptr noundef %1, ptr noundef %3, ptr noundef null) #5
+  %22 = load i32, ptr %version, align 8
+  %call131 = tail call i32 @ssl_set_new_record_layer(ptr noundef nonnull %s, i32 noundef %22, i32 noundef %direction.0, i32 noundef 3, ptr noundef null, i64 noundef 0, ptr noundef %key.0, i64 noundef %conv, ptr noundef %iv.0, i64 noundef %conv13, ptr noundef %mac_secret.0, i64 noundef %5, ptr noundef %0, i64 noundef %taglen.0, i32 noundef %2, ptr noundef %1, ptr noundef %3, ptr noundef null) #5
   %tobool132.not = icmp eq i32 %call131, 0
   br i1 %tobool132.not, label %err, label %return
 

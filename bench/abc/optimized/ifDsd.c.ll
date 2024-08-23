@@ -6497,8 +6497,8 @@ Vec_PtrGrow.exit.sink.split.i:                    ; preds = %62, %50
   %66 = load ptr, ptr %64, align 8
   %67 = shl nsw i64 %65, 3
   %scevgep = getelementptr i8, ptr %66, i64 %67
-  %68 = sub nsw i64 %wide.trip.count.i, %65
-  %69 = shl nsw i64 %68, 3
+  %68 = shl nsw i64 %wide.trip.count.i, 3
+  %69 = sub nsw i64 %68, %67
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %69, i1 false)
   store i32 %33, ptr %34, align 4
   br label %Vec_PtrFillExtra.exit
@@ -8147,8 +8147,8 @@ define void @If_DsdManComputeTruth_rec(ptr noundef %0, i32 noundef %1, ptr nound
   %16 = and i32 %.val95, 7
   switch i32 %16, label %Abc_TtCopy.exit [
     i32 2, label %25
-    i32 3, label %55
-    i32 4, label %61
+    i32 3, label %54
+    i32 4, label %60
     i32 5, label %.preheader
     i32 6, label %.preheader144
   ]
@@ -8204,21 +8204,20 @@ define void @If_DsdManComputeTruth_rec(ptr noundef %0, i32 noundef %1, ptr nound
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 16
   %44 = load i32, ptr %43, align 8
-  %45 = xor i32 %35, %1
-  %46 = and i32 %45, 1
-  %.not.i = icmp eq i32 %46, 0
-  %47 = icmp sgt i32 %44, 0
+  %45 = and i32 %35, 1
+  %.not.i = icmp eq i32 %9, %45
+  %46 = icmp sgt i32 %44, 0
   br i1 %.not.i, label %.preheader.i, label %.preheader14.i
 
 .preheader14.i:                                   ; preds = %34
-  br i1 %47, label %.lr.ph.preheader.i, label %Abc_TtCopy.exit
+  br i1 %46, label %.lr.ph.preheader.i, label %Abc_TtCopy.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader14.i
   %wide.trip.count.i = zext nneg i32 %44 to i64
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %34
-  br i1 %47, label %.lr.ph18.preheader.i, label %Abc_TtCopy.exit
+  br i1 %46, label %.lr.ph18.preheader.i, label %Abc_TtCopy.exit
 
 .lr.ph18.preheader.i:                             ; preds = %.preheader.i
   %wide.trip.count24.i = zext nneg i32 %44 to i64
@@ -8226,300 +8225,300 @@ define void @If_DsdManComputeTruth_rec(ptr noundef %0, i32 noundef %1, ptr nound
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %48 = getelementptr inbounds i64, ptr %42, i64 %indvars.iv.i
-  %49 = load i64, ptr %48, align 8
-  %50 = xor i64 %49, -1
-  %51 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i
-  store i64 %50, ptr %51, align 8
+  %47 = getelementptr inbounds i64, ptr %42, i64 %indvars.iv.i
+  %48 = load i64, ptr %47, align 8
+  %49 = xor i64 %48, -1
+  %50 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i
+  store i64 %49, ptr %50, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Abc_TtCopy.exit, label %.lr.ph.i, !llvm.loop !63
 
 .lr.ph18.i:                                       ; preds = %.lr.ph18.i, %.lr.ph18.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %.lr.ph18.preheader.i ], [ %indvars.iv.next22.i, %.lr.ph18.i ]
-  %52 = getelementptr inbounds i64, ptr %42, i64 %indvars.iv21.i
-  %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv21.i
-  store i64 %53, ptr %54, align 8
+  %51 = getelementptr inbounds i64, ptr %42, i64 %indvars.iv21.i
+  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv21.i
+  store i64 %52, ptr %53, align 8
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count24.i
   br i1 %exitcond25.not.i, label %Abc_TtCopy.exit, label %.lr.ph18.i, !llvm.loop !35
 
-55:                                               ; preds = %5
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %.lr.ph.preheader.i99, label %Abc_TtConst1.exit
+54:                                               ; preds = %5
+  %55 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp sgt i32 %56, 0
+  br i1 %57, label %.lr.ph.preheader.i99, label %Abc_TtConst1.exit
 
-.lr.ph.preheader.i99:                             ; preds = %55
-  %59 = zext nneg i32 %57 to i64
-  %60 = shl nuw nsw i64 %59, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 -1, i64 %60, i1 false)
+.lr.ph.preheader.i99:                             ; preds = %54
+  %58 = zext nneg i32 %56 to i64
+  %59 = shl nuw nsw i64 %58, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 -1, i64 %59, i1 false)
   br label %Abc_TtConst1.exit
 
-61:                                               ; preds = %5
-  %62 = getelementptr inbounds i8, ptr %0, i64 16
-  %63 = load i32, ptr %62, align 8
-  %64 = icmp sgt i32 %63, 0
-  br i1 %64, label %.lr.ph.preheader.i100, label %Abc_TtConst1.exit
+60:                                               ; preds = %5
+  %61 = getelementptr inbounds i8, ptr %0, i64 16
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp sgt i32 %62, 0
+  br i1 %63, label %.lr.ph.preheader.i100, label %Abc_TtConst1.exit
 
-.lr.ph.preheader.i100:                            ; preds = %61
-  %65 = zext nneg i32 %63 to i64
-  %66 = shl nuw nsw i64 %65, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %66, i1 false)
+.lr.ph.preheader.i100:                            ; preds = %60
+  %64 = zext nneg i32 %62 to i64
+  %65 = shl nuw nsw i64 %64, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %65, i1 false)
   br label %Abc_TtConst1.exit
 
-Abc_TtConst1.exit:                                ; preds = %.lr.ph.preheader.i100, %61, %.lr.ph.preheader.i99, %55
-  %67 = getelementptr inbounds i8, ptr %14, i64 8
+Abc_TtConst1.exit:                                ; preds = %.lr.ph.preheader.i100, %60, %.lr.ph.preheader.i99, %54
+  %66 = getelementptr inbounds i8, ptr %14, i64 8
   %.val98156 = load i32, ptr %15, align 4
   %.not162 = icmp ult i32 %.val98156, 134217728
   br i1 %.not162, label %.critedge, label %.lr.ph158
 
 .lr.ph158:                                        ; preds = %Abc_TtConst1.exit
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %69
+  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %68
 
-69:                                               ; preds = %.lr.ph158, %Abc_TtAnd.exit
+68:                                               ; preds = %.lr.ph158, %Abc_TtAnd.exit
   %indvars.iv172 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next173, %Abc_TtAnd.exit ]
-  %70 = getelementptr inbounds [0 x i32], ptr %67, i64 0, i64 %indvars.iv172
-  %71 = load i32, ptr %70, align 4
-  %.not86 = icmp eq i32 %71, 0
-  br i1 %.not86, label %.critedge, label %72
+  %69 = getelementptr inbounds [0 x i32], ptr %66, i64 0, i64 %indvars.iv172
+  %70 = load i32, ptr %69, align 4
+  %.not86 = icmp eq i32 %70, 0
+  br i1 %.not86, label %.critedge, label %71
 
-72:                                               ; preds = %69
-  call void @If_DsdManComputeTruth_rec(ptr noundef %0, i32 noundef %71, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %4)
+71:                                               ; preds = %68
+  call void @If_DsdManComputeTruth_rec(ptr noundef %0, i32 noundef %70, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %4)
   %.val91 = load i32, ptr %15, align 4
-  %73 = and i32 %.val91, 7
-  %74 = icmp eq i32 %73, 3
-  %75 = load i32, ptr %68, align 8
-  %76 = icmp sgt i32 %75, 0
-  br i1 %74, label %77, label %83
+  %72 = and i32 %.val91, 7
+  %73 = icmp eq i32 %72, 3
+  %74 = load i32, ptr %67, align 8
+  %75 = icmp sgt i32 %74, 0
+  br i1 %73, label %76, label %82
 
-77:                                               ; preds = %72
-  br i1 %76, label %.lr.ph.preheader.i101, label %Abc_TtAnd.exit
+76:                                               ; preds = %71
+  br i1 %75, label %.lr.ph.preheader.i101, label %Abc_TtAnd.exit
 
-.lr.ph.preheader.i101:                            ; preds = %77
-  %wide.trip.count.i102 = zext nneg i32 %75 to i64
+.lr.ph.preheader.i101:                            ; preds = %76
+  %wide.trip.count.i102 = zext nneg i32 %74 to i64
   br label %.lr.ph.i103
 
 .lr.ph.i103:                                      ; preds = %.lr.ph.i103, %.lr.ph.preheader.i101
   %indvars.iv.i104 = phi i64 [ 0, %.lr.ph.preheader.i101 ], [ %indvars.iv.next.i105, %.lr.ph.i103 ]
-  %78 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i104
-  %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i104
-  %81 = load i64, ptr %80, align 8
-  %82 = and i64 %81, %79
-  store i64 %82, ptr %78, align 8
+  %77 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i104
+  %78 = load i64, ptr %77, align 8
+  %79 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i104
+  %80 = load i64, ptr %79, align 8
+  %81 = and i64 %80, %78
+  store i64 %81, ptr %77, align 8
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
   %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, %wide.trip.count.i102
   br i1 %exitcond.not.i106, label %Abc_TtAnd.exit, label %.lr.ph.i103, !llvm.loop !88
 
-83:                                               ; preds = %72
-  br i1 %76, label %.lr.ph.preheader.i107, label %Abc_TtAnd.exit
+82:                                               ; preds = %71
+  br i1 %75, label %.lr.ph.preheader.i107, label %Abc_TtAnd.exit
 
-.lr.ph.preheader.i107:                            ; preds = %83
-  %wide.trip.count.i108 = zext nneg i32 %75 to i64
+.lr.ph.preheader.i107:                            ; preds = %82
+  %wide.trip.count.i108 = zext nneg i32 %74 to i64
   br label %.lr.ph.i109
 
 .lr.ph.i109:                                      ; preds = %.lr.ph.i109, %.lr.ph.preheader.i107
   %indvars.iv.i110 = phi i64 [ 0, %.lr.ph.preheader.i107 ], [ %indvars.iv.next.i111, %.lr.ph.i109 ]
-  %84 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i110
-  %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i110
-  %87 = load i64, ptr %86, align 8
-  %88 = xor i64 %87, %85
-  store i64 %88, ptr %84, align 8
+  %83 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i110
+  %84 = load i64, ptr %83, align 8
+  %85 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i110
+  %86 = load i64, ptr %85, align 8
+  %87 = xor i64 %86, %84
+  store i64 %87, ptr %83, align 8
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i110, 1
   %exitcond.not.i112 = icmp eq i64 %indvars.iv.next.i111, %wide.trip.count.i108
   br i1 %exitcond.not.i112, label %Abc_TtAnd.exit, label %.lr.ph.i109, !llvm.loop !89
 
-Abc_TtAnd.exit:                                   ; preds = %.lr.ph.i109, %.lr.ph.i103, %83, %77
+Abc_TtAnd.exit:                                   ; preds = %.lr.ph.i109, %.lr.ph.i103, %82, %76
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %.val98 = load i32, ptr %15, align 4
-  %89 = lshr i32 %.val98, 27
-  %90 = zext nneg i32 %89 to i64
-  %91 = icmp ult i64 %indvars.iv.next173, %90
-  br i1 %91, label %69, label %.critedge, !llvm.loop !90
+  %88 = lshr i32 %.val98, 27
+  %89 = zext nneg i32 %88 to i64
+  %90 = icmp ult i64 %indvars.iv.next173, %89
+  br i1 %90, label %68, label %.critedge, !llvm.loop !90
 
-.critedge:                                        ; preds = %69, %Abc_TtAnd.exit, %Abc_TtConst1.exit
+.critedge:                                        ; preds = %68, %Abc_TtAnd.exit, %Abc_TtConst1.exit
   %.not87 = icmp eq i32 %9, 0
-  br i1 %.not87, label %Abc_TtCopy.exit, label %92
+  br i1 %.not87, label %Abc_TtCopy.exit, label %91
 
-92:                                               ; preds = %.critedge
-  %93 = getelementptr inbounds i8, ptr %0, i64 16
-  %94 = load i32, ptr %93, align 8
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph.preheader.i113, label %Abc_TtCopy.exit
+91:                                               ; preds = %.critedge
+  %92 = getelementptr inbounds i8, ptr %0, i64 16
+  %93 = load i32, ptr %92, align 8
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %.lr.ph.preheader.i113, label %Abc_TtCopy.exit
 
-.lr.ph.preheader.i113:                            ; preds = %92
-  %wide.trip.count.i114 = zext nneg i32 %94 to i64
+.lr.ph.preheader.i113:                            ; preds = %91
+  %wide.trip.count.i114 = zext nneg i32 %93 to i64
   br label %.lr.ph.i115
 
 .lr.ph.i115:                                      ; preds = %.lr.ph.i115, %.lr.ph.preheader.i113
   %indvars.iv.i116 = phi i64 [ 0, %.lr.ph.preheader.i113 ], [ %indvars.iv.next.i117, %.lr.ph.i115 ]
-  %96 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i116
-  %97 = load i64, ptr %96, align 8
-  %98 = xor i64 %97, -1
-  store i64 %98, ptr %96, align 8
+  %95 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i116
+  %96 = load i64, ptr %95, align 8
+  %97 = xor i64 %96, -1
+  store i64 %97, ptr %95, align 8
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i116, 1
   %exitcond.not.i118 = icmp eq i64 %indvars.iv.next.i117, %wide.trip.count.i114
   br i1 %exitcond.not.i118, label %Abc_TtCopy.exit, label %.lr.ph.i115, !llvm.loop !91
 
-.lr.ph154:                                        ; preds = %.preheader, %101
-  %indvars.iv169 = phi i64 [ %indvars.iv.next170, %101 ], [ 0, %.preheader ]
-  %99 = getelementptr inbounds [0 x i32], ptr %24, i64 0, i64 %indvars.iv169
-  %100 = load i32, ptr %99, align 4
-  %.not84 = icmp eq i32 %100, 0
-  br i1 %.not84, label %.critedge2, label %101
+.lr.ph154:                                        ; preds = %.preheader, %100
+  %indvars.iv169 = phi i64 [ %indvars.iv.next170, %100 ], [ 0, %.preheader ]
+  %98 = getelementptr inbounds [0 x i32], ptr %24, i64 0, i64 %indvars.iv169
+  %99 = load i32, ptr %98, align 4
+  %.not84 = icmp eq i32 %99, 0
+  br i1 %.not84, label %.critedge2, label %100
 
-101:                                              ; preds = %.lr.ph154
-  %102 = getelementptr inbounds [3 x [64 x i64]], ptr %7, i64 0, i64 %indvars.iv169
-  call void @If_DsdManComputeTruth_rec(ptr noundef %0, i32 noundef %100, ptr noundef nonnull %102, ptr noundef %3, ptr noundef %4)
+100:                                              ; preds = %.lr.ph154
+  %101 = getelementptr inbounds [3 x [64 x i64]], ptr %7, i64 0, i64 %indvars.iv169
+  call void @If_DsdManComputeTruth_rec(ptr noundef %0, i32 noundef %99, ptr noundef nonnull %101, ptr noundef %3, ptr noundef %4)
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %.val97 = load i32, ptr %15, align 4
-  %103 = lshr i32 %.val97, 27
-  %104 = zext nneg i32 %103 to i64
-  %105 = icmp ult i64 %indvars.iv.next170, %104
-  br i1 %105, label %.lr.ph154, label %.critedge2, !llvm.loop !92
+  %102 = lshr i32 %.val97, 27
+  %103 = zext nneg i32 %102 to i64
+  %104 = icmp ult i64 %indvars.iv.next170, %103
+  br i1 %104, label %.lr.ph154, label %.critedge2, !llvm.loop !92
 
-.critedge2:                                       ; preds = %.lr.ph154, %101, %.preheader
-  %106 = getelementptr inbounds i8, ptr %7, i64 512
-  %107 = getelementptr inbounds i8, ptr %7, i64 1024
-  %108 = getelementptr inbounds i8, ptr %0, i64 16
-  %109 = load i32, ptr %108, align 8
-  %110 = icmp sgt i32 %109, 0
-  br i1 %110, label %.lr.ph.preheader.i119, label %Abc_TtMux.exit
+.critedge2:                                       ; preds = %.lr.ph154, %100, %.preheader
+  %105 = getelementptr inbounds i8, ptr %7, i64 512
+  %106 = getelementptr inbounds i8, ptr %7, i64 1024
+  %107 = getelementptr inbounds i8, ptr %0, i64 16
+  %108 = load i32, ptr %107, align 8
+  %109 = icmp sgt i32 %108, 0
+  br i1 %109, label %.lr.ph.preheader.i119, label %Abc_TtMux.exit
 
 .lr.ph.preheader.i119:                            ; preds = %.critedge2
-  %wide.trip.count.i120 = zext nneg i32 %109 to i64
+  %wide.trip.count.i120 = zext nneg i32 %108 to i64
   br label %.lr.ph.i121
 
 .lr.ph.i121:                                      ; preds = %.lr.ph.i121, %.lr.ph.preheader.i119
   %indvars.iv.i122 = phi i64 [ 0, %.lr.ph.preheader.i119 ], [ %indvars.iv.next.i123, %.lr.ph.i121 ]
-  %111 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.i122
-  %112 = load i64, ptr %111, align 8
-  %113 = getelementptr inbounds i64, ptr %106, i64 %indvars.iv.i122
-  %114 = load i64, ptr %113, align 8
-  %115 = and i64 %114, %112
-  %116 = xor i64 %112, -1
-  %117 = getelementptr inbounds i64, ptr %107, i64 %indvars.iv.i122
-  %118 = load i64, ptr %117, align 8
-  %119 = and i64 %118, %116
-  %120 = or i64 %119, %115
-  %121 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i122
-  store i64 %120, ptr %121, align 8
+  %110 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv.i122
+  %111 = load i64, ptr %110, align 8
+  %112 = getelementptr inbounds i64, ptr %105, i64 %indvars.iv.i122
+  %113 = load i64, ptr %112, align 8
+  %114 = and i64 %113, %111
+  %115 = xor i64 %111, -1
+  %116 = getelementptr inbounds i64, ptr %106, i64 %indvars.iv.i122
+  %117 = load i64, ptr %116, align 8
+  %118 = and i64 %117, %115
+  %119 = or i64 %118, %114
+  %120 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i122
+  store i64 %119, ptr %120, align 8
   %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i122, 1
   %exitcond.not.i124 = icmp eq i64 %indvars.iv.next.i123, %wide.trip.count.i120
   br i1 %exitcond.not.i124, label %Abc_TtMux.exit, label %.lr.ph.i121, !llvm.loop !93
 
 Abc_TtMux.exit:                                   ; preds = %.lr.ph.i121, %.critedge2
   %.not85 = icmp eq i32 %9, 0
-  br i1 %.not85, label %Abc_TtCopy.exit, label %122
+  br i1 %.not85, label %Abc_TtCopy.exit, label %121
 
-122:                                              ; preds = %Abc_TtMux.exit
-  %123 = load i32, ptr %108, align 8
-  %124 = icmp sgt i32 %123, 0
-  br i1 %124, label %.lr.ph.preheader.i125, label %Abc_TtCopy.exit
+121:                                              ; preds = %Abc_TtMux.exit
+  %122 = load i32, ptr %107, align 8
+  %123 = icmp sgt i32 %122, 0
+  br i1 %123, label %.lr.ph.preheader.i125, label %Abc_TtCopy.exit
 
-.lr.ph.preheader.i125:                            ; preds = %122
-  %wide.trip.count.i126 = zext nneg i32 %123 to i64
+.lr.ph.preheader.i125:                            ; preds = %121
+  %wide.trip.count.i126 = zext nneg i32 %122 to i64
   br label %.lr.ph.i127
 
 .lr.ph.i127:                                      ; preds = %.lr.ph.i127, %.lr.ph.preheader.i125
   %indvars.iv.i128 = phi i64 [ 0, %.lr.ph.preheader.i125 ], [ %indvars.iv.next.i129, %.lr.ph.i127 ]
-  %125 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i128
-  %126 = load i64, ptr %125, align 8
-  %127 = xor i64 %126, -1
-  store i64 %127, ptr %125, align 8
+  %124 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i128
+  %125 = load i64, ptr %124, align 8
+  %126 = xor i64 %125, -1
+  store i64 %126, ptr %124, align 8
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i128, 1
   %exitcond.not.i130 = icmp eq i64 %indvars.iv.next.i129, %wide.trip.count.i126
   br i1 %exitcond.not.i130, label %Abc_TtCopy.exit, label %.lr.ph.i127, !llvm.loop !91
 
 .lr.ph:                                           ; preds = %.lr.ph191
-  %128 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %indvars.iv.next
-  %129 = load i32, ptr %128, align 4
-  %.not = icmp eq i32 %129, 0
+  %127 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %indvars.iv.next
+  %128 = load i32, ptr %127, align 4
+  %.not = icmp eq i32 %128, 0
   br i1 %.not, label %.critedge4, label %.lr.ph191, !llvm.loop !94
 
 .lr.ph191:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %130 = phi i32 [ %129, %.lr.ph ], [ %19, %.lr.ph.preheader ]
+  %129 = phi i32 [ %128, %.lr.ph ], [ %19, %.lr.ph.preheader ]
   %indvars.iv190 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %131 = getelementptr inbounds [12 x [64 x i64]], ptr %8, i64 0, i64 %indvars.iv190
-  call void @If_DsdManComputeTruth_rec(ptr noundef %0, i32 noundef %130, ptr noundef nonnull %131, ptr noundef %3, ptr noundef %4)
+  %130 = getelementptr inbounds [12 x [64 x i64]], ptr %8, i64 0, i64 %indvars.iv190
+  call void @If_DsdManComputeTruth_rec(ptr noundef %0, i32 noundef %129, ptr noundef nonnull %130, ptr noundef %3, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv190, 1
   %.val96 = load i32, ptr %15, align 4
-  %132 = lshr i32 %.val96, 27
-  %133 = zext nneg i32 %132 to i64
-  %134 = icmp ult i64 %indvars.iv.next, %133
-  br i1 %134, label %.lr.ph, label %.critedge4, !llvm.loop !94
+  %131 = lshr i32 %.val96, 27
+  %132 = zext nneg i32 %131 to i64
+  %133 = icmp ult i64 %indvars.iv.next, %132
+  br i1 %133, label %.lr.ph, label %.critedge4, !llvm.loop !94
 
 .critedge4:                                       ; preds = %.lr.ph191, %.lr.ph, %.lr.ph.preheader
   %.val96.lcssa = phi i32 [ %.val95, %.lr.ph.preheader ], [ %.val96, %.lr.ph ], [ %.val96, %.lr.ph191 ]
-  %.lcssa = phi i32 [ %18, %.lr.ph.preheader ], [ %132, %.lr.ph ], [ %132, %.lr.ph191 ]
-  %135 = getelementptr inbounds i8, ptr %0, i64 112
-  %136 = zext nneg i32 %.lcssa to i64
-  %137 = getelementptr inbounds [16 x ptr], ptr %135, i64 0, i64 %136
-  %138 = load ptr, ptr %137, align 8
-  %139 = and i32 %.val96.lcssa, 7
-  %140 = icmp eq i32 %139, 6
-  %141 = icmp ugt i32 %.val96.lcssa, 402653183
-  %or.cond.i.i = and i1 %141, %140
-  br i1 %or.cond.i.i, label %142, label %If_DsdObjTruth.exit
+  %.lcssa = phi i32 [ %18, %.lr.ph.preheader ], [ %131, %.lr.ph ], [ %131, %.lr.ph191 ]
+  %134 = getelementptr inbounds i8, ptr %0, i64 112
+  %135 = zext nneg i32 %.lcssa to i64
+  %136 = getelementptr inbounds [16 x ptr], ptr %134, i64 0, i64 %135
+  %137 = load ptr, ptr %136, align 8
+  %138 = and i32 %.val96.lcssa, 7
+  %139 = icmp eq i32 %138, 6
+  %140 = icmp ugt i32 %.val96.lcssa, 402653183
+  %or.cond.i.i = and i1 %140, %139
+  br i1 %or.cond.i.i, label %141, label %If_DsdObjTruth.exit
 
-142:                                              ; preds = %.critedge4
-  %143 = load i32, ptr %14, align 4
-  %144 = getelementptr i8, ptr %0, i64 80
-  %.val.i.i = load ptr, ptr %144, align 8
-  %145 = sext i32 %143 to i64
-  %146 = getelementptr inbounds i32, ptr %.val.i.i, i64 %145
-  %147 = load i32, ptr %146, align 4
+141:                                              ; preds = %.critedge4
+  %142 = load i32, ptr %14, align 4
+  %143 = getelementptr i8, ptr %0, i64 80
+  %.val.i.i = load ptr, ptr %143, align 8
+  %144 = sext i32 %142 to i64
+  %145 = getelementptr inbounds i32, ptr %.val.i.i, i64 %144
+  %146 = load i32, ptr %145, align 4
   br label %If_DsdObjTruth.exit
 
-If_DsdObjTruth.exit:                              ; preds = %.critedge4.thread, %.critedge4, %142
-  %148 = phi ptr [ %138, %142 ], [ %138, %.critedge4 ], [ %23, %.critedge4.thread ]
-  %.lcssa178 = phi i32 [ %.lcssa, %142 ], [ %.lcssa, %.critedge4 ], [ %18, %.critedge4.thread ]
-  %149 = phi i32 [ %147, %142 ], [ -1, %.critedge4 ], [ -1, %.critedge4.thread ]
-  %150 = getelementptr inbounds i8, ptr %148, i64 24
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %148, i64 8
-  %153 = load i32, ptr %152, align 8
-  %154 = ashr i32 %149, %153
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds ptr, ptr %151, i64 %155
-  %157 = load ptr, ptr %156, align 8
-  %158 = load i32, ptr %148, align 8
-  %159 = getelementptr inbounds i8, ptr %148, i64 12
-  %160 = load i32, ptr %159, align 4
-  %161 = and i32 %160, %149
-  %162 = mul nsw i32 %161, %158
-  %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds i64, ptr %157, i64 %163
-  %165 = getelementptr inbounds i8, ptr %0, i64 16
-  %166 = load i32, ptr %165, align 8
-  call void @Dau_DsdTruthCompose_rec(ptr noundef %164, ptr noundef nonnull %8, ptr noundef %2, i32 noundef %.lcssa178, i32 noundef %166) #38
+If_DsdObjTruth.exit:                              ; preds = %.critedge4.thread, %.critedge4, %141
+  %147 = phi ptr [ %137, %141 ], [ %137, %.critedge4 ], [ %23, %.critedge4.thread ]
+  %.lcssa178 = phi i32 [ %.lcssa, %141 ], [ %.lcssa, %.critedge4 ], [ %18, %.critedge4.thread ]
+  %148 = phi i32 [ %146, %141 ], [ -1, %.critedge4 ], [ -1, %.critedge4.thread ]
+  %149 = getelementptr inbounds i8, ptr %147, i64 24
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %147, i64 8
+  %152 = load i32, ptr %151, align 8
+  %153 = ashr i32 %148, %152
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr inbounds ptr, ptr %150, i64 %154
+  %156 = load ptr, ptr %155, align 8
+  %157 = load i32, ptr %147, align 8
+  %158 = getelementptr inbounds i8, ptr %147, i64 12
+  %159 = load i32, ptr %158, align 4
+  %160 = and i32 %159, %148
+  %161 = mul nsw i32 %160, %157
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr inbounds i64, ptr %156, i64 %162
+  %164 = getelementptr inbounds i8, ptr %0, i64 16
+  %165 = load i32, ptr %164, align 8
+  call void @Dau_DsdTruthCompose_rec(ptr noundef %163, ptr noundef nonnull %8, ptr noundef %2, i32 noundef %.lcssa178, i32 noundef %165) #38
   %.not83 = icmp eq i32 %9, 0
-  br i1 %.not83, label %Abc_TtCopy.exit, label %167
+  br i1 %.not83, label %Abc_TtCopy.exit, label %166
 
-167:                                              ; preds = %If_DsdObjTruth.exit
-  %168 = load i32, ptr %165, align 8
-  %169 = icmp sgt i32 %168, 0
-  br i1 %169, label %.lr.ph.preheader.i132, label %Abc_TtCopy.exit
+166:                                              ; preds = %If_DsdObjTruth.exit
+  %167 = load i32, ptr %164, align 8
+  %168 = icmp sgt i32 %167, 0
+  br i1 %168, label %.lr.ph.preheader.i132, label %Abc_TtCopy.exit
 
-.lr.ph.preheader.i132:                            ; preds = %167
-  %wide.trip.count.i133 = zext nneg i32 %168 to i64
+.lr.ph.preheader.i132:                            ; preds = %166
+  %wide.trip.count.i133 = zext nneg i32 %167 to i64
   br label %.lr.ph.i134
 
 .lr.ph.i134:                                      ; preds = %.lr.ph.i134, %.lr.ph.preheader.i132
   %indvars.iv.i135 = phi i64 [ 0, %.lr.ph.preheader.i132 ], [ %indvars.iv.next.i136, %.lr.ph.i134 ]
-  %170 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i135
-  %171 = load i64, ptr %170, align 8
-  %172 = xor i64 %171, -1
-  store i64 %172, ptr %170, align 8
+  %169 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i135
+  %170 = load i64, ptr %169, align 8
+  %171 = xor i64 %170, -1
+  store i64 %171, ptr %169, align 8
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i135, 1
   %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, %wide.trip.count.i133
   br i1 %exitcond.not.i137, label %Abc_TtCopy.exit, label %.lr.ph.i134, !llvm.loop !91
 
-Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i134, %.lr.ph.i127, %.lr.ph.i115, %.lr.ph.i, %.lr.ph18.i, %5, %167, %122, %92, %.preheader.i, %.preheader14.i, %If_DsdObjTruth.exit, %Abc_TtMux.exit, %.critedge
+Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i134, %.lr.ph.i127, %.lr.ph.i115, %.lr.ph.i, %.lr.ph18.i, %5, %166, %121, %91, %.preheader.i, %.preheader14.i, %If_DsdObjTruth.exit, %Abc_TtMux.exit, %.critedge
   ret void
 }
 

@@ -2487,199 +2487,202 @@ define noundef i16 @"_ZN9softposit5p16e14math5round41_$LT$impl$u20$softposit..p1
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
 define noundef i16 @"_ZN9softposit5p16e14math6sin_pi41_$LT$impl$u20$softposit..p16e1..P16E1$GT$6sin_pi17h1a20b37451879767E"(i16 noundef %0) unnamed_addr #1 {
   %2 = zext i16 %0 to i64
-  %3 = sub nuw nsw i64 65536, %2
-  %4 = icmp slt i16 %0, 0
-  %spec.select = select i1 %4, i64 %3, i64 %2
-  %5 = icmp ugt i64 %spec.select, 31743
-  br i1 %5, label %8, label %6
+  %3 = and i64 %2, 32768
+  %4 = icmp eq i64 %3, 0
+  %5 = sub nuw nsw i64 65536, %2
+  %spec.select = select i1 %4, i64 %2, i64 %5
+  %6 = icmp ugt i64 %spec.select, 31743
+  br i1 %6, label %9, label %7
 
-6:                                                ; preds = %1
-  %7 = icmp eq i64 %spec.select, 0
-  br i1 %7, label %15, label %10
+7:                                                ; preds = %1
+  %8 = icmp eq i64 %spec.select, 0
+  br i1 %8, label %16, label %11
 
-8:                                                ; preds = %1
-  %9 = icmp eq i64 %spec.select, 32768
-  %. = select i1 %9, i16 -32768, i16 0
-  br label %15
+9:                                                ; preds = %1
+  %10 = icmp eq i64 %spec.select, 32768
+  %. = select i1 %10, i16 -32768, i16 0
+  br label %16
 
-10:                                               ; preds = %6
-  %11 = icmp ult i64 %spec.select, 16384
-  br i1 %11, label %.preheader, label %.preheader65
+11:                                               ; preds = %7
+  %12 = icmp ult i64 %spec.select, 16384
+  br i1 %12, label %.preheader, label %.preheader65
 
-.preheader65:                                     ; preds = %10
-  %12 = and i64 %spec.select, 8192
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %.loopexit.thread, label %.lr.ph
+.preheader65:                                     ; preds = %11
+  %13 = and i64 %spec.select, 8192
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %.loopexit.thread, label %.lr.ph
 
-.preheader:                                       ; preds = %10
-  %14 = icmp ult i64 %spec.select, 8192
-  br i1 %14, label %.lr.ph72, label %.loopexit.thread
+.preheader:                                       ; preds = %11
+  %15 = icmp ult i64 %spec.select, 8192
+  br i1 %15, label %.lr.ph72, label %.loopexit.thread
 
-15:                                               ; preds = %6, %8, %101, %52
-  %.0 = phi i16 [ %.052, %52 ], [ %106, %101 ], [ %., %8 ], [ 0, %6 ]
+16:                                               ; preds = %7, %9, %104, %51
+  %.0 = phi i16 [ %.052, %51 ], [ %109, %104 ], [ %., %9 ], [ 0, %7 ]
   ret i16 %.0
 
 .lr.ph72:                                         ; preds = %.preheader, %.lr.ph72
-  %.05171 = phi i32 [ %17, %.lr.ph72 ], [ 14, %.preheader ]
-  %.15570 = phi i64 [ %16, %.lr.ph72 ], [ %spec.select, %.preheader ]
-  %16 = shl i64 %.15570, 1
-  %17 = add i32 %.05171, -2
-  %18 = and i64 %.15570, 4096
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %.lr.ph72, label %.loopexit
+  %.05171 = phi i32 [ %18, %.lr.ph72 ], [ 14, %.preheader ]
+  %.15570 = phi i64 [ %17, %.lr.ph72 ], [ %spec.select, %.preheader ]
+  %17 = shl i64 %.15570, 1
+  %18 = add i32 %.05171, -2
+  %19 = and i64 %.15570, 4096
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %.lr.ph72, label %.loopexit
 
 .loopexit.thread:                                 ; preds = %.preheader, %.preheader65
   %.2.ph = phi i32 [ 16, %.preheader65 ], [ 14, %.preheader ]
-  %20 = trunc nuw nsw i64 %spec.select to i32
-  %21 = lshr i32 %20, 12
-  %22 = and i32 %21, 1
-  %spec.select6088 = or disjoint i32 %22, %.2.ph
-  %23 = and i64 %spec.select, 4095
-  %24 = or disjoint i64 %23, 4096
-  br label %35
+  %21 = trunc nuw nsw i64 %spec.select to i32
+  %22 = lshr i32 %21, 12
+  %23 = and i32 %22, 1
+  %spec.select6088 = or disjoint i32 %23, %.2.ph
+  %24 = and i64 %spec.select, 4095
+  %25 = or disjoint i64 %24, 4096
+  br label %36
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph72
-  %.357 = phi i64 [ %16, %.lr.ph72 ], [ %31, %.lr.ph ]
-  %.2 = phi i32 [ %17, %.lr.ph72 ], [ %32, %.lr.ph ]
-  %25 = trunc i64 %.357 to i32
-  %26 = lshr i32 %25, 12
-  %27 = and i32 %26, 1
-  %spec.select60 = or disjoint i32 %27, %.2
-  %28 = and i64 %.357, 4094
-  %29 = or disjoint i64 %28, 4096
-  %30 = icmp slt i32 %.2, 0
-  br i1 %30, label %40, label %35
+  %.357 = phi i64 [ %17, %.lr.ph72 ], [ %32, %.lr.ph ]
+  %.2 = phi i32 [ %18, %.lr.ph72 ], [ %33, %.lr.ph ]
+  %26 = trunc i64 %.357 to i32
+  %27 = lshr i32 %26, 12
+  %28 = and i32 %27, 1
+  %spec.select60 = or disjoint i32 %28, %.2
+  %29 = and i64 %.357, 4094
+  %30 = or disjoint i64 %29, 4096
+  %31 = icmp slt i32 %.2, 0
+  br i1 %31, label %41, label %36
 
 .lr.ph:                                           ; preds = %.preheader65, %.lr.ph
-  %.168 = phi i32 [ %32, %.lr.ph ], [ 16, %.preheader65 ]
-  %.25667 = phi i64 [ %31, %.lr.ph ], [ %spec.select, %.preheader65 ]
-  %31 = shl i64 %.25667, 1
-  %32 = add i32 %.168, 2
-  %33 = and i64 %.25667, 4096
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %.loopexit, label %.lr.ph
+  %.168 = phi i32 [ %33, %.lr.ph ], [ 16, %.preheader65 ]
+  %.25667 = phi i64 [ %32, %.lr.ph ], [ %spec.select, %.preheader65 ]
+  %32 = shl i64 %.25667, 1
+  %33 = add i32 %.168, 2
+  %34 = and i64 %.25667, 4096
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %.loopexit, label %.lr.ph
 
-35:                                               ; preds = %.loopexit.thread, %.loopexit
-  %36 = phi i64 [ %24, %.loopexit.thread ], [ %29, %.loopexit ]
+36:                                               ; preds = %.loopexit.thread, %.loopexit
+  %37 = phi i64 [ %25, %.loopexit.thread ], [ %30, %.loopexit ]
   %spec.select6089 = phi i32 [ %spec.select6088, %.loopexit.thread ], [ %spec.select60, %.loopexit ]
-  %37 = and i32 %spec.select6089, 63
-  %38 = zext nneg i32 %37 to i64
-  %39 = shl i64 %36, %38
-  br label %45
+  %38 = and i32 %spec.select6089, 63
+  %39 = zext nneg i32 %38 to i64
+  %40 = shl i64 %37, %39
+  br label %46
 
-40:                                               ; preds = %.loopexit
-  %41 = sub i32 0, %spec.select60
-  %42 = and i32 %41, 63
-  %43 = zext nneg i32 %42 to i64
-  %44 = lshr i64 %29, %43
-  br label %45
+41:                                               ; preds = %.loopexit
+  %42 = sub i32 0, %spec.select60
+  %43 = and i32 %42, 63
+  %44 = zext nneg i32 %43 to i64
+  %45 = lshr i64 %30, %44
+  br label %46
 
-45:                                               ; preds = %40, %35
-  %.4 = phi i64 [ %44, %40 ], [ %39, %35 ]
-  %46 = and i64 %.4, 134217727
-  %47 = lshr i64 %.4, 13
-  %48 = xor i64 %47, %2
-  %spec.select61 = and i64 %48, 32768
-  %49 = icmp eq i64 %46, 0
-  %50 = and i64 %.4, 134217728
-  %51 = icmp eq i64 %50, 0
-  br i1 %49, label %52, label %55
+46:                                               ; preds = %41, %36
+  %.4 = phi i64 [ %45, %41 ], [ %40, %36 ]
+  %47 = and i64 %.4, 134217727
+  %48 = lshr i64 %.4, 13
+  %49 = and i64 %48, 32768
+  %50 = icmp eq i64 %47, 0
+  br i1 %50, label %51, label %56
 
-52:                                               ; preds = %45
-  %53 = trunc nuw i64 %spec.select61 to i16
-  %54 = or disjoint i16 %53, 16384
-  %.052 = select i1 %51, i16 0, i16 %54
-  br label %15
+51:                                               ; preds = %46
+  %spec.select61 = xor i64 %48, %3
+  %52 = and i64 %.4, 134217728
+  %53 = icmp eq i64 %52, 0
+  %54 = trunc i64 %spec.select61 to i16
+  %55 = or i16 %54, 16384
+  %.052 = select i1 %53, i16 0, i16 %55
+  br label %16
 
-55:                                               ; preds = %45
-  %56 = sub nuw nsw i64 134217728, %46
-  %spec.select62 = select i1 %51, i64 %46, i64 %56
-  %57 = icmp ult i64 %spec.select62, 677889
-  br i1 %57, label %76, label %58
+56:                                               ; preds = %46
+  %57 = and i64 %.4, 134217728
+  %58 = icmp eq i64 %57, 0
+  %59 = sub nuw nsw i64 134217728, %47
+  %spec.select62 = select i1 %58, i64 %47, i64 %59
+  %60 = icmp ult i64 %spec.select62, 677889
+  br i1 %60, label %79, label %61
 
-58:                                               ; preds = %55
-  %59 = lshr i64 %spec.select62, 11
-  %60 = mul nuw nsw i64 %59, %59
-  %61 = lshr i64 %60, 8
-  %62 = mul nuw nsw i64 %61, 650
-  %63 = lshr i64 %62, 25
-  %64 = sub nuw nsw i64 9813, %63
-  %65 = mul nuw nsw i64 %64, %61
-  %66 = lshr i64 %65, 23
-  %67 = sub nuw nsw i64 334253, %66
-  %68 = mul nuw nsw i64 %67, %61
+61:                                               ; preds = %56
+  %62 = lshr i64 %spec.select62, 11
+  %63 = mul nuw nsw i64 %62, %62
+  %64 = lshr i64 %63, 8
+  %65 = mul nuw nsw i64 %64, 650
+  %66 = lshr i64 %65, 25
+  %67 = sub nuw nsw i64 9813, %66
+  %68 = mul nuw nsw i64 %67, %64
   %69 = lshr i64 %68, 23
-  %70 = sub nuw nsw i64 5418741, %69
-  %71 = mul nuw nsw i64 %70, %61
-  %72 = lshr i64 %71, 22
-  %73 = sub nuw nsw i64 52707180, %72
-  %74 = mul nuw nsw i64 %73, %59
-  %75 = lshr i64 %74, 13
+  %70 = sub nuw nsw i64 334253, %69
+  %71 = mul nuw nsw i64 %70, %64
+  %72 = lshr i64 %71, 23
+  %73 = sub nuw nsw i64 5418741, %72
+  %74 = mul nuw nsw i64 %73, %64
+  %75 = lshr i64 %74, 22
+  %76 = sub nuw nsw i64 52707180, %75
+  %77 = mul nuw nsw i64 %76, %62
+  %78 = lshr i64 %77, 13
   br label %_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit
 
-76:                                               ; preds = %55
-  %77 = mul nuw nsw i64 %spec.select62, 102943
-  %78 = lshr i64 %77, 15
+79:                                               ; preds = %56
+  %80 = mul nuw nsw i64 %spec.select62, 102943
+  %81 = lshr i64 %80, 15
   br label %_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit
 
-_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit: ; preds = %58, %76
-  %.0.i = phi i64 [ %78, %76 ], [ %75, %58 ]
-  %79 = and i64 %.0.i, 134217728
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %.lr.ph77, label %._crit_edge
+_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit: ; preds = %61, %79
+  %.0.i = phi i64 [ %81, %79 ], [ %78, %61 ]
+  %82 = and i64 %.0.i, 134217728
+  %83 = icmp eq i64 %82, 0
+  br i1 %83, label %.lr.ph77, label %._crit_edge
 
 .lr.ph77:                                         ; preds = %_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit, %.lr.ph77
-  %.05376 = phi i64 [ %82, %.lr.ph77 ], [ 1, %_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit ]
-  %.675 = phi i64 [ %81, %.lr.ph77 ], [ %.0.i, %_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit ]
-  %81 = shl i64 %.675, 1
-  %82 = add i64 %.05376, 1
-  %83 = and i64 %.675, 67108864
-  %84 = icmp eq i64 %83, 0
-  br i1 %84, label %.lr.ph77, label %._crit_edge
+  %.05376 = phi i64 [ %85, %.lr.ph77 ], [ 1, %_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit ]
+  %.675 = phi i64 [ %84, %.lr.ph77 ], [ %.0.i, %_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit ]
+  %84 = shl i64 %.675, 1
+  %85 = add i64 %.05376, 1
+  %86 = and i64 %.675, 67108864
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %.lr.ph77, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph77, %_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit
-  %.6.lcssa = phi i64 [ %.0.i, %_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit ], [ %81, %.lr.ph77 ]
-  %.053.lcssa = phi i64 [ 1, %_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit ], [ %82, %.lr.ph77 ]
-  %85 = and i64 %.053.lcssa, 1
-  %86 = lshr i64 %.053.lcssa, 1
-  %87 = add nuw i64 %86, 14
-  %88 = add nuw i64 %87, %85
-  %89 = icmp eq i64 %85, 0
-  %90 = and i64 %.6.lcssa, 134217727
-  %spec.select63 = select i1 %89, i64 %90, i64 %.6.lcssa
-  %91 = or i64 %spec.select63, 268435456
-  %92 = add nuw i64 %88, 63
-  %93 = and i64 %92, 63
-  %94 = shl nuw i64 1, %93
-  %95 = and i64 %94, %91
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %101, label %97
+  %.6.lcssa = phi i64 [ %.0.i, %_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit ], [ %84, %.lr.ph77 ]
+  %.053.lcssa = phi i64 [ 1, %_ZN9softposit5p16e14math6sin_pi4poly17h0f28874596538d6cE.exit ], [ %85, %.lr.ph77 ]
+  %88 = and i64 %.053.lcssa, 1
+  %89 = lshr i64 %.053.lcssa, 1
+  %90 = add nuw i64 %89, 14
+  %91 = add nuw i64 %90, %88
+  %92 = icmp eq i64 %88, 0
+  %93 = and i64 %.6.lcssa, 134217727
+  %spec.select63 = select i1 %92, i64 %93, i64 %.6.lcssa
+  %94 = or i64 %spec.select63, 268435456
+  %95 = add nuw i64 %91, 63
+  %96 = and i64 %95, 63
+  %97 = shl nuw i64 1, %96
+  %98 = and i64 %97, %94
+  %99 = icmp eq i64 %98, 0
+  br i1 %99, label %104, label %100
 
-97:                                               ; preds = %._crit_edge
-  %98 = add i64 %94, -1
-  %99 = and i64 %98, %91
-  %100 = icmp eq i64 %99, 0
-  br i1 %100, label %107, label %111
+100:                                              ; preds = %._crit_edge
+  %101 = add i64 %97, -1
+  %102 = and i64 %101, %94
+  %103 = icmp eq i64 %102, 0
+  br i1 %103, label %110, label %114
 
-101:                                              ; preds = %107, %._crit_edge, %111
-  %.8 = phi i64 [ %91, %._crit_edge ], [ %91, %107 ], [ %112, %111 ]
-  %102 = and i64 %88, 63
-  %103 = lshr i64 %.8, %102
-  %104 = icmp eq i64 %spec.select61, 0
-  %105 = sub i64 0, %103
-  %spec.select64 = select i1 %104, i64 %103, i64 %105
-  %106 = trunc i64 %spec.select64 to i16
-  br label %15
+104:                                              ; preds = %110, %._crit_edge, %114
+  %.8 = phi i64 [ %94, %._crit_edge ], [ %94, %110 ], [ %115, %114 ]
+  %105 = and i64 %91, 63
+  %106 = lshr i64 %.8, %105
+  %107 = icmp eq i64 %3, %49
+  %108 = sub i64 0, %106
+  %spec.select64 = select i1 %107, i64 %106, i64 %108
+  %109 = trunc i64 %spec.select64 to i16
+  br label %16
 
-107:                                              ; preds = %97
-  %108 = shl i64 2, %93
-  %109 = and i64 %108, %91
-  %110 = icmp eq i64 %109, 0
-  br i1 %110, label %101, label %111
+110:                                              ; preds = %100
+  %111 = shl i64 2, %96
+  %112 = and i64 %111, %94
+  %113 = icmp eq i64 %112, 0
+  br i1 %113, label %104, label %114
 
-111:                                              ; preds = %107, %97
-  %112 = add i64 %94, %91
-  br label %101
+114:                                              ; preds = %110, %100
+  %115 = add i64 %97, %94
+  br label %104
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable

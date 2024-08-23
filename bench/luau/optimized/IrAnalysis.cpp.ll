@@ -1492,16 +1492,18 @@ _ZN4Luau7CodeGen10successorsERKNS0_7CfgInfoEj.exit: ; preds = %107, %110
   %118 = phi ptr [ %.pre.i, %107 ], [ %112, %110 ]
   %119 = phi i32 [ %109, %107 ], [ %117, %110 ]
   %120 = zext i32 %98 to i64
+  %.idx125 = shl nuw nsw i64 %120, 2
   %121 = zext i32 %119 to i64
+  %.idx = shl nuw nsw i64 %121, 2
   %122 = getelementptr inbounds i8, ptr %.sroa.9.0139, i64 -4
   %123 = load i32, ptr %122, align 4
   %124 = zext i32 %123 to i64
-  %125 = sub nsw i64 %121, %120
+  %gepdiff = sub nsw i64 %.idx, %.idx125
+  %125 = ashr exact i64 %gepdiff, 2
   %126 = icmp ugt i64 %125, %124
   br i1 %126, label %127, label %196
 
 127:                                              ; preds = %_ZN4Luau7CodeGen10successorsERKNS0_7CfgInfoEj.exit
-  %.idx125 = shl nuw nsw i64 %120, 2
   %128 = getelementptr inbounds i8, ptr %118, i64 %.idx125
   %129 = add i32 %123, 1
   store i32 %129, ptr %122, align 4
@@ -2271,16 +2273,18 @@ _ZN4Luau7CodeGen11domChildrenERKNS0_7CfgInfoEj.exit: ; preds = %107, %110
   %118 = phi ptr [ %.pre.i, %107 ], [ %112, %110 ]
   %119 = phi i32 [ %109, %107 ], [ %117, %110 ]
   %120 = zext i32 %98 to i64
+  %.idx125 = shl nuw nsw i64 %120, 2
   %121 = zext i32 %119 to i64
+  %.idx = shl nuw nsw i64 %121, 2
   %122 = getelementptr inbounds i8, ptr %.sroa.9.0139, i64 -4
   %123 = load i32, ptr %122, align 4
   %124 = zext i32 %123 to i64
-  %125 = sub nsw i64 %121, %120
+  %gepdiff = sub nsw i64 %.idx, %.idx125
+  %125 = ashr exact i64 %gepdiff, 2
   %126 = icmp ugt i64 %125, %124
   br i1 %126, label %127, label %196
 
 127:                                              ; preds = %_ZN4Luau7CodeGen11domChildrenERKNS0_7CfgInfoEj.exit
-  %.idx125 = shl nuw nsw i64 %120, 2
   %128 = getelementptr inbounds i8, ptr %118, i64 %.idx125
   %129 = add i32 %123, 1
   store i32 %129, ptr %122, align 4

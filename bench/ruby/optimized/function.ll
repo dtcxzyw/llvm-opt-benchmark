@@ -246,7 +246,12 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   br label %.thread
 
 53:                                               ; preds = %49
-  br i1 %.not136, label %.thread, label %104
+  br i1 %.not136, label %.thread, label %._crit_edge196
+
+._crit_edge196:                                   ; preds = %53
+  %.pre197 = add nuw nsw i32 %.0113, 1
+  %.pre198 = zext nneg i32 %.pre197 to i64
+  br label %104
 
 .thread:                                          ; preds = %51, %52, %53
   %54 = tail call i64 @rb_ary_dup(i64 noundef %10) #8
@@ -362,14 +367,13 @@ rb_array_const_ptr.exit:                          ; preds = %81, %84
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %103, ptr noundef nonnull @.str.15, i32 noundef %.0120) #10
   unreachable
 
-104:                                              ; preds = %100, %53
-  %.0 = phi i64 [ %10, %53 ], [ %54, %100 ]
+104:                                              ; preds = %._crit_edge196, %100
+  %.pre-phi199 = phi i64 [ %.pre198, %._crit_edge196 ], [ %76, %100 ]
+  %.0 = phi i64 [ %10, %._crit_edge196 ], [ %54, %100 ]
   %105 = shl nuw nsw i64 %45, 3
-  %reass.add = shl nuw i32 %.0113, 1
-  %narrow = or disjoint i32 %reass.add, 1
-  %106 = zext i32 %narrow to i64
-  %107 = shl nuw nsw i64 %106, 3
-  %108 = icmp ult i32 %.0113, 64
+  %106 = shl nuw nsw i64 %.pre-phi199, 3
+  %107 = add nuw nsw i64 %106, %105
+  %108 = icmp ult i64 %107, 1024
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %104

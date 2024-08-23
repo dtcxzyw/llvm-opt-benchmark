@@ -290,9 +290,9 @@ sw.bb:                                            ; preds = %entry
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef %2) #7
   %add.i = add i64 %call.i, %opaque.val
   %and.i = and i64 %add.i, -4294967296
-  %shl77.i = and i64 %value, 4294967295
+  %and8.i = and i64 %value, 4294967295
   %3 = load i64, ptr %1, align 16
-  %or.i = sub i64 %shl77.i, %add.i
+  %or.i = sub i64 %and8.i, %add.i
   %sub = add i64 %or.i, %3
   %add = add i64 %sub, %and.i
   store i64 %add, ptr %1, align 16
@@ -305,9 +305,9 @@ sw.bb2:                                           ; preds = %entry
   %call.i26 = tail call i64 @qemu_clock_get_ns(i32 noundef %5) #7
   %add.i27 = add i64 %call.i26, %opaque.val25
   %and.i28 = and i64 %add.i27, 4294967295
-  %shl77.i29 = shl i64 %value, 32
+  %shl7.i = shl i64 %value, 32
   %6 = load i64, ptr %4, align 16
-  %or.i30 = sub i64 %shl77.i29, %add.i27
+  %or.i30 = sub i64 %shl7.i, %add.i27
   %sub5 = add i64 %or.i30, %6
   %add7 = add i64 %sub5, %and.i28
   store i64 %add7, ptr %4, align 16
@@ -317,8 +317,8 @@ sw.bb8:                                           ; preds = %entry
   %alarm_next = getelementptr inbounds i8, ptr %opaque, i64 1120
   %7 = load i64, ptr %alarm_next, align 16
   %and.i31 = and i64 %7, -4294967296
-  %shl77.i32 = and i64 %value, 4294967295
-  %or.i34 = or disjoint i64 %and.i31, %shl77.i32
+  %and8.i33 = and i64 %value, 4294967295
+  %or.i34 = or disjoint i64 %and.i31, %and8.i33
   store i64 %or.i34, ptr %alarm_next, align 16
   %8 = getelementptr i8, ptr %opaque, i64 1104
   %s.val.i = load i64, ptr %8, align 16
@@ -357,8 +357,8 @@ sw.bb11:                                          ; preds = %entry
   %alarm_next12 = getelementptr inbounds i8, ptr %opaque, i64 1120
   %15 = load i64, ptr %alarm_next12, align 16
   %and.i35 = and i64 %15, 4294967295
-  %shl77.i36 = shl i64 %value, 32
-  %or.i38 = or disjoint i64 %and.i35, %shl77.i36
+  %shl7.i36 = shl i64 %value, 32
+  %or.i38 = or disjoint i64 %and.i35, %shl7.i36
   store i64 %or.i38, ptr %alarm_next12, align 16
   br label %sw.epilog
 

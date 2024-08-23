@@ -161,57 +161,64 @@ define ptr @Saig_ManRetimeNodeBwd(ptr noundef %0, ptr nocapture noundef readonly
   %18 = and i32 %17, 7
   %19 = add nsw i32 %18, -7
   %narrow.i = icmp ult i32 %19, -2
-  br i1 %narrow.i, label %54, label %20
+  br i1 %narrow.i, label %61, label %20
 
 20:                                               ; preds = %2
   %21 = getelementptr i8, ptr %15, i64 8
   %.val = load ptr, ptr %21, align 8
   %22 = ptrtoint ptr %.val to i64
-  %23 = getelementptr i8, ptr %15, i64 16
-  %.val37 = load ptr, ptr %23, align 8
-  %24 = ptrtoint ptr %.val37 to i64
-  %25 = xor i64 %22, %13
-  %26 = and i64 %25, 1
-  %27 = xor i64 %24, %13
-  %28 = and i64 %27, 1
-  %29 = and i64 %13, 1
-  %30 = xor i64 %29, %22
-  %31 = inttoptr i64 %30 to ptr
-  %32 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %0, ptr noundef %31) #3
-  %33 = getelementptr i8, ptr %0, i64 140
-  %.val47 = load i32, ptr %33, align 4
-  %34 = add nsw i32 %.val47, -1
-  store i32 %34, ptr %32, align 8
-  %35 = xor i64 %29, %24
-  %36 = inttoptr i64 %35 to ptr
-  %37 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %0, ptr noundef %36) #3
-  %.val46 = load i32, ptr %33, align 4
-  %38 = add nsw i32 %.val46, -1
-  store i32 %38, ptr %37, align 8
-  %39 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #3
-  %40 = getelementptr i8, ptr %0, i64 136
-  %.val49 = load i32, ptr %40, align 8
-  %41 = add nsw i32 %.val49, -1
-  store i32 %41, ptr %39, align 8
-  %42 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #3
-  %.val48 = load i32, ptr %40, align 8
-  %43 = add nsw i32 %.val48, -1
-  store i32 %43, ptr %42, align 8
-  %44 = ptrtoint ptr %39 to i64
-  %45 = xor i64 %26, %44
-  %46 = inttoptr i64 %45 to ptr
-  %47 = ptrtoint ptr %42 to i64
-  %48 = xor i64 %28, %47
-  %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds i8, ptr %0, i64 104
-  %51 = load i32, ptr %50, align 8
-  %52 = add nsw i32 %51, 2
-  store i32 %52, ptr %50, align 8
-  %53 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %46, ptr noundef %49) #3
-  br label %54
+  %23 = and i64 %22, -2
+  %24 = getelementptr i8, ptr %15, i64 16
+  %.val37 = load ptr, ptr %24, align 8
+  %25 = ptrtoint ptr %.val37 to i64
+  %26 = and i64 %25, -2
+  %27 = trunc i64 %22 to i32
+  %28 = and i32 %27, 1
+  %29 = trunc i64 %13 to i32
+  %30 = and i32 %29, 1
+  %31 = xor i32 %28, %30
+  %32 = trunc i64 %25 to i32
+  %33 = and i32 %32, 1
+  %34 = xor i32 %33, %30
+  %35 = zext nneg i32 %31 to i64
+  %36 = or disjoint i64 %23, %35
+  %37 = inttoptr i64 %36 to ptr
+  %38 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %0, ptr noundef %37) #3
+  %39 = getelementptr i8, ptr %0, i64 140
+  %.val47 = load i32, ptr %39, align 4
+  %40 = add nsw i32 %.val47, -1
+  store i32 %40, ptr %38, align 8
+  %41 = zext nneg i32 %34 to i64
+  %42 = or disjoint i64 %26, %41
+  %43 = inttoptr i64 %42 to ptr
+  %44 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %0, ptr noundef %43) #3
+  %.val46 = load i32, ptr %39, align 4
+  %45 = add nsw i32 %.val46, -1
+  store i32 %45, ptr %44, align 8
+  %46 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #3
+  %47 = getelementptr i8, ptr %0, i64 136
+  %.val49 = load i32, ptr %47, align 8
+  %48 = add nsw i32 %.val49, -1
+  store i32 %48, ptr %46, align 8
+  %49 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #3
+  %.val48 = load i32, ptr %47, align 8
+  %50 = add nsw i32 %.val48, -1
+  store i32 %50, ptr %49, align 8
+  %51 = ptrtoint ptr %46 to i64
+  %52 = xor i64 %51, %35
+  %53 = inttoptr i64 %52 to ptr
+  %54 = ptrtoint ptr %49 to i64
+  %55 = xor i64 %54, %41
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr inbounds i8, ptr %0, i64 104
+  %58 = load i32, ptr %57, align 8
+  %59 = add nsw i32 %58, 2
+  store i32 %59, ptr %57, align 8
+  %60 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %53, ptr noundef %56) #3
+  br label %61
 
-54:                                               ; preds = %2, %20
-  %.0 = phi ptr [ %53, %20 ], [ null, %2 ]
+61:                                               ; preds = %2, %20
+  %.0 = phi ptr [ %60, %20 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -454,19 +461,19 @@ Saig_ManRetimeNodeFwd.exit.thread:                ; preds = %Saig_ManRetimeNodeF
   %exitcond.not = icmp eq i32 %120, %1
   br i1 %exitcond.not, label %.loopexit, label %.preheader70, !llvm.loop !6
 
-.preheaderthread-pre-split:                       ; preds = %179
+.preheaderthread-pre-split:                       ; preds = %186
   %.val6189.pr = load i32, ptr %7, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheaderthread-pre-split
   %.val6189 = phi i32 [ %.val6189.pr, %.preheaderthread-pre-split ], [ %15, %.preheader.lr.ph ]
-  %.293 = phi i32 [ %180, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
+  %.293 = phi i32 [ %187, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
   %121 = icmp sgt i32 %.val6189, 0
   br i1 %121, label %.lr.ph91, label %.critedge2
 
 .lr.ph91:                                         ; preds = %.preheader, %Saig_ManRetimeNodeBwd.exit.thread
   %.val61119 = phi i32 [ %.val61, %Saig_ManRetimeNodeBwd.exit.thread ], [ %.val6189, %.preheader ]
-  %.190 = phi i32 [ %174, %Saig_ManRetimeNodeBwd.exit.thread ], [ 0, %.preheader ]
+  %.190 = phi i32 [ %181, %Saig_ManRetimeNodeBwd.exit.thread ], [ 0, %.preheader ]
   %122 = load ptr, ptr %8, align 8
   %.val = load i32, ptr %9, align 4
   %123 = add nsw i32 %.val, %.190
@@ -502,82 +509,89 @@ Saig_ManRetimeNodeBwd.exit:                       ; preds = %.lr.ph91
   %142 = getelementptr i8, ptr %137, i64 8
   %.val.i62 = load ptr, ptr %142, align 8
   %143 = ptrtoint ptr %.val.i62 to i64
-  %144 = getelementptr i8, ptr %137, i64 16
-  %.val37.i = load ptr, ptr %144, align 8
-  %145 = ptrtoint ptr %.val37.i to i64
-  %146 = xor i64 %143, %135
-  %147 = and i64 %146, 1
-  %148 = xor i64 %145, %135
-  %149 = and i64 %148, 1
-  %150 = and i64 %135, 1
-  %151 = xor i64 %150, %143
-  %152 = inttoptr i64 %151 to ptr
-  %153 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %0, ptr noundef %152) #3
+  %144 = and i64 %143, -2
+  %145 = getelementptr i8, ptr %137, i64 16
+  %.val37.i = load ptr, ptr %145, align 8
+  %146 = ptrtoint ptr %.val37.i to i64
+  %147 = and i64 %146, -2
+  %148 = trunc i64 %143 to i32
+  %149 = and i32 %148, 1
+  %150 = trunc i64 %135 to i32
+  %151 = and i32 %150, 1
+  %152 = xor i32 %149, %151
+  %153 = trunc i64 %146 to i32
+  %154 = and i32 %153, 1
+  %155 = xor i32 %154, %151
+  %156 = zext nneg i32 %152 to i64
+  %157 = or disjoint i64 %144, %156
+  %158 = inttoptr i64 %157 to ptr
+  %159 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %0, ptr noundef %158) #3
   %.val47.i = load i32, ptr %12, align 4
-  %154 = add nsw i32 %.val47.i, -1
-  store i32 %154, ptr %153, align 8
-  %155 = xor i64 %150, %145
-  %156 = inttoptr i64 %155 to ptr
-  %157 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %0, ptr noundef %156) #3
-  %.val46.i = load i32, ptr %12, align 4
-  %158 = add nsw i32 %.val46.i, -1
-  store i32 %158, ptr %157, align 8
-  %159 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #3
-  %.val49.i = load i32, ptr %13, align 8
-  %160 = add nsw i32 %.val49.i, -1
+  %160 = add nsw i32 %.val47.i, -1
   store i32 %160, ptr %159, align 8
-  %161 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #3
+  %161 = zext nneg i32 %155 to i64
+  %162 = or disjoint i64 %147, %161
+  %163 = inttoptr i64 %162 to ptr
+  %164 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %0, ptr noundef %163) #3
+  %.val46.i = load i32, ptr %12, align 4
+  %165 = add nsw i32 %.val46.i, -1
+  store i32 %165, ptr %164, align 8
+  %166 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #3
+  %.val49.i = load i32, ptr %13, align 8
+  %167 = add nsw i32 %.val49.i, -1
+  store i32 %167, ptr %166, align 8
+  %168 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #3
   %.val48.i = load i32, ptr %13, align 8
-  %162 = add nsw i32 %.val48.i, -1
-  store i32 %162, ptr %161, align 8
-  %163 = ptrtoint ptr %159 to i64
-  %164 = xor i64 %147, %163
-  %165 = inttoptr i64 %164 to ptr
-  %166 = ptrtoint ptr %161 to i64
-  %167 = xor i64 %149, %166
-  %168 = inttoptr i64 %167 to ptr
-  %169 = load i32, ptr %7, align 8
-  %170 = add nsw i32 %169, 2
-  store i32 %170, ptr %7, align 8
-  %171 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %165, ptr noundef %168) #3
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %Saig_ManRetimeNodeBwd.exit.Saig_ManRetimeNodeBwd.exit.thread_crit_edge, label %173
+  %169 = add nsw i32 %.val48.i, -1
+  store i32 %169, ptr %168, align 8
+  %170 = ptrtoint ptr %166 to i64
+  %171 = xor i64 %170, %156
+  %172 = inttoptr i64 %171 to ptr
+  %173 = ptrtoint ptr %168 to i64
+  %174 = xor i64 %173, %161
+  %175 = inttoptr i64 %174 to ptr
+  %176 = load i32, ptr %7, align 8
+  %177 = add nsw i32 %176, 2
+  store i32 %177, ptr %7, align 8
+  %178 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %172, ptr noundef %175) #3
+  %179 = icmp eq ptr %178, null
+  br i1 %179, label %Saig_ManRetimeNodeBwd.exit.Saig_ManRetimeNodeBwd.exit.thread_crit_edge, label %180
 
 Saig_ManRetimeNodeBwd.exit.Saig_ManRetimeNodeBwd.exit.thread_crit_edge: ; preds = %Saig_ManRetimeNodeBwd.exit
   %.val61.pre = load i32, ptr %7, align 8
   br label %Saig_ManRetimeNodeBwd.exit.thread
 
-173:                                              ; preds = %Saig_ManRetimeNodeBwd.exit
-  tail call void @Aig_ObjReplace(ptr noundef nonnull %0, ptr noundef nonnull %127, ptr noundef nonnull %171, i32 noundef 0) #3
+180:                                              ; preds = %Saig_ManRetimeNodeBwd.exit
+  tail call void @Aig_ObjReplace(ptr noundef nonnull %0, ptr noundef nonnull %127, ptr noundef nonnull %178, i32 noundef 0) #3
   br label %.critedge2
 
 Saig_ManRetimeNodeBwd.exit.thread:                ; preds = %Saig_ManRetimeNodeBwd.exit.Saig_ManRetimeNodeBwd.exit.thread_crit_edge, %.lr.ph91
   %.val61 = phi i32 [ %.val61.pre, %Saig_ManRetimeNodeBwd.exit.Saig_ManRetimeNodeBwd.exit.thread_crit_edge ], [ %.val61119, %.lr.ph91 ]
-  %174 = add nuw nsw i32 %.190, 1
-  %175 = icmp slt i32 %174, %.val61
-  br i1 %175, label %.lr.ph91, label %.critedge2, !llvm.loop !8
+  %181 = add nuw nsw i32 %.190, 1
+  %182 = icmp slt i32 %181, %.val61
+  br i1 %182, label %.lr.ph91, label %.critedge2, !llvm.loop !8
 
-.critedge2:                                       ; preds = %Saig_ManRetimeNodeBwd.exit.thread, %.preheader, %173
-  %.173 = phi i32 [ %.190, %173 ], [ 0, %.preheader ], [ %174, %Saig_ManRetimeNodeBwd.exit.thread ]
-  %176 = load ptr, ptr %14, align 8
-  %177 = getelementptr i8, ptr %176, i64 4
-  %.val60 = load i32, ptr %177, align 4
-  %178 = icmp eq i32 %.173, %.val60
-  br i1 %178, label %.loopexit, label %179
+.critedge2:                                       ; preds = %Saig_ManRetimeNodeBwd.exit.thread, %.preheader, %180
+  %.173 = phi i32 [ %.190, %180 ], [ 0, %.preheader ], [ %181, %Saig_ManRetimeNodeBwd.exit.thread ]
+  %183 = load ptr, ptr %14, align 8
+  %184 = getelementptr i8, ptr %183, i64 4
+  %.val60 = load i32, ptr %184, align 4
+  %185 = icmp eq i32 %.173, %.val60
+  br i1 %185, label %.loopexit, label %186
 
-179:                                              ; preds = %.critedge2
-  %180 = add nuw nsw i32 %.293, 1
-  %exitcond116.not = icmp eq i32 %180, %1
+186:                                              ; preds = %.critedge2
+  %187 = add nuw nsw i32 %.293, 1
+  %exitcond116.not = icmp eq i32 %187, %1
   br i1 %exitcond116.not, label %.loopexit, label %.preheaderthread-pre-split, !llvm.loop !9
 
-.loopexit:                                        ; preds = %.critedge, %119, %.critedge2, %179, %.preheader70.lr.ph.split.us, %.preheader.lr.ph.split.us, %20, %.preheader69
-  %.150 = phi i32 [ 0, %.preheader69 ], [ 0, %20 ], [ %spec.select, %.preheader.lr.ph.split.us ], [ %spec.select133, %.preheader70.lr.ph.split.us ], [ %.293, %.critedge2 ], [ %1, %179 ], [ %.04984, %.critedge ], [ %1, %119 ]
+.loopexit:                                        ; preds = %.critedge, %119, %.critedge2, %186, %.preheader70.lr.ph.split.us, %.preheader.lr.ph.split.us, %20, %.preheader69
+  %.150 = phi i32 [ 0, %.preheader69 ], [ 0, %20 ], [ %spec.select, %.preheader.lr.ph.split.us ], [ %spec.select133, %.preheader70.lr.ph.split.us ], [ %.293, %.critedge2 ], [ %1, %186 ], [ %.04984, %.critedge ], [ %1, %119 ]
   store i32 0, ptr %5, align 8
   tail call void @Aig_ManFanoutStop(ptr noundef nonnull %0) #3
-  %181 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %0) #3
-  %182 = getelementptr inbounds i8, ptr %0, i64 104
-  %183 = load i32, ptr %182, align 8
-  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %0, i32 noundef %183) #3
+  %188 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %0) #3
+  %189 = getelementptr inbounds i8, ptr %0, i64 104
+  %190 = load i32, ptr %189, align 8
+  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %0, i32 noundef %190) #3
   ret i32 %.150
 }
 

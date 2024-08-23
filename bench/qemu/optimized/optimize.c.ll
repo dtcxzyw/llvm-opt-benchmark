@@ -1886,11 +1886,11 @@ if.then.i364:                                     ; preds = %land.lhs.true.i362
   %conv15.i = trunc i64 %287 to i32
   %cmp.i.i367 = icmp slt i32 %conv.i366, 0
   %cmp1.i.i = icmp slt i32 %conv15.i, 1
-  %or.cond.not9.i.i = or i1 %cmp.i.i367, %cmp1.i.i
+  %or.cond.not8.i.i = or i1 %cmp.i.i367, %cmp1.i.i
   %sub.i.i368 = sub nsw i32 64, %conv.i366
   %cmp3.not.i.i = icmp slt i32 %sub.i.i368, %conv15.i
-  %or.cond8.i.i = select i1 %or.cond.not9.i.i, i1 true, i1 %cmp3.not.i.i
-  br i1 %or.cond8.i.i, label %if.else.i.i, label %deposit64.exit.i
+  %or.cond7.i.i = select i1 %or.cond.not8.i.i, i1 true, i1 %cmp3.not.i.i
+  br i1 %or.cond7.i.i, label %if.else.i.i, label %deposit64.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i364
   call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 496, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit64) #9
@@ -1908,9 +1908,9 @@ deposit64.exit.i:                                 ; preds = %if.then.i364
   %shl.i.i = shl i64 %shr.i.i371, %sh_prom5.i.i
   %not.i.i372 = xor i64 %shl.i.i, -1
   %and.i.i373 = and i64 %289, %not.i.i372
-  %shl77.i.i = and i64 %288, %shr.i.i371
-  %and8.i.i = shl i64 %shl77.i.i, %sh_prom5.i.i
-  %or.i.i374 = or i64 %and.i.i373, %and8.i.i
+  %shl7.i.i = shl i64 %288, %sh_prom5.i.i
+  %and8.i.i = and i64 %shl7.i.i, %shl.i.i
+  %or.i.i374 = or disjoint i64 %and.i.i373, %and8.i.i
   %290 = load i64, ptr %args.i344, align 8
   %call.i.i375 = call fastcc i64 @arg_new_constant(ptr noundef nonnull %ctx, i64 noundef %or.i.i374)
   call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %ctx, ptr noundef nonnull %op.01737, i64 noundef %290, i64 noundef %call.i.i375)
@@ -1994,11 +1994,11 @@ if.then62.i:                                      ; preds = %land.lhs.true55.i
   %conv69.i = trunc i64 %304 to i32
   %cmp.i52.i = icmp slt i32 %conv66.i, 0
   %cmp1.i53.i = icmp slt i32 %conv69.i, 1
-  %or.cond.not9.i54.i = or i1 %cmp.i52.i, %cmp1.i53.i
+  %or.cond.not8.i54.i = or i1 %cmp.i52.i, %cmp1.i53.i
   %sub.i55.i = sub nsw i32 64, %conv66.i
   %cmp3.not.i56.i = icmp slt i32 %sub.i55.i, %conv69.i
-  %or.cond8.i57.i = select i1 %or.cond.not9.i54.i, i1 true, i1 %cmp3.not.i56.i
-  br i1 %or.cond8.i57.i, label %if.else.i68.i, label %deposit64.exit69.i
+  %or.cond7.i57.i = select i1 %or.cond.not8.i54.i, i1 true, i1 %cmp3.not.i56.i
+  br i1 %or.cond7.i57.i, label %if.else.i68.i, label %deposit64.exit69.i
 
 if.else.i68.i:                                    ; preds = %if.then62.i
   call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 496, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit64) #9
@@ -2036,11 +2036,11 @@ if.end84.i:                                       ; preds = %land.lhs.true55.i, 
   %conv94.i = trunc i64 %310 to i32
   %cmp.i73.i = icmp slt i32 %conv91.i, 0
   %cmp1.i74.i = icmp slt i32 %conv94.i, 1
-  %or.cond.not9.i75.i = or i1 %cmp.i73.i, %cmp1.i74.i
+  %or.cond.not8.i75.i = or i1 %cmp.i73.i, %cmp1.i74.i
   %sub.i76.i = sub nsw i32 64, %conv91.i
   %cmp3.not.i77.i = icmp slt i32 %sub.i76.i, %conv94.i
-  %or.cond8.i78.i = select i1 %or.cond.not9.i75.i, i1 true, i1 %cmp3.not.i77.i
-  br i1 %or.cond8.i78.i, label %if.else.i89.i, label %deposit64.exit90.i
+  %or.cond7.i78.i = select i1 %or.cond.not8.i75.i, i1 true, i1 %cmp3.not.i77.i
+  br i1 %or.cond7.i78.i, label %if.else.i89.i, label %deposit64.exit90.i
 
 if.else.i89.i:                                    ; preds = %if.end84.i
   call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 496, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit64) #9
@@ -2058,9 +2058,9 @@ deposit64.exit90.i:                               ; preds = %if.end84.i
   %shl.i83.i = shl i64 %shr.i81.i, %sh_prom5.i82.i
   %not.i84.i = xor i64 %shl.i83.i, -1
   %and.i85.i = and i64 %312, %not.i84.i
-  %shl77.i86.i = and i64 %311, %shr.i81.i
-  %and8.i87.i = shl i64 %shl77.i86.i, %sh_prom5.i82.i
-  %or.i88.i = or i64 %and.i85.i, %and8.i87.i
+  %shl7.i86.i = shl i64 %311, %sh_prom5.i82.i
+  %and8.i87.i = and i64 %shl7.i86.i, %shl.i83.i
+  %or.i88.i = or disjoint i64 %and.i85.i, %and8.i87.i
   store i64 %or.i88.i, ptr %z_mask, align 8
   br label %if.then171
 
@@ -2161,8 +2161,8 @@ if.then.i433:                                     ; preds = %land.lhs.true.i432
   %val10.i435 = getelementptr inbounds i8, ptr %call.val.i10.i, i64 40
   %336 = load i64, ptr %val10.i435, align 8
   %and.i.i436 = and i64 %335, 4294967295
-  %shl77.i.i437 = shl i64 %336, 32
-  %or.i.i438 = or disjoint i64 %shl77.i.i437, %and.i.i436
+  %shl7.i.i437 = shl i64 %336, 32
+  %or.i.i438 = or disjoint i64 %shl7.i.i437, %and.i.i436
   %337 = load i64, ptr %args.i414, align 8
   %call.i.i439 = call fastcc i64 @arg_new_constant(ptr noundef nonnull %ctx, i64 noundef %or.i.i438)
   call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %ctx, ptr noundef nonnull %op.01737, i64 noundef %337, i64 noundef %call.i.i439)
@@ -6562,17 +6562,17 @@ if.then:                                          ; preds = %land.end12
 
 if.then30:                                        ; preds = %if.then
   %and.i = and i64 %12, 4294967295
-  %shl77.i = shl i64 %16, 32
-  %or.i = or disjoint i64 %shl77.i, %and.i
+  %shl7.i = shl i64 %16, 32
+  %or.i = or disjoint i64 %shl7.i, %and.i
   %and.i64 = and i64 %17, 4294967295
-  %shl77.i65 = shl i64 %18, 32
-  %or.i67 = or disjoint i64 %shl77.i65, %and.i64
-  %20 = sub i64 0, %or.i67
-  %a.0.p = select i1 %add, i64 %or.i67, i64 %20
+  %shl7.i65 = shl i64 %18, 32
+  %or.i66 = or disjoint i64 %shl7.i65, %and.i64
+  %20 = sub i64 0, %or.i66
+  %a.0.p = select i1 %add, i64 %or.i66, i64 %20
   %a.0 = add i64 %or.i, %a.0.p
   %shl.i = shl i64 %a.0, 32
   %shr.i = ashr exact i64 %shl.i, 32
-  %shr.i69 = ashr i64 %a.0, 32
+  %shr.i68 = ashr i64 %a.0, 32
   br label %if.end60
 
 if.else38:                                        ; preds = %if.then
@@ -6592,16 +6592,16 @@ if.then45:                                        ; preds = %if.else38
   br label %if.end60
 
 if.else50:                                        ; preds = %if.else38
-  %a.sroa.0.0.insert.insert.i78 = sub i128 %b.sroa.0.0.insert.insert.i, %b.sroa.0.0.insert.ext.i
-  %retval.sroa.0.0.extract.trunc.i79 = trunc i128 %a.sroa.0.0.insert.insert.i78 to i64
-  %22 = lshr i128 %a.sroa.0.0.insert.insert.i78, 64
-  %.tr.i80 = trunc nuw i128 %22 to i64
-  %.narrow.i81 = sub i64 %.tr.i80, %18
+  %a.sroa.0.0.insert.insert.i77 = sub i128 %b.sroa.0.0.insert.insert.i, %b.sroa.0.0.insert.ext.i
+  %retval.sroa.0.0.extract.trunc.i78 = trunc i128 %a.sroa.0.0.insert.insert.i77 to i64
+  %22 = lshr i128 %a.sroa.0.0.insert.insert.i77, 64
+  %.tr.i79 = trunc nuw i128 %22 to i64
+  %.narrow.i80 = sub i64 %.tr.i79, %18
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then45, %if.else50, %if.then30
-  %ah.0 = phi i64 [ %shr.i69, %if.then30 ], [ %.narrow.i, %if.then45 ], [ %.narrow.i81, %if.else50 ]
-  %al.0 = phi i64 [ %shr.i, %if.then30 ], [ %retval.sroa.0.0.extract.trunc.i, %if.then45 ], [ %retval.sroa.0.0.extract.trunc.i79, %if.else50 ]
+  %ah.0 = phi i64 [ %shr.i68, %if.then30 ], [ %.narrow.i, %if.then45 ], [ %.narrow.i80, %if.else50 ]
+  %al.0 = phi i64 [ %shr.i, %if.then30 ], [ %retval.sroa.0.0.extract.trunc.i, %if.then45 ], [ %retval.sroa.0.0.extract.trunc.i78, %if.else50 ]
   %23 = load i64, ptr %args, align 8
   %arrayidx64 = getelementptr i8, ptr %op, i64 40
   %24 = load i64, ptr %arrayidx64, align 8
@@ -6609,8 +6609,8 @@ if.end60:                                         ; preds = %if.then45, %if.else
   %call65 = tail call ptr @tcg_op_insert_before(ptr noundef %25, ptr noundef nonnull %op, i32 noundef 0, i32 noundef 2) #8
   %call.i = tail call fastcc i64 @arg_new_constant(ptr noundef nonnull %ctx, i64 noundef %al.0)
   tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %ctx, ptr noundef nonnull %op, i64 noundef %23, i64 noundef %call.i)
-  %call.i84 = tail call fastcc i64 @arg_new_constant(ptr noundef nonnull %ctx, i64 noundef %ah.0)
-  tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %ctx, ptr noundef %call65, i64 noundef %24, i64 noundef %call.i84)
+  %call.i83 = tail call fastcc i64 @arg_new_constant(ptr noundef nonnull %ctx, i64 noundef %ah.0)
+  tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %ctx, ptr noundef %call65, i64 noundef %24, i64 noundef %call.i83)
   br label %return
 
 if.end68:                                         ; preds = %land.end12
@@ -6975,8 +6975,8 @@ if.then:                                          ; preds = %land.lhs.true
   %val7 = getelementptr inbounds i8, ptr %call.val.i14, i64 40
   %5 = load i64, ptr %val7, align 8
   %and.i = and i64 %4, 4294967295
-  %shl77.i = shl i64 %5, 32
-  %or.i = or disjoint i64 %shl77.i, %and.i
+  %shl7.i = shl i64 %5, 32
+  %or.i = or disjoint i64 %shl7.i, %and.i
   %6 = inttoptr i64 %p1.0.val to ptr
   %7 = getelementptr i8, ptr %6, i64 48
   %call.val.i19 = load ptr, ptr %7, align 8
@@ -6998,8 +6998,8 @@ if.then12:                                        ; preds = %land.lhs.true10
   %val16 = getelementptr inbounds i8, ptr %call.val.i22, i64 40
   %11 = load i64, ptr %val16, align 8
   %and.i27 = and i64 %10, 4294967295
-  %shl77.i28 = shl i64 %11, 32
-  %or.i30 = or disjoint i64 %shl77.i28, %and.i27
+  %shl7.i28 = shl i64 %11, 32
+  %or.i29 = or disjoint i64 %shl7.i28, %and.i27
   switch i32 %c, label %do.body.i [
     i32 8, label %sw.bb.i
     i32 9, label %sw.bb1.i
@@ -7014,43 +7014,43 @@ if.then12:                                        ; preds = %land.lhs.true10
   ]
 
 sw.bb.i:                                          ; preds = %if.then12
-  %cmp.i = icmp eq i64 %or.i30, %or.i
+  %cmp.i = icmp eq i64 %or.i29, %or.i
   br label %do_constant_folding_cond_64.exit
 
 sw.bb1.i:                                         ; preds = %if.then12
-  %cmp2.i = icmp ne i64 %or.i30, %or.i
+  %cmp2.i = icmp ne i64 %or.i29, %or.i
   br label %do_constant_folding_cond_64.exit
 
 sw.bb3.i:                                         ; preds = %if.then12
-  %cmp4.i = icmp slt i64 %or.i30, %or.i
+  %cmp4.i = icmp slt i64 %or.i29, %or.i
   br label %do_constant_folding_cond_64.exit
 
 sw.bb5.i:                                         ; preds = %if.then12
-  %cmp6.i = icmp sge i64 %or.i30, %or.i
+  %cmp6.i = icmp sge i64 %or.i29, %or.i
   br label %do_constant_folding_cond_64.exit
 
 sw.bb7.i:                                         ; preds = %if.then12
-  %cmp8.i = icmp sle i64 %or.i30, %or.i
+  %cmp8.i = icmp sle i64 %or.i29, %or.i
   br label %do_constant_folding_cond_64.exit
 
 sw.bb9.i:                                         ; preds = %if.then12
-  %cmp10.i = icmp sgt i64 %or.i30, %or.i
+  %cmp10.i = icmp sgt i64 %or.i29, %or.i
   br label %do_constant_folding_cond_64.exit
 
 sw.bb11.i:                                        ; preds = %if.then12
-  %cmp12.i = icmp ult i64 %or.i30, %or.i
+  %cmp12.i = icmp ult i64 %or.i29, %or.i
   br label %do_constant_folding_cond_64.exit
 
 sw.bb13.i:                                        ; preds = %if.then12
-  %cmp14.i = icmp uge i64 %or.i30, %or.i
+  %cmp14.i = icmp uge i64 %or.i29, %or.i
   br label %do_constant_folding_cond_64.exit
 
 sw.bb15.i:                                        ; preds = %if.then12
-  %cmp16.i = icmp ule i64 %or.i30, %or.i
+  %cmp16.i = icmp ule i64 %or.i29, %or.i
   br label %do_constant_folding_cond_64.exit
 
 sw.bb17.i:                                        ; preds = %if.then12
-  %cmp18.i = icmp ugt i64 %or.i30, %or.i
+  %cmp18.i = icmp ugt i64 %or.i29, %or.i
   br label %do_constant_folding_cond_64.exit
 
 do.body.i:                                        ; preds = %if.then12
@@ -7110,44 +7110,44 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 land.lhs.true26:                                  ; preds = %for.body.i.i, %if.end23
   %17 = inttoptr i64 %p1.8.val to ptr
   %18 = inttoptr i64 %p2.8.val to ptr
-  %cmp.i.i31 = icmp eq ptr %17, %18
-  br i1 %cmp.i.i31, label %if.then29, label %if.end.i.i32
+  %cmp.i.i30 = icmp eq ptr %17, %18
+  br i1 %cmp.i.i30, label %if.then29, label %if.end.i.i31
 
-if.end.i.i32:                                     ; preds = %land.lhs.true26
+if.end.i.i31:                                     ; preds = %land.lhs.true26
   %19 = getelementptr i8, ptr %17, i64 48
-  %ts.val.i.i.i33 = load ptr, ptr %19, align 8
-  %next_copy.i.i.i34 = getelementptr inbounds i8, ptr %ts.val.i.i.i33, i64 16
-  %20 = load ptr, ptr %next_copy.i.i.i34, align 8
-  %cmp.i.not.i.i35 = icmp eq ptr %20, %17
-  br i1 %cmp.i.not.i.i35, label %return, label %lor.lhs.false.i.i36
+  %ts.val.i.i.i32 = load ptr, ptr %19, align 8
+  %next_copy.i.i.i33 = getelementptr inbounds i8, ptr %ts.val.i.i.i32, i64 16
+  %20 = load ptr, ptr %next_copy.i.i.i33, align 8
+  %cmp.i.not.i.i34 = icmp eq ptr %20, %17
+  br i1 %cmp.i.not.i.i34, label %return, label %lor.lhs.false.i.i35
 
-lor.lhs.false.i.i36:                              ; preds = %if.end.i.i32
+lor.lhs.false.i.i35:                              ; preds = %if.end.i.i31
   %21 = getelementptr i8, ptr %18, i64 48
-  %ts.val.i8.i.i37 = load ptr, ptr %21, align 8
-  %next_copy.i9.i.i38 = getelementptr inbounds i8, ptr %ts.val.i8.i.i37, i64 16
-  %22 = load ptr, ptr %next_copy.i9.i.i38, align 8
-  %cmp.i10.not.i.i39 = icmp eq ptr %22, %18
-  br i1 %cmp.i10.not.i.i39, label %return, label %for.body.i.i40
+  %ts.val.i8.i.i36 = load ptr, ptr %21, align 8
+  %next_copy.i9.i.i37 = getelementptr inbounds i8, ptr %ts.val.i8.i.i36, i64 16
+  %22 = load ptr, ptr %next_copy.i9.i.i37, align 8
+  %cmp.i10.not.i.i38 = icmp eq ptr %22, %18
+  br i1 %cmp.i10.not.i.i38, label %return, label %for.body.i.i39
 
-for.body.i.i40:                                   ; preds = %lor.lhs.false.i.i36, %for.inc.i.i43
-  %i.014.i.i41 = phi ptr [ %i.0.i.i46, %for.inc.i.i43 ], [ %20, %lor.lhs.false.i.i36 ]
-  %cmp6.i.i42 = icmp eq ptr %i.014.i.i41, %18
-  br i1 %cmp6.i.i42, label %if.then29, label %for.inc.i.i43
+for.body.i.i39:                                   ; preds = %lor.lhs.false.i.i35, %for.inc.i.i42
+  %i.014.i.i40 = phi ptr [ %i.0.i.i45, %for.inc.i.i42 ], [ %20, %lor.lhs.false.i.i35 ]
+  %cmp6.i.i41 = icmp eq ptr %i.014.i.i40, %18
+  br i1 %cmp6.i.i41, label %if.then29, label %for.inc.i.i42
 
-for.inc.i.i43:                                    ; preds = %for.body.i.i40
-  %23 = getelementptr i8, ptr %i.014.i.i41, i64 48
-  %i.0.val.i.i44 = load ptr, ptr %23, align 8
-  %i.0.in.i.i45 = getelementptr inbounds i8, ptr %i.0.val.i.i44, i64 16
-  %i.0.i.i46 = load ptr, ptr %i.0.in.i.i45, align 8
-  %cmp5.not.i.i47 = icmp eq ptr %i.0.i.i46, %17
-  br i1 %cmp5.not.i.i47, label %return, label %for.body.i.i40, !llvm.loop !14
+for.inc.i.i42:                                    ; preds = %for.body.i.i39
+  %23 = getelementptr i8, ptr %i.014.i.i40, i64 48
+  %i.0.val.i.i43 = load ptr, ptr %23, align 8
+  %i.0.in.i.i44 = getelementptr inbounds i8, ptr %i.0.val.i.i43, i64 16
+  %i.0.i.i45 = load ptr, ptr %i.0.in.i.i44, align 8
+  %cmp5.not.i.i46 = icmp eq ptr %i.0.i.i45, %17
+  br i1 %cmp5.not.i.i46, label %return, label %for.body.i.i39, !llvm.loop !14
 
-if.then29:                                        ; preds = %for.body.i.i40, %land.lhs.true26
+if.then29:                                        ; preds = %for.body.i.i39, %land.lhs.true26
   %switch.tableidx = add i32 %c, -2
   %24 = icmp ult i32 %switch.tableidx, 12
-  br i1 %24, label %switch.hole_check, label %do.body.i52
+  br i1 %24, label %switch.hole_check, label %do.body.i51
 
-do.body.i52:                                      ; preds = %switch.hole_check, %if.then29
+do.body.i51:                                      ; preds = %switch.hole_check, %if.then29
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 666, ptr noundef nonnull @__func__.do_constant_folding_cond_eq, ptr noundef null) #9
   unreachable
 
@@ -7155,7 +7155,7 @@ switch.hole_check:                                ; preds = %if.then29
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 4047, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %do.body.i52
+  br i1 %switch.lobit, label %switch.lookup, label %do.body.i51
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %25 = zext nneg i32 %switch.tableidx to i64
@@ -7163,8 +7163,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
-return:                                           ; preds = %for.inc.i.i, %for.inc.i.i43, %switch.lookup, %if.end.i.i32, %lor.lhs.false.i.i36, %if.end.i.i, %lor.lhs.false.i.i, %if.then20, %sw.bb21, %do_constant_folding_cond_64.exit
-  %retval.0 = phi i32 [ %conv, %do_constant_folding_cond_64.exit ], [ 1, %sw.bb21 ], [ 0, %if.then20 ], [ -1, %lor.lhs.false.i.i ], [ -1, %if.end.i.i ], [ -1, %lor.lhs.false.i.i36 ], [ -1, %if.end.i.i32 ], [ %switch.load, %switch.lookup ], [ -1, %for.inc.i.i43 ], [ -1, %for.inc.i.i ]
+return:                                           ; preds = %for.inc.i.i, %for.inc.i.i42, %switch.lookup, %if.end.i.i31, %lor.lhs.false.i.i35, %if.end.i.i, %lor.lhs.false.i.i, %if.then20, %sw.bb21, %do_constant_folding_cond_64.exit
+  %retval.0 = phi i32 [ %conv, %do_constant_folding_cond_64.exit ], [ 1, %sw.bb21 ], [ 0, %if.then20 ], [ -1, %lor.lhs.false.i.i ], [ -1, %if.end.i.i ], [ -1, %lor.lhs.false.i.i35 ], [ -1, %if.end.i.i31 ], [ %switch.load, %switch.lookup ], [ -1, %for.inc.i.i42 ], [ -1, %for.inc.i.i ]
   ret i32 %retval.0
 }
 

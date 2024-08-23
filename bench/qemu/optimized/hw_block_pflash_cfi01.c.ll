@@ -650,7 +650,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @pflash_mem_read_with_attrs(ptr nocapture noundef %opaque, i64 noundef %addr, ptr nocapture noundef writeonly %value, i32 noundef %len, i32 %attrs.coerce) #0 {
 entry:
-  %_now.i.i150.i = alloca %struct.timeval, align 8
+  %_now.i.i151.i = alloca %struct.timeval, align 8
   %_now.i.i.i93.i = alloca %struct.timeval, align 8
   %_now.i.i37.i.i = alloca %struct.timeval, align 8
   %_now.i.i21.i.i = alloca %struct.timeval, align 8
@@ -751,17 +751,17 @@ sw.bb3.i:                                         ; preds = %if.else, %if.else, 
 if.then.i:                                        ; preds = %sw.bb3.i
   %mul.i = shl nuw nsw i32 %conv5.i, 3
   %mul14.i = shl i32 %len, 3
-  %add187.i = shl nuw nsw i32 %conv5.i, 4
-  %cmp15.not188.i = icmp sgt i32 %add187.i, %mul14.i
-  br i1 %cmp15.not188.i, label %if.end33.i, label %while.body.i
+  %add188.i = shl nuw nsw i32 %conv5.i, 4
+  %cmp15.not189.i = icmp sgt i32 %add188.i, %mul14.i
+  br i1 %cmp15.not189.i, label %if.end33.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then.i, %while.body.i
-  %add191.i = phi i32 [ %add.i, %while.body.i ], [ %add187.i, %if.then.i ]
-  %shift.0190.i = phi i32 [ %add191.i, %while.body.i ], [ %mul.i, %if.then.i ]
-  %ret.1189.i = phi i32 [ %or.i, %while.body.i ], [ %conv4.i, %if.then.i ]
-  %shl.i = shl i32 %conv4.i, %shift.0190.i
-  %or.i = or i32 %shl.i, %ret.1189.i
-  %add.i = add i32 %add191.i, %mul.i
+  %add192.i = phi i32 [ %add.i, %while.body.i ], [ %add188.i, %if.then.i ]
+  %shift.0191.i = phi i32 [ %add192.i, %while.body.i ], [ %mul.i, %if.then.i ]
+  %ret.1190.i = phi i32 [ %or.i, %while.body.i ], [ %conv4.i, %if.then.i ]
+  %shl.i = shl i32 %conv4.i, %shift.0191.i
+  %or.i = or i32 %shl.i, %ret.1190.i
+  %add.i = add i32 %add192.i, %mul.i
   %cmp15.not.i = icmp sgt i32 %add.i, %mul14.i
   br i1 %cmp15.not.i, label %if.end33.i, label %while.body.i, !llvm.loop !5
 
@@ -823,8 +823,8 @@ sw.bb35.i:                                        ; preds = %if.else
   br i1 %tobool37.not.i, label %if.then38.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %sw.bb35.i
-  %cmp69183.i = icmp sgt i32 %len, 0
-  br i1 %cmp69183.i, label %for.body.lr.ph.i, label %sw.epilog135.i
+  %cmp69184.i = icmp sgt i32 %len, 0
+  br i1 %cmp69184.i, label %for.body.lr.ph.i, label %sw.epilog135.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %bank_width72.i = getelementptr inbounds i8, ptr %opaque, i64 840
@@ -835,7 +835,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   %ident0.i.i = getelementptr inbounds i8, ptr %opaque, i64 852
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %tv_usec.i.i50.i.i = getelementptr inbounds i8, ptr %_now.i.i37.i.i, i64 8
-  %.pre196.i = load i8, ptr %bank_width72.i, align 8
+  %.pre197.i = load i8, ptr %bank_width72.i, align 8
   br label %for.body.i
 
 if.then38.i:                                      ; preds = %sw.bb35.i
@@ -899,13 +899,13 @@ sw.default66.i:                                   ; preds = %if.end51.i
   br label %sw.epilog135.i
 
 for.body.i:                                       ; preds = %deposit32.exit.i, %for.body.lr.ph.i
-  %28 = phi i8 [ %.pre196.i, %for.body.lr.ph.i ], [ %59, %deposit32.exit.i ]
-  %i.0185.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add84.i, %deposit32.exit.i ]
-  %ret.3184.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %or.i.i, %deposit32.exit.i ]
-  %mul71.i = shl i32 %i.0185.i, 3
+  %28 = phi i8 [ %.pre197.i, %for.body.lr.ph.i ], [ %59, %deposit32.exit.i ]
+  %i.0186.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add84.i, %deposit32.exit.i ]
+  %ret.3185.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %or.i.i, %deposit32.exit.i ]
+  %mul71.i = shl i32 %i.0186.i, 3
   %conv73.i = zext i8 %28 to i32
   %mul74.i = shl nuw nsw i32 %conv73.i, 3
-  %mul77.i = mul i32 %i.0185.i, %conv73.i
+  %mul77.i = mul i32 %i.0186.i, %conv73.i
   %conv78.i = sext i32 %mul77.i to i64
   %add79.i = add i64 %addr, %conv78.i
   %29 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv73.i, i1 false)
@@ -1075,9 +1075,9 @@ deposit32.exit.i.i:                               ; preds = %for.body.i.i
   %shl.i.i.i = shl i32 %shr.i.i.i, %mul.i.i
   %not.i.i.i = xor i32 %shl.i.i.i, -1
   %and.i.i.i = and i32 %resp.253.i.i, %not.i.i.i
-  %shl57.i.i.i = and i32 %resp.253.i.i, %shr.i.i.i
-  %and6.i.i.i = shl i32 %shl57.i.i.i, %mul.i.i
-  %or.i.i.i = or i32 %and.i.i.i, %and6.i.i.i
+  %shl5.i.i.i = shl i32 %resp.253.i.i, %mul.i.i
+  %and6.i.i.i = and i32 %shl.i.i.i, %shl5.i.i.i
+  %or.i.i.i = or disjoint i32 %and.i.i.i, %and6.i.i.i
   %add29.i.i = add nuw nsw i32 %i.052.i.i, %conv13.i.i
   %cmp21.i.i = icmp ult i32 %add29.i.i, %conv20.i.i
   br i1 %cmp21.i.i, label %for.body.i.i, label %pflash_devid_query.exit.i, !llvm.loop !7
@@ -1086,11 +1086,11 @@ pflash_devid_query.exit.i:                        ; preds = %deposit32.exit.i.i,
   %retval.0.i.i = phi i32 [ 0, %trace_pflash_device_info.exit.i.i ], [ %resp.0.i.i, %sw.epilog.i.i ], [ %or.i.i.i, %deposit32.exit.i.i ]
   %cmp.i90.i = icmp slt i32 %mul71.i, 0
   %cmp1.i.i = icmp eq i8 %28, 0
-  %or.cond.not9.i.i = or i1 %cmp1.i.i, %cmp.i90.i
+  %or.cond.not8.i.i = or i1 %cmp1.i.i, %cmp.i90.i
   %sub.i91.i = sub nsw i32 32, %mul71.i
   %cmp3.not.i.i = icmp sgt i32 %mul74.i, %sub.i91.i
-  %or.cond8.i.i = select i1 %or.cond.not9.i.i, i1 true, i1 %cmp3.not.i.i
-  br i1 %or.cond8.i.i, label %if.else.i.i, label %deposit32.exit.i
+  %or.cond7.i.i = select i1 %or.cond.not8.i.i, i1 true, i1 %cmp3.not.i.i
+  br i1 %or.cond7.i.i, label %if.else.i.i, label %deposit32.exit.i
 
 if.else.i.i:                                      ; preds = %pflash_devid_query.exit.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i32 noundef 470, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit32) #13
@@ -1101,13 +1101,13 @@ deposit32.exit.i:                                 ; preds = %pflash_devid_query.
   %shr.i92.i = lshr i32 -1, %sub4.i.i
   %shl.i.i = shl i32 %shr.i92.i, %mul71.i
   %not.i.i = xor i32 %shl.i.i, -1
-  %and.i.i = and i32 %ret.3184.i, %not.i.i
-  %shl57.i.i = and i32 %retval.0.i.i, %shr.i92.i
-  %and6.i.i = shl i32 %shl57.i.i, %mul71.i
-  %or.i.i = or i32 %and6.i.i, %and.i.i
+  %and.i.i = and i32 %ret.3185.i, %not.i.i
+  %shl5.i.i = shl i32 %retval.0.i.i, %mul71.i
+  %and6.i.i = and i32 %shl5.i.i, %shl.i.i
+  %or.i.i = or disjoint i32 %and6.i.i, %and.i.i
   %59 = load i8, ptr %bank_width72.i, align 8
   %conv83.i = zext i8 %59 to i32
-  %add84.i = add i32 %i.0185.i, %conv83.i
+  %add84.i = add i32 %i.0186.i, %conv83.i
   %cmp69.i = icmp slt i32 %add84.i, %len
   br i1 %cmp69.i, label %for.body.i, label %sw.epilog135.i, !llvm.loop !8
 
@@ -1118,15 +1118,15 @@ sw.bb86.i:                                        ; preds = %if.else
   br i1 %tobool88.not.i, label %if.then89.i, label %for.cond114.preheader.i
 
 for.cond114.preheader.i:                          ; preds = %sw.bb86.i
-  %cmp115180.i = icmp sgt i32 %len, 0
-  br i1 %cmp115180.i, label %for.body117.lr.ph.i, label %sw.epilog135.i
+  %cmp115181.i = icmp sgt i32 %len, 0
+  br i1 %cmp115181.i, label %for.body117.lr.ph.i, label %sw.epilog135.i
 
 for.body117.lr.ph.i:                              ; preds = %for.cond114.preheader.i
   %bank_width119.i = getelementptr inbounds i8, ptr %opaque, i64 840
   %max_device_width.i96.i = getelementptr inbounds i8, ptr %opaque, i64 842
   %cfi_table.i.i = getelementptr inbounds i8, ptr %opaque, i64 860
-  %name.i119.i = getelementptr inbounds i8, ptr %opaque, i64 1232
-  %tv_usec.i.i.i132.i = getelementptr inbounds i8, ptr %_now.i.i.i93.i, i64 8
+  %name.i120.i = getelementptr inbounds i8, ptr %opaque, i64 1232
+  %tv_usec.i.i.i133.i = getelementptr inbounds i8, ptr %_now.i.i.i93.i, i64 8
   %.pre.i = load i8, ptr %bank_width119.i, align 8
   br label %for.body117.i
 
@@ -1153,21 +1153,21 @@ if.end105.i:                                      ; preds = %if.then95.i, %if.th
   br i1 %cmp106.i, label %if.then108.i, label %sw.epilog135.i
 
 if.then108.i:                                     ; preds = %if.end105.i, %if.end105.thread.i
-  %boff.1168.i = phi i64 [ %shr103.i, %if.end105.thread.i ], [ %boff.1.i, %if.end105.i ]
+  %boff.1169.i = phi i64 [ %shr103.i, %if.end105.thread.i ], [ %boff.1.i, %if.end105.i ]
   %cfi_table.i = getelementptr inbounds i8, ptr %opaque, i64 860
-  %arrayidx.i = getelementptr [82 x i8], ptr %cfi_table.i, i64 0, i64 %boff.1168.i
+  %arrayidx.i = getelementptr [82 x i8], ptr %cfi_table.i, i64 0, i64 %boff.1169.i
   %62 = load i8, ptr %arrayidx.i, align 1
   %conv109.i = zext i8 %62 to i32
   br label %sw.epilog135.i
 
-for.body117.i:                                    ; preds = %deposit32.exit149.i, %for.body117.lr.ph.i
-  %63 = phi i8 [ %.pre.i, %for.body117.lr.ph.i ], [ %79, %deposit32.exit149.i ]
-  %i113.0182.i = phi i32 [ 0, %for.body117.lr.ph.i ], [ %add132.i, %deposit32.exit149.i ]
-  %ret.4181.i = phi i32 [ -1, %for.body117.lr.ph.i ], [ %or.i147.i, %deposit32.exit149.i ]
-  %mul118.i = shl i32 %i113.0182.i, 3
+for.body117.i:                                    ; preds = %deposit32.exit150.i, %for.body117.lr.ph.i
+  %63 = phi i8 [ %.pre.i, %for.body117.lr.ph.i ], [ %79, %deposit32.exit150.i ]
+  %i113.0183.i = phi i32 [ 0, %for.body117.lr.ph.i ], [ %add132.i, %deposit32.exit150.i ]
+  %ret.4182.i = phi i32 [ -1, %for.body117.lr.ph.i ], [ %or.i148.i, %deposit32.exit150.i ]
+  %mul118.i = shl i32 %i113.0183.i, 3
   %conv120.i = zext i8 %63 to i32
   %mul121.i = shl nuw nsw i32 %conv120.i, 3
-  %mul124.i = mul i32 %i113.0182.i, %conv120.i
+  %mul124.i = mul i32 %i113.0183.i, %conv120.i
   %conv125.i = sext i32 %mul124.i to i64
   %add126.i = add i64 %addr, %conv125.i
   %64 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv120.i, i1 false)
@@ -1205,64 +1205,65 @@ for.cond.preheader.i.i:                           ; preds = %if.then13.i.i
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i.i
   %70 = add nsw i32 %conv1.i97.i, -5
   %71 = icmp ult i32 %70, -3
-  br i1 %71, label %if.else.i.i118.i, label %for.body.i107.i
+  br i1 %71, label %if.else.i.i119.i, label %for.body.i107.i
 
 if.then22.i.i:                                    ; preds = %if.then13.i.i
-  %72 = load ptr, ptr %name.i119.i, align 16
+  %72 = load ptr, ptr %name.i120.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i93.i)
   %73 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i120.i = icmp ne i32 %73, 0
+  %tobool.i.i.i121.i = icmp ne i32 %73, 0
   %74 = load i16, ptr @_TRACE_PFLASH_UNSUPPORTED_DEVICE_CONFIGURATION_DSTATE, align 2
-  %tobool4.i.i.i121.i = icmp ne i16 %74, 0
-  %or.cond.i.i.i122.i = select i1 %tobool.i.i.i120.i, i1 %tobool4.i.i.i121.i, i1 false
-  br i1 %or.cond.i.i.i122.i, label %land.lhs.true5.i.i.i123.i, label %trace_pflash_unsupported_device_configuration.exit.i.i
+  %tobool4.i.i.i122.i = icmp ne i16 %74, 0
+  %or.cond.i.i.i123.i = select i1 %tobool.i.i.i121.i, i1 %tobool4.i.i.i122.i, i1 false
+  br i1 %or.cond.i.i.i123.i, label %land.lhs.true5.i.i.i124.i, label %trace_pflash_unsupported_device_configuration.exit.i.i
 
-land.lhs.true5.i.i.i123.i:                        ; preds = %if.then22.i.i
+land.lhs.true5.i.i.i124.i:                        ; preds = %if.then22.i.i
   %75 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i124.i = and i32 %75, 32768
-  %cmp.i.not.i.i.i125.i = icmp eq i32 %and.i.i.i.i124.i, 0
-  br i1 %cmp.i.not.i.i.i125.i, label %trace_pflash_unsupported_device_configuration.exit.i.i, label %if.then.i.i.i126.i
+  %and.i.i.i.i125.i = and i32 %75, 32768
+  %cmp.i.not.i.i.i126.i = icmp eq i32 %and.i.i.i.i125.i, 0
+  br i1 %cmp.i.not.i.i.i126.i, label %trace_pflash_unsupported_device_configuration.exit.i.i, label %if.then.i.i.i127.i
 
-if.then.i.i.i126.i:                               ; preds = %land.lhs.true5.i.i.i123.i
+if.then.i.i.i127.i:                               ; preds = %land.lhs.true5.i.i.i124.i
   %76 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i127.i = trunc i8 %76 to i1
-  br i1 %tobool7.i.i.i127.i, label %if.then8.i.i.i129.i, label %if.else.i.i.i128.i
+  %tobool7.i.i.i128.i = trunc i8 %76 to i1
+  br i1 %tobool7.i.i.i128.i, label %if.then8.i.i.i130.i, label %if.else.i.i.i129.i
 
-if.then8.i.i.i129.i:                              ; preds = %if.then.i.i.i126.i
-  %call9.i.i.i130.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i93.i, ptr noundef null) #12
-  %call10.i.i.i131.i = tail call i32 @qemu_get_thread_id() #12
+if.then8.i.i.i130.i:                              ; preds = %if.then.i.i.i127.i
+  %call9.i.i.i131.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i93.i, ptr noundef null) #12
+  %call10.i.i.i132.i = tail call i32 @qemu_get_thread_id() #12
   %77 = load i64, ptr %_now.i.i.i93.i, align 8
-  %78 = load i64, ptr %tv_usec.i.i.i132.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i.i131.i, i64 noundef %77, i64 noundef %78, ptr noundef %72, i32 noundef %conv3.i101.i, i32 noundef %conv1.i97.i) #12
+  %78 = load i64, ptr %tv_usec.i.i.i133.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i.i132.i, i64 noundef %77, i64 noundef %78, ptr noundef %72, i32 noundef %conv3.i101.i, i32 noundef %conv1.i97.i) #12
   br label %trace_pflash_unsupported_device_configuration.exit.i.i
 
-if.else.i.i.i128.i:                               ; preds = %if.then.i.i.i126.i
+if.else.i.i.i129.i:                               ; preds = %if.then.i.i.i127.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef %72, i32 noundef %conv3.i101.i, i32 noundef %conv1.i97.i) #12
   br label %trace_pflash_unsupported_device_configuration.exit.i.i
 
-trace_pflash_unsupported_device_configuration.exit.i.i: ; preds = %if.else.i.i.i128.i, %if.then8.i.i.i129.i, %land.lhs.true5.i.i.i123.i, %if.then22.i.i
+trace_pflash_unsupported_device_configuration.exit.i.i: ; preds = %if.else.i.i.i129.i, %if.then8.i.i.i130.i, %land.lhs.true5.i.i.i124.i, %if.then22.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i93.i)
   br label %pflash_cfi_query.exit.i
 
 for.body.i107.i:                                  ; preds = %for.body.preheader.i.i, %for.body.i107.i
-  %resp.145.i.i = phi i32 [ %or.i.i113.i, %for.body.i107.i ], [ %conv6.i.i, %for.body.preheader.i.i ]
+  %resp.145.i.i = phi i32 [ %or.i.i114.i, %for.body.i107.i ], [ %conv6.i.i, %for.body.preheader.i.i ]
   %i.044.i.i = phi i32 [ %inc.i.i, %for.body.i107.i ], [ 1, %for.body.preheader.i.i ]
   %mul.i108.i = shl i32 %i.044.i.i, 3
   %shl.i.i109.i = shl nuw i32 255, %mul.i108.i
   %not.i.i110.i = xor i32 %shl.i.i109.i, -1
   %and.i.i111.i = and i32 %resp.145.i.i, %not.i.i110.i
-  %and6.i.i112.i = shl nuw i32 %conv6.i.i, %mul.i108.i
-  %or.i.i113.i = or i32 %and.i.i111.i, %and6.i.i112.i
+  %shl5.i.i112.i = shl nuw i32 %conv6.i.i, %mul.i108.i
+  %and6.i.i113.i = and i32 %shl.i.i109.i, %shl5.i.i112.i
+  %or.i.i114.i = or disjoint i32 %and.i.i111.i, %and6.i.i113.i
   %inc.i.i = add nuw nsw i32 %i.044.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %conv1.i97.i
   br i1 %exitcond.not.i.i, label %if.end34.i.i, label %for.body.i107.i, !llvm.loop !9
 
-if.else.i.i118.i:                                 ; preds = %for.body.preheader.i.i
+if.else.i.i119.i:                                 ; preds = %for.body.preheader.i.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i32 noundef 470, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit32) #13
   unreachable
 
 if.end34.i.i:                                     ; preds = %for.body.i107.i, %if.end.i.i
-  %resp.0.i114.i = phi i32 [ %conv6.i.i, %if.end.i.i ], [ %or.i.i113.i, %for.body.i107.i ]
+  %resp.0.i115.i = phi i32 [ %conv6.i.i, %if.end.i.i ], [ %or.i.i114.i, %for.body.i107.i ]
   %cmp39.i.i = icmp ult i8 %.fr.i100.i, %63
   br i1 %cmp39.i.i, label %for.cond44.preheader.i.i, label %pflash_cfi_query.exit.i
 
@@ -1272,15 +1273,15 @@ if.end34.thread.i.i:                              ; preds = %for.cond.preheader.
 
 for.cond44.preheader.i.i:                         ; preds = %if.end34.i.i
   %mul53.i.i = shl nuw nsw i32 %conv3.i101.i, 3
-  %cmp1.i.i115.i = icmp eq i8 %.fr.i100.i, 0
-  %invariant.op.i116.i = sub nsw i32 32, %mul53.i.i
-  %shr.i.i117.i = lshr i32 -1, %invariant.op.i116.i
-  br i1 %cmp1.i.i115.i, label %if.else.i39.split.i.i, label %for.body49.preheader.i.i
+  %cmp1.i.i116.i = icmp eq i8 %.fr.i100.i, 0
+  %invariant.op.i117.i = sub nsw i32 32, %mul53.i.i
+  %shr.i.i118.i = lshr i32 -1, %invariant.op.i117.i
+  br i1 %cmp1.i.i116.i, label %if.else.i39.split.i.i, label %for.body49.preheader.i.i
 
 for.body49.preheader.i.i:                         ; preds = %for.cond44.preheader.i.i, %if.end34.thread.i.i
-  %shr.i58.i.i = phi i32 [ %shr.i.i117.i, %for.cond44.preheader.i.i ], [ 255, %if.end34.thread.i.i ]
-  %invariant.op57.i.i = phi i32 [ %invariant.op.i116.i, %for.cond44.preheader.i.i ], [ 24, %if.end34.thread.i.i ]
-  %resp.05056.i.i = phi i32 [ %resp.0.i114.i, %for.cond44.preheader.i.i ], [ %conv6.i.i, %if.end34.thread.i.i ]
+  %shr.i58.i.i = phi i32 [ %shr.i.i118.i, %for.cond44.preheader.i.i ], [ 255, %if.end34.thread.i.i ]
+  %invariant.op57.i.i = phi i32 [ %invariant.op.i117.i, %for.cond44.preheader.i.i ], [ 24, %if.end34.thread.i.i ]
+  %resp.05056.i.i = phi i32 [ %resp.0.i115.i, %for.cond44.preheader.i.i ], [ %conv6.i.i, %if.end34.thread.i.i ]
   br label %for.body49.i.i
 
 for.body49.i.i:                                   ; preds = %deposit32.exit40.i.i, %for.body49.preheader.i.i
@@ -1298,87 +1299,87 @@ deposit32.exit40.i.i:                             ; preds = %for.body49.i.i
   %shl.i33.i.i = shl i32 %shr.i58.i.i, %mul50.i.i
   %not.i34.i.i = xor i32 %shl.i33.i.i, -1
   %and.i35.i.i = and i32 %resp.347.i.i, %not.i34.i.i
-  %shl57.i36.i.i = and i32 %resp.347.i.i, %shr.i58.i.i
-  %and6.i37.i.i = shl i32 %shl57.i36.i.i, %mul50.i.i
-  %or.i38.i.i = or i32 %and.i35.i.i, %and6.i37.i.i
+  %shl5.i36.i.i = shl i32 %resp.347.i.i, %mul50.i.i
+  %and6.i37.i.i = and i32 %shl.i33.i.i, %shl5.i36.i.i
+  %or.i38.i.i = or disjoint i32 %and.i35.i.i, %and6.i37.i.i
   %add58.i.i = add nuw nsw i32 %i.146.i.i, %conv3.i101.i
   %cmp47.i.i = icmp ult i32 %add58.i.i, %conv120.i
   br i1 %cmp47.i.i, label %for.body49.i.i, label %pflash_cfi_query.exit.i, !llvm.loop !10
 
 pflash_cfi_query.exit.i:                          ; preds = %deposit32.exit40.i.i, %if.end34.thread.i.i, %if.end34.i.i, %trace_pflash_unsupported_device_configuration.exit.i.i, %for.body117.i
-  %retval.0.i106.i = phi i32 [ 0, %trace_pflash_unsupported_device_configuration.exit.i.i ], [ 0, %for.body117.i ], [ %resp.0.i114.i, %if.end34.i.i ], [ %conv6.i.i, %if.end34.thread.i.i ], [ %or.i38.i.i, %deposit32.exit40.i.i ]
-  %cmp.i133.i = icmp slt i32 %mul118.i, 0
-  %cmp1.i134.i = icmp eq i8 %63, 0
-  %or.cond.not9.i135.i = or i1 %cmp1.i134.i, %cmp.i133.i
-  %sub.i136.i = sub nsw i32 32, %mul118.i
-  %cmp3.not.i137.i = icmp sgt i32 %mul121.i, %sub.i136.i
-  %or.cond8.i138.i = select i1 %or.cond.not9.i135.i, i1 true, i1 %cmp3.not.i137.i
-  br i1 %or.cond8.i138.i, label %if.else.i148.i, label %deposit32.exit149.i
+  %retval.0.i106.i = phi i32 [ 0, %trace_pflash_unsupported_device_configuration.exit.i.i ], [ 0, %for.body117.i ], [ %resp.0.i115.i, %if.end34.i.i ], [ %conv6.i.i, %if.end34.thread.i.i ], [ %or.i38.i.i, %deposit32.exit40.i.i ]
+  %cmp.i134.i = icmp slt i32 %mul118.i, 0
+  %cmp1.i135.i = icmp eq i8 %63, 0
+  %or.cond.not8.i136.i = or i1 %cmp1.i135.i, %cmp.i134.i
+  %sub.i137.i = sub nsw i32 32, %mul118.i
+  %cmp3.not.i138.i = icmp sgt i32 %mul121.i, %sub.i137.i
+  %or.cond7.i139.i = select i1 %or.cond.not8.i136.i, i1 true, i1 %cmp3.not.i138.i
+  br i1 %or.cond7.i139.i, label %if.else.i149.i, label %deposit32.exit150.i
 
-if.else.i148.i:                                   ; preds = %pflash_cfi_query.exit.i
+if.else.i149.i:                                   ; preds = %pflash_cfi_query.exit.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i32 noundef 470, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit32) #13
   unreachable
 
-deposit32.exit149.i:                              ; preds = %pflash_cfi_query.exit.i
-  %sub4.i140.i = sub nuw nsw i32 32, %mul121.i
-  %shr.i141.i = lshr i32 -1, %sub4.i140.i
-  %shl.i142.i = shl i32 %shr.i141.i, %mul118.i
-  %not.i143.i = xor i32 %shl.i142.i, -1
-  %and.i144.i = and i32 %ret.4181.i, %not.i143.i
-  %shl57.i145.i = and i32 %retval.0.i106.i, %shr.i141.i
-  %and6.i146.i = shl i32 %shl57.i145.i, %mul118.i
-  %or.i147.i = or i32 %and6.i146.i, %and.i144.i
+deposit32.exit150.i:                              ; preds = %pflash_cfi_query.exit.i
+  %sub4.i141.i = sub nuw nsw i32 32, %mul121.i
+  %shr.i142.i = lshr i32 -1, %sub4.i141.i
+  %shl.i143.i = shl i32 %shr.i142.i, %mul118.i
+  %not.i144.i = xor i32 %shl.i143.i, -1
+  %and.i145.i = and i32 %ret.4182.i, %not.i144.i
+  %shl5.i146.i = shl i32 %retval.0.i106.i, %mul118.i
+  %and6.i147.i = and i32 %shl5.i146.i, %shl.i143.i
+  %or.i148.i = or disjoint i32 %and6.i147.i, %and.i145.i
   %79 = load i8, ptr %bank_width119.i, align 8
   %conv131.i = zext i8 %79 to i32
-  %add132.i = add i32 %i113.0182.i, %conv131.i
+  %add132.i = add i32 %i113.0183.i, %conv131.i
   %cmp115.i = icmp slt i32 %add132.i, %len
   br i1 %cmp115.i, label %for.body117.i, label %sw.epilog135.i, !llvm.loop !11
 
-sw.epilog135.i:                                   ; preds = %deposit32.exit149.i, %deposit32.exit.i, %if.then108.i, %if.end105.i, %for.cond114.preheader.i, %sw.default66.i, %sw.bb59.i, %sw.bb52.i, %for.cond.preheader.i, %trace_pflash_read_status.exit.i, %sw.bb.i
-  %ret.0.i = phi i32 [ %call.i, %sw.bb.i ], [ %conv109.i, %if.then108.i ], [ 0, %sw.default66.i ], [ %or63.i, %sw.bb59.i ], [ %or56.i, %sw.bb52.i ], [ %ret.2.i, %trace_pflash_read_status.exit.i ], [ 0, %if.end105.i ], [ -1, %for.cond.preheader.i ], [ -1, %for.cond114.preheader.i ], [ %or.i.i, %deposit32.exit.i ], [ %or.i147.i, %deposit32.exit149.i ]
+sw.epilog135.i:                                   ; preds = %deposit32.exit150.i, %deposit32.exit.i, %if.then108.i, %if.end105.i, %for.cond114.preheader.i, %sw.default66.i, %sw.bb59.i, %sw.bb52.i, %for.cond.preheader.i, %trace_pflash_read_status.exit.i, %sw.bb.i
+  %ret.0.i = phi i32 [ %call.i, %sw.bb.i ], [ %conv109.i, %if.then108.i ], [ 0, %sw.default66.i ], [ %or63.i, %sw.bb59.i ], [ %or56.i, %sw.bb52.i ], [ %ret.2.i, %trace_pflash_read_status.exit.i ], [ 0, %if.end105.i ], [ -1, %for.cond.preheader.i ], [ -1, %for.cond114.preheader.i ], [ %or.i.i, %deposit32.exit.i ], [ %or.i148.i, %deposit32.exit150.i ]
   %name136.i = getelementptr inbounds i8, ptr %opaque, i64 1232
   %80 = load ptr, ptr %name136.i, align 16
   %81 = load i8, ptr %cmd.i, align 2
   %wcycle138.i = getelementptr inbounds i8, ptr %opaque, i64 848
   %82 = load i8, ptr %wcycle138.i, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i150.i)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i151.i)
   %83 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i151.i = icmp ne i32 %83, 0
+  %tobool.i.i152.i = icmp ne i32 %83, 0
   %84 = load i16, ptr @_TRACE_PFLASH_IO_READ_DSTATE, align 2
-  %tobool4.i.i152.i = icmp ne i16 %84, 0
-  %or.cond.i.i153.i = select i1 %tobool.i.i151.i, i1 %tobool4.i.i152.i, i1 false
-  br i1 %or.cond.i.i153.i, label %land.lhs.true5.i.i154.i, label %pflash_read.exit
+  %tobool4.i.i153.i = icmp ne i16 %84, 0
+  %or.cond.i.i154.i = select i1 %tobool.i.i152.i, i1 %tobool4.i.i153.i, i1 false
+  br i1 %or.cond.i.i154.i, label %land.lhs.true5.i.i155.i, label %pflash_read.exit
 
-land.lhs.true5.i.i154.i:                          ; preds = %sw.epilog135.i
+land.lhs.true5.i.i155.i:                          ; preds = %sw.epilog135.i
   %85 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i155.i = and i32 %85, 32768
-  %cmp.i.not.i.i156.i = icmp eq i32 %and.i.i.i155.i, 0
-  br i1 %cmp.i.not.i.i156.i, label %pflash_read.exit, label %if.then.i.i157.i
+  %and.i.i.i156.i = and i32 %85, 32768
+  %cmp.i.not.i.i157.i = icmp eq i32 %and.i.i.i156.i, 0
+  br i1 %cmp.i.not.i.i157.i, label %pflash_read.exit, label %if.then.i.i158.i
 
-if.then.i.i157.i:                                 ; preds = %land.lhs.true5.i.i154.i
+if.then.i.i158.i:                                 ; preds = %land.lhs.true5.i.i155.i
   %86 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i158.i = trunc i8 %86 to i1
-  br i1 %tobool7.i.i158.i, label %if.then8.i.i160.i, label %if.else.i.i159.i
+  %tobool7.i.i159.i = trunc i8 %86 to i1
+  br i1 %tobool7.i.i159.i, label %if.then8.i.i161.i, label %if.else.i.i160.i
 
-if.then8.i.i160.i:                                ; preds = %if.then.i.i157.i
-  %call9.i.i161.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i150.i, ptr noundef null) #12
-  %call10.i.i162.i = tail call i32 @qemu_get_thread_id() #12
-  %87 = load i64, ptr %_now.i.i150.i, align 8
-  %tv_usec.i.i163.i = getelementptr inbounds i8, ptr %_now.i.i150.i, i64 8
-  %88 = load i64, ptr %tv_usec.i.i163.i, align 8
-  %conv11.i.i164.i = zext i8 %81 to i32
-  %conv12.i.i165.i = zext i8 %82 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i162.i, i64 noundef %87, i64 noundef %88, ptr noundef %80, i64 noundef %addr, i32 noundef %len, i32 noundef %ret.0.i, i32 noundef %conv11.i.i164.i, i32 noundef %conv12.i.i165.i) #12
+if.then8.i.i161.i:                                ; preds = %if.then.i.i158.i
+  %call9.i.i162.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i151.i, ptr noundef null) #12
+  %call10.i.i163.i = tail call i32 @qemu_get_thread_id() #12
+  %87 = load i64, ptr %_now.i.i151.i, align 8
+  %tv_usec.i.i164.i = getelementptr inbounds i8, ptr %_now.i.i151.i, i64 8
+  %88 = load i64, ptr %tv_usec.i.i164.i, align 8
+  %conv11.i.i165.i = zext i8 %81 to i32
+  %conv12.i.i166.i = zext i8 %82 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i163.i, i64 noundef %87, i64 noundef %88, ptr noundef %80, i64 noundef %addr, i32 noundef %len, i32 noundef %ret.0.i, i32 noundef %conv11.i.i165.i, i32 noundef %conv12.i.i166.i) #12
   br label %pflash_read.exit
 
-if.else.i.i159.i:                                 ; preds = %if.then.i.i157.i
+if.else.i.i160.i:                                 ; preds = %if.then.i.i158.i
   %conv13.i.i.i = zext i8 %81 to i32
   %conv14.i.i.i = zext i8 %82 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, ptr noundef %80, i64 noundef %addr, i32 noundef %len, i32 noundef %ret.0.i, i32 noundef %conv13.i.i.i, i32 noundef %conv14.i.i.i) #12
   br label %pflash_read.exit
 
-pflash_read.exit:                                 ; preds = %sw.epilog135.i, %land.lhs.true5.i.i154.i, %if.then8.i.i160.i, %if.else.i.i159.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i150.i)
+pflash_read.exit:                                 ; preds = %sw.epilog135.i, %land.lhs.true5.i.i155.i, %if.then8.i.i161.i, %if.else.i.i160.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i151.i)
   br label %if.end
 
 if.end:                                           ; preds = %pflash_read.exit, %if.then

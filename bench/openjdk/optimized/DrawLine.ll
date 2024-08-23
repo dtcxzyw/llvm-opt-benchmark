@@ -397,6 +397,7 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   store i32 %.sink388.i, ptr %11, align 4
   store i32 %.sink.i, ptr %13, align 4
   %.0276.i = shl nuw nsw i32 %.0276.in.i, 1
+  %.0277.i = shl nuw nsw i32 %.0277.in.i, 1
   %232 = tail call i32 @llvm.abs.i32(i32 %.0273.i, i1 true)
   %233 = add nuw nsw i32 %232, 1
   %234 = sub nsw i32 %233, %spec.select368.i
@@ -431,7 +432,7 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
 247:                                              ; preds = %242, %241
   %.1275.i = phi i32 [ %246, %242 ], [ %.0274.i, %241 ]
   %248 = add nsw i32 %.1275.i, %.0276.i
-  %249 = sub nsw i32 %.0277.in.i, %.0276.in.i
+  %249 = sub nsw i32 %.0277.i, %.0276.i
   br label %LineUtils_SetupBresenhamBig.exit.sink.split
 
 250:                                              ; preds = %14
@@ -662,6 +663,7 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
   store i32 %.sink333, ptr %11, align 4
   store i32 %.sink, ptr %13, align 4
   %.0238 = shl nuw nsw i32 %.0238.in, 1
+  %.0239 = shl nuw nsw i32 %.0239.in, 1
   %365 = tail call i32 @llvm.abs.i32(i32 %.0235, i1 true)
   %366 = add nuw nsw i32 %365, 1
   %367 = sub nsw i32 %366, %spec.select314
@@ -696,19 +698,18 @@ define hidden zeroext range(i8 0, 2) i8 @LineUtils_SetupBresenham(i32 noundef %0
 380:                                              ; preds = %375, %374
   %.1237 = phi i32 [ %379, %375 ], [ %.0236, %374 ]
   %381 = add nsw i32 %.1237, %.0238
-  %382 = sub nsw i32 %.0239.in, %.0238.in
+  %382 = sub nsw i32 %.0239, %.0238
   br label %LineUtils_SetupBresenhamBig.exit.sink.split
 
 LineUtils_SetupBresenhamBig.exit.sink.split:      ; preds = %380, %247
-  %.sink338 = phi i32 [ %249, %247 ], [ %382, %380 ]
   %.sink337 = phi i32 [ %234, %247 ], [ %367, %380 ]
   %.sink336 = phi i32 [ %248, %247 ], [ %381, %380 ]
   %.0276.i.sink = phi i32 [ %.0276.i, %247 ], [ %.0238, %380 ]
-  %383 = shl nsw i32 %.sink338, 1
+  %.sink335 = phi i32 [ %249, %247 ], [ %382, %380 ]
   store i32 %.sink337, ptr %8, align 4
   store i32 %.sink336, ptr %9, align 4
   store i32 %.0276.i.sink, ptr %10, align 4
-  store i32 %383, ptr %12, align 4
+  store i32 %.sink335, ptr %12, align 4
   br label %LineUtils_SetupBresenhamBig.exit
 
 LineUtils_SetupBresenhamBig.exit:                 ; preds = %156, %297, %LineUtils_SetupBresenhamBig.exit.sink.split, %231, %364

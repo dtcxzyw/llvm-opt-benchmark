@@ -317,6 +317,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   %and.i = and i32 %cond.i, %maxsz
   %cmp13.i = icmp eq i32 %and.i, 0
   tail call void @llvm.assume(i1 %cmp13.i)
+  %shl.i = shl nsw i32 %data, 10
   %0 = add i32 %data, 2097152
   %cmp = icmp ult i32 %0, 4194304
   tail call void @llvm.assume(i1 %cmp)
@@ -328,10 +329,9 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
   %1 = add i32 %sub, 768
   %2 = and i32 %1, 768
   %and6.i = select i1 %cmp3, i32 512, i32 %2
-  %shl57.i15 = and i32 %sub2, 255
-  %or.i = or disjoint i32 %shl57.i15, %and6.i
-  %shl57.i18 = shl nsw i32 %data, 10
-  %or.i20 = or disjoint i32 %or.i, %shl57.i18
+  %and6.i16 = and i32 %sub2, 255
+  %or.i = or disjoint i32 %and6.i16, %and6.i
+  %or.i20 = or disjoint i32 %or.i, %shl.i
   ret i32 %or.i20
 }
 
@@ -362,6 +362,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
   tail call void @llvm.assume(i1 %cmp13.i.i)
+  %shl.i.i = shl nsw i32 %data, 10
   %0 = add i32 %data, 2097152
   %cmp.i = icmp ult i32 %0, 4194304
   tail call void @llvm.assume(i1 %cmp.i)
@@ -373,10 +374,9 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i15.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
-  %shl57.i18.i = shl nsw i32 %data, 10
-  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %and6.i16.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %and6.i16.i, %and6.i.i
+  %or.i20.i = or disjoint i32 %or.i.i, %shl.i.i
   %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -425,6 +425,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
   tail call void @llvm.assume(i1 %cmp13.i.i)
+  %shl.i.i = shl nsw i32 %data, 10
   %0 = add i32 %data, 2097152
   %cmp.i = icmp ult i32 %0, 4194304
   tail call void @llvm.assume(i1 %cmp.i)
@@ -436,10 +437,9 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i15.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
-  %shl57.i18.i = shl nsw i32 %data, 10
-  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %and6.i16.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %and6.i16.i, %and6.i.i
+  %or.i20.i = or disjoint i32 %or.i.i, %shl.i.i
   %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -482,6 +482,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
   tail call void @llvm.assume(i1 %cmp13.i.i)
+  %shl.i.i = shl nsw i32 %data, 10
   %0 = add i32 %data, 2097152
   %cmp.i = icmp ult i32 %0, 4194304
   tail call void @llvm.assume(i1 %cmp.i)
@@ -493,10 +494,9 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i15.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
-  %shl57.i18.i = shl nsw i32 %data, 10
-  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %and6.i16.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %and6.i16.i, %and6.i.i
+  %or.i20.i = or disjoint i32 %or.i.i, %shl.i.i
   %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -544,6 +544,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
   tail call void @llvm.assume(i1 %cmp13.i.i)
+  %shl.i.i = shl nsw i32 %data, 10
   %0 = add i32 %data, 2097152
   %cmp.i = icmp ult i32 %0, 4194304
   tail call void @llvm.assume(i1 %cmp.i)
@@ -555,10 +556,9 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i15.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
-  %shl57.i18.i = shl nsw i32 %data, 10
-  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %and6.i16.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %and6.i16.i, %and6.i.i
+  %or.i20.i = or disjoint i32 %or.i.i, %shl.i.i
   %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -611,6 +611,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
   tail call void @llvm.assume(i1 %cmp13.i.i)
+  %shl.i.i = shl nsw i32 %data, 10
   %0 = add i32 %data, 2097152
   %cmp.i = icmp ult i32 %0, 4194304
   tail call void @llvm.assume(i1 %cmp.i)
@@ -622,10 +623,9 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i15.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
-  %shl57.i18.i = shl nsw i32 %data, 10
-  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %and6.i16.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %and6.i16.i, %and6.i.i
+  %or.i20.i = or disjoint i32 %or.i.i, %shl.i.i
   %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -683,6 +683,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
   tail call void @llvm.assume(i1 %cmp13.i.i)
+  %shl.i.i = shl nsw i32 %data, 10
   %0 = add i32 %data, 2097152
   %cmp.i = icmp ult i32 %0, 4194304
   tail call void @llvm.assume(i1 %cmp.i)
@@ -694,10 +695,9 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i15.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
-  %shl57.i18.i = shl nsw i32 %data, 10
-  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %and6.i16.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %and6.i16.i, %and6.i.i
+  %or.i20.i = or disjoint i32 %or.i.i, %shl.i.i
   %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -740,6 +740,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
   tail call void @llvm.assume(i1 %cmp13.i.i)
+  %shl.i.i = shl nsw i32 %data, 10
   %0 = add i32 %data, 2097152
   %cmp.i = icmp ult i32 %0, 4194304
   tail call void @llvm.assume(i1 %cmp.i)
@@ -751,10 +752,9 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i15.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
-  %shl57.i18.i = shl nsw i32 %data, 10
-  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %and6.i16.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %and6.i16.i, %and6.i.i
+  %or.i20.i = or disjoint i32 %or.i.i, %shl.i.i
   %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -802,6 +802,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
   tail call void @llvm.assume(i1 %cmp13.i.i)
+  %shl.i.i = shl nsw i32 %data, 10
   %0 = add i32 %data, 2097152
   %cmp.i = icmp ult i32 %0, 4194304
   tail call void @llvm.assume(i1 %cmp.i)
@@ -813,10 +814,9 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i15.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
-  %shl57.i18.i = shl nsw i32 %data, 10
-  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %and6.i16.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %and6.i16.i, %and6.i.i
+  %or.i20.i = or disjoint i32 %or.i.i, %shl.i.i
   %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -869,6 +869,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %and.i.i = and i32 %cond.i.i, %maxsz
   %cmp13.i.i = icmp eq i32 %and.i.i, 0
   tail call void @llvm.assume(i1 %cmp13.i.i)
+  %shl.i.i = shl nsw i32 %data, 10
   %0 = add i32 %data, 2097152
   %cmp.i = icmp ult i32 %0, 4194304
   tail call void @llvm.assume(i1 %cmp.i)
@@ -880,10 +881,9 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %1 = add i32 %sub.i, 768
   %2 = and i32 %1, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %2
-  %shl57.i15.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %shl57.i15.i, %and6.i.i
-  %shl57.i18.i = shl nsw i32 %data, 10
-  %or.i20.i = or disjoint i32 %or.i.i, %shl57.i18.i
+  %and6.i16.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %and6.i16.i, %and6.i.i
+  %or.i20.i = or disjoint i32 %or.i.i, %shl.i.i
   %call1 = tail call ptr @tcg_constant_i32(i32 noundef %or.i20.i) #7
   %call2 = tail call ptr @tcg_temp_ebb_new_ptr() #7
   %call3 = tail call ptr @tcg_temp_ebb_new_ptr() #7
@@ -4130,8 +4130,8 @@ simd_desc.exit:                                   ; preds = %if.end153, %do.body
   %18 = add i32 %sub.i, 768
   %19 = and i32 %18, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %19
-  %shl57.i15.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %and6.i.i, %shl57.i15.i
+  %and6.i16.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %and6.i.i, %and6.i16.i
   %call155 = tail call ptr @tcg_constant_i32(i32 noundef %or.i.i) #7
   %cmp156 = icmp eq i32 %vece.addr.0171, 3
   br i1 %cmp156, label %if.then158, label %if.else164
@@ -8246,8 +8246,8 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
   %28 = add i32 %sub.i, 768
   %29 = and i32 %28, 768
   %and6.i.i = select i1 %cmp3.i, i32 512, i32 %29
-  %shl57.i15.i = and i32 %sub2.i, 255
-  %or.i.i = or disjoint i32 %and6.i.i, %shl57.i15.i
+  %and6.i16.i = and i32 %sub2.i, 255
+  %or.i.i = or disjoint i32 %and6.i.i, %and6.i16.i
   tail call void @tcg_gen_ori_i32(ptr noundef %call57, ptr noundef %call57, i32 noundef %or.i.i) #7
   %30 = load ptr, ptr @tcg_env, align 8
   %conv = zext i32 %dofs to i64

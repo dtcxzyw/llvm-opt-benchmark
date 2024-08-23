@@ -132,8 +132,6 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsER
           to label %.noexc unwind label %62
 
 .noexc:                                           ; preds = %10
-  %.sroa.1.0.extract.shift = lshr i64 %11, 32
-  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -8, i8 -8, i16 noundef zeroext 256)
           to label %.noexc12 unwind label %62
 
@@ -166,11 +164,13 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsER
           to label %.noexc19 unwind label %62
 
 .noexc19:                                         ; preds = %.noexc18
-  %.sroa.3.8.extract.shift = lshr i64 %12, 32
-  %.sroa.3.8.extract.trunc = trunc nuw i64 %.sroa.3.8.extract.shift to i32
-  %13 = shl i32 %.sroa.1.0.extract.trunc, 2
-  %14 = sub i32 %.sroa.3.8.extract.trunc, %.sroa.1.0.extract.trunc
-  %15 = shl i32 %14, 2
+  %sh.diff.i = lshr i64 %12, 30
+  %tr.sh.diff.i = trunc i64 %sh.diff.i to i32
+  %13 = and i32 %tr.sh.diff.i, -4
+  %sh.diff163.i = lshr i64 %11, 30
+  %tr.sh.diff164.i = trunc i64 %sh.diff163.i to i32
+  %14 = and i32 %tr.sh.diff164.i, -4
+  %15 = sub i32 %13, %14
   invoke void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 -102, i8 2)
           to label %.noexc20 unwind label %62
 
@@ -273,7 +273,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsER
   %31 = load ptr, ptr %6, align 8, !noalias !5
   %32 = getelementptr inbounds i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8, !noalias !5
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %13, i32 noundef -1)
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %14, i32 noundef -1)
           to label %34 unwind label %62
 
 34:                                               ; preds = %.noexc38
@@ -315,7 +315,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsER
           to label %61 unwind label %62
 
 61:                                               ; preds = %40
-  br i1 %60, label %64, label %78
+  br i1 %60, label %64, label %77
 
 62:                                               ; preds = %.noexc38, %.noexc37, %.noexc36, %.noexc35, %.noexc34, %.noexc33, %.noexc32, %.noexc31, %.noexc30, %.noexc29, %.noexc28, %.noexc27, %.noexc26, %.noexc25, %.noexc24, %.noexc23, %.noexc22, %.noexc21, %.noexc20, %.noexc19, %.noexc18, %.noexc17, %.noexc16, %.noexc15, %.noexc14, %.noexc13, %.noexc12, %.noexc, %10, %64, %40, %36, %34, %1
   %63 = landingpad { ptr, i32 }
@@ -324,28 +324,27 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6419initHeaderFunctionsER
   resume { ptr, i32 } %63
 
 64:                                               ; preds = %61
-  %65 = shl nuw nsw i64 %.sroa.3.8.extract.shift, 2
-  %66 = and i64 %65, 4294967292
-  %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
-  %69 = load ptr, ptr %68, align 8
-  invoke void %69(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %66)
-          to label %70 unwind label %62
+  %65 = and i64 %sh.diff.i, 4294967292
+  %66 = load ptr, ptr %6, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %68 = load ptr, ptr %67, align 8
+  invoke void %68(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %65)
+          to label %69 unwind label %62
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %4, align 8
-  %72 = zext i32 %13 to i64
-  %73 = getelementptr inbounds i8, ptr %71, i64 %72
-  %74 = getelementptr inbounds i8, ptr %0, i64 168
-  store ptr %73, ptr %74, align 8
-  %sh.diff = lshr i64 %16, 30
-  %75 = and i64 %sh.diff, 4294967292
-  %76 = getelementptr inbounds i8, ptr %71, i64 %75
-  %77 = getelementptr inbounds i8, ptr %0, i64 176
-  store ptr %76, ptr %77, align 8
-  br label %78
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %4, align 8
+  %71 = and i64 %sh.diff163.i, 4294967292
+  %72 = getelementptr inbounds i8, ptr %70, i64 %71
+  %73 = getelementptr inbounds i8, ptr %0, i64 168
+  store ptr %72, ptr %73, align 8
+  %sh.diff42 = lshr i64 %16, 30
+  %74 = and i64 %sh.diff42, 4294967292
+  %75 = getelementptr inbounds i8, ptr %70, i64 %74
+  %76 = getelementptr inbounds i8, ptr %0, i64 176
+  store ptr %75, ptr %76, align 8
+  br label %77
 
-78:                                               ; preds = %61, %70
+77:                                               ; preds = %61, %69
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64D1Ev(ptr noundef nonnull align 8 dereferenceable(176) %3) #4
   ret i1 %60
 }

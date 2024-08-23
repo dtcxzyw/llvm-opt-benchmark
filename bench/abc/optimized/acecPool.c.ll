@@ -2534,8 +2534,8 @@ Vec_IntGrow.exit.sink.split.i:                    ; preds = %29, %31, %21, %23
   %wide.trip.count.i = sext i32 %13 to i64
   %34 = shl nsw i64 %33, 2
   %scevgep = getelementptr i8, ptr %storemerge38, i64 %34
-  %35 = sub nsw i64 %wide.trip.count.i, %33
-  %36 = shl nsw i64 %35, 2
+  %35 = shl nsw i64 %wide.trip.count.i, 2
+  %36 = sub nsw i64 %35, %34
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %36, i1 false)
   br label %Vec_IntFillExtra.exit
 

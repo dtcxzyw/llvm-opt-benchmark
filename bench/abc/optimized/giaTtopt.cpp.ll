@@ -11795,7 +11795,7 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
   %.not133 = icmp eq ptr %116, %117
   br i1 %.not133, label %.loopexit, label %.lr.ph
 
-122:                                              ; preds = %146
+122:                                              ; preds = %147
   %123 = add i32 %.088114, 1
   %124 = zext i32 %123 to i64
   %125 = icmp ugt i64 %121, %124
@@ -11814,33 +11814,34 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
   %134 = load i64, ptr %133, align 8
   %135 = zext nneg i32 %131 to i64
   %136 = lshr i64 %134, %135
-  %137 = xor i64 %136, %100
-  %138 = getelementptr inbounds i64, ptr %103, i64 %132
-  %139 = load i64, ptr %138, align 8
-  %140 = lshr i64 %139, %135
-  %141 = and i64 %88, %140
-  %142 = and i64 %141, %106
-  %143 = and i64 %137, %142
-  %.not100 = icmp eq i64 %143, 0
-  br i1 %.not100, label %144, label %146
+  %137 = and i64 %136, %88
+  %138 = xor i64 %137, %101
+  %139 = getelementptr inbounds i64, ptr %103, i64 %132
+  %140 = load i64, ptr %139, align 8
+  %141 = lshr i64 %140, %135
+  %142 = and i64 %88, %141
+  %143 = and i64 %142, %106
+  %144 = and i64 %138, %143
+  %.not100 = icmp eq i64 %144, 0
+  br i1 %.not100, label %145, label %147
 
-144:                                              ; preds = %.lr.ph
-  %145 = shl i32 %128, 1
+145:                                              ; preds = %.lr.ph
+  %146 = shl i32 %128, 1
   br label %.loopexit
 
-146:                                              ; preds = %.lr.ph
-  %147 = xor i64 %137, -1
-  %148 = and i64 %142, %147
-  %.not101 = icmp eq i64 %148, 0
-  br i1 %.not101, label %149, label %122
+147:                                              ; preds = %.lr.ph
+  %148 = xor i64 %138, %88
+  %149 = and i64 %148, %143
+  %.not101 = icmp eq i64 %149, 0
+  br i1 %.not101, label %150, label %122
 
-149:                                              ; preds = %146
-  %150 = shl i32 %128, 1
-  %151 = or disjoint i32 %150, 1
+150:                                              ; preds = %147
+  %151 = shl i32 %128, 1
+  %152 = or disjoint i32 %151, 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %122, %56, %8, %.critedge, %.preheader108, %.preheader, %108, %85, %149, %144, %.split.us
-  %.0 = phi i32 [ %84, %.split.us ], [ %151, %149 ], [ %145, %144 ], [ -2, %85 ], [ -1, %108 ], [ -3, %.preheader ], [ -3, %.preheader108 ], [ %32, %.critedge ], [ -1, %8 ], [ -3, %56 ], [ -3, %122 ]
+.loopexit:                                        ; preds = %122, %56, %8, %.critedge, %.preheader108, %.preheader, %108, %85, %150, %145, %.split.us
+  %.0 = phi i32 [ %84, %.split.us ], [ %152, %150 ], [ %146, %145 ], [ -2, %85 ], [ -1, %108 ], [ -3, %.preheader ], [ -3, %.preheader108 ], [ %32, %.critedge ], [ -1, %8 ], [ -3, %56 ], [ -3, %122 ]
   ret i32 %.0
 }
 

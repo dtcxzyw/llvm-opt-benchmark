@@ -18964,30 +18964,31 @@ declare void @_ZN9Assembler7pcmpeqdE11XMMRegisterS0_(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN14MacroAssembler16argument_addressE18RegisterOrConstanti(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Address) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %1, i32 %2, i64 %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
-  %6 = icmp eq i32 %2, -1
+  %6 = shl nsw i32 %4, 3
+  %7 = icmp eq i32 %2, -1
   %.tr = trunc i64 %3 to i32
-  %.010 = select i1 %6, i32 -1, i32 3
-  %7 = select i1 %6, i32 %.tr, i32 0
-  %.0.v = add i32 %7, %4
-  %.0 = shl i32 %.0.v, 3
-  %8 = add nsw i32 %.0, 8
+  %8 = shl i32 %.tr, 3
+  %.010 = select i1 %7, i32 -1, i32 3
+  %9 = select i1 %7, i32 %8, i32 0
+  %.0 = add i32 %6, 8
+  %10 = add i32 %.0, %9
   store i32 4, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %2, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 -1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.010, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
-  store i8 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 0, ptr %16, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %2, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 -1, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %.010, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %10, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  store i8 0, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  store i32 0, ptr %18, align 8
   ret void
 }
 

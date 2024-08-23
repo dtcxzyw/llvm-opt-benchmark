@@ -4102,12 +4102,12 @@ if.end37:                                         ; preds = %if.then.i.i.i.i.i47
 
 if.then.i.i:                                      ; preds = %if.end37
   %11 = load ptr, ptr %RHS, align 8
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i51, 1
   %add.ptr39.idx = shl nuw nsw i64 %CurSize.0, 1
   %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds i16, ptr %12, i64 %CurSize.0
-  %13 = sub nsw i64 %conv.i51, %CurSize.0
-  %gepdiff = shl nsw i64 %13, 1
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr39.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 2 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE18uninitialized_moveIPDsS3_EEvT_S4_T0_.exit
 
@@ -11916,8 +11916,8 @@ if.then.i.i.i.i:                                  ; preds = %if.end28.i.i.if.the
   %11 = phi i32 [ %.pre.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i ], [ %9, %if.end13.i.i.i ]
   %conv.i35.i.i.i = zext i32 %11 to i64
   %12 = load ptr, ptr %codePointSet_, align 8
-  %gepdiff.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 4 %12, i64 %gepdiff.i.i.i, i1 false)
+  %add.ptr.i65.idx.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 4 %12, i64 %add.ptr.i65.idx.i.i.i, i1 false)
   br label %cond.end.thread71
 
 cond.end.thread71:                                ; preds = %if.end28.i.i.i, %if.then.i.i.i.i
@@ -12130,8 +12130,8 @@ if.then.i.i.i.i:                                  ; preds = %if.end28.i.i.if.the
   %11 = phi i32 [ %.pre.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i ], [ %9, %if.end13.i.i.i ]
   %conv.i35.i.i.i = zext i32 %11 to i64
   %12 = load ptr, ptr %codePointSet_, align 8
-  %gepdiff.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 4 %12, i64 %gepdiff.i.i.i, i1 false)
+  %add.ptr.i65.idx.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 4 %12, i64 %add.ptr.i65.idx.i.i.i, i1 false)
   br label %cond.end.thread71
 
 cond.end.thread71:                                ; preds = %if.end28.i.i.i, %if.then.i.i.i.i
@@ -13035,8 +13035,8 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end28.i.i.if.the
   %7 = phi i32 [ %.pre.i.i.i.i.i.i.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i ], [ %5, %if.end13.i.i.i.i.i.i.i.i.i ]
   %conv.i35.i.i.i.i.i.i.i.i.i = zext i32 %7 to i64
   %8 = load ptr, ptr %__first.addr.06.i.i.i.i.i, align 8
-  %gepdiff.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i.i.i.i.i.i.i, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 2 %8, i64 %gepdiff.i.i.i.i.i.i.i.i.i, i1 false)
+  %add.ptr.i66.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i.i.i.i.i.i.i, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 2 %8, i64 %add.ptr.i66.idx.i.i.i.i.i.i.i.i.i, i1 false)
   br label %return.sink.split.i.i.i.i.i.i.i.i.i
 
 return.sink.split.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i.i.i.i
@@ -13095,8 +13095,8 @@ if.then.i.i.i.i.i.i.i.i.i.i26:                    ; preds = %if.end28.i.i.if.the
   %12 = phi i32 [ %.pre.i.i.i.i.i.i.i.i39, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41 ], [ %10, %if.end13.i.i.i.i.i.i.i.i.i24 ]
   %conv.i35.i.i.i.i.i.i.i.i.i27 = zext i32 %12 to i64
   %13 = load ptr, ptr %__first.addr.06.i.i.i.i.i16, align 8
-  %gepdiff.i.i.i.i.i.i.i.i.i28 = shl nuw nsw i64 %conv.i35.i.i.i.i.i.i.i.i.i27, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 2 %13, i64 %gepdiff.i.i.i.i.i.i.i.i.i28, i1 false)
+  %add.ptr.i66.idx.i.i.i.i.i.i.i.i.i28 = shl nuw nsw i64 %conv.i35.i.i.i.i.i.i.i.i.i27, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 2 %13, i64 %add.ptr.i66.idx.i.i.i.i.i.i.i.i.i28, i1 false)
   br label %return.sink.split.i.i.i.i.i.i.i.i.i29
 
 return.sink.split.i.i.i.i.i.i.i.i.i29:            ; preds = %if.then.i.i.i.i.i.i.i.i.i.i26, %if.end28.i.i.i.i.i.i.i.i.i37
@@ -14342,9 +14342,9 @@ if.end37.i:                                       ; preds = %if.end24.i
 if.then.i.i.i:                                    ; preds = %if.end24.i, %if.end37.i
   %.pre5.pre.pre925 = phi ptr [ %.pre5.pre.pre9.pre, %if.end37.i ], [ %.pre6.pre, %if.end24.i ]
   %conv.i51.i.pre-phi24 = phi i64 [ %.pre12, %if.end37.i ], [ %conv.i30.i, %if.end24.i ]
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i51.i.pre-phi24, 2
   %2 = load ptr, ptr %chars_.i, align 8
-  %gepdiff.i = shl nuw nsw i64 %conv.i51.i.pre-phi24, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 4 %.pre5.pre.pre925, i64 %gepdiff.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 4 %.pre5.pre.pre925, i64 %add.ptr.i.idx.i, i1 false)
   %.pre5.pre.pre = load ptr, ptr %agg.tmp, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i
 
@@ -14473,12 +14473,12 @@ if.end37:                                         ; preds = %if.then.i.i.i.i.i47
 
 if.then.i.i:                                      ; preds = %if.end37
   %11 = load ptr, ptr %RHS, align 8
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i51, 2
   %add.ptr39.idx = shl nuw nsw i64 %CurSize.0, 2
   %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds i32, ptr %12, i64 %CurSize.0
-  %13 = sub nsw i64 %conv.i51, %CurSize.0
-  %gepdiff = shl nsw i64 %13, 2
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr39.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 4 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit
 

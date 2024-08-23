@@ -239866,8 +239866,8 @@ for.body9.us.us.preheader:                        ; preds = %for.body9.lr.ph
   %4 = shl i64 %base_idx.0168, 1
   %scevgep = getelementptr i8, ptr %result_data, i64 %4
   %scevgep18 = getelementptr i8, ptr %ldata, i64 %4
-  %5 = sub i64 %cond.i, %base_idx.0168
-  %6 = shl i64 %5, 1
+  %5 = shl i64 %cond.i, 1
+  %6 = sub i64 %5, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %scevgep, ptr align 2 %scevgep18, i64 %6, i1 false), !tbaa !14
   br label %for.body9.us.us
 
@@ -241475,8 +241475,8 @@ for.body9.us.us.preheader:                        ; preds = %for.body9.lr.ph
   %4 = shl i64 %base_idx.0165, 2
   %scevgep = getelementptr i8, ptr %result_data, i64 %4
   %scevgep18 = getelementptr i8, ptr %ldata, i64 %4
-  %5 = sub i64 %cond.i, %base_idx.0165
-  %6 = shl i64 %5, 2
+  %5 = shl i64 %cond.i, 2
+  %6 = sub i64 %5, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 4 %scevgep18, i64 %6, i1 false), !tbaa !11
   br label %for.body9.us.us
 
@@ -243059,8 +243059,8 @@ for.body9.us.us.preheader:                        ; preds = %for.body9.lr.ph
   %4 = shl i64 %base_idx.0165, 3
   %scevgep = getelementptr i8, ptr %result_data, i64 %4
   %scevgep18 = getelementptr i8, ptr %ldata, i64 %4
-  %5 = sub i64 %cond.i, %base_idx.0165
-  %6 = shl i64 %5, 3
+  %5 = shl i64 %cond.i, 3
+  %6 = sub i64 %5, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep18, i64 %6, i1 false), !tbaa !16
   br label %for.body9.us.us
 
@@ -245936,8 +245936,8 @@ for.body9.us.preheader:                           ; preds = %for.body9.lr.ph
   %10 = shl i64 %base_idx.0142, 1
   %scevgep = getelementptr i8, ptr %result_data, i64 %10
   %scevgep19 = getelementptr i8, ptr %ldata, i64 %10
-  %11 = sub i64 %cond.i, %base_idx.0142
-  %12 = shl i64 %11, 1
+  %11 = shl i64 %cond.i, 1
+  %12 = sub i64 %11, %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %scevgep, ptr align 2 %scevgep19, i64 %12, i1 false), !tbaa !14
   br label %for.body9.us
 
@@ -247275,8 +247275,8 @@ for.body9.us.preheader:                           ; preds = %for.body9.lr.ph
   %10 = shl i64 %base_idx.0144, 2
   %scevgep = getelementptr i8, ptr %result_data, i64 %10
   %scevgep19 = getelementptr i8, ptr %ldata, i64 %10
-  %11 = sub i64 %cond.i, %base_idx.0144
-  %12 = shl i64 %11, 2
+  %11 = shl i64 %cond.i, 2
+  %12 = sub i64 %11, %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 4 %scevgep19, i64 %12, i1 false), !tbaa !11
   br label %for.body9.us
 
@@ -248614,8 +248614,8 @@ for.body9.us.preheader:                           ; preds = %for.body9.lr.ph
   %10 = shl i64 %base_idx.0144, 3
   %scevgep = getelementptr i8, ptr %result_data, i64 %10
   %scevgep19 = getelementptr i8, ptr %ldata, i64 %10
-  %11 = sub i64 %cond.i, %base_idx.0144
-  %12 = shl i64 %11, 3
+  %11 = shl i64 %cond.i, 3
+  %12 = sub i64 %11, %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep19, i64 %12, i1 false), !tbaa !16
   br label %for.body9.us
 
@@ -251762,8 +251762,8 @@ for.body9.us.preheader:                           ; preds = %for.body9.lr.ph
   %13 = shl i64 %base_idx.0144, 2
   %scevgep = getelementptr i8, ptr %result_data, i64 %13
   %scevgep17 = getelementptr i8, ptr %ldata, i64 %13
-  %14 = sub i64 %cond.i, %base_idx.0144
-  %15 = shl i64 %14, 2
+  %14 = shl i64 %cond.i, 2
+  %15 = sub i64 %14, %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 4 %scevgep17, i64 %15, i1 false), !tbaa !1029
   br label %for.body9.us
 
@@ -253108,8 +253108,8 @@ for.body9.us.preheader:                           ; preds = %for.body9.lr.ph
   %13 = shl i64 %base_idx.0144, 3
   %scevgep = getelementptr i8, ptr %result_data, i64 %13
   %scevgep17 = getelementptr i8, ptr %ldata, i64 %13
-  %14 = sub i64 %cond.i, %base_idx.0144
-  %15 = shl i64 %14, 3
+  %14 = shl i64 %cond.i, 3
+  %15 = sub i64 %14, %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep17, i64 %15, i1 false), !tbaa !1086
   br label %for.body9.us
 
@@ -254448,8 +254448,8 @@ for.body9.us.preheader:                           ; preds = %for.body9.lr.ph
   %9 = shl i64 %base_idx.0170, 4
   %scevgep = getelementptr i8, ptr %result_data, i64 %9
   %scevgep14 = getelementptr i8, ptr %ldata, i64 %9
-  %10 = sub i64 %cond.i, %base_idx.0170
-  %11 = shl i64 %10, 4
+  %10 = shl i64 %cond.i, 4
+  %11 = sub i64 %10, %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep14, i64 %11, i1 false)
   br label %for.body9.us
 
@@ -257575,8 +257575,8 @@ for.body9.us.us.preheader:                        ; preds = %for.body9.lr.ph
   %4 = shl i64 %base_idx.0168, 1
   %scevgep = getelementptr i8, ptr %result_data, i64 %4
   %scevgep18 = getelementptr i8, ptr %ldata, i64 %4
-  %5 = sub i64 %cond.i, %base_idx.0168
-  %6 = shl i64 %5, 1
+  %5 = shl i64 %cond.i, 1
+  %6 = sub i64 %5, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %scevgep, ptr align 2 %scevgep18, i64 %6, i1 false), !tbaa !14
   br label %for.body9.us.us
 
@@ -259184,8 +259184,8 @@ for.body9.us.us.preheader:                        ; preds = %for.body9.lr.ph
   %4 = shl i64 %base_idx.0165, 2
   %scevgep = getelementptr i8, ptr %result_data, i64 %4
   %scevgep17 = getelementptr i8, ptr %ldata, i64 %4
-  %5 = sub i64 %cond.i, %base_idx.0165
-  %6 = shl i64 %5, 2
+  %5 = shl i64 %cond.i, 2
+  %6 = sub i64 %5, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 4 %scevgep17, i64 %6, i1 false), !tbaa !11
   br label %for.body9.us.us
 
@@ -260767,8 +260767,8 @@ for.body9.us.us.preheader:                        ; preds = %for.body9.lr.ph
   %4 = shl i64 %base_idx.0165, 3
   %scevgep = getelementptr i8, ptr %result_data, i64 %4
   %scevgep17 = getelementptr i8, ptr %ldata, i64 %4
-  %5 = sub i64 %cond.i, %base_idx.0165
-  %6 = shl i64 %5, 3
+  %5 = shl i64 %cond.i, 3
+  %6 = sub i64 %5, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep17, i64 %6, i1 false), !tbaa !16
   br label %for.body9.us.us
 
@@ -263643,8 +263643,8 @@ for.body9.us.preheader:                           ; preds = %for.body9.lr.ph
   %10 = shl i64 %base_idx.0142, 1
   %scevgep = getelementptr i8, ptr %result_data, i64 %10
   %scevgep19 = getelementptr i8, ptr %ldata, i64 %10
-  %11 = sub i64 %cond.i, %base_idx.0142
-  %12 = shl i64 %11, 1
+  %11 = shl i64 %cond.i, 1
+  %12 = sub i64 %11, %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %scevgep, ptr align 2 %scevgep19, i64 %12, i1 false), !tbaa !14
   br label %for.body9.us
 
@@ -264982,8 +264982,8 @@ for.body9.us.preheader:                           ; preds = %for.body9.lr.ph
   %10 = shl i64 %base_idx.0144, 2
   %scevgep = getelementptr i8, ptr %result_data, i64 %10
   %scevgep19 = getelementptr i8, ptr %ldata, i64 %10
-  %11 = sub i64 %cond.i, %base_idx.0144
-  %12 = shl i64 %11, 2
+  %11 = shl i64 %cond.i, 2
+  %12 = sub i64 %11, %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 4 %scevgep19, i64 %12, i1 false), !tbaa !11
   br label %for.body9.us
 
@@ -266321,8 +266321,8 @@ for.body9.us.preheader:                           ; preds = %for.body9.lr.ph
   %10 = shl i64 %base_idx.0144, 3
   %scevgep = getelementptr i8, ptr %result_data, i64 %10
   %scevgep19 = getelementptr i8, ptr %ldata, i64 %10
-  %11 = sub i64 %cond.i, %base_idx.0144
-  %12 = shl i64 %11, 3
+  %11 = shl i64 %cond.i, 3
+  %12 = sub i64 %11, %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep19, i64 %12, i1 false), !tbaa !16
   br label %for.body9.us
 

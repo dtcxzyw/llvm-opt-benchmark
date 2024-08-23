@@ -1801,8 +1801,8 @@ if.else.i:                                        ; preds = %if.end49
   %cmp1.i.i = icmp slt i32 %mul2.i, 1
   %sub.i.i = sub nuw nsw i32 32, %mul.i
   %cmp3.not.i.i = icmp ugt i32 %mul2.i, %sub.i.i
-  %or.cond8.i.i = select i1 %cmp1.i.i, i1 true, i1 %cmp3.not.i.i
-  br i1 %or.cond8.i.i, label %if.else.i.i342, label %deposit32.exit.i
+  %or.cond7.i.i = select i1 %cmp1.i.i, i1 true, i1 %cmp3.not.i.i
+  br i1 %or.cond7.i.i, label %if.else.i.i342, label %deposit32.exit.i
 
 if.else.i.i342:                                   ; preds = %if.else.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 470, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit32) #11
@@ -1816,9 +1816,9 @@ deposit32.exit.i:                                 ; preds = %if.else.i
   %shl.i.i = shl i32 %shr.i.i, %mul.i
   %not.i.i = xor i32 %shl.i.i, -1
   %and.i.i = and i32 %17, %not.i.i
-  %shl57.i.i = and i32 %shr.i.i, %conv3.i
-  %and6.i.i = shl i32 %shl57.i.i, %mul.i
-  %or.i.i = or i32 %and.i.i, %and6.i.i
+  %shl5.i.i = shl i32 %conv3.i, %mul.i
+  %and6.i.i = and i32 %shl.i.i, %shl5.i.i
+  %or.i.i = or disjoint i32 %and.i.i, %and6.i.i
   br label %ati_reg_write_offs.exit
 
 ati_reg_write_offs.exit:                          ; preds = %if.then.i, %deposit32.exit.i
@@ -1890,8 +1890,8 @@ if.else.i352:                                     ; preds = %sw.bb73
   %cmp1.i.i355 = icmp slt i32 %mul2.i354, 1
   %sub.i.i356 = sub nuw nsw i32 32, %mul.i353
   %cmp3.not.i.i357 = icmp ugt i32 %mul2.i354, %sub.i.i356
-  %or.cond8.i.i358 = select i1 %cmp1.i.i355, i1 true, i1 %cmp3.not.i.i357
-  br i1 %or.cond8.i.i358, label %if.else.i.i370, label %deposit32.exit.i359
+  %or.cond7.i.i358 = select i1 %cmp1.i.i355, i1 true, i1 %cmp3.not.i.i357
+  br i1 %or.cond7.i.i358, label %if.else.i.i370, label %deposit32.exit.i359
 
 if.else.i.i370:                                   ; preds = %if.else.i352
   tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 470, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit32) #11
@@ -1904,9 +1904,9 @@ deposit32.exit.i359:                              ; preds = %if.else.i352
   %shl.i.i363 = shl i32 %shr.i.i362, %mul.i353
   %not.i.i364 = xor i32 %shl.i.i363, -1
   %and.i.i365 = and i32 %25, %not.i.i364
-  %shl57.i.i366 = and i32 %shr.i.i362, %conv3.i360
-  %and6.i.i367 = shl i32 %shl57.i.i366, %mul.i353
-  %or.i.i368 = or i32 %and.i.i365, %and6.i.i367
+  %shl5.i.i366 = shl i32 %conv3.i360, %mul.i353
+  %and6.i.i367 = and i32 %shl.i.i363, %shl5.i.i366
+  %or.i.i368 = or disjoint i32 %and.i.i365, %and6.i.i367
   br label %ati_reg_write_offs.exit373
 
 ati_reg_write_offs.exit373:                       ; preds = %if.then.i371, %deposit32.exit.i359
@@ -1984,8 +1984,8 @@ if.else.i377:                                     ; preds = %sw.bb124
   %cmp1.i.i381 = icmp slt i32 %mul2.i379, 1
   %sub.i.i383 = sub nuw nsw i32 32, %mul.i378
   %cmp3.not.i.i384 = icmp ugt i32 %mul2.i379, %sub.i.i383
-  %or.cond8.i.i385 = select i1 %cmp1.i.i381, i1 true, i1 %cmp3.not.i.i384
-  br i1 %or.cond8.i.i385, label %if.else.i.i397, label %deposit32.exit.i386
+  %or.cond7.i.i385 = select i1 %cmp1.i.i381, i1 true, i1 %cmp3.not.i.i384
+  br i1 %or.cond7.i.i385, label %if.else.i.i397, label %deposit32.exit.i386
 
 if.else.i.i397:                                   ; preds = %if.else.i377
   tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 470, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit32) #11
@@ -1998,9 +1998,9 @@ deposit32.exit.i386:                              ; preds = %if.else.i377
   %shl.i.i390 = shl i32 %shr.i.i389, %mul.i378
   %not.i.i391 = xor i32 %shl.i.i390, -1
   %and.i.i392 = and i32 %34, %not.i.i391
-  %shl57.i.i393 = and i32 %shr.i.i389, %conv3.i387
-  %and6.i.i394 = shl i32 %shl57.i.i393, %mul.i378
-  %or.i.i395 = or i32 %and.i.i392, %and6.i.i394
+  %shl5.i.i393 = shl i32 %conv3.i387, %mul.i378
+  %and6.i.i394 = and i32 %shl.i.i390, %shl5.i.i393
+  %or.i.i395 = or disjoint i32 %and.i.i392, %and6.i.i394
   br label %ati_reg_write_offs.exit400
 
 ati_reg_write_offs.exit400:                       ; preds = %if.then.i398, %deposit32.exit.i386
@@ -2264,8 +2264,8 @@ if.else.i404:                                     ; preds = %sw.bb341
   %cmp1.i.i408 = icmp slt i32 %mul2.i406, 1
   %sub.i.i410 = sub nuw nsw i32 32, %mul.i405
   %cmp3.not.i.i411 = icmp ugt i32 %mul2.i406, %sub.i.i410
-  %or.cond8.i.i412 = select i1 %cmp1.i.i408, i1 true, i1 %cmp3.not.i.i411
-  br i1 %or.cond8.i.i412, label %if.else.i.i424, label %deposit32.exit.i413
+  %or.cond7.i.i412 = select i1 %cmp1.i.i408, i1 true, i1 %cmp3.not.i.i411
+  br i1 %or.cond7.i.i412, label %if.else.i.i424, label %deposit32.exit.i413
 
 if.else.i.i424:                                   ; preds = %if.else.i404
   tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 470, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit32) #11
@@ -2278,9 +2278,9 @@ deposit32.exit.i413:                              ; preds = %if.else.i404
   %shl.i.i417 = shl i32 %shr.i.i416, %mul.i405
   %not.i.i418 = xor i32 %shl.i.i417, -1
   %and.i.i419 = and i32 %67, %not.i.i418
-  %shl57.i.i420 = and i32 %shr.i.i416, %conv3.i414
-  %and6.i.i421 = shl i32 %shl57.i.i420, %mul.i405
-  %or.i.i422 = or i32 %and.i.i419, %and6.i.i421
+  %shl5.i.i420 = shl i32 %conv3.i414, %mul.i405
+  %and6.i.i421 = and i32 %shl.i.i417, %shl5.i.i420
+  %or.i.i422 = or disjoint i32 %and.i.i419, %and6.i.i421
   br label %ati_reg_write_offs.exit427
 
 ati_reg_write_offs.exit427:                       ; preds = %if.then.i425, %deposit32.exit.i413
@@ -2318,8 +2318,8 @@ if.else.i431:                                     ; preds = %sw.bb354
   %cmp1.i.i435 = icmp slt i32 %mul2.i433, 1
   %sub.i.i437 = sub nuw nsw i32 32, %mul.i432
   %cmp3.not.i.i438 = icmp ugt i32 %mul2.i433, %sub.i.i437
-  %or.cond8.i.i439 = select i1 %cmp1.i.i435, i1 true, i1 %cmp3.not.i.i438
-  br i1 %or.cond8.i.i439, label %if.else.i.i451, label %deposit32.exit.i440
+  %or.cond7.i.i439 = select i1 %cmp1.i.i435, i1 true, i1 %cmp3.not.i.i438
+  br i1 %or.cond7.i.i439, label %if.else.i.i451, label %deposit32.exit.i440
 
 if.else.i.i451:                                   ; preds = %if.else.i431
   tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 470, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit32) #11
@@ -2332,9 +2332,9 @@ deposit32.exit.i440:                              ; preds = %if.else.i431
   %shl.i.i444 = shl i32 %shr.i.i443, %mul.i432
   %not.i.i445 = xor i32 %shl.i.i444, -1
   %and.i.i446 = and i32 %or363336, %not.i.i445
-  %shl57.i.i447 = and i32 %shr.i.i443, %conv3.i441
-  %and6.i.i448 = shl i32 %shl57.i.i447, %mul.i432
-  %or.i.i449 = or i32 %and.i.i446, %and6.i.i448
+  %shl5.i.i447 = shl i32 %conv3.i441, %mul.i432
+  %and6.i.i448 = and i32 %shl.i.i444, %shl5.i.i447
+  %or.i.i449 = or disjoint i32 %and.i.i446, %and6.i.i448
   br label %ati_reg_write_offs.exit454
 
 ati_reg_write_offs.exit454:                       ; preds = %if.then.i452, %deposit32.exit.i440
@@ -2433,8 +2433,8 @@ if.else.i458:                                     ; preds = %sw.bb456
   %cmp1.i.i462 = icmp slt i32 %mul2.i460, 1
   %sub.i.i464 = sub nuw nsw i32 32, %mul.i459
   %cmp3.not.i.i465 = icmp ugt i32 %mul2.i460, %sub.i.i464
-  %or.cond8.i.i466 = select i1 %cmp1.i.i462, i1 true, i1 %cmp3.not.i.i465
-  br i1 %or.cond8.i.i466, label %if.else.i.i478, label %deposit32.exit.i467
+  %or.cond7.i.i466 = select i1 %cmp1.i.i462, i1 true, i1 %cmp3.not.i.i465
+  br i1 %or.cond7.i.i466, label %if.else.i.i478, label %deposit32.exit.i467
 
 if.else.i.i478:                                   ; preds = %if.else.i458
   tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 470, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit32) #11
@@ -2447,9 +2447,9 @@ deposit32.exit.i467:                              ; preds = %if.else.i458
   %shl.i.i471 = shl i32 %shr.i.i470, %mul.i459
   %not.i.i472 = xor i32 %shl.i.i471, -1
   %and.i.i473 = and i32 %86, %not.i.i472
-  %shl57.i.i474 = and i32 %shr.i.i470, %conv3.i468
-  %and6.i.i475 = shl i32 %shl57.i.i474, %mul.i459
-  %or.i.i476 = or i32 %and.i.i473, %and6.i.i475
+  %shl5.i.i474 = shl i32 %conv3.i468, %mul.i459
+  %and6.i.i475 = and i32 %shl.i.i471, %shl5.i.i474
+  %or.i.i476 = or disjoint i32 %and.i.i473, %and6.i.i475
   br label %ati_reg_write_offs.exit481
 
 ati_reg_write_offs.exit481:                       ; preds = %if.then.i479, %deposit32.exit.i467
@@ -2482,8 +2482,8 @@ if.else.i485:                                     ; preds = %sw.bb470
   %cmp1.i.i489 = icmp slt i32 %mul2.i487, 1
   %sub.i.i491 = sub nuw nsw i32 32, %mul.i486
   %cmp3.not.i.i492 = icmp ugt i32 %mul2.i487, %sub.i.i491
-  %or.cond8.i.i493 = select i1 %cmp1.i.i489, i1 true, i1 %cmp3.not.i.i492
-  br i1 %or.cond8.i.i493, label %if.else.i.i505, label %deposit32.exit.i494
+  %or.cond7.i.i493 = select i1 %cmp1.i.i489, i1 true, i1 %cmp3.not.i.i492
+  br i1 %or.cond7.i.i493, label %if.else.i.i505, label %deposit32.exit.i494
 
 if.else.i.i505:                                   ; preds = %if.else.i485
   tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 470, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit32) #11
@@ -2497,9 +2497,9 @@ deposit32.exit.i494:                              ; preds = %if.else.i485
   %shl.i.i498 = shl i32 %shr.i.i497, %mul.i486
   %not.i.i499 = xor i32 %shl.i.i498, -1
   %and.i.i500 = and i32 %89, %not.i.i499
-  %shl57.i.i501 = and i32 %shr.i.i497, %conv3.i495
-  %and6.i.i502 = shl i32 %shl57.i.i501, %mul.i486
-  %or.i.i503 = or i32 %and.i.i500, %and6.i.i502
+  %shl5.i.i501 = shl i32 %conv3.i495, %mul.i486
+  %and6.i.i502 = and i32 %shl.i.i498, %shl5.i.i501
+  %or.i.i503 = or disjoint i32 %and.i.i500, %and6.i.i502
   br label %ati_reg_write_offs.exit508
 
 ati_reg_write_offs.exit508:                       ; preds = %if.then.i506, %deposit32.exit.i494
@@ -3038,11 +3038,11 @@ if.else:                                          ; preds = %entry
   %mul2 = shl i32 %size, 3
   %cmp.i = icmp slt i32 %mul, 0
   %cmp1.i = icmp slt i32 %mul2, 1
-  %or.cond.not9.i = or i1 %cmp.i, %cmp1.i
+  %or.cond.not8.i = or i1 %cmp.i, %cmp1.i
   %sub.i = sub nsw i32 32, %mul
   %cmp3.not.i = icmp sgt i32 %mul2, %sub.i
-  %or.cond8.i = select i1 %or.cond.not9.i, i1 true, i1 %cmp3.not.i
-  br i1 %or.cond8.i, label %if.else.i, label %deposit32.exit
+  %or.cond7.i = select i1 %or.cond.not8.i, i1 true, i1 %cmp3.not.i
+  br i1 %or.cond7.i, label %if.else.i, label %deposit32.exit
 
 if.else.i:                                        ; preds = %if.else
   tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 470, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit32) #11
@@ -3056,9 +3056,9 @@ deposit32.exit:                                   ; preds = %if.else
   %shl.i = shl i32 %shr.i, %mul
   %not.i = xor i32 %shl.i, -1
   %and.i = and i32 %0, %not.i
-  %shl57.i = and i32 %shr.i, %conv3
-  %and6.i = shl i32 %shl57.i, %mul
-  %or.i = or i32 %and.i, %and6.i
+  %shl5.i = shl i32 %conv3, %mul
+  %and6.i = and i32 %shl.i, %shl5.i
+  %or.i = or disjoint i32 %and.i, %and6.i
   br label %if.end
 
 if.end:                                           ; preds = %deposit32.exit, %if.then

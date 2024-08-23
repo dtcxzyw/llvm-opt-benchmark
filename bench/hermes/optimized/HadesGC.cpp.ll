@@ -15996,19 +15996,19 @@ if.then32:                                        ; preds = %for.end
 
 if.then.i:                                        ; preds = %if.then32
   %19 = load ptr, ptr %this, align 8
+  %add.ptr.i98.idx = shl nuw nsw i64 %conv.i53, 3
   %add.ptr.idx = shl nuw nsw i64 %spec.select, 3
   %add.ptr = getelementptr inbounds i8, ptr %19, i64 %add.ptr.idx
   %20 = load ptr, ptr %RHS, align 8
   %add.ptr.i92 = getelementptr inbounds ptr, ptr %20, i64 %conv.i55
-  %21 = sub nsw i64 %conv.i53, %spec.select
-  %gepdiff97 = shl nsw i64 %21, 3
+  %gepdiff97 = sub nsw i64 %add.ptr.i98.idx, %add.ptr.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i92, ptr align 8 %add.ptr, i64 %gepdiff97, i1 false)
   %.pre104 = load i32, ptr %Size.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm6GCCellELb1EE18uninitialized_copyIS4_S4_EEvPT_S8_PT0_PNSt9enable_ifIXsr3std7is_sameINSt12remove_constIS7_E4typeES9_EE5valueEvE4typeE.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm6GCCellELb1EE18uninitialized_copyIS4_S4_EEvPT_S8_PT0_PNSt9enable_ifIXsr3std7is_sameINSt12remove_constIS7_E4typeES9_EE5valueEvE4typeE.exit: ; preds = %if.then32, %if.then.i
-  %22 = phi i32 [ %17, %if.then32 ], [ %.pre104, %if.then.i ]
-  %add = add i32 %sub, %22
+  %21 = phi i32 [ %17, %if.then32 ], [ %.pre104, %if.then.i ]
+  %add = add i32 %sub, %21
   store i32 %add, ptr %Size.i, align 8
   store i32 %12, ptr %Size.i39, align 8
   br label %if.end60
@@ -16023,20 +16023,20 @@ if.then45:                                        ; preds = %if.else
   br i1 %cmp.not.i83, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm6GCCellELb1EE18uninitialized_copyIS4_S4_EEvPT_S8_PT0_PNSt9enable_ifIXsr3std7is_sameINSt12remove_constIS7_E4typeES9_EE5valueEvE4typeE.exit88, label %if.then.i84
 
 if.then.i84:                                      ; preds = %if.then45
-  %23 = load ptr, ptr %RHS, align 8
+  %22 = load ptr, ptr %RHS, align 8
+  %add.ptr.i80.idx = shl nuw nsw i64 %conv.i55, 3
   %add.ptr51.idx = shl nuw nsw i64 %spec.select, 3
-  %add.ptr51 = getelementptr inbounds i8, ptr %23, i64 %add.ptr51.idx
-  %24 = load ptr, ptr %this, align 8
-  %add.ptr.i74 = getelementptr inbounds ptr, ptr %24, i64 %conv.i53
-  %25 = sub nsw i64 %conv.i55, %spec.select
-  %gepdiff = shl nsw i64 %25, 3
+  %add.ptr51 = getelementptr inbounds i8, ptr %22, i64 %add.ptr51.idx
+  %23 = load ptr, ptr %this, align 8
+  %add.ptr.i74 = getelementptr inbounds ptr, ptr %23, i64 %conv.i53
+  %gepdiff = sub nsw i64 %add.ptr.i80.idx, %add.ptr51.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i74, ptr align 8 %add.ptr51, i64 %gepdiff, i1 false)
   %.pre103 = load i32, ptr %Size.i39, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm6GCCellELb1EE18uninitialized_copyIS4_S4_EEvPT_S8_PT0_PNSt9enable_ifIXsr3std7is_sameINSt12remove_constIS7_E4typeES9_EE5valueEvE4typeE.exit88
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm6GCCellELb1EE18uninitialized_copyIS4_S4_EEvPT_S8_PT0_PNSt9enable_ifIXsr3std7is_sameINSt12remove_constIS7_E4typeES9_EE5valueEvE4typeE.exit88: ; preds = %if.then45, %if.then.i84
-  %26 = phi i32 [ %18, %if.then45 ], [ %.pre103, %if.then.i84 ]
-  %add55 = add i32 %sub49, %26
+  %24 = phi i32 [ %18, %if.then45 ], [ %.pre103, %if.then.i84 ]
+  %add55 = add i32 %sub49, %24
   store i32 %add55, ptr %Size.i39, align 8
   store i32 %12, ptr %Size.i, align 8
   br label %if.end60

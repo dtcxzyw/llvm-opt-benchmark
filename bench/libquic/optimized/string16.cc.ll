@@ -1594,46 +1594,50 @@ invoke.cont:                                      ; preds = %entry
   %2 = load ptr, ptr %__str, align 8
   %add.ptr.idx = shl nsw i64 %__pos, 1
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %add.ptr.idx
-  %3 = sub nuw nsw i64 %1, %__pos
-  %gepdiff = shl nsw i64 %3, 1
-  %cmp.i6 = icmp ugt i64 %3, 7
-  br i1 %cmp.i6, label %if.then.i7, label %if.end.i
+  %add.ptr5.idx = shl nsw i64 %1, 1
+  %gepdiff = sub nsw i64 %add.ptr5.idx, %add.ptr.idx
+  %sub.ptr.div.i.i.i = ashr exact i64 %gepdiff, 1
+  %cmp.i6 = icmp ugt i64 %sub.ptr.div.i.i.i, 7
+  br i1 %cmp.i6, label %if.then.i7, label %entry.if.end_crit_edge.i
+
+entry.if.end_crit_edge.i:                         ; preds = %invoke.cont
+  %.pre.i = load ptr, ptr %this, align 8
+  br label %if.end.i
 
 if.then.i7:                                       ; preds = %invoke.cont
-  %cmp.i.i = icmp ugt i64 %3, 2305843009213693951
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.thread
+  %cmp.i.i = icmp ugt i64 %sub.ptr.div.i.i.i, 2305843009213693951
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i7
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
   unreachable
 
-if.end.i.thread:                                  ; preds = %if.then.i7
+_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i: ; preds = %if.then.i7
   %mul.i.i.i.i = add nuw nsw i64 %gepdiff, 2
   %call5.i.i.i.i9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #20
   store ptr %call5.i.i.i.i9, ptr %this, align 8
-  store i64 %3, ptr %0, align 8
-  br label %if.else.i.i.i
+  store i64 %sub.ptr.div.i.i.i, ptr %0, align 8
+  br label %if.end.i
 
-if.end.i:                                         ; preds = %invoke.cont
-  %.pre.i = load ptr, ptr %this, align 8
-  %cmp.i.i.i = icmp eq i64 %3, 1
+if.end.i:                                         ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i, %entry.if.end_crit_edge.i
+  %3 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %call5.i.i.i.i9, %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i ]
+  %cmp.i.i.i = icmp eq i64 %gepdiff, 2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
   %4 = load i16, ptr %add.ptr, align 2
-  store i16 %4, ptr %.pre.i, align 2
+  store i16 %4, ptr %3, align 2
   br label %invoke.cont6
 
-if.else.i.i.i:                                    ; preds = %if.end.i.thread, %if.end.i
-  %5 = phi ptr [ %call5.i.i.i.i9, %if.end.i.thread ], [ %.pre.i, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %5, ptr readonly align 2 %add.ptr, i64 %gepdiff, i1 false)
+if.else.i.i.i:                                    ; preds = %if.end.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %3, ptr readonly align 2 %add.ptr, i64 %gepdiff, i1 false)
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store i64 %3, ptr %_M_string_length.i.i.i, align 8
-  %6 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %6, i64 %gepdiff
+  store i64 %sub.ptr.div.i.i.i, ptr %_M_string_length.i.i.i, align 8
+  %5 = load ptr, ptr %this, align 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %gepdiff
   store i16 0, ptr %arrayidx.i.i, align 2
   ret void
 }

@@ -12328,33 +12328,33 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_colr_layer(ptr nocapture 
   %48 = getelementptr inbounds i8, ptr %23, i64 2
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i64
-  %51 = shl nuw nsw i64 %50, 8
-  %52 = getelementptr inbounds i8, ptr %23, i64 3
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i64
-  %55 = or disjoint i64 %51, %54
-  %56 = zext i16 %46 to i32
-  store i32 %56, ptr %4, align 8
-  %57 = zext i16 %46 to i64
-  %58 = add nuw nsw i64 %55, %57
+  %51 = getelementptr inbounds i8, ptr %23, i64 3
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i64
+  %54 = zext i16 %46 to i32
+  store i32 %54, ptr %4, align 8
+  %55 = shl nuw nsw i64 %50, 10
+  %56 = shl nuw nsw i64 %53, 2
+  %57 = or disjoint i64 %56, %55
+  %58 = zext i16 %46 to i64
   %59 = shl nuw nsw i64 %58, 2
-  %60 = getelementptr inbounds i8, ptr %7, i64 136
-  %61 = load i64, ptr %60, align 8
-  %62 = icmp ugt i64 %59, %61
-  br i1 %62, label %find_base_glyph_record.exit.thread, label %63
+  %60 = add nuw nsw i64 %57, %59
+  %61 = getelementptr inbounds i8, ptr %7, i64 136
+  %62 = load i64, ptr %61, align 8
+  %63 = icmp ugt i64 %60, %62
+  br i1 %63, label %find_base_glyph_record.exit.thread, label %64
 
-63:                                               ; preds = %47
-  %64 = shl nuw nsw i64 %55, 2
+64:                                               ; preds = %47
   %65 = getelementptr inbounds i8, ptr %7, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 %64
+  %67 = getelementptr inbounds i8, ptr %66, i64 %57
   store ptr %67, ptr %9, align 8
   br label %68
 
-68:                                               ; preds = %._crit_edge, %63
-  %69 = phi ptr [ %10, %._crit_edge ], [ %67, %63 ]
-  %70 = phi i32 [ %.pre53, %._crit_edge ], [ %56, %63 ]
-  %71 = phi i32 [ %.pre, %._crit_edge ], [ 0, %63 ]
+68:                                               ; preds = %._crit_edge, %64
+  %69 = phi ptr [ %10, %._crit_edge ], [ %67, %64 ]
+  %70 = phi i32 [ %.pre53, %._crit_edge ], [ %54, %64 ]
+  %71 = phi i32 [ %.pre, %._crit_edge ], [ 0, %64 ]
   %72 = getelementptr inbounds i8, ptr %4, i64 4
   %.not41 = icmp ult i32 %71, %70
   br i1 %.not41, label %73, label %find_base_glyph_record.exit.thread

@@ -2229,7 +2229,7 @@ _ZNSt10unique_ptrI17gmx_reverse_top_tSt14default_deleteIS0_EED2Ev.exit: ; preds 
   br label %38
 
 38:                                               ; preds = %.lr.ph, %_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit.thread
-  %.sroa.036.044 = phi ptr [ %34, %.lr.ph ], [ %71, %_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit.thread ]
+  %.sroa.036.044 = phi ptr [ %34, %.lr.ph ], [ %73, %_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit.thread ]
   %39 = load i32, ptr %.sroa.036.044, align 8
   %40 = sext i32 %39 to i64
   %41 = load ptr, ptr %37, align 8
@@ -2250,94 +2250,98 @@ _ZNSt10unique_ptrI17gmx_reverse_top_tSt14default_deleteIS0_EED2Ev.exit: ; preds 
   %53 = add nsw i64 %49, -2
   br label %54
 
-54:                                               ; preds = %67, %.lr.ph.i
-  %.013.i = phi i64 [ 0, %.lr.ph.i ], [ %68, %67 ]
-  %.0912.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.speculated.i, %67 ]
+54:                                               ; preds = %69, %.lr.ph.i
+  %.013.i = phi i64 [ 0, %.lr.ph.i ], [ %70, %69 ]
+  %.0912.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.speculated.i, %69 ]
   %55 = getelementptr i32, ptr %45, i64 %.013.i
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr i8, ptr %55, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = sub i32 %58, %56
-  %.not.i35 = icmp eq i32 %59, 1
-  br i1 %.not.i35, label %60, label %67
+  %57 = sext i32 %56 to i64
+  %.idx10.i = shl nsw i64 %57, 2
+  %58 = getelementptr i8, ptr %55, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = sext i32 %59 to i64
+  %.idx.i = shl nsw i64 %60, 2
+  %gepdiff.i = sub nsw i64 %.idx.i, %.idx10.i
+  %61 = lshr exact i64 %gepdiff.i, 2
+  %62 = trunc i64 %61 to i32
+  %.not.i35 = icmp eq i32 %62, 1
+  br i1 %.not.i35, label %63, label %69
 
-60:                                               ; preds = %54
-  %61 = sext i32 %56 to i64
-  %.idx10.i = shl nsw i64 %61, 2
-  %62 = getelementptr inbounds i8, ptr %52, i64 %.idx10.i
-  %63 = load i32, ptr %62, align 4
-  %64 = sext i32 %63 to i64
-  %65 = icmp eq i64 %.013.i, %64
-  br i1 %65, label %67, label %66
+63:                                               ; preds = %54
+  %64 = getelementptr inbounds i8, ptr %52, i64 %.idx10.i
+  %65 = load i32, ptr %64, align 4
+  %66 = sext i32 %65 to i64
+  %67 = icmp eq i64 %.013.i, %66
+  br i1 %67, label %69, label %68
 
-66:                                               ; preds = %60
+68:                                               ; preds = %63
   call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEEENK3$_0clEv", ptr noundef nonnull @.str.6, i32 noundef 178) #18
   unreachable
 
-67:                                               ; preds = %60, %54
-  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %.0912.i, i32 %59)
-  %68 = add nuw nsw i64 %.013.i, 1
+69:                                               ; preds = %63, %54
+  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %.0912.i, i32 %62)
+  %70 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %.013.i, %53
   br i1 %exitcond.not.i, label %_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit, label %54, !llvm.loop !32
 
-_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit: ; preds = %67
-  %69 = icmp sgt i32 %.sroa.speculated.i, 1
-  br i1 %69, label %70, label %_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit.thread
+_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit: ; preds = %69
+  %71 = icmp sgt i32 %.sroa.speculated.i, 1
+  br i1 %71, label %72, label %_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit.thread
 
-70:                                               ; preds = %_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit
+72:                                               ; preds = %_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit
   store i8 1, ptr %32, align 8
   br label %_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit.thread
 
-_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit.thread: ; preds = %38, %_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit, %70
-  %71 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 56
-  %.not42 = icmp eq ptr %71, %36
+_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit.thread: ; preds = %38, %_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit, %72
+  %73 = getelementptr inbounds i8, ptr %.sroa.036.044, i64 56
+  %.not42 = icmp eq ptr %73, %36
   br i1 %.not42, label %._crit_edge, label %38
 
 ._crit_edge:                                      ; preds = %_ZL26getMaxNumExclusionsPerAtomRKN3gmx11ListOfListsIiEE.exit.thread, %_ZNSt10unique_ptrI17gmx_reverse_top_tSt14default_deleteIS0_EED2Ev.exit
-  %72 = icmp eq ptr %3, null
-  br i1 %72, label %.thread, label %73
+  %74 = icmp eq ptr %3, null
+  br i1 %74, label %.thread, label %75
 
-73:                                               ; preds = %._crit_edge
-  %74 = call noundef i32 @_ZNK3gmx19VirtualSitesHandler31numInterUpdategroupVirtualSitesEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %76, label %.thread
+75:                                               ; preds = %._crit_edge
+  %76 = call noundef i32 @_ZNK3gmx19VirtualSitesHandler31numInterUpdategroupVirtualSitesEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %78, label %.thread
 
-76:                                               ; preds = %73
-  br i1 %.not, label %79, label %77
+78:                                               ; preds = %75
+  br i1 %.not, label %81, label %79
 
-77:                                               ; preds = %76
-  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %74) #21
-  br label %79
+79:                                               ; preds = %78
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %76) #21
+  br label %81
 
-79:                                               ; preds = %77, %76
-  call void @_Z18init_domdec_vsitesP12gmx_domdec_ti(ptr noundef %1, i32 noundef %74)
+81:                                               ; preds = %79, %78
+  call void @_Z18init_domdec_vsitesP12gmx_domdec_ti(ptr noundef %1, i32 noundef %76)
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %79, %73
-  %80 = load ptr, ptr %11, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 500
-  %82 = load i8, ptr %81, align 4
-  %83 = trunc i8 %82 to i1
-  br i1 %83, label %88, label %84
+.thread:                                          ; preds = %._crit_edge, %81, %75
+  %82 = load ptr, ptr %11, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 500
+  %84 = load i8, ptr %83, align 4
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %90, label %86
 
-84:                                               ; preds = %.thread
-  %85 = getelementptr inbounds i8, ptr %80, i64 501
-  %86 = load i8, ptr %85, align 1
-  %87 = trunc i8 %86 to i1
-  br i1 %87, label %88, label %89
+86:                                               ; preds = %.thread
+  %87 = getelementptr inbounds i8, ptr %82, i64 501
+  %88 = load i8, ptr %87, align 1
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %90, label %91
 
-88:                                               ; preds = %84, %.thread
+90:                                               ; preds = %86, %.thread
   call void @_Z23init_domdec_constraintsP12gmx_domdec_tRK10gmx_mtop_t(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(768) %2)
-  br label %89
-
-89:                                               ; preds = %88, %84
-  br i1 %.not, label %91, label %90
-
-90:                                               ; preds = %89
-  %fputc = call i32 @fputc(i32 10, ptr nonnull %0)
   br label %91
 
-91:                                               ; preds = %90, %89
+91:                                               ; preds = %90, %86
+  br i1 %.not, label %93, label %92
+
+92:                                               ; preds = %91
+  %fputc = call i32 @fputc(i32 10, ptr nonnull %0)
+  br label %93
+
+93:                                               ; preds = %92, %91
   ret void
 }
 

@@ -1658,18 +1658,18 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.end14:                                         ; preds = %if.end
   %mul12 = shl nuw nsw i32 %spec.select, 2
-  %add13 = or disjoint i32 %mul12, 4160
-  %cmp15 = icmp slt i32 %length, %add13
+  %actualLength.0 = or disjoint i32 %mul12, 4160
+  %cmp15 = icmp slt i32 %length, %actualLength.0
   br i1 %cmp15, label %if.then16, label %if.else64
 
 if.end14.thread:                                  ; preds = %if.end
-  %mul79 = shl nuw nsw i32 %spec.select, 1
-  %add10 = add nuw nsw i32 %mul79, 4160
-  %cmp1581 = icmp slt i32 %length, %add10
+  %mul9 = shl nuw nsw i32 %spec.select, 1
+  %actualLength.080 = add nuw nsw i32 %mul9, 4160
+  %cmp1581 = icmp slt i32 %length, %actualLength.080
   br i1 %cmp1581, label %if.then16, label %if.then20
 
 if.then16:                                        ; preds = %if.end14.thread, %if.end14
-  %actualLength.082 = phi i32 [ %add10, %if.end14.thread ], [ %add13, %if.end14 ]
+  %actualLength.082 = phi i32 [ %actualLength.080, %if.end14.thread ], [ %actualLength.0, %if.end14 ]
   store i32 15, ptr %pErrorCode, align 4
   br label %return
 
@@ -1777,7 +1777,7 @@ for.body98:                                       ; preds = %for.end92, %for.bod
   br i1 %exitcond126.not, label %if.end105, label %for.body98, !llvm.loop !32
 
 if.end105:                                        ; preds = %for.body56, %for.body98, %for.end92, %for.end50
-  %actualLength.08387 = phi i32 [ %add13, %for.end92 ], [ %add10, %for.end50 ], [ %add13, %for.body98 ], [ %add10, %for.body56 ]
+  %actualLength.08387 = phi i32 [ %actualLength.0, %for.end92 ], [ %actualLength.080, %for.end50 ], [ %actualLength.0, %for.body98 ], [ %actualLength.080, %for.body56 ]
   %getFoldingOffset = getelementptr inbounds i8, ptr %trie, i64 16
   store ptr @utrie_defaultGetFoldingOffset_75, ptr %getFoldingOffset, align 8
   br label %return

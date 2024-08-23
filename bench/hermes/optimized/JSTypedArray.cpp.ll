@@ -7304,6 +7304,7 @@ if.then17:                                        ; preds = %if.end, %_ZNK6herme
 
 if.end19:                                         ; preds = %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit
   %conv13 = zext i8 %3 to i32
+  %mul14 = mul i32 %endIndex, %conv13
   %mul = mul i32 %beginIndex, %conv13
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %call5.i, align 8
   %and.i.i.i.i.i23 = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
@@ -7311,7 +7312,7 @@ if.end19:                                         ; preds = %_ZNK6hermes2vm16JST
   %offset_.i = getelementptr inbounds i8, ptr %2, i64 28
   %10 = load i32, ptr %offset_.i, align 4
   %add = add i32 %10, %mul
-  %sub25 = mul i32 %sub, %conv13
+  %sub25 = sub i32 %mul14, %mul
   %buffer_.i37 = getelementptr inbounds i8, ptr %9, i64 20
   %youngGen_.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1640
   %11 = load ptr, ptr %youngGen_.i.i.i.i.i, align 8

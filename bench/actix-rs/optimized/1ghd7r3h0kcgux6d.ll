@@ -12993,11 +12993,11 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode31Brotl
           cleanup
   br label %51
 
-.loopexit.split-lp:                               ; preds = %.invoke209, %.invoke, %58, %.noexc, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit", %.noexc96, %84, %.noexc100, %86, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit105", %.noexc107, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit113", %248, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit122"
-  %.sroa.17.0.ph = phi i64 [ %44, %58 ], [ %44, %.noexc ], [ %44, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit" ], [ %44, %.noexc96 ], [ %44, %86 ], [ %44, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit113" ], [ %44, %84 ], [ %44, %.noexc100 ], [ %44, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit105" ], [ %44, %.noexc107 ], [ %.sroa.17.1, %248 ], [ %.sroa.17.1, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit122" ], [ %.sroa.17.1, %.invoke ], [ %.sroa.17.1, %.invoke209 ]
-  %.sroa.0152.0.ph = phi ptr [ %42, %58 ], [ %42, %.noexc ], [ %42, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit" ], [ %42, %.noexc96 ], [ %42, %86 ], [ %42, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit113" ], [ %42, %84 ], [ %42, %.noexc100 ], [ %42, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit105" ], [ %42, %.noexc107 ], [ %.sroa.0152.1, %248 ], [ %.sroa.0152.1, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit122" ], [ %.sroa.0152.1, %.invoke ], [ %.sroa.0152.1, %.invoke209 ]
-  %.sroa.18.1.ph = phi i64 [ %35, %58 ], [ %35, %.noexc ], [ %35, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit" ], [ %35, %.noexc96 ], [ %35, %86 ], [ %111, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit113" ], [ %35, %84 ], [ %35, %.noexc100 ], [ %93, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit105" ], [ %93, %.noexc107 ], [ 131072, %248 ], [ %255, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit122" ], [ %.sroa.18.2, %.invoke ], [ %.sroa.18.2, %.invoke209 ]
-  %.sroa.0.1.ph = phi ptr [ %33, %58 ], [ %33, %.noexc ], [ %33, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit" ], [ %33, %.noexc96 ], [ %33, %86 ], [ %110, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit113" ], [ %33, %84 ], [ %33, %.noexc100 ], [ %91, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit105" ], [ %91, %.noexc107 ], [ %.sroa.0.2, %248 ], [ %253, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit122" ], [ %.sroa.0.2, %.invoke ], [ %.sroa.0.2, %.invoke209 ]
+.loopexit.split-lp:                               ; preds = %.invoke208, %.invoke, %58, %.noexc, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit", %.noexc96, %84, %.noexc100, %86, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit105", %.noexc107, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit113", %248, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit122"
+  %.sroa.17.0.ph = phi i64 [ %44, %58 ], [ %44, %.noexc ], [ %44, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit" ], [ %44, %.noexc96 ], [ %44, %86 ], [ %44, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit113" ], [ %44, %84 ], [ %44, %.noexc100 ], [ %44, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit105" ], [ %44, %.noexc107 ], [ %.sroa.17.1, %248 ], [ %.sroa.17.1, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit122" ], [ %.sroa.17.1, %.invoke ], [ %.sroa.17.1, %.invoke208 ]
+  %.sroa.0152.0.ph = phi ptr [ %42, %58 ], [ %42, %.noexc ], [ %42, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit" ], [ %42, %.noexc96 ], [ %42, %86 ], [ %42, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit113" ], [ %42, %84 ], [ %42, %.noexc100 ], [ %42, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit105" ], [ %42, %.noexc107 ], [ %.sroa.0152.1, %248 ], [ %.sroa.0152.1, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit122" ], [ %.sroa.0152.1, %.invoke ], [ %.sroa.0152.1, %.invoke208 ]
+  %.sroa.18.1.ph = phi i64 [ %35, %58 ], [ %35, %.noexc ], [ %35, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit" ], [ %35, %.noexc96 ], [ %35, %86 ], [ %111, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit113" ], [ %35, %84 ], [ %35, %.noexc100 ], [ %93, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit105" ], [ %93, %.noexc107 ], [ 131072, %248 ], [ %255, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit122" ], [ %.sroa.18.2, %.invoke ], [ %.sroa.18.2, %.invoke208 ]
+  %.sroa.0.1.ph = phi ptr [ %33, %58 ], [ %33, %.noexc ], [ %33, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit" ], [ %33, %.noexc96 ], [ %33, %86 ], [ %110, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit113" ], [ %33, %84 ], [ %33, %.noexc100 ], [ %91, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit105" ], [ %91, %.noexc107 ], [ %.sroa.0.2, %248 ], [ %253, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17hf83d25d7f5021de7E.exit122" ], [ %.sroa.0.2, %.invoke ], [ %.sroa.0.2, %.invoke208 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %51
@@ -13230,55 +13230,57 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode31Brotl
   %142 = getelementptr inbounds i8, ptr %10, i64 8
   %143 = getelementptr inbounds i8, ptr %0, i64 120
   %144 = getelementptr inbounds i8, ptr %0, i64 124
-  %145 = add i8 %1, -1
-  %.052168 = icmp ult i8 %145, 2
-  %spec.select = select i1 %129, i32 2, i32 1
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %"_ZN4core3ptr64drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u8$GT$$GT$17hdf879f8b599eb5ffE.exit111"
-  %146 = invoke fastcc noundef i32 @_ZN6brotli3enc6encode23InjectFlushOrPushOutput17h1d79dc163e9203f6E(ptr noalias noundef nonnull align 8 dereferenceable(5576) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
-          to label %147 unwind label %.loopexit
+  %145 = invoke fastcc noundef i32 @_ZN6brotli3enc6encode23InjectFlushOrPushOutput17h1d79dc163e9203f6E(ptr noalias noundef nonnull align 8 dereferenceable(5576) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
+          to label %146 unwind label %.loopexit
 
-147:                                              ; preds = %.backedge
-  %148 = icmp eq i32 %146, 0
-  br i1 %148, label %149, label %.backedge.backedge
+146:                                              ; preds = %.backedge
+  %147 = icmp eq i32 %145, 0
+  br i1 %147, label %148, label %.backedge.backedge
 
-149:                                              ; preds = %147
-  %150 = load i64, ptr %126, align 8, !noundef !12
-  %151 = icmp eq i64 %150, 0
-  %152 = load i32, ptr %127, align 8, !range !1067
-  %153 = icmp eq i32 %152, 0
-  %or.cond188 = select i1 %151, i1 %153, i1 false
-  br i1 %or.cond188, label %154, label %243
+148:                                              ; preds = %146
+  %149 = load i64, ptr %126, align 8, !noundef !12
+  %150 = icmp eq i64 %149, 0
+  %151 = load i32, ptr %127, align 8, !range !1067
+  %152 = icmp eq i32 %151, 0
+  %or.cond187 = select i1 %150, i1 %152, i1 false
+  br i1 %or.cond187, label %153, label %243
 
-154:                                              ; preds = %149
-  %155 = load i64, ptr %2, align 8, !noundef !12
-  %156 = icmp eq i64 %155, 0
-  %or.cond79 = and i1 %128, %156
-  br i1 %or.cond79, label %243, label %157
+153:                                              ; preds = %148
+  %154 = load i64, ptr %2, align 8, !noundef !12
+  %155 = icmp eq i64 %154, 0
+  %or.cond79 = and i1 %128, %155
+  br i1 %or.cond79, label %243, label %156
 
-157:                                              ; preds = %154
-  %.0.sroa.speculated.i118 = call noundef i64 @llvm.umin.i64(i64 %28, i64 %155)
-  %158 = icmp ule i64 %155, %28
-  %.052 = and i1 %129, %158
-  %159 = shl i64 %.0.sroa.speculated.i118, 1
-  %160 = add i64 %159, 503
+156:                                              ; preds = %153
+  %.0.sroa.speculated.i118 = call noundef i64 @llvm.umin.i64(i64 %28, i64 %154)
+  %157 = icmp ule i64 %154, %28
+  %.052 = and i1 %129, %157
+  %.051 = and i1 %130, %157
+  %158 = shl i64 %.0.sroa.speculated.i118, 1
+  %159 = add i64 %158, 503
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
-  %161 = load i8, ptr %131, align 2, !noundef !12
-  %162 = zext i8 %161 to i64
-  store i64 %162, ptr %23, align 8
+  %160 = load i8, ptr %131, align 2, !noundef !12
+  %161 = zext i8 %160 to i64
+  store i64 %161, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store i64 0, ptr %22, align 8
-  %or.cond = and i1 %130, %156
-  br i1 %or.cond, label %.sink.split, label %163
+  %or.cond = and i1 %130, %155
+  br i1 %or.cond, label %.sink.split, label %162
 
-163:                                              ; preds = %157
-  %164 = load i64, ptr %6, align 8, !noundef !12
-  %.not = icmp ugt i64 %160, %164
+162:                                              ; preds = %156
+  %163 = load i64, ptr %6, align 8, !noundef !12
+  %.not = icmp ugt i64 %159, %163
   br i1 %.not, label %166, label %167
 
-.sink.split:                                      ; preds = %condstore.split, %157
-  %spec.select.sink = phi i32 [ 1, %157 ], [ %spec.select, %condstore.split ]
+164:                                              ; preds = %condstore.split
+  %spec.select = select i1 %.052, i32 2, i32 1
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %156, %164
+  %spec.select.sink = phi i32 [ %spec.select, %164 ], [ 1, %156 ]
   store i32 %spec.select.sink, ptr %127, align 8
   br label %165
 
@@ -13287,14 +13289,14 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode31Brotl
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %165, %147
+.backedge.backedge:                               ; preds = %165, %146
   br label %.backedge
 
-166:                                              ; preds = %163
-  invoke fastcc void @_ZN6brotli3enc6encode16GetBrotliStorage17h0ba27b2cd3f7f165E(ptr noalias noundef nonnull align 8 dereferenceable(5576) %0, i64 noundef %160)
+166:                                              ; preds = %162
+  invoke fastcc void @_ZN6brotli3enc6encode16GetBrotliStorage17h0ba27b2cd3f7f165E(ptr noalias noundef nonnull align 8 dereferenceable(5576) %0, i64 noundef %159)
           to label %170 unwind label %.loopexit
 
-167:                                              ; preds = %163
+167:                                              ; preds = %162
   %168 = load i64, ptr %9, align 8, !noundef !12
   %169 = icmp ugt i64 %168, %8
   br i1 %169, label %.invoke, label %172
@@ -13308,7 +13310,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode31Brotl
   %.sroa.8.0 = phi i64 [ %173, %172 ], [ %.val82, %170 ]
   %.sroa.0.0 = phi ptr [ %174, %172 ], [ %.val81, %170 ]
   %.not73 = icmp eq i64 %.sroa.8.0, 0
-  br i1 %.not73, label %.invoke209, label %178, !prof !540
+  br i1 %.not73, label %.invoke208, label %178, !prof !540
 
 172:                                              ; preds = %167
   %173 = sub nuw i64 %8, %168
@@ -13330,16 +13332,16 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode31Brotl
   %180 = trunc i16 %179 to i8
   store i8 %180, ptr %.sroa.0.0, align 1
   %.not74 = icmp eq i64 %.sroa.8.0, 1
-  br i1 %.not74, label %.invoke209, label %184, !prof !540
+  br i1 %.not74, label %.invoke208, label %184, !prof !540
 
-.invoke209:                                       ; preds = %229, %226, %178, %171
+.invoke208:                                       ; preds = %229, %226, %178, %171
   %181 = phi i64 [ 0, %171 ], [ 1, %178 ], [ %211, %226 ], [ %230, %229 ]
   %182 = phi i64 [ 0, %171 ], [ 1, %178 ], [ %.sroa.8.0, %226 ], [ %.sroa.8.0, %229 ]
   %183 = phi ptr [ @anon.e9f42dff1fd369047582a93c3ee51670.149, %171 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.150, %178 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.152, %226 ], [ @anon.e9f42dff1fd369047582a93c3ee51670.153, %229 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %181, i64 noundef %182, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %183) #21
-          to label %.cont210 unwind label %.loopexit.split-lp
+          to label %.cont209 unwind label %.loopexit.split-lp
 
-.cont210:                                         ; preds = %.invoke209
+.cont209:                                         ; preds = %.invoke208
   unreachable
 
 184:                                              ; preds = %178
@@ -13416,7 +13418,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode31Brotl
 
 226:                                              ; preds = %228, %218, %217
   %227 = icmp ult i64 %211, %.sroa.8.0
-  br i1 %227, label %229, label %.invoke209, !prof !278
+  br i1 %227, label %229, label %.invoke208, !prof !278
 
 228:                                              ; preds = %218
   store i64 %224, ptr %142, align 8
@@ -13425,7 +13427,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode31Brotl
 229:                                              ; preds = %226
   %230 = add nuw nsw i64 %211, 1
   %231 = icmp ult i64 %230, %.sroa.8.0
-  br i1 %231, label %condstore.split, label %.invoke209, !prof !278
+  br i1 %231, label %condstore.split, label %.invoke208, !prof !278
 
 condstore.split:                                  ; preds = %229
   %232 = getelementptr inbounds [0 x i8], ptr %.sroa.0.0, i64 0, i64 %211
@@ -13440,10 +13442,10 @@ condstore.split:                                  ; preds = %229
   %240 = trunc i64 %210 to i8
   %241 = and i8 %240, 7
   store i8 %241, ptr %131, align 2
-  %242 = and i1 %.052168, %158
-  br i1 %242, label %.sink.split, label %165
+  %242 = or i1 %.051, %.052
+  br i1 %242, label %164, label %165
 
-243:                                              ; preds = %149, %154
+243:                                              ; preds = %148, %153
   switch i64 %.sroa.18.2, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i" [
     i64 131072, label %244
     i64 0, label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h36581598870c7262E.exit"

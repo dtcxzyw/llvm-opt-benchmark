@@ -5472,17 +5472,21 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us: ; pred
 
 69:                                               ; preds = %66
   %70 = icmp ugt i64 %67, %62
-  br i1 %70, label %.lr.ph.i.i.i.i.preheader.i.i.i.us, label %.sink.split.i.us
+  br i1 %70, label %71, label %.sink.split.i.us
 
-.lr.ph.i.i.i.i.preheader.i.i.i.us:                ; preds = %69
+71:                                               ; preds = %69
   %.idx8.i.i.i.us = shl nuw nsw i64 %62, 3
-  %71 = getelementptr i8, ptr %0, i64 %.idx8.i.i.i.us
-  %72 = sub nuw nsw i64 %67, %62
-  %73 = shl nuw nsw i64 %72, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %71, i8 0, i64 %73, i1 false)
+  %.idx.i.i.i.us = shl nuw nsw i64 %67, 3
+  %gepdiff.i.i.i.us = sub nsw i64 %.idx.i.i.i.us, %.idx8.i.i.i.us
+  %72 = icmp sgt i64 %gepdiff.i.i.i.us, 0
+  br i1 %72, label %.lr.ph.i.i.i.i.preheader.i.i.i.us, label %.sink.split.i.us
+
+.lr.ph.i.i.i.i.preheader.i.i.i.us:                ; preds = %71
+  %73 = getelementptr i8, ptr %0, i64 %.idx8.i.i.i.us
+  tail call void @llvm.memset.p0.i64(ptr align 8 %73, i8 0, i64 %gepdiff.i.i.i.us, i1 false)
   br label %.sink.split.i.us
 
-.sink.split.i.us:                                 ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i.us, %69
+.sink.split.i.us:                                 ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i.us, %71, %69
   %storemerge.i.i.i.us = trunc nuw i64 %67 to i16
   store i16 %storemerge.i.i.i.us, ptr %6, align 8
   br label %74

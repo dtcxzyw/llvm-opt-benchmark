@@ -2177,9 +2177,8 @@ entry:
   %conv2 = sext i32 %not to i64
   %and = and i64 %0, %conv2
   store i64 %and, ptr %flags1, align 8
-  %and4 = and i64 %conv2, 8192
-  %xor = xor i64 %and4, 8192
-  %and6 = and i64 %xor, %0
+  %xor = xor i64 %and, %0
+  %and6 = and i64 %xor, 8192
   %cmp.not = icmp eq i64 %and6, 0
   br i1 %cmp.not, label %if.end, label %if.then
 

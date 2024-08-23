@@ -1197,8 +1197,8 @@ if.then.i.i.i:                                    ; preds = %if.end28.i.i.if.the
   %3 = phi i32 [ %.pre.i, %if.end28.i.i.if.then.i.i.i_crit_edge ], [ %1, %if.end13.i.i ]
   %conv.i35.i.i = zext i32 %3 to i64
   %4 = load ptr, ptr %regExpLastMatch, align 8
-  %gepdiff.i.i = mul nuw nsw i64 %conv.i35.i.i, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 4 %4, i64 %gepdiff.i.i, i1 false)
+  %add.ptr.i65.idx.i.i = mul nuw nsw i64 %conv.i35.i.i, 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 4 %4, i64 %add.ptr.i65.idx.i.i, i1 false)
   br label %return.sink.split.i.i
 
 return.sink.split.i.i:                            ; preds = %if.then.i.i.i, %if.end28.i.i
@@ -1310,8 +1310,8 @@ if.then.i.i.i:                                    ; preds = %if.end28.i.i.if.the
   %2 = phi i32 [ %.pre.i, %if.end28.i.i.if.then.i.i.i_crit_edge ], [ %0, %if.end13.i.i ]
   %conv.i35.i.i = zext i32 %2 to i64
   %3 = load ptr, ptr %regExpLastMatch, align 8
-  %gepdiff.i.i = mul nuw nsw i64 %conv.i35.i.i, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 4 %3, i64 %gepdiff.i.i, i1 false)
+  %add.ptr.i65.idx.i.i = mul nuw nsw i64 %conv.i35.i.i, 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 4 %3, i64 %add.ptr.i65.idx.i.i, i1 false)
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then.i.i.i, %if.end28.i.i
@@ -1403,8 +1403,8 @@ if.then.i.i.i:                                    ; preds = %if.end28.i.i.if.the
   %2 = phi i32 [ %.pre.i, %if.end28.i.i.if.then.i.i.i_crit_edge ], [ %0, %if.end13.i.i ]
   %conv.i35.i.i = zext i32 %2 to i64
   %3 = load ptr, ptr %regExpLastMatch, align 8
-  %gepdiff.i.i = mul nuw nsw i64 %conv.i35.i.i, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 4 %3, i64 %gepdiff.i.i, i1 false)
+  %add.ptr.i65.idx.i.i = mul nuw nsw i64 %conv.i35.i.i, 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 4 %3, i64 %add.ptr.i65.idx.i.i, i1 false)
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then.i.i.i, %if.end28.i.i
@@ -1537,8 +1537,8 @@ if.then.i.i.i:                                    ; preds = %if.end28.i.i.if.the
   %2 = phi i32 [ %.pre.i, %if.end28.i.i.if.then.i.i.i_crit_edge ], [ %0, %if.end13.i.i ]
   %conv.i35.i.i = zext i32 %2 to i64
   %3 = load ptr, ptr %regExpLastMatch, align 8
-  %gepdiff.i.i = mul nuw nsw i64 %conv.i35.i.i, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 4 %3, i64 %gepdiff.i.i, i1 false)
+  %add.ptr.i65.idx.i.i = mul nuw nsw i64 %conv.i35.i.i, 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 4 %3, i64 %add.ptr.i65.idx.i.i, i1 false)
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then.i.i.i, %if.end28.i.i
@@ -1628,14 +1628,14 @@ _ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EEC2ERKS6
   %.pre = load ptr, ptr %match, align 8
   %conv.i35.i.i18 = zext i32 %.pre.i to i64
   %1 = load ptr, ptr %regExpLastMatch, align 8
-  %gepdiff.i.i19 = mul nuw nsw i64 %conv.i35.i.i18, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre, ptr align 4 %1, i64 %gepdiff.i.i19, i1 false)
+  %add.ptr.i65.idx.i.i19 = mul nuw nsw i64 %conv.i35.i.i18, 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre, ptr align 4 %1, i64 %add.ptr.i65.idx.i.i19, i1 false)
   br label %land.lhs.true.sink.split
 
 _ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EEC2ERKS6_.exit: ; preds = %if.end13.i.i
   %2 = load ptr, ptr %regExpLastMatch, align 8
-  %gepdiff.i.i = mul nuw nsw i64 %conv.i.i.i, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i, ptr align 4 %2, i64 %gepdiff.i.i, i1 false)
+  %add.ptr.i65.idx.i.i = mul nuw nsw i64 %conv.i.i.i, 12
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i, ptr align 4 %2, i64 %add.ptr.i65.idx.i.i, i1 false)
   store i32 %0, ptr %Size.i.i.i.i.i, align 8
   %cmp = icmp ugt i32 %0, 1
   br i1 %cmp, label %land.lhs.true, label %if.end23
@@ -4204,8 +4204,8 @@ if.then.i.i.i:                                    ; preds = %if.end28.i.i.if.the
   %46 = phi i32 [ %.pre.i, %if.end28.i.i.if.then.i.i.i_crit_edge ], [ %44, %if.end13.i.i ]
   %conv.i35.i.i = zext i32 %46 to i64
   %47 = load ptr, ptr %matchResult160, align 8
-  %gepdiff.i.i = mul nuw nsw i64 %conv.i35.i.i, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 4 %47, i64 %gepdiff.i.i, i1 false)
+  %add.ptr.i65.idx.i.i = mul nuw nsw i64 %conv.i35.i.i, 12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 4 %47, i64 %add.ptr.i65.idx.i.i, i1 false)
   br label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then.i.i.i, %if.end28.i.i
@@ -5178,13 +5178,13 @@ if.end37.i239:                                    ; preds = %if.then.i.i.i.i.i47
 
 if.then.i.i.i243:                                 ; preds = %if.end37.i239
   %32 = load ptr, ptr %ref.tmp46, align 8
-  %add.ptr39.idx.i244 = mul nuw nsw i64 %CurSize.0.i240, 12
-  %add.ptr39.i245 = getelementptr inbounds i8, ptr %32, i64 %add.ptr39.idx.i244
+  %add.ptr.i.idx.i244 = mul nuw nsw i64 %conv.i51.i241, 12
+  %add.ptr39.idx.i245 = mul nuw nsw i64 %CurSize.0.i240, 12
+  %add.ptr39.i246 = getelementptr inbounds i8, ptr %32, i64 %add.ptr39.idx.i245
   %33 = load ptr, ptr %matchResult, align 8
-  %add.ptr42.i246 = getelementptr inbounds %"class.hermes::OptValue", ptr %33, i64 %CurSize.0.i240
-  %add.ptr.i.idx57.i247 = sub nsw i64 %conv.i51.i241, %CurSize.0.i240
-  %gepdiff.i248 = mul nsw i64 %add.ptr.i.idx57.i247, 12
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42.i246, ptr align 4 %add.ptr39.i245, i64 %gepdiff.i248, i1 false)
+  %add.ptr42.i247 = getelementptr inbounds %"class.hermes::OptValue", ptr %33, i64 %CurSize.0.i240
+  %gepdiff.i248 = sub nsw i64 %add.ptr.i.idx.i244, %add.ptr39.idx.i245
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42.i247, ptr align 4 %add.ptr39.i246, i64 %gepdiff.i248, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit.i249
 
 _ZN4llvh23SmallVectorTemplateBaseIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit.i249: ; preds = %if.then.i.i.i243, %if.end37.i239
@@ -6809,9 +6809,9 @@ if.then.i.i:                                      ; preds = %if.end13.i, %if.end
   %1 = phi i32 [ %.pre, %if.end28.i ], [ %0, %if.end13.i ]
   %conv.i35.i = zext i32 %1 to i64
   %2 = load ptr, ptr %RHS, align 8
+  %add.ptr.i65.idx.i = mul nuw nsw i64 %conv.i35.i, 12
   %3 = load ptr, ptr %this, align 8
-  %gepdiff.i = mul nuw nsw i64 %conv.i35.i, 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 4 %2, i64 %gepdiff.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 4 %2, i64 %add.ptr.i65.idx.i, i1 false)
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then.i.i, %if.end28.i
@@ -10596,12 +10596,12 @@ if.end37:                                         ; preds = %if.then.i.i.i.i.i47
 
 if.then.i.i:                                      ; preds = %if.end37
   %11 = load ptr, ptr %RHS, align 8
+  %add.ptr.i.idx = mul nuw nsw i64 %conv.i51, 12
   %add.ptr39.idx = mul nuw nsw i64 %CurSize.0, 12
   %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds %"class.hermes::OptValue", ptr %12, i64 %CurSize.0
-  %add.ptr.i.idx57 = sub nsw i64 %conv.i51, %CurSize.0
-  %gepdiff = mul nsw i64 %add.ptr.i.idx57, 12
+  %gepdiff = sub nsw i64 %add.ptr.i.idx, %add.ptr39.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 4 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit
 

@@ -6766,8 +6766,8 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.end.i71:                                       ; preds = %for.body
   %36 = load i32, ptr %arrayidx4.i, align 4
-  %xor.i = and i32 %36, 8192
-  %tobool.not.i72 = icmp eq i32 %xor.i, 0
+  %and7.i = and i32 %36, 8192
+  %tobool.not.i72 = icmp eq i32 %and7.i, 0
   br i1 %tobool.not.i72, label %handle_port_owner_write.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i71
@@ -7013,9 +7013,8 @@ trace_usb_ehci_portsc_write.exit:                 ; preds = %entry, %land.lhs.tr
 
 if.end.i:                                         ; preds = %trace_usb_ehci_portsc_write.exit
   %and.i = and i32 %conv9, 8192
-  %and16.i = xor i32 %9, %conv9
-  %xor.i = and i32 %and16.i, 8192
-  %tobool.not.i = icmp eq i32 %xor.i, 0
+  %and7.i = and i32 %9, 8192
+  %tobool.not.i = icmp eq i32 %and.i, %and7.i
   br i1 %tobool.not.i, label %handle_port_owner_write.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i

@@ -1382,8 +1382,8 @@ for.body.preheader.i:                             ; preds = %if.then6.i.i.i, %if
   %41 = load ptr, ptr %data_.i.i, align 8
   %42 = shl i64 %32, 3
   %scevgep = getelementptr i8, ptr %41, i64 %42
-  %43 = sub i64 %sub.ptr.div.i, %32
-  %44 = shl i64 %43, 3
+  %43 = shl nsw i64 %sub.ptr.div.i, 3
+  %44 = sub i64 %43, %42
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %44, i1 false)
   br label %_ZN5arrow8internal16StaticVectorImplIP11ArrowSchemaLm4ENS0_18SmallVectorStorageIS3_Lm4EEEE6resizeEmRKS3_.exit
 
@@ -2208,8 +2208,8 @@ for.body.preheader.i:                             ; preds = %if.then6.i.i.i, %if
   %13 = load ptr, ptr %data_.i.i, align 8
   %14 = shl i64 %4, 3
   %scevgep.i = getelementptr i8, ptr %13, i64 %14
-  %15 = sub i64 %spec.select, %4
-  %16 = shl i64 %15, 3
+  %15 = shl nsw i64 %spec.select, 3
+  %16 = sub i64 %15, %14
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %16, i1 false)
   br label %_ZN5arrow8internal16StaticVectorImplIPKvLm3ENS0_18SmallVectorStorageIS3_Lm3EEEE6resizeEm.exit
 
@@ -2318,8 +2318,8 @@ for.body.preheader.i40:                           ; preds = %if.then6.i.i.i54, %
   %31 = load ptr, ptr %data_.i.i41, align 8
   %32 = shl i64 %22, 3
   %scevgep.i42 = getelementptr i8, ptr %31, i64 %32
-  %33 = sub i64 %inc.c, %22
-  %34 = shl i64 %33, 3
+  %33 = shl nsw i64 %inc.c, 3
+  %34 = sub i64 %33, %32
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i42, i8 0, i64 %34, i1 false)
   br label %_ZN5arrow8internal16StaticVectorImplIPKvLm3ENS0_18SmallVectorStorageIS3_Lm3EEEE6resizeEm.exit58
 
@@ -2588,8 +2588,8 @@ for.body.preheader.i142:                          ; preds = %if.then6.i.i.i156, 
   %73 = load ptr, ptr %data_.i.i143, align 8
   %74 = mul i64 %62, 80
   %scevgep = getelementptr i8, ptr %73, i64 %74
-  %75 = sub i64 %sub.ptr.div.i133, %62
-  %76 = mul i64 %75, 80
+  %75 = mul i64 %sub.ptr.div.i133, 80
+  %76 = sub i64 %75, %74
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %76, i1 false)
   br label %_ZN5arrow8internal16StaticVectorImplI10ArrowArrayLm1ENS0_18SmallVectorStorageIS2_Lm1EEEE6resizeEm.exit
 
@@ -12676,8 +12676,8 @@ for.body.preheader.i:                             ; preds = %if.then6.i.i.i, %if
   %13 = load ptr, ptr %data_.i.i, align 8
   %14 = mul i64 %2, 72
   %scevgep = getelementptr i8, ptr %13, i64 %14
-  %15 = sub i64 %sub.ptr.div.i, %2
-  %16 = mul i64 %15, 72
+  %15 = mul i64 %sub.ptr.div.i, 72
+  %16 = sub i64 %15, %14
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %16, i1 false)
   br label %_ZN5arrow8internal16StaticVectorImplI11ArrowSchemaLm1ENS0_18SmallVectorStorageIS2_Lm1EEEE6resizeEm.exit
 

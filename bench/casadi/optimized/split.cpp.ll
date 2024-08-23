@@ -1401,13 +1401,15 @@ define noundef i32 @_ZNK6casadi5Split7eval_sxEPPKNS_6SXElemEPPS1_PxS5_(ptr nocap
   %22 = getelementptr inbounds i64, ptr %20, i64 %.015.i
   %23 = load i64, ptr %22, align 8
   %24 = load i64, ptr %21, align 8
-  %25 = sub nsw i64 %24, %23
+  %.idx14.i = shl nsw i64 %23, 3
+  %.idx.i = shl nsw i64 %24, 3
+  %gepdiff.i = sub nsw i64 %.idx.i, %.idx14.i
+  %25 = ashr exact i64 %gepdiff.i, 3
   %26 = icmp sgt i64 %25, 0
   br i1 %26, label %.lr.ph.i.i.i.i.i.preheader.i, label %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.i
 
 .lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %19
   %27 = load ptr, ptr %1, align 8
-  %.idx14.i = shl nsw i64 %23, 3
   %28 = getelementptr inbounds i8, ptr %27, i64 %.idx14.i
   br label %.lr.ph.i.i.i.i.i.i
 

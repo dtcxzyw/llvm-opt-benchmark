@@ -3227,11 +3227,11 @@ define weak_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1ELin1E
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %._crit_edge.i.i.i.i.i.i.i
   %60 = shl nsw i64 %58, 3
   %scevgep = getelementptr i8, ptr %.sroa.064.476, i64 %60
-  %61 = add nsw i64 %58, %38
-  %62 = shl nsw i64 %61, 3
-  %scevgep104 = getelementptr i8, ptr %3, i64 %62
-  %63 = sub nsw i64 %41, %58
-  %64 = shl nsw i64 %63, 3
+  %61 = shl nsw i64 %38, 3
+  %62 = getelementptr i8, ptr %3, i64 %60
+  %scevgep104 = getelementptr i8, ptr %62, i64 %61
+  %63 = shl nsw i64 %41, 3
+  %64 = sub nsw i64 %63, %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep104, i64 %64, i1 false)
   br label %.loopexit
 

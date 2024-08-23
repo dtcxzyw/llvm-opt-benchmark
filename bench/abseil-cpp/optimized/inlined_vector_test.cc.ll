@@ -15037,13 +15037,17 @@ for.end:                                          ; preds = %_ZN12_GLOBAL__N_110
   br i1 %cmp.not.i, label %invoke.cont20, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
+  %add.ptr19.idx = shl nsw i64 %erase_end.0546, 4
   %shr.i.sink.i.i.i = lshr i64 %this.val.i.i, 1
-  %sub.i.i = sub nsw i64 %shr.i.sink.i.i.i, %erase_end.0546
-  %cmp3.not.i = icmp eq i64 %shr.i.sink.i.i.i, %erase_end.0546
+  %gepdiff = sub nuw nsw i64 %add.ptr19.idx, %add.ptr.idx
+  %sub.ptr.div.i.i.i.i = lshr exact i64 %gepdiff, 4
+  %add.i.i = add nuw nsw i64 %sub.ptr.div.i.i.i.i, %erase_begin.0547
+  %sub.i.i = sub nsw i64 %shr.i.sink.i.i.i, %add.i.i
+  %cmp3.not.i = icmp eq i64 %shr.i.sink.i.i.i, %add.i.i
   br i1 %cmp3.not.i, label %.noexc81, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then.i
-  %add.ptr.i.i = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i, i64 %erase_end.0546
+  %add.ptr.i.i = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i, i64 %add.i.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaIN12_GLOBAL__N_110RefCountedEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i
@@ -15119,10 +15123,10 @@ _ZN4absl23inlined_vector_internal20IteratorValueAdapterISaIN12_GLOBAL__N_110RefC
   br i1 %exitcond.not.i, label %.noexc81, label %for.body.i, !llvm.loop !326
 
 .noexc81:                                         ; preds = %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaIN12_GLOBAL__N_110RefCountedEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i, %if.then.i
-  %sub9.i.i = sub nsw i64 %shr.i.sink.i.i.i, %sub
+  %sub9.i.i = sub nsw i64 %shr.i.sink.i.i.i, %sub.ptr.div.i.i.i.i
   %add.ptr10.i.i = getelementptr inbounds %"class.(anonymous namespace)::RefCounted", ptr %cond.i.i, i64 %sub9.i.i
-  call fastcc void @_ZN4absl23inlined_vector_internal14DestroyAdapterISaIN12_GLOBAL__N_110RefCountedEELb0EE15DestroyElementsERS4_PS3_m(ptr noundef %add.ptr10.i.i, i64 noundef %sub)
-  %shl.i.i.i = shl nuw nsw i64 %sub, 1
+  call fastcc void @_ZN4absl23inlined_vector_internal14DestroyAdapterISaIN12_GLOBAL__N_110RefCountedEELb0EE15DestroyElementsERS4_PS3_m(ptr noundef %add.ptr10.i.i, i64 noundef %sub.ptr.div.i.i.i.i)
+  %shl.i.i.i = lshr exact i64 %gepdiff, 3
   %26 = load i64, ptr %v, align 8
   %sub.i.i.i = sub i64 %26, %shl.i.i.i
   store i64 %sub.i.i.i, ptr %v, align 8

@@ -329,8 +329,8 @@ define hidden { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u
   %16 = shl i64 %1, 3
   %17 = add i64 %16, -8
   call void @llvm.memset.p0.i64(ptr align 4 %14, i8 0, i64 %17, i1 false)
-  %18 = add i64 %13, %1
-  %19 = shl i64 %18, 3
+  %18 = shl i64 %13, 3
+  %19 = add i64 %18, %16
   %20 = add i64 %19, -8
   %scevgep = getelementptr i8, ptr %12, i64 %20
   %21 = add i64 %1, -1
@@ -829,8 +829,8 @@ define hidden { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u
   %16 = shl i64 %1, 5
   %17 = add i64 %16, -32
   call void @llvm.memset.p0.i64(ptr align 2 %14, i8 0, i64 %17, i1 false)
-  %18 = add i64 %13, %1
-  %19 = shl i64 %18, 5
+  %18 = shl i64 %13, 5
+  %19 = add i64 %18, %16
   %20 = add i64 %19, -32
   %scevgep = getelementptr i8, ptr %12, i64 %20
   %21 = add i64 %1, -1
@@ -1319,8 +1319,8 @@ define hidden { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u
   %16 = shl i64 %1, 4
   %17 = add i64 %16, -16
   call void @llvm.memset.p0.i64(ptr align 4 %14, i8 0, i64 %17, i1 false)
-  %18 = add i64 %13, %1
-  %19 = shl i64 %18, 4
+  %18 = shl i64 %13, 4
+  %19 = add i64 %18, %16
   %20 = add i64 %19, -16
   %scevgep = getelementptr i8, ptr %12, i64 %20
   %21 = add i64 %1, -1

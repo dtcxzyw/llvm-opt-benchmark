@@ -230,8 +230,9 @@ deposit32.exit:                                   ; preds = %trace_sifive_gpio_s
   %shl.i = shl nuw i32 1, %line
   %not.i = xor i32 %shl.i, -1
   %and.i = and i32 %6, %not.i
-  %and6.i = shl nuw i32 %conv6, %line
-  %or.i = or i32 %and.i, %and6.i
+  %shl5.i = shl nuw i32 %conv6, %line
+  %and6.i = and i32 %shl5.i, %shl.i
+  %or.i = or disjoint i32 %and.i, %and6.i
   store i32 %or.i, ptr %in_mask, align 8
   br i1 %cmp5, label %deposit32.exit20, label %if.end16
 
@@ -241,8 +242,9 @@ deposit32.exit20:                                 ; preds = %deposit32.exit
   %cmp12 = icmp ne i32 %value, 0
   %conv13 = zext i1 %cmp12 to i32
   %and.i16 = and i32 %7, %not.i
-  %and6.i18 = shl nuw i32 %conv13, %line
-  %or.i19 = or i32 %and.i16, %and6.i18
+  %shl5.i17 = shl nuw i32 %conv13, %line
+  %and6.i18 = and i32 %shl5.i17, %shl.i
+  %or.i19 = or disjoint i32 %and.i16, %and6.i18
   store i32 %or.i19, ptr %in, align 4
   br label %if.end16
 
@@ -732,15 +734,17 @@ deposit32.exit126:                                ; preds = %if.then89, %if.end7
   %conv108 = zext i1 %30 to i32
   %not.i = xor i32 %2, -1
   %and.i117 = and i32 %28, %not.i
-  %and6.i = shl nuw i32 %conv108, %conv2
-  %or.i = or i32 %and6.i, %and.i117
+  %shl5.i = shl nuw i32 %conv108, %conv2
+  %and6.i = and i32 %shl5.i, %2
+  %or.i = or disjoint i32 %and6.i, %and.i117
   store i32 %or.i, ptr %high_ip52, align 4
   %lnot115 = xor i1 %29, true
   %31 = select i1 %tobool50, i1 true, i1 %lnot115
   %conv122 = zext i1 %31 to i32
   %and.i122 = and i32 %27, %not.i
-  %and6.i124 = shl nuw i32 %conv122, %conv2
-  %or.i125 = or i32 %and6.i124, %and.i122
+  %shl5.i123 = shl nuw i32 %conv122, %conv2
+  %and6.i124 = and i32 %shl5.i123, %2
+  %or.i125 = or disjoint i32 %and6.i124, %and.i122
   store i32 %or.i125, ptr %low_ip47, align 4
   br i1 %tobool40.not, label %lor.rhs127, label %deposit32.exit135
 
@@ -754,22 +758,25 @@ deposit32.exit135:                                ; preds = %deposit32.exit126, 
   %34 = load i32, ptr %rise_ip37, align 4
   %conv140 = zext i1 %33 to i32
   %and.i131 = and i32 %34, %not.i
-  %and6.i133 = shl nuw i32 %conv140, %conv2
-  %or.i134 = or i32 %and6.i133, %and.i131
+  %shl5.i132 = shl nuw i32 %conv140, %conv2
+  %and6.i133 = and i32 %shl5.i132, %2
+  %or.i134 = or disjoint i32 %and6.i133, %and.i131
   store i32 %or.i134, ptr %rise_ip37, align 4
   %35 = select i1 %lnot115, i1 %tobool, i1 false
   %spec.select161 = select i1 %tobool45.not, i1 true, i1 %35
   %36 = load i32, ptr %fall_ip42, align 4
   %conv156 = zext i1 %spec.select161 to i32
   %and.i140 = and i32 %36, %not.i
-  %and6.i142 = shl nuw i32 %conv156, %conv2
-  %or.i143 = or i32 %and.i140, %and6.i142
+  %shl5.i141 = shl nuw i32 %conv156, %conv2
+  %and6.i142 = and i32 %shl5.i141, %2
+  %or.i143 = or disjoint i32 %and.i140, %and6.i142
   store i32 %or.i143, ptr %fall_ip42, align 4
   %37 = load i32, ptr %value, align 16
   %conv162 = zext i1 %29 to i32
   %and.i149 = and i32 %37, %not.i
-  %and6.i151 = shl nuw i32 %conv162, %conv2
-  %or.i152 = or i32 %and.i149, %and6.i151
+  %shl5.i150 = shl nuw i32 %conv162, %conv2
+  %and6.i151 = and i32 %shl5.i150, %2
+  %or.i152 = or disjoint i32 %and.i149, %and6.i151
   store i32 %or.i152, ptr %value, align 16
   %inc = add nuw nsw i64 %i.0167, 1
   %38 = load i32, ptr %ngpio, align 4

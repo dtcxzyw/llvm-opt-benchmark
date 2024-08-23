@@ -54,10 +54,11 @@ if.end15:                                         ; preds = %if.end
 
 if.then25:                                        ; preds = %if.end15, %if.end15
   %add = shl nuw nsw i64 %conv16, 1
-  %add43 = add nsw i64 %conv18, %conv16
-  %add28 = shl nsw i64 %add43, 1
-  %add2844 = add nsw i64 %add43, %conv20
-  %add31 = shl nsw i64 %add2844, 1
+  %add27 = shl nsw i64 %conv18, 1
+  %add28 = add nsw i64 %add27, %add
+  %4 = add nsw i64 %conv18, %conv20
+  %5 = shl nsw i64 %4, 1
+  %add31 = add nsw i64 %5, %add
   br label %if.end40
 
 if.else:                                          ; preds = %if.end15
@@ -75,8 +76,8 @@ if.end40:                                         ; preds = %if.else, %if.then25
   %add.pn = phi i64 [ %add, %if.then25 ], [ %add34, %if.else ]
   %mac_secret.0 = phi ptr [ %3, %if.then25 ], [ %arrayidx32, %if.else ]
   %key_block_length = getelementptr inbounds i8, ptr %s, i64 744
-  %4 = load i64, ptr %key_block_length, align 8
-  %cmp43 = icmp ugt i64 %n.0, %4
+  %6 = load i64, ptr %key_block_length, align 8
+  %cmp43 = icmp ugt i64 %n.0, %6
   br i1 %cmp43, label %err.sink.split, label %if.end46
 
 if.end46:                                         ; preds = %if.end40

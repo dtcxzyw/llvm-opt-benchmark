@@ -2798,7 +2798,7 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef %1, i32 no
 
 16:                                               ; preds = %12, %11
   %17 = load ptr, ptr %4, align 8
-  br label %89
+  br label %90
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds i8, ptr %7, i64 16
@@ -2814,13 +2814,13 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef %1, i32 no
   %29 = xor i64 %28, %23
   %30 = call fastcc ptr @gatherInfoAux(ptr noundef %25, ptr noundef nonnull %1, i32 noundef %2)
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %89, label %32
+  br i1 %31, label %90, label %32
 
 32:                                               ; preds = %18
   %33 = inttoptr i64 %29 to ptr
   %34 = call fastcc ptr @gatherInfoAux(ptr noundef %33, ptr noundef nonnull %1, i32 noundef %2)
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %89, label %36
+  br i1 %35, label %90, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %30, i64 16
@@ -2840,64 +2840,65 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef %1, i32 no
   %48 = sext i32 %46 to i64
   %49 = getelementptr inbounds %struct.NodeData, ptr %44, i64 %48
   store ptr %49, ptr %4, align 8
-  %50 = trunc i64 %5 to i16
-  %51 = and i16 %50, 1
+  %50 = trunc i64 %5 to i32
+  %51 = and i32 %50, 1
   %52 = getelementptr inbounds i8, ptr %49, i64 22
   %53 = load i16, ptr %52, align 2
-  %54 = add nuw nsw i16 %51, 1
-  %55 = or i16 %53, %54
-  store i16 %55, ptr %52, align 2
-  %56 = load double, ptr %30, align 8
-  %57 = fmul double %56, 5.000000e-01
-  %58 = load ptr, ptr %4, align 8
-  store double %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %30, i64 8
-  %60 = load double, ptr %59, align 8
-  %61 = fmul double %60, 5.000000e-01
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
-  store double %61, ptr %63, align 8
-  %64 = xor i64 %29, %5
-  %65 = and i64 %64, 1
-  %.not38 = icmp eq i64 %65, 0
-  br i1 %.not38, label %72, label %66
+  %54 = trunc nuw nsw i32 %51 to i16
+  %55 = add nuw nsw i16 %54, 1
+  %56 = or i16 %53, %55
+  store i16 %56, ptr %52, align 2
+  %57 = load double, ptr %30, align 8
+  %58 = fmul double %57, 5.000000e-01
+  %59 = load ptr, ptr %4, align 8
+  store double %58, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %30, i64 8
+  %61 = load double, ptr %60, align 8
+  %62 = fmul double %61, 5.000000e-01
+  %63 = load ptr, ptr %4, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  store double %62, ptr %64, align 8
+  %65 = trunc i64 %29 to i32
+  %66 = and i32 %65, 1
+  %.not38 = icmp eq i32 %66, %51
+  br i1 %.not38, label %73, label %67
 
-66:                                               ; preds = %36
-  %67 = getelementptr inbounds i8, ptr %34, i64 8
-  %68 = load double, ptr %67, align 8
-  %69 = fmul double %68, 5.000000e-01
-  %70 = load double, ptr %62, align 8
-  %71 = fadd double %70, %69
-  store double %71, ptr %62, align 8
-  br label %78
+67:                                               ; preds = %36
+  %68 = getelementptr inbounds i8, ptr %34, i64 8
+  %69 = load double, ptr %68, align 8
+  %70 = fmul double %69, 5.000000e-01
+  %71 = load double, ptr %63, align 8
+  %72 = fadd double %71, %70
+  store double %72, ptr %63, align 8
+  br label %79
 
-72:                                               ; preds = %36
-  %73 = load double, ptr %34, align 8
-  %74 = fmul double %73, 5.000000e-01
-  %75 = load double, ptr %62, align 8
-  %76 = fadd double %75, %74
-  store double %76, ptr %62, align 8
-  %77 = getelementptr inbounds i8, ptr %34, i64 8
-  br label %78
+73:                                               ; preds = %36
+  %74 = load double, ptr %34, align 8
+  %75 = fmul double %74, 5.000000e-01
+  %76 = load double, ptr %63, align 8
+  %77 = fadd double %76, %75
+  store double %77, ptr %63, align 8
+  %78 = getelementptr inbounds i8, ptr %34, i64 8
+  br label %79
 
-78:                                               ; preds = %72, %66
-  %.sink44 = phi ptr [ %77, %72 ], [ %34, %66 ]
-  %79 = load double, ptr %.sink44, align 8
-  %80 = fmul double %79, 5.000000e-01
-  %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
-  %83 = load double, ptr %82, align 8
-  %84 = fadd double %80, %83
-  store double %84, ptr %82, align 8
-  %85 = load ptr, ptr %8, align 8
-  %86 = call i32 @st__insert(ptr noundef %85, ptr noundef nonnull %7, ptr noundef nonnull %81) #10
-  %87 = icmp eq i32 %86, -10000
-  %88 = load ptr, ptr %4, align 8
-  %spec.select = select i1 %87, ptr null, ptr %88
-  br label %89
+79:                                               ; preds = %73, %67
+  %.sink44 = phi ptr [ %78, %73 ], [ %34, %67 ]
+  %80 = load double, ptr %.sink44, align 8
+  %81 = fmul double %80, 5.000000e-01
+  %82 = load ptr, ptr %4, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %84 = load double, ptr %83, align 8
+  %85 = fadd double %81, %84
+  store double %85, ptr %83, align 8
+  %86 = load ptr, ptr %8, align 8
+  %87 = call i32 @st__insert(ptr noundef %86, ptr noundef nonnull %7, ptr noundef nonnull %82) #10
+  %88 = icmp eq i32 %87, -10000
+  %89 = load ptr, ptr %4, align 8
+  %spec.select = select i1 %88, ptr null, ptr %89
+  br label %90
 
-89:                                               ; preds = %78, %32, %18, %16
-  %.0 = phi ptr [ %17, %16 ], [ null, %18 ], [ null, %32 ], [ %spec.select, %78 ]
+90:                                               ; preds = %79, %32, %18, %16
+  %.0 = phi ptr [ %17, %16 ], [ null, %18 ], [ null, %32 ], [ %spec.select, %79 ]
   ret ptr %.0
 }
 

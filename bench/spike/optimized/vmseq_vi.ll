@@ -334,8 +334,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %138 = ashr i32 %tr.sh.diff110, 24
   br label %139
 
-139:                                              ; preds = %.lr.ph, %175
-  %.078112 = phi i64 [ %128, %.lr.ph ], [ %176, %175 ]
+139:                                              ; preds = %.lr.ph, %176
+  %.078112 = phi i64 [ %128, %.lr.ph ], [ %177, %176 ]
   %140 = lshr i64 %.078112, 6
   %141 = and i64 %.078112, 63
   br i1 %131, label %142, label %._crit_edge116
@@ -354,7 +354,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %146 = shl nuw i64 1, %141
   %147 = and i64 %145, %146
   %148 = icmp eq i64 %147, 0
-  br i1 %148, label %175, label %149
+  br i1 %148, label %176, label %149
 
 149:                                              ; preds = %._crit_edge116, %142
   %.pre-phi121 = phi i64 [ %.pre120, %._crit_edge116 ], [ %143, %142 ]
@@ -400,22 +400,23 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %171 = xor i64 %.pre-phi118, -1
   %172 = and i64 %170, %171
   %173 = shl nuw i64 %.077, %141
-  %174 = or i64 %172, %173
-  store i64 %174, ptr %150, align 8
-  br label %175
+  %174 = and i64 %173, %.pre-phi118
+  %175 = or i64 %174, %172
+  store i64 %175, ptr %150, align 8
+  br label %176
 
-175:                                              ; preds = %142, %169
-  %176 = add i64 %.078112, 1
-  %exitcond.not = icmp eq i64 %176, %121
+176:                                              ; preds = %142, %169
+  %177 = add i64 %.078112, 1
+  %exitcond.not = icmp eq i64 %177, %121
   br i1 %exitcond.not, label %._crit_edge, label %139, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %175, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %177 = shl i64 %2, 32
-  %178 = add i64 %177, 17179869184
-  %179 = ashr exact i64 %178, 32
-  %180 = load ptr, ptr %123, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %180, i64 noundef 0) #16
-  ret i64 %179
+._crit_edge:                                      ; preds = %176, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
+  %178 = shl i64 %2, 32
+  %179 = add i64 %178, 17179869184
+  %180 = ashr exact i64 %179, 32
+  %181 = load ptr, ptr %123, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %181, i64 noundef 0) #16
+  ret i64 %180
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -709,8 +710,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %138 = ashr i32 %tr.sh.diff110, 24
   br label %139
 
-139:                                              ; preds = %.lr.ph, %175
-  %.078112 = phi i64 [ %128, %.lr.ph ], [ %176, %175 ]
+139:                                              ; preds = %.lr.ph, %176
+  %.078112 = phi i64 [ %128, %.lr.ph ], [ %177, %176 ]
   %140 = lshr i64 %.078112, 6
   %141 = and i64 %.078112, 63
   br i1 %131, label %142, label %._crit_edge116
@@ -729,7 +730,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %146 = shl nuw i64 1, %141
   %147 = and i64 %145, %146
   %148 = icmp eq i64 %147, 0
-  br i1 %148, label %175, label %149
+  br i1 %148, label %176, label %149
 
 149:                                              ; preds = %._crit_edge116, %142
   %.pre-phi121 = phi i64 [ %.pre120, %._crit_edge116 ], [ %143, %142 ]
@@ -775,20 +776,21 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %171 = xor i64 %.pre-phi118, -1
   %172 = and i64 %170, %171
   %173 = shl nuw i64 %.077, %141
-  %174 = or i64 %172, %173
-  store i64 %174, ptr %150, align 8
-  br label %175
+  %174 = and i64 %173, %.pre-phi118
+  %175 = or i64 %174, %172
+  store i64 %175, ptr %150, align 8
+  br label %176
 
-175:                                              ; preds = %142, %169
-  %176 = add i64 %.078112, 1
-  %exitcond.not = icmp eq i64 %176, %121
+176:                                              ; preds = %142, %169
+  %177 = add i64 %.078112, 1
+  %exitcond.not = icmp eq i64 %177, %121
   br i1 %exitcond.not, label %._crit_edge, label %139, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %175, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %177 = add i64 %2, 4
-  %178 = load ptr, ptr %123, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %178, i64 noundef 0) #16
-  ret i64 %177
+._crit_edge:                                      ; preds = %176, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
+  %178 = add i64 %2, 4
+  %179 = load ptr, ptr %123, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %179, i64 noundef 0) #16
+  ret i64 %178
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1050,8 +1052,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %138 = ashr i32 %tr.sh.diff110, 24
   br label %139
 
-139:                                              ; preds = %.lr.ph, %175
-  %.078112 = phi i64 [ %128, %.lr.ph ], [ %176, %175 ]
+139:                                              ; preds = %.lr.ph, %176
+  %.078112 = phi i64 [ %128, %.lr.ph ], [ %177, %176 ]
   %140 = lshr i64 %.078112, 6
   %141 = and i64 %.078112, 63
   br i1 %131, label %142, label %._crit_edge116
@@ -1070,7 +1072,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %146 = shl nuw i64 1, %141
   %147 = and i64 %145, %146
   %148 = icmp eq i64 %147, 0
-  br i1 %148, label %175, label %149
+  br i1 %148, label %176, label %149
 
 149:                                              ; preds = %._crit_edge116, %142
   %.pre-phi121 = phi i64 [ %.pre120, %._crit_edge116 ], [ %143, %142 ]
@@ -1116,22 +1118,23 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %171 = xor i64 %.pre-phi118, -1
   %172 = and i64 %170, %171
   %173 = shl nuw i64 %.077, %141
-  %174 = or i64 %172, %173
-  store i64 %174, ptr %150, align 8
-  br label %175
+  %174 = and i64 %173, %.pre-phi118
+  %175 = or i64 %174, %172
+  store i64 %175, ptr %150, align 8
+  br label %176
 
-175:                                              ; preds = %142, %169
-  %176 = add i64 %.078112, 1
-  %exitcond.not = icmp eq i64 %176, %121
+176:                                              ; preds = %142, %169
+  %177 = add i64 %.078112, 1
+  %exitcond.not = icmp eq i64 %177, %121
   br i1 %exitcond.not, label %._crit_edge, label %139, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %175, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %177 = shl i64 %2, 32
-  %178 = add i64 %177, 17179869184
-  %179 = ashr exact i64 %178, 32
-  %180 = load ptr, ptr %123, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %180, i64 noundef 0) #16
-  ret i64 %179
+._crit_edge:                                      ; preds = %176, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
+  %178 = shl i64 %2, 32
+  %179 = add i64 %178, 17179869184
+  %180 = ashr exact i64 %179, 32
+  %181 = load ptr, ptr %123, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %181, i64 noundef 0) #16
+  ret i64 %180
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1393,8 +1396,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %138 = ashr i32 %tr.sh.diff110, 24
   br label %139
 
-139:                                              ; preds = %.lr.ph, %175
-  %.078112 = phi i64 [ %128, %.lr.ph ], [ %176, %175 ]
+139:                                              ; preds = %.lr.ph, %176
+  %.078112 = phi i64 [ %128, %.lr.ph ], [ %177, %176 ]
   %140 = lshr i64 %.078112, 6
   %141 = and i64 %.078112, 63
   br i1 %131, label %142, label %._crit_edge116
@@ -1413,7 +1416,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %146 = shl nuw i64 1, %141
   %147 = and i64 %145, %146
   %148 = icmp eq i64 %147, 0
-  br i1 %148, label %175, label %149
+  br i1 %148, label %176, label %149
 
 149:                                              ; preds = %._crit_edge116, %142
   %.pre-phi121 = phi i64 [ %.pre120, %._crit_edge116 ], [ %143, %142 ]
@@ -1459,20 +1462,21 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %171 = xor i64 %.pre-phi118, -1
   %172 = and i64 %170, %171
   %173 = shl nuw i64 %.077, %141
-  %174 = or i64 %172, %173
-  store i64 %174, ptr %150, align 8
-  br label %175
+  %174 = and i64 %173, %.pre-phi118
+  %175 = or i64 %174, %172
+  store i64 %175, ptr %150, align 8
+  br label %176
 
-175:                                              ; preds = %142, %169
-  %176 = add i64 %.078112, 1
-  %exitcond.not = icmp eq i64 %176, %121
+176:                                              ; preds = %142, %169
+  %177 = add i64 %.078112, 1
+  %exitcond.not = icmp eq i64 %177, %121
   br i1 %exitcond.not, label %._crit_edge, label %139, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %175, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %177 = add i64 %2, 4
-  %178 = load ptr, ptr %123, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %178, i64 noundef 0) #16
-  ret i64 %177
+._crit_edge:                                      ; preds = %176, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
+  %178 = add i64 %2, 4
+  %179 = load ptr, ptr %123, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %179, i64 noundef 0) #16
+  ret i64 %178
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1734,8 +1738,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %138 = ashr i32 %tr.sh.diff110, 24
   br label %139
 
-139:                                              ; preds = %.lr.ph, %175
-  %.078112 = phi i64 [ %128, %.lr.ph ], [ %176, %175 ]
+139:                                              ; preds = %.lr.ph, %176
+  %.078112 = phi i64 [ %128, %.lr.ph ], [ %177, %176 ]
   %140 = lshr i64 %.078112, 6
   %141 = and i64 %.078112, 63
   br i1 %131, label %142, label %._crit_edge116
@@ -1754,7 +1758,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %146 = shl nuw i64 1, %141
   %147 = and i64 %145, %146
   %148 = icmp eq i64 %147, 0
-  br i1 %148, label %175, label %149
+  br i1 %148, label %176, label %149
 
 149:                                              ; preds = %._crit_edge116, %142
   %.pre-phi121 = phi i64 [ %.pre120, %._crit_edge116 ], [ %143, %142 ]
@@ -1800,22 +1804,23 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %171 = xor i64 %.pre-phi118, -1
   %172 = and i64 %170, %171
   %173 = shl nuw i64 %.077, %141
-  %174 = or i64 %172, %173
-  store i64 %174, ptr %150, align 8
-  br label %175
+  %174 = and i64 %173, %.pre-phi118
+  %175 = or i64 %174, %172
+  store i64 %175, ptr %150, align 8
+  br label %176
 
-175:                                              ; preds = %142, %169
-  %176 = add i64 %.078112, 1
-  %exitcond.not = icmp eq i64 %176, %121
+176:                                              ; preds = %142, %169
+  %177 = add i64 %.078112, 1
+  %exitcond.not = icmp eq i64 %177, %121
   br i1 %exitcond.not, label %._crit_edge, label %139, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %175, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %177 = shl i64 %2, 32
-  %178 = add i64 %177, 17179869184
-  %179 = ashr exact i64 %178, 32
-  %180 = load ptr, ptr %123, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %180, i64 noundef 0) #16
-  ret i64 %179
+._crit_edge:                                      ; preds = %176, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
+  %178 = shl i64 %2, 32
+  %179 = add i64 %178, 17179869184
+  %180 = ashr exact i64 %179, 32
+  %181 = load ptr, ptr %123, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %181, i64 noundef 0) #16
+  ret i64 %180
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2077,8 +2082,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %138 = ashr i32 %tr.sh.diff110, 24
   br label %139
 
-139:                                              ; preds = %.lr.ph, %175
-  %.078112 = phi i64 [ %128, %.lr.ph ], [ %176, %175 ]
+139:                                              ; preds = %.lr.ph, %176
+  %.078112 = phi i64 [ %128, %.lr.ph ], [ %177, %176 ]
   %140 = lshr i64 %.078112, 6
   %141 = and i64 %.078112, 63
   br i1 %131, label %142, label %._crit_edge116
@@ -2097,7 +2102,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %146 = shl nuw i64 1, %141
   %147 = and i64 %145, %146
   %148 = icmp eq i64 %147, 0
-  br i1 %148, label %175, label %149
+  br i1 %148, label %176, label %149
 
 149:                                              ; preds = %._crit_edge116, %142
   %.pre-phi121 = phi i64 [ %.pre120, %._crit_edge116 ], [ %143, %142 ]
@@ -2143,20 +2148,21 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %171 = xor i64 %.pre-phi118, -1
   %172 = and i64 %170, %171
   %173 = shl nuw i64 %.077, %141
-  %174 = or i64 %172, %173
-  store i64 %174, ptr %150, align 8
-  br label %175
+  %174 = and i64 %173, %.pre-phi118
+  %175 = or i64 %174, %172
+  store i64 %175, ptr %150, align 8
+  br label %176
 
-175:                                              ; preds = %142, %169
-  %176 = add i64 %.078112, 1
-  %exitcond.not = icmp eq i64 %176, %121
+176:                                              ; preds = %142, %169
+  %177 = add i64 %.078112, 1
+  %exitcond.not = icmp eq i64 %177, %121
   br i1 %exitcond.not, label %._crit_edge, label %139, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %175, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %177 = add i64 %2, 4
-  %178 = load ptr, ptr %123, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %178, i64 noundef 0) #16
-  ret i64 %177
+._crit_edge:                                      ; preds = %176, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
+  %178 = add i64 %2, 4
+  %179 = load ptr, ptr %123, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %179, i64 noundef 0) #16
+  ret i64 %178
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2418,8 +2424,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %138 = ashr i32 %tr.sh.diff110, 24
   br label %139
 
-139:                                              ; preds = %.lr.ph, %175
-  %.078112 = phi i64 [ %128, %.lr.ph ], [ %176, %175 ]
+139:                                              ; preds = %.lr.ph, %176
+  %.078112 = phi i64 [ %128, %.lr.ph ], [ %177, %176 ]
   %140 = lshr i64 %.078112, 6
   %141 = and i64 %.078112, 63
   br i1 %131, label %142, label %._crit_edge116
@@ -2438,7 +2444,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %146 = shl nuw i64 1, %141
   %147 = and i64 %145, %146
   %148 = icmp eq i64 %147, 0
-  br i1 %148, label %175, label %149
+  br i1 %148, label %176, label %149
 
 149:                                              ; preds = %._crit_edge116, %142
   %.pre-phi121 = phi i64 [ %.pre120, %._crit_edge116 ], [ %143, %142 ]
@@ -2484,22 +2490,23 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %171 = xor i64 %.pre-phi118, -1
   %172 = and i64 %170, %171
   %173 = shl nuw i64 %.077, %141
-  %174 = or i64 %172, %173
-  store i64 %174, ptr %150, align 8
-  br label %175
+  %174 = and i64 %173, %.pre-phi118
+  %175 = or i64 %174, %172
+  store i64 %175, ptr %150, align 8
+  br label %176
 
-175:                                              ; preds = %142, %169
-  %176 = add i64 %.078112, 1
-  %exitcond.not = icmp eq i64 %176, %121
+176:                                              ; preds = %142, %169
+  %177 = add i64 %.078112, 1
+  %exitcond.not = icmp eq i64 %177, %121
   br i1 %exitcond.not, label %._crit_edge, label %139, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %175, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %177 = shl i64 %2, 32
-  %178 = add i64 %177, 17179869184
-  %179 = ashr exact i64 %178, 32
-  %180 = load ptr, ptr %123, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %180, i64 noundef 0) #16
-  ret i64 %179
+._crit_edge:                                      ; preds = %176, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
+  %178 = shl i64 %2, 32
+  %179 = add i64 %178, 17179869184
+  %180 = ashr exact i64 %179, 32
+  %181 = load ptr, ptr %123, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %181, i64 noundef 0) #16
+  ret i64 %180
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2761,8 +2768,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %138 = ashr i32 %tr.sh.diff110, 24
   br label %139
 
-139:                                              ; preds = %.lr.ph, %175
-  %.078112 = phi i64 [ %128, %.lr.ph ], [ %176, %175 ]
+139:                                              ; preds = %.lr.ph, %176
+  %.078112 = phi i64 [ %128, %.lr.ph ], [ %177, %176 ]
   %140 = lshr i64 %.078112, 6
   %141 = and i64 %.078112, 63
   br i1 %131, label %142, label %._crit_edge116
@@ -2781,7 +2788,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %146 = shl nuw i64 1, %141
   %147 = and i64 %145, %146
   %148 = icmp eq i64 %147, 0
-  br i1 %148, label %175, label %149
+  br i1 %148, label %176, label %149
 
 149:                                              ; preds = %._crit_edge116, %142
   %.pre-phi121 = phi i64 [ %.pre120, %._crit_edge116 ], [ %143, %142 ]
@@ -2827,20 +2834,21 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %171 = xor i64 %.pre-phi118, -1
   %172 = and i64 %170, %171
   %173 = shl nuw i64 %.077, %141
-  %174 = or i64 %172, %173
-  store i64 %174, ptr %150, align 8
-  br label %175
+  %174 = and i64 %173, %.pre-phi118
+  %175 = or i64 %174, %172
+  store i64 %175, ptr %150, align 8
+  br label %176
 
-175:                                              ; preds = %142, %169
-  %176 = add i64 %.078112, 1
-  %exitcond.not = icmp eq i64 %176, %121
+176:                                              ; preds = %142, %169
+  %177 = add i64 %.078112, 1
+  %exitcond.not = icmp eq i64 %177, %121
   br i1 %exitcond.not, label %._crit_edge, label %139, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %175, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %177 = add i64 %2, 4
-  %178 = load ptr, ptr %123, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %178, i64 noundef 0) #16
-  ret i64 %177
+._crit_edge:                                      ; preds = %176, %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
+  %178 = add i64 %2, 4
+  %179 = load ptr, ptr %123, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %179, i64 noundef 0) #16
+  ret i64 %178
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

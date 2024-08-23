@@ -15229,11 +15229,12 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %9 = mul i64 %.promoted.i.i, 20
   %10 = getelementptr i8, ptr %1, i64 %9
   %scevgep5.i = getelementptr i8, ptr %10, i64 16
-  %11 = sub i64 %4, %.promoted.i.i
-  %12 = mul i64 %11, 20
+  %11 = mul i64 %4, 20
+  %12 = sub i64 %11, %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep.i, ptr align 4 %scevgep5.i, i64 %12, i1 false), !noalias !4318
-  %13 = add i64 %11, %.pre.i.i
-  store i64 %13, ptr %6, align 8, !alias.scope !4307, !noalias !4312
+  %13 = sub i64 %4, %.promoted.i.i
+  %14 = add i64 %13, %.pre.i.i
+  store i64 %14, ptr %6, align 8, !alias.scope !4307, !noalias !4312
   store i64 %4, ptr %1, align 8, !alias.scope !4301, !noalias !4304
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf98d2b2f164053aE.llvm.14728845296163125433.exit"
 
@@ -68232,8 +68233,8 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %9 = mul i64 %.promoted.i, 20
   %10 = getelementptr i8, ptr %0, i64 %9
   %scevgep5 = getelementptr i8, ptr %10, i64 16
-  %11 = sub i64 %4, %.promoted.i
-  %12 = mul i64 %11, 20
+  %11 = mul i64 %4, 20
+  %12 = sub i64 %11, %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 4 %scevgep5, i64 %12, i1 false), !noalias !18384
   %13 = add i64 %4, %.pre.i
   %14 = sub i64 %13, %.promoted.i
@@ -83071,7 +83072,7 @@ switch.lookup:                                    ; preds = %31, %31, %36
 
 43:                                               ; preds = %switch.lookup
   %spec.select.i.i = select i1 %switch.idx.cast, i64 %.sroa.5.0.i.i.i, i64 0
-  br label %switch.lookup96
+  br label %switch.lookup95
 
 44:                                               ; preds = %40
   %.not.i.i.i = icmp eq i64 %.sroa.5.0.i.i.i, 0
@@ -83140,7 +83141,7 @@ default.unreachable.i.i.i.i:                      ; preds = %.lr.ph.split.i.i.i
 
 65:                                               ; preds = %40
   %spec.select34.i.i = select i1 %switch.idx.cast, i64 0, i64 %.sroa.5.0.i.i.i
-  br label %switch.lookup96
+  br label %switch.lookup95
 
 .loopexit82.i.i:                                  ; preds = %.thread46.i.i.i, %.thread46.us.i.i.i
   %.019.lcssa.i.i.i = phi i64 [ %spec.select.us.i.i.i, %.thread46.us.i.i.i ], [ %62, %.thread46.i.i.i ]
@@ -83212,21 +83213,21 @@ _ZN5typst6layout6inline7shaping10ShapedText18find_safe_to_break17h9e226be0185935
   %.sroa.7.1.i.i = phi i64 [ %72, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf0786b456aa4cb04E.exit.thread.i.i" ], [ %.019.lcssa.i.i.i, %85 ]
   %.sroa.0.1.i.i = phi i64 [ %.sroa.0.0.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf0786b456aa4cb04E.exit.thread.i.i" ], [ %spec.select79.i.i, %85 ]
   %switch17.not.i = icmp eq i64 %.sroa.0.1.i.i, 0
-  br i1 %switch17.not.i, label %180, label %switch.lookup96
+  br i1 %switch17.not.i, label %180, label %switch.lookup95
 
-switch.lookup96:                                  ; preds = %43, %65, %_ZN5typst6layout6inline7shaping10ShapedText18find_safe_to_break17h9e226be01859353cE.exit.i
+switch.lookup95:                                  ; preds = %43, %65, %_ZN5typst6layout6inline7shaping10ShapedText18find_safe_to_break17h9e226be01859353cE.exit.i
   %.sroa.7.1.i87.i = phi i64 [ %.sroa.7.1.i.i, %_ZN5typst6layout6inline7shaping10ShapedText18find_safe_to_break17h9e226be01859353cE.exit.i ], [ %spec.select34.i.i, %65 ], [ %spec.select.i.i, %43 ]
-  %switch.idx.cast97 = trunc i8 %35 to i1
+  %switch.idx.cast96 = trunc i8 %35 to i1
   %90 = icmp eq i64 %37, %12
   br i1 %90, label %94, label %91
 
-91:                                               ; preds = %switch.lookup96
+91:                                               ; preds = %switch.lookup95
   %92 = add i64 %12, %10
   %93 = icmp eq i64 %37, %92
   br i1 %93, label %116, label %95
 
-94:                                               ; preds = %switch.lookup96
-  %spec.select.i67.i = select i1 %switch.idx.cast97, i64 %.sroa.5.0.i.i.i, i64 0
+94:                                               ; preds = %switch.lookup95
+  %spec.select.i67.i = select i1 %switch.idx.cast96, i64 %.sroa.5.0.i.i.i, i64 0
   br label %_ZN5typst6layout6inline7shaping10ShapedText18find_safe_to_break17h9e226be01859353cE.exit69.thread92.i
 
 95:                                               ; preds = %91
@@ -83234,7 +83235,7 @@ switch.lookup96:                                  ; preds = %43, %65, %_ZN5typst
   br i1 %.not.i.i27.i, label %180, label %.lr.ph.i.i28.i
 
 .lr.ph.i.i28.i:                                   ; preds = %95
-  br i1 %switch.idx.cast97, label %.lr.ph.split.i.i29.i, label %"_ZN5typst6layout6inline7shaping10ShapedText18find_safe_to_break28_$u7b$$u7b$closure$u7d$$u7d$17h7e6a2f651f8d800fE.exit.us.i.i59.i"
+  br i1 %switch.idx.cast96, label %.lr.ph.split.i.i29.i, label %"_ZN5typst6layout6inline7shaping10ShapedText18find_safe_to_break28_$u7b$$u7b$closure$u7d$$u7d$17h7e6a2f651f8d800fE.exit.us.i.i59.i"
 
 "_ZN5typst6layout6inline7shaping10ShapedText18find_safe_to_break28_$u7b$$u7b$closure$u7d$$u7d$17h7e6a2f651f8d800fE.exit.us.i.i59.i": ; preds = %.lr.ph.i.i28.i, %.thread46.us.i.i64.i
   %.053.us.i.i60.i = phi i64 [ %105, %.thread46.us.i.i64.i ], [ %.sroa.5.0.i.i.i, %.lr.ph.i.i28.i ]
@@ -83291,7 +83292,7 @@ default.unreachable.i.i.i58.i:                    ; preds = %.lr.ph.split.i.i29.
   br i1 %115, label %.lr.ph.split.i.i29.i, label %.loopexit82.i37.i
 
 116:                                              ; preds = %91
-  %spec.select34.i66.i = select i1 %switch.idx.cast97, i64 0, i64 %.sroa.5.0.i.i.i
+  %spec.select34.i66.i = select i1 %switch.idx.cast96, i64 0, i64 %.sroa.5.0.i.i.i
   br label %_ZN5typst6layout6inline7shaping10ShapedText18find_safe_to_break17h9e226be01859353cE.exit69.thread92.i
 
 .loopexit.i48.i:                                  ; preds = %.lr.ph.split.i.i29.i, %"_ZN5typst6layout6inline7shaping10ShapedText18find_safe_to_break28_$u7b$$u7b$closure$u7d$$u7d$17h7e6a2f651f8d800fE.exit.us.i.i59.i"
@@ -83325,8 +83326,8 @@ default.unreachable.i.i.i58.i:                    ; preds = %.lr.ph.split.i.i29.
   %123 = getelementptr inbounds [0 x { ptr, { i64, i16, [3 x i16] }, double, double, double, { { double, double }, { double, double } }, { i64, i64 }, i32, i16, i8, i8, i8, [7 x i8] }], ptr %.sroa.0.0.i.i.i, i64 0, i64 %.0.i50.lcssa.i, i32 9
   %124 = load i8, ptr %123, align 2, !range !731, !noalias !21457, !noundef !4
   %.sroa.0.0.i54.i = zext nneg i8 %124 to i64
-  %switch.idx.cast97.mask = and i8 %35, 1
-  %125 = zext nneg i8 %switch.idx.cast97.mask to i64
+  %switch.idx.cast96.mask = and i8 %35, 1
+  %125 = zext nneg i8 %switch.idx.cast96.mask to i64
   %126 = add nuw i64 %.0.i50.lcssa.i, %125
   br label %_ZN5typst6layout6inline7shaping10ShapedText18find_safe_to_break17h9e226be01859353cE.exit69.i
 
@@ -83392,7 +83393,7 @@ _ZN5typst6layout6inline7shaping10ShapedText18find_safe_to_break17h9e226be0185935
   unreachable
 
 149:                                              ; preds = %145
-  %150 = sub i64 %.sroa.7.1.i4096.i, %.sroa.7.1.i87.i
+  %150 = sub nuw i64 %.sroa.7.1.i4096.i, %.sroa.7.1.i87.i
   %.idx30 = mul nsw i64 %.sroa.7.1.i87.i, 112
   %151 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 %.idx30
   %152 = getelementptr inbounds i8, ptr %1, i64 88
@@ -83406,7 +83407,8 @@ _ZN5typst6layout6inline7shaping10ShapedText18find_safe_to_break17h9e226be0185935
   br i1 %159, label %"_ZN78_$LT$typst..util..scalar..Scalar$u20$as$u20$core..iter..traits..accum..Sum$GT$3sum17ha834868f14f8db0dE.exit", label %160
 
 160:                                              ; preds = %149
-  %gepdiff = mul i64 %150, 112
+  %.idx = mul nsw i64 %.sroa.7.1.i4096.i, 112
+  %gepdiff = sub nsw i64 %.idx, %.idx30
   %161 = udiv exact i64 %gepdiff, 112
   br label %162
 

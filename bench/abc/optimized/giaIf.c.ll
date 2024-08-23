@@ -11155,20 +11155,22 @@ Vec_IntGrow.exit.i124:                            ; preds = %440, %438
 Vec_IntPush.exit125:                              ; preds = %.Vec_IntGrow.exit10_crit_edge.i119, %Vec_IntGrow.exit.i124, %452
   %454 = phi ptr [ %.pre.i121, %.Vec_IntGrow.exit10_crit_edge.i119 ], [ %453, %452 ], [ %442, %Vec_IntGrow.exit.i124 ]
   %455 = sub nsw i32 0, %341
-  %456 = load i32, ptr %196, align 4
-  %457 = add nsw i32 %456, 1
-  store i32 %457, ptr %196, align 4
-  %458 = sext i32 %456 to i64
-  %459 = getelementptr inbounds i32, ptr %454, i64 %458
-  store i32 %455, ptr %459, align 4
-  %460 = load i64, ptr %16, align 4
-  %461 = trunc i64 %460 to i32
-  %462 = lshr i32 %461, 12
-  %463 = xor i32 %340, %462
-  %464 = xor i32 %463, %34
-  %465 = and i32 %464, 1
-  %466 = xor i32 %465, %339
-  ret i32 %466
+  %456 = and i32 %340, 1
+  %457 = icmp ne i32 %35, %456
+  %458 = zext i1 %457 to i32
+  %459 = load i32, ptr %196, align 4
+  %460 = add nsw i32 %459, 1
+  store i32 %460, ptr %196, align 4
+  %461 = sext i32 %459 to i64
+  %462 = getelementptr inbounds i32, ptr %454, i64 %461
+  store i32 %455, ptr %462, align 4
+  %463 = load i64, ptr %16, align 4
+  %464 = trunc i64 %463 to i32
+  %465 = lshr i32 %464, 12
+  %466 = and i32 %465, 1
+  %467 = xor i32 %466, %458
+  %468 = xor i32 %467, %339
+  ret i32 %468
 }
 
 ; Function Attrs: nounwind uwtable

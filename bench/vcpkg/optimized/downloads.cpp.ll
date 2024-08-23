@@ -889,7 +889,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %12, %14
 16:                                               ; preds = %15
   %.idx28 = shl nsw i64 %.0, 5
   %17 = getelementptr inbounds i8, ptr %1, i64 %.idx28
-  %18 = sub nsw i64 %2, %.0
+  %.idx = shl nsw i64 %2, 5
+  %gepdiff = sub nsw i64 %.idx, %.idx28
+  %18 = ashr exact i64 %gepdiff, 5
   invoke fastcc void @_ZN5vcpkgL15url_heads_innerENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_PSt6vectorIiSaIiEES8_(ptr %17, i64 %18, ptr %3, i64 %4, ptr noundef nonnull %0, ptr %.sroa.018.0.copyload, i64 %.sroa.219.0.copyload)
           to label %19 unwind label %.loopexit.split-lp
 
@@ -1349,7 +1351,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.body, %16
 18:                                               ; preds = %17
   %.idx27 = shl nsw i64 %.0, 6
   %19 = getelementptr inbounds i8, ptr %2, i64 %.idx27
-  %20 = sub nsw i64 %3, %.0
+  %.idx = shl nsw i64 %3, 6
+  %gepdiff = sub nsw i64 %.idx, %.idx27
+  %20 = ashr exact i64 %gepdiff, 6
   invoke fastcc void @_ZN5vcpkgL20download_files_innerERKNS_10FilesystemENS_4SpanIKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4PathEEEENS3_IKSA_EEPSt6vectorIiSaIiEE(ptr %19, i64 %20, ptr %4, i64 %5, ptr noundef nonnull %0)
           to label %21 unwind label %.loopexit.split-lp
 
