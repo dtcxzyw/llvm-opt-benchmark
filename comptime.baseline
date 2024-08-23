@@ -20187,7 +20187,7 @@ opencv/phase_corr.cpp.ll 93031507
 opencv/phasecorr.cpp.ll 859303088
 opencv/phash.cpp.ll 293672596
 opencv/pipeline.cpp.ll 35599856
-opencv/pipeline_modeling_tool.cpp.ll 12665648668
+opencv/pipeline_modeling_tool.cpp.ll 12652979512
 opencv/planar_tracking.cpp.ll 1105969784
 opencv/plane.cpp.ll 1346715537
 opencv/plot.cpp.ll 374075992
