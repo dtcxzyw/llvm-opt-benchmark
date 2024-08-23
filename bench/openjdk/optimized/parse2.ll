@@ -4497,11 +4497,8 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal noundef range(i32 -1, 2) i32 @_ZL8jint_cmpPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp sgt i32 %3, %4
-  %6 = icmp slt i32 %3, %4
-  %7 = sext i1 %6 to i32
-  %8 = select i1 %5, i32 1, i32 %7
-  ret i32 %8
+  %5 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15532,6 +15529,9 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12

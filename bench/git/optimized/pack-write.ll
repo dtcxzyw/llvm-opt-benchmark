@@ -625,10 +625,7 @@ entry:
   %4 = load ptr, ptr %arrayidx2, align 8
   %offset3 = getelementptr inbounds i8, ptr %4, i64 40
   %5 = load i64, ptr %offset3, align 8
-  %cmp = icmp slt i64 %2, %5
-  %cmp4 = icmp sgt i64 %2, %5
-  %. = zext i1 %cmp4 to i32
-  %retval.0 = select i1 %cmp, i32 -1, i32 %.
+  %retval.0 = tail call i32 @llvm.scmp.i32.i64(i64 %2, i64 %5)
   ret i32 %retval.0
 }
 
@@ -1617,6 +1614,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #16

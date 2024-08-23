@@ -120174,11 +120174,8 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal range(i32 -1, 2) i32 @point_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 {
   %3 = load i16, ptr %0, align 2
   %4 = load i16, ptr %1, align 2
-  %5 = icmp ult i16 %3, %4
-  %6 = icmp ugt i16 %3, %4
-  %7 = zext i1 %6 to i32
-  %8 = select i1 %5, i32 -1, i32 %7
-  ret i32 %8
+  %5 = tail call i32 @llvm.ucmp.i32.i16(i16 %3, i16 %4)
+  ret i32 %5
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -120635,11 +120632,8 @@ compute_bitreverse.exit:                          ; preds = %245, %compute_bitre
 define internal range(i32 -1, 2) i32 @uint32_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp ult i32 %3, %4
-  %6 = icmp ugt i32 %3, %4
-  %7 = zext i1 %6 to i32
-  %8 = select i1 %5, i32 -1, i32 %7
-  ret i32 %8
+  %5 = tail call i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
@@ -124027,6 +124021,9 @@ declare i32 @llvm.umax.i32(i32, i32) #77
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bitreverse.i32(i32) #77
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #77
+
 declare float @exp2f(float) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -124046,6 +124043,9 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #77
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #77
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i16(i16, i16) #77
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #77

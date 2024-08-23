@@ -442,10 +442,7 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %2 = load i32, ptr %a_, align 4
   %3 = load i32, ptr %b_, align 4
-  %cmp = icmp ult i32 %2, %3
-  %cmp10 = icmp ugt i32 %2, %3
-  %cond11 = zext i1 %cmp10 to i32
-  %cond12 = select i1 %cmp, i32 -1, i32 %cond11
+  %cond12 = tail call i32 @llvm.ucmp.i32.i32(i32 %2, i32 %3)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end6, %if.then
@@ -464,6 +461,9 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7

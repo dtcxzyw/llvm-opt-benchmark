@@ -46,7 +46,7 @@ define hidden ptr @cap_file_provider_get_frame_ts(ptr nocapture noundef readonly
   br i1 %.not23, label %.thread29, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call ptr @frame_data_sequence_find(ptr noundef nonnull %22, i32 noundef %1) #3
+  %24 = tail call ptr @frame_data_sequence_find(ptr noundef nonnull %22, i32 noundef %1) #4
   %.not24 = icmp eq ptr %24, null
   br i1 %.not24, label %.thread29, label %.thread
 
@@ -71,9 +71,9 @@ declare ptr @frame_data_sequence_find(ptr noundef, i32 noundef) local_unnamed_ad
 define hidden ptr @cap_file_provider_get_interface_name(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = tail call ptr @wtap_file_get_idb_info(ptr noundef %5) #3
+  %6 = tail call ptr @wtap_file_get_idb_info(ptr noundef %5) #4
   %7 = load ptr, ptr %0, align 8
-  %8 = tail call i32 @wtap_file_get_shb_global_interface_id(ptr noundef %7, i32 noundef %2, i32 noundef %1) #3
+  %8 = tail call i32 @wtap_file_get_shb_global_interface_id(ptr noundef %7, i32 noundef %2, i32 noundef %1) #4
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
@@ -81,7 +81,7 @@ define hidden ptr @cap_file_provider_get_interface_name(ptr nocapture noundef re
   br i1 %12, label %13, label %.thread
 
 .thread:                                          ; preds = %3
-  tail call void @g_free(ptr noundef nonnull %6) #3
+  tail call void @g_free(ptr noundef nonnull %6) #4
   br label %32
 
 13:                                               ; preds = %3
@@ -89,12 +89,12 @@ define hidden ptr @cap_file_provider_get_interface_name(ptr nocapture noundef re
   %15 = zext i32 %8 to i64
   %16 = getelementptr ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
-  tail call void @g_free(ptr noundef nonnull %6) #3
+  tail call void @g_free(ptr noundef nonnull %6) #4
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %32, label %18
 
 18:                                               ; preds = %13
-  %19 = call i32 @wtap_block_get_string_option_value(ptr noundef nonnull %17, i32 noundef 2, ptr noundef nonnull %4) #3
+  %19 = call i32 @wtap_block_get_string_option_value(ptr noundef nonnull %17, i32 noundef 2, ptr noundef nonnull %4) #4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %23
 
@@ -103,7 +103,7 @@ define hidden ptr @cap_file_provider_get_interface_name(ptr nocapture noundef re
   br label %32
 
 23:                                               ; preds = %18
-  %24 = call i32 @wtap_block_get_string_option_value(ptr noundef nonnull %17, i32 noundef 3, ptr noundef nonnull %4) #3
+  %24 = call i32 @wtap_block_get_string_option_value(ptr noundef nonnull %17, i32 noundef 3, ptr noundef nonnull %4) #4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %28
 
@@ -112,7 +112,7 @@ define hidden ptr @cap_file_provider_get_interface_name(ptr nocapture noundef re
   br label %32
 
 28:                                               ; preds = %23
-  %29 = call i32 @wtap_block_get_string_option_value(ptr noundef nonnull %17, i32 noundef 15, ptr noundef nonnull %4) #3
+  %29 = call i32 @wtap_block_get_string_option_value(ptr noundef nonnull %17, i32 noundef 15, ptr noundef nonnull %4) #4
   %30 = icmp eq i32 %29, 0
   %31 = load ptr, ptr %4, align 8
   %spec.select = select i1 %30, ptr %31, ptr @.str
@@ -135,9 +135,9 @@ declare i32 @wtap_block_get_string_option_value(ptr noundef, i32 noundef, ptr no
 define hidden ptr @cap_file_provider_get_interface_description(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = tail call ptr @wtap_file_get_idb_info(ptr noundef %5) #3
+  %6 = tail call ptr @wtap_file_get_idb_info(ptr noundef %5) #4
   %7 = load ptr, ptr %0, align 8
-  %8 = tail call i32 @wtap_file_get_shb_global_interface_id(ptr noundef %7, i32 noundef %2, i32 noundef %1) #3
+  %8 = tail call i32 @wtap_file_get_shb_global_interface_id(ptr noundef %7, i32 noundef %2, i32 noundef %1) #4
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
@@ -145,7 +145,7 @@ define hidden ptr @cap_file_provider_get_interface_description(ptr nocapture nou
   br i1 %12, label %13, label %.thread
 
 .thread:                                          ; preds = %3
-  tail call void @g_free(ptr noundef nonnull %6) #3
+  tail call void @g_free(ptr noundef nonnull %6) #4
   br label %22
 
 13:                                               ; preds = %3
@@ -153,12 +153,12 @@ define hidden ptr @cap_file_provider_get_interface_description(ptr nocapture nou
   %15 = zext i32 %8 to i64
   %16 = getelementptr ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
-  tail call void @g_free(ptr noundef nonnull %6) #3
+  tail call void @g_free(ptr noundef nonnull %6) #4
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %13
-  %19 = call i32 @wtap_block_get_string_option_value(ptr noundef nonnull %17, i32 noundef 3, ptr noundef nonnull %4) #3
+  %19 = call i32 @wtap_block_get_string_option_value(ptr noundef nonnull %17, i32 noundef 3, ptr noundef nonnull %4) #4
   %20 = icmp eq i32 %19, 0
   %21 = load ptr, ptr %4, align 8
   %spec.select = select i1 %20, ptr %21, ptr null
@@ -177,7 +177,7 @@ define hidden ptr @cap_file_provider_get_modified_block(ptr nocapture noundef re
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @g_tree_lookup(ptr noundef nonnull %4, ptr noundef %1) #3
+  %6 = tail call ptr @g_tree_lookup(ptr noundef nonnull %4, ptr noundef %1) #4
   br label %7
 
 7:                                                ; preds = %2, %5
@@ -195,13 +195,13 @@ define hidden void @cap_file_provider_set_modified_block(ptr nocapture noundef %
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @g_tree_new_full(ptr noundef nonnull @frame_cmp, ptr noundef null, ptr noundef null, ptr noundef nonnull @wtap_block_unref) #3
+  %7 = tail call ptr @g_tree_new_full(ptr noundef nonnull @frame_cmp, ptr noundef null, ptr noundef null, ptr noundef nonnull @wtap_block_unref) #4
   store ptr %7, ptr %4, align 8
   br label %8
 
 8:                                                ; preds = %6, %3
   %9 = phi ptr [ %7, %6 ], [ %5, %3 ]
-  tail call void @g_tree_replace(ptr noundef %9, ptr noundef %1, ptr noundef %2) #3
+  tail call void @g_tree_replace(ptr noundef %9, ptr noundef %1, ptr noundef %2) #4
   %10 = getelementptr inbounds i8, ptr %1, i64 50
   %11 = load i16, ptr %10, align 2
   %12 = or i16 %11, 256
@@ -215,21 +215,22 @@ declare ptr @g_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 define internal range(i32 -1, 2) i32 @frame_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 {
   %4 = load i32, ptr %0, align 8
   %5 = load i32, ptr %1, align 8
-  %6 = icmp ult i32 %4, %5
-  %7 = icmp ugt i32 %4, %5
-  %8 = zext i1 %7 to i32
-  %9 = select i1 %6, i32 -1, i32 %8
-  ret i32 %9
+  %6 = tail call i32 @llvm.ucmp.i32.i32(i32 %4, i32 %5)
+  ret i32 %6
 }
 
 declare void @wtap_block_unref(ptr noundef) #1
 
 declare void @g_tree_replace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #3
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

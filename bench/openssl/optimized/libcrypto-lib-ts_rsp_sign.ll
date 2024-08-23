@@ -110,8 +110,8 @@ return:                                           ; preds = %if.end, %err
 define internal range(i32 0, 2) i32 @def_time_cb(ptr nocapture noundef readonly %ctx, ptr nocapture readnone %data, ptr nocapture noundef writeonly %sec, ptr nocapture noundef writeonly %usec) #0 {
 entry:
   %call = tail call i64 @ossl_time_now() #9
-  %cmp.i.not.not.i.not = icmp eq i64 %call, 0
-  br i1 %cmp.i.not.not.i.not, label %if.then, label %if.end
+  %cmp.i.not = icmp eq i64 %call, 0
+  br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #9
@@ -123,8 +123,8 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %0, align 8
   %failure_info.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %failure_info.i, align 8
-  %cmp.i = icmp eq ptr %2, null
-  br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
+  %cmp.i3 = icmp eq ptr %2, null
+  br i1 %cmp.i3, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.then
   %call.i = tail call ptr @ASN1_BIT_STRING_new() #9

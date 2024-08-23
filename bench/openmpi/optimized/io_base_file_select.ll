@@ -720,10 +720,7 @@ define internal range(i32 -1, 2) i32 @avail_io_compare(ptr nocapture noundef rea
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %4, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = icmp sgt i32 %6, %8
-  %10 = icmp slt i32 %6, %8
-  %. = sext i1 %10 to i32
-  %.0 = select i1 %9, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %6, i32 %8)
   ret i32 %.0
 }
 
@@ -746,6 +743,9 @@ declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

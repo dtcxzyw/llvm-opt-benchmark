@@ -745,8 +745,8 @@ if.end:                                           ; preds = %if.end3.i
   %0 = load ptr, ptr %session_ctx, align 8
   %session_timeout = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load i64, ptr %session_timeout, align 8
-  %cmp.i.not.not.i.not = icmp eq i64 %1, 0
-  br i1 %cmp.i.not.not.i.not, label %if.then2, label %if.end8
+  %cmp.i32.not = icmp eq i64 %1, 0
+  br i1 %cmp.i32.not, label %if.then2, label %if.end8
 
 if.then2:                                         ; preds = %if.end
   %method = getelementptr inbounds i8, ptr %s, i64 24
@@ -1241,8 +1241,8 @@ if.end46:                                         ; preds = %if.end39
   %14 = load ptr, ptr %ret, align 8
   %15 = getelementptr i8, ptr %14, i64 752
   %.val = load i64, ptr %15, align 8
-  %cmp.i.i.not = icmp ugt i64 %call47, %.val
-  br i1 %cmp.i.i.not, label %if.then51, label %if.end58
+  %cmp.i.not = icmp ugt i64 %call47, %.val
+  br i1 %cmp.i.not, label %if.then51, label %if.end58
 
 if.then51:                                        ; preds = %if.end46
   %session_ctx = getelementptr inbounds i8, ptr %s, i64 2792
@@ -1581,8 +1581,8 @@ if.else:                                          ; preds = %if.end
   %s.val = load i64, ptr %7, align 8
   %8 = getelementptr i8, ptr %6, i64 752
   %.val = load i64, ptr %8, align 8
-  %cmp5.i.i.not = icmp ult i64 %s.val, %.val
-  br i1 %cmp5.i.i.not, label %if.else20, label %if.then12
+  %cmp11.not = icmp ult i64 %s.val, %.val
+  br i1 %cmp11.not, label %if.else20, label %if.then12
 
 if.then12:                                        ; preds = %if.else
   store ptr %6, ptr %next1, align 8
@@ -1598,8 +1598,8 @@ if.else20:                                        ; preds = %if.else
   %9 = load ptr, ptr %session_cache_tail21, align 8
   %10 = getelementptr i8, ptr %9, i64 752
   %.val48 = load i64, ptr %10, align 8
-  %cmp5.i.i51 = icmp ult i64 %s.val, %.val48
-  br i1 %cmp5.i.i51, label %if.then24, label %while.cond
+  %cmp23 = icmp ult i64 %s.val, %.val48
+  br i1 %cmp23, label %if.then24, label %while.cond
 
 if.then24:                                        ; preds = %if.else20
   %prev26 = getelementptr inbounds i8, ptr %s, i64 808
@@ -1620,8 +1620,8 @@ while.cond:                                       ; preds = %if.else20, %while.b
 while.body:                                       ; preds = %while.cond
   %11 = getelementptr i8, ptr %next.0, i64 752
   %next.0.val = load i64, ptr %11, align 8
-  %cmp5.i.i55.not = icmp ult i64 %s.val, %next.0.val
-  br i1 %cmp5.i.i55.not, label %while.cond, label %if.then39, !llvm.loop !7
+  %cmp38.not = icmp ult i64 %s.val, %next.0.val
+  br i1 %cmp38.not, label %while.cond, label %if.then39, !llvm.loop !7
 
 if.then39:                                        ; preds = %while.body
   store ptr %next.0, ptr %next1, align 8
@@ -2357,8 +2357,8 @@ if.end:                                           ; preds = %entry
   tail call void @OPENSSL_LH_set_down_load(ptr noundef %2, i64 noundef 0) #13
   %session_cache_tail = getelementptr inbounds i8, ptr %s, i64 72
   %3 = load ptr, ptr %session_cache_tail, align 8
-  %cmp.not25 = icmp eq ptr %3, null
-  br i1 %cmp.not25, label %while.end, label %while.body.lr.ph
+  %cmp.not26 = icmp eq ptr %3, null
+  br i1 %cmp.not26, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
   %cmp6 = icmp eq i64 %t, 0
@@ -2374,16 +2374,16 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 lor.lhs.false:                                    ; preds = %while.body
   %5 = getelementptr i8, ptr %4, i64 752
   %.val = load i64, ptr %5, align 8
-  %cmp.i.i.not = icmp ugt i64 %mul.i, %.val
-  br i1 %cmp.i.i.not, label %if.then10, label %while.end
+  %cmp.i.not = icmp ugt i64 %mul.i, %.val
+  br i1 %cmp.i.not, label %if.then10, label %while.end
 
 if.then10:                                        ; preds = %lor.lhs.false, %while.body
   %6 = load ptr, ptr %sessions, align 8
   %call.i23 = tail call ptr @OPENSSL_LH_delete(ptr noundef %6, ptr noundef nonnull %4) #13
   %next.i = getelementptr inbounds i8, ptr %4, i64 816
   %7 = load ptr, ptr %next.i, align 8
-  %cmp.i = icmp eq ptr %7, null
-  br i1 %cmp.i, label %SSL_SESSION_list_remove.exit, label %lor.lhs.false.i
+  %cmp.i24 = icmp eq ptr %7, null
+  br i1 %cmp.i24, label %SSL_SESSION_list_remove.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then10
   %prev.i = getelementptr inbounds i8, ptr %4, i64 808
@@ -2450,8 +2450,8 @@ if.end16:                                         ; preds = %if.then14, %SSL_SES
   br i1 %cmp17, label %if.then21, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %if.end16
-  %call.i24 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %4) #13
-  %tobool20.not = icmp eq i32 %call.i24, 0
+  %call.i25 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %4) #13
+  %tobool20.not = icmp eq i32 %call.i25, 0
   br i1 %tobool20.not, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %lor.lhs.false18, %if.end16

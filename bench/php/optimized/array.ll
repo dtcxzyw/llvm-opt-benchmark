@@ -1392,20 +1392,17 @@ define internal fastcc void @php_usort(ptr noundef %0, ptr nocapture noundef wri
 define internal range(i32 -1, 2) i32 @php_array_user_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = tail call i32 @php_array_user_compare_unstable(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %9
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %6, align 4
-  %7 = icmp ugt i32 %.val, %.val7
-  %8 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %8 to i32
-  %.0.i = select i1 %7, i32 1, i32 %..i
-  br label %9
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %7
 
-9:                                                ; preds = %2, %4
+7:                                                ; preds = %2, %4
   %.0 = phi i32 [ %.0.i, %4 ], [ %3, %2 ]
   ret i32 %.0
 }
@@ -1426,20 +1423,17 @@ define hidden void @zif_uksort(ptr noundef %0, ptr nocapture noundef writeonly %
 define internal range(i32 -1, 2) i32 @php_array_user_key_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = tail call i32 @php_array_user_key_compare_unstable(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %9
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %6, align 4
-  %7 = icmp ugt i32 %.val, %.val7
-  %8 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %8 to i32
-  %.0.i = select i1 %7, i32 1, i32 %..i
-  br label %9
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %7
 
-9:                                                ; preds = %2, %4
+7:                                                ; preds = %2, %4
   %.0 = phi i32 [ %.0.i, %4 ], [ %3, %2 ]
   ret i32 %.0
 }
@@ -21469,7 +21463,7 @@ define range(i32 -1, 2) i32 @php_multisort_compare(ptr nocapture noundef readonl
 12:                                               ; preds = %5
   %.inv = icmp slt i32 %11, 1
   %13 = select i1 %.inv, i32 -1, i32 1
-  br label %23
+  br label %21
 
 14:                                               ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -21484,13 +21478,10 @@ define range(i32 -1, 2) i32 @php_multisort_compare(ptr nocapture noundef readonl
   %.val = load i32, ptr %19, align 4
   %20 = getelementptr %struct._Bucket, ptr %4, i64 %indvars.iv.next, i32 0, i32 2
   %.val20 = load i32, ptr %20, align 4
-  %21 = icmp ugt i32 %.val, %.val20
-  %22 = icmp ult i32 %.val, %.val20
-  %..i = sext i1 %22 to i32
-  %.0.i = select i1 %21, i32 1, i32 %..i
-  br label %23
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val20)
+  br label %21
 
-23:                                               ; preds = %18, %12
+21:                                               ; preds = %18, %12
   %.0 = phi i32 [ %13, %12 ], [ %.0.i, %18 ]
   ret i32 %.0
 }
@@ -24995,10 +24986,7 @@ php_array_reverse_key_compare_numeric_unstable.exit: ; preds = %28
   %.val = load i32, ptr %31, align 4
   %32 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %32, align 4
-  %33 = icmp ugt i32 %.val, %.val7
-  %34 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %34 to i32
-  %.0.i = select i1 %33, i32 1, i32 %..i
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
   br label %php_array_reverse_key_compare_numeric_unstable.exit.thread
 
 php_array_reverse_key_compare_numeric_unstable.exit.thread: ; preds = %28, %12, %php_array_reverse_key_compare_numeric_unstable.exit
@@ -25066,10 +25054,7 @@ define internal range(i32 -1, 2) i32 @php_array_key_compare_numeric(ptr nocaptur
   %.val = load i32, ptr %34, align 4
   %35 = getelementptr i8, ptr %1, i64 12
   %.val28 = load i32, ptr %35, align 4
-  %36 = icmp ugt i32 %.val, %.val28
-  %37 = icmp ult i32 %.val, %.val28
-  %..i = sext i1 %37 to i32
-  %.0.i = select i1 %36, i32 1, i32 %..i
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val28)
   br label %.thread29
 
 .thread29:                                        ; preds = %29, %12, %33
@@ -25220,20 +25205,17 @@ php_array_reverse_key_compare_string_case_unstable.exit: ; preds = %39, %.loopex
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %4)
   %69 = sub nsw i32 0, %68
   %.not = icmp eq i32 %68, 0
-  br i1 %.not, label %70, label %75
+  br i1 %.not, label %70, label %73
 
 70:                                               ; preds = %php_array_reverse_key_compare_string_case_unstable.exit
   %71 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %71, align 4
   %72 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %72, align 4
-  %73 = icmp ugt i32 %.val, %.val7
-  %74 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %74 to i32
-  %.0.i = select i1 %73, i32 1, i32 %..i
-  br label %75
+  %.0.i = call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %73
 
-75:                                               ; preds = %php_array_reverse_key_compare_string_case_unstable.exit, %70
+73:                                               ; preds = %php_array_reverse_key_compare_string_case_unstable.exit, %70
   %.0 = phi i32 [ %.0.i, %70 ], [ %69, %php_array_reverse_key_compare_string_case_unstable.exit ]
   ret i32 %.0
 }
@@ -25376,20 +25358,17 @@ define internal i32 @php_array_key_compare_string_case(ptr nocapture noundef rea
   %.063 = phi i64 [ %42, %39 ], [ %67, %.loopexit ]
   %69 = call i32 @zend_binary_strcasecmp_l(ptr noundef %.066, i64 noundef %.064, ptr noundef nonnull %.065, i64 noundef %.063) #18
   %.not85 = icmp eq i32 %69, 0
-  br i1 %.not85, label %70, label %75
+  br i1 %.not85, label %70, label %73
 
 70:                                               ; preds = %68
   %71 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %71, align 4
   %72 = getelementptr i8, ptr %1, i64 12
   %.val86 = load i32, ptr %72, align 4
-  %73 = icmp ugt i32 %.val, %.val86
-  %74 = icmp ult i32 %.val, %.val86
-  %..i = sext i1 %74 to i32
-  %.0.i = select i1 %73, i32 1, i32 %..i
-  br label %75
+  %.0.i = call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val86)
+  br label %73
 
-75:                                               ; preds = %68, %70
+73:                                               ; preds = %68, %70
   %.062 = phi i32 [ %.0.i, %70 ], [ %69, %68 ]
   ret i32 %.062
 }
@@ -25399,20 +25378,17 @@ define internal i32 @php_array_reverse_key_compare_string(ptr nocapture noundef 
   %3 = tail call i32 @php_array_key_compare_string_unstable(ptr noundef readonly %0, ptr noundef readonly %1)
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %5, label %10
+  br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %6, align 4
   %7 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %7, align 4
-  %8 = icmp ugt i32 %.val, %.val7
-  %9 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %9 to i32
-  %.0.i = select i1 %8, i32 1, i32 %..i
-  br label %10
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %8
 
-10:                                               ; preds = %2, %5
+8:                                                ; preds = %2, %5
   %.0 = phi i32 [ %.0.i, %5 ], [ %4, %2 ]
   ret i32 %.0
 }
@@ -25555,20 +25531,17 @@ define internal i32 @php_array_key_compare_string(ptr nocapture noundef readonly
   %.063 = phi i64 [ %42, %39 ], [ %67, %.loopexit ]
   %69 = call i32 @zend_binary_strcmp(ptr noundef %.066, i64 noundef %.064, ptr noundef nonnull %.065, i64 noundef %.063) #18
   %.not85 = icmp eq i32 %69, 0
-  br i1 %.not85, label %70, label %75
+  br i1 %.not85, label %70, label %73
 
 70:                                               ; preds = %68
   %71 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %71, align 4
   %72 = getelementptr i8, ptr %1, i64 12
   %.val86 = load i32, ptr %72, align 4
-  %73 = icmp ugt i32 %.val, %.val86
-  %74 = icmp ult i32 %.val, %.val86
-  %..i = sext i1 %74 to i32
-  %.0.i = select i1 %73, i32 1, i32 %..i
-  br label %75
+  %.0.i = call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val86)
+  br label %73
 
-75:                                               ; preds = %68, %70
+73:                                               ; preds = %68, %70
   %.062 = phi i32 [ %.0.i, %70 ], [ %69, %68 ]
   ret i32 %.062
 }
@@ -25577,20 +25550,17 @@ define internal i32 @php_array_key_compare_string(ptr nocapture noundef readonly
 define internal i32 @php_array_reverse_key_compare_string_natural_case(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = tail call fastcc i32 @php_array_key_compare_string_natural_general(ptr noundef %1, ptr noundef %0, i32 noundef 1)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %9
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %6, align 4
-  %7 = icmp ugt i32 %.val, %.val7
-  %8 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %8 to i32
-  %.0.i = select i1 %7, i32 1, i32 %..i
-  br label %9
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %7
 
-9:                                                ; preds = %2, %4
+7:                                                ; preds = %2, %4
   %.0 = phi i32 [ %.0.i, %4 ], [ %3, %2 ]
   ret i32 %.0
 }
@@ -25599,20 +25569,17 @@ define internal i32 @php_array_reverse_key_compare_string_natural_case(ptr nocap
 define internal i32 @php_array_key_compare_string_natural_case(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = tail call fastcc i32 @php_array_key_compare_string_natural_general(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %9
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %6, align 4
-  %7 = icmp ugt i32 %.val, %.val7
-  %8 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %8 to i32
-  %.0.i = select i1 %7, i32 1, i32 %..i
-  br label %9
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %7
 
-9:                                                ; preds = %2, %4
+7:                                                ; preds = %2, %4
   %.0 = phi i32 [ %.0.i, %4 ], [ %3, %2 ]
   ret i32 %.0
 }
@@ -25621,20 +25588,17 @@ define internal i32 @php_array_key_compare_string_natural_case(ptr nocapture nou
 define internal i32 @php_array_reverse_key_compare_string_natural(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = tail call fastcc i32 @php_array_key_compare_string_natural_general(ptr noundef %1, ptr noundef %0, i32 noundef 0)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %9
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %6, align 4
-  %7 = icmp ugt i32 %.val, %.val7
-  %8 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %8 to i32
-  %.0.i = select i1 %7, i32 1, i32 %..i
-  br label %9
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %7
 
-9:                                                ; preds = %2, %4
+7:                                                ; preds = %2, %4
   %.0 = phi i32 [ %.0.i, %4 ], [ %3, %2 ]
   ret i32 %.0
 }
@@ -25643,20 +25607,17 @@ define internal i32 @php_array_reverse_key_compare_string_natural(ptr nocapture 
 define internal i32 @php_array_key_compare_string_natural(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = tail call fastcc i32 @php_array_key_compare_string_natural_general(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %9
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %6, align 4
-  %7 = icmp ugt i32 %.val, %.val7
-  %8 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %8 to i32
-  %.0.i = select i1 %7, i32 1, i32 %..i
-  br label %9
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %7
 
-9:                                                ; preds = %2, %4
+7:                                                ; preds = %2, %4
   %.0 = phi i32 [ %.0.i, %4 ], [ %3, %2 ]
   ret i32 %.0
 }
@@ -25784,20 +25745,17 @@ php_array_reverse_key_compare_string_locale_unstable.exit: ; preds = %51, %33, %
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %4)
   %58 = sub nsw i32 0, %57
   %.not = icmp eq i32 %57, 0
-  br i1 %.not, label %59, label %64
+  br i1 %.not, label %59, label %62
 
 59:                                               ; preds = %php_array_reverse_key_compare_string_locale_unstable.exit
   %60 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %60, align 4
   %61 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %61, align 4
-  %62 = icmp ugt i32 %.val, %.val7
-  %63 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %63 to i32
-  %.0.i = select i1 %62, i32 1, i32 %..i
-  br label %64
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %62
 
-64:                                               ; preds = %php_array_reverse_key_compare_string_locale_unstable.exit, %59
+62:                                               ; preds = %php_array_reverse_key_compare_string_locale_unstable.exit, %59
   %.0 = phi i32 [ %.0.i, %59 ], [ %58, %php_array_reverse_key_compare_string_locale_unstable.exit ]
   ret i32 %.0
 }
@@ -25920,20 +25878,17 @@ define internal i32 @php_array_key_compare_string_locale(ptr nocapture noundef r
   %.057 = phi ptr [ %34, %33 ], [ %49, %48 ], [ %55, %51 ]
   %57 = call i32 @strcoll(ptr noundef nonnull %.058, ptr noundef nonnull %.057) #23
   %.not77 = icmp eq i32 %57, 0
-  br i1 %.not77, label %58, label %63
+  br i1 %.not77, label %58, label %61
 
 58:                                               ; preds = %.loopexit
   %59 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %59, align 4
   %60 = getelementptr i8, ptr %1, i64 12
   %.val78 = load i32, ptr %60, align 4
-  %61 = icmp ugt i32 %.val, %.val78
-  %62 = icmp ult i32 %.val, %.val78
-  %..i = sext i1 %62 to i32
-  %.0.i = select i1 %61, i32 1, i32 %..i
-  br label %63
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val78)
+  br label %61
 
-63:                                               ; preds = %.loopexit, %58
+61:                                               ; preds = %.loopexit, %58
   %.056 = phi i32 [ %.0.i, %58 ], [ %57, %.loopexit ]
   ret i32 %.056
 }
@@ -25964,7 +25919,7 @@ php_array_reverse_key_compare_unstable.exit.thread: ; preds = %11
   %.neg = select i1 %16, i32 -1, i32 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %43
+  br label %41
 
 17:                                               ; preds = %2
   br i1 %10, label %26, label %18
@@ -26012,20 +25967,17 @@ php_array_reverse_key_compare_unstable.exit:      ; preds = %18, %34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %37 = sub nsw i32 0, %.0.i.i
   %.not = icmp eq i32 %.0.i.i, 0
-  br i1 %.not, label %38, label %43
+  br i1 %.not, label %38, label %41
 
 38:                                               ; preds = %php_array_reverse_key_compare_unstable.exit
   %39 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %39, align 4
   %40 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %40, align 4
-  %41 = icmp ugt i32 %.val, %.val7
-  %42 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %42 to i32
-  %.0.i = select i1 %41, i32 1, i32 %..i
-  br label %43
+  %.0.i = call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %41
 
-43:                                               ; preds = %php_array_reverse_key_compare_unstable.exit.thread, %php_array_reverse_key_compare_unstable.exit, %38
+41:                                               ; preds = %php_array_reverse_key_compare_unstable.exit.thread, %php_array_reverse_key_compare_unstable.exit, %38
   %.0 = phi i32 [ %.0.i, %38 ], [ %37, %php_array_reverse_key_compare_unstable.exit ], [ %.neg, %php_array_reverse_key_compare_unstable.exit.thread ]
   ret i32 %.0
 }
@@ -26052,7 +26004,7 @@ define internal i32 @php_array_key_compare(ptr nocapture noundef readonly %0, pt
   %15 = load i64, ptr %14, align 8
   %16 = icmp sgt i64 %13, %15
   %17 = select i1 %16, i32 1, i32 -1
-  br label %44
+  br label %42
 
 18:                                               ; preds = %2
   br i1 %10, label %27, label %19
@@ -26097,20 +26049,17 @@ define internal i32 @php_array_key_compare(ptr nocapture noundef readonly %0, pt
 38:                                               ; preds = %35, %19
   %.0 = phi i32 [ %20, %19 ], [ %37, %35 ]
   %.not45 = icmp eq i32 %.0, 0
-  br i1 %.not45, label %39, label %44
+  br i1 %.not45, label %39, label %42
 
 39:                                               ; preds = %38
   %40 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %40, align 4
   %41 = getelementptr i8, ptr %1, i64 12
   %.val46 = load i32, ptr %41, align 4
-  %42 = icmp ugt i32 %.val, %.val46
-  %43 = icmp ult i32 %.val, %.val46
-  %..i = sext i1 %43 to i32
-  %.0.i = select i1 %42, i32 1, i32 %..i
-  br label %44
+  %.0.i = call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val46)
+  br label %42
 
-44:                                               ; preds = %.thread48, %38, %39
+42:                                               ; preds = %.thread48, %38, %39
   %.035 = phi i32 [ %.0.i, %39 ], [ %.0, %38 ], [ %17, %.thread48 ]
   ret i32 %.035
 }
@@ -26423,20 +26372,17 @@ declare i64 @zval_get_long_func(ptr noundef, i1 noundef zeroext) local_unnamed_a
 define internal i32 @php_array_natural_case_compare(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @php_array_natural_general_compare(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %9
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 12
   %.val9 = load i32, ptr %6, align 4
-  %7 = icmp ugt i32 %.val, %.val9
-  %8 = icmp ult i32 %.val, %.val9
-  %..i = sext i1 %8 to i32
-  %.0.i = select i1 %7, i32 1, i32 %..i
-  br label %9
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val9)
+  br label %7
 
-9:                                                ; preds = %2, %4
+7:                                                ; preds = %2, %4
   %.0 = phi i32 [ %.0.i, %4 ], [ %3, %2 ]
   ret i32 %.0
 }
@@ -26445,20 +26391,17 @@ define internal i32 @php_array_natural_case_compare(ptr noundef %0, ptr noundef 
 define internal i32 @php_array_natural_compare(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call fastcc i32 @php_array_natural_general_compare(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %9
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 12
   %.val9 = load i32, ptr %6, align 4
-  %7 = icmp ugt i32 %.val, %.val9
-  %8 = icmp ult i32 %.val, %.val9
-  %..i = sext i1 %8 to i32
-  %.0.i = select i1 %7, i32 1, i32 %..i
-  br label %9
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val9)
+  br label %7
 
-9:                                                ; preds = %2, %4
+7:                                                ; preds = %2, %4
   %.0 = phi i32 [ %.0.i, %4 ], [ %3, %2 ]
   ret i32 %.0
 }
@@ -26561,20 +26504,17 @@ define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_
   %3 = tail call i32 @numeric_compare_function(ptr noundef %0, ptr noundef %1) #18
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %5, label %10
+  br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %6, align 4
   %7 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %7, align 4
-  %8 = icmp ugt i32 %.val, %.val7
-  %9 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %9 to i32
-  %.0.i = select i1 %8, i32 1, i32 %..i
-  br label %10
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %8
 
-10:                                               ; preds = %2, %5
+8:                                                ; preds = %2, %5
   %.0 = phi i32 [ %.0.i, %5 ], [ %4, %2 ]
   ret i32 %.0
 }
@@ -26583,20 +26523,17 @@ define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_
 define internal i32 @php_array_data_compare_numeric(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @numeric_compare_function(ptr noundef %0, ptr noundef %1) #18
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %9
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 12
   %.val9 = load i32, ptr %6, align 4
-  %7 = icmp ugt i32 %.val, %.val9
-  %8 = icmp ult i32 %.val, %.val9
-  %..i = sext i1 %8 to i32
-  %.0.i = select i1 %7, i32 1, i32 %..i
-  br label %9
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val9)
+  br label %7
 
-9:                                                ; preds = %2, %4
+7:                                                ; preds = %2, %4
   %.0 = phi i32 [ %.0.i, %4 ], [ %3, %2 ]
   ret i32 %.0
 }
@@ -26606,20 +26543,17 @@ define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_
   %3 = tail call i32 @string_case_compare_function(ptr noundef %0, ptr noundef %1) #18
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %5, label %10
+  br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %6, align 4
   %7 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %7, align 4
-  %8 = icmp ugt i32 %.val, %.val7
-  %9 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %9 to i32
-  %.0.i = select i1 %8, i32 1, i32 %..i
-  br label %10
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %8
 
-10:                                               ; preds = %2, %5
+8:                                                ; preds = %2, %5
   %.0 = phi i32 [ %.0.i, %5 ], [ %4, %2 ]
   ret i32 %.0
 }
@@ -26628,20 +26562,17 @@ define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_
 define internal i32 @php_array_data_compare_string_case(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @string_case_compare_function(ptr noundef %0, ptr noundef %1) #18
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %9
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 12
   %.val9 = load i32, ptr %6, align 4
-  %7 = icmp ugt i32 %.val, %.val9
-  %8 = icmp ult i32 %.val, %.val9
-  %..i = sext i1 %8 to i32
-  %.0.i = select i1 %7, i32 1, i32 %..i
-  br label %9
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val9)
+  br label %7
 
-9:                                                ; preds = %2, %4
+7:                                                ; preds = %2, %4
   %.0 = phi i32 [ %.0.i, %4 ], [ %3, %2 ]
   ret i32 %.0
 }
@@ -26651,20 +26582,17 @@ define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_
   %3 = tail call i32 @string_compare_function(ptr noundef %0, ptr noundef %1) #18
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %5, label %10
+  br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %6, align 4
   %7 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %7, align 4
-  %8 = icmp ugt i32 %.val, %.val7
-  %9 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %9 to i32
-  %.0.i = select i1 %8, i32 1, i32 %..i
-  br label %10
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %8
 
-10:                                               ; preds = %2, %5
+8:                                                ; preds = %2, %5
   %.0 = phi i32 [ %.0.i, %5 ], [ %4, %2 ]
   ret i32 %.0
 }
@@ -26673,20 +26601,17 @@ define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_
 define internal i32 @php_array_data_compare_string(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @string_compare_function(ptr noundef %0, ptr noundef %1) #18
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %9
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 12
   %.val9 = load i32, ptr %6, align 4
-  %7 = icmp ugt i32 %.val, %.val9
-  %8 = icmp ult i32 %.val, %.val9
-  %..i = sext i1 %8 to i32
-  %.0.i = select i1 %7, i32 1, i32 %..i
-  br label %9
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val9)
+  br label %7
 
-9:                                                ; preds = %2, %4
+7:                                                ; preds = %2, %4
   %.0 = phi i32 [ %.0.i, %4 ], [ %3, %2 ]
   ret i32 %.0
 }
@@ -26696,20 +26621,17 @@ define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_natur
   %3 = tail call fastcc i32 @php_array_natural_general_compare(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %5, label %10
+  br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %6, align 4
   %7 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %7, align 4
-  %8 = icmp ugt i32 %.val, %.val7
-  %9 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %9 to i32
-  %.0.i = select i1 %8, i32 1, i32 %..i
-  br label %10
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %8
 
-10:                                               ; preds = %2, %5
+8:                                                ; preds = %2, %5
   %.0 = phi i32 [ %.0.i, %5 ], [ %4, %2 ]
   ret i32 %.0
 }
@@ -26719,20 +26641,17 @@ define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_natur
   %3 = tail call fastcc i32 @php_array_natural_general_compare(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %5, label %10
+  br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %6, align 4
   %7 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %7, align 4
-  %8 = icmp ugt i32 %.val, %.val7
-  %9 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %9 to i32
-  %.0.i = select i1 %8, i32 1, i32 %..i
-  br label %10
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %8
 
-10:                                               ; preds = %2, %5
+8:                                                ; preds = %2, %5
   %.0 = phi i32 [ %.0.i, %5 ], [ %4, %2 ]
   ret i32 %.0
 }
@@ -26742,20 +26661,17 @@ define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_
   %3 = tail call i32 @string_locale_compare_function(ptr noundef %0, ptr noundef %1) #18
   %4 = sub nsw i32 0, %3
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %5, label %10
+  br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %6, align 4
   %7 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %7, align 4
-  %8 = icmp ugt i32 %.val, %.val7
-  %9 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %9 to i32
-  %.0.i = select i1 %8, i32 1, i32 %..i
-  br label %10
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %8
 
-10:                                               ; preds = %2, %5
+8:                                                ; preds = %2, %5
   %.0 = phi i32 [ %.0.i, %5 ], [ %4, %2 ]
   ret i32 %.0
 }
@@ -26764,20 +26680,17 @@ define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_data_
 define internal i32 @php_array_data_compare_string_locale(ptr noundef %0, ptr noundef %1) #2 {
   %3 = tail call i32 @string_locale_compare_function(ptr noundef %0, ptr noundef %1) #18
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %9
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %6, align 4
-  %7 = icmp ugt i32 %.val, %.val7
-  %8 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %8 to i32
-  %.0.i = select i1 %7, i32 1, i32 %..i
-  br label %9
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
+  br label %7
 
-9:                                                ; preds = %2, %4
+7:                                                ; preds = %2, %4
   %.0 = phi i32 [ %.0.i, %4 ], [ %3, %2 ]
   ret i32 %.0
 }
@@ -26860,10 +26773,7 @@ php_array_reverse_data_compare_unstable.exit.thread11: ; preds = %38, %php_array
   %.val = load i32, ptr %42, align 4
   %43 = getelementptr i8, ptr %1, i64 12
   %.val7 = load i32, ptr %43, align 4
-  %44 = icmp ugt i32 %.val, %.val7
-  %45 = icmp ult i32 %.val, %.val7
-  %..i = sext i1 %45 to i32
-  %.0.i = select i1 %44, i32 1, i32 %..i
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val7)
   br label %php_array_reverse_data_compare_unstable.exit.thread
 
 php_array_reverse_data_compare_unstable.exit.thread: ; preds = %14, %28, %31, %38, %php_array_reverse_data_compare_unstable.exit, %php_array_reverse_data_compare_unstable.exit.thread11
@@ -26948,10 +26858,7 @@ define internal i32 @php_array_data_compare(ptr noundef %0, ptr noundef %1) #2 {
   %.val = load i32, ptr %43, align 4
   %44 = getelementptr i8, ptr %1, i64 12
   %.val37 = load i32, ptr %44, align 4
-  %45 = icmp ugt i32 %.val, %.val37
-  %46 = icmp ult i32 %.val, %.val37
-  %..i = sext i1 %46 to i32
-  %.0.i = select i1 %45, i32 1, i32 %..i
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val, i32 %.val37)
   br label %.thread
 
 .thread:                                          ; preds = %14, %28, %31, %38, %42, %.thread40
@@ -27734,6 +27641,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #16

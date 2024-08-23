@@ -5103,10 +5103,7 @@ define internal range(i32 -1, 2) i32 @_sort_topo_by_avail_cnt(ptr nocapture noun
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i64, ptr %3, i64 %9
   %11 = load i64, ptr %10, align 8
-  %12 = icmp slt i64 %7, %11
-  %13 = icmp sgt i64 %7, %11
-  %. = sext i1 %13 to i32
-  %.0 = select i1 %12, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i64(i64 %11, i64 %7)
   ret i32 %.0
 }
 
@@ -5127,6 +5124,9 @@ declare i32 @llvm.smin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5

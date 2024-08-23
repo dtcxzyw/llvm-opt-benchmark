@@ -3631,16 +3631,16 @@ _ZNSt4pairIPN3nix7ExprVarESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit: ; preds = 
   br i1 %90, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i: ; preds = %81, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i
-  %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i ], [ %89, %81 ]
-  %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i ], [ %83, %81 ]
-  %91 = lshr i64 %.013.i.i.i, 1
-  %92 = getelementptr inbounds %"struct.std::pair.186", ptr %.sroa.011.012.i.i.i, i64 %91
+  %.014.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i ], [ %89, %81 ]
+  %.sroa.011.013.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i ], [ %83, %81 ]
+  %91 = lshr i64 %.014.i.i.i, 1
+  %92 = getelementptr inbounds %"struct.std::pair.186", ptr %.sroa.011.013.i.i.i, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = icmp ult i32 %93, %.sroa.04.0.copyload
   %95 = getelementptr inbounds i8, ptr %92, i64 8
   %96 = xor i64 %91, -1
-  %97 = add nsw i64 %.013.i.i.i, %96
-  %.sroa.011.1.i.i.i = select i1 %94, ptr %95, ptr %.sroa.011.012.i.i.i
+  %97 = add nsw i64 %.014.i.i.i, %96
+  %.sroa.011.1.i.i.i = select i1 %94, ptr %95, ptr %.sroa.011.013.i.i.i
   %.1.i.i.i = select i1 %94, i64 %97, i64 %91
   %98 = icmp sgt i64 %.1.i.i.i, 0
   br i1 %98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN3nix6SymbolEjESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.i, !llvm.loop !37

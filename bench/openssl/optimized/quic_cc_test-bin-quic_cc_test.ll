@@ -396,8 +396,8 @@ if.end28:                                         ; preds = %lor.lhs.false
 if.end33:                                         ; preds = %if.end28
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_cc_newreno_method, i64 56), align 8
   %call34 = call i64 %6(ptr noundef %call1) #8
-  %cmp.i.not.not.i = icmp eq i64 %call34, 0
-  %conv.i = zext i1 %cmp.i.not.not.i to i32
+  %cmp.i = icmp eq i64 %call34, 0
+  %conv.i = zext i1 %cmp.i to i32
   %call40 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 525, ptr noundef nonnull @.str.33, i32 noundef %conv.i) #8
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %err, label %if.end43
@@ -616,8 +616,8 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %next_time.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %2 = load i64, ptr %next_time.i, align 8
   %3 = load i64, ptr @fake_time.0, align 8
-  %cmp.i.i = icmp ugt i64 %2, %3
-  br i1 %cmp.i.i, label %if.then3.i, label %if.end5.i
+  %cmp2.i = icmp ugt i64 %2, %3
+  br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
   store i64 %2, ptr @fake_time.0, align 8
@@ -633,14 +633,14 @@ land.lhs.true7.i:                                 ; preds = %if.end5.i
   %arrived.i = getelementptr inbounds i8, ptr %call.i.i, i64 36
   %5 = load i32, ptr %arrived.i, align 4
   %tobool8.not.i = icmp eq i32 %5, 0
-  %.pre49.i = load i64, ptr @fake_time.0, align 8
+  %.pre.i = load i64, ptr @fake_time.0, align 8
   br i1 %tobool8.not.i, label %land.lhs.true9.i, label %if.end23.i
 
 land.lhs.true9.i:                                 ; preds = %land.lhs.true7.i
   %arrive_time.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %6 = load i64, ptr %arrive_time.i, align 8
-  %cmp5.i38.not.i = icmp ult i64 %.pre49.i, %6
-  br i1 %cmp5.i38.not.i, label %if.end23.i, label %if.then13.i
+  %cmp12.not.i = icmp ult i64 %.pre.i, %6
+  br i1 %cmp12.not.i, label %if.end23.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %land.lhs.true9.i
   %size.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
@@ -650,58 +650,58 @@ if.then13.i:                                      ; preds = %land.lhs.true9.i
   store i64 %add.i, ptr %spare_capacity.i, align 8
   store i32 1, ptr %arrived.i, align 4
   %9 = load ptr, ptr %pkts.i, align 8
-  %call.i41.i = call ptr @ossl_pqueue_pop(ptr noundef %9) #8
+  %call.i38.i = call ptr @ossl_pqueue_pop(ptr noundef %9) #8
   %next_time17.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %determination_time.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %10 = load i64, ptr %determination_time.i, align 8
   store i64 %10, ptr %next_time17.i, align 8
   %11 = load ptr, ptr %pkts.i, align 8
   %idx.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
-  %call.i42.i = call i32 @ossl_pqueue_push(ptr noundef %11, ptr noundef nonnull %call.i.i, ptr noundef nonnull %idx.i) #8
-  %tobool20.not.i = icmp ne i32 %call.i42.i, 0
+  %call.i39.i = call i32 @ossl_pqueue_push(ptr noundef %11, ptr noundef nonnull %call.i.i, ptr noundef nonnull %idx.i) #8
+  %tobool20.not.i = icmp ne i32 %call.i39.i, 0
   %..i = zext i1 %tobool20.not.i to i32
   br label %net_sim_process_one.exit
 
 if.end23.i:                                       ; preds = %land.lhs.true9.i, %land.lhs.true7.i
   %determination_time24.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %12 = load i64, ptr %determination_time24.i, align 8
-  %cmp5.i44.i = icmp ult i64 %.pre49.i, %12
-  br i1 %cmp5.i44.i, label %net_sim_process_one.exit.thread, label %lor.rhs.i
+  %cmp27.i = icmp ult i64 %.pre.i, %12
+  br i1 %cmp27.i, label %net_sim_process_one.exit.thread, label %lor.rhs.i
 
 if.end23.thread.i:                                ; preds = %if.end5.i
-  %.pre.i = load i64, ptr @fake_time.0, align 8
-  %determination_time2450.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %13 = load i64, ptr %determination_time2450.i, align 8
-  %cmp5.i4451.i = icmp ult i64 %.pre.i, %13
-  br i1 %cmp5.i4451.i, label %net_sim_process_one.exit.thread, label %lor.end.i
+  %determination_time2443.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %13 = load i64, ptr @fake_time.0, align 8
+  %14 = load i64, ptr %determination_time2443.i, align 8
+  %cmp2745.i = icmp ult i64 %13, %14
+  br i1 %cmp2745.i, label %net_sim_process_one.exit.thread, label %lor.end.i
 
 lor.rhs.i:                                        ; preds = %if.end23.i
   %tobool33.i = icmp ne i32 %5, 0
-  %14 = zext i1 %tobool33.i to i32
+  %15 = zext i1 %tobool33.i to i32
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end23.thread.i
-  %lor.ext.i = phi i32 [ %14, %lor.rhs.i ], [ 1, %if.end23.thread.i ]
+  %lor.ext.i = phi i32 [ %15, %lor.rhs.i ], [ 1, %if.end23.thread.i ]
   %call35.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 228, ptr noundef nonnull @.str.27, i32 noundef %lor.ext.i) #8
   %tobool36.not.i = icmp eq i32 %call35.i, 0
   br i1 %tobool36.not.i, label %net_sim_process_one.exit.thread, label %if.end38.i
 
 if.end38.i:                                       ; preds = %lor.end.i
-  %15 = load i32, ptr %success.i, align 8
-  %tobool40.not.i = icmp eq i32 %15, 0
-  %16 = load i64, ptr %call.i.i, align 8
+  %16 = load i32, ptr %success.i, align 8
+  %tobool40.not.i = icmp eq i32 %16, 0
+  %17 = load i64, ptr %call.i.i, align 8
   %size43.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   br i1 %tobool40.not.i, label %if.then41.i, label %if.else.i
 
 if.then41.i:                                      ; preds = %if.end38.i
-  store i64 %16, ptr %loss_info.i, align 8
-  %17 = load i64, ptr %size43.i, align 8
-  store i64 %17, ptr %tx_size.i, align 8
-  %18 = load ptr, ptr %s, align 8
-  %on_data_lost.i = getelementptr inbounds i8, ptr %18, i64 80
-  %19 = load ptr, ptr %on_data_lost.i, align 8
-  %20 = load ptr, ptr %cc.i, align 8
-  %call44.i = call i32 %19(ptr noundef %20, ptr noundef nonnull %loss_info.i) #8
+  store i64 %17, ptr %loss_info.i, align 8
+  %18 = load i64, ptr %size43.i, align 8
+  store i64 %18, ptr %tx_size.i, align 8
+  %19 = load ptr, ptr %s, align 8
+  %on_data_lost.i = getelementptr inbounds i8, ptr %19, i64 80
+  %20 = load ptr, ptr %on_data_lost.i, align 8
+  %21 = load ptr, ptr %cc.i, align 8
+  %call44.i = call i32 %20(ptr noundef %21, ptr noundef nonnull %loss_info.i) #8
   %cmp45.i = icmp ne i32 %call44.i, 0
   %conv46.i = zext i1 %cmp45.i to i32
   %call47.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 237, ptr noundef nonnull @.str.28, i32 noundef %conv46.i) #8
@@ -709,11 +709,11 @@ if.then41.i:                                      ; preds = %if.end38.i
   br i1 %tobool48.not.i, label %net_sim_process_one.exit.thread, label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.then41.i
-  %21 = load ptr, ptr %s, align 8
-  %on_data_lost_finished.i = getelementptr inbounds i8, ptr %21, i64 88
-  %22 = load ptr, ptr %on_data_lost_finished.i, align 8
-  %23 = load ptr, ptr %cc.i, align 8
-  %call53.i = call i32 %22(ptr noundef %23, i32 noundef 0) #8
+  %22 = load ptr, ptr %s, align 8
+  %on_data_lost_finished.i = getelementptr inbounds i8, ptr %22, i64 88
+  %23 = load ptr, ptr %on_data_lost_finished.i, align 8
+  %24 = load ptr, ptr %cc.i, align 8
+  %call53.i = call i32 %23(ptr noundef %24, i32 noundef 0) #8
   %cmp54.i = icmp ne i32 %call53.i, 0
   %conv55.i = zext i1 %cmp54.i to i32
   %call56.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 240, ptr noundef nonnull @.str.29, i32 noundef %conv55.i) #8
@@ -721,24 +721,24 @@ if.end50.i:                                       ; preds = %if.then41.i
   br i1 %tobool57.not.i, label %net_sim_process_one.exit.thread, label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.end50.i
-  %24 = load i64, ptr %size43.i, align 8
-  %25 = load i64, ptr %total_lost.i, align 8
-  %add61.i = add i64 %25, %24
+  %25 = load i64, ptr %size43.i, align 8
+  %26 = load i64, ptr %total_lost.i, align 8
+  %add61.i = add i64 %26, %25
   store i64 %add61.i, ptr %total_lost.i, align 8
-  %26 = load ptr, ptr %pkts.i, align 8
-  %call.i47.i = call ptr @ossl_pqueue_pop(ptr noundef %26) #8
+  %27 = load ptr, ptr %pkts.i, align 8
+  %call.i41.i = call ptr @ossl_pqueue_pop(ptr noundef %27) #8
   call void @CRYPTO_free(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.2, i32 noundef 245) #8
   br label %net_sim_process_one.exit
 
 if.else.i:                                        ; preds = %if.end38.i
-  store i64 %16, ptr %ack_info.i, align 8
-  %27 = load i64, ptr %size43.i, align 8
-  store i64 %27, ptr %tx_size67.i, align 8
-  %28 = load ptr, ptr %s, align 8
-  %on_data_acked.i = getelementptr inbounds i8, ptr %28, i64 72
-  %29 = load ptr, ptr %on_data_acked.i, align 8
-  %30 = load ptr, ptr %cc.i, align 8
-  %call70.i = call i32 %29(ptr noundef %30, ptr noundef nonnull %ack_info.i) #8
+  store i64 %17, ptr %ack_info.i, align 8
+  %28 = load i64, ptr %size43.i, align 8
+  store i64 %28, ptr %tx_size67.i, align 8
+  %29 = load ptr, ptr %s, align 8
+  %on_data_acked.i = getelementptr inbounds i8, ptr %29, i64 72
+  %30 = load ptr, ptr %on_data_acked.i, align 8
+  %31 = load ptr, ptr %cc.i, align 8
+  %call70.i = call i32 %30(ptr noundef %31, ptr noundef nonnull %ack_info.i) #8
   %cmp71.i = icmp ne i32 %call70.i, 0
   %conv72.i = zext i1 %cmp71.i to i32
   %call73.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 252, ptr noundef nonnull @.str.30, i32 noundef %conv72.i) #8
@@ -746,12 +746,12 @@ if.else.i:                                        ; preds = %if.end38.i
   br i1 %tobool74.not.i, label %net_sim_process_one.exit.thread, label %if.end76.i
 
 if.end76.i:                                       ; preds = %if.else.i
-  %31 = load i64, ptr %size43.i, align 8
-  %32 = load i64, ptr %total_acked.i, align 8
-  %add78.i = add i64 %32, %31
+  %32 = load i64, ptr %size43.i, align 8
+  %33 = load i64, ptr %total_acked.i, align 8
+  %add78.i = add i64 %33, %32
   store i64 %add78.i, ptr %total_acked.i, align 8
-  %33 = load ptr, ptr %pkts.i, align 8
-  %call.i48.i = call ptr @ossl_pqueue_pop(ptr noundef %33) #8
+  %34 = load ptr, ptr %pkts.i, align 8
+  %call.i42.i = call ptr @ossl_pqueue_pop(ptr noundef %34) #8
   call void @CRYPTO_free(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.2, i32 noundef 257) #8
   br label %net_sim_process_one.exit
 
@@ -790,10 +790,7 @@ entry:
   %next_time1 = getelementptr inbounds i8, ptr %b, i64 24
   %0 = load i64, ptr %next_time, align 8
   %1 = load i64, ptr %next_time1, align 8
-  %cmp.i = icmp ugt i64 %0, %1
-  %cmp5.i = icmp ult i64 %0, %1
-  %..i = sext i1 %cmp5.i to i32
-  %retval.0.i = select i1 %cmp.i, i32 1, i32 %..i
+  %retval.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
   ret i32 %retval.0.i
 }
 
@@ -827,6 +824,9 @@ declare i32 @test_uint64_t_lt(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #6

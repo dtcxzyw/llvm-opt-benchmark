@@ -3189,10 +3189,7 @@ define internal range(i32 -1, 2) i32 @framenum_compare(ptr noundef %0, ptr nound
   %5 = trunc i64 %4 to i32
   %6 = ptrtoint ptr %1 to i64
   %7 = trunc i64 %6 to i32
-  %8 = icmp ult i32 %5, %7
-  %9 = icmp ugt i32 %5, %7
-  %. = zext i1 %9 to i32
-  %.0 = select i1 %8, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %5, i32 %7)
   ret i32 %.0
 }
 
@@ -4320,14 +4317,17 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #21
+declare i32 @llvm.umax.i32(i32, i32) #20
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4349,8 +4349,8 @@ attributes #16 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true
 attributes #17 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #22 = { nounwind }
 attributes #23 = { cold nounwind }
 attributes #24 = { nounwind willreturn memory(read) }

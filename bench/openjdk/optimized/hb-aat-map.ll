@@ -1747,15 +1747,12 @@ define linkonce_odr hidden noundef i32 @_ZN20hb_aat_map_builder_t15feature_event
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds i8, ptr %1, i64 20
   %43 = load i32, ptr %42, align 4
-  %44 = icmp ult i32 %41, %43
-  %45 = icmp ugt i32 %41, %43
-  %46 = zext i1 %45 to i32
-  %47 = select i1 %44, i32 -1, i32 %46
+  %44 = tail call i32 @llvm.ucmp.i32.i32(i32 %41, i32 %43)
   br label %_ZN20hb_aat_map_builder_t14feature_info_t3cmpEPKvS2_.exit
 
 _ZN20hb_aat_map_builder_t14feature_info_t3cmpEPKvS2_.exit: ; preds = %39, %36, %23, %6, %16, %8, %2
-  %48 = phi i32 [ -1, %2 ], [ 1, %6 ], [ -1, %8 ], [ 1, %16 ], [ %25, %23 ], [ %47, %39 ], [ %38, %36 ]
-  ret i32 %48
+  %45 = phi i32 [ -1, %2 ], [ 1, %6 ], [ -1, %8 ], [ 1, %16 ], [ %25, %23 ], [ %44, %39 ], [ %38, %36 ]
+  ret i32 %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1768,7 +1765,7 @@ define linkonce_odr hidden noundef i32 @_ZN20hb_aat_map_builder_t14feature_info_
 5:                                                ; preds = %2
   %6 = icmp slt i32 %3, %4
   %7 = select i1 %6, i32 -1, i32 1
-  br label %30
+  br label %27
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1788,21 +1785,18 @@ define linkonce_odr hidden noundef i32 @_ZN20hb_aat_map_builder_t14feature_info_
 18:                                               ; preds = %12
   %19 = icmp slt i32 %14, %16
   %20 = select i1 %19, i32 -1, i32 1
-  br label %30
+  br label %27
 
 21:                                               ; preds = %12, %8
   %22 = getelementptr inbounds i8, ptr %0, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds i8, ptr %1, i64 12
   %25 = load i32, ptr %24, align 4
-  %26 = icmp ult i32 %23, %25
-  %27 = icmp ugt i32 %23, %25
-  %28 = zext i1 %27 to i32
-  %29 = select i1 %26, i32 -1, i32 %28
-  br label %30
+  %26 = tail call i32 @llvm.ucmp.i32.i32(i32 %23, i32 %25)
+  br label %27
 
-30:                                               ; preds = %21, %18, %5
-  %.0 = phi i32 [ %7, %5 ], [ %29, %21 ], [ %20, %18 ]
+27:                                               ; preds = %21, %18, %5
+  %.0 = phi i32 [ %7, %5 ], [ %26, %21 ], [ %20, %18 ]
   ret i32 %.0
 }
 
@@ -2651,6 +2645,9 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

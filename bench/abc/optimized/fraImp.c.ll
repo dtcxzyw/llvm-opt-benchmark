@@ -620,10 +620,7 @@ define range(i32 -1, 2) i32 @Sml_CompareMaxId(ptr nocapture noundef readonly %0,
   %8 = getelementptr inbounds i8, ptr %1, i64 2
   %9 = load i16, ptr %8, align 2
   %10 = tail call i16 @llvm.umax.i16(i16 %7, i16 %9)
-  %11 = icmp ult i16 %6, %10
-  %12 = icmp ugt i16 %6, %10
-  %. = zext i1 %12 to i32
-  %.0 = select i1 %11, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i16(i16 %6, i16 %10)
   ret i32 %.0
 }
 
@@ -2179,6 +2176,9 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i16(i16, i16) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16

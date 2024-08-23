@@ -155,8 +155,8 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %ptr, align 8
   %next_timeout.i = getelementptr inbounds i8, ptr %1, i64 240
   %2 = load i64, ptr %next_timeout.i, align 8
-  %cmp.i.not.not.i.not.i = icmp eq i64 %2, 0
-  br i1 %cmp.i.not.not.i.not.i, label %dgram_adjust_rcv_timeout.exit, label %if.then.i
+  %cmp.i.not.i = icmp eq i64 %2, 0
+  br i1 %cmp.i.not.i, label %dgram_adjust_rcv_timeout.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   store i32 16, ptr %sz.i, align 4
@@ -176,8 +176,8 @@ if.then2.i:                                       ; preds = %if.then.i
 if.else.i:                                        ; preds = %if.then.i
   %socket_timeout.i = getelementptr inbounds i8, ptr %1, i64 248
   %5 = load i64, ptr %tv.i, align 8
-  %cmp.i.i = icmp slt i64 %5, 0
-  br i1 %cmp.i.i, label %ossl_time_from_timeval.exit.i, label %if.end.i.i
+  %cmp.i9.i = icmp slt i64 %5, 0
+  br i1 %cmp.i9.i, label %ossl_time_from_timeval.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i
   %6 = getelementptr inbounds i8, ptr %tv.i, i64 8
@@ -195,14 +195,14 @@ ossl_time_from_timeval.exit.i:                    ; preds = %if.end.i.i, %if.els
 if.end.i:                                         ; preds = %ossl_time_from_timeval.exit.i, %if.then2.i
   %call8.i = call i64 @ossl_time_now() #11
   %8 = load i64, ptr %next_timeout.i, align 8
-  %retval.sroa.0.0.i9.i = call i64 @llvm.usub.sat.i64(i64 %8, i64 %call8.i)
-  %spec.select.i = call i64 @llvm.umax.i64(i64 %retval.sroa.0.0.i9.i, i64 1000)
+  %retval.sroa.0.0.i10.i = call i64 @llvm.usub.sat.i64(i64 %8, i64 %call8.i)
+  %spec.select.i = call i64 @llvm.umax.i64(i64 %retval.sroa.0.0.i10.i, i64 1000)
   %socket_timeout26.i = getelementptr inbounds i8, ptr %1, i64 248
   %9 = load i64, ptr %socket_timeout26.i, align 8
-  %cmp.i.not.not.i11.not.i = icmp ne i64 %9, 0
-  %cmp5.i14.not.i = icmp ult i64 %9, %spec.select.i
-  %or.cond.i = select i1 %cmp.i.not.not.i11.not.i, i1 %cmp5.i14.not.i, i1 false
-  br i1 %or.cond.i, label %dgram_adjust_rcv_timeout.exit, label %if.then35.i
+  %cmp.i11.i = icmp eq i64 %9, 0
+  %cmp34.i = icmp uge i64 %9, %spec.select.i
+  %or.cond.i = select i1 %cmp.i11.i, i1 true, i1 %cmp34.i
+  br i1 %or.cond.i, label %if.then35.i, label %dgram_adjust_rcv_timeout.exit
 
 if.then35.i:                                      ; preds = %if.end.i
   %t.sroa.0.0.i.i = call i64 @llvm.uadd.sat.i64(i64 %spec.select.i, i64 999)
@@ -278,8 +278,8 @@ if.end19:                                         ; preds = %if.then.i14, %if.en
   %17 = load ptr, ptr %ptr, align 8
   %next_timeout.i17 = getelementptr inbounds i8, ptr %17, i64 240
   %18 = load i64, ptr %next_timeout.i17, align 8
-  %cmp.i.not.not.i.not.i18 = icmp eq i64 %18, 0
-  br i1 %cmp.i.not.not.i.not.i18, label %dgram_reset_rcv_timeout.exit, label %if.then.i19
+  %cmp.i.not.i18 = icmp eq i64 %18, 0
+  br i1 %cmp.i.not.i18, label %dgram_reset_rcv_timeout.exit, label %if.then.i19
 
 if.then.i19:                                      ; preds = %if.end19
   %socket_timeout.i20 = getelementptr inbounds i8, ptr %17, i64 248

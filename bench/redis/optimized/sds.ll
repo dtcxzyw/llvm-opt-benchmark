@@ -3553,10 +3553,7 @@ sdslen.exit28:                                    ; preds = %sdslen.exit, %sw.bb
   %cond = tail call i64 @llvm.umin.i64(i64 %retval.0.i, i64 %retval.0.i15)
   %call3 = tail call i32 @memcmp(ptr noundef nonnull %s1, ptr noundef nonnull %s2, i64 noundef %cond) #27
   %cmp4 = icmp eq i32 %call3, 0
-  %cmp2 = icmp ult i64 %retval.0.i, %retval.0.i15
-  %cmp5 = icmp ugt i64 %retval.0.i, %retval.0.i15
-  %cond9 = sext i1 %cmp2 to i32
-  %cond11 = select i1 %cmp5, i32 1, i32 %cond9
+  %cond11 = tail call i32 @llvm.ucmp.i32.i64(i64 %retval.0.i, i64 %retval.0.i15)
   %retval.0 = select i1 %cmp4, i32 %cond11, i32 %call3
   ret i32 %retval.0
 }
@@ -6757,6 +6754,9 @@ declare i8 @llvm.umax.i8(i8, i8) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23

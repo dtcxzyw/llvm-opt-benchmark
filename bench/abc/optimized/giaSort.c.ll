@@ -49,7 +49,7 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
   %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv30.i
   %11 = sext i32 %.02225.i to i64
   %12 = getelementptr inbounds i32, ptr %0, i64 %11
-  %13 = tail call i32 %2(ptr noundef nonnull %10, ptr noundef %12) #14
+  %13 = tail call i32 %2(ptr noundef nonnull %10, ptr noundef %12) #15
   %.not.i = icmp eq i32 %13, 0
   %14 = trunc nuw nsw i64 %indvars.iv30.i to i32
   %spec.select.i = select i1 %.not.i, i32 %.02225.i, i32 %14
@@ -89,7 +89,7 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ %26, %25 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %28 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
-  %29 = call i32 %2(ptr noundef %28, ptr noundef nonnull %4) #14
+  %29 = call i32 %2(ptr noundef %28, ptr noundef nonnull %4) #15
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %.preheader, label %27, !llvm.loop !7
 
@@ -101,7 +101,7 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
   %indvars.iv49 = phi i64 [ %30, %.preheader ], [ %indvars.iv.next50, %31 ]
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
   %32 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next50
-  %33 = call i32 %2(ptr noundef nonnull %4, ptr noundef %32) #14
+  %33 = call i32 %2(ptr noundef nonnull %4, ptr noundef %32) #15
   %.not40 = icmp eq i32 %33, 0
   br i1 %.not40, label %34, label %31, !llvm.loop !8
 
@@ -246,10 +246,10 @@ selectionsort2.exit:                              ; preds = %._crit_edge.i, %tai
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Gia_SortGetTest(i32 noundef %0) local_unnamed_addr #0 {
-  tail call void @srand(i32 noundef 0) #14
+  tail call void @srand(i32 noundef 0) #15
   %2 = sext i32 %0 to i64
   %3 = shl nsw i64 %2, 2
-  %4 = tail call noalias ptr @malloc(i64 noundef %3) #15
+  %4 = tail call noalias ptr @malloc(i64 noundef %3) #16
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -259,7 +259,7 @@ define noalias noundef ptr @Gia_SortGetTest(i32 noundef %0) local_unnamed_addr #
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = tail call i32 @rand() #14
+  %6 = tail call i32 @rand() #15
   %7 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
   store i32 %6, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -295,16 +295,16 @@ Abc_Clock.exit:
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #14
+  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %8 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 100000000)
-  call void @srand(i32 noundef 0) #14
-  %9 = call noalias dereferenceable_or_null(400000000) ptr @malloc(i64 noundef 400000000) #15
+  call void @srand(i32 noundef 0) #15
+  %9 = call noalias dereferenceable_or_null(400000000) ptr @malloc(i64 noundef 400000000) #16
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %Abc_Clock.exit
   %indvars.iv.i = phi i64 [ 0, %Abc_Clock.exit ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %10 = call i32 @rand() #14
+  %10 = call i32 @rand() #15
   %11 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.i
   store i32 %10, ptr %11, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -313,7 +313,7 @@ Abc_Clock.exit:
 
 Gia_SortGetTest.exit:                             ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #14
+  %12 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #15
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Abc_Clock.exit29, label %14
 
@@ -329,10 +329,10 @@ Gia_SortGetTest.exit:                             ; preds = %.lr.ph.i
 Abc_Clock.exit29:                                 ; preds = %Gia_SortGetTest.exit, %14
   %.0.i28.neg = phi i64 [ %.neg51, %14 ], [ 1, %Gia_SortGetTest.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @qsort(ptr noundef nonnull %9, i64 noundef 100000000, i64 noundef 4, ptr noundef nonnull @num_cmp1) #14
+  call void @qsort(ptr noundef nonnull %9, i64 noundef 100000000, i64 noundef 4, ptr noundef nonnull @num_cmp1) #15
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %18 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #14
+  %18 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #15
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %27, label %20
 
@@ -352,14 +352,14 @@ Abc_Clock.exit29:                                 ; preds = %Gia_SortGetTest.exi
   %29 = sitofp i64 %28 to double
   %30 = fdiv double %29, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, double noundef %30)
-  call void @free(ptr noundef nonnull %9) #14
-  call void @srand(i32 noundef 0) #14
-  %31 = call noalias dereferenceable_or_null(400000000) ptr @malloc(i64 noundef 400000000) #15
+  call void @free(ptr noundef nonnull %9) #15
+  call void @srand(i32 noundef 0) #15
+  %31 = call noalias dereferenceable_or_null(400000000) ptr @malloc(i64 noundef 400000000) #16
   br label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32, %27
   %indvars.iv.i33 = phi i64 [ 0, %27 ], [ %indvars.iv.next.i34, %.lr.ph.i32 ]
-  %32 = call i32 @rand() #14
+  %32 = call i32 @rand() #15
   %33 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv.i33
   store i32 %32, ptr %33, align 4
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
@@ -368,7 +368,7 @@ Abc_Clock.exit29:                                 ; preds = %Gia_SortGetTest.exi
 
 Gia_SortGetTest.exit36:                           ; preds = %.lr.ph.i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %34 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #14
+  %34 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #15
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %Abc_Clock.exit38, label %36
 
@@ -387,7 +387,7 @@ Abc_Clock.exit38:                                 ; preds = %Gia_SortGetTest.exi
   call fastcc void @sort_rec(ptr noundef nonnull %31, i32 noundef 100000000, ptr noundef nonnull @num_cmp2)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %40 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #14
+  %40 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #15
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %49, label %42
 
@@ -407,14 +407,14 @@ Abc_Clock.exit38:                                 ; preds = %Gia_SortGetTest.exi
   %51 = sitofp i64 %50 to double
   %52 = fdiv double %51, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, double noundef %52)
-  call void @free(ptr noundef nonnull %31) #14
-  call void @srand(i32 noundef 0) #14
-  %53 = call noalias dereferenceable_or_null(400000000) ptr @malloc(i64 noundef 400000000) #15
+  call void @free(ptr noundef nonnull %31) #15
+  call void @srand(i32 noundef 0) #15
+  %53 = call noalias dereferenceable_or_null(400000000) ptr @malloc(i64 noundef 400000000) #16
   br label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %.lr.ph.i41, %49
   %indvars.iv.i42 = phi i64 [ 0, %49 ], [ %indvars.iv.next.i43, %.lr.ph.i41 ]
-  %54 = call i32 @rand() #14
+  %54 = call i32 @rand() #15
   %55 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv.i42
   store i32 %54, ptr %55, align 4
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
@@ -423,7 +423,7 @@ Abc_Clock.exit38:                                 ; preds = %Gia_SortGetTest.exi
 
 Gia_SortGetTest.exit45:                           ; preds = %.lr.ph.i41
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
-  %56 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #14
+  %56 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #15
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %Abc_Clock.exit47, label %58
 
@@ -442,7 +442,7 @@ Abc_Clock.exit47:                                 ; preds = %Gia_SortGetTest.exi
   call fastcc void @sort_rec2(ptr noundef nonnull %53, i32 noundef 100000000)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %0)
-  %62 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %0) #14
+  %62 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %0) #15
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %71, label %64
 
@@ -462,7 +462,7 @@ Abc_Clock.exit47:                                 ; preds = %Gia_SortGetTest.exi
   %73 = sitofp i64 %72 to double
   %74 = fdiv double %73, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, double noundef %74)
-  call void @free(ptr noundef nonnull %53) #14
+  call void @free(ptr noundef nonnull %53) #15
   ret void
 }
 
@@ -476,11 +476,8 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal range(i32 -1, 2) i32 @num_cmp1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp sgt i32 %3, %4
-  %7 = zext i1 %6 to i32
-  %8 = select i1 %5, i32 -1, i32 %7
-  ret i32 %8
+  %5 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -491,23 +488,23 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #14
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #15
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #14
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #15
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #14
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #15
   %10 = load ptr, ptr @stdout, align 8
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #14
-  call void @free(ptr noundef %9) #14
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #15
+  call void @free(ptr noundef %9) #15
   br label %16
 
 14:                                               ; preds = %5
-  %15 = call i32 @vprintf(ptr noundef %1, ptr noundef nonnull %3) #14
+  %15 = call i32 @vprintf(ptr noundef %1, ptr noundef nonnull %3) #15
   br label %16
 
 16:                                               ; preds = %14, %8
@@ -669,7 +666,7 @@ define noundef ptr @Gia_SortFloats(ptr nocapture noundef %0, ptr noundef %1, i32
 5:                                                ; preds = %3
   %6 = sext i32 %2 to i64
   %7 = shl nsw i64 %6, 2
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #15
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #16
   %9 = icmp sgt i32 %2, 0
   br i1 %9, label %.lr.ph.preheader, label %.loopexit
 
@@ -713,11 +710,14 @@ declare void @llvm.va_start.p0(ptr) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -732,10 +732,11 @@ attributes #9 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vecto
 attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind allocsize(0) }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind allocsize(0) }
+attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

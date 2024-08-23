@@ -4563,8 +4563,8 @@ if.then:                                          ; preds = %entry
   %..i = tail call i64 @llvm.umin.i64(i64 %5, i64 %11)
   %bcmp = tail call i32 @bcmp(ptr %3, ptr %9, i64 %..i)
   %cmp6.not.i = icmp eq i32 %bcmp, 0
-  %cmp16 = icmp eq i64 %5, %11
-  %cmp = select i1 %cmp6.not.i, i1 %cmp16, i1 false
+  %cmp12 = icmp eq i64 %5, %11
+  %cmp = select i1 %cmp6.not.i, i1 %cmp12, i1 false
   br i1 %cmp, label %if.end32, label %if.else
 
 if.else:                                          ; preds = %if.then
@@ -4590,11 +4590,11 @@ if.then13:                                        ; preds = %if.else
   %call23 = call { ptr, i64 } %19(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(16) %k2)
   %20 = extractvalue { ptr, i64 } %call23, 0
   %21 = extractvalue { ptr, i64 } %call23, 1
-  %..i8 = call i64 @llvm.umin.i64(i64 %16, i64 %21)
-  %bcmp20 = call i32 @bcmp(ptr %15, ptr %20, i64 %..i8)
-  %cmp6.not.i10 = icmp eq i32 %bcmp20, 0
-  %cmp2518 = icmp eq i64 %16, %21
-  %cmp25 = select i1 %cmp6.not.i10, i1 %cmp2518, i1 false
+  %..i6 = call i64 @llvm.umin.i64(i64 %16, i64 %21)
+  %bcmp14 = call i32 @bcmp(ptr %15, ptr %20, i64 %..i6)
+  %cmp6.not.i8 = icmp eq i32 %bcmp14, 0
+  %cmp2513 = icmp eq i64 %16, %21
+  %cmp25 = select i1 %cmp6.not.i8, i1 %cmp2513, i1 false
   br i1 %cmp25, label %if.then29, label %if.end32
 
 if.then29:                                        ; preds = %if.else, %entry, %if.then13
@@ -4603,11 +4603,11 @@ if.then29:                                        ; preds = %if.else, %entry, %i
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then, %if.then29, %if.then13
-  %node_.i15 = getelementptr inbounds i8, ptr %this, i64 56
-  %22 = load ptr, ptr %node_.i15, align 8
+  %node_.i11 = getelementptr inbounds i8, ptr %this, i64 56
+  %22 = load ptr, ptr %node_.i11, align 8
   %23 = load atomic i64, ptr %22 acquire, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %23 to ptr
-  store ptr %atomic-temp.i.0.i.i.i, ptr %node_.i15, align 8
+  store ptr %atomic-temp.i.0.i.i.i, ptr %node_.i11, align 8
   ret void
 }
 

@@ -4228,10 +4228,7 @@ if.then.i5:                                       ; preds = %geometry_pack_weigh
 geometry_pack_weight.exit9:                       ; preds = %geometry_pack_weight.exit
   %num_objects.i8 = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load i32, ptr %num_objects.i8, align 8
-  %cmp = icmp ult i32 %1, %3
-  %cmp2 = icmp ugt i32 %1, %3
-  %. = zext i1 %cmp2 to i32
-  %retval.0 = select i1 %cmp, i32 -1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %1, i32 %3)
   ret i32 %retval.0
 }
 
@@ -4354,10 +4351,7 @@ entry:
   %2 = load i64, ptr %pack_size, align 8
   %pack_size1 = getelementptr inbounds i8, ptr %1, i64 48
   %3 = load i64, ptr %pack_size1, align 8
-  %cmp = icmp slt i64 %2, %3
-  %cmp4 = icmp sgt i64 %2, %3
-  %. = zext i1 %cmp4 to i32
-  %retval.0 = select i1 %cmp, i32 -1, i32 %.
+  %retval.0 = tail call i32 @llvm.scmp.i32.i64(i64 %2, i64 %3)
   ret i32 %retval.0
 }
 
@@ -4424,7 +4418,13 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
 declare i64 @llvm.usub.sat.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14

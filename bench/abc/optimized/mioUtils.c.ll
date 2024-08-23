@@ -5820,10 +5820,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #24
 define internal range(i32 -1, 2) i32 @Vec_WrdSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ugt i64 %3, %4
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)
   ret i32 %.0
 }
 
@@ -6452,6 +6449,9 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #26
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #29

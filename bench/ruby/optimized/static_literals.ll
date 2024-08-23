@@ -325,7 +325,7 @@ define internal i32 @pm_compare_integer_nodes(ptr noundef %0, ptr noundef %1, pt
 6:                                                ; preds = %3
   %7 = load i16, ptr %2, align 8
   %8 = icmp eq i16 %7, 136
-  br i1 %8, label %9, label %62
+  br i1 %8, label %9, label %59
 
 9:                                                ; preds = %6
   %cond = icmp eq i16 %4, 82
@@ -409,20 +409,17 @@ pm_int64_value.exit.thread:                       ; preds = %13, %18, %9, %pm_in
 pm_int64_value.exit17:                            ; preds = %pm_int64_value.exit, %37, %42, %pm_int64_value.exit.thread
   %.0.i20 = phi i64 [ %.0.i19, %pm_int64_value.exit.thread ], [ %33, %37 ], [ %33, %42 ], [ %33, %pm_int64_value.exit ]
   %.0.i15 = phi i64 [ %57, %pm_int64_value.exit.thread ], [ %41, %37 ], [ %50, %42 ], [ 0, %pm_int64_value.exit ]
-  %58 = icmp slt i64 %.0.i20, %.0.i15
-  %59 = icmp sgt i64 %.0.i20, %.0.i15
-  %60 = zext i1 %59 to i32
-  %61 = select i1 %58, i32 -1, i32 %60
-  br label %66
+  %58 = tail call i32 @llvm.scmp.i32.i64(i64 %.0.i20, i64 %.0.i15)
+  br label %63
 
-62:                                               ; preds = %6
-  %63 = getelementptr inbounds i8, ptr %1, i64 24
-  %64 = getelementptr inbounds i8, ptr %2, i64 24
-  %65 = tail call i32 @pm_integer_compare(ptr noundef nonnull %63, ptr noundef nonnull %64) #7
-  br label %66
+59:                                               ; preds = %6
+  %60 = getelementptr inbounds i8, ptr %1, i64 24
+  %61 = getelementptr inbounds i8, ptr %2, i64 24
+  %62 = tail call i32 @pm_integer_compare(ptr noundef nonnull %60, ptr noundef nonnull %61) #7
+  br label %63
 
-66:                                               ; preds = %62, %pm_int64_value.exit17
-  %.0 = phi i32 [ %61, %pm_int64_value.exit17 ], [ %65, %62 ]
+63:                                               ; preds = %59, %pm_int64_value.exit17
+  %.0 = phi i32 [ %58, %pm_int64_value.exit17 ], [ %62, %59 ]
   ret i32 %.0
 }
 
@@ -434,23 +431,20 @@ define internal i32 @pm_compare_number_nodes(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not36, label %.lr.ph, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedge, %3
-  %.lcssa26 = phi i16 [ %4, %3 ], [ %11, %tailrecurse.backedge ]
-  %.lcssa = phi i16 [ %5, %3 ], [ %12, %tailrecurse.backedge ]
-  %6 = icmp ult i16 %.lcssa26, %.lcssa
-  %7 = icmp ugt i16 %.lcssa26, %.lcssa
-  %8 = zext i1 %7 to i32
-  %9 = select i1 %6, i32 -1, i32 %8
+  %.lcssa26 = phi i16 [ %4, %3 ], [ %8, %tailrecurse.backedge ]
+  %.lcssa = phi i16 [ %5, %3 ], [ %9, %tailrecurse.backedge ]
+  %6 = tail call i32 @llvm.ucmp.i32.i16(i16 %.lcssa26, i16 %.lcssa)
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %tailrecurse.backedge
-  %10 = phi i16 [ %11, %tailrecurse.backedge ], [ %4, %3 ]
+  %7 = phi i16 [ %8, %tailrecurse.backedge ], [ %4, %3 ]
   %.tr2238 = phi ptr [ %.tr22.be, %tailrecurse.backedge ], [ %2, %3 ]
   %.tr2137 = phi ptr [ %.tr21.be, %tailrecurse.backedge ], [ %1, %3 ]
-  switch i16 %10, label %.loopexit [
+  switch i16 %7, label %.loopexit [
     i16 68, label %tailrecurse.backedge
     i16 122, label %tailrecurse.backedge
-    i16 82, label %13
-    i16 54, label %15
+    i16 82, label %10
+    i16 54, label %12
   ]
 
 tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph
@@ -458,28 +452,28 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph
   %.tr22.be = load ptr, ptr %.tr22.be.in, align 8
   %.tr21.be.in = getelementptr inbounds i8, ptr %.tr2137, i64 24
   %.tr21.be = load ptr, ptr %.tr21.be.in, align 8
-  %11 = load i16, ptr %.tr21.be, align 8
-  %12 = load i16, ptr %.tr22.be, align 8
-  %.not = icmp eq i16 %11, %12
+  %8 = load i16, ptr %.tr21.be, align 8
+  %9 = load i16, ptr %.tr22.be, align 8
+  %.not = icmp eq i16 %8, %9
   br i1 %.not, label %.lr.ph, label %tailrecurse._crit_edge
 
-13:                                               ; preds = %.lr.ph
-  %14 = tail call i32 @pm_compare_integer_nodes(ptr noundef %0, ptr noundef nonnull %.tr2137, ptr noundef nonnull %.tr2238)
+10:                                               ; preds = %.lr.ph
+  %11 = tail call i32 @pm_compare_integer_nodes(ptr noundef %0, ptr noundef nonnull %.tr2137, ptr noundef nonnull %.tr2238)
   br label %.loopexit
 
-15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.tr2137, i64 24
-  %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.tr2238, i64 24
-  %19 = load double, ptr %18, align 8
-  %20 = fcmp olt double %17, %19
-  %21 = fcmp ogt double %17, %19
-  %22 = zext i1 %21 to i32
-  %23 = select i1 %20, i32 -1, i32 %22
+12:                                               ; preds = %.lr.ph
+  %13 = getelementptr inbounds i8, ptr %.tr2137, i64 24
+  %14 = load double, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %.tr2238, i64 24
+  %16 = load double, ptr %15, align 8
+  %17 = fcmp olt double %14, %16
+  %18 = fcmp ogt double %14, %16
+  %19 = zext i1 %18 to i32
+  %20 = select i1 %17, i32 -1, i32 %19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %15, %13, %tailrecurse._crit_edge
-  %.0 = phi i32 [ %9, %tailrecurse._crit_edge ], [ %23, %15 ], [ %14, %13 ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %12, %10, %tailrecurse._crit_edge
+  %.0 = phi i32 [ %6, %tailrecurse._crit_edge ], [ %20, %12 ], [ %11, %10 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -537,21 +531,18 @@ define internal i32 @pm_compare_regular_expression_nodes(ptr nocapture readnone 
   %5 = getelementptr inbounds i8, ptr %2, i64 72
   %6 = tail call i32 @pm_string_compare(ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %16
+  br i1 %.not, label %7, label %13
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 2
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr inbounds i8, ptr %2, i64 2
   %11 = load i16, ptr %10, align 2
-  %12 = icmp ult i16 %9, %11
-  %13 = icmp ugt i16 %9, %11
-  %14 = zext i1 %13 to i32
-  %15 = select i1 %12, i32 -1, i32 %14
-  br label %16
+  %12 = tail call i32 @llvm.ucmp.i32.i16(i16 %9, i16 %11)
+  br label %13
 
-16:                                               ; preds = %3, %7
-  %.0 = phi i32 [ %15, %7 ], [ %6, %3 ]
+13:                                               ; preds = %3, %7
+  %.0 = phi i32 [ %12, %7 ], [ %6, %3 ]
   ret i32 %.0
 }
 
@@ -1154,7 +1145,13 @@ declare i32 @pm_integer_compare(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @pm_string_compare(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i16(i16, i16) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind sspstrong willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

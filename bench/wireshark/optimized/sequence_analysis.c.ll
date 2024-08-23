@@ -592,10 +592,7 @@ declare void @g_queue_sort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define internal range(i32 -1, 2) i32 @sequence_analysis_sort_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
   %4 = load i32, ptr %0, align 8
   %5 = load i32, ptr %1, align 8
-  %6 = icmp ult i32 %4, %5
-  %7 = icmp ugt i32 %4, %5
-  %. = zext i1 %7 to i32
-  %.0 = select i1 %6, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %4, i32 %5)
   ret i32 %.0
 }
 
@@ -1739,14 +1736,17 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #11
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+declare i64 @llvm.umin.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1759,8 +1759,8 @@ attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind allocsize(0,1) }

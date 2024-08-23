@@ -420,11 +420,8 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80EL
 define linkonce_odr hidden noundef i32 @_Z12sort_traceidPmS_(ptr noundef %0, ptr noundef %1) #0 comdat {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
-  %5 = icmp ugt i64 %3, %4
-  %6 = icmp ult i64 %3, %4
-  %7 = sext i1 %6 to i32
-  %8 = select i1 %5, i32 1, i32 %7
-  ret i32 %8
+  %5 = tail call noundef i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)
+  ret i32 %5
 }
 
 ; Function Attrs: nofree
@@ -612,6 +609,9 @@ declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

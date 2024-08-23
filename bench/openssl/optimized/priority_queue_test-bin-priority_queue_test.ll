@@ -72,9 +72,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
-  tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_size_t_priority_queue, i32 noundef 1152, i32 noundef 1) #7
-  tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_large_priority_queue) #7
-  tail call void @add_test(ptr noundef nonnull @.str.2, ptr noundef nonnull @test_22644) #7
+  tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_size_t_priority_queue, i32 noundef 1152, i32 noundef 1) #8
+  tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_large_priority_queue) #8
+  tail call void @add_test(ptr noundef nonnull @.str.2, ptr noundef nonnull @test_22644) #8
   ret i32 1
 }
 
@@ -114,7 +114,7 @@ entry:
 define internal range(i32 0, 2) i32 @test_22644() #0 {
 entry:
   %infos = alloca [32 x %struct.info_st], align 16
-  %call.i = tail call ptr @ossl_pqueue_new(ptr noundef nonnull @cmp) #7
+  %call.i = tail call ptr @ossl_pqueue_new(ptr noundef nonnull @cmp) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(768) %infos, i8 0, i64 768, i1 false)
   br label %for.body
 
@@ -129,23 +129,23 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body
   store i64 70650219160667140, ptr %infos, align 16
   %idx = getelementptr inbounds i8, ptr %infos, i64 16
-  %call.i17 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %infos, ptr noundef nonnull %idx) #7
+  %call.i17 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %infos, ptr noundef nonnull %idx) #8
   %cmp5 = icmp ne i32 %call.i17, 0
   %conv = zext i1 %cmp5 to i32
-  %call6 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 192, ptr noundef nonnull @.str.29, i32 noundef %conv) #7
+  %call6 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 192, ptr noundef nonnull @.str.29, i32 noundef %conv) #8
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end
   %0 = load i64, ptr %idx, align 16
-  %call9 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 193, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef %0, i64 noundef 7) #7
+  %call9 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 193, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef %0, i64 noundef 7) #8
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %err, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false
   %1 = load i64, ptr %idx, align 16
-  %call.i18 = call ptr @ossl_pqueue_remove(ptr noundef %call.i, i64 noundef %1) #7
-  %call15 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 194, ptr noundef nonnull @.str.32, ptr noundef %call.i18) #7
+  %call.i18 = call ptr @ossl_pqueue_remove(ptr noundef %call.i, i64 noundef %1) #8
+  %call15 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 194, ptr noundef nonnull @.str.32, ptr noundef %call.i18) #8
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %err, label %if.end
 
@@ -153,23 +153,23 @@ if.end:                                           ; preds = %lor.lhs.false11
   %arrayidx17 = getelementptr inbounds i8, ptr %infos, i64 24
   store i64 289360691352306692, ptr %arrayidx17, align 8
   %idx21 = getelementptr inbounds i8, ptr %infos, i64 40
-  %call.i19 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx17, ptr noundef nonnull %idx21) #7
+  %call.i19 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx17, ptr noundef nonnull %idx21) #8
   %cmp23 = icmp ne i32 %call.i19, 0
   %conv24 = zext i1 %cmp23 to i32
-  %call25 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 198, ptr noundef nonnull @.str.33, i32 noundef %conv24) #7
+  %call25 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 198, ptr noundef nonnull @.str.33, i32 noundef %conv24) #8
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %err, label %lor.lhs.false27
 
 lor.lhs.false27:                                  ; preds = %if.end
   %2 = load i64, ptr %idx21, align 8
-  %call30 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 199, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.31, i64 noundef %2, i64 noundef 7) #7
+  %call30 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 199, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.31, i64 noundef %2, i64 noundef 7) #8
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %err, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %lor.lhs.false27
   %3 = load i64, ptr %idx21, align 8
-  %call.i20 = call ptr @ossl_pqueue_remove(ptr noundef %call.i, i64 noundef %3) #7
-  %call36 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 200, ptr noundef nonnull @.str.35, ptr noundef %call.i20) #7
+  %call.i20 = call ptr @ossl_pqueue_remove(ptr noundef %call.i, i64 noundef %3) #8
+  %call36 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 200, ptr noundef nonnull @.str.35, ptr noundef %call.i20) #8
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %err, label %if.end39
 
@@ -177,16 +177,16 @@ if.end39:                                         ; preds = %lor.lhs.false32
   %arrayidx40 = getelementptr inbounds i8, ptr %infos, i64 48
   store i64 289360691352306692, ptr %arrayidx40, align 16
   %idx44 = getelementptr inbounds i8, ptr %infos, i64 64
-  %call.i21 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx40, ptr noundef nonnull %idx44) #7
+  %call.i21 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx40, ptr noundef nonnull %idx44) #8
   %cmp46 = icmp ne i32 %call.i21, 0
   %conv47 = zext i1 %cmp46 to i32
-  %call48 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 204, ptr noundef nonnull @.str.36, i32 noundef %conv47) #7
+  %call48 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 204, ptr noundef nonnull @.str.36, i32 noundef %conv47) #8
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %err, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %if.end39
   %4 = load i64, ptr %idx44, align 16
-  %call53 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 205, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.31, i64 noundef %4, i64 noundef 7) #7
+  %call53 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 205, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.31, i64 noundef %4, i64 noundef 7) #8
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %err, label %if.end56
 
@@ -194,16 +194,16 @@ if.end56:                                         ; preds = %lor.lhs.false50
   %arrayidx57 = getelementptr inbounds i8, ptr %infos, i64 72
   store i64 289360691352306692, ptr %arrayidx57, align 8
   %idx61 = getelementptr inbounds i8, ptr %infos, i64 88
-  %call.i22 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx57, ptr noundef nonnull %idx61) #7
+  %call.i22 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx57, ptr noundef nonnull %idx61) #8
   %cmp63 = icmp ne i32 %call.i22, 0
   %conv64 = zext i1 %cmp63 to i32
-  %call65 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 209, ptr noundef nonnull @.str.38, i32 noundef %conv64) #7
+  %call65 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 209, ptr noundef nonnull @.str.38, i32 noundef %conv64) #8
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %err, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %if.end56
   %5 = load i64, ptr %idx61, align 8
-  %call70 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 210, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i64 noundef %5, i64 noundef 6) #7
+  %call70 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 210, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i64 noundef %5, i64 noundef 6) #8
   %tobool71.not = icmp eq i32 %call70, 0
   br i1 %tobool71.not, label %err, label %if.end73
 
@@ -211,16 +211,16 @@ if.end73:                                         ; preds = %lor.lhs.false67
   %arrayidx74 = getelementptr inbounds i8, ptr %infos, i64 96
   store i64 289360691352306692, ptr %arrayidx74, align 16
   %idx78 = getelementptr inbounds i8, ptr %infos, i64 112
-  %call.i23 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx74, ptr noundef nonnull %idx78) #7
+  %call.i23 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx74, ptr noundef nonnull %idx78) #8
   %cmp80 = icmp ne i32 %call.i23, 0
   %conv81 = zext i1 %cmp80 to i32
-  %call82 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 214, ptr noundef nonnull @.str.41, i32 noundef %conv81) #7
+  %call82 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 214, ptr noundef nonnull @.str.41, i32 noundef %conv81) #8
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %err, label %lor.lhs.false84
 
 lor.lhs.false84:                                  ; preds = %if.end73
   %6 = load i64, ptr %idx78, align 16
-  %call87 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 215, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i64 noundef %6, i64 noundef 5) #7
+  %call87 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 215, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i64 noundef %6, i64 noundef 5) #8
   %tobool88.not = icmp eq i32 %call87, 0
   br i1 %tobool88.not, label %err, label %if.end90
 
@@ -228,16 +228,16 @@ if.end90:                                         ; preds = %lor.lhs.false84
   %arrayidx91 = getelementptr inbounds i8, ptr %infos, i64 120
   store i64 289360691352306692, ptr %arrayidx91, align 8
   %idx95 = getelementptr inbounds i8, ptr %infos, i64 136
-  %call.i24 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx91, ptr noundef nonnull %idx95) #7
+  %call.i24 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx91, ptr noundef nonnull %idx95) #8
   %cmp97 = icmp ne i32 %call.i24, 0
   %conv98 = zext i1 %cmp97 to i32
-  %call99 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 219, ptr noundef nonnull @.str.44, i32 noundef %conv98) #7
+  %call99 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 219, ptr noundef nonnull @.str.44, i32 noundef %conv98) #8
   %tobool100.not = icmp eq i32 %call99, 0
   br i1 %tobool100.not, label %err, label %lor.lhs.false101
 
 lor.lhs.false101:                                 ; preds = %if.end90
   %7 = load i64, ptr %idx95, align 8
-  %call104 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 220, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i64 noundef %7, i64 noundef 4) #7
+  %call104 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 220, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i64 noundef %7, i64 noundef 4) #8
   %tobool105.not = icmp eq i32 %call104, 0
   br i1 %tobool105.not, label %err, label %if.end107
 
@@ -245,16 +245,16 @@ if.end107:                                        ; preds = %lor.lhs.false101
   %arrayidx108 = getelementptr inbounds i8, ptr %infos, i64 144
   store i64 289360691352306692, ptr %arrayidx108, align 16
   %idx112 = getelementptr inbounds i8, ptr %infos, i64 160
-  %call.i25 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx108, ptr noundef nonnull %idx112) #7
+  %call.i25 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx108, ptr noundef nonnull %idx112) #8
   %cmp114 = icmp ne i32 %call.i25, 0
   %conv115 = zext i1 %cmp114 to i32
-  %call116 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 224, ptr noundef nonnull @.str.47, i32 noundef %conv115) #7
+  %call116 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 224, ptr noundef nonnull @.str.47, i32 noundef %conv115) #8
   %tobool117.not = icmp eq i32 %call116, 0
   br i1 %tobool117.not, label %err, label %lor.lhs.false118
 
 lor.lhs.false118:                                 ; preds = %if.end107
   %8 = load i64, ptr %idx112, align 16
-  %call121 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 225, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i64 noundef %8, i64 noundef 3) #7
+  %call121 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 225, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i64 noundef %8, i64 noundef 3) #8
   %tobool122.not = icmp eq i32 %call121, 0
   br i1 %tobool122.not, label %err, label %if.end124
 
@@ -262,16 +262,16 @@ if.end124:                                        ; preds = %lor.lhs.false118
   %arrayidx125 = getelementptr inbounds i8, ptr %infos, i64 168
   store i64 289360691352306692, ptr %arrayidx125, align 8
   %idx129 = getelementptr inbounds i8, ptr %infos, i64 184
-  %call.i26 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx125, ptr noundef nonnull %idx129) #7
+  %call.i26 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx125, ptr noundef nonnull %idx129) #8
   %cmp131 = icmp ne i32 %call.i26, 0
   %conv132 = zext i1 %cmp131 to i32
-  %call133 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 229, ptr noundef nonnull @.str.50, i32 noundef %conv132) #7
+  %call133 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 229, ptr noundef nonnull @.str.50, i32 noundef %conv132) #8
   %tobool134.not = icmp eq i32 %call133, 0
   br i1 %tobool134.not, label %err, label %lor.lhs.false135
 
 lor.lhs.false135:                                 ; preds = %if.end124
   %9 = load i64, ptr %idx129, align 8
-  %call138 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 230, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i64 noundef %9, i64 noundef 2) #7
+  %call138 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 230, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i64 noundef %9, i64 noundef 2) #8
   %tobool139.not = icmp eq i32 %call138, 0
   br i1 %tobool139.not, label %err, label %if.end141
 
@@ -279,35 +279,35 @@ if.end141:                                        ; preds = %lor.lhs.false135
   %arrayidx142 = getelementptr inbounds i8, ptr %infos, i64 192
   store i64 289360691352306692, ptr %arrayidx142, align 16
   %idx146 = getelementptr inbounds i8, ptr %infos, i64 208
-  %call.i27 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx142, ptr noundef nonnull %idx146) #7
+  %call.i27 = call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %arrayidx142, ptr noundef nonnull %idx146) #8
   %cmp148 = icmp ne i32 %call.i27, 0
   %conv149 = zext i1 %cmp148 to i32
-  %call150 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 234, ptr noundef nonnull @.str.53, i32 noundef %conv149) #7
+  %call150 = call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 234, ptr noundef nonnull @.str.53, i32 noundef %conv149) #8
   %tobool151.not = icmp eq i32 %call150, 0
   br i1 %tobool151.not, label %err, label %lor.lhs.false152
 
 lor.lhs.false152:                                 ; preds = %if.end141
   %10 = load i64, ptr %idx146, align 16
-  %call155 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 235, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, i64 noundef %10, i64 noundef 1) #7
+  %call155 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 235, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, i64 noundef %10, i64 noundef 1) #8
   %tobool156.not = icmp eq i32 %call155, 0
   br i1 %tobool156.not, label %err, label %if.end158
 
 if.end158:                                        ; preds = %lor.lhs.false152
-  %call.i28 = call ptr @ossl_pqueue_pop(ptr noundef %call.i) #7
-  %call160 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 238, ptr noundef nonnull @.str.56, ptr noundef %call.i28) #7
+  %call.i28 = call ptr @ossl_pqueue_pop(ptr noundef %call.i) #8
+  %call160 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 238, ptr noundef nonnull @.str.56, ptr noundef %call.i28) #8
   %tobool161.not = icmp eq i32 %call160, 0
   br i1 %tobool161.not, label %err, label %lor.lhs.false162
 
 lor.lhs.false162:                                 ; preds = %if.end158
-  %call.i29 = call ptr @ossl_pqueue_pop(ptr noundef %call.i) #7
-  %call164 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 239, ptr noundef nonnull @.str.56, ptr noundef %call.i29) #7
+  %call.i29 = call ptr @ossl_pqueue_pop(ptr noundef %call.i) #8
+  %call164 = call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 239, ptr noundef nonnull @.str.56, ptr noundef %call.i29) #8
   %tobool165.not = icmp ne i32 %call164, 0
   %spec.select = zext i1 %tobool165.not to i32
   br label %err
 
 err:                                              ; preds = %lor.lhs.false162, %if.end158, %if.end141, %lor.lhs.false152, %if.end124, %lor.lhs.false135, %if.end107, %lor.lhs.false118, %if.end90, %lor.lhs.false101, %if.end73, %lor.lhs.false84, %if.end56, %lor.lhs.false67, %if.end39, %lor.lhs.false50, %if.end, %lor.lhs.false27, %lor.lhs.false32, %for.end, %lor.lhs.false, %lor.lhs.false11
   %res.0 = phi i32 [ 0, %if.end158 ], [ 0, %lor.lhs.false152 ], [ 0, %if.end141 ], [ 0, %lor.lhs.false135 ], [ 0, %if.end124 ], [ 0, %lor.lhs.false118 ], [ 0, %if.end107 ], [ 0, %lor.lhs.false101 ], [ 0, %if.end90 ], [ 0, %lor.lhs.false84 ], [ 0, %if.end73 ], [ 0, %lor.lhs.false67 ], [ 0, %if.end56 ], [ 0, %lor.lhs.false50 ], [ 0, %if.end39 ], [ 0, %lor.lhs.false32 ], [ 0, %lor.lhs.false27 ], [ 0, %if.end ], [ 0, %lor.lhs.false11 ], [ 0, %lor.lhs.false ], [ 0, %for.end ], [ %spec.select, %lor.lhs.false162 ]
-  call void @ossl_pqueue_free(ptr noundef %call.i) #7
+  call void @ossl_pqueue_free(ptr noundef %call.i) #8
   ret i32 %res.0
 }
 
@@ -323,9 +323,9 @@ entry:
   %cond2 = select i1 %tobool1.not, ptr @.str.11, ptr @.str.10
   %tobool3.not = icmp eq i32 %popfree, 0
   %cond4 = select i1 %tobool3.not, ptr @.str.13, ptr @.str.12
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 63, ptr noundef nonnull @.str.7, i32 noundef %count, ptr noundef %0, ptr noundef nonnull %cond, ptr noundef nonnull %cond2, i32 noundef %remove, ptr noundef nonnull %cond4) #7
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 63, ptr noundef nonnull @.str.7, i32 noundef %count, ptr noundef %0, ptr noundef nonnull %cond, ptr noundef nonnull %cond2, i32 noundef %remove, ptr noundef nonnull %cond4) #8
   %conv = sext i32 %count to i64
-  %call = tail call i32 @test_size_t_le(ptr noundef nonnull @.str.6, i32 noundef 65, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %conv, i64 noundef 500000) #7
+  %call = tail call i32 @test_size_t_le(ptr noundef nonnull @.str.6, i32 noundef 65, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %conv, i64 noundef 500000) #8
   %tobool5.not = icmp eq i32 %call, 0
   br i1 %tobool5.not, label %return, label %if.end
 
@@ -351,7 +351,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
-  %call8 = tail call i32 @test_random() #7
+  %call8 = tail call i32 @test_random() #8
   %conv9 = zext i32 %call8 to i64
   %arrayidx13 = getelementptr inbounds [500000 x i64], ptr @test_size_t_priority_queue_int.values, i64 0, i64 %indvars.iv
   store i64 %conv9, ptr %arrayidx13, align 8
@@ -362,7 +362,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body, %for.body.us, %if.end
   %mul = shl nsw i64 %conv, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @test_size_t_priority_queue_int.sorted, ptr nonnull align 16 @test_size_t_priority_queue_int.values, i64 %mul, i1 false)
-  tail call void @qsort(ptr noundef nonnull @test_size_t_priority_queue_int.sorted, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @qsort_size_t_compare) #7
+  tail call void @qsort(ptr noundef nonnull @test_size_t_priority_queue_int.sorted, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @qsort_size_t_compare) #8
   switch i32 %order, label %if.end26 [
     i32 1, label %if.then18
     i32 2, label %if.then23
@@ -373,18 +373,18 @@ if.then18:                                        ; preds = %for.end
   br label %if.end26
 
 if.then23:                                        ; preds = %for.end
-  tail call void @qsort(ptr noundef nonnull @test_size_t_priority_queue_int.values, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @qsort_size_t_compare_rev) #7
+  tail call void @qsort(ptr noundef nonnull @test_size_t_priority_queue_int.values, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @qsort_size_t_compare_rev) #8
   br label %if.end26
 
 if.end26:                                         ; preds = %for.end, %if.then23, %if.then18
-  %call.i = tail call ptr @ossl_pqueue_new(ptr noundef nonnull @size_t_compare) #7
-  %call28 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 82, ptr noundef nonnull @.str.16, ptr noundef %call.i) #7
+  %call.i = tail call ptr @ossl_pqueue_new(ptr noundef nonnull @size_t_compare) #8
+  %call28 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 82, ptr noundef nonnull @.str.16, ptr noundef %call.i) #8
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end26
-  %call.i46 = tail call i64 @ossl_pqueue_num(ptr noundef %call.i) #7
-  %call31 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 83, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i64 noundef %call.i46, i64 noundef 0) #7
+  %call.i46 = tail call i64 @ossl_pqueue_num(ptr noundef %call.i) #8
+  %call31 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 83, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i64 noundef %call.i46, i64 noundef 0) #8
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %err, label %if.end34
 
@@ -392,10 +392,10 @@ if.end34:                                         ; preds = %lor.lhs.false
   br i1 %tobool.not, label %if.end43, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end34
-  %call.i47 = tail call i32 @ossl_pqueue_reserve(ptr noundef %call.i, i64 noundef %conv) #7
+  %call.i47 = tail call i32 @ossl_pqueue_reserve(ptr noundef %call.i, i64 noundef %conv) #8
   %cmp38 = icmp ne i32 %call.i47, 0
   %conv39 = zext i1 %cmp38 to i32
-  %call40 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 86, ptr noundef nonnull @.str.19, i32 noundef %conv39) #7
+  %call40 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 86, ptr noundef nonnull @.str.19, i32 noundef %conv39) #8
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %err, label %if.end43
 
@@ -415,24 +415,24 @@ for.body47:                                       ; preds = %for.body47.preheade
   %indvars.iv78 = phi i64 [ 0, %for.body47.preheader ], [ %indvars.iv.next79, %for.cond44 ]
   %add.ptr = getelementptr inbounds i64, ptr @test_size_t_priority_queue_int.values, i64 %indvars.iv78
   %add.ptr49 = getelementptr inbounds i64, ptr @test_size_t_priority_queue_int.ref, i64 %indvars.iv78
-  %call.i48 = tail call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr49) #7
+  %call.i48 = tail call i32 @ossl_pqueue_push(ptr noundef %call.i, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr49) #8
   %cmp51 = icmp ne i32 %call.i48, 0
   %conv52 = zext i1 %cmp51 to i32
-  %call53 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 90, ptr noundef nonnull @.str.20, i32 noundef %conv52) #7
+  %call53 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 90, ptr noundef nonnull @.str.20, i32 noundef %conv52) #8
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %err, label %for.cond44
 
 for.end59:                                        ; preds = %for.cond44, %if.end43
-  %call.i49 = tail call ptr @ossl_pqueue_peek(ptr noundef %call.i) #7
+  %call.i49 = tail call ptr @ossl_pqueue_peek(ptr noundef %call.i) #8
   %2 = load i64, ptr %call.i49, align 8
   %3 = load i64, ptr @test_size_t_priority_queue_int.sorted, align 16
-  %call61 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 93, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i64 noundef %2, i64 noundef %3) #7
+  %call61 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 93, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i64 noundef %2, i64 noundef %3) #8
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %err, label %lor.lhs.false63
 
 lor.lhs.false63:                                  ; preds = %for.end59
-  %call.i50 = tail call i64 @ossl_pqueue_num(ptr noundef %call.i) #7
-  %call66 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 94, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.14, i64 noundef %call.i50, i64 noundef %conv) #7
+  %call.i50 = tail call i64 @ossl_pqueue_num(ptr noundef %call.i) #8
+  %call66 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 94, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.14, i64 noundef %call.i50, i64 noundef %conv) #8
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %err, label %if.end69
 
@@ -447,7 +447,7 @@ while.cond.preheader:                             ; preds = %if.end69
 while.body:                                       ; preds = %while.cond.preheader, %if.end91
   %dec64.in = phi i32 [ %dec64, %if.end91 ], [ %remove, %while.cond.preheader ]
   %dec64 = add nsw i32 %dec64.in, -1
-  %call74 = tail call i32 @test_random() #7
+  %call74 = tail call i32 @test_random() #8
   %rem = urem i32 %call74, %count
   %idxprom75 = sext i32 %rem to i64
   %arrayidx76 = getelementptr inbounds [500000 x i64], ptr @test_size_t_priority_queue_int.values, i64 0, i64 %idxprom75
@@ -458,8 +458,8 @@ while.body:                                       ; preds = %while.cond.preheade
 if.then79:                                        ; preds = %while.body
   %arrayidx81 = getelementptr inbounds [500000 x i64], ptr @test_size_t_priority_queue_int.ref, i64 0, i64 %idxprom75
   %5 = load i64, ptr %arrayidx81, align 8
-  %call.i51 = tail call ptr @ossl_pqueue_remove(ptr noundef %call.i, i64 noundef %5) #7
-  %call85 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.6, i32 noundef 102, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef %call.i51, ptr noundef nonnull %arrayidx76) #7
+  %call.i51 = tail call ptr @ossl_pqueue_remove(ptr noundef %call.i, i64 noundef %5) #8
+  %call85 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.6, i32 noundef 102, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef %call.i51, ptr noundef nonnull %arrayidx76) #8
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %err, label %if.end88
 
@@ -473,35 +473,35 @@ if.end91:                                         ; preds = %if.end88, %while.bo
 
 while.end:                                        ; preds = %if.end91, %while.cond.preheader
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @test_size_t_priority_queue_int.sorted, ptr nonnull align 16 @test_size_t_priority_queue_int.values, i64 %mul, i1 false)
-  tail call void @qsort(ptr noundef nonnull @test_size_t_priority_queue_int.sorted, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @qsort_size_t_compare) #7
+  tail call void @qsort(ptr noundef nonnull @test_size_t_priority_queue_int.sorted, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @qsort_size_t_compare) #8
   br label %if.end95
 
 if.end95:                                         ; preds = %while.end, %if.end69
-  %call.i5265 = tail call ptr @ossl_pqueue_peek(ptr noundef %call.i) #7
+  %call.i5265 = tail call ptr @ossl_pqueue_peek(ptr noundef %call.i) #8
   %cmp98.not66 = icmp eq ptr %call.i5265, null
   br i1 %cmp98.not66, label %for.end116, label %for.body100
 
 for.cond96:                                       ; preds = %lor.lhs.false106
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %call.i52 = tail call ptr @ossl_pqueue_peek(ptr noundef %call.i) #7
+  %call.i52 = tail call ptr @ossl_pqueue_peek(ptr noundef %call.i) #8
   %cmp98.not = icmp eq ptr %call.i52, null
   br i1 %cmp98.not, label %for.end116, label %for.body100, !llvm.loop !10
 
 for.body100:                                      ; preds = %if.end95, %for.cond96
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %for.cond96 ], [ 0, %if.end95 ]
-  %call.i53 = tail call ptr @ossl_pqueue_peek(ptr noundef %call.i) #7
+  %call.i53 = tail call ptr @ossl_pqueue_peek(ptr noundef %call.i) #8
   %6 = load i64, ptr %call.i53, align 8
   %arrayidx103 = getelementptr inbounds [500000 x i64], ptr @test_size_t_priority_queue_int.sorted, i64 0, i64 %indvars.iv83
   %7 = load i64, ptr %arrayidx103, align 8
-  %call104 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 111, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.25, i64 noundef %6, i64 noundef %7) #7
+  %call104 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 111, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.25, i64 noundef %6, i64 noundef %7) #8
   %tobool105.not = icmp eq i32 %call104, 0
   br i1 %tobool105.not, label %err, label %lor.lhs.false106
 
 lor.lhs.false106:                                 ; preds = %for.body100
-  %call.i54 = tail call ptr @ossl_pqueue_pop(ptr noundef %call.i) #7
+  %call.i54 = tail call ptr @ossl_pqueue_pop(ptr noundef %call.i) #8
   %8 = load i64, ptr %call.i54, align 8
   %9 = load i64, ptr %arrayidx103, align 8
-  %call110 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 112, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.25, i64 noundef %8, i64 noundef %9) #7
+  %call110 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 112, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.25, i64 noundef %8, i64 noundef %9) #8
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %err, label %for.cond96
 
@@ -510,10 +510,10 @@ for.end116:                                       ; preds = %for.cond96, %if.end
 
 if.then118:                                       ; preds = %for.end116
   store i64 0, ptr @num_rec_freed, align 8
-  %call.i55 = tail call i64 @ossl_pqueue_num(ptr noundef %call.i) #7
-  tail call void @ossl_pqueue_pop_free(ptr noundef %call.i, ptr noundef nonnull @free_checker) #7
+  %call.i55 = tail call i64 @ossl_pqueue_num(ptr noundef %call.i) #8
+  tail call void @ossl_pqueue_pop_free(ptr noundef %call.i, ptr noundef nonnull @free_checker) #8
   %10 = load i64, ptr @num_rec_freed, align 8
-  %call120 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 120, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i64 noundef %10, i64 noundef %call.i55) #7
+  %call120 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 120, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i64 noundef %10, i64 noundef %call.i55) #8
   %tobool121.not = icmp ne i32 %call120, 0
   %spec.select = zext i1 %tobool121.not to i32
   br label %err
@@ -521,7 +521,7 @@ if.then118:                                       ; preds = %for.end116
 err:                                              ; preds = %for.body47, %if.then79, %for.body100, %lor.lhs.false106, %if.then118, %for.end116, %for.end59, %lor.lhs.false63, %land.lhs.true, %if.end26, %lor.lhs.false
   %pq.0 = phi ptr [ %call.i, %lor.lhs.false63 ], [ %call.i, %for.end59 ], [ %call.i, %land.lhs.true ], [ %call.i, %lor.lhs.false ], [ %call.i, %if.end26 ], [ %call.i, %for.end116 ], [ null, %if.then118 ], [ %call.i, %lor.lhs.false106 ], [ %call.i, %for.body100 ], [ %call.i, %if.then79 ], [ %call.i, %for.body47 ]
   %res.0 = phi i32 [ 0, %lor.lhs.false63 ], [ 0, %for.end59 ], [ 0, %land.lhs.true ], [ 0, %lor.lhs.false ], [ 0, %if.end26 ], [ 1, %for.end116 ], [ %spec.select, %if.then118 ], [ 0, %lor.lhs.false106 ], [ 0, %for.body100 ], [ 0, %if.then79 ], [ 0, %for.body47 ]
-  tail call void @ossl_pqueue_free(ptr noundef %pq.0) #7
+  tail call void @ossl_pqueue_free(ptr noundef %pq.0) #8
   br label %return
 
 return:                                           ; preds = %entry, %err
@@ -549,10 +549,7 @@ define internal range(i32 -1, 2) i32 @qsort_size_t_compare(ptr nocapture noundef
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
-  %cmp.i = icmp ult i64 %0, %1
-  %cmp1.i = icmp ugt i64 %0, %1
-  %..i = zext i1 %cmp1.i to i32
-  %retval.0.i = select i1 %cmp.i, i32 -1, i32 %..i
+  %retval.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
   ret i32 %retval.0.i
 }
 
@@ -561,10 +558,7 @@ define internal range(i32 -1, 2) i32 @qsort_size_t_compare_rev(ptr nocapture nou
 entry:
   %0 = load i64, ptr %b, align 8
   %1 = load i64, ptr %a, align 8
-  %cmp.i = icmp ult i64 %0, %1
-  %cmp1.i = icmp ugt i64 %0, %1
-  %..i = zext i1 %cmp1.i to i32
-  %retval.0.i = select i1 %cmp.i, i32 -1, i32 %..i
+  %retval.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
   ret i32 %retval.0.i
 }
 
@@ -575,10 +569,7 @@ define internal range(i32 -1, 2) i32 @size_t_compare(ptr nocapture noundef reado
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
-  %cmp = icmp ult i64 %0, %1
-  %cmp1 = icmp ugt i64 %0, %1
-  %. = zext i1 %cmp1 to i32
-  %retval.0 = select i1 %cmp, i32 -1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
   ret i32 %retval.0
 }
 
@@ -645,6 +636,9 @@ return:                                           ; preds = %if.end10, %if.end6,
   ret i32 %retval.0
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #7
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -652,7 +646,8 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

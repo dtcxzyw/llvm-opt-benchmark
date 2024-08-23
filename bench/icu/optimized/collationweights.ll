@@ -765,10 +765,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZN6icu_75L13compareRangesEPKvS1_S
 entry:
   %1 = load i32, ptr %left, align 4
   %2 = load i32, ptr %right, align 4
-  %cmp = icmp ult i32 %1, %2
-  %cmp2 = icmp ugt i32 %1, %2
-  %. = zext i1 %cmp2 to i32
-  %retval.0 = select i1 %cmp, i32 -1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %1, i32 %2)
   ret i32 %retval.0
 }
 
@@ -1309,6 +1306,9 @@ return:                                           ; preds = %if.then4, %_ZNK6icu
   %retval.0 = phi i32 [ -1, %entry ], [ %2, %_ZNK6icu_7516CollationWeights9incWeightEji.exit ], [ %2, %if.then4 ]
   ret i32 %retval.0
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9

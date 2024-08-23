@@ -349,10 +349,7 @@ define void @vector_sort_int(i32 noundef %0, ptr noundef %1) local_unnamed_addr 
 define internal range(i32 -1, 2) i32 @comp_ascend_int(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp sgt i32 %3, %4
-  %6 = icmp slt i32 %3, %4
-  %. = sext i1 %6 to i32
-  %.0 = select i1 %5, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
   ret i32 %.0
 }
 
@@ -524,6 +521,9 @@ declare void @exit(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

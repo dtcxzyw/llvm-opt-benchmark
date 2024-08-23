@@ -620,10 +620,7 @@ declare void @cli_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) loca
 define internal range(i32 -1, 2) i32 @sort_by_file_offset(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
-  %5 = icmp ult i32 %3, %4
-  %6 = icmp ugt i32 %3, %4
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
   ret i32 %.0
 }
 
@@ -2596,6 +2593,9 @@ declare i16 @llvm.umin.i16(i16, i16) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #10
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11

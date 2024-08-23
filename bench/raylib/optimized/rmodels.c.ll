@@ -64037,10 +64037,7 @@ define internal range(i32 -1, 2) i32 @par_shapes__cmp1(ptr nocapture noundef rea
   %33 = add nsw i32 %32, %25
   %34 = mul nsw i32 %18, %31
   %35 = add nsw i32 %33, %34
-  %36 = icmp slt i32 %20, %35
-  %37 = icmp sgt i32 %20, %35
-  %. = zext i1 %37 to i32
-  %.0 = select i1 %36, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %20, i32 %35)
   ret i32 %.0
 }
 
@@ -64732,6 +64729,9 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #46
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #49

@@ -11446,10 +11446,7 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal range(i32 -1, 2) i32 @Vec_IntSortCompareUnsigned(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp ult i32 %3, %4
-  %6 = icmp ugt i32 %3, %4
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
   ret i32 %.0
 }
 
@@ -12582,6 +12579,9 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #21

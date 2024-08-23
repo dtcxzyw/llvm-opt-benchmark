@@ -1675,16 +1675,16 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.end8.i.i.i.i.i.i
   %12 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i.i.i.i.i = zext i8 %12 to i32
   %add.i.i.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i32 %add.i.i, %add.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult i32 %add.i.i, %add.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i.i
   %sub3.i.i.i.i.i.i = add nsw i32 %div9.i.i.i.i.i.i, -1
   br label %if.end8.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i.i
-  %cmp4.i.i.not.i.i.i.i.i.i = icmp ugt i32 %add.i.i, %add.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp4.i.i.not.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i, label %13
+  %cmp4.not.i.i.i.i.i.i = icmp eq i32 %add.i.i, %add.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp4.not.i.i.i.i.i.i, label %13, label %if.then5.i.i.i.i.i.i
 
 if.then5.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
   %add6.i.i.i.i.i.i = add nuw nsw i32 %div9.i.i.i.i.i.i, 1
@@ -21612,16 +21612,16 @@ while.body.i.i.i:                                 ; preds = %if.end8.i.i.i, %if.
   %mul.i.i.i = zext i32 %0 to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr @__const._ZN2OTL19unicode_to_macromanEj.mapping, i64 %mul.i.i.i
   %1 = load i16, ptr %add.ptr.i.i.i, align 2
-  %cmp.i.i.i.i = icmp ugt i16 %1, %u.addr.sroa.0.0.extract.trunc.i
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
+  %cmp2.i.i.i = icmp ugt i16 %1, %u.addr.sroa.0.0.extract.trunc.i
+  br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i.i.i
   %sub3.i.i.i = add nsw i32 %div9.i.i.i, -1
   br label %if.end8.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %cmp4.i.not.i.i.i = icmp ult i16 %1, %u.addr.sroa.0.0.extract.trunc.i
-  br i1 %cmp4.i.not.i.i.i, label %if.then5.i.i.i, label %_ZN2OTL19unicode_to_macromanEj.exit
+  %cmp4.not.i.i.i = icmp eq i16 %1, %u.addr.sroa.0.0.extract.trunc.i
+  br i1 %cmp4.not.i.i.i, label %_ZN2OTL19unicode_to_macromanEj.exit, label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
   %add6.i.i.i = add nuw nsw i32 %div9.i.i.i, 1
@@ -75651,16 +75651,16 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.end8.i.i.i.i.i.i
   %7 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i.i.i.i.i = zext i8 %7 to i32
   %add.i.i.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i32 %glyph, %add.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
+  %cmp2.i.i.i.i.i.i = icmp ult i32 %glyph, %add.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i.i
   %sub3.i.i.i.i.i.i = add nsw i32 %div9.i.i.i.i.i.i, -1
   br label %if.end8.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.i.i
-  %cmp4.i.i.not.i.i.i.i.i.i = icmp ugt i32 %glyph, %add.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp4.i.i.not.i.i.i.i.i.i, label %if.then5.i.i.i.i.i.i, label %_ZNK2OT20SortedUnsizedArrayOfINS_15BaseGlyphRecordEE7bsearchIjEERKS1_jRKT_S5_.exit.i
+  %cmp4.not.i.i.i.i.i.i = icmp eq i32 %glyph, %add.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp4.not.i.i.i.i.i.i, label %_ZNK2OT20SortedUnsizedArrayOfINS_15BaseGlyphRecordEE7bsearchIjEERKS1_jRKT_S5_.exit.i, label %if.then5.i.i.i.i.i.i
 
 if.then5.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
   %add6.i.i.i.i.i.i = add nuw nsw i32 %div9.i.i.i.i.i.i, 1
@@ -75674,8 +75674,8 @@ if.end8.i.i.i.i.i.i:                              ; preds = %if.then5.i.i.i.i.i.
 
 _ZNK2OT20SortedUnsizedArrayOfINS_15BaseGlyphRecordEE7bsearchIjEERKS1_jRKT_S5_.exit.i: ; preds = %if.else.i.i.i.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds %"struct.OT::BaseGlyphRecord", ptr %add.ptr.i.i.i.i, i64 %conv1.i.i.i.i.i.i
-  %cmp.i.not = icmp eq ptr %arrayidx.i.i.i, @_hb_NullPool
-  br i1 %cmp.i.not, label %return, label %if.end
+  %cmp.i = icmp eq ptr %arrayidx.i.i.i, @_hb_NullPool
+  br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNK2OT20SortedUnsizedArrayOfINS_15BaseGlyphRecordEE7bsearchIjEERKS1_jRKT_S5_.exit.i
   %numLayers = getelementptr inbounds i8, ptr %this, i64 12

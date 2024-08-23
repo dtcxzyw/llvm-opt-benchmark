@@ -6073,17 +6073,12 @@ while.end18:                                      ; preds = %while.cond9
   %conv23.neg = trunc i64 %sub.ptr.sub22.neg to i32
   %sub24 = add i32 %conv19, %conv23.neg
   %cmp25.not = icmp eq i32 %sub24, 0
-  br i1 %cmp25.not, label %if.end27, label %return
-
-if.end27:                                         ; preds = %while.end18
-  %cmp.i32 = icmp slt i32 %0, %1
-  %cmp1.i = icmp sgt i32 %0, %1
-  %..i = zext i1 %cmp1.i to i32
-  %retval.0.i = select i1 %cmp.i32, i32 -1, i32 %..i
+  %retval.0.i = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %0, i32 %1)
+  %spec.select = select i1 %cmp25.not, i32 %retval.0.i, i32 %sub24
   br label %return
 
-return:                                           ; preds = %while.body12, %while.end18, %if.end27
-  %retval.0 = phi i32 [ %retval.0.i, %if.end27 ], [ %sub24, %while.end18 ], [ %sub, %while.body12 ]
+return:                                           ; preds = %while.body12, %while.end18
+  %retval.0 = phi i32 [ %spec.select, %while.end18 ], [ %sub, %while.body12 ]
   ret i32 %retval.0
 }
 
@@ -6094,10 +6089,7 @@ entry:
   %1 = load i32, ptr %newpos, align 4
   %newpos1 = getelementptr inbounds i8, ptr %r, i64 4
   %2 = load i32, ptr %newpos1, align 4
-  %cmp.i = icmp slt i32 %1, %2
-  %cmp1.i = icmp sgt i32 %1, %2
-  %..i = zext i1 %cmp1.i to i32
-  %retval.0.i = select i1 %cmp.i, i32 -1, i32 %..i
+  %retval.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %1, i32 %2)
   ret i32 %retval.0.i
 }
 
@@ -6106,10 +6098,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL16compareKeyOldposPKvS0_S0_(ptr
 entry:
   %1 = load i32, ptr %l, align 4
   %2 = load i32, ptr %r, align 4
-  %cmp.i = icmp slt i32 %1, %2
-  %cmp1.i = icmp sgt i32 %1, %2
-  %..i = zext i1 %cmp1.i to i32
-  %retval.0.i = select i1 %cmp.i, i32 -1, i32 %..i
+  %retval.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %1, i32 %2)
   ret i32 %retval.0.i
 }
 
@@ -6917,6 +6906,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #28

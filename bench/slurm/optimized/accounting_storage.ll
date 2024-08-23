@@ -105,7 +105,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @jobacct_storage_job_start_direct(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call zeroext i1 @slurm_with_slurmdbd() #6
+  %3 = tail call zeroext i1 @slurm_with_slurmdbd() #7
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
@@ -140,13 +140,13 @@ define i32 @jobacct_storage_job_start_direct(ptr noundef %0, ptr noundef %1) loc
   %19 = load i64, ptr %18, align 8
   store i64 0, ptr %18, align 8
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 496), align 8
-  %21 = tail call i32 %20(ptr noundef %0, ptr noundef nonnull %1) #6
+  %21 = tail call i32 %20(ptr noundef %0, ptr noundef nonnull %1) #7
   store i64 %19, ptr %18, align 8
   br label %jobacct_storage_g_job_start.exit
 
 22:                                               ; preds = %13
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 496), align 8
-  %24 = tail call i32 %23(ptr noundef %0, ptr noundef nonnull %1) #6
+  %24 = tail call i32 %23(ptr noundef %0, ptr noundef nonnull %1) #7
   br label %jobacct_storage_g_job_start.exit
 
 jobacct_storage_g_job_start.exit:                 ; preds = %22, %17, %10, %9, %4
@@ -180,13 +180,13 @@ define i32 @jobacct_storage_g_job_start(ptr noundef %0, ptr noundef %1) local_un
   %14 = load i64, ptr %13, align 8
   store i64 0, ptr %13, align 8
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 496), align 8
-  %16 = tail call i32 %15(ptr noundef %0, ptr noundef nonnull %1) #6
+  %16 = tail call i32 %15(ptr noundef %0, ptr noundef nonnull %1) #7
   store i64 %14, ptr %13, align 8
   br label %20
 
 17:                                               ; preds = %8
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 496), align 8
-  %19 = tail call i32 %18(ptr noundef %0, ptr noundef nonnull %1) #6
+  %19 = tail call i32 %18(ptr noundef %0, ptr noundef nonnull %1) #7
   br label %20
 
 20:                                               ; preds = %5, %2, %17, %12
@@ -196,14 +196,14 @@ define i32 @jobacct_storage_g_job_start(ptr noundef %0, ptr noundef %1) local_un
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @acct_storage_g_init() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @plugin_context_lock) #6
+  %1 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @plugin_context_lock) #7
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @__errno_location() #7
+  %3 = tail call ptr @__errno_location() #8
   store i32 %1, ptr %3, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 335, ptr noundef nonnull @__func__.acct_storage_g_init) #8
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 335, ptr noundef nonnull @__func__.acct_storage_g_init) #9
   unreachable
 
 4:                                                ; preds = %0
@@ -217,14 +217,14 @@ define range(i32 -1, 1) i32 @acct_storage_g_init() local_unnamed_addr #0 {
   br i1 %.not10, label %.sink.split, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef nonnull %7, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 640) #6
+  %9 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef nonnull %7, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 640) #7
   store ptr %9, ptr @plugin_context, align 8
   %.not11 = icmp eq ptr %9, null
   br i1 %.not11, label %10, label %.sink.split
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 72), align 8
-  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %11) #6
+  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %11) #7
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %6, %10
@@ -235,14 +235,14 @@ define range(i32 -1, 1) i32 @acct_storage_g_init() local_unnamed_addr #0 {
 
 13:                                               ; preds = %.sink.split, %4
   %.0 = phi i32 [ 0, %4 ], [ %.0.ph, %.sink.split ]
-  %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @plugin_context_lock) #6
+  %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @plugin_context_lock) #7
   %.not12 = icmp eq i32 %14, 0
   br i1 %.not12, label %17, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @__errno_location() #7
+  %16 = tail call ptr @__errno_location() #8
   store i32 %14, ptr %16, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 358, ptr noundef nonnull @__func__.acct_storage_g_init) #8
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 358, ptr noundef nonnull @__func__.acct_storage_g_init) #9
   unreachable
 
 17:                                               ; preds = %13
@@ -267,14 +267,14 @@ declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @acct_storage_g_fini() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @plugin_context_lock) #6
+  %1 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @plugin_context_lock) #7
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @__errno_location() #7
+  %3 = tail call ptr @__errno_location() #8
   store i32 %1, ptr %3, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 366, ptr noundef nonnull @__func__.acct_storage_g_fini) #8
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 366, ptr noundef nonnull @__func__.acct_storage_g_fini) #9
   unreachable
 
 4:                                                ; preds = %0
@@ -283,21 +283,21 @@ define i32 @acct_storage_g_fini() local_unnamed_addr #0 {
   br i1 %.not8, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %5) #6
+  %7 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %5) #7
   store ptr null, ptr @plugin_context, align 8
   br label %8
 
 8:                                                ; preds = %6, %4
   %.0 = phi i32 [ %7, %6 ], [ 0, %4 ]
   store i32 0, ptr @plugin_inited, align 4
-  %9 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @plugin_context_lock) #6
+  %9 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @plugin_context_lock) #7
   %.not9 = icmp eq i32 %9, 0
   br i1 %.not9, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @__errno_location() #7
+  %11 = tail call ptr @__errno_location() #8
   store i32 %9, ptr %11, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 372, ptr noundef nonnull @__func__.acct_storage_g_fini) #8
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 372, ptr noundef nonnull @__func__.acct_storage_g_fini) #9
   unreachable
 
 12:                                               ; preds = %8
@@ -314,7 +314,7 @@ define ptr @acct_storage_g_get_connection(i32 noundef %0, ptr noundef %1, i1 nou
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @ops, align 8
-  %9 = tail call ptr %8(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #6
+  %9 = tail call ptr %8(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -330,7 +330,7 @@ define i32 @acct_storage_g_close_connection(ptr noundef %0) local_unnamed_addr #
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
-  %6 = tail call i32 %5(ptr noundef %0) #6
+  %6 = tail call i32 %5(ptr noundef %0) #7
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -346,7 +346,7 @@ define i32 @acct_storage_g_commit(ptr noundef %0, i1 noundef zeroext %1) local_u
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
-  %7 = tail call i32 %6(ptr noundef %0, i1 noundef zeroext %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, i1 noundef zeroext %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -362,7 +362,7 @@ define i32 @acct_storage_g_add_users(ptr noundef %0, i32 noundef %1, ptr noundef
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 24), align 8
-  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -378,7 +378,7 @@ define ptr @acct_storage_g_add_users_cond(ptr noundef %0, i32 noundef %1, ptr no
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 32), align 8
-  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
+  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -394,7 +394,7 @@ define i32 @acct_storage_g_add_coord(ptr noundef %0, i32 noundef %1, ptr noundef
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 40), align 8
-  %9 = tail call i32 %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
+  %9 = tail call i32 %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -410,7 +410,7 @@ define i32 @acct_storage_g_add_accounts(ptr noundef %0, i32 noundef %1, ptr noun
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 48), align 8
-  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -426,7 +426,7 @@ define ptr @acct_storage_g_add_accounts_cond(ptr noundef %0, i32 noundef %1, ptr
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 56), align 8
-  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
+  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -442,7 +442,7 @@ define i32 @acct_storage_g_add_clusters(ptr noundef %0, i32 noundef %1, ptr noun
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 64), align 8
-  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -458,7 +458,7 @@ define i32 @acct_storage_g_add_federations(ptr noundef %0, i32 noundef %1, ptr n
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 72), align 8
-  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -474,7 +474,7 @@ define i32 @acct_storage_g_add_tres(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 80), align 8
-  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -490,7 +490,7 @@ define i32 @acct_storage_g_add_assocs(ptr noundef %0, i32 noundef %1, ptr nounde
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 88), align 8
-  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -506,7 +506,7 @@ define i32 @acct_storage_g_add_qos(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 96), align 8
-  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -522,7 +522,7 @@ define i32 @acct_storage_g_add_res(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 104), align 8
-  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -538,7 +538,7 @@ define i32 @acct_storage_g_add_wckeys(ptr noundef %0, i32 noundef %1, ptr nounde
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 112), align 8
-  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -554,7 +554,7 @@ define i32 @acct_storage_g_add_reservation(ptr noundef %0, ptr noundef %1) local
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 120), align 8
-  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -570,7 +570,7 @@ define ptr @acct_storage_g_modify_users(ptr noundef %0, i32 noundef %1, ptr noun
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 128), align 8
-  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
+  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -586,7 +586,7 @@ define ptr @acct_storage_g_modify_accounts(ptr noundef %0, i32 noundef %1, ptr n
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 136), align 8
-  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
+  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -602,7 +602,7 @@ define ptr @acct_storage_g_modify_clusters(ptr noundef %0, i32 noundef %1, ptr n
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 144), align 8
-  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
+  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -618,7 +618,7 @@ define ptr @acct_storage_g_modify_assocs(ptr noundef %0, i32 noundef %1, ptr nou
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 152), align 8
-  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
+  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -634,7 +634,7 @@ define ptr @acct_storage_g_modify_federations(ptr noundef %0, i32 noundef %1, pt
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 160), align 8
-  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
+  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -650,7 +650,7 @@ define ptr @acct_storage_g_modify_job(ptr noundef %0, i32 noundef %1, ptr nounde
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 168), align 8
-  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
+  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -666,7 +666,7 @@ define ptr @acct_storage_g_modify_qos(ptr noundef %0, i32 noundef %1, ptr nounde
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 176), align 8
-  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
+  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -682,7 +682,7 @@ define ptr @acct_storage_g_modify_res(ptr noundef %0, i32 noundef %1, ptr nounde
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 184), align 8
-  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
+  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -698,7 +698,7 @@ define ptr @acct_storage_g_modify_wckeys(ptr noundef %0, i32 noundef %1, ptr nou
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 192), align 8
-  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
+  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -714,7 +714,7 @@ define i32 @acct_storage_g_modify_reservation(ptr noundef %0, ptr noundef %1) lo
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 200), align 8
-  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -730,7 +730,7 @@ define ptr @acct_storage_g_remove_users(ptr noundef %0, i32 noundef %1, ptr noun
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 208), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -746,7 +746,7 @@ define ptr @acct_storage_g_remove_coord(ptr noundef %0, i32 noundef %1, ptr noun
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 216), align 8
-  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #6
+  %9 = tail call ptr %8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #7
   br label %10
 
 10:                                               ; preds = %4, %7
@@ -762,7 +762,7 @@ define ptr @acct_storage_g_remove_accounts(ptr noundef %0, i32 noundef %1, ptr n
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 224), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -778,7 +778,7 @@ define ptr @acct_storage_g_remove_clusters(ptr noundef %0, i32 noundef %1, ptr n
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 232), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -794,7 +794,7 @@ define ptr @acct_storage_g_remove_assocs(ptr noundef %0, i32 noundef %1, ptr nou
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 240), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -810,7 +810,7 @@ define ptr @acct_storage_g_remove_federations(ptr noundef %0, i32 noundef %1, pt
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 248), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -826,7 +826,7 @@ define ptr @acct_storage_g_remove_qos(ptr noundef %0, i32 noundef %1, ptr nounde
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 256), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -842,7 +842,7 @@ define ptr @acct_storage_g_remove_res(ptr noundef %0, i32 noundef %1, ptr nounde
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 264), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -858,7 +858,7 @@ define ptr @acct_storage_g_remove_wckeys(ptr noundef %0, i32 noundef %1, ptr nou
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 272), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -874,7 +874,7 @@ define i32 @acct_storage_g_remove_reservation(ptr noundef %0, ptr noundef %1) lo
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 280), align 8
-  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -890,7 +890,7 @@ define ptr @acct_storage_g_get_users(ptr noundef %0, i32 noundef %1, ptr noundef
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 288), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -906,7 +906,7 @@ define ptr @acct_storage_g_get_accounts(ptr noundef %0, i32 noundef %1, ptr noun
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 296), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -922,7 +922,7 @@ define ptr @acct_storage_g_get_clusters(ptr noundef %0, i32 noundef %1, ptr noun
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 304), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -938,7 +938,7 @@ define ptr @acct_storage_g_get_federations(ptr noundef %0, i32 noundef %1, ptr n
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 312), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -954,7 +954,7 @@ define ptr @acct_storage_g_get_config(ptr noundef %0, ptr noundef %1) local_unna
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 320), align 8
-  %7 = tail call ptr %6(ptr noundef %0, ptr noundef %1) #6
+  %7 = tail call ptr %6(ptr noundef %0, ptr noundef %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -970,7 +970,7 @@ define ptr @acct_storage_g_get_tres(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 328), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -986,7 +986,7 @@ define ptr @acct_storage_g_get_assocs(ptr noundef %0, i32 noundef %1, ptr nounde
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 336), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -1002,7 +1002,7 @@ define ptr @acct_storage_g_get_events(ptr noundef %0, i32 noundef %1, ptr nounde
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 344), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -1018,7 +1018,7 @@ define ptr @acct_storage_g_get_instances(ptr noundef %0, i32 noundef %1, ptr nou
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 352), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -1034,7 +1034,7 @@ define ptr @acct_storage_g_get_problems(ptr noundef %0, i32 noundef %1, ptr noun
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 360), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -1050,7 +1050,7 @@ define ptr @acct_storage_g_get_qos(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 368), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -1066,7 +1066,7 @@ define ptr @acct_storage_g_get_res(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 376), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -1082,7 +1082,7 @@ define ptr @acct_storage_g_get_wckeys(ptr noundef %0, i32 noundef %1, ptr nounde
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 384), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -1098,7 +1098,7 @@ define ptr @acct_storage_g_get_reservations(ptr noundef %0, i32 noundef %1, ptr 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 392), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -1114,7 +1114,7 @@ define ptr @acct_storage_g_get_txn(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 400), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -1130,7 +1130,7 @@ define i32 @acct_storage_g_get_usage(ptr noundef %0, i32 noundef %1, ptr noundef
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 408), align 8
-  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) #6
+  %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) #7
   br label %12
 
 12:                                               ; preds = %6, %9
@@ -1146,7 +1146,7 @@ define i32 @acct_storage_g_roll_usage(ptr noundef %0, i64 noundef %1, i64 nounde
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 416), align 8
-  %10 = tail call i32 %9(ptr noundef %0, i64 noundef %1, i64 noundef %2, i16 noundef zeroext %3, ptr noundef %4) #6
+  %10 = tail call i32 %9(ptr noundef %0, i64 noundef %1, i64 noundef %2, i16 noundef zeroext %3, ptr noundef %4) #7
   br label %11
 
 11:                                               ; preds = %5, %8
@@ -1162,7 +1162,7 @@ define i32 @acct_storage_g_fix_runaway_jobs(ptr noundef %0, i32 noundef %1, ptr 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 424), align 8
-  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -1178,7 +1178,7 @@ define i32 @clusteracct_storage_g_node_down(ptr noundef %0, ptr noundef %1, i64 
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 432), align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) #6
+  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) #7
   br label %11
 
 11:                                               ; preds = %5, %8
@@ -1194,7 +1194,7 @@ define ptr @acct_storage_g_node_inx(ptr noundef %0, ptr noundef %1) local_unname
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 440), align 8
-  %7 = tail call ptr %6(ptr noundef %0, ptr noundef %1) #6
+  %7 = tail call ptr %6(ptr noundef %0, ptr noundef %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1210,13 +1210,13 @@ define i32 @clusteracct_storage_g_node_up(ptr noundef %0, ptr noundef %1, i64 no
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %1, i64 368
-  tail call void @slurm_xfree(ptr noundef nonnull %7) #6
+  tail call void @slurm_xfree(ptr noundef nonnull %7) #7
   %8 = getelementptr inbounds i8, ptr %1, i64 376
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 384
   store i32 -2, ptr %9, align 8
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 448), align 8
-  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i64 noundef %2) #6
+  %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i64 noundef %2) #7
   br label %12
 
 12:                                               ; preds = %3, %6
@@ -1234,7 +1234,7 @@ define i32 @clusteracct_storage_g_node_update(ptr noundef %0, ptr noundef %1) lo
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 456), align 8
-  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1250,7 +1250,7 @@ define i32 @clusteracct_storage_g_cluster_tres(ptr noundef %0, ptr noundef %1, p
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 464), align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext %4) #6
+  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext %4) #7
   br label %11
 
 11:                                               ; preds = %5, %8
@@ -1266,7 +1266,7 @@ define i32 @clusteracct_storage_g_register_ctld(ptr noundef %0, i16 noundef zero
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 472), align 8
-  %7 = tail call i32 %6(ptr noundef %0, i16 noundef zeroext %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, i16 noundef zeroext %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1282,7 +1282,7 @@ define i32 @clusteracct_storage_g_register_disconn_ctld(ptr noundef %0, ptr noun
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 480), align 8
-  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1298,7 +1298,7 @@ define i32 @clusteracct_storage_g_fini_ctld(ptr noundef %0, ptr noundef %1) loca
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 488), align 8
-  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1320,7 +1320,7 @@ define i32 @jobacct_storage_g_job_heavy(ptr noundef %0, ptr noundef %1) local_un
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 504), align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #6
+  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #7
   br label %11
 
 11:                                               ; preds = %5, %2, %8
@@ -1342,7 +1342,7 @@ define i32 @jobacct_storage_g_job_complete(ptr noundef %0, ptr noundef %1) local
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 512), align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #6
+  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #7
   br label %11
 
 11:                                               ; preds = %5, %2, %8
@@ -1364,7 +1364,7 @@ define i32 @jobacct_storage_g_step_start(ptr noundef %0, ptr noundef %1) local_u
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 520), align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #6
+  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #7
   br label %11
 
 11:                                               ; preds = %5, %2, %8
@@ -1386,7 +1386,7 @@ define i32 @jobacct_storage_g_step_complete(ptr noundef %0, ptr noundef %1) loca
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 528), align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #6
+  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #7
   br label %11
 
 11:                                               ; preds = %5, %2, %8
@@ -1408,7 +1408,7 @@ define i32 @jobacct_storage_g_job_suspend(ptr noundef %0, ptr noundef %1) local_
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 536), align 8
-  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #6
+  %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #7
   br label %11
 
 11:                                               ; preds = %5, %2, %8
@@ -1424,7 +1424,7 @@ define ptr @jobacct_storage_g_get_jobs_cond(ptr noundef %0, i32 noundef %1, ptr 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 544), align 8
-  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call ptr %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   %9 = icmp ne ptr %8, null
   %10 = icmp ne ptr %2, null
   %or.cond = and i1 %10, %9
@@ -1437,12 +1437,12 @@ define ptr @jobacct_storage_g_get_jobs_cond(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @list_count(ptr noundef nonnull %13) #6
+  %15 = tail call i32 @list_count(ptr noundef nonnull %13) #7
   %16 = icmp sgt i32 %15, 1
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %14
-  tail call void @list_sort(ptr noundef nonnull %8, ptr noundef nonnull @_sort_desc_submit_time) #6
+  tail call void @list_sort(ptr noundef nonnull %8, ptr noundef nonnull @_sort_desc_submit_time) #7
   br label %18
 
 18:                                               ; preds = %6, %11, %14, %17, %3
@@ -1462,10 +1462,7 @@ define internal range(i32 -1, 2) i32 @_sort_desc_submit_time(ptr nocapture nound
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 328
   %8 = load i64, ptr %7, align 8
-  %9 = icmp slt i64 %6, %8
-  %10 = icmp sgt i64 %6, %8
-  %. = zext i1 %10 to i32
-  %.0 = select i1 %9, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i64(i64 %6, i64 %8)
   ret i32 %.0
 }
 
@@ -1477,7 +1474,7 @@ define i32 @jobacct_storage_g_archive(ptr noundef %0, ptr noundef %1) local_unna
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 552), align 8
-  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1493,7 +1490,7 @@ define i32 @jobacct_storage_g_archive_load(ptr noundef %0, ptr noundef %1) local
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 560), align 8
-  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1509,7 +1506,7 @@ define i32 @acct_storage_g_update_shares_used(ptr noundef %0, ptr noundef %1) lo
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 568), align 8
-  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1525,7 +1522,7 @@ define i32 @acct_storage_g_flush_jobs_on_cluster(ptr noundef %0, i64 noundef %1)
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 576), align 8
-  %7 = tail call i32 %6(ptr noundef %0, i64 noundef %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, i64 noundef %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1541,7 +1538,7 @@ define i32 @acct_storage_g_reconfig(ptr noundef %0, i1 noundef zeroext %1) local
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 584), align 8
-  %7 = tail call i32 %6(ptr noundef %0, i1 noundef zeroext %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, i1 noundef zeroext %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1557,7 +1554,7 @@ define i32 @acct_storage_g_reset_lft_rgt(ptr noundef %0, i32 noundef %1, ptr nou
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 592), align 8
-  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -1573,7 +1570,7 @@ define i32 @acct_storage_g_get_stats(ptr noundef %0, ptr noundef %1) local_unnam
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 600), align 8
-  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #6
+  %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1589,7 +1586,7 @@ define i32 @acct_storage_g_clear_stats(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 608), align 8
-  %6 = tail call i32 %5(ptr noundef %0) #6
+  %6 = tail call i32 %5(ptr noundef %0) #7
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -1605,7 +1602,7 @@ define i32 @acct_storage_g_get_data(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 616), align 8
-  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #6
+  %8 = tail call i32 %7(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -1621,7 +1618,7 @@ define void @acct_storage_g_send_all(ptr noundef %0, i64 noundef %1, i32 noundef
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 624), align 8
-  tail call void %7(ptr noundef %0, i64 noundef %1, i32 noundef %2) #6
+  tail call void %7(ptr noundef %0, i64 noundef %1, i32 noundef %2) #7
   br label %8
 
 8:                                                ; preds = %3, %6
@@ -1636,7 +1633,7 @@ define i32 @acct_storage_g_shutdown(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 632), align 8
-  %6 = tail call i32 %5(ptr noundef %0) #6
+  %6 = tail call i32 %5(ptr noundef %0) #7
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -1644,15 +1641,19 @@ define i32 @acct_storage_g_shutdown(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %.0
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #6
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { noreturn nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(none) }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

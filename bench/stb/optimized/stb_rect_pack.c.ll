@@ -614,10 +614,7 @@ if.end6:                                          ; preds = %if.end
   %2 = load i32, ptr %w, align 4
   %w7 = getelementptr inbounds i8, ptr %b, i64 4
   %3 = load i32, ptr %w7, align 4
-  %cmp8 = icmp sgt i32 %2, %3
-  %cmp11 = icmp slt i32 %2, %3
-  %conv = zext i1 %cmp11 to i32
-  %cond = select i1 %cmp8, i32 -1, i32 %conv
+  %cond = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %2)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end6
@@ -632,10 +629,7 @@ entry:
   %0 = load i32, ptr %was_packed, align 4
   %was_packed1 = getelementptr inbounds i8, ptr %b, i64 20
   %1 = load i32, ptr %was_packed1, align 4
-  %cmp = icmp slt i32 %0, %1
-  %cmp4 = icmp sgt i32 %0, %1
-  %conv = zext i1 %cmp4 to i32
-  %cond = select i1 %cmp, i32 -1, i32 %conv
+  %cond = tail call i32 @llvm.scmp.i32.i32(i32 %0, i32 %1)
   ret i32 %cond
 }
 
@@ -827,6 +821,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

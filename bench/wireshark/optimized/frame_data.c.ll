@@ -15,17 +15,17 @@ define hidden void @frame_delta_abs_time(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %2) #4
+  %6 = tail call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %2) #5
   %.not8 = icmp eq ptr %6, null
   br i1 %.not8, label %.thread, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 56
-  tail call void @nstime_delta(ptr noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %6) #4
+  tail call void @nstime_delta(ptr noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %6) #5
   br label %9
 
 .thread:                                          ; preds = %4, %5
-  tail call void @nstime_set_zero(ptr noundef %3) #4
+  tail call void @nstime_set_zero(ptr noundef %3) #5
   br label %9
 
 9:                                                ; preds = %.thread, %7
@@ -40,226 +40,223 @@ declare void @nstime_set_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  switch i32 %3, label %120 [
+  switch i32 %3, label %117 [
     i32 32, label %5
-    i32 45, label %12
-    i32 2, label %52
-    i32 0, label %52
-    i32 1, label %52
-    i32 44, label %52
-    i32 42, label %52
-    i32 43, label %52
-    i32 35, label %84
-    i32 5, label %86
-    i32 6, label %88
-    i32 33, label %90
-    i32 3, label %105
+    i32 45, label %9
+    i32 2, label %49
+    i32 0, label %49
+    i32 1, label %49
+    i32 44, label %49
+    i32 42, label %49
+    i32 43, label %49
+    i32 35, label %81
+    i32 5, label %83
+    i32 6, label %85
+    i32 33, label %87
+    i32 3, label %102
   ]
 
 5:                                                ; preds = %4
   %6 = load i32, ptr %1, align 8
   %7 = load i32, ptr %2, align 8
-  %8 = icmp ult i32 %6, %7
-  %9 = icmp ugt i32 %6, %7
-  %10 = zext i1 %9 to i32
-  %11 = select i1 %8, i32 -1, i32 %10
-  br label %121
+  %8 = tail call i32 @llvm.ucmp.i32.i32(i32 %6, i32 %7)
+  br label %118
 
-12:                                               ; preds = %4
-  %13 = tail call i32 @timestamp_get_type() #4
-  switch i32 %13, label %121 [
-    i32 1, label %14
-    i32 2, label %14
-    i32 3, label %14
-    i32 7, label %14
-    i32 8, label %14
-    i32 9, label %14
-    i32 6, label %14
-    i32 0, label %46
-    i32 4, label %48
-    i32 5, label %50
+9:                                                ; preds = %4
+  %10 = tail call i32 @timestamp_get_type() #5
+  switch i32 %10, label %118 [
+    i32 1, label %11
+    i32 2, label %11
+    i32 3, label %11
+    i32 7, label %11
+    i32 8, label %11
+    i32 9, label %11
+    i32 6, label %11
+    i32 0, label %43
+    i32 4, label %45
+    i32 5, label %47
   ]
 
-14:                                               ; preds = %12, %12, %12, %12, %12, %12, %12
-  %15 = getelementptr inbounds i8, ptr %1, i64 50
+11:                                               ; preds = %9, %9, %9, %9, %9, %9, %9
+  %12 = getelementptr inbounds i8, ptr %1, i64 50
+  %13 = load i16, ptr %12, align 2
+  %14 = and i16 %13, 32
+  %.not96 = icmp eq i16 %14, 0
+  %15 = getelementptr inbounds i8, ptr %2, i64 50
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 32
-  %.not96 = icmp eq i16 %17, 0
-  %18 = getelementptr inbounds i8, ptr %2, i64 50
-  %19 = load i16, ptr %18, align 2
-  %20 = and i16 %19, 32
-  %.not99 = icmp eq i16 %20, 0
-  br i1 %.not96, label %22, label %21
+  %.not99 = icmp eq i16 %17, 0
+  br i1 %.not96, label %19, label %18
 
-21:                                               ; preds = %14
-  br i1 %.not99, label %121, label %23
+18:                                               ; preds = %11
+  br i1 %.not99, label %118, label %20
 
-22:                                               ; preds = %14
-  br i1 %.not99, label %23, label %121
+19:                                               ; preds = %11
+  br i1 %.not99, label %20, label %118
 
-23:                                               ; preds = %21, %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 56
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 56
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp slt i64 %25, %27
-  br i1 %28, label %121, label %29
+20:                                               ; preds = %18, %19
+  %21 = getelementptr inbounds i8, ptr %1, i64 56
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %2, i64 56
+  %24 = load i64, ptr %23, align 8
+  %25 = icmp slt i64 %22, %24
+  br i1 %25, label %118, label %26
 
-29:                                               ; preds = %23
-  %30 = icmp sgt i64 %25, %27
-  br i1 %30, label %121, label %31
+26:                                               ; preds = %20
+  %27 = icmp sgt i64 %22, %24
+  br i1 %27, label %118, label %28
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %1, i64 64
-  %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 64
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp slt i32 %33, %35
-  br i1 %36, label %121, label %37
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds i8, ptr %1, i64 64
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 64
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp slt i32 %30, %32
+  br i1 %33, label %118, label %34
 
-37:                                               ; preds = %31
-  %38 = icmp sgt i32 %33, %35
-  br i1 %38, label %121, label %39
+34:                                               ; preds = %28
+  %35 = icmp sgt i32 %30, %32
+  br i1 %35, label %118, label %36
 
-39:                                               ; preds = %37
-  %40 = load i32, ptr %1, align 8
-  %41 = load i32, ptr %2, align 8
-  %42 = icmp ult i32 %40, %41
-  br i1 %42, label %121, label %43
+36:                                               ; preds = %34
+  %37 = load i32, ptr %1, align 8
+  %38 = load i32, ptr %2, align 8
+  %39 = icmp ult i32 %37, %38
+  br i1 %39, label %118, label %40
 
-43:                                               ; preds = %39
-  %44 = icmp ugt i32 %40, %41
-  %45 = zext i1 %44 to i32
-  br label %121
+40:                                               ; preds = %36
+  %41 = icmp ugt i32 %37, %38
+  %42 = zext i1 %41 to i32
+  br label %118
 
-46:                                               ; preds = %12
-  %47 = tail call fastcc i32 @frame_data_time_delta_rel_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %121
+43:                                               ; preds = %9
+  %44 = tail call fastcc i32 @frame_data_time_delta_rel_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br label %118
 
-48:                                               ; preds = %12
-  %49 = tail call fastcc i32 @frame_data_time_delta_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %121
+45:                                               ; preds = %9
+  %46 = tail call fastcc i32 @frame_data_time_delta_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br label %118
 
-50:                                               ; preds = %12
-  %51 = tail call fastcc i32 @frame_data_time_delta_dis_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %121
+47:                                               ; preds = %9
+  %48 = tail call fastcc i32 @frame_data_time_delta_dis_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br label %118
 
-52:                                               ; preds = %4, %4, %4, %4, %4, %4
-  %53 = getelementptr inbounds i8, ptr %1, i64 50
+49:                                               ; preds = %4, %4, %4, %4, %4, %4
+  %50 = getelementptr inbounds i8, ptr %1, i64 50
+  %51 = load i16, ptr %50, align 2
+  %52 = and i16 %51, 32
+  %.not = icmp eq i16 %52, 0
+  %53 = getelementptr inbounds i8, ptr %2, i64 50
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, 32
-  %.not = icmp eq i16 %55, 0
-  %56 = getelementptr inbounds i8, ptr %2, i64 50
-  %57 = load i16, ptr %56, align 2
-  %58 = and i16 %57, 32
-  %.not95 = icmp eq i16 %58, 0
-  br i1 %.not, label %60, label %59
+  %.not95 = icmp eq i16 %55, 0
+  br i1 %.not, label %57, label %56
 
-59:                                               ; preds = %52
-  br i1 %.not95, label %121, label %61
+56:                                               ; preds = %49
+  br i1 %.not95, label %118, label %58
 
-60:                                               ; preds = %52
-  br i1 %.not95, label %61, label %121
+57:                                               ; preds = %49
+  br i1 %.not95, label %58, label %118
 
-61:                                               ; preds = %59, %60
-  %62 = getelementptr inbounds i8, ptr %1, i64 56
-  %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %2, i64 56
-  %65 = load i64, ptr %64, align 8
-  %66 = icmp slt i64 %63, %65
-  br i1 %66, label %121, label %67
+58:                                               ; preds = %56, %57
+  %59 = getelementptr inbounds i8, ptr %1, i64 56
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %2, i64 56
+  %62 = load i64, ptr %61, align 8
+  %63 = icmp slt i64 %60, %62
+  br i1 %63, label %118, label %64
 
-67:                                               ; preds = %61
-  %68 = icmp sgt i64 %63, %65
-  br i1 %68, label %121, label %69
+64:                                               ; preds = %58
+  %65 = icmp sgt i64 %60, %62
+  br i1 %65, label %118, label %66
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %1, i64 64
-  %71 = load i32, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %2, i64 64
-  %73 = load i32, ptr %72, align 8
-  %74 = icmp slt i32 %71, %73
-  br i1 %74, label %121, label %75
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds i8, ptr %1, i64 64
+  %68 = load i32, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %2, i64 64
+  %70 = load i32, ptr %69, align 8
+  %71 = icmp slt i32 %68, %70
+  br i1 %71, label %118, label %72
 
-75:                                               ; preds = %69
-  %76 = icmp sgt i32 %71, %73
-  br i1 %76, label %121, label %77
+72:                                               ; preds = %66
+  %73 = icmp sgt i32 %68, %70
+  br i1 %73, label %118, label %74
 
-77:                                               ; preds = %75
-  %78 = load i32, ptr %1, align 8
-  %79 = load i32, ptr %2, align 8
-  %80 = icmp ult i32 %78, %79
-  br i1 %80, label %121, label %81
+74:                                               ; preds = %72
+  %75 = load i32, ptr %1, align 8
+  %76 = load i32, ptr %2, align 8
+  %77 = icmp ult i32 %75, %76
+  br i1 %77, label %118, label %78
 
-81:                                               ; preds = %77
-  %82 = icmp ugt i32 %78, %79
-  %83 = zext i1 %82 to i32
-  br label %121
+78:                                               ; preds = %74
+  %79 = icmp ugt i32 %75, %76
+  %80 = zext i1 %79 to i32
+  br label %118
 
-84:                                               ; preds = %4
-  %85 = tail call fastcc i32 @frame_data_time_delta_rel_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %121
+81:                                               ; preds = %4
+  %82 = tail call fastcc i32 @frame_data_time_delta_rel_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br label %118
 
-86:                                               ; preds = %4
-  %87 = tail call fastcc i32 @frame_data_time_delta_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %121
+83:                                               ; preds = %4
+  %84 = tail call fastcc i32 @frame_data_time_delta_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br label %118
 
-88:                                               ; preds = %4
-  %89 = tail call fastcc i32 @frame_data_time_delta_dis_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %121
+85:                                               ; preds = %4
+  %86 = tail call fastcc i32 @frame_data_time_delta_dis_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br label %118
 
-90:                                               ; preds = %4
-  %91 = getelementptr inbounds i8, ptr %1, i64 4
-  %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %2, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp ult i32 %92, %94
-  br i1 %95, label %121, label %96
+87:                                               ; preds = %4
+  %88 = getelementptr inbounds i8, ptr %1, i64 4
+  %89 = load i32, ptr %88, align 4
+  %90 = getelementptr inbounds i8, ptr %2, i64 4
+  %91 = load i32, ptr %90, align 4
+  %92 = icmp ult i32 %89, %91
+  br i1 %92, label %118, label %93
 
-96:                                               ; preds = %90
-  %97 = icmp ugt i32 %92, %94
-  br i1 %97, label %121, label %98
+93:                                               ; preds = %87
+  %94 = icmp ugt i32 %89, %91
+  br i1 %94, label %118, label %95
 
-98:                                               ; preds = %96
-  %99 = load i32, ptr %1, align 8
-  %100 = load i32, ptr %2, align 8
-  %101 = icmp ult i32 %99, %100
-  br i1 %101, label %121, label %102
+95:                                               ; preds = %93
+  %96 = load i32, ptr %1, align 8
+  %97 = load i32, ptr %2, align 8
+  %98 = icmp ult i32 %96, %97
+  br i1 %98, label %118, label %99
 
-102:                                              ; preds = %98
-  %103 = icmp ugt i32 %99, %100
-  %104 = zext i1 %103 to i32
-  br label %121
+99:                                               ; preds = %95
+  %100 = icmp ugt i32 %96, %97
+  %101 = zext i1 %100 to i32
+  br label %118
 
-105:                                              ; preds = %4
-  %106 = getelementptr inbounds i8, ptr %1, i64 12
-  %107 = load i32, ptr %106, align 4
-  %108 = getelementptr inbounds i8, ptr %2, i64 12
-  %109 = load i32, ptr %108, align 4
-  %110 = icmp ult i32 %107, %109
-  br i1 %110, label %121, label %111
+102:                                              ; preds = %4
+  %103 = getelementptr inbounds i8, ptr %1, i64 12
+  %104 = load i32, ptr %103, align 4
+  %105 = getelementptr inbounds i8, ptr %2, i64 12
+  %106 = load i32, ptr %105, align 4
+  %107 = icmp ult i32 %104, %106
+  br i1 %107, label %118, label %108
 
-111:                                              ; preds = %105
-  %112 = icmp ugt i32 %107, %109
-  br i1 %112, label %121, label %113
+108:                                              ; preds = %102
+  %109 = icmp ugt i32 %104, %106
+  br i1 %109, label %118, label %110
 
-113:                                              ; preds = %111
-  %114 = load i32, ptr %1, align 8
-  %115 = load i32, ptr %2, align 8
-  %116 = icmp ult i32 %114, %115
-  br i1 %116, label %121, label %117
+110:                                              ; preds = %108
+  %111 = load i32, ptr %1, align 8
+  %112 = load i32, ptr %2, align 8
+  %113 = icmp ult i32 %111, %112
+  br i1 %113, label %118, label %114
 
-117:                                              ; preds = %113
-  %118 = icmp ugt i32 %114, %115
-  %119 = zext i1 %118 to i32
-  br label %121
+114:                                              ; preds = %110
+  %115 = icmp ugt i32 %111, %112
+  %116 = zext i1 %115 to i32
+  br label %118
 
-120:                                              ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 151, ptr noundef nonnull @__func__.frame_data_compare) #4
-  br label %121
+117:                                              ; preds = %4
+  tail call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 151, ptr noundef nonnull @__func__.frame_data_compare) #5
+  br label %118
 
-121:                                              ; preds = %105, %117, %113, %111, %90, %102, %98, %96, %59, %61, %69, %81, %77, %75, %67, %60, %12, %21, %23, %31, %43, %39, %37, %29, %22, %120, %88, %86, %84, %50, %48, %46, %5
-  %.0 = phi i32 [ 0, %120 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %11, %5 ], [ -1, %21 ], [ 1, %22 ], [ -1, %23 ], [ 1, %29 ], [ -1, %31 ], [ 1, %37 ], [ %45, %43 ], [ -1, %39 ], [ 0, %12 ], [ -1, %59 ], [ 1, %60 ], [ -1, %61 ], [ 1, %67 ], [ -1, %69 ], [ 1, %75 ], [ %83, %81 ], [ -1, %77 ], [ -1, %90 ], [ 1, %96 ], [ %104, %102 ], [ -1, %98 ], [ -1, %105 ], [ 1, %111 ], [ %119, %117 ], [ -1, %113 ]
+118:                                              ; preds = %102, %114, %110, %108, %87, %99, %95, %93, %56, %58, %66, %78, %74, %72, %64, %57, %9, %18, %20, %28, %40, %36, %34, %26, %19, %117, %85, %83, %81, %47, %45, %43, %5
+  %.0 = phi i32 [ 0, %117 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %8, %5 ], [ -1, %18 ], [ 1, %19 ], [ -1, %20 ], [ 1, %26 ], [ -1, %28 ], [ 1, %34 ], [ %42, %40 ], [ -1, %36 ], [ 0, %9 ], [ -1, %56 ], [ 1, %57 ], [ -1, %58 ], [ 1, %64 ], [ -1, %66 ], [ 1, %72 ], [ %80, %78 ], [ -1, %74 ], [ -1, %87 ], [ 1, %93 ], [ %101, %99 ], [ -1, %95 ], [ -1, %102 ], [ 1, %108 ], [ %116, %114 ], [ -1, %110 ]
   ret i32 %.0
 }
 
@@ -275,17 +272,17 @@ define internal fastcc range(i32 -1, 2) i32 @frame_data_time_delta_rel_compare(p
   br i1 %.not.i, label %.thread.i, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %7) #4
+  %9 = tail call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %7) #5
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %.thread.i, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %1, i64 56
-  call void @nstime_delta(ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %9) #4
+  call void @nstime_delta(ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %9) #5
   br label %frame_delta_abs_time.exit
 
 .thread.i:                                        ; preds = %8, %3
-  call void @nstime_set_zero(ptr noundef nonnull %4) #4
+  call void @nstime_set_zero(ptr noundef nonnull %4) #5
   br label %frame_delta_abs_time.exit
 
 frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
@@ -295,17 +292,17 @@ frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
   br i1 %.not.i22, label %.thread.i24, label %14
 
 14:                                               ; preds = %frame_delta_abs_time.exit
-  %15 = call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %13) #4
+  %15 = call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %13) #5
   %.not8.i23 = icmp eq ptr %15, null
   br i1 %.not8.i23, label %.thread.i24, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %17, ptr noundef nonnull %15) #4
+  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %17, ptr noundef nonnull %15) #5
   br label %frame_delta_abs_time.exit25
 
 .thread.i24:                                      ; preds = %14, %frame_delta_abs_time.exit
-  call void @nstime_set_zero(ptr noundef nonnull %5) #4
+  call void @nstime_set_zero(ptr noundef nonnull %5) #5
   br label %frame_delta_abs_time.exit25
 
 frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
@@ -373,17 +370,17 @@ define internal fastcc range(i32 -1, 2) i32 @frame_data_time_delta_compare(ptr n
   br i1 %.not.i, label %.thread.i, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %7) #4
+  %9 = tail call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %7) #5
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %.thread.i, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %1, i64 56
-  call void @nstime_delta(ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %9) #4
+  call void @nstime_delta(ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %9) #5
   br label %frame_delta_abs_time.exit
 
 .thread.i:                                        ; preds = %8, %3
-  call void @nstime_set_zero(ptr noundef nonnull %4) #4
+  call void @nstime_set_zero(ptr noundef nonnull %4) #5
   br label %frame_delta_abs_time.exit
 
 frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
@@ -393,17 +390,17 @@ frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
   br i1 %.not.i22, label %.thread.i24, label %14
 
 14:                                               ; preds = %frame_delta_abs_time.exit
-  %15 = call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %13) #4
+  %15 = call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %13) #5
   %.not8.i23 = icmp eq ptr %15, null
   br i1 %.not8.i23, label %.thread.i24, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %17, ptr noundef nonnull %15) #4
+  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %17, ptr noundef nonnull %15) #5
   br label %frame_delta_abs_time.exit25
 
 .thread.i24:                                      ; preds = %14, %frame_delta_abs_time.exit
-  call void @nstime_set_zero(ptr noundef nonnull %5) #4
+  call void @nstime_set_zero(ptr noundef nonnull %5) #5
   br label %frame_delta_abs_time.exit25
 
 frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
@@ -471,17 +468,17 @@ define internal fastcc range(i32 -1, 2) i32 @frame_data_time_delta_dis_compare(p
   br i1 %.not.i, label %.thread.i, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %7) #4
+  %9 = tail call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %7) #5
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %.thread.i, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %1, i64 56
-  call void @nstime_delta(ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %9) #4
+  call void @nstime_delta(ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %9) #5
   br label %frame_delta_abs_time.exit
 
 .thread.i:                                        ; preds = %8, %3
-  call void @nstime_set_zero(ptr noundef nonnull %4) #4
+  call void @nstime_set_zero(ptr noundef nonnull %4) #5
   br label %frame_delta_abs_time.exit
 
 frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
@@ -491,17 +488,17 @@ frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
   br i1 %.not.i22, label %.thread.i24, label %14
 
 14:                                               ; preds = %frame_delta_abs_time.exit
-  %15 = call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %13) #4
+  %15 = call ptr @epan_get_frame_ts(ptr noundef %0, i32 noundef %13) #5
   %.not8.i23 = icmp eq ptr %15, null
   br i1 %.not8.i23, label %.thread.i24, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %17, ptr noundef nonnull %15) #4
+  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %17, ptr noundef nonnull %15) #5
   br label %frame_delta_abs_time.exit25
 
 .thread.i24:                                      ; preds = %14, %frame_delta_abs_time.exit
-  call void @nstime_set_zero(ptr noundef nonnull %5) #4
+  call void @nstime_set_zero(ptr noundef nonnull %5) #5
   br label %frame_delta_abs_time.exit25
 
 frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
@@ -753,7 +750,7 @@ define void @frame_data_set_before_dissect(ptr noundef %0, ptr nocapture noundef
   %22 = phi ptr [ %0, %20 ], [ %17, %16 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 56
   %24 = getelementptr inbounds i8, ptr %22, i64 56
-  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %23, ptr noundef nonnull %24) #4
+  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %23, ptr noundef nonnull %24) #5
   %25 = load i64, ptr %1, align 8
   %sext = shl i64 %25, 32
   %26 = ashr exact i64 %sext, 32
@@ -844,7 +841,7 @@ define void @frame_data_reset(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call void @g_slist_free(ptr noundef nonnull %7) #4
+  tail call void @g_slist_free(ptr noundef nonnull %7) #5
   store ptr null, ptr %6, align 8
   br label %9
 
@@ -855,7 +852,7 @@ define void @frame_data_reset(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %.not9, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %11) #4
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %11) #5
   store ptr null, ptr %10, align 8
   br label %13
 
@@ -875,7 +872,7 @@ define void @frame_data_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @g_slist_free(ptr noundef nonnull %3) #4
+  tail call void @g_slist_free(ptr noundef nonnull %3) #5
   store ptr null, ptr %2, align 8
   br label %5
 
@@ -886,7 +883,7 @@ define void @frame_data_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %.not7, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %7) #4
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %7) #5
   store ptr null, ptr %6, align 8
   br label %9
 
@@ -894,11 +891,15 @@ define void @frame_data_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #4
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

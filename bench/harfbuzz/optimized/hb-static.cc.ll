@@ -163,16 +163,16 @@ while.body.i.i.i:                                 ; preds = %if.end8.i.i.i, %ent
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr @_ZL19_hb_ms_language_map, i64 %mul.i.i.i
   %0 = load i16, ptr %add.ptr.i.i.i, align 8
   %conv.i.i.i.i.i = zext i16 %0 to i32
-  %cmp.i.i.i.i.i = icmp ult i32 %code, %conv.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
+  %cmp2.i.i.i = icmp ult i32 %code, %conv.i.i.i.i.i
+  br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i.i.i
   %sub3.i.i.i = add nsw i32 %div9.i.i.i, -1
   br label %if.end8.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %cmp4.i.i.not.i.i.i = icmp ugt i32 %code, %conv.i.i.i.i.i
-  br i1 %cmp4.i.i.not.i.i.i, label %if.then5.i.i.i, label %if.then.i
+  %cmp4.not.i.i.i = icmp eq i32 %code, %conv.i.i.i.i.i
+  br i1 %cmp4.not.i.i.i, label %if.then.i, label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
   %add6.i.i.i = add nuw nsw i32 %div9.i.i.i, 1
@@ -210,16 +210,16 @@ while.body.i.i.i:                                 ; preds = %if.end8.i.i.i, %ent
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr @_ZL20_hb_mac_language_map, i64 %mul.i.i.i
   %0 = load i16, ptr %add.ptr.i.i.i, align 8
   %conv.i.i.i.i.i = zext i16 %0 to i32
-  %cmp.i.i.i.i.i = icmp ult i32 %code, %conv.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
+  %cmp2.i.i.i = icmp ult i32 %code, %conv.i.i.i.i.i
+  br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i.i.i
   %sub3.i.i.i = add nsw i32 %div9.i.i.i, -1
   br label %if.end8.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %cmp4.i.i.not.i.i.i = icmp ugt i32 %code, %conv.i.i.i.i.i
-  br i1 %cmp4.i.i.not.i.i.i, label %if.then5.i.i.i, label %if.then.i
+  %cmp4.not.i.i.i = icmp eq i32 %code, %conv.i.i.i.i.i
+  br i1 %cmp4.not.i.i.i, label %if.then.i, label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
   %add6.i.i.i = add nuw nsw i32 %div9.i.i.i, 1

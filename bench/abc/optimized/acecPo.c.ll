@@ -1534,10 +1534,7 @@ define range(i32 -1, 2) i32 @Gia_PolynGetResultCompare(ptr nocapture noundef rea
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 4
-  %7 = icmp slt i32 %4, %6
-  %8 = icmp sgt i32 %4, %6
-  %. = zext i1 %8 to i32
-  %.0 = select i1 %7, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %6)
   ret i32 %.0
 }
 
@@ -7108,6 +7105,9 @@ declare i32 @llvm.smin.i32(i32, i32) #20
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21

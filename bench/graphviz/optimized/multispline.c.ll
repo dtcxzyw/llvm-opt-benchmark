@@ -3032,10 +3032,7 @@ define internal void @freeIpair(ptr nocapture noundef %0, ptr nocapture readnone
 define internal range(i32 -1, 2) i32 @cmpIpair(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #11 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %2, align 4
-  %7 = icmp slt i32 %5, %6
-  %8 = icmp sgt i32 %5, %6
-  %. = zext i1 %8 to i32
-  %.0 = select i1 %7, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %5, i32 %6)
   ret i32 %.0
 }
 
@@ -3284,6 +3281,9 @@ declare double @llvm.sqrt.f64(double) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

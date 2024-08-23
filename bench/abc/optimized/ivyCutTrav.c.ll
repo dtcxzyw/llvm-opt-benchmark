@@ -1179,10 +1179,7 @@ define range(i32 -1, 2) i32 @Ivy_CompareNodesByLevel(ptr nocapture noundef reado
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = lshr i32 %9, 11
-  %11 = icmp ult i32 %7, %10
-  %12 = icmp ugt i32 %7, %10
-  %. = zext i1 %12 to i32
-  %.0 = select i1 %11, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %7, i32 %10)
   ret i32 %.0
 }
 
@@ -2168,6 +2165,9 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15

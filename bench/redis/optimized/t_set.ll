@@ -5128,10 +5128,7 @@ if.else19.i22:                                    ; preds = %cond.true2
 
 cond.end5:                                        ; preds = %if.then16.i9, %if.then8.i13, %if.then.i17, %cond.end
   %cond6 = phi i64 [ 0, %cond.end ], [ %add.i21, %if.then.i17 ], [ %conv.i16, %if.then8.i13 ], [ %call18.i11, %if.then16.i9 ]
-  %cmp = icmp ult i64 %cond, %cond6
-  %cmp7 = icmp ugt i64 %cond, %cond6
-  %. = sext i1 %cmp7 to i32
-  %retval.0 = select i1 %cmp, i32 1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %cond6, i64 %cond)
   ret i32 %retval.0
 }
 
@@ -6074,6 +6071,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #8

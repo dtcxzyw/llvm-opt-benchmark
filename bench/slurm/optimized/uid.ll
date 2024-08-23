@@ -33,11 +33,11 @@ define range(i32 5, 4) i32 @slurm_getpwuid_r(i32 noundef %0, ptr noundef %1, ptr
   %8 = alloca [20 x i8], align 16
   %9 = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %8, i8 0, i64 20, i1 false)
-  %10 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #11
+  %10 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #12
   br label %11
 
 11:                                               ; preds = %11, %5
-  %12 = tail call i32 @getpwuid_r(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #11
+  %12 = tail call i32 @getpwuid_r(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #12
   switch i32 %12, label %13 [
     i32 4, label %11
     i32 0, label %.loopexit
@@ -48,8 +48,8 @@ define range(i32 5, 4) i32 @slurm_getpwuid_r(i32 noundef %0, ptr noundef %1, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %13
-  %14 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #11
-  call void @slurm_diff_tv_str(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 20, ptr noundef nonnull @__func__.slurm_getpwuid_r, i64 noundef 0, ptr noundef nonnull %9) #11
+  %14 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #12
+  call void @slurm_diff_tv_str(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 20, ptr noundef nonnull @__func__.slurm_getpwuid_r, i64 noundef 0, ptr noundef nonnull %9) #12
   ret i32 %12
 }
 
@@ -87,11 +87,11 @@ define range(i32 -1, 1) i32 @uid_from_string(ptr noundef %0, ptr nocapture nound
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %9, i8 0, i64 20, i1 false)
-  %16 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #11
+  %16 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #12
   br label %17
 
 17:                                               ; preds = %17, %15
-  %18 = call i32 @getpwnam_r(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 65536, ptr noundef nonnull %12) #11
+  %18 = call i32 @getpwnam_r(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 65536, ptr noundef nonnull %12) #12
   switch i32 %18, label %19 [
     i32 4, label %17
     i32 0, label %_getpwnam_r.exit
@@ -103,8 +103,8 @@ define range(i32 -1, 1) i32 @uid_from_string(ptr noundef %0, ptr nocapture nound
 
 _getpwnam_r.exit:                                 ; preds = %17, %19
   %20 = phi i1 [ false, %19 ], [ true, %17 ]
-  %21 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #11
-  call void @slurm_diff_tv_str(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 20, ptr noundef nonnull @__func__._getpwnam_r, i64 noundef 0, ptr noundef nonnull %10) #11
+  %21 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #12
+  call void @slurm_diff_tv_str(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 20, ptr noundef nonnull @__func__._getpwnam_r, i64 noundef 0, ptr noundef nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
@@ -120,9 +120,9 @@ _getpwnam_r.exit:                                 ; preds = %17, %19
   br label %.sink.split
 
 27:                                               ; preds = %_getpwnam_r.exit
-  %28 = tail call ptr @__errno_location() #12
+  %28 = tail call ptr @__errno_location() #13
   store i32 0, ptr %28, align 4
-  %29 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef 10) #11
+  %29 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef 10) #12
   %30 = load i32, ptr %28, align 4
   %31 = icmp eq i32 %30, 34
   %32 = add i64 %29, -9223372036854775807
@@ -149,11 +149,11 @@ _getpwnam_r.exit:                                 ; preds = %17, %19
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false)
-  %42 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #11
+  %42 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #12
   br label %43
 
 43:                                               ; preds = %43, %40
-  %44 = call i32 @getpwuid_r(i32 noundef %41, ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 65536, ptr noundef nonnull %12) #11
+  %44 = call i32 @getpwuid_r(i32 noundef %41, ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 65536, ptr noundef nonnull %12) #12
   switch i32 %44, label %45 [
     i32 4, label %43
     i32 0, label %slurm_getpwuid_r.exit
@@ -165,8 +165,8 @@ _getpwnam_r.exit:                                 ; preds = %17, %19
 
 slurm_getpwuid_r.exit:                            ; preds = %43, %45
   %46 = phi i1 [ true, %45 ], [ false, %43 ]
-  %47 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #11
-  call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.slurm_getpwuid_r, i64 noundef 0, ptr noundef nonnull %6) #11
+  %47 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
+  call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.slurm_getpwuid_r, i64 noundef 0, ptr noundef nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
@@ -205,7 +205,7 @@ define ptr @uid_to_string_or_null(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %1
-  %11 = tail call ptr @xstrdup(ptr noundef nonnull @.str) #11
+  %11 = tail call ptr @xstrdup(ptr noundef nonnull @.str) #12
   br label %24
 
 12:                                               ; preds = %1
@@ -214,11 +214,11 @@ define ptr @uid_to_string_or_null(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  %13 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #11
+  %13 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #12
   br label %14
 
 14:                                               ; preds = %14, %12
-  %15 = call i32 @getpwuid_r(i32 noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8, i64 noundef 65536, ptr noundef nonnull %7) #11
+  %15 = call i32 @getpwuid_r(i32 noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8, i64 noundef 65536, ptr noundef nonnull %7) #12
   switch i32 %15, label %16 [
     i32 4, label %14
     i32 0, label %slurm_getpwuid_r.exit
@@ -230,8 +230,8 @@ define ptr @uid_to_string_or_null(i32 noundef %0) local_unnamed_addr #0 {
 
 slurm_getpwuid_r.exit:                            ; preds = %14, %16
   %17 = phi i1 [ false, %16 ], [ true, %14 ]
-  %18 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #11
-  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.slurm_getpwuid_r, i64 noundef 0, ptr noundef nonnull %5) #11
+  %18 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #12
+  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.slurm_getpwuid_r, i64 noundef 0, ptr noundef nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
@@ -243,7 +243,7 @@ slurm_getpwuid_r.exit:                            ; preds = %14, %16
 
 21:                                               ; preds = %slurm_getpwuid_r.exit
   %22 = load ptr, ptr %19, align 8
-  %23 = call ptr @xstrdup(ptr noundef %22) #11
+  %23 = call ptr @xstrdup(ptr noundef %22) #12
   br label %24
 
 24:                                               ; preds = %slurm_getpwuid_r.exit, %21, %10
@@ -260,7 +260,7 @@ define ptr @uid_to_string(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.1, i32 noundef %0) #11
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.1, i32 noundef %0) #12
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -272,7 +272,7 @@ declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @uid_cache_clear() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @uid_lock) #11
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @uid_lock) #12
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.preheader, label %4
 
@@ -282,16 +282,16 @@ define void @uid_cache_clear() local_unnamed_addr #0 {
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 4:                                                ; preds = %0
-  %5 = tail call ptr @__errno_location() #12
+  %5 = tail call ptr @__errno_location() #13
   store i32 %1, ptr %5, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 201, ptr noundef nonnull @__func__.uid_cache_clear) #13
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 201, ptr noundef nonnull @__func__.uid_cache_clear) #14
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %6 = load ptr, ptr @uid_cache, align 8
   %7 = getelementptr inbounds %struct.uid_cache_entry_t, ptr %6, i64 %indvars.iv, i32 1
-  tail call void @slurm_xfree(ptr noundef nonnull %7) #11
+  tail call void @slurm_xfree(ptr noundef nonnull %7) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr @uid_cache_used, align 4
   %9 = sext i32 %8 to i64
@@ -299,16 +299,16 @@ define void @uid_cache_clear() local_unnamed_addr #0 {
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call void @slurm_xfree(ptr noundef nonnull @uid_cache) #11
+  tail call void @slurm_xfree(ptr noundef nonnull @uid_cache) #12
   store i32 0, ptr @uid_cache_used, align 4
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @uid_lock) #11
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @uid_lock) #12
   %.not9 = icmp eq i32 %11, 0
   br i1 %.not9, label %14, label %12
 
 12:                                               ; preds = %._crit_edge
-  %13 = tail call ptr @__errno_location() #12
+  %13 = tail call ptr @__errno_location() #13
   store i32 %11, ptr %13, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 206, ptr noundef nonnull @__func__.uid_cache_clear) #13
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 206, ptr noundef nonnull @__func__.uid_cache_clear) #14
   unreachable
 
 14:                                               ; preds = %._crit_edge
@@ -332,21 +332,21 @@ define ptr @uid_to_string_cached(i32 noundef %0) local_unnamed_addr #0 {
   store i32 %0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @uid_lock) #11
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @uid_lock) #12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @__errno_location() #12
+  %6 = tail call ptr @__errno_location() #13
   store i32 %4, ptr %6, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 214, ptr noundef nonnull @__func__.uid_to_string_cached) #13
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 214, ptr noundef nonnull @__func__.uid_to_string_cached) #14
   unreachable
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr @uid_cache, align 8
   %9 = load i32, ptr @uid_cache_used, align 4
   %10 = sext i32 %9 to i64
-  %11 = call ptr @bsearch(ptr noundef nonnull %2, ptr noundef %8, i64 noundef %10, i64 noundef 16, ptr noundef nonnull @_uid_compare) #11
+  %11 = call ptr @bsearch(ptr noundef nonnull %2, ptr noundef %8, i64 noundef %10, i64 noundef 16, ptr noundef nonnull @_uid_compare) #12
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %30
 
@@ -356,7 +356,7 @@ define ptr @uid_to_string_cached(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %15, label %uid_to_string.exit
 
 15:                                               ; preds = %13
-  %16 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.1, i32 noundef %0) #11
+  %16 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.1, i32 noundef %0) #12
   br label %uid_to_string.exit
 
 uid_to_string.exit:                               ; preds = %13, %15
@@ -366,7 +366,7 @@ uid_to_string.exit:                               ; preds = %13, %15
   store i32 %18, ptr @uid_cache_used, align 4
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 4
-  %21 = call ptr @slurm_xrecalloc(ptr noundef nonnull @uid_cache, i64 noundef 1, i64 noundef %20, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 221, ptr noundef nonnull @__func__.uid_to_string_cached) #11
+  %21 = call ptr @slurm_xrecalloc(ptr noundef nonnull @uid_cache, i64 noundef 1, i64 noundef %20, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 221, ptr noundef nonnull @__func__.uid_to_string_cached) #12
   store ptr %21, ptr @uid_cache, align 8
   %22 = load i32, ptr @uid_cache_used, align 4
   %23 = sext i32 %22 to i64
@@ -376,26 +376,26 @@ uid_to_string.exit:                               ; preds = %13, %15
   %.sroa.24.0..sroa_idx = getelementptr i8, ptr %24, i64 -8
   store ptr %.0.i, ptr %.sroa.24.0..sroa_idx, align 8
   %26 = load ptr, ptr @uid_cache, align 8
-  call void @qsort(ptr noundef %26, i64 noundef %23, i64 noundef 16, ptr noundef nonnull @_uid_compare) #11
-  %27 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @uid_lock) #11
+  call void @qsort(ptr noundef %26, i64 noundef %23, i64 noundef 16, ptr noundef nonnull @_uid_compare) #12
+  %27 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @uid_lock) #12
   %.not17 = icmp eq i32 %27, 0
   br i1 %.not17, label %37, label %28
 
 28:                                               ; preds = %uid_to_string.exit
-  %29 = tail call ptr @__errno_location() #12
+  %29 = tail call ptr @__errno_location() #13
   store i32 %27, ptr %29, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 225, ptr noundef nonnull @__func__.uid_to_string_cached) #13
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 225, ptr noundef nonnull @__func__.uid_to_string_cached) #14
   unreachable
 
 30:                                               ; preds = %7
-  %31 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @uid_lock) #11
+  %31 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @uid_lock) #12
   %.not16 = icmp eq i32 %31, 0
   br i1 %.not16, label %34, label %32
 
 32:                                               ; preds = %30
-  %33 = tail call ptr @__errno_location() #12
+  %33 = tail call ptr @__errno_location() #13
   store i32 %31, ptr %33, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 228, ptr noundef nonnull @__func__.uid_to_string_cached) #13
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, i32 noundef 228, ptr noundef nonnull @__func__.uid_to_string_cached) #14
   unreachable
 
 34:                                               ; preds = %30
@@ -414,10 +414,7 @@ declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr nou
 define internal range(i32 -1, 2) i32 @_uid_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp ult i32 %3, %4
-  %6 = icmp ugt i32 %3, %4
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
   ret i32 %.0
 }
 
@@ -440,11 +437,11 @@ define ptr @uid_to_dir(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  %9 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #11
+  %9 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #12
   br label %10
 
 10:                                               ; preds = %10, %1
-  %11 = call i32 @getpwuid_r(i32 noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8, i64 noundef 65536, ptr noundef nonnull %7) #11
+  %11 = call i32 @getpwuid_r(i32 noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8, i64 noundef 65536, ptr noundef nonnull %7) #12
   switch i32 %11, label %12 [
     i32 4, label %10
     i32 0, label %slurm_getpwuid_r.exit
@@ -456,8 +453,8 @@ define ptr @uid_to_dir(i32 noundef %0) local_unnamed_addr #0 {
 
 slurm_getpwuid_r.exit:                            ; preds = %10, %12
   %13 = phi i1 [ false, %12 ], [ true, %10 ]
-  %14 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #11
-  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.slurm_getpwuid_r, i64 noundef 0, ptr noundef nonnull %5) #11
+  %14 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #12
+  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.slurm_getpwuid_r, i64 noundef 0, ptr noundef nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
@@ -470,7 +467,7 @@ slurm_getpwuid_r.exit:                            ; preds = %10, %12
 17:                                               ; preds = %slurm_getpwuid_r.exit
   %18 = getelementptr inbounds i8, ptr %15, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = call ptr @xstrdup(ptr noundef %19) #11
+  %20 = call ptr @xstrdup(ptr noundef %19) #12
   br label %21
 
 21:                                               ; preds = %17, %slurm_getpwuid_r.exit
@@ -492,11 +489,11 @@ define ptr @uid_to_shell(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  %9 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #11
+  %9 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #12
   br label %10
 
 10:                                               ; preds = %10, %1
-  %11 = call i32 @getpwuid_r(i32 noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8, i64 noundef 65536, ptr noundef nonnull %7) #11
+  %11 = call i32 @getpwuid_r(i32 noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8, i64 noundef 65536, ptr noundef nonnull %7) #12
   switch i32 %11, label %12 [
     i32 4, label %10
     i32 0, label %slurm_getpwuid_r.exit
@@ -508,8 +505,8 @@ define ptr @uid_to_shell(i32 noundef %0) local_unnamed_addr #0 {
 
 slurm_getpwuid_r.exit:                            ; preds = %10, %12
   %13 = phi i1 [ false, %12 ], [ true, %10 ]
-  %14 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #11
-  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.slurm_getpwuid_r, i64 noundef 0, ptr noundef nonnull %5) #11
+  %14 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #12
+  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.slurm_getpwuid_r, i64 noundef 0, ptr noundef nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
@@ -522,7 +519,7 @@ slurm_getpwuid_r.exit:                            ; preds = %10, %12
 17:                                               ; preds = %slurm_getpwuid_r.exit
   %18 = getelementptr inbounds i8, ptr %15, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = call ptr @xstrdup(ptr noundef %19) #11
+  %20 = call ptr @xstrdup(ptr noundef %19) #12
   br label %21
 
 21:                                               ; preds = %17, %slurm_getpwuid_r.exit
@@ -544,11 +541,11 @@ define i32 @gid_from_uid(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  %9 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #11
+  %9 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #12
   br label %10
 
 10:                                               ; preds = %10, %1
-  %11 = call i32 @getpwuid_r(i32 noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8, i64 noundef 65536, ptr noundef nonnull %7) #11
+  %11 = call i32 @getpwuid_r(i32 noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8, i64 noundef 65536, ptr noundef nonnull %7) #12
   switch i32 %11, label %12 [
     i32 4, label %10
     i32 0, label %slurm_getpwuid_r.exit
@@ -560,8 +557,8 @@ define i32 @gid_from_uid(i32 noundef %0) local_unnamed_addr #0 {
 
 slurm_getpwuid_r.exit:                            ; preds = %10, %12
   %13 = phi i1 [ false, %12 ], [ true, %10 ]
-  %14 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #11
-  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.slurm_getpwuid_r, i64 noundef 0, ptr noundef nonnull %5) #11
+  %14 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #12
+  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.slurm_getpwuid_r, i64 noundef 0, ptr noundef nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
@@ -605,11 +602,11 @@ define range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nocapture nound
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %9, i8 0, i64 20, i1 false)
-  %16 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #11
+  %16 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #12
   br label %17
 
 17:                                               ; preds = %17, %15
-  %18 = call i32 @getgrnam_r(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 65536, ptr noundef nonnull %12) #11
+  %18 = call i32 @getgrnam_r(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 65536, ptr noundef nonnull %12) #12
   switch i32 %18, label %19 [
     i32 4, label %17
     i32 0, label %_getgrnam_r.exit
@@ -621,8 +618,8 @@ define range(i32 -1, 1) i32 @gid_from_string(ptr noundef %0, ptr nocapture nound
 
 _getgrnam_r.exit:                                 ; preds = %17, %19
   %20 = phi i1 [ false, %19 ], [ true, %17 ]
-  %21 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #11
-  call void @slurm_diff_tv_str(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 20, ptr noundef nonnull @__func__._getgrnam_r, i64 noundef 0, ptr noundef nonnull %10) #11
+  %21 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #12
+  call void @slurm_diff_tv_str(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 20, ptr noundef nonnull @__func__._getgrnam_r, i64 noundef 0, ptr noundef nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
@@ -638,9 +635,9 @@ _getgrnam_r.exit:                                 ; preds = %17, %19
   br label %.sink.split
 
 27:                                               ; preds = %_getgrnam_r.exit
-  %28 = tail call ptr @__errno_location() #12
+  %28 = tail call ptr @__errno_location() #13
   store i32 0, ptr %28, align 4
-  %29 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef 10) #11
+  %29 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef 10) #12
   %30 = load i32, ptr %28, align 4
   %31 = icmp eq i32 %30, 34
   %32 = add i64 %29, -9223372036854775807
@@ -667,11 +664,11 @@ _getgrnam_r.exit:                                 ; preds = %17, %19
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false)
-  %42 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #11
+  %42 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #12
   br label %43
 
 43:                                               ; preds = %43, %40
-  %44 = call i32 @getgrgid_r(i32 noundef %41, ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 65536, ptr noundef nonnull %12) #11
+  %44 = call i32 @getgrgid_r(i32 noundef %41, ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 65536, ptr noundef nonnull %12) #12
   switch i32 %44, label %45 [
     i32 4, label %43
     i32 0, label %_getgrgid_r.exit
@@ -683,8 +680,8 @@ _getgrnam_r.exit:                                 ; preds = %17, %19
 
 _getgrgid_r.exit:                                 ; preds = %43, %45
   %46 = phi i1 [ true, %45 ], [ false, %43 ]
-  %47 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #11
-  call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__._getgrgid_r, i64 noundef 0, ptr noundef nonnull %6) #11
+  %47 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
+  call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__._getgrgid_r, i64 noundef 0, ptr noundef nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
@@ -711,7 +708,7 @@ define ptr @gid_to_string(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.1, i32 noundef %0) #11
+  %4 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.1, i32 noundef %0) #12
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -733,11 +730,11 @@ define ptr @gid_to_string_or_null(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  %9 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #11
+  %9 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #12
   br label %10
 
 10:                                               ; preds = %10, %1
-  %11 = call i32 @getgrgid_r(i32 noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8, i64 noundef 65536, ptr noundef nonnull %7) #11
+  %11 = call i32 @getgrgid_r(i32 noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8, i64 noundef 65536, ptr noundef nonnull %7) #12
   switch i32 %11, label %12 [
     i32 4, label %10
     i32 0, label %_getgrgid_r.exit
@@ -749,8 +746,8 @@ define ptr @gid_to_string_or_null(i32 noundef %0) local_unnamed_addr #0 {
 
 _getgrgid_r.exit:                                 ; preds = %10, %12
   %13 = phi i1 [ false, %12 ], [ true, %10 ]
-  %14 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #11
-  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__._getgrgid_r, i64 noundef 0, ptr noundef nonnull %5) #11
+  %14 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #12
+  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__._getgrgid_r, i64 noundef 0, ptr noundef nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
@@ -762,7 +759,7 @@ _getgrgid_r.exit:                                 ; preds = %10, %12
 
 17:                                               ; preds = %_getgrgid_r.exit
   %18 = load ptr, ptr %15, align 8
-  %19 = call ptr @xstrdup(ptr noundef %18) #11
+  %19 = call ptr @xstrdup(ptr noundef %18) #12
   br label %20
 
 20:                                               ; preds = %_getgrgid_r.exit, %17
@@ -782,6 +779,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #11
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -793,9 +793,10 @@ attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { noreturn nounwind }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(none) }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

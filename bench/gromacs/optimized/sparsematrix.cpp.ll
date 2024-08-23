@@ -132,7 +132,7 @@ define void @_Z22gmx_sparsematrix_printP8_IO_FILEP16gmx_sparsematrix(ptr nocaptu
 
 .lr.ph42:                                         ; preds = %.preheader28, %.lr.ph42
   %.02541 = phi i32 [ %17, %.lr.ph42 ], [ 0, %.preheader28 ]
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef 0.000000e+00) #11
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef 0.000000e+00) #12
   %17 = add nuw nsw i32 %.02541, 1
   %18 = load i32, ptr %3, align 4
   %19 = icmp slt i32 %17, %18
@@ -162,7 +162,7 @@ define void @_Z22gmx_sparsematrix_printP8_IO_FILEP16gmx_sparsematrix(ptr nocaptu
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %29 = phi i32 [ %31, %.lr.ph ], [ %22, %.preheader ]
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef 0.000000e+00) #11
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef 0.000000e+00) #12
   %31 = add nsw i32 %29, 1
   %32 = load ptr, ptr %7, align 8
   %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv50
@@ -178,7 +178,7 @@ define void @_Z22gmx_sparsematrix_printP8_IO_FILEP16gmx_sparsematrix(ptr nocaptu
   %38 = getelementptr inbounds %struct.gmx_sparsematrix_entry, ptr %.lcssa33, i64 %indvars.iv, i32 1
   %39 = load float, ptr %38, align 4
   %40 = fpext float %39 to double
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef %40) #11
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef %40) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load ptr, ptr %6, align 8
   %43 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv50
@@ -190,7 +190,7 @@ define void @_Z22gmx_sparsematrix_printP8_IO_FILEP16gmx_sparsematrix(ptr nocaptu
 .lr.ph40:                                         ; preds = %.preheader29, %.lr.ph40
   %.239 = phi i32 [ %47, %.lr.ph40 ], [ %.0.lcssa, %.preheader29 ]
   %47 = add nsw i32 %.239, 1
-  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef 0.000000e+00) #11
+  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, double noundef 0.000000e+00) #12
   %49 = load i32, ptr %3, align 4
   %50 = icmp slt i32 %47, %49
   br i1 %50, label %.lr.ph40, label %.loopexit, !llvm.loop !10
@@ -490,10 +490,7 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal noundef range(i32 -1, 2) i32 @_ZL15compare_columnsPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp sgt i32 %3, %4
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
   ret i32 %.0
 }
 
@@ -652,6 +649,9 @@ declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 n
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #11
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -663,7 +663,8 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(read, arg
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind }
-attributes #11 = { nounwind }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -28,7 +28,7 @@ define i32 @ompi_osc_sm_fence(i32 noundef %0, ptr nocapture noundef readonly %1)
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %14(ptr noundef %10, ptr noundef %16) #7
+  %17 = tail call i32 %14(ptr noundef %10, ptr noundef %16) #8
   br label %57
 
 18:                                               ; preds = %2
@@ -38,7 +38,7 @@ define i32 @ompi_osc_sm_fence(i32 noundef %0, ptr nocapture noundef readonly %1)
   %21 = zext i1 %.not20 to i32
   store i32 %21, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %6, i64 8
-  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %22) #7
+  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %22) #8
   %24 = load ptr, ptr %5, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 100
   %26 = load i32, ptr %25, align 4
@@ -71,7 +71,7 @@ define i32 @ompi_osc_sm_fence(i32 noundef %0, ptr nocapture noundef readonly %1)
   store i32 %40, ptr %42, align 8
   %43 = load ptr, ptr %5, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 48
-  %45 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %44) #7
+  %45 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %44) #8
   %.pre = load ptr, ptr %5, align 8
   br label %.loopexit
 
@@ -79,7 +79,7 @@ define i32 @ompi_osc_sm_fence(i32 noundef %0, ptr nocapture noundef readonly %1)
   %46 = phi ptr [ %50, %.lr.ph ], [ %28, %.preheader ]
   %47 = getelementptr inbounds i8, ptr %46, i64 48
   %48 = getelementptr inbounds i8, ptr %46, i64 8
-  %49 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %47, ptr noundef nonnull %48) #7
+  %49 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %47, ptr noundef nonnull %48) #8
   %50 = load ptr, ptr %5, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 96
   %52 = load i32, ptr %51, align 8
@@ -90,7 +90,7 @@ define i32 @ompi_osc_sm_fence(i32 noundef %0, ptr nocapture noundef readonly %1)
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %35
   %54 = phi ptr [ %28, %.preheader ], [ %.pre, %35 ], [ %50, %.lr.ph ]
   %55 = getelementptr inbounds i8, ptr %54, i64 8
-  %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %55) #7
+  %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %55) #8
   br label %57
 
 57:                                               ; preds = %.loopexit, %8
@@ -182,14 +182,14 @@ opal_thread_add_fetch_32.exit38:                  ; preds = %29, %32
 .lr.ph.i:                                         ; preds = %37, %.lr.ph.i
   %42 = phi ptr [ %44, %.lr.ph.i ], [ %41, %37 ]
   %.07.i = phi ptr [ %43, %.lr.ph.i ], [ %40, %37 ]
-  tail call void %42(ptr noundef nonnull %0) #7
+  tail call void %42(ptr noundef nonnull %0) #8
   %43 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %44, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %37
-  tail call void @free(ptr noundef %0) #7
+  tail call void @free(ptr noundef %0) #8
   br label %87
 
 45:                                               ; preds = %25, %12
@@ -238,7 +238,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %37
   br i1 %.not43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %60, %.lr.ph
-  %74 = tail call i32 @opal_progress() #7
+  %74 = tail call i32 @opal_progress() #8
   fence seq_cst
   %75 = load ptr, ptr %58, align 8
   %76 = getelementptr inbounds ptr, ptr %75, i64 %59
@@ -261,7 +261,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %37
   br i1 %exitcond.not, label %._crit_edge48, label %60, !llvm.loop !8
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %54
-  tail call void @free(ptr noundef %52) #7
+  tail call void @free(ptr noundef %52) #8
   br label %86
 
 86:                                               ; preds = %._crit_edge48, %45
@@ -281,8 +281,8 @@ define internal fastcc noundef ptr @ompi_osc_sm_group_ranks(ptr noundef %0, ptr 
   %3 = getelementptr i8, ptr %1, i64 16
   %.val = load i32, ptr %3, align 8
   %4 = sext i32 %.val to i64
-  %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #8
-  %6 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #8
+  %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #9
+  %6 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #9
   %7 = icmp eq ptr %5, null
   %8 = icmp eq ptr %6, null
   %or.cond = or i1 %7, %8
@@ -297,8 +297,8 @@ define internal fastcc noundef ptr @ompi_osc_sm_group_ranks(ptr noundef %0, ptr 
   br label %.lr.ph
 
 10:                                               ; preds = %2
-  tail call void @free(ptr noundef %5) #7
-  tail call void @free(ptr noundef %6) #7
+  tail call void @free(ptr noundef %5) #8
+  tail call void @free(ptr noundef %6) #8
   br label %16
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -311,17 +311,17 @@ define internal fastcc noundef ptr @ompi_osc_sm_group_ranks(ptr noundef %0, ptr 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %13 = tail call i32 @ompi_group_translate_ranks(ptr noundef %1, i32 noundef %.val, ptr noundef nonnull %5, ptr noundef %0, ptr noundef %6) #7
-  tail call void @free(ptr noundef nonnull %5) #7
+  %13 = tail call i32 @ompi_group_translate_ranks(ptr noundef %1, i32 noundef %.val, ptr noundef nonnull %5, ptr noundef %0, ptr noundef %6) #8
+  tail call void @free(ptr noundef nonnull %5) #8
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef %6) #7
+  tail call void @free(ptr noundef %6) #8
   br label %16
 
 15:                                               ; preds = %._crit_edge
-  tail call void @qsort(ptr noundef %6, i64 noundef %4, i64 noundef 4, ptr noundef nonnull @compare_ranks) #7
+  tail call void @qsort(ptr noundef %6, i64 noundef %4, i64 noundef 4, ptr noundef nonnull @compare_ranks) #8
   br label %16
 
 16:                                               ; preds = %15, %14, %10
@@ -396,7 +396,7 @@ define range(i32 -102, 1) i32 @ompi_osc_sm_complete(ptr nocapture noundef readon
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %30, %26
-  tail call void @free(ptr noundef nonnull %24) #7
+  tail call void @free(ptr noundef nonnull %24) #8
   %37 = getelementptr inbounds i8, ptr %5, i64 8
   %38 = load i8, ptr @opal_uses_threads, align 1
   %39 = trunc i8 %38 to i1
@@ -430,14 +430,14 @@ opal_thread_add_fetch_32.exit:                    ; preds = %40, %43
 .lr.ph.i:                                         ; preds = %48, %.lr.ph.i
   %53 = phi ptr [ %55, %.lr.ph.i ], [ %52, %48 ]
   %.07.i = phi ptr [ %54, %.lr.ph.i ], [ %51, %48 ]
-  tail call void %53(ptr noundef nonnull %5) #7
+  tail call void %53(ptr noundef nonnull %5) #8
   %54 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %48
-  tail call void @free(ptr noundef %5) #7
+  tail call void @free(ptr noundef %5) #8
   br label %56
 
 56:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
@@ -467,7 +467,7 @@ define range(i32 -102, 1) i32 @ompi_osc_sm_post(ptr noundef %0, i32 noundef %1, 
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %5, i64 4504
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #7
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #8
   br label %18
 
 18:                                               ; preds = %3, %15
@@ -545,8 +545,8 @@ opal_thread_add_fetch_32.exit:                    ; preds = %28, %30
 
 ._crit_edge:                                      ; preds = %50, %42
   fence release
-  tail call void @free(ptr noundef nonnull %40) #7
-  %59 = tail call i32 @opal_progress() #7
+  tail call void @free(ptr noundef nonnull %40) #8
+  %59 = tail call i32 @opal_progress() #8
   %.pre = load i8, ptr @opal_uses_threads, align 1
   br label %60
 
@@ -558,7 +558,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %28, %30
 .sink.split:                                      ; preds = %60, %21
   %.028.ph = phi i32 [ -102, %21 ], [ 0, %60 ]
   %63 = getelementptr inbounds i8, ptr %5, i64 4504
-  %64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %63) #7
+  %64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %63) #8
   br label %65
 
 65:                                               ; preds = %.sink.split, %60, %36, %21
@@ -576,7 +576,7 @@ define range(i32 -102, 1) i32 @ompi_osc_sm_wait(ptr nocapture noundef readonly %
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %3, i64 4504
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #7
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #8
   br label %9
 
 9:                                                ; preds = %1, %6
@@ -592,7 +592,7 @@ define range(i32 -102, 1) i32 @ompi_osc_sm_wait(ptr nocapture noundef readonly %
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %3, i64 4504
-  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #7
+  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #8
   br label %53
 
 19:                                               ; preds = %9
@@ -605,7 +605,7 @@ define range(i32 -102, 1) i32 @ompi_osc_sm_wait(ptr nocapture noundef readonly %
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
-  %24 = tail call i32 @opal_progress() #7
+  %24 = tail call i32 @opal_progress() #8
   fence seq_cst
   %25 = load ptr, ptr %21, align 8
   %26 = load volatile i32, ptr %25, align 4
@@ -646,14 +646,14 @@ opal_thread_add_fetch_32.exit:                    ; preds = %30, %33
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.i
   %43 = phi ptr [ %45, %.lr.ph.i ], [ %42, %38 ]
   %.07.i = phi ptr [ %44, %.lr.ph.i ], [ %41, %38 ]
-  tail call void %43(ptr noundef nonnull %11) #7
+  tail call void %43(ptr noundef nonnull %11) #8
   %44 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %38
-  tail call void @free(ptr noundef %11) #7
+  tail call void @free(ptr noundef %11) #8
   %.pre = load i8, ptr @opal_uses_threads, align 1
   br label %46
 
@@ -665,7 +665,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %38
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %3, i64 4504
-  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %50) #7
+  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %50) #8
   br label %52
 
 52:                                               ; preds = %46, %49
@@ -687,7 +687,7 @@ define range(i32 -102, 1) i32 @ompi_osc_sm_test(ptr nocapture noundef readonly %
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %4, i64 4504
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #7
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #8
   br label %10
 
 10:                                               ; preds = %2, %7
@@ -703,7 +703,7 @@ define range(i32 -102, 1) i32 @ompi_osc_sm_test(ptr nocapture noundef readonly %
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %4, i64 4504
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #7
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #8
   br label %56
 
 20:                                               ; preds = %10
@@ -750,7 +750,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %30, %33
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.i
   %44 = phi ptr [ %46, %.lr.ph.i ], [ %43, %38 ]
   %.07.i = phi ptr [ %45, %.lr.ph.i ], [ %42, %38 ]
-  tail call void %44(ptr noundef nonnull %39) #7
+  tail call void %44(ptr noundef nonnull %39) #8
   %45 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not.i = icmp eq ptr %46, null
@@ -762,7 +762,7 @@ opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
 
 opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destructors.exit.loopexit, %38
   %47 = phi ptr [ %.pre, %opal_obj_run_destructors.exit.loopexit ], [ %39, %38 ]
-  tail call void @free(ptr noundef %47) #7
+  tail call void @free(ptr noundef %47) #8
   br label %48
 
 48:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
@@ -778,7 +778,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i8, ptr %4, i64 4504
-  %54 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %53) #7
+  %54 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %53) #8
   br label %55
 
 55:                                               ; preds = %49, %52
@@ -802,12 +802,12 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal range(i32 -1, 2) i32 @compare_ranks(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp sgt i32 %3, %4
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
   ret i32 %.0
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -816,8 +816,9 @@ attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(0,1) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

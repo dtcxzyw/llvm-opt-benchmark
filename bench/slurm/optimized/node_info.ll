@@ -1813,10 +1813,7 @@ define internal range(i32 -1, 2) i32 @_sort_by_cluster_inx(ptr nocapture noundef
   %4 = load ptr, ptr %1, align 8
   %5 = load i32, ptr %3, align 8
   %6 = load i32, ptr %4, align 8
-  %7 = icmp sgt i32 %5, %6
-  %8 = icmp slt i32 %5, %6
-  %. = zext i1 %8 to i32
-  %.0 = select i1 %7, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %6, i32 %5)
   ret i32 %.0
 }
 
@@ -1845,6 +1842,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #13

@@ -497,8 +497,8 @@ sw.bb:                                            ; preds = %if.end
   %1 = load ptr, ptr %d1.i, align 8
   %next_timeout.i = getelementptr inbounds i8, ptr %1, i64 448
   %2 = load i64, ptr %next_timeout.i, align 8
-  %cmp.i.not.not.i.not.i = icmp eq i64 %2, 0
-  br i1 %cmp.i.not.not.i.not.i, label %sw.epilog, label %if.then7
+  %cmp.i.not.i = icmp eq i64 %2, 0
+  br i1 %cmp.i.not.i, label %sw.epilog, label %if.then7
 
 if.then7:                                         ; preds = %sw.bb
   %call1.i = tail call i64 @ossl_time_now() #9
@@ -506,9 +506,9 @@ if.then7:                                         ; preds = %sw.bb
   %next_timeout5.i = getelementptr inbounds i8, ptr %3, i64 448
   %4 = load i64, ptr %next_timeout5.i, align 8
   %retval.sroa.0.0.i.i = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 %call1.i)
-  %cmp.i.i = icmp ult i64 %retval.sroa.0.0.i.i, 15000001
+  %cmp.i = icmp ult i64 %retval.sroa.0.0.i.i, 15000001
   %5 = tail call i64 @llvm.uadd.sat.i64(i64 %retval.sroa.0.0.i.i, i64 999)
-  %t.sroa.0.0.i = select i1 %cmp.i.i, i64 999, i64 %5
+  %t.sroa.0.0.i = select i1 %cmp.i, i64 999, i64 %5
   %div.i = udiv i64 %t.sroa.0.0.i, 1000000000
   %rem.i = urem i64 %t.sroa.0.0.i, 1000000000
   %div7.lhs.trunc.i = trunc nuw nsw i64 %rem.i to i32
@@ -567,8 +567,8 @@ entry:
   %0 = load ptr, ptr %d1, align 8
   %next_timeout = getelementptr inbounds i8, ptr %0, i64 448
   %1 = load i64, ptr %next_timeout, align 8
-  %cmp.i.not.not.i.not = icmp eq i64 %1, 0
-  br i1 %cmp.i.not.not.i.not, label %return, label %if.end
+  %cmp.i.not = icmp eq i64 %1, 0
+  br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call1 = tail call i64 @ossl_time_now() #9
@@ -576,8 +576,8 @@ if.end:                                           ; preds = %entry
   %next_timeout5 = getelementptr inbounds i8, ptr %2, i64 448
   %3 = load i64, ptr %next_timeout5, align 8
   %retval.sroa.0.0.i = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %call1)
-  %cmp.i = icmp ult i64 %retval.sroa.0.0.i, 15000001
-  %spec.store.select = select i1 %cmp.i, i64 0, i64 %retval.sroa.0.0.i
+  %cmp = icmp ult i64 %retval.sroa.0.0.i, 15000001
+  %spec.store.select = select i1 %cmp, i64 0, i64 %retval.sroa.0.0.i
   store i64 %spec.store.select, ptr %timeleft, align 8
   br label %return
 
@@ -597,8 +597,8 @@ entry:
   %0 = load ptr, ptr %d1.i.i, align 8
   %next_timeout.i.i = getelementptr inbounds i8, ptr %0, i64 448
   %1 = load i64, ptr %next_timeout.i.i, align 8
-  %cmp.i.not.not.i.not.i.i = icmp eq i64 %1, 0
-  br i1 %cmp.i.not.not.i.not.i.i, label %return, label %dtls1_is_timer_expired.exit
+  %cmp.i.not.i.i = icmp eq i64 %1, 0
+  br i1 %cmp.i.not.i.i, label %return, label %dtls1_is_timer_expired.exit
 
 dtls1_is_timer_expired.exit:                      ; preds = %entry
   %call1.i.i = tail call i64 @ossl_time_now() #9
@@ -606,8 +606,8 @@ dtls1_is_timer_expired.exit:                      ; preds = %entry
   %next_timeout5.i.i = getelementptr inbounds i8, ptr %2, i64 448
   %3 = load i64, ptr %next_timeout5.i.i, align 8
   %retval.sroa.0.0.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %call1.i.i)
-  %cmp.i.i.i = icmp ugt i64 %retval.sroa.0.0.i.i.i, 15000000
-  br i1 %cmp.i.i.i, label %return, label %if.end
+  %cmp.i.i = icmp ugt i64 %retval.sroa.0.0.i.i.i, 15000000
+  br i1 %cmp.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %dtls1_is_timer_expired.exit
   %timer_cb = getelementptr inbounds i8, ptr %2, i64 464
@@ -646,8 +646,8 @@ if.end12:                                         ; preds = %if.end8
   %9 = load ptr, ptr %d1.i.i, align 8
   %next_timeout.i = getelementptr inbounds i8, ptr %9, i64 448
   %10 = load i64, ptr %next_timeout.i, align 8
-  %cmp.i.not.not.i.not.i = icmp eq i64 %10, 0
-  br i1 %cmp.i.not.not.i.not.i, label %if.then.i14, label %dtls1_start_timer.exit
+  %cmp.i.not.i = icmp eq i64 %10, 0
+  br i1 %cmp.i.not.i, label %if.then.i14, label %dtls1_start_timer.exit
 
 if.then.i14:                                      ; preds = %if.end12
   %timer_cb.i = getelementptr inbounds i8, ptr %9, i64 464
@@ -712,8 +712,8 @@ entry:
   %0 = load ptr, ptr %d1, align 8
   %next_timeout = getelementptr inbounds i8, ptr %0, i64 448
   %1 = load i64, ptr %next_timeout, align 8
-  %cmp.i.not.not.i.not = icmp eq i64 %1, 0
-  br i1 %cmp.i.not.not.i.not, label %if.then, label %if.end10
+  %cmp.i.not = icmp eq i64 %1, 0
+  br i1 %cmp.i.not, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %entry
   %timer_cb = getelementptr inbounds i8, ptr %0, i64 464
@@ -773,8 +773,8 @@ entry:
   %0 = load ptr, ptr %d1.i, align 8
   %next_timeout.i = getelementptr inbounds i8, ptr %0, i64 448
   %1 = load i64, ptr %next_timeout.i, align 8
-  %cmp.i.not.not.i.not.i = icmp eq i64 %1, 0
-  br i1 %cmp.i.not.not.i.not.i, label %return, label %if.end
+  %cmp.i.not.i = icmp eq i64 %1, 0
+  br i1 %cmp.i.not.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call1.i = tail call i64 @ossl_time_now() #9
@@ -782,8 +782,8 @@ if.end:                                           ; preds = %entry
   %next_timeout5.i = getelementptr inbounds i8, ptr %2, i64 448
   %3 = load i64, ptr %next_timeout5.i, align 8
   %retval.sroa.0.0.i.i = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %call1.i)
-  %cmp.i.i = icmp ult i64 %retval.sroa.0.0.i.i, 15000001
-  %. = zext i1 %cmp.i.i to i32
+  %cmp.i = icmp ult i64 %retval.sroa.0.0.i.i, 15000001
+  %. = zext i1 %cmp.i to i32
   br label %return
 
 return:                                           ; preds = %entry, %if.end

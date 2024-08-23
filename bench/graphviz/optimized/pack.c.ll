@@ -2981,10 +2981,7 @@ define internal range(i32 -1, 2) i32 @cmpf(ptr nocapture noundef readonly %0, pt
   %4 = load ptr, ptr %1, align 8
   %5 = load i32, ptr %4, align 8
   %6 = load i32, ptr %3, align 8
-  %7 = icmp slt i32 %5, %6
-  %8 = icmp sgt i32 %5, %6
-  %. = zext i1 %8 to i32
-  %.0 = select i1 %7, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %5, i32 %6)
   ret i32 %.0
 }
 
@@ -3719,10 +3716,7 @@ define internal range(i32 -1, 2) i32 @ucmpf(ptr nocapture noundef readonly %0, p
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i32, ptr %2, i64 %11
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ugt i32 %9, %13
-  %15 = icmp ult i32 %9, %13
-  %. = sext i1 %15 to i32
-  %.0 = select i1 %14, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %9, i32 %13)
   ret i32 %.0
 }
 
@@ -3778,6 +3772,12 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #15

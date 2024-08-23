@@ -16360,10 +16360,7 @@ define internal range(i32 -1, 2) i32 @compare_offsets(ptr nocapture noundef read
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ugt i64 %6, %8
-  %10 = icmp ult i64 %6, %8
-  %. = sext i1 %10 to i32
-  %.0 = select i1 %9, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %6, i64 %8)
   ret i32 %.0
 }
 
@@ -16524,10 +16521,7 @@ define internal range(i32 -1, 2) i32 @compare_tags(ptr nocapture noundef readonl
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = icmp ugt i32 %6, %8
-  %10 = icmp ult i32 %6, %8
-  %. = sext i1 %10 to i32
-  %.0 = select i1 %9, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %6, i32 %8)
   ret i32 %.0
 }
 
@@ -26183,6 +26177,12 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i2 @llvm.bitreverse.i2(i2) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #24
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

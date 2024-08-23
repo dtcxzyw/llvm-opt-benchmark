@@ -1671,10 +1671,7 @@ define internal range(i32 -1, 2) i32 @_sort_sockets_by_avail_cores(ptr nocapture
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i16, ptr %3, i64 %9
   %11 = load i16, ptr %10, align 2
-  %12 = icmp ult i16 %7, %11
-  %13 = icmp ugt i16 %7, %11
-  %. = sext i1 %13 to i32
-  %.0 = select i1 %12, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i16(i16 %11, i16 %7)
   ret i32 %.0
 }
 
@@ -1700,6 +1697,9 @@ declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i16(i16, i16) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #4

@@ -2658,10 +2658,7 @@ define internal range(i32 -1, 2) i32 @object_mapping_cmp(ptr nocapture noundef r
   %4 = load i16, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i16, ptr %5, align 8
-  %7 = icmp ult i16 %4, %6
-  %8 = icmp ugt i16 %4, %6
-  %. = zext i1 %8 to i32
-  %.0 = select i1 %7, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i16(i16 %4, i16 %6)
   ret i32 %.0
 }
 
@@ -7529,6 +7526,9 @@ declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i16(i16, i16) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14

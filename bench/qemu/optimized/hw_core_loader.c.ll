@@ -6247,10 +6247,7 @@ entry:
   %0 = load i64, ptr %st_value, align 8
   %st_value1 = getelementptr inbounds i8, ptr %s1, i64 8
   %1 = load i64, ptr %st_value1, align 8
-  %cmp = icmp ult i64 %0, %1
-  %cmp4 = icmp ugt i64 %0, %1
-  %cond = zext i1 %cmp4 to i32
-  %cond5 = select i1 %cmp, i32 -1, i32 %cond
+  %cond5 = tail call i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
   ret i32 %cond5
 }
 
@@ -6312,10 +6309,7 @@ entry:
   %0 = load i32, ptr %st_value, align 4
   %st_value1 = getelementptr inbounds i8, ptr %s1, i64 4
   %1 = load i32, ptr %st_value1, align 4
-  %cmp = icmp ult i32 %0, %1
-  %cmp4 = icmp ugt i32 %0, %1
-  %cond = zext i1 %cmp4 to i32
-  %cond5 = select i1 %cmp, i32 -1, i32 %cond
+  %cond5 = tail call i32 @llvm.ucmp.i32.i32(i32 %0, i32 %1)
   ret i32 %cond5
 }
 
@@ -6444,7 +6438,13 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22

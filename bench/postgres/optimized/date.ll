@@ -822,10 +822,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_cmp(ptr nocapture 
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %8 = icmp slt i32 %4, %7
-  %9 = icmp sgt i32 %4, %7
-  %spec.select = zext i1 %9 to i64
-  %.0 = select i1 %8, i64 -1, i64 %spec.select
+  %.0 = tail call i64 @llvm.scmp.i64.i32(i32 %4, i32 %7)
   ret i64 %.0
 }
 
@@ -3999,10 +3996,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @time_cmp(ptr nocapture 
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
-  %6 = icmp slt i64 %3, %5
-  %7 = icmp sgt i64 %3, %5
-  %spec.select = zext i1 %7 to i64
-  %.0 = select i1 %6, i64 -1, i64 %spec.select
+  %.0 = tail call i64 @llvm.scmp.i64.i64(i64 %3, i64 %5)
   ret i64 %.0
 }
 
@@ -6497,11 +6491,17 @@ declare i64 @llvm.smin.i64(i64, i64) #12
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.scmp.i64.i32(i32, i32) #12
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.scmp.i64.i64(i64, i64) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

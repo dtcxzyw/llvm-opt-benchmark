@@ -5347,10 +5347,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZZN12ImGuiStorage14BuildSortByKey
 entry:
   %0 = load i32, ptr %lhs, align 8
   %1 = load i32, ptr %rhs, align 8
-  %cmp = icmp ugt i32 %0, %1
-  %cmp4 = icmp ult i32 %0, %1
-  %. = sext i1 %cmp4 to i32
-  %retval.0 = select i1 %cmp, i32 1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %0, i32 %1)
   ret i32 %retval.0
 }
 
@@ -81791,6 +81788,9 @@ declare i32 @llvm.umax.i32(i32, i32) #54
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #55
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #54
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #54

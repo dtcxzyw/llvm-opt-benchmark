@@ -5482,10 +5482,7 @@ define internal range(i32 -1, 2) i32 @compare_kern_pairs(ptr nocapture noundef r
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
   %16 = or i64 %12, %15
-  %17 = icmp ugt i64 %9, %16
-  %18 = icmp ult i64 %9, %16
-  %. = sext i1 %18 to i32
-  %.0 = select i1 %17, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %9, i64 %16)
   ret i32 %.0
 }
 
@@ -8454,6 +8451,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -123,17 +123,17 @@ define internal noalias noundef ptr @_ZL17data_create_khmerPK18hb_ot_shape_plan_
   %11 = load i32, ptr %6, align 8
   %12 = load ptr, ptr %3, align 8
   %13 = load i32, ptr %4, align 4
-  %.not2.i.i.i.i.i.i = icmp sgt i32 %13, 0
-  br i1 %.not2.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit
+  %.not1.i.i.i.i.i.i = icmp sgt i32 %13, 0
+  br i1 %.not1.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %10
   %14 = add nsw i32 %13, -1
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %27, %.lr.ph.preheader.i.i.i.i.i.i
-  %.0194.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %27 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.0203.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i, %27 ], [ %14, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %15 = add i32 %.0203.i.i.i.i.i.i, %.0194.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %27 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i, %27 ], [ %14, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %15 = add i32 %.0202.i.i.i.i.i.i, %.0193.i.i.i.i.i.i
   %16 = lshr i32 %15, 1
   %17 = zext nneg i32 %16 to i64
   %18 = mul nuw nsw i64 %17, 36
@@ -147,16 +147,16 @@ define internal noalias noundef ptr @_ZL17data_create_khmerPK18hb_ot_shape_plan_
   br label %27
 
 24:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not1.i.i.i.i.i.i = icmp ugt i32 %11, %20
-  br i1 %.not1.i.i.i.i.i.i, label %25, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i
+  %.not23.i.i.i.i.i.i = icmp eq i32 %11, %20
+  br i1 %.not23.i.i.i.i.i.i, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i, label %25
 
 25:                                               ; preds = %24
   %26 = add nuw nsw i32 %16, 1
   br label %27
 
 27:                                               ; preds = %25, %22
-  %.121.i.i.i.i.i.i = phi i32 [ %23, %22 ], [ %.0203.i.i.i.i.i.i, %25 ]
-  %.1.i.i.i.i.i.i = phi i32 [ %.0194.i.i.i.i.i.i, %22 ], [ %26, %25 ]
+  %.121.i.i.i.i.i.i = phi i32 [ %23, %22 ], [ %.0202.i.i.i.i.i.i, %25 ]
+  %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %22 ], [ %26, %25 ]
   %.not.not.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i, %.121.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !9
 

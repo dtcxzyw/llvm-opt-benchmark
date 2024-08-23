@@ -14398,15 +14398,12 @@ if.else:                                          ; preds = %entry
   %size_.i10 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i64, ptr %size_.i10, align 8
   %sub9 = add i64 %3, -8
-  %cmp.i14 = icmp ult i64 %sub, %sub9
-  %..i15 = tail call i64 @llvm.umin.i64(i64 %sub, i64 %sub9)
-  %call.i16 = tail call i32 @memcmp(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr7, i64 noundef %..i15) #31
-  %cmp6.not.i17 = icmp eq i32 %call.i16, 0
-  %cmp13.i18 = icmp ugt i64 %sub, %sub9
-  %spec.select.i19 = zext i1 %cmp13.i18 to i32
-  %call.mux.i20 = select i1 %cmp.i14, i32 -1, i32 %spec.select.i19
-  %r.0.i21 = select i1 %cmp6.not.i17, i32 %call.mux.i20, i32 %call.i16
-  %sub11 = sub nsw i32 0, %r.0.i21
+  %..i14 = tail call i64 @llvm.umin.i64(i64 %sub, i64 %sub9)
+  %call.i15 = tail call i32 @memcmp(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr7, i64 noundef %..i14) #31
+  %cmp6.not.i16 = icmp eq i32 %call.i15, 0
+  %call.mux.i17 = tail call i32 @llvm.ucmp.i32.i64(i64 %sub, i64 %sub9)
+  %r.0.i18 = select i1 %cmp6.not.i16, i32 %call.mux.i17, i32 %call.i15
+  %sub11 = sub nsw i32 0, %r.0.i18
   br label %return
 
 return:                                           ; preds = %entry, %if.else
@@ -14505,15 +14502,12 @@ if.else.i:                                        ; preds = %entry
   %size_.i10.i = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i64, ptr %size_.i10.i, align 8
   %sub9.i = add i64 %3, -8
-  %cmp.i14.i = icmp ult i64 %sub.i, %sub9.i
-  %..i15.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub9.i)
-  %call.i16.i = tail call i32 @memcmp(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr7.i, i64 noundef %..i15.i) #31
-  %cmp6.not.i17.i = icmp eq i32 %call.i16.i, 0
-  %cmp13.i18.i = icmp ugt i64 %sub.i, %sub9.i
-  %spec.select.i19.i = zext i1 %cmp13.i18.i to i32
-  %call.mux.i20.i = select i1 %cmp.i14.i, i32 -1, i32 %spec.select.i19.i
-  %r.0.i21.i = select i1 %cmp6.not.i17.i, i32 %call.mux.i20.i, i32 %call.i16.i
-  %sub11.i = sub nsw i32 0, %r.0.i21.i
+  %..i14.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub9.i)
+  %call.i15.i = tail call i32 @memcmp(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr7.i, i64 noundef %..i14.i) #31
+  %cmp6.not.i16.i = icmp eq i32 %call.i15.i, 0
+  %call.mux.i17.i = tail call i32 @llvm.ucmp.i32.i64(i64 %sub.i, i64 %sub9.i)
+  %r.0.i18.i = select i1 %cmp6.not.i16.i, i32 %call.mux.i17.i, i32 %call.i15.i
+  %sub11.i = sub nsw i32 0, %r.0.i18.i
   br label %_ZNK7rocksdb4test29SimpleSuffixReverseComparator7CompareERKNS_5SliceES4_.exit
 
 _ZNK7rocksdb4test29SimpleSuffixReverseComparator7CompareERKNS_5SliceES4_.exit: ; preds = %entry, %if.else.i
@@ -15600,6 +15594,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #24
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #27

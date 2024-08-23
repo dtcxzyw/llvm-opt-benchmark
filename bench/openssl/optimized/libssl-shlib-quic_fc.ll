@@ -463,8 +463,8 @@ define internal fastcc void @rxfc_on_retire(ptr nocapture noundef %rxfc, i64 nou
 entry:
   %epoch_start = getelementptr inbounds i8, ptr %rxfc, i64 56
   %0 = load i64, ptr %epoch_start, align 8
-  %cmp.i.not.not.i.not = icmp eq i64 %0, 0
-  br i1 %cmp.i.not.not.i.not, label %if.then, label %entry.if.end_crit_edge
+  %cmp.i.not = icmp eq i64 %0, 0
+  br i1 %cmp.i.not, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %rwm.phi.trans.insert = getelementptr inbounds i8, ptr %rxfc, i64 16
@@ -576,34 +576,34 @@ rxfc_should_bump_window_size.exit.i.i:            ; preds = %cond.true.i.i.i.i, 
   %33 = icmp ugt i64 %rtt.coerce, 4611686018427387903
   %34 = shl nuw i64 %rtt.coerce, 2
   %retval.sroa.0.0.i8.i.i.i = select i1 %33, i64 -1, i64 %34
-  %cmp5.i.i.i.i = icmp uge i64 %retval.sroa.0.0.i7.i.i.i, %retval.sroa.0.0.i8.i.i.i
+  %35 = icmp uge i64 %retval.sroa.0.0.i7.i.i.i, %retval.sroa.0.0.i8.i.i.i
   %mul.i.i = shl i64 %6, 1
-  %cond.fr.i.i = freeze i1 %cmp5.i.i.i.i
+  %cond.fr.i.i = freeze i1 %35
   br i1 %cond.fr.i.i, label %rxfc_should_bump_window_size.exit.thread.i.i, label %rxfc_adjust_window_size.exit.i
 
 rxfc_should_bump_window_size.exit.thread.i.i:     ; preds = %rxfc_should_bump_window_size.exit.i.i, %if.end.i
   br label %rxfc_adjust_window_size.exit.i
 
 rxfc_adjust_window_size.exit.i:                   ; preds = %rxfc_should_bump_window_size.exit.thread.i.i, %rxfc_should_bump_window_size.exit.i.i
-  %35 = phi i64 [ %6, %rxfc_should_bump_window_size.exit.thread.i.i ], [ %mul.i.i, %rxfc_should_bump_window_size.exit.i.i ]
-  %new_window_size.1.i.i = tail call i64 @llvm.umax.i64(i64 %35, i64 %min_window_size)
+  %36 = phi i64 [ %6, %rxfc_should_bump_window_size.exit.thread.i.i ], [ %mul.i.i, %rxfc_should_bump_window_size.exit.i.i ]
+  %new_window_size.1.i.i = tail call i64 @llvm.umax.i64(i64 %36, i64 %min_window_size)
   %max_window_size.i.i = getelementptr inbounds i8, ptr %rxfc, i64 48
-  %36 = load i64, ptr %max_window_size.i.i, align 8
-  %new_window_size.2.i.i = tail call i64 @llvm.umin.i64(i64 %new_window_size.1.i.i, i64 %36)
+  %37 = load i64, ptr %max_window_size.i.i, align 8
+  %new_window_size.2.i.i = tail call i64 @llvm.umin.i64(i64 %new_window_size.1.i.i, i64 %37)
   store i64 %new_window_size.2.i.i, ptr %cur_window_size.i.i, align 8
   %now.i.i.i = getelementptr inbounds i8, ptr %rxfc, i64 64
-  %37 = load ptr, ptr %now.i.i.i, align 8
+  %38 = load ptr, ptr %now.i.i.i, align 8
   %now_arg.i11.i.i = getelementptr inbounds i8, ptr %rxfc, i64 72
-  %38 = load ptr, ptr %now_arg.i11.i.i, align 8
-  %call.i12.i.i = tail call i64 %37(ptr noundef %38) #9
+  %39 = load ptr, ptr %now_arg.i11.i.i, align 8
+  %call.i12.i.i = tail call i64 %38(ptr noundef %39) #9
   store i64 %call.i12.i.i, ptr %epoch_start, align 8
-  %39 = load i64, ptr %rwm, align 8
-  store i64 %39, ptr %esrwm.i.i.i, align 8
-  %40 = load i64, ptr %cur_window_size.i.i, align 8
-  %add.i = add i64 %40, %39
-  %41 = load i64, ptr %rxfc, align 8
-  %cmp.i = icmp ugt i64 %add.i, %41
-  br i1 %cmp.i, label %if.then2.i, label %rxfc_update_cwm.exit
+  %40 = load i64, ptr %rwm, align 8
+  store i64 %40, ptr %esrwm.i.i.i, align 8
+  %41 = load i64, ptr %cur_window_size.i.i, align 8
+  %add.i = add i64 %41, %40
+  %42 = load i64, ptr %rxfc, align 8
+  %cmp.i4 = icmp ugt i64 %add.i, %42
+  br i1 %cmp.i4, label %if.then2.i, label %rxfc_update_cwm.exit
 
 if.then2.i:                                       ; preds = %rxfc_adjust_window_size.exit.i
   store i64 %add.i, ptr %rxfc, align 8

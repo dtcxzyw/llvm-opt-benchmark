@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @ws_iana_ipv4_special_block_lookup(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = call ptr @bsearch(ptr noundef nonnull %2, ptr noundef nonnull @__ipv4_special_block, i64 noundef 24, i64 noundef 56, ptr noundef nonnull @compare_ipv4_block) #4
+  %3 = call ptr @bsearch(ptr noundef nonnull %2, ptr noundef nonnull @__ipv4_special_block, i64 noundef 24, i64 noundef 56, ptr noundef nonnull @compare_ipv4_block) #5
   ret ptr %3
 }
 
@@ -65,16 +65,13 @@ define internal range(i32 -1, 2) i32 @compare_ipv4_block(ptr nocapture noundef r
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, %3
   %8 = load i32, ptr %4, align 4
-  %9 = icmp ult i32 %7, %8
-  %10 = icmp ugt i32 %7, %8
-  %. = zext i1 %10 to i32
-  %.0 = select i1 %9, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %7, i32 %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @ws_iana_ipv6_special_block_lookup(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @bsearch(ptr noundef %0, ptr noundef nonnull @__ipv6_special_block, i64 noundef 20, i64 noundef 56, ptr noundef nonnull @compare_ipv6_block) #4
+  %2 = tail call ptr @bsearch(ptr noundef %0, ptr noundef nonnull @__ipv6_special_block, i64 noundef 20, i64 noundef 56, ptr noundef nonnull @compare_ipv6_block) #5
   ret ptr %2
 }
 
@@ -148,11 +145,15 @@ define internal range(i32 -255, 256) i32 @compare_ipv6_block(ptr nocapture nound
   ret i32 %.025
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #4
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

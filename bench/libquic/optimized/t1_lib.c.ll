@@ -38,26 +38,26 @@ entry:
   %0 = load ptr, ptr %client_hello1, align 8
   %client_hello_len = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load i64, ptr %client_hello_len, align 8
-  call void @CBS_init(ptr noundef nonnull %client_hello, ptr noundef %0, i64 noundef %1) #20
-  %call = call i32 @CBS_skip(ptr noundef nonnull %client_hello, i64 noundef 2) #20
+  call void @CBS_init(ptr noundef nonnull %client_hello, ptr noundef %0, i64 noundef %1) #21
+  %call = call i32 @CBS_skip(ptr noundef nonnull %client_hello, i64 noundef 2) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call2 = call i32 @CBS_skip(ptr noundef nonnull %client_hello, i64 noundef 32) #20
+  %call2 = call i32 @CBS_skip(ptr noundef nonnull %client_hello, i64 noundef 32) #21
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %call5 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %client_hello, ptr noundef nonnull %session_id) #20
+  %call5 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %client_hello, ptr noundef nonnull %session_id) #21
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false4
-  %call7 = call ptr @CBS_data(ptr noundef nonnull %session_id) #20
+  %call7 = call ptr @CBS_data(ptr noundef nonnull %session_id) #21
   %session_id8 = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %call7, ptr %session_id8, align 8
-  %call9 = call i64 @CBS_len(ptr noundef nonnull %session_id) #20
+  %call9 = call i64 @CBS_len(ptr noundef nonnull %session_id) #21
   %session_id_len = getelementptr inbounds i8, ptr %ctx, i64 32
   store i64 %call9, ptr %session_id_len, align 8
   %2 = load ptr, ptr %ctx, align 8
@@ -68,50 +68,50 @@ if.end:                                           ; preds = %lor.lhs.false4
   br i1 %tobool10.not, label %if.end16, label %if.then11
 
 if.then11:                                        ; preds = %if.end
-  %call12 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %client_hello, ptr noundef nonnull %cookie) #20
+  %call12 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %client_hello, ptr noundef nonnull %cookie) #21
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.then11, %if.end
-  %call17 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %client_hello, ptr noundef nonnull %cipher_suites) #20
+  %call17 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %client_hello, ptr noundef nonnull %cipher_suites) #21
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %return, label %lor.lhs.false19
 
 lor.lhs.false19:                                  ; preds = %if.end16
-  %call20 = call i64 @CBS_len(ptr noundef nonnull %cipher_suites) #20
+  %call20 = call i64 @CBS_len(ptr noundef nonnull %cipher_suites) #21
   %cmp = icmp ult i64 %call20, 2
   br i1 %cmp, label %return, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false19
-  %call22 = call i64 @CBS_len(ptr noundef nonnull %cipher_suites) #20
+  %call22 = call i64 @CBS_len(ptr noundef nonnull %cipher_suites) #21
   %and = and i64 %call22, 1
   %cmp23.not = icmp eq i64 %and, 0
   br i1 %cmp23.not, label %if.end25, label %return
 
 if.end25:                                         ; preds = %lor.lhs.false21
-  %call26 = call ptr @CBS_data(ptr noundef nonnull %cipher_suites) #20
+  %call26 = call ptr @CBS_data(ptr noundef nonnull %cipher_suites) #21
   %cipher_suites27 = getelementptr inbounds i8, ptr %ctx, i64 40
   store ptr %call26, ptr %cipher_suites27, align 8
-  %call28 = call i64 @CBS_len(ptr noundef nonnull %cipher_suites) #20
+  %call28 = call i64 @CBS_len(ptr noundef nonnull %cipher_suites) #21
   %cipher_suites_len = getelementptr inbounds i8, ptr %ctx, i64 48
   store i64 %call28, ptr %cipher_suites_len, align 8
-  %call29 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %client_hello, ptr noundef nonnull %compression_methods) #20
+  %call29 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %client_hello, ptr noundef nonnull %compression_methods) #21
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %return, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %if.end25
-  %call32 = call i64 @CBS_len(ptr noundef nonnull %compression_methods) #20
+  %call32 = call i64 @CBS_len(ptr noundef nonnull %compression_methods) #21
   %cmp33 = icmp eq i64 %call32, 0
   br i1 %cmp33, label %return, label %if.end35
 
 if.end35:                                         ; preds = %lor.lhs.false31
-  %call36 = call ptr @CBS_data(ptr noundef nonnull %compression_methods) #20
+  %call36 = call ptr @CBS_data(ptr noundef nonnull %compression_methods) #21
   %compression_methods37 = getelementptr inbounds i8, ptr %ctx, i64 56
   store ptr %call36, ptr %compression_methods37, align 8
-  %call38 = call i64 @CBS_len(ptr noundef nonnull %compression_methods) #20
+  %call38 = call i64 @CBS_len(ptr noundef nonnull %compression_methods) #21
   %compression_methods_len = getelementptr inbounds i8, ptr %ctx, i64 64
   store i64 %call38, ptr %compression_methods_len, align 8
-  %call39 = call i64 @CBS_len(ptr noundef nonnull %client_hello) #20
+  %call39 = call i64 @CBS_len(ptr noundef nonnull %client_hello) #21
   %cmp40 = icmp eq i64 %call39, 0
   br i1 %cmp40, label %if.then41, label %if.end43
 
@@ -121,7 +121,7 @@ if.then41:                                        ; preds = %if.end35
   br label %return
 
 if.end43:                                         ; preds = %if.end35
-  %call44 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %client_hello, ptr noundef nonnull %extensions) #20
+  %call44 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %client_hello, ptr noundef nonnull %extensions) #21
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %return, label %lor.lhs.false46
 
@@ -131,15 +131,15 @@ lor.lhs.false46:                                  ; preds = %if.end43
   br i1 %tobool48.not, label %return, label %lor.lhs.false49
 
 lor.lhs.false49:                                  ; preds = %lor.lhs.false46
-  %call50 = call i64 @CBS_len(ptr noundef nonnull %client_hello) #20
+  %call50 = call i64 @CBS_len(ptr noundef nonnull %client_hello) #21
   %cmp51.not = icmp eq i64 %call50, 0
   br i1 %cmp51.not, label %if.end53, label %return
 
 if.end53:                                         ; preds = %lor.lhs.false49
-  %call54 = call ptr @CBS_data(ptr noundef nonnull %extensions) #20
+  %call54 = call ptr @CBS_data(ptr noundef nonnull %extensions) #21
   %extensions55 = getelementptr inbounds i8, ptr %ctx, i64 72
   store ptr %call54, ptr %extensions55, align 8
-  %call56 = call i64 @CBS_len(ptr noundef nonnull %extensions) #20
+  %call56 = call i64 @CBS_len(ptr noundef nonnull %extensions) #21
   %extensions_len57 = getelementptr inbounds i8, ptr %ctx, i64 80
   store i64 %call56, ptr %extensions_len57, align 8
   br label %return
@@ -169,24 +169,24 @@ entry:
   %extension = alloca %struct.cbs_st, align 8
   %extension12 = alloca %struct.cbs_st, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extensions, ptr noundef nonnull align 8 dereferenceable(16) %cbs, i64 16, i1 false)
-  %call21 = call i64 @CBS_len(ptr noundef nonnull %extensions) #20
+  %call21 = call i64 @CBS_len(ptr noundef nonnull %extensions) #21
   %cmp.not22 = icmp eq i64 %call21, 0
   br i1 %cmp.not22, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end
   %num_extensions.023 = phi i64 [ %inc, %if.end ], [ 0, %entry ]
-  %call1 = call i32 @CBS_get_u16(ptr noundef nonnull %extensions, ptr noundef nonnull %type) #20
+  %call1 = call i32 @CBS_get_u16(ptr noundef nonnull %extensions, ptr noundef nonnull %type) #21
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %done, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.body
-  %call2 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %extensions, ptr noundef nonnull %extension) #20
+  %call2 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %extensions, ptr noundef nonnull %extension) #21
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %done, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %inc = add i64 %num_extensions.023, 1
-  %call = call i64 @CBS_len(ptr noundef nonnull %extensions) #20
+  %call = call i64 @CBS_len(ptr noundef nonnull %extensions) #21
   %cmp.not = icmp eq i64 %call, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !7
 
@@ -196,12 +196,12 @@ while.end:                                        ; preds = %if.end
 
 if.end6:                                          ; preds = %while.end
   %mul = shl i64 %inc, 1
-  %call7 = call noalias ptr @malloc(i64 noundef %mul) #21
+  %call7 = call noalias ptr @malloc(i64 noundef %mul) #22
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end6
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 173) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 173) #21
   br label %done
 
 if.end10:                                         ; preds = %if.end6
@@ -216,17 +216,17 @@ for.cond:                                         ; preds = %lor.lhs.false15
 for.body:                                         ; preds = %if.end10, %for.cond
   %i.024 = phi i64 [ 0, %if.end10 ], [ %inc20, %for.cond ]
   %arrayidx = getelementptr inbounds i16, ptr %call7, i64 %i.024
-  %call13 = call i32 @CBS_get_u16(ptr noundef nonnull %extensions, ptr noundef nonnull %arrayidx) #20
+  %call13 = call i32 @CBS_get_u16(ptr noundef nonnull %extensions, ptr noundef nonnull %arrayidx) #21
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %done, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %for.body
-  %call16 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %extensions, ptr noundef nonnull %extension12) #20
+  %call16 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %extensions, ptr noundef nonnull %extension12) #21
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %done, label %for.cond
 
 for.end:                                          ; preds = %for.cond
-  call void @qsort(ptr noundef nonnull %call7, i64 noundef %inc, i64 noundef 2, ptr noundef nonnull @compare_uint16_t) #20
+  call void @qsort(ptr noundef nonnull %call7, i64 noundef %inc, i64 noundef 2, ptr noundef nonnull @compare_uint16_t) #21
   %cmp2225.not = icmp eq i64 %num_extensions.023, 0
   br i1 %cmp2225.not, label %done, label %for.body23
 
@@ -247,7 +247,7 @@ for.body23:                                       ; preds = %for.end, %for.cond2
 done:                                             ; preds = %while.body, %lor.lhs.false, %for.body, %lor.lhs.false15, %for.body23, %for.cond21, %for.end, %if.then9
   %extension_types.0 = phi ptr [ null, %if.then9 ], [ %call7, %for.end ], [ %call7, %for.cond21 ], [ %call7, %for.body23 ], [ %call7, %lor.lhs.false15 ], [ %call7, %for.body ], [ null, %lor.lhs.false ], [ null, %while.body ]
   %ret.0 = phi i32 [ 0, %if.then9 ], [ 1, %for.end ], [ 0, %for.body23 ], [ 1, %for.cond21 ], [ 0, %lor.lhs.false15 ], [ 0, %for.body ], [ 0, %lor.lhs.false ], [ 0, %while.body ]
-  call void @free(ptr noundef %extension_types.0) #20
+  call void @free(ptr noundef %extension_types.0) #21
   br label %return
 
 return:                                           ; preds = %entry, %while.end, %done
@@ -265,21 +265,21 @@ entry:
   %0 = load ptr, ptr %extensions1, align 8
   %extensions_len = getelementptr inbounds i8, ptr %ctx, i64 80
   %1 = load i64, ptr %extensions_len, align 8
-  call void @CBS_init(ptr noundef nonnull %extensions, ptr noundef %0, i64 noundef %1) #20
+  call void @CBS_init(ptr noundef nonnull %extensions, ptr noundef %0, i64 noundef %1) #21
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end, %entry
-  %call = call i64 @CBS_len(ptr noundef nonnull %extensions) #20
+  %call = call i64 @CBS_len(ptr noundef nonnull %extensions) #21
   %cmp.not = icmp eq i64 %call, 0
   br i1 %cmp.not, label %return, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call2 = call i32 @CBS_get_u16(ptr noundef nonnull %extensions, ptr noundef nonnull %type) #20
+  %call2 = call i32 @CBS_get_u16(ptr noundef nonnull %extensions, ptr noundef nonnull %type) #21
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.body
-  %call3 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %extensions, ptr noundef nonnull %extension) #20
+  %call3 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %extensions, ptr noundef nonnull %extension) #21
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %return, label %if.end
 
@@ -289,9 +289,9 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp6, label %if.then8, label %while.cond, !llvm.loop !11
 
 if.then8:                                         ; preds = %if.end
-  %call9 = call ptr @CBS_data(ptr noundef nonnull %extension) #20
+  %call9 = call ptr @CBS_data(ptr noundef nonnull %extension) #21
   store ptr %call9, ptr %out_data, align 8
-  %call10 = call i64 @CBS_len(ptr noundef nonnull %extension) #20
+  %call10 = call i64 @CBS_len(ptr noundef nonnull %extension) #21
   store i64 %call10, ptr %out_len, align 8
   br label %return
 
@@ -376,7 +376,7 @@ return:                                           ; preds = %for.cond8.for.inc20
 define hidden range(i32 0, 2) i32 @tls1_set_curves(ptr nocapture noundef %out_curve_ids, ptr nocapture noundef writeonly %out_curve_ids_len, ptr nocapture noundef readonly %curves, i64 noundef %ncurves) local_unnamed_addr #0 {
 entry:
   %mul = shl i64 %ncurves, 1
-  %call = tail call noalias ptr @malloc(i64 noundef %mul) #21
+  %call = tail call noalias ptr @malloc(i64 noundef %mul) #22
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %for.cond.preheader
 
@@ -394,17 +394,17 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx = getelementptr inbounds i16, ptr %call, i64 %i.011
   %arrayidx2 = getelementptr inbounds i32, ptr %curves, i64 %i.011
   %0 = load i32, ptr %arrayidx2, align 4
-  %call3 = tail call i32 @ssl_nid_to_curve_id(ptr noundef nonnull %arrayidx, i32 noundef %0) #20
+  %call3 = tail call i32 @ssl_nid_to_curve_id(ptr noundef nonnull %arrayidx, i32 noundef %0) #21
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.then4, label %for.cond
 
 if.then4:                                         ; preds = %for.body
-  tail call void @free(ptr noundef %call) #20
+  tail call void @free(ptr noundef %call) #21
   br label %return
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
   %1 = load ptr, ptr %out_curve_ids, align 8
-  tail call void @free(ptr noundef %1) #20
+  tail call void @free(ptr noundef %1) #21
   store ptr %call, ptr %out_curve_ids, align 8
   store i64 %ncurves, ptr %out_curve_ids_len, align 8
   br label %return
@@ -496,30 +496,30 @@ return:                                           ; preds = %return.loopexit45.s
 define hidden range(i32 0, 2) i32 @tls1_check_ec_cert(ptr nocapture noundef readonly %ssl, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %id.i = alloca i16, align 2
-  %call = tail call ptr @X509_get_pubkey(ptr noundef %x) #20
+  %call = tail call ptr @X509_get_pubkey(ptr noundef %x) #21
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %done, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %call) #20
+  %call1 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %call) #21
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %done, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %id.i)
-  %call.i = tail call ptr @EC_KEY_get0_group(ptr noundef nonnull %call1) #20
+  %call.i = tail call ptr @EC_KEY_get0_group(ptr noundef nonnull %call1) #21
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %tls1_curve_params_from_ec_key.exit.thread, label %if.end3.i
 
 if.end3.i:                                        ; preds = %lor.lhs.false
-  %call4.i = tail call i32 @EC_GROUP_get_curve_name(ptr noundef nonnull %call.i) #20
-  %call5.i = call i32 @ssl_nid_to_curve_id(ptr noundef nonnull %id.i, i32 noundef %call4.i) #20
+  %call4.i = tail call i32 @EC_GROUP_get_curve_name(ptr noundef nonnull %call.i) #21
+  %call5.i = call i32 @ssl_nid_to_curve_id(ptr noundef nonnull %id.i, i32 noundef %call4.i) #21
   %tobool.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool.not.i, label %tls1_curve_params_from_ec_key.exit.thread, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end3.i
   %0 = load i16, ptr %id.i, align 2
-  %call10.i = call ptr @EC_KEY_get0_public_key(ptr noundef nonnull %call1) #20
+  %call10.i = call ptr @EC_KEY_get0_public_key(ptr noundef nonnull %call1) #21
   %cmp11.i = icmp eq ptr %call10.i, null
   br i1 %cmp11.i, label %tls1_curve_params_from_ec_key.exit.thread, label %lor.lhs.false4
 
@@ -528,7 +528,7 @@ tls1_curve_params_from_ec_key.exit.thread:        ; preds = %lor.lhs.false, %if.
   br label %done
 
 lor.lhs.false4:                                   ; preds = %if.end7.i
-  %call14.i = call i32 @EC_KEY_get_conv_form(ptr noundef nonnull %call1) #20
+  %call14.i = call i32 @EC_KEY_get_conv_form(ptr noundef nonnull %call1) #21
   %cmp15.i = icmp ne i32 %call14.i, 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %id.i)
   %tlsext_ellipticcurvelist.i.i = getelementptr inbounds i8, ptr %ssl, i64 312
@@ -595,7 +595,7 @@ tls1_check_curve_id.exit.loopexit15:              ; preds = %tls1_get_curvelist.
 
 done:                                             ; preds = %for.inc.i, %tls1_check_curve_id.exit.loopexit15, %tls1_curve_params_from_ec_key.exit.thread, %if.end, %entry
   %ret.0 = phi i32 [ 0, %if.end ], [ 0, %entry ], [ 0, %tls1_curve_params_from_ec_key.exit.thread ], [ %9, %tls1_check_curve_id.exit.loopexit15 ], [ 0, %for.inc.i ]
-  call void @EVP_PKEY_free(ptr noundef %call) #20
+  call void @EVP_PKEY_free(ptr noundef %call) #21
   ret i32 %ret.0
 }
 
@@ -638,7 +638,7 @@ tls12_get_sigid.exit:                             ; preds = %for.body.i.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.inc.i.i, %tls12_get_sigid.exit
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 527) #20
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 527) #21
   br label %return.sink.split
 
 if.end:                                           ; preds = %tls12_get_sigid.exit
@@ -647,7 +647,7 @@ if.end:                                           ; preds = %tls12_get_sigid.exi
   br i1 %cmp1.not, label %for.body, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 245, ptr noundef nonnull @.str, i32 noundef 534) #20
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 245, ptr noundef nonnull @.str, i32 noundef 534) #21
   br label %return.sink.split
 
 for.body:                                         ; preds = %if.end, %for.inc
@@ -670,7 +670,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp6, label %for.body, label %if.then21, !llvm.loop !17
 
 if.then21:                                        ; preds = %for.inc
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 245, ptr noundef nonnull @.str, i32 noundef 548) #20
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 245, ptr noundef nonnull @.str, i32 noundef 548) #21
   br label %return.sink.split
 
 if.end22:                                         ; preds = %land.lhs.true
@@ -686,19 +686,19 @@ tls12_get_hash.exit.thread:                       ; preds = %if.end22
   br label %if.then26
 
 sw.bb.i:                                          ; preds = %if.end22
-  %call.i = tail call ptr @EVP_sha1() #20
+  %call.i = tail call ptr @EVP_sha1() #21
   br label %tls12_get_hash.exit
 
 sw.bb1.i:                                         ; preds = %if.end22
-  %call2.i = tail call ptr @EVP_sha256() #20
+  %call2.i = tail call ptr @EVP_sha256() #21
   br label %tls12_get_hash.exit
 
 sw.bb3.i:                                         ; preds = %if.end22
-  %call4.i = tail call ptr @EVP_sha384() #20
+  %call4.i = tail call ptr @EVP_sha384() #21
   br label %tls12_get_hash.exit
 
 sw.bb5.i:                                         ; preds = %if.end22
-  %call6.i = tail call ptr @EVP_sha512() #20
+  %call6.i = tail call ptr @EVP_sha512() #21
   br label %tls12_get_hash.exit
 
 tls12_get_hash.exit:                              ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i
@@ -708,7 +708,7 @@ tls12_get_hash.exit:                              ; preds = %sw.bb.i, %sw.bb1.i,
   br i1 %cmp24, label %if.then26, label %return
 
 if.then26:                                        ; preds = %tls12_get_hash.exit.thread, %tls12_get_hash.exit
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 231, ptr noundef nonnull @.str, i32 noundef 555) #20
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 231, ptr noundef nonnull @.str, i32 noundef 555) #21
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then, %if.then3, %if.then21, %if.then26
@@ -761,19 +761,19 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call = tail call ptr @EVP_sha1() #20
+  %call = tail call ptr @EVP_sha1() #21
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %call2 = tail call ptr @EVP_sha256() #20
+  %call2 = tail call ptr @EVP_sha256() #21
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %call4 = tail call ptr @EVP_sha384() #20
+  %call4 = tail call ptr @EVP_sha384() #21
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %call6 = tail call ptr @EVP_sha512() #20
+  %call6 = tail call ptr @EVP_sha512() #21
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
@@ -910,7 +910,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %call = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %extensions) #20
+  %call = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %extensions) #21
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %err, label %if.end3
 
@@ -934,7 +934,7 @@ for.body:                                         ; preds = %if.end3, %for.inc
 if.then10:                                        ; preds = %for.body
   %init = getelementptr inbounds [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %i.026, i32 1
   %7 = load ptr, ptr %init, align 8
-  call void %7(ptr noundef %ssl) #20
+  call void %7(ptr noundef %ssl) #21
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then10
@@ -944,23 +944,23 @@ for.inc:                                          ; preds = %for.body, %if.then1
 
 for.body16:                                       ; preds = %for.inc, %for.inc32
   %i.127 = phi i64 [ %inc33, %for.inc32 ], [ 0, %for.inc ]
-  %call17 = call i64 @CBB_len(ptr noundef nonnull %extensions) #20
+  %call17 = call i64 @CBB_len(ptr noundef nonnull %extensions) #21
   %arrayidx18 = getelementptr inbounds [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %i.127
   %add_clienthello = getelementptr inbounds i8, ptr %arrayidx18, i64 16
   %8 = load ptr, ptr %add_clienthello, align 16
-  %call19 = call i32 %8(ptr noundef %ssl, ptr noundef nonnull %extensions) #20
+  %call19 = call i32 %8(ptr noundef %ssl, ptr noundef nonnull %extensions) #21
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %for.body16
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 147, ptr noundef nonnull @.str, i32 noundef 2069) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 147, ptr noundef nonnull @.str, i32 noundef 2069) #21
   %9 = load i16, ptr %arrayidx18, align 16
   %conv = zext i16 %9 to i32
-  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %conv) #20
+  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %conv) #21
   br label %err
 
 if.end23:                                         ; preds = %for.body16
-  %call24 = call i64 @CBB_len(ptr noundef nonnull %extensions) #20
+  %call24 = call i64 @CBB_len(ptr noundef nonnull %extensions) #21
   %cmp25.not = icmp eq i64 %call24, %call17
   br i1 %cmp25.not, label %for.inc32, label %if.then27
 
@@ -980,7 +980,7 @@ for.inc32:                                        ; preds = %if.end23, %if.then2
   br i1 %exitcond29.not, label %for.end34, label %for.body16, !llvm.loop !21
 
 for.end34:                                        ; preds = %for.inc32
-  %call35 = call i32 @custom_ext_add_clienthello(ptr noundef %ssl, ptr noundef nonnull %extensions) #20
+  %call35 = call i32 @custom_ext_add_clienthello(ptr noundef %ssl, ptr noundef nonnull %extensions) #21
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %err, label %if.end38
 
@@ -992,7 +992,7 @@ if.end38:                                         ; preds = %for.end34
   br i1 %tobool39.not, label %if.then40, label %if.end65
 
 if.then40:                                        ; preds = %if.end38
-  %call41 = call i64 @CBB_len(ptr noundef nonnull %extensions) #20
+  %call41 = call i64 @CBB_len(ptr noundef nonnull %extensions) #21
   %add = add i64 %header_len, 2
   %add42 = add i64 %add, %call41
   %14 = and i64 %add42, -256
@@ -1003,18 +1003,18 @@ if.then48:                                        ; preds = %if.then40
   %cmp49 = icmp ult i64 %add42, 508
   %sub52 = sub nuw nsw i64 508, %add42
   %padding_len.0 = select i1 %cmp49, i64 %sub52, i64 1
-  %call54 = call i32 @CBB_add_u16(ptr noundef nonnull %extensions, i16 noundef zeroext 21) #20
+  %call54 = call i32 @CBB_add_u16(ptr noundef nonnull %extensions, i16 noundef zeroext 21) #21
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then48
   %conv56 = trunc nuw nsw i64 %padding_len.0 to i16
-  %call57 = call i32 @CBB_add_u16(ptr noundef nonnull %extensions, i16 noundef zeroext %conv56) #20
+  %call57 = call i32 @CBB_add_u16(ptr noundef nonnull %extensions, i16 noundef zeroext %conv56) #21
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %err, label %lor.lhs.false59
 
 lor.lhs.false59:                                  ; preds = %lor.lhs.false
-  %call60 = call i32 @CBB_add_space(ptr noundef nonnull %extensions, ptr noundef nonnull %padding_bytes, i64 noundef %padding_len.0) #20
+  %call60 = call i32 @CBB_add_space(ptr noundef nonnull %extensions, ptr noundef nonnull %padding_bytes, i64 noundef %padding_len.0) #21
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %err, label %if.end63
 
@@ -1024,20 +1024,20 @@ if.end63:                                         ; preds = %lor.lhs.false59
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then40, %if.end63, %if.end38
-  %call66 = call i64 @CBB_len(ptr noundef nonnull %extensions) #20
+  %call66 = call i64 @CBB_len(ptr noundef nonnull %extensions) #21
   %cmp67 = icmp eq i64 %call66, 0
   br i1 %cmp67, label %if.then69, label %if.end70
 
 if.then69:                                        ; preds = %if.end65
-  call void @CBB_discard_child(ptr noundef %out) #20
+  call void @CBB_discard_child(ptr noundef %out) #21
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then69, %if.end65
-  %call71 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call71 = call i32 @CBB_flush(ptr noundef %out) #21
   br label %return
 
 err:                                              ; preds = %if.then48, %lor.lhs.false, %lor.lhs.false59, %for.end34, %if.end, %if.then21
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 2120) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 2120) #21
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %err, %if.end70
@@ -1068,7 +1068,7 @@ declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #1
 define hidden i32 @ssl_add_serverhello_tlsext(ptr noundef %ssl, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %extensions = alloca %struct.cbb_st, align 8
-  %call = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %extensions) #20
+  %call = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %extensions) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %err, label %for.cond.preheader
 
@@ -1091,15 +1091,15 @@ if.end5:                                          ; preds = %for.body
   %arrayidx = getelementptr inbounds [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %indvars.iv
   %add_serverhello = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %3 = load ptr, ptr %add_serverhello, align 8
-  %call6 = call i32 %3(ptr noundef nonnull %ssl, ptr noundef nonnull %extensions) #20
+  %call6 = call i32 %3(ptr noundef nonnull %ssl, ptr noundef nonnull %extensions) #21
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.then8, label %for.inc
 
 if.then8:                                         ; preds = %if.end5
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 147, ptr noundef nonnull @.str, i32 noundef 2138) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 147, ptr noundef nonnull @.str, i32 noundef 2138) #21
   %4 = load i16, ptr %arrayidx, align 16
   %conv11 = zext i16 %4 to i32
-  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %conv11) #20
+  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %conv11) #21
   br label %err
 
 for.inc:                                          ; preds = %if.end5, %for.body
@@ -1108,25 +1108,25 @@ for.inc:                                          ; preds = %if.end5, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.inc
-  %call13 = call i32 @custom_ext_add_serverhello(ptr noundef nonnull %ssl, ptr noundef nonnull %extensions) #20
+  %call13 = call i32 @custom_ext_add_serverhello(ptr noundef nonnull %ssl, ptr noundef nonnull %extensions) #21
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %err, label %if.end16
 
 if.end16:                                         ; preds = %for.end
-  %call17 = call i64 @CBB_len(ptr noundef nonnull %extensions) #20
+  %call17 = call i64 @CBB_len(ptr noundef nonnull %extensions) #21
   %cmp18 = icmp eq i64 %call17, 0
   br i1 %cmp18, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end16
-  call void @CBB_discard_child(ptr noundef %out) #20
+  call void @CBB_discard_child(ptr noundef %out) #21
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then20, %if.end16
-  %call22 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call22 = call i32 @CBB_flush(ptr noundef %out) #21
   br label %return
 
 err:                                              ; preds = %for.end, %entry, %if.then8
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 2156) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 2156) #21
   br label %return
 
 return:                                           ; preds = %err, %if.end21
@@ -1164,7 +1164,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
 if.then.i:                                        ; preds = %for.body.i
   %init.i = getelementptr inbounds [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %i.029.i, i32 1
   %2 = load ptr, ptr %init.i, align 8
-  tail call void %2(ptr noundef %ssl) #20
+  tail call void %2(ptr noundef %ssl) #21
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
@@ -1180,7 +1180,7 @@ for.end.i:                                        ; preds = %for.inc.i
   %4 = load ptr, ptr %s3.i, align 8
   %custom_extensions.i = getelementptr inbounds i8, ptr %4, i64 460
   store i16 0, ptr %custom_extensions.i, align 4
-  %call.i = tail call i64 @CBS_len(ptr noundef %cbs) #20
+  %call.i = tail call i64 @CBS_len(ptr noundef %cbs) #21
   %cmp6.not.i = icmp eq i64 %call.i, 0
   br i1 %cmp6.not.i, label %for.body50.i.preheader, label %if.then7.i
 
@@ -1188,7 +1188,7 @@ for.body50.i.preheader:                           ; preds = %while.cond.outer.i,
   br label %for.body50.i
 
 if.then7.i:                                       ; preds = %for.end.i
-  %call9.i = call i32 @CBS_get_u16_length_prefixed(ptr noundef %cbs, ptr noundef nonnull %extensions8.i) #20
+  %call9.i = call i32 @CBS_get_u16_length_prefixed(ptr noundef %cbs, ptr noundef nonnull %extensions8.i) #21
   %tobool.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool.not.i, label %if.then12.i, label %lor.lhs.false.i
 
@@ -1202,12 +1202,12 @@ if.then12.i:                                      ; preds = %lor.lhs.false.i, %i
   br label %if.then
 
 while.body.i:                                     ; preds = %while.cond.outer.i, %while.cond.backedge.i
-  %call16.i = call i32 @CBS_get_u16(ptr noundef nonnull %extensions8.i, ptr noundef nonnull %type.i) #20
+  %call16.i = call i32 @CBS_get_u16(ptr noundef nonnull %extensions8.i, ptr noundef nonnull %type.i) #21
   %tobool17.not.i = icmp eq i32 %call16.i, 0
   br i1 %tobool17.not.i, label %if.then21.i, label %lor.lhs.false18.i
 
 lor.lhs.false18.i:                                ; preds = %while.body.i
-  %call19.i = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %extensions8.i, ptr noundef nonnull %extension.i) #20
+  %call19.i = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %extensions8.i, ptr noundef nonnull %extension.i) #21
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %if.then21.i, label %if.end22.i
 
@@ -1224,7 +1224,7 @@ if.end22.i:                                       ; preds = %lor.lhs.false18.i
   br i1 %or.cond.i, label %while.cond.backedge.i, label %for.body.i.i
 
 while.cond.backedge.i:                            ; preds = %if.then31.i, %if.end22.i
-  %call14.i = call i64 @CBS_len(ptr noundef nonnull %extensions8.i) #20
+  %call14.i = call i64 @CBS_len(ptr noundef nonnull %extensions8.i) #21
   %cmp15.not.i = icmp eq i64 %call14.i, 0
   br i1 %cmp15.not.i, label %for.body50.i.preheader, label %while.body.i, !llvm.loop !24
 
@@ -1241,12 +1241,12 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %if.then31.i, label %for.body.i.i, !llvm.loop !19
 
 if.then31.i:                                      ; preds = %for.inc.i.i
-  %call32.i = call i32 @custom_ext_parse_clienthello(ptr noundef nonnull %ssl, ptr noundef nonnull %alert, i16 noundef zeroext %6, ptr noundef nonnull %extension.i) #20
+  %call32.i = call i32 @custom_ext_parse_clienthello(ptr noundef nonnull %ssl, ptr noundef nonnull %alert, i16 noundef zeroext %6, ptr noundef nonnull %extension.i) #21
   %tobool33.not.i = icmp eq i32 %call32.i, 0
   br i1 %tobool33.not.i, label %if.then34.i, label %while.cond.backedge.i
 
 if.then34.i:                                      ; preds = %if.then31.i
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 149, ptr noundef nonnull @.str, i32 noundef 2208) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 149, ptr noundef nonnull @.str, i32 noundef 2208) #21
   br label %if.then
 
 if.end36.i:                                       ; preds = %for.body.i.i
@@ -1260,12 +1260,12 @@ if.end36.i:                                       ; preds = %for.body.i.i
   store i8 50, ptr %alert.i, align 1
   %parse_clienthello.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   %11 = load ptr, ptr %parse_clienthello.i, align 8
-  %call40.i = call i32 %11(ptr noundef nonnull %ssl, ptr noundef nonnull %alert.i, ptr noundef nonnull %extension.i) #20
+  %call40.i = call i32 %11(ptr noundef nonnull %ssl, ptr noundef nonnull %alert.i, ptr noundef nonnull %extension.i) #21
   %tobool41.not.i = icmp eq i32 %call40.i, 0
   br i1 %tobool41.not.i, label %if.then42.i, label %while.cond.outer.i, !llvm.loop !24
 
 while.cond.outer.i:                               ; preds = %lor.lhs.false.i, %if.end36.i
-  %call1430.i = call i64 @CBS_len(ptr noundef nonnull %extensions8.i) #20
+  %call1430.i = call i64 @CBS_len(ptr noundef nonnull %extensions8.i) #21
   %cmp15.not31.i = icmp eq i64 %call1430.i, 0
   br i1 %cmp15.not31.i, label %for.body50.i.preheader, label %while.body.i
 
@@ -1273,10 +1273,10 @@ if.then42.i:                                      ; preds = %if.end36.i
   %12 = load i8, ptr %alert.i, align 1
   %conv43.i = zext i8 %12 to i32
   store i32 %conv43.i, ptr %alert, align 4
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 149, ptr noundef nonnull @.str, i32 noundef 2218) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 149, ptr noundef nonnull @.str, i32 noundef 2218) #21
   %13 = load i16, ptr %type.i, align 2
   %conv44.i = zext i16 %13 to i32
-  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %conv44.i) #20
+  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %conv44.i) #21
   br label %if.then
 
 for.body50.i:                                     ; preds = %for.body50.i.preheader, %for.inc68.i
@@ -1295,15 +1295,15 @@ if.then56.i:                                      ; preds = %for.body50.i
   %arrayidx58.i = getelementptr inbounds [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %i.132.i
   %parse_clienthello59.i = getelementptr inbounds i8, ptr %arrayidx58.i, i64 32
   %16 = load ptr, ptr %parse_clienthello59.i, align 16
-  %call60.i = call i32 %16(ptr noundef nonnull %ssl, ptr noundef nonnull %alert57.i, ptr noundef null) #20
+  %call60.i = call i32 %16(ptr noundef nonnull %ssl, ptr noundef nonnull %alert57.i, ptr noundef null) #21
   %tobool61.not.i = icmp eq i32 %call60.i, 0
   br i1 %tobool61.not.i, label %if.then62.i, label %for.inc68.i
 
 if.then62.i:                                      ; preds = %if.then56.i
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 164, ptr noundef nonnull @.str, i32 noundef 2231) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 164, ptr noundef nonnull @.str, i32 noundef 2231) #21
   %17 = load i16, ptr %arrayidx58.i, align 16
   %conv64.i = zext i16 %17 to i32
-  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %conv64.i) #20
+  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %conv64.i) #21
   %18 = load i8, ptr %alert57.i, align 1
   %conv65.i = zext i8 %18 to i32
   store i32 %conv65.i, ptr %alert, align 4
@@ -1321,7 +1321,7 @@ if.then:                                          ; preds = %if.then34.i, %if.th
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alert.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alert57.i)
   %19 = load i32, ptr %alert, align 4
-  %call1 = call i32 @ssl3_send_alert(ptr noundef %ssl, i32 noundef 2, i32 noundef %19) #20
+  %call1 = call i32 @ssl3_send_alert(ptr noundef %ssl, i32 noundef 2, i32 noundef %19) #21
   br label %return
 
 if.end:                                           ; preds = %for.inc68.i
@@ -1352,7 +1352,7 @@ if.end12.i:                                       ; preds = %if.else.i, %if.end
   %.sink13.i = phi ptr [ %21, %if.end ], [ %23, %if.else.i ]
   %tlsext_servername_arg10.i = getelementptr inbounds i8, ptr %.sink.i, i64 408
   %24 = load ptr, ptr %tlsext_servername_arg10.i, align 8
-  %call11.i = call i32 %.sink13.i(ptr noundef nonnull %ssl, ptr noundef nonnull %al.i, ptr noundef %24) #20
+  %call11.i = call i32 %.sink13.i(ptr noundef nonnull %ssl, ptr noundef nonnull %al.i, ptr noundef %24) #21
   switch i32 %call11.i, label %ssl_check_clienthello_tlsext.exit.thread [
     i32 2, label %if.then4
     i32 1, label %sw.bb14.i
@@ -1361,7 +1361,7 @@ if.end12.i:                                       ; preds = %if.else.i, %if.end
 
 sw.bb14.i:                                        ; preds = %if.end12.i
   %25 = load i32, ptr %al.i, align 4
-  %call15.i = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 1, i32 noundef %25) #20
+  %call15.i = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 1, i32 noundef %25) #21
   br label %ssl_check_clienthello_tlsext.exit.thread
 
 sw.bb16.i:                                        ; preds = %if.end12.i, %if.else.i
@@ -1378,9 +1378,9 @@ ssl_check_clienthello_tlsext.exit.thread:         ; preds = %sw.bb16.i, %sw.bb14
 
 if.then4:                                         ; preds = %if.end12.i
   %27 = load i32, ptr %al.i, align 4
-  %call13.i = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef %27) #20
+  %call13.i = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef %27) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %al.i)
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 132, ptr noundef nonnull @.str, i32 noundef 2250) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 132, ptr noundef nonnull @.str, i32 noundef 2250) #21
   br label %return
 
 return:                                           ; preds = %ssl_check_clienthello_tlsext.exit.thread, %if.then4, %if.then
@@ -1406,12 +1406,12 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %extension.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %alert.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %alert40.i)
-  %call.i = tail call i64 @CBS_len(ptr noundef %cbs) #20
+  %call.i = tail call i64 @CBS_len(ptr noundef %cbs) #21
   %cmp.not.i = icmp eq i64 %call.i, 0
   br i1 %cmp.not.i, label %if.end33.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call1.i = call i32 @CBS_get_u16_length_prefixed(ptr noundef %cbs, ptr noundef nonnull %extensions.i) #20
+  %call1.i = call i32 @CBS_get_u16_length_prefixed(ptr noundef %cbs, ptr noundef nonnull %extensions.i) #21
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %return.sink.split.i, label %lor.lhs.false.i
 
@@ -1425,17 +1425,17 @@ while.cond.preheader.i:                           ; preds = %lor.lhs.false.i
   br label %while.cond.outer.i
 
 while.cond.i:                                     ; preds = %while.cond.outer.i, %if.then16.i
-  %call5.i = call i64 @CBS_len(ptr noundef nonnull %extensions.i) #20
+  %call5.i = call i64 @CBS_len(ptr noundef nonnull %extensions.i) #21
   %cmp6.not.i = icmp eq i64 %call5.i, 0
   br i1 %cmp6.not.i, label %if.end33.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %call7.i = call i32 @CBS_get_u16(ptr noundef nonnull %extensions.i, ptr noundef nonnull %type.i) #20
+  %call7.i = call i32 @CBS_get_u16(ptr noundef nonnull %extensions.i, ptr noundef nonnull %type.i) #21
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %return.sink.split.i, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %while.body.i
-  %call10.i = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %extensions.i, ptr noundef nonnull %extension.i) #20
+  %call10.i = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %extensions.i, ptr noundef nonnull %extension.i) #21
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %return.sink.split.i, label %if.end13.i
 
@@ -1456,7 +1456,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %if.then16.i, label %for.body.i.i, !llvm.loop !19
 
 if.then16.i:                                      ; preds = %for.inc.i.i
-  %call17.i = call i32 @custom_ext_parse_serverhello(ptr noundef %ssl, ptr noundef nonnull %alert, i16 noundef zeroext %0, ptr noundef nonnull %extension.i) #20
+  %call17.i = call i32 @custom_ext_parse_serverhello(ptr noundef %ssl, ptr noundef nonnull %alert, i16 noundef zeroext %0, ptr noundef nonnull %extension.i) #21
   %tobool18.not.i = icmp eq i32 %call17.i, 0
   br i1 %tobool18.not.i, label %if.then.loopexit, label %while.cond.i, !llvm.loop !26
 
@@ -1471,10 +1471,10 @@ if.end21.i:                                       ; preds = %for.body.i.i
   br i1 %tobool23.not.i, label %if.then24.i, label %if.end25.i
 
 if.then24.i:                                      ; preds = %if.end21.i
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 222, ptr noundef nonnull @.str, i32 noundef 2296) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 222, ptr noundef nonnull @.str, i32 noundef 2296) #21
   %5 = load i16, ptr %type.i, align 2
   %conv.i = zext i16 %5 to i32
-  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.2, i32 noundef %conv.i) #20
+  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.2, i32 noundef %conv.i) #21
   br label %return.sink.split.i
 
 if.end25.i:                                       ; preds = %if.end21.i
@@ -1482,7 +1482,7 @@ if.end25.i:                                       ; preds = %if.end21.i
   store i8 50, ptr %alert.i, align 1
   %parse_serverhello.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %6 = load ptr, ptr %parse_serverhello.i, align 8
-  %call27.i = call i32 %6(ptr noundef nonnull %ssl, ptr noundef nonnull %alert.i, ptr noundef nonnull %extension.i) #20
+  %call27.i = call i32 %6(ptr noundef nonnull %ssl, ptr noundef nonnull %alert.i, ptr noundef nonnull %extension.i) #21
   %tobool28.not.i = icmp eq i32 %call27.i, 0
   br i1 %tobool28.not.i, label %if.then29.i, label %while.cond.outer.i, !llvm.loop !26
 
@@ -1491,10 +1491,10 @@ while.cond.outer.i:                               ; preds = %if.end25.i, %while.
   br label %while.cond.i
 
 if.then29.i:                                      ; preds = %if.end25.i
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 149, ptr noundef nonnull @.str, i32 noundef 2306) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 149, ptr noundef nonnull @.str, i32 noundef 2306) #21
   %7 = load i16, ptr %type.i, align 2
   %conv30.i = zext i16 %7 to i32
-  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %conv30.i) #20
+  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %conv30.i) #21
   %8 = load i8, ptr %alert.i, align 1
   br label %return.sink.split.i
 
@@ -1515,15 +1515,15 @@ if.then39.i:                                      ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds [13 x %struct.tls_extension], ptr @kExtensions, i64 0, i64 %i.027.i
   %parse_serverhello41.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %9 = load ptr, ptr %parse_serverhello41.i, align 8
-  %call42.i = call i32 %9(ptr noundef %ssl, ptr noundef nonnull %alert40.i, ptr noundef null) #20
+  %call42.i = call i32 %9(ptr noundef %ssl, ptr noundef nonnull %alert40.i, ptr noundef null) #21
   %tobool43.not.i = icmp eq i32 %call42.i, 0
   br i1 %tobool43.not.i, label %if.then44.i, label %for.inc.i
 
 if.then44.i:                                      ; preds = %if.then39.i
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 164, ptr noundef nonnull @.str, i32 noundef 2321) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 164, ptr noundef nonnull @.str, i32 noundef 2321) #21
   %10 = load i16, ptr %arrayidx.i, align 16
   %conv46.i = zext i16 %10 to i32
-  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %conv46.i) #20
+  call void (ptr, ...) @ERR_add_error_dataf(ptr noundef nonnull @.str.1, i32 noundef %conv46.i) #21
   %11 = load i8, ptr %alert40.i, align 1
   br label %return.sink.split.i
 
@@ -1549,7 +1549,7 @@ if.then:                                          ; preds = %if.then.loopexit, %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %extension.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alert.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alert40.i)
-  %call1 = call i32 @ssl3_send_alert(ptr noundef %ssl, i32 noundef 2, i32 noundef %12) #20
+  %call1 = call i32 @ssl3_send_alert(ptr noundef %ssl, i32 noundef 2, i32 noundef %12) #21
   br label %return
 
 if.end:                                           ; preds = %for.inc.i
@@ -1580,7 +1580,7 @@ if.end12.i:                                       ; preds = %if.else.i, %if.end
   %.sink12.i = phi ptr [ %14, %if.end ], [ %16, %if.else.i ]
   %tlsext_servername_arg10.i = getelementptr inbounds i8, ptr %.sink.i, i64 408
   %17 = load ptr, ptr %tlsext_servername_arg10.i, align 8
-  %call11.i = call i32 %.sink12.i(ptr noundef nonnull %ssl, ptr noundef nonnull %al.i, ptr noundef %17) #20
+  %call11.i = call i32 %.sink12.i(ptr noundef nonnull %ssl, ptr noundef nonnull %al.i, ptr noundef %17) #21
   switch i32 %call11.i, label %ssl_check_serverhello_tlsext.exit.thread [
     i32 2, label %if.then4
     i32 1, label %ssl_check_serverhello_tlsext.exit
@@ -1592,15 +1592,15 @@ ssl_check_serverhello_tlsext.exit.thread:         ; preds = %if.end12.i, %if.els
 
 ssl_check_serverhello_tlsext.exit:                ; preds = %if.end12.i
   %18 = load i32, ptr %al.i, align 4
-  %call15.i = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 1, i32 noundef %18) #20
+  %call15.i = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 1, i32 noundef %18) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %al.i)
   br label %return
 
 if.then4:                                         ; preds = %if.end12.i
   %19 = load i32, ptr %al.i, align 4
-  %call15.i12 = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef %19) #20
+  %call15.i12 = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef %19) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %al.i)
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 207, ptr noundef nonnull @.str, i32 noundef 2396) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 207, ptr noundef nonnull @.str, i32 noundef 2396) #21
   br label %return
 
 return:                                           ; preds = %ssl_check_serverhello_tlsext.exit, %ssl_check_serverhello_tlsext.exit.thread, %if.then4, %if.then
@@ -1618,8 +1618,8 @@ entry:
   %len2 = alloca i32, align 4
   %initial_ctx = getelementptr inbounds i8, ptr %ssl, i64 320
   %0 = load ptr, ptr %initial_ctx, align 8
-  call void @HMAC_CTX_init(ptr noundef nonnull %hmac_ctx) #20
-  call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %cipher_ctx) #20
+  call void @HMAC_CTX_init(ptr noundef nonnull %hmac_ctx) #21
+  call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %cipher_ctx) #21
   store i32 0, ptr %out_renew_ticket, align 4
   store ptr null, ptr %out_session, align 8
   %cmp = icmp ugt i64 %session_id_len, 32
@@ -1635,7 +1635,7 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp4.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %call = call i32 %1(ptr noundef nonnull %ssl, ptr noundef %ticket, ptr noundef nonnull %add.ptr, ptr noundef nonnull %cipher_ctx, ptr noundef nonnull %hmac_ctx, i32 noundef 0) #20
+  %call = call i32 %1(ptr noundef nonnull %ssl, ptr noundef %ticket, ptr noundef nonnull %add.ptr, ptr noundef nonnull %cipher_ctx, ptr noundef nonnull %hmac_ctx, i32 noundef 0) #21
   %cmp7 = icmp slt i32 %call, 0
   br i1 %cmp7, label %done, label %if.end9
 
@@ -1657,22 +1657,22 @@ if.else:                                          ; preds = %if.end3
 
 if.end19:                                         ; preds = %if.else
   %tlsext_tick_hmac_key = getelementptr inbounds i8, ptr %0, i64 432
-  %call21 = call ptr @EVP_sha256() #20
-  %call22 = call i32 @HMAC_Init_ex(ptr noundef nonnull %hmac_ctx, ptr noundef nonnull %tlsext_tick_hmac_key, i64 noundef 16, ptr noundef %call21, ptr noundef null) #20
+  %call21 = call ptr @EVP_sha256() #21
+  %call22 = call i32 @HMAC_Init_ex(ptr noundef nonnull %hmac_ctx, ptr noundef nonnull %tlsext_tick_hmac_key, i64 noundef 16, ptr noundef %call21, ptr noundef null) #21
   %tobool.not = icmp eq i32 %call22, 0
   br i1 %tobool.not, label %done, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end19
-  %call23 = call ptr @EVP_aes_128_cbc() #20
+  %call23 = call ptr @EVP_aes_128_cbc() #21
   %tlsext_tick_aes_key = getelementptr inbounds i8, ptr %0, i64 448
-  %call25 = call i32 @EVP_DecryptInit_ex(ptr noundef nonnull %cipher_ctx, ptr noundef %call23, ptr noundef null, ptr noundef nonnull %tlsext_tick_aes_key, ptr noundef nonnull %add.ptr) #20
+  %call25 = call i32 @EVP_DecryptInit_ex(ptr noundef nonnull %cipher_ctx, ptr noundef %call23, ptr noundef null, ptr noundef nonnull %tlsext_tick_aes_key, ptr noundef nonnull %add.ptr) #21
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %done, label %if.end29
 
 if.end29:                                         ; preds = %if.end9, %lor.lhs.false, %if.then14
-  %call30 = call i32 @EVP_CIPHER_CTX_iv_length(ptr noundef nonnull %cipher_ctx) #20
+  %call30 = call i32 @EVP_CIPHER_CTX_iv_length(ptr noundef nonnull %cipher_ctx) #21
   %conv = zext i32 %call30 to i64
-  %call31 = call i64 @HMAC_size(ptr noundef nonnull %hmac_ctx) #20
+  %call31 = call i64 @HMAC_size(ptr noundef nonnull %hmac_ctx) #21
   %add32 = add i64 %call31, %conv
   %add33 = add i64 %add32, 17
   %cmp34 = icmp ult i64 %ticket_len, %add33
@@ -1680,10 +1680,10 @@ if.end29:                                         ; preds = %if.end9, %lor.lhs.f
 
 if.end37:                                         ; preds = %if.end29
   %sub = sub i64 %ticket_len, %call31
-  %call38 = call i32 @HMAC_Update(ptr noundef nonnull %hmac_ctx, ptr noundef %ticket, i64 noundef %sub) #20
-  %call40 = call i32 @HMAC_Final(ptr noundef nonnull %hmac_ctx, ptr noundef nonnull %mac, ptr noundef null) #20
+  %call38 = call i32 @HMAC_Update(ptr noundef nonnull %hmac_ctx, ptr noundef %ticket, i64 noundef %sub) #21
+  %call40 = call i32 @HMAC_Final(ptr noundef nonnull %hmac_ctx, ptr noundef nonnull %mac, ptr noundef null) #21
   %add.ptr43 = getelementptr inbounds i8, ptr %ticket, i64 %sub
-  %call44 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %mac, ptr noundef %add.ptr43, i64 noundef %call31) #20
+  %call44 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %mac, ptr noundef %add.ptr43, i64 noundef %call31) #21
   %cmp45.not = icmp eq i32 %call44, 0
   br i1 %cmp45.not, label %if.end48, label %done
 
@@ -1691,7 +1691,7 @@ if.end48:                                         ; preds = %if.end37
   %add.ptr50 = getelementptr inbounds i8, ptr %add.ptr, i64 %conv
   %.neg = add i64 %ticket_len, -16
   %sub53 = sub i64 %.neg, %add32
-  %call54 = call noalias ptr @malloc(i64 noundef %sub53) #21
+  %call54 = call noalias ptr @malloc(i64 noundef %sub53) #22
   %cmp55 = icmp eq ptr %call54, null
   br i1 %cmp55, label %done, label %if.end58
 
@@ -1701,7 +1701,7 @@ if.end58:                                         ; preds = %if.end48
 
 if.end62:                                         ; preds = %if.end58
   %conv63 = trunc nuw nsw i64 %sub53 to i32
-  %call64 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %cipher_ctx, ptr noundef nonnull %call54, ptr noundef nonnull %len1, ptr noundef nonnull %add.ptr50, i32 noundef %conv63) #20
+  %call64 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %cipher_ctx, ptr noundef nonnull %call54, ptr noundef nonnull %len1, ptr noundef nonnull %add.ptr50, i32 noundef %conv63) #21
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %if.then70, label %lor.lhs.false66
 
@@ -1709,12 +1709,12 @@ lor.lhs.false66:                                  ; preds = %if.end62
   %2 = load i32, ptr %len1, align 4
   %idx.ext = sext i32 %2 to i64
   %add.ptr67 = getelementptr inbounds i8, ptr %call54, i64 %idx.ext
-  %call68 = call i32 @EVP_DecryptFinal_ex(ptr noundef nonnull %cipher_ctx, ptr noundef nonnull %add.ptr67, ptr noundef nonnull %len2) #20
+  %call68 = call i32 @EVP_DecryptFinal_ex(ptr noundef nonnull %cipher_ctx, ptr noundef nonnull %add.ptr67, ptr noundef nonnull %len2) #21
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %if.then70, label %if.end71
 
 if.then70:                                        ; preds = %lor.lhs.false66, %if.end62
-  call void @ERR_clear_error() #20
+  call void @ERR_clear_error() #21
   br label %done
 
 if.end71:                                         ; preds = %lor.lhs.false66
@@ -1722,12 +1722,12 @@ if.end71:                                         ; preds = %lor.lhs.false66
   %4 = load i32, ptr %len2, align 4
   %add72 = add nsw i32 %4, %3
   %conv73 = sext i32 %add72 to i64
-  %call74 = call ptr @SSL_SESSION_from_bytes(ptr noundef nonnull %call54, i64 noundef %conv73) #20
+  %call74 = call ptr @SSL_SESSION_from_bytes(ptr noundef nonnull %call54, i64 noundef %conv73) #21
   %cmp75 = icmp eq ptr %call74, null
   br i1 %cmp75, label %if.then77, label %if.end78
 
 if.then77:                                        ; preds = %if.end71
-  call void @ERR_clear_error() #20
+  call void @ERR_clear_error() #21
   br label %done
 
 if.end78:                                         ; preds = %if.end71
@@ -1742,9 +1742,9 @@ if.end78:                                         ; preds = %if.end71
 done:                                             ; preds = %if.end48, %if.end19, %lor.lhs.false, %if.end9, %if.then5, %if.end58, %if.end37, %if.end29, %if.else, %entry, %if.end78, %if.then77, %if.then70
   %plaintext.0 = phi ptr [ null, %entry ], [ null, %if.end9 ], [ null, %if.end29 ], [ null, %if.end37 ], [ %call54, %if.end58 ], [ %call54, %if.then77 ], [ %call54, %if.end78 ], [ %call54, %if.then70 ], [ null, %if.else ], [ null, %if.then5 ], [ null, %lor.lhs.false ], [ null, %if.end19 ], [ null, %if.end48 ]
   %ret.0 = phi i32 [ 1, %entry ], [ 1, %if.end9 ], [ 1, %if.end29 ], [ 1, %if.end37 ], [ 1, %if.end58 ], [ 1, %if.then77 ], [ 1, %if.end78 ], [ 1, %if.then70 ], [ 1, %if.else ], [ 0, %if.then5 ], [ 0, %lor.lhs.false ], [ 0, %if.end19 ], [ 0, %if.end48 ]
-  call void @free(ptr noundef %plaintext.0) #20
-  call void @HMAC_CTX_cleanup(ptr noundef nonnull %hmac_ctx) #20
-  %call82 = call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %cipher_ctx) #20
+  call void @free(ptr noundef %plaintext.0) #21
+  call void @HMAC_CTX_cleanup(ptr noundef nonnull %hmac_ctx) #21
+  %call82 = call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %cipher_ctx) #21
   ret i32 %ret.0
 }
 
@@ -1788,7 +1788,7 @@ declare i32 @EVP_CIPHER_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @tls12_add_sigandhash(ptr noundef %ssl, ptr noundef %out, ptr noundef %md) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @EVP_MD_type(ptr noundef %md) #20
+  %call = tail call i32 @EVP_MD_type(ptr noundef %md) #21
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
@@ -1810,7 +1810,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 tls12_find_id.exit:                               ; preds = %for.inc.i, %if.then.i
   %retval.0.i = phi i32 [ %1, %if.then.i ], [ -1, %for.inc.i ]
-  %call2 = tail call i32 @ssl_private_key_type(ptr noundef %ssl) #20
+  %call2 = tail call i32 @ssl_private_key_type(ptr noundef %ssl) #21
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %tls12_find_id.exit
@@ -1835,13 +1835,13 @@ tls12_get_sigid.exit:                             ; preds = %for.body.i.i
 
 land.lhs.true5:                                   ; preds = %tls12_get_sigid.exit
   %conv = trunc i32 %retval.0.i to i8
-  %call6 = tail call i32 @CBB_add_u8(ptr noundef %out, i8 noundef zeroext %conv) #20
+  %call6 = tail call i32 @CBB_add_u8(ptr noundef %out, i8 noundef zeroext %conv) #21
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true5
   %conv7 = trunc i32 %3 to i8
-  %call8 = tail call i32 @CBB_add_u8(ptr noundef %out, i8 noundef zeroext %conv7) #20
+  %call8 = tail call i32 @CBB_add_u8(ptr noundef %out, i8 noundef zeroext %conv7) #21
   %tobool9 = icmp ne i32 %call8, 0
   %4 = zext i1 %tobool9 to i32
   br label %land.end
@@ -1867,7 +1867,7 @@ declare ptr @EVP_sha512() local_unnamed_addr #1
 define hidden range(i32 0, 2) i32 @tls1_parse_peer_sigalgs(ptr noundef %ssl, ptr noundef %in_sigalgs) local_unnamed_addr #0 {
 entry:
   %sigalgs = alloca %struct.cbs_st, align 8
-  %call = tail call zeroext i16 @ssl3_protocol_version(ptr noundef %ssl) #20
+  %call = tail call zeroext i16 @ssl3_protocol_version(ptr noundef %ssl) #21
   %cmp = icmp ult i16 %call, 771
   br i1 %cmp, label %return, label %if.end
 
@@ -1876,10 +1876,10 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %cert2, align 8
   %peer_sigalgs = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %peer_sigalgs, align 8
-  tail call void @free(ptr noundef %1) #20
+  tail call void @free(ptr noundef %1) #21
   %peer_sigalgslen = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %peer_sigalgs, i8 0, i64 16, i1 false)
-  %call4 = tail call i64 @CBS_len(ptr noundef %in_sigalgs) #20
+  %call4 = tail call i64 @CBS_len(ptr noundef %in_sigalgs) #21
   %rem = and i64 %call4, 1
   %cmp5.not = icmp eq i64 %rem, 0
   br i1 %cmp5.not, label %if.end8, label %return
@@ -1890,16 +1890,16 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call13 = tail call noalias ptr @malloc(i64 noundef %call4) #21
+  %call13 = tail call noalias ptr @malloc(i64 noundef %call4) #22
   store ptr %call13, ptr %peer_sigalgs, align 8
   %cmp16 = icmp eq ptr %call13, null
   br i1 %cmp16, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end12
   store i64 %div18, ptr %peer_sigalgslen, align 8
-  %call21 = tail call ptr @CBS_data(ptr noundef %in_sigalgs) #20
-  %call22 = tail call i64 @CBS_len(ptr noundef %in_sigalgs) #20
-  call void @CBS_init(ptr noundef nonnull %sigalgs, ptr noundef %call21, i64 noundef %call22) #20
+  %call21 = tail call ptr @CBS_data(ptr noundef %in_sigalgs) #21
+  %call22 = tail call i64 @CBS_len(ptr noundef %in_sigalgs) #21
+  call void @CBS_init(ptr noundef nonnull %sigalgs, ptr noundef %call21, i64 noundef %call22) #21
   br label %for.body
 
 for.cond:                                         ; preds = %lor.lhs.false
@@ -1912,12 +1912,12 @@ for.body:                                         ; preds = %if.end19, %for.cond
   %2 = load ptr, ptr %peer_sigalgs, align 8
   %arrayidx = getelementptr inbounds %struct.tls_sigalgs_st, ptr %2, i64 %i.019
   %rhash = getelementptr inbounds i8, ptr %arrayidx, i64 1
-  %call26 = call i32 @CBS_get_u8(ptr noundef nonnull %sigalgs, ptr noundef nonnull %rhash) #20
+  %call26 = call i32 @CBS_get_u8(ptr noundef nonnull %sigalgs, ptr noundef nonnull %rhash) #21
   %tobool.not = icmp eq i32 %call26, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %call27 = call i32 @CBS_get_u8(ptr noundef nonnull %sigalgs, ptr noundef %arrayidx) #20
+  %call27 = call i32 @CBS_get_u8(ptr noundef nonnull %sigalgs, ptr noundef %arrayidx) #21
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %return, label %for.cond
 
@@ -1935,7 +1935,7 @@ define hidden ptr @tls1_choose_signing_digest(ptr noundef %ssl) local_unnamed_ad
 entry:
   %cert1 = getelementptr inbounds i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert1, align 8
-  %call = tail call i32 @ssl_private_key_type(ptr noundef %ssl) #20
+  %call = tail call i32 @ssl_private_key_type(ptr noundef %ssl) #21
   %digest_nids2 = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %digest_nids2, align 8
   %cmp.not = icmp eq ptr %1, null
@@ -1977,19 +1977,19 @@ for.body8:                                        ; preds = %for.body, %for.inc
   ]
 
 sw.bb.i:                                          ; preds = %for.body8
-  %call.i = tail call ptr @EVP_sha1() #20
+  %call.i = tail call ptr @EVP_sha1() #21
   br label %tls12_get_hash.exit
 
 sw.bb1.i:                                         ; preds = %for.body8
-  %call2.i = tail call ptr @EVP_sha256() #20
+  %call2.i = tail call ptr @EVP_sha256() #21
   br label %tls12_get_hash.exit
 
 sw.bb3.i:                                         ; preds = %for.body8
-  %call4.i = tail call ptr @EVP_sha384() #20
+  %call4.i = tail call ptr @EVP_sha384() #21
   br label %tls12_get_hash.exit
 
 sw.bb5.i:                                         ; preds = %for.body8
-  %call6.i = tail call ptr @EVP_sha512() #20
+  %call6.i = tail call ptr @EVP_sha512() #21
   br label %tls12_get_hash.exit
 
 tls12_get_hash.exit:                              ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i
@@ -1998,7 +1998,7 @@ tls12_get_hash.exit:                              ; preds = %sw.bb.i, %sw.bb1.i,
   br i1 %cmp11, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %tls12_get_hash.exit
-  %call12 = tail call i32 @EVP_MD_type(ptr noundef nonnull %retval.0.i) #20
+  %call12 = tail call i32 @EVP_MD_type(ptr noundef nonnull %retval.0.i) #21
   %cmp13.not = icmp eq i32 %5, %call12
   br i1 %cmp13.not, label %lor.lhs.false14, label %for.inc
 
@@ -2026,7 +2026,7 @@ for.inc21:                                        ; preds = %for.inc, %for.body
   br i1 %exitcond.not, label %for.end23, label %for.body, !llvm.loop !30
 
 for.end23:                                        ; preds = %for.inc21, %for.body.lr.ph, %if.end
-  %call24 = tail call ptr @EVP_sha1() #20
+  %call24 = tail call ptr @EVP_sha1() #21
   br label %return
 
 return:                                           ; preds = %lor.lhs.false14, %for.end23
@@ -2040,14 +2040,14 @@ entry:
   %ctx = alloca %struct.env_md_ctx_st, align 8
   %handshake_hash = alloca [64 x i8], align 16
   %len_u = alloca i32, align 4
-  call void @EVP_MD_CTX_init(ptr noundef nonnull %ctx) #20
-  %call = call ptr @EVP_sha256() #20
-  %call1 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %ctx, ptr noundef %call, ptr noundef null) #20
+  call void @EVP_MD_CTX_init(ptr noundef nonnull %ctx) #21
+  %call = call ptr @EVP_sha256() #21
+  %call1 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %ctx, ptr noundef %call, ptr noundef null) #21
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull @tls1_channel_id_hash.kClientIDMagic, i64 noundef 25) #20
+  %call2 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull @tls1_channel_id_hash.kClientIDMagic, i64 noundef 25) #21
   %hit = getelementptr inbounds i8, ptr %ssl, i64 385
   %bf.load = load i8, ptr %hit, align 1
   %bf.clear = and i8 %bf.load, 1
@@ -2055,7 +2055,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %call5 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull @tls1_channel_id_hash.kResumptionMagic, i64 noundef 11) #20
+  %call5 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull @tls1_channel_id_hash.kResumptionMagic, i64 noundef 11) #21
   %session = getelementptr inbounds i8, ptr %ssl, i64 184
   %0 = load ptr, ptr %session, align 8
   %original_handshake_hash_len = getelementptr inbounds i8, ptr %0, i64 368
@@ -2064,24 +2064,24 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.then4
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 2694) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 2694) #21
   br label %err
 
 if.end7:                                          ; preds = %if.then4
   %original_handshake_hash = getelementptr inbounds i8, ptr %0, i64 304
   %conv = zext i32 %1 to i64
-  %call11 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %original_handshake_hash, i64 noundef %conv) #20
+  %call11 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %original_handshake_hash, i64 noundef %conv) #21
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end7, %if.end
-  %call14 = call i32 @tls1_handshake_digest(ptr noundef nonnull %ssl, ptr noundef nonnull %handshake_hash, i64 noundef 64) #20
+  %call14 = call i32 @tls1_handshake_digest(ptr noundef nonnull %ssl, ptr noundef nonnull %handshake_hash, i64 noundef 64) #21
   %cmp15 = icmp slt i32 %call14, 0
   br i1 %cmp15, label %err, label %if.end18
 
 if.end18:                                         ; preds = %if.end12
   %conv20 = zext nneg i32 %call14 to i64
-  %call21 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %handshake_hash, i64 noundef %conv20) #20
-  %call22 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef nonnull %len_u) #20
+  %call21 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %handshake_hash, i64 noundef %conv20) #21
+  %call22 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef nonnull %len_u) #21
   %2 = load i32, ptr %len_u, align 4
   %conv23 = zext i32 %2 to i64
   store i64 %conv23, ptr %out_len, align 8
@@ -2089,7 +2089,7 @@ if.end18:                                         ; preds = %if.end12
 
 err:                                              ; preds = %if.end12, %entry, %if.end18, %if.then6
   %ret.0 = phi i32 [ 0, %if.then6 ], [ 0, %if.end12 ], [ 1, %if.end18 ], [ 0, %entry ]
-  %call24 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %ctx) #20
+  %call24 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %ctx) #21
   ret i32 %ret.0
 }
 
@@ -2118,7 +2118,7 @@ if.end:                                           ; preds = %entry
   %session = getelementptr inbounds i8, ptr %ssl, i64 184
   %0 = load ptr, ptr %session, align 8
   %original_handshake_hash = getelementptr inbounds i8, ptr %0, i64 304
-  %call = tail call i32 @tls1_handshake_digest(ptr noundef nonnull %ssl, ptr noundef nonnull %original_handshake_hash, i64 noundef 64) #20
+  %call = tail call i32 @tls1_handshake_digest(ptr noundef nonnull %ssl, ptr noundef nonnull %original_handshake_hash, i64 noundef 64) #21
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end2
 
@@ -2141,10 +2141,7 @@ define internal range(i32 -1, 2) i32 @compare_uint16_t(ptr nocapture noundef rea
 entry:
   %0 = load i16, ptr %p1, align 2
   %1 = load i16, ptr %p2, align 2
-  %cmp = icmp ult i16 %0, %1
-  %cmp5 = icmp ugt i16 %0, %1
-  %. = zext i1 %cmp5 to i32
-  %retval.0 = select i1 %cmp, i32 -1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i16(i16 %0, i16 %1)
   ret i32 %retval.0
 }
 
@@ -2161,17 +2158,17 @@ define internal range(i32 0, 2) i32 @ext_ri_add_clienthello(ptr nocapture nounde
 entry:
   %contents = alloca %struct.cbb_st, align 8
   %prev_finished = alloca %struct.cbb_st, align 8
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext -255) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext -255) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #20
+  %call1 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #21
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %prev_finished) #20
+  %call4 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %prev_finished) #21
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %lor.lhs.false6
 
@@ -2182,12 +2179,12 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false3
   %previous_client_finished_len = getelementptr inbounds i8, ptr %0, i64 656
   %1 = load i8, ptr %previous_client_finished_len, align 8
   %conv = zext i8 %1 to i64
-  %call8 = call i32 @CBB_add_bytes(ptr noundef nonnull %prev_finished, ptr noundef nonnull %previous_client_finished, i64 noundef %conv) #20
+  %call8 = call i32 @CBB_add_bytes(ptr noundef nonnull %prev_finished, ptr noundef nonnull %previous_client_finished, i64 noundef %conv) #21
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false6
-  %call11 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call11 = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool12.not = icmp ne i32 %call11, 0
   %spec.select = zext i1 %tobool12.not to i32
   br label %return
@@ -2218,7 +2215,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   store i8 40, ptr %out_alert, align 1
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 202, ptr noundef nonnull @.str, i32 noundef 774) #20
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 202, ptr noundef nonnull @.str, i32 noundef 774) #21
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -2233,43 +2230,43 @@ if.end8:                                          ; preds = %if.end
   %4 = load i8, ptr %previous_server_finished_len, align 1
   %conv12 = zext i8 %4 to i64
   %add = add nuw nsw i64 %conv12, %conv10
-  %call = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %renegotiated_connection) #20
+  %call = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %renegotiated_connection) #21
   %tobool14.not = icmp eq i32 %call, 0
   br i1 %tobool14.not, label %if.then18, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end8
-  %call15 = call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call15 = call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp16.not = icmp eq i64 %call15, 0
   br i1 %cmp16.not, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %lor.lhs.false, %if.end8
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 201, ptr noundef nonnull @.str, i32 noundef 800) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 201, ptr noundef nonnull @.str, i32 noundef 800) #21
   store i8 47, ptr %out_alert, align 1
   br label %return
 
 if.end19:                                         ; preds = %lor.lhs.false
-  %call20 = call i64 @CBS_len(ptr noundef nonnull %renegotiated_connection) #20
+  %call20 = call i64 @CBS_len(ptr noundef nonnull %renegotiated_connection) #21
   %cmp21.not = icmp eq i64 %call20, %add
   br i1 %cmp21.not, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %if.end19
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 202, ptr noundef nonnull @.str, i32 noundef 807) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 202, ptr noundef nonnull @.str, i32 noundef 807) #21
   store i8 40, ptr %out_alert, align 1
   br label %return
 
 if.end24:                                         ; preds = %if.end19
-  %call25 = call ptr @CBS_data(ptr noundef nonnull %renegotiated_connection) #20
+  %call25 = call ptr @CBS_data(ptr noundef nonnull %renegotiated_connection) #21
   %5 = load ptr, ptr %s3, align 8
   %previous_client_finished = getelementptr inbounds i8, ptr %5, i64 592
   %previous_client_finished_len28 = getelementptr inbounds i8, ptr %5, i64 656
   %6 = load i8, ptr %previous_client_finished_len28, align 8
   %conv29 = zext i8 %6 to i64
-  %call30 = call i32 @CRYPTO_memcmp(ptr noundef %call25, ptr noundef nonnull %previous_client_finished, i64 noundef %conv29) #20
+  %call30 = call i32 @CRYPTO_memcmp(ptr noundef %call25, ptr noundef nonnull %previous_client_finished, i64 noundef %conv29) #21
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.end33, label %if.then32
 
 if.then32:                                        ; preds = %if.end24
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 202, ptr noundef nonnull @.str, i32 noundef 815) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 202, ptr noundef nonnull @.str, i32 noundef 815) #21
   store i8 40, ptr %out_alert, align 1
   br label %return
 
@@ -2283,12 +2280,12 @@ if.end33:                                         ; preds = %if.end24
   %previous_server_finished_len40 = getelementptr inbounds i8, ptr %7, i64 721
   %9 = load i8, ptr %previous_server_finished_len40, align 1
   %conv41 = zext i8 %9 to i64
-  %call42 = call i32 @CRYPTO_memcmp(ptr noundef %add.ptr, ptr noundef nonnull %previous_server_finished, i64 noundef %conv41) #20
+  %call42 = call i32 @CRYPTO_memcmp(ptr noundef %add.ptr, ptr noundef nonnull %previous_server_finished, i64 noundef %conv41) #21
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.end45, label %if.then44
 
 if.then44:                                        ; preds = %if.end33
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 202, ptr noundef nonnull @.str, i32 noundef 823) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 202, ptr noundef nonnull @.str, i32 noundef 823) #21
   store i8 47, ptr %out_alert, align 1
   br label %return
 
@@ -2320,7 +2317,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  call void @CBS_init(ptr noundef nonnull %fake_contents, ptr noundef nonnull @ext_ri_parse_clienthello.kFakeExtension, i64 noundef 1) #20
+  call void @CBS_init(ptr noundef nonnull %fake_contents, ptr noundef nonnull @ext_ri_parse_clienthello.kFakeExtension, i64 noundef 1) #21
   %2 = load ptr, ptr %s3, align 8
   %extensions = getelementptr inbounds i8, ptr %2, i64 456
   %3 = load i32, ptr %extensions, align 8
@@ -2330,17 +2327,17 @@ if.then1:                                         ; preds = %if.then
 
 if.end3:                                          ; preds = %if.then1, %entry
   %contents.addr.0 = phi ptr [ %fake_contents, %if.then1 ], [ %contents, %entry ]
-  %call = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents.addr.0, ptr noundef nonnull %renegotiated_connection) #20
+  %call = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents.addr.0, ptr noundef nonnull %renegotiated_connection) #21
   %tobool4.not = icmp eq i32 %call, 0
   br i1 %tobool4.not, label %if.then7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %call5 = call i64 @CBS_len(ptr noundef nonnull %contents.addr.0) #20
+  %call5 = call i64 @CBS_len(ptr noundef nonnull %contents.addr.0) #21
   %cmp6.not = icmp eq i64 %call5, 0
   br i1 %cmp6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %lor.lhs.false, %if.end3
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 201, ptr noundef nonnull @.str, i32 noundef 859) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 201, ptr noundef nonnull @.str, i32 noundef 859) #21
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false
@@ -2350,12 +2347,12 @@ if.end8:                                          ; preds = %lor.lhs.false
   %previous_client_finished_len = getelementptr inbounds i8, ptr %4, i64 656
   %5 = load i8, ptr %previous_client_finished_len, align 8
   %conv = zext i8 %5 to i64
-  %call11 = call i32 @CBS_mem_equal(ptr noundef nonnull %renegotiated_connection, ptr noundef nonnull %previous_client_finished, i64 noundef %conv) #20
+  %call11 = call i32 @CBS_mem_equal(ptr noundef nonnull %renegotiated_connection, ptr noundef nonnull %previous_client_finished, i64 noundef %conv) #21
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end8
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 202, ptr noundef nonnull @.str, i32 noundef 867) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 202, ptr noundef nonnull @.str, i32 noundef 867) #21
   store i8 40, ptr %out_alert, align 1
   br label %return
 
@@ -2375,17 +2372,17 @@ define internal range(i32 0, 2) i32 @ext_ri_add_serverhello(ptr nocapture nounde
 entry:
   %contents = alloca %struct.cbb_st, align 8
   %prev_finished = alloca %struct.cbb_st, align 8
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext -255) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext -255) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #20
+  %call1 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #21
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %prev_finished) #20
+  %call4 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %prev_finished) #21
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %lor.lhs.false6
 
@@ -2396,7 +2393,7 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false3
   %previous_client_finished_len = getelementptr inbounds i8, ptr %0, i64 656
   %1 = load i8, ptr %previous_client_finished_len, align 8
   %conv = zext i8 %1 to i64
-  %call8 = call i32 @CBB_add_bytes(ptr noundef nonnull %prev_finished, ptr noundef nonnull %previous_client_finished, i64 noundef %conv) #20
+  %call8 = call i32 @CBB_add_bytes(ptr noundef nonnull %prev_finished, ptr noundef nonnull %previous_client_finished, i64 noundef %conv) #21
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %lor.lhs.false10
 
@@ -2406,12 +2403,12 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false6
   %previous_server_finished_len = getelementptr inbounds i8, ptr %2, i64 721
   %3 = load i8, ptr %previous_server_finished_len, align 1
   %conv14 = zext i8 %3 to i64
-  %call15 = call i32 @CBB_add_bytes(ptr noundef nonnull %prev_finished, ptr noundef nonnull %previous_server_finished, i64 noundef %conv14) #20
+  %call15 = call i32 @CBB_add_bytes(ptr noundef nonnull %prev_finished, ptr noundef nonnull %previous_server_finished, i64 noundef %conv14) #21
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %return, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %lor.lhs.false10
-  %call18 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call18 = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool19.not = icmp ne i32 %call18, 0
   %spec.select = zext i1 %tobool19.not to i32
   br label %return
@@ -2445,39 +2442,39 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call1 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #20
+  %call1 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #21
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %server_name_list) #20
+  %call4 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %server_name_list) #21
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %call7 = call i32 @CBB_add_u8(ptr noundef nonnull %server_name_list, i8 noundef zeroext 0) #20
+  %call7 = call i32 @CBB_add_u8(ptr noundef nonnull %server_name_list, i8 noundef zeroext 0) #21
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false6
-  %call10 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %server_name_list, ptr noundef nonnull %name) #20
+  %call10 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %server_name_list, ptr noundef nonnull %name) #21
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false9
   %1 = load ptr, ptr %tlsext_hostname, align 8
-  %call15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
-  %call16 = call i32 @CBB_add_bytes(ptr noundef nonnull %name, ptr noundef %1, i64 noundef %call15) #20
+  %call15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
+  %call16 = call i32 @CBB_add_bytes(ptr noundef nonnull %name, ptr noundef %1, i64 noundef %call15) #21
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false12
-  %call19 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call19 = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool20.not = icmp ne i32 %call19, 0
   %spec.select = zext i1 %tobool20.not to i32
   br label %return
@@ -2494,7 +2491,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp1.not = icmp eq i64 %call, 0
   br i1 %cmp1.not, label %if.end3, label %return
 
@@ -2508,7 +2505,7 @@ if.end3:                                          ; preds = %if.end
 if.then4:                                         ; preds = %if.end3
   %tlsext_hostname = getelementptr inbounds i8, ptr %ssl, i64 288
   %0 = load ptr, ptr %tlsext_hostname, align 8
-  %call5 = tail call ptr @BUF_strdup(ptr noundef %0) #20
+  %call5 = tail call ptr @BUF_strdup(ptr noundef %0) #21
   %session = getelementptr inbounds i8, ptr %ssl, i64 184
   %1 = load ptr, ptr %session, align 8
   %tlsext_hostname6 = getelementptr inbounds i8, ptr %1, i64 216
@@ -2538,27 +2535,27 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %server_name_list) #20
+  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %server_name_list) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call1 = call i32 @CBS_get_u8(ptr noundef nonnull %server_name_list, ptr noundef nonnull %name_type) #20
+  %call1 = call i32 @CBS_get_u8(ptr noundef nonnull %server_name_list, ptr noundef nonnull %name_type) #21
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %server_name_list, ptr noundef nonnull %host_name) #20
+  %call4 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %server_name_list, ptr noundef nonnull %host_name) #21
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %call7 = call i64 @CBS_len(ptr noundef nonnull %server_name_list) #20
+  %call7 = call i64 @CBS_len(ptr noundef nonnull %server_name_list) #21
   %cmp8.not = icmp eq i64 %call7, 0
   br i1 %cmp8.not, label %lor.lhs.false9, label %return
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false6
-  %call10 = call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call10 = call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp11.not = icmp eq i64 %call10, 0
   br i1 %cmp11.not, label %if.end13, label %return
 
@@ -2568,17 +2565,17 @@ if.end13:                                         ; preds = %lor.lhs.false9
   br i1 %cmp14.not, label %lor.lhs.false16, label %if.then27
 
 lor.lhs.false16:                                  ; preds = %if.end13
-  %call17 = call i64 @CBS_len(ptr noundef nonnull %host_name) #20
+  %call17 = call i64 @CBS_len(ptr noundef nonnull %host_name) #21
   %cmp18 = icmp eq i64 %call17, 0
   br i1 %cmp18, label %if.then27, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false16
-  %call21 = call i64 @CBS_len(ptr noundef nonnull %host_name) #20
+  %call21 = call i64 @CBS_len(ptr noundef nonnull %host_name) #21
   %cmp22 = icmp ugt i64 %call21, 255
   br i1 %cmp22, label %if.then27, label %lor.lhs.false24
 
 lor.lhs.false24:                                  ; preds = %lor.lhs.false20
-  %call25 = call i32 @CBS_contains_zero_byte(ptr noundef nonnull %host_name) #20
+  %call25 = call i32 @CBS_contains_zero_byte(ptr noundef nonnull %host_name) #21
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.end28, label %if.then27
 
@@ -2597,7 +2594,7 @@ if.then30:                                        ; preds = %if.end28
   %session = getelementptr inbounds i8, ptr %ssl, i64 184
   %1 = load ptr, ptr %session, align 8
   %tlsext_hostname = getelementptr inbounds i8, ptr %1, i64 216
-  %call31 = call i32 @CBS_strdup(ptr noundef nonnull %host_name, ptr noundef nonnull %tlsext_hostname) #20
+  %call31 = call i32 @CBS_strdup(ptr noundef nonnull %host_name, ptr noundef nonnull %tlsext_hostname) #21
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then33, label %if.end34
 
@@ -2646,12 +2643,12 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false5
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #21
   %tobool6.not = icmp eq i32 %call, 0
   br i1 %tobool6.not, label %return, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %if.end
-  %call8 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #20
+  %call8 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #21
   %tobool9.not = icmp ne i32 %call8, 0
   %spec.select = zext i1 %tobool9.not to i32
   br label %return
@@ -2679,12 +2676,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 23) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 23) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call1 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #20
+  %call1 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #21
   %tobool2.not = icmp ne i32 %call1, 0
   %spec.select = zext i1 %tobool2.not to i32
   br label %return
@@ -2706,7 +2703,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp2.not = icmp eq i64 %call, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
@@ -2732,7 +2729,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp2.not = icmp eq i64 %call, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
@@ -2759,12 +2756,12 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 23) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 23) #21
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call2 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #20
+  %call2 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #21
   %tobool3.not = icmp ne i32 %call2, 0
   %spec.select = zext i1 %tobool3.not to i32
   br label %return
@@ -2778,7 +2775,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 define internal range(i32 0, 2) i32 @ext_ticket_add_clienthello(ptr noundef %ssl, ptr noundef %out) #0 {
 entry:
   %ticket = alloca %struct.cbb_st, align 8
-  %call = tail call i32 @SSL_get_options(ptr noundef %ssl) #20
+  %call = tail call i32 @SSL_get_options(ptr noundef %ssl) #21
   %0 = and i32 %call, 16384
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -2813,22 +2810,22 @@ if.then7:                                         ; preds = %land.lhs.true3
 if.end12:                                         ; preds = %if.then7, %land.lhs.true3, %land.lhs.true, %if.end
   %ticket_data.0 = phi ptr [ null, %if.end ], [ %4, %if.then7 ], [ null, %land.lhs.true3 ], [ null, %land.lhs.true ]
   %ticket_len.0 = phi i64 [ 0, %if.end ], [ %6, %if.then7 ], [ 0, %land.lhs.true3 ], [ 0, %land.lhs.true ]
-  %call13 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 35) #20
+  %call13 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 35) #21
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end12
-  %call15 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %ticket) #20
+  %call15 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %ticket) #21
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %return, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %lor.lhs.false
-  %call19 = call i32 @CBB_add_bytes(ptr noundef nonnull %ticket, ptr noundef %ticket_data.0, i64 noundef %ticket_len.0) #20
+  %call19 = call i32 @CBB_add_bytes(ptr noundef nonnull %ticket, ptr noundef %ticket_data.0, i64 noundef %ticket_len.0) #21
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false17
-  %call22 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call22 = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool23.not = icmp ne i32 %call22, 0
   %spec.select = zext i1 %tobool23.not to i32
   br label %return
@@ -2847,7 +2844,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp1.not = icmp eq i64 %call, 0
   br i1 %cmp1.not, label %if.end3, label %return
 
@@ -2875,12 +2872,12 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 35) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 35) #21
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call2 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #20
+  %call2 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #21
   %tobool3.not = icmp ne i32 %call2, 0
   %spec.select = zext i1 %tobool3.not to i32
   br label %return
@@ -2898,32 +2895,32 @@ entry:
   %client_version = getelementptr inbounds i8, ptr %ssl, i64 276
   %0 = load i32, ptr %client_version, align 4
   %conv = trunc i32 %0 to i16
-  %call = tail call zeroext i16 @ssl3_version_from_wire(ptr noundef %ssl, i16 noundef zeroext %conv) #20
+  %call = tail call zeroext i16 @ssl3_version_from_wire(ptr noundef %ssl, i16 noundef zeroext %conv) #21
   %cmp = icmp ult i16 %call, 771
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call4 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 13) #20
+  %call4 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 13) #21
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call5 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #20
+  %call5 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #21
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %call8 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %sigalgs) #20
+  %call8 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %sigalgs) #21
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false7
-  %call11 = call i32 @CBB_add_bytes(ptr noundef nonnull %sigalgs, ptr noundef nonnull @tls12_sigalgs, i64 noundef 16) #20
+  %call11 = call i32 @CBB_add_bytes(ptr noundef nonnull %sigalgs, ptr noundef nonnull @tls12_sigalgs, i64 noundef 16) #21
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false10
-  %call14 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call14 = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool15.not = icmp ne i32 %call14, 0
   %spec.select = zext i1 %tobool15.not to i32
   br label %return
@@ -2941,7 +2938,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 110, ptr %out_alert, align 1
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 210, ptr noundef nonnull @.str, i32 noundef 1066) #20
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 210, ptr noundef nonnull @.str, i32 noundef 1066) #21
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -2957,7 +2954,7 @@ entry:
   %0 = load ptr, ptr %cert, align 8
   %peer_sigalgs = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %peer_sigalgs, align 8
-  tail call void @free(ptr noundef %1) #20
+  tail call void @free(ptr noundef %1) #21
   %2 = load ptr, ptr %cert, align 8
   %peer_sigalgs2 = getelementptr inbounds i8, ptr %2, i64 56
   store ptr null, ptr %peer_sigalgs2, align 8
@@ -2968,17 +2965,17 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %supported_signature_algorithms) #20
+  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %supported_signature_algorithms) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call4 = call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call4 = call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp5.not = icmp eq i64 %call4, 0
   br i1 %cmp5.not, label %lor.lhs.false6, label %return
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %call7 = call i64 @CBS_len(ptr noundef nonnull %supported_signature_algorithms) #20
+  %call7 = call i64 @CBS_len(ptr noundef nonnull %supported_signature_algorithms) #21
   %cmp8 = icmp eq i64 %call7, 0
   br i1 %cmp8, label %return, label %lor.lhs.false9
 
@@ -3022,32 +3019,32 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 5) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 5) #21
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call2 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #20
+  %call2 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #21
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %call5 = call i32 @CBB_add_u8(ptr noundef nonnull %contents, i8 noundef zeroext 1) #20
+  %call5 = call i32 @CBB_add_u8(ptr noundef nonnull %contents, i8 noundef zeroext 1) #21
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false4
-  %call8 = call i32 @CBB_add_u16(ptr noundef nonnull %contents, i16 noundef zeroext 0) #20
+  %call8 = call i32 @CBB_add_u16(ptr noundef nonnull %contents, i16 noundef zeroext 0) #21
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false7
-  %call11 = call i32 @CBB_add_u16(ptr noundef nonnull %contents, i16 noundef zeroext 0) #20
+  %call11 = call i32 @CBB_add_u16(ptr noundef nonnull %contents, i16 noundef zeroext 0) #21
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false10
-  %call14 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call14 = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %if.end17
 
@@ -3068,7 +3065,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp1.not = icmp eq i64 %call, 0
   br i1 %cmp1.not, label %if.end3, label %return
 
@@ -3094,7 +3091,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call i32 @CBS_get_u8(ptr noundef nonnull %contents, ptr noundef nonnull %status_type) #20
+  %call = call i32 @CBS_get_u8(ptr noundef nonnull %contents, ptr noundef nonnull %status_type) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -3145,12 +3142,12 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
 if.end:                                           ; preds = %lor.lhs.false5
   %bf.set = or i8 %bf.load1, 1
   store i8 %bf.set, ptr %ocsp_stapling_requested, align 8
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 5) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 5) #21
   %tobool10.not = icmp eq i32 %call, 0
   br i1 %tobool10.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
-  %call11 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #20
+  %call11 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #21
   %tobool12 = icmp ne i32 %call11, 0
   %4 = zext i1 %tobool12 to i32
   br label %return
@@ -3203,12 +3200,12 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false2
   br i1 %tobool7.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false5
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 13172) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 13172) #21
   %tobool8.not = icmp eq i32 %call, 0
   br i1 %tobool8.not, label %return, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %if.end
-  %call10 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #20
+  %call10 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #21
   %tobool11.not = icmp ne i32 %call10, 0
   %spec.select = zext i1 %tobool11.not to i32
   br label %return
@@ -3237,26 +3234,26 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   store i8 47, ptr %out_alert, align 1
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 170, ptr noundef nonnull @.str, i32 noundef 1216) #20
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 170, ptr noundef nonnull @.str, i32 noundef 1216) #21
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %call = tail call ptr @CBS_data(ptr noundef nonnull %contents) #20
-  %call4 = tail call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call = tail call ptr @CBS_data(ptr noundef nonnull %contents) #21
+  %call4 = tail call i64 @CBS_len(ptr noundef nonnull %contents) #21
   br label %while.cond
 
 while.cond:                                       ; preds = %lor.lhs.false, %if.end3
-  %call5 = call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call5 = call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp6.not = icmp eq i64 %call5, 0
   br i1 %cmp6.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call7 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %proto) #20
+  %call7 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %proto) #21
   %tobool.not = icmp eq i32 %call7, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.body
-  %call8 = call i64 @CBS_len(ptr noundef nonnull %proto) #20
+  %call8 = call i64 @CBS_len(ptr noundef nonnull %proto) #21
   %cmp9 = icmp eq i64 %call8, 0
   br i1 %cmp9, label %return, label %while.cond, !llvm.loop !32
 
@@ -3268,7 +3265,7 @@ while.end:                                        ; preds = %while.cond
   %conv = trunc i64 %call4 to i32
   %next_proto_select_cb_arg = getelementptr inbounds i8, ptr %2, i64 528
   %4 = load ptr, ptr %next_proto_select_cb_arg, align 8
-  %call13 = call i32 %3(ptr noundef %ssl, ptr noundef nonnull %selected, ptr noundef nonnull %selected_len, ptr noundef %call, i32 noundef %conv, ptr noundef %4) #20
+  %call13 = call i32 %3(ptr noundef %ssl, ptr noundef nonnull %selected, ptr noundef nonnull %selected_len, ptr noundef %call, i32 noundef %conv, ptr noundef %4) #21
   %cmp14.not = icmp eq i32 %call13, 0
   br i1 %cmp14.not, label %if.end17, label %if.then16
 
@@ -3280,11 +3277,11 @@ if.end17:                                         ; preds = %while.end
   %5 = load ptr, ptr %s3, align 8
   %next_proto_negotiated = getelementptr inbounds i8, ptr %5, i64 736
   %6 = load ptr, ptr %next_proto_negotiated, align 8
-  call void @free(ptr noundef %6) #20
+  call void @free(ptr noundef %6) #21
   %7 = load ptr, ptr %selected, align 8
   %8 = load i8, ptr %selected_len, align 1
   %conv19 = zext i8 %8 to i64
-  %call20 = call ptr @BUF_memdup(ptr noundef %7, i64 noundef %conv19) #20
+  %call20 = call ptr @BUF_memdup(ptr noundef %7, i64 noundef %conv19) #21
   %9 = load ptr, ptr %s3, align 8
   %next_proto_negotiated22 = getelementptr inbounds i8, ptr %9, i64 736
   store ptr %call20, ptr %next_proto_negotiated22, align 8
@@ -3320,7 +3317,7 @@ entry:
   br i1 %cond, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp1.not = icmp eq i64 %call, 0
   br i1 %cmp1.not, label %lor.lhs.false, label %return
 
@@ -3383,7 +3380,7 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %next_protos_advertised_cb, align 8
   %next_protos_advertised_cb_arg = getelementptr inbounds i8, ptr %2, i64 512
   %4 = load ptr, ptr %next_protos_advertised_cb_arg, align 8
-  %call = call i32 %3(ptr noundef nonnull %ssl, ptr noundef nonnull %npa, ptr noundef nonnull %npa_len, ptr noundef %4) #20
+  %call = call i32 %3(ptr noundef nonnull %ssl, ptr noundef nonnull %npa, ptr noundef nonnull %npa_len, ptr noundef %4) #21
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end5, label %if.then2
 
@@ -3394,12 +3391,12 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %call6 = call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 13172) #20
+  %call6 = call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 13172) #21
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end5
-  %call8 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #20
+  %call8 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #21
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %lor.lhs.false10
 
@@ -3407,12 +3404,12 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false
   %6 = load ptr, ptr %npa, align 8
   %7 = load i32, ptr %npa_len, align 4
   %conv = zext i32 %7 to i64
-  %call11 = call i32 @CBB_add_bytes(ptr noundef nonnull %contents, ptr noundef %6, i64 noundef %conv) #20
+  %call11 = call i32 @CBB_add_bytes(ptr noundef nonnull %contents, ptr noundef %6, i64 noundef %conv) #21
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false10
-  %call14 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call14 = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool15.not = icmp ne i32 %call14, 0
   %spec.select = zext i1 %tobool15.not to i32
   br label %return
@@ -3432,12 +3429,12 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 18) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 18) #21
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call2 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #20
+  %call2 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #21
   %tobool3.not = icmp ne i32 %call2, 0
   %spec.select = zext i1 %tobool3.not to i32
   br label %return
@@ -3454,7 +3451,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp1 = icmp eq i64 %call, 0
   br i1 %cmp1, label %return.sink.split, label %if.end3
 
@@ -3470,7 +3467,7 @@ land.lhs.true:                                    ; preds = %if.end3
   %0 = load ptr, ptr %session, align 8
   %tlsext_signed_cert_timestamp_list = getelementptr inbounds i8, ptr %0, i64 248
   %tlsext_signed_cert_timestamp_list_length = getelementptr inbounds i8, ptr %0, i64 240
-  %call5 = tail call i32 @CBS_stow(ptr noundef nonnull %contents, ptr noundef nonnull %tlsext_signed_cert_timestamp_list, ptr noundef nonnull %tlsext_signed_cert_timestamp_list_length) #20
+  %call5 = tail call i32 @CBS_stow(ptr noundef nonnull %contents, ptr noundef nonnull %tlsext_signed_cert_timestamp_list, ptr noundef nonnull %tlsext_signed_cert_timestamp_list_length) #21
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return.sink.split, label %return
 
@@ -3491,7 +3488,7 @@ entry:
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp1 = icmp eq i64 %call, 0
   %0 = zext i1 %cmp1 to i32
   br label %lor.end
@@ -3520,12 +3517,12 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 18) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 18) #21
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call2 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #20
+  %call2 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #21
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %land.lhs.true4
 
@@ -3535,12 +3532,12 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   %3 = load ptr, ptr %signed_cert_timestamp_list, align 8
   %signed_cert_timestamp_list_length7 = getelementptr inbounds i8, ptr %2, i64 608
   %4 = load i64, ptr %signed_cert_timestamp_list_length7, align 8
-  %call8 = call i32 @CBB_add_bytes(ptr noundef nonnull %contents, ptr noundef %3, i64 noundef %4) #20
+  %call8 = call i32 @CBB_add_bytes(ptr noundef nonnull %contents, ptr noundef %3, i64 noundef %4) #21
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true4
-  %call10 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call10 = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool11 = icmp ne i32 %call10, 0
   %5 = zext i1 %tobool11 to i32
   br label %return
@@ -3557,7 +3554,7 @@ entry:
   %0 = load ptr, ptr %s3, align 8
   %alpn_selected = getelementptr inbounds i8, ptr %0, i64 752
   %1 = load ptr, ptr %alpn_selected, align 8
-  tail call void @free(ptr noundef %1) #20
+  tail call void @free(ptr noundef %1) #21
   %2 = load ptr, ptr %s3, align 8
   %alpn_selected2 = getelementptr inbounds i8, ptr %2, i64 752
   store ptr null, ptr %alpn_selected2, align 8
@@ -3583,17 +3580,17 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 16) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 16) #21
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %if.end
-  %call3 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #20
+  %call3 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #21
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %return, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false2
-  %call6 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %proto_list) #20
+  %call6 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %proto_list) #21
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %lor.lhs.false8
 
@@ -3602,12 +3599,12 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false5
   %alpn_client_proto_list_len = getelementptr inbounds i8, ptr %ssl, i64 360
   %4 = load i32, ptr %alpn_client_proto_list_len, align 8
   %conv10 = zext i32 %4 to i64
-  %call11 = call i32 @CBB_add_bytes(ptr noundef nonnull %proto_list, ptr noundef %3, i64 noundef %conv10) #20
+  %call11 = call i32 @CBB_add_bytes(ptr noundef nonnull %proto_list, ptr noundef %3, i64 noundef %conv10) #21
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false8
-  %call14 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call14 = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool15.not = icmp ne i32 %call14, 0
   %spec.select = zext i1 %tobool15.not to i32
   br label %return
@@ -3635,31 +3632,31 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   store i8 47, ptr %out_alert, align 1
-  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 170, ptr noundef nonnull @.str, i32 noundef 1407) #20
+  tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 170, ptr noundef nonnull @.str, i32 noundef 1407) #21
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %protocol_name_list) #20
+  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %protocol_name_list) #21
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end2
-  %call4 = call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call4 = call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp5.not = icmp eq i64 %call4, 0
   br i1 %cmp5.not, label %lor.lhs.false6, label %return
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %call7 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %protocol_name_list, ptr noundef nonnull %protocol_name) #20
+  %call7 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %protocol_name_list, ptr noundef nonnull %protocol_name) #21
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false6
-  %call10 = call i64 @CBS_len(ptr noundef nonnull %protocol_name) #20
+  %call10 = call i64 @CBS_len(ptr noundef nonnull %protocol_name) #21
   %cmp11 = icmp eq i64 %call10, 0
   br i1 %cmp11, label %return, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false9
-  %call13 = call i64 @CBS_len(ptr noundef nonnull %protocol_name_list) #20
+  %call13 = call i64 @CBS_len(ptr noundef nonnull %protocol_name_list) #21
   %cmp14.not = icmp eq i64 %call13, 0
   br i1 %cmp14.not, label %if.end16, label %return
 
@@ -3667,7 +3664,7 @@ if.end16:                                         ; preds = %lor.lhs.false12
   %2 = load ptr, ptr %s3, align 8
   %alpn_selected = getelementptr inbounds i8, ptr %2, i64 752
   %alpn_selected_len = getelementptr inbounds i8, ptr %2, i64 760
-  %call19 = call i32 @CBS_stow(ptr noundef nonnull %protocol_name, ptr noundef nonnull %alpn_selected, ptr noundef nonnull %alpn_selected_len) #20
+  %call19 = call i32 @CBS_stow(ptr noundef nonnull %protocol_name, ptr noundef nonnull %alpn_selected, ptr noundef nonnull %alpn_selected_len) #21
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %if.then21, label %return
 
@@ -3710,17 +3707,17 @@ lor.lhs.false:                                    ; preds = %if.end
 if.end3:                                          ; preds = %lor.lhs.false
   %next_proto_neg_seen = getelementptr inbounds i8, ptr %2, i64 728
   store i32 0, ptr %next_proto_neg_seen, align 8
-  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %protocol_name_list) #20
+  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %protocol_name_list) #21
   %tobool5.not = icmp eq i32 %call, 0
   br i1 %tobool5.not, label %return, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %if.end3
-  %call7 = call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call7 = call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp8.not = icmp eq i64 %call7, 0
   br i1 %cmp8.not, label %lor.lhs.false10, label %return
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false6
-  %call11 = call i64 @CBS_len(ptr noundef nonnull %protocol_name_list) #20
+  %call11 = call i64 @CBS_len(ptr noundef nonnull %protocol_name_list) #21
   %cmp12 = icmp ult i64 %call11, 2
   br i1 %cmp12, label %return, label %if.end15
 
@@ -3729,17 +3726,17 @@ if.end15:                                         ; preds = %lor.lhs.false10
   br label %while.cond
 
 while.cond:                                       ; preds = %lor.lhs.false21, %if.end15
-  %call16 = call i64 @CBS_len(ptr noundef nonnull %protocol_name_list_copy) #20
+  %call16 = call i64 @CBS_len(ptr noundef nonnull %protocol_name_list_copy) #21
   %cmp17.not = icmp eq i64 %call16, 0
   br i1 %cmp17.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call19 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %protocol_name_list_copy, ptr noundef nonnull %protocol_name) #20
+  %call19 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %protocol_name_list_copy, ptr noundef nonnull %protocol_name) #21
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %while.body
-  %call22 = call i64 @CBS_len(ptr noundef nonnull %protocol_name) #20
+  %call22 = call i64 @CBS_len(ptr noundef nonnull %protocol_name) #21
   %cmp23 = icmp eq i64 %call22, 0
   br i1 %cmp23, label %return, label %while.cond, !llvm.loop !33
 
@@ -3747,13 +3744,13 @@ while.end:                                        ; preds = %while.cond
   %4 = load ptr, ptr %ctx, align 8
   %alpn_select_cb28 = getelementptr inbounds i8, ptr %4, i64 536
   %5 = load ptr, ptr %alpn_select_cb28, align 8
-  %call29 = call ptr @CBS_data(ptr noundef nonnull %protocol_name_list) #20
-  %call30 = call i64 @CBS_len(ptr noundef nonnull %protocol_name_list) #20
+  %call29 = call ptr @CBS_data(ptr noundef nonnull %protocol_name_list) #21
+  %call30 = call i64 @CBS_len(ptr noundef nonnull %protocol_name_list) #21
   %conv31 = trunc i64 %call30 to i32
   %6 = load ptr, ptr %ctx, align 8
   %alpn_select_cb_arg = getelementptr inbounds i8, ptr %6, i64 544
   %7 = load ptr, ptr %alpn_select_cb_arg, align 8
-  %call33 = call i32 %5(ptr noundef %ssl, ptr noundef nonnull %selected, ptr noundef nonnull %selected_len, ptr noundef %call29, i32 noundef %conv31, ptr noundef %7) #20
+  %call33 = call i32 %5(ptr noundef %ssl, ptr noundef nonnull %selected, ptr noundef nonnull %selected_len, ptr noundef %call29, i32 noundef %conv31, ptr noundef %7) #21
   %cmp34 = icmp eq i32 %call33, 0
   br i1 %cmp34, label %if.then36, label %return
 
@@ -3761,11 +3758,11 @@ if.then36:                                        ; preds = %while.end
   %8 = load ptr, ptr %s3, align 8
   %alpn_selected = getelementptr inbounds i8, ptr %8, i64 752
   %9 = load ptr, ptr %alpn_selected, align 8
-  call void @free(ptr noundef %9) #20
+  call void @free(ptr noundef %9) #21
   %10 = load ptr, ptr %selected, align 8
   %11 = load i8, ptr %selected_len, align 1
   %conv38 = zext i8 %11 to i64
-  %call39 = call ptr @BUF_memdup(ptr noundef %10, i64 noundef %conv38) #20
+  %call39 = call ptr @BUF_memdup(ptr noundef %10, i64 noundef %conv38) #21
   %12 = load ptr, ptr %s3, align 8
   %alpn_selected41 = getelementptr inbounds i8, ptr %12, i64 752
   store ptr %call39, ptr %alpn_selected41, align 8
@@ -3805,22 +3802,22 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 16) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 16) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call1 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #20
+  %call1 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #21
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %proto_list) #20
+  %call4 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %proto_list) #21
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %call7 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %proto_list, ptr noundef nonnull %proto) #20
+  %call7 = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %proto_list, ptr noundef nonnull %proto) #21
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %lor.lhs.false9
 
@@ -3830,12 +3827,12 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false6
   %3 = load ptr, ptr %alpn_selected11, align 8
   %alpn_selected_len = getelementptr inbounds i8, ptr %2, i64 760
   %4 = load i64, ptr %alpn_selected_len, align 8
-  %call13 = call i32 @CBB_add_bytes(ptr noundef nonnull %proto, ptr noundef %3, i64 noundef %4) #20
+  %call13 = call i32 @CBB_add_bytes(ptr noundef nonnull %proto, ptr noundef %3, i64 noundef %4) #21
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %return, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %lor.lhs.false9
-  %call16 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call16 = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool17.not = icmp ne i32 %call16, 0
   %spec.select = zext i1 %tobool17.not to i32
   br label %return
@@ -3872,12 +3869,12 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 30032) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 30032) #21
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %if.end
-  %call4 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #20
+  %call4 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #21
   %tobool5.not = icmp ne i32 %call4, 0
   %spec.select = zext i1 %tobool5.not to i32
   br label %return
@@ -3894,7 +3891,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp1.not = icmp eq i64 %call, 0
   br i1 %cmp1.not, label %if.end3, label %return
 
@@ -3931,7 +3928,7 @@ lor.lhs.false1:                                   ; preds = %lor.lhs.false
   br i1 %tobool2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false1
-  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call = tail call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp3.not = icmp eq i64 %call, 0
   br i1 %cmp3.not, label %if.end6, label %return
 
@@ -3958,12 +3955,12 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 30032) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 30032) #21
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call2 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #20
+  %call2 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 0) #21
   %tobool3.not = icmp ne i32 %call2, 0
   %spec.select = zext i1 %tobool3.not to i32
   br label %return
@@ -3986,27 +3983,27 @@ define internal range(i32 0, 2) i32 @ext_srtp_add_clienthello(ptr noundef %ssl, 
 entry:
   %contents = alloca %struct.cbb_st, align 8
   %profile_ids = alloca %struct.cbb_st, align 8
-  %call = tail call ptr @SSL_get_srtp_profiles(ptr noundef %ssl) #20
+  %call = tail call ptr @SSL_get_srtp_profiles(ptr noundef %ssl) #21
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i64 @sk_num(ptr noundef nonnull %call) #20
+  %call1 = tail call i64 @sk_num(ptr noundef nonnull %call) #21
   %cmp2 = icmp eq i64 %call1, 0
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 14) #20
+  %call5 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 14) #21
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
-  %call6 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #20
+  %call6 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #21
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %call9 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %profile_ids) #20
+  %call9 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %profile_ids) #21
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %for.body
 
@@ -4017,21 +4014,21 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %lor.lhs.false8, %for.cond
   %i.08 = phi i64 [ %inc, %for.cond ], [ 0, %lor.lhs.false8 ]
-  %call14 = call ptr @sk_value(ptr noundef nonnull %call, i64 noundef %i.08) #20
+  %call14 = call ptr @sk_value(ptr noundef nonnull %call, i64 noundef %i.08) #21
   %id = getelementptr inbounds i8, ptr %call14, i64 8
   %0 = load i64, ptr %id, align 8
   %conv = trunc i64 %0 to i16
-  %call15 = call i32 @CBB_add_u16(ptr noundef nonnull %profile_ids, i16 noundef zeroext %conv) #20
+  %call15 = call i32 @CBB_add_u16(ptr noundef nonnull %profile_ids, i16 noundef zeroext %conv) #21
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond
-  %call19 = call i32 @CBB_add_u8(ptr noundef nonnull %contents, i8 noundef zeroext 0) #20
+  %call19 = call i32 @CBB_add_u8(ptr noundef nonnull %contents, i8 noundef zeroext 0) #21
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %for.end
-  %call22 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call22 = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool23.not = icmp ne i32 %call22, 0
   %spec.select = zext i1 %tobool23.not to i32
   br label %return
@@ -4051,59 +4048,59 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %profile_ids) #20
+  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %profile_ids) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call1 = call i32 @CBS_get_u16(ptr noundef nonnull %profile_ids, ptr noundef nonnull %profile_id) #20
+  %call1 = call i32 @CBS_get_u16(ptr noundef nonnull %profile_ids, ptr noundef nonnull %profile_id) #21
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then12, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call i64 @CBS_len(ptr noundef nonnull %profile_ids) #20
+  %call4 = call i64 @CBS_len(ptr noundef nonnull %profile_ids) #21
   %cmp5.not = icmp eq i64 %call4, 0
   br i1 %cmp5.not, label %lor.lhs.false6, label %if.then12
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %call7 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %srtp_mki) #20
+  %call7 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %srtp_mki) #21
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then12, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false6
-  %call10 = call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call10 = call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp11.not = icmp eq i64 %call10, 0
   br i1 %cmp11.not, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %lor.lhs.false9, %lor.lhs.false6, %lor.lhs.false3, %lor.lhs.false, %if.end
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 116, ptr noundef nonnull @.str, i32 noundef 1631) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 116, ptr noundef nonnull @.str, i32 noundef 1631) #21
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false9
-  %call14 = call i64 @CBS_len(ptr noundef nonnull %srtp_mki) #20
+  %call14 = call i64 @CBS_len(ptr noundef nonnull %srtp_mki) #21
   %cmp15.not = icmp eq i64 %call14, 0
   br i1 %cmp15.not, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 115, ptr noundef nonnull @.str, i32 noundef 1637) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 115, ptr noundef nonnull @.str, i32 noundef 1637) #21
   store i8 47, ptr %out_alert, align 1
   br label %return
 
 if.end17:                                         ; preds = %if.end13
-  %call18 = call ptr @SSL_get_srtp_profiles(ptr noundef %ssl) #20
-  %call1910 = call i64 @sk_num(ptr noundef %call18) #20
+  %call18 = call ptr @SSL_get_srtp_profiles(ptr noundef %ssl) #21
+  %call1910 = call i64 @sk_num(ptr noundef %call18) #21
   %cmp2011.not = icmp eq i64 %call1910, 0
   br i1 %cmp2011.not, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.012, 1
-  %call19 = call i64 @sk_num(ptr noundef %call18) #20
+  %call19 = call i64 @sk_num(ptr noundef %call18) #21
   %cmp20 = icmp ult i64 %inc, %call19
   br i1 %cmp20, label %for.body, label %for.end, !llvm.loop !35
 
 for.body:                                         ; preds = %if.end17, %for.cond
   %i.012 = phi i64 [ %inc, %for.cond ], [ 0, %if.end17 ]
-  %call21 = call ptr @sk_value(ptr noundef %call18, i64 noundef %i.012) #20
+  %call21 = call ptr @sk_value(ptr noundef %call18, i64 noundef %i.012) #21
   %id = getelementptr inbounds i8, ptr %call21, i64 8
   %0 = load i64, ptr %id, align 8
   %1 = load i16, ptr %profile_id, align 2
@@ -4117,7 +4114,7 @@ if.then24:                                        ; preds = %for.body
   br label %return
 
 for.end:                                          ; preds = %for.cond, %if.end17
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 116, ptr noundef nonnull @.str, i32 noundef 1657) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 116, ptr noundef nonnull @.str, i32 noundef 1657) #21
   store i8 47, ptr %out_alert, align 1
   br label %return
 
@@ -4137,51 +4134,51 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %profile_ids) #20
+  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %profile_ids) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then9, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call1 = call i64 @CBS_len(ptr noundef nonnull %profile_ids) #20
+  %call1 = call i64 @CBS_len(ptr noundef nonnull %profile_ids) #21
   %cmp2 = icmp ult i64 %call1, 2
   br i1 %cmp2, label %if.then9, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %srtp_mki) #20
+  %call4 = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %srtp_mki) #21
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.then9, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %call7 = call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call7 = call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp8.not = icmp eq i64 %call7, 0
   br i1 %cmp8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %lor.lhs.false6, %lor.lhs.false3, %lor.lhs.false, %if.end
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 116, ptr noundef nonnull @.str, i32 noundef 1673) #20
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 116, ptr noundef nonnull @.str, i32 noundef 1673) #21
   br label %return
 
 if.end10:                                         ; preds = %lor.lhs.false6
-  %call11 = call ptr @SSL_get_srtp_profiles(ptr noundef %ssl) #20
-  %call1211 = call i64 @sk_num(ptr noundef %call11) #20
+  %call11 = call ptr @SSL_get_srtp_profiles(ptr noundef %ssl) #21
+  %call1211 = call i64 @sk_num(ptr noundef %call11) #21
   %cmp1312.not = icmp eq i64 %call1211, 0
   br i1 %cmp1312.not, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end10, %for.inc
   %i.013 = phi i64 [ %inc, %for.inc ], [ 0, %if.end10 ]
-  %call14 = call ptr @sk_value(ptr noundef %call11, i64 noundef %i.013) #20
-  %call15 = call ptr @CBS_data(ptr noundef nonnull %profile_ids) #20
-  %call16 = call i64 @CBS_len(ptr noundef nonnull %profile_ids) #20
-  call void @CBS_init(ptr noundef nonnull %profile_ids_tmp, ptr noundef %call15, i64 noundef %call16) #20
+  %call14 = call ptr @sk_value(ptr noundef %call11, i64 noundef %i.013) #21
+  %call15 = call ptr @CBS_data(ptr noundef nonnull %profile_ids) #21
+  %call16 = call i64 @CBS_len(ptr noundef nonnull %profile_ids) #21
+  call void @CBS_init(ptr noundef nonnull %profile_ids_tmp, ptr noundef %call15, i64 noundef %call16) #21
   %id = getelementptr inbounds i8, ptr %call14, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end22, %for.body
-  %call17 = call i64 @CBS_len(ptr noundef nonnull %profile_ids_tmp) #20
+  %call17 = call i64 @CBS_len(ptr noundef nonnull %profile_ids_tmp) #21
   %cmp18.not = icmp eq i64 %call17, 0
   br i1 %cmp18.not, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call19 = call i32 @CBS_get_u16(ptr noundef nonnull %profile_ids_tmp, ptr noundef nonnull %profile_id) #20
+  %call19 = call i32 @CBS_get_u16(ptr noundef nonnull %profile_ids_tmp, ptr noundef nonnull %profile_id) #21
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -4199,7 +4196,7 @@ if.then25:                                        ; preds = %if.end22
 
 for.inc:                                          ; preds = %while.cond
   %inc = add nuw i64 %i.013, 1
-  %call12 = call i64 @sk_num(ptr noundef %call11) #20
+  %call12 = call i64 @sk_num(ptr noundef %call11) #21
   %cmp13 = icmp ult i64 %inc, %call12
   br i1 %cmp13, label %for.body, label %return, !llvm.loop !37
 
@@ -4219,17 +4216,17 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 14) #20
+  %call = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 14) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call1 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #20
+  %call1 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #21
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %profile_ids) #20
+  %call4 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %profile_ids) #21
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %lor.lhs.false6
 
@@ -4238,17 +4235,17 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false3
   %id = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %id, align 8
   %conv = trunc i64 %2 to i16
-  %call8 = call i32 @CBB_add_u16(ptr noundef nonnull %profile_ids, i16 noundef zeroext %conv) #20
+  %call8 = call i32 @CBB_add_u16(ptr noundef nonnull %profile_ids, i16 noundef zeroext %conv) #21
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false6
-  %call11 = call i32 @CBB_add_u8(ptr noundef nonnull %contents, i8 noundef zeroext 0) #20
+  %call11 = call i32 @CBB_add_u8(ptr noundef nonnull %contents, i8 noundef zeroext 0) #21
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false10
-  %call14 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call14 = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool15.not = icmp ne i32 %call14, 0
   %spec.select = zext i1 %tobool15.not to i32
   br label %return
@@ -4275,20 +4272,20 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %call.i = tail call ptr @SSL_get_ciphers(ptr noundef nonnull %ssl) #20
-  %call17.i = tail call i64 @sk_num(ptr noundef %call.i) #20
+  %call.i = tail call ptr @SSL_get_ciphers(ptr noundef nonnull %ssl) #21
+  %call17.i = tail call i64 @sk_num(ptr noundef %call.i) #21
   %cmp28.not.i = icmp eq i64 %call17.i, 0
   br i1 %cmp28.not.i, label %return, label %for.body.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i
   %inc.i = add nuw i64 %i.09.i, 1
-  %call1.i = tail call i64 @sk_num(ptr noundef %call.i) #20
+  %call1.i = tail call i64 @sk_num(ptr noundef %call.i) #21
   %cmp2.i = icmp ult i64 %inc.i, %call1.i
   br i1 %cmp2.i, label %for.body.i, label %return, !llvm.loop !38
 
 for.body.i:                                       ; preds = %if.end.i, %for.cond.i
   %i.09.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end.i ]
-  %call3.i = tail call ptr @sk_value(ptr noundef %call.i, i64 noundef %i.09.i) #20
+  %call3.i = tail call ptr @sk_value(ptr noundef %call.i, i64 noundef %i.09.i) #21
   %algorithm_mkey.i = getelementptr inbounds i8, ptr %call3.i, i64 12
   %3 = load i32, ptr %algorithm_mkey.i, align 4
   %4 = and i32 %3, 4
@@ -4305,27 +4302,27 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
 if.end:                                           ; preds = %lor.lhs.false.i, %for.body.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %contents.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %formats.i)
-  %call.i2 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 11) #20
+  %call.i2 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 11) #21
   %tobool.not.i3 = icmp eq i32 %call.i2, 0
   br i1 %tobool.not.i3, label %ext_ec_point_add_extension.exit, label %lor.lhs.false.i4
 
 lor.lhs.false.i4:                                 ; preds = %if.end
-  %call1.i5 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents.i) #20
+  %call1.i5 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents.i) #21
   %tobool2.not.i = icmp eq i32 %call1.i5, 0
   br i1 %tobool2.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i4
-  %call4.i = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %contents.i, ptr noundef nonnull %formats.i) #20
+  %call4.i = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %contents.i, ptr noundef nonnull %formats.i) #21
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false3.i
-  %call7.i = call i32 @CBB_add_u8(ptr noundef nonnull %formats.i, i8 noundef zeroext 0) #20
+  %call7.i = call i32 @CBB_add_u8(ptr noundef nonnull %formats.i, i8 noundef zeroext 0) #21
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %lor.lhs.false6.i
-  %call10.i = call i32 @CBB_flush(ptr noundef %out) #20
+  %call10.i = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool11.not.i = icmp ne i32 %call10.i, 0
   %spec.select.i = zext i1 %tobool11.not.i to i32
   br label %ext_ec_point_add_extension.exit
@@ -4349,19 +4346,19 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %ec_point_format_list) #20
+  %call = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %ec_point_format_list) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call1 = call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call1 = call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp2.not = icmp eq i64 %call1, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %call5 = call ptr @CBS_data(ptr noundef nonnull %ec_point_format_list) #20
-  %call6 = call i64 @CBS_len(ptr noundef nonnull %ec_point_format_list) #20
-  %call7 = call ptr @memchr(ptr noundef %call5, i32 noundef 0, i64 noundef %call6) #22
+  %call5 = call ptr @CBS_data(ptr noundef nonnull %ec_point_format_list) #21
+  %call6 = call i64 @CBS_len(ptr noundef nonnull %ec_point_format_list) #21
+  %call7 = call ptr @memchr(ptr noundef %call5, i32 noundef 0, i64 noundef %call6) #23
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.then9, label %return
 
@@ -4383,19 +4380,19 @@ entry:
   br i1 %cmp.i, label %ext_ec_point_parse_serverhello.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %ec_point_format_list.i) #20
+  %call.i = call i32 @CBS_get_u8_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %ec_point_format_list.i) #21
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %ext_ec_point_parse_serverhello.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %call1.i = call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call1.i = call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp2.not.i = icmp eq i64 %call1.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %ext_ec_point_parse_serverhello.exit
 
 if.end4.i:                                        ; preds = %lor.lhs.false.i
-  %call5.i = call ptr @CBS_data(ptr noundef nonnull %ec_point_format_list.i) #20
-  %call6.i = call i64 @CBS_len(ptr noundef nonnull %ec_point_format_list.i) #20
-  %call7.i = call ptr @memchr(ptr noundef %call5.i, i32 noundef 0, i64 noundef %call6.i) #22
+  %call5.i = call ptr @CBS_data(ptr noundef nonnull %ec_point_format_list.i) #21
+  %call6.i = call i64 @CBS_len(ptr noundef nonnull %ec_point_format_list.i) #21
+  %call7.i = call ptr @memchr(ptr noundef %call5.i, i32 noundef 0, i64 noundef %call6.i) #23
   %cmp8.i = icmp eq ptr %call7.i, null
   br i1 %cmp8.i, label %if.then9.i, label %ext_ec_point_parse_serverhello.exit
 
@@ -4432,27 +4429,27 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %contents.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %formats.i)
-  %call.i = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 11) #20
+  %call.i = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 11) #21
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %call1.i = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents.i) #20
+  %call1.i = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents.i) #21
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %call4.i = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %contents.i, ptr noundef nonnull %formats.i) #20
+  %call4.i = call i32 @CBB_add_u8_length_prefixed(ptr noundef nonnull %contents.i, ptr noundef nonnull %formats.i) #21
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false3.i
-  %call7.i = call i32 @CBB_add_u8(ptr noundef nonnull %formats.i, i8 noundef zeroext 0) #20
+  %call7.i = call i32 @CBB_add_u8(ptr noundef nonnull %formats.i, i8 noundef zeroext 0) #21
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %ext_ec_point_add_extension.exit, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %lor.lhs.false6.i
-  %call10.i = call i32 @CBB_flush(ptr noundef %out) #20
+  %call10.i = call i32 @CBB_flush(ptr noundef %out) #21
   %tobool11.not.i = icmp ne i32 %call10.i, 0
   %spec.select.i = zext i1 %tobool11.not.i to i32
   br label %ext_ec_point_add_extension.exit
@@ -4475,7 +4472,7 @@ entry:
   %0 = load ptr, ptr %s3, align 8
   %peer_ellipticcurvelist = getelementptr inbounds i8, ptr %0, i64 520
   %1 = load ptr, ptr %peer_ellipticcurvelist, align 8
-  tail call void @free(ptr noundef %1) #20
+  tail call void @free(ptr noundef %1) #21
   %2 = load ptr, ptr %s3, align 8
   %peer_ellipticcurvelist3 = getelementptr inbounds i8, ptr %2, i64 520
   store ptr null, ptr %peer_ellipticcurvelist3, align 8
@@ -4502,20 +4499,20 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %call.i = tail call ptr @SSL_get_ciphers(ptr noundef nonnull %ssl) #20
-  %call17.i = tail call i64 @sk_num(ptr noundef %call.i) #20
+  %call.i = tail call ptr @SSL_get_ciphers(ptr noundef nonnull %ssl) #21
+  %call17.i = tail call i64 @sk_num(ptr noundef %call.i) #21
   %cmp28.not.i = icmp eq i64 %call17.i, 0
   br i1 %cmp28.not.i, label %return, label %for.body.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i
   %inc.i = add nuw i64 %i.09.i, 1
-  %call1.i = tail call i64 @sk_num(ptr noundef %call.i) #20
+  %call1.i = tail call i64 @sk_num(ptr noundef %call.i) #21
   %cmp2.i = icmp ult i64 %inc.i, %call1.i
   br i1 %cmp2.i, label %for.body.i, label %return, !llvm.loop !38
 
 for.body.i:                                       ; preds = %if.end.i, %for.cond.i
   %i.09.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end.i ]
-  %call3.i = tail call ptr @sk_value(ptr noundef %call.i, i64 noundef %i.09.i) #20
+  %call3.i = tail call ptr @sk_value(ptr noundef %call.i, i64 noundef %i.09.i) #21
   %algorithm_mkey.i = getelementptr inbounds i8, ptr %call3.i, i64 12
   %3 = load i32, ptr %algorithm_mkey.i, align 4
   %4 = and i32 %3, 4
@@ -4530,17 +4527,17 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool7.not.i, label %for.cond.i, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false.i, %for.body.i
-  %call1 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 10) #20
+  %call1 = tail call i32 @CBB_add_u16(ptr noundef %out, i16 noundef zeroext 10) #21
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call3 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #20
+  %call3 = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %contents) #21
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %return, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %call6 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %curves_bytes) #20
+  %call6 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %curves_bytes) #21
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %if.end9
 
@@ -4564,12 +4561,12 @@ for.body:                                         ; preds = %if.end9, %for.cond
   %i.013 = phi i64 [ %inc, %for.cond ], [ 0, %if.end9 ]
   %arrayidx = getelementptr inbounds i16, ptr %spec.select, i64 %i.013
   %9 = load i16, ptr %arrayidx, align 2
-  %call10 = call i32 @CBB_add_u16(ptr noundef nonnull %curves_bytes, i16 noundef zeroext %9) #20
+  %call10 = call i32 @CBB_add_u16(ptr noundef nonnull %curves_bytes, i16 noundef zeroext %9) #21
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %if.end9
-  %call14 = call i32 @CBB_flush(ptr noundef %out) #20
+  %call14 = call i32 @CBB_flush(ptr noundef %out) #21
   br label %return
 
 return:                                           ; preds = %for.cond.i, %for.body, %if.end.i, %land.lhs.true.i, %if.end, %lor.lhs.false, %lor.lhs.false5, %for.end
@@ -4591,29 +4588,29 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %elliptic_curve_list) #20
+  %call = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %contents, ptr noundef nonnull %elliptic_curve_list) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call1 = call i64 @CBS_len(ptr noundef nonnull %elliptic_curve_list) #20
+  %call1 = call i64 @CBS_len(ptr noundef nonnull %elliptic_curve_list) #21
   %cmp2 = icmp eq i64 %call1, 0
   br i1 %cmp2, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = call i64 @CBS_len(ptr noundef nonnull %elliptic_curve_list) #20
+  %call4 = call i64 @CBS_len(ptr noundef nonnull %elliptic_curve_list) #21
   %and = and i64 %call4, 1
   %cmp5.not = icmp eq i64 %and, 0
   br i1 %cmp5.not, label %lor.lhs.false6, label %return
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %call7 = call i64 @CBS_len(ptr noundef nonnull %contents) #20
+  %call7 = call i64 @CBS_len(ptr noundef nonnull %contents) #21
   %cmp8.not = icmp eq i64 %call7, 0
   br i1 %cmp8.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %lor.lhs.false6
-  %call11 = call i64 @CBS_len(ptr noundef nonnull %elliptic_curve_list) #20
-  %call12 = call noalias ptr @malloc(i64 noundef %call11) #21
+  %call11 = call i64 @CBS_len(ptr noundef nonnull %elliptic_curve_list) #21
+  %call12 = call noalias ptr @malloc(i64 noundef %call11) #22
   %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
   %peer_ellipticcurvelist = getelementptr inbounds i8, ptr %0, i64 520
@@ -4629,7 +4626,7 @@ if.then17:                                        ; preds = %if.end10
   br label %return
 
 if.end18:                                         ; preds = %if.end10
-  %call19 = call i64 @CBS_len(ptr noundef nonnull %elliptic_curve_list) #20
+  %call19 = call i64 @CBS_len(ptr noundef nonnull %elliptic_curve_list) #21
   %div12 = lshr i64 %call19, 1
   %cmp2013.not = icmp ult i64 %call19, 2
   br i1 %cmp2013.not, label %for.end, label %for.body
@@ -4645,7 +4642,7 @@ for.body:                                         ; preds = %if.end18, %for.cond
   %peer_ellipticcurvelist23 = getelementptr inbounds i8, ptr %3, i64 520
   %4 = load ptr, ptr %peer_ellipticcurvelist23, align 8
   %arrayidx = getelementptr inbounds i16, ptr %4, i64 %i.014
-  %call24 = call i32 @CBS_get_u16(ptr noundef nonnull %elliptic_curve_list, ptr noundef %arrayidx) #20
+  %call24 = call i32 @CBS_get_u16(ptr noundef nonnull %elliptic_curve_list, ptr noundef %arrayidx) #21
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %err, label %for.cond
 
@@ -4659,7 +4656,7 @@ err:                                              ; preds = %for.body
   %6 = load ptr, ptr %s3, align 8
   %peer_ellipticcurvelist32 = getelementptr inbounds i8, ptr %6, i64 520
   %7 = load ptr, ptr %peer_ellipticcurvelist32, align 8
-  call void @free(ptr noundef %7) #20
+  call void @free(ptr noundef %7) #21
   %8 = load ptr, ptr %s3, align 8
   %peer_ellipticcurvelist35 = getelementptr inbounds i8, ptr %8, i64 520
   store ptr null, ptr %peer_ellipticcurvelist35, align 8
@@ -4718,11 +4715,14 @@ declare i32 @custom_ext_parse_serverhello(ptr noundef, ptr noundef, i16 noundef 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i16(i16, i16) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4743,10 +4743,11 @@ attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #16 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nounwind }
-attributes #21 = { nounwind allocsize(0) }
-attributes #22 = { nounwind willreturn memory(read) }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nounwind }
+attributes #22 = { nounwind allocsize(0) }
+attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

@@ -66,10 +66,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef range(i32 -1, 2) i32 @_ZN20ShenandoahHeuristics18compare_by_garbageENS_10RegionDataES0_(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2, i64 %3) local_unnamed_addr #0 align 2 {
-  %5 = icmp ugt i64 %1, %3
-  %6 = icmp ult i64 %1, %3
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %3, i64 %1)
   ret i32 %.0
 }
 
@@ -701,6 +698,9 @@ declare i64 @llvm.smax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12

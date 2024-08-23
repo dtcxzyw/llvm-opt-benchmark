@@ -4089,10 +4089,7 @@ define internal range(i32 -1, 2) i32 @H5A__attr_cmp_corder_inc(ptr nocapture nou
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 72
   %12 = load i32, ptr %11, align 8
-  %13 = icmp ult i32 %7, %12
-  %14 = icmp ugt i32 %7, %12
-  %. = zext i1 %14 to i32
-  %.0 = select i1 %13, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %7, i32 %12)
   ret i32 %.0
 }
 
@@ -4108,10 +4105,7 @@ define internal range(i32 -1, 2) i32 @H5A__attr_cmp_corder_dec(ptr nocapture nou
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 72
   %12 = load i32, ptr %11, align 8
-  %13 = icmp ult i32 %7, %12
-  %14 = icmp ugt i32 %7, %12
-  %. = sext i1 %14 to i32
-  %.0 = select i1 %13, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %12, i32 %7)
   ret i32 %.0
 }
 
@@ -4124,6 +4118,9 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12

@@ -7485,10 +7485,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZN12_GLOBAL__N_114CompareIntegerI
 entry:
   %0 = load i32, ptr %a, align 4
   %1 = load i32, ptr %b, align 4
-  %cmp = icmp ult i32 %0, %1
-  %cmp1 = icmp ugt i32 %0, %1
-  %. = zext i1 %cmp1 to i32
-  %retval.0 = select i1 %cmp, i32 -1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %0, i32 %1)
   ret i32 %retval.0
 }
 
@@ -34040,6 +34037,9 @@ declare i32 @llvm.smax.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #24
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -160,14 +160,11 @@ define internal range(i32 -1, 2) i32 @_sort_by_job_id(ptr nocapture noundef read
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
-  %8 = icmp ult i32 %5, %7
-  %9 = icmp ugt i32 %5, %7
-  %10 = zext i1 %9 to i32
-  %11 = select i1 %8, i32 -1, i32 %10
+  %8 = tail call i32 @llvm.ucmp.i32.i32(i32 %5, i32 %7)
   %.b4 = load i1, ptr @sort_descend, align 1
-  %12 = sub nsw i32 0, %11
-  %13 = select i1 %.b4, i32 %12, i32 %11
-  ret i32 %13
+  %9 = sub nsw i32 0, %8
+  %10 = select i1 %.b4, i32 %9, i32 %8
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -189,14 +186,11 @@ define internal range(i32 -1, 2) i32 @_sort_by_nice_level(ptr nocapture noundef 
 .thread:                                          ; preds = %2, %5
   %11 = phi i32 [ %7, %5 ], [ 0, %2 ]
   %12 = phi i32 [ %10, %5 ], [ 0, %2 ]
-  %13 = icmp slt i32 %11, %12
-  %14 = icmp sgt i32 %11, %12
-  %15 = zext i1 %14 to i32
-  %16 = select i1 %13, i32 -1, i32 %15
+  %13 = tail call i32 @llvm.scmp.i32.i32(i32 %11, i32 %12)
   %.b8 = load i1, ptr @sort_descend, align 1
-  %17 = sub nsw i32 0, %16
-  %18 = select i1 %.b8, i32 %17, i32 %16
-  ret i32 %18
+  %14 = sub nsw i32 0, %13
+  %15 = select i1 %.b8, i32 %14, i32 %13
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -534,7 +528,13 @@ declare ptr @uid_to_string_cached(i32 noundef) local_unnamed_addr #1
 declare double @get_priority_from_factors(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

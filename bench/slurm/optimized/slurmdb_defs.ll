@@ -10360,10 +10360,7 @@ define range(i32 -1, 2) i32 @slurmdb_job_sort_by_submit_time(ptr nocapture nound
   %9 = select i1 %.not, i64 4294967295, i64 %5
   %.not12 = icmp eq i64 %8, 0
   %10 = select i1 %.not12, i64 4294967295, i64 %8
-  %11 = icmp slt i64 %9, %10
-  %12 = icmp sgt i64 %9, %10
-  %. = zext i1 %12 to i32
-  %.0 = select i1 %11, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i64(i64 %9, i64 %10)
   ret i32 %.0
 }
 
@@ -10599,6 +10596,9 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

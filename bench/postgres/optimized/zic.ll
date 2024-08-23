@@ -9328,11 +9328,8 @@ declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 define internal range(i32 -1, 2) i32 @atcomp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #19 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
-  %5 = icmp slt i64 %3, %4
-  %6 = icmp sgt i64 %3, %4
-  %7 = zext i1 %6 to i32
-  %8 = select i1 %5, i32 -1, i32 %7
-  ret i32 %8
+  %5 = tail call i32 @llvm.scmp.i32.i64(i64 %3, i64 %4)
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -9358,6 +9355,9 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #22

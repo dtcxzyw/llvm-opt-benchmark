@@ -19,10 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal range(i32 -1, 2) i32 @icompare(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %2, align 4
-  %7 = icmp slt i32 %5, %6
-  %8 = icmp sgt i32 %5, %6
-  %. = zext i1 %8 to i32
-  %.0 = select i1 %7, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %5, i32 %6)
   ret i32 %.0
 }
 
@@ -1695,6 +1692,9 @@ declare i32 @RTreeClose(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13

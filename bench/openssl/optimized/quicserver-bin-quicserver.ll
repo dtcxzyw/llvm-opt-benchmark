@@ -484,8 +484,8 @@ for.body17.preheader:                             ; preds = %if.end
 if.end33:                                         ; preds = %for.body17.preheader, %if.end
   %writefdsp.0 = phi ptr [ %writefds, %for.body17.preheader ], [ null, %if.end ]
   %call34 = call i64 @ossl_quic_tserver_get_deadline(ptr noundef %qtserv) #9
-  %cmp5.i.not.i.not = icmp eq i64 %call34, -1
-  br i1 %cmp5.i.not.i.not, label %if.end49, label %if.end49.thread
+  %cmp.i.not = icmp eq i64 %call34, -1
+  br i1 %cmp.i.not, label %if.end49, label %if.end49.thread
 
 if.end49.thread:                                  ; preds = %if.end33
   %call41 = call i64 @ossl_time_now() #9

@@ -459,48 +459,48 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_diameter() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #13
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #14
   store i32 %1, ptr @proto_diameter, align 4
-  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.2, ptr noundef nonnull @dissect_diameter, i32 noundef %1) #13
+  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.2, ptr noundef nonnull @dissect_diameter, i32 noundef %1) #14
   store ptr %2, ptr @diameter_sctp_handle, align 8
   %3 = load i32, ptr @proto_diameter, align 4
-  %4 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter, i32 noundef %3) #13
+  %4 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter, i32 noundef %3) #14
   store ptr %4, ptr @diameter_udp_handle, align 8
   %5 = load i32, ptr @proto_diameter, align 4
-  %6 = tail call ptr @register_dissector(ptr noundef nonnull @.str.3, ptr noundef nonnull @dissect_diameter_tcp, i32 noundef %5) #13
+  %6 = tail call ptr @register_dissector(ptr noundef nonnull @.str.3, ptr noundef nonnull @dissect_diameter_tcp, i32 noundef %5) #14
   store ptr %6, ptr @diameter_tcp_handle, align 8
   %7 = load i32, ptr @proto_diameter, align 4
-  %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.4, ptr noundef nonnull @dissect_diameter_avps, i32 noundef %7) #13
-  tail call void @proto_register_prefix(ptr noundef nonnull @.str.2, ptr noundef nonnull @register_diameter_fields) #13
+  %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.4, ptr noundef nonnull @dissect_diameter_avps, i32 noundef %7) #14
+  tail call void @proto_register_prefix(ptr noundef nonnull @.str.2, ptr noundef nonnull @register_diameter_fields) #14
   %9 = load i32, ptr @proto_diameter, align 4
-  %10 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %9, i32 noundef 7, i32 noundef 1) #13
+  %10 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %9, i32 noundef 7, i32 noundef 1) #14
   store ptr %10, ptr @diameter_dissector_table, align 8
   %11 = load i32, ptr @proto_diameter, align 4
-  %12 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %11, i32 noundef 7, i32 noundef 1) #13
+  %12 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %11, i32 noundef 7, i32 noundef 1) #14
   store ptr %12, ptr @diameter_3gpp_avp_dissector_table, align 8
   %13 = load i32, ptr @proto_diameter, align 4
-  %14 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef %13, i32 noundef 7, i32 noundef 1) #13
+  %14 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef %13, i32 noundef 7, i32 noundef 1) #14
   store ptr %14, ptr @diameter_ericsson_avp_dissector_table, align 8
   %15 = load i32, ptr @proto_diameter, align 4
-  %16 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef %15, i32 noundef 7, i32 noundef 1) #13
+  %16 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef %15, i32 noundef 7, i32 noundef 1) #14
   store ptr %16, ptr @diameter_verizon_avp_dissector_table, align 8
   %17 = load i32, ptr @proto_diameter, align 4
-  %18 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef %17, i32 noundef 7, i32 noundef 1) #13
+  %18 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef %17, i32 noundef 7, i32 noundef 1) #14
   store ptr %18, ptr @diameter_expr_result_vnd_table, align 8
   %19 = load i32, ptr @proto_diameter, align 4
-  %20 = tail call ptr @prefs_register_protocol(i32 noundef %19, ptr noundef null) #13
-  tail call void @prefs_register_module_alias(ptr noundef nonnull @.str.1, ptr noundef %20) #13
-  tail call void @prefs_register_bool_preference(ptr noundef %20, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @gbl_diameter_desegment) #13
-  tail call void @prefs_register_obsolete_preference(ptr noundef %20, ptr noundef nonnull @.str.18) #13
-  tail call void @prefs_register_obsolete_preference(ptr noundef %20, ptr noundef nonnull @.str.19) #13
-  tail call void @prefs_register_obsolete_preference(ptr noundef %20, ptr noundef nonnull @.str.20) #13
-  tail call void @prefs_register_obsolete_preference(ptr noundef %20, ptr noundef nonnull @.str.21) #13
-  tail call void @prefs_register_obsolete_preference(ptr noundef %20, ptr noundef nonnull @.str.22) #13
-  tail call void @prefs_register_obsolete_preference(ptr noundef %20, ptr noundef nonnull @.str.23) #13
-  %21 = tail call i32 @register_tap(ptr noundef nonnull @.str.2) #13
+  %20 = tail call ptr @prefs_register_protocol(i32 noundef %19, ptr noundef null) #14
+  tail call void @prefs_register_module_alias(ptr noundef nonnull @.str.1, ptr noundef %20) #14
+  tail call void @prefs_register_bool_preference(ptr noundef %20, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @gbl_diameter_desegment) #14
+  tail call void @prefs_register_obsolete_preference(ptr noundef %20, ptr noundef nonnull @.str.18) #14
+  tail call void @prefs_register_obsolete_preference(ptr noundef %20, ptr noundef nonnull @.str.19) #14
+  tail call void @prefs_register_obsolete_preference(ptr noundef %20, ptr noundef nonnull @.str.20) #14
+  tail call void @prefs_register_obsolete_preference(ptr noundef %20, ptr noundef nonnull @.str.21) #14
+  tail call void @prefs_register_obsolete_preference(ptr noundef %20, ptr noundef nonnull @.str.22) #14
+  tail call void @prefs_register_obsolete_preference(ptr noundef %20, ptr noundef nonnull @.str.23) #14
+  %21 = tail call i32 @register_tap(ptr noundef nonnull @.str.2) #14
   store i32 %21, ptr @diameter_tap, align 4
   %22 = load i32, ptr @proto_diameter, align 4
-  tail call void @register_srt_table(i32 noundef %22, ptr noundef null, i32 noundef 1, ptr noundef nonnull @diameterstat_packet, ptr noundef nonnull @diameterstat_init, ptr noundef null) #13
+  tail call void @register_srt_table(i32 noundef %22, ptr noundef null, i32 noundef 1, ptr noundef nonnull @diameterstat_packet, ptr noundef nonnull @diameterstat_init, ptr noundef null) #14
   ret void
 }
 
@@ -510,17 +510,17 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_diameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #13
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #14
   %6 = icmp ult i32 %5, 5
   br i1 %6, label %check_diameter.exit.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #13
+  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #14
   %.not.i = icmp eq i8 %8, 1
   br i1 %.not.i, label %9, label %check_diameter.exit.thread
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 1) #13
+  %10 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 1) #14
   %11 = icmp ugt i32 %10, 35
   %12 = and i32 %10, 3
   %.not10.i = icmp eq i32 %12, 0
@@ -528,7 +528,7 @@ define internal i32 @dissect_diameter(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %or.cond.i, label %13, label %check_diameter.exit.thread
 
 13:                                               ; preds = %9
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #13
+  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #14
   %15 = zext i8 %14 to i32
   %16 = and i32 %15, 15
   %.not11.i = icmp eq i32 %16, 0
@@ -554,17 +554,17 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_diameter_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #13
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #14
   %6 = icmp ult i32 %5, 5
   br i1 %6, label %check_diameter.exit.thread15, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #13
+  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #14
   %.not.i = icmp eq i8 %8, 1
   br i1 %.not.i, label %9, label %check_diameter.exit.thread
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 1) #13
+  %10 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 1) #14
   %11 = icmp ugt i32 %10, 35
   %12 = and i32 %10, 3
   %.not10.i = icmp eq i32 %12, 0
@@ -572,7 +572,7 @@ define internal i32 @dissect_diameter_tcp(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond.i, label %13, label %check_diameter.exit.thread
 
 13:                                               ; preds = %9
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #13
+  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #14
   %15 = zext i8 %14 to i32
   %16 = and i32 %15, 15
   %.not11.i = icmp eq i32 %16, 0
@@ -588,11 +588,11 @@ check_diameter.exit:                              ; preds = %13
 check_diameter.exit.thread:                       ; preds = %check_diameter.exit, %13, %9, %7
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.37) #13
+  tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.37) #14
   %20 = load ptr, ptr %18, align 8
-  tail call void @col_set_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.78) #13
+  tail call void @col_set_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.78) #14
   %21 = load ptr, ptr @data_handle, align 8
-  %22 = tail call i32 @call_dissector(ptr noundef %21, ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
+  %22 = tail call i32 @call_dissector(ptr noundef %21, ptr noundef %0, ptr noundef %1, ptr noundef %2) #14
   br label %27
 
 check_diameter.exit.thread15:                     ; preds = %4
@@ -604,11 +604,11 @@ check_diameter.exit.thread15:                     ; preds = %4
 
 25:                                               ; preds = %check_diameter.exit
   %26 = load i32, ptr @gbl_diameter_desegment, align 4
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %26, i32 noundef 4, ptr noundef nonnull @get_diameter_pdu_len, ptr noundef nonnull @dissect_diameter_common, ptr noundef %3) #13
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %26, i32 noundef 4, ptr noundef nonnull @get_diameter_pdu_len, ptr noundef nonnull @dissect_diameter_common, ptr noundef %3) #14
   br label %27
 
 27:                                               ; preds = %check_diameter.exit.thread15, %25, %check_diameter.exit.thread
-  %28 = tail call i32 @tvb_reported_length(ptr noundef %0) #13
+  %28 = tail call i32 @tvb_reported_length(ptr noundef %0) #14
   ret i32 %28
 }
 
@@ -616,31 +616,31 @@ check_diameter.exit.thread15:                     ; preds = %4
 define internal i32 @dissect_diameter_avps(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %6, i64 noundef 24) #13
+  %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %6, i64 noundef 24) #14
   %8 = load ptr, ptr %5, align 8
-  %9 = tail call noalias ptr @wmem_alloc0(ptr noundef %8, i64 noundef 56) #13
+  %9 = tail call noalias ptr @wmem_alloc0(ptr noundef %8, i64 noundef 56) #14
   %10 = load i32, ptr @hf_diameter_code, align 4
   %11 = icmp slt i32 %10, 1
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
-  %13 = tail call ptr @proto_registrar_get_byname(ptr noundef nonnull @.str.36) #13
+  %13 = tail call ptr @proto_registrar_get_byname(ptr noundef nonnull @.str.36) #14
   br label %14
 
 14:                                               ; preds = %12, %4
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.37) #13
+  tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.37) #14
   %17 = load ptr, ptr %15, align 8
-  tail call void @col_set_str(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.79) #13
+  tail call void @col_set_str(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.79) #14
   %18 = load i32, ptr @proto_diameter, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #13
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #14
   %20 = load i32, ptr @ett_diameter, align 4
-  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #13
+  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #14
   store ptr %21, ptr %7, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %1, ptr %22, align 8
-  %23 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #13
+  %23 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #14
   %.not18 = icmp eq i32 %23, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -648,12 +648,12 @@ define internal i32 @dissect_diameter_avps(ptr noundef %0, ptr noundef %1, ptr n
   %.019 = phi i32 [ %25, %.lr.ph ], [ 0, %14 ]
   %24 = tail call fastcc i32 @dissect_diameter_avp(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %.019, ptr noundef %9, i32 noundef 1)
   %25 = add i32 %24, %.019
-  %26 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %25) #13
+  %26 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %25) #14
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
-  %27 = tail call i32 @tvb_reported_length(ptr noundef %0) #13
+  %27 = tail call i32 @tvb_reported_length(ptr noundef %0) #14
   ret i32 %27
 }
 
@@ -678,48 +678,48 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
-  %11 = tail call ptr @getenv(ptr noundef nonnull @.str.80) #13
-  %12 = tail call ptr @getenv(ptr noundef nonnull @.str.81) #13
-  %13 = tail call ptr @g_hash_table_new(ptr noundef nonnull @strcase_hash, ptr noundef nonnull @strcase_equal) #13
-  %14 = tail call ptr @g_array_new(i32 noundef 1, i32 noundef 1, i32 noundef 16) #13
-  %15 = tail call ptr @g_array_new(i32 noundef 1, i32 noundef 1, i32 noundef 16) #13
-  %16 = tail call ptr @wmem_epan_scope() #13
-  %17 = tail call noalias ptr @wmem_array_sized_new(ptr noundef %16, i64 noundef 80, i32 noundef 4096) #13
+  %11 = tail call ptr @getenv(ptr noundef nonnull @.str.80) #14
+  %12 = tail call ptr @getenv(ptr noundef nonnull @.str.81) #14
+  %13 = tail call ptr @g_hash_table_new(ptr noundef nonnull @strcase_hash, ptr noundef nonnull @strcase_equal) #14
+  %14 = tail call ptr @g_array_new(i32 noundef 1, i32 noundef 1, i32 noundef 16) #14
+  %15 = tail call ptr @g_array_new(i32 noundef 1, i32 noundef 1, i32 noundef 16) #14
+  %16 = tail call ptr @wmem_epan_scope() #14
+  %17 = tail call noalias ptr @wmem_array_sized_new(ptr noundef %16, i64 noundef 80, i32 noundef 4096) #14
   store ptr %17, ptr @build_dict.0, align 8
-  %18 = tail call ptr @g_ptr_array_sized_new(i32 noundef 4096) #13
+  %18 = tail call ptr @g_ptr_array_sized_new(i32 noundef 4096) #14
   store ptr %18, ptr @build_dict.1, align 8
-  %19 = tail call ptr @g_hash_table_new(ptr noundef nonnull @strcase_hash, ptr noundef nonnull @strcase_equal) #13
+  %19 = tail call ptr @g_hash_table_new(ptr noundef nonnull @strcase_hash, ptr noundef nonnull @strcase_equal) #14
   store ptr %19, ptr @build_dict.2, align 8
-  %20 = tail call ptr @g_hash_table_new(ptr noundef nonnull @strcase_hash, ptr noundef nonnull @strcase_equal) #13
+  %20 = tail call ptr @g_hash_table_new(ptr noundef nonnull @strcase_hash, ptr noundef nonnull @strcase_equal) #14
   store ptr %20, ptr @build_dict.3, align 8
-  %21 = tail call ptr @wmem_epan_scope() #13
-  %22 = tail call noalias ptr @wmem_tree_new(ptr noundef %21) #13
+  %21 = tail call ptr @wmem_epan_scope() #14
+  %22 = tail call noalias ptr @wmem_tree_new(ptr noundef %21) #14
   store ptr %22, ptr @dictionary.1, align 8
-  %23 = tail call ptr @wmem_epan_scope() #13
-  %24 = tail call noalias ptr @wmem_tree_new(ptr noundef %23) #13
+  %23 = tail call ptr @wmem_epan_scope() #14
+  %24 = tail call noalias ptr @wmem_tree_new(ptr noundef %23) #14
   store ptr %24, ptr @dictionary.0, align 8
-  %25 = tail call ptr @wmem_epan_scope() #13
-  %26 = tail call noalias ptr @wmem_array_new(ptr noundef %25, i64 noundef 16) #13
+  %25 = tail call ptr @wmem_epan_scope() #14
+  %26 = tail call noalias ptr @wmem_array_new(ptr noundef %25, i64 noundef 16) #14
   store ptr %26, ptr getelementptr inbounds (i8, ptr @unknown_vendor, i64 8), align 8
-  tail call void @wmem_array_set_null_terminator(ptr noundef %26) #13
+  tail call void @wmem_array_set_null_terminator(ptr noundef %26) #14
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @unknown_vendor, i64 8), align 8
-  tail call void @wmem_array_bzero(ptr noundef %27) #13
-  %28 = tail call ptr @wmem_epan_scope() #13
-  %29 = tail call noalias ptr @wmem_array_new(ptr noundef %28, i64 noundef 16) #13
+  tail call void @wmem_array_bzero(ptr noundef %27) #14
+  %28 = tail call ptr @wmem_epan_scope() #14
+  %29 = tail call noalias ptr @wmem_array_new(ptr noundef %28, i64 noundef 16) #14
   store ptr %29, ptr getelementptr inbounds (i8, ptr @no_vnd, i64 8), align 8
-  tail call void @wmem_array_set_null_terminator(ptr noundef %29) #13
+  tail call void @wmem_array_set_null_terminator(ptr noundef %29) #14
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @no_vnd, i64 8), align 8
-  tail call void @wmem_array_bzero(ptr noundef %30) #13
+  tail call void @wmem_array_bzero(ptr noundef %30) #14
   %31 = load ptr, ptr @dictionary.1, align 8
-  tail call void @wmem_tree_insert32(ptr noundef %31, i32 noundef 0, ptr noundef nonnull @no_vnd) #13
-  %32 = tail call i32 @g_hash_table_insert(ptr noundef %13, ptr noundef nonnull @.str.82, ptr noundef nonnull @no_vnd) #13
+  tail call void @wmem_tree_insert32(ptr noundef %31, i32 noundef 0, ptr noundef nonnull @no_vnd) #14
+  %32 = tail call i32 @g_hash_table_insert(ptr noundef %13, ptr noundef nonnull @.str.82, ptr noundef nonnull @no_vnd) #14
   br label %33
 
 33:                                               ; preds = %33, %1
   %34 = phi ptr [ @.str.96, %1 ], [ %38, %33 ]
   %.0140205.i = phi ptr [ @basic_types, %1 ], [ %37, %33 ]
   %35 = load ptr, ptr @build_dict.2, align 8
-  %36 = tail call i32 @g_hash_table_insert(ptr noundef %35, ptr noundef nonnull %34, ptr noundef nonnull %.0140205.i) #13
+  %36 = tail call i32 @g_hash_table_insert(ptr noundef %35, ptr noundef nonnull %34, ptr noundef nonnull %.0140205.i) #14
   %37 = getelementptr i8, ptr %.0140205.i, i64 32
   %38 = load ptr, ptr %37, align 8
   %.not161.i = icmp eq ptr %38, null
@@ -728,27 +728,27 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
 39:                                               ; preds = %33
   %.not.i = icmp ne ptr %11, null
   %40 = zext i1 %.not.i to i32
-  %41 = tail call ptr @get_datafile_dir() #13
-  %42 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.83, ptr noundef %41) #13
-  %43 = tail call ptr @ddict_scan(ptr noundef %42, ptr noundef nonnull @.str.84, i32 noundef %40) #13
-  tail call void @wmem_free(ptr noundef null, ptr noundef %42) #13
+  %41 = tail call ptr @get_datafile_dir() #14
+  %42 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.83, ptr noundef %41) #14
+  %43 = tail call ptr @ddict_scan(ptr noundef %42, ptr noundef nonnull @.str.84, i32 noundef %40) #14
+  tail call void @wmem_free(ptr noundef null, ptr noundef %42) #14
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %39
-  tail call void @g_hash_table_destroy(ptr noundef %13) #13
-  %46 = tail call ptr @g_array_free(ptr noundef %14, i32 noundef 1) #13
+  tail call void @g_hash_table_destroy(ptr noundef %13) #14
+  %46 = tail call ptr @g_array_free(ptr noundef %14, i32 noundef 1) #14
   br label %dictionary_load.exit
 
 47:                                               ; preds = %39
   %.not160.i = icmp eq ptr %12, null
-  %48 = tail call ptr @wmem_epan_scope() #13
-  %49 = tail call i32 @wmem_register_callback(ptr noundef %48, ptr noundef nonnull @ddict_cleanup_cb, ptr noundef nonnull %43) #13
+  %48 = tail call ptr @wmem_epan_scope() #14
+  %49 = tail call i32 @wmem_register_callback(ptr noundef %48, ptr noundef nonnull @ddict_cleanup_cb, ptr noundef nonnull %43) #14
   br i1 %.not160.i, label %52, label %50
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr @stdout, align 8
-  tail call void @ddict_print(ptr noundef %51, ptr noundef nonnull %43) #13
+  tail call void @ddict_print(ptr noundef %51, ptr noundef nonnull %43) #14
   br label %52
 
 52:                                               ; preds = %50, %47
@@ -768,12 +768,12 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   %58 = load ptr, ptr %57, align 8
   %.not189.i = icmp eq ptr %58, null
   %spec.select.i = select i1 %.not189.i, ptr @.str.86, ptr %58
-  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.85, ptr noundef nonnull %spec.select.i) #13
+  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.85, ptr noundef nonnull %spec.select.i) #14
   br label %72
 
 59:                                               ; preds = %.lr.ph.i
   %60 = load ptr, ptr @build_dict.2, align 8
-  %61 = tail call ptr @g_hash_table_lookup(ptr noundef %60, ptr noundef nonnull %54) #13
+  %61 = tail call ptr @g_hash_table_lookup(ptr noundef %60, ptr noundef nonnull %54) #14
   %.not186.i = icmp eq ptr %61, null
   br i1 %.not186.i, label %62, label %72
 
@@ -785,7 +785,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr @build_dict.2, align 8
-  %67 = tail call ptr @g_hash_table_lookup(ptr noundef %66, ptr noundef nonnull %64) #13
+  %67 = tail call ptr @g_hash_table_lookup(ptr noundef %66, ptr noundef nonnull %64) #14
   br label %68
 
 68:                                               ; preds = %65, %62
@@ -794,7 +794,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   %spec.select190.i = select i1 %.not188.i, ptr @basic_types, ptr %.0135.i
   %69 = load ptr, ptr @build_dict.2, align 8
   %70 = load ptr, ptr %.0137208.i, align 8
-  %71 = tail call i32 @g_hash_table_insert(ptr noundef %69, ptr noundef %70, ptr noundef nonnull %spec.select190.i) #13
+  %71 = tail call i32 @g_hash_table_insert(ptr noundef %69, ptr noundef %70, ptr noundef nonnull %spec.select190.i) #14
   br label %72
 
 72:                                               ; preds = %68, %59, %56
@@ -809,8 +809,8 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br i1 %.not163.i, label %96, label %75
 
 75:                                               ; preds = %._crit_edge.i
-  %76 = tail call ptr @wmem_epan_scope() #13
-  %77 = tail call noalias ptr @wmem_array_new(ptr noundef %76, i64 noundef 16) #13
+  %76 = tail call ptr @wmem_epan_scope() #14
+  %77 = tail call noalias ptr @wmem_array_new(ptr noundef %76, i64 noundef 16) #14
   store i32 0, ptr %3, align 16
   %78 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %78, align 8
@@ -829,11 +829,11 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
 
 84:                                               ; preds = %80
   %85 = load i32, ptr %81, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.87, i32 noundef %85) #13
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.87, i32 noundef %85) #14
   br label %87
 
 86:                                               ; preds = %80
-  call void @wmem_array_append(ptr noundef %77, ptr noundef nonnull %4, i32 noundef 1) #13
+  call void @wmem_array_append(ptr noundef %77, ptr noundef nonnull %4, i32 noundef 1) #14
   br label %87
 
 87:                                               ; preds = %86, %84
@@ -843,13 +843,13 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br i1 %.not164.i, label %90, label %80, !llvm.loop !8
 
 90:                                               ; preds = %87
-  call void @wmem_array_sort(ptr noundef %77, ptr noundef nonnull @compare_avps) #13
-  call void @wmem_array_append(ptr noundef %77, ptr noundef nonnull %3, i32 noundef 1) #13
-  %91 = call ptr @wmem_array_get_raw(ptr noundef %77) #13
-  %92 = call i32 @wmem_array_get_count(ptr noundef %77) #13
-  %93 = call ptr @wmem_epan_scope() #13
-  %94 = call noalias ptr @wmem_strdup(ptr noundef %93, ptr noundef nonnull @.str.88) #13
-  %95 = call ptr @value_string_ext_new(ptr noundef %91, i32 noundef %92, ptr noundef %94) #13
+  call void @wmem_array_sort(ptr noundef %77, ptr noundef nonnull @compare_avps) #14
+  call void @wmem_array_append(ptr noundef %77, ptr noundef nonnull %3, i32 noundef 1) #14
+  %91 = call ptr @wmem_array_get_raw(ptr noundef %77) #14
+  %92 = call i32 @wmem_array_get_count(ptr noundef %77) #14
+  %93 = call ptr @wmem_epan_scope() #14
+  %94 = call noalias ptr @wmem_strdup(ptr noundef %93, ptr noundef nonnull @.str.88) #14
+  %95 = call ptr @value_string_ext_new(ptr noundef %91, i32 noundef %92, ptr noundef %94) #14
   store ptr %95, ptr @dictionary.2, align 8
   br label %96
 
@@ -874,34 +874,34 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br i1 %104, label %105, label %106
 
 105:                                              ; preds = %100
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.89, i32 noundef %102) #13
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.89, i32 noundef %102) #14
   br label %122
 
 106:                                              ; preds = %100
-  %107 = call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %103) #13
+  %107 = call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %103) #14
   %.not166.i = icmp eq ptr %107, null
   br i1 %.not166.i, label %108, label %122
 
 108:                                              ; preds = %106
-  %109 = call ptr @g_array_append_vals(ptr noundef %14, ptr noundef nonnull %5, i32 noundef 1) #13
-  %110 = call ptr @wmem_epan_scope() #13
-  %111 = call noalias ptr @wmem_alloc(ptr noundef %110, i64 noundef 24) #13
+  %109 = call ptr @g_array_append_vals(ptr noundef %14, ptr noundef nonnull %5, i32 noundef 1) #14
+  %110 = call ptr @wmem_epan_scope() #14
+  %111 = call noalias ptr @wmem_alloc(ptr noundef %110, i64 noundef 24) #14
   %112 = load i32, ptr %101, align 8
   store i32 %112, ptr %111, align 8
-  %113 = call ptr @wmem_epan_scope() #13
-  %114 = call noalias ptr @wmem_array_new(ptr noundef %113, i64 noundef 16) #13
+  %113 = call ptr @wmem_epan_scope() #14
+  %114 = call noalias ptr @wmem_array_new(ptr noundef %113, i64 noundef 16) #14
   %115 = getelementptr inbounds i8, ptr %111, i64 8
   store ptr %114, ptr %115, align 8
-  call void @wmem_array_set_null_terminator(ptr noundef %114) #13
+  call void @wmem_array_set_null_terminator(ptr noundef %114) #14
   %116 = load ptr, ptr %115, align 8
-  call void @wmem_array_bzero(ptr noundef %116) #13
+  call void @wmem_array_bzero(ptr noundef %116) #14
   %117 = getelementptr inbounds i8, ptr %111, i64 16
   store ptr null, ptr %117, align 8
   %118 = load ptr, ptr @dictionary.1, align 8
   %119 = load i32, ptr %111, align 8
-  call void @wmem_tree_insert32(ptr noundef %118, i32 noundef %119, ptr noundef nonnull %111) #13
+  call void @wmem_tree_insert32(ptr noundef %118, i32 noundef %119, ptr noundef nonnull %111) #14
   %120 = load ptr, ptr %.0134.i, align 8
-  %121 = call i32 @g_hash_table_insert(ptr noundef %13, ptr noundef %120, ptr noundef nonnull %111) #13
+  %121 = call i32 @g_hash_table_insert(ptr noundef %13, ptr noundef %120, ptr noundef nonnull %111) #14
   br label %122
 
 122:                                              ; preds = %108, %106, %105
@@ -911,7 +911,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br i1 %.old1.not.i, label %.loopexit203.i, label %100
 
 .loopexit203.i:                                   ; preds = %122, %96
-  %125 = call ptr @g_array_free(ptr noundef %14, i32 noundef 0) #13
+  %125 = call ptr @g_array_free(ptr noundef %14, i32 noundef 0) #14
   store ptr %125, ptr @vnd_short_vs, align 8
   %126 = getelementptr inbounds i8, ptr %43, i64 16
   %127 = load ptr, ptr %126, align 8
@@ -933,11 +933,11 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   %134 = load ptr, ptr %.0136.i, align 8
   %.not169.i = icmp eq ptr %134, null
   %spec.select191.i = select i1 %.not169.i, ptr @.str.86, ptr %134
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.90, ptr noundef nonnull %spec.select191.i) #13
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.90, ptr noundef nonnull %spec.select191.i) #14
   br label %144
 
 135:                                              ; preds = %129
-  %136 = call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %131) #13
+  %136 = call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %131) #14
   %.not168.i = icmp eq ptr %136, null
   br i1 %.not168.i, label %142, label %137
 
@@ -947,12 +947,12 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   store i32 %139, ptr %6, align 16
   %140 = load ptr, ptr %.0136.i, align 8
   store ptr %140, ptr %128, align 8
-  %141 = call ptr @g_array_append_vals(ptr noundef %15, ptr noundef nonnull %6, i32 noundef 1) #13
+  %141 = call ptr @g_array_append_vals(ptr noundef %15, ptr noundef nonnull %6, i32 noundef 1) #14
   br label %144
 
 142:                                              ; preds = %135
   %143 = load ptr, ptr %130, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.91, ptr noundef %143) #13
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.91, ptr noundef %143) #14
   br label %144
 
 144:                                              ; preds = %142, %137, %133
@@ -990,11 +990,11 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br i1 %161, label %162, label %163
 
 162:                                              ; preds = %157
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.92) #13
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.92) #14
   br label %228
 
 163:                                              ; preds = %157
-  %164 = call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %spec.select192.i) #13
+  %164 = call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %spec.select192.i) #14
   %.not172.i = icmp eq ptr %164, null
   br i1 %.not172.i, label %171, label %165
 
@@ -1006,11 +1006,11 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   store ptr %168, ptr %148, align 8
   %169 = getelementptr inbounds i8, ptr %164, i64 8
   %170 = load ptr, ptr %169, align 8
-  call void @wmem_array_append(ptr noundef %170, ptr noundef nonnull %7, i32 noundef 1) #13
+  call void @wmem_array_append(ptr noundef %170, ptr noundef nonnull %7, i32 noundef 1) #14
   br label %172
 
 171:                                              ; preds = %163
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.91, ptr noundef nonnull %spec.select192.i) #13
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.91, ptr noundef nonnull %spec.select192.i) #14
   br label %172
 
 172:                                              ; preds = %171, %165
@@ -1021,8 +1021,8 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   br i1 %.not173.i, label %186, label %175
 
 175:                                              ; preds = %172
-  %176 = call ptr @wmem_epan_scope() #13
-  %177 = call noalias ptr @wmem_array_new(ptr noundef %176, i64 noundef 16) #13
+  %176 = call ptr @wmem_epan_scope() #14
+  %177 = call noalias ptr @wmem_array_new(ptr noundef %176, i64 noundef 16) #14
   store i32 0, ptr %8, align 16
   store ptr null, ptr %149, align 8
   br label %178
@@ -1034,16 +1034,16 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   store i32 %180, ptr %9, align 16
   %181 = load ptr, ptr %.0133210.i, align 8
   store ptr %181, ptr %150, align 8
-  call void @wmem_array_append(ptr noundef %177, ptr noundef nonnull %9, i32 noundef 1) #13
+  call void @wmem_array_append(ptr noundef %177, ptr noundef nonnull %9, i32 noundef 1) #14
   %182 = getelementptr inbounds i8, ptr %.0133210.i, i64 16
   %183 = load ptr, ptr %182, align 8
   %.not174.i = icmp eq ptr %183, null
   br i1 %.not174.i, label %184, label %178, !llvm.loop !9
 
 184:                                              ; preds = %178
-  call void @wmem_array_sort(ptr noundef %177, ptr noundef nonnull @compare_avps) #13
-  call void @wmem_array_append(ptr noundef %177, ptr noundef nonnull %8, i32 noundef 1) #13
-  %185 = call ptr @wmem_array_get_raw(ptr noundef %177) #13
+  call void @wmem_array_sort(ptr noundef %177, ptr noundef nonnull @compare_avps) #14
+  call void @wmem_array_append(ptr noundef %177, ptr noundef nonnull %8, i32 noundef 1) #14
+  %185 = call ptr @wmem_array_get_raw(ptr noundef %177) #14
   br label %186
 
 186:                                              ; preds = %184, %172
@@ -1059,7 +1059,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
 188:                                              ; preds = %206, %.lr.ph215.i
   %.0130213.i = phi ptr [ %.0130211.i, %.lr.ph215.i ], [ %.0130.i, %206 ]
   %189 = load ptr, ptr %.0130213.i, align 8
-  %190 = call i32 @g_ascii_strcasecmp(ptr noundef %189, ptr noundef nonnull @.str.93) #13
+  %190 = call i32 @g_ascii_strcasecmp(ptr noundef %189, ptr noundef nonnull @.str.93) #14
   %.not198.i = icmp eq i32 %190, 0
   br i1 %.not198.i, label %191, label %196
 
@@ -1067,7 +1067,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   %192 = getelementptr inbounds i8, ptr %.0130213.i, i64 8
   %193 = load ptr, ptr %192, align 8
   %194 = load ptr, ptr %.0139219.i, align 8
-  %195 = call i32 @g_ascii_strcasecmp(ptr noundef %193, ptr noundef %194) #13
+  %195 = call i32 @g_ascii_strcasecmp(ptr noundef %193, ptr noundef %194) #14
   %.not199.i = icmp eq i32 %195, 0
   br i1 %.not199.i, label %208, label %196
 
@@ -1078,7 +1078,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
 
 198:                                              ; preds = %196
   %199 = load ptr, ptr %.0130213.i, align 8
-  %200 = call i32 @g_ascii_strcasecmp(ptr noundef %199, ptr noundef nonnull @.str.94) #13
+  %200 = call i32 @g_ascii_strcasecmp(ptr noundef %199, ptr noundef nonnull @.str.94) #14
   %.not200.i = icmp eq i32 %200, 0
   br i1 %.not200.i, label %201, label %206
 
@@ -1086,7 +1086,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   %202 = getelementptr inbounds i8, ptr %.0130213.i, i64 8
   %203 = load ptr, ptr %202, align 8
   %204 = load ptr, ptr %187, align 8
-  %205 = call i32 @g_ascii_strcasecmp(ptr noundef %203, ptr noundef %204) #13
+  %205 = call i32 @g_ascii_strcasecmp(ptr noundef %203, ptr noundef %204) #14
   %.not201.i = icmp eq i32 %205, 0
   br i1 %.not201.i, label %208, label %206
 
@@ -1109,7 +1109,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
 
 213:                                              ; preds = %._crit_edge216.i
   %214 = load ptr, ptr @build_dict.2, align 8
-  %215 = call ptr @g_hash_table_lookup(ptr noundef %214, ptr noundef nonnull %212) #13
+  %215 = call ptr @g_hash_table_lookup(ptr noundef %214, ptr noundef nonnull %212) #14
   br label %216
 
 216:                                              ; preds = %213, %._crit_edge216.i, %208
@@ -1122,14 +1122,14 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   %219 = getelementptr inbounds i8, ptr %.0139219.i, i64 32
   %220 = load i32, ptr %219, align 8
   %221 = load ptr, ptr %.0139219.i, align 8
-  %222 = call ptr %218(ptr noundef nonnull %spec.select193.i, i32 noundef %220, ptr noundef nonnull %.0138.i, ptr noundef %221, ptr noundef %.0132.i, ptr noundef %.0129196.i) #13
+  %222 = call ptr %218(ptr noundef nonnull %spec.select193.i, i32 noundef %220, ptr noundef nonnull %.0138.i, ptr noundef %221, ptr noundef %.0132.i, ptr noundef %.0129196.i) #14
   %.not184.i = icmp eq ptr %222, null
   br i1 %.not184.i, label %228, label %223
 
 223:                                              ; preds = %216
   %224 = load ptr, ptr @build_dict.3, align 8
   %225 = load ptr, ptr %.0139219.i, align 8
-  %226 = call i32 @g_hash_table_insert(ptr noundef %224, ptr noundef %225, ptr noundef nonnull %222) #13
+  %226 = call i32 @g_hash_table_insert(ptr noundef %224, ptr noundef %225, ptr noundef nonnull %222) #14
   store i32 1, ptr %10, align 16
   store ptr %219, ptr %152, align 8
   store i32 1, ptr %153, align 16
@@ -1137,7 +1137,7 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
   store i32 0, ptr %155, align 16
   store ptr null, ptr %156, align 8
   %227 = load ptr, ptr @dictionary.0, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %227, ptr noundef nonnull %10, ptr noundef nonnull %222) #13
+  call void @wmem_tree_insert32_array(ptr noundef %227, ptr noundef nonnull %10, ptr noundef nonnull %222) #14
   br label %228
 
 228:                                              ; preds = %223, %216, %162
@@ -1148,11 +1148,11 @@ define internal void @register_diameter_fields(ptr nocapture readnone %0) #0 {
 
 ._crit_edge222.i:                                 ; preds = %228, %.loopexit.i
   %230 = load ptr, ptr @build_dict.2, align 8
-  call void @g_hash_table_destroy(ptr noundef %230) #13
+  call void @g_hash_table_destroy(ptr noundef %230) #14
   %231 = load ptr, ptr @build_dict.3, align 8
-  call void @g_hash_table_destroy(ptr noundef %231) #13
-  call void @g_hash_table_destroy(ptr noundef %13) #13
-  %232 = call ptr @g_array_free(ptr noundef %15, i32 noundef 0) #13
+  call void @g_hash_table_destroy(ptr noundef %231) #14
+  call void @g_hash_table_destroy(ptr noundef %13) #14
+  %232 = call ptr @g_array_free(ptr noundef %15, i32 noundef 0) #14
   store ptr %232, ptr @cmd_vs, align 8
   br label %dictionary_load.exit
 
@@ -2500,7 +2500,7 @@ dictionary_load.exit:                             ; preds = %45, %._crit_edge222
   %899 = getelementptr inbounds i8, ptr %2, i64 4472
   store ptr null, ptr %899, align 8
   %900 = load ptr, ptr @build_dict.0, align 8
-  call void @wmem_array_append(ptr noundef %900, ptr noundef nonnull %2, i32 noundef 56) #13
+  call void @wmem_array_append(ptr noundef %900, ptr noundef nonnull %2, i32 noundef 56) #14
   br label %901
 
 901:                                              ; preds = %901, %dictionary_load.exit
@@ -2508,7 +2508,7 @@ dictionary_load.exit:                             ; preds = %45, %._crit_edge222
   %902 = load ptr, ptr @build_dict.1, align 8
   %903 = getelementptr [8 x ptr], ptr @__const.real_register_diameter_fields.ett_base, i64 0, i64 %indvars.iv.i
   %904 = load ptr, ptr %903, align 8
-  call void @g_ptr_array_add(ptr noundef %902, ptr noundef %904) #13
+  call void @g_ptr_array_add(ptr noundef %902, ptr noundef %904) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %real_register_diameter_fields.exit, label %901, !llvm.loop !12
@@ -2516,20 +2516,20 @@ dictionary_load.exit:                             ; preds = %45, %._crit_edge222
 real_register_diameter_fields.exit:               ; preds = %901
   %905 = load i32, ptr @proto_diameter, align 4
   %906 = load ptr, ptr @build_dict.0, align 8
-  %907 = call ptr @wmem_array_get_raw(ptr noundef %906) #13
+  %907 = call ptr @wmem_array_get_raw(ptr noundef %906) #14
   %908 = load ptr, ptr @build_dict.0, align 8
-  %909 = call i32 @wmem_array_get_count(ptr noundef %908) #13
-  call void @proto_register_field_array(i32 noundef %905, ptr noundef %907, i32 noundef %909) #13
+  %909 = call i32 @wmem_array_get_count(ptr noundef %908) #14
+  call void @proto_register_field_array(i32 noundef %905, ptr noundef %907, i32 noundef %909) #14
   %910 = load ptr, ptr @build_dict.1, align 8
   %911 = load ptr, ptr %910, align 8
   %912 = getelementptr inbounds i8, ptr %910, i64 8
   %913 = load i32, ptr %912, align 8
-  call void @proto_register_subtree_array(ptr noundef %911, i32 noundef %913) #13
+  call void @proto_register_subtree_array(ptr noundef %911, i32 noundef %913) #14
   %914 = load i32, ptr @proto_diameter, align 4
-  %915 = call ptr @expert_register_protocol(i32 noundef %914) #13
-  call void @expert_register_field_array(ptr noundef %915, ptr noundef nonnull @real_register_diameter_fields.ei, i32 noundef 14) #13
+  %915 = call ptr @expert_register_protocol(i32 noundef %914) #14
+  call void @expert_register_field_array(ptr noundef %915, ptr noundef nonnull @real_register_diameter_fields.ei, i32 noundef 14) #14
   %916 = load ptr, ptr @build_dict.1, align 8
-  %917 = call ptr @g_ptr_array_free(ptr noundef %916, i32 noundef 1) #13
+  %917 = call ptr @g_ptr_array_free(ptr noundef %916, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 4480, ptr nonnull %2)
   ret void
 }
@@ -2572,29 +2572,29 @@ define internal range(i32 0, 2) i32 @diameterstat_packet(ptr nocapture noundef r
   %16 = load ptr, ptr @diameterstat_cmd_str_hash, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef %18) #13
+  %19 = tail call ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef %18) #14
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %31
 
 21:                                               ; preds = %12
-  %22 = tail call ptr @wmem_epan_scope() #13
-  %23 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef 4) #13
+  %22 = tail call ptr @wmem_epan_scope() #14
+  %23 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef 4) #14
   %24 = load ptr, ptr @diameterstat_cmd_str_hash, align 8
-  %25 = tail call i32 @g_hash_table_size(ptr noundef %24) #13
+  %25 = tail call i32 @g_hash_table_size(ptr noundef %24) #14
   store i32 %25, ptr %23, align 4
   %26 = load ptr, ptr @diameterstat_cmd_str_hash, align 8
   %27 = load ptr, ptr %17, align 8
-  %28 = tail call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef %27, ptr noundef nonnull %23) #13
+  %28 = tail call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef %27, ptr noundef nonnull %23) #14
   %29 = load i32, ptr %23, align 4
   %30 = load ptr, ptr %17, align 8
-  tail call void @init_srt_table_row(ptr noundef %15, i32 noundef %29, ptr noundef %30) #13
+  tail call void @init_srt_table_row(ptr noundef %15, i32 noundef %29, ptr noundef %30) #14
   br label %31
 
 31:                                               ; preds = %21, %12
   %.0 = phi ptr [ %23, %21 ], [ %19, %12 ]
   %32 = load i32, ptr %.0, align 4
   %33 = getelementptr inbounds i8, ptr %3, i64 32
-  tail call void @add_srt_table_data(ptr noundef %15, i32 noundef %32, ptr noundef nonnull %33, ptr noundef %1) #13
+  tail call void @add_srt_table_data(ptr noundef %15, i32 noundef %32, ptr noundef nonnull %33, ptr noundef %1) #14
   br label %34
 
 34:                                               ; preds = %5, %6, %9, %31
@@ -2609,87 +2609,87 @@ define internal void @diameterstat_init(ptr nocapture readnone %0, ptr noundef %
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %3) #13
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %3) #14
   br label %5
 
 5:                                                ; preds = %4, %2
-  %6 = tail call ptr @wmem_epan_scope() #13
-  %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %6, i64 noundef 4) #13
-  %8 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #13
+  %6 = tail call ptr @wmem_epan_scope() #14
+  %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %6, i64 noundef 4) #14
+  %8 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #14
   store ptr %8, ptr @diameterstat_cmd_str_hash, align 8
-  %9 = tail call i32 @g_hash_table_insert(ptr noundef %8, ptr noundef nonnull @.str.39, ptr noundef %7) #13
-  %10 = tail call ptr @init_srt_table(ptr noundef nonnull @.str.304, ptr noundef null, ptr noundef %1, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null) #13
-  tail call void @init_srt_table_row(ptr noundef %10, i32 noundef 0, ptr noundef nonnull @.str.39) #13
+  %9 = tail call i32 @g_hash_table_insert(ptr noundef %8, ptr noundef nonnull @.str.39, ptr noundef %7) #14
+  %10 = tail call ptr @init_srt_table(ptr noundef nonnull @.str.304, ptr noundef null, ptr noundef %1, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null) #14
+  tail call void @init_srt_table_row(ptr noundef %10, i32 noundef 0, ptr noundef nonnull @.str.39) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_reg_handoff_diameter() local_unnamed_addr #0 {
-  %1 = tail call ptr @find_dissector(ptr noundef nonnull @.str.24) #13
+  %1 = tail call ptr @find_dissector(ptr noundef nonnull @.str.24) #14
   store ptr %1, ptr @data_handle, align 8
   %2 = load i32, ptr @proto_diameter, align 4
-  %3 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.25, i32 noundef %2) #13
+  %3 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.25, i32 noundef %2) #14
   store ptr %3, ptr @eap_handle, align 8
   %4 = load ptr, ptr @diameter_sctp_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.26, i32 noundef 46, ptr noundef %4) #13
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.26, i32 noundef 46, ptr noundef %4) #14
   %5 = load i32, ptr @proto_diameter, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.27, ptr noundef nonnull @dissect_diameter_tcp_heur, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %5, i32 noundef 0) #13
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.27, ptr noundef nonnull @dissect_diameter_tcp_heur, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %5, i32 noundef 0) #14
   %6 = load ptr, ptr @diameter_tcp_handle, align 8
-  tail call void @ssl_dissector_add(i32 noundef 5868, ptr noundef %6) #13
+  tail call void @ssl_dissector_add(i32 noundef 5868, ptr noundef %6) #14
   %7 = load ptr, ptr @diameter_sctp_handle, align 8
-  tail call void @dtls_dissector_add(i32 noundef 5868, ptr noundef %7) #13
+  tail call void @dtls_dissector_add(i32 noundef 5868, ptr noundef %7) #14
   %8 = load i32, ptr @proto_diameter, align 4
-  %9 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_user_name, i32 noundef %8) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef %9) #13
+  %9 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_user_name, i32 noundef %8) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef %9) #14
   %10 = load i32, ptr @proto_diameter, align 4
-  %11 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_eap_payload, i32 noundef %10) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 79, ptr noundef %11) #13
+  %11 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_eap_payload, i32 noundef %10) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 79, ptr noundef %11) #14
   %12 = load i32, ptr @proto_diameter, align 4
-  %13 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_base_framed_ipv6_prefix, i32 noundef %12) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 97, ptr noundef %13) #13
+  %13 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_base_framed_ipv6_prefix, i32 noundef %12) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 97, ptr noundef %13) #14
   %14 = load i32, ptr @proto_diameter, align 4
-  %15 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_mip6_feature_vector, i32 noundef %14) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 124, ptr noundef %15) #13
+  %15 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_mip6_feature_vector, i32 noundef %14) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 124, ptr noundef %15) #14
   %16 = load i32, ptr @proto_diameter, align 4
-  %17 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_vendor_id, i32 noundef %16) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 265, ptr noundef %17) #13
+  %17 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_vendor_id, i32 noundef %16) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 265, ptr noundef %17) #14
   %18 = load i32, ptr @proto_diameter, align 4
-  %19 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_vendor_id, i32 noundef %18) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 266, ptr noundef %19) #13
+  %19 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_vendor_id, i32 noundef %18) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 266, ptr noundef %19) #14
   %20 = load i32, ptr @proto_diameter, align 4
-  %21 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_subscription_id, i32 noundef %20) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 443, ptr noundef %21) #13
+  %21 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_subscription_id, i32 noundef %20) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 443, ptr noundef %21) #14
   %22 = load i32, ptr @proto_diameter, align 4
-  %23 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_subscription_id_type, i32 noundef %22) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 450, ptr noundef %23) #13
+  %23 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_subscription_id_type, i32 noundef %22) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 450, ptr noundef %23) #14
   %24 = load i32, ptr @proto_diameter, align 4
-  %25 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_subscription_id_data, i32 noundef %24) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 444, ptr noundef %25) #13
+  %25 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_subscription_id_data, i32 noundef %24) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 444, ptr noundef %25) #14
   %26 = load i32, ptr @proto_diameter, align 4
-  %27 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_user_equipment_info, i32 noundef %26) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 458, ptr noundef %27) #13
+  %27 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_user_equipment_info, i32 noundef %26) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 458, ptr noundef %27) #14
   %28 = load i32, ptr @proto_diameter, align 4
-  %29 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_user_equipment_info_type, i32 noundef %28) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 459, ptr noundef %29) #13
+  %29 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_user_equipment_info_type, i32 noundef %28) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 459, ptr noundef %29) #14
   %30 = load i32, ptr @proto_diameter, align 4
-  %31 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_user_equipment_info_value, i32 noundef %30) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 460, ptr noundef %31) #13
+  %31 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_user_equipment_info_value, i32 noundef %30) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 460, ptr noundef %31) #14
   %32 = load i32, ptr @proto_diameter, align 4
-  %33 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_eap_payload, i32 noundef %32) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 462, ptr noundef %33) #13
+  %33 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_eap_payload, i32 noundef %32) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 462, ptr noundef %33) #14
   %34 = load i32, ptr @proto_diameter, align 4
-  %35 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_eap_payload, i32 noundef %34) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 463, ptr noundef %35) #13
+  %35 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_eap_payload, i32 noundef %34) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.5, i32 noundef 463, ptr noundef %35) #14
   %36 = load i32, ptr @proto_diameter, align 4
-  %37 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_3gpp2_exp_res, i32 noundef %36) #13
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.13, i32 noundef 5535, ptr noundef %37) #13
+  %37 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_diameter_3gpp2_exp_res, i32 noundef %36) #14
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.13, i32 noundef 5535, ptr noundef %37) #14
   %38 = load ptr, ptr @diameter_tcp_handle, align 8
-  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef %38) #13
+  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef %38) #14
   %39 = load ptr, ptr @diameter_udp_handle, align 8
-  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %39) #13
+  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef %39) #14
   %40 = load ptr, ptr @diameter_sctp_handle, align 8
-  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.31, ptr noundef %40) #13
-  %41 = tail call i32 @find_tap_id(ptr noundef nonnull @.str.35) #13
+  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.31, ptr noundef %40) #14
+  %41 = tail call i32 @find_tap_id(ptr noundef nonnull @.str.35) #14
   store i32 %41, ptr @exported_pdu_tap, align 4
   ret void
 }
@@ -2704,17 +2704,17 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_diameter_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #13
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #14
   %6 = icmp ult i32 %5, 5
   br i1 %6, label %check_diameter.exit.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #13
+  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #14
   %.not.i = icmp eq i8 %8, 1
   br i1 %.not.i, label %9, label %check_diameter.exit.thread
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 1) #13
+  %10 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 1) #14
   %11 = icmp ugt i32 %10, 35
   %12 = and i32 %10, 3
   %.not10.i = icmp eq i32 %12, 0
@@ -2722,7 +2722,7 @@ define internal range(i32 0, 2) i32 @dissect_diameter_tcp_heur(ptr noundef %0, p
   br i1 %or.cond.i, label %13, label %check_diameter.exit.thread
 
 13:                                               ; preds = %9
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #13
+  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #14
   %15 = zext i8 %14 to i32
   %16 = and i32 %15, 15
   %.not11.i = icmp eq i32 %16, 0
@@ -2736,11 +2736,11 @@ check_diameter.exit:                              ; preds = %13
   br i1 %or.cond14.i, label %18, label %check_diameter.exit.thread
 
 18:                                               ; preds = %check_diameter.exit
-  %19 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #13
+  %19 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #14
   %20 = load ptr, ptr @diameter_tcp_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %19, ptr noundef %20) #13
+  tail call void @conversation_set_dissector(ptr noundef nonnull %19, ptr noundef %20) #14
   %21 = load i32, ptr @gbl_diameter_desegment, align 4
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21, i32 noundef 4, ptr noundef nonnull @get_diameter_pdu_len, ptr noundef nonnull @dissect_diameter_common, ptr noundef %3) #13
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21, i32 noundef 4, ptr noundef nonnull @get_diameter_pdu_len, ptr noundef nonnull @dissect_diameter_common, ptr noundef %3) #14
   br label %check_diameter.exit.thread
 
 check_diameter.exit.thread:                       ; preds = %13, %9, %7, %4, %check_diameter.exit, %18
@@ -2767,8 +2767,8 @@ define internal noundef i32 @dissect_diameter_user_name(ptr noundef %0, ptr noun
   ]
 
 7:                                                ; preds = %5, %5, %5, %5
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #13
-  %9 = tail call ptr @dissect_e212_utf8_imsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %8) #13
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #14
+  %9 = tail call ptr @dissect_e212_utf8_imsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %8) #14
   br label %.thread
 
 .thread:                                          ; preds = %4, %5, %7
@@ -2780,14 +2780,14 @@ define internal noundef i32 @dissect_diameter_user_name(ptr noundef %0, ptr noun
 define internal i32 @dissect_diameter_eap_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @col_get_writable(ptr noundef %6, i32 noundef 34) #13
+  %7 = tail call i32 @col_get_writable(ptr noundef %6, i32 noundef 34) #14
   %8 = load ptr, ptr %5, align 8
-  tail call void @col_set_writable(ptr noundef %8, i32 noundef 34, i32 noundef 0) #13
+  tail call void @col_set_writable(ptr noundef %8, i32 noundef 34, i32 noundef 0) #14
   %9 = load ptr, ptr @eap_handle, align 8
-  %10 = tail call i32 @call_dissector(ptr noundef %9, ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
+  %10 = tail call i32 @call_dissector(ptr noundef %9, ptr noundef %0, ptr noundef %1, ptr noundef %2) #14
   %11 = load ptr, ptr %5, align 8
-  tail call void @col_set_writable(ptr noundef %11, i32 noundef 34, i32 noundef %7) #13
-  %12 = tail call i32 @tvb_reported_length(ptr noundef %0) #13
+  tail call void @col_set_writable(ptr noundef %11, i32 noundef 34, i32 noundef %7) #14
+  %12 = tail call i32 @tvb_reported_length(ptr noundef %0) #14
   ret i32 %12
 }
 
@@ -2797,15 +2797,15 @@ define internal range(i32 2, 536870915) i32 @dissect_diameter_base_framed_ipv6_p
   %6 = alloca %struct.e_in6_addr, align 1
   %7 = alloca %struct._address, align 8
   %8 = load i32, ptr @hf_framed_ipv6_prefix_reserved, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #13
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #14
   %10 = load i32, ptr @hf_framed_ipv6_prefix_length, align 4
-  %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #13
+  %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #14
   %12 = load i32, ptr %5, align 4
   %13 = icmp ugt i32 %12, 128
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %4
-  %15 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %11, ptr noundef nonnull @ei_diameter_invalid_ipv6_prefix_len) #13
+  %15 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %11, ptr noundef nonnull @ei_diameter_invalid_ipv6_prefix_len) #14
   %.pre = load i32, ptr %5, align 4
   br label %16
 
@@ -2817,13 +2817,13 @@ define internal range(i32 2, 536870915) i32 @dissect_diameter_base_framed_ipv6_p
   %20 = zext i1 %.not to i32
   %spec.select = add nuw nsw i32 %18, %20
   %21 = load i32, ptr @hf_framed_ipv6_prefix_bytes, align 4
-  %22 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 2, i32 noundef %spec.select, i32 noundef 0) #13
+  %22 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 2, i32 noundef %spec.select, i32 noundef 0) #14
   %23 = icmp eq i32 %spec.select, 16
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %16
   %25 = load i32, ptr @hf_framed_ipv6_prefix_ipv6, align 4
-  %26 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 2, i32 noundef 16, i32 noundef 0) #13
+  %26 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 2, i32 noundef 16, i32 noundef 0) #14
   br label %50
 
 27:                                               ; preds = %16
@@ -2833,7 +2833,7 @@ define internal range(i32 2, 536870915) i32 @dissect_diameter_base_framed_ipv6_p
 29:                                               ; preds = %27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %30 = zext nneg i32 %spec.select to i64
-  %31 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 2, i64 noundef %30) #13
+  %31 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 2, i64 noundef %30) #14
   %32 = getelementptr [16 x i8], ptr %6, i64 0, i64 %30
   %33 = load i8, ptr %32, align 1
   %34 = load i32, ptr %5, align 4
@@ -2843,7 +2843,7 @@ define internal range(i32 2, 536870915) i32 @dissect_diameter_base_framed_ipv6_p
   %38 = and i8 %33, %37
   store i8 %38, ptr %32, align 1
   %39 = load i32, ptr @hf_framed_ipv6_prefix_ipv6, align 4
-  %40 = call ptr @proto_tree_add_ipv6(ptr noundef %2, i32 noundef %39, ptr noundef %0, i32 noundef 2, i32 noundef %spec.select, ptr noundef nonnull %6) #13
+  %40 = call ptr @proto_tree_add_ipv6(ptr noundef %2, i32 noundef %39, ptr noundef %0, i32 noundef 2, i32 noundef %spec.select, ptr noundef nonnull %6) #14
   store i32 3, ptr %7, align 8
   %41 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 16, ptr %41, align 4
@@ -2853,9 +2853,9 @@ define internal range(i32 2, 536870915) i32 @dissect_diameter_base_framed_ipv6_p
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %1, i64 408
   %45 = load ptr, ptr %44, align 8
-  %46 = call ptr @address_to_str(ptr noundef %45, ptr noundef nonnull %7) #13
+  %46 = call ptr @address_to_str(ptr noundef %45, ptr noundef nonnull %7) #14
   %47 = load i32, ptr %5, align 4
-  %48 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %45, ptr noundef nonnull @.str.305, ptr noundef %46, i32 noundef %47) #13
+  %48 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %45, ptr noundef nonnull @.str.305, ptr noundef %46, i32 noundef %47) #14
   %49 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %48, ptr %49, align 8
   br label %50
@@ -2871,7 +2871,7 @@ define internal noundef i32 @dissect_diameter_mip6_feature_vector(ptr noundef %0
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.307, i32 noundef 601, ptr noundef nonnull @.str.308) #14
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.307, i32 noundef 601, ptr noundef nonnull @.str.308) #15
   unreachable
 
 6:                                                ; preds = %4
@@ -2897,7 +2897,7 @@ define internal noundef i32 @dissect_diameter_mip6_feature_vector(ptr noundef %0
 proto_item_set_hidden.exit:                       ; preds = %6, %10, %13
   %17 = load i32, ptr @hf_diameter_mip6_feature_vector, align 4
   %18 = load i32, ptr @ett_diameter_mip6_feature_vector, align 4
-  %19 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %17, i32 noundef %18, ptr noundef nonnull @dissect_diameter_mip6_feature_vector.flags_rfc, i32 noundef 0) #13
+  %19 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %17, i32 noundef %18, ptr noundef nonnull @dissect_diameter_mip6_feature_vector.flags_rfc, i32 noundef 0) #14
   switch i32 %7, label %24 [
     i32 16777250, label %20
     i32 16777264, label %20
@@ -2908,7 +2908,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %10, %13
 20:                                               ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit, %proto_item_set_hidden.exit, %proto_item_set_hidden.exit
   %21 = load i32, ptr @hf_diameter_3gpp_mip6_feature_vector, align 4
   %22 = load i32, ptr @ett_diameter_3gpp_mip6_feature_vector, align 4
-  %23 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @dissect_diameter_mip6_feature_vector.flags_3gpp, i32 noundef 0) #13
+  %23 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @dissect_diameter_mip6_feature_vector.flags_3gpp, i32 noundef 0) #14
   br label %24
 
 24:                                               ; preds = %20, %proto_item_set_hidden.exit
@@ -2918,7 +2918,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %10, %13
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_vendor_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr @hf_diameter_vendor_id, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #13
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #14
   ret i32 1
 }
 
@@ -2931,7 +2931,7 @@ define internal noundef i32 @dissect_diameter_subscription_id(ptr nocapture read
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_subscription_id_type(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #13
+  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #14
   %6 = getelementptr inbounds i8, ptr %3, i64 40
   store i32 %5, ptr %6, align 8
   ret i32 0
@@ -2947,13 +2947,13 @@ define internal noundef i32 @dissect_diameter_subscription_id_data(ptr noundef %
   ]
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #13
-  %9 = tail call ptr @dissect_e212_utf8_imsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %8) #13
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #14
+  %9 = tail call ptr @dissect_e212_utf8_imsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %8) #14
   br label %13
 
 10:                                               ; preds = %4
-  %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #13
-  %12 = tail call ptr @dissect_e164_msisdn(ptr noundef %0, ptr noundef %2, i32 noundef 0, i32 noundef %11, i32 noundef 2) #13
+  %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #14
+  %12 = tail call ptr @dissect_e164_msisdn(ptr noundef %0, ptr noundef %2, i32 noundef 0, i32 noundef %11, i32 noundef 2) #14
   br label %13
 
 13:                                               ; preds = %4, %10, %7
@@ -2970,7 +2970,7 @@ define internal noundef i32 @dissect_diameter_user_equipment_info(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_diameter_user_equipment_info_type(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #13
+  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #14
   %6 = getelementptr inbounds i8, ptr %3, i64 44
   store i32 %5, ptr %6, align 4
   ret i32 0
@@ -2988,7 +2988,7 @@ define internal range(i32 0, 17) i32 @dissect_diameter_user_equipment_info_value
   ]
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #13
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #14
   switch i32 %8, label %19 [
     i32 8, label %9
     i32 16, label %12
@@ -2997,64 +2997,64 @@ define internal range(i32 0, 17) i32 @dissect_diameter_user_equipment_info_value
 
 9:                                                ; preds = %7
   %10 = load i32, ptr @hf_diameter_user_equipment_info_imeisv, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483580) #13
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483580) #14
   br label %45
 
 12:                                               ; preds = %7
   %13 = load i32, ptr @hf_diameter_user_equipment_info_imeisv, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #13
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #14
   br label %45
 
 15:                                               ; preds = %7
   %16 = load i32, ptr @hf_diameter_user_equipment_info_imeisv, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 15, i32 noundef 0) #13
-  %18 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_diameter_unexpected_imei_as_user_equipment_info, ptr noundef %0, i32 noundef 0, i32 noundef 15) #13
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 15, i32 noundef 0) #14
+  %18 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_diameter_unexpected_imei_as_user_equipment_info, ptr noundef %0, i32 noundef 0, i32 noundef 15) #14
   br label %45
 
 19:                                               ; preds = %7
-  %20 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_diameter_invalid_user_equipment_info_value_len, ptr noundef %0, i32 noundef 0, i32 noundef %8) #13
+  %20 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_diameter_invalid_user_equipment_info_value_len, ptr noundef %0, i32 noundef 0, i32 noundef %8) #14
   br label %45
 
 21:                                               ; preds = %4
-  %22 = tail call i32 @tvb_reported_length(ptr noundef %0) #13
+  %22 = tail call i32 @tvb_reported_length(ptr noundef %0) #14
   %23 = icmp eq i32 %22, 6
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21
   %25 = load i32, ptr @hf_diameter_user_equipment_info_mac, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 6, i32 noundef 0) #13
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 6, i32 noundef 0) #14
   br label %45
 
 27:                                               ; preds = %21
-  %28 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_diameter_invalid_user_equipment_info_value_len, ptr noundef %0, i32 noundef 0, i32 noundef %22) #13
+  %28 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_diameter_invalid_user_equipment_info_value_len, ptr noundef %0, i32 noundef 0, i32 noundef %22) #14
   br label %45
 
 29:                                               ; preds = %4
-  %30 = tail call i32 @tvb_reported_length(ptr noundef %0) #13
+  %30 = tail call i32 @tvb_reported_length(ptr noundef %0) #14
   %31 = icmp eq i32 %30, 8
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
   %33 = load i32, ptr @hf_diameter_user_equipment_info_eui64, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #13
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #14
   br label %45
 
 35:                                               ; preds = %29
-  %36 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_diameter_invalid_user_equipment_info_value_len, ptr noundef %0, i32 noundef 0, i32 noundef %30) #13
+  %36 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_diameter_invalid_user_equipment_info_value_len, ptr noundef %0, i32 noundef 0, i32 noundef %30) #14
   br label %45
 
 37:                                               ; preds = %4
-  %38 = tail call i32 @tvb_reported_length(ptr noundef %0) #13
+  %38 = tail call i32 @tvb_reported_length(ptr noundef %0) #14
   %39 = icmp eq i32 %38, 8
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %37
   %41 = load i32, ptr @hf_diameter_user_equipment_info_modified_eui64, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #13
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #14
   br label %45
 
 43:                                               ; preds = %37
-  %44 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_diameter_invalid_user_equipment_info_value_len, ptr noundef %0, i32 noundef 0, i32 noundef %38) #13
+  %44 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_diameter_invalid_user_equipment_info_value_len, ptr noundef %0, i32 noundef 0, i32 noundef %38) #14
   br label %45
 
 45:                                               ; preds = %4, %19, %27, %35, %43, %40, %32, %24, %15, %12, %9
@@ -3073,17 +3073,17 @@ define internal range(i32 0, 5) i32 @dissect_diameter_3gpp2_exp_res(ptr noundef 
 
 7:                                                ; preds = %6
   %8 = load i32, ptr @hf_diameter_3gpp2_exp_res, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #13
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #14
   %10 = getelementptr inbounds i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef 241) #13
+  %12 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef 241) #14
   %13 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %9, i64 32
   %15 = load ptr, ptr %14, align 8
-  tail call void @proto_item_fill_label(ptr noundef %15, ptr noundef %12) #13
+  tail call void @proto_item_fill_label(ptr noundef %15, ptr noundef %12) #14
   %16 = load ptr, ptr %13, align 8
-  %17 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.69) #15
+  %17 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.69) #16
   %18 = getelementptr i8, ptr %17, i64 2
   store ptr %18, ptr %13, align 8
   br label %19
@@ -3108,9 +3108,9 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   %11 = alloca %struct.nstime_t, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 24) #13
+  %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 24) #14
   %15 = load ptr, ptr %12, align 8
-  %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 56) #13
+  %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 56) #14
   %17 = getelementptr inbounds i8, ptr %16, i64 40
   store i32 -1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 44
@@ -3120,63 +3120,63 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %4
-  %22 = tail call ptr @proto_registrar_get_byname(ptr noundef nonnull @.str.36) #13
+  %22 = tail call ptr @proto_registrar_get_byname(ptr noundef nonnull @.str.36) #14
   br label %23
 
 23:                                               ; preds = %21, %4
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
-  tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.37) #13
+  tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.37) #14
   %26 = load i32, ptr @exported_pdu_tap, align 4
-  %27 = tail call i32 @have_tap_listener(i32 noundef %26) #13
+  %27 = tail call i32 @have_tap_listener(i32 noundef %26) #14
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %36, label %28
 
 28:                                               ; preds = %23
-  %29 = tail call ptr @export_pdu_create_common_tags(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i16 noundef zeroext 12) #13
-  %30 = tail call i32 @tvb_captured_length(ptr noundef %0) #13
+  %29 = tail call ptr @export_pdu_create_common_tags(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i16 noundef zeroext 12) #14
+  %30 = tail call i32 @tvb_captured_length(ptr noundef %0) #14
   %31 = getelementptr inbounds i8, ptr %29, i64 16
   store i32 %30, ptr %31, align 8
-  %32 = tail call i32 @tvb_reported_length(ptr noundef %0) #13
+  %32 = tail call i32 @tvb_reported_length(ptr noundef %0) #14
   %33 = getelementptr inbounds i8, ptr %29, i64 20
   store i32 %32, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %29, i64 24
   store ptr %0, ptr %34, align 8
   %35 = load i32, ptr @exported_pdu_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %35, ptr noundef nonnull %1, ptr noundef %29) #13
+  tail call void @tap_queue_packet(i32 noundef %35, ptr noundef nonnull %1, ptr noundef %29) #14
   br label %36
 
 36:                                               ; preds = %28, %23
   %37 = load i32, ptr @proto_diameter, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #13
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #14
   %39 = load i32, ptr @ett_diameter, align 4
-  %40 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39) #13
+  %40 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39) #14
   store ptr %40, ptr %14, align 8
   %41 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %1, ptr %41, align 8
   %42 = load i32, ptr @hf_diameter_version, align 4
-  %43 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %40, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #13
+  %43 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %40, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #14
   %44 = load i32, ptr %5, align 4
   %.not134 = icmp eq i32 %44, 1
   br i1 %.not134, label %47, label %45
 
 45:                                               ; preds = %36
-  %46 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %43, ptr noundef nonnull @ei_diameter_version) #13
+  %46 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %43, ptr noundef nonnull @ei_diameter_version) #14
   br label %47
 
 47:                                               ; preds = %45, %36
   %48 = load i32, ptr @hf_diameter_length, align 4
-  %49 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %40, i32 noundef %48, ptr noundef %0, i32 noundef 1, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %7) #13
+  %49 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %40, i32 noundef %48, ptr noundef %0, i32 noundef 1, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %7) #14
   %50 = load i32, ptr @hf_diameter_flags, align 4
   %51 = load i32, ptr @ett_diameter_flags, align 4
-  %52 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %40, ptr noundef %0, i32 noundef 4, i32 noundef %50, i32 noundef %51, ptr noundef nonnull @diameter_flags_fields, i32 noundef 0, ptr noundef nonnull %6) #13
+  %52 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %40, ptr noundef %0, i32 noundef 4, i32 noundef %50, i32 noundef %51, ptr noundef nonnull @diameter_flags_fields, i32 noundef 0, ptr noundef nonnull %6) #14
   %53 = load i64, ptr %6, align 8
   %54 = and i64 %53, 15
   %.not135 = icmp eq i64 %54, 0
   br i1 %.not135, label %57, label %55
 
 55:                                               ; preds = %47
-  %56 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %52, ptr noundef nonnull @ei_diameter_reserved_bit_set) #13
+  %56 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %52, ptr noundef nonnull @ei_diameter_reserved_bit_set) #14
   %.pre = load i64, ptr %6, align 8
   br label %57
 
@@ -3188,42 +3188,42 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   %62 = getelementptr inbounds i8, ptr %16, i64 48
   store i32 %61, ptr %62, align 8
   %63 = load i32, ptr @hf_diameter_code, align 4
-  %64 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %40, i32 noundef %63, ptr noundef %0, i32 noundef 5, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %8) #13
+  %64 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %40, i32 noundef %63, ptr noundef %0, i32 noundef 5, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %8) #14
   %65 = load i32, ptr %8, align 4
   %66 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 %65, ptr %66, align 4
   %67 = load i32, ptr @hf_diameter_application_id, align 4
-  %68 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %40, i32 noundef %67, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %16) #13
+  %68 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %40, i32 noundef %67, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %16) #14
   %69 = load i32, ptr %16, align 8
   %70 = load ptr, ptr @dictionary.2, align 8
-  %71 = call ptr @try_val_to_str_ext(i32 noundef %69, ptr noundef %70) #13
+  %71 = call ptr @try_val_to_str_ext(i32 noundef %69, ptr noundef %70) #14
   %72 = icmp eq ptr %71, null
   br i1 %72, label %73, label %78
 
 73:                                               ; preds = %57
   %74 = load i32, ptr @ett_unknown, align 4
-  %75 = call ptr @proto_item_add_subtree(ptr noundef %68, i32 noundef %74) #13
+  %75 = call ptr @proto_item_add_subtree(ptr noundef %68, i32 noundef %74) #14
   %76 = load i32, ptr %16, align 8
-  %77 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %75, ptr noundef nonnull %1, ptr noundef nonnull @ei_diameter_application_id, ptr noundef %0, i32 noundef 8, i32 noundef 4, ptr noundef nonnull @.str.38, i32 noundef %76) #13
+  %77 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %75, ptr noundef nonnull %1, ptr noundef nonnull @ei_diameter_application_id, ptr noundef %0, i32 noundef 8, i32 noundef 4, ptr noundef nonnull @.str.38, i32 noundef %76) #14
   br label %78
 
 78:                                               ; preds = %73, %57
   %79 = load i32, ptr %8, align 4
   %80 = load ptr, ptr @cmd_vs, align 8
-  %81 = call ptr @val_to_str_const(i32 noundef %79, ptr noundef %80, ptr noundef nonnull @.str.39) #13
-  %82 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(8) @.str.39) #15
+  %81 = call ptr @val_to_str_const(i32 noundef %79, ptr noundef %80, ptr noundef nonnull @.str.39) #14
+  %82 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(8) @.str.39) #16
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %78
-  %85 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %64, ptr noundef nonnull @ei_diameter_code) #13
+  %85 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %64, ptr noundef nonnull @ei_diameter_code) #14
   br label %86
 
 86:                                               ; preds = %84, %78
   %87 = load i32, ptr @hf_diameter_hopbyhopid, align 4
-  %88 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %40, i32 noundef %87, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #13
+  %88 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %40, i32 noundef %87, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #14
   %89 = load i32, ptr @hf_diameter_endtoendid, align 4
-  %90 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %40, i32 noundef %89, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %10) #13
+  %90 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %40, i32 noundef %89, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %10) #14
   %91 = load ptr, ptr %24, align 8
   %92 = load i64, ptr %6, align 8
   %93 = lshr i64 %92, 4
@@ -3236,29 +3236,29 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   %99 = load ptr, ptr %98, align 8
   %100 = load i32, ptr %16, align 8
   %101 = load ptr, ptr @dictionary.2, align 8
-  %102 = call ptr @val_to_str_ext_const(i32 noundef %100, ptr noundef %101, ptr noundef nonnull @.str.39) #13
+  %102 = call ptr @val_to_str_ext_const(i32 noundef %100, ptr noundef %101, ptr noundef nonnull @.str.39) #14
   %103 = load i32, ptr %16, align 8
   %104 = load i32, ptr %9, align 4
   %105 = load i32, ptr %10, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %91, i32 noundef 25, ptr noundef nonnull @.str.40, ptr noundef %81, ptr noundef nonnull %95, i32 noundef %96, ptr noundef %99, ptr noundef nonnull @.str.43, ptr noundef %102, i32 noundef %103, i32 noundef %104, i32 noundef %105) #13
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %91, i32 noundef 25, ptr noundef nonnull @.str.40, ptr noundef %81, ptr noundef nonnull %95, i32 noundef %96, ptr noundef %99, ptr noundef nonnull @.str.43, ptr noundef %102, i32 noundef %103, i32 noundef %104, i32 noundef %105) #14
   %106 = load ptr, ptr %24, align 8
-  call void @col_append_str(ptr noundef %106, i32 noundef 25, ptr noundef nonnull @.str.44) #13
+  call void @col_append_str(ptr noundef %106, i32 noundef 25, ptr noundef nonnull @.str.44) #14
   %107 = load ptr, ptr %24, align 8
-  call void @col_set_fence(ptr noundef %107, i32 noundef 25) #13
-  %108 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #13
+  call void @col_set_fence(ptr noundef %107, i32 noundef 25) #14
+  %108 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #14
   %109 = load i32, ptr @proto_diameter, align 4
-  %110 = call ptr @conversation_get_proto_data(ptr noundef nonnull %108, i32 noundef %109) #13
+  %110 = call ptr @conversation_get_proto_data(ptr noundef nonnull %108, i32 noundef %109) #14
   %.not138 = icmp eq ptr %110, null
   br i1 %.not138, label %111, label %117
 
 111:                                              ; preds = %86
-  %112 = call ptr @wmem_file_scope() #13
-  %113 = call noalias ptr @wmem_alloc(ptr noundef %112, i64 noundef 8) #13
-  %114 = call ptr @wmem_file_scope() #13
-  %115 = call noalias ptr @wmem_map_new(ptr noundef %114, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #13
+  %112 = call ptr @wmem_file_scope() #14
+  %113 = call noalias ptr @wmem_alloc(ptr noundef %112, i64 noundef 8) #14
+  %114 = call ptr @wmem_file_scope() #14
+  %115 = call noalias ptr @wmem_map_new(ptr noundef %114, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #14
   store ptr %115, ptr %113, align 8
   %116 = load i32, ptr @proto_diameter, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %108, i32 noundef %116, ptr noundef nonnull %113) #13
+  call void @conversation_add_proto_data(ptr noundef nonnull %108, i32 noundef %116, ptr noundef nonnull %113) #14
   br label %117
 
 117:                                              ; preds = %111, %86
@@ -3267,7 +3267,7 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   %119 = load i32, ptr %9, align 4
   %120 = zext i32 %119 to i64
   %121 = inttoptr i64 %120 to ptr
-  %122 = call ptr @wmem_map_lookup(ptr noundef %118, ptr noundef %121) #13
+  %122 = call ptr @wmem_map_lookup(ptr noundef %118, ptr noundef %121) #14
   %123 = icmp eq ptr %122, null
   br i1 %123, label %124, label %.thread158
 
@@ -3278,13 +3278,13 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not139, label %.thread, label %127
 
 127:                                              ; preds = %124
-  %128 = call ptr @wmem_file_scope() #13
-  %129 = call noalias ptr @wmem_tree_new(ptr noundef %128) #13
+  %128 = call ptr @wmem_file_scope() #14
+  %129 = call noalias ptr @wmem_tree_new(ptr noundef %128) #14
   %130 = load ptr, ptr %.0124, align 8
   %131 = load i32, ptr %9, align 4
   %132 = zext i32 %131 to i64
   %133 = inttoptr i64 %132 to ptr
-  %134 = call ptr @wmem_map_insert(ptr noundef %130, ptr noundef %133, ptr noundef %129) #13
+  %134 = call ptr @wmem_map_insert(ptr noundef %130, ptr noundef %133, ptr noundef %129) #14
   %.not140 = icmp eq ptr %129, null
   br i1 %.not140, label %.thread, label %.thread158
 
@@ -3305,8 +3305,8 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not142, label %159, label %143
 
 143:                                              ; preds = %140
-  %144 = call ptr @wmem_file_scope() #13
-  %145 = call noalias ptr @wmem_alloc(ptr noundef %144, i64 noundef 72) #13
+  %144 = call ptr @wmem_file_scope() #14
+  %145 = call noalias ptr @wmem_alloc(ptr noundef %144, i64 noundef 72) #14
   %146 = load i32, ptr %9, align 4
   store i32 %146, ptr %145, align 8
   %147 = load i32, ptr %10, align 4
@@ -3328,13 +3328,13 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
   %157 = getelementptr inbounds i8, ptr %145, i64 32
   %158 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef nonnull align 8 dereferenceable(16) %158, i64 16, i1 false)
-  call void @wmem_tree_insert32(ptr noundef nonnull %.0122161, i32 noundef %154, ptr noundef nonnull %145) #13
+  call void @wmem_tree_insert32(ptr noundef nonnull %.0122161, i32 noundef %154, ptr noundef nonnull %145) #14
   br label %select.unfold
 
 159:                                              ; preds = %140
   %160 = getelementptr inbounds i8, ptr %1, i64 20
   %161 = load i32, ptr %160, align 4
-  %162 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %.0122161, i32 noundef %161) #13
+  %162 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %.0122161, i32 noundef %161) #14
   %.not143 = icmp eq ptr %162, null
   br i1 %.not143, label %.thread, label %163
 
@@ -3354,7 +3354,7 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
 171:                                              ; preds = %.thread158
   %172 = getelementptr inbounds i8, ptr %1, i64 20
   %173 = load i32, ptr %172, align 4
-  %174 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %.0122161, i32 noundef %173) #13
+  %174 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %.0122161, i32 noundef %173) #14
   %.not144 = icmp eq ptr %174, null
   br i1 %.not144, label %.thread, label %175
 
@@ -3367,7 +3367,7 @@ define internal i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr
 
 .thread:                                          ; preds = %124, %175, %171, %159, %127
   %179 = load ptr, ptr %12, align 8
-  %180 = call noalias ptr @wmem_alloc(ptr noundef %179, i64 noundef 72) #13
+  %180 = call noalias ptr @wmem_alloc(ptr noundef %179, i64 noundef 72) #14
   %181 = load i32, ptr %9, align 4
   store i32 %181, ptr %180, align 8
   %182 = load i32, ptr %8, align 4
@@ -3406,7 +3406,7 @@ select.unfold:                                    ; preds = %175, %143, %168, %1
 
 199:                                              ; preds = %196
   %200 = load i32, ptr @hf_diameter_answer_in, align 4
-  %201 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %200, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %198) #13
+  %201 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %200, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %198) #14
   %.not.i = icmp eq ptr %201, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %202
 
@@ -3424,7 +3424,7 @@ select.unfold:                                    ; preds = %175, %143, %168, %1
 
 208:                                              ; preds = %205
   %209 = load i32, ptr @hf_diameter_answer_to, align 4
-  %210 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %209, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %207) #13
+  %210 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %209, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %207) #14
   %.not.i150 = icmp eq ptr %210, null
   br i1 %.not.i150, label %proto_item_set_generated.exit152, label %211
 
@@ -3444,11 +3444,11 @@ select.unfold:                                    ; preds = %175, %143, %168, %1
 proto_item_set_generated.exit152:                 ; preds = %208, %211, %214
   %218 = getelementptr inbounds i8, ptr %1, i64 24
   %219 = getelementptr inbounds i8, ptr %.1, i64 32
-  call void @nstime_delta(ptr noundef nonnull %11, ptr noundef nonnull %218, ptr noundef nonnull %219) #13
+  call void @nstime_delta(ptr noundef nonnull %11, ptr noundef nonnull %218, ptr noundef nonnull %219) #14
   %220 = getelementptr inbounds i8, ptr %.1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %220, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %221 = load i32, ptr @hf_diameter_answer_time, align 4
-  %222 = call ptr @proto_tree_add_time(ptr noundef %40, i32 noundef %221, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11) #13
+  %222 = call ptr @proto_tree_add_time(ptr noundef %40, i32 noundef %221, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11) #14
   %.not.i153 = icmp eq ptr %222, null
   br i1 %.not.i153, label %proto_item_set_generated.exit, label %223
 
@@ -3481,8 +3481,8 @@ proto_item_set_generated.exit:                    ; preds = %proto_item_set_gene
 
 ._crit_edge:                                      ; preds = %.lr.ph, %proto_item_set_generated.exit
   %235 = load i32, ptr @diameter_tap, align 4
-  call void @tap_queue_packet(i32 noundef %235, ptr noundef %1, ptr noundef nonnull %.1) #13
-  %236 = call i32 @tvb_reported_length(ptr noundef %0) #13
+  call void @tap_queue_packet(i32 noundef %235, ptr noundef %1, ptr noundef nonnull %.1) #14
+  %236 = call i32 @tvb_reported_length(ptr noundef %0) #14
   ret i32 %236
 }
 
@@ -3569,17 +3569,17 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca [3 x %struct._wmem_tree_key_t], align 16
-  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #13
+  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #14
   store i32 %9, ptr %6, align 4
   %10 = add i32 %2, 4
-  %11 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %10) #13
+  %11 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %10) #14
   %12 = lshr i32 %11, 29
   %13 = icmp slt i32 %11, 0
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %5
   %15 = add i32 %2, 8
-  %16 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %15) #13
+  %16 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %15) #14
   br label %17
 
 17:                                               ; preds = %5, %14
@@ -3597,7 +3597,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   %23 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr null, ptr %23, align 8
   %24 = load ptr, ptr @dictionary.0, align 8
-  %25 = call ptr @wmem_tree_lookup32_array(ptr noundef %24, ptr noundef nonnull %8) #13
+  %25 = call ptr @wmem_tree_lookup32_array(ptr noundef %24, ptr noundef nonnull %8) #14
   %26 = and i32 %11, 16777215
   %27 = and i32 %11, 3
   %.not = icmp eq i32 %27, 0
@@ -3613,7 +3613,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
 32:                                               ; preds = %31
   %33 = load ptr, ptr @dictionary.1, align 8
   %34 = load i32, ptr %7, align 4
-  %35 = call ptr @wmem_tree_lookup32(ptr noundef %33, i32 noundef %34) #13
+  %35 = call ptr @wmem_tree_lookup32(ptr noundef %33, i32 noundef %34) #14
   %.not185 = icmp eq ptr %35, null
   %spec.store.select = select i1 %.not185, ptr @unknown_vendor, ptr %35
   br label %39
@@ -3634,22 +3634,22 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %.0176, i64 8
   %45 = load ptr, ptr %44, align 8
-  call void @wmem_array_sort(ptr noundef %45, ptr noundef nonnull @compare_avps) #13
+  call void @wmem_array_sort(ptr noundef %45, ptr noundef nonnull @compare_avps) #14
   %46 = load ptr, ptr %44, align 8
-  %47 = call ptr @wmem_array_get_raw(ptr noundef %46) #13
+  %47 = call ptr @wmem_array_get_raw(ptr noundef %46) #14
   %48 = load ptr, ptr %44, align 8
-  %49 = call i32 @wmem_array_get_count(ptr noundef %48) #13
+  %49 = call i32 @wmem_array_get_count(ptr noundef %48) #14
   %50 = add i32 %49, 1
-  %51 = call ptr @wmem_epan_scope() #13
+  %51 = call ptr @wmem_epan_scope() #14
   %52 = load i32, ptr %7, align 4
-  %53 = call ptr @enterprises_lookup(i32 noundef %52, ptr noundef nonnull @.str.39) #13
-  %54 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %51, ptr noundef nonnull @.str.61, ptr noundef %53) #13
-  %55 = call ptr @value_string_ext_new(ptr noundef %47, i32 noundef %50, ptr noundef %54) #13
+  %53 = call ptr @enterprises_lookup(i32 noundef %52, ptr noundef nonnull @.str.39) #14
+  %54 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %51, ptr noundef nonnull @.str.61, ptr noundef %53) #14
+  %55 = call ptr @value_string_ext_new(ptr noundef %47, i32 noundef %50, ptr noundef %54) #14
   store ptr %55, ptr %40, align 8
   br label %56
 
 56:                                               ; preds = %43, %39
-  %57 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #13
+  %57 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #14
   %58 = icmp ugt i32 %26, %57
   br i1 %58, label %59, label %66
 
@@ -3658,19 +3658,19 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   %61 = getelementptr inbounds i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %6, align 4
-  %64 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %60, ptr noundef %62, ptr noundef nonnull @ei_diameter_invalid_avp_len, ptr noundef %1, i32 noundef %10, i32 noundef 4, ptr noundef nonnull @.str.62, i32 noundef %63, i32 noundef %26) #13
-  %65 = call i32 @tvb_reported_length(ptr noundef %1) #13
+  %64 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %60, ptr noundef %62, ptr noundef nonnull @ei_diameter_invalid_avp_len, ptr noundef %1, i32 noundef %10, i32 noundef 4, ptr noundef nonnull @.str.62, i32 noundef %63, i32 noundef %26) #14
+  %65 = call i32 @tvb_reported_length(ptr noundef %1) #14
   br label %204
 
 66:                                               ; preds = %56
   %67 = add i32 %26, %2
-  %68 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %67) #13
+  %68 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %67) #14
   %69 = zext nneg i8 %30 to i32
   %70 = icmp slt i32 %68, %69
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %66
-  %72 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %67) #13
+  %72 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %67) #14
   %73 = trunc i32 %72 to i8
   %.pre = and i32 %72, 255
   br label %74
@@ -3681,28 +3681,28 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   %75 = load ptr, ptr %0, align 8
   %76 = load i32, ptr @hf_diameter_avp, align 4
   %77 = add nuw nsw i32 %26, %.pre-phi
-  %78 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %1, i32 noundef %2, i32 noundef %77, i32 noundef 0) #13
+  %78 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %1, i32 noundef %2, i32 noundef %77, i32 noundef 0) #14
   %79 = getelementptr inbounds i8, ptr %.0177, i64 24
   %80 = load i32, ptr %79, align 8
-  %81 = call ptr @proto_item_add_subtree(ptr noundef %78, i32 noundef %80) #13
+  %81 = call ptr @proto_item_add_subtree(ptr noundef %78, i32 noundef %80) #14
   %82 = load i32, ptr @hf_diameter_avp_code, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #13
+  %83 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #14
   %84 = load i32, ptr %6, align 4
   %85 = load ptr, ptr %40, align 8
-  %86 = call ptr @val_to_str_ext_const(i32 noundef %84, ptr noundef %85, ptr noundef nonnull @.str.39) #13
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %83, ptr noundef nonnull @.str.63, ptr noundef %86) #13
+  %86 = call ptr @val_to_str_ext_const(i32 noundef %84, ptr noundef %85, ptr noundef nonnull @.str.39) #14
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %83, ptr noundef nonnull @.str.63, ptr noundef %86) #14
   %87 = icmp eq ptr %.0177, @unknown_avp
   br i1 %87, label %88, label %97
 
 88:                                               ; preds = %74
   %89 = load i32, ptr @ett_unknown, align 4
-  %90 = call ptr @proto_item_add_subtree(ptr noundef %83, i32 noundef %89) #13
+  %90 = call ptr @proto_item_add_subtree(ptr noundef %83, i32 noundef %89) #14
   %91 = getelementptr inbounds i8, ptr %0, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = load i32, ptr %6, align 4
   %94 = load i32, ptr %7, align 4
-  %95 = call ptr @enterprises_lookup(i32 noundef %94, ptr noundef nonnull @.str.39) #13
-  %96 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %90, ptr noundef %92, ptr noundef nonnull @ei_diameter_avp_code, ptr noundef %1, i32 noundef %2, i32 noundef 4, ptr noundef nonnull @.str.64, i32 noundef %93, ptr noundef %95) #13
+  %95 = call ptr @enterprises_lookup(i32 noundef %94, ptr noundef nonnull @.str.39) #14
+  %96 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %90, ptr noundef %92, ptr noundef nonnull @ei_diameter_avp_code, ptr noundef %1, i32 noundef %2, i32 noundef 4, ptr noundef nonnull @.str.64, i32 noundef %93, ptr noundef %95) #14
   br label %97
 
 97:                                               ; preds = %88, %74
@@ -3710,7 +3710,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   %99 = zext nneg i32 %12 to i64
   %100 = getelementptr [8 x ptr], ptr @avpflags_str, i64 0, i64 %99
   %101 = load ptr, ptr %100, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %78, ptr noundef nonnull @.str.65, ptr noundef %86, i32 noundef %98, i32 noundef %26, ptr noundef %101) #13
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %78, ptr noundef nonnull @.str.65, ptr noundef %86, i32 noundef %98, i32 noundef %26, ptr noundef %101) #14
   %.not186 = icmp eq i32 %4, 0
   br i1 %.not186, label %107, label %102
 
@@ -3719,13 +3719,13 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %106, i32 noundef 25, ptr noundef nonnull @.str.63, ptr noundef %86) #13
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %106, i32 noundef 25, ptr noundef nonnull @.str.63, ptr noundef %86) #14
   br label %107
 
 107:                                              ; preds = %102, %97
   %108 = load i32, ptr @hf_diameter_avp_flags, align 4
   %109 = load i32, ptr @ett_diameter_avp_flags, align 4
-  %110 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %81, ptr noundef %1, i32 noundef %10, i32 noundef %108, i32 noundef %109, ptr noundef nonnull @dissect_diameter_avp.diameter_avp_flags, i32 noundef 0, i32 noundef 6) #13
+  %110 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %81, ptr noundef %1, i32 noundef %10, i32 noundef %108, i32 noundef %109, ptr noundef nonnull @dissect_diameter_avp.diameter_avp_flags, i32 noundef 0, i32 noundef 6) #14
   %111 = and i32 %11, 520093696
   %.not187 = icmp eq i32 %111, 0
   br i1 %.not187, label %116, label %112
@@ -3733,32 +3733,32 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
 112:                                              ; preds = %107
   %113 = getelementptr inbounds i8, ptr %0, i64 8
   %114 = load ptr, ptr %113, align 8
-  %115 = call ptr @expert_add_info(ptr noundef %114, ptr noundef %110, ptr noundef nonnull @ei_diameter_reserved_bit_set) #13
+  %115 = call ptr @expert_add_info(ptr noundef %114, ptr noundef %110, ptr noundef nonnull @ei_diameter_reserved_bit_set) #14
   br label %116
 
 116:                                              ; preds = %112, %107
   %117 = add i32 %2, 5
   %118 = load i32, ptr @hf_diameter_avp_len, align 4
-  %119 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %118, ptr noundef %1, i32 noundef %117, i32 noundef 3, i32 noundef 0) #13
+  %119 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %118, ptr noundef %1, i32 noundef %117, i32 noundef 3, i32 noundef 0) #14
   %120 = add i32 %2, 8
   br i1 %13, label %121, label %136
 
 121:                                              ; preds = %116
   %122 = load i32, ptr %7, align 4
   %123 = load ptr, ptr @vnd_short_vs, align 8
-  %124 = call ptr @val_to_str(i32 noundef %122, ptr noundef %123, ptr noundef nonnull @.str.67) #13
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.66, ptr noundef %124) #13
+  %124 = call ptr @val_to_str(i32 noundef %122, ptr noundef %123, ptr noundef nonnull @.str.67) #14
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.66, ptr noundef %124) #14
   %125 = load i32, ptr @hf_diameter_avp_vendor_id, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %125, ptr noundef %1, i32 noundef %120, i32 noundef 4, i32 noundef 0) #13
+  %126 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %125, ptr noundef %1, i32 noundef %120, i32 noundef 4, i32 noundef 0) #14
   %127 = icmp eq ptr %.0176, @unknown_vendor
   br i1 %127, label %128, label %134
 
 128:                                              ; preds = %121
   %129 = load i32, ptr @ett_unknown, align 4
-  %130 = call ptr @proto_item_add_subtree(ptr noundef %126, i32 noundef %129) #13
+  %130 = call ptr @proto_item_add_subtree(ptr noundef %126, i32 noundef %129) #14
   %131 = getelementptr inbounds i8, ptr %0, i64 8
   %132 = load ptr, ptr %131, align 8
-  %133 = call ptr @proto_tree_add_expert(ptr noundef %130, ptr noundef %132, ptr noundef nonnull @ei_diameter_avp_vendor_id, ptr noundef %1, i32 noundef %120, i32 noundef 4) #13
+  %133 = call ptr @proto_tree_add_expert(ptr noundef %130, ptr noundef %132, ptr noundef nonnull @ei_diameter_avp_vendor_id, ptr noundef %1, i32 noundef %120, i32 noundef 4) #14
   br label %134
 
 134:                                              ; preds = %128, %121
@@ -3774,7 +3774,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
 139:                                              ; preds = %136
   %140 = getelementptr inbounds i8, ptr %0, i64 8
   %141 = load ptr, ptr %140, align 8
-  %142 = call ptr @proto_tree_add_expert(ptr noundef %81, ptr noundef %141, ptr noundef nonnull @ei_diameter_avp_no_data, ptr noundef %1, i32 noundef %.0173, i32 noundef 0) #13
+  %142 = call ptr @proto_tree_add_expert(ptr noundef %81, ptr noundef %141, ptr noundef nonnull @ei_diameter_avp_no_data, ptr noundef %1, i32 noundef %.0173, i32 noundef 0) #14
   br label %204
 
 143:                                              ; preds = %136
@@ -3788,7 +3788,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond3.not, label %152, label %149
 
 149:                                              ; preds = %143
-  %150 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.0173) #13
+  %150 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.0173) #14
   %151 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %150, ptr %151, align 8
   br label %152
@@ -3797,7 +3797,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   %153 = and i32 %12, 4
   %154 = or disjoint i32 %153, 8
   %155 = sub nsw i32 %26, %154
-  %156 = call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %.0173, i32 noundef %155) #13
+  %156 = call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %.0173, i32 noundef %155) #14
   %157 = add i32 %.0173, %155
   %158 = load ptr, ptr %0, align 8
   store ptr %81, ptr %0, align 8
@@ -3821,7 +3821,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   %167 = load ptr, ptr @diameter_expr_result_vnd_table, align 8
   %168 = getelementptr inbounds i8, ptr %0, i64 8
   %169 = load ptr, ptr %168, align 8
-  %170 = call i32 @dissector_try_uint_new(ptr noundef %167, i32 noundef %165, ptr noundef %156, ptr noundef %169, ptr noundef %81, i32 noundef 0, ptr noundef nonnull %3) #13
+  %170 = call i32 @dissector_try_uint_new(ptr noundef %167, i32 noundef %165, ptr noundef %156, ptr noundef %169, ptr noundef %81, i32 noundef 0, ptr noundef nonnull %3) #14
   %.not192 = icmp eq i32 %170, 0
   br i1 %.not192, label %171, label %172
 
@@ -3836,13 +3836,13 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   br i1 %.not193, label %180, label %175
 
 175:                                              ; preds = %172
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.68, ptr noundef nonnull %174) #13
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.68, ptr noundef nonnull %174) #14
   br label %180
 
 176:                                              ; preds = %163, %163, %152
   %177 = getelementptr inbounds i8, ptr %.0177, i64 16
   %178 = load ptr, ptr %177, align 8
-  %179 = call ptr %178(ptr noundef nonnull %0, ptr noundef nonnull %.0177, ptr noundef %156, ptr noundef nonnull %3) #13
+  %179 = call ptr %178(ptr noundef nonnull %0, ptr noundef nonnull %.0177, ptr noundef %156, ptr noundef nonnull %3) #14
   br label %180
 
 180:                                              ; preds = %172, %175, %176
@@ -3865,7 +3865,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
 
 .sink.split:                                      ; preds = %187, %180
   %.0175.sink = phi ptr [ %186, %180 ], [ %.0175, %187 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.68, ptr noundef nonnull %.0175.sink) #13
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.68, ptr noundef nonnull %.0175.sink) #14
   br label %188
 
 188:                                              ; preds = %.sink.split, %187
@@ -3874,7 +3874,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
 
 189:                                              ; preds = %188
   %190 = load i32, ptr @hf_diameter_avp_pad, align 4
-  %191 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %190, ptr noundef %1, i32 noundef %157, i32 noundef %.pre-phi, i32 noundef 0) #13
+  %191 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %190, ptr noundef %1, i32 noundef %157, i32 noundef %.pre-phi, i32 noundef 0) #14
   br label %194
 
 192:                                              ; preds = %194
@@ -3886,13 +3886,13 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   %.0201 = phi i8 [ 0, %189 ], [ %193, %192 ]
   %.2200 = phi i32 [ %157, %189 ], [ %195, %192 ]
   %195 = add i32 %.2200, 1
-  %196 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2200) #13
+  %196 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2200) #14
   %.not197 = icmp eq i8 %196, 0
   br i1 %.not197, label %192, label %197
 
 197:                                              ; preds = %194
   %198 = load ptr, ptr %184, align 8
-  %199 = call ptr @expert_add_info(ptr noundef %198, ptr noundef %191, ptr noundef nonnull @ei_diameter_avp_pad) #13
+  %199 = call ptr @expert_add_info(ptr noundef %198, ptr noundef %191, ptr noundef nonnull @ei_diameter_avp_pad) #14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %192, %197, %188
@@ -3903,7 +3903,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
 
 201:                                              ; preds = %.loopexit
   %202 = load ptr, ptr %184, align 8
-  %203 = call ptr @proto_tree_add_expert(ptr noundef %81, ptr noundef %202, ptr noundef nonnull @ei_diameter_avp_pad_missing, ptr noundef %1, i32 noundef %.1, i32 noundef %.pre-phi) #13
+  %203 = call ptr @proto_tree_add_expert(ptr noundef %81, ptr noundef %202, ptr noundef nonnull @ei_diameter_avp_pad_missing, ptr noundef %1, i32 noundef %.1, i32 noundef %.pre-phi) #14
   br label %204
 
 204:                                              ; preds = %.loopexit, %201, %139, %59
@@ -3929,10 +3929,7 @@ declare void @wmem_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 -1, 2) i32 @compare_avps(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
-  %5 = icmp ugt i32 %3, %4
-  %6 = icmp ult i32 %3, %4
-  %. = sext i1 %6 to i32
-  %.0 = select i1 %5, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
   ret i32 %.0
 }
 
@@ -3973,19 +3970,19 @@ define internal fastcc void @dissect_diameter_other_vendor_exp_res(ptr nocapture
 
 5:                                                ; preds = %4
   %6 = load i32, ptr @hf_diameter_other_vendor_exp_res, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %6, ptr noundef %1, i32 noundef 0, i32 noundef 4, i32 noundef 0) #13
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %6, ptr noundef %1, i32 noundef 0, i32 noundef 4, i32 noundef 0) #14
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef 241) #13
+  %12 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef 241) #14
   %13 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %7, i64 32
   %15 = load ptr, ptr %14, align 8
-  tail call void @proto_item_fill_label(ptr noundef %15, ptr noundef %12) #13
+  tail call void @proto_item_fill_label(ptr noundef %15, ptr noundef %12) #14
   %16 = load ptr, ptr %13, align 8
-  %17 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.69) #15
+  %17 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.69) #16
   %18 = getelementptr i8, ptr %17, i64 2
   store ptr %18, ptr %13, align 8
   br label %19
@@ -4001,9 +3998,9 @@ define internal fastcc void @call_avp_subdissector(i32 noundef %0, i32 noundef %
   %9 = alloca %struct.except_stacknode, align 8
   %10 = alloca %struct.except_catch, align 8
   store volatile i32 0, ptr %8, align 4
-  call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @call_avp_subdissector.catch_spec, i64 noundef 1) #13
+  call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @call_avp_subdissector.catch_spec, i64 noundef 1) #14
   %11 = getelementptr inbounds i8, ptr %10, i64 48
-  %12 = call i32 @_setjmp(ptr noundef nonnull %11) #16
+  %12 = call i32 @_setjmp(ptr noundef nonnull %11) #17
   %.not = icmp eq i32 %12, 0
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   %.sink = select i1 %.not, ptr null, ptr %13
@@ -4052,7 +4049,7 @@ define internal fastcc void @call_avp_subdissector(i32 noundef %0, i32 noundef %
 .sink.split:                                      ; preds = %22, %25, %24, %23
   %diameter_dissector_table.sink = phi ptr [ @diameter_ericsson_avp_dissector_table, %23 ], [ @diameter_verizon_avp_dissector_table, %24 ], [ @diameter_3gpp_avp_dissector_table, %25 ], [ @diameter_dissector_table, %22 ]
   %26 = load ptr, ptr %diameter_dissector_table.sink, align 8
-  %27 = call i32 @dissector_try_uint_new(ptr noundef %26, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 0, ptr noundef %5) #13
+  %27 = call i32 @dissector_try_uint_new(ptr noundef %26, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 0, ptr noundef %5) #14
   br label %28
 
 28:                                               ; preds = %.sink.split, %22, %20, %17
@@ -4103,7 +4100,7 @@ define internal fastcc void @call_avp_subdissector(i32 noundef %0, i32 noundef %
   %.0..0..0..0.14 = load volatile ptr, ptr %7, align 8
   %51 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 16
   %52 = load volatile ptr, ptr %51, align 8
-  call void @show_exception(ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %50, ptr noundef %52) #13
+  call void @show_exception(ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %50, ptr noundef %52) #14
   br label %53
 
 53:                                               ; preds = %47, %43, %30, %28
@@ -4119,14 +4116,14 @@ define internal fastcc void @call_avp_subdissector(i32 noundef %0, i32 noundef %
 
 56:                                               ; preds = %55
   %.0..0..0..0.16 = load volatile ptr, ptr %7, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.16) #14
+  call void @except_rethrow(ptr noundef %.0..0..0..0.16) #15
   unreachable
 
 57:                                               ; preds = %55, %53
   %58 = getelementptr inbounds i8, ptr %10, i64 40
   %59 = load volatile ptr, ptr %58, align 8
-  call void @except_free(ptr noundef %59) #13
-  %60 = call ptr @except_pop() #13
+  call void @except_free(ptr noundef %59) #14
+  %60 = call ptr @except_pop() #14
   ret void
 }
 
@@ -4139,17 +4136,17 @@ define internal ptr @simple_avp(ptr nocapture noundef readonly %0, ptr nocapture
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 28
   %8 = load i32, ptr %7, align 4
-  %9 = tail call i32 @tvb_reported_length(ptr noundef %2) #13
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %5, i32 noundef %8, ptr noundef %2, i32 noundef 0, i32 noundef %9, i32 noundef 0) #13
+  %9 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %5, i32 noundef %8, ptr noundef %2, i32 noundef 0, i32 noundef %9, i32 noundef 0) #14
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef 241) #13
+  %15 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef 241) #14
   %16 = getelementptr inbounds i8, ptr %10, i64 32
   %17 = load ptr, ptr %16, align 8
-  tail call void @proto_item_fill_label(ptr noundef %17, ptr noundef %15) #13
-  %18 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.69) #15
+  tail call void @proto_item_fill_label(ptr noundef %17, ptr noundef %15) #14
+  %18 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.69) #16
   %19 = getelementptr i8, ptr %18, i64 2
   br label %20
 
@@ -4184,7 +4181,7 @@ declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @get_diameter_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 1
-  %6 = tail call i32 @tvb_get_ntoh24(ptr noundef %1, i32 noundef %5) #13
+  %6 = tail call i32 @tvb_get_ntoh24(ptr noundef %1, i32 noundef %5) #14
   ret i32 %6
 }
 
@@ -4233,7 +4230,7 @@ define internal i32 @strcase_hash(ptr nocapture noundef readonly %0) #10 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @strcase_equal(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef %1) #13
+  %3 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef %1) #14
   %4 = icmp eq i32 %3, 0
   %5 = zext i1 %4 to i32
   ret i32 %5
@@ -4267,7 +4264,7 @@ declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @ddict_cleanup_cb(ptr nocapture readnone %0, i32 %1, ptr noundef %2) #0 {
-  tail call void @ddict_free(ptr noundef %2) #13
+  tail call void @ddict_free(ptr noundef %2) #14
   ret i1 false
 }
 
@@ -4295,11 +4292,11 @@ define internal noundef nonnull ptr @proto_avp(ptr nocapture noundef readonly %0
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  call void @col_set_writable(ptr noundef %14, i32 noundef 34, i32 noundef 0) #13
+  call void @col_set_writable(ptr noundef %14, i32 noundef 34, i32 noundef 0) #14
   %15 = load ptr, ptr %11, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  call void @col_set_writable(ptr noundef %17, i32 noundef 25, i32 noundef 0) #13
+  call void @col_set_writable(ptr noundef %17, i32 noundef 25, i32 noundef 0) #14
   %18 = getelementptr inbounds i8, ptr %10, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
@@ -4307,7 +4304,7 @@ define internal noundef nonnull ptr @proto_avp(ptr nocapture noundef readonly %0
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %10, align 8
-  %22 = call ptr @find_dissector(ptr noundef %21) #13
+  %22 = call ptr @find_dissector(ptr noundef %21) #14
   store ptr %22, ptr %18, align 8
   %.not33 = icmp eq ptr %22, null
   br i1 %.not33, label %23, label %25
@@ -4319,9 +4316,9 @@ define internal noundef nonnull ptr @proto_avp(ptr nocapture noundef readonly %0
 
 25:                                               ; preds = %20, %23, %4
   store volatile i32 0, ptr %6, align 4
-  call void @except_setup_try(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @proto_avp.catch_spec, i64 noundef 1) #13
+  call void @except_setup_try(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @proto_avp.catch_spec, i64 noundef 1) #14
   %26 = getelementptr inbounds i8, ptr %8, i64 48
-  %27 = call i32 @_setjmp(ptr noundef nonnull %26) #16
+  %27 = call i32 @_setjmp(ptr noundef nonnull %26) #17
   %.not34 = icmp eq i32 %27, 0
   %28 = getelementptr inbounds i8, ptr %8, i64 16
   %.sink = select i1 %.not34, ptr null, ptr %28
@@ -4354,7 +4351,7 @@ define internal noundef nonnull ptr @proto_avp(ptr nocapture noundef readonly %0
   %38 = load ptr, ptr %18, align 8
   %39 = load ptr, ptr %11, align 8
   %40 = load ptr, ptr %0, align 8
-  %41 = call i32 @call_dissector_with_data(ptr noundef %38, ptr noundef %2, ptr noundef %39, ptr noundef %40, ptr noundef %3) #13
+  %41 = call i32 @call_dissector_with_data(ptr noundef %38, ptr noundef %2, ptr noundef %39, ptr noundef %40, ptr noundef %3) #14
   br label %42
 
 42:                                               ; preds = %37, %35, %32
@@ -4407,7 +4404,7 @@ define internal noundef nonnull ptr @proto_avp(ptr nocapture noundef readonly %0
   %.0..0..0..0.14 = load volatile ptr, ptr %5, align 8
   %67 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 16
   %68 = load volatile ptr, ptr %67, align 8
-  call void @show_exception(ptr noundef %2, ptr noundef %63, ptr noundef %64, i64 noundef %66, ptr noundef %68) #13
+  call void @show_exception(ptr noundef %2, ptr noundef %63, ptr noundef %64, i64 noundef %66, ptr noundef %68) #14
   br label %69
 
 69:                                               ; preds = %61, %57, %44, %42
@@ -4423,23 +4420,23 @@ define internal noundef nonnull ptr @proto_avp(ptr nocapture noundef readonly %0
 
 72:                                               ; preds = %71
   %.0..0..0..0.16 = load volatile ptr, ptr %5, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.16) #14
+  call void @except_rethrow(ptr noundef %.0..0..0..0.16) #15
   unreachable
 
 73:                                               ; preds = %71, %69
   %74 = getelementptr inbounds i8, ptr %8, i64 40
   %75 = load volatile ptr, ptr %74, align 8
-  call void @except_free(ptr noundef %75) #13
-  %76 = call ptr @except_pop() #13
+  call void @except_free(ptr noundef %75) #14
+  %76 = call ptr @except_pop() #14
   ret ptr @.str.33
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @build_proto_avp(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
-  %7 = tail call ptr @wmem_epan_scope() #13
-  %8 = tail call noalias ptr @wmem_alloc0(ptr noundef %7, i64 noundef 40) #13
-  %9 = tail call ptr @wmem_epan_scope() #13
-  %10 = tail call noalias ptr @wmem_alloc0(ptr noundef %9, i64 noundef 24) #13
+  %7 = tail call ptr @wmem_epan_scope() #14
+  %8 = tail call noalias ptr @wmem_alloc0(ptr noundef %7, i64 noundef 40) #14
+  %9 = tail call ptr @wmem_epan_scope() #14
+  %10 = tail call noalias ptr @wmem_alloc0(ptr noundef %9, i64 noundef 24) #14
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   store i32 %1, ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 8
@@ -4457,7 +4454,7 @@ define internal ptr @build_proto_avp(ptr nocapture readnone %0, i32 noundef %1, 
   %17 = getelementptr inbounds i8, ptr %10, i64 16
   store i32 0, ptr %17, align 8
   %18 = load ptr, ptr @build_dict.1, align 8
-  tail call void @g_ptr_array_add(ptr noundef %18, ptr noundef nonnull %11) #13
+  tail call void @g_ptr_array_add(ptr noundef %18, ptr noundef nonnull %11) #14
   ret ptr %8
 }
 
@@ -4478,8 +4475,8 @@ define internal noundef ptr @build_simple_avp(ptr nocapture noundef readonly %0,
   br i1 %12, label %switch.hole_check, label %13
 
 13:                                               ; preds = %switch.hole_check, %9
-  %14 = tail call ptr @ftype_name(i32 noundef %11) #13
-  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.113, ptr noundef %3, ptr noundef %14) #13
+  %14 = tail call ptr @ftype_name(i32 noundef %11) #14
+  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.113, ptr noundef %3, ptr noundef %14) #14
   br label %35
 
 switch.hole_check:                                ; preds = %9
@@ -4498,17 +4495,17 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br i1 %.not30, label %19, label %switch.lookup, !llvm.loop !16
 
 19:                                               ; preds = %switch.lookup
-  %20 = tail call ptr @wmem_epan_scope() #13
-  %21 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %20, ptr noundef %3, ptr noundef nonnull @.str.114, ptr noundef null) #13
-  %22 = tail call ptr @value_string_ext_new(ptr noundef nonnull %4, i32 noundef %18, ptr noundef %21) #13
+  %20 = tail call ptr @wmem_epan_scope() #14
+  %21 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %20, ptr noundef %3, ptr noundef nonnull @.str.114, ptr noundef null) #14
+  %22 = tail call ptr @value_string_ext_new(ptr noundef nonnull %4, i32 noundef %18, ptr noundef %21) #14
   %23 = or i32 %8, 512
   br label %24
 
 24:                                               ; preds = %19, %6
   %.027 = phi ptr [ %22, %19 ], [ null, %6 ]
   %.026 = phi i32 [ %23, %19 ], [ %8, %6 ]
-  %25 = tail call ptr @wmem_epan_scope() #13
-  %26 = tail call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 40) #13
+  %25 = tail call ptr @wmem_epan_scope() #14
+  %26 = tail call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 40) #14
   store i32 %1, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %2, ptr %27, align 8
@@ -4539,17 +4536,17 @@ define internal ptr @utf8_avp(ptr nocapture noundef readonly %0, ptr nocapture n
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 28
   %8 = load i32, ptr %7, align 4
-  %9 = tail call i32 @tvb_reported_length(ptr noundef %2) #13
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %5, i32 noundef %8, ptr noundef %2, i32 noundef 0, i32 noundef %9, i32 noundef 2) #13
+  %9 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %5, i32 noundef %8, ptr noundef %2, i32 noundef 0, i32 noundef %9, i32 noundef 2) #14
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef 241) #13
+  %15 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef 241) #14
   %16 = getelementptr inbounds i8, ptr %10, i64 32
   %17 = load ptr, ptr %16, align 8
-  tail call void @proto_item_fill_label(ptr noundef %17, ptr noundef %15) #13
-  %18 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.69) #15
+  tail call void @proto_item_fill_label(ptr noundef %17, ptr noundef %15) #14
+  %18 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.69) #16
   %19 = getelementptr i8, ptr %18, i64 2
   br label %20
 
@@ -4560,15 +4557,15 @@ define internal ptr @utf8_avp(ptr nocapture noundef readonly %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @grouped_avp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #13
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 28
   %8 = load i32, ptr %7, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %8, ptr noundef %2, i32 noundef 0, i32 noundef -1, i32 noundef 0) #13
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %8, ptr noundef %2, i32 noundef 0, i32 noundef -1, i32 noundef 0) #14
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load i32, ptr %11, align 8
-  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %12) #13
+  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %12) #14
   store ptr %13, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %14, align 4
@@ -4594,7 +4591,7 @@ define internal noalias noundef ptr @grouped_avp(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @integer32_avp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #13
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
   %6 = icmp eq i32 %5, 4
   %7 = load ptr, ptr %0, align 8
   br i1 %6, label %8, label %22
@@ -4606,25 +4603,25 @@ define internal ptr @integer32_avp(ptr nocapture noundef readonly %0, ptr nocapt
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %1, i64 28
   %11 = load i32, ptr %10, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef 4, i32 noundef 0) #13
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef 4, i32 noundef 0) #14
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 408
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 241) #13
+  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 241) #14
   %18 = getelementptr inbounds i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8
-  tail call void @proto_item_fill_label(ptr noundef %19, ptr noundef %17) #13
-  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.69) #15
+  tail call void @proto_item_fill_label(ptr noundef %19, ptr noundef %17) #14
+  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.69) #16
   %21 = getelementptr i8, ptr %20, i64 2
   br label %proto_item_set_generated.exit
 
 22:                                               ; preds = %4
   %23 = load i32, ptr @hf_diameter_avp_data_wrong_length, align 4
-  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %7, i32 noundef %23, ptr noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.118) #13
+  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %7, i32 noundef %23, ptr noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.118) #14
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %26, ptr noundef %24, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.119, i32 noundef %5) #13
+  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %26, ptr noundef %24, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.119, i32 noundef %5) #14
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %28
 
@@ -4648,7 +4645,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %28, %22, %8, %
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @unsigned32_avp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #13
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
   %6 = icmp eq i32 %5, 4
   %7 = load ptr, ptr %0, align 8
   br i1 %6, label %8, label %23
@@ -4660,27 +4657,27 @@ define internal ptr @unsigned32_avp(ptr nocapture noundef readonly %0, ptr nocap
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %1, i64 28
   %11 = load i32, ptr %10, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef 4, i32 noundef 0) #13
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef 4, i32 noundef 0) #14
   %13 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef 241) #13
+  %18 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef 241) #14
   %19 = getelementptr inbounds i8, ptr %12, i64 32
   %20 = load ptr, ptr %19, align 8
-  tail call void @proto_item_fill_label(ptr noundef %20, ptr noundef %18) #13
-  %21 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.69) #15
+  tail call void @proto_item_fill_label(ptr noundef %20, ptr noundef %18) #14
+  %21 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.69) #16
   %22 = getelementptr i8, ptr %21, i64 2
   br label %proto_item_set_generated.exit
 
 23:                                               ; preds = %4
   %24 = load i32, ptr @hf_diameter_avp_data_wrong_length, align 4
-  %25 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %7, i32 noundef %24, ptr noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.120) #13
+  %25 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %7, i32 noundef %24, ptr noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.120) #14
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %27, ptr noundef %25, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.121, i32 noundef %5) #13
+  %28 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %27, ptr noundef %25, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.121, i32 noundef %5) #14
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %29
 
@@ -4704,7 +4701,7 @@ proto_item_set_generated.exit:                    ; preds = %32, %29, %23, %8, %
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @integer64_avp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #13
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
   %6 = icmp eq i32 %5, 8
   %7 = load ptr, ptr %0, align 8
   br i1 %6, label %8, label %22
@@ -4716,25 +4713,25 @@ define internal ptr @integer64_avp(ptr nocapture noundef readonly %0, ptr nocapt
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %1, i64 28
   %11 = load i32, ptr %10, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef 8, i32 noundef 0) #13
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef 8, i32 noundef 0) #14
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 408
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 241) #13
+  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 241) #14
   %18 = getelementptr inbounds i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8
-  tail call void @proto_item_fill_label(ptr noundef %19, ptr noundef %17) #13
-  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.69) #15
+  tail call void @proto_item_fill_label(ptr noundef %19, ptr noundef %17) #14
+  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.69) #16
   %21 = getelementptr i8, ptr %20, i64 2
   br label %proto_item_set_generated.exit
 
 22:                                               ; preds = %4
   %23 = load i32, ptr @hf_diameter_avp_data_wrong_length, align 4
-  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %7, i32 noundef %23, ptr noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.122) #13
+  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %7, i32 noundef %23, ptr noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.122) #14
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %26, ptr noundef %24, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.123, i32 noundef %5) #13
+  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %26, ptr noundef %24, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.123, i32 noundef %5) #14
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %28
 
@@ -4758,7 +4755,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %28, %22, %8, %
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @unsigned64_avp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #13
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
   %6 = icmp eq i32 %5, 8
   %7 = load ptr, ptr %0, align 8
   br i1 %6, label %8, label %22
@@ -4770,25 +4767,25 @@ define internal ptr @unsigned64_avp(ptr nocapture noundef readonly %0, ptr nocap
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %1, i64 28
   %11 = load i32, ptr %10, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef 8, i32 noundef 0) #13
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef 8, i32 noundef 0) #14
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 408
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 241) #13
+  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 241) #14
   %18 = getelementptr inbounds i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8
-  tail call void @proto_item_fill_label(ptr noundef %19, ptr noundef %17) #13
-  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.69) #15
+  tail call void @proto_item_fill_label(ptr noundef %19, ptr noundef %17) #14
+  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.69) #16
   %21 = getelementptr i8, ptr %20, i64 2
   br label %proto_item_set_generated.exit
 
 22:                                               ; preds = %4
   %23 = load i32, ptr @hf_diameter_avp_data_wrong_length, align 4
-  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %7, i32 noundef %23, ptr noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.124) #13
+  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %7, i32 noundef %23, ptr noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.124) #14
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %26, ptr noundef %24, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.125, i32 noundef %5) #13
+  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %26, ptr noundef %24, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.125, i32 noundef %5) #14
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %28
 
@@ -4812,7 +4809,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %28, %22, %8, %
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @float32_avp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #13
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
   %6 = icmp eq i32 %5, 4
   %7 = load ptr, ptr %0, align 8
   br i1 %6, label %8, label %22
@@ -4824,25 +4821,25 @@ define internal ptr @float32_avp(ptr nocapture noundef readonly %0, ptr nocaptur
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %1, i64 28
   %11 = load i32, ptr %10, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef 4, i32 noundef 0) #13
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef 4, i32 noundef 0) #14
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 408
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 241) #13
+  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 241) #14
   %18 = getelementptr inbounds i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8
-  tail call void @proto_item_fill_label(ptr noundef %19, ptr noundef %17) #13
-  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.69) #15
+  tail call void @proto_item_fill_label(ptr noundef %19, ptr noundef %17) #14
+  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.69) #16
   %21 = getelementptr i8, ptr %20, i64 2
   br label %proto_item_set_generated.exit
 
 22:                                               ; preds = %4
   %23 = load i32, ptr @hf_diameter_avp_data_wrong_length, align 4
-  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %7, i32 noundef %23, ptr noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.126) #13
+  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %7, i32 noundef %23, ptr noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.126) #14
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %26, ptr noundef %24, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.127, i32 noundef %5) #13
+  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %26, ptr noundef %24, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.127, i32 noundef %5) #14
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %28
 
@@ -4866,7 +4863,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %28, %22, %8, %
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @float64_avp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #13
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
   %6 = icmp eq i32 %5, 8
   %7 = load ptr, ptr %0, align 8
   br i1 %6, label %8, label %22
@@ -4878,25 +4875,25 @@ define internal ptr @float64_avp(ptr nocapture noundef readonly %0, ptr nocaptur
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %1, i64 28
   %11 = load i32, ptr %10, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef 8, i32 noundef 0) #13
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %7, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef 8, i32 noundef 0) #14
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 408
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 241) #13
+  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 241) #14
   %18 = getelementptr inbounds i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8
-  tail call void @proto_item_fill_label(ptr noundef %19, ptr noundef %17) #13
-  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.69) #15
+  tail call void @proto_item_fill_label(ptr noundef %19, ptr noundef %17) #14
+  %20 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.69) #16
   %21 = getelementptr i8, ptr %20, i64 2
   br label %proto_item_set_generated.exit
 
 22:                                               ; preds = %4
   %23 = load i32, ptr @hf_diameter_avp_data_wrong_length, align 4
-  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %7, i32 noundef %23, ptr noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.128) #13
+  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %7, i32 noundef %23, ptr noundef %2, i32 noundef 0, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.128) #14
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %26, ptr noundef %24, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.129, i32 noundef %5) #13
+  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %26, ptr noundef %24, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.129, i32 noundef %5) #14
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %28
 
@@ -4925,10 +4922,10 @@ define internal ptr @build_address_avp(ptr nocapture readnone %0, i32 noundef %1
   %9 = alloca %struct.hf_register_info, align 8
   %10 = alloca %struct.hf_register_info, align 8
   %11 = alloca %struct.hf_register_info, align 8
-  %12 = tail call ptr @wmem_epan_scope() #13
-  %13 = tail call noalias ptr @wmem_alloc0(ptr noundef %12, i64 noundef 40) #13
-  %14 = tail call ptr @wmem_epan_scope() #13
-  %15 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef 24) #13
+  %12 = tail call ptr @wmem_epan_scope() #14
+  %13 = tail call noalias ptr @wmem_alloc0(ptr noundef %12, i64 noundef 40) #14
+  %14 = tail call ptr @wmem_epan_scope() #14
+  %15 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef 24) #14
   store i32 %1, ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %2, ptr %16, align 8
@@ -4948,10 +4945,10 @@ define internal ptr @build_address_avp(ptr nocapture readnone %0, i32 noundef %1
   %25 = getelementptr inbounds i8, ptr %15, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %15, i8 -1, i64 24, i1 false)
   tail call fastcc void @basic_avp_reginfo(ptr noundef nonnull %13, ptr noundef %3, i32 noundef 30, i32 noundef 0, ptr noundef null)
-  %26 = tail call ptr @wmem_epan_scope() #13
-  %27 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %26, ptr noundef %3, ptr noundef nonnull @.str.130, ptr noundef null) #13
-  %28 = tail call ptr @wmem_epan_scope() #13
-  %29 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %28, ptr noundef nonnull @.str.117, ptr noundef %3, ptr noundef nonnull @.str.131, ptr noundef null) #13
+  %26 = tail call ptr @wmem_epan_scope() #14
+  %27 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %26, ptr noundef %3, ptr noundef nonnull @.str.130, ptr noundef null) #14
+  %28 = tail call ptr @wmem_epan_scope() #14
+  %29 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %28, ptr noundef nonnull @.str.117, ptr noundef %3, ptr noundef nonnull @.str.131, ptr noundef null) #14
   %30 = load i8, ptr %29, align 1
   %.not23.i = icmp eq i8 %30, 0
   br i1 %.not23.i, label %alnumerize.exit, label %.lr.ph.i
@@ -5019,14 +5016,14 @@ alnumerize.exit:                                  ; preds = %40, %6
   store ptr null, ptr %53, align 8
   store ptr @diameter_avp_data_addrfamily_vals_ext, ptr %47, align 8
   %54 = load ptr, ptr @build_dict.0, align 8
-  call void @wmem_array_append(ptr noundef %54, ptr noundef nonnull %11, i32 noundef 1) #13
+  call void @wmem_array_append(ptr noundef %54, ptr noundef nonnull %11, i32 noundef 1) #14
   %55 = load ptr, ptr @build_dict.0, align 8
-  %56 = call i32 @wmem_array_get_count(ptr noundef %55) #13
+  %56 = call i32 @wmem_array_get_count(ptr noundef %55) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11)
-  %57 = call ptr @wmem_epan_scope() #13
-  %58 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %57, ptr noundef %3, ptr noundef nonnull @.str.132, ptr noundef null) #13
-  %59 = call ptr @wmem_epan_scope() #13
-  %60 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %59, ptr noundef nonnull @.str.117, ptr noundef %3, ptr noundef nonnull @.str.133, ptr noundef null) #13
+  %57 = call ptr @wmem_epan_scope() #14
+  %58 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %57, ptr noundef %3, ptr noundef nonnull @.str.132, ptr noundef null) #14
+  %59 = call ptr @wmem_epan_scope() #14
+  %60 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %59, ptr noundef nonnull @.str.117, ptr noundef %3, ptr noundef nonnull @.str.133, ptr noundef null) #14
   %61 = load i8, ptr %60, align 1
   %.not23.i36 = icmp eq i8 %61, 0
   br i1 %.not23.i36, label %alnumerize.exit46, label %.lr.ph.i37
@@ -5090,14 +5087,14 @@ alnumerize.exit46:                                ; preds = %71, %alnumerize.exi
   %82 = getelementptr inbounds i8, ptr %10, i64 72
   store ptr null, ptr %82, align 8
   %83 = load ptr, ptr @build_dict.0, align 8
-  call void @wmem_array_append(ptr noundef %83, ptr noundef nonnull %10, i32 noundef 1) #13
+  call void @wmem_array_append(ptr noundef %83, ptr noundef nonnull %10, i32 noundef 1) #14
   %84 = load ptr, ptr @build_dict.0, align 8
-  %85 = call i32 @wmem_array_get_count(ptr noundef %84) #13
+  %85 = call i32 @wmem_array_get_count(ptr noundef %84) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10)
-  %86 = call ptr @wmem_epan_scope() #13
-  %87 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %86, ptr noundef %3, ptr noundef nonnull @.str.132, ptr noundef null) #13
-  %88 = call ptr @wmem_epan_scope() #13
-  %89 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %88, ptr noundef nonnull @.str.117, ptr noundef %3, ptr noundef nonnull @.str.134, ptr noundef null) #13
+  %86 = call ptr @wmem_epan_scope() #14
+  %87 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %86, ptr noundef %3, ptr noundef nonnull @.str.132, ptr noundef null) #14
+  %88 = call ptr @wmem_epan_scope() #14
+  %89 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %88, ptr noundef nonnull @.str.117, ptr noundef %3, ptr noundef nonnull @.str.134, ptr noundef null) #14
   %90 = load i8, ptr %89, align 1
   %.not23.i47 = icmp eq i8 %90, 0
   br i1 %.not23.i47, label %alnumerize.exit57, label %.lr.ph.i48
@@ -5161,14 +5158,14 @@ alnumerize.exit57:                                ; preds = %100, %alnumerize.ex
   %111 = getelementptr inbounds i8, ptr %9, i64 72
   store ptr null, ptr %111, align 8
   %112 = load ptr, ptr @build_dict.0, align 8
-  call void @wmem_array_append(ptr noundef %112, ptr noundef nonnull %9, i32 noundef 1) #13
+  call void @wmem_array_append(ptr noundef %112, ptr noundef nonnull %9, i32 noundef 1) #14
   %113 = load ptr, ptr @build_dict.0, align 8
-  %114 = call i32 @wmem_array_get_count(ptr noundef %113) #13
+  %114 = call i32 @wmem_array_get_count(ptr noundef %113) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9)
-  %115 = call ptr @wmem_epan_scope() #13
-  %116 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %115, ptr noundef %3, ptr noundef nonnull @.str.132, ptr noundef null) #13
-  %117 = call ptr @wmem_epan_scope() #13
-  %118 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %117, ptr noundef nonnull @.str.117, ptr noundef %3, ptr noundef nonnull @.str.135, ptr noundef null) #13
+  %115 = call ptr @wmem_epan_scope() #14
+  %116 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %115, ptr noundef %3, ptr noundef nonnull @.str.132, ptr noundef null) #14
+  %117 = call ptr @wmem_epan_scope() #14
+  %118 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %117, ptr noundef nonnull @.str.117, ptr noundef %3, ptr noundef nonnull @.str.135, ptr noundef null) #14
   %119 = load i8, ptr %118, align 1
   %.not23.i58 = icmp eq i8 %119, 0
   br i1 %.not23.i58, label %alnumerize.exit68, label %.lr.ph.i59
@@ -5232,14 +5229,14 @@ alnumerize.exit68:                                ; preds = %129, %alnumerize.ex
   %140 = getelementptr inbounds i8, ptr %8, i64 72
   store ptr null, ptr %140, align 8
   %141 = load ptr, ptr @build_dict.0, align 8
-  call void @wmem_array_append(ptr noundef %141, ptr noundef nonnull %8, i32 noundef 1) #13
+  call void @wmem_array_append(ptr noundef %141, ptr noundef nonnull %8, i32 noundef 1) #14
   %142 = load ptr, ptr @build_dict.0, align 8
-  %143 = call i32 @wmem_array_get_count(ptr noundef %142) #13
+  %143 = call i32 @wmem_array_get_count(ptr noundef %142) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
-  %144 = call ptr @wmem_epan_scope() #13
-  %145 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %144, ptr noundef %3, ptr noundef nonnull @.str.132, ptr noundef null) #13
-  %146 = call ptr @wmem_epan_scope() #13
-  %147 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %146, ptr noundef nonnull @.str.117, ptr noundef %3, ptr noundef nonnull @.str.136, ptr noundef null) #13
+  %144 = call ptr @wmem_epan_scope() #14
+  %145 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %144, ptr noundef %3, ptr noundef nonnull @.str.132, ptr noundef null) #14
+  %146 = call ptr @wmem_epan_scope() #14
+  %147 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %146, ptr noundef nonnull @.str.117, ptr noundef %3, ptr noundef nonnull @.str.136, ptr noundef null) #14
   %148 = load i8, ptr %147, align 1
   %.not23.i69 = icmp eq i8 %148, 0
   br i1 %.not23.i69, label %alnumerize.exit79, label %.lr.ph.i70
@@ -5304,18 +5301,18 @@ alnumerize.exit79:                                ; preds = %158, %alnumerize.ex
   %170 = getelementptr inbounds i8, ptr %7, i64 72
   store ptr null, ptr %170, align 8
   %171 = load ptr, ptr @build_dict.0, align 8
-  call void @wmem_array_append(ptr noundef %171, ptr noundef nonnull %7, i32 noundef 1) #13
+  call void @wmem_array_append(ptr noundef %171, ptr noundef nonnull %7, i32 noundef 1) #14
   %172 = load ptr, ptr @build_dict.0, align 8
-  %173 = call i32 @wmem_array_get_count(ptr noundef %172) #13
+  %173 = call i32 @wmem_array_get_count(ptr noundef %172) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
   %174 = load ptr, ptr @build_dict.1, align 8
-  call void @g_ptr_array_add(ptr noundef %174, ptr noundef nonnull %15) #13
+  call void @g_ptr_array_add(ptr noundef %174, ptr noundef nonnull %15) #14
   ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_avp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #13
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
   %.not = icmp eq i32 %5, 4
   %6 = load ptr, ptr %0, align 8
   br i1 %.not, label %11, label %7
@@ -5323,7 +5320,7 @@ define internal ptr @time_avp(ptr nocapture noundef readonly %0, ptr nocapture n
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %6, ptr noundef %9, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull @.str.166, i32 noundef %5) #13
+  %10 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %6, ptr noundef %9, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull @.str.166, i32 noundef %5) #14
   br label %26
 
 11:                                               ; preds = %4
@@ -5335,15 +5332,15 @@ define internal ptr @time_avp(ptr nocapture noundef readonly %0, ptr nocapture n
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 408
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 241) #13
+  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 241) #14
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %1, i64 28
   %20 = load i32, ptr %19, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %20, ptr noundef %2, i32 noundef 0, i32 noundef 4, i32 noundef 24) #13
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %20, ptr noundef %2, i32 noundef 0, i32 noundef 4, i32 noundef 24) #14
   %22 = getelementptr inbounds i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  tail call void @proto_item_fill_label(ptr noundef %23, ptr noundef %17) #13
-  %24 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.69) #15
+  tail call void @proto_item_fill_label(ptr noundef %23, ptr noundef %17) #14
+  %24 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.69) #16
   %25 = getelementptr i8, ptr %24, i64 2
   br label %26
 
@@ -5354,8 +5351,8 @@ define internal ptr @time_avp(ptr nocapture noundef readonly %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @build_appid_avp(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4, ptr nocapture readnone %5) #0 {
-  %7 = tail call ptr @wmem_epan_scope() #13
-  %8 = tail call noalias ptr @wmem_alloc0(ptr noundef %7, i64 noundef 40) #13
+  %7 = tail call ptr @wmem_epan_scope() #14
+  %8 = tail call noalias ptr @wmem_alloc0(ptr noundef %7, i64 noundef 40) #14
   store i32 %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %2, ptr %9, align 8
@@ -5371,7 +5368,7 @@ define internal noundef ptr @build_appid_avp(ptr nocapture noundef readonly %0, 
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %6
-  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.167, ptr noundef %3) #13
+  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.167, ptr noundef %3) #14
   br label %16
 
 16:                                               ; preds = %15, %6
@@ -5408,19 +5405,19 @@ define internal fastcc void @basic_avp_reginfo(ptr noundef %0, ptr noundef %1, i
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %16, 0
-  %17 = tail call ptr @wmem_epan_scope() #13
+  %17 = tail call ptr @wmem_epan_scope() #14
   br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %5
   %19 = load ptr, ptr %14, align 8
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %0, align 8
-  %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull @.str.115, i32 noundef %20, i32 noundef %21) #13
+  %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull @.str.115, i32 noundef %20, i32 noundef %21) #14
   br label %26
 
 23:                                               ; preds = %5
   %24 = load i32, ptr %0, align 8
-  %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull @.str.116, i32 noundef %24) #13
+  %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull @.str.116, i32 noundef %24) #14
   br label %26
 
 26:                                               ; preds = %23, %18
@@ -5437,11 +5434,11 @@ define internal fastcc void @basic_avp_reginfo(ptr noundef %0, ptr noundef %1, i
   store i32 -1, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %6, i64 72
   store ptr null, ptr %33, align 8
-  %34 = tail call ptr @wmem_epan_scope() #13
-  %35 = tail call noalias ptr @wmem_strdup(ptr noundef %34, ptr noundef %1) #13
+  %34 = tail call ptr @wmem_epan_scope() #14
+  %35 = tail call noalias ptr @wmem_strdup(ptr noundef %34, ptr noundef %1) #14
   store ptr %35, ptr %8, align 8
-  %36 = tail call ptr @wmem_epan_scope() #13
-  %37 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %36, ptr noundef nonnull @.str.117, ptr noundef %1, ptr noundef null) #13
+  %36 = tail call ptr @wmem_epan_scope() #14
+  %37 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %36, ptr noundef nonnull @.str.117, ptr noundef %1, ptr noundef null) #14
   %38 = load i8, ptr %37, align 1
   %.not23.i = icmp eq i8 %38, 0
   br i1 %.not23.i, label %alnumerize.exit, label %.lr.ph.i
@@ -5495,9 +5492,9 @@ alnumerize.exit:                                  ; preds = %48, %26
 52:                                               ; preds = %51, %alnumerize.exit
   %53 = getelementptr inbounds i8, ptr %0, i64 24
   %54 = load ptr, ptr @build_dict.0, align 8
-  call void @wmem_array_append(ptr noundef %54, ptr noundef nonnull %6, i32 noundef 1) #13
+  call void @wmem_array_append(ptr noundef %54, ptr noundef nonnull %6, i32 noundef 1) #14
   %55 = load ptr, ptr @build_dict.1, align 8
-  call void @g_ptr_array_add(ptr noundef %55, ptr noundef nonnull %53) #13
+  call void @g_ptr_array_add(ptr noundef %55, ptr noundef nonnull %53) #14
   ret void
 }
 
@@ -5514,11 +5511,11 @@ define internal ptr @address_radius_avp(ptr nocapture noundef readonly %0, ptr n
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 28
   %9 = load i32, ptr %8, align 4
-  %10 = tail call i32 @tvb_reported_length(ptr noundef %2) #13
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %9, ptr noundef %2, i32 noundef 0, i32 noundef %10, i32 noundef 0) #13
+  %10 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %9, ptr noundef %2, i32 noundef 0, i32 noundef %10, i32 noundef 0) #14
   %12 = load i32, ptr %6, align 4
-  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #13
-  %14 = tail call i32 @tvb_reported_length(ptr noundef %2) #13
+  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #14
+  %14 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
   switch i32 %14, label %23 [
     i32 4, label %15
     i32 16, label %19
@@ -5527,22 +5524,22 @@ define internal ptr @address_radius_avp(ptr nocapture noundef readonly %0, ptr n
 15:                                               ; preds = %4
   %16 = getelementptr inbounds i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %17, ptr noundef %2, i32 noundef 0, i32 noundef 4, i32 noundef 0) #13
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %17, ptr noundef %2, i32 noundef 0, i32 noundef 4, i32 noundef 0) #14
   br label %30
 
 19:                                               ; preds = %4
   %20 = getelementptr inbounds i8, ptr %6, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %21, ptr noundef %2, i32 noundef 0, i32 noundef 16, i32 noundef 0) #13
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %21, ptr noundef %2, i32 noundef 0, i32 noundef 16, i32 noundef 0) #14
   br label %30
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds i8, ptr %6, i64 20
   %25 = load i32, ptr %24, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %25, ptr noundef %2, i32 noundef 0, i32 noundef %14, i32 noundef 0) #13
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %25, ptr noundef %2, i32 noundef 0, i32 noundef %14, i32 noundef 0) #14
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %28, ptr noundef %26, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.137, i32 noundef %14) #13
+  %29 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %28, ptr noundef %26, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef nonnull @.str.137, i32 noundef %14) #14
   br label %30
 
 30:                                               ; preds = %23, %19, %15
@@ -5556,11 +5553,11 @@ define internal ptr @address_radius_avp(ptr nocapture noundef readonly %0, ptr n
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 408
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call noalias ptr @wmem_alloc(ptr noundef %36, i64 noundef 241) #13
+  %37 = tail call noalias ptr @wmem_alloc(ptr noundef %36, i64 noundef 241) #14
   %38 = getelementptr inbounds i8, ptr %.027, i64 32
   %39 = load ptr, ptr %38, align 8
-  tail call void @proto_item_fill_label(ptr noundef %39, ptr noundef %37) #13
-  %40 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) @.str.69) #15
+  tail call void @proto_item_fill_label(ptr noundef %39, ptr noundef %37) #14
+  %40 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) @.str.69) #16
   %41 = getelementptr i8, ptr %40, i64 2
   br label %42
 
@@ -5574,17 +5571,17 @@ define internal ptr @address_rfc_avp(ptr nocapture noundef readonly %0, ptr noca
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %2) #13
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 28
   %11 = load i32, ptr %10, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef %8, i32 noundef 0) #13
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %2, i32 noundef 0, i32 noundef %8, i32 noundef 0) #14
   %13 = load i32, ptr %7, align 4
-  %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #13
+  %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #14
   %15 = add i32 %8, -2
   %16 = getelementptr inbounds i8, ptr %7, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %17, ptr noundef %2, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #13
+  %18 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %17, ptr noundef %2, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #14
   %19 = load i32, ptr %5, align 4
   switch i32 %19, label %32 [
     i32 1, label %20
@@ -5599,7 +5596,7 @@ define internal ptr @address_rfc_avp(ptr nocapture noundef readonly %0, ptr noca
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %23, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef %2, i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.138, i32 noundef %15) #13
+  %24 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %23, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef %2, i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.138, i32 noundef %15) #14
   br label %47
 
 25:                                               ; preds = %4
@@ -5609,11 +5606,11 @@ define internal ptr @address_rfc_avp(ptr nocapture noundef readonly %0, ptr noca
 26:                                               ; preds = %25
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %28, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef %2, i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.140, i32 noundef %15) #13
+  %29 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %28, ptr noundef nonnull @ei_diameter_avp_len, ptr noundef %2, i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.140, i32 noundef %15) #14
   br label %47
 
 30:                                               ; preds = %4
-  %31 = call i32 @tvb_ascii_isprint(ptr noundef %2, i32 noundef 2, i32 noundef %15) #13
+  %31 = call i32 @tvb_ascii_isprint(ptr noundef %2, i32 noundef 2, i32 noundef %15) #14
   %.not = icmp eq i32 %31, 0
   %. = select i1 %.not, i64 20, i64 16
   %.56 = select i1 %.not, i32 -1, i32 %15
@@ -5624,7 +5621,7 @@ define internal ptr @address_rfc_avp(ptr nocapture noundef readonly %0, ptr noca
   %.sink54 = phi i32 [ 4, %20 ], [ 16, %25 ], [ %.56, %30 ], [ -1, %4 ]
   %33 = getelementptr inbounds i8, ptr %7, i64 %.sink
   %34 = load i32, ptr %33, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %34, ptr noundef %2, i32 noundef 2, i32 noundef %.sink54, i32 noundef 0) #13
+  %35 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %34, ptr noundef %2, i32 noundef 2, i32 noundef %.sink54, i32 noundef 0) #14
   %36 = load ptr, ptr %0, align 8
   %.not53 = icmp eq ptr %36, null
   br i1 %.not53, label %47, label %37
@@ -5634,11 +5631,11 @@ define internal ptr @address_rfc_avp(ptr nocapture noundef readonly %0, ptr noca
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 408
   %41 = load ptr, ptr %40, align 8
-  %42 = call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef 241) #13
+  %42 = call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef 241) #14
   %43 = getelementptr inbounds i8, ptr %35, i64 32
   %44 = load ptr, ptr %43, align 8
-  call void @proto_item_fill_label(ptr noundef %44, ptr noundef %42) #13
-  %45 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) @.str.69) #15
+  call void @proto_item_fill_label(ptr noundef %44, ptr noundef %42) #14
+  %45 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) @.str.69) #16
   %46 = getelementptr i8, ptr %45, i64 2
   br label %47
 
@@ -5705,11 +5702,14 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 
 declare ptr @dissect_e164_msisdn(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5723,11 +5723,12 @@ attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #9 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind returns_twice }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind returns_twice }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

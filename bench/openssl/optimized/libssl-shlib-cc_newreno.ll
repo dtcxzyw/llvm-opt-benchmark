@@ -727,8 +727,8 @@ if.end:                                           ; preds = %if.end.i, %entry, %
   %5 = load i64, ptr %info, align 8
   %6 = getelementptr i8, ptr %cc, i64 88
   %cc.val = load i64, ptr %6, align 8
-  %cmp.i.i.not = icmp ugt i64 %5, %cc.val
-  br i1 %cmp.i.i.not, label %if.else, label %out
+  %cmp.i.not = icmp ugt i64 %5, %cc.val
+  br i1 %cmp.i.not, label %if.else, label %out
 
 if.else:                                          ; preds = %if.end
   %slow_start_thresh = getelementptr inbounds i8, ptr %cc, i64 72
@@ -864,8 +864,8 @@ if.end.if.end9_crit_edge:                         ; preds = %if.end
 if.then3:                                         ; preds = %if.end
   %3 = load i64, ptr %info, align 8
   %4 = load i64, ptr %tx_time_of_last_loss, align 8
-  %cmp.i.not = icmp ugt i64 %3, %4
-  br i1 %cmp.i.not, label %if.end7, label %out
+  %cmp5.not = icmp ugt i64 %3, %4
+  br i1 %cmp5.not, label %if.end7, label %out
 
 if.end7:                                          ; preds = %if.then3
   store i32 1, ptr %processing_loss, align 8
@@ -946,11 +946,11 @@ if.else.i:                                        ; preds = %if.then15.i
   %slow_start_thresh.i = getelementptr inbounds i8, ptr %cc, i64 72
   %18 = load i64, ptr %slow_start_thresh.i, align 8
   %cmp19.i = icmp ult i64 %17, %18
-  %..i13 = select i1 %cmp19.i, i32 83, i32 65
+  %..i = select i1 %cmp19.i, i32 83, i32 65
   br label %if.end26.sink.split.i
 
 if.end26.sink.split.i:                            ; preds = %if.else.i, %if.then15.i
-  %.sink.i = phi i32 [ 82, %if.then15.i ], [ %..i13, %if.else.i ]
+  %.sink.i = phi i32 [ 82, %if.then15.i ], [ %..i, %if.else.i ]
   store i32 %.sink.i, ptr %15, align 4
   br label %return
 
@@ -1084,8 +1084,8 @@ if.end:                                           ; preds = %entry
   %1 = load i64, ptr %tx_time_of_last_loss, align 8
   %2 = getelementptr i8, ptr %nr, i64 88
   %nr.val.i = load i64, ptr %2, align 8
-  %cmp.i.i.not.i = icmp ugt i64 %1, %nr.val.i
-  br i1 %cmp.i.i.not.i, label %if.end.i, label %newreno_cong.exit
+  %cmp.i.not.i = icmp ugt i64 %1, %nr.val.i
+  br i1 %cmp.i.not.i, label %if.end.i, label %newreno_cong.exit
 
 if.end.i:                                         ; preds = %if.end
   %in_congestion_recovery.i = getelementptr inbounds i8, ptr %nr, i64 112
@@ -1103,18 +1103,18 @@ if.end.i:                                         ; preds = %if.end
   %k_loss_reduction_factor_den.i = getelementptr inbounds i8, ptr %nr, i64 36
   %7 = load i32, ptr %k_loss_reduction_factor_den.i, align 4
   %conv4.i = zext i32 %7 to i64
-  %cmp.i.i = icmp eq i32 %7, 0
-  br i1 %cmp.i.i, label %safe_muldiv_u64.exit.thread37.i, label %if.end.i.i
+  %cmp.i17.i = icmp eq i32 %7, 0
+  br i1 %cmp.i17.i, label %safe_muldiv_u64.exit.thread38.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %8 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %5, i64 %conv.i)
   %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %if.end4.i.i, label %safe_muldiv_u64.exit.thread26.i
+  br i1 %9, label %if.end4.i.i, label %safe_muldiv_u64.exit.thread27.i
 
-safe_muldiv_u64.exit.thread26.i:                  ; preds = %if.end.i.i
+safe_muldiv_u64.exit.thread27.i:                  ; preds = %if.end.i.i
   %10 = extractvalue { i64, i1 } %8, 0
   %div.i.i = udiv i64 %10, %conv4.i
-  br label %safe_muldiv_u64.exit.thread37.i
+  br label %safe_muldiv_u64.exit.thread38.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %conv.i, i64 %5)
@@ -1123,26 +1123,26 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   %rem.i.i = urem i64 %spec.select20.i.i, %conv4.i
   %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %div9.i.i, i64 %spec.select.i.i)
   %12 = extractvalue { i64, i1 } %11, 1
-  br i1 %12, label %safe_muldiv_u64.exit.thread37.i, label %safe_mul_u64.exit32.i.i
+  br i1 %12, label %safe_muldiv_u64.exit.thread38.i, label %safe_mul_u64.exit32.i.i
 
 safe_mul_u64.exit32.i.i:                          ; preds = %if.end4.i.i
   %13 = mul nuw i64 %rem.i.i, %spec.select.i.i
   %14 = extractvalue { i64, i1 } %11, 0
   %div11.i.i = udiv i64 %13, %conv4.i
   %spec.select.i = tail call i64 @llvm.uadd.sat.i64(i64 %14, i64 %div11.i.i)
-  br label %safe_muldiv_u64.exit.thread37.i
+  br label %safe_muldiv_u64.exit.thread38.i
 
-safe_muldiv_u64.exit.thread37.i:                  ; preds = %safe_mul_u64.exit32.i.i, %if.end4.i.i, %safe_muldiv_u64.exit.thread26.i, %if.end.i
-  %15 = phi i64 [ %div.i.i, %safe_muldiv_u64.exit.thread26.i ], [ -1, %if.end.i ], [ -1, %if.end4.i.i ], [ %spec.select.i, %safe_mul_u64.exit32.i.i ]
-  %slow_start_thresh25.i = getelementptr inbounds i8, ptr %nr, i64 72
-  store i64 %15, ptr %slow_start_thresh25.i, align 8
+safe_muldiv_u64.exit.thread38.i:                  ; preds = %safe_mul_u64.exit32.i.i, %if.end4.i.i, %safe_muldiv_u64.exit.thread27.i, %if.end.i
+  %15 = phi i64 [ %div.i.i, %safe_muldiv_u64.exit.thread27.i ], [ -1, %if.end.i ], [ -1, %if.end4.i.i ], [ %spec.select.i, %safe_mul_u64.exit32.i.i ]
+  %slow_start_thresh26.i = getelementptr inbounds i8, ptr %nr, i64 72
+  store i64 %15, ptr %slow_start_thresh26.i, align 8
   %k_min_wnd.i = getelementptr inbounds i8, ptr %nr, i64 24
   %16 = load i64, ptr %k_min_wnd.i, align 8
   %spec.store.select16.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %16)
   store i64 %spec.store.select16.i, ptr %cong_wnd.i, align 8
   br label %newreno_cong.exit
 
-newreno_cong.exit:                                ; preds = %if.end, %safe_muldiv_u64.exit.thread37.i
+newreno_cong.exit:                                ; preds = %if.end, %safe_muldiv_u64.exit.thread38.i
   %and = and i32 %flags, 1
   %cmp.not = icmp eq i32 %and, 0
   br i1 %cmp.not, label %if.end3, label %if.then1

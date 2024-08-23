@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @openIntSet() local_unnamed_addr #0 {
   %1 = load ptr, ptr @Dtoset, align 8
-  %2 = tail call ptr @dtopen(ptr noundef nonnull @intSetDisc, ptr noundef %1) #10
+  %2 = tail call ptr @dtopen(ptr noundef nonnull @intSetDisc, ptr noundef %1) #11
   ret ptr %2
 }
 
@@ -27,7 +27,7 @@ define void @addIntSet(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.intitem, align 8
   store i32 %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1) #10
+  %5 = call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1) #11
   ret void
 }
 
@@ -36,7 +36,7 @@ define range(i32 0, 2) i32 @inIntSet(ptr noundef %0, i32 noundef %1) local_unnam
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
   %4 = load ptr, ptr %0, align 8
-  %5 = call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 512) #10
+  %5 = call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 512) #11
   %6 = icmp ne ptr %5, null
   %7 = zext i1 %6 to i32
   ret i32 %7
@@ -44,14 +44,14 @@ define range(i32 0, 2) i32 @inIntSet(ptr noundef %0, i32 noundef %1) local_unnam
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noalias noundef ptr @mkIntItem(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
-  %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #11
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.1, i64 noundef 24) #12
-  tail call fastcc void @graphviz_exit() #13
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.1, i64 noundef 24) #13
+  tail call fastcc void @graphviz_exit() #14
   unreachable
 
 gv_alloc.exit:                                    ; preds = %2
@@ -62,7 +62,7 @@ gv_alloc.exit:                                    ; preds = %2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @freeIntItem(ptr nocapture noundef %0, ptr nocapture readnone %1) #3 {
-  tail call void @free(ptr noundef %0) #10
+  tail call void @free(ptr noundef %0) #11
   ret void
 }
 
@@ -70,10 +70,7 @@ define internal void @freeIntItem(ptr nocapture noundef %0, ptr nocapture readno
 define internal range(i32 -1, 2) i32 @cmpid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #4 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %2, align 4
-  %7 = icmp sgt i32 %5, %6
-  %8 = icmp slt i32 %5, %6
-  %. = sext i1 %8 to i32
-  %.0 = select i1 %7, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %5, i32 %6)
   ret i32 %.0
 }
 
@@ -82,7 +79,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #6 {
-  tail call void @exit(i32 noundef 1) #14
+  tail call void @exit(i32 noundef 1) #15
   unreachable
 }
 
@@ -95,6 +92,9 @@ declare void @exit(i32 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #10
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -105,11 +105,12 @@ attributes #6 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "m
 attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0,1) }
-attributes #12 = { cold nounwind }
-attributes #13 = { noreturn }
-attributes #14 = { cold noreturn nounwind }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(0,1) }
+attributes #13 = { cold nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

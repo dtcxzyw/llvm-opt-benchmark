@@ -94,14 +94,14 @@ define internal range(i32 -1, 1) i32 @H5A__dense_btree2_name_compare(ptr nocaptu
   %.0.in.v = select i1 %.not, i64 8, i64 16
   %.0.in = getelementptr inbounds i8, ptr %0, i64 %.0.in.v
   %.0 = load ptr, ptr %.0.in, align 8
-  %30 = call i32 @H5HF_op(ptr noundef %.0, ptr noundef nonnull %1, ptr noundef nonnull @H5A__dense_fh_name_cmp, ptr noundef nonnull %4) #6
+  %30 = call i32 @H5HF_op(ptr noundef %.0, ptr noundef nonnull %1, ptr noundef nonnull @H5A__dense_fh_name_cmp, ptr noundef nonnull %4) #7
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %14
   %33 = load i64, ptr @H5E_HEAP_g, align 8
   %34 = load i64, ptr @H5E_CANTCOMPARE_g, align 8
-  %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5A__dense_btree2_name_compare, i32 noundef 264, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.3) #6
+  %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5A__dense_btree2_name_compare, i32 noundef 264, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.3) #7
   br label %38
 
 36:                                               ; preds = %14
@@ -232,7 +232,7 @@ define internal noundef i32 @H5A__dense_btree2_name_debug(ptr nocapture noundef 
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds i8, ptr %3, i64 16
   %13 = load i32, ptr %12, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %6, i32 noundef %9, i32 noundef %11, i32 noundef %13) #6
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %6, i32 noundef %9, i32 noundef %11, i32 noundef %13) #7
   ret i32 0
 }
 
@@ -258,10 +258,7 @@ define internal noundef i32 @H5A__dense_btree2_corder_compare(ptr nocapture noun
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
-  %8 = icmp ult i32 %5, %7
-  %9 = icmp ugt i32 %5, %7
-  %. = zext i1 %9 to i32
-  %.sink = select i1 %8, i32 -1, i32 %.
+  %.sink = tail call i32 @llvm.ucmp.i32.i32(i32 %5, i32 %7)
   store i32 %.sink, ptr %2, align 4
   ret i32 0
 }
@@ -339,7 +336,7 @@ define internal noundef i32 @H5A__dense_btree2_corder_debug(ptr nocapture nounde
   %9 = zext i8 %8 to i32
   %10 = getelementptr inbounds i8, ptr %3, i64 12
   %11 = load i32, ptr %10, align 4
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %6, i32 noundef %9, i32 noundef %11) #6
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %6, i32 noundef %9, i32 noundef %11) #7
   ret i32 0
 }
 
@@ -350,7 +347,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_fh_name_cmp(ptr noundef %0, i64
   %4 = alloca i8, align 1
   store i8 0, ptr %4, align 1
   %5 = load ptr, ptr %2, align 8
-  %6 = tail call ptr @H5O_msg_decode(ptr noundef %5, ptr noundef null, i32 noundef 12, i64 noundef %1, ptr noundef %0) #6
+  %6 = tail call ptr @H5O_msg_decode(ptr noundef %5, ptr noundef null, i32 noundef 12, i64 noundef %1, ptr noundef %0) #7
   %7 = icmp eq ptr %6, null
   br i1 %7, label %46, label %8
 
@@ -361,7 +358,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_fh_name_cmp(ptr noundef %0, i64
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %14) #7
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %14) #8
   %16 = getelementptr inbounds i8, ptr %2, i64 40
   store i32 %15, ptr %16, align 8
   %17 = icmp eq i32 %15, 0
@@ -385,7 +382,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_fh_name_cmp(ptr noundef %0, i64
 27:                                               ; preds = %21
   %28 = load ptr, ptr %2, align 8
   %29 = load i64, ptr %23, align 8
-  %30 = tail call i32 @H5SM_reconstitute(ptr noundef nonnull %6, ptr noundef %28, i32 noundef 12, i64 %29) #6
+  %30 = tail call i32 @H5SM_reconstitute(ptr noundef nonnull %6, ptr noundef %28, i32 noundef 12, i64 %29) #7
   %.pre = load ptr, ptr %22, align 8
   br label %31
 
@@ -399,20 +396,20 @@ define internal range(i32 -1, 1) i32 @H5A__dense_fh_name_cmp(ptr noundef %0, i64
   %37 = load ptr, ptr %19, align 8
   %38 = getelementptr inbounds i8, ptr %2, i64 32
   %39 = load ptr, ptr %38, align 8
-  %40 = call i32 %37(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %39) #6
+  %40 = call i32 %37(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %39) #7
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %50
 
 42:                                               ; preds = %31
   %43 = load i64, ptr @H5E_OHDR_g, align 8
   %44 = load i64, ptr @H5E_CANTOPERATE_g, align 8
-  %45 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5A__dense_fh_name_cmp, i32 noundef 170, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.5) #6
+  %45 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5A__dense_fh_name_cmp, i32 noundef 170, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.5) #7
   br label %50
 
 46:                                               ; preds = %3
   %47 = load i64, ptr @H5E_OHDR_g, align 8
   %48 = load i64, ptr @H5E_CANTDECODE_g, align 8
-  %49 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5A__dense_fh_name_cmp, i32 noundef 154, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.4) #6
+  %49 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5A__dense_fh_name_cmp, i32 noundef 154, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.4) #7
   br label %55
 
 50:                                               ; preds = %8, %18, %31, %42
@@ -422,7 +419,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_fh_name_cmp(ptr noundef %0, i64
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %50
-  %54 = call ptr @H5O_msg_free(i32 noundef 12, ptr noundef nonnull %6) #6
+  %54 = call ptr @H5O_msg_free(i32 noundef 12, ptr noundef nonnull %6) #7
   br label %55
 
 55:                                               ; preds = %46, %53, %50
@@ -444,14 +441,18 @@ declare ptr @H5O_msg_free(i32 noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #6
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -411,10 +411,7 @@ if.then:                                          ; preds = %entry
   %conv = sext i32 %1 to i64
   %2 = load i64, ptr %this, align 8
   %mul = mul nsw i64 %2, %conv
-  %cmp = icmp sgt i64 %mul, %b
-  %cmp2 = icmp slt i64 %mul, %b
-  %cond = sext i1 %cmp2 to i32
-  %cond3 = select i1 %cmp, i32 1, i32 %cond
+  %cond3 = tail call i32 @llvm.scmp.i32.i64(i64 %mul, i64 %b)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -10311,6 +10308,9 @@ if.end17:                                         ; preds = %if.then16, %do.end
 if.end20:                                         ; preds = %if.end17
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #15

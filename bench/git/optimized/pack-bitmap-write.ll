@@ -2606,10 +2606,7 @@ entry:
   %idxprom1 = zext i32 %2 to i64
   %arrayidx2 = getelementptr inbounds i32, ptr %_data, i64 %idxprom1
   %3 = load i32, ptr %arrayidx2, align 4
-  %cmp = icmp ugt i32 %1, %3
-  %cmp3 = icmp ult i32 %1, %3
-  %. = sext i1 %cmp3 to i32
-  %retval.0 = select i1 %cmp, i32 1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %1, i32 %3)
   ret i32 %retval.0
 }
 
@@ -2630,6 +2627,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

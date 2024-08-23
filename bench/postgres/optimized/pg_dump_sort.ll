@@ -259,14 +259,11 @@ define internal i32 @DOTypeNameCompare(ptr nocapture noundef readonly %0, ptr no
   %111 = load i32, ptr %110, align 4
   %112 = getelementptr inbounds i8, ptr %4, i64 8
   %113 = load i32, ptr %112, align 4
-  %114 = icmp ult i32 %111, %113
-  %115 = icmp ugt i32 %111, %113
-  %116 = zext i1 %115 to i32
-  %117 = select i1 %114, i32 -1, i32 %116
+  %114 = tail call i32 @llvm.ucmp.i32.i32(i32 %111, i32 %113)
   br label %.loopexit111
 
 .loopexit111:                                     ; preds = %66, %60, %100, %90, %84, %76, %34, %27, %26, %19, %20, %2, %.loopexit
-  %.0 = phi i32 [ %117, %.loopexit ], [ %13, %2 ], [ %25, %20 ], [ -1, %19 ], [ 1, %26 ], [ %32, %27 ], [ %39, %34 ], [ %83, %76 ], [ %89, %84 ], [ %99, %90 ], [ %109, %100 ], [ %71, %66 ], [ %65, %60 ]
+  %.0 = phi i32 [ %114, %.loopexit ], [ %13, %2 ], [ %25, %20 ], [ -1, %19 ], [ 1, %26 ], [ %32, %27 ], [ %39, %34 ], [ %83, %76 ], [ %89, %84 ], [ %99, %90 ], [ %109, %100 ], [ %71, %66 ], [ %65, %60 ]
   ret i32 %.0
 }
 
@@ -1967,6 +1964,9 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

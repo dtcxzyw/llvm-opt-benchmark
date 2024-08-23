@@ -1504,8 +1504,8 @@ if.end:                                           ; preds = %if.end.i, %sw.bb6.i
   %3 = load ptr, ptr %ch, align 8
   %call3 = tail call ptr @ossl_quic_channel_get_reactor(ptr noundef %3) #8
   %call4 = tail call i64 @ossl_quic_reactor_get_tick_deadline(ptr noundef %call3) #8
-  %cmp5.i.not.i.not = icmp eq i64 %call4, -1
-  br i1 %cmp5.i.not.i.not, label %if.then9, label %if.end11
+  %cmp.i7.not = icmp eq i64 %call4, -1
+  br i1 %cmp.i7.not, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end
   store i32 1, ptr %is_infinite, align 4
@@ -1520,22 +1520,22 @@ if.end11:                                         ; preds = %if.end
   %override_now_cb.i = getelementptr inbounds i8, ptr %ctx.sroa.0.0, i64 272
   %4 = load ptr, ptr %override_now_cb.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i, label %if.else.i, label %if.then.i7
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i8
 
-if.then.i7:                                       ; preds = %if.end11
+if.then.i8:                                       ; preds = %if.end11
   %override_now_cb_arg.i = getelementptr inbounds i8, ptr %ctx.sroa.0.0, i64 280
   %5 = load ptr, ptr %override_now_cb_arg.i, align 8
-  %call.i8 = tail call i64 %4(ptr noundef %5) #8
+  %call.i9 = tail call i64 %4(ptr noundef %5) #8
   br label %get_time.exit
 
 if.else.i:                                        ; preds = %if.end11
   %call2.i = tail call i64 @ossl_time_now() #8
   br label %get_time.exit
 
-get_time.exit:                                    ; preds = %if.then.i7, %if.else.i
-  %retval.sroa.0.0.i = phi i64 [ %call.i8, %if.then.i7 ], [ %call2.i, %if.else.i ]
-  %retval.sroa.0.0.i9 = tail call i64 @llvm.usub.sat.i64(i64 %call4, i64 %retval.sroa.0.0.i)
-  %t.sroa.0.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %retval.sroa.0.0.i9, i64 999)
+get_time.exit:                                    ; preds = %if.then.i8, %if.else.i
+  %retval.sroa.0.0.i = phi i64 [ %call.i9, %if.then.i8 ], [ %call2.i, %if.else.i ]
+  %retval.sroa.0.0.i10 = tail call i64 @llvm.usub.sat.i64(i64 %call4, i64 %retval.sroa.0.0.i)
+  %t.sroa.0.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %retval.sroa.0.0.i10, i64 999)
   %div.i = udiv i64 %t.sroa.0.0.i, 1000000000
   %rem.i = urem i64 %t.sroa.0.0.i, 1000000000
   %div7.lhs.trunc.i = trunc nuw nsw i64 %rem.i to i32

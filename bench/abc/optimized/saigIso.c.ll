@@ -2986,10 +2986,7 @@ declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_
 define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp sgt i32 %3, %4
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
   ret i32 %.0
 }
 
@@ -3003,10 +3000,7 @@ define internal range(i32 -1, 2) i32 @Vec_VecSortCompare3(ptr nocapture noundef 
   %7 = getelementptr i8, ptr %6, i64 8
   %.val5 = load ptr, ptr %7, align 8
   %8 = load i32, ptr %.val5, align 4
-  %9 = icmp slt i32 %5, %8
-  %10 = icmp sgt i32 %5, %8
-  %. = zext i1 %10 to i32
-  %.0 = select i1 %9, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %5, i32 %8)
   ret i32 %.0
 }
 
@@ -3027,6 +3021,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20

@@ -3016,11 +3016,8 @@ define internal range(i32 -1, 2) i32 @rlc_cmp_seq(ptr nocapture noundef readonly
   %4 = load i16, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i16, ptr %5, align 8
-  %7 = icmp ult i16 %4, %6
-  %8 = icmp ugt i16 %4, %6
-  %9 = zext i1 %8 to i32
-  %10 = select i1 %7, i32 -1, i32 %9
-  ret i32 %10
+  %7 = tail call i32 @llvm.ucmp.i32.i16(i16 %4, i16 %6)
+  ret i32 %7
 }
 
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -5771,10 +5768,7 @@ define internal range(i32 -1, 2) i32 @rlc_simple_key_cmp(ptr noundef %0, ptr nou
   %5 = trunc i64 %4 to i32
   %6 = ptrtoint ptr %0 to i64
   %7 = trunc i64 %6 to i32
-  %8 = icmp sgt i32 %5, %7
-  %9 = icmp slt i32 %5, %7
-  %10 = zext i1 %9 to i32
-  %.0 = select i1 %8, i32 -1, i32 %10
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %7, i32 %5)
   ret i32 %.0
 }
 
@@ -5802,6 +5796,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i16(i16, i16) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13

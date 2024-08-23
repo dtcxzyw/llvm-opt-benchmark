@@ -2393,10 +2393,7 @@ define internal range(i32 -1, 2) i32 @tbm_shared_comparator(ptr nocapture nounde
   %9 = getelementptr %struct.PagetableEntry, ptr %2, i64 %8
   %10 = load i32, ptr %6, align 8
   %11 = load i32, ptr %9, align 8
-  %12 = icmp ult i32 %10, %11
-  %13 = icmp ugt i32 %10, %11
-  %. = zext i1 %13 to i32
-  %.0 = select i1 %12, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %10, i32 %11)
   ret i32 %.0
 }
 

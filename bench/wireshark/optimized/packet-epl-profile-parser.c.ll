@@ -716,16 +716,13 @@ define internal range(i32 -1, 2) i32 @find_in_range(ptr nocapture noundef readon
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %.not8 = icmp ugt i32 %.pre, %8
-  br i1 %.not8, label %9, label %12
+  br i1 %.not8, label %9, label %10
 
 9:                                                ; preds = %6, %2
-  %10 = icmp ult i32 %3, %.pre
-  %11 = icmp ugt i32 %3, %.pre
-  %..i = zext i1 %11 to i32
-  %.0.i = select i1 %10, i32 -1, i32 %..i
-  br label %12
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %3, i32 %.pre)
+  br label %10
 
-12:                                               ; preds = %6, %9
+10:                                               ; preds = %6, %9
   %.0 = phi i32 [ %.0.i, %9 ], [ 0, %6 ]
   ret i32 %.0
 }
@@ -1216,10 +1213,7 @@ declare void @g_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 -1, 2) i32 @epl_wmem_iarray_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp ult i32 %3, %4
-  %6 = icmp ugt i32 %3, %4
-  %..i = zext i1 %6 to i32
-  %.0.i = select i1 %5, i32 -1, i32 %..i
+  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
   ret i32 %.0.i
 }
 
@@ -1231,6 +1225,9 @@ declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr nou
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9

@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Fraig_NodeVecAlloc(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %3 = add i32 %0, -1
   %or.cond = icmp ult i32 %3, 7
   %spec.store.select = select i1 %or.cond, i32 8, i32 %0
@@ -18,7 +18,7 @@ define noalias noundef ptr @Fraig_NodeVecAlloc(i32 noundef %0) local_unnamed_add
 5:                                                ; preds = %1
   %6 = sext i32 %spec.store.select to i64
   %7 = shl nsw i64 %6, 3
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #16
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #17
   br label %9
 
 9:                                                ; preds = %1, %5
@@ -39,11 +39,11 @@ define void @Fraig_NodeVecFree(ptr nocapture noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #17
+  tail call void @free(ptr noundef nonnull %3) #18
   br label %5
 
 5:                                                ; preds = %1, %4
-  tail call void @free(ptr noundef nonnull %0) #17
+  tail call void @free(ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -52,7 +52,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noalias noundef ptr @Fraig_NodeVecDup(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 4
@@ -65,7 +65,7 @@ define noalias noundef ptr @Fraig_NodeVecDup(ptr nocapture noundef readonly %0) 
 7:                                                ; preds = %1
   %8 = sext i32 %6 to i64
   %9 = shl nsw i64 %8, 3
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #16
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #17
   br label %11
 
 11:                                               ; preds = %1, %7
@@ -112,11 +112,11 @@ define void @Fraig_NodeVecGrow(ptr nocapture noundef %0, i32 noundef %1) local_u
   br i1 %.not9, label %11, label %9
 
 9:                                                ; preds = %4
-  %10 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %8) #18
+  %10 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %8) #19
   br label %13
 
 11:                                               ; preds = %4
-  %12 = tail call noalias ptr @malloc(i64 noundef %8) #16
+  %12 = tail call noalias ptr @malloc(i64 noundef %8) #17
   br label %13
 
 13:                                               ; preds = %11, %9
@@ -170,11 +170,11 @@ define void @Fraig_NodeVecPush(ptr nocapture noundef %0, ptr noundef %1) local_u
   br i1 %.not9.i, label %14, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %11, i64 noundef 128) #18
+  %13 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %11, i64 noundef 128) #19
   br label %Fraig_NodeVecGrow.exit
 
 14:                                               ; preds = %9
-  %15 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #16
+  %15 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #17
   br label %Fraig_NodeVecGrow.exit
 
 Fraig_NodeVecGrow.exit:                           ; preds = %12, %14
@@ -193,11 +193,11 @@ Fraig_NodeVecGrow.exit:                           ; preds = %12, %14
   br i1 %.not9.i10, label %25, label %23
 
 23:                                               ; preds = %17
-  %24 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %22) #18
+  %24 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %22) #19
   br label %27
 
 25:                                               ; preds = %17
-  %26 = tail call noalias ptr @malloc(i64 noundef %22) #16
+  %26 = tail call noalias ptr @malloc(i64 noundef %22) #17
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -263,11 +263,11 @@ define range(i32 0, 2) i32 @Fraig_NodeVecPushUnique(ptr nocapture noundef %0, pt
   br i1 %.not9.i.i, label %22, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %19, i64 noundef 128) #18
+  %21 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %19, i64 noundef 128) #19
   br label %Fraig_NodeVecGrow.exit.i
 
 22:                                               ; preds = %17
-  %23 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #16
+  %23 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #17
   br label %Fraig_NodeVecGrow.exit.i
 
 Fraig_NodeVecGrow.exit.i:                         ; preds = %22, %20
@@ -286,11 +286,11 @@ Fraig_NodeVecGrow.exit.i:                         ; preds = %22, %20
   br i1 %.not9.i10.i, label %33, label %31
 
 31:                                               ; preds = %25
-  %32 = tail call ptr @realloc(ptr noundef nonnull %28, i64 noundef %30) #18
+  %32 = tail call ptr @realloc(ptr noundef nonnull %28, i64 noundef %30) #19
   br label %35
 
 33:                                               ; preds = %25
-  %34 = tail call noalias ptr @malloc(i64 noundef %30) #16
+  %34 = tail call noalias ptr @malloc(i64 noundef %30) #17
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -338,11 +338,11 @@ define void @Fraig_NodeVecPushOrder(ptr nocapture noundef %0, ptr noundef %1) lo
   br i1 %.not9.i.i, label %14, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %11, i64 noundef 128) #18
+  %13 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %11, i64 noundef 128) #19
   br label %Fraig_NodeVecGrow.exit.i
 
 14:                                               ; preds = %9
-  %15 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #16
+  %15 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #17
   br label %Fraig_NodeVecGrow.exit.i
 
 Fraig_NodeVecGrow.exit.i:                         ; preds = %14, %12
@@ -361,11 +361,11 @@ Fraig_NodeVecGrow.exit.i:                         ; preds = %14, %12
   br i1 %.not9.i10.i, label %25, label %23
 
 23:                                               ; preds = %17
-  %24 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %22) #18
+  %24 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %22) #19
   br label %27
 
 25:                                               ; preds = %17
-  %26 = tail call noalias ptr @malloc(i64 noundef %22) #16
+  %26 = tail call noalias ptr @malloc(i64 noundef %22) #17
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -473,11 +473,11 @@ define void @Fraig_NodeVecPushOrderByLevel(ptr nocapture noundef %0, ptr noundef
   br i1 %.not9.i.i, label %14, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %11, i64 noundef 128) #18
+  %13 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %11, i64 noundef 128) #19
   br label %Fraig_NodeVecGrow.exit.i
 
 14:                                               ; preds = %9
-  %15 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #16
+  %15 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #17
   br label %Fraig_NodeVecGrow.exit.i
 
 Fraig_NodeVecGrow.exit.i:                         ; preds = %14, %12
@@ -496,11 +496,11 @@ Fraig_NodeVecGrow.exit.i:                         ; preds = %14, %12
   br i1 %.not9.i10.i, label %25, label %23
 
 23:                                               ; preds = %17
-  %24 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %22) #18
+  %24 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %22) #19
   br label %27
 
 25:                                               ; preds = %17
-  %26 = tail call noalias ptr @malloc(i64 noundef %22) #16
+  %26 = tail call noalias ptr @malloc(i64 noundef %22) #17
   br label %27
 
 27:                                               ; preds = %25, %23
@@ -706,10 +706,7 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareLevelsIncreasing(ptr nocapture 
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
-  %15 = icmp slt i32 %8, %14
-  %16 = icmp sgt i32 %8, %14
-  %. = zext i1 %16 to i32
-  %.0 = select i1 %15, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %8, i32 %14)
   ret i32 %.0
 }
 
@@ -727,10 +724,7 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareLevelsDecreasing(ptr nocapture 
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
-  %15 = icmp sgt i32 %8, %14
-  %16 = icmp slt i32 %8, %14
-  %. = zext i1 %16 to i32
-  %.0 = select i1 %15, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %14, i32 %8)
   ret i32 %.0
 }
 
@@ -746,10 +740,7 @@ define range(i32 -1, 2) i32 @Fraig_NodeVecCompareNumbers(ptr nocapture noundef r
   %10 = and i64 %9, -2
   %11 = inttoptr i64 %10 to ptr
   %12 = load i32, ptr %11, align 8
-  %13 = icmp slt i32 %7, %12
-  %14 = icmp sgt i32 %7, %12
-  %. = zext i1 %14 to i32
-  %.0 = select i1 %13, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %7, i32 %12)
   ret i32 %.0
 }
 
@@ -801,7 +792,7 @@ define void @Fraig_NodeVecSortByLevel(ptr nocapture noundef readonly %0, i32 nou
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   %Fraig_NodeVecCompareLevelsDecreasing.Fraig_NodeVecCompareLevelsIncreasing = select i1 %.not, ptr @Fraig_NodeVecCompareLevelsDecreasing, ptr @Fraig_NodeVecCompareLevelsIncreasing
-  tail call void @qsort(ptr noundef %4, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %Fraig_NodeVecCompareLevelsDecreasing.Fraig_NodeVecCompareLevelsIncreasing) #17
+  tail call void @qsort(ptr noundef %4, i64 noundef %7, i64 noundef 8, ptr noundef nonnull %Fraig_NodeVecCompareLevelsDecreasing.Fraig_NodeVecCompareLevelsIncreasing) #18
   ret void
 }
 
@@ -815,7 +806,7 @@ define void @Fraig_NodeVecSortByNumber(ptr nocapture noundef readonly %0) local_
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
-  tail call void @qsort(ptr noundef %3, i64 noundef %6, i64 noundef 8, ptr noundef nonnull @Fraig_NodeVecCompareNumbers) #17
+  tail call void @qsort(ptr noundef %3, i64 noundef %6, i64 noundef 8, ptr noundef nonnull @Fraig_NodeVecCompareNumbers) #18
   ret void
 }
 
@@ -826,9 +817,12 @@ define void @Fraig_NodeVecSortByRefCount(ptr nocapture noundef readonly %0) loca
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
-  tail call void @qsort(ptr noundef %3, i64 noundef %6, i64 noundef 8, ptr noundef nonnull @Fraig_NodeVecCompareRefCounts) #17
+  tail call void @qsort(ptr noundef %3, i64 noundef %6, i64 noundef 8, ptr noundef nonnull @Fraig_NodeVecCompareRefCounts) #18
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #16
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -846,9 +840,10 @@ attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind allocsize(1) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

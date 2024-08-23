@@ -7067,10 +7067,7 @@ define range(i32 -1, 2) i32 @Abc_NtkCompareConesCompare(ptr nocapture noundef re
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i32, ptr %3, i64 %9
   %11 = load i32, ptr %10, align 4
-  %12 = icmp sgt i32 %7, %11
-  %13 = icmp slt i32 %7, %11
-  %. = zext i1 %13 to i32
-  %.0 = select i1 %12, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %11, i32 %7)
   ret i32 %.0
 }
 
@@ -13288,6 +13285,9 @@ declare i32 @llvm.smin.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27

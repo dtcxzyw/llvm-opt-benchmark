@@ -2292,10 +2292,7 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal noundef range(i32 -1, 2) i32 @_ZL12compareItemXPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load i16, ptr %0, align 4
   %4 = load i16, ptr %1, align 4
-  %5 = icmp ult i16 %3, %4
-  %6 = icmp ugt i16 %3, %4
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i16(i16 %3, i16 %4)
   ret i32 %.0
 }
 
@@ -2305,10 +2302,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12compareItemYPKvS0_(ptr nocapt
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds i8, ptr %1, i64 2
   %6 = load i16, ptr %5, align 2
-  %7 = icmp ult i16 %4, %6
-  %8 = icmp ugt i16 %4, %6
-  %. = zext i1 %8 to i32
-  %.0 = select i1 %7, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i16(i16 %4, i16 %6)
   ret i32 %.0
 }
 
@@ -2318,10 +2312,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12compareItemZPKvS0_(ptr nocapt
   %4 = load i16, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i16, ptr %5, align 4
-  %7 = icmp ult i16 %4, %6
-  %8 = icmp ugt i16 %4, %6
-  %. = zext i1 %8 to i32
-  %.0 = select i1 %7, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i16(i16 %4, i16 %6)
   ret i32 %.0
 }
 
@@ -2330,6 +2321,9 @@ declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i16(i16, i16) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10

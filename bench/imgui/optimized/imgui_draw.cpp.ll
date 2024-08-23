@@ -30892,10 +30892,7 @@ if.end6:                                          ; preds = %if.end
   %2 = load i32, ptr %w, align 4
   %w7 = getelementptr inbounds i8, ptr %b, i64 4
   %3 = load i32, ptr %w7, align 4
-  %cmp8 = icmp sgt i32 %2, %3
-  %cmp11 = icmp slt i32 %2, %3
-  %conv = zext i1 %cmp11 to i32
-  %cond = select i1 %cmp8, i32 -1, i32 %conv
+  %cond = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %2)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end6
@@ -30910,10 +30907,7 @@ entry:
   %0 = load i32, ptr %was_packed, align 4
   %was_packed1 = getelementptr inbounds i8, ptr %b, i64 20
   %1 = load i32, ptr %was_packed1, align 4
-  %cmp = icmp slt i32 %0, %1
-  %cmp4 = icmp sgt i32 %0, %1
-  %conv = zext i1 %cmp4 to i32
-  %cond = select i1 %cmp, i32 -1, i32 %conv
+  %cond = tail call i32 @llvm.scmp.i32.i32(i32 %0, i32 %1)
   ret i32 %cond
 }
 
@@ -30949,6 +30943,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #37
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #37

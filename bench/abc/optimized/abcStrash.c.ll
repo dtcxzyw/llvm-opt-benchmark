@@ -2362,10 +2362,7 @@ define internal range(i32 -1, 2) i32 @Vec_CompareNodeIds(ptr nocapture noundef r
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
-  %15 = icmp slt i32 %8, %14
-  %16 = icmp sgt i32 %8, %14
-  %. = zext i1 %16 to i32
-  %.0 = select i1 %15, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %8, i32 %14)
   ret i32 %.0
 }
 
@@ -3446,6 +3443,9 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

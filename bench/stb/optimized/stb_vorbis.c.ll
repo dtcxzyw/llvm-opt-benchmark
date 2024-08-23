@@ -666,10 +666,7 @@ define range(i32 -1, 2) i32 @uint32_compare(ptr nocapture noundef readonly %p, p
 entry:
   %0 = load i32, ptr %p, align 4
   %1 = load i32, ptr %q, align 4
-  %cmp = icmp ult i32 %0, %1
-  %cmp1 = icmp ugt i32 %0, %1
-  %conv = zext i1 %cmp1 to i32
-  %cond = select i1 %cmp, i32 -1, i32 %conv
+  %cond = tail call i32 @llvm.ucmp.i32.i32(i32 %0, i32 %1)
   ret i32 %cond
 }
 
@@ -1720,10 +1717,7 @@ define range(i32 -1, 2) i32 @point_compare(ptr nocapture noundef readonly %p, pt
 entry:
   %0 = load i16, ptr %p, align 2
   %1 = load i16, ptr %q, align 2
-  %cmp = icmp ult i16 %0, %1
-  %cmp8 = icmp ugt i16 %0, %1
-  %conv9 = zext i1 %cmp8 to i32
-  %cond = select i1 %cmp, i32 -1, i32 %conv9
+  %cond = tail call i32 @llvm.ucmp.i32.i16(i16 %0, i16 %1)
   ret i32 %cond
 }
 
@@ -17263,11 +17257,17 @@ declare i32 @llvm.bitreverse.i32(i32) #32
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #32
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #32
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #32
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i16(i16, i16) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #32

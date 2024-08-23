@@ -9,7 +9,7 @@ define noalias ptr @wmem_memdup(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %2) #4
+  %5 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %2) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %1, i64 %2, i1 false)
   br label %6
 
@@ -39,18 +39,19 @@ define range(i32 -1, 2) i32 @wmem_compare_uint(ptr noundef %0, ptr noundef %1) l
   %4 = trunc i64 %3 to i32
   %5 = ptrtoint ptr %1 to i64
   %6 = trunc i64 %5 to i32
-  %7 = icmp ugt i32 %4, %6
-  %8 = icmp ult i32 %4, %6
-  %9 = sext i1 %8 to i32
-  %10 = select i1 %7, i32 1, i32 %9
-  ret i32 %10
+  %7 = tail call i32 @llvm.ucmp.i32.i32(i32 %4, i32 %6)
+  ret i32 %7
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

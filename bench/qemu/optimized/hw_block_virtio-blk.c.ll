@@ -2513,10 +2513,7 @@ entry:
   %2 = load i64, ptr %sector_num, align 8
   %sector_num1 = getelementptr inbounds i8, ptr %1, i64 56
   %3 = load i64, ptr %sector_num1, align 8
-  %cmp = icmp sgt i64 %2, %3
-  %cmp4 = icmp slt i64 %2, %3
-  %. = sext i1 %cmp4 to i32
-  %retval.0 = select i1 %cmp, i32 1, i32 %.
+  %retval.0 = tail call i32 @llvm.scmp.i32.i64(i64 %2, i64 %3)
   ret i32 %retval.0
 }
 
@@ -3833,6 +3830,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.ctpop.i16(i16) #12

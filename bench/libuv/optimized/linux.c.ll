@@ -653,12 +653,12 @@ while.body.i.i.i.i:                               ; preds = %if.end.i.i, %if.end
   %tmp.03.i.i.i.i = phi ptr [ %tmp.0.i.i.i.i, %if.end6.i.i.i.i ], [ %.val.i.i, %if.end.i.i ]
   %24 = getelementptr i8, ptr %tmp.03.i.i.i.i, i64 64
   %tmp.0.val.i.i.i.i = load i32, ptr %24, align 8
-  %cmp.i.i.i.i.i = icmp slt i32 %22, %tmp.0.val.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %if.end6.i.i.i.i, label %if.else.i.i.i.i
+  %cmp.i.i.i.i = icmp slt i32 %22, %tmp.0.val.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.end6.i.i.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp4.i.not.i.i.i.i = icmp sgt i32 %22, %tmp.0.val.i.i.i.i
-  br i1 %cmp4.i.not.i.i.i.i, label %if.then3.i.i.i.i, label %if.end6.i.i
+  %cmp2.not.i.i.i.i = icmp eq i32 %22, %tmp.0.val.i.i.i.i
+  br i1 %cmp2.not.i.i.i.i, label %if.end6.i.i, label %if.then3.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %rbe_right.i.i.i.i = getelementptr inbounds i8, ptr %tmp.03.i.i.i.i, i64 8
@@ -4680,12 +4680,12 @@ while.body.i.i:                                   ; preds = %if.end9, %if.end6.i
   %tmp.03.i.i = phi ptr [ %tmp.0.i.i, %if.end6.i.i ], [ %.val, %if.end9 ]
   %7 = getelementptr i8, ptr %tmp.03.i.i, i64 64
   %tmp.0.val.i.i = load i32, ptr %7, align 8
-  %cmp.i.i.i = icmp slt i32 %call5, %tmp.0.val.i.i
-  br i1 %cmp.i.i.i, label %if.end6.i.i, label %if.else.i.i
+  %cmp.i.i = icmp slt i32 %call5, %tmp.0.val.i.i
+  br i1 %cmp.i.i, label %if.end6.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %cmp4.i.not.i.i = icmp sgt i32 %call5, %tmp.0.val.i.i
-  br i1 %cmp4.i.not.i.i, label %if.then3.i.i, label %do.body
+  %cmp2.not.i.i = icmp eq i32 %call5, %tmp.0.val.i.i
+  br i1 %cmp2.not.i.i, label %do.body, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
   %rbe_right.i.i = getelementptr inbounds i8, ptr %tmp.03.i.i, i64 8
@@ -4726,12 +4726,12 @@ while.body.i:                                     ; preds = %if.end19, %if.end6.
   %tmp.026.i = phi ptr [ %tmp.0.i, %if.end6.i ], [ %tmp.024.i, %if.end19 ]
   %8 = getelementptr i8, ptr %tmp.026.i, i64 64
   %tmp.0.val.i = load i32, ptr %8, align 8
-  %cmp.i.i = icmp slt i32 %call5, %tmp.0.val.i
-  br i1 %cmp.i.i, label %if.end6.i, label %if.else.i
+  %cmp.i = icmp slt i32 %call5, %tmp.0.val.i
+  br i1 %cmp.i, label %if.end6.i, label %if.else.i
 
 if.else.i:                                        ; preds = %while.body.i
-  %cmp4.i.i = icmp sgt i32 %call5, %tmp.0.val.i
-  br i1 %cmp4.i.i, label %if.then3.i, label %do.body
+  %cmp2.not.i = icmp eq i32 %call5, %tmp.0.val.i
+  br i1 %cmp2.not.i, label %do.body, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.else.i
   %rbe_right.i = getelementptr inbounds i8, ptr %tmp.026.i, i64 8
@@ -4749,22 +4749,22 @@ if.then14.i:                                      ; preds = %if.end6.i
   %rbe_color.i = getelementptr inbounds i8, ptr %call16, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call16, i8 0, i64 16, i1 false)
   store i32 1, ptr %rbe_color.i, align 8
-  %spec.select.idx.i = select i1 %cmp.i.i, i64 0, i64 8
+  %spec.select.idx.i = select i1 %cmp.i, i64 0, i64 8
   %spec.select.i = getelementptr inbounds i8, ptr %tmp.026.i, i64 %spec.select.idx.i
   br label %if.end27.i
 
 if.else25.i:                                      ; preds = %if.end19
-  %rbe_parent33.i = getelementptr inbounds i8, ptr %call16, i64 16
-  %rbe_color35.i = getelementptr inbounds i8, ptr %call16, i64 24
+  %rbe_parent34.i = getelementptr inbounds i8, ptr %call16, i64 16
+  %rbe_color36.i = getelementptr inbounds i8, ptr %call16, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call16, i8 0, i64 24, i1 false)
-  store i32 1, ptr %rbe_color35.i, align 8
+  store i32 1, ptr %rbe_color36.i, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.else25.i, %if.then14.i
-  %tmp.026.sink.i = phi ptr [ %6, %if.else25.i ], [ %spec.select.i, %if.then14.i ]
-  %rbe_parent37.i = phi ptr [ %rbe_parent33.i, %if.else25.i ], [ %rbe_parent.i, %if.then14.i ]
-  store ptr %call16, ptr %tmp.026.sink.i, align 8
-  %9 = load ptr, ptr %rbe_parent37.i, align 8
+  %tmp.026.lcssa41.sink.i = phi ptr [ %6, %if.else25.i ], [ %spec.select.i, %if.then14.i ]
+  %rbe_parent38.i = phi ptr [ %rbe_parent34.i, %if.else25.i ], [ %rbe_parent.i, %if.then14.i ]
+  store ptr %call16, ptr %tmp.026.lcssa41.sink.i, align 8
+  %9 = load ptr, ptr %rbe_parent38.i, align 8
   %cmp.not115.i.i = icmp eq ptr %9, null
   br i1 %cmp.not115.i.i, label %watcher_root_RB_INSERT_COLOR.exit.i, label %land.rhs.i.i
 
@@ -4824,7 +4824,7 @@ do.body23.i.i:                                    ; preds = %if.end.i.i
 do.end38.thread.i.i:                              ; preds = %do.body23.i.i
   %rbe_parent42118.i.i = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %12, ptr %rbe_parent42118.i.i, align 8
-  %.pre30.i = load ptr, ptr %rbe_parent5.i.i, align 8
+  %.pre31.i = load ptr, ptr %rbe_parent5.i.i, align 8
   br label %if.then44.i.i
 
 do.end38.i.i:                                     ; preds = %do.body23.i.i
@@ -4837,7 +4837,7 @@ do.end38.i.i:                                     ; preds = %do.body23.i.i
   br i1 %cmp43.not.i.i, label %if.end61.i.i, label %if.then44.i.i
 
 if.then44.i.i:                                    ; preds = %do.end38.i.i, %do.end38.thread.i.i
-  %19 = phi ptr [ %.pre117.i.i, %do.end38.i.i ], [ %.pre30.i, %do.end38.thread.i.i ]
+  %19 = phi ptr [ %.pre117.i.i, %do.end38.i.i ], [ %.pre31.i, %do.end38.thread.i.i ]
   %20 = load ptr, ptr %19, align 8
   %cmp49.i.i = icmp eq ptr %10, %20
   %spec.select.idx.i.i = select i1 %cmp49.i.i, i64 0, i64 8
@@ -5071,12 +5071,12 @@ while.body.i.i:                                   ; preds = %if.end, %if.end6.i.
   %tmp.03.i.i = phi ptr [ %tmp.0.i.i, %if.end6.i.i ], [ %.val, %if.end ]
   %4 = getelementptr i8, ptr %tmp.03.i.i, i64 64
   %tmp.0.val.i.i = load i32, ptr %4, align 8
-  %cmp.i.i.i = icmp slt i32 %2, %tmp.0.val.i.i
-  br i1 %cmp.i.i.i, label %if.end6.i.i, label %if.else.i.i
+  %cmp.i.i = icmp slt i32 %2, %tmp.0.val.i.i
+  br i1 %cmp.i.i, label %if.end6.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %cmp4.i.not.i.i = icmp sgt i32 %2, %tmp.0.val.i.i
-  br i1 %cmp4.i.not.i.i, label %if.then3.i.i, label %if.end6
+  %cmp2.not.i.i = icmp eq i32 %2, %tmp.0.val.i.i
+  br i1 %cmp2.not.i.i, label %if.end6, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
   %rbe_right.i.i = getelementptr inbounds i8, ptr %tmp.03.i.i, i64 8
@@ -5698,12 +5698,12 @@ while.body.i.i.i:                                 ; preds = %if.end.i, %if.end6.
   %tmp.03.i.i.i = phi ptr [ %tmp.0.i.i.i, %if.end6.i.i.i ], [ %.val.i, %if.end.i ]
   %4 = getelementptr i8, ptr %tmp.03.i.i.i, i64 64
   %tmp.0.val.i.i.i = load i32, ptr %4, align 8
-  %cmp.i.i.i.i = icmp slt i32 %2, %tmp.0.val.i.i.i
-  br i1 %cmp.i.i.i.i, label %if.end6.i.i.i, label %if.else.i.i.i
+  %cmp.i.i.i = icmp slt i32 %2, %tmp.0.val.i.i.i
+  br i1 %cmp.i.i.i, label %if.end6.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %cmp4.i.not.i.i.i = icmp sgt i32 %2, %tmp.0.val.i.i.i
-  br i1 %cmp4.i.not.i.i.i, label %if.then3.i.i.i, label %if.end6.i
+  %cmp2.not.i.i.i = icmp eq i32 %2, %tmp.0.val.i.i.i
+  br i1 %cmp2.not.i.i.i, label %if.end6.i, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.else.i.i.i
   %rbe_right.i.i.i = getelementptr inbounds i8, ptr %tmp.03.i.i.i, i64 8
@@ -5838,12 +5838,12 @@ while.body.i.i:                                   ; preds = %for.body, %if.end6.
   %tmp.03.i.i = phi ptr [ %tmp.0.i.i, %if.end6.i.i ], [ %loop.val, %for.body ]
   %8 = getelementptr i8, ptr %tmp.03.i.i, i64 64
   %tmp.0.val.i.i = load i32, ptr %8, align 8
-  %cmp.i.i.i = icmp slt i32 %7, %tmp.0.val.i.i
-  br i1 %cmp.i.i.i, label %if.end6.i.i, label %if.else.i.i
+  %cmp.i.i = icmp slt i32 %7, %tmp.0.val.i.i
+  br i1 %cmp.i.i, label %if.end6.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %cmp4.i.not.i.i = icmp sgt i32 %7, %tmp.0.val.i.i
-  br i1 %cmp4.i.not.i.i, label %if.then3.i.i, label %if.end19
+  %cmp2.not.i.i = icmp eq i32 %7, %tmp.0.val.i.i
+  br i1 %cmp2.not.i.i, label %if.end19, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
   %rbe_right.i.i = getelementptr inbounds i8, ptr %tmp.03.i.i, i64 8

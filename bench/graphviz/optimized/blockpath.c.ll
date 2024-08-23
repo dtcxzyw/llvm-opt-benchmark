@@ -1754,10 +1754,7 @@ define internal range(i32 -1, 2) i32 @cmpDegree(ptr nocapture noundef readonly %
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 364
   %12 = load i32, ptr %11, align 4
-  %13 = icmp slt i32 %7, %12
-  %14 = icmp sgt i32 %7, %12
-  %. = sext i1 %14 to i32
-  %.0 = select i1 %13, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %12, i32 %7)
   ret i32 %.0
 }
 
@@ -2353,6 +2350,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17

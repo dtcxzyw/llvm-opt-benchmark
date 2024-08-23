@@ -8074,10 +8074,7 @@ define internal range(i32 -1, 2) i32 @afm_compare_kern_pairs(ptr nocapture nound
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
   %16 = or i64 %12, %15
-  %17 = icmp ugt i64 %9, %16
-  %18 = icmp ult i64 %9, %16
-  %. = sext i1 %18 to i32
-  %.0 = select i1 %17, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %9, i64 %16)
   ret i32 %.0
 }
 
@@ -20207,6 +20204,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #18

@@ -2486,11 +2486,8 @@ entry:
   %add.ptr4.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext3.i
   %add.ptr4.val.i = load i64, ptr %add.ptr4.i, align 1
   %and6.i = and i64 %add.ptr4.val.i, %cond.i
-  %cmp7.i = icmp ult i64 %and.i, %and6.i
-  %cmp8.i = icmp ugt i64 %and.i, %and6.i
-  %conv.i = zext i1 %cmp8.i to i32
-  %retval.0.i = select i1 %cmp7.i, i32 -1, i32 %conv.i
-  %cmp = icmp eq i32 %retval.0.i, 0
+  %retval.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %and.i, i64 %and6.i)
+  %cmp = icmp eq i64 %and.i, %and6.i
   %cmp1 = icmp ult ptr %lp, %rp
   %cond = select i1 %cmp1, i32 -1, i32 1
   %result.0 = select i1 %cmp, i32 %cond, i32 %retval.0.i
@@ -2541,10 +2538,7 @@ entry:
   %add.ptr4 = getelementptr inbounds i8, ptr %1, i64 %idx.ext3
   %add.ptr4.val = load i64, ptr %add.ptr4, align 1
   %and6 = and i64 %add.ptr4.val, %cond
-  %cmp7 = icmp ult i64 %and, %and6
-  %cmp8 = icmp ugt i64 %and, %and6
-  %conv = zext i1 %cmp8 to i32
-  %retval.0 = select i1 %cmp7, i32 -1, i32 %conv
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %and, i64 %and6)
   ret i32 %retval.0
 }
 
@@ -2585,6 +2579,9 @@ declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19

@@ -5073,10 +5073,7 @@ define range(i32 -1, 2) i32 @eval_nodes_topo_weight_sort(ptr nocapture noundef r
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ult i64 %6, %8
-  %10 = icmp ugt i64 %6, %8
-  %. = zext i1 %10 to i32
-  %.0 = select i1 %9, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %6, i64 %8)
   ret i32 %.0
 }
 
@@ -5219,10 +5216,7 @@ define internal range(i32 -1, 2) i32 @_node_weight_sort(ptr nocapture noundef re
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ult i64 %6, %8
-  %10 = icmp ugt i64 %6, %8
-  %. = zext i1 %10 to i32
-  %.0 = select i1 %9, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %6, i64 %8)
   ret i32 %.0
 }
 
@@ -5254,6 +5248,9 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #5

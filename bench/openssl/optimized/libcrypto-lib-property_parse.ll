@@ -182,10 +182,7 @@ entry:
   %1 = load ptr, ptr %p2, align 8
   %2 = load i32, ptr %0, align 8
   %3 = load i32, ptr %1, align 8
-  %cmp = icmp slt i32 %2, %3
-  %cmp4 = icmp sgt i32 %2, %3
-  %. = zext i1 %cmp4 to i32
-  %retval.0 = select i1 %cmp, i32 -1, i32 %.
+  %retval.0 = tail call i32 @llvm.scmp.i32.i32(i32 %2, i32 %3)
   ret i32 %retval.0
 }
 
@@ -1980,6 +1977,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8

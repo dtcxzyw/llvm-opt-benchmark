@@ -55,17 +55,17 @@ for.body:                                         ; preds = %for.body.preheader,
   %cond-lvalue14 = select i1 %cmp8.wide, ptr %arrayidx11, ptr @_ZN11mpn_manager4zeroE
   %4 = load i32, ptr %cond-lvalue, align 4
   %5 = load i32, ptr %cond-lvalue14, align 4
-  %cmp15 = icmp ugt i32 %4, %5
-  %cmp16 = icmp ult i32 %4, %5
-  %spec.select = sext i1 %cmp16 to i32
-  %res.1 = select i1 %cmp15, i32 1, i32 %spec.select
   %cmp2.wide = icmp ne i64 %3, 0
-  %cmp3 = icmp eq i32 %res.1, 0
+  %cmp3 = icmp eq i32 %4, %5
   %6 = and i1 %cmp2.wide, %cmp3
-  br i1 %6, label %for.body, label %for.end, !llvm.loop !4
+  br i1 %6, label %for.body, label %for.end.loopexit, !llvm.loop !4
 
-for.end:                                          ; preds = %for.body, %entry
-  %res.0.lcssa = phi i32 [ 0, %entry ], [ %res.1, %for.body ]
+for.end.loopexit:                                 ; preds = %for.body
+  %res.1 = tail call i32 @llvm.ucmp.i32.i32(i32 %4, i32 %5)
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %entry
+  %res.0.lcssa = phi i32 [ 0, %entry ], [ %res.1, %for.end.loopexit ]
   ret i32 %res.0.lcssa
 }
 
@@ -2096,6 +2096,9 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

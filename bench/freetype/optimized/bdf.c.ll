@@ -5459,10 +5459,7 @@ define internal range(i32 -1, 2) i32 @by_encoding(ptr nocapture noundef readonly
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ult i64 %4, %6
-  %8 = icmp ugt i64 %4, %6
-  %. = zext i1 %8 to i32
-  %.0 = select i1 %7, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %4, i64 %6)
   ret i32 %.0
 }
 
@@ -5633,6 +5630,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #16

@@ -938,15 +938,15 @@ define internal range(i32 -1, 2) i32 @avail_op_compare(ptr nocapture noundef rea
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   %8 = load i32, ptr %7, align 8
-  %9 = icmp sgt i32 %6, %8
-  %10 = icmp slt i32 %6, %8
-  %. = sext i1 %10 to i32
-  %.0 = select i1 %9, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %6, i32 %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7

@@ -1838,9 +1838,9 @@ define hidden noundef ptr @_Z32_hb_ot_name_language_for_ms_codej(i32 noundef %0)
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %15, %1
-  %.0194.i.i.i = phi i32 [ %.1.i.i.i, %15 ], [ 0, %1 ]
-  %.0203.i.i.i = phi i32 [ %.121.i.i.i, %15 ], [ 239, %1 ]
-  %2 = add i32 %.0203.i.i.i, %.0194.i.i.i
+  %.0193.i.i.i = phi i32 [ %.1.i.i.i, %15 ], [ 0, %1 ]
+  %.0202.i.i.i = phi i32 [ %.121.i.i.i, %15 ], [ 239, %1 ]
+  %2 = add i32 %.0202.i.i.i, %.0193.i.i.i
   %3 = lshr i32 %2, 1
   %4 = zext nneg i32 %3 to i64
   %5 = shl nuw nsw i64 %4, 3
@@ -1855,16 +1855,16 @@ define hidden noundef ptr @_Z32_hb_ot_name_language_for_ms_codej(i32 noundef %0)
   br label %15
 
 12:                                               ; preds = %.lr.ph.i.i.i
-  %.not1.i.i.i = icmp ugt i32 %0, %8
-  br i1 %.not1.i.i.i, label %13, label %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i
+  %.not23.i.i.i = icmp eq i32 %0, %8
+  br i1 %.not23.i.i.i, label %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i, label %13
 
 13:                                               ; preds = %12
   %14 = add nuw nsw i32 %3, 1
   br label %15
 
 15:                                               ; preds = %13, %10
-  %.121.i.i.i = phi i32 [ %11, %10 ], [ %.0203.i.i.i, %13 ]
-  %.1.i.i.i = phi i32 [ %.0194.i.i.i, %10 ], [ %14, %13 ]
+  %.121.i.i.i = phi i32 [ %11, %10 ], [ %.0202.i.i.i, %13 ]
+  %.1.i.i.i = phi i32 [ %.0193.i.i.i, %10 ], [ %14, %13 ]
   %.not.not.i.i.i = icmp sgt i32 %.1.i.i.i, %.121.i.i.i
   br i1 %.not.not.i.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %.lr.ph.i.i.i, !llvm.loop !33
 
@@ -1895,9 +1895,9 @@ define hidden noundef ptr @_Z33_hb_ot_name_language_for_mac_codej(i32 noundef %0
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %15, %1
-  %.0194.i.i.i = phi i32 [ %.1.i.i.i, %15 ], [ 0, %1 ]
-  %.0203.i.i.i = phi i32 [ %.121.i.i.i, %15 ], [ 116, %1 ]
-  %2 = add i32 %.0203.i.i.i, %.0194.i.i.i
+  %.0193.i.i.i = phi i32 [ %.1.i.i.i, %15 ], [ 0, %1 ]
+  %.0202.i.i.i = phi i32 [ %.121.i.i.i, %15 ], [ 116, %1 ]
+  %2 = add i32 %.0202.i.i.i, %.0193.i.i.i
   %3 = lshr i32 %2, 1
   %4 = zext nneg i32 %3 to i64
   %5 = shl nuw nsw i64 %4, 3
@@ -1912,16 +1912,16 @@ define hidden noundef ptr @_Z33_hb_ot_name_language_for_mac_codej(i32 noundef %0
   br label %15
 
 12:                                               ; preds = %.lr.ph.i.i.i
-  %.not1.i.i.i = icmp ugt i32 %0, %8
-  br i1 %.not1.i.i.i, label %13, label %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i
+  %.not23.i.i.i = icmp eq i32 %0, %8
+  br i1 %.not23.i.i.i, label %_ZL10hb_bsearchIK20hb_ot_language_map_tjEPT_RKT0_S3_mmPFiPKvS8_E.exit.i, label %13
 
 13:                                               ; preds = %12
   %14 = add nuw nsw i32 %3, 1
   br label %15
 
 15:                                               ; preds = %13, %10
-  %.121.i.i.i = phi i32 [ %11, %10 ], [ %.0203.i.i.i, %13 ]
-  %.1.i.i.i = phi i32 [ %.0194.i.i.i, %10 ], [ %14, %13 ]
+  %.121.i.i.i = phi i32 [ %11, %10 ], [ %.0202.i.i.i, %13 ]
+  %.1.i.i.i = phi i32 [ %.0193.i.i.i, %10 ], [ %14, %13 ]
   %.not.not.i.i.i = icmp sgt i32 %.1.i.i.i, %.121.i.i.i
   br i1 %.not.not.i.i.i, label %_ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit, label %.lr.ph.i.i.i, !llvm.loop !33
 

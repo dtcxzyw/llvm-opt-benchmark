@@ -142,10 +142,7 @@ entry:
   %0 = load i32, ptr %id, align 8
   %id1 = getelementptr inbounds i8, ptr %in_b, i64 8
   %1 = load i32, ptr %id1, align 8
-  %cmp = icmp ugt i32 %0, %1
-  %cmp4 = icmp ult i32 %0, %1
-  %. = sext i1 %cmp4 to i32
-  %retval.0 = select i1 %cmp, i32 1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %0, i32 %1)
   ret i32 %retval.0
 }
 
@@ -3837,10 +3834,7 @@ entry:
   %2 = load i32, ptr %id.i, align 8
   %id1.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i32, ptr %id1.i, align 8
-  %cmp.i = icmp ugt i32 %2, %3
-  %cmp4.i = icmp ult i32 %2, %3
-  %..i = sext i1 %cmp4.i to i32
-  %retval.0.i = select i1 %cmp.i, i32 1, i32 %..i
+  %retval.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %2, i32 %3)
   ret i32 %retval.0.i
 }
 
@@ -4524,6 +4518,9 @@ return:                                           ; preds = %sw.epilog, %entry, 
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

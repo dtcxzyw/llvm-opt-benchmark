@@ -5000,10 +5000,7 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal range(i32 -1, 2) i32 @ordercmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp sgt i32 %3, %4
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
   ret i32 %.0
 }
 
@@ -6320,10 +6317,7 @@ define internal range(i32 -1, 2) i32 @edgeidcmpf(ptr nocapture noundef readonly 
   %6 = load ptr, ptr %1, align 8
   %7 = load i32, ptr %6, align 8
   %8 = lshr i32 %7, 4
-  %9 = icmp ult i32 %5, %8
-  %10 = icmp ugt i32 %5, %8
-  %. = zext i1 %10 to i32
-  %.0 = select i1 %9, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %5, i32 %8)
   ret i32 %.0
 }
 
@@ -7063,10 +7057,7 @@ define internal range(i32 -1, 2) i32 @nodeposcmpf(ptr nocapture noundef readonly
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 364
   %12 = load i32, ptr %11, align 4
-  %13 = icmp slt i32 %7, %12
-  %14 = icmp sgt i32 %7, %12
-  %. = zext i1 %14 to i32
-  %.0 = select i1 %13, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %7, i32 %12)
   ret i32 %.0
 }
 
@@ -7327,7 +7318,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #21
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

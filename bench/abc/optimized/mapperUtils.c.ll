@@ -914,10 +914,7 @@ define range(i32 -1, 2) i32 @Map_CompareNodesByLevel(ptr nocapture noundef reado
   %16 = load i32, ptr %15, align 4
   %17 = lshr i32 %16, 5
   %18 = and i32 %17, 65535
-  %19 = icmp ugt i32 %14, %18
-  %20 = icmp ult i32 %14, %18
-  %. = zext i1 %20 to i32
-  %.0 = select i1 %19, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %18, i32 %14)
   ret i32 %.0
 }
 
@@ -1567,6 +1564,9 @@ declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -3340,10 +3340,7 @@ entry:
   %0 = load i32, ptr %bitmap_pos, align 8
   %bitmap_pos1 = getelementptr inbounds i8, ptr %vb, i64 8
   %1 = load i32, ptr %bitmap_pos1, align 8
-  %cmp = icmp ult i32 %0, %1
-  %cmp4 = icmp ugt i32 %0, %1
-  %. = zext i1 %cmp4 to i32
-  %retval.0 = select i1 %cmp, i32 -1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %0, i32 %1)
   ret i32 %retval.0
 }
 
@@ -6130,10 +6127,7 @@ entry:
   %4 = load i8, ptr %arrayidx8.i, align 1
   %conv9.i = zext i8 %4 to i32
   %or11.i = or disjoint i32 %or7.i, %conv9.i
-  %cmp = icmp ugt i32 %0, %or11.i
-  %cmp1 = icmp ult i32 %0, %or11.i
-  %. = sext i1 %cmp1 to i32
-  %retval.0 = select i1 %cmp, i32 1, i32 %.
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %0, i32 %or11.i)
   ret i32 %retval.0
 }
 
@@ -7278,6 +7272,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

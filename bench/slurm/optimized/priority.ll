@@ -36,23 +36,20 @@ define range(i32 -1, 2) i32 @priority_sort_part_tier(ptr nocapture noundef reado
   %6 = load i16, ptr %5, align 2
   %7 = getelementptr inbounds i8, ptr %4, i64 278
   %8 = load i16, ptr %7, align 2
-  %9 = icmp ugt i16 %6, %8
-  %10 = icmp ult i16 %6, %8
-  %. = zext i1 %10 to i32
-  %.0 = select i1 %9, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i16(i16 %8, i16 %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @priority_g_init() local_unnamed_addr #1 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_priority_context_lock) #6
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_priority_context_lock) #7
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @__errno_location() #7
+  %3 = tail call ptr @__errno_location() #8
   store i32 %1, ptr %3, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 94, ptr noundef nonnull @__func__.priority_g_init) #8
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 94, ptr noundef nonnull @__func__.priority_g_init) #9
   unreachable
 
 4:                                                ; preds = %0
@@ -62,26 +59,26 @@ define range(i32 -1, 1) i32 @priority_g_init() local_unnamed_addr #1 {
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 864), align 8
-  %8 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %7, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 56) #6
+  %8 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %7, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 56) #7
   store ptr %8, ptr @g_priority_context, align 8
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %9, label %12
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 864), align 8
-  %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %10) #6
+  %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %10) #7
   br label %12
 
 12:                                               ; preds = %9, %4, %6
   %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ -1, %9 ]
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_priority_context_lock) #6
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_priority_context_lock) #7
   %.not10 = icmp eq i32 %13, 0
   br i1 %.not10, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call ptr @__errno_location() #7
+  %15 = tail call ptr @__errno_location() #8
   store i32 %13, ptr %15, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 112, ptr noundef nonnull @__func__.priority_g_init) #8
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 112, ptr noundef nonnull @__func__.priority_g_init) #9
   unreachable
 
 16:                                               ; preds = %12
@@ -111,7 +108,7 @@ define i32 @priority_g_fini() local_unnamed_addr #1 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %1) #6
+  %3 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %1) #7
   store ptr null, ptr @g_priority_context, align 8
   br label %4
 
@@ -125,51 +122,54 @@ declare i32 @plugin_context_destroy(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define i32 @priority_g_set(i32 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @ops, align 8
-  %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #6
+  %4 = tail call i32 %3(i32 noundef %0, ptr noundef %1) #7
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define void @priority_g_reconfig(i1 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 8), align 8
-  tail call void %2(i1 noundef zeroext %0) #6
+  tail call void %2(i1 noundef zeroext %0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @priority_g_recover(i32 noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 48), align 8
-  %3 = tail call i32 %2(i32 noundef %0) #6
+  %3 = tail call i32 %2(i32 noundef %0) #7
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define void @priority_g_set_assoc_usage(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
-  tail call void %2(ptr noundef %0) #6
+  tail call void %2(ptr noundef %0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define double @priority_g_calc_fs_factor(x86_fp80 noundef %0, x86_fp80 noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 24), align 8
-  %4 = tail call double %3(x86_fp80 noundef %0, x86_fp80 noundef %1) #6
+  %4 = tail call double %3(x86_fp80 noundef %0, x86_fp80 noundef %1) #7
   ret double %4
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @priority_g_get_priority_factors_list(i32 noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 32), align 8
-  %3 = tail call ptr %2(i32 noundef %0) #6
+  %3 = tail call ptr %2(i32 noundef %0) #7
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define void @priority_g_job_end(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 40), align 8
-  tail call void %2(ptr noundef %0) #6
+  tail call void %2(ptr noundef %0) #7
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i16(i16, i16) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -177,9 +177,10 @@ attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { noreturn nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(none) }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -6475,10 +6475,7 @@ define internal range(i32 -1, 2) i32 @_part_weight_sort(ptr nocapture noundef re
   %6 = load i16, ptr %5, align 2
   %7 = getelementptr inbounds i8, ptr %4, i64 278
   %8 = load i16, ptr %7, align 2
-  %9 = icmp ugt i16 %6, %8
-  %10 = icmp ult i16 %6, %8
-  %. = zext i1 %10 to i32
-  %.0 = select i1 %9, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i16(i16 %8, i16 %6)
   ret i32 %.0
 }
 
@@ -11744,6 +11741,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i16(i16, i16) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #14

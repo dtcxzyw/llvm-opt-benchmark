@@ -7825,10 +7825,10 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %4 = alloca %struct._zval_struct, align 8
   br label %.outer.outer
 
-.outer.outer:                                     ; preds = %2, %136
-  %.080.ph.ph = phi ptr [ %0, %2 ], [ %137, %136 ]
-  %.079.ph.ph = phi ptr [ %1, %2 ], [ %138, %136 ]
-  %.not = phi i1 [ true, %2 ], [ false, %136 ]
+.outer.outer:                                     ; preds = %2, %133
+  %.080.ph.ph = phi ptr [ %0, %2 ], [ %134, %133 ]
+  %.079.ph.ph = phi ptr [ %1, %2 ], [ %135, %133 ]
+  %.not = phi i1 [ true, %2 ], [ false, %133 ]
   %5 = getelementptr inbounds i8, ptr %.080.ph.ph, i64 8
   %6 = load i8, ptr %5, align 8
   %.fr330 = freeze i8 %6
@@ -7888,13 +7888,13 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %.lcssa = phi i32 [ %8, %.outer.outer ], [ %20, %.split253.us ]
   br label %22
 
-22:                                               ; preds = %.outer.split, %93
-  %.079 = phi ptr [ %95, %93 ], [ %.079.ph.ph, %.outer.split ]
+22:                                               ; preds = %.outer.split, %90
+  %.079 = phi ptr [ %92, %90 ], [ %.079.ph.ph, %.outer.split ]
   %23 = getelementptr inbounds i8, ptr %.079, i64 8
   %24 = load i8, ptr %23, align 8
   %25 = zext i8 %24 to i32
   %26 = or i32 %.lcssa, %25
-  switch i32 %26, label %91 [
+  switch i32 %26, label %88 [
     i32 68, label %.split.us
     i32 84, label %.split203.us
     i32 69, label %.split207.us
@@ -7923,228 +7923,225 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %.us-phi201 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
   %27 = load i64, ptr %.us-phi, align 8
   %28 = load i64, ptr %.us-phi201, align 8
-  %29 = icmp sgt i64 %27, %28
-  %30 = icmp slt i64 %27, %28
-  %31 = sext i1 %30 to i32
-  %32 = select i1 %29, i32 1, i32 %31
+  %29 = call i32 @llvm.scmp.i32.i64(i64 %27, i64 %28)
   br label %zend_compare_arrays.exit
 
 .split203.us:                                     ; preds = %.outer.split.us, %22
   %.us-phi204 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
   %.us-phi205 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %33 = load double, ptr %.us-phi204, align 8
-  %34 = load i64, ptr %.us-phi205, align 8
-  %35 = sitofp i64 %34 to double
-  %36 = fcmp oeq double %33, %35
-  %37 = fcmp olt double %33, %35
-  %38 = select i1 %37, i32 -1, i32 1
-  %39 = select i1 %36, i32 0, i32 %38
+  %30 = load double, ptr %.us-phi204, align 8
+  %31 = load i64, ptr %.us-phi205, align 8
+  %32 = sitofp i64 %31 to double
+  %33 = fcmp oeq double %30, %32
+  %34 = fcmp olt double %30, %32
+  %35 = select i1 %34, i32 -1, i32 1
+  %36 = select i1 %33, i32 0, i32 %35
   br label %zend_compare_arrays.exit
 
 .split207.us:                                     ; preds = %.outer.split.us, %22
   %.us-phi208 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
   %.us-phi209 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %40 = load i64, ptr %.us-phi208, align 8
-  %41 = sitofp i64 %40 to double
-  %42 = load double, ptr %.us-phi209, align 8
-  %43 = fcmp oeq double %42, %41
-  %44 = fcmp ogt double %42, %41
-  %45 = select i1 %44, i32 -1, i32 1
-  %46 = select i1 %43, i32 0, i32 %45
+  %37 = load i64, ptr %.us-phi208, align 8
+  %38 = sitofp i64 %37 to double
+  %39 = load double, ptr %.us-phi209, align 8
+  %40 = fcmp oeq double %39, %38
+  %41 = fcmp ogt double %39, %38
+  %42 = select i1 %41, i32 -1, i32 1
+  %43 = select i1 %40, i32 0, i32 %42
   br label %zend_compare_arrays.exit
 
 .split211.us:                                     ; preds = %.outer.split.us, %22
   %.us-phi212 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
   %.us-phi213 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %47 = load double, ptr %.us-phi212, align 8
-  %48 = load double, ptr %.us-phi213, align 8
-  %49 = fcmp oeq double %47, %48
-  %50 = fcmp olt double %47, %48
-  %51 = select i1 %50, i32 -1, i32 1
-  %52 = select i1 %49, i32 0, i32 %51
+  %44 = load double, ptr %.us-phi212, align 8
+  %45 = load double, ptr %.us-phi213, align 8
+  %46 = fcmp oeq double %44, %45
+  %47 = fcmp olt double %44, %45
+  %48 = select i1 %47, i32 -1, i32 1
+  %49 = select i1 %46, i32 0, i32 %48
   br label %zend_compare_arrays.exit
 
 .split215.us:                                     ; preds = %.outer.split.us, %22
   %.us-phi216 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
   %.us-phi217 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %53 = load ptr, ptr %.us-phi216, align 8
-  %54 = load ptr, ptr %.us-phi217, align 8
-  %55 = icmp eq ptr %53, %54
-  br i1 %55, label %zend_compare_arrays.exit, label %56
+  %50 = load ptr, ptr %.us-phi216, align 8
+  %51 = load ptr, ptr %.us-phi217, align 8
+  %52 = icmp eq ptr %50, %51
+  br i1 %52, label %zend_compare_arrays.exit, label %53
 
-56:                                               ; preds = %.split215.us
-  %57 = call i32 @zend_hash_compare(ptr noundef %53, ptr noundef %54, ptr noundef nonnull @hash_zval_compare_function, i1 noundef zeroext false) #27
+53:                                               ; preds = %.split215.us
+  %54 = call i32 @zend_hash_compare(ptr noundef %50, ptr noundef %51, ptr noundef nonnull @hash_zval_compare_function, i1 noundef zeroext false) #27
   br label %zend_compare_arrays.exit
 
 .split223.us:                                     ; preds = %.outer.split.us, %22
   %.us-phi224 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
   %.us-phi225 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %58 = load ptr, ptr %.us-phi224, align 8
-  %59 = load ptr, ptr %.us-phi225, align 8
-  %60 = icmp eq ptr %58, %59
-  br i1 %60, label %zend_compare_arrays.exit, label %61
+  %55 = load ptr, ptr %.us-phi224, align 8
+  %56 = load ptr, ptr %.us-phi225, align 8
+  %57 = icmp eq ptr %55, %56
+  br i1 %57, label %zend_compare_arrays.exit, label %58
 
-61:                                               ; preds = %.split223.us
-  %62 = call i32 @zendi_smart_strcmp(ptr noundef %58, ptr noundef %59)
+58:                                               ; preds = %.split223.us
+  %59 = call i32 @zendi_smart_strcmp(ptr noundef %55, ptr noundef %56)
   br label %zend_compare_arrays.exit
 
 .split227.us:                                     ; preds = %.outer.split.us, %22
   %.us-phi228 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %63 = load ptr, ptr %.us-phi228, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
-  %65 = load i64, ptr %64, align 8
-  %66 = icmp ne i64 %65, 0
-  %67 = sext i1 %66 to i32
+  %60 = load ptr, ptr %.us-phi228, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %62 = load i64, ptr %61, align 8
+  %63 = icmp ne i64 %62, 0
+  %64 = sext i1 %63 to i32
   br label %zend_compare_arrays.exit
 
 .split230.us:                                     ; preds = %.outer.split.us, %22
   %.us-phi231 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
-  %68 = load ptr, ptr %.us-phi231, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
-  %70 = load i64, ptr %69, align 8
-  %71 = icmp ne i64 %70, 0
-  %72 = zext i1 %71 to i32
+  %65 = load ptr, ptr %.us-phi231, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %67 = load i64, ptr %66, align 8
+  %68 = icmp ne i64 %67, 0
+  %69 = zext i1 %68 to i32
   br label %zend_compare_arrays.exit
 
 .split233.us:                                     ; preds = %.outer.split.us, %22
   %.us-phi234 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
   %.us-phi235 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %73 = load i64, ptr %.us-phi234, align 8
-  %74 = load ptr, ptr %.us-phi235, align 8
-  %75 = call fastcc i32 @compare_long_to_string(i64 noundef %73, ptr noundef %74)
+  %70 = load i64, ptr %.us-phi234, align 8
+  %71 = load ptr, ptr %.us-phi235, align 8
+  %72 = call fastcc i32 @compare_long_to_string(i64 noundef %70, ptr noundef %71)
   br label %zend_compare_arrays.exit
 
 .split237.us:                                     ; preds = %.outer.split.us, %22
   %.us-phi238 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
   %.us-phi239 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %76 = load i64, ptr %.us-phi239, align 8
-  %77 = load ptr, ptr %.us-phi238, align 8
-  %78 = call fastcc i32 @compare_long_to_string(i64 noundef %76, ptr noundef %77)
-  %79 = sub nsw i32 0, %78
+  %73 = load i64, ptr %.us-phi239, align 8
+  %74 = load ptr, ptr %.us-phi238, align 8
+  %75 = call fastcc i32 @compare_long_to_string(i64 noundef %73, ptr noundef %74)
+  %76 = sub nsw i32 0, %75
   br label %zend_compare_arrays.exit
 
 .split241.us:                                     ; preds = %.outer.split.us, %22
   %.us-phi242 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
   %.us-phi243 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %80 = load double, ptr %.us-phi242, align 8
-  %81 = fcmp uno double %80, 0.000000e+00
-  br i1 %81, label %zend_compare_arrays.exit, label %82
+  %77 = load double, ptr %.us-phi242, align 8
+  %78 = fcmp uno double %77, 0.000000e+00
+  br i1 %78, label %zend_compare_arrays.exit, label %79
 
-82:                                               ; preds = %.split241.us
-  %83 = load ptr, ptr %.us-phi243, align 8
-  %84 = call fastcc i32 @compare_double_to_string(double noundef %80, ptr noundef %83)
+79:                                               ; preds = %.split241.us
+  %80 = load ptr, ptr %.us-phi243, align 8
+  %81 = call fastcc i32 @compare_double_to_string(double noundef %77, ptr noundef %80)
   br label %zend_compare_arrays.exit
 
 .split245.us:                                     ; preds = %.outer.split.us, %22
   %.us-phi246 = phi ptr [ %.080.ph.lcssa307, %22 ], [ %.080.ph326, %.outer.split.us ]
   %.us-phi247 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
-  %85 = load double, ptr %.us-phi247, align 8
-  %86 = fcmp uno double %85, 0.000000e+00
-  br i1 %86, label %zend_compare_arrays.exit, label %87
+  %82 = load double, ptr %.us-phi247, align 8
+  %83 = fcmp uno double %82, 0.000000e+00
+  br i1 %83, label %zend_compare_arrays.exit, label %84
 
-87:                                               ; preds = %.split245.us
-  %88 = load ptr, ptr %.us-phi246, align 8
-  %89 = call fastcc i32 @compare_double_to_string(double noundef %85, ptr noundef %88)
-  %90 = sub nsw i32 0, %89
+84:                                               ; preds = %.split245.us
+  %85 = load ptr, ptr %.us-phi246, align 8
+  %86 = call fastcc i32 @compare_double_to_string(double noundef %82, ptr noundef %85)
+  %87 = sub nsw i32 0, %86
   br label %zend_compare_arrays.exit
 
-91:                                               ; preds = %22
-  %92 = icmp eq i8 %24, 10
-  br i1 %92, label %93, label %96
+88:                                               ; preds = %22
+  %89 = icmp eq i8 %24, 10
+  br i1 %89, label %90, label %93
 
-93:                                               ; preds = %91
-  %94 = load ptr, ptr %.079, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+90:                                               ; preds = %88
+  %91 = load ptr, ptr %.079, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 8
   br label %22
 
-96:                                               ; preds = %91
-  %97 = icmp eq i8 %.lcssa272, 8
-  %98 = icmp eq i8 %24, 8
-  %or.cond = and i1 %97, %98
-  br i1 %or.cond, label %99, label %103
+93:                                               ; preds = %88
+  %94 = icmp eq i8 %.lcssa272, 8
+  %95 = icmp eq i8 %24, 8
+  %or.cond = and i1 %94, %95
+  br i1 %or.cond, label %96, label %100
 
-99:                                               ; preds = %96
-  %100 = load ptr, ptr %.080.ph.lcssa307, align 8
-  %101 = load ptr, ptr %.079, align 8
-  %102 = icmp eq ptr %100, %101
-  br i1 %102, label %zend_compare_arrays.exit, label %.thread
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %.080.ph.lcssa307, align 8
+  %98 = load ptr, ptr %.079, align 8
+  %99 = icmp eq ptr %97, %98
+  br i1 %99, label %zend_compare_arrays.exit, label %.thread
 
-103:                                              ; preds = %96
-  br i1 %97, label %.thread.loopexit, label %110
+100:                                              ; preds = %93
+  br i1 %94, label %.thread.loopexit, label %107
 
-.thread.loopexit:                                 ; preds = %103
+.thread.loopexit:                                 ; preds = %100
   %.pre = load ptr, ptr %.080.ph.lcssa307, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread.loopexit, %99
-  %104 = phi ptr [ %.pre, %.thread.loopexit ], [ %100, %99 ]
-  %105 = getelementptr inbounds i8, ptr %104, i64 24
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 184
-  %108 = load ptr, ptr %107, align 8
-  %109 = call i32 %108(ptr noundef nonnull %.080.ph.lcssa307, ptr noundef nonnull %.079) #27
+.thread:                                          ; preds = %.thread.loopexit, %96
+  %101 = phi ptr [ %.pre, %.thread.loopexit ], [ %97, %96 ]
+  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 184
+  %105 = load ptr, ptr %104, align 8
+  %106 = call i32 %105(ptr noundef nonnull %.080.ph.lcssa307, ptr noundef nonnull %.079) #27
   br label %zend_compare_arrays.exit
 
-110:                                              ; preds = %103
-  br i1 %98, label %111, label %118
+107:                                              ; preds = %100
+  br i1 %95, label %108, label %115
 
-111:                                              ; preds = %110
-  %112 = load ptr, ptr %.079, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 24
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 184
-  %116 = load ptr, ptr %115, align 8
-  %117 = call i32 %116(ptr noundef nonnull %.080.ph.lcssa307, ptr noundef nonnull %.079) #27
+108:                                              ; preds = %107
+  %109 = load ptr, ptr %.079, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 24
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 184
+  %113 = load ptr, ptr %112, align 8
+  %114 = call i32 %113(ptr noundef nonnull %.080.ph.lcssa307, ptr noundef nonnull %.079) #27
   br label %zend_compare_arrays.exit
 
-118:                                              ; preds = %110
-  br i1 %.not, label %119, label %140
+115:                                              ; preds = %107
+  br i1 %.not, label %116, label %137
 
-119:                                              ; preds = %118
-  %120 = icmp ult i8 %.lcssa272, 3
-  br i1 %120, label %121, label %123
+116:                                              ; preds = %115
+  %117 = icmp ult i8 %.lcssa272, 3
+  br i1 %117, label %118, label %120
 
-121:                                              ; preds = %119
-  %122 = call i32 @zend_is_true(ptr noundef nonnull %.079)
-  %sext101 = sub nsw i32 0, %122
+118:                                              ; preds = %116
+  %119 = call i32 @zend_is_true(ptr noundef nonnull %.079)
+  %sext101 = sub nsw i32 0, %119
   br label %zend_compare_arrays.exit
 
-123:                                              ; preds = %119
-  %124 = icmp eq i8 %.lcssa272, 3
-  br i1 %124, label %125, label %128
+120:                                              ; preds = %116
+  %121 = icmp eq i8 %.lcssa272, 3
+  br i1 %121, label %122, label %125
 
-125:                                              ; preds = %123
-  %126 = call i32 @zend_is_true(ptr noundef nonnull %.079)
-  %127 = xor i32 %126, 1
+122:                                              ; preds = %120
+  %123 = call i32 @zend_is_true(ptr noundef nonnull %.079)
+  %124 = xor i32 %123, 1
   br label %zend_compare_arrays.exit
 
-128:                                              ; preds = %123
-  %129 = icmp ult i8 %24, 3
-  br i1 %129, label %130, label %132
+125:                                              ; preds = %120
+  %126 = icmp ult i8 %24, 3
+  br i1 %126, label %127, label %129
 
-130:                                              ; preds = %128
-  %131 = call i32 @zend_is_true(ptr noundef nonnull %.080.ph.lcssa307)
+127:                                              ; preds = %125
+  %128 = call i32 @zend_is_true(ptr noundef nonnull %.080.ph.lcssa307)
   br label %zend_compare_arrays.exit
 
-132:                                              ; preds = %128
-  %133 = icmp eq i8 %24, 3
-  br i1 %133, label %134, label %136
+129:                                              ; preds = %125
+  %130 = icmp eq i8 %24, 3
+  br i1 %130, label %131, label %133
 
-134:                                              ; preds = %132
-  %135 = call i32 @zend_is_true(ptr noundef nonnull %.080.ph.lcssa307)
-  %sext = add nsw i32 %135, -1
+131:                                              ; preds = %129
+  %132 = call i32 @zend_is_true(ptr noundef nonnull %.080.ph.lcssa307)
+  %sext = add nsw i32 %132, -1
   br label %zend_compare_arrays.exit
 
-136:                                              ; preds = %132
-  %137 = call fastcc ptr @_zendi_convert_scalar_to_number_silent(ptr noundef nonnull %.080.ph.lcssa307, ptr noundef nonnull %3)
-  %138 = call fastcc ptr @_zendi_convert_scalar_to_number_silent(ptr noundef nonnull %.079, ptr noundef nonnull %4)
-  %139 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not96 = icmp eq ptr %139, null
+133:                                              ; preds = %129
+  %134 = call fastcc ptr @_zendi_convert_scalar_to_number_silent(ptr noundef nonnull %.080.ph.lcssa307, ptr noundef nonnull %3)
+  %135 = call fastcc ptr @_zendi_convert_scalar_to_number_silent(ptr noundef nonnull %.079, ptr noundef nonnull %4)
+  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not96 = icmp eq ptr %136, null
   br i1 %.not96, label %.outer.outer, label %zend_compare_arrays.exit
 
-140:                                              ; preds = %118
-  %141 = icmp eq i8 %.lcssa272, 7
-  %spec.select = select i1 %141, i32 1, i32 -1
+137:                                              ; preds = %115
+  %138 = icmp eq i8 %.lcssa272, 7
+  %spec.select = select i1 %138, i32 1, i32 -1
   br label %zend_compare_arrays.exit
 
 zend_compare_arrays.exit.loopexit:                ; preds = %22, %22, %22, %22, %22
@@ -8159,8 +8156,8 @@ zend_compare_arrays.exit.loopexit813:             ; preds = %22, %22
 zend_compare_arrays.exit.loopexit819:             ; preds = %.outer.split.us, %.outer.split.us
   br label %zend_compare_arrays.exit
 
-zend_compare_arrays.exit:                         ; preds = %136, %.outer.split.us, %.outer.split.us, %22, %22, %zend_compare_arrays.exit.loopexit819, %zend_compare_arrays.exit.loopexit813, %zend_compare_arrays.exit.loopexit662, %zend_compare_arrays.exit.loopexit, %56, %.split215.us, %140, %99, %.split245.us, %.split241.us, %.split223.us, %134, %130, %125, %121, %111, %.thread, %87, %82, %.split237.us, %.split233.us, %.split230.us, %.split227.us, %61, %.split211.us, %.split207.us, %.split203.us, %.split.us
-  %.081 = phi i32 [ %109, %.thread ], [ %117, %111 ], [ %sext101, %121 ], [ %127, %125 ], [ %131, %130 ], [ %sext, %134 ], [ %90, %87 ], [ %84, %82 ], [ %79, %.split237.us ], [ %75, %.split233.us ], [ %72, %.split230.us ], [ %67, %.split227.us ], [ %62, %61 ], [ %52, %.split211.us ], [ %46, %.split207.us ], [ %39, %.split203.us ], [ %32, %.split.us ], [ 0, %.split223.us ], [ 1, %.split241.us ], [ 1, %.split245.us ], [ 0, %99 ], [ %spec.select, %140 ], [ %57, %56 ], [ 0, %.split215.us ], [ 0, %zend_compare_arrays.exit.loopexit ], [ 0, %zend_compare_arrays.exit.loopexit662 ], [ -1, %zend_compare_arrays.exit.loopexit813 ], [ -1, %zend_compare_arrays.exit.loopexit819 ], [ 1, %22 ], [ 1, %22 ], [ 1, %.outer.split.us ], [ 1, %.outer.split.us ], [ 1, %136 ]
+zend_compare_arrays.exit:                         ; preds = %133, %.outer.split.us, %.outer.split.us, %22, %22, %zend_compare_arrays.exit.loopexit819, %zend_compare_arrays.exit.loopexit813, %zend_compare_arrays.exit.loopexit662, %zend_compare_arrays.exit.loopexit, %53, %.split215.us, %137, %96, %.split245.us, %.split241.us, %.split223.us, %131, %127, %122, %118, %108, %.thread, %84, %79, %.split237.us, %.split233.us, %.split230.us, %.split227.us, %58, %.split211.us, %.split207.us, %.split203.us, %.split.us
+  %.081 = phi i32 [ %106, %.thread ], [ %114, %108 ], [ %sext101, %118 ], [ %124, %122 ], [ %128, %127 ], [ %sext, %131 ], [ %87, %84 ], [ %81, %79 ], [ %76, %.split237.us ], [ %72, %.split233.us ], [ %69, %.split230.us ], [ %64, %.split227.us ], [ %59, %58 ], [ %49, %.split211.us ], [ %43, %.split207.us ], [ %36, %.split203.us ], [ %29, %.split.us ], [ 0, %.split223.us ], [ 1, %.split241.us ], [ 1, %.split245.us ], [ 0, %96 ], [ %spec.select, %137 ], [ %54, %53 ], [ 0, %.split215.us ], [ 0, %zend_compare_arrays.exit.loopexit ], [ 0, %zend_compare_arrays.exit.loopexit662 ], [ -1, %zend_compare_arrays.exit.loopexit813 ], [ -1, %zend_compare_arrays.exit.loopexit819 ], [ 1, %22 ], [ 1, %22 ], [ 1, %.outer.split.us ], [ 1, %.outer.split.us ], [ 1, %133 ]
   ret i32 %.081
 }
 
@@ -8290,41 +8287,38 @@ define i32 @zendi_smart_strcmp(ptr noundef %0, ptr noundef %1) local_unnamed_add
 62:                                               ; preds = %33
   %63 = load i64, ptr %5, align 8
   %64 = load i64, ptr %6, align 8
-  %65 = icmp sgt i64 %63, %64
-  %66 = icmp slt i64 %63, %64
-  %67 = sext i1 %66 to i32
-  %68 = select i1 %65, i32 1, i32 %67
+  %65 = call i32 @llvm.scmp.i32.i64(i64 %63, i64 %64)
   br label %.thread65
 
 .thread:                                          ; preds = %16, %2, %48, %13, %20, %28
-  %69 = load i64, ptr %10, align 8
-  %70 = getelementptr inbounds i8, ptr %1, i64 16
-  %71 = load i64, ptr %70, align 8
-  %72 = icmp eq ptr %0, %1
-  br i1 %72, label %.thread65, label %73
+  %66 = load i64, ptr %10, align 8
+  %67 = getelementptr inbounds i8, ptr %1, i64 16
+  %68 = load i64, ptr %67, align 8
+  %69 = icmp eq ptr %0, %1
+  br i1 %69, label %.thread65, label %70
 
-73:                                               ; preds = %.thread
-  %74 = getelementptr inbounds i8, ptr %1, i64 24
-  %75 = call i64 @llvm.umin.i64(i64 %69, i64 %71)
-  %76 = call i32 @memcmp(ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %74, i64 noundef %75) #28
-  %.not.i = icmp eq i32 %76, 0
-  br i1 %.not.i, label %77, label %zend_binary_strcmp.exit
+70:                                               ; preds = %.thread
+  %71 = getelementptr inbounds i8, ptr %1, i64 24
+  %72 = call i64 @llvm.umin.i64(i64 %66, i64 %68)
+  %73 = call i32 @memcmp(ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %71, i64 noundef %72) #28
+  %.not.i = icmp eq i32 %73, 0
+  br i1 %.not.i, label %74, label %zend_binary_strcmp.exit
 
-77:                                               ; preds = %73
-  %78 = icmp ult i64 %69, %71
-  %79 = icmp eq i64 %69, %71
-  %80 = select i1 %78, i32 -1, i32 1
-  br i1 %79, label %.thread65, label %zend_binary_strcmp.exit
+74:                                               ; preds = %70
+  %75 = icmp ult i64 %66, %68
+  %76 = icmp eq i64 %66, %68
+  %77 = select i1 %75, i32 -1, i32 1
+  br i1 %76, label %.thread65, label %zend_binary_strcmp.exit
 
-zend_binary_strcmp.exit:                          ; preds = %77, %73
-  %.0.i = phi i32 [ %80, %77 ], [ %76, %73 ]
+zend_binary_strcmp.exit:                          ; preds = %74, %70
+  %.0.i = phi i32 [ %77, %74 ], [ %73, %70 ]
   %.0.i.fr = freeze i32 %.0.i
   %.inv = icmp sgt i32 %.0.i.fr, -1
   %. = select i1 %.inv, i32 1, i32 -1
   br label %.thread65
 
-.thread65:                                        ; preds = %77, %.thread, %zend_binary_strcmp.exit, %44, %62, %54, %38
-  %.035 = phi i32 [ %39, %38 ], [ %61, %54 ], [ %68, %62 ], [ %25, %44 ], [ %., %zend_binary_strcmp.exit ], [ 0, %.thread ], [ 0, %77 ]
+.thread65:                                        ; preds = %74, %.thread, %zend_binary_strcmp.exit, %44, %62, %54, %38
+  %.035 = phi i32 [ %39, %38 ], [ %61, %54 ], [ %65, %62 ], [ %25, %44 ], [ %., %zend_binary_strcmp.exit ], [ 0, %.thread ], [ 0, %74 ]
   ret i32 %.035
 }
 
@@ -8344,166 +8338,163 @@ define internal fastcc range(i32 -1, 2) i32 @compare_long_to_string(i64 noundef 
   %12 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %6, i64 noundef %11, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
   switch i8 %12, label %.thread [
     i8 4, label %13
-    i8 5, label %19
+    i8 5, label %16
   ]
 
 13:                                               ; preds = %10
   %14 = load i64, ptr %4, align 8
-  %15 = icmp sgt i64 %0, %14
-  %16 = icmp slt i64 %0, %14
-  %17 = sext i1 %16 to i32
-  %18 = select i1 %15, i32 1, i32 %17
-  br label %92
+  %15 = call i32 @llvm.scmp.i32.i64(i64 %0, i64 %14)
+  br label %89
 
-19:                                               ; preds = %10
-  %20 = sitofp i64 %0 to double
-  %21 = load double, ptr %5, align 8
-  %22 = fcmp oeq double %21, %20
-  %23 = fcmp ogt double %21, %20
-  %24 = select i1 %23, i32 -1, i32 1
-  %25 = select i1 %22, i32 0, i32 %24
-  br label %92
+16:                                               ; preds = %10
+  %17 = sitofp i64 %0 to double
+  %18 = load double, ptr %5, align 8
+  %19 = fcmp oeq double %18, %17
+  %20 = fcmp ogt double %18, %17
+  %21 = select i1 %20, i32 -1, i32 1
+  %22 = select i1 %19, i32 0, i32 %21
+  br label %89
 
 .thread:                                          ; preds = %2, %10
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3)
-  %26 = icmp ult i64 %0, 10
-  br i1 %26, label %27, label %31
+  %23 = icmp ult i64 %0, 10
+  br i1 %23, label %24, label %28
 
-27:                                               ; preds = %.thread
-  %28 = or disjoint i64 %0, 48
-  %29 = getelementptr inbounds [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %28
-  %30 = load ptr, ptr %29, align 8
+24:                                               ; preds = %.thread
+  %25 = or disjoint i64 %0, 48
+  %26 = getelementptr inbounds [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %25
+  %27 = load ptr, ptr %26, align 8
   br label %zend_long_to_str.exit
 
-31:                                               ; preds = %.thread
-  %32 = getelementptr inbounds i8, ptr %3, i64 20
-  %33 = icmp slt i64 %0, 0
-  br i1 %33, label %34, label %44
+28:                                               ; preds = %.thread
+  %29 = getelementptr inbounds i8, ptr %3, i64 20
+  %30 = icmp slt i64 %0, 0
+  br i1 %30, label %31, label %41
 
-34:                                               ; preds = %31
-  %35 = sub i64 0, %0
-  store i8 0, ptr %32, align 4
-  br label %36
+31:                                               ; preds = %28
+  %32 = sub i64 0, %0
+  store i8 0, ptr %29, align 4
+  br label %33
 
-36:                                               ; preds = %36, %34
-  %.084.i = phi i64 [ %35, %34 ], [ %41, %36 ]
-  %.082.i = phi ptr [ %32, %34 ], [ %40, %36 ]
-  %37 = urem i64 %.084.i, 10
-  %38 = trunc nuw nsw i64 %37 to i8
-  %39 = or disjoint i8 %38, 48
-  %40 = getelementptr inbounds i8, ptr %.082.i, i64 -1
-  store i8 %39, ptr %40, align 1
-  %41 = udiv i64 %.084.i, 10
+33:                                               ; preds = %33, %31
+  %.084.i = phi i64 [ %32, %31 ], [ %38, %33 ]
+  %.082.i = phi ptr [ %29, %31 ], [ %37, %33 ]
+  %34 = urem i64 %.084.i, 10
+  %35 = trunc nuw nsw i64 %34 to i8
+  %36 = or disjoint i8 %35, 48
+  %37 = getelementptr inbounds i8, ptr %.082.i, i64 -1
+  store i8 %36, ptr %37, align 1
+  %38 = udiv i64 %.084.i, 10
   %.not88.i = icmp ult i64 %.084.i, 10
-  br i1 %.not88.i, label %42, label %36
+  br i1 %.not88.i, label %39, label %33
 
-42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %.082.i, i64 -2
-  store i8 45, ptr %43, align 1
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds i8, ptr %.082.i, i64 -2
+  store i8 45, ptr %40, align 1
   br label %.loopexit.i
 
-44:                                               ; preds = %31
-  store i8 0, ptr %32, align 4
-  br label %45
+41:                                               ; preds = %28
+  store i8 0, ptr %29, align 4
+  br label %42
 
-45:                                               ; preds = %45, %44
-  %.081.i = phi i64 [ %0, %44 ], [ %50, %45 ]
-  %.0.i = phi ptr [ %32, %44 ], [ %49, %45 ]
-  %46 = urem i64 %.081.i, 10
-  %47 = trunc nuw nsw i64 %46 to i8
-  %48 = or disjoint i8 %47, 48
-  %49 = getelementptr inbounds i8, ptr %.0.i, i64 -1
-  store i8 %48, ptr %49, align 1
-  %50 = udiv i64 %.081.i, 10
+42:                                               ; preds = %42, %41
+  %.081.i = phi i64 [ %0, %41 ], [ %47, %42 ]
+  %.0.i = phi ptr [ %29, %41 ], [ %46, %42 ]
+  %43 = urem i64 %.081.i, 10
+  %44 = trunc nuw nsw i64 %43 to i8
+  %45 = or disjoint i8 %44, 48
+  %46 = getelementptr inbounds i8, ptr %.0.i, i64 -1
+  store i8 %45, ptr %46, align 1
+  %47 = udiv i64 %.081.i, 10
   %.not.i = icmp ult i64 %.081.i, 10
-  br i1 %.not.i, label %.loopexit.i, label %45
+  br i1 %.not.i, label %.loopexit.i, label %42
 
-.loopexit.i:                                      ; preds = %45, %42
-  %.085.i = phi ptr [ %43, %42 ], [ %49, %45 ]
-  %51 = ptrtoint ptr %32 to i64
-  %52 = ptrtoint ptr %.085.i to i64
-  %53 = sub i64 %51, %52
-  %54 = and i64 %53, -8
-  %55 = add i64 %54, 32
-  %56 = call noalias ptr @_emalloc(i64 noundef %55) #29
-  store i32 1, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
-  store i32 22, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
-  store i64 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %56, i64 16
-  store i64 %53, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %56, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull align 1 %.085.i, i64 %53, i1 false)
-  %61 = getelementptr inbounds [1 x i8], ptr %60, i64 0, i64 %53
-  store i8 0, ptr %61, align 1
-  %62 = load i32, ptr %57, align 4
-  %63 = or i32 %62, 512
-  store i32 %63, ptr %57, align 4
+.loopexit.i:                                      ; preds = %42, %39
+  %.085.i = phi ptr [ %40, %39 ], [ %46, %42 ]
+  %48 = ptrtoint ptr %29 to i64
+  %49 = ptrtoint ptr %.085.i to i64
+  %50 = sub i64 %48, %49
+  %51 = and i64 %50, -8
+  %52 = add i64 %51, 32
+  %53 = call noalias ptr @_emalloc(i64 noundef %52) #29
+  store i32 1, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  store i32 22, ptr %54, align 4
+  %55 = getelementptr inbounds i8, ptr %53, i64 8
+  store i64 0, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %53, i64 16
+  store i64 %50, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %53, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %57, ptr nonnull align 1 %.085.i, i64 %50, i1 false)
+  %58 = getelementptr inbounds [1 x i8], ptr %57, i64 0, i64 %50
+  store i8 0, ptr %58, align 1
+  %59 = load i32, ptr %54, align 4
+  %60 = or i32 %59, 512
+  store i32 %60, ptr %54, align 4
   br label %zend_long_to_str.exit
 
-zend_long_to_str.exit:                            ; preds = %27, %.loopexit.i
-  %.083.i = phi ptr [ %30, %27 ], [ %56, %.loopexit.i ]
+zend_long_to_str.exit:                            ; preds = %24, %.loopexit.i
+  %.083.i = phi ptr [ %27, %24 ], [ %53, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %3)
-  %64 = getelementptr inbounds i8, ptr %.083.i, i64 16
-  %65 = load i64, ptr %64, align 8
-  %66 = load i64, ptr %7, align 8
-  %67 = icmp eq ptr %.083.i, %1
-  br i1 %67, label %zend_binary_strcmp.exit, label %68
+  %61 = getelementptr inbounds i8, ptr %.083.i, i64 16
+  %62 = load i64, ptr %61, align 8
+  %63 = load i64, ptr %7, align 8
+  %64 = icmp eq ptr %.083.i, %1
+  br i1 %64, label %zend_binary_strcmp.exit, label %65
 
-68:                                               ; preds = %zend_long_to_str.exit
-  %69 = getelementptr inbounds i8, ptr %.083.i, i64 24
-  %70 = call i64 @llvm.umin.i64(i64 %65, i64 %66)
-  %71 = call i32 @memcmp(ptr noundef nonnull readonly %69, ptr noundef nonnull readonly %6, i64 noundef %70) #28
-  %.not.i45 = icmp eq i32 %71, 0
-  br i1 %.not.i45, label %72, label %zend_binary_strcmp.exit
+65:                                               ; preds = %zend_long_to_str.exit
+  %66 = getelementptr inbounds i8, ptr %.083.i, i64 24
+  %67 = call i64 @llvm.umin.i64(i64 %62, i64 %63)
+  %68 = call i32 @memcmp(ptr noundef nonnull readonly %66, ptr noundef nonnull readonly %6, i64 noundef %67) #28
+  %.not.i45 = icmp eq i32 %68, 0
+  br i1 %.not.i45, label %69, label %zend_binary_strcmp.exit
 
-72:                                               ; preds = %68
-  %73 = icmp ult i64 %65, %66
-  %74 = icmp eq i64 %65, %66
-  %75 = select i1 %73, i32 -1, i32 1
-  %76 = select i1 %74, i32 0, i32 %75
+69:                                               ; preds = %65
+  %70 = icmp ult i64 %62, %63
+  %71 = icmp eq i64 %62, %63
+  %72 = select i1 %70, i32 -1, i32 1
+  %73 = select i1 %71, i32 0, i32 %72
   br label %zend_binary_strcmp.exit
 
-zend_binary_strcmp.exit:                          ; preds = %zend_long_to_str.exit, %68, %72
-  %.0.i46 = phi i32 [ %76, %72 ], [ 0, %zend_long_to_str.exit ], [ %71, %68 ]
-  %77 = getelementptr inbounds i8, ptr %.083.i, i64 4
-  %78 = load i32, ptr %77, align 4
-  %79 = and i32 %78, 64
-  %.not = icmp eq i32 %79, 0
-  br i1 %.not, label %80, label %89
+zend_binary_strcmp.exit:                          ; preds = %zend_long_to_str.exit, %65, %69
+  %.0.i46 = phi i32 [ %73, %69 ], [ 0, %zend_long_to_str.exit ], [ %68, %65 ]
+  %74 = getelementptr inbounds i8, ptr %.083.i, i64 4
+  %75 = load i32, ptr %74, align 4
+  %76 = and i32 %75, 64
+  %.not = icmp eq i32 %76, 0
+  br i1 %.not, label %77, label %86
 
-80:                                               ; preds = %zend_binary_strcmp.exit
-  %81 = load i32, ptr %.083.i, align 4
-  %82 = icmp ne i32 %81, 0
-  call void @llvm.assume(i1 %82)
-  %83 = add i32 %81, -1
-  store i32 %83, ptr %.083.i, align 4
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %89
+77:                                               ; preds = %zend_binary_strcmp.exit
+  %78 = load i32, ptr %.083.i, align 4
+  %79 = icmp ne i32 %78, 0
+  call void @llvm.assume(i1 %79)
+  %80 = add i32 %78, -1
+  store i32 %80, ptr %.083.i, align 4
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %86
 
-85:                                               ; preds = %80
-  %86 = and i32 %78, 128
-  %.not43 = icmp eq i32 %86, 0
-  br i1 %.not43, label %88, label %87
+82:                                               ; preds = %77
+  %83 = and i32 %75, 128
+  %.not43 = icmp eq i32 %83, 0
+  br i1 %.not43, label %85, label %84
 
-87:                                               ; preds = %85
+84:                                               ; preds = %82
   call void @free(ptr noundef nonnull %.083.i) #27
-  br label %89
+  br label %86
 
-88:                                               ; preds = %85
+85:                                               ; preds = %82
   call void @_efree(ptr noundef nonnull %.083.i) #27
-  br label %89
+  br label %86
 
-89:                                               ; preds = %80, %88, %87, %zend_binary_strcmp.exit
+86:                                               ; preds = %77, %85, %84, %zend_binary_strcmp.exit
   %.not44 = icmp eq i32 %.0.i46, 0
   %.inv = icmp sgt i32 %.0.i46, -1
-  %90 = select i1 %.inv, i32 1, i32 -1
-  %91 = select i1 %.not44, i32 0, i32 %90
-  br label %92
+  %87 = select i1 %.inv, i32 1, i32 -1
+  %88 = select i1 %.not44, i32 0, i32 %87
+  br label %89
 
-92:                                               ; preds = %89, %19, %13
-  %.039 = phi i32 [ %18, %13 ], [ %25, %19 ], [ %91, %89 ]
+89:                                               ; preds = %86, %16, %13
+  %.039 = phi i32 [ %15, %13 ], [ %22, %16 ], [ %88, %86 ]
   ret i32 %.039
 }
 
@@ -12165,6 +12156,9 @@ declare i32 @llvm.umax.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26

@@ -2896,10 +2896,7 @@ define range(i32 -1, 2) i32 @bb_job_queue_sort(ptr nocapture noundef readonly %0
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 888
   %12 = load i64, ptr %11, align 8
-  %13 = icmp sgt i64 %10, %12
-  %14 = icmp slt i64 %10, %12
-  %. = sext i1 %14 to i32
-  %.0 = select i1 %13, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i64(i64 %10, i64 %12)
   ret i32 %.0
 }
 
@@ -2911,10 +2908,7 @@ define range(i32 -1, 2) i32 @bb_preempt_queue_sort(ptr nocapture noundef readonl
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 32
   %8 = load i64, ptr %7, align 8
-  %9 = icmp sgt i64 %6, %8
-  %10 = icmp slt i64 %6, %8
-  %. = zext i1 %10 to i32
-  %.0 = select i1 %9, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i64(i64 %8, i64 %6)
   ret i32 %.0
 }
 
@@ -5597,6 +5591,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #15

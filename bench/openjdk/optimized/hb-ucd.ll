@@ -345,9 +345,9 @@ define internal noundef range(i32 0, 2) i32 @_ZL14hb_ucd_composeP18hb_unicode_fu
   br label %32
 
 32:                                               ; preds = %46, %27
-  %.0193.i.i = phi i32 [ 0, %27 ], [ %.1.i.i, %46 ]
-  %.0202.i.i = phi i32 [ 637, %27 ], [ %.121.i.i, %46 ]
-  %33 = add i32 %.0202.i.i, %.0193.i.i
+  %.0192.i.i = phi i32 [ 0, %27 ], [ %.1.i.i, %46 ]
+  %.0201.i.i = phi i32 [ 637, %27 ], [ %.121.i.i, %46 ]
+  %33 = add i32 %.0201.i.i, %.0192.i.i
   %34 = lshr i32 %33, 1
   %35 = zext nneg i32 %34 to i64
   %36 = shl nuw nsw i64 %35, 2
@@ -362,16 +362,16 @@ define internal noundef range(i32 0, 2) i32 @_ZL14hb_ucd_composeP18hb_unicode_fu
   br label %46
 
 43:                                               ; preds = %32
-  %.not1.i.i = icmp ugt i32 %31, %39
-  br i1 %.not1.i.i, label %44, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit
+  %.not23.i.i = icmp eq i32 %31, %39
+  br i1 %.not23.i.i, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit, label %44
 
 44:                                               ; preds = %43
   %45 = add nuw nsw i32 %34, 1
   br label %46
 
 46:                                               ; preds = %44, %41
-  %.121.i.i = phi i32 [ %42, %41 ], [ %.0202.i.i, %44 ]
-  %.1.i.i = phi i32 [ %.0193.i.i, %41 ], [ %45, %44 ]
+  %.121.i.i = phi i32 [ %42, %41 ], [ %.0201.i.i, %44 ]
+  %.1.i.i = phi i32 [ %.0192.i.i, %41 ], [ %45, %44 ]
   %.not.not.i.i = icmp sgt i32 %.1.i.i, %.121.i.i
   br i1 %.not.not.i.i, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread, label %32, !llvm.loop !6
 
@@ -388,9 +388,9 @@ _ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit: ; preds = %43
   br label %53
 
 53:                                               ; preds = %67, %.thread
-  %.0193.i.i23 = phi i32 [ 0, %.thread ], [ %.1.i.i27, %67 ]
-  %.0202.i.i24 = phi i32 [ 387, %.thread ], [ %.121.i.i26, %67 ]
-  %54 = add i32 %.0202.i.i24, %.0193.i.i23
+  %.0192.i.i23 = phi i32 [ 0, %.thread ], [ %.1.i.i27, %67 ]
+  %.0201.i.i24 = phi i32 [ 387, %.thread ], [ %.121.i.i26, %67 ]
+  %54 = add i32 %.0201.i.i24, %.0192.i.i23
   %55 = lshr i32 %54, 1
   %56 = zext nneg i32 %55 to i64
   %57 = shl nuw nsw i64 %56, 3
@@ -405,16 +405,16 @@ _ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit: ; preds = %43
   br label %67
 
 64:                                               ; preds = %53
-  %.not1.i.i25 = icmp ugt i64 %52, %60
-  br i1 %.not1.i.i25, label %65, label %_ZL10hb_bsearchIKmmEPT_RKT0_S2_mmPFiPKvS7_E.exit
+  %.not23.i.i25 = icmp eq i64 %52, %60
+  br i1 %.not23.i.i25, label %_ZL10hb_bsearchIKmmEPT_RKT0_S2_mmPFiPKvS7_E.exit, label %65
 
 65:                                               ; preds = %64
   %66 = add nuw nsw i32 %55, 1
   br label %67
 
 67:                                               ; preds = %65, %62
-  %.121.i.i26 = phi i32 [ %63, %62 ], [ %.0202.i.i24, %65 ]
-  %.1.i.i27 = phi i32 [ %.0193.i.i23, %62 ], [ %66, %65 ]
+  %.121.i.i26 = phi i32 [ %63, %62 ], [ %.0201.i.i24, %65 ]
+  %.1.i.i27 = phi i32 [ %.0192.i.i23, %62 ], [ %66, %65 ]
   %.not.not.i.i28 = icmp sgt i32 %.1.i.i27, %.121.i.i26
   br i1 %.not.not.i.i28, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread, label %53, !llvm.loop !8
 

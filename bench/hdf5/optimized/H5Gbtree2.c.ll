@@ -82,14 +82,14 @@ define internal range(i32 -1, 1) i32 @H5G__dense_btree2_name_compare(ptr nocaptu
   store i32 0, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = call i32 @H5HF_op(ptr noundef %27, ptr noundef nonnull %1, ptr noundef nonnull @H5G__dense_fh_name_cmp, ptr noundef nonnull %4) #8
+  %28 = call i32 @H5HF_op(ptr noundef %27, ptr noundef nonnull %1, ptr noundef nonnull @H5G__dense_fh_name_cmp, ptr noundef nonnull %4) #9
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %14
   %31 = load i64, ptr @H5E_HEAP_g, align 8
   %32 = load i64, ptr @H5E_CANTCOMPARE_g, align 8
-  %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5G__dense_btree2_name_compare, i32 noundef 241, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.3) #8
+  %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5G__dense_btree2_name_compare, i32 noundef 241, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.3) #9
   br label %36
 
 34:                                               ; preds = %14
@@ -161,7 +161,7 @@ define internal noundef i32 @H5G__dense_btree2_name_decode(ptr nocapture noundef
 define internal noundef i32 @H5G__dense_btree2_name_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #2 {
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 4
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i32 noundef %7) #8
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i32 noundef %7) #9
   br label %9
 
 9:                                                ; preds = %5, %9
@@ -172,7 +172,7 @@ define internal noundef i32 @H5G__dense_btree2_name_debug(ptr nocapture noundef 
   %13 = zext i8 %12 to i32
   %.not = icmp eq i64 %indvars.iv, 6
   %14 = select i1 %.not, ptr @.str.11, ptr @.str.10
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.9, i32 noundef %13, ptr noundef nonnull %14) #9
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.9, i32 noundef %13, ptr noundef nonnull %14) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %16, label %9
@@ -198,10 +198,7 @@ define internal noundef i32 @H5G__dense_btree2_corder_compare(ptr nocapture noun
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = icmp slt i64 %5, %7
-  %9 = icmp sgt i64 %5, %7
-  %. = zext i1 %9 to i32
-  %.sink = select i1 %8, i32 -1, i32 %.
+  %.sink = tail call i32 @llvm.scmp.i32.i64(i64 %5, i64 %7)
   store i32 %.sink, ptr %2, align 4
   ret i32 0
 }
@@ -261,7 +258,7 @@ define internal noundef i32 @H5G__dense_btree2_corder_decode(ptr nocapture nound
 define internal noundef i32 @H5G__dense_btree2_corder_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #2 {
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %7) #8
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %7) #9
   br label %9
 
 9:                                                ; preds = %5, %9
@@ -272,7 +269,7 @@ define internal noundef i32 @H5G__dense_btree2_corder_debug(ptr nocapture nounde
   %13 = zext i8 %12 to i32
   %.not = icmp eq i64 %indvars.iv, 6
   %14 = select i1 %.not, ptr @.str.11, ptr @.str.10
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.9, i32 noundef %13, ptr noundef nonnull %14) #9
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.9, i32 noundef %13, ptr noundef nonnull %14) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %16, label %9
@@ -289,14 +286,14 @@ declare i32 @H5HF_op(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5G__dense_fh_name_cmp(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #1 {
   %4 = load ptr, ptr %2, align 8
-  %5 = tail call ptr @H5O_msg_decode(ptr noundef %4, ptr noundef null, i32 noundef 6, i64 noundef %1, ptr noundef %0) #8
+  %5 = tail call ptr @H5O_msg_decode(ptr noundef %4, ptr noundef null, i32 noundef 6, i64 noundef %1, ptr noundef %0) #9
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = load i64, ptr @H5E_SYM_g, align 8
   %9 = load i64, ptr @H5E_CANTDECODE_g, align 8
-  %10 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5G__dense_fh_name_cmp, i32 noundef 151, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.4) #8
+  %10 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5G__dense_fh_name_cmp, i32 noundef 151, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.4) #9
   br label %33
 
 11:                                               ; preds = %3
@@ -304,7 +301,7 @@ define internal range(i32 -1, 1) i32 @H5G__dense_fh_name_cmp(ptr noundef %0, i64
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %15) #10
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %15) #11
   %17 = getelementptr inbounds i8, ptr %2, i64 32
   store i32 %16, ptr %17, align 8
   %18 = icmp eq i32 %16, 0
@@ -319,18 +316,18 @@ define internal range(i32 -1, 1) i32 @H5G__dense_fh_name_cmp(ptr noundef %0, i64
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %2, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 %21(ptr noundef nonnull %5, ptr noundef %24) #8
+  %25 = tail call i32 %21(ptr noundef nonnull %5, ptr noundef %24) #9
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %22
   %28 = load i64, ptr @H5E_SYM_g, align 8
   %29 = load i64, ptr @H5E_CANTOPERATE_g, align 8
-  %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5G__dense_fh_name_cmp, i32 noundef 159, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.5) #8
+  %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5G__dense_fh_name_cmp, i32 noundef 159, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.5) #9
   br label %33
 
 31:                                               ; preds = %22, %19, %11
-  %32 = tail call ptr @H5O_msg_free(i32 noundef 6, ptr noundef nonnull %5) #8
+  %32 = tail call ptr @H5O_msg_free(i32 noundef 6, ptr noundef nonnull %5) #9
   br label %33
 
 33:                                               ; preds = %31, %27, %7
@@ -350,6 +347,9 @@ declare ptr @H5O_msg_free(i32 noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #8
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -358,9 +358,10 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

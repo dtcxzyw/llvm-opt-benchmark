@@ -16,33 +16,24 @@ declare void @free(ptr allocptr nocapture noundef) #1
 define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_uint_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp ult i32 %3, %4
-  %6 = icmp ugt i32 %3, %4
-  %7 = zext i1 %6 to i32
-  %8 = select i1 %5, i32 -1, i32 %7
-  ret i32 %8
+  %5 = tail call i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_long_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
-  %5 = icmp slt i64 %3, %4
-  %6 = icmp sgt i64 %3, %4
-  %7 = zext i1 %6 to i32
-  %8 = select i1 %5, i32 -1, i32 %7
-  ret i32 %8
+  %5 = tail call i32 @llvm.scmp.i32.i64(i64 %3, i64 %4)
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_ulong_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ugt i64 %3, %4
-  %7 = zext i1 %6 to i32
-  %8 = select i1 %5, i32 -1, i32 %7
-  ret i32 %8
+  %5 = tail call i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -100,6 +91,15 @@ define void @ompi_coll_libnbc_dict_itor_destroy(ptr noundef %0) local_unnamed_ad
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i8(i8, i8) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #6
 
 attributes #0 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

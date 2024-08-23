@@ -3054,9 +3054,9 @@ sub_11326.i.thread.i:                             ; preds = %.preheader.i1064.i.
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1123, %.lr.ph.preheader.i.i.i.i
-  %.0194.i.i.i.i = phi i32 [ %.1.i.i.i.i, %1123 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
-  %.0203.i.i.i.i = phi i32 [ %.121.i.i.i.i, %1123 ], [ %1110, %.lr.ph.preheader.i.i.i.i ]
-  %1111 = add i32 %.0203.i.i.i.i, %.0194.i.i.i.i
+  %.0193.i.i.i.i = phi i32 [ %.1.i.i.i.i, %1123 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
+  %.0202.i.i.i.i = phi i32 [ %.121.i.i.i.i, %1123 ], [ %1110, %.lr.ph.preheader.i.i.i.i ]
+  %1111 = add i32 %.0202.i.i.i.i, %.0193.i.i.i.i
   %1112 = lshr i32 %1111, 1
   %1113 = zext nneg i32 %1112 to i64
   %1114 = shl nuw nsw i64 %1113, 3
@@ -3070,16 +3070,16 @@ sub_11326.i.thread.i:                             ; preds = %.preheader.i1064.i.
   br label %1123
 
 1120:                                             ; preds = %.lr.ph.i.i.i.i
-  %.not1.i.i.i.i = icmp ugt i32 %1099, %1116
-  br i1 %.not1.i.i.i.i, label %1121, label %.critedge.i
+  %.not23.i.i.i.i = icmp eq i32 %1099, %1116
+  br i1 %.not23.i.i.i.i, label %.critedge.i, label %1121
 
 1121:                                             ; preds = %1120
   %1122 = add nuw nsw i32 %1112, 1
   br label %1123
 
 1123:                                             ; preds = %1121, %1118
-  %.121.i.i.i.i = phi i32 [ %1119, %1118 ], [ %.0203.i.i.i.i, %1121 ]
-  %.1.i.i.i.i = phi i32 [ %.0194.i.i.i.i, %1118 ], [ %1122, %1121 ]
+  %.121.i.i.i.i = phi i32 [ %1119, %1118 ], [ %.0202.i.i.i.i, %1121 ]
+  %.1.i.i.i.i = phi i32 [ %.0193.i.i.i.i, %1118 ], [ %1122, %1121 ]
   %.not.not.i.i.i.i = icmp sgt i32 %.1.i.i.i.i, %.121.i.i.i.i
   br i1 %.not.not.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !41
 

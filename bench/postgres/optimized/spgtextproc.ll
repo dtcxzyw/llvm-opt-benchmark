@@ -1515,7 +1515,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture nou
   %140 = getelementptr inbounds i8, ptr %104, i64 %.v139
   %141 = load i32, ptr %95, align 8
   %142 = tail call i32 @varstr_cmp(ptr noundef nonnull %.0113, i32 noundef %50, ptr noundef nonnull %140, i32 noundef %127, i32 noundef %141) #9
-  br label %153
+  br label %150
 
 143:                                              ; preds = %135
   %144 = and i8 %105, 1
@@ -1526,82 +1526,77 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture nou
   %147 = sext i32 %146 to i64
   %148 = tail call i32 @memcmp(ptr noundef nonnull %.0113, ptr noundef nonnull %145, i64 noundef %147) #10
   %149 = icmp eq i32 %148, 0
-  br i1 %149, label %150, label %153
+  %spec.select151 = tail call i32 @llvm.scmp.i32.i32(i32 %50, i32 %127)
+  %spec.select = select i1 %149, i32 %spec.select151, i32 %148
+  br label %150
 
-150:                                              ; preds = %143
-  %151 = icmp slt i32 %127, %50
-  %152 = icmp sgt i32 %127, %50
-  %spec.select = zext i1 %151 to i32
-  %spec.select151 = select i1 %152, i32 -1, i32 %spec.select
-  br label %153
-
-153:                                              ; preds = %150, %143, %137
-  %.0114 = phi i16 [ %138, %137 ], [ %100, %143 ], [ %100, %150 ]
-  %.0 = phi i32 [ %142, %137 ], [ %148, %143 ], [ %spec.select151, %150 ]
-  switch i16 %.0114, label %168 [
-    i16 1, label %154
-    i16 2, label %156
-    i16 3, label %159
-    i16 4, label %162
-    i16 5, label %165
+150:                                              ; preds = %143, %137
+  %.0114 = phi i16 [ %138, %137 ], [ %100, %143 ]
+  %.0 = phi i32 [ %142, %137 ], [ %spec.select, %143 ]
+  switch i16 %.0114, label %165 [
+    i16 1, label %151
+    i16 2, label %153
+    i16 3, label %156
+    i16 4, label %159
+    i16 5, label %162
   ]
 
-154:                                              ; preds = %153
+151:                                              ; preds = %150
   %.0.lobit = lshr i32 %.0, 31
-  %155 = trunc nuw nsw i32 %.0.lobit to i8
-  br label %175
+  %152 = trunc nuw nsw i32 %.0.lobit to i8
+  br label %172
 
-156:                                              ; preds = %153
-  %157 = icmp slt i32 %.0, 1
+153:                                              ; preds = %150
+  %154 = icmp slt i32 %.0, 1
+  %155 = zext i1 %154 to i8
+  br label %172
+
+156:                                              ; preds = %150
+  %157 = icmp eq i32 %.0, 0
   %158 = zext i1 %157 to i8
-  br label %175
+  br label %172
 
-159:                                              ; preds = %153
-  %160 = icmp eq i32 %.0, 0
+159:                                              ; preds = %150
+  %160 = icmp sgt i32 %.0, -1
   %161 = zext i1 %160 to i8
-  br label %175
+  br label %172
 
-162:                                              ; preds = %153
-  %163 = icmp sgt i32 %.0, -1
+162:                                              ; preds = %150
+  %163 = icmp sgt i32 %.0, 0
   %164 = zext i1 %163 to i8
-  br label %175
+  br label %172
 
-165:                                              ; preds = %153
-  %166 = icmp sgt i32 %.0, 0
-  %167 = zext i1 %166 to i8
-  br label %175
-
-168:                                              ; preds = %153
-  %169 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %169)
-  %170 = load ptr, ptr %4, align 8
-  %171 = getelementptr %struct.ScanKeyData, ptr %170, i64 %indvars.iv, i32 2
-  %172 = load i16, ptr %171, align 2
-  %173 = zext i16 %172 to i32
-  %174 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %173) #9
+165:                                              ; preds = %150
+  %166 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %166)
+  %167 = load ptr, ptr %4, align 8
+  %168 = getelementptr %struct.ScanKeyData, ptr %167, i64 %indvars.iv, i32 2
+  %169 = load i16, ptr %168, align 2
+  %170 = zext i16 %169 to i32
+  %171 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %170) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 691, ptr noundef nonnull @__func__.spg_text_leaf_consistent) #9
   unreachable
 
-175:                                              ; preds = %165, %162, %159, %156, %154
-  %.3 = phi i8 [ %167, %165 ], [ %164, %162 ], [ %161, %159 ], [ %158, %156 ], [ %155, %154 ]
-  %176 = trunc nuw i8 %.3 to i1
-  br i1 %176, label %.thread160, label %._crit_edge.loopexit
+172:                                              ; preds = %162, %159, %156, %153, %151
+  %.3 = phi i8 [ %164, %162 ], [ %161, %159 ], [ %158, %156 ], [ %155, %153 ], [ %152, %151 ]
+  %173 = trunc nuw i8 %.3 to i1
+  br i1 %173, label %.thread160, label %._crit_edge.loopexit
 
-.thread160:                                       ; preds = %129, %175, %130
-  %.2 = phi i8 [ 1, %130 ], [ %.3, %175 ], [ 1, %129 ]
+.thread160:                                       ; preds = %129, %172, %130
+  %.2 = phi i8 [ 1, %130 ], [ %.3, %172 ], [ 1, %129 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %177 = load i32, ptr %92, align 8
-  %178 = sext i32 %177 to i64
-  %179 = icmp slt i64 %indvars.iv.next, %178
-  br i1 %179, label %96, label %._crit_edge.loopexit, !llvm.loop !13
+  %174 = load i32, ptr %92, align 8
+  %175 = sext i32 %174 to i64
+  %176 = icmp slt i64 %indvars.iv.next, %175
+  br i1 %176, label %96, label %._crit_edge.loopexit, !llvm.loop !13
 
-._crit_edge.loopexit:                             ; preds = %175, %130, %.thread160
-  %.1.ph = phi i8 [ %.2, %.thread160 ], [ 0, %130 ], [ %.3, %175 ]
-  %180 = zext nneg i8 %.1.ph to i64
+._crit_edge.loopexit:                             ; preds = %172, %130, %.thread160
+  %.1.ph = phi i8 [ %.2, %.thread160 ], [ 0, %130 ], [ %.3, %172 ]
+  %177 = zext nneg i8 %.1.ph to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %91
-  %.1 = phi i64 [ 1, %91 ], [ %180, %._crit_edge.loopexit ]
+  %.1 = phi i64 [ 1, %91 ], [ %177, %._crit_edge.loopexit ]
   ret i64 %.1
 }
 
@@ -1616,6 +1611,9 @@ declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

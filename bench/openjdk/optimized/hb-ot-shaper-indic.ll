@@ -170,17 +170,17 @@ _ZL10hb_optionsv.exit:                            ; preds = %22, %26
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 60
   %43 = load i32, ptr %42, align 4
-  %.not2.i.i.i.i.i.i.i = icmp sgt i32 %43, 0
-  br i1 %.not2.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i
+  %.not1.i.i.i.i.i.i.i = icmp sgt i32 %43, 0
+  br i1 %.not1.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %35
   %44 = add nsw i32 %43, -1
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %57, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.0194.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %57 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0203.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %57 ], [ %44, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %45 = add i32 %.0203.i.i.i.i.i.i.i, %.0194.i.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i.i, %57 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i.i, %57 ], [ %44, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %45 = add i32 %.0202.i.i.i.i.i.i.i, %.0193.i.i.i.i.i.i.i
   %46 = lshr i32 %45, 1
   %47 = zext nneg i32 %46 to i64
   %48 = mul nuw nsw i64 %47, 36
@@ -194,16 +194,16 @@ _ZL10hb_optionsv.exit:                            ; preds = %22, %26
   br label %57
 
 54:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.not1.i.i.i.i.i.i.i.not = icmp eq i32 %50, 1919969382
-  br i1 %.not1.i.i.i.i.i.i.i.not, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i, label %55
+  %.not23.i.i.i.i.i.i.i = icmp eq i32 %50, 1919969382
+  br i1 %.not23.i.i.i.i.i.i.i, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i, label %55
 
 55:                                               ; preds = %54
   %56 = add nuw nsw i32 %46, 1
   br label %57
 
 57:                                               ; preds = %55, %52
-  %.121.i.i.i.i.i.i.i = phi i32 [ %53, %52 ], [ %.0203.i.i.i.i.i.i.i, %55 ]
-  %.1.i.i.i.i.i.i.i = phi i32 [ %.0194.i.i.i.i.i.i.i, %52 ], [ %56, %55 ]
+  %.121.i.i.i.i.i.i.i = phi i32 [ %53, %52 ], [ %.0202.i.i.i.i.i.i.i, %55 ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i.i, %52 ], [ %56, %55 ]
   %.not.not.i.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i.i, %.121.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !10
 
@@ -275,16 +275,16 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit: ; preds = 
   %93 = getelementptr inbounds i8, ptr %2, i64 40
   %94 = getelementptr inbounds i8, ptr %2, i64 56
   store i8 %38, ptr %94, align 8
-  br i1 %.not2.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i54, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i44
+  br i1 %.not1.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i54, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i44
 
 .lr.ph.preheader.i.i.i.i.i.i.i54:                 ; preds = %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit
   %95 = add nsw i32 %43, -1
   br label %.lr.ph.i.i.i.i.i.i.i55
 
 .lr.ph.i.i.i.i.i.i.i55:                           ; preds = %108, %.lr.ph.preheader.i.i.i.i.i.i.i54
-  %.0194.i.i.i.i.i.i.i56 = phi i32 [ %.1.i.i.i.i.i.i.i61, %108 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i54 ]
-  %.0203.i.i.i.i.i.i.i57 = phi i32 [ %.121.i.i.i.i.i.i.i60, %108 ], [ %95, %.lr.ph.preheader.i.i.i.i.i.i.i54 ]
-  %96 = add i32 %.0203.i.i.i.i.i.i.i57, %.0194.i.i.i.i.i.i.i56
+  %.0193.i.i.i.i.i.i.i56 = phi i32 [ %.1.i.i.i.i.i.i.i60, %108 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i54 ]
+  %.0202.i.i.i.i.i.i.i57 = phi i32 [ %.121.i.i.i.i.i.i.i59, %108 ], [ %95, %.lr.ph.preheader.i.i.i.i.i.i.i54 ]
+  %96 = add i32 %.0202.i.i.i.i.i.i.i57, %.0193.i.i.i.i.i.i.i56
   %97 = lshr i32 %96, 1
   %98 = zext nneg i32 %97 to i64
   %99 = mul nuw nsw i64 %98, 36
@@ -298,26 +298,26 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit: ; preds = 
   br label %108
 
 105:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i55
-  %.not1.i.i.i.i.i.i.i58.not = icmp eq i32 %101, 1886545254
-  br i1 %.not1.i.i.i.i.i.i.i58.not, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i59, label %106
+  %.not23.i.i.i.i.i.i.i58 = icmp eq i32 %101, 1886545254
+  br i1 %.not23.i.i.i.i.i.i.i58, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i62, label %106
 
 106:                                              ; preds = %105
   %107 = add nuw nsw i32 %97, 1
   br label %108
 
 108:                                              ; preds = %106, %103
-  %.121.i.i.i.i.i.i.i60 = phi i32 [ %104, %103 ], [ %.0203.i.i.i.i.i.i.i57, %106 ]
-  %.1.i.i.i.i.i.i.i61 = phi i32 [ %.0194.i.i.i.i.i.i.i56, %103 ], [ %107, %106 ]
-  %.not.not.i.i.i.i.i.i.i62 = icmp sgt i32 %.1.i.i.i.i.i.i.i61, %.121.i.i.i.i.i.i.i60
-  br i1 %.not.not.i.i.i.i.i.i.i62, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i44, label %.lr.ph.i.i.i.i.i.i.i55, !llvm.loop !10
+  %.121.i.i.i.i.i.i.i59 = phi i32 [ %104, %103 ], [ %.0202.i.i.i.i.i.i.i57, %106 ]
+  %.1.i.i.i.i.i.i.i60 = phi i32 [ %.0193.i.i.i.i.i.i.i56, %103 ], [ %107, %106 ]
+  %.not.not.i.i.i.i.i.i.i61 = icmp sgt i32 %.1.i.i.i.i.i.i.i60, %.121.i.i.i.i.i.i.i59
+  br i1 %.not.not.i.i.i.i.i.i.i61, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i44, label %.lr.ph.i.i.i.i.i.i.i55, !llvm.loop !10
 
-_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i59: ; preds = %105
+_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i62: ; preds = %105
   %109 = getelementptr inbounds %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %98, i32 2, i64 0
   %110 = load i32, ptr %109, align 4
   br label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i44
 
-_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i44: ; preds = %108, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i59, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit
-  %111 = phi i32 [ %110, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i59 ], [ -1, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit ], [ -1, %108 ]
+_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i44: ; preds = %108, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i62, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit
+  %111 = phi i32 [ %110, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i62 ], [ -1, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit ], [ -1, %108 ]
   %112 = icmp ugt i32 %111, %62
   br i1 %112, label %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit63, label %113
 
@@ -377,16 +377,16 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit63: ; preds 
   %142 = getelementptr inbounds i8, ptr %2, i64 64
   %143 = getelementptr inbounds i8, ptr %2, i64 80
   store i8 %38, ptr %143, align 8
-  br i1 %.not2.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i75, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i65
+  br i1 %.not1.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i75, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i65
 
 .lr.ph.preheader.i.i.i.i.i.i.i75:                 ; preds = %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit63
   %144 = add nsw i32 %43, -1
   br label %.lr.ph.i.i.i.i.i.i.i76
 
 .lr.ph.i.i.i.i.i.i.i76:                           ; preds = %157, %.lr.ph.preheader.i.i.i.i.i.i.i75
-  %.0194.i.i.i.i.i.i.i77 = phi i32 [ %.1.i.i.i.i.i.i.i82, %157 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i75 ]
-  %.0203.i.i.i.i.i.i.i78 = phi i32 [ %.121.i.i.i.i.i.i.i81, %157 ], [ %144, %.lr.ph.preheader.i.i.i.i.i.i.i75 ]
-  %145 = add i32 %.0203.i.i.i.i.i.i.i78, %.0194.i.i.i.i.i.i.i77
+  %.0193.i.i.i.i.i.i.i77 = phi i32 [ %.1.i.i.i.i.i.i.i81, %157 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i75 ]
+  %.0202.i.i.i.i.i.i.i78 = phi i32 [ %.121.i.i.i.i.i.i.i80, %157 ], [ %144, %.lr.ph.preheader.i.i.i.i.i.i.i75 ]
+  %145 = add i32 %.0202.i.i.i.i.i.i.i78, %.0193.i.i.i.i.i.i.i77
   %146 = lshr i32 %145, 1
   %147 = zext nneg i32 %146 to i64
   %148 = mul nuw nsw i64 %147, 36
@@ -400,26 +400,26 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit63: ; preds 
   br label %157
 
 154:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i76
-  %.not1.i.i.i.i.i.i.i79.not = icmp eq i32 %150, 1651275622
-  br i1 %.not1.i.i.i.i.i.i.i79.not, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i80, label %155
+  %.not23.i.i.i.i.i.i.i79 = icmp eq i32 %150, 1651275622
+  br i1 %.not23.i.i.i.i.i.i.i79, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i83, label %155
 
 155:                                              ; preds = %154
   %156 = add nuw nsw i32 %146, 1
   br label %157
 
 157:                                              ; preds = %155, %152
-  %.121.i.i.i.i.i.i.i81 = phi i32 [ %153, %152 ], [ %.0203.i.i.i.i.i.i.i78, %155 ]
-  %.1.i.i.i.i.i.i.i82 = phi i32 [ %.0194.i.i.i.i.i.i.i77, %152 ], [ %156, %155 ]
-  %.not.not.i.i.i.i.i.i.i83 = icmp sgt i32 %.1.i.i.i.i.i.i.i82, %.121.i.i.i.i.i.i.i81
-  br i1 %.not.not.i.i.i.i.i.i.i83, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i65, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !10
+  %.121.i.i.i.i.i.i.i80 = phi i32 [ %153, %152 ], [ %.0202.i.i.i.i.i.i.i78, %155 ]
+  %.1.i.i.i.i.i.i.i81 = phi i32 [ %.0193.i.i.i.i.i.i.i77, %152 ], [ %156, %155 ]
+  %.not.not.i.i.i.i.i.i.i82 = icmp sgt i32 %.1.i.i.i.i.i.i.i81, %.121.i.i.i.i.i.i.i80
+  br i1 %.not.not.i.i.i.i.i.i.i82, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i65, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !10
 
-_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i80: ; preds = %154
+_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i83: ; preds = %154
   %158 = getelementptr inbounds %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %147, i32 2, i64 0
   %159 = load i32, ptr %158, align 4
   br label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i65
 
-_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i65: ; preds = %157, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i80, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit63
-  %160 = phi i32 [ %159, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i80 ], [ -1, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit63 ], [ -1, %157 ]
+_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i65: ; preds = %157, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i83, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit63
+  %160 = phi i32 [ %159, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i83 ], [ -1, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit63 ], [ -1, %157 ]
   %161 = icmp ugt i32 %160, %62
   br i1 %161, label %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit84, label %162
 
@@ -479,16 +479,16 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit84: ; preds 
   %191 = getelementptr inbounds i8, ptr %2, i64 88
   %192 = getelementptr inbounds i8, ptr %2, i64 104
   store i8 %38, ptr %192, align 8
-  br i1 %.not2.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i96, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i86
+  br i1 %.not1.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i96, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i86
 
 .lr.ph.preheader.i.i.i.i.i.i.i96:                 ; preds = %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit84
   %193 = add nsw i32 %43, -1
   br label %.lr.ph.i.i.i.i.i.i.i97
 
 .lr.ph.i.i.i.i.i.i.i97:                           ; preds = %206, %.lr.ph.preheader.i.i.i.i.i.i.i96
-  %.0194.i.i.i.i.i.i.i98 = phi i32 [ %.1.i.i.i.i.i.i.i103, %206 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i96 ]
-  %.0203.i.i.i.i.i.i.i99 = phi i32 [ %.121.i.i.i.i.i.i.i102, %206 ], [ %193, %.lr.ph.preheader.i.i.i.i.i.i.i96 ]
-  %194 = add i32 %.0203.i.i.i.i.i.i.i99, %.0194.i.i.i.i.i.i.i98
+  %.0193.i.i.i.i.i.i.i98 = phi i32 [ %.1.i.i.i.i.i.i.i102, %206 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i96 ]
+  %.0202.i.i.i.i.i.i.i99 = phi i32 [ %.121.i.i.i.i.i.i.i101, %206 ], [ %193, %.lr.ph.preheader.i.i.i.i.i.i.i96 ]
+  %194 = add i32 %.0202.i.i.i.i.i.i.i99, %.0193.i.i.i.i.i.i.i98
   %195 = lshr i32 %194, 1
   %196 = zext nneg i32 %195 to i64
   %197 = mul nuw nsw i64 %196, 36
@@ -502,26 +502,26 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit84: ; preds 
   br label %206
 
 203:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i97
-  %.not1.i.i.i.i.i.i.i100.not = icmp eq i32 %199, 1886614630
-  br i1 %.not1.i.i.i.i.i.i.i100.not, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i101, label %204
+  %.not23.i.i.i.i.i.i.i100 = icmp eq i32 %199, 1886614630
+  br i1 %.not23.i.i.i.i.i.i.i100, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i104, label %204
 
 204:                                              ; preds = %203
   %205 = add nuw nsw i32 %195, 1
   br label %206
 
 206:                                              ; preds = %204, %201
-  %.121.i.i.i.i.i.i.i102 = phi i32 [ %202, %201 ], [ %.0203.i.i.i.i.i.i.i99, %204 ]
-  %.1.i.i.i.i.i.i.i103 = phi i32 [ %.0194.i.i.i.i.i.i.i98, %201 ], [ %205, %204 ]
-  %.not.not.i.i.i.i.i.i.i104 = icmp sgt i32 %.1.i.i.i.i.i.i.i103, %.121.i.i.i.i.i.i.i102
-  br i1 %.not.not.i.i.i.i.i.i.i104, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i86, label %.lr.ph.i.i.i.i.i.i.i97, !llvm.loop !10
+  %.121.i.i.i.i.i.i.i101 = phi i32 [ %202, %201 ], [ %.0202.i.i.i.i.i.i.i99, %204 ]
+  %.1.i.i.i.i.i.i.i102 = phi i32 [ %.0193.i.i.i.i.i.i.i98, %201 ], [ %205, %204 ]
+  %.not.not.i.i.i.i.i.i.i103 = icmp sgt i32 %.1.i.i.i.i.i.i.i102, %.121.i.i.i.i.i.i.i101
+  br i1 %.not.not.i.i.i.i.i.i.i103, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i86, label %.lr.ph.i.i.i.i.i.i.i97, !llvm.loop !10
 
-_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i101: ; preds = %203
+_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i104: ; preds = %203
   %207 = getelementptr inbounds %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %196, i32 2, i64 0
   %208 = load i32, ptr %207, align 4
   br label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i86
 
-_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i86: ; preds = %206, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i101, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit84
-  %209 = phi i32 [ %208, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i101 ], [ -1, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit84 ], [ -1, %206 ]
+_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i86: ; preds = %206, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i104, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit84
+  %209 = phi i32 [ %208, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i104 ], [ -1, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit84 ], [ -1, %206 ]
   %210 = icmp ugt i32 %209, %62
   br i1 %210, label %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit105, label %211
 
@@ -581,16 +581,16 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit105: ; preds
   %240 = getelementptr inbounds i8, ptr %2, i64 112
   %241 = getelementptr inbounds i8, ptr %2, i64 128
   store i8 %38, ptr %241, align 8
-  br i1 %.not2.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i117, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i107
+  br i1 %.not1.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i117, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i107
 
 .lr.ph.preheader.i.i.i.i.i.i.i117:                ; preds = %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit105
   %242 = add nsw i32 %43, -1
   br label %.lr.ph.i.i.i.i.i.i.i118
 
 .lr.ph.i.i.i.i.i.i.i118:                          ; preds = %255, %.lr.ph.preheader.i.i.i.i.i.i.i117
-  %.0194.i.i.i.i.i.i.i119 = phi i32 [ %.1.i.i.i.i.i.i.i124, %255 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i117 ]
-  %.0203.i.i.i.i.i.i.i120 = phi i32 [ %.121.i.i.i.i.i.i.i123, %255 ], [ %242, %.lr.ph.preheader.i.i.i.i.i.i.i117 ]
-  %243 = add i32 %.0203.i.i.i.i.i.i.i120, %.0194.i.i.i.i.i.i.i119
+  %.0193.i.i.i.i.i.i.i119 = phi i32 [ %.1.i.i.i.i.i.i.i123, %255 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i117 ]
+  %.0202.i.i.i.i.i.i.i120 = phi i32 [ %.121.i.i.i.i.i.i.i122, %255 ], [ %242, %.lr.ph.preheader.i.i.i.i.i.i.i117 ]
+  %243 = add i32 %.0202.i.i.i.i.i.i.i120, %.0193.i.i.i.i.i.i.i119
   %244 = lshr i32 %243, 1
   %245 = zext nneg i32 %244 to i64
   %246 = mul nuw nsw i64 %245, 36
@@ -604,26 +604,26 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit105: ; preds
   br label %255
 
 252:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i118
-  %.not1.i.i.i.i.i.i.i121.not = icmp eq i32 %248, 1986098293
-  br i1 %.not1.i.i.i.i.i.i.i121.not, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i122, label %253
+  %.not23.i.i.i.i.i.i.i121 = icmp eq i32 %248, 1986098293
+  br i1 %.not23.i.i.i.i.i.i.i121, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i125, label %253
 
 253:                                              ; preds = %252
   %254 = add nuw nsw i32 %244, 1
   br label %255
 
 255:                                              ; preds = %253, %250
-  %.121.i.i.i.i.i.i.i123 = phi i32 [ %251, %250 ], [ %.0203.i.i.i.i.i.i.i120, %253 ]
-  %.1.i.i.i.i.i.i.i124 = phi i32 [ %.0194.i.i.i.i.i.i.i119, %250 ], [ %254, %253 ]
-  %.not.not.i.i.i.i.i.i.i125 = icmp sgt i32 %.1.i.i.i.i.i.i.i124, %.121.i.i.i.i.i.i.i123
-  br i1 %.not.not.i.i.i.i.i.i.i125, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i107, label %.lr.ph.i.i.i.i.i.i.i118, !llvm.loop !10
+  %.121.i.i.i.i.i.i.i122 = phi i32 [ %251, %250 ], [ %.0202.i.i.i.i.i.i.i120, %253 ]
+  %.1.i.i.i.i.i.i.i123 = phi i32 [ %.0193.i.i.i.i.i.i.i119, %250 ], [ %254, %253 ]
+  %.not.not.i.i.i.i.i.i.i124 = icmp sgt i32 %.1.i.i.i.i.i.i.i123, %.121.i.i.i.i.i.i.i122
+  br i1 %.not.not.i.i.i.i.i.i.i124, label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i107, label %.lr.ph.i.i.i.i.i.i.i118, !llvm.loop !10
 
-_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i122: ; preds = %252
+_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i125: ; preds = %252
   %256 = getelementptr inbounds %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %245, i32 2, i64 0
   %257 = load i32, ptr %256, align 4
   br label %_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i107
 
-_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i107: ; preds = %255, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i122, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit105
-  %258 = phi i32 [ %257, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i122 ], [ -1, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit105 ], [ -1, %255 ]
+_ZNK11hb_ot_map_t17get_feature_stageEjj.exit.i107: ; preds = %255, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i125, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit105
+  %258 = phi i32 [ %257, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.i125 ], [ -1, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit105 ], [ -1, %255 ]
   %259 = icmp ugt i32 %258, %62
   br i1 %259, label %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126, label %260
 
@@ -682,7 +682,7 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126: ; preds
   store i64 %288, ptr %.sroa.2.0..sroa_idx.i116, align 8
   %289 = getelementptr i8, ptr %2, i64 136
   %290 = add nsw i32 %43, -1
-  br i1 %.not2.i.i.i.i.i.i.i, label %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126.split.us, label %.loopexit
+  br i1 %.not1.i.i.i.i.i.i.i, label %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126.split.us, label %.loopexit
 
 _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126.split.us: ; preds = %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us ], [ 0, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126 ]
@@ -698,9 +698,9 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126.split.us
   br label %.lr.ph.i.i.i.i.i.i.us
 
 .lr.ph.i.i.i.i.i.i.us:                            ; preds = %310, %.lr.ph.preheader.i.i.i.i.i.i.us
-  %.0194.i.i.i.i.i.i.us = phi i32 [ %.1.i.i.i.i.i.i.us, %310 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.us ]
-  %.0203.i.i.i.i.i.i.us = phi i32 [ %.121.i.i.i.i.i.i.us, %310 ], [ %290, %.lr.ph.preheader.i.i.i.i.i.i.us ]
-  %296 = add i32 %.0203.i.i.i.i.i.i.us, %.0194.i.i.i.i.i.i.us
+  %.0193.i.i.i.i.i.i.us = phi i32 [ %.1.i.i.i.i.i.i.us, %310 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.us ]
+  %.0202.i.i.i.i.i.i.us = phi i32 [ %.121.i.i.i.i.i.i.us, %310 ], [ %290, %.lr.ph.preheader.i.i.i.i.i.i.us ]
+  %296 = add i32 %.0202.i.i.i.i.i.i.us, %.0193.i.i.i.i.i.i.us
   %297 = lshr i32 %296, 1
   %298 = zext nneg i32 %297 to i64
   %299 = mul nuw nsw i64 %298, 36
@@ -710,30 +710,30 @@ _ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126.split.us
   br i1 %302, label %308, label %303
 
 303:                                              ; preds = %.lr.ph.i.i.i.i.i.i.us
-  %.not1.i.i.i.i.i.i.us = icmp ugt i32 %295, %301
-  br i1 %.not1.i.i.i.i.i.i.us, label %306, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us
+  %.not23.i.i.i.i.i.i.us = icmp eq i32 %295, %301
+  br i1 %.not23.i.i.i.i.i.i.us, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us, label %304
+
+304:                                              ; preds = %303
+  %305 = add nuw nsw i32 %297, 1
+  br label %310
 
 _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us: ; preds = %303
-  %304 = getelementptr inbounds %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %298, i32 5
-  %305 = load i32, ptr %304, align 4
+  %306 = getelementptr inbounds %"struct.hb_ot_map_t::feature_map_t", ptr %41, i64 %298, i32 5
+  %307 = load i32, ptr %306, align 4
   br label %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us
-
-306:                                              ; preds = %303
-  %307 = add nuw nsw i32 %297, 1
-  br label %310
 
 308:                                              ; preds = %.lr.ph.i.i.i.i.i.i.us
   %309 = add nsw i32 %297, -1
   br label %310
 
-310:                                              ; preds = %308, %306
-  %.121.i.i.i.i.i.i.us = phi i32 [ %309, %308 ], [ %.0203.i.i.i.i.i.i.us, %306 ]
-  %.1.i.i.i.i.i.i.us = phi i32 [ %.0194.i.i.i.i.i.i.us, %308 ], [ %307, %306 ]
+310:                                              ; preds = %308, %304
+  %.121.i.i.i.i.i.i.us = phi i32 [ %309, %308 ], [ %.0202.i.i.i.i.i.i.us, %304 ]
+  %.1.i.i.i.i.i.i.us = phi i32 [ %.0193.i.i.i.i.i.i.us, %308 ], [ %305, %304 ]
   %.not.not.i.i.i.i.i.i.us = icmp sgt i32 %.1.i.i.i.i.i.i.us, %.121.i.i.i.i.i.i.us
   br i1 %.not.not.i.i.i.i.i.i.us, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us, label %.lr.ph.i.i.i.i.i.i.us, !llvm.loop !10
 
 _ZNK11hb_ot_map_t10get_1_maskEj.exit.us:          ; preds = %310, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126.split.us
-  %311 = phi i32 [ 0, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126.split.us ], [ %305, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us ], [ 0, %310 ]
+  %311 = phi i32 [ 0, %_ZN35hb_indic_would_substitute_feature_t4initEPK11hb_ot_map_tjb.exit126.split.us ], [ %307, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us ], [ 0, %310 ]
   %312 = getelementptr inbounds [17 x i32], ptr %289, i64 0, i64 %indvars.iv160
   store i32 %311, ptr %312, align 4
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1

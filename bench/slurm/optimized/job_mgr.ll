@@ -41282,10 +41282,7 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal range(i32 -1, 2) i32 @_comp_node_inx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = icmp slt i32 %3, %4
-  %6 = icmp sgt i32 %3, %4
-  %. = zext i1 %6 to i32
-  %.0 = select i1 %5, i32 -1, i32 %.
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
   ret i32 %.0
 }
 
@@ -46587,10 +46584,7 @@ define internal range(i32 -1, 2) i32 @_top_job_prio_sort(ptr nocapture noundef r
   %4 = load ptr, ptr %1, align 8
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr %4, align 4
-  %7 = icmp ult i32 %5, %6
-  %8 = icmp ugt i32 %5, %6
-  %. = sext i1 %8 to i32
-  %.0 = select i1 %7, i32 1, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %6, i32 %5)
   ret i32 %.0
 }
 
@@ -46622,6 +46616,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -46632,6 +46629,9 @@ declare i16 @llvm.umax.i16(i16, i16) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.fabs.f80(x86_fp80) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #26

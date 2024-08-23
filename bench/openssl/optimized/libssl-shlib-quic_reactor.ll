@@ -315,8 +315,8 @@ if.end48.i.i:                                     ; preds = %if.else.i.i
   br i1 %narrow.i.i, label %if.end60.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.end48.i.i, %land.lhs.true39.i.i, %if.then.i.i
-  %cmp5.i.not.i.not.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i, -1
-  br i1 %cmp5.i.not.i.not.i.i, label %poll_two_descriptors.exit.thread16, label %if.end60.i.i
+  %cmp.i.not.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i, -1
+  br i1 %cmp.i.not.i.i, label %poll_two_descriptors.exit.thread16, label %if.end60.i.i
 
 poll_two_descriptors.exit.thread16:               ; preds = %lor.rhs.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pfds.i.i)
@@ -331,8 +331,8 @@ if.then63.i.i:                                    ; preds = %if.end60.i.i
   br label %if.end64.i.i
 
 if.end64.i.i:                                     ; preds = %if.then63.i.i, %if.end60.i.i
-  %cmp5.i.not.i30.not.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i, -1
-  br i1 %cmp5.i.not.i30.not.i.i, label %do.body.us.i.i, label %do.body.i.i
+  %cmp.i30.not.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i, -1
+  br i1 %cmp.i30.not.i.i, label %do.body.us.i.i, label %do.body.i.i
 
 do.body.us.i.i:                                   ; preds = %if.end64.i.i, %land.rhs.us.i.i
   %call81.us.i.i = call i32 @poll(ptr noundef nonnull %pfds.i.i, i64 noundef %npfd.035.i.i, i32 noundef -1) #10

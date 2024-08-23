@@ -5403,7 +5403,7 @@ define internal fastcc i64 @vm_opt_newarray_max(ptr noundef %0, i64 noundef %1, 
   %7 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 48), align 16
   %8 = and i16 %7, 8
   %9 = icmp eq i16 %8, 0
-  br i1 %9, label %10, label %99
+  br i1 %9, label %10, label %101
 
 10:                                               ; preds = %3
   %11 = icmp eq i64 %1, 0
@@ -5412,18 +5412,18 @@ define internal fastcc i64 @vm_opt_newarray_max(ptr noundef %0, i64 noundef %1, 
 12:                                               ; preds = %10
   %13 = load i64, ptr %2, align 8
   store i64 %13, ptr %6, align 8
-  %.055100 = add i64 %1, -1
-  %14 = icmp sgt i64 %.055100, 0
+  %.05598 = add i64 %1, -1
+  %14 = icmp sgt i64 %.05598, 0
   br i1 %14, label %.lr.ph, label %rb_vm_call_with_refinements.exit
 
 .lr.ph:                                           ; preds = %12
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   br label %16
 
-16:                                               ; preds = %.lr.ph, %.thread92
-  %.055102 = phi i64 [ %.055100, %.lr.ph ], [ %.055, %.thread92 ]
-  %.056101 = phi ptr [ %2, %.lr.ph ], [ %17, %.thread92 ]
-  %17 = getelementptr i8, ptr %.056101, i64 8
+16:                                               ; preds = %.lr.ph, %99
+  %.055100 = phi i64 [ %.05598, %.lr.ph ], [ %.055, %99 ]
+  %.05699 = phi ptr [ %2, %.lr.ph ], [ %17, %99 ]
+  %17 = getelementptr i8, ptr %.05699, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 1
   %.not = icmp eq i64 %19, 0
@@ -5432,8 +5432,8 @@ define internal fastcc i64 @vm_opt_newarray_max(ptr noundef %0, i64 noundef %1, 
 20:                                               ; preds = %16
   %21 = load i64, ptr %6, align 8
   %22 = and i64 %21, 1
-  %.not99 = icmp eq i64 %22, 0
-  br i1 %.not99, label %29, label %23
+  %.not97 = icmp eq i64 %22, 0
+  br i1 %.not97, label %29, label %23
 
 23:                                               ; preds = %20
   %24 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
@@ -5442,8 +5442,8 @@ define internal fastcc i64 @vm_opt_newarray_max(ptr noundef %0, i64 noundef %1, 
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %23
-  %28 = icmp sgt i64 %18, %21
-  br i1 %28, label %.thread91, label %.thread92
+  %28 = call i32 @llvm.scmp.i32.i64(i64 %18, i64 %21)
+  br label %95
 
 29:                                               ; preds = %23, %20, %16
   %30 = and i64 %18, 7
@@ -5565,141 +5565,141 @@ rb_funcallv_scope.exit:                           ; preds = %89, %91
   %94 = call i32 @rb_cmpint(i64 noundef %.0.i74, i64 noundef %18, i64 noundef %93) #21
   br label %95
 
-95:                                               ; preds = %58, %rb_funcallv_scope.exit, %77
-  %96 = phi i32 [ %59, %58 ], [ %78, %77 ], [ %94, %rb_funcallv_scope.exit ]
+95:                                               ; preds = %58, %rb_funcallv_scope.exit, %77, %27
+  %96 = phi i32 [ %28, %27 ], [ %59, %58 ], [ %78, %77 ], [ %94, %rb_funcallv_scope.exit ]
   %97 = icmp sgt i32 %96, 0
-  br i1 %97, label %.thread91, label %.thread92
+  br i1 %97, label %98, label %99
 
-.thread91:                                        ; preds = %27, %95
+98:                                               ; preds = %95
   store i64 %18, ptr %6, align 8
-  br label %.thread92
+  br label %99
 
-.thread92:                                        ; preds = %27, %.thread91, %95
-  %.055 = add nsw i64 %.055102, -1
-  %98 = icmp sgt i64 %.055102, 1
-  br i1 %98, label %16, label %._crit_edge.loopexit, !llvm.loop !27
+99:                                               ; preds = %98, %95
+  %.055 = add nsw i64 %.055100, -1
+  %100 = icmp sgt i64 %.055100, 1
+  br i1 %100, label %16, label %._crit_edge.loopexit, !llvm.loop !27
 
-._crit_edge.loopexit:                             ; preds = %.thread92
+._crit_edge.loopexit:                             ; preds = %99
   %.pre = load i64, ptr %6, align 8
   br label %rb_vm_call_with_refinements.exit
 
-99:                                               ; preds = %3
-  %100 = tail call i64 @rb_ary_new_from_values(i64 noundef %1, ptr noundef %2) #21
-  %101 = and i64 %100, 7
-  %102 = icmp ne i64 %101, 0
-  %103 = icmp eq i64 %100, 0
-  %104 = or i1 %103, %102
-  br i1 %104, label %108, label %105
+101:                                              ; preds = %3
+  %102 = tail call i64 @rb_ary_new_from_values(i64 noundef %1, ptr noundef %2) #21
+  %103 = and i64 %102, 7
+  %104 = icmp ne i64 %103, 0
+  %105 = icmp eq i64 %102, 0
+  %106 = or i1 %105, %104
+  br i1 %106, label %110, label %107
 
-105:                                              ; preds = %99
-  %106 = inttoptr i64 %100 to ptr
-  %107 = getelementptr inbounds i8, ptr %106, i64 8
+107:                                              ; preds = %101
+  %108 = inttoptr i64 %102 to ptr
+  %109 = getelementptr inbounds i8, ptr %108, i64 8
   br label %rb_class_of.exit79
 
-108:                                              ; preds = %99
-  switch i64 %100, label %111 [
+110:                                              ; preds = %101
+  switch i64 %102, label %113 [
     i64 0, label %rb_class_of.exit79
-    i64 4, label %109
-    i64 20, label %110
+    i64 4, label %111
+    i64 20, label %112
   ]
 
-109:                                              ; preds = %108
+111:                                              ; preds = %110
   br label %rb_class_of.exit79
 
-110:                                              ; preds = %108
+112:                                              ; preds = %110
   br label %rb_class_of.exit79
 
-111:                                              ; preds = %108
-  %112 = and i64 %100, 1
-  %.not.i77 = icmp eq i64 %112, 0
-  br i1 %.not.i77, label %113, label %rb_class_of.exit79
+113:                                              ; preds = %110
+  %114 = and i64 %102, 1
+  %.not.i77 = icmp eq i64 %114, 0
+  br i1 %.not.i77, label %115, label %rb_class_of.exit79
 
-113:                                              ; preds = %111
-  %114 = and i64 %100, 254
-  %115 = icmp eq i64 %114, 12
-  %spec.select.i78 = select i1 %115, ptr @rb_cSymbol, ptr @rb_cFloat
+115:                                              ; preds = %113
+  %116 = and i64 %102, 254
+  %117 = icmp eq i64 %116, 12
+  %spec.select.i78 = select i1 %117, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit79
 
-rb_class_of.exit79:                               ; preds = %105, %108, %109, %110, %111, %113
-  %.0.in.i75 = phi ptr [ @rb_cNilClass, %109 ], [ @rb_cTrueClass, %110 ], [ %107, %105 ], [ @rb_cFalseClass, %108 ], [ @rb_cInteger, %111 ], [ %spec.select.i78, %113 ]
+rb_class_of.exit79:                               ; preds = %107, %110, %111, %112, %113, %115
+  %.0.in.i75 = phi ptr [ @rb_cNilClass, %111 ], [ @rb_cTrueClass, %112 ], [ %109, %107 ], [ @rb_cFalseClass, %110 ], [ @rb_cInteger, %113 ], [ %spec.select.i78, %115 ]
   %.0.i76 = load i64, ptr %.0.in.i75, align 8
-  %116 = tail call fastcc ptr @callable_method_entry_or_negative(i64 noundef %.0.i76, i64 noundef 2721, ptr noundef null)
-  %.not.i.i.i = icmp eq ptr %116, null
-  br i1 %.not.i.i.i, label %rb_callable_method_entry_with_refinements.exit.thread, label %117
+  %118 = tail call fastcc ptr @callable_method_entry_or_negative(i64 noundef %.0.i76, i64 noundef 2721, ptr noundef null)
+  %.not.i.i.i = icmp eq ptr %118, null
+  br i1 %.not.i.i.i, label %rb_callable_method_entry_with_refinements.exit.thread, label %119
 
-117:                                              ; preds = %rb_class_of.exit79
-  %118 = getelementptr inbounds i8, ptr %116, i64 16
-  %119 = load ptr, ptr %118, align 8
-  %.not7.i.i.i = icmp eq ptr %119, null
-  br i1 %.not7.i.i.i, label %rb_callable_method_entry_with_refinements.exit.thread, label %120
+119:                                              ; preds = %rb_class_of.exit79
+  %120 = getelementptr inbounds i8, ptr %118, i64 16
+  %121 = load ptr, ptr %120, align 8
+  %.not7.i.i.i = icmp eq ptr %121, null
+  br i1 %.not7.i.i.i, label %rb_callable_method_entry_with_refinements.exit.thread, label %122
 
-120:                                              ; preds = %117
-  %121 = load i8, ptr %119, align 8
-  %122 = and i8 %121, 15
-  %123 = icmp eq i8 %122, 7
-  br i1 %123, label %rb_callable_method_entry_with_refinements.exit.thread, label %124
+122:                                              ; preds = %119
+  %123 = load i8, ptr %121, align 8
+  %124 = and i8 %123, 15
+  %125 = icmp eq i8 %124, 7
+  br i1 %125, label %rb_callable_method_entry_with_refinements.exit.thread, label %126
 
-124:                                              ; preds = %120
+126:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %.not.i7.i.i = icmp eq i8 %122, 11
-  br i1 %.not.i7.i.i, label %rb_callable_method_entry_with_refinements.exit, label %rb_callable_method_entry_with_refinements.exit.thread95
+  %.not.i7.i.i = icmp eq i8 %124, 11
+  br i1 %.not.i7.i.i, label %rb_callable_method_entry_with_refinements.exit, label %rb_callable_method_entry_with_refinements.exit.thread93
 
-rb_callable_method_entry_with_refinements.exit.thread95: ; preds = %124
+rb_callable_method_entry_with_refinements.exit.thread93: ; preds = %126
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %128
+  br label %130
 
-rb_callable_method_entry_with_refinements.exit:   ; preds = %124
-  %125 = call fastcc ptr @method_entry_resolve_refinement(i64 noundef %.0.i76, i64 noundef 2721, i32 noundef 1, ptr noundef nonnull %4)
-  %126 = load i64, ptr %4, align 8
-  %127 = call fastcc ptr @prepare_callable_method_entry(i64 noundef %126, i64 noundef 2721, ptr noundef %125, i32 noundef 1)
+rb_callable_method_entry_with_refinements.exit:   ; preds = %126
+  %127 = call fastcc ptr @method_entry_resolve_refinement(i64 noundef %.0.i76, i64 noundef 2721, i32 noundef 1, ptr noundef nonnull %4)
+  %128 = load i64, ptr %4, align 8
+  %129 = call fastcc ptr @prepare_callable_method_entry(i64 noundef %128, i64 noundef 2721, ptr noundef %127, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.not.i71 = icmp eq ptr %127, null
-  br i1 %.not.i71, label %rb_callable_method_entry_with_refinements.exit.thread, label %128
+  %.not.i71 = icmp eq ptr %129, null
+  br i1 %.not.i71, label %rb_callable_method_entry_with_refinements.exit.thread, label %130
 
-128:                                              ; preds = %rb_callable_method_entry_with_refinements.exit.thread95, %rb_callable_method_entry_with_refinements.exit
-  %.0.i.i.i98 = phi ptr [ %116, %rb_callable_method_entry_with_refinements.exit.thread95 ], [ %127, %rb_callable_method_entry_with_refinements.exit ]
+130:                                              ; preds = %rb_callable_method_entry_with_refinements.exit.thread93, %rb_callable_method_entry_with_refinements.exit
+  %.0.i.i.i96 = phi ptr [ %118, %rb_callable_method_entry_with_refinements.exit.thread93 ], [ %129, %rb_callable_method_entry_with_refinements.exit ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   store i64 52250, ptr %5, align 8
-  %129 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %.0.i.i.i98, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr @vm_call_general, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %5, i64 32
-  store i64 0, ptr %132, align 8
-  %133 = call fastcc i64 @vm_call0_cc(ptr noundef %0, i64 noundef %100, i64 noundef 2721, i32 noundef 0, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0)
+  %131 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.0.i.i.i96, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr @vm_call_general, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %5, i64 32
+  store i64 0, ptr %134, align 8
+  %135 = call fastcc i64 @vm_call0_cc(ptr noundef %0, i64 noundef %102, i64 noundef 2721, i32 noundef 0, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %rb_vm_call_with_refinements.exit
 
-rb_callable_method_entry_with_refinements.exit.thread: ; preds = %120, %117, %rb_class_of.exit79, %rb_callable_method_entry_with_refinements.exit
-  %134 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %135 = load ptr, ptr %134, align 8
-  %136 = call fastcc ptr @gccct_method_search(ptr noundef %135, i64 noundef %100, i64 noundef 2721, i32 noundef 0)
-  %137 = getelementptr inbounds i8, ptr %135, i64 16
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 24
-  %140 = load i64, ptr %139, align 8
-  %.not.i80 = icmp eq ptr %136, null
-  br i1 %.not.i80, label %147, label %141
+rb_callable_method_entry_with_refinements.exit.thread: ; preds = %122, %119, %rb_class_of.exit79, %rb_callable_method_entry_with_refinements.exit
+  %136 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %137 = load ptr, ptr %136, align 8
+  %138 = call fastcc ptr @gccct_method_search(ptr noundef %137, i64 noundef %102, i64 noundef 2721, i32 noundef 0)
+  %139 = getelementptr inbounds i8, ptr %137, i64 16
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds i8, ptr %140, i64 24
+  %142 = load i64, ptr %141, align 8
+  %.not.i80 = icmp eq ptr %138, null
+  br i1 %.not.i80, label %149, label %143
 
-141:                                              ; preds = %rb_callable_method_entry_with_refinements.exit.thread
-  %142 = getelementptr i8, ptr %136, i64 16
-  %.val.i81 = load ptr, ptr %142, align 8
-  %143 = call fastcc i32 @rb_method_call_status(ptr noundef %.val.i81, i32 noundef 1, i64 noundef %140)
-  %144 = icmp eq i32 %143, 64
-  br i1 %144, label %145, label %147
+143:                                              ; preds = %rb_callable_method_entry_with_refinements.exit.thread
+  %144 = getelementptr i8, ptr %138, i64 16
+  %.val.i81 = load ptr, ptr %144, align 8
+  %145 = call fastcc i32 @rb_method_call_status(ptr noundef %.val.i81, i32 noundef 1, i64 noundef %142)
+  %146 = icmp eq i32 %145, 64
+  br i1 %146, label %147, label %149
 
-145:                                              ; preds = %141
-  %146 = call fastcc i64 @vm_call0_cc(ptr noundef nonnull %135, i64 noundef %100, i64 noundef 2721, i32 noundef 0, ptr noundef null, ptr noundef nonnull %136, i32 noundef 0)
+147:                                              ; preds = %143
+  %148 = call fastcc i64 @vm_call0_cc(ptr noundef nonnull %137, i64 noundef %102, i64 noundef 2721, i32 noundef 0, ptr noundef null, ptr noundef nonnull %138, i32 noundef 0)
   br label %rb_vm_call_with_refinements.exit
 
-147:                                              ; preds = %141, %rb_callable_method_entry_with_refinements.exit.thread
-  %148 = call fastcc i64 @rb_call0(ptr noundef nonnull %135, i64 noundef %100, i64 noundef 2721, i32 noundef 0, ptr noundef null, i32 noundef 1, i64 noundef %140)
+149:                                              ; preds = %143, %rb_callable_method_entry_with_refinements.exit.thread
+  %150 = call fastcc i64 @rb_call0(ptr noundef nonnull %137, i64 noundef %102, i64 noundef 2721, i32 noundef 0, ptr noundef null, i32 noundef 1, i64 noundef %142)
   br label %rb_vm_call_with_refinements.exit
 
-rb_vm_call_with_refinements.exit:                 ; preds = %12, %._crit_edge.loopexit, %128, %145, %147, %10
-  %.058 = phi i64 [ 4, %10 ], [ %133, %128 ], [ %146, %145 ], [ %148, %147 ], [ %.pre, %._crit_edge.loopexit ], [ %13, %12 ]
+rb_vm_call_with_refinements.exit:                 ; preds = %12, %._crit_edge.loopexit, %130, %147, %149, %10
+  %.058 = phi i64 [ 4, %10 ], [ %135, %130 ], [ %148, %147 ], [ %150, %149 ], [ %.pre, %._crit_edge.loopexit ], [ %13, %12 ]
   ret i64 %.058
 }
 
@@ -5717,7 +5717,7 @@ define internal fastcc i64 @vm_opt_newarray_min(ptr noundef %0, i64 noundef %1, 
   %7 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 50), align 2
   %8 = and i16 %7, 8
   %9 = icmp eq i16 %8, 0
-  br i1 %9, label %10, label %102
+  br i1 %9, label %10, label %101
 
 10:                                               ; preds = %3
   %11 = icmp eq i64 %1, 0
@@ -5726,296 +5726,294 @@ define internal fastcc i64 @vm_opt_newarray_min(ptr noundef %0, i64 noundef %1, 
 12:                                               ; preds = %10
   %13 = load i64, ptr %2, align 8
   store i64 %13, ptr %6, align 8
-  %.05599 = add i64 %1, -1
-  %14 = icmp sgt i64 %.05599, 0
+  %.05598 = add i64 %1, -1
+  %14 = icmp sgt i64 %.05598, 0
   br i1 %14, label %.lr.ph, label %rb_vm_call_with_refinements.exit
 
 .lr.ph:                                           ; preds = %12
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   br label %16
 
-16:                                               ; preds = %.lr.ph, %.thread91
-  %.055101 = phi i64 [ %.05599, %.lr.ph ], [ %.055, %.thread91 ]
-  %.056100 = phi ptr [ %2, %.lr.ph ], [ %17, %.thread91 ]
-  %17 = getelementptr i8, ptr %.056100, i64 8
+16:                                               ; preds = %.lr.ph, %99
+  %.055100 = phi i64 [ %.05598, %.lr.ph ], [ %.055, %99 ]
+  %.05699 = phi ptr [ %2, %.lr.ph ], [ %17, %99 ]
+  %17 = getelementptr i8, ptr %.05699, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 1
   %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %31, label %20
+  br i1 %.not, label %29, label %20
 
 20:                                               ; preds = %16
   %21 = load i64, ptr %6, align 8
   %22 = and i64 %21, 1
-  %.not98 = icmp eq i64 %22, 0
-  br i1 %.not98, label %31, label %23
+  %.not97 = icmp eq i64 %22, 0
+  br i1 %.not97, label %29, label %23
 
 23:                                               ; preds = %20
   %24 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
   %25 = and i16 %24, 1
   %26 = icmp eq i16 %25, 0
-  br i1 %26, label %27, label %31
+  br i1 %26, label %27, label %29
 
 27:                                               ; preds = %23
-  %28 = icmp sgt i64 %18, %21
-  %29 = icmp slt i64 %18, %21
-  %30 = sext i1 %29 to i32
-  br i1 %28, label %.thread91, label %97
+  %28 = call i32 @llvm.scmp.i32.i64(i64 %18, i64 %21)
+  br label %95
 
-31:                                               ; preds = %23, %20, %16
-  %32 = and i64 %18, 7
-  %33 = icmp ne i64 %32, 0
-  %34 = icmp eq i64 %18, 0
-  %35 = or i1 %34, %33
-  br i1 %35, label %.critedge.thread, label %36
+29:                                               ; preds = %23, %20, %16
+  %30 = and i64 %18, 7
+  %31 = icmp ne i64 %30, 0
+  %32 = icmp eq i64 %18, 0
+  %33 = or i1 %32, %31
+  br i1 %33, label %.critedge.thread, label %34
 
-36:                                               ; preds = %31
-  %37 = inttoptr i64 %18 to ptr
-  %38 = load i64, ptr %37, align 8
-  %39 = and i64 %38, 31
-  switch i64 %39, label %RB_FLOAT_TYPE_P.exit.thread86 [
+34:                                               ; preds = %29
+  %35 = inttoptr i64 %18 to ptr
+  %36 = load i64, ptr %35, align 8
+  %37 = and i64 %36, 31
+  switch i64 %37, label %RB_FLOAT_TYPE_P.exit.thread86 [
     i64 5, label %rb_class_of.exit
     i64 4, label %RB_FLOAT_TYPE_P.exit.thread
   ]
 
-rb_class_of.exit:                                 ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
-  %.0.i = load i64, ptr %40, align 8
-  %41 = load i64, ptr @rb_cString, align 8
-  %42 = icmp eq i64 %.0.i, %41
-  br i1 %42, label %43, label %RB_FLOAT_TYPE_P.exit.thread86
+rb_class_of.exit:                                 ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %.0.i = load i64, ptr %38, align 8
+  %39 = load i64, ptr @rb_cString, align 8
+  %40 = icmp eq i64 %.0.i, %39
+  br i1 %40, label %41, label %RB_FLOAT_TYPE_P.exit.thread86
 
-43:                                               ; preds = %rb_class_of.exit
-  %44 = load i64, ptr %6, align 8
-  %45 = and i64 %44, 7
-  %46 = icmp ne i64 %45, 0
-  %47 = icmp eq i64 %44, 0
-  %48 = or i1 %47, %46
-  br i1 %48, label %RB_FLOAT_TYPE_P.exit.thread86, label %49
+41:                                               ; preds = %rb_class_of.exit
+  %42 = load i64, ptr %6, align 8
+  %43 = and i64 %42, 7
+  %44 = icmp ne i64 %43, 0
+  %45 = icmp eq i64 %42, 0
+  %46 = or i1 %45, %44
+  br i1 %46, label %RB_FLOAT_TYPE_P.exit.thread86, label %47
 
-49:                                               ; preds = %43
-  %50 = inttoptr i64 %44 to ptr
-  %51 = load i64, ptr %50, align 8
-  %52 = and i64 %51, 31
-  %53 = icmp eq i64 %52, 5
-  br i1 %53, label %rb_class_of.exit67, label %RB_FLOAT_TYPE_P.exit.thread86
+47:                                               ; preds = %41
+  %48 = inttoptr i64 %42 to ptr
+  %49 = load i64, ptr %48, align 8
+  %50 = and i64 %49, 31
+  %51 = icmp eq i64 %50, 5
+  br i1 %51, label %rb_class_of.exit67, label %RB_FLOAT_TYPE_P.exit.thread86
 
-rb_class_of.exit67:                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
-  %.0.i64 = load i64, ptr %54, align 8
-  %55 = icmp eq i64 %.0.i64, %.0.i
-  br i1 %55, label %56, label %RB_FLOAT_TYPE_P.exit.thread86
+rb_class_of.exit67:                               ; preds = %47
+  %52 = getelementptr inbounds i8, ptr %48, i64 8
+  %.0.i64 = load i64, ptr %52, align 8
+  %53 = icmp eq i64 %.0.i64, %.0.i
+  br i1 %53, label %54, label %RB_FLOAT_TYPE_P.exit.thread86
 
-56:                                               ; preds = %rb_class_of.exit67
-  %57 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
-  %58 = and i16 %57, 4
-  %59 = icmp eq i16 %58, 0
-  br i1 %59, label %60, label %RB_FLOAT_TYPE_P.exit.thread86
+54:                                               ; preds = %rb_class_of.exit67
+  %55 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %56 = and i16 %55, 4
+  %57 = icmp eq i16 %56, 0
+  br i1 %57, label %58, label %RB_FLOAT_TYPE_P.exit.thread86
 
-60:                                               ; preds = %56
-  %61 = call i32 @rb_str_cmp(i64 noundef %18, i64 noundef %44) #21
-  br label %97
+58:                                               ; preds = %54
+  %59 = call i32 @rb_str_cmp(i64 noundef %18, i64 noundef %42) #21
+  br label %95
 
-.critedge.thread:                                 ; preds = %31
-  %62 = and i64 %18, 3
-  %63 = icmp eq i64 %62, 2
-  br i1 %63, label %RB_FLOAT_TYPE_P.exit.thread, label %RB_FLOAT_TYPE_P.exit.thread86
+.critedge.thread:                                 ; preds = %29
+  %60 = and i64 %18, 3
+  %61 = icmp eq i64 %60, 2
+  br i1 %61, label %RB_FLOAT_TYPE_P.exit.thread, label %RB_FLOAT_TYPE_P.exit.thread86
 
-RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %36, %.critedge.thread
-  %64 = load i64, ptr %6, align 8
-  %65 = and i64 %64, 3
-  %66 = icmp eq i64 %65, 2
-  br i1 %66, label %RB_FLOAT_TYPE_P.exit70.thread, label %67
+RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %34, %.critedge.thread
+  %62 = load i64, ptr %6, align 8
+  %63 = and i64 %62, 3
+  %64 = icmp eq i64 %63, 2
+  br i1 %64, label %RB_FLOAT_TYPE_P.exit70.thread, label %65
 
-67:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread
-  %68 = and i64 %64, 7
-  %69 = icmp ne i64 %68, 0
-  %70 = icmp eq i64 %64, 0
-  %71 = or i1 %70, %69
-  br i1 %71, label %RB_FLOAT_TYPE_P.exit.thread86, label %RB_FLOAT_TYPE_P.exit70
+65:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread
+  %66 = and i64 %62, 7
+  %67 = icmp ne i64 %66, 0
+  %68 = icmp eq i64 %62, 0
+  %69 = or i1 %68, %67
+  br i1 %69, label %RB_FLOAT_TYPE_P.exit.thread86, label %RB_FLOAT_TYPE_P.exit70
 
-RB_FLOAT_TYPE_P.exit70:                           ; preds = %67
-  %72 = inttoptr i64 %64 to ptr
-  %73 = load i64, ptr %72, align 8
-  %74 = and i64 %73, 31
-  %75 = icmp eq i64 %74, 4
-  br i1 %75, label %RB_FLOAT_TYPE_P.exit70.thread, label %RB_FLOAT_TYPE_P.exit.thread86
+RB_FLOAT_TYPE_P.exit70:                           ; preds = %65
+  %70 = inttoptr i64 %62 to ptr
+  %71 = load i64, ptr %70, align 8
+  %72 = and i64 %71, 31
+  %73 = icmp eq i64 %72, 4
+  br i1 %73, label %RB_FLOAT_TYPE_P.exit70.thread, label %RB_FLOAT_TYPE_P.exit.thread86
 
 RB_FLOAT_TYPE_P.exit70.thread:                    ; preds = %RB_FLOAT_TYPE_P.exit.thread, %RB_FLOAT_TYPE_P.exit70
-  %76 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
-  %77 = and i16 %76, 2
-  %78 = icmp eq i16 %77, 0
-  br i1 %78, label %79, label %RB_FLOAT_TYPE_P.exit.thread86
+  %74 = load i16, ptr getelementptr inbounds (i8, ptr @ruby_vm_redefined_flag, i64 60), align 4
+  %75 = and i16 %74, 2
+  %76 = icmp eq i16 %75, 0
+  br i1 %76, label %77, label %RB_FLOAT_TYPE_P.exit.thread86
 
-79:                                               ; preds = %RB_FLOAT_TYPE_P.exit70.thread
-  %80 = call i32 @rb_float_cmp(i64 noundef %18, i64 noundef %64) #21
-  br label %97
+77:                                               ; preds = %RB_FLOAT_TYPE_P.exit70.thread
+  %78 = call i32 @rb_float_cmp(i64 noundef %18, i64 noundef %62) #21
+  br label %95
 
-RB_FLOAT_TYPE_P.exit.thread86:                    ; preds = %36, %rb_class_of.exit, %49, %rb_class_of.exit67, %56, %43, %67, %.critedge.thread, %RB_FLOAT_TYPE_P.exit70.thread, %RB_FLOAT_TYPE_P.exit70
-  %81 = load ptr, ptr %15, align 8
-  %82 = call fastcc ptr @gccct_method_search(ptr noundef %81, i64 noundef %18, i64 noundef 135, i32 noundef 1)
-  %83 = getelementptr inbounds i8, ptr %81, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 24
-  %86 = load i64, ptr %85, align 8
-  %.not.i73 = icmp eq ptr %82, null
-  br i1 %.not.i73, label %93, label %87
+RB_FLOAT_TYPE_P.exit.thread86:                    ; preds = %34, %rb_class_of.exit, %47, %rb_class_of.exit67, %54, %41, %65, %.critedge.thread, %RB_FLOAT_TYPE_P.exit70.thread, %RB_FLOAT_TYPE_P.exit70
+  %79 = load ptr, ptr %15, align 8
+  %80 = call fastcc ptr @gccct_method_search(ptr noundef %79, i64 noundef %18, i64 noundef 135, i32 noundef 1)
+  %81 = getelementptr inbounds i8, ptr %79, i64 16
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 24
+  %84 = load i64, ptr %83, align 8
+  %.not.i73 = icmp eq ptr %80, null
+  br i1 %.not.i73, label %91, label %85
 
-87:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread86
-  %88 = getelementptr i8, ptr %82, i64 16
-  %.val.i = load ptr, ptr %88, align 8
-  %89 = call fastcc i32 @rb_method_call_status(ptr noundef %.val.i, i32 noundef 1, i64 noundef %86)
-  %90 = icmp eq i32 %89, 64
-  br i1 %90, label %91, label %93
+85:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread86
+  %86 = getelementptr i8, ptr %80, i64 16
+  %.val.i = load ptr, ptr %86, align 8
+  %87 = call fastcc i32 @rb_method_call_status(ptr noundef %.val.i, i32 noundef 1, i64 noundef %84)
+  %88 = icmp eq i32 %87, 64
+  br i1 %88, label %89, label %91
 
-91:                                               ; preds = %87
-  %92 = call fastcc i64 @vm_call0_cc(ptr noundef nonnull %81, i64 noundef %18, i64 noundef 135, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %82, i32 noundef 0)
+89:                                               ; preds = %85
+  %90 = call fastcc i64 @vm_call0_cc(ptr noundef nonnull %79, i64 noundef %18, i64 noundef 135, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %80, i32 noundef 0)
   br label %rb_funcallv_scope.exit
 
-93:                                               ; preds = %87, %RB_FLOAT_TYPE_P.exit.thread86
-  %94 = call fastcc i64 @rb_call0(ptr noundef nonnull %81, i64 noundef %18, i64 noundef 135, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 1, i64 noundef %86)
+91:                                               ; preds = %85, %RB_FLOAT_TYPE_P.exit.thread86
+  %92 = call fastcc i64 @rb_call0(ptr noundef nonnull %79, i64 noundef %18, i64 noundef 135, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 1, i64 noundef %84)
   br label %rb_funcallv_scope.exit
 
-rb_funcallv_scope.exit:                           ; preds = %91, %93
-  %.0.i74 = phi i64 [ %92, %91 ], [ %94, %93 ]
-  %95 = load i64, ptr %6, align 8
-  %96 = call i32 @rb_cmpint(i64 noundef %.0.i74, i64 noundef %18, i64 noundef %95) #21
-  br label %97
+rb_funcallv_scope.exit:                           ; preds = %89, %91
+  %.0.i74 = phi i64 [ %90, %89 ], [ %92, %91 ]
+  %93 = load i64, ptr %6, align 8
+  %94 = call i32 @rb_cmpint(i64 noundef %.0.i74, i64 noundef %18, i64 noundef %93) #21
+  br label %95
 
-97:                                               ; preds = %27, %60, %rb_funcallv_scope.exit, %79
-  %98 = phi i32 [ %30, %27 ], [ %61, %60 ], [ %80, %79 ], [ %96, %rb_funcallv_scope.exit ]
-  %99 = icmp slt i32 %98, 0
-  br i1 %99, label %100, label %.thread91
+95:                                               ; preds = %58, %rb_funcallv_scope.exit, %77, %27
+  %96 = phi i32 [ %28, %27 ], [ %59, %58 ], [ %78, %77 ], [ %94, %rb_funcallv_scope.exit ]
+  %97 = icmp slt i32 %96, 0
+  br i1 %97, label %98, label %99
 
-100:                                              ; preds = %97
+98:                                               ; preds = %95
   store i64 %18, ptr %6, align 8
-  br label %.thread91
+  br label %99
 
-.thread91:                                        ; preds = %27, %100, %97
-  %.055 = add nsw i64 %.055101, -1
-  %101 = icmp sgt i64 %.055101, 1
-  br i1 %101, label %16, label %._crit_edge.loopexit, !llvm.loop !28
+99:                                               ; preds = %98, %95
+  %.055 = add nsw i64 %.055100, -1
+  %100 = icmp sgt i64 %.055100, 1
+  br i1 %100, label %16, label %._crit_edge.loopexit, !llvm.loop !28
 
-._crit_edge.loopexit:                             ; preds = %.thread91
+._crit_edge.loopexit:                             ; preds = %99
   %.pre = load i64, ptr %6, align 8
   br label %rb_vm_call_with_refinements.exit
 
-102:                                              ; preds = %3
-  %103 = tail call i64 @rb_ary_new_from_values(i64 noundef %1, ptr noundef %2) #21
-  %104 = and i64 %103, 7
-  %105 = icmp ne i64 %104, 0
-  %106 = icmp eq i64 %103, 0
-  %107 = or i1 %106, %105
-  br i1 %107, label %111, label %108
+101:                                              ; preds = %3
+  %102 = tail call i64 @rb_ary_new_from_values(i64 noundef %1, ptr noundef %2) #21
+  %103 = and i64 %102, 7
+  %104 = icmp ne i64 %103, 0
+  %105 = icmp eq i64 %102, 0
+  %106 = or i1 %105, %104
+  br i1 %106, label %110, label %107
 
-108:                                              ; preds = %102
-  %109 = inttoptr i64 %103 to ptr
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+107:                                              ; preds = %101
+  %108 = inttoptr i64 %102 to ptr
+  %109 = getelementptr inbounds i8, ptr %108, i64 8
   br label %rb_class_of.exit79
 
-111:                                              ; preds = %102
-  switch i64 %103, label %114 [
+110:                                              ; preds = %101
+  switch i64 %102, label %113 [
     i64 0, label %rb_class_of.exit79
-    i64 4, label %112
-    i64 20, label %113
+    i64 4, label %111
+    i64 20, label %112
   ]
 
-112:                                              ; preds = %111
+111:                                              ; preds = %110
   br label %rb_class_of.exit79
 
-113:                                              ; preds = %111
+112:                                              ; preds = %110
   br label %rb_class_of.exit79
 
-114:                                              ; preds = %111
-  %115 = and i64 %103, 1
-  %.not.i77 = icmp eq i64 %115, 0
-  br i1 %.not.i77, label %116, label %rb_class_of.exit79
+113:                                              ; preds = %110
+  %114 = and i64 %102, 1
+  %.not.i77 = icmp eq i64 %114, 0
+  br i1 %.not.i77, label %115, label %rb_class_of.exit79
 
-116:                                              ; preds = %114
-  %117 = and i64 %103, 254
-  %118 = icmp eq i64 %117, 12
-  %spec.select.i78 = select i1 %118, ptr @rb_cSymbol, ptr @rb_cFloat
+115:                                              ; preds = %113
+  %116 = and i64 %102, 254
+  %117 = icmp eq i64 %116, 12
+  %spec.select.i78 = select i1 %117, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit79
 
-rb_class_of.exit79:                               ; preds = %108, %111, %112, %113, %114, %116
-  %.0.in.i75 = phi ptr [ @rb_cNilClass, %112 ], [ @rb_cTrueClass, %113 ], [ %110, %108 ], [ @rb_cFalseClass, %111 ], [ @rb_cInteger, %114 ], [ %spec.select.i78, %116 ]
+rb_class_of.exit79:                               ; preds = %107, %110, %111, %112, %113, %115
+  %.0.in.i75 = phi ptr [ @rb_cNilClass, %111 ], [ @rb_cTrueClass, %112 ], [ %109, %107 ], [ @rb_cFalseClass, %110 ], [ @rb_cInteger, %113 ], [ %spec.select.i78, %115 ]
   %.0.i76 = load i64, ptr %.0.in.i75, align 8
-  %119 = tail call fastcc ptr @callable_method_entry_or_negative(i64 noundef %.0.i76, i64 noundef 2737, ptr noundef null)
-  %.not.i.i.i = icmp eq ptr %119, null
-  br i1 %.not.i.i.i, label %rb_callable_method_entry_with_refinements.exit.thread, label %120
+  %118 = tail call fastcc ptr @callable_method_entry_or_negative(i64 noundef %.0.i76, i64 noundef 2737, ptr noundef null)
+  %.not.i.i.i = icmp eq ptr %118, null
+  br i1 %.not.i.i.i, label %rb_callable_method_entry_with_refinements.exit.thread, label %119
 
-120:                                              ; preds = %rb_class_of.exit79
-  %121 = getelementptr inbounds i8, ptr %119, i64 16
-  %122 = load ptr, ptr %121, align 8
-  %.not7.i.i.i = icmp eq ptr %122, null
-  br i1 %.not7.i.i.i, label %rb_callable_method_entry_with_refinements.exit.thread, label %123
+119:                                              ; preds = %rb_class_of.exit79
+  %120 = getelementptr inbounds i8, ptr %118, i64 16
+  %121 = load ptr, ptr %120, align 8
+  %.not7.i.i.i = icmp eq ptr %121, null
+  br i1 %.not7.i.i.i, label %rb_callable_method_entry_with_refinements.exit.thread, label %122
 
-123:                                              ; preds = %120
-  %124 = load i8, ptr %122, align 8
-  %125 = and i8 %124, 15
-  %126 = icmp eq i8 %125, 7
-  br i1 %126, label %rb_callable_method_entry_with_refinements.exit.thread, label %127
+122:                                              ; preds = %119
+  %123 = load i8, ptr %121, align 8
+  %124 = and i8 %123, 15
+  %125 = icmp eq i8 %124, 7
+  br i1 %125, label %rb_callable_method_entry_with_refinements.exit.thread, label %126
 
-127:                                              ; preds = %123
+126:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %.not.i7.i.i = icmp eq i8 %125, 11
-  br i1 %.not.i7.i.i, label %rb_callable_method_entry_with_refinements.exit, label %rb_callable_method_entry_with_refinements.exit.thread94
+  %.not.i7.i.i = icmp eq i8 %124, 11
+  br i1 %.not.i7.i.i, label %rb_callable_method_entry_with_refinements.exit, label %rb_callable_method_entry_with_refinements.exit.thread93
 
-rb_callable_method_entry_with_refinements.exit.thread94: ; preds = %127
+rb_callable_method_entry_with_refinements.exit.thread93: ; preds = %126
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %131
+  br label %130
 
-rb_callable_method_entry_with_refinements.exit:   ; preds = %127
-  %128 = call fastcc ptr @method_entry_resolve_refinement(i64 noundef %.0.i76, i64 noundef 2737, i32 noundef 1, ptr noundef nonnull %4)
-  %129 = load i64, ptr %4, align 8
-  %130 = call fastcc ptr @prepare_callable_method_entry(i64 noundef %129, i64 noundef 2737, ptr noundef %128, i32 noundef 1)
+rb_callable_method_entry_with_refinements.exit:   ; preds = %126
+  %127 = call fastcc ptr @method_entry_resolve_refinement(i64 noundef %.0.i76, i64 noundef 2737, i32 noundef 1, ptr noundef nonnull %4)
+  %128 = load i64, ptr %4, align 8
+  %129 = call fastcc ptr @prepare_callable_method_entry(i64 noundef %128, i64 noundef 2737, ptr noundef %127, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.not.i71 = icmp eq ptr %130, null
-  br i1 %.not.i71, label %rb_callable_method_entry_with_refinements.exit.thread, label %131
+  %.not.i71 = icmp eq ptr %129, null
+  br i1 %.not.i71, label %rb_callable_method_entry_with_refinements.exit.thread, label %130
 
-131:                                              ; preds = %rb_callable_method_entry_with_refinements.exit.thread94, %rb_callable_method_entry_with_refinements.exit
-  %.0.i.i.i97 = phi ptr [ %119, %rb_callable_method_entry_with_refinements.exit.thread94 ], [ %130, %rb_callable_method_entry_with_refinements.exit ]
+130:                                              ; preds = %rb_callable_method_entry_with_refinements.exit.thread93, %rb_callable_method_entry_with_refinements.exit
+  %.0.i.i.i96 = phi ptr [ %118, %rb_callable_method_entry_with_refinements.exit.thread93 ], [ %129, %rb_callable_method_entry_with_refinements.exit ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   store i64 52250, ptr %5, align 8
-  %132 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %.0.i.i.i97, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr @vm_call_general, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %5, i64 32
-  store i64 0, ptr %135, align 8
-  %136 = call fastcc i64 @vm_call0_cc(ptr noundef %0, i64 noundef %103, i64 noundef 2737, i32 noundef 0, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0)
+  %131 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %.0.i.i.i96, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr @vm_call_general, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %5, i64 32
+  store i64 0, ptr %134, align 8
+  %135 = call fastcc i64 @vm_call0_cc(ptr noundef %0, i64 noundef %102, i64 noundef 2737, i32 noundef 0, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %rb_vm_call_with_refinements.exit
 
-rb_callable_method_entry_with_refinements.exit.thread: ; preds = %123, %120, %rb_class_of.exit79, %rb_callable_method_entry_with_refinements.exit
-  %137 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %138 = load ptr, ptr %137, align 8
-  %139 = call fastcc ptr @gccct_method_search(ptr noundef %138, i64 noundef %103, i64 noundef 2737, i32 noundef 0)
-  %140 = getelementptr inbounds i8, ptr %138, i64 16
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 24
-  %143 = load i64, ptr %142, align 8
-  %.not.i80 = icmp eq ptr %139, null
-  br i1 %.not.i80, label %150, label %144
+rb_callable_method_entry_with_refinements.exit.thread: ; preds = %122, %119, %rb_class_of.exit79, %rb_callable_method_entry_with_refinements.exit
+  %136 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %137 = load ptr, ptr %136, align 8
+  %138 = call fastcc ptr @gccct_method_search(ptr noundef %137, i64 noundef %102, i64 noundef 2737, i32 noundef 0)
+  %139 = getelementptr inbounds i8, ptr %137, i64 16
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds i8, ptr %140, i64 24
+  %142 = load i64, ptr %141, align 8
+  %.not.i80 = icmp eq ptr %138, null
+  br i1 %.not.i80, label %149, label %143
 
-144:                                              ; preds = %rb_callable_method_entry_with_refinements.exit.thread
-  %145 = getelementptr i8, ptr %139, i64 16
-  %.val.i81 = load ptr, ptr %145, align 8
-  %146 = call fastcc i32 @rb_method_call_status(ptr noundef %.val.i81, i32 noundef 1, i64 noundef %143)
-  %147 = icmp eq i32 %146, 64
-  br i1 %147, label %148, label %150
+143:                                              ; preds = %rb_callable_method_entry_with_refinements.exit.thread
+  %144 = getelementptr i8, ptr %138, i64 16
+  %.val.i81 = load ptr, ptr %144, align 8
+  %145 = call fastcc i32 @rb_method_call_status(ptr noundef %.val.i81, i32 noundef 1, i64 noundef %142)
+  %146 = icmp eq i32 %145, 64
+  br i1 %146, label %147, label %149
 
-148:                                              ; preds = %144
-  %149 = call fastcc i64 @vm_call0_cc(ptr noundef nonnull %138, i64 noundef %103, i64 noundef 2737, i32 noundef 0, ptr noundef null, ptr noundef nonnull %139, i32 noundef 0)
+147:                                              ; preds = %143
+  %148 = call fastcc i64 @vm_call0_cc(ptr noundef nonnull %137, i64 noundef %102, i64 noundef 2737, i32 noundef 0, ptr noundef null, ptr noundef nonnull %138, i32 noundef 0)
   br label %rb_vm_call_with_refinements.exit
 
-150:                                              ; preds = %144, %rb_callable_method_entry_with_refinements.exit.thread
-  %151 = call fastcc i64 @rb_call0(ptr noundef nonnull %138, i64 noundef %103, i64 noundef 2737, i32 noundef 0, ptr noundef null, i32 noundef 1, i64 noundef %143)
+149:                                              ; preds = %143, %rb_callable_method_entry_with_refinements.exit.thread
+  %150 = call fastcc i64 @rb_call0(ptr noundef nonnull %137, i64 noundef %102, i64 noundef 2737, i32 noundef 0, ptr noundef null, i32 noundef 1, i64 noundef %142)
   br label %rb_vm_call_with_refinements.exit
 
-rb_vm_call_with_refinements.exit:                 ; preds = %12, %._crit_edge.loopexit, %131, %148, %150, %10
-  %.058 = phi i64 [ 4, %10 ], [ %136, %131 ], [ %149, %148 ], [ %151, %150 ], [ %.pre, %._crit_edge.loopexit ], [ %13, %12 ]
+rb_vm_call_with_refinements.exit:                 ; preds = %12, %._crit_edge.loopexit, %130, %147, %149, %10
+  %.058 = phi i64 [ 4, %10 ], [ %135, %130 ], [ %148, %147 ], [ %150, %149 ], [ %.pre, %._crit_edge.loopexit ], [ %13, %12 ]
   ret i64 %.058
 }
 
@@ -59007,6 +59005,9 @@ declare void @llvm.va_end.p0(ptr) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #44
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #44
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #45

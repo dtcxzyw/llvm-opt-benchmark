@@ -1005,12 +1005,12 @@ declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @run_script_worker(ptr noundef %h, ptr noundef %script, ptr noundef %script_name, i32 noundef %thread_idx) unnamed_addr #1 {
 entry:
-  %key.i.i768 = alloca %struct.stream_info, align 8
-  %key.i.i704 = alloca %struct.stream_info, align 8
-  %key.i.i661 = alloca %struct.stream_info, align 8
-  %key.i.i638 = alloca %struct.stream_info, align 8
-  %key.i.i618 = alloca %struct.stream_info, align 8
-  %key.i.i450 = alloca %struct.stream_info, align 8
+  %key.i.i767 = alloca %struct.stream_info, align 8
+  %key.i.i703 = alloca %struct.stream_info, align 8
+  %key.i.i660 = alloca %struct.stream_info, align 8
+  %key.i.i637 = alloca %struct.stream_info, align 8
+  %key.i.i617 = alloca %struct.stream_info, align 8
+  %key.i.i449 = alloca %struct.stream_info, align 8
   %key.i.i = alloca %struct.stream_info, align 8
   %hl_ = alloca %struct.helper_local, align 8
   %repeat_stack_idx = alloca [8 x i64], align 16
@@ -1083,7 +1083,7 @@ for.cond.preheader:                               ; preds = %helper_local_init.e
   %blocking = getelementptr inbounds i8, ptr %h, i64 196
   %ready = getelementptr inbounds i8, ptr %h, i64 304
   %c = getelementptr inbounds i8, ptr %h, i64 296
-  %s_priv.i983 = getelementptr inbounds i8, ptr %h, i64 64
+  %s_priv.i982 = getelementptr inbounds i8, ptr %h, i64 64
   %inject_word0 = getelementptr inbounds i8, ptr %h, i64 240
   %inject_word1 = getelementptr inbounds i8, ptr %h, i64 248
   %qtf_datagram_cb1106 = getelementptr inbounds i8, ptr %h, i64 232
@@ -1154,11 +1154,8 @@ if.end19:                                         ; preds = %s_unlock.exit, %if.
   %op_idx.2 = phi i64 [ %spec.select, %if.else ], [ %op_idx.1, %s_unlock.exit ]
   %offset.1 = phi i64 [ 0, %if.else ], [ %offset.0, %s_unlock.exit ]
   %call21 = call i64 @ossl_time_now() #14
-  %cmp.i442 = icmp ugt i64 %call21, %op_deadline.sroa.0.1
-  %cmp5.i = icmp ult i64 %call21, %op_deadline.sroa.0.1
-  %..i = sext i1 %cmp5.i to i32
-  %retval.0.i443 = select i1 %cmp.i442, i32 1, i32 %..i
-  %call26 = call i32 @test_int_le(ptr noundef nonnull @.str.14, i32 noundef 1059, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.32, i32 noundef %retval.0.i443, i32 noundef 0) #14
+  %retval.0.i442 = call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %call21, i64 %op_deadline.sroa.0.1)
+  %call26 = call i32 @test_int_le(ptr noundef nonnull @.str.14, i32 noundef 1059, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.32, i32 noundef %retval.0.i442, i32 noundef 0) #14
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.then28, label %if.end29
 
@@ -1176,9 +1173,9 @@ if.end29:                                         ; preds = %if.end19
 
 if.then32:                                        ; preds = %if.end29
   %hl_.val413 = load ptr, ptr %c_streams.i, align 8
-  %call.i444 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(8) @.str.154) #16
-  %tobool.not.i445 = icmp eq i32 %call.i444, 0
-  br i1 %tobool.not.i445, label %if.then.i, label %if.end.i446
+  %call.i443 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(8) @.str.154) #16
+  %tobool.not.i444 = icmp eq i32 %call.i443, 0
+  br i1 %tobool.not.i444, label %if.then.i, label %if.end.i445
 
 if.then.i:                                        ; preds = %if.then32
   %hl_.val412 = load ptr, ptr %hl_, align 8
@@ -1186,13 +1183,13 @@ if.then.i:                                        ; preds = %if.then32
   %7 = load ptr, ptr %c_conn.i, align 8
   br label %helper_local_get_c_stream.exit
 
-if.end.i446:                                      ; preds = %if.then32
+if.end.i445:                                      ; preds = %if.then32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i)
-  %call.i.i447 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef nonnull %6) #14
-  %tobool.not.i.i = icmp eq i32 %call.i.i447, 0
+  %call.i.i446 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef nonnull %6) #14
+  %tobool.not.i.i = icmp eq i32 %call.i.i446, 0
   br i1 %tobool.not.i.i, label %get_stream_info.exit.thread.i, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.end.i446
+if.end.i.i:                                       ; preds = %if.end.i445
   %call1.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(8) @.str.154) #16
   %tobool2.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.not.i.i, label %get_stream_info.exit.thread.i, label %if.end4.i.i
@@ -1200,8 +1197,8 @@ if.end.i.i:                                       ; preds = %if.end.i446
 if.end4.i.i:                                      ; preds = %if.end.i.i
   store ptr %6, ptr %key.i.i, align 8
   %call.i.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %hl_.val413, ptr noundef nonnull %key.i.i) #14
-  %cmp.i.i448 = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i.i448, label %if.then6.i.i, label %if.end3.i
+  %cmp.i.i447 = icmp eq ptr %call.i.i.i, null
+  br i1 %cmp.i.i447, label %if.then6.i.i, label %if.end3.i
 
 if.then6.i.i:                                     ; preds = %if.end4.i.i
   %call7.i.i = call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 867) #14
@@ -1215,7 +1212,7 @@ if.end10.i.i:                                     ; preds = %if.then6.i.i
   %call.i10.i.i = call ptr @OPENSSL_LH_insert(ptr noundef %hl_.val413, ptr noundef nonnull %call7.i.i) #14
   br label %if.end3.i
 
-get_stream_info.exit.thread.i:                    ; preds = %if.then6.i.i, %if.end.i.i, %if.end.i446
+get_stream_info.exit.thread.i:                    ; preds = %if.then6.i.i, %if.end.i.i, %if.end.i445
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i)
   br label %helper_local_get_c_stream.exit
 
@@ -1227,62 +1224,62 @@ if.end3.i:                                        ; preds = %if.end10.i.i, %if.e
   br label %helper_local_get_c_stream.exit
 
 helper_local_get_c_stream.exit:                   ; preds = %if.then.i, %get_stream_info.exit.thread.i, %if.end3.i
-  %retval.0.i449 = phi ptr [ %8, %if.end3.i ], [ %7, %if.then.i ], [ null, %get_stream_info.exit.thread.i ]
+  %retval.0.i448 = phi ptr [ %8, %if.end3.i ], [ %7, %if.then.i ], [ null, %get_stream_info.exit.thread.i ]
   br i1 %cmp35, label %if.then37, label %if.end66.thread
 
 if.then37:                                        ; preds = %helper_local_get_c_stream.exit
   %9 = load ptr, ptr %stream_name, align 8
-  %call.i451 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.154) #16
-  %tobool.not.i452 = icmp eq i32 %call.i451, 0
-  br i1 %tobool.not.i452, label %if.then45, label %if.end.i453
+  %call.i450 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.154) #16
+  %tobool.not.i451 = icmp eq i32 %call.i450, 0
+  br i1 %tobool.not.i451, label %if.then45, label %if.end.i452
 
-if.end.i453:                                      ; preds = %if.then37
+if.end.i452:                                      ; preds = %if.then37
   %10 = load ptr, ptr %s_streams.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i450)
-  %call.i.i454 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %9) #14
-  %tobool.not.i.i455 = icmp eq i32 %call.i.i454, 0
-  br i1 %tobool.not.i.i455, label %get_stream_info.exit.thread.i471, label %if.end.i.i456
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i449)
+  %call.i.i453 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %9) #14
+  %tobool.not.i.i454 = icmp eq i32 %call.i.i453, 0
+  br i1 %tobool.not.i.i454, label %get_stream_info.exit.thread.i470, label %if.end.i.i455
 
-if.end.i.i456:                                    ; preds = %if.end.i453
-  %call1.i.i457 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.154) #16
-  %tobool2.not.i.i458 = icmp eq i32 %call1.i.i457, 0
-  br i1 %tobool2.not.i.i458, label %get_stream_info.exit.thread.i471, label %if.end4.i.i459
+if.end.i.i455:                                    ; preds = %if.end.i452
+  %call1.i.i456 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.154) #16
+  %tobool2.not.i.i457 = icmp eq i32 %call1.i.i456, 0
+  br i1 %tobool2.not.i.i457, label %get_stream_info.exit.thread.i470, label %if.end4.i.i458
 
-if.end4.i.i459:                                   ; preds = %if.end.i.i456
-  store ptr %9, ptr %key.i.i450, align 8
-  %call.i.i.i460 = call ptr @OPENSSL_LH_retrieve(ptr noundef %10, ptr noundef nonnull %key.i.i450) #14
-  %cmp.i.i461 = icmp eq ptr %call.i.i.i460, null
-  br i1 %cmp.i.i461, label %if.then6.i.i465, label %if.end3.i462
+if.end4.i.i458:                                   ; preds = %if.end.i.i455
+  store ptr %9, ptr %key.i.i449, align 8
+  %call.i.i.i459 = call ptr @OPENSSL_LH_retrieve(ptr noundef %10, ptr noundef nonnull %key.i.i449) #14
+  %cmp.i.i460 = icmp eq ptr %call.i.i.i459, null
+  br i1 %cmp.i.i460, label %if.then6.i.i464, label %if.end3.i461
 
-if.then6.i.i465:                                  ; preds = %if.end4.i.i459
-  %call7.i.i466 = call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 867) #14
-  %cmp8.i.i467 = icmp eq ptr %call7.i.i466, null
-  br i1 %cmp8.i.i467, label %get_stream_info.exit.thread.i471, label %if.end10.i.i468
+if.then6.i.i464:                                  ; preds = %if.end4.i.i458
+  %call7.i.i465 = call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 867) #14
+  %cmp8.i.i466 = icmp eq ptr %call7.i.i465, null
+  br i1 %cmp8.i.i466, label %get_stream_info.exit.thread.i470, label %if.end10.i.i467
 
-if.end10.i.i468:                                  ; preds = %if.then6.i.i465
-  store ptr %9, ptr %call7.i.i466, align 8
-  %s_stream_id.i.i469 = getelementptr inbounds i8, ptr %call7.i.i466, i64 16
-  store i64 -1, ptr %s_stream_id.i.i469, align 8
-  %call.i10.i.i470 = call ptr @OPENSSL_LH_insert(ptr noundef %10, ptr noundef nonnull %call7.i.i466) #14
-  br label %if.end3.i462
+if.end10.i.i467:                                  ; preds = %if.then6.i.i464
+  store ptr %9, ptr %call7.i.i465, align 8
+  %s_stream_id.i.i468 = getelementptr inbounds i8, ptr %call7.i.i465, i64 16
+  store i64 -1, ptr %s_stream_id.i.i468, align 8
+  %call.i10.i.i469 = call ptr @OPENSSL_LH_insert(ptr noundef %10, ptr noundef nonnull %call7.i.i465) #14
+  br label %if.end3.i461
 
-get_stream_info.exit.thread.i471:                 ; preds = %if.then6.i.i465, %if.end.i.i456, %if.end.i453
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i450)
+get_stream_info.exit.thread.i470:                 ; preds = %if.then6.i.i464, %if.end.i.i455, %if.end.i452
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i449)
   br label %if.then45
 
-if.end3.i462:                                     ; preds = %if.end10.i.i468, %if.end4.i.i459
-  %retval.0.i.i463 = phi ptr [ %call7.i.i466, %if.end10.i.i468 ], [ %call.i.i.i460, %if.end4.i.i459 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i450)
-  %s_stream_id.i = getelementptr inbounds i8, ptr %retval.0.i.i463, i64 16
+if.end3.i461:                                     ; preds = %if.end10.i.i467, %if.end4.i.i458
+  %retval.0.i.i462 = phi ptr [ %call7.i.i465, %if.end10.i.i467 ], [ %call.i.i.i459, %if.end4.i.i458 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i449)
+  %s_stream_id.i = getelementptr inbounds i8, ptr %retval.0.i.i462, i64 16
   %11 = load i64, ptr %s_stream_id.i, align 8
   br label %if.then45
 
 if.end42:                                         ; preds = %if.end29
   br i1 %cmp35, label %if.then45, label %if.end66.thread
 
-if.then45:                                        ; preds = %if.then37, %get_stream_info.exit.thread.i471, %if.end3.i462, %if.end42
-  %c_tgt.01016 = phi ptr [ %1, %if.end42 ], [ %retval.0.i449, %if.end3.i462 ], [ %retval.0.i449, %get_stream_info.exit.thread.i471 ], [ %retval.0.i449, %if.then37 ]
-  %s_stream_id.01014 = phi i64 [ -1, %if.end42 ], [ %11, %if.end3.i462 ], [ -1, %get_stream_info.exit.thread.i471 ], [ -1, %if.then37 ]
+if.then45:                                        ; preds = %if.then37, %get_stream_info.exit.thread.i470, %if.end3.i461, %if.end42
+  %c_tgt.01015 = phi ptr [ %1, %if.end42 ], [ %retval.0.i448, %if.end3.i461 ], [ %retval.0.i448, %get_stream_info.exit.thread.i470 ], [ %retval.0.i448, %if.then37 ]
+  %s_stream_id.01013 = phi i64 [ -1, %if.end42 ], [ %11, %if.end3.i461 ], [ -1, %get_stream_info.exit.thread.i470 ], [ -1, %if.then37 ]
   %12 = load i32, ptr %blocking, align 4
   %tobool46.not = icmp eq i32 %12, 0
   br i1 %tobool46.not, label %if.then47, label %land.lhs.true
@@ -1308,9 +1305,9 @@ if.then53:                                        ; preds = %land.lhs.true
   br label %if.end66
 
 if.end66.thread:                                  ; preds = %if.end42, %helper_local_get_c_stream.exit
-  %c_tgt.01015.ph = phi ptr [ %1, %if.end42 ], [ %retval.0.i449, %helper_local_get_c_stream.exit ]
+  %c_tgt.01014.ph = phi ptr [ %1, %if.end42 ], [ %retval.0.i448, %helper_local_get_c_stream.exit ]
   %18 = load ptr, ptr %c_conn, align 8
-  %call721047 = call i32 @SSL_handle_events(ptr noundef %18) #14
+  %call721046 = call i32 @SSL_handle_events(ptr noundef %18) #14
   %19 = load i32, ptr %arrayidx, align 8
   switch i32 %19, label %sw.default [
     i32 0, label %if.end80
@@ -1351,9 +1348,9 @@ if.end80thread-pre-split:                         ; preds = %if.end66, %if.then7
 
 if.end80:                                         ; preds = %if.end80thread-pre-split, %if.end66.thread, %if.end66.thread, %if.end66.thread, %if.end66.thread, %if.end66.thread, %if.end66.thread, %if.end66.thread, %if.end66.thread, %if.end66.thread, %if.end66.thread, %if.end66.thread, %if.end66.thread, %if.end66.thread, %if.end66.thread, %if.end66.thread, %if.end66.thread
   %21 = phi i32 [ %.pr, %if.end80thread-pre-split ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ], [ %19, %if.end66.thread ]
-  %cmp43101710291041 = phi i1 [ true, %if.end80thread-pre-split ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ]
-  %c_tgt.0101510311039 = phi ptr [ %c_tgt.01016, %if.end80thread-pre-split ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ], [ %c_tgt.01015.ph, %if.end66.thread ]
-  %s_stream_id.0101310331037 = phi i64 [ %s_stream_id.01014, %if.end80thread-pre-split ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ]
+  %cmp43101610281040 = phi i1 [ true, %if.end80thread-pre-split ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ], [ false, %if.end66.thread ]
+  %c_tgt.0101410301038 = phi ptr [ %c_tgt.01015, %if.end80thread-pre-split ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ], [ %c_tgt.01014.ph, %if.end66.thread ]
+  %s_stream_id.0101210321036 = phi i64 [ %s_stream_id.01013, %if.end80thread-pre-split ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ], [ -1, %if.end66.thread ]
   switch i32 %21, label %sw.default1151 [
     i32 0, label %sw.bb82
     i32 32, label %sw.bb119
@@ -1414,18 +1411,18 @@ sw.bb82:                                          ; preds = %if.end80
   br i1 %tobool84.not, label %out, label %if.end86
 
 if.end86:                                         ; preds = %sw.bb82
-  br i1 %cmp43101710291041, label %for.cond90.preheader, label %if.end118
+  br i1 %cmp43101610281040, label %for.cond90.preheader, label %if.end118
 
 for.cond90.preheader:                             ; preds = %if.end86
   %22 = load i64, ptr %num_threads997, align 8
-  %cmp911120.not = icmp eq i64 %22, 0
-  br i1 %cmp911120.not, label %if.end118, label %for.body
+  %cmp911119.not = icmp eq i64 %22, 0
+  br i1 %cmp911119.not, label %if.end118, label %for.body
 
 for.body:                                         ; preds = %for.cond90.preheader, %for.inc
-  %end_wait_warning.01122 = phi i32 [ %end_wait_warning.1, %for.inc ], [ 0, %for.cond90.preheader ]
-  %i.01121 = phi i64 [ %inc117, %for.inc ], [ 0, %for.cond90.preheader ]
+  %end_wait_warning.01121 = phi i32 [ %end_wait_warning.1, %for.inc ], [ 0, %for.cond90.preheader ]
+  %i.01120 = phi i64 [ %inc117, %for.inc ], [ 0, %for.cond90.preheader ]
   %23 = load ptr, ptr %threads.i.i, align 8
-  %m94 = getelementptr inbounds %struct.child_thread_args, ptr %23, i64 %i.01121, i32 5
+  %m94 = getelementptr inbounds %struct.child_thread_args, ptr %23, i64 %i.01120, i32 5
   %24 = load ptr, ptr %m94, align 8
   %cmp95 = icmp eq ptr %24, null
   br i1 %cmp95, label %for.inc, label %if.end98
@@ -1433,7 +1430,7 @@ for.body:                                         ; preds = %for.cond90.preheade
 if.end98:                                         ; preds = %for.body
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %24) #14
   %25 = load ptr, ptr %threads.i.i, align 8
-  %arrayidx103 = getelementptr inbounds %struct.child_thread_args, ptr %25, i64 %i.01121
+  %arrayidx103 = getelementptr inbounds %struct.child_thread_args, ptr %25, i64 %i.01120
   %done104 = getelementptr inbounds i8, ptr %arrayidx103, i64 52
   %26 = load i32, ptr %done104, align 4
   %m107 = getelementptr inbounds i8, ptr %arrayidx103, i64 40
@@ -1443,11 +1440,11 @@ if.end98:                                         ; preds = %for.body
   br i1 %tobool108.not, label %if.then109, label %for.inc
 
 if.then109:                                       ; preds = %if.end98
-  %tobool110.not = icmp eq i32 %end_wait_warning.01122, 0
+  %tobool110.not = icmp eq i32 %end_wait_warning.01121, 0
   br i1 %tobool110.not, label %if.then111, label %if.end112
 
 if.then111:                                       ; preds = %if.then109
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 1141, ptr noundef nonnull @.str.65, i64 noundef %i.01121) #14
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 1141, ptr noundef nonnull @.str.65, i64 noundef %i.01120) #14
   br label %if.end112
 
 if.end112:                                        ; preds = %if.then111, %if.then109
@@ -1458,8 +1455,8 @@ if.end112:                                        ; preds = %if.then111, %if.the
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end98, %for.body, %if.end112
-  %end_wait_warning.1 = phi i32 [ %end_wait_warning.01122, %for.body ], [ %end_wait_warning.01122, %if.end98 ], [ 1, %if.end112 ]
-  %inc117 = add nuw i64 %i.01121, 1
+  %end_wait_warning.1 = phi i32 [ %end_wait_warning.01121, %for.body ], [ %end_wait_warning.01121, %if.end98 ], [ 1, %if.end112 ]
+  %inc117 = add nuw i64 %i.01120, 1
   %29 = load i64, ptr %num_threads997, align 8
   %cmp91 = icmp ult i64 %inc117, %29
   br i1 %cmp91, label %for.body, label %if.end118, !llvm.loop !8
@@ -1493,7 +1490,7 @@ if.end127:                                        ; preds = %if.end123
   br label %for.cond.backedge
 
 sw.bb134:                                         ; preds = %if.end80
-  %cmp135.not = icmp eq ptr %c_tgt.0101510311039, null
+  %cmp135.not = icmp eq ptr %c_tgt.0101410301038, null
   br i1 %cmp135.not, label %if.end138, label %for.cond.backedge
 
 if.end138:                                        ; preds = %sw.bb134
@@ -1523,13 +1520,13 @@ if.else153:                                       ; preds = %if.end145
   %35 = load i64, ptr %arrayidx155, align 8
   br label %for.cond.backedge
 
-for.cond.backedge:                                ; preds = %for.cond998, %if.end127, %if.end138, %if.end198, %s_lock.exit531, %if.end354, %if.end405, %if.end539, %if.end685, %s_lock.exit810, %sw.bb1043, %sw.bb1077, %s_lock.exit966, %sw.bb1123, %sw.bb134, %if.end169, %if.end220, %land.lhs.true224, %if.end205, %lor.lhs.false245, %lor.lhs.false265, %sw.bb271, %if.end290, %if.end436, %s_lock.exit596, %helper_local_set_c_stream.exit, %helper_local_set_c_stream.exit659, %helper_local_set_c_stream.exit682, %if.end588, %helper_local_set_c_stream.exit725, %if.end644, %sw.bb653, %if.end690, %if.end704, %if.end728, %lor.lhs.false786, %lor.lhs.false827, %if.end844, %if.end863, %lor.lhs.false884, %s_lock.exit915, %if.end918, %if.end942, %s_lock.exit938, %if.end972, %if.end1053, %sw.bb1059, %sw.bb1068, %sw.bb1079, %sw.bb1091, %sw.bb1105, %if.end1133, %s_lock.exit987, %if.end145, %if.end995, %if.else153, %s_lock.exit, %s_lock.exit573, %s_lock.exit617, %s_lock.exit767, %s_lock.exit873, %if.then215, %if.then296, %if.then327, %if.then337, %if.then426, %if.then612, %if.then731, %if.then767, %if.then945
-  %repeat_stack_len.1.be = phi i64 [ %repeat_stack_len.1, %s_lock.exit873 ], [ %repeat_stack_len.1, %s_lock.exit767 ], [ %repeat_stack_len.1, %s_lock.exit617 ], [ %repeat_stack_len.1, %s_lock.exit573 ], [ %repeat_stack_len.1, %s_lock.exit ], [ %repeat_stack_len.1, %if.else153 ], [ %repeat_stack_len.1, %if.then215 ], [ %repeat_stack_len.1, %if.then296 ], [ %repeat_stack_len.1, %if.then327 ], [ %repeat_stack_len.1, %if.then337 ], [ %repeat_stack_len.1, %if.then426 ], [ %repeat_stack_len.1, %if.then612 ], [ %repeat_stack_len.1, %if.then731 ], [ %repeat_stack_len.1, %if.then767 ], [ %repeat_stack_len.1, %if.then945 ], [ %repeat_stack_len.1, %s_lock.exit987 ], [ %repeat_stack_len.1, %if.end1133 ], [ %repeat_stack_len.1, %sw.bb1123 ], [ %repeat_stack_len.1, %s_lock.exit966 ], [ %repeat_stack_len.1, %sw.bb1105 ], [ %repeat_stack_len.1, %sw.bb1091 ], [ %repeat_stack_len.1, %sw.bb1079 ], [ %repeat_stack_len.1, %sw.bb1077 ], [ %repeat_stack_len.1, %sw.bb1068 ], [ %repeat_stack_len.1, %sw.bb1059 ], [ %repeat_stack_len.1, %if.end1053 ], [ %repeat_stack_len.1, %sw.bb1043 ], [ %repeat_stack_len.1, %if.end972 ], [ %repeat_stack_len.1, %s_lock.exit938 ], [ %repeat_stack_len.1, %if.end942 ], [ %repeat_stack_len.1, %if.end918 ], [ %repeat_stack_len.1, %s_lock.exit915 ], [ %repeat_stack_len.1, %lor.lhs.false884 ], [ %repeat_stack_len.1, %if.end863 ], [ %repeat_stack_len.1, %if.end844 ], [ %repeat_stack_len.1, %lor.lhs.false827 ], [ %repeat_stack_len.1, %lor.lhs.false786 ], [ %repeat_stack_len.1, %s_lock.exit810 ], [ %repeat_stack_len.1, %if.end728 ], [ %repeat_stack_len.1, %if.end704 ], [ %repeat_stack_len.1, %if.end690 ], [ %repeat_stack_len.1, %if.end685 ], [ %repeat_stack_len.1, %sw.bb653 ], [ %repeat_stack_len.1, %if.end644 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit725 ], [ %repeat_stack_len.1, %if.end588 ], [ %repeat_stack_len.1, %if.end539 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit682 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit659 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit ], [ %repeat_stack_len.1, %s_lock.exit596 ], [ %repeat_stack_len.1, %if.end436 ], [ %repeat_stack_len.1, %if.end405 ], [ %repeat_stack_len.1, %if.end354 ], [ %repeat_stack_len.1, %if.end290 ], [ %repeat_stack_len.1, %s_lock.exit531 ], [ %repeat_stack_len.1, %sw.bb271 ], [ %repeat_stack_len.1, %lor.lhs.false265 ], [ %repeat_stack_len.1, %lor.lhs.false245 ], [ %repeat_stack_len.1, %land.lhs.true224 ], [ %repeat_stack_len.1, %if.end220 ], [ %repeat_stack_len.1, %if.end205 ], [ %repeat_stack_len.1, %if.end198 ], [ %repeat_stack_len.1, %if.end169 ], [ %repeat_stack_len.1, %sw.bb134 ], [ %repeat_stack_len.1, %if.end138 ], [ %inc133, %if.end127 ], [ %sub, %if.end145 ], [ %repeat_stack_len.1, %if.end995 ], [ %repeat_stack_len.1, %for.cond998 ]
-  %tobool5.not.be = phi i1 [ false, %s_lock.exit873 ], [ false, %s_lock.exit767 ], [ false, %s_lock.exit617 ], [ false, %s_lock.exit573 ], [ false, %s_lock.exit ], [ false, %if.else153 ], [ false, %if.then215 ], [ false, %if.then296 ], [ false, %if.then327 ], [ false, %if.then337 ], [ false, %if.then426 ], [ false, %if.then612 ], [ false, %if.then731 ], [ false, %if.then767 ], [ false, %if.then945 ], [ true, %s_lock.exit987 ], [ true, %if.end1133 ], [ true, %sw.bb1123 ], [ true, %s_lock.exit966 ], [ true, %sw.bb1105 ], [ true, %sw.bb1091 ], [ true, %sw.bb1079 ], [ true, %sw.bb1077 ], [ true, %sw.bb1068 ], [ true, %sw.bb1059 ], [ true, %if.end1053 ], [ true, %sw.bb1043 ], [ true, %if.end972 ], [ true, %s_lock.exit938 ], [ true, %if.end942 ], [ true, %if.end918 ], [ true, %s_lock.exit915 ], [ true, %lor.lhs.false884 ], [ true, %if.end863 ], [ true, %if.end844 ], [ true, %lor.lhs.false827 ], [ true, %lor.lhs.false786 ], [ true, %s_lock.exit810 ], [ true, %if.end728 ], [ true, %if.end704 ], [ true, %if.end690 ], [ true, %if.end685 ], [ true, %sw.bb653 ], [ true, %if.end644 ], [ true, %helper_local_set_c_stream.exit725 ], [ true, %if.end588 ], [ true, %if.end539 ], [ true, %helper_local_set_c_stream.exit682 ], [ true, %helper_local_set_c_stream.exit659 ], [ true, %helper_local_set_c_stream.exit ], [ true, %s_lock.exit596 ], [ true, %if.end436 ], [ true, %if.end405 ], [ true, %if.end354 ], [ true, %if.end290 ], [ true, %s_lock.exit531 ], [ true, %sw.bb271 ], [ true, %lor.lhs.false265 ], [ true, %lor.lhs.false245 ], [ true, %land.lhs.true224 ], [ true, %if.end220 ], [ true, %if.end205 ], [ true, %if.end198 ], [ true, %if.end169 ], [ true, %sw.bb134 ], [ true, %if.end138 ], [ true, %if.end127 ], [ true, %if.end145 ], [ true, %if.end995 ], [ true, %for.cond998 ]
-  %op_idx.1.be = phi i64 [ %op_idx.2, %s_lock.exit873 ], [ %op_idx.2, %s_lock.exit767 ], [ %op_idx.2, %s_lock.exit617 ], [ %op_idx.2, %s_lock.exit573 ], [ %op_idx.2, %s_lock.exit ], [ %35, %if.else153 ], [ %op_idx.2, %if.then215 ], [ %op_idx.2, %if.then296 ], [ %op_idx.2, %if.then327 ], [ %op_idx.2, %if.then337 ], [ %op_idx.2, %if.then426 ], [ %op_idx.2, %if.then612 ], [ %op_idx.2, %if.then731 ], [ %op_idx.2, %if.then767 ], [ %op_idx.2, %if.then945 ], [ %op_idx.2, %s_lock.exit987 ], [ %op_idx.2, %if.end1133 ], [ %op_idx.2, %sw.bb1123 ], [ %op_idx.2, %s_lock.exit966 ], [ %op_idx.2, %sw.bb1105 ], [ %op_idx.2, %sw.bb1091 ], [ %op_idx.2, %sw.bb1079 ], [ %op_idx.2, %sw.bb1077 ], [ %op_idx.2, %sw.bb1068 ], [ %op_idx.2, %sw.bb1059 ], [ %op_idx.2, %if.end1053 ], [ %op_idx.2, %sw.bb1043 ], [ %op_idx.2, %if.end972 ], [ %op_idx.2, %s_lock.exit938 ], [ %op_idx.2, %if.end942 ], [ %op_idx.2, %if.end918 ], [ %op_idx.2, %s_lock.exit915 ], [ %op_idx.2, %lor.lhs.false884 ], [ %op_idx.2, %if.end863 ], [ %op_idx.2, %if.end844 ], [ %op_idx.2, %lor.lhs.false827 ], [ %op_idx.2, %lor.lhs.false786 ], [ %op_idx.2, %s_lock.exit810 ], [ %op_idx.2, %if.end728 ], [ %op_idx.2, %if.end704 ], [ %op_idx.2, %if.end690 ], [ %op_idx.2, %if.end685 ], [ %op_idx.2, %sw.bb653 ], [ %op_idx.2, %if.end644 ], [ %op_idx.2, %helper_local_set_c_stream.exit725 ], [ %op_idx.2, %if.end588 ], [ %op_idx.2, %if.end539 ], [ %op_idx.2, %helper_local_set_c_stream.exit682 ], [ %op_idx.2, %helper_local_set_c_stream.exit659 ], [ %op_idx.2, %helper_local_set_c_stream.exit ], [ %op_idx.2, %s_lock.exit596 ], [ %op_idx.2, %if.end436 ], [ %op_idx.2, %if.end405 ], [ %op_idx.2, %if.end354 ], [ %op_idx.2, %if.end290 ], [ %op_idx.2, %s_lock.exit531 ], [ %op_idx.2, %sw.bb271 ], [ %op_idx.2, %lor.lhs.false265 ], [ %op_idx.2, %lor.lhs.false245 ], [ %op_idx.2, %land.lhs.true224 ], [ %op_idx.2, %if.end220 ], [ %op_idx.2, %if.end205 ], [ %op_idx.2, %if.end198 ], [ %op_idx.2, %if.end169 ], [ %op_idx.2, %sw.bb134 ], [ %add140, %if.end138 ], [ %op_idx.2, %if.end127 ], [ %op_idx.2, %if.end145 ], [ %op_idx.2, %if.end995 ], [ %op_idx.2, %for.cond998 ]
-  %offset.0.be = phi i64 [ %offset.1, %s_lock.exit873 ], [ %offset.1, %s_lock.exit767 ], [ %offset.1, %s_lock.exit617 ], [ %add385, %s_lock.exit573 ], [ %offset.1, %s_lock.exit ], [ %offset.1, %if.else153 ], [ %offset.1, %if.then215 ], [ %offset.1, %if.then296 ], [ %offset.1, %if.then327 ], [ %add333, %if.then337 ], [ %offset.1, %if.then426 ], [ %offset.1, %if.then612 ], [ %offset.1, %if.then731 ], [ %offset.1, %if.then767 ], [ %offset.1, %if.then945 ], [ %offset.1, %s_lock.exit987 ], [ %offset.1, %if.end1133 ], [ %offset.1, %sw.bb1123 ], [ %offset.1, %s_lock.exit966 ], [ %offset.1, %sw.bb1105 ], [ %offset.1, %sw.bb1091 ], [ %offset.1, %sw.bb1079 ], [ %offset.1, %sw.bb1077 ], [ %offset.1, %sw.bb1068 ], [ %offset.1, %sw.bb1059 ], [ %offset.1, %if.end1053 ], [ %offset.1, %sw.bb1043 ], [ %offset.1, %if.end972 ], [ %offset.1, %s_lock.exit938 ], [ %offset.1, %if.end942 ], [ %offset.1, %if.end918 ], [ %offset.1, %s_lock.exit915 ], [ %offset.1, %lor.lhs.false884 ], [ %offset.1, %if.end863 ], [ %offset.1, %if.end844 ], [ %offset.1, %lor.lhs.false827 ], [ %offset.1, %lor.lhs.false786 ], [ %offset.1, %s_lock.exit810 ], [ %offset.1, %if.end728 ], [ %offset.1, %if.end704 ], [ %offset.1, %if.end690 ], [ %offset.1, %if.end685 ], [ %offset.1, %sw.bb653 ], [ %offset.1, %if.end644 ], [ %offset.1, %helper_local_set_c_stream.exit725 ], [ %offset.1, %if.end588 ], [ %offset.1, %if.end539 ], [ %offset.1, %helper_local_set_c_stream.exit682 ], [ %offset.1, %helper_local_set_c_stream.exit659 ], [ %offset.1, %helper_local_set_c_stream.exit ], [ %offset.1, %s_lock.exit596 ], [ %offset.1, %if.end436 ], [ %offset.1, %if.end405 ], [ %offset.1, %if.end354 ], [ %offset.1, %if.end290 ], [ %offset.1, %s_lock.exit531 ], [ %offset.1, %sw.bb271 ], [ %offset.1, %lor.lhs.false265 ], [ %offset.1, %lor.lhs.false245 ], [ %offset.1, %land.lhs.true224 ], [ %offset.1, %if.end220 ], [ %offset.1, %if.end205 ], [ %offset.1, %if.end198 ], [ %offset.1, %if.end169 ], [ %offset.1, %sw.bb134 ], [ %offset.1, %if.end138 ], [ %offset.1, %if.end127 ], [ %offset.1, %if.end145 ], [ %offset.1, %if.end995 ], [ %offset.1, %for.cond998 ]
-  %connect_started.0.be = phi i32 [ %connect_started.0, %s_lock.exit873 ], [ %connect_started.0, %s_lock.exit767 ], [ %connect_started.0, %s_lock.exit617 ], [ %connect_started.0, %s_lock.exit573 ], [ %connect_started.0, %s_lock.exit ], [ %connect_started.0, %if.else153 ], [ 1, %if.then215 ], [ %connect_started.0, %if.then296 ], [ %connect_started.0, %if.then327 ], [ %connect_started.0, %if.then337 ], [ %connect_started.0, %if.then426 ], [ %connect_started.0, %if.then612 ], [ %connect_started.0, %if.then731 ], [ %connect_started.0, %if.then767 ], [ %connect_started.0, %if.then945 ], [ %connect_started.0, %s_lock.exit987 ], [ %connect_started.0, %if.end1133 ], [ %connect_started.0, %sw.bb1123 ], [ %connect_started.0, %s_lock.exit966 ], [ %connect_started.0, %sw.bb1105 ], [ %connect_started.0, %sw.bb1091 ], [ %connect_started.0, %sw.bb1079 ], [ %connect_started.0, %sw.bb1077 ], [ %connect_started.0, %sw.bb1068 ], [ %connect_started.0, %sw.bb1059 ], [ %connect_started.0, %if.end1053 ], [ %connect_started.0, %sw.bb1043 ], [ %connect_started.0, %if.end972 ], [ %connect_started.0, %s_lock.exit938 ], [ %connect_started.0, %if.end942 ], [ %connect_started.0, %if.end918 ], [ %connect_started.0, %s_lock.exit915 ], [ %connect_started.0, %lor.lhs.false884 ], [ %connect_started.0, %if.end863 ], [ %connect_started.0, %if.end844 ], [ %connect_started.0, %lor.lhs.false827 ], [ %connect_started.0, %lor.lhs.false786 ], [ %connect_started.0, %s_lock.exit810 ], [ %connect_started.0, %if.end728 ], [ %connect_started.0, %if.end704 ], [ %connect_started.0, %if.end690 ], [ %connect_started.0, %if.end685 ], [ %connect_started.0, %sw.bb653 ], [ %connect_started.0, %if.end644 ], [ %connect_started.0, %helper_local_set_c_stream.exit725 ], [ %connect_started.0, %if.end588 ], [ %connect_started.0, %if.end539 ], [ %connect_started.0, %helper_local_set_c_stream.exit682 ], [ %connect_started.0, %helper_local_set_c_stream.exit659 ], [ %connect_started.0, %helper_local_set_c_stream.exit ], [ %connect_started.0, %s_lock.exit596 ], [ %connect_started.0, %if.end436 ], [ %connect_started.0, %if.end405 ], [ %connect_started.0, %if.end354 ], [ %connect_started.0, %if.end290 ], [ %connect_started.0, %s_lock.exit531 ], [ %connect_started.0, %sw.bb271 ], [ %connect_started.0, %lor.lhs.false265 ], [ %connect_started.0, %lor.lhs.false245 ], [ 1, %land.lhs.true224 ], [ 1, %if.end220 ], [ 1, %if.end205 ], [ %connect_started.0, %if.end198 ], [ %connect_started.0, %if.end169 ], [ %connect_started.0, %sw.bb134 ], [ %connect_started.0, %if.end138 ], [ %connect_started.0, %if.end127 ], [ %connect_started.0, %if.end145 ], [ %connect_started.0, %if.end995 ], [ %connect_started.0, %for.cond998 ]
-  %tmp_buf.1.be = phi ptr [ %tmp_buf.1, %s_lock.exit873 ], [ %tmp_buf.1, %s_lock.exit767 ], [ %tmp_buf.1, %s_lock.exit617 ], [ %tmp_buf.4, %s_lock.exit573 ], [ %tmp_buf.1, %s_lock.exit ], [ %tmp_buf.1, %if.else153 ], [ %tmp_buf.1, %if.then215 ], [ %tmp_buf.1, %if.then296 ], [ %tmp_buf.3, %if.then327 ], [ %tmp_buf.3, %if.then337 ], [ %tmp_buf.1, %if.then426 ], [ %tmp_buf.1, %if.then612 ], [ %tmp_buf.1, %if.then731 ], [ %tmp_buf.1, %if.then767 ], [ %tmp_buf.1, %if.then945 ], [ %tmp_buf.1, %s_lock.exit987 ], [ %tmp_buf.1, %if.end1133 ], [ %tmp_buf.1, %sw.bb1123 ], [ %tmp_buf.1, %s_lock.exit966 ], [ %tmp_buf.1, %sw.bb1105 ], [ %tmp_buf.1, %sw.bb1091 ], [ %tmp_buf.1, %sw.bb1079 ], [ %tmp_buf.1, %sw.bb1077 ], [ %tmp_buf.1, %sw.bb1068 ], [ %tmp_buf.1, %sw.bb1059 ], [ %tmp_buf.1, %if.end1053 ], [ %tmp_buf.1, %sw.bb1043 ], [ %tmp_buf.1, %if.end972 ], [ %tmp_buf.1, %s_lock.exit938 ], [ %tmp_buf.1, %if.end942 ], [ %tmp_buf.1, %if.end918 ], [ %tmp_buf.1, %s_lock.exit915 ], [ %tmp_buf.1, %lor.lhs.false884 ], [ %tmp_buf.1, %if.end863 ], [ %tmp_buf.1, %if.end844 ], [ %tmp_buf.1, %lor.lhs.false827 ], [ %tmp_buf.1, %lor.lhs.false786 ], [ %tmp_buf.1, %s_lock.exit810 ], [ %tmp_buf.1, %if.end728 ], [ %tmp_buf.1, %if.end704 ], [ %tmp_buf.1, %if.end690 ], [ %tmp_buf.1, %if.end685 ], [ %tmp_buf.1, %sw.bb653 ], [ %tmp_buf.1, %if.end644 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit725 ], [ %tmp_buf.1, %if.end588 ], [ %tmp_buf.1, %if.end539 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit682 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit659 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit ], [ %tmp_buf.1, %s_lock.exit596 ], [ %tmp_buf.1, %if.end436 ], [ null, %if.end405 ], [ null, %if.end354 ], [ %tmp_buf.1, %if.end290 ], [ %tmp_buf.1, %s_lock.exit531 ], [ %tmp_buf.1, %sw.bb271 ], [ %tmp_buf.1, %lor.lhs.false265 ], [ %tmp_buf.1, %lor.lhs.false245 ], [ %tmp_buf.1, %land.lhs.true224 ], [ %tmp_buf.1, %if.end220 ], [ %tmp_buf.1, %if.end205 ], [ null, %if.end198 ], [ %tmp_buf.1, %if.end169 ], [ %tmp_buf.1, %sw.bb134 ], [ %tmp_buf.1, %if.end138 ], [ %tmp_buf.1, %if.end127 ], [ %tmp_buf.1, %if.end145 ], [ %tmp_buf.1, %if.end995 ], [ %tmp_buf.1, %for.cond998 ]
+for.cond.backedge:                                ; preds = %for.cond998, %if.end127, %if.end138, %if.end198, %s_lock.exit530, %if.end354, %if.end405, %if.end539, %if.end685, %s_lock.exit809, %sw.bb1043, %sw.bb1077, %s_lock.exit965, %sw.bb1123, %sw.bb134, %if.end169, %if.end220, %land.lhs.true224, %if.end205, %lor.lhs.false245, %lor.lhs.false265, %sw.bb271, %if.end290, %if.end436, %s_lock.exit595, %helper_local_set_c_stream.exit, %helper_local_set_c_stream.exit658, %helper_local_set_c_stream.exit681, %if.end588, %helper_local_set_c_stream.exit724, %if.end644, %sw.bb653, %if.end690, %if.end704, %if.end728, %lor.lhs.false786, %lor.lhs.false827, %if.end844, %if.end863, %lor.lhs.false884, %s_lock.exit914, %if.end918, %if.end942, %s_lock.exit937, %if.end972, %if.end1053, %sw.bb1059, %sw.bb1068, %sw.bb1079, %sw.bb1091, %sw.bb1105, %if.end1133, %s_lock.exit986, %if.end145, %if.end995, %if.else153, %s_lock.exit, %s_lock.exit572, %s_lock.exit616, %s_lock.exit766, %s_lock.exit872, %if.then215, %if.then296, %if.then327, %if.then337, %if.then426, %if.then612, %if.then731, %if.then767, %if.then945
+  %repeat_stack_len.1.be = phi i64 [ %repeat_stack_len.1, %s_lock.exit872 ], [ %repeat_stack_len.1, %s_lock.exit766 ], [ %repeat_stack_len.1, %s_lock.exit616 ], [ %repeat_stack_len.1, %s_lock.exit572 ], [ %repeat_stack_len.1, %s_lock.exit ], [ %repeat_stack_len.1, %if.else153 ], [ %repeat_stack_len.1, %if.then215 ], [ %repeat_stack_len.1, %if.then296 ], [ %repeat_stack_len.1, %if.then327 ], [ %repeat_stack_len.1, %if.then337 ], [ %repeat_stack_len.1, %if.then426 ], [ %repeat_stack_len.1, %if.then612 ], [ %repeat_stack_len.1, %if.then731 ], [ %repeat_stack_len.1, %if.then767 ], [ %repeat_stack_len.1, %if.then945 ], [ %repeat_stack_len.1, %s_lock.exit986 ], [ %repeat_stack_len.1, %if.end1133 ], [ %repeat_stack_len.1, %sw.bb1123 ], [ %repeat_stack_len.1, %s_lock.exit965 ], [ %repeat_stack_len.1, %sw.bb1105 ], [ %repeat_stack_len.1, %sw.bb1091 ], [ %repeat_stack_len.1, %sw.bb1079 ], [ %repeat_stack_len.1, %sw.bb1077 ], [ %repeat_stack_len.1, %sw.bb1068 ], [ %repeat_stack_len.1, %sw.bb1059 ], [ %repeat_stack_len.1, %if.end1053 ], [ %repeat_stack_len.1, %sw.bb1043 ], [ %repeat_stack_len.1, %if.end972 ], [ %repeat_stack_len.1, %s_lock.exit937 ], [ %repeat_stack_len.1, %if.end942 ], [ %repeat_stack_len.1, %if.end918 ], [ %repeat_stack_len.1, %s_lock.exit914 ], [ %repeat_stack_len.1, %lor.lhs.false884 ], [ %repeat_stack_len.1, %if.end863 ], [ %repeat_stack_len.1, %if.end844 ], [ %repeat_stack_len.1, %lor.lhs.false827 ], [ %repeat_stack_len.1, %lor.lhs.false786 ], [ %repeat_stack_len.1, %s_lock.exit809 ], [ %repeat_stack_len.1, %if.end728 ], [ %repeat_stack_len.1, %if.end704 ], [ %repeat_stack_len.1, %if.end690 ], [ %repeat_stack_len.1, %if.end685 ], [ %repeat_stack_len.1, %sw.bb653 ], [ %repeat_stack_len.1, %if.end644 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit724 ], [ %repeat_stack_len.1, %if.end588 ], [ %repeat_stack_len.1, %if.end539 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit681 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit658 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit ], [ %repeat_stack_len.1, %s_lock.exit595 ], [ %repeat_stack_len.1, %if.end436 ], [ %repeat_stack_len.1, %if.end405 ], [ %repeat_stack_len.1, %if.end354 ], [ %repeat_stack_len.1, %if.end290 ], [ %repeat_stack_len.1, %s_lock.exit530 ], [ %repeat_stack_len.1, %sw.bb271 ], [ %repeat_stack_len.1, %lor.lhs.false265 ], [ %repeat_stack_len.1, %lor.lhs.false245 ], [ %repeat_stack_len.1, %land.lhs.true224 ], [ %repeat_stack_len.1, %if.end220 ], [ %repeat_stack_len.1, %if.end205 ], [ %repeat_stack_len.1, %if.end198 ], [ %repeat_stack_len.1, %if.end169 ], [ %repeat_stack_len.1, %sw.bb134 ], [ %repeat_stack_len.1, %if.end138 ], [ %inc133, %if.end127 ], [ %sub, %if.end145 ], [ %repeat_stack_len.1, %if.end995 ], [ %repeat_stack_len.1, %for.cond998 ]
+  %tobool5.not.be = phi i1 [ false, %s_lock.exit872 ], [ false, %s_lock.exit766 ], [ false, %s_lock.exit616 ], [ false, %s_lock.exit572 ], [ false, %s_lock.exit ], [ false, %if.else153 ], [ false, %if.then215 ], [ false, %if.then296 ], [ false, %if.then327 ], [ false, %if.then337 ], [ false, %if.then426 ], [ false, %if.then612 ], [ false, %if.then731 ], [ false, %if.then767 ], [ false, %if.then945 ], [ true, %s_lock.exit986 ], [ true, %if.end1133 ], [ true, %sw.bb1123 ], [ true, %s_lock.exit965 ], [ true, %sw.bb1105 ], [ true, %sw.bb1091 ], [ true, %sw.bb1079 ], [ true, %sw.bb1077 ], [ true, %sw.bb1068 ], [ true, %sw.bb1059 ], [ true, %if.end1053 ], [ true, %sw.bb1043 ], [ true, %if.end972 ], [ true, %s_lock.exit937 ], [ true, %if.end942 ], [ true, %if.end918 ], [ true, %s_lock.exit914 ], [ true, %lor.lhs.false884 ], [ true, %if.end863 ], [ true, %if.end844 ], [ true, %lor.lhs.false827 ], [ true, %lor.lhs.false786 ], [ true, %s_lock.exit809 ], [ true, %if.end728 ], [ true, %if.end704 ], [ true, %if.end690 ], [ true, %if.end685 ], [ true, %sw.bb653 ], [ true, %if.end644 ], [ true, %helper_local_set_c_stream.exit724 ], [ true, %if.end588 ], [ true, %if.end539 ], [ true, %helper_local_set_c_stream.exit681 ], [ true, %helper_local_set_c_stream.exit658 ], [ true, %helper_local_set_c_stream.exit ], [ true, %s_lock.exit595 ], [ true, %if.end436 ], [ true, %if.end405 ], [ true, %if.end354 ], [ true, %if.end290 ], [ true, %s_lock.exit530 ], [ true, %sw.bb271 ], [ true, %lor.lhs.false265 ], [ true, %lor.lhs.false245 ], [ true, %land.lhs.true224 ], [ true, %if.end220 ], [ true, %if.end205 ], [ true, %if.end198 ], [ true, %if.end169 ], [ true, %sw.bb134 ], [ true, %if.end138 ], [ true, %if.end127 ], [ true, %if.end145 ], [ true, %if.end995 ], [ true, %for.cond998 ]
+  %op_idx.1.be = phi i64 [ %op_idx.2, %s_lock.exit872 ], [ %op_idx.2, %s_lock.exit766 ], [ %op_idx.2, %s_lock.exit616 ], [ %op_idx.2, %s_lock.exit572 ], [ %op_idx.2, %s_lock.exit ], [ %35, %if.else153 ], [ %op_idx.2, %if.then215 ], [ %op_idx.2, %if.then296 ], [ %op_idx.2, %if.then327 ], [ %op_idx.2, %if.then337 ], [ %op_idx.2, %if.then426 ], [ %op_idx.2, %if.then612 ], [ %op_idx.2, %if.then731 ], [ %op_idx.2, %if.then767 ], [ %op_idx.2, %if.then945 ], [ %op_idx.2, %s_lock.exit986 ], [ %op_idx.2, %if.end1133 ], [ %op_idx.2, %sw.bb1123 ], [ %op_idx.2, %s_lock.exit965 ], [ %op_idx.2, %sw.bb1105 ], [ %op_idx.2, %sw.bb1091 ], [ %op_idx.2, %sw.bb1079 ], [ %op_idx.2, %sw.bb1077 ], [ %op_idx.2, %sw.bb1068 ], [ %op_idx.2, %sw.bb1059 ], [ %op_idx.2, %if.end1053 ], [ %op_idx.2, %sw.bb1043 ], [ %op_idx.2, %if.end972 ], [ %op_idx.2, %s_lock.exit937 ], [ %op_idx.2, %if.end942 ], [ %op_idx.2, %if.end918 ], [ %op_idx.2, %s_lock.exit914 ], [ %op_idx.2, %lor.lhs.false884 ], [ %op_idx.2, %if.end863 ], [ %op_idx.2, %if.end844 ], [ %op_idx.2, %lor.lhs.false827 ], [ %op_idx.2, %lor.lhs.false786 ], [ %op_idx.2, %s_lock.exit809 ], [ %op_idx.2, %if.end728 ], [ %op_idx.2, %if.end704 ], [ %op_idx.2, %if.end690 ], [ %op_idx.2, %if.end685 ], [ %op_idx.2, %sw.bb653 ], [ %op_idx.2, %if.end644 ], [ %op_idx.2, %helper_local_set_c_stream.exit724 ], [ %op_idx.2, %if.end588 ], [ %op_idx.2, %if.end539 ], [ %op_idx.2, %helper_local_set_c_stream.exit681 ], [ %op_idx.2, %helper_local_set_c_stream.exit658 ], [ %op_idx.2, %helper_local_set_c_stream.exit ], [ %op_idx.2, %s_lock.exit595 ], [ %op_idx.2, %if.end436 ], [ %op_idx.2, %if.end405 ], [ %op_idx.2, %if.end354 ], [ %op_idx.2, %if.end290 ], [ %op_idx.2, %s_lock.exit530 ], [ %op_idx.2, %sw.bb271 ], [ %op_idx.2, %lor.lhs.false265 ], [ %op_idx.2, %lor.lhs.false245 ], [ %op_idx.2, %land.lhs.true224 ], [ %op_idx.2, %if.end220 ], [ %op_idx.2, %if.end205 ], [ %op_idx.2, %if.end198 ], [ %op_idx.2, %if.end169 ], [ %op_idx.2, %sw.bb134 ], [ %add140, %if.end138 ], [ %op_idx.2, %if.end127 ], [ %op_idx.2, %if.end145 ], [ %op_idx.2, %if.end995 ], [ %op_idx.2, %for.cond998 ]
+  %offset.0.be = phi i64 [ %offset.1, %s_lock.exit872 ], [ %offset.1, %s_lock.exit766 ], [ %offset.1, %s_lock.exit616 ], [ %add385, %s_lock.exit572 ], [ %offset.1, %s_lock.exit ], [ %offset.1, %if.else153 ], [ %offset.1, %if.then215 ], [ %offset.1, %if.then296 ], [ %offset.1, %if.then327 ], [ %add333, %if.then337 ], [ %offset.1, %if.then426 ], [ %offset.1, %if.then612 ], [ %offset.1, %if.then731 ], [ %offset.1, %if.then767 ], [ %offset.1, %if.then945 ], [ %offset.1, %s_lock.exit986 ], [ %offset.1, %if.end1133 ], [ %offset.1, %sw.bb1123 ], [ %offset.1, %s_lock.exit965 ], [ %offset.1, %sw.bb1105 ], [ %offset.1, %sw.bb1091 ], [ %offset.1, %sw.bb1079 ], [ %offset.1, %sw.bb1077 ], [ %offset.1, %sw.bb1068 ], [ %offset.1, %sw.bb1059 ], [ %offset.1, %if.end1053 ], [ %offset.1, %sw.bb1043 ], [ %offset.1, %if.end972 ], [ %offset.1, %s_lock.exit937 ], [ %offset.1, %if.end942 ], [ %offset.1, %if.end918 ], [ %offset.1, %s_lock.exit914 ], [ %offset.1, %lor.lhs.false884 ], [ %offset.1, %if.end863 ], [ %offset.1, %if.end844 ], [ %offset.1, %lor.lhs.false827 ], [ %offset.1, %lor.lhs.false786 ], [ %offset.1, %s_lock.exit809 ], [ %offset.1, %if.end728 ], [ %offset.1, %if.end704 ], [ %offset.1, %if.end690 ], [ %offset.1, %if.end685 ], [ %offset.1, %sw.bb653 ], [ %offset.1, %if.end644 ], [ %offset.1, %helper_local_set_c_stream.exit724 ], [ %offset.1, %if.end588 ], [ %offset.1, %if.end539 ], [ %offset.1, %helper_local_set_c_stream.exit681 ], [ %offset.1, %helper_local_set_c_stream.exit658 ], [ %offset.1, %helper_local_set_c_stream.exit ], [ %offset.1, %s_lock.exit595 ], [ %offset.1, %if.end436 ], [ %offset.1, %if.end405 ], [ %offset.1, %if.end354 ], [ %offset.1, %if.end290 ], [ %offset.1, %s_lock.exit530 ], [ %offset.1, %sw.bb271 ], [ %offset.1, %lor.lhs.false265 ], [ %offset.1, %lor.lhs.false245 ], [ %offset.1, %land.lhs.true224 ], [ %offset.1, %if.end220 ], [ %offset.1, %if.end205 ], [ %offset.1, %if.end198 ], [ %offset.1, %if.end169 ], [ %offset.1, %sw.bb134 ], [ %offset.1, %if.end138 ], [ %offset.1, %if.end127 ], [ %offset.1, %if.end145 ], [ %offset.1, %if.end995 ], [ %offset.1, %for.cond998 ]
+  %connect_started.0.be = phi i32 [ %connect_started.0, %s_lock.exit872 ], [ %connect_started.0, %s_lock.exit766 ], [ %connect_started.0, %s_lock.exit616 ], [ %connect_started.0, %s_lock.exit572 ], [ %connect_started.0, %s_lock.exit ], [ %connect_started.0, %if.else153 ], [ 1, %if.then215 ], [ %connect_started.0, %if.then296 ], [ %connect_started.0, %if.then327 ], [ %connect_started.0, %if.then337 ], [ %connect_started.0, %if.then426 ], [ %connect_started.0, %if.then612 ], [ %connect_started.0, %if.then731 ], [ %connect_started.0, %if.then767 ], [ %connect_started.0, %if.then945 ], [ %connect_started.0, %s_lock.exit986 ], [ %connect_started.0, %if.end1133 ], [ %connect_started.0, %sw.bb1123 ], [ %connect_started.0, %s_lock.exit965 ], [ %connect_started.0, %sw.bb1105 ], [ %connect_started.0, %sw.bb1091 ], [ %connect_started.0, %sw.bb1079 ], [ %connect_started.0, %sw.bb1077 ], [ %connect_started.0, %sw.bb1068 ], [ %connect_started.0, %sw.bb1059 ], [ %connect_started.0, %if.end1053 ], [ %connect_started.0, %sw.bb1043 ], [ %connect_started.0, %if.end972 ], [ %connect_started.0, %s_lock.exit937 ], [ %connect_started.0, %if.end942 ], [ %connect_started.0, %if.end918 ], [ %connect_started.0, %s_lock.exit914 ], [ %connect_started.0, %lor.lhs.false884 ], [ %connect_started.0, %if.end863 ], [ %connect_started.0, %if.end844 ], [ %connect_started.0, %lor.lhs.false827 ], [ %connect_started.0, %lor.lhs.false786 ], [ %connect_started.0, %s_lock.exit809 ], [ %connect_started.0, %if.end728 ], [ %connect_started.0, %if.end704 ], [ %connect_started.0, %if.end690 ], [ %connect_started.0, %if.end685 ], [ %connect_started.0, %sw.bb653 ], [ %connect_started.0, %if.end644 ], [ %connect_started.0, %helper_local_set_c_stream.exit724 ], [ %connect_started.0, %if.end588 ], [ %connect_started.0, %if.end539 ], [ %connect_started.0, %helper_local_set_c_stream.exit681 ], [ %connect_started.0, %helper_local_set_c_stream.exit658 ], [ %connect_started.0, %helper_local_set_c_stream.exit ], [ %connect_started.0, %s_lock.exit595 ], [ %connect_started.0, %if.end436 ], [ %connect_started.0, %if.end405 ], [ %connect_started.0, %if.end354 ], [ %connect_started.0, %if.end290 ], [ %connect_started.0, %s_lock.exit530 ], [ %connect_started.0, %sw.bb271 ], [ %connect_started.0, %lor.lhs.false265 ], [ %connect_started.0, %lor.lhs.false245 ], [ 1, %land.lhs.true224 ], [ 1, %if.end220 ], [ 1, %if.end205 ], [ %connect_started.0, %if.end198 ], [ %connect_started.0, %if.end169 ], [ %connect_started.0, %sw.bb134 ], [ %connect_started.0, %if.end138 ], [ %connect_started.0, %if.end127 ], [ %connect_started.0, %if.end145 ], [ %connect_started.0, %if.end995 ], [ %connect_started.0, %for.cond998 ]
+  %tmp_buf.1.be = phi ptr [ %tmp_buf.1, %s_lock.exit872 ], [ %tmp_buf.1, %s_lock.exit766 ], [ %tmp_buf.1, %s_lock.exit616 ], [ %tmp_buf.4, %s_lock.exit572 ], [ %tmp_buf.1, %s_lock.exit ], [ %tmp_buf.1, %if.else153 ], [ %tmp_buf.1, %if.then215 ], [ %tmp_buf.1, %if.then296 ], [ %tmp_buf.3, %if.then327 ], [ %tmp_buf.3, %if.then337 ], [ %tmp_buf.1, %if.then426 ], [ %tmp_buf.1, %if.then612 ], [ %tmp_buf.1, %if.then731 ], [ %tmp_buf.1, %if.then767 ], [ %tmp_buf.1, %if.then945 ], [ %tmp_buf.1, %s_lock.exit986 ], [ %tmp_buf.1, %if.end1133 ], [ %tmp_buf.1, %sw.bb1123 ], [ %tmp_buf.1, %s_lock.exit965 ], [ %tmp_buf.1, %sw.bb1105 ], [ %tmp_buf.1, %sw.bb1091 ], [ %tmp_buf.1, %sw.bb1079 ], [ %tmp_buf.1, %sw.bb1077 ], [ %tmp_buf.1, %sw.bb1068 ], [ %tmp_buf.1, %sw.bb1059 ], [ %tmp_buf.1, %if.end1053 ], [ %tmp_buf.1, %sw.bb1043 ], [ %tmp_buf.1, %if.end972 ], [ %tmp_buf.1, %s_lock.exit937 ], [ %tmp_buf.1, %if.end942 ], [ %tmp_buf.1, %if.end918 ], [ %tmp_buf.1, %s_lock.exit914 ], [ %tmp_buf.1, %lor.lhs.false884 ], [ %tmp_buf.1, %if.end863 ], [ %tmp_buf.1, %if.end844 ], [ %tmp_buf.1, %lor.lhs.false827 ], [ %tmp_buf.1, %lor.lhs.false786 ], [ %tmp_buf.1, %s_lock.exit809 ], [ %tmp_buf.1, %if.end728 ], [ %tmp_buf.1, %if.end704 ], [ %tmp_buf.1, %if.end690 ], [ %tmp_buf.1, %if.end685 ], [ %tmp_buf.1, %sw.bb653 ], [ %tmp_buf.1, %if.end644 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit724 ], [ %tmp_buf.1, %if.end588 ], [ %tmp_buf.1, %if.end539 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit681 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit658 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit ], [ %tmp_buf.1, %s_lock.exit595 ], [ %tmp_buf.1, %if.end436 ], [ null, %if.end405 ], [ null, %if.end354 ], [ %tmp_buf.1, %if.end290 ], [ %tmp_buf.1, %s_lock.exit530 ], [ %tmp_buf.1, %sw.bb271 ], [ %tmp_buf.1, %lor.lhs.false265 ], [ %tmp_buf.1, %lor.lhs.false245 ], [ %tmp_buf.1, %land.lhs.true224 ], [ %tmp_buf.1, %if.end220 ], [ %tmp_buf.1, %if.end205 ], [ null, %if.end198 ], [ %tmp_buf.1, %if.end169 ], [ %tmp_buf.1, %sw.bb134 ], [ %tmp_buf.1, %if.end138 ], [ %tmp_buf.1, %if.end127 ], [ %tmp_buf.1, %if.end145 ], [ %tmp_buf.1, %if.end995 ], [ %tmp_buf.1, %for.cond998 ]
   %hl_.val.pre = load i32, ptr %thread_idx2.i, align 8
   br label %for.cond
 
@@ -1539,7 +1536,7 @@ sw.bb157:                                         ; preds = %if.end80
   %36 = load ptr, ptr %check_func, align 8
   %call158 = call i32 %36(ptr noundef nonnull %h, ptr noundef nonnull %hl_) #14
   store ptr null, ptr %check_op, align 8
-  br i1 %cmp43101710291041, label %land.lhs.true162, label %if.end169
+  br i1 %cmp43101610281040, label %land.lhs.true162, label %if.end169
 
 land.lhs.true162:                                 ; preds = %sw.bb157
   %37 = load i32, ptr %check_spin_again, align 8
@@ -1549,34 +1546,34 @@ land.lhs.true162:                                 ; preds = %sw.bb157
 if.then164:                                       ; preds = %land.lhs.true162
   store i32 0, ptr %check_spin_again, align 8
   %hl_.val415 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i472 = icmp slt i32 %hl_.val415, 0
-  br i1 %cmp.i.i472, label %s_checked_out_p.exit.i477, label %cond.false.i.i473
+  %cmp.i.i471 = icmp slt i32 %hl_.val415, 0
+  br i1 %cmp.i.i471, label %s_checked_out_p.exit.i476, label %cond.false.i.i472
 
-cond.false.i.i473:                                ; preds = %if.then164
+cond.false.i.i472:                                ; preds = %if.then164
   %38 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i475 = zext nneg i32 %hl_.val415 to i64
-  %s_checked_out1.i.i476 = getelementptr inbounds %struct.child_thread_args, ptr %38, i64 %idxprom.i.i475, i32 8
-  br label %s_checked_out_p.exit.i477
+  %idxprom.i.i474 = zext nneg i32 %hl_.val415 to i64
+  %s_checked_out1.i.i475 = getelementptr inbounds %struct.child_thread_args, ptr %38, i64 %idxprom.i.i474, i32 8
+  br label %s_checked_out_p.exit.i476
 
-s_checked_out_p.exit.i477:                        ; preds = %if.then164, %cond.false.i.i473
-  %cond.i.i478 = phi ptr [ %s_checked_out1.i.i476, %cond.false.i.i473 ], [ %s_checked_out.i.i, %if.then164 ]
+s_checked_out_p.exit.i476:                        ; preds = %if.then164, %cond.false.i.i472
+  %cond.i.i477 = phi ptr [ %s_checked_out1.i.i475, %cond.false.i.i472 ], [ %s_checked_out.i.i, %if.then164 ]
   %39 = load ptr, ptr %m.i, align 8
-  %cmp.i480 = icmp eq ptr %39, null
-  br i1 %cmp.i480, label %s_lock.exit, label %lor.lhs.false.i481
+  %cmp.i479 = icmp eq ptr %39, null
+  br i1 %cmp.i479, label %s_lock.exit, label %lor.lhs.false.i480
 
-lor.lhs.false.i481:                               ; preds = %s_checked_out_p.exit.i477
-  %40 = load i32, ptr %cond.i.i478, align 4
-  %tobool.not.i482 = icmp eq i32 %40, 0
-  br i1 %tobool.not.i482, label %if.end.i486, label %s_lock.exit
+lor.lhs.false.i480:                               ; preds = %s_checked_out_p.exit.i476
+  %40 = load i32, ptr %cond.i.i477, align 4
+  %tobool.not.i481 = icmp eq i32 %40, 0
+  br i1 %tobool.not.i481, label %if.end.i485, label %s_lock.exit
 
-if.end.i486:                                      ; preds = %lor.lhs.false.i481
+if.end.i485:                                      ; preds = %lor.lhs.false.i480
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %39) #14
-  %41 = load ptr, ptr %s_priv.i983, align 8
+  %41 = load ptr, ptr %s_priv.i982, align 8
   store ptr %41, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i478, align 4
+  store i32 1, ptr %cond.i.i477, align 4
   br label %s_lock.exit
 
-s_lock.exit:                                      ; preds = %s_checked_out_p.exit.i477, %lor.lhs.false.i481, %if.end.i486
+s_lock.exit:                                      ; preds = %s_checked_out_p.exit.i476, %lor.lhs.false.i480, %if.end.i485
   %42 = load ptr, ptr %s.i, align 8
   %call168 = call i32 @ossl_quic_tserver_tick(ptr noundef %42) #14
   br label %for.cond.backedge
@@ -1624,7 +1621,7 @@ if.end198:                                        ; preds = %if.end186
 sw.bb199:                                         ; preds = %if.end80
   %45 = load ptr, ptr %c_conn, align 8
   %call201 = call i32 @SSL_connect(ptr noundef %45) #14
-  %call202 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call201)
+  %call202 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101410301038, i32 noundef %call201)
   %tobool203.not = icmp eq i32 %call202, 0
   br i1 %tobool203.not, label %out, label %if.end205
 
@@ -1639,10 +1636,10 @@ if.then208:                                       ; preds = %if.end205
 
 land.lhs.true211:                                 ; preds = %if.then208
   %47 = load ptr, ptr %c_conn, align 8
-  %call.i489 = call i32 @SSL_get_error(ptr noundef %47, i32 noundef %call201) #14
-  %48 = and i32 %call.i489, -2
-  %.not1049 = icmp eq i32 %48, 2
-  br i1 %.not1049, label %if.then215, label %if.end220
+  %call.i488 = call i32 @SSL_get_error(ptr noundef %47, i32 noundef %call201) #14
+  %48 = and i32 %call.i488, -2
+  %.not1048 = icmp eq i32 %48, 2
+  br i1 %.not1048, label %if.then215, label %if.end220
 
 if.then215:                                       ; preds = %land.lhs.true211
   %49 = load i32, ptr %blocking, align 4
@@ -1666,7 +1663,7 @@ land.lhs.true224:                                 ; preds = %if.end220
 
 sw.bb230:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_written, align 8
-  %call231 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1254, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call231 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1254, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool232.not = icmp eq i32 %call231, 0
   br i1 %tobool232.not, label %out, label %if.end234
 
@@ -1675,7 +1672,7 @@ if.end234:                                        ; preds = %sw.bb230
   %51 = load ptr, ptr %arg0235, align 8
   %arg1236 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %52 = load i64, ptr %arg1236, align 8
-  %call237 = call i32 @SSL_write_ex(ptr noundef %c_tgt.0101510311039, ptr noundef %51, i64 noundef %52, ptr noundef nonnull %bytes_written) #14
+  %call237 = call i32 @SSL_write_ex(ptr noundef %c_tgt.0101410301038, ptr noundef %51, i64 noundef %52, ptr noundef nonnull %bytes_written) #14
   %cmp238 = icmp ne i32 %call237, 0
   %conv239 = zext i1 %cmp238 to i32
   %call240 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1258, ptr noundef nonnull @.str.78, i32 noundef %conv239) #14
@@ -1683,7 +1680,7 @@ if.end234:                                        ; preds = %sw.bb230
   br i1 %tobool241.not, label %out, label %lor.lhs.false242
 
 lor.lhs.false242:                                 ; preds = %if.end234
-  %call243 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call237)
+  %call243 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101410301038, i32 noundef %call237)
   %tobool244.not = icmp eq i32 %call243, 0
   br i1 %tobool244.not, label %out, label %lor.lhs.false245
 
@@ -1696,53 +1693,53 @@ lor.lhs.false245:                                 ; preds = %lor.lhs.false242
 
 sw.bb251:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_written252, align 8
-  %call253 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1269, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
+  %call253 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1269, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101210321036, i64 noundef -1) #14
   %tobool254.not = icmp eq i32 %call253, 0
   br i1 %tobool254.not, label %out, label %if.end256
 
 if.end256:                                        ; preds = %sw.bb251
   %hl_.val416 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i490 = icmp slt i32 %hl_.val416, 0
-  br i1 %cmp.i.i490, label %s_checked_out_p.exit.i495, label %cond.false.i.i491
+  %cmp.i.i489 = icmp slt i32 %hl_.val416, 0
+  br i1 %cmp.i.i489, label %s_checked_out_p.exit.i494, label %cond.false.i.i490
 
-cond.false.i.i491:                                ; preds = %if.end256
+cond.false.i.i490:                                ; preds = %if.end256
   %55 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i493 = zext nneg i32 %hl_.val416 to i64
-  %s_checked_out1.i.i494 = getelementptr inbounds %struct.child_thread_args, ptr %55, i64 %idxprom.i.i493, i32 8
-  br label %s_checked_out_p.exit.i495
+  %idxprom.i.i492 = zext nneg i32 %hl_.val416 to i64
+  %s_checked_out1.i.i493 = getelementptr inbounds %struct.child_thread_args, ptr %55, i64 %idxprom.i.i492, i32 8
+  br label %s_checked_out_p.exit.i494
 
-s_checked_out_p.exit.i495:                        ; preds = %if.end256, %cond.false.i.i491
-  %cond.i.i496 = phi ptr [ %s_checked_out1.i.i494, %cond.false.i.i491 ], [ %s_checked_out.i.i, %if.end256 ]
+s_checked_out_p.exit.i494:                        ; preds = %if.end256, %cond.false.i.i490
+  %cond.i.i495 = phi ptr [ %s_checked_out1.i.i493, %cond.false.i.i490 ], [ %s_checked_out.i.i, %if.end256 ]
   %56 = load ptr, ptr %m.i, align 8
-  %cmp.i498 = icmp eq ptr %56, null
-  br i1 %cmp.i498, label %s_lock.exit510, label %lor.lhs.false.i499
+  %cmp.i497 = icmp eq ptr %56, null
+  br i1 %cmp.i497, label %s_lock.exit509, label %lor.lhs.false.i498
 
-lor.lhs.false.i499:                               ; preds = %s_checked_out_p.exit.i495
-  %57 = load i32, ptr %cond.i.i496, align 4
-  %tobool.not.i500 = icmp eq i32 %57, 0
-  br i1 %tobool.not.i500, label %if.end.i505, label %s_lock.exit510
+lor.lhs.false.i498:                               ; preds = %s_checked_out_p.exit.i494
+  %57 = load i32, ptr %cond.i.i495, align 4
+  %tobool.not.i499 = icmp eq i32 %57, 0
+  br i1 %tobool.not.i499, label %if.end.i504, label %s_lock.exit509
 
-if.end.i505:                                      ; preds = %lor.lhs.false.i499
+if.end.i504:                                      ; preds = %lor.lhs.false.i498
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %56) #14
-  %58 = load ptr, ptr %s_priv.i983, align 8
+  %58 = load ptr, ptr %s_priv.i982, align 8
   store ptr %58, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i496, align 4
-  br label %s_lock.exit510
+  store i32 1, ptr %cond.i.i495, align 4
+  br label %s_lock.exit509
 
-s_lock.exit510:                                   ; preds = %s_checked_out_p.exit.i495, %lor.lhs.false.i499, %if.end.i505
-  %retval.0.i504 = load ptr, ptr %s.i, align 8
+s_lock.exit509:                                   ; preds = %s_checked_out_p.exit.i494, %lor.lhs.false.i498, %if.end.i504
+  %retval.0.i503 = load ptr, ptr %s.i, align 8
   %arg0258 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %59 = load ptr, ptr %arg0258, align 8
   %arg1259 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %60 = load i64, ptr %arg1259, align 8
-  %call260 = call i32 @ossl_quic_tserver_write(ptr noundef %retval.0.i504, i64 noundef %s_stream_id.0101310331037, ptr noundef %59, i64 noundef %60, ptr noundef nonnull %bytes_written252) #14
+  %call260 = call i32 @ossl_quic_tserver_write(ptr noundef %retval.0.i503, i64 noundef %s_stream_id.0101210321036, ptr noundef %59, i64 noundef %60, ptr noundef nonnull %bytes_written252) #14
   %cmp261 = icmp ne i32 %call260, 0
   %conv262 = zext i1 %cmp261 to i32
   %call263 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1274, ptr noundef nonnull @.str.82, i32 noundef %conv262) #14
   %tobool264.not = icmp eq i32 %call263, 0
   br i1 %tobool264.not, label %out, label %lor.lhs.false265
 
-lor.lhs.false265:                                 ; preds = %s_lock.exit510
+lor.lhs.false265:                                 ; preds = %s_lock.exit509
   %61 = load i64, ptr %bytes_written252, align 8
   %62 = load i64, ptr %arg1259, align 8
   %call267 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1275, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.68, i64 noundef %61, i64 noundef %62) #14
@@ -1750,7 +1747,7 @@ lor.lhs.false265:                                 ; preds = %s_lock.exit510
   br i1 %tobool268.not, label %out, label %for.cond.backedge
 
 sw.bb271:                                         ; preds = %if.end80
-  %call272 = call i32 @SSL_stream_conclude(ptr noundef %c_tgt.0101510311039, i64 noundef 0) #14
+  %call272 = call i32 @SSL_stream_conclude(ptr noundef %c_tgt.0101410301038, i64 noundef 0) #14
   %cmp273 = icmp ne i32 %call272, 0
   %conv274 = zext i1 %cmp273 to i32
   %call275 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1282, ptr noundef nonnull @.str.83, i32 noundef %conv274) #14
@@ -1758,52 +1755,52 @@ sw.bb271:                                         ; preds = %if.end80
   br i1 %tobool276.not, label %out, label %for.cond.backedge
 
 sw.bb279:                                         ; preds = %if.end80
-  %call280 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1289, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
+  %call280 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1289, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101210321036, i64 noundef -1) #14
   %tobool281.not = icmp eq i32 %call280, 0
   br i1 %tobool281.not, label %out, label %if.end283
 
 if.end283:                                        ; preds = %sw.bb279
   %hl_.val417 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i511 = icmp slt i32 %hl_.val417, 0
-  br i1 %cmp.i.i511, label %s_checked_out_p.exit.i516, label %cond.false.i.i512
+  %cmp.i.i510 = icmp slt i32 %hl_.val417, 0
+  br i1 %cmp.i.i510, label %s_checked_out_p.exit.i515, label %cond.false.i.i511
 
-cond.false.i.i512:                                ; preds = %if.end283
+cond.false.i.i511:                                ; preds = %if.end283
   %63 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i514 = zext nneg i32 %hl_.val417 to i64
-  %s_checked_out1.i.i515 = getelementptr inbounds %struct.child_thread_args, ptr %63, i64 %idxprom.i.i514, i32 8
-  br label %s_checked_out_p.exit.i516
+  %idxprom.i.i513 = zext nneg i32 %hl_.val417 to i64
+  %s_checked_out1.i.i514 = getelementptr inbounds %struct.child_thread_args, ptr %63, i64 %idxprom.i.i513, i32 8
+  br label %s_checked_out_p.exit.i515
 
-s_checked_out_p.exit.i516:                        ; preds = %if.end283, %cond.false.i.i512
-  %cond.i.i517 = phi ptr [ %s_checked_out1.i.i515, %cond.false.i.i512 ], [ %s_checked_out.i.i, %if.end283 ]
+s_checked_out_p.exit.i515:                        ; preds = %if.end283, %cond.false.i.i511
+  %cond.i.i516 = phi ptr [ %s_checked_out1.i.i514, %cond.false.i.i511 ], [ %s_checked_out.i.i, %if.end283 ]
   %64 = load ptr, ptr %m.i, align 8
-  %cmp.i519 = icmp eq ptr %64, null
-  br i1 %cmp.i519, label %s_lock.exit531, label %lor.lhs.false.i520
+  %cmp.i518 = icmp eq ptr %64, null
+  br i1 %cmp.i518, label %s_lock.exit530, label %lor.lhs.false.i519
 
-lor.lhs.false.i520:                               ; preds = %s_checked_out_p.exit.i516
-  %65 = load i32, ptr %cond.i.i517, align 4
-  %tobool.not.i521 = icmp eq i32 %65, 0
-  br i1 %tobool.not.i521, label %if.end.i526, label %s_lock.exit531
+lor.lhs.false.i519:                               ; preds = %s_checked_out_p.exit.i515
+  %65 = load i32, ptr %cond.i.i516, align 4
+  %tobool.not.i520 = icmp eq i32 %65, 0
+  br i1 %tobool.not.i520, label %if.end.i525, label %s_lock.exit530
 
-if.end.i526:                                      ; preds = %lor.lhs.false.i520
+if.end.i525:                                      ; preds = %lor.lhs.false.i519
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %64) #14
-  %66 = load ptr, ptr %s_priv.i983, align 8
+  %66 = load ptr, ptr %s_priv.i982, align 8
   store ptr %66, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i517, align 4
-  br label %s_lock.exit531
+  store i32 1, ptr %cond.i.i516, align 4
+  br label %s_lock.exit530
 
-s_lock.exit531:                                   ; preds = %s_checked_out_p.exit.i516, %lor.lhs.false.i520, %if.end.i526
-  %retval.0.i525 = load ptr, ptr %s.i, align 8
-  %call285 = call i32 @ossl_quic_tserver_conclude(ptr noundef %retval.0.i525, i64 noundef %s_stream_id.0101310331037) #14
+s_lock.exit530:                                   ; preds = %s_checked_out_p.exit.i515, %lor.lhs.false.i519, %if.end.i525
+  %retval.0.i524 = load ptr, ptr %s.i, align 8
+  %call285 = call i32 @ossl_quic_tserver_conclude(ptr noundef %retval.0.i524, i64 noundef %s_stream_id.0101210321036) #14
   br label %for.cond.backedge
 
 sw.bb286:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_read, align 8
-  %call287 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1301, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call287 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1301, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool288.not = icmp eq i32 %call287, 0
   br i1 %tobool288.not, label %out, label %if.end290
 
 if.end290:                                        ; preds = %sw.bb286
-  %call291 = call i32 @SSL_peek_ex(ptr noundef %c_tgt.0101510311039, ptr noundef nonnull %buf, i64 noundef 1, ptr noundef nonnull %bytes_read) #14
+  %call291 = call i32 @SSL_peek_ex(ptr noundef %c_tgt.0101410301038, ptr noundef nonnull %buf, i64 noundef 1, ptr noundef nonnull %bytes_read) #14
   %tobool292 = icmp eq i32 %call291, 0
   %67 = load i64, ptr %bytes_read, align 8
   %cmp294 = icmp eq i64 %67, 0
@@ -1843,8 +1840,8 @@ if.end317:                                        ; preds = %land.lhs.true311.if
   %tmp_buf.3 = phi ptr [ %call313, %land.lhs.true311.if.end317_crit_edge ], [ %tmp_buf.1, %sw.bb302 ]
   %add.ptr318 = getelementptr inbounds i8, ptr %tmp_buf.3, i64 %offset.1
   %sub320 = sub i64 %70, %offset.1
-  %call321 = call i32 @SSL_read_ex(ptr noundef %c_tgt.0101510311039, ptr noundef %add.ptr318, i64 noundef %sub320, ptr noundef nonnull %bytes_read303) #14
-  %call322 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call321)
+  %call321 = call i32 @SSL_read_ex(ptr noundef %c_tgt.0101410301038, ptr noundef %add.ptr318, i64 noundef %sub320, ptr noundef nonnull %bytes_read303) #14
+  %call322 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101410301038, i32 noundef %call321)
   %tobool323.not = icmp eq i32 %call322, 0
   br i1 %tobool323.not, label %out, label %if.end325
 
@@ -1894,7 +1891,7 @@ if.end354:                                        ; preds = %land.lhs.true347, %
 
 sw.bb355:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_read356, align 8
-  %call357 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1345, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
+  %call357 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1345, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101210321036, i64 noundef -1) #14
   %tobool358.not = icmp eq i32 %call357, 0
   br i1 %tobool358.not, label %out, label %if.end360
 
@@ -1915,46 +1912,46 @@ land.lhs.true367:                                 ; preds = %if.end360
 if.end373:                                        ; preds = %land.lhs.true367, %if.end360
   %tmp_buf.4 = phi ptr [ %call369, %land.lhs.true367 ], [ %tmp_buf.1, %if.end360 ]
   %hl_.val418 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i532 = icmp slt i32 %hl_.val418, 0
-  br i1 %cmp.i.i532, label %s_checked_out_p.exit.i537, label %cond.false.i.i533
+  %cmp.i.i531 = icmp slt i32 %hl_.val418, 0
+  br i1 %cmp.i.i531, label %s_checked_out_p.exit.i536, label %cond.false.i.i532
 
-cond.false.i.i533:                                ; preds = %if.end373
+cond.false.i.i532:                                ; preds = %if.end373
   %77 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i535 = zext nneg i32 %hl_.val418 to i64
-  %s_checked_out1.i.i536 = getelementptr inbounds %struct.child_thread_args, ptr %77, i64 %idxprom.i.i535, i32 8
-  br label %s_checked_out_p.exit.i537
+  %idxprom.i.i534 = zext nneg i32 %hl_.val418 to i64
+  %s_checked_out1.i.i535 = getelementptr inbounds %struct.child_thread_args, ptr %77, i64 %idxprom.i.i534, i32 8
+  br label %s_checked_out_p.exit.i536
 
-s_checked_out_p.exit.i537:                        ; preds = %if.end373, %cond.false.i.i533
-  %cond.i.i538 = phi ptr [ %s_checked_out1.i.i536, %cond.false.i.i533 ], [ %s_checked_out.i.i, %if.end373 ]
+s_checked_out_p.exit.i536:                        ; preds = %if.end373, %cond.false.i.i532
+  %cond.i.i537 = phi ptr [ %s_checked_out1.i.i535, %cond.false.i.i532 ], [ %s_checked_out.i.i, %if.end373 ]
   %78 = load ptr, ptr %m.i, align 8
-  %cmp.i540 = icmp eq ptr %78, null
-  br i1 %cmp.i540, label %s_lock.exit552, label %lor.lhs.false.i541
+  %cmp.i539 = icmp eq ptr %78, null
+  br i1 %cmp.i539, label %s_lock.exit551, label %lor.lhs.false.i540
 
-lor.lhs.false.i541:                               ; preds = %s_checked_out_p.exit.i537
-  %79 = load i32, ptr %cond.i.i538, align 4
-  %tobool.not.i542 = icmp eq i32 %79, 0
-  br i1 %tobool.not.i542, label %if.end.i547, label %s_lock.exit552
+lor.lhs.false.i540:                               ; preds = %s_checked_out_p.exit.i536
+  %79 = load i32, ptr %cond.i.i537, align 4
+  %tobool.not.i541 = icmp eq i32 %79, 0
+  br i1 %tobool.not.i541, label %if.end.i546, label %s_lock.exit551
 
-if.end.i547:                                      ; preds = %lor.lhs.false.i541
+if.end.i546:                                      ; preds = %lor.lhs.false.i540
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %78) #14
-  %80 = load ptr, ptr %s_priv.i983, align 8
+  %80 = load ptr, ptr %s_priv.i982, align 8
   store ptr %80, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i538, align 4
-  br label %s_lock.exit552
+  store i32 1, ptr %cond.i.i537, align 4
+  br label %s_lock.exit551
 
-s_lock.exit552:                                   ; preds = %s_checked_out_p.exit.i537, %lor.lhs.false.i541, %if.end.i547
-  %retval.0.i546 = load ptr, ptr %s.i, align 8
+s_lock.exit551:                                   ; preds = %s_checked_out_p.exit.i536, %lor.lhs.false.i540, %if.end.i546
+  %retval.0.i545 = load ptr, ptr %s.i, align 8
   %add.ptr375 = getelementptr inbounds i8, ptr %tmp_buf.4, i64 %offset.1
   %81 = load i64, ptr %arg1361, align 8
   %sub377 = sub i64 %81, %offset.1
-  %call378 = call i32 @ossl_quic_tserver_read(ptr noundef %retval.0.i546, i64 noundef %s_stream_id.0101310331037, ptr noundef %add.ptr375, i64 noundef %sub377, ptr noundef nonnull %bytes_read356) #14
+  %call378 = call i32 @ossl_quic_tserver_read(ptr noundef %retval.0.i545, i64 noundef %s_stream_id.0101210321036, ptr noundef %add.ptr375, i64 noundef %sub377, ptr noundef nonnull %bytes_read356) #14
   %cmp379 = icmp ne i32 %call378, 0
   %conv380 = zext i1 %cmp379 to i32
   %call381 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1355, ptr noundef nonnull @.str.87, i32 noundef %conv380) #14
   %tobool382.not = icmp eq i32 %call381, 0
   br i1 %tobool382.not, label %out, label %if.end384
 
-if.end384:                                        ; preds = %s_lock.exit552
+if.end384:                                        ; preds = %s_lock.exit551
   %82 = load i64, ptr %bytes_read356, align 8
   %add385 = add i64 %82, %offset.1
   %83 = load i64, ptr %arg1361, align 8
@@ -1963,34 +1960,34 @@ if.end384:                                        ; preds = %s_lock.exit552
 
 if.then389:                                       ; preds = %if.end384
   %hl_.val419 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i553 = icmp slt i32 %hl_.val419, 0
-  br i1 %cmp.i.i553, label %s_checked_out_p.exit.i558, label %cond.false.i.i554
+  %cmp.i.i552 = icmp slt i32 %hl_.val419, 0
+  br i1 %cmp.i.i552, label %s_checked_out_p.exit.i557, label %cond.false.i.i553
 
-cond.false.i.i554:                                ; preds = %if.then389
+cond.false.i.i553:                                ; preds = %if.then389
   %84 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i556 = zext nneg i32 %hl_.val419 to i64
-  %s_checked_out1.i.i557 = getelementptr inbounds %struct.child_thread_args, ptr %84, i64 %idxprom.i.i556, i32 8
-  br label %s_checked_out_p.exit.i558
+  %idxprom.i.i555 = zext nneg i32 %hl_.val419 to i64
+  %s_checked_out1.i.i556 = getelementptr inbounds %struct.child_thread_args, ptr %84, i64 %idxprom.i.i555, i32 8
+  br label %s_checked_out_p.exit.i557
 
-s_checked_out_p.exit.i558:                        ; preds = %if.then389, %cond.false.i.i554
-  %cond.i.i559 = phi ptr [ %s_checked_out1.i.i557, %cond.false.i.i554 ], [ %s_checked_out.i.i, %if.then389 ]
+s_checked_out_p.exit.i557:                        ; preds = %if.then389, %cond.false.i.i553
+  %cond.i.i558 = phi ptr [ %s_checked_out1.i.i556, %cond.false.i.i553 ], [ %s_checked_out.i.i, %if.then389 ]
   %85 = load ptr, ptr %m.i, align 8
-  %cmp.i561 = icmp eq ptr %85, null
-  br i1 %cmp.i561, label %s_lock.exit573, label %lor.lhs.false.i562
+  %cmp.i560 = icmp eq ptr %85, null
+  br i1 %cmp.i560, label %s_lock.exit572, label %lor.lhs.false.i561
 
-lor.lhs.false.i562:                               ; preds = %s_checked_out_p.exit.i558
-  %86 = load i32, ptr %cond.i.i559, align 4
-  %tobool.not.i563 = icmp eq i32 %86, 0
-  br i1 %tobool.not.i563, label %if.end.i568, label %s_lock.exit573
+lor.lhs.false.i561:                               ; preds = %s_checked_out_p.exit.i557
+  %86 = load i32, ptr %cond.i.i558, align 4
+  %tobool.not.i562 = icmp eq i32 %86, 0
+  br i1 %tobool.not.i562, label %if.end.i567, label %s_lock.exit572
 
-if.end.i568:                                      ; preds = %lor.lhs.false.i562
+if.end.i567:                                      ; preds = %lor.lhs.false.i561
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %85) #14
-  %87 = load ptr, ptr %s_priv.i983, align 8
+  %87 = load ptr, ptr %s_priv.i982, align 8
   store ptr %87, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i559, align 4
-  br label %s_lock.exit573
+  store i32 1, ptr %cond.i.i558, align 4
+  br label %s_lock.exit572
 
-s_lock.exit573:                                   ; preds = %s_checked_out_p.exit.i558, %lor.lhs.false.i562, %if.end.i568
+s_lock.exit572:                                   ; preds = %s_checked_out_p.exit.i557, %lor.lhs.false.i561, %if.end.i567
   %88 = load ptr, ptr %s.i, align 8
   %call393 = call i32 @ossl_quic_tserver_tick(ptr noundef %88) #14
   br label %for.cond.backedge
@@ -2012,8 +2009,8 @@ if.end405:                                        ; preds = %land.lhs.true398, %
 
 sw.bb406:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_read408, align 8
-  %call411 = call i32 @SSL_read_ex(ptr noundef %c_tgt.0101510311039, ptr noundef nonnull %buf407, i64 noundef 1, ptr noundef nonnull %bytes_read408) #14
-  %call412 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call411)
+  %call411 = call i32 @SSL_read_ex(ptr noundef %c_tgt.0101410301038, ptr noundef nonnull %buf407, i64 noundef 1, ptr noundef nonnull %bytes_read408) #14
+  %call412 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101410301038, i32 noundef %call411)
   %tobool413.not = icmp eq i32 %call412, 0
   br i1 %tobool413.not, label %out, label %lor.lhs.false414
 
@@ -2031,10 +2028,10 @@ lor.lhs.false419:                                 ; preds = %lor.lhs.false414
   br i1 %tobool421.not, label %out, label %if.end423
 
 if.end423:                                        ; preds = %lor.lhs.false419
-  %call.i574 = call i32 @SSL_get_error(ptr noundef %c_tgt.0101510311039, i32 noundef 0) #14
-  %91 = and i32 %call.i574, -2
-  %.not1048 = icmp eq i32 %91, 2
-  br i1 %.not1048, label %if.then426, label %if.end431
+  %call.i573 = call i32 @SSL_get_error(ptr noundef %c_tgt.0101410301038, i32 noundef 0) #14
+  %91 = and i32 %call.i573, -2
+  %.not1047 = icmp eq i32 %91, 2
+  br i1 %.not1047, label %if.then426, label %if.end431
 
 if.then426:                                       ; preds = %if.end423
   %92 = load i32, ptr %blocking, align 4
@@ -2046,93 +2043,93 @@ if.then429:                                       ; preds = %if.then426
   br label %out
 
 if.end431:                                        ; preds = %if.end423
-  %call432 = call i32 @SSL_get_error(ptr noundef %c_tgt.0101510311039, i32 noundef 0) #14
+  %call432 = call i32 @SSL_get_error(ptr noundef %c_tgt.0101410301038, i32 noundef 0) #14
   %call433 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 1388, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i32 noundef %call432, i32 noundef 6) #14
   %tobool434.not = icmp eq i32 %call433, 0
   br i1 %tobool434.not, label %out, label %if.end436
 
 if.end436:                                        ; preds = %if.end431
-  %call437 = call i32 @SSL_want(ptr noundef %c_tgt.0101510311039) #14
+  %call437 = call i32 @SSL_want(ptr noundef %c_tgt.0101410301038) #14
   %call438 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 1391, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.92, i32 noundef %call437, i32 noundef 1) #14
   %tobool439.not = icmp eq i32 %call438, 0
   br i1 %tobool439.not, label %out, label %for.cond.backedge
 
 sw.bb442:                                         ; preds = %if.end80
-  %call443 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1398, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
+  %call443 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1398, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101210321036, i64 noundef -1) #14
   %tobool444.not = icmp eq i32 %call443, 0
   br i1 %tobool444.not, label %out, label %if.end446
 
 if.end446:                                        ; preds = %sw.bb442
   %hl_.val420 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i576 = icmp slt i32 %hl_.val420, 0
-  br i1 %cmp.i.i576, label %s_checked_out_p.exit.i581, label %cond.false.i.i577
+  %cmp.i.i575 = icmp slt i32 %hl_.val420, 0
+  br i1 %cmp.i.i575, label %s_checked_out_p.exit.i580, label %cond.false.i.i576
 
-cond.false.i.i577:                                ; preds = %if.end446
+cond.false.i.i576:                                ; preds = %if.end446
   %93 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i579 = zext nneg i32 %hl_.val420 to i64
-  %s_checked_out1.i.i580 = getelementptr inbounds %struct.child_thread_args, ptr %93, i64 %idxprom.i.i579, i32 8
-  br label %s_checked_out_p.exit.i581
+  %idxprom.i.i578 = zext nneg i32 %hl_.val420 to i64
+  %s_checked_out1.i.i579 = getelementptr inbounds %struct.child_thread_args, ptr %93, i64 %idxprom.i.i578, i32 8
+  br label %s_checked_out_p.exit.i580
 
-s_checked_out_p.exit.i581:                        ; preds = %if.end446, %cond.false.i.i577
-  %cond.i.i582 = phi ptr [ %s_checked_out1.i.i580, %cond.false.i.i577 ], [ %s_checked_out.i.i, %if.end446 ]
+s_checked_out_p.exit.i580:                        ; preds = %if.end446, %cond.false.i.i576
+  %cond.i.i581 = phi ptr [ %s_checked_out1.i.i579, %cond.false.i.i576 ], [ %s_checked_out.i.i, %if.end446 ]
   %94 = load ptr, ptr %m.i, align 8
-  %cmp.i584 = icmp eq ptr %94, null
-  br i1 %cmp.i584, label %s_lock.exit596, label %lor.lhs.false.i585
+  %cmp.i583 = icmp eq ptr %94, null
+  br i1 %cmp.i583, label %s_lock.exit595, label %lor.lhs.false.i584
 
-lor.lhs.false.i585:                               ; preds = %s_checked_out_p.exit.i581
-  %95 = load i32, ptr %cond.i.i582, align 4
-  %tobool.not.i586 = icmp eq i32 %95, 0
-  br i1 %tobool.not.i586, label %if.end.i591, label %s_lock.exit596
+lor.lhs.false.i584:                               ; preds = %s_checked_out_p.exit.i580
+  %95 = load i32, ptr %cond.i.i581, align 4
+  %tobool.not.i585 = icmp eq i32 %95, 0
+  br i1 %tobool.not.i585, label %if.end.i590, label %s_lock.exit595
 
-if.end.i591:                                      ; preds = %lor.lhs.false.i585
+if.end.i590:                                      ; preds = %lor.lhs.false.i584
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %94) #14
-  %96 = load ptr, ptr %s_priv.i983, align 8
+  %96 = load ptr, ptr %s_priv.i982, align 8
   store ptr %96, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i582, align 4
-  br label %s_lock.exit596
+  store i32 1, ptr %cond.i.i581, align 4
+  br label %s_lock.exit595
 
-s_lock.exit596:                                   ; preds = %s_checked_out_p.exit.i581, %lor.lhs.false.i585, %if.end.i591
-  %retval.0.i590 = load ptr, ptr %s.i, align 8
-  %call448 = call i32 @ossl_quic_tserver_has_read_ended(ptr noundef %retval.0.i590, i64 noundef %s_stream_id.0101310331037) #14
+s_lock.exit595:                                   ; preds = %s_checked_out_p.exit.i580, %lor.lhs.false.i584, %if.end.i590
+  %retval.0.i589 = load ptr, ptr %s.i, align 8
+  %call448 = call i32 @ossl_quic_tserver_has_read_ended(ptr noundef %retval.0.i589, i64 noundef %s_stream_id.0101210321036) #14
   %tobool449.not = icmp eq i32 %call448, 0
   br i1 %tobool449.not, label %if.then450, label %for.cond.backedge
 
-if.then450:                                       ; preds = %s_lock.exit596
+if.then450:                                       ; preds = %s_lock.exit595
   %hl_.val421 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i597 = icmp slt i32 %hl_.val421, 0
-  br i1 %cmp.i.i597, label %s_checked_out_p.exit.i602, label %cond.false.i.i598
+  %cmp.i.i596 = icmp slt i32 %hl_.val421, 0
+  br i1 %cmp.i.i596, label %s_checked_out_p.exit.i601, label %cond.false.i.i597
 
-cond.false.i.i598:                                ; preds = %if.then450
+cond.false.i.i597:                                ; preds = %if.then450
   %97 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i600 = zext nneg i32 %hl_.val421 to i64
-  %s_checked_out1.i.i601 = getelementptr inbounds %struct.child_thread_args, ptr %97, i64 %idxprom.i.i600, i32 8
-  br label %s_checked_out_p.exit.i602
+  %idxprom.i.i599 = zext nneg i32 %hl_.val421 to i64
+  %s_checked_out1.i.i600 = getelementptr inbounds %struct.child_thread_args, ptr %97, i64 %idxprom.i.i599, i32 8
+  br label %s_checked_out_p.exit.i601
 
-s_checked_out_p.exit.i602:                        ; preds = %if.then450, %cond.false.i.i598
-  %cond.i.i603 = phi ptr [ %s_checked_out1.i.i601, %cond.false.i.i598 ], [ %s_checked_out.i.i, %if.then450 ]
+s_checked_out_p.exit.i601:                        ; preds = %if.then450, %cond.false.i.i597
+  %cond.i.i602 = phi ptr [ %s_checked_out1.i.i600, %cond.false.i.i597 ], [ %s_checked_out.i.i, %if.then450 ]
   %98 = load ptr, ptr %m.i, align 8
-  %cmp.i605 = icmp eq ptr %98, null
-  br i1 %cmp.i605, label %s_lock.exit617, label %lor.lhs.false.i606
+  %cmp.i604 = icmp eq ptr %98, null
+  br i1 %cmp.i604, label %s_lock.exit616, label %lor.lhs.false.i605
 
-lor.lhs.false.i606:                               ; preds = %s_checked_out_p.exit.i602
-  %99 = load i32, ptr %cond.i.i603, align 4
-  %tobool.not.i607 = icmp eq i32 %99, 0
-  br i1 %tobool.not.i607, label %if.end.i612, label %s_lock.exit617
+lor.lhs.false.i605:                               ; preds = %s_checked_out_p.exit.i601
+  %99 = load i32, ptr %cond.i.i602, align 4
+  %tobool.not.i606 = icmp eq i32 %99, 0
+  br i1 %tobool.not.i606, label %if.end.i611, label %s_lock.exit616
 
-if.end.i612:                                      ; preds = %lor.lhs.false.i606
+if.end.i611:                                      ; preds = %lor.lhs.false.i605
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %98) #14
-  %100 = load ptr, ptr %s_priv.i983, align 8
+  %100 = load ptr, ptr %s_priv.i982, align 8
   store ptr %100, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i603, align 4
-  br label %s_lock.exit617
+  store i32 1, ptr %cond.i.i602, align 4
+  br label %s_lock.exit616
 
-s_lock.exit617:                                   ; preds = %s_checked_out_p.exit.i602, %lor.lhs.false.i606, %if.end.i612
+s_lock.exit616:                                   ; preds = %s_checked_out_p.exit.i601, %lor.lhs.false.i605, %if.end.i611
   %101 = load ptr, ptr %s.i, align 8
   %call453 = call i32 @ossl_quic_tserver_tick(ptr noundef %101) #14
   br label %for.cond.backedge
 
 sw.bb455:                                         ; preds = %if.end80
-  %call456 = call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 1410, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call456 = call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 1410, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool457.not = icmp eq i32 %call456, 0
   br i1 %tobool457.not, label %out, label %if.end459
 
@@ -2152,55 +2149,55 @@ if.end464:                                        ; preds = %if.end459
 if.end470:                                        ; preds = %if.end464
   %104 = load ptr, ptr %stream_name, align 8
   %hl_.val434 = load ptr, ptr %c_streams.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i618)
-  %call.i.i619 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %104) #14
-  %tobool.not.i.i620 = icmp eq i32 %call.i.i619, 0
-  br i1 %tobool.not.i.i620, label %get_stream_info.exit.thread.i637, label %if.end.i.i621
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i617)
+  %call.i.i618 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %104) #14
+  %tobool.not.i.i619 = icmp eq i32 %call.i.i618, 0
+  br i1 %tobool.not.i.i619, label %get_stream_info.exit.thread.i636, label %if.end.i.i620
 
-if.end.i.i621:                                    ; preds = %if.end470
-  %call1.i.i622 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.154) #16
-  %tobool2.not.i.i623 = icmp eq i32 %call1.i.i622, 0
-  br i1 %tobool2.not.i.i623, label %get_stream_info.exit.thread.i637, label %if.end4.i.i624
+if.end.i.i620:                                    ; preds = %if.end470
+  %call1.i.i621 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.154) #16
+  %tobool2.not.i.i622 = icmp eq i32 %call1.i.i621, 0
+  br i1 %tobool2.not.i.i622, label %get_stream_info.exit.thread.i636, label %if.end4.i.i623
 
-if.end4.i.i624:                                   ; preds = %if.end.i.i621
-  store ptr %104, ptr %key.i.i618, align 8
-  %call.i.i.i625 = call ptr @OPENSSL_LH_retrieve(ptr noundef %hl_.val434, ptr noundef nonnull %key.i.i618) #14
-  %cmp.i.i626 = icmp eq ptr %call.i.i.i625, null
-  br i1 %cmp.i.i626, label %if.then6.i.i631, label %if.end.i627
+if.end4.i.i623:                                   ; preds = %if.end.i.i620
+  store ptr %104, ptr %key.i.i617, align 8
+  %call.i.i.i624 = call ptr @OPENSSL_LH_retrieve(ptr noundef %hl_.val434, ptr noundef nonnull %key.i.i617) #14
+  %cmp.i.i625 = icmp eq ptr %call.i.i.i624, null
+  br i1 %cmp.i.i625, label %if.then6.i.i630, label %if.end.i626
 
-if.then6.i.i631:                                  ; preds = %if.end4.i.i624
-  %call7.i.i632 = call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 867) #14
-  %cmp8.i.i633 = icmp eq ptr %call7.i.i632, null
-  br i1 %cmp8.i.i633, label %get_stream_info.exit.thread.i637, label %if.end10.i.i634
+if.then6.i.i630:                                  ; preds = %if.end4.i.i623
+  %call7.i.i631 = call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 867) #14
+  %cmp8.i.i632 = icmp eq ptr %call7.i.i631, null
+  br i1 %cmp8.i.i632, label %get_stream_info.exit.thread.i636, label %if.end10.i.i633
 
-if.end10.i.i634:                                  ; preds = %if.then6.i.i631
-  store ptr %104, ptr %call7.i.i632, align 8
-  %s_stream_id.i.i635 = getelementptr inbounds i8, ptr %call7.i.i632, i64 16
-  store i64 -1, ptr %s_stream_id.i.i635, align 8
-  %call.i10.i.i636 = call ptr @OPENSSL_LH_insert(ptr noundef %hl_.val434, ptr noundef nonnull %call7.i.i632) #14
-  br label %if.end.i627
+if.end10.i.i633:                                  ; preds = %if.then6.i.i630
+  store ptr %104, ptr %call7.i.i631, align 8
+  %s_stream_id.i.i634 = getelementptr inbounds i8, ptr %call7.i.i631, i64 16
+  store i64 -1, ptr %s_stream_id.i.i634, align 8
+  %call.i10.i.i635 = call ptr @OPENSSL_LH_insert(ptr noundef %hl_.val434, ptr noundef nonnull %call7.i.i631) #14
+  br label %if.end.i626
 
-get_stream_info.exit.thread.i637:                 ; preds = %if.then6.i.i631, %if.end.i.i621, %if.end470
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i618)
+get_stream_info.exit.thread.i636:                 ; preds = %if.then6.i.i630, %if.end.i.i620, %if.end470
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i617)
   br label %helper_local_set_c_stream.exit
 
-if.end.i627:                                      ; preds = %if.end10.i.i634, %if.end4.i.i624
-  %retval.0.i.i628 = phi ptr [ %call7.i.i632, %if.end10.i.i634 ], [ %call.i.i.i625, %if.end4.i.i624 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i618)
-  %c_stream1.i = getelementptr inbounds i8, ptr %retval.0.i.i628, i64 8
+if.end.i626:                                      ; preds = %if.end10.i.i633, %if.end4.i.i623
+  %retval.0.i.i627 = phi ptr [ %call7.i.i631, %if.end10.i.i633 ], [ %call.i.i.i624, %if.end4.i.i623 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i617)
+  %c_stream1.i = getelementptr inbounds i8, ptr %retval.0.i.i627, i64 8
   store ptr %call466, ptr %c_stream1.i, align 8
-  %s_stream_id.i629 = getelementptr inbounds i8, ptr %retval.0.i.i628, i64 16
-  store i64 -1, ptr %s_stream_id.i629, align 8
+  %s_stream_id.i628 = getelementptr inbounds i8, ptr %retval.0.i.i627, i64 16
+  store i64 -1, ptr %s_stream_id.i628, align 8
   br label %helper_local_set_c_stream.exit
 
-helper_local_set_c_stream.exit:                   ; preds = %get_stream_info.exit.thread.i637, %if.end.i627
-  %retval.0.i630 = phi i32 [ 1, %if.end.i627 ], [ 0, %get_stream_info.exit.thread.i637 ]
-  %call475 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1419, ptr noundef nonnull @.str.95, i32 noundef %retval.0.i630) #14
+helper_local_set_c_stream.exit:                   ; preds = %get_stream_info.exit.thread.i636, %if.end.i626
+  %retval.0.i629 = phi i32 [ 1, %if.end.i626 ], [ 0, %get_stream_info.exit.thread.i636 ]
+  %call475 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1419, ptr noundef nonnull @.str.95, i32 noundef %retval.0.i629) #14
   %tobool476.not = icmp eq i32 %call475, 0
   br i1 %tobool476.not, label %out, label %for.cond.backedge
 
 sw.bb479:                                         ; preds = %if.end80
-  %call480 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1426, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call480 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1426, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool481.not = icmp eq i32 %call480, 0
   br i1 %tobool481.not, label %out, label %if.end483
 
@@ -2212,7 +2209,7 @@ if.end483:                                        ; preds = %sw.bb479
 
 if.end488:                                        ; preds = %if.end483
   %106 = load ptr, ptr %c_conn, align 8
-  %call490 = call i32 @ossl_quic_attach_stream(ptr noundef %106, ptr noundef %c_tgt.0101510311039) #14
+  %call490 = call i32 @ossl_quic_attach_stream(ptr noundef %106, ptr noundef %c_tgt.0101410301038) #14
   %cmp491 = icmp ne i32 %call490, 0
   %conv492 = zext i1 %cmp491 to i32
   %call493 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1432, ptr noundef nonnull @.str.96, i32 noundef %conv492) #14
@@ -2222,50 +2219,50 @@ if.end488:                                        ; preds = %if.end483
 if.end496:                                        ; preds = %if.end488
   %107 = load ptr, ptr %stream_name, align 8
   %hl_.val435 = load ptr, ptr %c_streams.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i638)
-  %call.i.i639 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %107) #14
-  %tobool.not.i.i640 = icmp eq i32 %call.i.i639, 0
-  br i1 %tobool.not.i.i640, label %get_stream_info.exit.thread.i658, label %if.end.i.i641
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i637)
+  %call.i.i638 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %107) #14
+  %tobool.not.i.i639 = icmp eq i32 %call.i.i638, 0
+  br i1 %tobool.not.i.i639, label %get_stream_info.exit.thread.i657, label %if.end.i.i640
 
-if.end.i.i641:                                    ; preds = %if.end496
-  %call1.i.i642 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(8) @.str.154) #16
-  %tobool2.not.i.i643 = icmp eq i32 %call1.i.i642, 0
-  br i1 %tobool2.not.i.i643, label %get_stream_info.exit.thread.i658, label %if.end4.i.i644
+if.end.i.i640:                                    ; preds = %if.end496
+  %call1.i.i641 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(8) @.str.154) #16
+  %tobool2.not.i.i642 = icmp eq i32 %call1.i.i641, 0
+  br i1 %tobool2.not.i.i642, label %get_stream_info.exit.thread.i657, label %if.end4.i.i643
 
-if.end4.i.i644:                                   ; preds = %if.end.i.i641
-  store ptr %107, ptr %key.i.i638, align 8
-  %call.i.i.i645 = call ptr @OPENSSL_LH_retrieve(ptr noundef %hl_.val435, ptr noundef nonnull %key.i.i638) #14
-  %cmp.i.i646 = icmp eq ptr %call.i.i.i645, null
-  br i1 %cmp.i.i646, label %if.then6.i.i652, label %if.end.i647
+if.end4.i.i643:                                   ; preds = %if.end.i.i640
+  store ptr %107, ptr %key.i.i637, align 8
+  %call.i.i.i644 = call ptr @OPENSSL_LH_retrieve(ptr noundef %hl_.val435, ptr noundef nonnull %key.i.i637) #14
+  %cmp.i.i645 = icmp eq ptr %call.i.i.i644, null
+  br i1 %cmp.i.i645, label %if.then6.i.i651, label %if.end.i646
 
-if.then6.i.i652:                                  ; preds = %if.end4.i.i644
-  %call7.i.i653 = call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 867) #14
-  %cmp8.i.i654 = icmp eq ptr %call7.i.i653, null
-  br i1 %cmp8.i.i654, label %get_stream_info.exit.thread.i658, label %if.end10.i.i655
+if.then6.i.i651:                                  ; preds = %if.end4.i.i643
+  %call7.i.i652 = call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 867) #14
+  %cmp8.i.i653 = icmp eq ptr %call7.i.i652, null
+  br i1 %cmp8.i.i653, label %get_stream_info.exit.thread.i657, label %if.end10.i.i654
 
-if.end10.i.i655:                                  ; preds = %if.then6.i.i652
-  store ptr %107, ptr %call7.i.i653, align 8
-  %s_stream_id.i.i656 = getelementptr inbounds i8, ptr %call7.i.i653, i64 16
-  store i64 -1, ptr %s_stream_id.i.i656, align 8
-  %call.i10.i.i657 = call ptr @OPENSSL_LH_insert(ptr noundef %hl_.val435, ptr noundef nonnull %call7.i.i653) #14
-  br label %if.end.i647
+if.end10.i.i654:                                  ; preds = %if.then6.i.i651
+  store ptr %107, ptr %call7.i.i652, align 8
+  %s_stream_id.i.i655 = getelementptr inbounds i8, ptr %call7.i.i652, i64 16
+  store i64 -1, ptr %s_stream_id.i.i655, align 8
+  %call.i10.i.i656 = call ptr @OPENSSL_LH_insert(ptr noundef %hl_.val435, ptr noundef nonnull %call7.i.i652) #14
+  br label %if.end.i646
 
-get_stream_info.exit.thread.i658:                 ; preds = %if.then6.i.i652, %if.end.i.i641, %if.end496
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i638)
-  br label %helper_local_set_c_stream.exit659
+get_stream_info.exit.thread.i657:                 ; preds = %if.then6.i.i651, %if.end.i.i640, %if.end496
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i637)
+  br label %helper_local_set_c_stream.exit658
 
-if.end.i647:                                      ; preds = %if.end10.i.i655, %if.end4.i.i644
-  %retval.0.i.i648 = phi ptr [ %call7.i.i653, %if.end10.i.i655 ], [ %call.i.i.i645, %if.end4.i.i644 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i638)
-  %c_stream1.i649 = getelementptr inbounds i8, ptr %retval.0.i.i648, i64 8
-  store ptr null, ptr %c_stream1.i649, align 8
-  %s_stream_id.i650 = getelementptr inbounds i8, ptr %retval.0.i.i648, i64 16
-  store i64 -1, ptr %s_stream_id.i650, align 8
-  br label %helper_local_set_c_stream.exit659
+if.end.i646:                                      ; preds = %if.end10.i.i654, %if.end4.i.i643
+  %retval.0.i.i647 = phi ptr [ %call7.i.i652, %if.end10.i.i654 ], [ %call.i.i.i644, %if.end4.i.i643 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i637)
+  %c_stream1.i648 = getelementptr inbounds i8, ptr %retval.0.i.i647, i64 8
+  store ptr null, ptr %c_stream1.i648, align 8
+  %s_stream_id.i649 = getelementptr inbounds i8, ptr %retval.0.i.i647, i64 16
+  store i64 -1, ptr %s_stream_id.i649, align 8
+  br label %helper_local_set_c_stream.exit658
 
-helper_local_set_c_stream.exit659:                ; preds = %get_stream_info.exit.thread.i658, %if.end.i647
-  %retval.0.i651 = phi i32 [ 1, %if.end.i647 ], [ 0, %get_stream_info.exit.thread.i658 ]
-  %call501 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1435, ptr noundef nonnull @.str.97, i32 noundef %retval.0.i651) #14
+helper_local_set_c_stream.exit658:                ; preds = %get_stream_info.exit.thread.i657, %if.end.i646
+  %retval.0.i650 = phi i32 [ 1, %if.end.i646 ], [ 0, %get_stream_info.exit.thread.i657 ]
+  %call501 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1435, ptr noundef nonnull @.str.97, i32 noundef %retval.0.i650) #14
   %tobool502.not = icmp eq i32 %call501, 0
   br i1 %tobool502.not, label %out, label %for.cond.backedge
 
@@ -2275,7 +2272,7 @@ sw.bb505:                                         ; preds = %if.end80
   %and = and i64 %108, 65536
   %cmp508.not = icmp eq i64 %and, 0
   %and510 = and i64 %108, -65537
-  %call511 = call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 1448, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call511 = call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 1448, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool512.not = icmp eq i32 %call511, 0
   br i1 %tobool512.not, label %out, label %if.end514
 
@@ -2304,8 +2301,8 @@ if.then532:                                       ; preds = %if.end527
   %and.i = and i64 %call533, 2147483648
   %cmp.not.i = icmp eq i64 %and.i, 0
   %retval.0.v.i = select i1 %cmp.not.i, i64 8388607, i64 2147483647
-  %retval.0.i660 = and i64 %retval.0.v.i, %call533
-  %call536 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1460, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, i64 noundef %retval.0.i660, i64 noundef 411) #14
+  %retval.0.i659 = and i64 %retval.0.v.i, %call533
+  %call536 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1460, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, i64 noundef %retval.0.i659, i64 noundef 411) #14
   %tobool537.not = icmp eq i32 %call536, 0
   br i1 %tobool537.not, label %out, label %if.end539
 
@@ -2331,56 +2328,56 @@ land.lhs.true544:                                 ; preds = %if.end541
 if.end550:                                        ; preds = %land.lhs.true544, %if.end541
   %114 = load ptr, ptr %stream_name, align 8
   %hl_.val436 = load ptr, ptr %c_streams.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i661)
-  %call.i.i662 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %114) #14
-  %tobool.not.i.i663 = icmp eq i32 %call.i.i662, 0
-  br i1 %tobool.not.i.i663, label %get_stream_info.exit.thread.i681, label %if.end.i.i664
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i660)
+  %call.i.i661 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %114) #14
+  %tobool.not.i.i662 = icmp eq i32 %call.i.i661, 0
+  br i1 %tobool.not.i.i662, label %get_stream_info.exit.thread.i680, label %if.end.i.i663
 
-if.end.i.i664:                                    ; preds = %if.end550
-  %call1.i.i665 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(8) @.str.154) #16
-  %tobool2.not.i.i666 = icmp eq i32 %call1.i.i665, 0
-  br i1 %tobool2.not.i.i666, label %get_stream_info.exit.thread.i681, label %if.end4.i.i667
+if.end.i.i663:                                    ; preds = %if.end550
+  %call1.i.i664 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(8) @.str.154) #16
+  %tobool2.not.i.i665 = icmp eq i32 %call1.i.i664, 0
+  br i1 %tobool2.not.i.i665, label %get_stream_info.exit.thread.i680, label %if.end4.i.i666
 
-if.end4.i.i667:                                   ; preds = %if.end.i.i664
-  store ptr %114, ptr %key.i.i661, align 8
-  %call.i.i.i668 = call ptr @OPENSSL_LH_retrieve(ptr noundef %hl_.val436, ptr noundef nonnull %key.i.i661) #14
-  %cmp.i.i669 = icmp eq ptr %call.i.i.i668, null
-  br i1 %cmp.i.i669, label %if.then6.i.i675, label %if.end.i670
+if.end4.i.i666:                                   ; preds = %if.end.i.i663
+  store ptr %114, ptr %key.i.i660, align 8
+  %call.i.i.i667 = call ptr @OPENSSL_LH_retrieve(ptr noundef %hl_.val436, ptr noundef nonnull %key.i.i660) #14
+  %cmp.i.i668 = icmp eq ptr %call.i.i.i667, null
+  br i1 %cmp.i.i668, label %if.then6.i.i674, label %if.end.i669
 
-if.then6.i.i675:                                  ; preds = %if.end4.i.i667
-  %call7.i.i676 = call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 867) #14
-  %cmp8.i.i677 = icmp eq ptr %call7.i.i676, null
-  br i1 %cmp8.i.i677, label %get_stream_info.exit.thread.i681, label %if.end10.i.i678
+if.then6.i.i674:                                  ; preds = %if.end4.i.i666
+  %call7.i.i675 = call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 867) #14
+  %cmp8.i.i676 = icmp eq ptr %call7.i.i675, null
+  br i1 %cmp8.i.i676, label %get_stream_info.exit.thread.i680, label %if.end10.i.i677
 
-if.end10.i.i678:                                  ; preds = %if.then6.i.i675
-  store ptr %114, ptr %call7.i.i676, align 8
-  %s_stream_id.i.i679 = getelementptr inbounds i8, ptr %call7.i.i676, i64 16
-  store i64 -1, ptr %s_stream_id.i.i679, align 8
-  %call.i10.i.i680 = call ptr @OPENSSL_LH_insert(ptr noundef %hl_.val436, ptr noundef nonnull %call7.i.i676) #14
-  br label %if.end.i670
+if.end10.i.i677:                                  ; preds = %if.then6.i.i674
+  store ptr %114, ptr %call7.i.i675, align 8
+  %s_stream_id.i.i678 = getelementptr inbounds i8, ptr %call7.i.i675, i64 16
+  store i64 -1, ptr %s_stream_id.i.i678, align 8
+  %call.i10.i.i679 = call ptr @OPENSSL_LH_insert(ptr noundef %hl_.val436, ptr noundef nonnull %call7.i.i675) #14
+  br label %if.end.i669
 
-get_stream_info.exit.thread.i681:                 ; preds = %if.then6.i.i675, %if.end.i.i664, %if.end550
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i661)
-  br label %helper_local_set_c_stream.exit682
+get_stream_info.exit.thread.i680:                 ; preds = %if.then6.i.i674, %if.end.i.i663, %if.end550
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i660)
+  br label %helper_local_set_c_stream.exit681
 
-if.end.i670:                                      ; preds = %if.end10.i.i678, %if.end4.i.i667
-  %retval.0.i.i671 = phi ptr [ %call7.i.i676, %if.end10.i.i678 ], [ %call.i.i.i668, %if.end4.i.i667 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i661)
-  %c_stream1.i672 = getelementptr inbounds i8, ptr %retval.0.i.i671, i64 8
-  store ptr %call521, ptr %c_stream1.i672, align 8
-  %s_stream_id.i673 = getelementptr inbounds i8, ptr %retval.0.i.i671, i64 16
-  store i64 -1, ptr %s_stream_id.i673, align 8
-  br label %helper_local_set_c_stream.exit682
+if.end.i669:                                      ; preds = %if.end10.i.i677, %if.end4.i.i666
+  %retval.0.i.i670 = phi ptr [ %call7.i.i675, %if.end10.i.i677 ], [ %call.i.i.i667, %if.end4.i.i666 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i660)
+  %c_stream1.i671 = getelementptr inbounds i8, ptr %retval.0.i.i670, i64 8
+  store ptr %call521, ptr %c_stream1.i671, align 8
+  %s_stream_id.i672 = getelementptr inbounds i8, ptr %retval.0.i.i670, i64 16
+  store i64 -1, ptr %s_stream_id.i672, align 8
+  br label %helper_local_set_c_stream.exit681
 
-helper_local_set_c_stream.exit682:                ; preds = %get_stream_info.exit.thread.i681, %if.end.i670
-  %retval.0.i674 = phi i32 [ 1, %if.end.i670 ], [ 0, %get_stream_info.exit.thread.i681 ]
-  %call555 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1472, ptr noundef nonnull @.str.95, i32 noundef %retval.0.i674) #14
+helper_local_set_c_stream.exit681:                ; preds = %get_stream_info.exit.thread.i680, %if.end.i669
+  %retval.0.i673 = phi i32 [ 1, %if.end.i669 ], [ 0, %get_stream_info.exit.thread.i680 ]
+  %call555 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1472, ptr noundef nonnull @.str.95, i32 noundef %retval.0.i673) #14
   %tobool556.not = icmp eq i32 %call555, 0
   br i1 %tobool556.not, label %out, label %for.cond.backedge
 
 sw.bb559:                                         ; preds = %if.end80
   store i64 -1, ptr %stream_id, align 8
-  %call560 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1481, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
+  %call560 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1481, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101210321036, i64 noundef -1) #14
   %tobool561.not = icmp eq i32 %call560, 0
   br i1 %tobool561.not, label %out, label %if.end563
 
@@ -2392,47 +2389,47 @@ if.end563:                                        ; preds = %sw.bb559
 
 if.end568:                                        ; preds = %if.end563
   %hl_.val422 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i683 = icmp slt i32 %hl_.val422, 0
-  br i1 %cmp.i.i683, label %s_checked_out_p.exit.i688, label %cond.false.i.i684
+  %cmp.i.i682 = icmp slt i32 %hl_.val422, 0
+  br i1 %cmp.i.i682, label %s_checked_out_p.exit.i687, label %cond.false.i.i683
 
-cond.false.i.i684:                                ; preds = %if.end568
+cond.false.i.i683:                                ; preds = %if.end568
   %116 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i686 = zext nneg i32 %hl_.val422 to i64
-  %s_checked_out1.i.i687 = getelementptr inbounds %struct.child_thread_args, ptr %116, i64 %idxprom.i.i686, i32 8
-  br label %s_checked_out_p.exit.i688
+  %idxprom.i.i685 = zext nneg i32 %hl_.val422 to i64
+  %s_checked_out1.i.i686 = getelementptr inbounds %struct.child_thread_args, ptr %116, i64 %idxprom.i.i685, i32 8
+  br label %s_checked_out_p.exit.i687
 
-s_checked_out_p.exit.i688:                        ; preds = %if.end568, %cond.false.i.i684
-  %cond.i.i689 = phi ptr [ %s_checked_out1.i.i687, %cond.false.i.i684 ], [ %s_checked_out.i.i, %if.end568 ]
+s_checked_out_p.exit.i687:                        ; preds = %if.end568, %cond.false.i.i683
+  %cond.i.i688 = phi ptr [ %s_checked_out1.i.i686, %cond.false.i.i683 ], [ %s_checked_out.i.i, %if.end568 ]
   %117 = load ptr, ptr %m.i, align 8
-  %cmp.i691 = icmp eq ptr %117, null
-  br i1 %cmp.i691, label %s_lock.exit703, label %lor.lhs.false.i692
+  %cmp.i690 = icmp eq ptr %117, null
+  br i1 %cmp.i690, label %s_lock.exit702, label %lor.lhs.false.i691
 
-lor.lhs.false.i692:                               ; preds = %s_checked_out_p.exit.i688
-  %118 = load i32, ptr %cond.i.i689, align 4
-  %tobool.not.i693 = icmp eq i32 %118, 0
-  br i1 %tobool.not.i693, label %if.end.i698, label %s_lock.exit703
+lor.lhs.false.i691:                               ; preds = %s_checked_out_p.exit.i687
+  %118 = load i32, ptr %cond.i.i688, align 4
+  %tobool.not.i692 = icmp eq i32 %118, 0
+  br i1 %tobool.not.i692, label %if.end.i697, label %s_lock.exit702
 
-if.end.i698:                                      ; preds = %lor.lhs.false.i692
+if.end.i697:                                      ; preds = %lor.lhs.false.i691
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %117) #14
-  %119 = load ptr, ptr %s_priv.i983, align 8
+  %119 = load ptr, ptr %s_priv.i982, align 8
   store ptr %119, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i689, align 4
-  br label %s_lock.exit703
+  store i32 1, ptr %cond.i.i688, align 4
+  br label %s_lock.exit702
 
-s_lock.exit703:                                   ; preds = %s_checked_out_p.exit.i688, %lor.lhs.false.i692, %if.end.i698
-  %retval.0.i697 = load ptr, ptr %s.i, align 8
+s_lock.exit702:                                   ; preds = %s_checked_out_p.exit.i687, %lor.lhs.false.i691, %if.end.i697
+  %retval.0.i696 = load ptr, ptr %s.i, align 8
   %arg1570 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %120 = load i64, ptr %arg1570, align 8
   %cmp571 = icmp ne i64 %120, 0
   %conv572 = zext i1 %cmp571 to i32
-  %call573 = call i32 @ossl_quic_tserver_stream_new(ptr noundef %retval.0.i697, i32 noundef %conv572, ptr noundef nonnull %stream_id) #14
+  %call573 = call i32 @ossl_quic_tserver_stream_new(ptr noundef %retval.0.i696, i32 noundef %conv572, ptr noundef nonnull %stream_id) #14
   %cmp574 = icmp ne i32 %call573, 0
   %conv575 = zext i1 %cmp574 to i32
   %call576 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1489, ptr noundef nonnull @.str.103, i32 noundef %conv575) #14
   %tobool577.not = icmp eq i32 %call576, 0
   br i1 %tobool577.not, label %out, label %if.end579
 
-if.end579:                                        ; preds = %s_lock.exit703
+if.end579:                                        ; preds = %s_lock.exit702
   %arg2580 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %121 = load i64, ptr %arg2580, align 8
   %cmp581.not = icmp eq i64 %121, -1
@@ -2453,7 +2450,7 @@ if.end588:                                        ; preds = %land.lhs.true583, %
   br i1 %tobool594.not, label %out, label %for.cond.backedge
 
 sw.bb597:                                         ; preds = %if.end80
-  %call599 = call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 1506, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call599 = call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 1506, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool600.not = icmp eq i32 %call599, 0
   br i1 %tobool600.not, label %out, label %if.end602
 
@@ -2481,55 +2478,55 @@ if.then615:                                       ; preds = %if.then612
 if.end617:                                        ; preds = %if.end607
   %128 = load ptr, ptr %stream_name, align 8
   %hl_.val437 = load ptr, ptr %c_streams.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i704)
-  %call.i.i705 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %128) #14
-  %tobool.not.i.i706 = icmp eq i32 %call.i.i705, 0
-  br i1 %tobool.not.i.i706, label %get_stream_info.exit.thread.i724, label %if.end.i.i707
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i703)
+  %call.i.i704 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %128) #14
+  %tobool.not.i.i705 = icmp eq i32 %call.i.i704, 0
+  br i1 %tobool.not.i.i705, label %get_stream_info.exit.thread.i723, label %if.end.i.i706
 
-if.end.i.i707:                                    ; preds = %if.end617
-  %call1.i.i708 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(8) @.str.154) #16
-  %tobool2.not.i.i709 = icmp eq i32 %call1.i.i708, 0
-  br i1 %tobool2.not.i.i709, label %get_stream_info.exit.thread.i724, label %if.end4.i.i710
+if.end.i.i706:                                    ; preds = %if.end617
+  %call1.i.i707 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(8) @.str.154) #16
+  %tobool2.not.i.i708 = icmp eq i32 %call1.i.i707, 0
+  br i1 %tobool2.not.i.i708, label %get_stream_info.exit.thread.i723, label %if.end4.i.i709
 
-if.end4.i.i710:                                   ; preds = %if.end.i.i707
-  store ptr %128, ptr %key.i.i704, align 8
-  %call.i.i.i711 = call ptr @OPENSSL_LH_retrieve(ptr noundef %hl_.val437, ptr noundef nonnull %key.i.i704) #14
-  %cmp.i.i712 = icmp eq ptr %call.i.i.i711, null
-  br i1 %cmp.i.i712, label %if.then6.i.i718, label %if.end.i713
+if.end4.i.i709:                                   ; preds = %if.end.i.i706
+  store ptr %128, ptr %key.i.i703, align 8
+  %call.i.i.i710 = call ptr @OPENSSL_LH_retrieve(ptr noundef %hl_.val437, ptr noundef nonnull %key.i.i703) #14
+  %cmp.i.i711 = icmp eq ptr %call.i.i.i710, null
+  br i1 %cmp.i.i711, label %if.then6.i.i717, label %if.end.i712
 
-if.then6.i.i718:                                  ; preds = %if.end4.i.i710
-  %call7.i.i719 = call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 867) #14
-  %cmp8.i.i720 = icmp eq ptr %call7.i.i719, null
-  br i1 %cmp8.i.i720, label %get_stream_info.exit.thread.i724, label %if.end10.i.i721
+if.then6.i.i717:                                  ; preds = %if.end4.i.i709
+  %call7.i.i718 = call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 867) #14
+  %cmp8.i.i719 = icmp eq ptr %call7.i.i718, null
+  br i1 %cmp8.i.i719, label %get_stream_info.exit.thread.i723, label %if.end10.i.i720
 
-if.end10.i.i721:                                  ; preds = %if.then6.i.i718
-  store ptr %128, ptr %call7.i.i719, align 8
-  %s_stream_id.i.i722 = getelementptr inbounds i8, ptr %call7.i.i719, i64 16
-  store i64 -1, ptr %s_stream_id.i.i722, align 8
-  %call.i10.i.i723 = call ptr @OPENSSL_LH_insert(ptr noundef %hl_.val437, ptr noundef nonnull %call7.i.i719) #14
-  br label %if.end.i713
+if.end10.i.i720:                                  ; preds = %if.then6.i.i717
+  store ptr %128, ptr %call7.i.i718, align 8
+  %s_stream_id.i.i721 = getelementptr inbounds i8, ptr %call7.i.i718, i64 16
+  store i64 -1, ptr %s_stream_id.i.i721, align 8
+  %call.i10.i.i722 = call ptr @OPENSSL_LH_insert(ptr noundef %hl_.val437, ptr noundef nonnull %call7.i.i718) #14
+  br label %if.end.i712
 
-get_stream_info.exit.thread.i724:                 ; preds = %if.then6.i.i718, %if.end.i.i707, %if.end617
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i704)
-  br label %helper_local_set_c_stream.exit725
+get_stream_info.exit.thread.i723:                 ; preds = %if.then6.i.i717, %if.end.i.i706, %if.end617
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i703)
+  br label %helper_local_set_c_stream.exit724
 
-if.end.i713:                                      ; preds = %if.end10.i.i721, %if.end4.i.i710
-  %retval.0.i.i714 = phi ptr [ %call7.i.i719, %if.end10.i.i721 ], [ %call.i.i.i711, %if.end4.i.i710 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i704)
-  %c_stream1.i715 = getelementptr inbounds i8, ptr %retval.0.i.i714, i64 8
-  store ptr %call609, ptr %c_stream1.i715, align 8
-  %s_stream_id.i716 = getelementptr inbounds i8, ptr %retval.0.i.i714, i64 16
-  store i64 -1, ptr %s_stream_id.i716, align 8
-  br label %helper_local_set_c_stream.exit725
+if.end.i712:                                      ; preds = %if.end10.i.i720, %if.end4.i.i709
+  %retval.0.i.i713 = phi ptr [ %call7.i.i718, %if.end10.i.i720 ], [ %call.i.i.i710, %if.end4.i.i709 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i703)
+  %c_stream1.i714 = getelementptr inbounds i8, ptr %retval.0.i.i713, i64 8
+  store ptr %call609, ptr %c_stream1.i714, align 8
+  %s_stream_id.i715 = getelementptr inbounds i8, ptr %retval.0.i.i713, i64 16
+  store i64 -1, ptr %s_stream_id.i715, align 8
+  br label %helper_local_set_c_stream.exit724
 
-helper_local_set_c_stream.exit725:                ; preds = %get_stream_info.exit.thread.i724, %if.end.i713
-  %retval.0.i717 = phi i32 [ 1, %if.end.i713 ], [ 0, %get_stream_info.exit.thread.i724 ]
-  %call622 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1516, ptr noundef nonnull @.str.95, i32 noundef %retval.0.i717) #14
+helper_local_set_c_stream.exit724:                ; preds = %get_stream_info.exit.thread.i723, %if.end.i712
+  %retval.0.i716 = phi i32 [ 1, %if.end.i712 ], [ 0, %get_stream_info.exit.thread.i723 ]
+  %call622 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1516, ptr noundef nonnull @.str.95, i32 noundef %retval.0.i716) #14
   %tobool623.not = icmp eq i32 %call622, 0
   br i1 %tobool623.not, label %out, label %for.cond.backedge
 
 sw.bb626:                                         ; preds = %if.end80
-  %call627 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1525, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
+  %call627 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1525, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101210321036, i64 noundef -1) #14
   %tobool628.not = icmp eq i32 %call627, 0
   br i1 %tobool628.not, label %out, label %if.end630
 
@@ -2541,74 +2538,74 @@ if.end630:                                        ; preds = %sw.bb626
 
 if.end635:                                        ; preds = %if.end630
   %hl_.val423 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i726 = icmp slt i32 %hl_.val423, 0
-  br i1 %cmp.i.i726, label %s_checked_out_p.exit.i731, label %cond.false.i.i727
+  %cmp.i.i725 = icmp slt i32 %hl_.val423, 0
+  br i1 %cmp.i.i725, label %s_checked_out_p.exit.i730, label %cond.false.i.i726
 
-cond.false.i.i727:                                ; preds = %if.end635
+cond.false.i.i726:                                ; preds = %if.end635
   %130 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i729 = zext nneg i32 %hl_.val423 to i64
-  %s_checked_out1.i.i730 = getelementptr inbounds %struct.child_thread_args, ptr %130, i64 %idxprom.i.i729, i32 8
-  br label %s_checked_out_p.exit.i731
+  %idxprom.i.i728 = zext nneg i32 %hl_.val423 to i64
+  %s_checked_out1.i.i729 = getelementptr inbounds %struct.child_thread_args, ptr %130, i64 %idxprom.i.i728, i32 8
+  br label %s_checked_out_p.exit.i730
 
-s_checked_out_p.exit.i731:                        ; preds = %if.end635, %cond.false.i.i727
-  %cond.i.i732 = phi ptr [ %s_checked_out1.i.i730, %cond.false.i.i727 ], [ %s_checked_out.i.i, %if.end635 ]
+s_checked_out_p.exit.i730:                        ; preds = %if.end635, %cond.false.i.i726
+  %cond.i.i731 = phi ptr [ %s_checked_out1.i.i729, %cond.false.i.i726 ], [ %s_checked_out.i.i, %if.end635 ]
   %131 = load ptr, ptr %m.i, align 8
-  %cmp.i734 = icmp eq ptr %131, null
-  br i1 %cmp.i734, label %s_lock.exit746, label %lor.lhs.false.i735
+  %cmp.i733 = icmp eq ptr %131, null
+  br i1 %cmp.i733, label %s_lock.exit745, label %lor.lhs.false.i734
 
-lor.lhs.false.i735:                               ; preds = %s_checked_out_p.exit.i731
-  %132 = load i32, ptr %cond.i.i732, align 4
-  %tobool.not.i736 = icmp eq i32 %132, 0
-  br i1 %tobool.not.i736, label %if.end.i741, label %s_lock.exit746
+lor.lhs.false.i734:                               ; preds = %s_checked_out_p.exit.i730
+  %132 = load i32, ptr %cond.i.i731, align 4
+  %tobool.not.i735 = icmp eq i32 %132, 0
+  br i1 %tobool.not.i735, label %if.end.i740, label %s_lock.exit745
 
-if.end.i741:                                      ; preds = %lor.lhs.false.i735
+if.end.i740:                                      ; preds = %lor.lhs.false.i734
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %131) #14
-  %133 = load ptr, ptr %s_priv.i983, align 8
+  %133 = load ptr, ptr %s_priv.i982, align 8
   store ptr %133, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i732, align 4
-  br label %s_lock.exit746
+  store i32 1, ptr %cond.i.i731, align 4
+  br label %s_lock.exit745
 
-s_lock.exit746:                                   ; preds = %s_checked_out_p.exit.i731, %lor.lhs.false.i735, %if.end.i741
-  %retval.0.i740 = load ptr, ptr %s.i, align 8
-  %call637 = call i64 @ossl_quic_tserver_pop_incoming_stream(ptr noundef %retval.0.i740) #14
+s_lock.exit745:                                   ; preds = %s_checked_out_p.exit.i730, %lor.lhs.false.i734, %if.end.i740
+  %retval.0.i739 = load ptr, ptr %s.i, align 8
+  %call637 = call i64 @ossl_quic_tserver_pop_incoming_stream(ptr noundef %retval.0.i739) #14
   %cmp638 = icmp eq i64 %call637, -1
   br i1 %cmp638, label %if.then640, label %if.end644
 
-if.then640:                                       ; preds = %s_lock.exit746
+if.then640:                                       ; preds = %s_lock.exit745
   %hl_.val424 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i747 = icmp slt i32 %hl_.val424, 0
-  br i1 %cmp.i.i747, label %s_checked_out_p.exit.i752, label %cond.false.i.i748
+  %cmp.i.i746 = icmp slt i32 %hl_.val424, 0
+  br i1 %cmp.i.i746, label %s_checked_out_p.exit.i751, label %cond.false.i.i747
 
-cond.false.i.i748:                                ; preds = %if.then640
+cond.false.i.i747:                                ; preds = %if.then640
   %134 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i750 = zext nneg i32 %hl_.val424 to i64
-  %s_checked_out1.i.i751 = getelementptr inbounds %struct.child_thread_args, ptr %134, i64 %idxprom.i.i750, i32 8
-  br label %s_checked_out_p.exit.i752
+  %idxprom.i.i749 = zext nneg i32 %hl_.val424 to i64
+  %s_checked_out1.i.i750 = getelementptr inbounds %struct.child_thread_args, ptr %134, i64 %idxprom.i.i749, i32 8
+  br label %s_checked_out_p.exit.i751
 
-s_checked_out_p.exit.i752:                        ; preds = %if.then640, %cond.false.i.i748
-  %cond.i.i753 = phi ptr [ %s_checked_out1.i.i751, %cond.false.i.i748 ], [ %s_checked_out.i.i, %if.then640 ]
+s_checked_out_p.exit.i751:                        ; preds = %if.then640, %cond.false.i.i747
+  %cond.i.i752 = phi ptr [ %s_checked_out1.i.i750, %cond.false.i.i747 ], [ %s_checked_out.i.i, %if.then640 ]
   %135 = load ptr, ptr %m.i, align 8
-  %cmp.i755 = icmp eq ptr %135, null
-  br i1 %cmp.i755, label %s_lock.exit767, label %lor.lhs.false.i756
+  %cmp.i754 = icmp eq ptr %135, null
+  br i1 %cmp.i754, label %s_lock.exit766, label %lor.lhs.false.i755
 
-lor.lhs.false.i756:                               ; preds = %s_checked_out_p.exit.i752
-  %136 = load i32, ptr %cond.i.i753, align 4
-  %tobool.not.i757 = icmp eq i32 %136, 0
-  br i1 %tobool.not.i757, label %if.end.i762, label %s_lock.exit767
+lor.lhs.false.i755:                               ; preds = %s_checked_out_p.exit.i751
+  %136 = load i32, ptr %cond.i.i752, align 4
+  %tobool.not.i756 = icmp eq i32 %136, 0
+  br i1 %tobool.not.i756, label %if.end.i761, label %s_lock.exit766
 
-if.end.i762:                                      ; preds = %lor.lhs.false.i756
+if.end.i761:                                      ; preds = %lor.lhs.false.i755
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %135) #14
-  %137 = load ptr, ptr %s_priv.i983, align 8
+  %137 = load ptr, ptr %s_priv.i982, align 8
   store ptr %137, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i753, align 4
-  br label %s_lock.exit767
+  store i32 1, ptr %cond.i.i752, align 4
+  br label %s_lock.exit766
 
-s_lock.exit767:                                   ; preds = %s_checked_out_p.exit.i752, %lor.lhs.false.i756, %if.end.i762
+s_lock.exit766:                                   ; preds = %s_checked_out_p.exit.i751, %lor.lhs.false.i755, %if.end.i761
   %138 = load ptr, ptr %s.i, align 8
   %call643 = call i32 @ossl_quic_tserver_tick(ptr noundef %138) #14
   br label %for.cond.backedge
 
-if.end644:                                        ; preds = %s_lock.exit746
+if.end644:                                        ; preds = %s_lock.exit745
   %139 = load ptr, ptr %stream_name, align 8
   %call646 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %139, i64 noundef %call637)
   %call649 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1535, ptr noundef nonnull @.str.106, i32 noundef %call646) #14
@@ -2627,12 +2624,12 @@ if.then659:                                       ; preds = %sw.bb653
   br label %out
 
 sw.bb661:                                         ; preds = %if.end80
-  %call662 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1554, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call662 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1554, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool663.not = icmp eq i32 %call662, 0
   br i1 %tobool663.not, label %out, label %lor.lhs.false664
 
 lor.lhs.false664:                                 ; preds = %sw.bb661
-  %call665 = call i32 @SSL_is_connection(ptr noundef %c_tgt.0101510311039) #14
+  %call665 = call i32 @SSL_is_connection(ptr noundef %c_tgt.0101410301038) #14
   %tobool666.not = icmp eq i32 %call665, 0
   %lnot.ext = zext i1 %tobool666.not to i32
   %call669 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1555, ptr noundef nonnull @.str.108, i32 noundef %lnot.ext) #14
@@ -2648,59 +2645,59 @@ if.end672:                                        ; preds = %lor.lhs.false664
 if.end677:                                        ; preds = %if.end672
   %142 = load ptr, ptr %stream_name, align 8
   %hl_.val438 = load ptr, ptr %c_streams.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i768)
-  %call.i.i769 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %142) #14
-  %tobool.not.i.i770 = icmp eq i32 %call.i.i769, 0
-  br i1 %tobool.not.i.i770, label %get_stream_info.exit.thread.i788, label %if.end.i.i771
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i767)
+  %call.i.i768 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 858, ptr noundef nonnull @.str.155, ptr noundef %142) #14
+  %tobool.not.i.i769 = icmp eq i32 %call.i.i768, 0
+  br i1 %tobool.not.i.i769, label %get_stream_info.exit.thread.i787, label %if.end.i.i770
 
-if.end.i.i771:                                    ; preds = %if.end677
-  %call1.i.i772 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull dereferenceable(8) @.str.154) #16
-  %tobool2.not.i.i773 = icmp eq i32 %call1.i.i772, 0
-  br i1 %tobool2.not.i.i773, label %get_stream_info.exit.thread.i788, label %if.end4.i.i774
+if.end.i.i770:                                    ; preds = %if.end677
+  %call1.i.i771 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull dereferenceable(8) @.str.154) #16
+  %tobool2.not.i.i772 = icmp eq i32 %call1.i.i771, 0
+  br i1 %tobool2.not.i.i772, label %get_stream_info.exit.thread.i787, label %if.end4.i.i773
 
-if.end4.i.i774:                                   ; preds = %if.end.i.i771
-  store ptr %142, ptr %key.i.i768, align 8
-  %call.i.i.i775 = call ptr @OPENSSL_LH_retrieve(ptr noundef %hl_.val438, ptr noundef nonnull %key.i.i768) #14
-  %cmp.i.i776 = icmp eq ptr %call.i.i.i775, null
-  br i1 %cmp.i.i776, label %if.then6.i.i782, label %if.end.i777
+if.end4.i.i773:                                   ; preds = %if.end.i.i770
+  store ptr %142, ptr %key.i.i767, align 8
+  %call.i.i.i774 = call ptr @OPENSSL_LH_retrieve(ptr noundef %hl_.val438, ptr noundef nonnull %key.i.i767) #14
+  %cmp.i.i775 = icmp eq ptr %call.i.i.i774, null
+  br i1 %cmp.i.i775, label %if.then6.i.i781, label %if.end.i776
 
-if.then6.i.i782:                                  ; preds = %if.end4.i.i774
-  %call7.i.i783 = call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 867) #14
-  %cmp8.i.i784 = icmp eq ptr %call7.i.i783, null
-  br i1 %cmp8.i.i784, label %get_stream_info.exit.thread.i788, label %if.end10.i.i785
+if.then6.i.i781:                                  ; preds = %if.end4.i.i773
+  %call7.i.i782 = call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 867) #14
+  %cmp8.i.i783 = icmp eq ptr %call7.i.i782, null
+  br i1 %cmp8.i.i783, label %get_stream_info.exit.thread.i787, label %if.end10.i.i784
 
-if.end10.i.i785:                                  ; preds = %if.then6.i.i782
-  store ptr %142, ptr %call7.i.i783, align 8
-  %s_stream_id.i.i786 = getelementptr inbounds i8, ptr %call7.i.i783, i64 16
-  store i64 -1, ptr %s_stream_id.i.i786, align 8
-  %call.i10.i.i787 = call ptr @OPENSSL_LH_insert(ptr noundef %hl_.val438, ptr noundef nonnull %call7.i.i783) #14
-  br label %if.end.i777
+if.end10.i.i784:                                  ; preds = %if.then6.i.i781
+  store ptr %142, ptr %call7.i.i782, align 8
+  %s_stream_id.i.i785 = getelementptr inbounds i8, ptr %call7.i.i782, i64 16
+  store i64 -1, ptr %s_stream_id.i.i785, align 8
+  %call.i10.i.i786 = call ptr @OPENSSL_LH_insert(ptr noundef %hl_.val438, ptr noundef nonnull %call7.i.i782) #14
+  br label %if.end.i776
 
-get_stream_info.exit.thread.i788:                 ; preds = %if.then6.i.i782, %if.end.i.i771, %if.end677
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i768)
-  br label %helper_local_set_c_stream.exit789
+get_stream_info.exit.thread.i787:                 ; preds = %if.then6.i.i781, %if.end.i.i770, %if.end677
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i767)
+  br label %helper_local_set_c_stream.exit788
 
-if.end.i777:                                      ; preds = %if.end10.i.i785, %if.end4.i.i774
-  %retval.0.i.i778 = phi ptr [ %call7.i.i783, %if.end10.i.i785 ], [ %call.i.i.i775, %if.end4.i.i774 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i768)
-  %c_stream1.i779 = getelementptr inbounds i8, ptr %retval.0.i.i778, i64 8
-  store ptr null, ptr %c_stream1.i779, align 8
-  %s_stream_id.i780 = getelementptr inbounds i8, ptr %retval.0.i.i778, i64 16
-  store i64 -1, ptr %s_stream_id.i780, align 8
-  br label %helper_local_set_c_stream.exit789
+if.end.i776:                                      ; preds = %if.end10.i.i784, %if.end4.i.i773
+  %retval.0.i.i777 = phi ptr [ %call7.i.i782, %if.end10.i.i784 ], [ %call.i.i.i774, %if.end4.i.i773 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i767)
+  %c_stream1.i778 = getelementptr inbounds i8, ptr %retval.0.i.i777, i64 8
+  store ptr null, ptr %c_stream1.i778, align 8
+  %s_stream_id.i779 = getelementptr inbounds i8, ptr %retval.0.i.i777, i64 16
+  store i64 -1, ptr %s_stream_id.i779, align 8
+  br label %helper_local_set_c_stream.exit788
 
-helper_local_set_c_stream.exit789:                ; preds = %get_stream_info.exit.thread.i788, %if.end.i777
-  %retval.0.i781 = phi i32 [ 1, %if.end.i777 ], [ 0, %get_stream_info.exit.thread.i788 ]
-  %call682 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1561, ptr noundef nonnull @.str.97, i32 noundef %retval.0.i781) #14
+helper_local_set_c_stream.exit788:                ; preds = %get_stream_info.exit.thread.i787, %if.end.i776
+  %retval.0.i780 = phi i32 [ 1, %if.end.i776 ], [ 0, %get_stream_info.exit.thread.i787 ]
+  %call682 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1561, ptr noundef nonnull @.str.97, i32 noundef %retval.0.i780) #14
   %tobool683.not = icmp eq i32 %call682, 0
   br i1 %tobool683.not, label %out, label %if.end685
 
-if.end685:                                        ; preds = %helper_local_set_c_stream.exit789
-  call void @SSL_free(ptr noundef %c_tgt.0101510311039) #14
+if.end685:                                        ; preds = %helper_local_set_c_stream.exit788
+  call void @SSL_free(ptr noundef %c_tgt.0101410301038) #14
   br label %for.cond.backedge
 
 sw.bb686:                                         ; preds = %if.end80
-  %call687 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1571, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call687 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1571, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool688.not = icmp eq i32 %call687, 0
   br i1 %tobool688.not, label %out, label %if.end690
 
@@ -2708,7 +2705,7 @@ if.end690:                                        ; preds = %sw.bb686
   %arg1691 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %143 = load i64, ptr %arg1691, align 8
   %conv692 = trunc i64 %143 to i32
-  %call693 = call i32 @SSL_set_default_stream_mode(ptr noundef %c_tgt.0101510311039, i32 noundef %conv692) #14
+  %call693 = call i32 @SSL_set_default_stream_mode(ptr noundef %c_tgt.0101410301038, i32 noundef %conv692) #14
   %cmp694 = icmp ne i32 %call693, 0
   %conv695 = zext i1 %cmp694 to i32
   %call696 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1574, ptr noundef nonnull @.str.109, i32 noundef %conv695) #14
@@ -2716,7 +2713,7 @@ if.end690:                                        ; preds = %sw.bb686
   br i1 %tobool697.not, label %out, label %for.cond.backedge
 
 sw.bb700:                                         ; preds = %if.end80
-  %call701 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1581, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call701 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1581, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool702.not = icmp eq i32 %call701, 0
   br i1 %tobool702.not, label %out, label %if.end704
 
@@ -2724,7 +2721,7 @@ if.end704:                                        ; preds = %sw.bb700
   %arg1705 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %144 = load i64, ptr %arg1705, align 8
   %conv706 = trunc i64 %144 to i32
-  %call707 = call i32 @SSL_set_incoming_stream_policy(ptr noundef %c_tgt.0101510311039, i32 noundef %conv706, i64 noundef 0) #14
+  %call707 = call i32 @SSL_set_incoming_stream_policy(ptr noundef %c_tgt.0101410301038, i32 noundef %conv706, i64 noundef 0) #14
   %cmp708 = icmp ne i32 %call707, 0
   %conv709 = zext i1 %cmp708 to i32
   %call710 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1585, ptr noundef nonnull @.str.110, i32 noundef %conv709) #14
@@ -2736,7 +2733,7 @@ sw.bb714:                                         ; preds = %if.end80
   %call717 = call ptr @ossl_quic_conn_get_channel(ptr noundef %145) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %args, i8 0, i64 16, i1 false)
   call void @ossl_quic_channel_set_inhibit_tick(ptr noundef %call717, i32 noundef 0) #14
-  %call718 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1598, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call718 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1598, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool719.not = icmp eq i32 %call718, 0
   br i1 %tobool719.not, label %out, label %if.end721
 
@@ -2746,7 +2743,7 @@ if.end721:                                        ; preds = %sw.bb714
   store ptr %146, ptr %quic_reason, align 8
   %arg1723 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %147 = load i64, ptr %arg1723, align 8
-  %call724 = call i32 @SSL_shutdown_ex(ptr noundef %c_tgt.0101510311039, i64 noundef %147, ptr noundef nonnull %args, i64 noundef 16) #14
+  %call724 = call i32 @SSL_shutdown_ex(ptr noundef %c_tgt.0101410301038, i64 noundef %147, ptr noundef nonnull %args, i64 noundef 16) #14
   %call725 = call i32 @test_int_ge(ptr noundef nonnull @.str.14, i32 noundef 1604, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.32, i32 noundef %call724, i32 noundef 0) #14
   %tobool726.not = icmp eq i32 %call725, 0
   br i1 %tobool726.not, label %out, label %if.end728
@@ -2766,38 +2763,38 @@ if.then734:                                       ; preds = %if.then731
 
 sw.bb737:                                         ; preds = %if.end80
   %hl_.val425 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i790 = icmp slt i32 %hl_.val425, 0
-  br i1 %cmp.i.i790, label %s_checked_out_p.exit.i795, label %cond.false.i.i791
+  %cmp.i.i789 = icmp slt i32 %hl_.val425, 0
+  br i1 %cmp.i.i789, label %s_checked_out_p.exit.i794, label %cond.false.i.i790
 
-cond.false.i.i791:                                ; preds = %sw.bb737
+cond.false.i.i790:                                ; preds = %sw.bb737
   %149 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i793 = zext nneg i32 %hl_.val425 to i64
-  %s_checked_out1.i.i794 = getelementptr inbounds %struct.child_thread_args, ptr %149, i64 %idxprom.i.i793, i32 8
-  br label %s_checked_out_p.exit.i795
+  %idxprom.i.i792 = zext nneg i32 %hl_.val425 to i64
+  %s_checked_out1.i.i793 = getelementptr inbounds %struct.child_thread_args, ptr %149, i64 %idxprom.i.i792, i32 8
+  br label %s_checked_out_p.exit.i794
 
-s_checked_out_p.exit.i795:                        ; preds = %sw.bb737, %cond.false.i.i791
-  %cond.i.i796 = phi ptr [ %s_checked_out1.i.i794, %cond.false.i.i791 ], [ %s_checked_out.i.i, %sw.bb737 ]
+s_checked_out_p.exit.i794:                        ; preds = %sw.bb737, %cond.false.i.i790
+  %cond.i.i795 = phi ptr [ %s_checked_out1.i.i793, %cond.false.i.i790 ], [ %s_checked_out.i.i, %sw.bb737 ]
   %150 = load ptr, ptr %m.i, align 8
-  %cmp.i798 = icmp eq ptr %150, null
-  br i1 %cmp.i798, label %s_lock.exit810, label %lor.lhs.false.i799
+  %cmp.i797 = icmp eq ptr %150, null
+  br i1 %cmp.i797, label %s_lock.exit809, label %lor.lhs.false.i798
 
-lor.lhs.false.i799:                               ; preds = %s_checked_out_p.exit.i795
-  %151 = load i32, ptr %cond.i.i796, align 4
-  %tobool.not.i800 = icmp eq i32 %151, 0
-  br i1 %tobool.not.i800, label %if.end.i805, label %s_lock.exit810
+lor.lhs.false.i798:                               ; preds = %s_checked_out_p.exit.i794
+  %151 = load i32, ptr %cond.i.i795, align 4
+  %tobool.not.i799 = icmp eq i32 %151, 0
+  br i1 %tobool.not.i799, label %if.end.i804, label %s_lock.exit809
 
-if.end.i805:                                      ; preds = %lor.lhs.false.i799
+if.end.i804:                                      ; preds = %lor.lhs.false.i798
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %150) #14
-  %152 = load ptr, ptr %s_priv.i983, align 8
+  %152 = load ptr, ptr %s_priv.i982, align 8
   store ptr %152, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i796, align 4
-  br label %s_lock.exit810
+  store i32 1, ptr %cond.i.i795, align 4
+  br label %s_lock.exit809
 
-s_lock.exit810:                                   ; preds = %s_checked_out_p.exit.i795, %lor.lhs.false.i799, %if.end.i805
-  %retval.0.i804 = load ptr, ptr %s.i, align 8
+s_lock.exit809:                                   ; preds = %s_checked_out_p.exit.i794, %lor.lhs.false.i798, %if.end.i804
+  %retval.0.i803 = load ptr, ptr %s.i, align 8
   %arg1739 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %153 = load i64, ptr %arg1739, align 8
-  %call740 = call i32 @ossl_quic_tserver_shutdown(ptr noundef %retval.0.i804, i64 noundef %153) #14
+  %call740 = call i32 @ossl_quic_tserver_shutdown(ptr noundef %retval.0.i803, i64 noundef %153) #14
   br label %for.cond.backedge
 
 sw.bb741:                                         ; preds = %if.end80
@@ -2810,7 +2807,7 @@ sw.bb741:                                         ; preds = %if.end80
   %conv749 = and i32 %156, 1
   %arg2750 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %157 = load i64, ptr %arg2750, align 8
-  %call751 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1625, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call751 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1625, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool752.not = icmp eq i32 %call751, 0
   br i1 %tobool752.not, label %out, label %if.end754
 
@@ -2820,7 +2817,7 @@ if.end754:                                        ; preds = %sw.bb741
   br i1 %tobool756.not, label %if.end764, label %land.lhs.true757
 
 land.lhs.true757:                                 ; preds = %if.end754
-  %call758 = call i32 @SSL_shutdown_ex(ptr noundef %c_tgt.0101510311039, i64 noundef 8, ptr noundef null, i64 noundef 0) #14
+  %call758 = call i32 @SSL_shutdown_ex(ptr noundef %c_tgt.0101410301038, i64 noundef 8, ptr noundef null, i64 noundef 0) #14
   %cmp759 = icmp ne i32 %call758, 0
   %conv760 = zext i1 %cmp759 to i32
   %call761 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1631, ptr noundef nonnull @.str.111, i32 noundef %conv760) #14
@@ -2828,7 +2825,7 @@ land.lhs.true757:                                 ; preds = %if.end754
   br i1 %tobool762.not, label %out, label %if.end764
 
 if.end764:                                        ; preds = %land.lhs.true757, %if.end754
-  %call765 = call i32 @SSL_get_conn_close_info(ptr noundef %c_tgt.0101510311039, ptr noundef nonnull %cc_info, i64 noundef 40) #14
+  %call765 = call i32 @SSL_get_conn_close_info(ptr noundef %c_tgt.0101410301038, ptr noundef nonnull %cc_info, i64 noundef 40) #14
   %tobool766.not = icmp eq i32 %call765, 0
   br i1 %tobool766.not, label %if.then767, label %if.end772
 
@@ -2880,139 +2877,139 @@ sw.bb792:                                         ; preds = %if.end80
   %arg2804 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %167 = load i64, ptr %arg2804, align 8
   %hl_.val426 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i811 = icmp slt i32 %hl_.val426, 0
-  br i1 %cmp.i.i811, label %s_checked_out_p.exit.i816, label %cond.false.i.i812
+  %cmp.i.i810 = icmp slt i32 %hl_.val426, 0
+  br i1 %cmp.i.i810, label %s_checked_out_p.exit.i815, label %cond.false.i.i811
 
-cond.false.i.i812:                                ; preds = %sw.bb792
+cond.false.i.i811:                                ; preds = %sw.bb792
   %168 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i814 = zext nneg i32 %hl_.val426 to i64
-  %s_checked_out1.i.i815 = getelementptr inbounds %struct.child_thread_args, ptr %168, i64 %idxprom.i.i814, i32 8
-  br label %s_checked_out_p.exit.i816
+  %idxprom.i.i813 = zext nneg i32 %hl_.val426 to i64
+  %s_checked_out1.i.i814 = getelementptr inbounds %struct.child_thread_args, ptr %168, i64 %idxprom.i.i813, i32 8
+  br label %s_checked_out_p.exit.i815
 
-s_checked_out_p.exit.i816:                        ; preds = %sw.bb792, %cond.false.i.i812
-  %cond.i.i817 = phi ptr [ %s_checked_out1.i.i815, %cond.false.i.i812 ], [ %s_checked_out.i.i, %sw.bb792 ]
+s_checked_out_p.exit.i815:                        ; preds = %sw.bb792, %cond.false.i.i811
+  %cond.i.i816 = phi ptr [ %s_checked_out1.i.i814, %cond.false.i.i811 ], [ %s_checked_out.i.i, %sw.bb792 ]
   %169 = load ptr, ptr %m.i, align 8
-  %cmp.i819 = icmp eq ptr %169, null
-  br i1 %cmp.i819, label %s_lock.exit831, label %lor.lhs.false.i820
+  %cmp.i818 = icmp eq ptr %169, null
+  br i1 %cmp.i818, label %s_lock.exit830, label %lor.lhs.false.i819
 
-lor.lhs.false.i820:                               ; preds = %s_checked_out_p.exit.i816
-  %170 = load i32, ptr %cond.i.i817, align 4
-  %tobool.not.i821 = icmp eq i32 %170, 0
-  br i1 %tobool.not.i821, label %if.end.i826, label %s_lock.exit831
+lor.lhs.false.i819:                               ; preds = %s_checked_out_p.exit.i815
+  %170 = load i32, ptr %cond.i.i816, align 4
+  %tobool.not.i820 = icmp eq i32 %170, 0
+  br i1 %tobool.not.i820, label %if.end.i825, label %s_lock.exit830
 
-if.end.i826:                                      ; preds = %lor.lhs.false.i820
+if.end.i825:                                      ; preds = %lor.lhs.false.i819
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %169) #14
-  %171 = load ptr, ptr %s_priv.i983, align 8
+  %171 = load ptr, ptr %s_priv.i982, align 8
   store ptr %171, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i817, align 4
-  br label %s_lock.exit831
+  store i32 1, ptr %cond.i.i816, align 4
+  br label %s_lock.exit830
 
-s_lock.exit831:                                   ; preds = %s_checked_out_p.exit.i816, %lor.lhs.false.i820, %if.end.i826
-  %retval.0.i825 = load ptr, ptr %s.i, align 8
-  %call806 = call i32 @ossl_quic_tserver_is_term_any(ptr noundef %retval.0.i825) #14
+s_lock.exit830:                                   ; preds = %s_checked_out_p.exit.i815, %lor.lhs.false.i819, %if.end.i825
+  %retval.0.i824 = load ptr, ptr %s.i, align 8
+  %call806 = call i32 @ossl_quic_tserver_is_term_any(ptr noundef %retval.0.i824) #14
   %tobool807.not = icmp eq i32 %call806, 0
   %hl_.val427 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i832 = icmp slt i32 %hl_.val427, 0
+  %cmp.i.i831 = icmp slt i32 %hl_.val427, 0
   br i1 %tobool807.not, label %if.then808, label %if.end814
 
-if.then808:                                       ; preds = %s_lock.exit831
-  br i1 %cmp.i.i832, label %s_checked_out_p.exit.i837, label %cond.false.i.i833
+if.then808:                                       ; preds = %s_lock.exit830
+  br i1 %cmp.i.i831, label %s_checked_out_p.exit.i836, label %cond.false.i.i832
 
-cond.false.i.i833:                                ; preds = %if.then808
+cond.false.i.i832:                                ; preds = %if.then808
   %172 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i835 = zext nneg i32 %hl_.val427 to i64
-  %s_checked_out1.i.i836 = getelementptr inbounds %struct.child_thread_args, ptr %172, i64 %idxprom.i.i835, i32 8
-  br label %s_checked_out_p.exit.i837
+  %idxprom.i.i834 = zext nneg i32 %hl_.val427 to i64
+  %s_checked_out1.i.i835 = getelementptr inbounds %struct.child_thread_args, ptr %172, i64 %idxprom.i.i834, i32 8
+  br label %s_checked_out_p.exit.i836
 
-s_checked_out_p.exit.i837:                        ; preds = %if.then808, %cond.false.i.i833
-  %cond.i.i838 = phi ptr [ %s_checked_out1.i.i836, %cond.false.i.i833 ], [ %s_checked_out.i.i, %if.then808 ]
+s_checked_out_p.exit.i836:                        ; preds = %if.then808, %cond.false.i.i832
+  %cond.i.i837 = phi ptr [ %s_checked_out1.i.i835, %cond.false.i.i832 ], [ %s_checked_out.i.i, %if.then808 ]
   %173 = load ptr, ptr %m.i, align 8
-  %cmp.i840 = icmp eq ptr %173, null
-  br i1 %cmp.i840, label %s_lock.exit852, label %lor.lhs.false.i841
+  %cmp.i839 = icmp eq ptr %173, null
+  br i1 %cmp.i839, label %s_lock.exit851, label %lor.lhs.false.i840
 
-lor.lhs.false.i841:                               ; preds = %s_checked_out_p.exit.i837
-  %174 = load i32, ptr %cond.i.i838, align 4
-  %tobool.not.i842 = icmp eq i32 %174, 0
-  br i1 %tobool.not.i842, label %if.end.i847, label %s_lock.exit852
+lor.lhs.false.i840:                               ; preds = %s_checked_out_p.exit.i836
+  %174 = load i32, ptr %cond.i.i837, align 4
+  %tobool.not.i841 = icmp eq i32 %174, 0
+  br i1 %tobool.not.i841, label %if.end.i846, label %s_lock.exit851
 
-if.end.i847:                                      ; preds = %lor.lhs.false.i841
+if.end.i846:                                      ; preds = %lor.lhs.false.i840
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %173) #14
-  %175 = load ptr, ptr %s_priv.i983, align 8
+  %175 = load ptr, ptr %s_priv.i982, align 8
   store ptr %175, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i838, align 4
-  br label %s_lock.exit852
+  store i32 1, ptr %cond.i.i837, align 4
+  br label %s_lock.exit851
 
-s_lock.exit852:                                   ; preds = %s_checked_out_p.exit.i837, %lor.lhs.false.i841, %if.end.i847
-  %retval.0.i846 = load ptr, ptr %s.i, align 8
-  %call810 = call i32 @ossl_quic_tserver_ping(ptr noundef %retval.0.i846) #14
+s_lock.exit851:                                   ; preds = %s_checked_out_p.exit.i836, %lor.lhs.false.i840, %if.end.i846
+  %retval.0.i845 = load ptr, ptr %s.i, align 8
+  %call810 = call i32 @ossl_quic_tserver_ping(ptr noundef %retval.0.i845) #14
   %hl_.val428 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i853 = icmp slt i32 %hl_.val428, 0
-  br i1 %cmp.i.i853, label %s_checked_out_p.exit.i858, label %cond.false.i.i854
+  %cmp.i.i852 = icmp slt i32 %hl_.val428, 0
+  br i1 %cmp.i.i852, label %s_checked_out_p.exit.i857, label %cond.false.i.i853
 
-cond.false.i.i854:                                ; preds = %s_lock.exit852
+cond.false.i.i853:                                ; preds = %s_lock.exit851
   %176 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i856 = zext nneg i32 %hl_.val428 to i64
-  %s_checked_out1.i.i857 = getelementptr inbounds %struct.child_thread_args, ptr %176, i64 %idxprom.i.i856, i32 8
-  br label %s_checked_out_p.exit.i858
+  %idxprom.i.i855 = zext nneg i32 %hl_.val428 to i64
+  %s_checked_out1.i.i856 = getelementptr inbounds %struct.child_thread_args, ptr %176, i64 %idxprom.i.i855, i32 8
+  br label %s_checked_out_p.exit.i857
 
-s_checked_out_p.exit.i858:                        ; preds = %s_lock.exit852, %cond.false.i.i854
-  %cond.i.i859 = phi ptr [ %s_checked_out1.i.i857, %cond.false.i.i854 ], [ %s_checked_out.i.i, %s_lock.exit852 ]
+s_checked_out_p.exit.i857:                        ; preds = %s_lock.exit851, %cond.false.i.i853
+  %cond.i.i858 = phi ptr [ %s_checked_out1.i.i856, %cond.false.i.i853 ], [ %s_checked_out.i.i, %s_lock.exit851 ]
   %177 = load ptr, ptr %m.i, align 8
-  %cmp.i861 = icmp eq ptr %177, null
-  br i1 %cmp.i861, label %s_lock.exit873, label %lor.lhs.false.i862
+  %cmp.i860 = icmp eq ptr %177, null
+  br i1 %cmp.i860, label %s_lock.exit872, label %lor.lhs.false.i861
 
-lor.lhs.false.i862:                               ; preds = %s_checked_out_p.exit.i858
-  %178 = load i32, ptr %cond.i.i859, align 4
-  %tobool.not.i863 = icmp eq i32 %178, 0
-  br i1 %tobool.not.i863, label %if.end.i868, label %s_lock.exit873
+lor.lhs.false.i861:                               ; preds = %s_checked_out_p.exit.i857
+  %178 = load i32, ptr %cond.i.i858, align 4
+  %tobool.not.i862 = icmp eq i32 %178, 0
+  br i1 %tobool.not.i862, label %if.end.i867, label %s_lock.exit872
 
-if.end.i868:                                      ; preds = %lor.lhs.false.i862
+if.end.i867:                                      ; preds = %lor.lhs.false.i861
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %177) #14
-  %179 = load ptr, ptr %s_priv.i983, align 8
+  %179 = load ptr, ptr %s_priv.i982, align 8
   store ptr %179, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i859, align 4
-  br label %s_lock.exit873
+  store i32 1, ptr %cond.i.i858, align 4
+  br label %s_lock.exit872
 
-s_lock.exit873:                                   ; preds = %s_checked_out_p.exit.i858, %lor.lhs.false.i862, %if.end.i868
+s_lock.exit872:                                   ; preds = %s_checked_out_p.exit.i857, %lor.lhs.false.i861, %if.end.i867
   %180 = load ptr, ptr %s.i, align 8
   %call813 = call i32 @ossl_quic_tserver_tick(ptr noundef %180) #14
   br label %for.cond.backedge
 
-if.end814:                                        ; preds = %s_lock.exit831
-  br i1 %cmp.i.i832, label %s_checked_out_p.exit.i879, label %cond.false.i.i875
+if.end814:                                        ; preds = %s_lock.exit830
+  br i1 %cmp.i.i831, label %s_checked_out_p.exit.i878, label %cond.false.i.i874
 
-cond.false.i.i875:                                ; preds = %if.end814
+cond.false.i.i874:                                ; preds = %if.end814
   %181 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i877 = zext nneg i32 %hl_.val427 to i64
-  %s_checked_out1.i.i878 = getelementptr inbounds %struct.child_thread_args, ptr %181, i64 %idxprom.i.i877, i32 8
-  br label %s_checked_out_p.exit.i879
+  %idxprom.i.i876 = zext nneg i32 %hl_.val427 to i64
+  %s_checked_out1.i.i877 = getelementptr inbounds %struct.child_thread_args, ptr %181, i64 %idxprom.i.i876, i32 8
+  br label %s_checked_out_p.exit.i878
 
-s_checked_out_p.exit.i879:                        ; preds = %if.end814, %cond.false.i.i875
-  %cond.i.i880 = phi ptr [ %s_checked_out1.i.i878, %cond.false.i.i875 ], [ %s_checked_out.i.i, %if.end814 ]
+s_checked_out_p.exit.i878:                        ; preds = %if.end814, %cond.false.i.i874
+  %cond.i.i879 = phi ptr [ %s_checked_out1.i.i877, %cond.false.i.i874 ], [ %s_checked_out.i.i, %if.end814 ]
   %182 = load ptr, ptr %m.i, align 8
-  %cmp.i882 = icmp eq ptr %182, null
-  br i1 %cmp.i882, label %s_lock.exit894, label %lor.lhs.false.i883
+  %cmp.i881 = icmp eq ptr %182, null
+  br i1 %cmp.i881, label %s_lock.exit893, label %lor.lhs.false.i882
 
-lor.lhs.false.i883:                               ; preds = %s_checked_out_p.exit.i879
-  %183 = load i32, ptr %cond.i.i880, align 4
-  %tobool.not.i884 = icmp eq i32 %183, 0
-  br i1 %tobool.not.i884, label %if.end.i889, label %s_lock.exit894
+lor.lhs.false.i882:                               ; preds = %s_checked_out_p.exit.i878
+  %183 = load i32, ptr %cond.i.i879, align 4
+  %tobool.not.i883 = icmp eq i32 %183, 0
+  br i1 %tobool.not.i883, label %if.end.i888, label %s_lock.exit893
 
-if.end.i889:                                      ; preds = %lor.lhs.false.i883
+if.end.i888:                                      ; preds = %lor.lhs.false.i882
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %182) #14
-  %184 = load ptr, ptr %s_priv.i983, align 8
+  %184 = load ptr, ptr %s_priv.i982, align 8
   store ptr %184, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i880, align 4
-  br label %s_lock.exit894
+  store i32 1, ptr %cond.i.i879, align 4
+  br label %s_lock.exit893
 
-s_lock.exit894:                                   ; preds = %s_checked_out_p.exit.i879, %lor.lhs.false.i883, %if.end.i889
-  %retval.0.i888 = load ptr, ptr %s.i, align 8
-  %call816 = call ptr @ossl_quic_tserver_get_terminate_cause(ptr noundef %retval.0.i888) #14
+s_lock.exit893:                                   ; preds = %s_checked_out_p.exit.i878, %lor.lhs.false.i882, %if.end.i888
+  %retval.0.i887 = load ptr, ptr %s.i, align 8
+  %call816 = call ptr @ossl_quic_tserver_get_terminate_cause(ptr noundef %retval.0.i887) #14
   %call817 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1662, ptr noundef nonnull @.str.119, ptr noundef %call816) #14
   %tobool818.not = icmp eq i32 %call817, 0
   br i1 %tobool818.not, label %out, label %if.end820
 
-if.end820:                                        ; preds = %s_lock.exit894
+if.end820:                                        ; preds = %s_lock.exit893
   %185 = load i64, ptr %call816, align 8
   %call822 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1665, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.120, i64 noundef %167, i64 noundef %185) #14
   %tobool823.not = icmp eq i32 %call822, 0
@@ -3037,7 +3034,7 @@ lor.lhs.false827:                                 ; preds = %lor.lhs.false824
   br i1 %tobool832.not, label %out, label %for.cond.backedge
 
 sw.bb835:                                         ; preds = %if.end80
-  %call836 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1674, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
+  %call836 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1674, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101210321036, i64 noundef -1) #14
   %tobool837.not = icmp eq i32 %call836, 0
   br i1 %tobool837.not, label %out, label %if.end839
 
@@ -3057,7 +3054,7 @@ if.end844:                                        ; preds = %if.end839
   br i1 %tobool851.not, label %out, label %for.cond.backedge
 
 sw.bb854:                                         ; preds = %if.end80
-  %call855 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1687, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
+  %call855 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1687, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101210321036, i64 noundef -1) #14
   %tobool856.not = icmp eq i32 %call855, 0
   br i1 %tobool856.not, label %out, label %if.end858
 
@@ -3076,12 +3073,12 @@ if.end863:                                        ; preds = %if.end858
 
 sw.bb872:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_written873, align 8
-  %call875 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1703, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call875 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1703, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool876.not = icmp eq i32 %call875, 0
   br i1 %tobool876.not, label %out, label %if.end878
 
 if.end878:                                        ; preds = %sw.bb872
-  %call879 = call i32 @SSL_write_ex(ptr noundef %c_tgt.0101510311039, ptr noundef nonnull @.str.125, i64 noundef 5, ptr noundef nonnull %bytes_written873) #14
+  %call879 = call i32 @SSL_write_ex(ptr noundef %c_tgt.0101410301038, ptr noundef nonnull @.str.125, i64 noundef 5, ptr noundef nonnull %bytes_written873) #14
   %cmp880 = icmp ne i32 %call879, 0
   %conv881 = zext i1 %cmp880 to i32
   %call882 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 1707, ptr noundef nonnull @.str.78, i32 noundef %conv881) #14
@@ -3089,48 +3086,48 @@ if.end878:                                        ; preds = %sw.bb872
   br i1 %tobool883.not, label %out, label %lor.lhs.false884
 
 lor.lhs.false884:                                 ; preds = %if.end878
-  %call885 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call879)
+  %call885 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101410301038, i32 noundef %call879)
   %tobool886.not = icmp eq i32 %call885, 0
   br i1 %tobool886.not, label %out, label %for.cond.backedge
 
 sw.bb889:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_written890, align 8
-  %call891 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1717, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
+  %call891 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1717, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101210321036, i64 noundef -1) #14
   %tobool892.not = icmp eq i32 %call891, 0
   br i1 %tobool892.not, label %out, label %if.end894
 
 if.end894:                                        ; preds = %sw.bb889
   %hl_.val430 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i895 = icmp slt i32 %hl_.val430, 0
-  br i1 %cmp.i.i895, label %s_checked_out_p.exit.i900, label %cond.false.i.i896
+  %cmp.i.i894 = icmp slt i32 %hl_.val430, 0
+  br i1 %cmp.i.i894, label %s_checked_out_p.exit.i899, label %cond.false.i.i895
 
-cond.false.i.i896:                                ; preds = %if.end894
+cond.false.i.i895:                                ; preds = %if.end894
   %191 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i898 = zext nneg i32 %hl_.val430 to i64
-  %s_checked_out1.i.i899 = getelementptr inbounds %struct.child_thread_args, ptr %191, i64 %idxprom.i.i898, i32 8
-  br label %s_checked_out_p.exit.i900
+  %idxprom.i.i897 = zext nneg i32 %hl_.val430 to i64
+  %s_checked_out1.i.i898 = getelementptr inbounds %struct.child_thread_args, ptr %191, i64 %idxprom.i.i897, i32 8
+  br label %s_checked_out_p.exit.i899
 
-s_checked_out_p.exit.i900:                        ; preds = %if.end894, %cond.false.i.i896
-  %cond.i.i901 = phi ptr [ %s_checked_out1.i.i899, %cond.false.i.i896 ], [ %s_checked_out.i.i, %if.end894 ]
+s_checked_out_p.exit.i899:                        ; preds = %if.end894, %cond.false.i.i895
+  %cond.i.i900 = phi ptr [ %s_checked_out1.i.i898, %cond.false.i.i895 ], [ %s_checked_out.i.i, %if.end894 ]
   %192 = load ptr, ptr %m.i, align 8
-  %cmp.i903 = icmp eq ptr %192, null
-  br i1 %cmp.i903, label %s_lock.exit915, label %lor.lhs.false.i904
+  %cmp.i902 = icmp eq ptr %192, null
+  br i1 %cmp.i902, label %s_lock.exit914, label %lor.lhs.false.i903
 
-lor.lhs.false.i904:                               ; preds = %s_checked_out_p.exit.i900
-  %193 = load i32, ptr %cond.i.i901, align 4
-  %tobool.not.i905 = icmp eq i32 %193, 0
-  br i1 %tobool.not.i905, label %if.end.i910, label %s_lock.exit915
+lor.lhs.false.i903:                               ; preds = %s_checked_out_p.exit.i899
+  %193 = load i32, ptr %cond.i.i900, align 4
+  %tobool.not.i904 = icmp eq i32 %193, 0
+  br i1 %tobool.not.i904, label %if.end.i909, label %s_lock.exit914
 
-if.end.i910:                                      ; preds = %lor.lhs.false.i904
+if.end.i909:                                      ; preds = %lor.lhs.false.i903
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %192) #14
-  %194 = load ptr, ptr %s_priv.i983, align 8
+  %194 = load ptr, ptr %s_priv.i982, align 8
   store ptr %194, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i901, align 4
-  br label %s_lock.exit915
+  store i32 1, ptr %cond.i.i900, align 4
+  br label %s_lock.exit914
 
-s_lock.exit915:                                   ; preds = %s_checked_out_p.exit.i900, %lor.lhs.false.i904, %if.end.i910
-  %retval.0.i909 = load ptr, ptr %s.i, align 8
-  %call896 = call i32 @ossl_quic_tserver_write(ptr noundef %retval.0.i909, i64 noundef %s_stream_id.0101310331037, ptr noundef nonnull @.str.125, i64 noundef 5, ptr noundef nonnull %bytes_written890) #14
+s_lock.exit914:                                   ; preds = %s_checked_out_p.exit.i899, %lor.lhs.false.i903, %if.end.i909
+  %retval.0.i908 = load ptr, ptr %s.i, align 8
+  %call896 = call i32 @ossl_quic_tserver_write(ptr noundef %retval.0.i908, i64 noundef %s_stream_id.0101210321036, ptr noundef nonnull @.str.125, i64 noundef 5, ptr noundef nonnull %bytes_written890) #14
   %cmp897 = icmp ne i32 %call896, 0
   %conv898 = zext i1 %cmp897 to i32
   %call899 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 1722, ptr noundef nonnull @.str.126, i32 noundef %conv898) #14
@@ -3139,12 +3136,12 @@ s_lock.exit915:                                   ; preds = %s_checked_out_p.exi
 
 sw.bb903:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_read904, align 8
-  %call907 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1733, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call907 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1733, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool908.not = icmp eq i32 %call907, 0
   br i1 %tobool908.not, label %out, label %if.end910
 
 if.end910:                                        ; preds = %sw.bb903
-  %call912 = call i32 @SSL_read_ex(ptr noundef %c_tgt.0101510311039, ptr noundef nonnull %buf905, i64 noundef 1, ptr noundef nonnull %bytes_read904) #14
+  %call912 = call i32 @SSL_read_ex(ptr noundef %c_tgt.0101410301038, ptr noundef nonnull %buf905, i64 noundef 1, ptr noundef nonnull %bytes_read904) #14
   %cmp913 = icmp ne i32 %call912, 0
   %conv914 = zext i1 %cmp913 to i32
   %call915 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 1737, ptr noundef nonnull @.str.78, i32 noundef %conv914) #14
@@ -3152,18 +3149,18 @@ if.end910:                                        ; preds = %sw.bb903
   br i1 %tobool916.not, label %out, label %if.end918
 
 if.end918:                                        ; preds = %if.end910
-  %call919 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call912)
+  %call919 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101410301038, i32 noundef %call912)
   %tobool920.not = icmp eq i32 %call919, 0
   br i1 %tobool920.not, label %out, label %for.cond.backedge
 
 sw.bb923:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_read924, align 8
-  %call927 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1750, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call927 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1750, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool928.not = icmp eq i32 %call927, 0
   br i1 %tobool928.not, label %out, label %if.end930
 
 if.end930:                                        ; preds = %sw.bb923
-  %call932 = call i32 @SSL_read_ex(ptr noundef %c_tgt.0101510311039, ptr noundef nonnull %buf925, i64 noundef 1, ptr noundef nonnull %bytes_read924) #14
+  %call932 = call i32 @SSL_read_ex(ptr noundef %c_tgt.0101410301038, ptr noundef nonnull %buf925, i64 noundef 1, ptr noundef nonnull %bytes_read924) #14
   %cmp933 = icmp ne i32 %call932, 0
   %conv934 = zext i1 %cmp933 to i32
   %call935 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 1754, ptr noundef nonnull @.str.78, i32 noundef %conv934) #14
@@ -3171,13 +3168,13 @@ if.end930:                                        ; preds = %sw.bb923
   br i1 %tobool936.not, label %out, label %if.end938
 
 if.end938:                                        ; preds = %if.end930
-  %call939 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101510311039, i32 noundef %call932)
+  %call939 = call fastcc i32 @check_consistent_want(ptr noundef %c_tgt.0101410301038, i32 noundef %call932)
   %tobool940.not = icmp eq i32 %call939, 0
   br i1 %tobool940.not, label %out, label %if.end942
 
 if.end942:                                        ; preds = %if.end938
-  %call.i916 = call i32 @SSL_get_error(ptr noundef %c_tgt.0101510311039, i32 noundef 0) #14
-  %195 = and i32 %call.i916, -2
+  %call.i915 = call i32 @SSL_get_error(ptr noundef %c_tgt.0101410301038, i32 noundef 0) #14
+  %195 = and i32 %call.i915, -2
   %.not = icmp eq i32 %195, 2
   br i1 %.not, label %if.then945, label %for.cond.backedge
 
@@ -3192,42 +3189,42 @@ if.then948:                                       ; preds = %if.then945
 
 sw.bb951:                                         ; preds = %if.end80
   store i64 0, ptr %bytes_read952, align 8
-  %call954 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1769, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101310331037, i64 noundef -1) #14
+  %call954 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.14, i32 noundef 1769, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i64 noundef %s_stream_id.0101210321036, i64 noundef -1) #14
   %tobool955.not = icmp eq i32 %call954, 0
   br i1 %tobool955.not, label %out, label %if.end957
 
 if.end957:                                        ; preds = %sw.bb951
   %hl_.val431 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i918 = icmp slt i32 %hl_.val431, 0
-  br i1 %cmp.i.i918, label %s_checked_out_p.exit.i923, label %cond.false.i.i919
+  %cmp.i.i917 = icmp slt i32 %hl_.val431, 0
+  br i1 %cmp.i.i917, label %s_checked_out_p.exit.i922, label %cond.false.i.i918
 
-cond.false.i.i919:                                ; preds = %if.end957
+cond.false.i.i918:                                ; preds = %if.end957
   %197 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i921 = zext nneg i32 %hl_.val431 to i64
-  %s_checked_out1.i.i922 = getelementptr inbounds %struct.child_thread_args, ptr %197, i64 %idxprom.i.i921, i32 8
-  br label %s_checked_out_p.exit.i923
+  %idxprom.i.i920 = zext nneg i32 %hl_.val431 to i64
+  %s_checked_out1.i.i921 = getelementptr inbounds %struct.child_thread_args, ptr %197, i64 %idxprom.i.i920, i32 8
+  br label %s_checked_out_p.exit.i922
 
-s_checked_out_p.exit.i923:                        ; preds = %if.end957, %cond.false.i.i919
-  %cond.i.i924 = phi ptr [ %s_checked_out1.i.i922, %cond.false.i.i919 ], [ %s_checked_out.i.i, %if.end957 ]
+s_checked_out_p.exit.i922:                        ; preds = %if.end957, %cond.false.i.i918
+  %cond.i.i923 = phi ptr [ %s_checked_out1.i.i921, %cond.false.i.i918 ], [ %s_checked_out.i.i, %if.end957 ]
   %198 = load ptr, ptr %m.i, align 8
-  %cmp.i926 = icmp eq ptr %198, null
-  br i1 %cmp.i926, label %s_lock.exit938, label %lor.lhs.false.i927
+  %cmp.i925 = icmp eq ptr %198, null
+  br i1 %cmp.i925, label %s_lock.exit937, label %lor.lhs.false.i926
 
-lor.lhs.false.i927:                               ; preds = %s_checked_out_p.exit.i923
-  %199 = load i32, ptr %cond.i.i924, align 4
-  %tobool.not.i928 = icmp eq i32 %199, 0
-  br i1 %tobool.not.i928, label %if.end.i933, label %s_lock.exit938
+lor.lhs.false.i926:                               ; preds = %s_checked_out_p.exit.i922
+  %199 = load i32, ptr %cond.i.i923, align 4
+  %tobool.not.i927 = icmp eq i32 %199, 0
+  br i1 %tobool.not.i927, label %if.end.i932, label %s_lock.exit937
 
-if.end.i933:                                      ; preds = %lor.lhs.false.i927
+if.end.i932:                                      ; preds = %lor.lhs.false.i926
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %198) #14
-  %200 = load ptr, ptr %s_priv.i983, align 8
+  %200 = load ptr, ptr %s_priv.i982, align 8
   store ptr %200, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i924, align 4
-  br label %s_lock.exit938
+  store i32 1, ptr %cond.i.i923, align 4
+  br label %s_lock.exit937
 
-s_lock.exit938:                                   ; preds = %s_checked_out_p.exit.i923, %lor.lhs.false.i927, %if.end.i933
-  %retval.0.i932 = load ptr, ptr %s.i, align 8
-  %call960 = call i32 @ossl_quic_tserver_read(ptr noundef %retval.0.i932, i64 noundef %s_stream_id.0101310331037, ptr noundef nonnull %buf953, i64 noundef 1, ptr noundef nonnull %bytes_read952) #14
+s_lock.exit937:                                   ; preds = %s_checked_out_p.exit.i922, %lor.lhs.false.i926, %if.end.i932
+  %retval.0.i931 = load ptr, ptr %s.i, align 8
+  %call960 = call i32 @ossl_quic_tserver_read(ptr noundef %retval.0.i931, i64 noundef %s_stream_id.0101210321036, ptr noundef nonnull %buf953, i64 noundef 1, ptr noundef nonnull %bytes_read952) #14
   %cmp961 = icmp ne i32 %call960, 0
   %conv962 = zext i1 %cmp961 to i32
   %call963 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 1774, ptr noundef nonnull @.str.127, i32 noundef %conv962) #14
@@ -3236,7 +3233,7 @@ s_lock.exit938:                                   ; preds = %s_checked_out_p.exi
 
 sw.bb967:                                         ; preds = %if.end80
   store i64 0, ptr %args968, align 8
-  %call969 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1783, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call969 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1783, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool970.not = icmp eq i32 %call969, 0
   br i1 %tobool970.not, label %out, label %if.end972
 
@@ -3244,7 +3241,7 @@ if.end972:                                        ; preds = %sw.bb967
   %arg2973 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %201 = load i64, ptr %arg2973, align 8
   store i64 %201, ptr %args968, align 8
-  %call974 = call i32 @SSL_stream_reset(ptr noundef %c_tgt.0101510311039, ptr noundef nonnull %args968, i64 noundef 8) #14
+  %call974 = call i32 @SSL_stream_reset(ptr noundef %c_tgt.0101410301038, ptr noundef nonnull %args968, i64 noundef 8) #14
   %cmp975 = icmp ne i32 %call974, 0
   %conv976 = zext i1 %cmp975 to i32
   %call977 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1788, ptr noundef nonnull @.str.128, i32 noundef %conv976) #14
@@ -3274,41 +3271,41 @@ if.end987:                                        ; preds = %sw.bb981
 if.end995:                                        ; preds = %if.end987
   %204 = load i64, ptr %arg1988, align 8
   store i64 %204, ptr %num_threads997, align 8
-  %cmp10001118.not = icmp eq i64 %204, 0
-  br i1 %cmp10001118.not, label %for.cond.backedge, label %for.body1002.lr.ph
+  %cmp10001117.not = icmp eq i64 %204, 0
+  br i1 %cmp10001117.not, label %for.cond.backedge, label %for.body1002.lr.ph
 
 for.body1002.lr.ph:                               ; preds = %if.end995
   %arg01006 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   br label %for.body1002
 
 for.cond998:                                      ; preds = %if.end1027
-  %inc1041 = add nuw i64 %i982.01119, 1
+  %inc1041 = add nuw i64 %i982.01118, 1
   %205 = load i64, ptr %arg1988, align 8
   %cmp1000 = icmp ult i64 %inc1041, %205
   br i1 %cmp1000, label %for.body1002, label %for.cond.backedge, !llvm.loop !9
 
 for.body1002:                                     ; preds = %for.body1002.lr.ph, %for.cond998
-  %i982.01119 = phi i64 [ 0, %for.body1002.lr.ph ], [ %inc1041, %for.cond998 ]
+  %i982.01118 = phi i64 [ 0, %for.body1002.lr.ph ], [ %inc1041, %for.cond998 ]
   %206 = load ptr, ptr %threads.i.i, align 8
-  %arrayidx1004 = getelementptr inbounds %struct.child_thread_args, ptr %206, i64 %i982.01119
+  %arrayidx1004 = getelementptr inbounds %struct.child_thread_args, ptr %206, i64 %i982.01118
   store ptr %h, ptr %arrayidx1004, align 8
   %207 = load ptr, ptr %arg01006, align 8
   %208 = load ptr, ptr %threads.i.i, align 8
-  %script1009 = getelementptr inbounds %struct.child_thread_args, ptr %208, i64 %i982.01119, i32 1
+  %script1009 = getelementptr inbounds %struct.child_thread_args, ptr %208, i64 %i982.01118, i32 1
   store ptr %207, ptr %script1009, align 8
   %209 = load ptr, ptr %threads.i.i, align 8
-  %script_name1012 = getelementptr inbounds %struct.child_thread_args, ptr %209, i64 %i982.01119, i32 2
+  %script_name1012 = getelementptr inbounds %struct.child_thread_args, ptr %209, i64 %i982.01118, i32 2
   store ptr %script_name, ptr %script_name1012, align 8
-  %conv1013 = trunc i64 %i982.01119 to i32
+  %conv1013 = trunc i64 %i982.01118 to i32
   %210 = load ptr, ptr %threads.i.i, align 8
-  %thread_idx1016 = getelementptr inbounds %struct.child_thread_args, ptr %210, i64 %i982.01119, i32 3
+  %thread_idx1016 = getelementptr inbounds %struct.child_thread_args, ptr %210, i64 %i982.01118, i32 3
   store i32 %conv1013, ptr %thread_idx1016, align 8
   %call1017 = call ptr @ossl_crypto_mutex_new() #14
   %211 = load ptr, ptr %threads.i.i, align 8
-  %m1020 = getelementptr inbounds %struct.child_thread_args, ptr %211, i64 %i982.01119, i32 5
+  %m1020 = getelementptr inbounds %struct.child_thread_args, ptr %211, i64 %i982.01118, i32 5
   store ptr %call1017, ptr %m1020, align 8
   %212 = load ptr, ptr %threads.i.i, align 8
-  %m1023 = getelementptr inbounds %struct.child_thread_args, ptr %212, i64 %i982.01119, i32 5
+  %m1023 = getelementptr inbounds %struct.child_thread_args, ptr %212, i64 %i982.01118, i32 5
   %213 = load ptr, ptr %m1023, align 8
   %call1024 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1824, ptr noundef nonnull @.str.131, ptr noundef %213) #14
   %tobool1025.not = icmp eq i32 %call1024, 0
@@ -3316,13 +3313,13 @@ for.body1002:                                     ; preds = %for.body1002.lr.ph,
 
 if.end1027:                                       ; preds = %for.body1002
   %214 = load ptr, ptr %threads.i.i, align 8
-  %arrayidx1029 = getelementptr inbounds %struct.child_thread_args, ptr %214, i64 %i982.01119
+  %arrayidx1029 = getelementptr inbounds %struct.child_thread_args, ptr %214, i64 %i982.01118
   %call1030 = call ptr @ossl_crypto_thread_native_start(ptr noundef nonnull @run_script_child_thread, ptr noundef %arrayidx1029, i32 noundef 1) #14
   %215 = load ptr, ptr %threads.i.i, align 8
-  %t = getelementptr inbounds %struct.child_thread_args, ptr %215, i64 %i982.01119, i32 4
+  %t = getelementptr inbounds %struct.child_thread_args, ptr %215, i64 %i982.01118, i32 4
   store ptr %call1030, ptr %t, align 8
   %216 = load ptr, ptr %threads.i.i, align 8
-  %t1035 = getelementptr inbounds %struct.child_thread_args, ptr %216, i64 %i982.01119, i32 4
+  %t1035 = getelementptr inbounds %struct.child_thread_args, ptr %216, i64 %i982.01118, i32 4
   %217 = load ptr, ptr %t1035, align 8
   %call1036 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1830, ptr noundef nonnull @.str.132, ptr noundef %217) #14
   %tobool1037.not = icmp eq i32 %call1036, 0
@@ -3335,7 +3332,7 @@ sw.bb1043:                                        ; preds = %if.end80
   br label %for.cond.backedge
 
 sw.bb1046:                                        ; preds = %if.end80
-  %call1047 = call i32 @SSL_get_error(ptr noundef %c_tgt.0101510311039, i32 noundef 0) #14
+  %call1047 = call i32 @SSL_get_error(ptr noundef %c_tgt.0101410301038, i32 noundef 0) #14
   %conv1048 = sext i32 %call1047 to i64
   %arg11049 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %219 = load i64, ptr %arg11049, align 8
@@ -3344,30 +3341,30 @@ sw.bb1046:                                        ; preds = %if.end80
   br i1 %tobool1051.not, label %out, label %if.end1053
 
 if.end1053:                                       ; preds = %sw.bb1046
-  %call1054 = call i32 @SSL_want(ptr noundef %c_tgt.0101510311039) #14
+  %call1054 = call i32 @SSL_want(ptr noundef %c_tgt.0101410301038) #14
   %call1055 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 1848, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.92, i32 noundef %call1054, i32 noundef 1) #14
   %tobool1056.not = icmp eq i32 %call1055, 0
   br i1 %tobool1056.not, label %out, label %for.cond.backedge
 
 sw.bb1059:                                        ; preds = %if.end80
   %call1060 = call i64 @ERR_get_error() #14
-  %and.i939 = and i64 %call1060, 2147483648
-  %cmp.not.i940 = icmp eq i64 %and.i939, 0
-  %retval.0.v.i941 = select i1 %cmp.not.i940, i64 8388607, i64 2147483647
-  %retval.0.i942 = and i64 %retval.0.v.i941, %call1060
+  %and.i938 = and i64 %call1060, 2147483648
+  %cmp.not.i939 = icmp eq i64 %and.i938, 0
+  %retval.0.v.i940 = select i1 %cmp.not.i939, i64 8388607, i64 2147483647
+  %retval.0.i941 = and i64 %retval.0.v.i940, %call1060
   %arg11063 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %220 = load i64, ptr %arg11063, align 8
-  %call1064 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1855, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.68, i64 noundef %retval.0.i942, i64 noundef %220) #14
+  %call1064 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1855, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.68, i64 noundef %retval.0.i941, i64 noundef %220) #14
   %tobool1065.not = icmp eq i32 %call1064, 0
   br i1 %tobool1065.not, label %out, label %for.cond.backedge
 
 sw.bb1068:                                        ; preds = %if.end80
   %call1069 = call i64 @ERR_get_error() #14
-  %and.i943 = and i64 %call1069, 2147483648
-  %cmp.not.i944 = icmp eq i64 %and.i943, 0
+  %and.i942 = and i64 %call1069, 2147483648
+  %cmp.not.i943 = icmp eq i64 %and.i942, 0
   %221 = lshr i64 %call1069, 23
   %222 = and i64 %221, 511
-  %conv1071 = select i1 %cmp.not.i944, i64 %222, i64 2
+  %conv1071 = select i1 %cmp.not.i943, i64 %222, i64 2
   %arg11072 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %223 = load i64, ptr %arg11072, align 8
   %call1073 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1862, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.68, i64 noundef %conv1071, i64 noundef %223) #14
@@ -3424,34 +3421,34 @@ sw.bb1105:                                        ; preds = %if.end80
 
 sw.bb1119:                                        ; preds = %if.end80
   %hl_.val432 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i946 = icmp slt i32 %hl_.val432, 0
-  br i1 %cmp.i.i946, label %s_checked_out_p.exit.i951, label %cond.false.i.i947
+  %cmp.i.i945 = icmp slt i32 %hl_.val432, 0
+  br i1 %cmp.i.i945, label %s_checked_out_p.exit.i950, label %cond.false.i.i946
 
-cond.false.i.i947:                                ; preds = %sw.bb1119
+cond.false.i.i946:                                ; preds = %sw.bb1119
   %231 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i949 = zext nneg i32 %hl_.val432 to i64
-  %s_checked_out1.i.i950 = getelementptr inbounds %struct.child_thread_args, ptr %231, i64 %idxprom.i.i949, i32 8
-  br label %s_checked_out_p.exit.i951
+  %idxprom.i.i948 = zext nneg i32 %hl_.val432 to i64
+  %s_checked_out1.i.i949 = getelementptr inbounds %struct.child_thread_args, ptr %231, i64 %idxprom.i.i948, i32 8
+  br label %s_checked_out_p.exit.i950
 
-s_checked_out_p.exit.i951:                        ; preds = %sw.bb1119, %cond.false.i.i947
-  %cond.i.i952 = phi ptr [ %s_checked_out1.i.i950, %cond.false.i.i947 ], [ %s_checked_out.i.i, %sw.bb1119 ]
+s_checked_out_p.exit.i950:                        ; preds = %sw.bb1119, %cond.false.i.i946
+  %cond.i.i951 = phi ptr [ %s_checked_out1.i.i949, %cond.false.i.i946 ], [ %s_checked_out.i.i, %sw.bb1119 ]
   %232 = load ptr, ptr %m.i, align 8
-  %cmp.i954 = icmp eq ptr %232, null
-  br i1 %cmp.i954, label %s_lock.exit966, label %lor.lhs.false.i955
+  %cmp.i953 = icmp eq ptr %232, null
+  br i1 %cmp.i953, label %s_lock.exit965, label %lor.lhs.false.i954
 
-lor.lhs.false.i955:                               ; preds = %s_checked_out_p.exit.i951
-  %233 = load i32, ptr %cond.i.i952, align 4
-  %tobool.not.i956 = icmp eq i32 %233, 0
-  br i1 %tobool.not.i956, label %if.end.i961, label %s_lock.exit966
+lor.lhs.false.i954:                               ; preds = %s_checked_out_p.exit.i950
+  %233 = load i32, ptr %cond.i.i951, align 4
+  %tobool.not.i955 = icmp eq i32 %233, 0
+  br i1 %tobool.not.i955, label %if.end.i960, label %s_lock.exit965
 
-if.end.i961:                                      ; preds = %lor.lhs.false.i955
+if.end.i960:                                      ; preds = %lor.lhs.false.i954
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %232) #14
-  %234 = load ptr, ptr %s_priv.i983, align 8
+  %234 = load ptr, ptr %s_priv.i982, align 8
   store ptr %234, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i952, align 4
-  br label %s_lock.exit966
+  store i32 1, ptr %cond.i.i951, align 4
+  br label %s_lock.exit965
 
-s_lock.exit966:                                   ; preds = %s_checked_out_p.exit.i951, %lor.lhs.false.i955, %if.end.i961
+s_lock.exit965:                                   ; preds = %s_checked_out_p.exit.i950, %lor.lhs.false.i954, %if.end.i960
   %arg11121 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %235 = load i64, ptr %arg11121, align 8
   store i64 %235, ptr %inject_word0, align 8
@@ -3470,14 +3467,14 @@ sw.bb1123:                                        ; preds = %if.end80
   br label %for.cond.backedge
 
 sw.bb1129:                                        ; preds = %if.end80
-  %call1130 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1925, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101510311039) #14
+  %call1130 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1925, ptr noundef nonnull @.str.77, ptr noundef %c_tgt.0101410301038) #14
   %tobool1131.not = icmp eq i32 %call1130, 0
   br i1 %tobool1131.not, label %out, label %if.end1133
 
 if.end1133:                                       ; preds = %sw.bb1129
   %arg11134 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %239 = load i64, ptr %arg11134, align 8
-  %call1135 = call i32 @ossl_quic_set_write_buffer_size(ptr noundef %c_tgt.0101510311039, i64 noundef %239) #14
+  %call1135 = call i32 @ossl_quic_set_write_buffer_size(ptr noundef %c_tgt.0101410301038, i64 noundef %239) #14
   %cmp1136 = icmp ne i32 %call1135, 0
   %conv1137 = zext i1 %cmp1136 to i32
   %call1138 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1928, ptr noundef nonnull @.str.139, i32 noundef %conv1137) #14
@@ -3486,36 +3483,36 @@ if.end1133:                                       ; preds = %sw.bb1129
 
 sw.bb1142:                                        ; preds = %if.end80
   %hl_.val433 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i967 = icmp slt i32 %hl_.val433, 0
-  br i1 %cmp.i.i967, label %s_checked_out_p.exit.i972, label %cond.false.i.i968
+  %cmp.i.i966 = icmp slt i32 %hl_.val433, 0
+  br i1 %cmp.i.i966, label %s_checked_out_p.exit.i971, label %cond.false.i.i967
 
-cond.false.i.i968:                                ; preds = %sw.bb1142
+cond.false.i.i967:                                ; preds = %sw.bb1142
   %240 = load ptr, ptr %threads.i.i, align 8
-  %idxprom.i.i970 = zext nneg i32 %hl_.val433 to i64
-  %s_checked_out1.i.i971 = getelementptr inbounds %struct.child_thread_args, ptr %240, i64 %idxprom.i.i970, i32 8
-  br label %s_checked_out_p.exit.i972
+  %idxprom.i.i969 = zext nneg i32 %hl_.val433 to i64
+  %s_checked_out1.i.i970 = getelementptr inbounds %struct.child_thread_args, ptr %240, i64 %idxprom.i.i969, i32 8
+  br label %s_checked_out_p.exit.i971
 
-s_checked_out_p.exit.i972:                        ; preds = %sw.bb1142, %cond.false.i.i968
-  %cond.i.i973 = phi ptr [ %s_checked_out1.i.i971, %cond.false.i.i968 ], [ %s_checked_out.i.i, %sw.bb1142 ]
+s_checked_out_p.exit.i971:                        ; preds = %sw.bb1142, %cond.false.i.i967
+  %cond.i.i972 = phi ptr [ %s_checked_out1.i.i970, %cond.false.i.i967 ], [ %s_checked_out.i.i, %sw.bb1142 ]
   %241 = load ptr, ptr %m.i, align 8
-  %cmp.i975 = icmp eq ptr %241, null
-  br i1 %cmp.i975, label %s_lock.exit987, label %lor.lhs.false.i976
+  %cmp.i974 = icmp eq ptr %241, null
+  br i1 %cmp.i974, label %s_lock.exit986, label %lor.lhs.false.i975
 
-lor.lhs.false.i976:                               ; preds = %s_checked_out_p.exit.i972
-  %242 = load i32, ptr %cond.i.i973, align 4
-  %tobool.not.i977 = icmp eq i32 %242, 0
-  br i1 %tobool.not.i977, label %if.end.i982, label %s_lock.exit987
+lor.lhs.false.i975:                               ; preds = %s_checked_out_p.exit.i971
+  %242 = load i32, ptr %cond.i.i972, align 4
+  %tobool.not.i976 = icmp eq i32 %242, 0
+  br i1 %tobool.not.i976, label %if.end.i981, label %s_lock.exit986
 
-if.end.i982:                                      ; preds = %lor.lhs.false.i976
+if.end.i981:                                      ; preds = %lor.lhs.false.i975
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %241) #14
-  %243 = load ptr, ptr %s_priv.i983, align 8
+  %243 = load ptr, ptr %s_priv.i982, align 8
   store ptr %243, ptr %s.i, align 8
-  store i32 1, ptr %cond.i.i973, align 4
-  br label %s_lock.exit987
+  store i32 1, ptr %cond.i.i972, align 4
+  br label %s_lock.exit986
 
-s_lock.exit987:                                   ; preds = %s_checked_out_p.exit.i972, %lor.lhs.false.i976, %if.end.i982
-  %retval.0.i981 = load ptr, ptr %s.i, align 8
-  %call1144 = call i32 @ossl_quic_tserver_new_ticket(ptr noundef %retval.0.i981) #14
+s_lock.exit986:                                   ; preds = %s_checked_out_p.exit.i971, %lor.lhs.false.i975, %if.end.i981
+  %retval.0.i980 = load ptr, ptr %s.i, align 8
+  %call1144 = call i32 @ossl_quic_tserver_new_ticket(ptr noundef %retval.0.i980) #14
   %cmp1145 = icmp ne i32 %call1144, 0
   %conv1146 = zext i1 %cmp1145 to i32
   %call1147 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1934, ptr noundef nonnull @.str.140, i32 noundef %conv1146) #14
@@ -3526,66 +3523,66 @@ sw.default1151:                                   ; preds = %if.end80
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 1939, ptr noundef nonnull @.str.141) #14
   br label %out
 
-out:                                              ; preds = %s_lock.exit987, %if.end1133, %sw.bb1129, %sw.bb1105, %sw.bb1091, %sw.bb1079, %sw.bb1068, %sw.bb1059, %if.end1053, %sw.bb1046, %if.end987, %if.end972, %sw.bb967, %s_lock.exit938, %sw.bb951, %if.end938, %if.end930, %sw.bb923, %if.end918, %if.end910, %sw.bb903, %s_lock.exit915, %sw.bb889, %if.end878, %lor.lhs.false884, %sw.bb872, %if.end863, %if.end858, %sw.bb854, %if.end844, %if.end839, %sw.bb835, %if.end820, %lor.lhs.false824, %lor.lhs.false827, %s_lock.exit894, %land.lhs.true757, %sw.bb741, %if.end721, %sw.bb714, %if.end704, %sw.bb700, %if.end690, %sw.bb686, %helper_local_set_c_stream.exit789, %if.end672, %sw.bb661, %lor.lhs.false664, %if.end644, %if.end630, %sw.bb626, %helper_local_set_c_stream.exit725, %if.end602, %sw.bb597, %if.end588, %land.lhs.true583, %s_lock.exit703, %if.end563, %sw.bb559, %helper_local_set_c_stream.exit682, %land.lhs.true544, %if.then532, %land.lhs.true523, %if.end514, %sw.bb505, %helper_local_set_c_stream.exit659, %if.end488, %if.end483, %sw.bb479, %helper_local_set_c_stream.exit, %if.end464, %if.end459, %sw.bb455, %sw.bb442, %if.end436, %if.end431, %sw.bb406, %lor.lhs.false414, %lor.lhs.false419, %land.lhs.true398, %s_lock.exit552, %land.lhs.true367, %sw.bb355, %land.lhs.true347, %if.end317, %land.lhs.true311, %sw.bb286, %sw.bb279, %sw.bb271, %s_lock.exit510, %lor.lhs.false265, %sw.bb251, %if.end234, %lor.lhs.false242, %lor.lhs.false245, %sw.bb230, %land.lhs.true224, %sw.bb199, %if.end186, %sw.bb176, %lor.lhs.false180, %if.end169, %sw.bb141, %if.end123, %sw.bb119, %if.end1027, %for.body1002, %sw.bb82, %helper_local_init.exit, %sw.default1151, %if.then986, %if.then948, %if.then790, %if.then770, %if.then734, %if.then659, %if.then615, %if.then429, %if.then341, %if.then330, %if.then299, %if.then218, %if.end118, %sw.default, %if.then28
-  %repeat_stack_len.0 = phi i64 [ %repeat_stack_len.1, %sw.default ], [ %repeat_stack_len.1, %sw.default1151 ], [ %repeat_stack_len.1, %if.then986 ], [ %repeat_stack_len.1, %if.then948 ], [ %repeat_stack_len.1, %if.then790 ], [ %repeat_stack_len.1, %if.then770 ], [ %repeat_stack_len.1, %if.then734 ], [ %repeat_stack_len.1, %if.then659 ], [ %repeat_stack_len.1, %if.then615 ], [ %repeat_stack_len.1, %if.then429 ], [ %repeat_stack_len.1, %if.then341 ], [ %repeat_stack_len.1, %if.then330 ], [ %repeat_stack_len.1, %if.then299 ], [ %repeat_stack_len.1, %if.then218 ], [ %repeat_stack_len.1, %if.end118 ], [ %repeat_stack_len.1, %sw.bb82 ], [ %repeat_stack_len.1, %if.then28 ], [ 0, %helper_local_init.exit ], [ %repeat_stack_len.1, %for.body1002 ], [ %repeat_stack_len.1, %if.end1027 ], [ %repeat_stack_len.1, %sw.bb119 ], [ %repeat_stack_len.1, %if.end123 ], [ %repeat_stack_len.1, %sw.bb141 ], [ %repeat_stack_len.1, %if.end169 ], [ %repeat_stack_len.1, %lor.lhs.false180 ], [ %repeat_stack_len.1, %sw.bb176 ], [ %repeat_stack_len.1, %if.end186 ], [ %repeat_stack_len.1, %sw.bb199 ], [ %repeat_stack_len.1, %land.lhs.true224 ], [ %repeat_stack_len.1, %sw.bb230 ], [ %repeat_stack_len.1, %lor.lhs.false245 ], [ %repeat_stack_len.1, %lor.lhs.false242 ], [ %repeat_stack_len.1, %if.end234 ], [ %repeat_stack_len.1, %sw.bb251 ], [ %repeat_stack_len.1, %lor.lhs.false265 ], [ %repeat_stack_len.1, %s_lock.exit510 ], [ %repeat_stack_len.1, %sw.bb271 ], [ %repeat_stack_len.1, %sw.bb279 ], [ %repeat_stack_len.1, %sw.bb286 ], [ %repeat_stack_len.1, %land.lhs.true311 ], [ %repeat_stack_len.1, %if.end317 ], [ %repeat_stack_len.1, %land.lhs.true347 ], [ %repeat_stack_len.1, %sw.bb355 ], [ %repeat_stack_len.1, %land.lhs.true367 ], [ %repeat_stack_len.1, %s_lock.exit552 ], [ %repeat_stack_len.1, %land.lhs.true398 ], [ %repeat_stack_len.1, %lor.lhs.false419 ], [ %repeat_stack_len.1, %lor.lhs.false414 ], [ %repeat_stack_len.1, %sw.bb406 ], [ %repeat_stack_len.1, %if.end431 ], [ %repeat_stack_len.1, %if.end436 ], [ %repeat_stack_len.1, %sw.bb442 ], [ %repeat_stack_len.1, %sw.bb455 ], [ %repeat_stack_len.1, %if.end459 ], [ %repeat_stack_len.1, %if.end464 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit ], [ %repeat_stack_len.1, %sw.bb479 ], [ %repeat_stack_len.1, %if.end483 ], [ %repeat_stack_len.1, %if.end488 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit659 ], [ %repeat_stack_len.1, %sw.bb505 ], [ %repeat_stack_len.1, %if.end514 ], [ %repeat_stack_len.1, %land.lhs.true523 ], [ %repeat_stack_len.1, %if.then532 ], [ %repeat_stack_len.1, %land.lhs.true544 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit682 ], [ %repeat_stack_len.1, %sw.bb559 ], [ %repeat_stack_len.1, %if.end563 ], [ %repeat_stack_len.1, %s_lock.exit703 ], [ %repeat_stack_len.1, %land.lhs.true583 ], [ %repeat_stack_len.1, %if.end588 ], [ %repeat_stack_len.1, %sw.bb597 ], [ %repeat_stack_len.1, %if.end602 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit725 ], [ %repeat_stack_len.1, %sw.bb626 ], [ %repeat_stack_len.1, %if.end630 ], [ %repeat_stack_len.1, %if.end644 ], [ %repeat_stack_len.1, %lor.lhs.false664 ], [ %repeat_stack_len.1, %sw.bb661 ], [ %repeat_stack_len.1, %if.end672 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit789 ], [ %repeat_stack_len.1, %sw.bb686 ], [ %repeat_stack_len.1, %if.end690 ], [ %repeat_stack_len.1, %sw.bb700 ], [ %repeat_stack_len.1, %if.end704 ], [ %repeat_stack_len.1, %sw.bb714 ], [ %repeat_stack_len.1, %if.end721 ], [ %repeat_stack_len.1, %sw.bb741 ], [ %repeat_stack_len.1, %land.lhs.true757 ], [ %repeat_stack_len.1, %s_lock.exit894 ], [ %repeat_stack_len.1, %lor.lhs.false827 ], [ %repeat_stack_len.1, %lor.lhs.false824 ], [ %repeat_stack_len.1, %if.end820 ], [ %repeat_stack_len.1, %sw.bb835 ], [ %repeat_stack_len.1, %if.end839 ], [ %repeat_stack_len.1, %if.end844 ], [ %repeat_stack_len.1, %sw.bb854 ], [ %repeat_stack_len.1, %if.end858 ], [ %repeat_stack_len.1, %if.end863 ], [ %repeat_stack_len.1, %sw.bb872 ], [ %repeat_stack_len.1, %lor.lhs.false884 ], [ %repeat_stack_len.1, %if.end878 ], [ %repeat_stack_len.1, %sw.bb889 ], [ %repeat_stack_len.1, %s_lock.exit915 ], [ %repeat_stack_len.1, %sw.bb903 ], [ %repeat_stack_len.1, %if.end910 ], [ %repeat_stack_len.1, %if.end918 ], [ %repeat_stack_len.1, %sw.bb923 ], [ %repeat_stack_len.1, %if.end930 ], [ %repeat_stack_len.1, %if.end938 ], [ %repeat_stack_len.1, %sw.bb951 ], [ %repeat_stack_len.1, %s_lock.exit938 ], [ %repeat_stack_len.1, %sw.bb967 ], [ %repeat_stack_len.1, %if.end972 ], [ %repeat_stack_len.1, %if.end987 ], [ %repeat_stack_len.1, %sw.bb1046 ], [ %repeat_stack_len.1, %if.end1053 ], [ %repeat_stack_len.1, %sw.bb1059 ], [ %repeat_stack_len.1, %sw.bb1068 ], [ %repeat_stack_len.1, %sw.bb1079 ], [ %repeat_stack_len.1, %sw.bb1091 ], [ %repeat_stack_len.1, %sw.bb1105 ], [ %repeat_stack_len.1, %sw.bb1129 ], [ %repeat_stack_len.1, %if.end1133 ], [ %repeat_stack_len.1, %s_lock.exit987 ]
-  %op_idx.0 = phi i64 [ %op_idx.2, %sw.default ], [ %op_idx.2, %sw.default1151 ], [ %op_idx.2, %if.then986 ], [ %op_idx.2, %if.then948 ], [ %op_idx.2, %if.then790 ], [ %op_idx.2, %if.then770 ], [ %op_idx.2, %if.then734 ], [ %op_idx.2, %if.then659 ], [ %op_idx.2, %if.then615 ], [ %op_idx.2, %if.then429 ], [ %op_idx.2, %if.then341 ], [ %op_idx.2, %if.then330 ], [ %op_idx.2, %if.then299 ], [ %op_idx.2, %if.then218 ], [ %op_idx.2, %if.end118 ], [ %op_idx.2, %sw.bb82 ], [ %op_idx.2, %if.then28 ], [ 0, %helper_local_init.exit ], [ %op_idx.2, %for.body1002 ], [ %op_idx.2, %if.end1027 ], [ %op_idx.2, %sw.bb119 ], [ %op_idx.2, %if.end123 ], [ %op_idx.2, %sw.bb141 ], [ %op_idx.2, %if.end169 ], [ %op_idx.2, %lor.lhs.false180 ], [ %op_idx.2, %sw.bb176 ], [ %op_idx.2, %if.end186 ], [ %op_idx.2, %sw.bb199 ], [ %op_idx.2, %land.lhs.true224 ], [ %op_idx.2, %sw.bb230 ], [ %op_idx.2, %lor.lhs.false245 ], [ %op_idx.2, %lor.lhs.false242 ], [ %op_idx.2, %if.end234 ], [ %op_idx.2, %sw.bb251 ], [ %op_idx.2, %lor.lhs.false265 ], [ %op_idx.2, %s_lock.exit510 ], [ %op_idx.2, %sw.bb271 ], [ %op_idx.2, %sw.bb279 ], [ %op_idx.2, %sw.bb286 ], [ %op_idx.2, %land.lhs.true311 ], [ %op_idx.2, %if.end317 ], [ %op_idx.2, %land.lhs.true347 ], [ %op_idx.2, %sw.bb355 ], [ %op_idx.2, %land.lhs.true367 ], [ %op_idx.2, %s_lock.exit552 ], [ %op_idx.2, %land.lhs.true398 ], [ %op_idx.2, %lor.lhs.false419 ], [ %op_idx.2, %lor.lhs.false414 ], [ %op_idx.2, %sw.bb406 ], [ %op_idx.2, %if.end431 ], [ %op_idx.2, %if.end436 ], [ %op_idx.2, %sw.bb442 ], [ %op_idx.2, %sw.bb455 ], [ %op_idx.2, %if.end459 ], [ %op_idx.2, %if.end464 ], [ %op_idx.2, %helper_local_set_c_stream.exit ], [ %op_idx.2, %sw.bb479 ], [ %op_idx.2, %if.end483 ], [ %op_idx.2, %if.end488 ], [ %op_idx.2, %helper_local_set_c_stream.exit659 ], [ %op_idx.2, %sw.bb505 ], [ %op_idx.2, %if.end514 ], [ %op_idx.2, %land.lhs.true523 ], [ %op_idx.2, %if.then532 ], [ %op_idx.2, %land.lhs.true544 ], [ %op_idx.2, %helper_local_set_c_stream.exit682 ], [ %op_idx.2, %sw.bb559 ], [ %op_idx.2, %if.end563 ], [ %op_idx.2, %s_lock.exit703 ], [ %op_idx.2, %land.lhs.true583 ], [ %op_idx.2, %if.end588 ], [ %op_idx.2, %sw.bb597 ], [ %op_idx.2, %if.end602 ], [ %op_idx.2, %helper_local_set_c_stream.exit725 ], [ %op_idx.2, %sw.bb626 ], [ %op_idx.2, %if.end630 ], [ %op_idx.2, %if.end644 ], [ %op_idx.2, %lor.lhs.false664 ], [ %op_idx.2, %sw.bb661 ], [ %op_idx.2, %if.end672 ], [ %op_idx.2, %helper_local_set_c_stream.exit789 ], [ %op_idx.2, %sw.bb686 ], [ %op_idx.2, %if.end690 ], [ %op_idx.2, %sw.bb700 ], [ %op_idx.2, %if.end704 ], [ %op_idx.2, %sw.bb714 ], [ %op_idx.2, %if.end721 ], [ %op_idx.2, %sw.bb741 ], [ %op_idx.2, %land.lhs.true757 ], [ %op_idx.2, %s_lock.exit894 ], [ %op_idx.2, %lor.lhs.false827 ], [ %op_idx.2, %lor.lhs.false824 ], [ %op_idx.2, %if.end820 ], [ %op_idx.2, %sw.bb835 ], [ %op_idx.2, %if.end839 ], [ %op_idx.2, %if.end844 ], [ %op_idx.2, %sw.bb854 ], [ %op_idx.2, %if.end858 ], [ %op_idx.2, %if.end863 ], [ %op_idx.2, %sw.bb872 ], [ %op_idx.2, %lor.lhs.false884 ], [ %op_idx.2, %if.end878 ], [ %op_idx.2, %sw.bb889 ], [ %op_idx.2, %s_lock.exit915 ], [ %op_idx.2, %sw.bb903 ], [ %op_idx.2, %if.end910 ], [ %op_idx.2, %if.end918 ], [ %op_idx.2, %sw.bb923 ], [ %op_idx.2, %if.end930 ], [ %op_idx.2, %if.end938 ], [ %op_idx.2, %sw.bb951 ], [ %op_idx.2, %s_lock.exit938 ], [ %op_idx.2, %sw.bb967 ], [ %op_idx.2, %if.end972 ], [ %op_idx.2, %if.end987 ], [ %op_idx.2, %sw.bb1046 ], [ %op_idx.2, %if.end1053 ], [ %op_idx.2, %sw.bb1059 ], [ %op_idx.2, %sw.bb1068 ], [ %op_idx.2, %sw.bb1079 ], [ %op_idx.2, %sw.bb1091 ], [ %op_idx.2, %sw.bb1105 ], [ %op_idx.2, %sw.bb1129 ], [ %op_idx.2, %if.end1133 ], [ %op_idx.2, %s_lock.exit987 ]
-  %tmp_buf.0 = phi ptr [ %tmp_buf.1, %sw.default ], [ %tmp_buf.1, %sw.default1151 ], [ %tmp_buf.1, %if.then986 ], [ %tmp_buf.1, %if.then948 ], [ %tmp_buf.1, %if.then790 ], [ %tmp_buf.1, %if.then770 ], [ %tmp_buf.1, %if.then734 ], [ %tmp_buf.1, %if.then659 ], [ %tmp_buf.1, %if.then615 ], [ %tmp_buf.1, %if.then429 ], [ %tmp_buf.3, %if.then341 ], [ %tmp_buf.3, %if.then330 ], [ %tmp_buf.1, %if.then299 ], [ %tmp_buf.1, %if.then218 ], [ %tmp_buf.1, %if.end118 ], [ %tmp_buf.1, %sw.bb82 ], [ %tmp_buf.1, %if.then28 ], [ null, %helper_local_init.exit ], [ %tmp_buf.1, %for.body1002 ], [ %tmp_buf.1, %if.end1027 ], [ %tmp_buf.1, %s_lock.exit987 ], [ %tmp_buf.1, %if.end1133 ], [ %tmp_buf.1, %sw.bb1129 ], [ %tmp_buf.1, %sw.bb1105 ], [ %tmp_buf.1, %sw.bb1091 ], [ %tmp_buf.1, %sw.bb1079 ], [ %tmp_buf.1, %sw.bb1068 ], [ %tmp_buf.1, %sw.bb1059 ], [ %tmp_buf.1, %if.end1053 ], [ %tmp_buf.1, %sw.bb1046 ], [ %tmp_buf.1, %if.end987 ], [ %tmp_buf.1, %if.end972 ], [ %tmp_buf.1, %sw.bb967 ], [ %tmp_buf.1, %s_lock.exit938 ], [ %tmp_buf.1, %sw.bb951 ], [ %tmp_buf.1, %if.end938 ], [ %tmp_buf.1, %if.end930 ], [ %tmp_buf.1, %sw.bb923 ], [ %tmp_buf.1, %if.end918 ], [ %tmp_buf.1, %if.end910 ], [ %tmp_buf.1, %sw.bb903 ], [ %tmp_buf.1, %s_lock.exit915 ], [ %tmp_buf.1, %sw.bb889 ], [ %tmp_buf.1, %if.end878 ], [ %tmp_buf.1, %lor.lhs.false884 ], [ %tmp_buf.1, %sw.bb872 ], [ %tmp_buf.1, %if.end863 ], [ %tmp_buf.1, %if.end858 ], [ %tmp_buf.1, %sw.bb854 ], [ %tmp_buf.1, %if.end844 ], [ %tmp_buf.1, %if.end839 ], [ %tmp_buf.1, %sw.bb835 ], [ %tmp_buf.1, %if.end820 ], [ %tmp_buf.1, %lor.lhs.false824 ], [ %tmp_buf.1, %lor.lhs.false827 ], [ %tmp_buf.1, %s_lock.exit894 ], [ %tmp_buf.1, %land.lhs.true757 ], [ %tmp_buf.1, %sw.bb741 ], [ %tmp_buf.1, %if.end721 ], [ %tmp_buf.1, %sw.bb714 ], [ %tmp_buf.1, %if.end704 ], [ %tmp_buf.1, %sw.bb700 ], [ %tmp_buf.1, %if.end690 ], [ %tmp_buf.1, %sw.bb686 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit789 ], [ %tmp_buf.1, %if.end672 ], [ %tmp_buf.1, %sw.bb661 ], [ %tmp_buf.1, %lor.lhs.false664 ], [ %tmp_buf.1, %if.end644 ], [ %tmp_buf.1, %if.end630 ], [ %tmp_buf.1, %sw.bb626 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit725 ], [ %tmp_buf.1, %if.end602 ], [ %tmp_buf.1, %sw.bb597 ], [ %tmp_buf.1, %if.end588 ], [ %tmp_buf.1, %land.lhs.true583 ], [ %tmp_buf.1, %s_lock.exit703 ], [ %tmp_buf.1, %if.end563 ], [ %tmp_buf.1, %sw.bb559 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit682 ], [ %tmp_buf.1, %land.lhs.true544 ], [ %tmp_buf.1, %if.then532 ], [ %tmp_buf.1, %land.lhs.true523 ], [ %tmp_buf.1, %if.end514 ], [ %tmp_buf.1, %sw.bb505 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit659 ], [ %tmp_buf.1, %if.end488 ], [ %tmp_buf.1, %if.end483 ], [ %tmp_buf.1, %sw.bb479 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit ], [ %tmp_buf.1, %if.end464 ], [ %tmp_buf.1, %if.end459 ], [ %tmp_buf.1, %sw.bb455 ], [ %tmp_buf.1, %sw.bb442 ], [ %tmp_buf.1, %if.end436 ], [ %tmp_buf.1, %if.end431 ], [ %tmp_buf.1, %sw.bb406 ], [ %tmp_buf.1, %lor.lhs.false414 ], [ %tmp_buf.1, %lor.lhs.false419 ], [ %tmp_buf.4, %land.lhs.true398 ], [ %tmp_buf.4, %s_lock.exit552 ], [ %call369, %land.lhs.true367 ], [ %tmp_buf.1, %sw.bb355 ], [ %tmp_buf.3, %land.lhs.true347 ], [ %tmp_buf.3, %if.end317 ], [ %call313, %land.lhs.true311 ], [ %tmp_buf.1, %sw.bb286 ], [ %tmp_buf.1, %sw.bb279 ], [ %tmp_buf.1, %sw.bb271 ], [ %tmp_buf.1, %s_lock.exit510 ], [ %tmp_buf.1, %lor.lhs.false265 ], [ %tmp_buf.1, %sw.bb251 ], [ %tmp_buf.1, %if.end234 ], [ %tmp_buf.1, %lor.lhs.false242 ], [ %tmp_buf.1, %lor.lhs.false245 ], [ %tmp_buf.1, %sw.bb230 ], [ %tmp_buf.1, %land.lhs.true224 ], [ %tmp_buf.1, %sw.bb199 ], [ %call182, %if.end186 ], [ %tmp_buf.1, %sw.bb176 ], [ %call182, %lor.lhs.false180 ], [ %tmp_buf.1, %if.end169 ], [ %tmp_buf.1, %sw.bb141 ], [ %tmp_buf.1, %if.end123 ], [ %tmp_buf.1, %sw.bb119 ]
-  %tobool1153.not = phi i1 [ true, %sw.default ], [ true, %sw.default1151 ], [ true, %if.then986 ], [ true, %if.then948 ], [ true, %if.then790 ], [ true, %if.then770 ], [ true, %if.then734 ], [ true, %if.then659 ], [ true, %if.then615 ], [ true, %if.then429 ], [ true, %if.then341 ], [ true, %if.then330 ], [ true, %if.then299 ], [ true, %if.then218 ], [ false, %if.end118 ], [ true, %sw.bb82 ], [ true, %if.then28 ], [ true, %helper_local_init.exit ], [ true, %for.body1002 ], [ true, %if.end1027 ], [ true, %sw.bb119 ], [ true, %if.end123 ], [ true, %sw.bb141 ], [ true, %if.end169 ], [ true, %lor.lhs.false180 ], [ true, %sw.bb176 ], [ true, %if.end186 ], [ true, %sw.bb199 ], [ true, %land.lhs.true224 ], [ true, %sw.bb230 ], [ true, %lor.lhs.false245 ], [ true, %lor.lhs.false242 ], [ true, %if.end234 ], [ true, %sw.bb251 ], [ true, %lor.lhs.false265 ], [ true, %s_lock.exit510 ], [ true, %sw.bb271 ], [ true, %sw.bb279 ], [ true, %sw.bb286 ], [ true, %land.lhs.true311 ], [ true, %if.end317 ], [ true, %land.lhs.true347 ], [ true, %sw.bb355 ], [ true, %land.lhs.true367 ], [ true, %s_lock.exit552 ], [ true, %land.lhs.true398 ], [ true, %lor.lhs.false419 ], [ true, %lor.lhs.false414 ], [ true, %sw.bb406 ], [ true, %if.end431 ], [ true, %if.end436 ], [ true, %sw.bb442 ], [ true, %sw.bb455 ], [ true, %if.end459 ], [ true, %if.end464 ], [ true, %helper_local_set_c_stream.exit ], [ true, %sw.bb479 ], [ true, %if.end483 ], [ true, %if.end488 ], [ true, %helper_local_set_c_stream.exit659 ], [ true, %sw.bb505 ], [ true, %if.end514 ], [ true, %land.lhs.true523 ], [ true, %if.then532 ], [ true, %land.lhs.true544 ], [ true, %helper_local_set_c_stream.exit682 ], [ true, %sw.bb559 ], [ true, %if.end563 ], [ true, %s_lock.exit703 ], [ true, %land.lhs.true583 ], [ true, %if.end588 ], [ true, %sw.bb597 ], [ true, %if.end602 ], [ true, %helper_local_set_c_stream.exit725 ], [ true, %sw.bb626 ], [ true, %if.end630 ], [ true, %if.end644 ], [ true, %lor.lhs.false664 ], [ true, %sw.bb661 ], [ true, %if.end672 ], [ true, %helper_local_set_c_stream.exit789 ], [ true, %sw.bb686 ], [ true, %if.end690 ], [ true, %sw.bb700 ], [ true, %if.end704 ], [ true, %sw.bb714 ], [ true, %if.end721 ], [ true, %sw.bb741 ], [ true, %land.lhs.true757 ], [ true, %s_lock.exit894 ], [ true, %lor.lhs.false827 ], [ true, %lor.lhs.false824 ], [ true, %if.end820 ], [ true, %sw.bb835 ], [ true, %if.end839 ], [ true, %if.end844 ], [ true, %sw.bb854 ], [ true, %if.end858 ], [ true, %if.end863 ], [ true, %sw.bb872 ], [ true, %lor.lhs.false884 ], [ true, %if.end878 ], [ true, %sw.bb889 ], [ true, %s_lock.exit915 ], [ true, %sw.bb903 ], [ true, %if.end910 ], [ true, %if.end918 ], [ true, %sw.bb923 ], [ true, %if.end930 ], [ true, %if.end938 ], [ true, %sw.bb951 ], [ true, %s_lock.exit938 ], [ true, %sw.bb967 ], [ true, %if.end972 ], [ true, %if.end987 ], [ true, %sw.bb1046 ], [ true, %if.end1053 ], [ true, %sw.bb1059 ], [ true, %sw.bb1068 ], [ true, %sw.bb1079 ], [ true, %sw.bb1091 ], [ true, %sw.bb1105 ], [ true, %sw.bb1129 ], [ true, %if.end1133 ], [ true, %s_lock.exit987 ]
-  %testresult.0 = phi i32 [ 0, %sw.default ], [ 0, %sw.default1151 ], [ 0, %if.then986 ], [ 0, %if.then948 ], [ 0, %if.then790 ], [ 0, %if.then770 ], [ 0, %if.then734 ], [ 0, %if.then659 ], [ 0, %if.then615 ], [ 0, %if.then429 ], [ 0, %if.then341 ], [ 0, %if.then330 ], [ 0, %if.then299 ], [ 0, %if.then218 ], [ 1, %if.end118 ], [ 0, %sw.bb82 ], [ 0, %if.then28 ], [ 0, %helper_local_init.exit ], [ 0, %for.body1002 ], [ 0, %if.end1027 ], [ 0, %sw.bb119 ], [ 0, %if.end123 ], [ 0, %sw.bb141 ], [ 0, %if.end169 ], [ 0, %lor.lhs.false180 ], [ 0, %sw.bb176 ], [ 0, %if.end186 ], [ 0, %sw.bb199 ], [ 0, %land.lhs.true224 ], [ 0, %sw.bb230 ], [ 0, %lor.lhs.false245 ], [ 0, %lor.lhs.false242 ], [ 0, %if.end234 ], [ 0, %sw.bb251 ], [ 0, %lor.lhs.false265 ], [ 0, %s_lock.exit510 ], [ 0, %sw.bb271 ], [ 0, %sw.bb279 ], [ 0, %sw.bb286 ], [ 0, %land.lhs.true311 ], [ 0, %if.end317 ], [ 0, %land.lhs.true347 ], [ 0, %sw.bb355 ], [ 0, %land.lhs.true367 ], [ 0, %s_lock.exit552 ], [ 0, %land.lhs.true398 ], [ 0, %lor.lhs.false419 ], [ 0, %lor.lhs.false414 ], [ 0, %sw.bb406 ], [ 0, %if.end431 ], [ 0, %if.end436 ], [ 0, %sw.bb442 ], [ 0, %sw.bb455 ], [ 0, %if.end459 ], [ 0, %if.end464 ], [ 0, %helper_local_set_c_stream.exit ], [ 0, %sw.bb479 ], [ 0, %if.end483 ], [ 0, %if.end488 ], [ 0, %helper_local_set_c_stream.exit659 ], [ 0, %sw.bb505 ], [ 0, %if.end514 ], [ 0, %land.lhs.true523 ], [ 0, %if.then532 ], [ 0, %land.lhs.true544 ], [ 0, %helper_local_set_c_stream.exit682 ], [ 0, %sw.bb559 ], [ 0, %if.end563 ], [ 0, %s_lock.exit703 ], [ 0, %land.lhs.true583 ], [ 0, %if.end588 ], [ 0, %sw.bb597 ], [ 0, %if.end602 ], [ 0, %helper_local_set_c_stream.exit725 ], [ 0, %sw.bb626 ], [ 0, %if.end630 ], [ 0, %if.end644 ], [ 0, %lor.lhs.false664 ], [ 0, %sw.bb661 ], [ 0, %if.end672 ], [ 0, %helper_local_set_c_stream.exit789 ], [ 0, %sw.bb686 ], [ 0, %if.end690 ], [ 0, %sw.bb700 ], [ 0, %if.end704 ], [ 0, %sw.bb714 ], [ 0, %if.end721 ], [ 0, %sw.bb741 ], [ 0, %land.lhs.true757 ], [ 0, %s_lock.exit894 ], [ 0, %lor.lhs.false827 ], [ 0, %lor.lhs.false824 ], [ 0, %if.end820 ], [ 0, %sw.bb835 ], [ 0, %if.end839 ], [ 0, %if.end844 ], [ 0, %sw.bb854 ], [ 0, %if.end858 ], [ 0, %if.end863 ], [ 0, %sw.bb872 ], [ 0, %lor.lhs.false884 ], [ 0, %if.end878 ], [ 0, %sw.bb889 ], [ 0, %s_lock.exit915 ], [ 0, %sw.bb903 ], [ 0, %if.end910 ], [ 0, %if.end918 ], [ 0, %sw.bb923 ], [ 0, %if.end930 ], [ 0, %if.end938 ], [ 0, %sw.bb951 ], [ 0, %s_lock.exit938 ], [ 0, %sw.bb967 ], [ 0, %if.end972 ], [ 0, %if.end987 ], [ 0, %sw.bb1046 ], [ 0, %if.end1053 ], [ 0, %sw.bb1059 ], [ 0, %sw.bb1068 ], [ 0, %sw.bb1079 ], [ 0, %sw.bb1091 ], [ 0, %sw.bb1105 ], [ 0, %sw.bb1129 ], [ 0, %if.end1133 ], [ 0, %s_lock.exit987 ]
+out:                                              ; preds = %s_lock.exit986, %if.end1133, %sw.bb1129, %sw.bb1105, %sw.bb1091, %sw.bb1079, %sw.bb1068, %sw.bb1059, %if.end1053, %sw.bb1046, %if.end987, %if.end972, %sw.bb967, %s_lock.exit937, %sw.bb951, %if.end938, %if.end930, %sw.bb923, %if.end918, %if.end910, %sw.bb903, %s_lock.exit914, %sw.bb889, %if.end878, %lor.lhs.false884, %sw.bb872, %if.end863, %if.end858, %sw.bb854, %if.end844, %if.end839, %sw.bb835, %if.end820, %lor.lhs.false824, %lor.lhs.false827, %s_lock.exit893, %land.lhs.true757, %sw.bb741, %if.end721, %sw.bb714, %if.end704, %sw.bb700, %if.end690, %sw.bb686, %helper_local_set_c_stream.exit788, %if.end672, %sw.bb661, %lor.lhs.false664, %if.end644, %if.end630, %sw.bb626, %helper_local_set_c_stream.exit724, %if.end602, %sw.bb597, %if.end588, %land.lhs.true583, %s_lock.exit702, %if.end563, %sw.bb559, %helper_local_set_c_stream.exit681, %land.lhs.true544, %if.then532, %land.lhs.true523, %if.end514, %sw.bb505, %helper_local_set_c_stream.exit658, %if.end488, %if.end483, %sw.bb479, %helper_local_set_c_stream.exit, %if.end464, %if.end459, %sw.bb455, %sw.bb442, %if.end436, %if.end431, %sw.bb406, %lor.lhs.false414, %lor.lhs.false419, %land.lhs.true398, %s_lock.exit551, %land.lhs.true367, %sw.bb355, %land.lhs.true347, %if.end317, %land.lhs.true311, %sw.bb286, %sw.bb279, %sw.bb271, %s_lock.exit509, %lor.lhs.false265, %sw.bb251, %if.end234, %lor.lhs.false242, %lor.lhs.false245, %sw.bb230, %land.lhs.true224, %sw.bb199, %if.end186, %sw.bb176, %lor.lhs.false180, %if.end169, %sw.bb141, %if.end123, %sw.bb119, %if.end1027, %for.body1002, %sw.bb82, %helper_local_init.exit, %sw.default1151, %if.then986, %if.then948, %if.then790, %if.then770, %if.then734, %if.then659, %if.then615, %if.then429, %if.then341, %if.then330, %if.then299, %if.then218, %if.end118, %sw.default, %if.then28
+  %repeat_stack_len.0 = phi i64 [ %repeat_stack_len.1, %sw.default ], [ %repeat_stack_len.1, %sw.default1151 ], [ %repeat_stack_len.1, %if.then986 ], [ %repeat_stack_len.1, %if.then948 ], [ %repeat_stack_len.1, %if.then790 ], [ %repeat_stack_len.1, %if.then770 ], [ %repeat_stack_len.1, %if.then734 ], [ %repeat_stack_len.1, %if.then659 ], [ %repeat_stack_len.1, %if.then615 ], [ %repeat_stack_len.1, %if.then429 ], [ %repeat_stack_len.1, %if.then341 ], [ %repeat_stack_len.1, %if.then330 ], [ %repeat_stack_len.1, %if.then299 ], [ %repeat_stack_len.1, %if.then218 ], [ %repeat_stack_len.1, %if.end118 ], [ %repeat_stack_len.1, %sw.bb82 ], [ %repeat_stack_len.1, %if.then28 ], [ 0, %helper_local_init.exit ], [ %repeat_stack_len.1, %for.body1002 ], [ %repeat_stack_len.1, %if.end1027 ], [ %repeat_stack_len.1, %sw.bb119 ], [ %repeat_stack_len.1, %if.end123 ], [ %repeat_stack_len.1, %sw.bb141 ], [ %repeat_stack_len.1, %if.end169 ], [ %repeat_stack_len.1, %lor.lhs.false180 ], [ %repeat_stack_len.1, %sw.bb176 ], [ %repeat_stack_len.1, %if.end186 ], [ %repeat_stack_len.1, %sw.bb199 ], [ %repeat_stack_len.1, %land.lhs.true224 ], [ %repeat_stack_len.1, %sw.bb230 ], [ %repeat_stack_len.1, %lor.lhs.false245 ], [ %repeat_stack_len.1, %lor.lhs.false242 ], [ %repeat_stack_len.1, %if.end234 ], [ %repeat_stack_len.1, %sw.bb251 ], [ %repeat_stack_len.1, %lor.lhs.false265 ], [ %repeat_stack_len.1, %s_lock.exit509 ], [ %repeat_stack_len.1, %sw.bb271 ], [ %repeat_stack_len.1, %sw.bb279 ], [ %repeat_stack_len.1, %sw.bb286 ], [ %repeat_stack_len.1, %land.lhs.true311 ], [ %repeat_stack_len.1, %if.end317 ], [ %repeat_stack_len.1, %land.lhs.true347 ], [ %repeat_stack_len.1, %sw.bb355 ], [ %repeat_stack_len.1, %land.lhs.true367 ], [ %repeat_stack_len.1, %s_lock.exit551 ], [ %repeat_stack_len.1, %land.lhs.true398 ], [ %repeat_stack_len.1, %lor.lhs.false419 ], [ %repeat_stack_len.1, %lor.lhs.false414 ], [ %repeat_stack_len.1, %sw.bb406 ], [ %repeat_stack_len.1, %if.end431 ], [ %repeat_stack_len.1, %if.end436 ], [ %repeat_stack_len.1, %sw.bb442 ], [ %repeat_stack_len.1, %sw.bb455 ], [ %repeat_stack_len.1, %if.end459 ], [ %repeat_stack_len.1, %if.end464 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit ], [ %repeat_stack_len.1, %sw.bb479 ], [ %repeat_stack_len.1, %if.end483 ], [ %repeat_stack_len.1, %if.end488 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit658 ], [ %repeat_stack_len.1, %sw.bb505 ], [ %repeat_stack_len.1, %if.end514 ], [ %repeat_stack_len.1, %land.lhs.true523 ], [ %repeat_stack_len.1, %if.then532 ], [ %repeat_stack_len.1, %land.lhs.true544 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit681 ], [ %repeat_stack_len.1, %sw.bb559 ], [ %repeat_stack_len.1, %if.end563 ], [ %repeat_stack_len.1, %s_lock.exit702 ], [ %repeat_stack_len.1, %land.lhs.true583 ], [ %repeat_stack_len.1, %if.end588 ], [ %repeat_stack_len.1, %sw.bb597 ], [ %repeat_stack_len.1, %if.end602 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit724 ], [ %repeat_stack_len.1, %sw.bb626 ], [ %repeat_stack_len.1, %if.end630 ], [ %repeat_stack_len.1, %if.end644 ], [ %repeat_stack_len.1, %lor.lhs.false664 ], [ %repeat_stack_len.1, %sw.bb661 ], [ %repeat_stack_len.1, %if.end672 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit788 ], [ %repeat_stack_len.1, %sw.bb686 ], [ %repeat_stack_len.1, %if.end690 ], [ %repeat_stack_len.1, %sw.bb700 ], [ %repeat_stack_len.1, %if.end704 ], [ %repeat_stack_len.1, %sw.bb714 ], [ %repeat_stack_len.1, %if.end721 ], [ %repeat_stack_len.1, %sw.bb741 ], [ %repeat_stack_len.1, %land.lhs.true757 ], [ %repeat_stack_len.1, %s_lock.exit893 ], [ %repeat_stack_len.1, %lor.lhs.false827 ], [ %repeat_stack_len.1, %lor.lhs.false824 ], [ %repeat_stack_len.1, %if.end820 ], [ %repeat_stack_len.1, %sw.bb835 ], [ %repeat_stack_len.1, %if.end839 ], [ %repeat_stack_len.1, %if.end844 ], [ %repeat_stack_len.1, %sw.bb854 ], [ %repeat_stack_len.1, %if.end858 ], [ %repeat_stack_len.1, %if.end863 ], [ %repeat_stack_len.1, %sw.bb872 ], [ %repeat_stack_len.1, %lor.lhs.false884 ], [ %repeat_stack_len.1, %if.end878 ], [ %repeat_stack_len.1, %sw.bb889 ], [ %repeat_stack_len.1, %s_lock.exit914 ], [ %repeat_stack_len.1, %sw.bb903 ], [ %repeat_stack_len.1, %if.end910 ], [ %repeat_stack_len.1, %if.end918 ], [ %repeat_stack_len.1, %sw.bb923 ], [ %repeat_stack_len.1, %if.end930 ], [ %repeat_stack_len.1, %if.end938 ], [ %repeat_stack_len.1, %sw.bb951 ], [ %repeat_stack_len.1, %s_lock.exit937 ], [ %repeat_stack_len.1, %sw.bb967 ], [ %repeat_stack_len.1, %if.end972 ], [ %repeat_stack_len.1, %if.end987 ], [ %repeat_stack_len.1, %sw.bb1046 ], [ %repeat_stack_len.1, %if.end1053 ], [ %repeat_stack_len.1, %sw.bb1059 ], [ %repeat_stack_len.1, %sw.bb1068 ], [ %repeat_stack_len.1, %sw.bb1079 ], [ %repeat_stack_len.1, %sw.bb1091 ], [ %repeat_stack_len.1, %sw.bb1105 ], [ %repeat_stack_len.1, %sw.bb1129 ], [ %repeat_stack_len.1, %if.end1133 ], [ %repeat_stack_len.1, %s_lock.exit986 ]
+  %op_idx.0 = phi i64 [ %op_idx.2, %sw.default ], [ %op_idx.2, %sw.default1151 ], [ %op_idx.2, %if.then986 ], [ %op_idx.2, %if.then948 ], [ %op_idx.2, %if.then790 ], [ %op_idx.2, %if.then770 ], [ %op_idx.2, %if.then734 ], [ %op_idx.2, %if.then659 ], [ %op_idx.2, %if.then615 ], [ %op_idx.2, %if.then429 ], [ %op_idx.2, %if.then341 ], [ %op_idx.2, %if.then330 ], [ %op_idx.2, %if.then299 ], [ %op_idx.2, %if.then218 ], [ %op_idx.2, %if.end118 ], [ %op_idx.2, %sw.bb82 ], [ %op_idx.2, %if.then28 ], [ 0, %helper_local_init.exit ], [ %op_idx.2, %for.body1002 ], [ %op_idx.2, %if.end1027 ], [ %op_idx.2, %sw.bb119 ], [ %op_idx.2, %if.end123 ], [ %op_idx.2, %sw.bb141 ], [ %op_idx.2, %if.end169 ], [ %op_idx.2, %lor.lhs.false180 ], [ %op_idx.2, %sw.bb176 ], [ %op_idx.2, %if.end186 ], [ %op_idx.2, %sw.bb199 ], [ %op_idx.2, %land.lhs.true224 ], [ %op_idx.2, %sw.bb230 ], [ %op_idx.2, %lor.lhs.false245 ], [ %op_idx.2, %lor.lhs.false242 ], [ %op_idx.2, %if.end234 ], [ %op_idx.2, %sw.bb251 ], [ %op_idx.2, %lor.lhs.false265 ], [ %op_idx.2, %s_lock.exit509 ], [ %op_idx.2, %sw.bb271 ], [ %op_idx.2, %sw.bb279 ], [ %op_idx.2, %sw.bb286 ], [ %op_idx.2, %land.lhs.true311 ], [ %op_idx.2, %if.end317 ], [ %op_idx.2, %land.lhs.true347 ], [ %op_idx.2, %sw.bb355 ], [ %op_idx.2, %land.lhs.true367 ], [ %op_idx.2, %s_lock.exit551 ], [ %op_idx.2, %land.lhs.true398 ], [ %op_idx.2, %lor.lhs.false419 ], [ %op_idx.2, %lor.lhs.false414 ], [ %op_idx.2, %sw.bb406 ], [ %op_idx.2, %if.end431 ], [ %op_idx.2, %if.end436 ], [ %op_idx.2, %sw.bb442 ], [ %op_idx.2, %sw.bb455 ], [ %op_idx.2, %if.end459 ], [ %op_idx.2, %if.end464 ], [ %op_idx.2, %helper_local_set_c_stream.exit ], [ %op_idx.2, %sw.bb479 ], [ %op_idx.2, %if.end483 ], [ %op_idx.2, %if.end488 ], [ %op_idx.2, %helper_local_set_c_stream.exit658 ], [ %op_idx.2, %sw.bb505 ], [ %op_idx.2, %if.end514 ], [ %op_idx.2, %land.lhs.true523 ], [ %op_idx.2, %if.then532 ], [ %op_idx.2, %land.lhs.true544 ], [ %op_idx.2, %helper_local_set_c_stream.exit681 ], [ %op_idx.2, %sw.bb559 ], [ %op_idx.2, %if.end563 ], [ %op_idx.2, %s_lock.exit702 ], [ %op_idx.2, %land.lhs.true583 ], [ %op_idx.2, %if.end588 ], [ %op_idx.2, %sw.bb597 ], [ %op_idx.2, %if.end602 ], [ %op_idx.2, %helper_local_set_c_stream.exit724 ], [ %op_idx.2, %sw.bb626 ], [ %op_idx.2, %if.end630 ], [ %op_idx.2, %if.end644 ], [ %op_idx.2, %lor.lhs.false664 ], [ %op_idx.2, %sw.bb661 ], [ %op_idx.2, %if.end672 ], [ %op_idx.2, %helper_local_set_c_stream.exit788 ], [ %op_idx.2, %sw.bb686 ], [ %op_idx.2, %if.end690 ], [ %op_idx.2, %sw.bb700 ], [ %op_idx.2, %if.end704 ], [ %op_idx.2, %sw.bb714 ], [ %op_idx.2, %if.end721 ], [ %op_idx.2, %sw.bb741 ], [ %op_idx.2, %land.lhs.true757 ], [ %op_idx.2, %s_lock.exit893 ], [ %op_idx.2, %lor.lhs.false827 ], [ %op_idx.2, %lor.lhs.false824 ], [ %op_idx.2, %if.end820 ], [ %op_idx.2, %sw.bb835 ], [ %op_idx.2, %if.end839 ], [ %op_idx.2, %if.end844 ], [ %op_idx.2, %sw.bb854 ], [ %op_idx.2, %if.end858 ], [ %op_idx.2, %if.end863 ], [ %op_idx.2, %sw.bb872 ], [ %op_idx.2, %lor.lhs.false884 ], [ %op_idx.2, %if.end878 ], [ %op_idx.2, %sw.bb889 ], [ %op_idx.2, %s_lock.exit914 ], [ %op_idx.2, %sw.bb903 ], [ %op_idx.2, %if.end910 ], [ %op_idx.2, %if.end918 ], [ %op_idx.2, %sw.bb923 ], [ %op_idx.2, %if.end930 ], [ %op_idx.2, %if.end938 ], [ %op_idx.2, %sw.bb951 ], [ %op_idx.2, %s_lock.exit937 ], [ %op_idx.2, %sw.bb967 ], [ %op_idx.2, %if.end972 ], [ %op_idx.2, %if.end987 ], [ %op_idx.2, %sw.bb1046 ], [ %op_idx.2, %if.end1053 ], [ %op_idx.2, %sw.bb1059 ], [ %op_idx.2, %sw.bb1068 ], [ %op_idx.2, %sw.bb1079 ], [ %op_idx.2, %sw.bb1091 ], [ %op_idx.2, %sw.bb1105 ], [ %op_idx.2, %sw.bb1129 ], [ %op_idx.2, %if.end1133 ], [ %op_idx.2, %s_lock.exit986 ]
+  %tmp_buf.0 = phi ptr [ %tmp_buf.1, %sw.default ], [ %tmp_buf.1, %sw.default1151 ], [ %tmp_buf.1, %if.then986 ], [ %tmp_buf.1, %if.then948 ], [ %tmp_buf.1, %if.then790 ], [ %tmp_buf.1, %if.then770 ], [ %tmp_buf.1, %if.then734 ], [ %tmp_buf.1, %if.then659 ], [ %tmp_buf.1, %if.then615 ], [ %tmp_buf.1, %if.then429 ], [ %tmp_buf.3, %if.then341 ], [ %tmp_buf.3, %if.then330 ], [ %tmp_buf.1, %if.then299 ], [ %tmp_buf.1, %if.then218 ], [ %tmp_buf.1, %if.end118 ], [ %tmp_buf.1, %sw.bb82 ], [ %tmp_buf.1, %if.then28 ], [ null, %helper_local_init.exit ], [ %tmp_buf.1, %for.body1002 ], [ %tmp_buf.1, %if.end1027 ], [ %tmp_buf.1, %s_lock.exit986 ], [ %tmp_buf.1, %if.end1133 ], [ %tmp_buf.1, %sw.bb1129 ], [ %tmp_buf.1, %sw.bb1105 ], [ %tmp_buf.1, %sw.bb1091 ], [ %tmp_buf.1, %sw.bb1079 ], [ %tmp_buf.1, %sw.bb1068 ], [ %tmp_buf.1, %sw.bb1059 ], [ %tmp_buf.1, %if.end1053 ], [ %tmp_buf.1, %sw.bb1046 ], [ %tmp_buf.1, %if.end987 ], [ %tmp_buf.1, %if.end972 ], [ %tmp_buf.1, %sw.bb967 ], [ %tmp_buf.1, %s_lock.exit937 ], [ %tmp_buf.1, %sw.bb951 ], [ %tmp_buf.1, %if.end938 ], [ %tmp_buf.1, %if.end930 ], [ %tmp_buf.1, %sw.bb923 ], [ %tmp_buf.1, %if.end918 ], [ %tmp_buf.1, %if.end910 ], [ %tmp_buf.1, %sw.bb903 ], [ %tmp_buf.1, %s_lock.exit914 ], [ %tmp_buf.1, %sw.bb889 ], [ %tmp_buf.1, %if.end878 ], [ %tmp_buf.1, %lor.lhs.false884 ], [ %tmp_buf.1, %sw.bb872 ], [ %tmp_buf.1, %if.end863 ], [ %tmp_buf.1, %if.end858 ], [ %tmp_buf.1, %sw.bb854 ], [ %tmp_buf.1, %if.end844 ], [ %tmp_buf.1, %if.end839 ], [ %tmp_buf.1, %sw.bb835 ], [ %tmp_buf.1, %if.end820 ], [ %tmp_buf.1, %lor.lhs.false824 ], [ %tmp_buf.1, %lor.lhs.false827 ], [ %tmp_buf.1, %s_lock.exit893 ], [ %tmp_buf.1, %land.lhs.true757 ], [ %tmp_buf.1, %sw.bb741 ], [ %tmp_buf.1, %if.end721 ], [ %tmp_buf.1, %sw.bb714 ], [ %tmp_buf.1, %if.end704 ], [ %tmp_buf.1, %sw.bb700 ], [ %tmp_buf.1, %if.end690 ], [ %tmp_buf.1, %sw.bb686 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit788 ], [ %tmp_buf.1, %if.end672 ], [ %tmp_buf.1, %sw.bb661 ], [ %tmp_buf.1, %lor.lhs.false664 ], [ %tmp_buf.1, %if.end644 ], [ %tmp_buf.1, %if.end630 ], [ %tmp_buf.1, %sw.bb626 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit724 ], [ %tmp_buf.1, %if.end602 ], [ %tmp_buf.1, %sw.bb597 ], [ %tmp_buf.1, %if.end588 ], [ %tmp_buf.1, %land.lhs.true583 ], [ %tmp_buf.1, %s_lock.exit702 ], [ %tmp_buf.1, %if.end563 ], [ %tmp_buf.1, %sw.bb559 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit681 ], [ %tmp_buf.1, %land.lhs.true544 ], [ %tmp_buf.1, %if.then532 ], [ %tmp_buf.1, %land.lhs.true523 ], [ %tmp_buf.1, %if.end514 ], [ %tmp_buf.1, %sw.bb505 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit658 ], [ %tmp_buf.1, %if.end488 ], [ %tmp_buf.1, %if.end483 ], [ %tmp_buf.1, %sw.bb479 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit ], [ %tmp_buf.1, %if.end464 ], [ %tmp_buf.1, %if.end459 ], [ %tmp_buf.1, %sw.bb455 ], [ %tmp_buf.1, %sw.bb442 ], [ %tmp_buf.1, %if.end436 ], [ %tmp_buf.1, %if.end431 ], [ %tmp_buf.1, %sw.bb406 ], [ %tmp_buf.1, %lor.lhs.false414 ], [ %tmp_buf.1, %lor.lhs.false419 ], [ %tmp_buf.4, %land.lhs.true398 ], [ %tmp_buf.4, %s_lock.exit551 ], [ %call369, %land.lhs.true367 ], [ %tmp_buf.1, %sw.bb355 ], [ %tmp_buf.3, %land.lhs.true347 ], [ %tmp_buf.3, %if.end317 ], [ %call313, %land.lhs.true311 ], [ %tmp_buf.1, %sw.bb286 ], [ %tmp_buf.1, %sw.bb279 ], [ %tmp_buf.1, %sw.bb271 ], [ %tmp_buf.1, %s_lock.exit509 ], [ %tmp_buf.1, %lor.lhs.false265 ], [ %tmp_buf.1, %sw.bb251 ], [ %tmp_buf.1, %if.end234 ], [ %tmp_buf.1, %lor.lhs.false242 ], [ %tmp_buf.1, %lor.lhs.false245 ], [ %tmp_buf.1, %sw.bb230 ], [ %tmp_buf.1, %land.lhs.true224 ], [ %tmp_buf.1, %sw.bb199 ], [ %call182, %if.end186 ], [ %tmp_buf.1, %sw.bb176 ], [ %call182, %lor.lhs.false180 ], [ %tmp_buf.1, %if.end169 ], [ %tmp_buf.1, %sw.bb141 ], [ %tmp_buf.1, %if.end123 ], [ %tmp_buf.1, %sw.bb119 ]
+  %tobool1153.not = phi i1 [ true, %sw.default ], [ true, %sw.default1151 ], [ true, %if.then986 ], [ true, %if.then948 ], [ true, %if.then790 ], [ true, %if.then770 ], [ true, %if.then734 ], [ true, %if.then659 ], [ true, %if.then615 ], [ true, %if.then429 ], [ true, %if.then341 ], [ true, %if.then330 ], [ true, %if.then299 ], [ true, %if.then218 ], [ false, %if.end118 ], [ true, %sw.bb82 ], [ true, %if.then28 ], [ true, %helper_local_init.exit ], [ true, %for.body1002 ], [ true, %if.end1027 ], [ true, %sw.bb119 ], [ true, %if.end123 ], [ true, %sw.bb141 ], [ true, %if.end169 ], [ true, %lor.lhs.false180 ], [ true, %sw.bb176 ], [ true, %if.end186 ], [ true, %sw.bb199 ], [ true, %land.lhs.true224 ], [ true, %sw.bb230 ], [ true, %lor.lhs.false245 ], [ true, %lor.lhs.false242 ], [ true, %if.end234 ], [ true, %sw.bb251 ], [ true, %lor.lhs.false265 ], [ true, %s_lock.exit509 ], [ true, %sw.bb271 ], [ true, %sw.bb279 ], [ true, %sw.bb286 ], [ true, %land.lhs.true311 ], [ true, %if.end317 ], [ true, %land.lhs.true347 ], [ true, %sw.bb355 ], [ true, %land.lhs.true367 ], [ true, %s_lock.exit551 ], [ true, %land.lhs.true398 ], [ true, %lor.lhs.false419 ], [ true, %lor.lhs.false414 ], [ true, %sw.bb406 ], [ true, %if.end431 ], [ true, %if.end436 ], [ true, %sw.bb442 ], [ true, %sw.bb455 ], [ true, %if.end459 ], [ true, %if.end464 ], [ true, %helper_local_set_c_stream.exit ], [ true, %sw.bb479 ], [ true, %if.end483 ], [ true, %if.end488 ], [ true, %helper_local_set_c_stream.exit658 ], [ true, %sw.bb505 ], [ true, %if.end514 ], [ true, %land.lhs.true523 ], [ true, %if.then532 ], [ true, %land.lhs.true544 ], [ true, %helper_local_set_c_stream.exit681 ], [ true, %sw.bb559 ], [ true, %if.end563 ], [ true, %s_lock.exit702 ], [ true, %land.lhs.true583 ], [ true, %if.end588 ], [ true, %sw.bb597 ], [ true, %if.end602 ], [ true, %helper_local_set_c_stream.exit724 ], [ true, %sw.bb626 ], [ true, %if.end630 ], [ true, %if.end644 ], [ true, %lor.lhs.false664 ], [ true, %sw.bb661 ], [ true, %if.end672 ], [ true, %helper_local_set_c_stream.exit788 ], [ true, %sw.bb686 ], [ true, %if.end690 ], [ true, %sw.bb700 ], [ true, %if.end704 ], [ true, %sw.bb714 ], [ true, %if.end721 ], [ true, %sw.bb741 ], [ true, %land.lhs.true757 ], [ true, %s_lock.exit893 ], [ true, %lor.lhs.false827 ], [ true, %lor.lhs.false824 ], [ true, %if.end820 ], [ true, %sw.bb835 ], [ true, %if.end839 ], [ true, %if.end844 ], [ true, %sw.bb854 ], [ true, %if.end858 ], [ true, %if.end863 ], [ true, %sw.bb872 ], [ true, %lor.lhs.false884 ], [ true, %if.end878 ], [ true, %sw.bb889 ], [ true, %s_lock.exit914 ], [ true, %sw.bb903 ], [ true, %if.end910 ], [ true, %if.end918 ], [ true, %sw.bb923 ], [ true, %if.end930 ], [ true, %if.end938 ], [ true, %sw.bb951 ], [ true, %s_lock.exit937 ], [ true, %sw.bb967 ], [ true, %if.end972 ], [ true, %if.end987 ], [ true, %sw.bb1046 ], [ true, %if.end1053 ], [ true, %sw.bb1059 ], [ true, %sw.bb1068 ], [ true, %sw.bb1079 ], [ true, %sw.bb1091 ], [ true, %sw.bb1105 ], [ true, %sw.bb1129 ], [ true, %if.end1133 ], [ true, %s_lock.exit986 ]
+  %testresult.0 = phi i32 [ 0, %sw.default ], [ 0, %sw.default1151 ], [ 0, %if.then986 ], [ 0, %if.then948 ], [ 0, %if.then790 ], [ 0, %if.then770 ], [ 0, %if.then734 ], [ 0, %if.then659 ], [ 0, %if.then615 ], [ 0, %if.then429 ], [ 0, %if.then341 ], [ 0, %if.then330 ], [ 0, %if.then299 ], [ 0, %if.then218 ], [ 1, %if.end118 ], [ 0, %sw.bb82 ], [ 0, %if.then28 ], [ 0, %helper_local_init.exit ], [ 0, %for.body1002 ], [ 0, %if.end1027 ], [ 0, %sw.bb119 ], [ 0, %if.end123 ], [ 0, %sw.bb141 ], [ 0, %if.end169 ], [ 0, %lor.lhs.false180 ], [ 0, %sw.bb176 ], [ 0, %if.end186 ], [ 0, %sw.bb199 ], [ 0, %land.lhs.true224 ], [ 0, %sw.bb230 ], [ 0, %lor.lhs.false245 ], [ 0, %lor.lhs.false242 ], [ 0, %if.end234 ], [ 0, %sw.bb251 ], [ 0, %lor.lhs.false265 ], [ 0, %s_lock.exit509 ], [ 0, %sw.bb271 ], [ 0, %sw.bb279 ], [ 0, %sw.bb286 ], [ 0, %land.lhs.true311 ], [ 0, %if.end317 ], [ 0, %land.lhs.true347 ], [ 0, %sw.bb355 ], [ 0, %land.lhs.true367 ], [ 0, %s_lock.exit551 ], [ 0, %land.lhs.true398 ], [ 0, %lor.lhs.false419 ], [ 0, %lor.lhs.false414 ], [ 0, %sw.bb406 ], [ 0, %if.end431 ], [ 0, %if.end436 ], [ 0, %sw.bb442 ], [ 0, %sw.bb455 ], [ 0, %if.end459 ], [ 0, %if.end464 ], [ 0, %helper_local_set_c_stream.exit ], [ 0, %sw.bb479 ], [ 0, %if.end483 ], [ 0, %if.end488 ], [ 0, %helper_local_set_c_stream.exit658 ], [ 0, %sw.bb505 ], [ 0, %if.end514 ], [ 0, %land.lhs.true523 ], [ 0, %if.then532 ], [ 0, %land.lhs.true544 ], [ 0, %helper_local_set_c_stream.exit681 ], [ 0, %sw.bb559 ], [ 0, %if.end563 ], [ 0, %s_lock.exit702 ], [ 0, %land.lhs.true583 ], [ 0, %if.end588 ], [ 0, %sw.bb597 ], [ 0, %if.end602 ], [ 0, %helper_local_set_c_stream.exit724 ], [ 0, %sw.bb626 ], [ 0, %if.end630 ], [ 0, %if.end644 ], [ 0, %lor.lhs.false664 ], [ 0, %sw.bb661 ], [ 0, %if.end672 ], [ 0, %helper_local_set_c_stream.exit788 ], [ 0, %sw.bb686 ], [ 0, %if.end690 ], [ 0, %sw.bb700 ], [ 0, %if.end704 ], [ 0, %sw.bb714 ], [ 0, %if.end721 ], [ 0, %sw.bb741 ], [ 0, %land.lhs.true757 ], [ 0, %s_lock.exit893 ], [ 0, %lor.lhs.false827 ], [ 0, %lor.lhs.false824 ], [ 0, %if.end820 ], [ 0, %sw.bb835 ], [ 0, %if.end839 ], [ 0, %if.end844 ], [ 0, %sw.bb854 ], [ 0, %if.end858 ], [ 0, %if.end863 ], [ 0, %sw.bb872 ], [ 0, %lor.lhs.false884 ], [ 0, %if.end878 ], [ 0, %sw.bb889 ], [ 0, %s_lock.exit914 ], [ 0, %sw.bb903 ], [ 0, %if.end910 ], [ 0, %if.end918 ], [ 0, %sw.bb923 ], [ 0, %if.end930 ], [ 0, %if.end938 ], [ 0, %sw.bb951 ], [ 0, %s_lock.exit937 ], [ 0, %sw.bb967 ], [ 0, %if.end972 ], [ 0, %if.end987 ], [ 0, %sw.bb1046 ], [ 0, %if.end1053 ], [ 0, %sw.bb1059 ], [ 0, %sw.bb1068 ], [ 0, %sw.bb1079 ], [ 0, %sw.bb1091 ], [ 0, %sw.bb1105 ], [ 0, %sw.bb1129 ], [ 0, %if.end1133 ], [ 0, %s_lock.exit986 ]
   %hl_.val411 = load i32, ptr %thread_idx2.i, align 8
-  %cmp.i.i988 = icmp slt i32 %hl_.val411, 0
-  br i1 %cmp.i.i988, label %cond.true.i.i1001, label %cond.false.i.i989
+  %cmp.i.i987 = icmp slt i32 %hl_.val411, 0
+  br i1 %cmp.i.i987, label %cond.true.i.i1000, label %cond.false.i.i988
 
-cond.true.i.i1001:                                ; preds = %out
-  %s_checked_out.i.i1002 = getelementptr inbounds i8, ptr %h, i64 312
-  br label %s_checked_out_p.exit.i993
+cond.true.i.i1000:                                ; preds = %out
+  %s_checked_out.i.i1001 = getelementptr inbounds i8, ptr %h, i64 312
+  br label %s_checked_out_p.exit.i992
 
-cond.false.i.i989:                                ; preds = %out
-  %threads.i.i990 = getelementptr inbounds i8, ptr %h, i64 128
-  %244 = load ptr, ptr %threads.i.i990, align 8
-  %idxprom.i.i991 = zext nneg i32 %hl_.val411 to i64
-  %s_checked_out1.i.i992 = getelementptr inbounds %struct.child_thread_args, ptr %244, i64 %idxprom.i.i991, i32 8
-  br label %s_checked_out_p.exit.i993
+cond.false.i.i988:                                ; preds = %out
+  %threads.i.i989 = getelementptr inbounds i8, ptr %h, i64 128
+  %244 = load ptr, ptr %threads.i.i989, align 8
+  %idxprom.i.i990 = zext nneg i32 %hl_.val411 to i64
+  %s_checked_out1.i.i991 = getelementptr inbounds %struct.child_thread_args, ptr %244, i64 %idxprom.i.i990, i32 8
+  br label %s_checked_out_p.exit.i992
 
-s_checked_out_p.exit.i993:                        ; preds = %cond.false.i.i989, %cond.true.i.i1001
-  %cond.i.i994 = phi ptr [ %s_checked_out.i.i1002, %cond.true.i.i1001 ], [ %s_checked_out1.i.i992, %cond.false.i.i989 ]
-  %m.i995 = getelementptr inbounds i8, ptr %h, i64 288
-  %245 = load ptr, ptr %m.i995, align 8
-  %cmp.i996 = icmp eq ptr %245, null
-  br i1 %cmp.i996, label %s_unlock.exit1003, label %lor.lhs.false.i997
+s_checked_out_p.exit.i992:                        ; preds = %cond.false.i.i988, %cond.true.i.i1000
+  %cond.i.i993 = phi ptr [ %s_checked_out.i.i1001, %cond.true.i.i1000 ], [ %s_checked_out1.i.i991, %cond.false.i.i988 ]
+  %m.i994 = getelementptr inbounds i8, ptr %h, i64 288
+  %245 = load ptr, ptr %m.i994, align 8
+  %cmp.i995 = icmp eq ptr %245, null
+  br i1 %cmp.i995, label %s_unlock.exit1002, label %lor.lhs.false.i996
 
-lor.lhs.false.i997:                               ; preds = %s_checked_out_p.exit.i993
-  %246 = load i32, ptr %cond.i.i994, align 4
-  %tobool.not.i998 = icmp eq i32 %246, 0
-  br i1 %tobool.not.i998, label %s_unlock.exit1003, label %if.end.i999
+lor.lhs.false.i996:                               ; preds = %s_checked_out_p.exit.i992
+  %246 = load i32, ptr %cond.i.i993, align 4
+  %tobool.not.i997 = icmp eq i32 %246, 0
+  br i1 %tobool.not.i997, label %s_unlock.exit1002, label %if.end.i998
 
-if.end.i999:                                      ; preds = %lor.lhs.false.i997
-  store i32 0, ptr %cond.i.i994, align 4
-  %s.i1000 = getelementptr inbounds i8, ptr %h, i64 56
-  store ptr null, ptr %s.i1000, align 8
-  %247 = load ptr, ptr %m.i995, align 8
+if.end.i998:                                      ; preds = %lor.lhs.false.i996
+  store i32 0, ptr %cond.i.i993, align 4
+  %s.i999 = getelementptr inbounds i8, ptr %h, i64 56
+  store ptr null, ptr %s.i999, align 8
+  %247 = load ptr, ptr %m.i994, align 8
   call void @ossl_crypto_mutex_unlock(ptr noundef %247) #14
-  br label %s_unlock.exit1003
+  br label %s_unlock.exit1002
 
-s_unlock.exit1003:                                ; preds = %s_checked_out_p.exit.i993, %lor.lhs.false.i997, %if.end.i999
+s_unlock.exit1002:                                ; preds = %s_checked_out_p.exit.i992, %lor.lhs.false.i996, %if.end.i998
   br i1 %tobool1153.not, label %if.then1154, label %if.end1254
 
-if.then1154:                                      ; preds = %s_unlock.exit1003
+if.then1154:                                      ; preds = %s_unlock.exit1002
   %add1156 = add i64 %op_idx.0, 1
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 1952, ptr noundef nonnull @.str.142, ptr noundef %script_name, i64 noundef %add1156, i32 noundef %thread_idx) #14
-  %cmp11581123.not = icmp eq i64 %repeat_stack_len.0, 0
-  br i1 %cmp11581123.not, label %for.end1166, label %for.body1160
+  %cmp11581122.not = icmp eq i64 %repeat_stack_len.0, 0
+  br i1 %cmp11581122.not, label %for.end1166, label %for.body1160
 
 for.body1160:                                     ; preds = %if.then1154, %for.body1160
-  %i1155.01124 = phi i64 [ %inc1165, %for.body1160 ], [ 0, %if.then1154 ]
-  %arrayidx1161 = getelementptr inbounds [8 x i64], ptr %repeat_stack_done, i64 0, i64 %i1155.01124
+  %i1155.01123 = phi i64 [ %inc1165, %for.body1160 ], [ 0, %if.then1154 ]
+  %arrayidx1161 = getelementptr inbounds [8 x i64], ptr %repeat_stack_done, i64 0, i64 %i1155.01123
   %248 = load i64, ptr %arrayidx1161, align 8
-  %arrayidx1162 = getelementptr inbounds [8 x i64], ptr %repeat_stack_limit, i64 0, i64 %i1155.01124
+  %arrayidx1162 = getelementptr inbounds [8 x i64], ptr %repeat_stack_limit, i64 0, i64 %i1155.01123
   %249 = load i64, ptr %arrayidx1162, align 8
-  %arrayidx1163 = getelementptr inbounds [8 x i64], ptr %repeat_stack_idx, i64 0, i64 %i1155.01124
+  %arrayidx1163 = getelementptr inbounds [8 x i64], ptr %repeat_stack_idx, i64 0, i64 %i1155.01123
   %250 = load i64, ptr %arrayidx1163, align 8
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 1958, ptr noundef nonnull @.str.143, i64 noundef %248, i64 noundef %249, i64 noundef %250) #14
-  %inc1165 = add nuw i64 %i1155.01124, 1
+  %inc1165 = add nuw i64 %i1155.01123, 1
   %exitcond.not = icmp eq i64 %inc1165, %repeat_stack_len.0
   br i1 %exitcond.not, label %for.end1166, label %for.body1160, !llvm.loop !10
 
@@ -3668,27 +3665,27 @@ if.then1217:                                      ; preds = %cond.end1213
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 2007, ptr noundef nonnull @.str.151, i64 noundef %262, ptr noundef nonnull %spec.store.select5, i64 noundef %263, ptr noundef nonnull %spec.store.select7, ptr noundef nonnull %cond1238, ptr noundef nonnull %cond1244, ptr noundef nonnull %spec.select410) #14
   br label %if.end1254
 
-if.end1254:                                       ; preds = %if.end1205, %cond.end1213, %if.then1217, %s_unlock.exit1003
+if.end1254:                                       ; preds = %if.end1205, %cond.end1213, %if.then1217, %s_unlock.exit1002
   call void @CRYPTO_free(ptr noundef %tmp_buf.0, ptr noundef nonnull @.str.14, i32 noundef 2011) #14
   %266 = load ptr, ptr %hl_, align 8
-  %cmp.i1004 = icmp ne ptr %266, null
+  %cmp.i1003 = icmp ne ptr %266, null
   %267 = load i32, ptr %thread_idx2.i, align 8
   %cmp1.i = icmp sgt i32 %267, -1
-  %or.cond = select i1 %cmp.i1004, i1 %cmp1.i, i1 false
+  %or.cond = select i1 %cmp.i1003, i1 %cmp1.i, i1 false
   br i1 %or.cond, label %if.then2.i, label %helper_local_cleanup.exit
 
 if.then2.i:                                       ; preds = %if.end1254
   %268 = load ptr, ptr %c_streams.i, align 8
-  %cmp.i.i1008 = icmp eq ptr %268, null
-  br i1 %cmp.i.i1008, label %helper_local_cleanup.exit, label %if.end.i.i1009
+  %cmp.i.i1007 = icmp eq ptr %268, null
+  br i1 %cmp.i.i1007, label %helper_local_cleanup.exit, label %if.end.i.i1008
 
-if.end.i.i1009:                                   ; preds = %if.then2.i
+if.end.i.i1008:                                   ; preds = %if.then2.i
   call void @OPENSSL_LH_doall(ptr noundef nonnull %268, ptr noundef nonnull @cleanup_stream) #14
   %269 = load ptr, ptr %c_streams.i, align 8
   call void @OPENSSL_LH_free(ptr noundef %269) #14
   br label %helper_local_cleanup.exit
 
-helper_local_cleanup.exit:                        ; preds = %if.then2.i, %if.end.i.i1009, %if.end1254
+helper_local_cleanup.exit:                        ; preds = %if.then2.i, %if.end.i.i1008, %if.end1254
   ret i32 %testresult.0
 }
 
@@ -7199,6 +7196,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

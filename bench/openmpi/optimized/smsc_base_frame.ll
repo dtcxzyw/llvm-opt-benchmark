@@ -40,22 +40,22 @@ define noundef i32 @mca_smsc_base_select() local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %.026, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
-  %5 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %4) #4
+  %5 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %4) #5
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %.lr.ph
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
   %8 = getelementptr inbounds i8, ptr %3, i64 84
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %7, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #4
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %7, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #5
   br label %9
 
 9:                                                ; preds = %.lr.ph, %6
   %10 = getelementptr inbounds i8, ptr %3, i64 264
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11() #4
+  %12 = tail call i32 %11() #5
   %.not22 = icmp eq i32 %12, 0
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
-  %14 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %13) #4
+  %14 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %13) #5
   br i1 %.not22, label %51, label %15
 
 15:                                               ; preds = %9
@@ -64,7 +64,7 @@ define noundef i32 @mca_smsc_base_select() local_unnamed_addr #0 {
 16:                                               ; preds = %15
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
   %18 = getelementptr inbounds i8, ptr %3, i64 84
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %17, ptr noundef nonnull @.str.3, ptr noundef nonnull %18, i32 noundef %12) #4
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %17, ptr noundef nonnull @.str.3, ptr noundef nonnull %18, i32 noundef %12) #5
   br label %19
 
 19:                                               ; preds = %15, %16
@@ -114,19 +114,19 @@ opal_thread_add_fetch_32.exit:                    ; preds = %33, %36
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
   %46 = phi ptr [ %48, %.lr.ph.i ], [ %45, %41 ]
   %.07.i = phi ptr [ %47, %.lr.ph.i ], [ %44, %41 ]
-  tail call void %46(ptr noundef nonnull %.026) #4
+  tail call void %46(ptr noundef nonnull %.026) #5
   %47 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %41
-  tail call void @free(ptr noundef %.026) #4
+  tail call void @free(ptr noundef %.026) #5
   br label %49
 
 49:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
   %50 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
-  tail call void @mca_base_component_close(ptr noundef %3, i32 noundef %50) #4
+  tail call void @mca_base_component_close(ptr noundef %3, i32 noundef %50) #5
   br label %57
 
 51:                                               ; preds = %9
@@ -137,7 +137,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %41
   %54 = getelementptr inbounds i8, ptr %3, i64 84
   %55 = getelementptr inbounds i8, ptr %3, i64 260
   %56 = load i32, ptr %55, align 4
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %53, ptr noundef nonnull @.str.4, ptr noundef nonnull %54, i32 noundef %56) #4
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %53, ptr noundef nonnull @.str.4, ptr noundef nonnull %54, i32 noundef %56) #5
   br label %57
 
 57:                                               ; preds = %52, %51, %49
@@ -147,7 +147,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %41
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %57, %0
-  %58 = tail call i32 @opal_list_sort(ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 80), ptr noundef nonnull @mca_smsc_compare_components) #4
+  %58 = tail call i32 @opal_list_sort(ptr noundef nonnull getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 80), ptr noundef nonnull @mca_smsc_compare_components) #5
   %59 = load volatile i64, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 136), align 8
   %.not21 = icmp eq i64 %59, 0
   br i1 %.not21, label %73, label %60
@@ -159,27 +159,27 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %41
   store ptr %63, ptr @selected_component, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 272
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call ptr %65() #4
+  %66 = tail call ptr %65() #5
   store ptr %66, ptr @mca_smsc, align 8
   %67 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
-  %68 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %67) #4
+  %68 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %67) #5
   br i1 %68, label %69, label %78
 
 69:                                               ; preds = %60
   %70 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
   %71 = load ptr, ptr @selected_component, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 84
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %70, ptr noundef nonnull @.str.5, ptr noundef nonnull %72) #4
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %70, ptr noundef nonnull @.str.5, ptr noundef nonnull %72) #5
   br label %78
 
 73:                                               ; preds = %._crit_edge
   %74 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
-  %75 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %74) #4
+  %75 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %74) #5
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %73
   %77 = load i32, ptr getelementptr inbounds (i8, ptr @opal_smsc_base_framework, i64 76), align 4
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %77, ptr noundef nonnull @.str.6) #4
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %77, ptr noundef nonnull @.str.6) #5
   br label %78
 
 78:                                               ; preds = %76, %73, %69, %60
@@ -209,24 +209,21 @@ define internal range(i32 -1, 2) i32 @mca_smsc_compare_components(ptr nocapture 
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %8, i64 260
   %12 = load i32, ptr %11, align 4
-  %13 = icmp sgt i32 %10, %12
-  %14 = icmp slt i32 %10, %12
-  %15 = zext i1 %14 to i32
-  %16 = select i1 %13, i32 -1, i32 %15
-  ret i32 %16
+  %13 = tail call i32 @llvm.scmp.i32.i32(i32 %12, i32 %10)
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
 define void @mca_smsc_base_register_default_params(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 84
-  %5 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, ptr noundef nonnull %4, i32 noundef %1) #4
+  %5 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, ptr noundef nonnull %4, i32 noundef %1) #5
   %6 = getelementptr inbounds i8, ptr %0, i64 260
   store i32 %1, ptr %6, align 4
   %7 = load ptr, ptr %3, align 8
-  %8 = call i32 @mca_base_component_var_register(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %7, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 2, i32 noundef 6, ptr noundef nonnull %6) #4
+  %8 = call i32 @mca_base_component_var_register(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %7, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 2, i32 noundef 6, ptr noundef nonnull %6) #5
   %9 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %9) #4
+  call void @free(ptr noundef %9) #5
   ret void
 }
 
@@ -234,11 +231,15 @@ declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #4
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -739,25 +739,22 @@ define internal range(i32 -1, 2) i32 @rect_height_compare(ptr nocapture noundef 
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %4, %6
-  br i1 %7, label %19, label %8
+  br i1 %7, label %16, label %8
 
 8:                                                ; preds = %2
   %9 = icmp slt i32 %4, %6
-  br i1 %9, label %19, label %10
+  br i1 %9, label %16, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = icmp sgt i32 %12, %14
-  %16 = icmp slt i32 %12, %14
-  %17 = zext i1 %16 to i32
-  %18 = select i1 %15, i32 -1, i32 %17
-  br label %19
+  %15 = tail call i32 @llvm.scmp.i32.i32(i32 %14, i32 %12)
+  br label %16
 
-19:                                               ; preds = %8, %2, %10
-  %.0 = phi i32 [ %18, %10 ], [ -1, %2 ], [ 1, %8 ]
+16:                                               ; preds = %8, %2, %10
+  %.0 = phi i32 [ %15, %10 ], [ -1, %2 ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -767,11 +764,8 @@ define internal range(i32 -1, 2) i32 @rect_original_order(ptr nocapture noundef 
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
-  %7 = icmp slt i32 %4, %6
-  %8 = icmp sgt i32 %4, %6
-  %9 = zext i1 %8 to i32
-  %10 = select i1 %7, i32 -1, i32 %9
-  ret i32 %10
+  %7 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %6)
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15226,6 +15220,9 @@ declare i16 @llvm.smin.i16(i16, i16) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #38
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #38
