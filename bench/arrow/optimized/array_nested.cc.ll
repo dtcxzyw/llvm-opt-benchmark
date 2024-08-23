@@ -40047,8 +40047,7 @@ if.then30.i:                                      ; preds = %while.end.i
   %61 = load i32, ptr %list_size_.i89.i, align 8, !noalias !366
   %conv.i94.i = sext i32 %61 to i64
   %mul.i95.i = mul nsw i64 %add.i92.i, %conv.i94.i
-  %add.i98.i = add nsw i64 %60, %.us-phi.i
-  %mul.i101221.i = sub i64 %add.i98.i, %add.i92.i
+  %mul.i101221.i = sub i64 %.us-phi.i, %valid_begin.0230.i
   %sub.i102.i = mul i64 %mul.i101221.i, %conv.i94.i
   invoke void @_ZNK5arrow5Array5SliceEll(ptr nonnull sret(%"class.std::shared_ptr.0") align 8 %ref.tmp31.i, ptr noundef nonnull align 8 dereferenceable(32) %58, i64 noundef %mul.i95.i, i64 noundef %sub.i102.i)
           to label %invoke.cont37.i unwind label %lpad22.loopexit.split-lp.loopexit.i

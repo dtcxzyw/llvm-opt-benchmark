@@ -54846,7 +54846,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 194:                                              ; preds = %191
   %195 = load i32, ptr %7, align 4
   %196 = add nsw i32 %195, %33
-  %197 = sub i32 %195, %64
+  %197 = sub nsw i32 %195, %64
   %198 = load i32, ptr %25, align 8
   %199 = icmp slt i32 %196, 0
   %200 = shl nuw i32 1, %198
@@ -54859,7 +54859,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %203 = icmp sge i64 %52, %202
   %204 = select i1 %55, i1 true, i1 %203
   %205 = icmp ugt i32 %197, 1
-  %or.cond3.i.i366 = or i1 %204, %205
+  %or.cond3.i.i366 = select i1 %204, i1 true, i1 %205
   br i1 %or.cond3.i.i366, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit, label %206
 
 206:                                              ; preds = %201
@@ -54952,7 +54952,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %241 = icmp sge i64 %52, %240
   %242 = select i1 %55, i1 true, i1 %241
   %243 = icmp ugt i32 %197, 1
-  %or.cond3.i.i395 = or i1 %242, %243
+  %or.cond3.i.i395 = select i1 %242, i1 true, i1 %243
   br i1 %or.cond3.i.i395, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402, label %244
 
 244:                                              ; preds = %239
@@ -55065,7 +55065,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %.0.i.i425 = phi double [ %286, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i430 ], [ 0.000000e+00, %274 ]
   %287 = load i32, ptr %7, align 4
   %288 = add nsw i32 %287, %33
-  %289 = sub i32 %287, %102
+  %289 = sub nsw i32 %287, %102
   %290 = load i32, ptr %25, align 8
   %291 = icmp slt i32 %288, 0
   %292 = shl nuw i32 1, %290
@@ -55078,7 +55078,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %295 = icmp sge i64 %92, %294
   %296 = select i1 %95, i1 true, i1 %295
   %297 = icmp ugt i32 %289, 1
-  %or.cond3.i.i435 = or i1 %296, %297
+  %or.cond3.i.i435 = select i1 %296, i1 true, i1 %297
   br i1 %or.cond3.i.i435, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit442, label %298
 
 298:                                              ; preds = %293
@@ -55167,7 +55167,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %331 = icmp sge i64 %92, %330
   %332 = select i1 %95, i1 true, i1 %331
   %333 = icmp ugt i32 %289, 1
-  %or.cond3.i.i465 = or i1 %332, %333
+  %or.cond3.i.i465 = select i1 %332, i1 true, i1 %333
   br i1 %or.cond3.i.i465, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472, label %334
 
 334:                                              ; preds = %329
@@ -55281,7 +55281,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %.0.i.i495 = phi double [ %376, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i500 ], [ 0.000000e+00, %366 ], [ 0.000000e+00, %352 ]
   %377 = load i32, ptr %7, align 4
   %378 = add nsw i32 %377, %33
-  %379 = sub i32 %377, %176
+  %379 = sub nsw i32 %377, %176
   %380 = load i32, ptr %25, align 8
   %381 = icmp slt i32 %378, 0
   %382 = shl nuw i32 1, %380
@@ -55294,7 +55294,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %385 = icmp sge i64 %119, %384
   %386 = select i1 %172, i1 true, i1 %385
   %387 = icmp ugt i32 %379, 1
-  %or.cond3.i.i505 = or i1 %386, %387
+  %or.cond3.i.i505 = select i1 %386, i1 true, i1 %387
   br i1 %or.cond3.i.i505, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit512, label %388
 
 388:                                              ; preds = %383
@@ -55383,7 +55383,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %421 = icmp sge i64 %119, %420
   %422 = select i1 %172, i1 true, i1 %421
   %423 = icmp ugt i32 %379, 1
-  %or.cond3.i.i535 = or i1 %422, %423
+  %or.cond3.i.i535 = select i1 %422, i1 true, i1 %423
   br i1 %or.cond3.i.i535, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422, label %424
 
 424:                                              ; preds = %419
@@ -55498,7 +55498,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %.0.i.i545 = phi double [ %464, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i550 ], [ 0.000000e+00, %452 ]
   %465 = load i32, ptr %9, align 4
   %466 = add nsw i32 %465, %33
-  %467 = sub i32 %465, %112
+  %467 = sub nsw i32 %465, %112
   %468 = load i32, ptr %25, align 8
   %469 = icmp slt i32 %466, 0
   %470 = shl nuw i32 1, %468
@@ -55511,7 +55511,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %473 = icmp sge i64 %92, %472
   %474 = select i1 %95, i1 true, i1 %473
   %475 = icmp ugt i32 %467, 1
-  %or.cond3.i.i555 = or i1 %474, %475
+  %or.cond3.i.i555 = select i1 %474, i1 true, i1 %475
   br i1 %or.cond3.i.i555, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit562, label %476
 
 476:                                              ; preds = %471
@@ -55539,7 +55539,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %.0.i.i561 = phi double [ %484, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i559 ], [ 0.000000e+00, %471 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit552 ]
   %485 = load i32, ptr %10, align 4
   %486 = add nsw i32 %485, %33
-  %487 = sub i32 %485, %188
+  %487 = sub nsw i32 %485, %188
   %488 = icmp slt i32 %486, 0
   %.not.not.i.i563 = icmp sgt i32 %486, %470
   %or.cond.i.i564 = select i1 %488, i1 true, i1 %.not.not.i.i563
@@ -55550,7 +55550,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %491 = icmp sge i64 %119, %490
   %492 = select i1 %172, i1 true, i1 %491
   %493 = icmp ugt i32 %487, 1
-  %or.cond3.i.i565 = or i1 %492, %493
+  %or.cond3.i.i565 = select i1 %492, i1 true, i1 %493
   br i1 %or.cond3.i.i565, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit572, label %494
 
 494:                                              ; preds = %489
@@ -55611,7 +55611,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %515 = icmp sge i64 %92, %514
   %516 = select i1 %95, i1 true, i1 %515
   %517 = icmp ugt i32 %467, 1
-  %or.cond3.i.i585 = or i1 %516, %517
+  %or.cond3.i.i585 = select i1 %516, i1 true, i1 %517
   br i1 %or.cond3.i.i585, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592, label %518
 
 518:                                              ; preds = %513
@@ -55644,7 +55644,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %529 = icmp sge i64 %119, %528
   %530 = select i1 %172, i1 true, i1 %529
   %531 = icmp ugt i32 %487, 1
-  %or.cond3.i.i595 = or i1 %530, %531
+  %or.cond3.i.i595 = select i1 %530, i1 true, i1 %531
   br i1 %or.cond3.i.i595, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit602, label %532
 
 532:                                              ; preds = %527
@@ -55670,7 +55670,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599:
 540:                                              ; preds = %449
   %541 = load i32, ptr %9, align 4
   %542 = add nsw i32 %541, %33
-  %543 = sub i32 %541, %70
+  %543 = sub nsw i32 %541, %70
   %544 = load i32, ptr %25, align 8
   %545 = icmp slt i32 %542, 0
   %546 = shl nuw i32 1, %544
@@ -55683,7 +55683,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599:
   %549 = icmp sge i64 %52, %548
   %550 = select i1 %55, i1 true, i1 %549
   %551 = icmp ugt i32 %543, 1
-  %or.cond3.i.i605 = or i1 %550, %551
+  %or.cond3.i.i605 = select i1 %550, i1 true, i1 %551
   br i1 %or.cond3.i.i605, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit612, label %552
 
 552:                                              ; preds = %547
@@ -55743,7 +55743,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %.0.i.i615 = phi double [ %572, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i620 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit612 ]
   %573 = load i32, ptr %10, align 4
   %574 = add nsw i32 %573, %33
-  %575 = sub i32 %573, %185
+  %575 = sub nsw i32 %573, %185
   %576 = icmp slt i32 %574, 0
   %.not.not.i.i623 = icmp sgt i32 %574, %546
   %or.cond.i.i624 = select i1 %576, i1 true, i1 %.not.not.i.i623
@@ -55754,7 +55754,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %579 = icmp sge i64 %119, %578
   %580 = select i1 %172, i1 true, i1 %579
   %581 = icmp ugt i32 %575, 1
-  %or.cond3.i.i625 = or i1 %580, %581
+  %or.cond3.i.i625 = select i1 %580, i1 true, i1 %581
   br i1 %or.cond3.i.i625, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit632, label %582
 
 582:                                              ; preds = %577
@@ -55787,7 +55787,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %593 = icmp sge i64 %52, %592
   %594 = select i1 %55, i1 true, i1 %593
   %595 = icmp ugt i32 %543, 1
-  %or.cond3.i.i635 = or i1 %594, %595
+  %or.cond3.i.i635 = select i1 %594, i1 true, i1 %595
   br i1 %or.cond3.i.i635, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit642, label %596
 
 596:                                              ; preds = %591
@@ -55848,7 +55848,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %617 = icmp sge i64 %119, %616
   %618 = select i1 %172, i1 true, i1 %617
   %619 = icmp ugt i32 %575, 1
-  %or.cond3.i.i655 = or i1 %618, %619
+  %or.cond3.i.i655 = select i1 %618, i1 true, i1 %619
   br i1 %or.cond3.i.i655, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit602, label %620
 
 620:                                              ; preds = %615
@@ -55874,7 +55874,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659:
 628:                                              ; preds = %449
   %629 = load i32, ptr %9, align 4
   %630 = add nsw i32 %629, %33
-  %631 = sub i32 %629, %67
+  %631 = sub nsw i32 %629, %67
   %632 = load i32, ptr %25, align 8
   %633 = icmp slt i32 %630, 0
   %634 = shl nuw i32 1, %632
@@ -55887,7 +55887,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659:
   %637 = icmp sge i64 %52, %636
   %638 = select i1 %55, i1 true, i1 %637
   %639 = icmp ugt i32 %631, 1
-  %or.cond3.i.i665 = or i1 %638, %639
+  %or.cond3.i.i665 = select i1 %638, i1 true, i1 %639
   br i1 %or.cond3.i.i665, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit672, label %640
 
 640:                                              ; preds = %635
@@ -55915,7 +55915,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %.0.i.i671 = phi double [ %648, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i669 ], [ 0.000000e+00, %635 ], [ 0.000000e+00, %628 ]
   %649 = load i32, ptr %10, align 4
   %650 = add nsw i32 %649, %33
-  %651 = sub i32 %649, %107
+  %651 = sub nsw i32 %649, %107
   %652 = icmp slt i32 %650, 0
   %.not.not.i.i673 = icmp sgt i32 %650, %634
   %or.cond.i.i674 = select i1 %652, i1 true, i1 %.not.not.i.i673
@@ -55926,7 +55926,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %655 = icmp sge i64 %92, %654
   %656 = select i1 %95, i1 true, i1 %655
   %657 = icmp ugt i32 %651, 1
-  %or.cond3.i.i675 = or i1 %656, %657
+  %or.cond3.i.i675 = select i1 %656, i1 true, i1 %657
   br i1 %or.cond3.i.i675, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit682, label %658
 
 658:                                              ; preds = %653
@@ -55991,7 +55991,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %681 = icmp sge i64 %52, %680
   %682 = select i1 %55, i1 true, i1 %681
   %683 = icmp ugt i32 %631, 1
-  %or.cond3.i.i695 = or i1 %682, %683
+  %or.cond3.i.i695 = select i1 %682, i1 true, i1 %683
   br i1 %or.cond3.i.i695, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit702, label %684
 
 684:                                              ; preds = %679
@@ -56024,7 +56024,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %695 = icmp sge i64 %92, %694
   %696 = select i1 %95, i1 true, i1 %695
   %697 = icmp ugt i32 %651, 1
-  %or.cond3.i.i705 = or i1 %696, %697
+  %or.cond3.i.i705 = select i1 %696, i1 true, i1 %697
   br i1 %or.cond3.i.i705, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712, label %698
 
 698:                                              ; preds = %693
@@ -56121,7 +56121,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   call void @_ZN4Cube17FactorCornerIndexEiRiS0_S0_(i32 noundef %731, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
   %732 = load i32, ptr %11, align 4
   %733 = add nsw i32 %732, %33
-  %734 = sub i32 %732, %75
+  %734 = sub nsw i32 %732, %75
   %735 = load i32, ptr %25, align 8
   %736 = icmp slt i32 %733, 0
   %737 = shl nuw i32 1, %735
@@ -56134,7 +56134,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %740 = icmp sge i64 %52, %739
   %741 = select i1 %55, i1 true, i1 %740
   %742 = icmp ugt i32 %734, 1
-  %or.cond3.i.i725 = or i1 %741, %742
+  %or.cond3.i.i725 = select i1 %741, i1 true, i1 %742
   br i1 %or.cond3.i.i725, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit732, label %743
 
 743:                                              ; preds = %738
@@ -56162,7 +56162,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %.0.i.i731 = phi double [ %751, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i729 ], [ 0.000000e+00, %738 ], [ 0.000000e+00, %730 ]
   %752 = load i32, ptr %12, align 4
   %753 = add nsw i32 %752, %33
-  %754 = sub i32 %752, %115
+  %754 = sub nsw i32 %752, %115
   %755 = icmp slt i32 %753, 0
   %.not.not.i.i733 = icmp sgt i32 %753, %737
   %or.cond.i.i734 = select i1 %755, i1 true, i1 %.not.not.i.i733
@@ -56173,7 +56173,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %758 = icmp sge i64 %92, %757
   %759 = select i1 %95, i1 true, i1 %758
   %760 = icmp ugt i32 %754, 1
-  %or.cond3.i.i735 = or i1 %759, %760
+  %or.cond3.i.i735 = select i1 %759, i1 true, i1 %760
   br i1 %or.cond3.i.i735, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit742, label %761
 
 761:                                              ; preds = %756
@@ -56201,7 +56201,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %.0.i.i741 = phi double [ %769, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i739 ], [ 0.000000e+00, %756 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit732 ]
   %770 = load i32, ptr %13, align 4
   %771 = add nsw i32 %770, %33
-  %772 = sub i32 %770, %446
+  %772 = sub nsw i32 %770, %446
   %773 = icmp slt i32 %771, 0
   %.not.not.i.i743 = icmp sgt i32 %771, %737
   %or.cond.i.i744 = select i1 %773, i1 true, i1 %.not.not.i.i743
@@ -56212,7 +56212,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %776 = icmp sge i64 %119, %775
   %777 = select i1 %172, i1 true, i1 %776
   %778 = icmp ugt i32 %772, 1
-  %or.cond3.i.i745 = or i1 %777, %778
+  %or.cond3.i.i745 = select i1 %777, i1 true, i1 %778
   br i1 %or.cond3.i.i745, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit752, label %779
 
 779:                                              ; preds = %774
@@ -56245,7 +56245,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %790 = icmp sge i64 %52, %789
   %791 = select i1 %55, i1 true, i1 %790
   %792 = icmp ugt i32 %734, 1
-  %or.cond3.i.i755 = or i1 %791, %792
+  %or.cond3.i.i755 = select i1 %791, i1 true, i1 %792
   br i1 %or.cond3.i.i755, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit762, label %793
 
 793:                                              ; preds = %788
@@ -56278,7 +56278,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %804 = icmp sge i64 %92, %803
   %805 = select i1 %95, i1 true, i1 %804
   %806 = icmp ugt i32 %754, 1
-  %or.cond3.i.i765 = or i1 %805, %806
+  %or.cond3.i.i765 = select i1 %805, i1 true, i1 %806
   br i1 %or.cond3.i.i765, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit772, label %807
 
 807:                                              ; preds = %802
@@ -56311,7 +56311,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %818 = icmp sge i64 %119, %817
   %819 = select i1 %172, i1 true, i1 %818
   %820 = icmp ugt i32 %772, 1
-  %or.cond3.i.i775 = or i1 %819, %820
+  %or.cond3.i.i775 = select i1 %819, i1 true, i1 %820
   br i1 %or.cond3.i.i775, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit782, label %821
 
 821:                                              ; preds = %816

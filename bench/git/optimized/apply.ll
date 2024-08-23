@@ -9592,9 +9592,8 @@ if.then7:                                         ; preds = %if.end.i67.i, %lor.
 
 if.end9:                                          ; preds = %diff_timestamp_len.exit
   %sub.ptr.rhs.cast43.i.pn = ptrtoint ptr %sub.ptr.rhs.cast43.i.pn.in to i64
-  %retval.0.i.neg = sub i64 %sub.ptr.rhs.cast43.i.pn, %sub.ptr.lhs.cast
-  %96 = getelementptr i8, ptr %line, i64 %retval.0.i.neg
-  %add.ptr = getelementptr i8, ptr %96, i64 %sub.ptr.sub
+  %sub = sub i64 %sub.ptr.rhs.cast43.i.pn, %sub.ptr.rhs.cast
+  %add.ptr = getelementptr inbounds i8, ptr %line, i64 %sub
   %call10 = tail call fastcc ptr @find_name_common(ptr noundef %root, ptr noundef nonnull %line, ptr noundef %def, i32 noundef %p_value, ptr noundef nonnull %add.ptr, i32 noundef 0)
   br label %return
 

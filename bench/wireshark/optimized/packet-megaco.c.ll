@@ -5638,233 +5638,231 @@ megaco_tvb_skip_wsp.exit173:                      ; preds = %41, %47, %30
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %1, i64 408
   %52 = load ptr, ptr %51, align 8
-  %53 = sub i32 %4, %31
-  %54 = add i32 %53, %33
-  %55 = tail call ptr @tvb_format_text(ptr noundef %52, ptr noundef %0, i32 noundef %31, i32 noundef %54) #9
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.409, ptr noundef %55) #9
-  %56 = icmp sge i32 %31, %3
-  %57 = icmp eq i32 %31, -1
-  %or.cond.not202 = or i1 %56, %57
+  %53 = tail call ptr @tvb_format_text(ptr noundef %52, ptr noundef %0, i32 noundef %31, i32 noundef 1) #9
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.409, ptr noundef %53) #9
+  %54 = icmp sge i32 %31, %3
+  %55 = icmp eq i32 %31, -1
+  %or.cond.not202 = or i1 %54, %55
   %.not162 = icmp eq i32 %.0.lcssa.i168, %3
   %or.cond164 = or i1 %or.cond.not202, %.not162
-  br i1 %or.cond164, label %.loopexit203, label %58
+  br i1 %or.cond164, label %.loopexit203, label %56
 
-58:                                               ; preds = %megaco_tvb_skip_wsp.exit173
-  %59 = add i32 %.0.lcssa.i168, 1
-  %60 = load ptr, ptr @g_ascii_table, align 8
-  br label %61
+56:                                               ; preds = %megaco_tvb_skip_wsp.exit173
+  %57 = add i32 %.0.lcssa.i168, 1
+  %58 = load ptr, ptr @g_ascii_table, align 8
+  br label %59
 
-61:                                               ; preds = %megaco_tvb_skip_wsp.exit199, %58
-  %.0148 = phi i32 [ %.0.lcssa.i168, %58 ], [ %.0.lcssa.i194, %megaco_tvb_skip_wsp.exit199 ]
-  %.0145 = phi i32 [ %59, %58 ], [ %.0.lcssa.i194, %megaco_tvb_skip_wsp.exit199 ]
-  %.0142 = phi i32 [ 0, %58 ], [ %.2144, %megaco_tvb_skip_wsp.exit199 ]
-  %.0 = phi i32 [ 0, %58 ], [ %.2, %megaco_tvb_skip_wsp.exit199 ]
-  %62 = add i32 %.0145, 1
-  %63 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %62, i32 noundef %3, i8 noundef zeroext 125) #9
-  %64 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0145, i32 noundef %3, i8 noundef zeroext 123) #9
-  %65 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0148, i32 noundef %3, i8 noundef zeroext 44) #9
-  %66 = icmp eq i32 %65, -1
-  %67 = tail call i32 @llvm.smin.i32(i32 %65, i32 %3)
-  %.0153 = select i1 %66, i32 %3, i32 %67
-  %68 = icmp sgt i32 %64, %.0153
-  %69 = icmp eq i32 %64, -1
-  %or.cond3 = or i1 %69, %68
-  br i1 %or.cond3, label %70, label %megaco_tvb_skip_wsp_return.exit
+59:                                               ; preds = %megaco_tvb_skip_wsp.exit199, %56
+  %.0148 = phi i32 [ %.0.lcssa.i168, %56 ], [ %.0.lcssa.i194, %megaco_tvb_skip_wsp.exit199 ]
+  %.0145 = phi i32 [ %57, %56 ], [ %.0.lcssa.i194, %megaco_tvb_skip_wsp.exit199 ]
+  %.0142 = phi i32 [ 0, %56 ], [ %.2144, %megaco_tvb_skip_wsp.exit199 ]
+  %.0 = phi i32 [ 0, %56 ], [ %.2, %megaco_tvb_skip_wsp.exit199 ]
+  %60 = add i32 %.0145, 1
+  %61 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %60, i32 noundef %3, i8 noundef zeroext 125) #9
+  %62 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0145, i32 noundef %3, i8 noundef zeroext 123) #9
+  %63 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0148, i32 noundef %3, i8 noundef zeroext 44) #9
+  %64 = icmp eq i32 %63, -1
+  %65 = tail call i32 @llvm.smin.i32(i32 %63, i32 %3)
+  %.0153 = select i1 %64, i32 %3, i32 %65
+  %66 = icmp sgt i32 %62, %.0153
+  %67 = icmp eq i32 %62, -1
+  %or.cond3 = or i1 %67, %66
+  br i1 %or.cond3, label %68, label %megaco_tvb_skip_wsp_return.exit
 
-70:                                               ; preds = %61
-  %71 = add i32 %.0153, -1
-  %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph.i175, label %megaco_tvb_skip_wsp_return.exit
+68:                                               ; preds = %59
+  %69 = add i32 %.0153, -1
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %.lr.ph.i175, label %megaco_tvb_skip_wsp_return.exit
 
-.lr.ph.i175:                                      ; preds = %70, %78
-  %.08.i176 = phi i32 [ %79, %78 ], [ %71, %70 ]
-  %73 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i176) #9
-  %74 = zext i8 %73 to i64
-  %75 = getelementptr i16, ptr %60, i64 %74
-  %76 = load i16, ptr %75, align 2
-  %77 = and i16 %76, 256
-  %.not.i177 = icmp eq i16 %77, 0
-  br i1 %.not.i177, label %megaco_tvb_skip_wsp_return.exit, label %78
+.lr.ph.i175:                                      ; preds = %68, %76
+  %.08.i176 = phi i32 [ %77, %76 ], [ %69, %68 ]
+  %71 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i176) #9
+  %72 = zext i8 %71 to i64
+  %73 = getelementptr i16, ptr %58, i64 %72
+  %74 = load i16, ptr %73, align 2
+  %75 = and i16 %74, 256
+  %.not.i177 = icmp eq i16 %75, 0
+  br i1 %.not.i177, label %megaco_tvb_skip_wsp_return.exit, label %76
 
-78:                                               ; preds = %.lr.ph.i175
-  %79 = add nsw i32 %.08.i176, -1
-  %80 = icmp sgt i32 %.08.i176, 1
-  br i1 %80, label %.lr.ph.i175, label %megaco_tvb_skip_wsp_return.exit, !llvm.loop !10
+76:                                               ; preds = %.lr.ph.i175
+  %77 = add nsw i32 %.08.i176, -1
+  %78 = icmp sgt i32 %.08.i176, 1
+  br i1 %78, label %.lr.ph.i175, label %megaco_tvb_skip_wsp_return.exit, !llvm.loop !10
 
-megaco_tvb_skip_wsp_return.exit:                  ; preds = %78, %.lr.ph.i175, %70, %61
-  %.1146 = phi i32 [ %63, %61 ], [ %71, %70 ], [ %.08.i176, %.lr.ph.i175 ], [ 0, %78 ]
-  %81 = icmp sgt i32 %.0153, %64
-  %82 = icmp ne i32 %64, -1
-  %or.cond5 = and i1 %82, %81
-  %83 = icmp sgt i32 %.1146, %64
-  %or.cond = select i1 %or.cond5, i1 %83, i1 false
+megaco_tvb_skip_wsp_return.exit:                  ; preds = %76, %.lr.ph.i175, %68, %59
+  %.1146 = phi i32 [ %61, %59 ], [ %69, %68 ], [ %.08.i176, %.lr.ph.i175 ], [ 0, %76 ]
+  %79 = icmp sgt i32 %.0153, %62
+  %80 = icmp ne i32 %62, -1
+  %or.cond5 = and i1 %80, %79
+  %81 = icmp sgt i32 %.1146, %62
+  %or.cond = select i1 %or.cond5, i1 %81, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %megaco_tvb_skip_wsp_return.exit, %91
-  %.3205 = phi i32 [ %.4, %91 ], [ %.1146, %megaco_tvb_skip_wsp_return.exit ]
-  %.1151204 = phi i32 [ %85, %91 ], [ %64, %megaco_tvb_skip_wsp_return.exit ]
-  %84 = add nuw i32 %.1151204, 1
-  %85 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %84, i32 noundef %3, i8 noundef zeroext 123) #9
-  %86 = icmp slt i32 %85, %.3205
-  %87 = icmp ne i32 %85, -1
-  %or.cond7 = and i1 %86, %87
-  br i1 %or.cond7, label %88, label %91
+.lr.ph:                                           ; preds = %megaco_tvb_skip_wsp_return.exit, %89
+  %.3205 = phi i32 [ %.4, %89 ], [ %.1146, %megaco_tvb_skip_wsp_return.exit ]
+  %.1151204 = phi i32 [ %83, %89 ], [ %62, %megaco_tvb_skip_wsp_return.exit ]
+  %82 = add nuw i32 %.1151204, 1
+  %83 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %82, i32 noundef %3, i8 noundef zeroext 123) #9
+  %84 = icmp slt i32 %83, %.3205
+  %85 = icmp ne i32 %83, -1
+  %or.cond7 = and i1 %84, %85
+  br i1 %or.cond7, label %86, label %89
 
-88:                                               ; preds = %.lr.ph
-  %89 = add i32 %.3205, 1
-  %90 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %89, i32 noundef %3, i8 noundef zeroext 125) #9
-  br label %91
+86:                                               ; preds = %.lr.ph
+  %87 = add i32 %.3205, 1
+  %88 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %87, i32 noundef %3, i8 noundef zeroext 125) #9
+  br label %89
 
-91:                                               ; preds = %88, %.lr.ph
-  %.4 = phi i32 [ %90, %88 ], [ %.3205, %.lr.ph ]
-  %92 = icmp sgt i32 %.4, %85
-  %93 = select i1 %87, i1 %92, i1 false
-  br i1 %93, label %.lr.ph, label %.loopexit, !llvm.loop !38
+89:                                               ; preds = %86, %.lr.ph
+  %.4 = phi i32 [ %88, %86 ], [ %.3205, %.lr.ph ]
+  %90 = icmp sgt i32 %.4, %83
+  %91 = select i1 %85, i1 %90, i1 false
+  br i1 %91, label %.lr.ph, label %.loopexit, !llvm.loop !38
 
-.loopexit:                                        ; preds = %91, %megaco_tvb_skip_wsp_return.exit
-  %.2147 = phi i32 [ %.1146, %megaco_tvb_skip_wsp_return.exit ], [ %.4, %91 ]
-  %94 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0148, i32 noundef %3, i8 noundef zeroext 123) #9
-  %95 = icmp slt i32 %94, %.2147
-  %96 = icmp ne i32 %94, -1
-  %or.cond9 = and i1 %95, %96
-  br i1 %or.cond9, label %97, label %109
+.loopexit:                                        ; preds = %89, %megaco_tvb_skip_wsp_return.exit
+  %.2147 = phi i32 [ %.1146, %megaco_tvb_skip_wsp_return.exit ], [ %.4, %89 ]
+  %92 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0148, i32 noundef %3, i8 noundef zeroext 123) #9
+  %93 = icmp slt i32 %92, %.2147
+  %94 = icmp ne i32 %92, -1
+  %or.cond9 = and i1 %93, %94
+  br i1 %or.cond9, label %95, label %107
 
-97:                                               ; preds = %.loopexit
-  %98 = add i32 %94, -1
-  %99 = icmp sgt i32 %98, 0
-  br i1 %99, label %.lr.ph.i179, label %megaco_tvb_skip_wsp_return.exit182
+95:                                               ; preds = %.loopexit
+  %96 = add i32 %92, -1
+  %97 = icmp sgt i32 %96, 0
+  br i1 %97, label %.lr.ph.i179, label %megaco_tvb_skip_wsp_return.exit182
 
-.lr.ph.i179:                                      ; preds = %97, %105
-  %.08.i180 = phi i32 [ %106, %105 ], [ %98, %97 ]
-  %100 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i180) #9
-  %101 = zext i8 %100 to i64
-  %102 = getelementptr i16, ptr %60, i64 %101
-  %103 = load i16, ptr %102, align 2
-  %104 = and i16 %103, 256
-  %.not.i181 = icmp eq i16 %104, 0
-  br i1 %.not.i181, label %megaco_tvb_skip_wsp_return.exit182, label %105
+.lr.ph.i179:                                      ; preds = %95, %103
+  %.08.i180 = phi i32 [ %104, %103 ], [ %96, %95 ]
+  %98 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i180) #9
+  %99 = zext i8 %98 to i64
+  %100 = getelementptr i16, ptr %58, i64 %99
+  %101 = load i16, ptr %100, align 2
+  %102 = and i16 %101, 256
+  %.not.i181 = icmp eq i16 %102, 0
+  br i1 %.not.i181, label %megaco_tvb_skip_wsp_return.exit182, label %103
 
-105:                                              ; preds = %.lr.ph.i179
-  %106 = add nsw i32 %.08.i180, -1
-  %107 = icmp sgt i32 %.08.i180, 1
-  br i1 %107, label %.lr.ph.i179, label %megaco_tvb_skip_wsp_return.exit182, !llvm.loop !10
+103:                                              ; preds = %.lr.ph.i179
+  %104 = add nsw i32 %.08.i180, -1
+  %105 = icmp sgt i32 %.08.i180, 1
+  br i1 %105, label %.lr.ph.i179, label %megaco_tvb_skip_wsp_return.exit182, !llvm.loop !10
 
-megaco_tvb_skip_wsp_return.exit182:               ; preds = %.lr.ph.i179, %105, %97
-  %.0.lcssa.i178 = phi i32 [ %98, %97 ], [ %.08.i180, %.lr.ph.i179 ], [ 0, %105 ]
-  %108 = add i32 %.0.lcssa.i178, 1
-  br label %111
+megaco_tvb_skip_wsp_return.exit182:               ; preds = %.lr.ph.i179, %103, %95
+  %.0.lcssa.i178 = phi i32 [ %96, %95 ], [ %.08.i180, %.lr.ph.i179 ], [ 0, %103 ]
+  %106 = add i32 %.0.lcssa.i178, 1
+  br label %109
 
-109:                                              ; preds = %.loopexit
-  %110 = add i32 %.2147, 1
-  br label %111
+107:                                              ; preds = %.loopexit
+  %108 = add i32 %.2147, 1
+  br label %109
 
-111:                                              ; preds = %109, %megaco_tvb_skip_wsp_return.exit182
-  %.0155 = phi i32 [ %108, %megaco_tvb_skip_wsp_return.exit182 ], [ %94, %109 ]
-  %.pn = phi i32 [ %108, %megaco_tvb_skip_wsp_return.exit182 ], [ %110, %109 ]
-  %.1143 = phi i32 [ %94, %megaco_tvb_skip_wsp_return.exit182 ], [ %.0142, %109 ]
-  %.1 = phi i32 [ %.2147, %megaco_tvb_skip_wsp_return.exit182 ], [ %.0, %109 ]
+109:                                              ; preds = %107, %megaco_tvb_skip_wsp_return.exit182
+  %.0155 = phi i32 [ %106, %megaco_tvb_skip_wsp_return.exit182 ], [ %92, %107 ]
+  %.pn = phi i32 [ %106, %megaco_tvb_skip_wsp_return.exit182 ], [ %108, %107 ]
+  %.1143 = phi i32 [ %92, %megaco_tvb_skip_wsp_return.exit182 ], [ %.0142, %107 ]
+  %.1 = phi i32 [ %.2147, %megaco_tvb_skip_wsp_return.exit182 ], [ %.0, %107 ]
   %.0152 = sub i32 %.pn, %.0148
-  %112 = load i32, ptr @hf_megaco_pkgdname, align 4
-  %113 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %112, ptr noundef %0, i32 noundef %.0148, i32 noundef %.0152, i32 noundef 2) #9
-  %114 = load i32, ptr @ett_megaco_requestedsignal, align 4
-  %115 = tail call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114) #9
-  %116 = icmp slt i32 %.0155, %.2147
-  %117 = icmp ne i32 %.0155, -1
-  %or.cond11 = and i1 %116, %117
-  br i1 %or.cond11, label %118, label %145
+  %110 = load i32, ptr @hf_megaco_pkgdname, align 4
+  %111 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %110, ptr noundef %0, i32 noundef %.0148, i32 noundef %.0152, i32 noundef 2) #9
+  %112 = load i32, ptr @ett_megaco_requestedsignal, align 4
+  %113 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %112) #9
+  %114 = icmp slt i32 %.0155, %.2147
+  %115 = icmp ne i32 %.0155, -1
+  %or.cond11 = and i1 %114, %115
+  br i1 %or.cond11, label %116, label %143
 
-118:                                              ; preds = %111
-  %119 = add i32 %.1143, 1
-  %120 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %121 = icmp slt i32 %119, %120
-  br i1 %121, label %.lr.ph.i184, label %megaco_tvb_skip_wsp.exit188
+116:                                              ; preds = %109
+  %117 = add i32 %.1143, 1
+  %118 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
+  %119 = icmp slt i32 %117, %118
+  br i1 %119, label %.lr.ph.i184, label %megaco_tvb_skip_wsp.exit188
 
-.lr.ph.i184:                                      ; preds = %118, %127
-  %.08.i185 = phi i32 [ %128, %127 ], [ %119, %118 ]
-  %122 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i185) #9
-  %123 = zext i8 %122 to i64
-  %124 = getelementptr i16, ptr %60, i64 %123
-  %125 = load i16, ptr %124, align 2
-  %126 = and i16 %125, 256
-  %.not.i186 = icmp eq i16 %126, 0
-  br i1 %.not.i186, label %megaco_tvb_skip_wsp.exit188, label %127
+.lr.ph.i184:                                      ; preds = %116, %125
+  %.08.i185 = phi i32 [ %126, %125 ], [ %117, %116 ]
+  %120 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i185) #9
+  %121 = zext i8 %120 to i64
+  %122 = getelementptr i16, ptr %58, i64 %121
+  %123 = load i16, ptr %122, align 2
+  %124 = and i16 %123, 256
+  %.not.i186 = icmp eq i16 %124, 0
+  br i1 %.not.i186, label %megaco_tvb_skip_wsp.exit188, label %125
 
-127:                                              ; preds = %.lr.ph.i184
-  %128 = add i32 %.08.i185, 1
-  %exitcond.not.i187 = icmp eq i32 %128, %120
+125:                                              ; preds = %.lr.ph.i184
+  %126 = add i32 %.08.i185, 1
+  %exitcond.not.i187 = icmp eq i32 %126, %118
   br i1 %exitcond.not.i187, label %megaco_tvb_skip_wsp.exit188, label %.lr.ph.i184, !llvm.loop !4
 
-megaco_tvb_skip_wsp.exit188:                      ; preds = %.lr.ph.i184, %127, %118
-  %.0.lcssa.i183 = phi i32 [ %119, %118 ], [ %.08.i185, %.lr.ph.i184 ], [ %120, %127 ]
-  %129 = add i32 %.1, -1
-  %130 = icmp sgt i32 %129, 0
-  br i1 %130, label %.lr.ph.i190, label %megaco_tvb_skip_wsp_return.exit193
+megaco_tvb_skip_wsp.exit188:                      ; preds = %.lr.ph.i184, %125, %116
+  %.0.lcssa.i183 = phi i32 [ %117, %116 ], [ %.08.i185, %.lr.ph.i184 ], [ %118, %125 ]
+  %127 = add i32 %.1, -1
+  %128 = icmp sgt i32 %127, 0
+  br i1 %128, label %.lr.ph.i190, label %megaco_tvb_skip_wsp_return.exit193
 
-.lr.ph.i190:                                      ; preds = %megaco_tvb_skip_wsp.exit188, %136
-  %.08.i191 = phi i32 [ %137, %136 ], [ %129, %megaco_tvb_skip_wsp.exit188 ]
-  %131 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i191) #9
-  %132 = zext i8 %131 to i64
-  %133 = getelementptr i16, ptr %60, i64 %132
-  %134 = load i16, ptr %133, align 2
-  %135 = and i16 %134, 256
-  %.not.i192 = icmp eq i16 %135, 0
-  br i1 %.not.i192, label %megaco_tvb_skip_wsp_return.exit193, label %136
+.lr.ph.i190:                                      ; preds = %megaco_tvb_skip_wsp.exit188, %134
+  %.08.i191 = phi i32 [ %135, %134 ], [ %127, %megaco_tvb_skip_wsp.exit188 ]
+  %129 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i191) #9
+  %130 = zext i8 %129 to i64
+  %131 = getelementptr i16, ptr %58, i64 %130
+  %132 = load i16, ptr %131, align 2
+  %133 = and i16 %132, 256
+  %.not.i192 = icmp eq i16 %133, 0
+  br i1 %.not.i192, label %megaco_tvb_skip_wsp_return.exit193, label %134
 
-136:                                              ; preds = %.lr.ph.i190
-  %137 = add nsw i32 %.08.i191, -1
-  %138 = icmp sgt i32 %.08.i191, 1
-  br i1 %138, label %.lr.ph.i190, label %megaco_tvb_skip_wsp_return.exit193, !llvm.loop !10
+134:                                              ; preds = %.lr.ph.i190
+  %135 = add nsw i32 %.08.i191, -1
+  %136 = icmp sgt i32 %.08.i191, 1
+  br i1 %136, label %.lr.ph.i190, label %megaco_tvb_skip_wsp_return.exit193, !llvm.loop !10
 
-megaco_tvb_skip_wsp_return.exit193:               ; preds = %.lr.ph.i190, %136, %megaco_tvb_skip_wsp.exit188
-  %.0.lcssa.i189 = phi i32 [ %129, %megaco_tvb_skip_wsp.exit188 ], [ %.08.i191, %.lr.ph.i190 ], [ 0, %136 ]
-  %139 = add i32 %.0.lcssa.i189, 1
-  %140 = sub i32 %139, %.0.lcssa.i183
-  %141 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef %.0.lcssa.i183, ptr noundef nonnull @.str.137, i64 noundef 4) #9
-  %.not163 = icmp eq i32 %141, 0
-  br i1 %.not163, label %142, label %143
+megaco_tvb_skip_wsp_return.exit193:               ; preds = %.lr.ph.i190, %134, %megaco_tvb_skip_wsp.exit188
+  %.0.lcssa.i189 = phi i32 [ %127, %megaco_tvb_skip_wsp.exit188 ], [ %.08.i191, %.lr.ph.i190 ], [ 0, %134 ]
+  %137 = add i32 %.0.lcssa.i189, 1
+  %138 = sub i32 %137, %.0.lcssa.i183
+  %139 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef %.0.lcssa.i183, ptr noundef nonnull @.str.137, i64 noundef 4) #9
+  %.not163 = icmp eq i32 %139, 0
+  br i1 %.not163, label %140, label %141
 
-142:                                              ; preds = %megaco_tvb_skip_wsp_return.exit193
-  tail call fastcc void @dissect_megaco_h245(ptr noundef %0, ptr noundef %1, ptr noundef %115, i32 noundef %.0.lcssa.i183, i32 noundef %140, ptr noundef %5)
-  br label %145
+140:                                              ; preds = %megaco_tvb_skip_wsp_return.exit193
+  tail call fastcc void @dissect_megaco_h245(ptr noundef %0, ptr noundef %1, ptr noundef %113, i32 noundef %.0.lcssa.i183, i32 noundef %138, ptr noundef %5)
+  br label %143
 
-143:                                              ; preds = %megaco_tvb_skip_wsp_return.exit193
-  %144 = tail call ptr @proto_tree_add_format_text(ptr noundef %115, ptr noundef %0, i32 noundef %.0.lcssa.i183, i32 noundef %140) #9
-  br label %145
+141:                                              ; preds = %megaco_tvb_skip_wsp_return.exit193
+  %142 = tail call ptr @proto_tree_add_format_text(ptr noundef %113, ptr noundef %0, i32 noundef %.0.lcssa.i183, i32 noundef %138) #9
+  br label %143
 
-145:                                              ; preds = %142, %143, %111
-  %.2144 = phi i32 [ %.0.lcssa.i183, %143 ], [ %.0.lcssa.i183, %142 ], [ %.1143, %111 ]
-  %.2 = phi i32 [ %139, %143 ], [ %139, %142 ], [ %.1, %111 ]
-  %146 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.2147, i32 noundef %3, i8 noundef zeroext 44) #9
-  %147 = icmp eq i32 %146, -1
-  %148 = icmp sgt i32 %146, %3
-  %or.cond166 = or i1 %147, %148
-  %149 = icmp slt i32 %146, %.0148
-  %or.cond167 = select i1 %or.cond166, i1 true, i1 %149
-  %.1154 = select i1 %or.cond167, i32 %3, i32 %146
-  %150 = add i32 %.1154, 1
-  %151 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %152 = icmp slt i32 %150, %151
-  br i1 %152, label %.lr.ph.i195, label %megaco_tvb_skip_wsp.exit199
+143:                                              ; preds = %140, %141, %109
+  %.2144 = phi i32 [ %.0.lcssa.i183, %141 ], [ %.0.lcssa.i183, %140 ], [ %.1143, %109 ]
+  %.2 = phi i32 [ %137, %141 ], [ %137, %140 ], [ %.1, %109 ]
+  %144 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.2147, i32 noundef %3, i8 noundef zeroext 44) #9
+  %145 = icmp eq i32 %144, -1
+  %146 = icmp sgt i32 %144, %3
+  %or.cond166 = or i1 %145, %146
+  %147 = icmp slt i32 %144, %.0148
+  %or.cond167 = select i1 %or.cond166, i1 true, i1 %147
+  %.1154 = select i1 %or.cond167, i32 %3, i32 %144
+  %148 = add i32 %.1154, 1
+  %149 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
+  %150 = icmp slt i32 %148, %149
+  br i1 %150, label %.lr.ph.i195, label %megaco_tvb_skip_wsp.exit199
 
-.lr.ph.i195:                                      ; preds = %145, %158
-  %.08.i196 = phi i32 [ %159, %158 ], [ %150, %145 ]
-  %153 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i196) #9
-  %154 = zext i8 %153 to i64
-  %155 = getelementptr i16, ptr %60, i64 %154
-  %156 = load i16, ptr %155, align 2
-  %157 = and i16 %156, 256
-  %.not.i197 = icmp eq i16 %157, 0
-  br i1 %.not.i197, label %megaco_tvb_skip_wsp.exit199, label %158
+.lr.ph.i195:                                      ; preds = %143, %156
+  %.08.i196 = phi i32 [ %157, %156 ], [ %148, %143 ]
+  %151 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i196) #9
+  %152 = zext i8 %151 to i64
+  %153 = getelementptr i16, ptr %58, i64 %152
+  %154 = load i16, ptr %153, align 2
+  %155 = and i16 %154, 256
+  %.not.i197 = icmp eq i16 %155, 0
+  br i1 %.not.i197, label %megaco_tvb_skip_wsp.exit199, label %156
 
-158:                                              ; preds = %.lr.ph.i195
-  %159 = add i32 %.08.i196, 1
-  %exitcond.not.i198 = icmp eq i32 %159, %151
+156:                                              ; preds = %.lr.ph.i195
+  %157 = add i32 %.08.i196, 1
+  %exitcond.not.i198 = icmp eq i32 %157, %149
   br i1 %exitcond.not.i198, label %megaco_tvb_skip_wsp.exit199, label %.lr.ph.i195, !llvm.loop !4
 
-megaco_tvb_skip_wsp.exit199:                      ; preds = %.lr.ph.i195, %158, %145
-  %.0.lcssa.i194 = phi i32 [ %150, %145 ], [ %.08.i196, %.lr.ph.i195 ], [ %151, %158 ]
-  %160 = icmp slt i32 %.1154, %3
-  br i1 %160, label %61, label %.loopexit203, !llvm.loop !39
+megaco_tvb_skip_wsp.exit199:                      ; preds = %.lr.ph.i195, %156, %143
+  %.0.lcssa.i194 = phi i32 [ %148, %143 ], [ %.08.i196, %.lr.ph.i195 ], [ %149, %156 ]
+  %158 = icmp slt i32 %.1154, %3
+  br i1 %158, label %59, label %.loopexit203, !llvm.loop !39
 
 .loopexit203:                                     ; preds = %megaco_tvb_skip_wsp.exit199, %megaco_tvb_skip_wsp.exit173, %24
   ret void

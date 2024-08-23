@@ -2426,9 +2426,7 @@ lpad17:                                           ; preds = %invoke.cont37, %inv
 
 _ZN4absl7debian211string_view13remove_suffixEm.exit: ; preds = %if.end9
   %add.ptr.i = getelementptr inbounds i8, ptr %text.coerce0, i64 %startpos
-  %sub.i = sub nuw i64 %text.coerce1, %startpos
-  %sub.neg = sub i64 %endpos, %text.coerce1
-  %sub.i95 = add i64 %sub.neg, %sub.i
+  %sub.i95 = sub nuw i64 %endpos, %startpos
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %match, i8 0, i64 16, i1 false)
   %cmp44 = icmp eq i32 %nsubmatch, 0
   %spec.store.select = select i1 %cmp44, ptr null, ptr %match

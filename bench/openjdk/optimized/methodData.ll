@@ -2800,16 +2800,16 @@ _ZN20Bytecode_tableswitchC2EP6MethodPh.exit:      ; preds = %17, %20
   %36 = add i32 %29, 1
   %37 = sub i32 %36, %35
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph67, label %._crit_edge68
+  br i1 %38, label %.lr.ph56, label %._crit_edge57
 
-.lr.ph67:                                         ; preds = %_ZN20Bytecode_tableswitchC2EP6MethodPh.exit
+.lr.ph56:                                         ; preds = %_ZN20Bytecode_tableswitchC2EP6MethodPh.exit
   %39 = getelementptr inbounds i8, ptr %0, i64 8
-  %wide.trip.count73 = zext nneg i32 %37 to i64
+  %wide.trip.count62 = zext nneg i32 %37 to i64
   br label %40
 
-40:                                               ; preds = %.lr.ph67, %40
-  %indvars.iv70 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next71, %40 ]
-  %41 = trunc nuw nsw i64 %indvars.iv70 to i32
+40:                                               ; preds = %.lr.ph56, %40
+  %indvars.iv59 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next60, %40 ]
+  %41 = trunc nuw nsw i64 %indvars.iv59 to i32
   %42 = call noundef i32 @_ZNK20Bytecode_tableswitch14dest_offset_atEi(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef %41) #20
   %43 = load ptr, ptr %39, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 2
@@ -2820,24 +2820,24 @@ _ZN20Bytecode_tableswitchC2EP6MethodPh.exit:      ; preds = %17, %20
   %49 = call noundef ptr @_ZN10MethodData9bci_to_dpEi(ptr noundef nonnull align 8 dereferenceable(312) %2, i32 noundef %47)
   %50 = ptrtoint ptr %49 to i64
   %51 = sub i64 %50, %48
-  %52 = shl nuw nsw i64 %indvars.iv70, 1
+  %52 = shl nuw nsw i64 %indvars.iv59, 1
   %53 = add nuw nsw i64 %52, 4
-  %sext56 = shl i64 %51, 32
-  %54 = ashr exact i64 %sext56, 32
+  %sext53 = shl i64 %51, 32
+  %54 = ashr exact i64 %sext53, 32
   %55 = load ptr, ptr %39, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = getelementptr inbounds [1 x i64], ptr %56, i64 0, i64 %53
   store i64 %54, ptr %57, align 8
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %._crit_edge68.loopexit, label %40, !llvm.loop !19
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
+  br i1 %exitcond63.not, label %._crit_edge57.loopexit, label %40, !llvm.loop !19
 
-._crit_edge68.loopexit:                           ; preds = %40
+._crit_edge57.loopexit:                           ; preds = %40
   %.pre = load ptr, ptr %4, align 8
-  br label %._crit_edge68
+  br label %._crit_edge57
 
-._crit_edge68:                                    ; preds = %._crit_edge68.loopexit, %_ZN20Bytecode_tableswitchC2EP6MethodPh.exit
-  %58 = phi ptr [ %.pre, %._crit_edge68.loopexit ], [ %16, %_ZN20Bytecode_tableswitchC2EP6MethodPh.exit ]
+._crit_edge57:                                    ; preds = %._crit_edge57.loopexit, %_ZN20Bytecode_tableswitchC2EP6MethodPh.exit
+  %58 = phi ptr [ %.pre, %._crit_edge57.loopexit ], [ %16, %_ZN20Bytecode_tableswitchC2EP6MethodPh.exit ]
   %59 = getelementptr inbounds i8, ptr %58, i64 1
   %60 = ptrtoint ptr %59 to i64
   %61 = add i64 %60, 3
@@ -2904,8 +2904,8 @@ _ZN21Bytecode_lookupswitchC2EP6MethodPh.exit:     ; preds = %72, %74
   %104 = sub i64 %103, %101
   %105 = shl nuw nsw i64 %indvars.iv, 1
   %106 = add nuw nsw i64 %105, 4
-  %sext50 = shl i64 %104, 32
-  %107 = ashr exact i64 %sext50, 32
+  %sext49 = shl i64 %104, 32
+  %107 = ashr exact i64 %sext49, 32
   %108 = load ptr, ptr %83, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 8
   %110 = getelementptr inbounds [1 x i64], ptr %109, i64 0, i64 %106
@@ -2931,16 +2931,16 @@ _ZN21Bytecode_lookupswitchC2EP6MethodPh.exit:     ; preds = %72, %74
   %123 = tail call noundef ptr @_ZN10MethodData9bci_to_dpEi(ptr noundef nonnull align 8 dereferenceable(312) %2, i32 noundef %122)
   br label %124
 
-124:                                              ; preds = %._crit_edge, %._crit_edge68
-  %.sink = phi ptr [ %123, %._crit_edge ], [ %71, %._crit_edge68 ]
-  %.sink79.in = phi ptr [ %118, %._crit_edge ], [ %66, %._crit_edge68 ]
-  %.sink77 = phi ptr [ %117, %._crit_edge ], [ %65, %._crit_edge68 ]
-  %.sink79 = ptrtoint ptr %.sink79.in to i64
+124:                                              ; preds = %._crit_edge, %._crit_edge57
+  %.sink = phi ptr [ %123, %._crit_edge ], [ %71, %._crit_edge57 ]
+  %.sink68.in = phi ptr [ %118, %._crit_edge ], [ %66, %._crit_edge57 ]
+  %.sink66 = phi ptr [ %117, %._crit_edge ], [ %65, %._crit_edge57 ]
+  %.sink68 = ptrtoint ptr %.sink68.in to i64
   %125 = ptrtoint ptr %.sink to i64
-  %126 = sub i64 %125, %.sink79
+  %126 = sub i64 %125, %.sink68
   %sext = shl i64 %126, 32
   %127 = ashr exact i64 %sext, 32
-  %128 = load ptr, ptr %.sink77, align 8
+  %128 = load ptr, ptr %.sink66, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 24
   store i64 %127, ptr %129, align 8
   ret void

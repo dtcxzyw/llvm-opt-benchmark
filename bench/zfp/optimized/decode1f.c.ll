@@ -602,16 +602,16 @@ define internal fastcc i32 @decode_ints_uint32(ptr noalias nocapture noundef %0,
   %.not = icmp ugt i32 %6, %1
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.17.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %.not, label %7, label %75
+  %7 = tail call i32 @llvm.usub.sat.i32(i32 32, i32 %2)
+  br i1 %.not, label %8, label %75
 
-7:                                                ; preds = %4
+8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8, !alias.scope !5, !noalias !8
   %.sroa.9.0.copyload.i = load i64, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !5, !noalias !8
   %.sroa.17.0.copyload.i = load ptr, ptr %.sroa.17.0..sroa_idx.i, align 8, !alias.scope !5, !noalias !8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false), !alias.scope !8, !noalias !5
-  %8 = tail call i32 @llvm.usub.sat.i32(i32 32, i32 %2)
   %.not117.i = icmp eq i32 %1, 0
   br i1 %.not117.i, label %decode_few_ints_uint32.exit, label %.lr.ph124.i
 
@@ -619,15 +619,15 @@ define internal fastcc i32 @decode_ints_uint32(ptr noalias nocapture noundef %0,
   %.not.i = icmp eq i32 %.252.i, 0
   br i1 %.not.i, label %decode_few_ints_uint32.exit, label %.lr.ph124.i
 
-.lr.ph124.i:                                      ; preds = %7, %.loopexit.i
-  %.045123.i = phi i32 [ %.146.lcssa.i, %.loopexit.i ], [ 0, %7 ]
-  %.047122.i = phi i32 [ %9, %.loopexit.i ], [ 32, %7 ]
-  %.050121.i = phi i32 [ %.252.i, %.loopexit.i ], [ %1, %7 ]
-  %.sroa.0.0120.i = phi i64 [ %.sroa.0.2.i, %.loopexit.i ], [ %.sroa.0.0.copyload.i, %7 ]
-  %.sroa.17.0119.i = phi ptr [ %.sroa.17.2.i, %.loopexit.i ], [ %.sroa.17.0.copyload.i, %7 ]
-  %.sroa.9.0118.i = phi i64 [ %.sroa.9.2.i, %.loopexit.i ], [ %.sroa.9.0.copyload.i, %7 ]
+.lr.ph124.i:                                      ; preds = %8, %.loopexit.i
+  %.045123.i = phi i32 [ %.146.lcssa.i, %.loopexit.i ], [ 0, %8 ]
+  %.047122.i = phi i32 [ %9, %.loopexit.i ], [ 32, %8 ]
+  %.050121.i = phi i32 [ %.252.i, %.loopexit.i ], [ %1, %8 ]
+  %.sroa.0.0120.i = phi i64 [ %.sroa.0.2.i, %.loopexit.i ], [ %.sroa.0.0.copyload.i, %8 ]
+  %.sroa.17.0119.i = phi ptr [ %.sroa.17.2.i, %.loopexit.i ], [ %.sroa.17.0.copyload.i, %8 ]
+  %.sroa.9.0118.i = phi i64 [ %.sroa.9.2.i, %.loopexit.i ], [ %.sroa.9.0.copyload.i, %8 ]
   %9 = add nsw i32 %.047122.i, -1
-  %10 = icmp ugt i32 %.047122.i, %8
+  %10 = icmp ugt i32 %.047122.i, %7
   br i1 %10, label %11, label %decode_few_ints_uint32.exit
 
 11:                                               ; preds = %.lr.ph124.i
@@ -784,16 +784,16 @@ stream_read_bit.exit._crit_edge.i:                ; preds = %stream_read_bit.exi
   %.not55.i = icmp ult i64 %.1114.i, 2
   br i1 %.not55.i, label %.loopexit.i, label %.lr.ph116.i
 
-decode_few_ints_uint32.exit:                      ; preds = %.loopexit.i, %.lr.ph124.i, %7
-  %.sroa.9.0.lcssa.i = phi i64 [ %.sroa.9.0.copyload.i, %7 ], [ %.sroa.9.0118.i, %.lr.ph124.i ], [ %.sroa.9.2.i, %.loopexit.i ]
-  %.sroa.17.0.lcssa.i = phi ptr [ %.sroa.17.0.copyload.i, %7 ], [ %.sroa.17.0119.i, %.lr.ph124.i ], [ %.sroa.17.2.i, %.loopexit.i ]
-  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.0.copyload.i, %7 ], [ %.sroa.0.0120.i, %.lr.ph124.i ], [ %.sroa.0.2.i, %.loopexit.i ]
-  %.050.lcssa.i = phi i32 [ 0, %7 ], [ %.050121.i, %.lr.ph124.i ], [ 0, %.loopexit.i ]
+decode_few_ints_uint32.exit:                      ; preds = %.loopexit.i, %.lr.ph124.i, %8
+  %.sroa.9.0.lcssa.i = phi i64 [ %.sroa.9.0.copyload.i, %8 ], [ %.sroa.9.0118.i, %.lr.ph124.i ], [ %.sroa.9.2.i, %.loopexit.i ]
+  %.sroa.17.0.lcssa.i = phi ptr [ %.sroa.17.0.copyload.i, %8 ], [ %.sroa.17.0119.i, %.lr.ph124.i ], [ %.sroa.17.2.i, %.loopexit.i ]
+  %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.0.copyload.i, %8 ], [ %.sroa.0.0120.i, %.lr.ph124.i ], [ %.sroa.0.2.i, %.loopexit.i ]
+  %.050.lcssa.i = phi i32 [ 0, %8 ], [ %.050121.i, %.lr.ph124.i ], [ 0, %.loopexit.i ]
   store i64 %.sroa.0.0.lcssa.i, ptr %0, align 8, !alias.scope !5, !noalias !8
   store i64 %.sroa.9.0.lcssa.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !5, !noalias !8
   store ptr %.sroa.17.0.lcssa.i, ptr %.sroa.17.0..sroa_idx.i, align 8, !alias.scope !5, !noalias !8
   %74 = sub i32 %1, %.050.lcssa.i
-  br label %136
+  br label %133
 
 75:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
@@ -801,88 +801,85 @@ decode_few_ints_uint32.exit:                      ; preds = %.loopexit.i, %.lr.p
   %.sroa.0.0.copyload.i24 = load i64, ptr %0, align 8, !alias.scope !11, !noalias !14
   %.sroa.11.0.copyload.i = load i64, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
   %.sroa.19.0.copyload.i = load ptr, ptr %.sroa.17.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
-  %.sroa.27.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.27.0.copyload.i = load ptr, ptr %.sroa.27.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false), !alias.scope !14, !noalias !11
-  %76 = tail call i32 @llvm.usub.sat.i32(i32 32, i32 %2)
-  %77 = icmp ult i32 %76, 32
-  br i1 %77, label %.lr.ph106.i, label %decode_few_ints_prec_uint32.exit
+  %76 = icmp ult i32 %7, 32
+  br i1 %76, label %.lr.ph106.i, label %decode_few_ints_prec_uint32.exit
 
 .loopexit.i34:                                    ; preds = %.lr.ph101.i, %.critedge.i
-  %78 = add nsw i32 %80, -1
-  %79 = icmp ugt i32 %80, %76
-  br i1 %79, label %.lr.ph106.i, label %decode_few_ints_prec_uint32.exit
+  %77 = add nsw i32 %79, -1
+  %78 = icmp ugt i32 %79, %7
+  br i1 %78, label %.lr.ph106.i, label %decode_few_ints_prec_uint32.exit
 
 .lr.ph106.i:                                      ; preds = %75, %.loopexit.i34
-  %80 = phi i32 [ %78, %.loopexit.i34 ], [ 31, %75 ]
+  %79 = phi i32 [ %77, %.loopexit.i34 ], [ 31, %75 ]
   %.032105.i = phi i32 [ %.133.lcssa.i, %.loopexit.i34 ], [ 0, %75 ]
   %.sroa.0.0104.i = phi i64 [ %.sroa.0.2.i31, %.loopexit.i34 ], [ %.sroa.0.0.copyload.i24, %75 ]
   %.sroa.19.0103.i = phi ptr [ %.sroa.19.2.i, %.loopexit.i34 ], [ %.sroa.19.0.copyload.i, %75 ]
   %.sroa.11.0102.i = phi i64 [ %.sroa.11.2.i, %.loopexit.i34 ], [ %.sroa.11.0.copyload.i, %75 ]
-  %81 = zext i32 %.032105.i to i64
-  %82 = icmp ult i64 %.sroa.0.0104.i, %81
-  br i1 %82, label %83, label %97
+  %80 = zext i32 %.032105.i to i64
+  %81 = icmp ult i64 %.sroa.0.0104.i, %80
+  br i1 %81, label %82, label %96
 
-83:                                               ; preds = %.lr.ph106.i
-  %84 = getelementptr inbounds i8, ptr %.sroa.19.0103.i, i64 8
-  %85 = load i64, ptr %.sroa.19.0103.i, align 8, !noalias !16
-  %86 = shl i64 %85, %.sroa.0.0104.i
-  %87 = add i64 %86, %.sroa.11.0102.i
-  %88 = add nuw nsw i64 %.sroa.0.0104.i, 64
-  %89 = sub nsw i64 %88, %81
-  %.not.i.i43 = icmp eq i64 %88, %81
-  br i1 %.not.i.i43, label %stream_read_bits.exit.i27, label %90
+82:                                               ; preds = %.lr.ph106.i
+  %83 = getelementptr inbounds i8, ptr %.sroa.19.0103.i, i64 8
+  %84 = load i64, ptr %.sroa.19.0103.i, align 8, !noalias !16
+  %85 = shl i64 %84, %.sroa.0.0104.i
+  %86 = add i64 %85, %.sroa.11.0102.i
+  %87 = add nuw nsw i64 %.sroa.0.0104.i, 64
+  %88 = sub nsw i64 %87, %80
+  %.not.i.i43 = icmp eq i64 %87, %80
+  br i1 %.not.i.i43, label %stream_read_bits.exit.i27, label %89
 
-90:                                               ; preds = %83
-  %91 = sub nsw i64 64, %89
-  %92 = lshr i64 %85, %91
-  %93 = add nsw i64 %81, -1
-  %94 = shl i64 2, %93
-  %95 = add i64 %94, -1
-  %96 = and i64 %87, %95
+89:                                               ; preds = %82
+  %90 = sub nsw i64 64, %88
+  %91 = lshr i64 %84, %90
+  %92 = add nsw i64 %80, -1
+  %93 = shl i64 2, %92
+  %94 = add i64 %93, -1
+  %95 = and i64 %86, %94
   br label %stream_read_bits.exit.i27
 
-97:                                               ; preds = %.lr.ph106.i
-  %98 = sub nuw i64 %.sroa.0.0104.i, %81
-  %99 = lshr i64 %.sroa.11.0102.i, %81
-  %notmask.i.i26 = shl nsw i64 -1, %81
-  %100 = xor i64 %notmask.i.i26, -1
-  %101 = and i64 %.sroa.11.0102.i, %100
+96:                                               ; preds = %.lr.ph106.i
+  %97 = sub nuw i64 %.sroa.0.0104.i, %80
+  %98 = lshr i64 %.sroa.11.0102.i, %80
+  %notmask.i.i26 = shl nsw i64 -1, %80
+  %99 = xor i64 %notmask.i.i26, -1
+  %100 = and i64 %.sroa.11.0102.i, %99
   br label %stream_read_bits.exit.i27
 
-stream_read_bits.exit.i27:                        ; preds = %97, %90, %83
-  %.sroa.11.5.i = phi i64 [ %92, %90 ], [ %99, %97 ], [ 0, %83 ]
-  %.sroa.19.5.i = phi ptr [ %84, %90 ], [ %.sroa.19.0103.i, %97 ], [ %84, %83 ]
-  %.sroa.0.5.i28 = phi i64 [ %89, %90 ], [ %98, %97 ], [ %89, %83 ]
-  %.0.i.i29 = phi i64 [ %96, %90 ], [ %101, %97 ], [ %87, %83 ]
-  %102 = icmp ult i32 %.032105.i, 4
-  br i1 %102, label %.lr.ph87.i, label %.critedge.i
+stream_read_bits.exit.i27:                        ; preds = %96, %89, %82
+  %.sroa.11.5.i = phi i64 [ %91, %89 ], [ %98, %96 ], [ 0, %82 ]
+  %.sroa.19.5.i = phi ptr [ %83, %89 ], [ %.sroa.19.0103.i, %96 ], [ %83, %82 ]
+  %.sroa.0.5.i28 = phi i64 [ %88, %89 ], [ %97, %96 ], [ %88, %82 ]
+  %.0.i.i29 = phi i64 [ %95, %89 ], [ %100, %96 ], [ %86, %82 ]
+  %101 = icmp ult i32 %.032105.i, 4
+  br i1 %101, label %.lr.ph87.i, label %.critedge.i
 
 .lr.ph87.i:                                       ; preds = %stream_read_bits.exit.i27, %.critedge2.i
-  %.086.i = phi i64 [ %120, %.critedge2.i ], [ %.0.i.i29, %stream_read_bits.exit.i27 ]
-  %.13385.i = phi i32 [ %121, %.critedge2.i ], [ %.032105.i, %stream_read_bits.exit.i27 ]
-  %.sroa.0.184.i = phi i64 [ %113, %.critedge2.i ], [ %.sroa.0.5.i28, %stream_read_bits.exit.i27 ]
+  %.086.i = phi i64 [ %119, %.critedge2.i ], [ %.0.i.i29, %stream_read_bits.exit.i27 ]
+  %.13385.i = phi i32 [ %120, %.critedge2.i ], [ %.032105.i, %stream_read_bits.exit.i27 ]
+  %.sroa.0.184.i = phi i64 [ %112, %.critedge2.i ], [ %.sroa.0.5.i28, %stream_read_bits.exit.i27 ]
   %.sroa.19.183.i = phi ptr [ %.sroa.19.7.i, %.critedge2.i ], [ %.sroa.19.5.i, %stream_read_bits.exit.i27 ]
-  %.sroa.11.182.i = phi i64 [ %114, %.critedge2.i ], [ %.sroa.11.5.i, %stream_read_bits.exit.i27 ]
+  %.sroa.11.182.i = phi i64 [ %113, %.critedge2.i ], [ %.sroa.11.5.i, %stream_read_bits.exit.i27 ]
   %.not.i40.i = icmp eq i64 %.sroa.0.184.i, 0
-  br i1 %.not.i40.i, label %104, label %._crit_edge.i.i35
+  br i1 %.not.i40.i, label %103, label %._crit_edge.i.i35
 
 ._crit_edge.i.i35:                                ; preds = %.lr.ph87.i
-  %103 = add i64 %.sroa.0.184.i, -1
+  %102 = add i64 %.sroa.0.184.i, -1
   br label %stream_read_bit.exit.i36
 
-104:                                              ; preds = %.lr.ph87.i
-  %105 = getelementptr inbounds i8, ptr %.sroa.19.183.i, i64 8
+103:                                              ; preds = %.lr.ph87.i
+  %104 = getelementptr inbounds i8, ptr %.sroa.19.183.i, i64 8
   %.in.i.sroa.speculate.load..i42 = load i64, ptr %.sroa.19.183.i, align 8, !noalias !16
   br label %stream_read_bit.exit.i36
 
-stream_read_bit.exit.i36:                         ; preds = %104, %._crit_edge.i.i35
-  %.sroa.19.6.i = phi ptr [ %105, %104 ], [ %.sroa.19.183.i, %._crit_edge.i.i35 ]
-  %.in.i.sroa.speculated.i37 = phi i64 [ %.in.i.sroa.speculate.load..i42, %104 ], [ %.sroa.11.182.i, %._crit_edge.i.i35 ]
-  %106 = phi i64 [ 63, %104 ], [ %103, %._crit_edge.i.i35 ]
-  %107 = lshr i64 %.in.i.sroa.speculated.i37, 1
-  %108 = and i64 %.in.i.sroa.speculated.i37, 1
-  %.not.i38 = icmp eq i64 %108, 0
+stream_read_bit.exit.i36:                         ; preds = %103, %._crit_edge.i.i35
+  %.sroa.19.6.i = phi ptr [ %104, %103 ], [ %.sroa.19.183.i, %._crit_edge.i.i35 ]
+  %.in.i.sroa.speculated.i37 = phi i64 [ %.in.i.sroa.speculate.load..i42, %103 ], [ %.sroa.11.182.i, %._crit_edge.i.i35 ]
+  %105 = phi i64 [ 63, %103 ], [ %102, %._crit_edge.i.i35 ]
+  %106 = lshr i64 %.in.i.sroa.speculated.i37, 1
+  %107 = and i64 %.in.i.sroa.speculated.i37, 1
+  %.not.i38 = icmp eq i64 %107, 0
   br i1 %.not.i38, label %.critedge.i, label %.preheader.i39
 
 .preheader.i39:                                   ; preds = %stream_read_bit.exit.i36
@@ -890,70 +887,70 @@ stream_read_bit.exit.i36:                         ; preds = %104, %._crit_edge.i
   br i1 %.not110.i, label %.critedge2.thread.i, label %.lr.ph.i40
 
 .critedge2.thread.i:                              ; preds = %.preheader.i39
-  %109 = add i64 %.086.i, 8
+  %108 = add i64 %.086.i, 8
   br label %.critedge.i
 
-.lr.ph.i40:                                       ; preds = %.preheader.i39, %116
-  %.274.i = phi i32 [ %117, %116 ], [ %.13385.i, %.preheader.i39 ]
-  %.sroa.0.373.i = phi i64 [ %113, %116 ], [ %106, %.preheader.i39 ]
-  %.sroa.19.372.i = phi ptr [ %.sroa.19.7.i, %116 ], [ %.sroa.19.6.i, %.preheader.i39 ]
-  %.sroa.11.371.i = phi i64 [ %114, %116 ], [ %107, %.preheader.i39 ]
+.lr.ph.i40:                                       ; preds = %.preheader.i39, %115
+  %.274.i = phi i32 [ %116, %115 ], [ %.13385.i, %.preheader.i39 ]
+  %.sroa.0.373.i = phi i64 [ %112, %115 ], [ %105, %.preheader.i39 ]
+  %.sroa.19.372.i = phi ptr [ %.sroa.19.7.i, %115 ], [ %.sroa.19.6.i, %.preheader.i39 ]
+  %.sroa.11.371.i = phi i64 [ %113, %115 ], [ %106, %.preheader.i39 ]
   %.not.i41.i = icmp eq i64 %.sroa.0.373.i, 0
-  br i1 %.not.i41.i, label %111, label %._crit_edge.i42.i
+  br i1 %.not.i41.i, label %110, label %._crit_edge.i42.i
 
 ._crit_edge.i42.i:                                ; preds = %.lr.ph.i40
-  %110 = add i64 %.sroa.0.373.i, -1
+  %109 = add i64 %.sroa.0.373.i, -1
   br label %stream_read_bit.exit45.i
 
-111:                                              ; preds = %.lr.ph.i40
-  %112 = getelementptr inbounds i8, ptr %.sroa.19.372.i, i64 8
+110:                                              ; preds = %.lr.ph.i40
+  %111 = getelementptr inbounds i8, ptr %.sroa.19.372.i, i64 8
   %.in.i44.sroa.speculate.load..i = load i64, ptr %.sroa.19.372.i, align 8, !noalias !16
   br label %stream_read_bit.exit45.i
 
-stream_read_bit.exit45.i:                         ; preds = %111, %._crit_edge.i42.i
-  %.sroa.19.7.i = phi ptr [ %112, %111 ], [ %.sroa.19.372.i, %._crit_edge.i42.i ]
-  %.in.i44.sroa.speculated.i = phi i64 [ %.in.i44.sroa.speculate.load..i, %111 ], [ %.sroa.11.371.i, %._crit_edge.i42.i ]
-  %113 = phi i64 [ 63, %111 ], [ %110, %._crit_edge.i42.i ]
-  %114 = lshr i64 %.in.i44.sroa.speculated.i, 1
-  %115 = and i64 %.in.i44.sroa.speculated.i, 1
-  %.not39.i = icmp eq i64 %115, 0
-  br i1 %.not39.i, label %116, label %.critedge2.i
+stream_read_bit.exit45.i:                         ; preds = %110, %._crit_edge.i42.i
+  %.sroa.19.7.i = phi ptr [ %111, %110 ], [ %.sroa.19.372.i, %._crit_edge.i42.i ]
+  %.in.i44.sroa.speculated.i = phi i64 [ %.in.i44.sroa.speculate.load..i, %110 ], [ %.sroa.11.371.i, %._crit_edge.i42.i ]
+  %112 = phi i64 [ 63, %110 ], [ %109, %._crit_edge.i42.i ]
+  %113 = lshr i64 %.in.i44.sroa.speculated.i, 1
+  %114 = and i64 %.in.i44.sroa.speculated.i, 1
+  %.not39.i = icmp eq i64 %114, 0
+  br i1 %.not39.i, label %115, label %.critedge2.i
 
-116:                                              ; preds = %stream_read_bit.exit45.i
-  %117 = add nuw nsw i32 %.274.i, 1
+115:                                              ; preds = %stream_read_bit.exit45.i
+  %116 = add nuw nsw i32 %.274.i, 1
   %exitcond.not.i = icmp eq i32 %.274.i, 2
   br i1 %exitcond.not.i, label %.critedge2.i, label %.lr.ph.i40
 
-.critedge2.i:                                     ; preds = %116, %stream_read_bit.exit45.i
-  %.2.lcssa.i41 = phi i32 [ 3, %116 ], [ %.274.i, %stream_read_bit.exit45.i ]
-  %118 = zext nneg i32 %.2.lcssa.i41 to i64
-  %119 = shl nuw i64 1, %118
-  %120 = add i64 %119, %.086.i
-  %121 = add nuw i32 %.2.lcssa.i41, 1
-  %122 = icmp ult i32 %.2.lcssa.i41, 3
-  br i1 %122, label %.lr.ph87.i, label %.critedge.i
+.critedge2.i:                                     ; preds = %115, %stream_read_bit.exit45.i
+  %.2.lcssa.i41 = phi i32 [ 3, %115 ], [ %.274.i, %stream_read_bit.exit45.i ]
+  %117 = zext nneg i32 %.2.lcssa.i41 to i64
+  %118 = shl nuw i64 1, %117
+  %119 = add i64 %118, %.086.i
+  %120 = add nuw i32 %.2.lcssa.i41, 1
+  %121 = icmp ult i32 %.2.lcssa.i41, 3
+  br i1 %121, label %.lr.ph87.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge2.i, %stream_read_bit.exit.i36, %.critedge2.thread.i, %stream_read_bits.exit.i27
-  %.133.lcssa.i = phi i32 [ %.032105.i, %stream_read_bits.exit.i27 ], [ 4, %.critedge2.thread.i ], [ %.13385.i, %stream_read_bit.exit.i36 ], [ %121, %.critedge2.i ]
-  %.0.lcssa.i30 = phi i64 [ %.0.i.i29, %stream_read_bits.exit.i27 ], [ %109, %.critedge2.thread.i ], [ %.086.i, %stream_read_bit.exit.i36 ], [ %120, %.critedge2.i ]
-  %.sroa.11.2.i = phi i64 [ %.sroa.11.5.i, %stream_read_bits.exit.i27 ], [ %107, %.critedge2.thread.i ], [ %107, %stream_read_bit.exit.i36 ], [ %114, %.critedge2.i ]
+  %.133.lcssa.i = phi i32 [ %.032105.i, %stream_read_bits.exit.i27 ], [ 4, %.critedge2.thread.i ], [ %.13385.i, %stream_read_bit.exit.i36 ], [ %120, %.critedge2.i ]
+  %.0.lcssa.i30 = phi i64 [ %.0.i.i29, %stream_read_bits.exit.i27 ], [ %108, %.critedge2.thread.i ], [ %.086.i, %stream_read_bit.exit.i36 ], [ %119, %.critedge2.i ]
+  %.sroa.11.2.i = phi i64 [ %.sroa.11.5.i, %stream_read_bits.exit.i27 ], [ %106, %.critedge2.thread.i ], [ %106, %stream_read_bit.exit.i36 ], [ %113, %.critedge2.i ]
   %.sroa.19.2.i = phi ptr [ %.sroa.19.5.i, %stream_read_bits.exit.i27 ], [ %.sroa.19.6.i, %.critedge2.thread.i ], [ %.sroa.19.6.i, %stream_read_bit.exit.i36 ], [ %.sroa.19.7.i, %.critedge2.i ]
-  %.sroa.0.2.i31 = phi i64 [ %.sroa.0.5.i28, %stream_read_bits.exit.i27 ], [ %106, %.critedge2.thread.i ], [ %106, %stream_read_bit.exit.i36 ], [ %113, %.critedge2.i ]
+  %.sroa.0.2.i31 = phi i64 [ %.sroa.0.5.i28, %stream_read_bits.exit.i27 ], [ %105, %.critedge2.thread.i ], [ %105, %stream_read_bit.exit.i36 ], [ %112, %.critedge2.i ]
   %.not3898.i = icmp eq i64 %.0.lcssa.i30, 0
   br i1 %.not3898.i, label %.loopexit.i34, label %.lr.ph101.i
 
 .lr.ph101.i:                                      ; preds = %.critedge.i, %.lr.ph101.i
   %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i33, %.lr.ph101.i ], [ 0, %.critedge.i ]
-  %.1100.i = phi i64 [ %129, %.lr.ph101.i ], [ %.0.lcssa.i30, %.critedge.i ]
-  %123 = trunc i64 %.1100.i to i32
-  %124 = and i32 %123, 1
-  %125 = shl nuw i32 %124, %80
-  %126 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i32
-  %127 = load i32, ptr %126, align 4, !alias.scope !14, !noalias !11
-  %128 = add i32 %125, %127
-  store i32 %128, ptr %126, align 4, !alias.scope !14, !noalias !11
+  %.1100.i = phi i64 [ %128, %.lr.ph101.i ], [ %.0.lcssa.i30, %.critedge.i ]
+  %122 = trunc i64 %.1100.i to i32
+  %123 = and i32 %122, 1
+  %124 = shl nuw i32 %123, %79
+  %125 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i32
+  %126 = load i32, ptr %125, align 4, !alias.scope !14, !noalias !11
+  %127 = add i32 %124, %126
+  store i32 %127, ptr %125, align 4, !alias.scope !14, !noalias !11
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
-  %129 = lshr i64 %.1100.i, 1
+  %128 = lshr i64 %.1100.i, 1
   %.not38.i = icmp ult i64 %.1100.i, 2
   br i1 %.not38.i, label %.loopexit.i34, label %.lr.ph101.i
 
@@ -961,23 +958,20 @@ decode_few_ints_prec_uint32.exit:                 ; preds = %.loopexit.i34, %75
   %.sroa.11.0.lcssa.i = phi i64 [ %.sroa.11.0.copyload.i, %75 ], [ %.sroa.11.2.i, %.loopexit.i34 ]
   %.sroa.19.0.lcssa.i = phi ptr [ %.sroa.19.0.copyload.i, %75 ], [ %.sroa.19.2.i, %.loopexit.i34 ]
   %.sroa.0.0.lcssa.i25 = phi i64 [ %.sroa.0.0.copyload.i24, %75 ], [ %.sroa.0.2.i31, %.loopexit.i34 ]
-  %130 = ptrtoint ptr %.sroa.19.0.copyload.i to i64
-  %131 = ptrtoint ptr %.sroa.27.0.copyload.i to i64
-  %.neg67.i = sub i64 %131, %130
+  %129 = ptrtoint ptr %.sroa.19.0.copyload.i to i64
   store i64 %.sroa.0.0.lcssa.i25, ptr %0, align 8, !alias.scope !11, !noalias !14
   store i64 %.sroa.11.0.lcssa.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
   store ptr %.sroa.19.0.lcssa.i, ptr %.sroa.17.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
-  %132 = ptrtoint ptr %.sroa.19.0.lcssa.i to i64
-  %133 = sub i64 %132, %131
-  %reass.add = add i64 %133, %.neg67.i
+  %130 = ptrtoint ptr %.sroa.19.0.lcssa.i to i64
+  %reass.add = sub i64 %130, %129
   %reass.mul = shl i64 %reass.add, 3
   %.neg.i = sub i64 %.sroa.0.0.copyload.i24, %.sroa.0.0.lcssa.i25
-  %134 = add i64 %.neg.i, %reass.mul
-  %135 = trunc i64 %134 to i32
-  br label %136
+  %131 = add i64 %.neg.i, %reass.mul
+  %132 = trunc i64 %131 to i32
+  br label %133
 
-136:                                              ; preds = %decode_few_ints_prec_uint32.exit, %decode_few_ints_uint32.exit
-  %.0 = phi i32 [ %74, %decode_few_ints_uint32.exit ], [ %135, %decode_few_ints_prec_uint32.exit ]
+133:                                              ; preds = %decode_few_ints_prec_uint32.exit, %decode_few_ints_uint32.exit
+  %.0 = phi i32 [ %74, %decode_few_ints_uint32.exit ], [ %132, %decode_few_ints_prec_uint32.exit ]
   ret i32 %.0
 }
 

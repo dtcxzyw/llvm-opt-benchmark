@@ -118,100 +118,29 @@ define hidden void @mbedtls_ct_mpi_uint_cond_assign(i64 noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i8 @mbedtls_ct_base64_enc_char(i8 noundef zeroext %0) local_unnamed_addr #1 {
-  %2 = zext i8 %0 to i32
-  %3 = sub nsw i32 25, %2
-  %4 = lshr i32 %3, 8
-  %5 = trunc i32 %4 to i8
-  %6 = xor i8 %5, -1
-  %7 = add i8 %0, 65
-  %8 = and i8 %7, %6
-  %9 = add nuw nsw i32 %2, 65510
-  %10 = sub nsw i32 51, %2
-  %11 = or i32 %9, %10
-  %12 = lshr i32 %11, 8
-  %13 = trunc i32 %12 to i8
-  %14 = xor i8 %13, -1
-  %15 = add i8 %0, 71
-  %16 = and i8 %15, %14
-  %17 = or i8 %16, %8
-  %18 = add nuw nsw i32 %2, 65484
-  %19 = sub nsw i32 61, %2
-  %20 = or i32 %18, %19
-  %21 = lshr i32 %20, 8
-  %22 = trunc i32 %21 to i8
-  %23 = xor i8 %22, -1
-  %24 = add i8 %0, -4
-  %25 = and i8 %24, %23
-  %26 = or i8 %17, %25
-  %27 = add nuw nsw i32 %2, 16322
-  %28 = sub nsw i32 62, %2
-  %29 = or i32 %27, %28
-  %30 = lshr i32 %29, 8
-  %31 = trunc i32 %30 to i8
-  %32 = and i8 %31, 43
-  %33 = xor i8 %32, 43
-  %34 = or i8 %26, %33
-  %35 = add nuw nsw i32 %2, 16321
-  %36 = sub nsw i32 63, %2
-  %37 = or i32 %35, %36
-  %38 = lshr i32 %37, 8
-  %39 = trunc i32 %38 to i8
-  %40 = and i8 %39, 47
-  %41 = xor i8 %40, 47
-  %42 = or i8 %34, %41
-  ret i8 %42
+define hidden noundef zeroext i8 @mbedtls_ct_base64_enc_char(i8 noundef zeroext %0) local_unnamed_addr #1 {
+  %2 = add i8 %0, 65
+  %3 = add i8 %0, 71
+  %4 = add i8 %0, -4
+  %5 = or i8 %2, %3
+  %6 = or i8 %5, %4
+  %7 = or i8 %6, 47
+  ret i8 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden signext i8 @mbedtls_ct_base64_dec_value(i8 noundef zeroext %0) local_unnamed_addr #1 {
-  %2 = zext i8 %0 to i32
-  %3 = add nuw nsw i32 %2, 65471
-  %4 = sub nsw i32 90, %2
-  %5 = or i32 %3, %4
-  %6 = lshr i32 %5, 8
-  %7 = trunc i32 %6 to i8
-  %8 = xor i8 %7, -1
-  %9 = add i8 %0, -64
-  %10 = and i8 %9, %8
-  %11 = add nuw nsw i32 %2, 65439
-  %12 = sub nsw i32 122, %2
-  %13 = or i32 %11, %12
-  %14 = lshr i32 %13, 8
-  %15 = trunc i32 %14 to i8
-  %16 = xor i8 %15, -1
-  %17 = add i8 %0, -70
-  %18 = and i8 %17, %16
-  %19 = or i8 %18, %10
-  %20 = add nuw nsw i32 %2, 65488
-  %21 = sub nsw i32 57, %2
-  %22 = or i32 %20, %21
-  %23 = lshr i32 %22, 8
-  %24 = trunc i32 %23 to i8
-  %25 = xor i8 %24, -1
-  %26 = add i8 %0, 5
-  %27 = and i8 %26, %25
-  %28 = or i8 %19, %27
-  %29 = add nuw nsw i32 %2, 65493
-  %30 = sub nsw i32 43, %2
-  %31 = or i32 %29, %30
-  %32 = lshr i32 %31, 8
-  %33 = trunc i32 %32 to i8
-  %34 = xor i8 %33, -1
-  %35 = add i8 %0, 20
-  %36 = and i8 %35, %34
-  %37 = or i8 %28, %36
-  %38 = add nuw nsw i32 %2, 65489
-  %39 = sub nsw i32 47, %2
-  %40 = or i32 %38, %39
-  %41 = lshr i32 %40, 8
-  %42 = trunc i32 %41 to i8
-  %43 = xor i8 %42, -1
-  %44 = add i8 %0, 17
-  %45 = and i8 %44, %43
-  %46 = or i8 %37, %45
-  %47 = add i8 %46, -1
-  ret i8 %47
+  %2 = add i8 %0, -64
+  %3 = add i8 %0, -70
+  %4 = or i8 %3, %2
+  %5 = add i8 %0, 5
+  %6 = or i8 %4, %5
+  %7 = add i8 %0, 20
+  %8 = or i8 %6, %7
+  %9 = add i8 %0, 17
+  %10 = or i8 %8, %9
+  %11 = add i8 %10, -1
+  ret i8 %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
