@@ -3601,7 +3601,7 @@ cmake/deflate.c.ll 940458818
 cmake/delta_common.c.ll 47115126
 cmake/delta_decoder.c.ll 52577882
 cmake/delta_encoder.c.ll 69563496
-cmake/digest.c.ll 373846736
+cmake/digest.c.ll 374225250
 cmake/divsufsort.c.ll 3436538475
 cmake/dl.c.ll 45236787
 cmake/doh.c.ll 481772174
@@ -15166,7 +15166,7 @@ luau/Def.cpp.ll 398500822
 luau/DenseHash.test.cpp.ll 620467584
 luau/DiffAsserts.cpp.ll 200972261
 luau/Differ.cpp.ll 2823748183
-luau/Differ.test.cpp.ll 6461010147
+luau/Differ.test.cpp.ll 6454519732
 luau/EmbeddedBuiltinDefinitions.cpp.ll 155328040
 luau/EmitBuiltinsX64.cpp.ll 112265948
 luau/EmitCommonX64.cpp.ll 264345991
@@ -17027,7 +17027,7 @@ nlohmann_json/unit-json_pointer.cpp.ll 11029903552
 nlohmann_json/unit-large_json.cpp.ll 3312076068
 nlohmann_json/unit-merge_patch.cpp.ll 4787857517
 nlohmann_json/unit-meta.cpp.ll 2870154526
-nlohmann_json/unit-modifiers.cpp.ll 8116479171
+nlohmann_json/unit-modifiers.cpp.ll 8108345305
 nlohmann_json/unit-msgpack.cpp.ll 23683365572
 nlohmann_json/unit-no-mem-leak-on-adl-serialize.cpp.ll 1605217850
 nlohmann_json/unit-noexcept.cpp.ll 83590577
@@ -17303,7 +17303,7 @@ nori/shader_gl.cpp.ll 542054966
 nori/slider.cpp.ll 215081641
 nori/tabwidget.cpp.ll 1013796712
 nori/textarea.cpp.ll 562481077
-nori/textbox.cpp.ll 5653958973
+nori/textbox.cpp.ll 5648298110
 nori/texture.cpp.ll 101265333
 nori/texture_gl.cpp.ll 154966754
 nori/theme.cpp.ll 505868240
@@ -32202,7 +32202,7 @@ spike/s_roundPackToF32.ll 60278540
 spike/s_roundPackToI32.ll 47600412
 spike/s_roundPackToI64.ll 45065277
 spike/s_roundPackToUI32.ll 43227006
-spike/s_roundToI32.ll 47225272
+spike/s_roundToI32.ll 47273671
 spike/s_roundToI64.ll 45067552
 spike/s_roundToUI32.ll 42379055
 spike/s_shiftRightJam256M.ll 71175395
@@ -33548,7 +33548,7 @@ velox/HugeInt.cpp.ll 132667818
 velox/HyperLogLogType.cpp.ll 323519553
 velox/InPredicate.cpp.ll 18355106946
 velox/IoStatistics.cpp.ll 361890461
-velox/IsNull.cpp.ll 8988999103
+velox/IsNull.cpp.ll 8979997621
 velox/JsonExtractor.cpp.ll 1545818436
 velox/JsonFunctions.cpp.ll 9666274722
 velox/JsonPathTokenizer.cpp.ll 153107692
@@ -35746,7 +35746,7 @@ wireshark/packet-pcnfsd.c.ll 88431624
 wireshark/packet-pcomtcp.c.ll 118800738
 wireshark/packet-pcp.c.ll 479174519
 wireshark/packet-pdc.c.ll 115580919
-wireshark/packet-pdcp-lte.c.ll 723172907
+wireshark/packet-pdcp-lte.c.ll 723897704
 wireshark/packet-pdcp-nr.c.ll 873762178
 wireshark/packet-peekremote.c.ll 142902410
 wireshark/packet-per.c.ll 1137895268
@@ -36192,7 +36192,7 @@ wireshark/protobuf_lang_scanner.c.ll 726458210
 wireshark/protobuf_lang_tree.c.ll 308094208
 wireshark/protocol_hierarchy_dialog.cpp.ll 1739029114
 wireshark/protocol_preferences_menu.cpp.ll 459940223
-wireshark/qcustomplot.cpp.ll 41790859104
+wireshark/qcustomplot.cpp.ll 41748965189
 wireshark/qt_ui_utils.cpp.ll 849734896
 wireshark/radcom.c.ll 94857581
 wireshark/radius_dict.c.ll 666908678
