@@ -38312,6 +38312,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_
   br i1 %19, label %37, label %38
 
 36:                                               ; preds = %14
+  %.0.i = call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i, i64 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %51
@@ -38346,7 +38347,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_
   br label %39
 
 51:                                               ; preds = %52, %39, %36
-  %.0 = phi i8 [ %.0.i15, %52 ], [ 0, %36 ], [ %.1, %39 ]
+  %.0 = phi i8 [ %.0.i15, %52 ], [ %.0.i, %36 ], [ %.1, %39 ]
   ret i8 %.0
 
 52:                                               ; preds = %11

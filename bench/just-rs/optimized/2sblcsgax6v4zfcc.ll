@@ -4766,6 +4766,10 @@ define hidden noundef i8 @"_ZN4core5slice3cmp56_$LT$impl$u20$core..cmp..Ord$u20$
   %.0.i = tail call i8 @llvm.ucmp.i8.i64(i64 %1, i64 %3)
   br label %"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17ha3e7de8c21540a4bE.exit"
 
+.loopexit.i:                                      ; preds = %7
+  %.0.i.i.i.le.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i, i64 0)
+  br label %"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17ha3e7de8c21540a4bE.exit"
+
 7:                                                ; preds = %5
   %8 = add i64 %.sroa.0.0.i, 1
   %9 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %0, i64 0, i64 %.sroa.0.0.i
@@ -4785,10 +4789,10 @@ define hidden noundef i8 @"_ZN4core5slice3cmp56_$LT$impl$u20$core..cmp..Ord$u20$
   %18 = icmp eq i32 %16, 0
   %spec.store.select.i.i.i.i = select i1 %18, i64 %15, i64 %17
   %19 = icmp eq i64 %spec.store.select.i.i.i.i, 0
-  br i1 %19, label %5, label %"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17ha3e7de8c21540a4bE.exit"
+  br i1 %19, label %5, label %.loopexit.i
 
-"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17ha3e7de8c21540a4bE.exit": ; preds = %7, %6
-  %.1.i = phi i8 [ %.0.i, %6 ], [ 0, %7 ]
+"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17ha3e7de8c21540a4bE.exit": ; preds = %6, %.loopexit.i
+  %.1.i = phi i8 [ %.0.i, %6 ], [ %.0.i.i.i.le.i, %.loopexit.i ]
   ret i8 %.1.i
 }
 
