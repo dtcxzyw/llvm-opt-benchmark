@@ -19073,7 +19073,7 @@ opencv/agast_score.cpp.ll 9134030858
 opencv/age_gender_emotion_recognition.cpp.ll 5157800293
 opencv/akaze.cpp.ll 518456803
 opencv/algorithm.cpp.ll 89752187
-opencv/align.cpp.ll 197979495
+opencv/align.cpp.ll 198177583
 opencv/alignment_pattern.cpp.ll 55593560
 opencv/alignment_pattern_finder.cpp.ll 361690366
 opencv/alloc.cpp.ll 78602054
@@ -21942,7 +21942,7 @@ openjdk/osSupport_unix.ll 46652106
 openjdk/osThread.ll 57500622
 openjdk/osThread_linux.ll 46082777
 openjdk/os_linux.ll 2235158641
-openjdk/os_linux_x86.ll 248500721
+openjdk/os_linux_x86.ll 248252202
 openjdk/os_perf_linux.ll 266451717
 openjdk/os_posix.ll 648512424
 openjdk/ostream.ll 554153535
@@ -25072,7 +25072,7 @@ openssl/libcrypto-shlib-conf_lib.ll 142066146
 openssl/libcrypto-shlib-conf_mod.ll 234120200
 openssl/libcrypto-shlib-conf_ssl.ll 82255987
 openssl/libcrypto-shlib-context.ll 154840700
-openssl/libcrypto-shlib-core_algorithm.ll 72834809
+openssl/libcrypto-shlib-core_algorithm.ll 72761892
 openssl/libcrypto-shlib-core_fetch.ll 60249572
 openssl/libcrypto-shlib-core_namemap.ll 167268158
 openssl/libcrypto-shlib-cpt_err.ll 36679095
