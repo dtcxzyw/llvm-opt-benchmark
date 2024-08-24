@@ -7512,9 +7512,6 @@ for.body.i:                                       ; preds = %cond.end, %for.inc.
   %p.027.i = phi ptr [ %incdec.ptr47.i, %for.inc.i ], [ %call.i2, %cond.end ]
   %state.026.i = phi i32 [ %state.1.i, %for.inc.i ], [ 0, %cond.end ]
   %quote.025.i = phi i1 [ %quote.1.i, %for.inc.i ], [ false, %cond.end ]
-  %escape.024.i = phi i8 [ %escape.2.i, %for.inc.i ], [ 0, %cond.end ]
-  %tobool.i = trunc nuw i8 %escape.024.i to i1
-  %spec.select73.i = select i1 %tobool.i, i8 0, i8 %escape.024.i
   switch i32 %state.026.i, label %for.inc.i [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb25.i
@@ -7531,7 +7528,6 @@ sw.bb.i:                                          ; preds = %for.body.i
   ]
 
 sw.bb5.i:                                         ; preds = %sw.bb.i
-  %spec.select.i = select i1 %quote.025.i, i8 1, i8 %spec.select73.i
   br label %for.inc.i
 
 sw.bb9.i:                                         ; preds = %sw.bb.i
@@ -7570,7 +7566,7 @@ if.then44.i:                                      ; preds = %sw.bb38.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then44.i, %sw.bb38.i, %sw.bb38.i, %sw.bb30.i, %sw.bb30.i, %sw.bb25.i, %sw.default.i, %sw.bb9.i, %sw.bb5.i, %sw.bb.i, %for.body.i
-  %escape.2.i = phi i8 [ %spec.select73.i, %for.body.i ], [ %spec.select73.i, %if.then44.i ], [ %spec.select73.i, %sw.bb38.i ], [ %spec.select73.i, %sw.bb9.i ], [ %spec.select.i, %sw.bb5.i ], [ %spec.select73.i, %sw.bb.i ], [ %spec.select73.i, %sw.bb25.i ], [ %spec.select73.i, %sw.bb30.i ], [ %spec.select73.i, %sw.bb30.i ], [ %spec.select73.i, %sw.bb38.i ], [ %spec.select73.i, %sw.default.i ]
+  %escape.2.i = phi i1 [ false, %for.body.i ], [ false, %if.then44.i ], [ false, %sw.bb38.i ], [ false, %sw.bb9.i ], [ %quote.025.i, %sw.bb5.i ], [ false, %sw.bb.i ], [ false, %sw.bb25.i ], [ false, %sw.bb30.i ], [ false, %sw.bb30.i ], [ false, %sw.bb38.i ], [ false, %sw.default.i ]
   %quote.1.i = phi i1 [ %quote.025.i, %for.body.i ], [ %quote.025.i, %if.then44.i ], [ %quote.025.i, %sw.bb38.i ], [ %frombool.i, %sw.bb9.i ], [ %quote.025.i, %sw.bb5.i ], [ %quote.025.i, %sw.bb.i ], [ %quote.025.i, %sw.bb25.i ], [ %quote.025.i, %sw.bb30.i ], [ %quote.025.i, %sw.bb30.i ], [ %quote.025.i, %sw.bb38.i ], [ %quote.025.i, %sw.default.i ]
   %state.1.i = phi i32 [ %state.026.i, %for.body.i ], [ 0, %if.then44.i ], [ 3, %sw.bb38.i ], [ 0, %sw.bb9.i ], [ 0, %sw.bb5.i ], [ 1, %sw.bb.i ], [ 2, %sw.bb25.i ], [ 3, %sw.bb30.i ], [ 3, %sw.bb30.i ], [ 3, %sw.bb38.i ], [ 0, %sw.default.i ]
   %p.1.i = phi ptr [ %p.027.i, %for.body.i ], [ %incdec.ptr.i, %if.then44.i ], [ %p.027.i, %sw.bb38.i ], [ %p.027.i, %sw.bb9.i ], [ %p.027.i, %sw.bb5.i ], [ %p.027.i, %sw.bb.i ], [ %p.027.i, %sw.bb25.i ], [ %p.027.i, %sw.bb30.i ], [ %p.027.i, %sw.bb30.i ], [ %p.027.i, %sw.bb38.i ], [ %p.027.i, %sw.default.i ]
@@ -7579,8 +7575,7 @@ for.inc.i:                                        ; preds = %if.then44.i, %sw.bb
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !61
 
 for.end.i:                                        ; preds = %for.inc.i
-  %tobool48.i = trunc nuw i8 %escape.2.i to i1
-  br i1 %tobool48.i, label %if.then4, label %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit
+  br i1 %escape.2.i, label %if.then4, label %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit
 
 _ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit: ; preds = %for.end.i
   switch i32 %state.1.i, label %if.then4 [

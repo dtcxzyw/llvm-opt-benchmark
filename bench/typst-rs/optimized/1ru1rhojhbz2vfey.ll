@@ -64648,7 +64648,7 @@ define hidden void @"_ZN5typst11foundations4auto14Smart$LT$T$GT$6map_or17h1dcc58
   %.sroa.410.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.410.0.copyload.i = load double, ptr %.sroa.410.0..sroa_idx.i, align 8, !alias.scope !12501, !noalias !12503
   %trunc.i.i.i.i.i = trunc nuw i64 %5 to i1
-  %.sroa.0.0.copyload35.sroa.speculated.i.i = select i1 %trunc.i.i.i.i.i, i64 %5, i64 %.sroa.09.0.copyload.i
+  %.sroa.0.0.copyload35.sroa.speculated.i.i = select i1 %trunc.i.i.i.i.i, i64 1, i64 %.sroa.09.0.copyload.i
   %12 = bitcast i64 %.sroa.2.0.copyload to double
   %.sroa.5.0.copyload36.sroa.speculated.i.i = select i1 %trunc.i.i.i.i.i, double %12, double %.sroa.410.0.copyload.i
   %13 = bitcast i64 %.sroa.3.0.copyload to double
@@ -64675,7 +64675,7 @@ define hidden void @"_ZN5typst11foundations4auto14Smart$LT$T$GT$6map_or17h1dcc58
 
 21:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit.i.i"
   %trunc.i.i.i3.i.i = trunc nuw i64 %.sroa.53.0.copyload to i1
-  %.sroa.054.0.copyload55.sroa.speculated.i.i = select i1 %trunc.i.i.i3.i.i, i64 %.sroa.53.0.copyload, i64 %.sroa.713.sroa.0.0.copyload.i
+  %.sroa.054.0.copyload55.sroa.speculated.i.i = select i1 %trunc.i.i.i3.i.i, i64 1, i64 %.sroa.713.sroa.0.0.copyload.i
   %22 = bitcast i64 %.sroa.64.0.copyload to double
   %.sroa.556.0.copyload57.sroa.speculated.i.i = select i1 %trunc.i.i.i3.i.i, double %22, double %.sroa.713.sroa.4.0.copyload.i
   %23 = bitcast i64 %.sroa.75.0.copyload to double
@@ -64702,7 +64702,7 @@ define hidden void @"_ZN5typst11foundations4auto14Smart$LT$T$GT$6map_or17h1dcc58
 
 31:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit12.i.i"
   %trunc.i.i.i14.i.i = trunc nuw i64 %.sroa.97.0.copyload to i1
-  %.sroa.080.0.copyload81.sroa.speculated.i.i = select i1 %trunc.i.i.i14.i.i, i64 %.sroa.97.0.copyload, i64 %.sroa.814.sroa.0.0.copyload.i
+  %.sroa.080.0.copyload81.sroa.speculated.i.i = select i1 %trunc.i.i.i14.i.i, i64 1, i64 %.sroa.814.sroa.0.0.copyload.i
   %32 = bitcast i64 %.sroa.108.0.copyload to double
   %.sroa.582.0.copyload83.sroa.speculated.i.i = select i1 %trunc.i.i.i14.i.i, double %32, double %.sroa.814.sroa.4.0.copyload.i
   %33 = bitcast i64 %.sroa.119.0.copyload to double
@@ -64729,7 +64729,7 @@ define hidden void @"_ZN5typst11foundations4auto14Smart$LT$T$GT$6map_or17h1dcc58
 
 41:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit23.i.i"
   %trunc.i.i.i25.i.i = trunc nuw i64 %.sroa.1311.0.copyload to i1
-  %.sroa.0106.0.copyload107.sroa.speculated.i.i = select i1 %trunc.i.i.i25.i.i, i64 %.sroa.1311.0.copyload, i64 %.sroa.915.sroa.0.0.copyload.i
+  %.sroa.0106.0.copyload107.sroa.speculated.i.i = select i1 %trunc.i.i.i25.i.i, i64 1, i64 %.sroa.915.sroa.0.0.copyload.i
   %42 = bitcast i64 %.sroa.1412.0.copyload to double
   %.sroa.5108.0.copyload109.sroa.speculated.i.i = select i1 %trunc.i.i.i25.i.i, double %42, double %.sroa.915.sroa.4.0.copyload.i
   %43 = bitcast i64 %.sroa.1513.0.copyload to double
@@ -65035,7 +65035,7 @@ define hidden void @"_ZN5typst11foundations4auto14Smart$LT$T$GT$6map_or17hfd3f50
   %.sroa.410.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.410.0.copyload.i = load double, ptr %.sroa.410.0..sroa_idx.i, align 8, !alias.scope !12522, !noalias !12524
   %trunc.i.i.i.i.i = trunc nuw i64 %5 to i1
-  %.sroa.0.0.copyload35.sroa.speculated.i.i = select i1 %trunc.i.i.i.i.i, i64 %5, i64 %.sroa.09.0.copyload.i
+  %.sroa.0.0.copyload35.sroa.speculated.i.i = select i1 %trunc.i.i.i.i.i, i64 1, i64 %.sroa.09.0.copyload.i
   %12 = bitcast i64 %.sroa.2.0.copyload to double
   %.sroa.5.0.copyload36.sroa.speculated.i.i = select i1 %trunc.i.i.i.i.i, double %12, double %.sroa.410.0.copyload.i
   %13 = bitcast i64 %.sroa.3.0.copyload to double
@@ -65062,7 +65062,7 @@ define hidden void @"_ZN5typst11foundations4auto14Smart$LT$T$GT$6map_or17hfd3f50
 
 21:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit.i.i"
   %trunc.i.i.i3.i.i = trunc nuw i64 %.sroa.53.0.copyload to i1
-  %.sroa.054.0.copyload55.sroa.speculated.i.i = select i1 %trunc.i.i.i3.i.i, i64 %.sroa.53.0.copyload, i64 %.sroa.713.sroa.0.0.copyload.i
+  %.sroa.054.0.copyload55.sroa.speculated.i.i = select i1 %trunc.i.i.i3.i.i, i64 1, i64 %.sroa.713.sroa.0.0.copyload.i
   %22 = bitcast i64 %.sroa.64.0.copyload to double
   %.sroa.556.0.copyload57.sroa.speculated.i.i = select i1 %trunc.i.i.i3.i.i, double %22, double %.sroa.713.sroa.4.0.copyload.i
   %23 = bitcast i64 %.sroa.75.0.copyload to double
@@ -65089,7 +65089,7 @@ define hidden void @"_ZN5typst11foundations4auto14Smart$LT$T$GT$6map_or17hfd3f50
 
 31:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit12.i.i"
   %trunc.i.i.i14.i.i = trunc nuw i64 %.sroa.97.0.copyload to i1
-  %.sroa.080.0.copyload81.sroa.speculated.i.i = select i1 %trunc.i.i.i14.i.i, i64 %.sroa.97.0.copyload, i64 %.sroa.814.sroa.0.0.copyload.i
+  %.sroa.080.0.copyload81.sroa.speculated.i.i = select i1 %trunc.i.i.i14.i.i, i64 1, i64 %.sroa.814.sroa.0.0.copyload.i
   %32 = bitcast i64 %.sroa.108.0.copyload to double
   %.sroa.582.0.copyload83.sroa.speculated.i.i = select i1 %trunc.i.i.i14.i.i, double %32, double %.sroa.814.sroa.4.0.copyload.i
   %33 = bitcast i64 %.sroa.119.0.copyload to double
@@ -65116,7 +65116,7 @@ define hidden void @"_ZN5typst11foundations4auto14Smart$LT$T$GT$6map_or17hfd3f50
 
 41:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit23.i.i"
   %trunc.i.i.i25.i.i = trunc nuw i64 %.sroa.1311.0.copyload to i1
-  %.sroa.0106.0.copyload107.sroa.speculated.i.i = select i1 %trunc.i.i.i25.i.i, i64 %.sroa.1311.0.copyload, i64 %.sroa.915.sroa.0.0.copyload.i
+  %.sroa.0106.0.copyload107.sroa.speculated.i.i = select i1 %trunc.i.i.i25.i.i, i64 1, i64 %.sroa.915.sroa.0.0.copyload.i
   %42 = bitcast i64 %.sroa.1412.0.copyload to double
   %.sroa.5108.0.copyload109.sroa.speculated.i.i = select i1 %trunc.i.i.i25.i.i, double %42, double %.sroa.915.sroa.4.0.copyload.i
   %43 = bitcast i64 %.sroa.1513.0.copyload to double
@@ -94503,7 +94503,7 @@ define hidden void @"_ZN5typst6layout7corners16Corners$LT$T$GT$3map17h20aad179ab
   %.sroa.753.sroa.4.0..sroa.753.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.753.sroa.4.0.copyload = load double, ptr %.sroa.753.sroa.4.0..sroa.753.0..sroa_idx.sroa_idx, align 8
   %trunc.i.i.i = trunc nuw i64 %.sroa.050.0.copyload to i1
-  %.sroa.0.0.copyload35.sroa.speculated = select i1 %trunc.i.i.i, i64 %.sroa.050.0.copyload, i64 %.sroa.753.sroa.0.0.copyload
+  %.sroa.0.0.copyload35.sroa.speculated = select i1 %trunc.i.i.i, i64 1, i64 %.sroa.753.sroa.0.0.copyload
   %6 = bitcast i64 %.sroa.4.0.copyload to double
   %.sroa.5.0.copyload36.sroa.speculated = select i1 %trunc.i.i.i, double %6, double %.sroa.753.sroa.4.0.copyload
   %7 = bitcast i64 %.sroa.551.0.copyload to double
@@ -94546,7 +94546,7 @@ define hidden void @"_ZN5typst6layout7corners16Corners$LT$T$GT$3map17h20aad179ab
   %.sroa.779.sroa.4.0..sroa.779.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 104
   %.sroa.779.sroa.4.0.copyload = load double, ptr %.sroa.779.sroa.4.0..sroa.779.0..sroa_idx.sroa_idx, align 8
   %trunc.i.i.i3 = trunc nuw i64 %.sroa.075.0.copyload to i1
-  %.sroa.054.0.copyload55.sroa.speculated = select i1 %trunc.i.i.i3, i64 %.sroa.075.0.copyload, i64 %.sroa.779.sroa.0.0.copyload
+  %.sroa.054.0.copyload55.sroa.speculated = select i1 %trunc.i.i.i3, i64 1, i64 %.sroa.779.sroa.0.0.copyload
   %17 = bitcast i64 %.sroa.476.0.copyload to double
   %.sroa.556.0.copyload57.sroa.speculated = select i1 %trunc.i.i.i3, double %17, double %.sroa.779.sroa.4.0.copyload
   %18 = bitcast i64 %.sroa.577.0.copyload to double
@@ -94589,7 +94589,7 @@ define hidden void @"_ZN5typst6layout7corners16Corners$LT$T$GT$3map17h20aad179ab
   %.sroa.7105.sroa.4.0..sroa.7105.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 168
   %.sroa.7105.sroa.4.0.copyload = load double, ptr %.sroa.7105.sroa.4.0..sroa.7105.0..sroa_idx.sroa_idx, align 8
   %trunc.i.i.i14 = trunc nuw i64 %.sroa.0101.0.copyload to i1
-  %.sroa.080.0.copyload81.sroa.speculated = select i1 %trunc.i.i.i14, i64 %.sroa.0101.0.copyload, i64 %.sroa.7105.sroa.0.0.copyload
+  %.sroa.080.0.copyload81.sroa.speculated = select i1 %trunc.i.i.i14, i64 1, i64 %.sroa.7105.sroa.0.0.copyload
   %28 = bitcast i64 %.sroa.4102.0.copyload to double
   %.sroa.582.0.copyload83.sroa.speculated = select i1 %trunc.i.i.i14, double %28, double %.sroa.7105.sroa.4.0.copyload
   %29 = bitcast i64 %.sroa.5103.0.copyload to double
@@ -94632,7 +94632,7 @@ define hidden void @"_ZN5typst6layout7corners16Corners$LT$T$GT$3map17h20aad179ab
   %.sroa.7131.sroa.4.0..sroa.7131.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 232
   %.sroa.7131.sroa.4.0.copyload = load double, ptr %.sroa.7131.sroa.4.0..sroa.7131.0..sroa_idx.sroa_idx, align 8
   %trunc.i.i.i25 = trunc nuw i64 %.sroa.0127.0.copyload to i1
-  %.sroa.0106.0.copyload107.sroa.speculated = select i1 %trunc.i.i.i25, i64 %.sroa.0127.0.copyload, i64 %.sroa.7131.sroa.0.0.copyload
+  %.sroa.0106.0.copyload107.sroa.speculated = select i1 %trunc.i.i.i25, i64 1, i64 %.sroa.7131.sroa.0.0.copyload
   %39 = bitcast i64 %.sroa.4128.0.copyload to double
   %.sroa.5108.0.copyload109.sroa.speculated = select i1 %trunc.i.i.i25, double %39, double %.sroa.7131.sroa.4.0.copyload
   %40 = bitcast i64 %.sroa.5129.0.copyload to double
@@ -96781,7 +96781,7 @@ define hidden void @"_ZN121_$LT$typst..layout..corners..Corners$LT$core..option.
   %.sroa.96.32..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.96.32.copyload = load double, ptr %.sroa.96.32..sroa_idx, align 8, !noalias !19271
   %trunc.i.i.i.i = trunc nuw i64 %.sroa.01.0.copyload to i1
-  %.sroa.0.0.copyload35.sroa.speculated.i = select i1 %trunc.i.i.i.i, i64 %.sroa.01.0.copyload, i64 %.sroa.75.32.copyload
+  %.sroa.0.0.copyload35.sroa.speculated.i = select i1 %trunc.i.i.i.i, i64 1, i64 %.sroa.75.32.copyload
   %13 = bitcast i64 %.sroa.42.0.copyload to double
   %.sroa.5.0.copyload36.sroa.speculated.i = select i1 %trunc.i.i.i.i, double %13, double %.sroa.96.32.copyload
   %14 = bitcast i64 %.sroa.53.0.copyload to double
@@ -96808,7 +96808,7 @@ define hidden void @"_ZN121_$LT$typst..layout..corners..Corners$LT$core..option.
 
 22:                                               ; preds = %"_ZN121_$LT$typst..layout..corners..Corners$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h07527b10ce96b2d5E.exit.i"
   %trunc.i.i.i3.i = trunc nuw i64 %.sroa.09.0.copyload to i1
-  %.sroa.054.0.copyload55.sroa.speculated.i = select i1 %trunc.i.i.i3.i, i64 %.sroa.09.0.copyload, i64 %.sroa.713.32.copyload
+  %.sroa.054.0.copyload55.sroa.speculated.i = select i1 %trunc.i.i.i3.i, i64 1, i64 %.sroa.713.32.copyload
   %23 = bitcast i64 %.sroa.410.0.copyload to double
   %.sroa.556.0.copyload57.sroa.speculated.i = select i1 %trunc.i.i.i3.i, double %23, double %.sroa.914.32.copyload
   %24 = bitcast i64 %.sroa.511.0.copyload to double
@@ -96835,7 +96835,7 @@ define hidden void @"_ZN121_$LT$typst..layout..corners..Corners$LT$core..option.
 
 32:                                               ; preds = %"_ZN121_$LT$typst..layout..corners..Corners$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h07527b10ce96b2d5E.exit12.i"
   %trunc.i.i.i14.i = trunc nuw i64 %.sroa.017.0.copyload to i1
-  %.sroa.080.0.copyload81.sroa.speculated.i = select i1 %trunc.i.i.i14.i, i64 %.sroa.017.0.copyload, i64 %.sroa.721.32.copyload
+  %.sroa.080.0.copyload81.sroa.speculated.i = select i1 %trunc.i.i.i14.i, i64 1, i64 %.sroa.721.32.copyload
   %33 = bitcast i64 %.sroa.418.0.copyload to double
   %.sroa.582.0.copyload83.sroa.speculated.i = select i1 %trunc.i.i.i14.i, double %33, double %.sroa.922.32.copyload
   %34 = bitcast i64 %.sroa.519.0.copyload to double
@@ -96862,7 +96862,7 @@ define hidden void @"_ZN121_$LT$typst..layout..corners..Corners$LT$core..option.
 
 42:                                               ; preds = %"_ZN121_$LT$typst..layout..corners..Corners$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h07527b10ce96b2d5E.exit23.i"
   %trunc.i.i.i25.i = trunc nuw i64 %.sroa.025.0.copyload to i1
-  %.sroa.0106.0.copyload107.sroa.speculated.i = select i1 %trunc.i.i.i25.i, i64 %.sroa.025.0.copyload, i64 %.sroa.729.32.copyload
+  %.sroa.0106.0.copyload107.sroa.speculated.i = select i1 %trunc.i.i.i25.i, i64 1, i64 %.sroa.729.32.copyload
   %43 = bitcast i64 %.sroa.426.0.copyload to double
   %.sroa.5108.0.copyload109.sroa.speculated.i = select i1 %trunc.i.i.i25.i, double %43, double %.sroa.930.32.copyload
   %44 = bitcast i64 %.sroa.527.0.copyload to double
@@ -99009,7 +99009,7 @@ define hidden void @"_ZN5typst6layout4grid146_$LT$impl$u20$typst..layout..grid..
   %.sroa.410.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.410.0.copyload = load double, ptr %.sroa.410.0..sroa_idx, align 8
   %trunc.i.i.i.i = trunc nuw i64 %.sroa.01.0.copyload to i1
-  %.sroa.0.0.copyload35.sroa.speculated.i = select i1 %trunc.i.i.i.i, i64 %.sroa.01.0.copyload, i64 %.sroa.09.0.copyload
+  %.sroa.0.0.copyload35.sroa.speculated.i = select i1 %trunc.i.i.i.i, i64 1, i64 %.sroa.09.0.copyload
   %10 = bitcast i64 %.sroa.42.0.copyload to double
   %.sroa.5.0.copyload36.sroa.speculated.i = select i1 %trunc.i.i.i.i, double %10, double %.sroa.410.0.copyload
   %11 = bitcast i64 %.sroa.53.0.copyload to double
@@ -99036,7 +99036,7 @@ define hidden void @"_ZN5typst6layout4grid146_$LT$impl$u20$typst..layout..grid..
 
 19:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit.i"
   %trunc.i.i.i3.i = trunc nuw i64 %.sroa.016.0.copyload to i1
-  %.sroa.054.0.copyload55.sroa.speculated.i = select i1 %trunc.i.i.i3.i, i64 %.sroa.016.0.copyload, i64 %.sroa.713.sroa.0.0.copyload
+  %.sroa.054.0.copyload55.sroa.speculated.i = select i1 %trunc.i.i.i3.i, i64 1, i64 %.sroa.713.sroa.0.0.copyload
   %20 = bitcast i64 %.sroa.417.0.copyload to double
   %.sroa.556.0.copyload57.sroa.speculated.i = select i1 %trunc.i.i.i3.i, double %20, double %.sroa.713.sroa.4.0.copyload
   %21 = bitcast i64 %.sroa.518.0.copyload to double
@@ -99063,7 +99063,7 @@ define hidden void @"_ZN5typst6layout4grid146_$LT$impl$u20$typst..layout..grid..
 
 29:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit12.i"
   %trunc.i.i.i14.i = trunc nuw i64 %.sroa.024.0.copyload to i1
-  %.sroa.080.0.copyload81.sroa.speculated.i = select i1 %trunc.i.i.i14.i, i64 %.sroa.024.0.copyload, i64 %.sroa.814.sroa.0.0.copyload
+  %.sroa.080.0.copyload81.sroa.speculated.i = select i1 %trunc.i.i.i14.i, i64 1, i64 %.sroa.814.sroa.0.0.copyload
   %30 = bitcast i64 %.sroa.425.0.copyload to double
   %.sroa.582.0.copyload83.sroa.speculated.i = select i1 %trunc.i.i.i14.i, double %30, double %.sroa.814.sroa.4.0.copyload
   %31 = bitcast i64 %.sroa.526.0.copyload to double
@@ -99090,7 +99090,7 @@ define hidden void @"_ZN5typst6layout4grid146_$LT$impl$u20$typst..layout..grid..
 
 39:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit23.i"
   %trunc.i.i.i25.i = trunc nuw i64 %.sroa.032.0.copyload to i1
-  %.sroa.0106.0.copyload107.sroa.speculated.i = select i1 %trunc.i.i.i25.i, i64 %.sroa.032.0.copyload, i64 %.sroa.915.sroa.0.0.copyload
+  %.sroa.0106.0.copyload107.sroa.speculated.i = select i1 %trunc.i.i.i25.i, i64 1, i64 %.sroa.915.sroa.0.0.copyload
   %40 = bitcast i64 %.sroa.433.0.copyload to double
   %.sroa.5108.0.copyload109.sroa.speculated.i = select i1 %trunc.i.i.i25.i, double %40, double %.sroa.915.sroa.4.0.copyload
   %41 = bitcast i64 %.sroa.534.0.copyload to double
@@ -103634,7 +103634,7 @@ define hidden void @"_ZN5typst6layout5sides14Sides$LT$T$GT$3map17hf2964ff56d7730
   %.sroa.753.sroa.4.0..sroa.753.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.753.sroa.4.0.copyload = load double, ptr %.sroa.753.sroa.4.0..sroa.753.0..sroa_idx.sroa_idx, align 8
   %trunc.i.i.i = trunc nuw i64 %.sroa.050.0.copyload to i1
-  %.sroa.0.0.copyload35.sroa.speculated = select i1 %trunc.i.i.i, i64 %.sroa.050.0.copyload, i64 %.sroa.753.sroa.0.0.copyload
+  %.sroa.0.0.copyload35.sroa.speculated = select i1 %trunc.i.i.i, i64 1, i64 %.sroa.753.sroa.0.0.copyload
   %6 = bitcast i64 %.sroa.4.0.copyload to double
   %.sroa.5.0.copyload36.sroa.speculated = select i1 %trunc.i.i.i, double %6, double %.sroa.753.sroa.4.0.copyload
   %7 = bitcast i64 %.sroa.551.0.copyload to double
@@ -103677,7 +103677,7 @@ define hidden void @"_ZN5typst6layout5sides14Sides$LT$T$GT$3map17hf2964ff56d7730
   %.sroa.779.sroa.4.0..sroa.779.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 104
   %.sroa.779.sroa.4.0.copyload = load double, ptr %.sroa.779.sroa.4.0..sroa.779.0..sroa_idx.sroa_idx, align 8
   %trunc.i.i.i3 = trunc nuw i64 %.sroa.075.0.copyload to i1
-  %.sroa.054.0.copyload55.sroa.speculated = select i1 %trunc.i.i.i3, i64 %.sroa.075.0.copyload, i64 %.sroa.779.sroa.0.0.copyload
+  %.sroa.054.0.copyload55.sroa.speculated = select i1 %trunc.i.i.i3, i64 1, i64 %.sroa.779.sroa.0.0.copyload
   %17 = bitcast i64 %.sroa.476.0.copyload to double
   %.sroa.556.0.copyload57.sroa.speculated = select i1 %trunc.i.i.i3, double %17, double %.sroa.779.sroa.4.0.copyload
   %18 = bitcast i64 %.sroa.577.0.copyload to double
@@ -103720,7 +103720,7 @@ define hidden void @"_ZN5typst6layout5sides14Sides$LT$T$GT$3map17hf2964ff56d7730
   %.sroa.7105.sroa.4.0..sroa.7105.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 168
   %.sroa.7105.sroa.4.0.copyload = load double, ptr %.sroa.7105.sroa.4.0..sroa.7105.0..sroa_idx.sroa_idx, align 8
   %trunc.i.i.i14 = trunc nuw i64 %.sroa.0101.0.copyload to i1
-  %.sroa.080.0.copyload81.sroa.speculated = select i1 %trunc.i.i.i14, i64 %.sroa.0101.0.copyload, i64 %.sroa.7105.sroa.0.0.copyload
+  %.sroa.080.0.copyload81.sroa.speculated = select i1 %trunc.i.i.i14, i64 1, i64 %.sroa.7105.sroa.0.0.copyload
   %28 = bitcast i64 %.sroa.4102.0.copyload to double
   %.sroa.582.0.copyload83.sroa.speculated = select i1 %trunc.i.i.i14, double %28, double %.sroa.7105.sroa.4.0.copyload
   %29 = bitcast i64 %.sroa.5103.0.copyload to double
@@ -103763,7 +103763,7 @@ define hidden void @"_ZN5typst6layout5sides14Sides$LT$T$GT$3map17hf2964ff56d7730
   %.sroa.7131.sroa.4.0..sroa.7131.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 232
   %.sroa.7131.sroa.4.0.copyload = load double, ptr %.sroa.7131.sroa.4.0..sroa.7131.0..sroa_idx.sroa_idx, align 8
   %trunc.i.i.i25 = trunc nuw i64 %.sroa.0127.0.copyload to i1
-  %.sroa.0106.0.copyload107.sroa.speculated = select i1 %trunc.i.i.i25, i64 %.sroa.0127.0.copyload, i64 %.sroa.7131.sroa.0.0.copyload
+  %.sroa.0106.0.copyload107.sroa.speculated = select i1 %trunc.i.i.i25, i64 1, i64 %.sroa.7131.sroa.0.0.copyload
   %39 = bitcast i64 %.sroa.4128.0.copyload to double
   %.sroa.5108.0.copyload109.sroa.speculated = select i1 %trunc.i.i.i25, double %39, double %.sroa.7131.sroa.4.0.copyload
   %40 = bitcast i64 %.sroa.5129.0.copyload to double
@@ -110064,7 +110064,7 @@ define hidden void @"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Opt
   %.sroa.96.32..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.96.32.copyload = load double, ptr %.sroa.96.32..sroa_idx, align 8, !noalias !21819
   %trunc.i.i.i.i = trunc nuw i64 %.sroa.01.0.copyload to i1
-  %.sroa.0.0.copyload35.sroa.speculated.i = select i1 %trunc.i.i.i.i, i64 %.sroa.01.0.copyload, i64 %.sroa.75.32.copyload
+  %.sroa.0.0.copyload35.sroa.speculated.i = select i1 %trunc.i.i.i.i, i64 1, i64 %.sroa.75.32.copyload
   %13 = bitcast i64 %.sroa.42.0.copyload to double
   %.sroa.5.0.copyload36.sroa.speculated.i = select i1 %trunc.i.i.i.i, double %13, double %.sroa.96.32.copyload
   %14 = bitcast i64 %.sroa.53.0.copyload to double
@@ -110091,7 +110091,7 @@ define hidden void @"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Opt
 
 22:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit.i"
   %trunc.i.i.i3.i = trunc nuw i64 %.sroa.09.0.copyload to i1
-  %.sroa.054.0.copyload55.sroa.speculated.i = select i1 %trunc.i.i.i3.i, i64 %.sroa.09.0.copyload, i64 %.sroa.713.32.copyload
+  %.sroa.054.0.copyload55.sroa.speculated.i = select i1 %trunc.i.i.i3.i, i64 1, i64 %.sroa.713.32.copyload
   %23 = bitcast i64 %.sroa.410.0.copyload to double
   %.sroa.556.0.copyload57.sroa.speculated.i = select i1 %trunc.i.i.i3.i, double %23, double %.sroa.914.32.copyload
   %24 = bitcast i64 %.sroa.511.0.copyload to double
@@ -110118,7 +110118,7 @@ define hidden void @"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Opt
 
 32:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit12.i"
   %trunc.i.i.i14.i = trunc nuw i64 %.sroa.017.0.copyload to i1
-  %.sroa.080.0.copyload81.sroa.speculated.i = select i1 %trunc.i.i.i14.i, i64 %.sroa.017.0.copyload, i64 %.sroa.721.32.copyload
+  %.sroa.080.0.copyload81.sroa.speculated.i = select i1 %trunc.i.i.i14.i, i64 1, i64 %.sroa.721.32.copyload
   %33 = bitcast i64 %.sroa.418.0.copyload to double
   %.sroa.582.0.copyload83.sroa.speculated.i = select i1 %trunc.i.i.i14.i, double %33, double %.sroa.922.32.copyload
   %34 = bitcast i64 %.sroa.519.0.copyload to double
@@ -110145,7 +110145,7 @@ define hidden void @"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Opt
 
 42:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit23.i"
   %trunc.i.i.i25.i = trunc nuw i64 %.sroa.025.0.copyload to i1
-  %.sroa.0106.0.copyload107.sroa.speculated.i = select i1 %trunc.i.i.i25.i, i64 %.sroa.025.0.copyload, i64 %.sroa.729.32.copyload
+  %.sroa.0106.0.copyload107.sroa.speculated.i = select i1 %trunc.i.i.i25.i, i64 1, i64 %.sroa.729.32.copyload
   %43 = bitcast i64 %.sroa.426.0.copyload to double
   %.sroa.5108.0.copyload109.sroa.speculated.i = select i1 %trunc.i.i.i25.i, double %43, double %.sroa.930.32.copyload
   %44 = bitcast i64 %.sroa.527.0.copyload to double
@@ -119262,7 +119262,7 @@ define hidden void @"_ZN5typst5model5table147_$LT$impl$u20$typst..layout..grid..
   %.sroa.410.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.410.0.copyload = load double, ptr %.sroa.410.0..sroa_idx, align 8
   %trunc.i.i.i.i = trunc nuw i64 %.sroa.01.0.copyload to i1
-  %.sroa.0.0.copyload35.sroa.speculated.i = select i1 %trunc.i.i.i.i, i64 %.sroa.01.0.copyload, i64 %.sroa.09.0.copyload
+  %.sroa.0.0.copyload35.sroa.speculated.i = select i1 %trunc.i.i.i.i, i64 1, i64 %.sroa.09.0.copyload
   %10 = bitcast i64 %.sroa.42.0.copyload to double
   %.sroa.5.0.copyload36.sroa.speculated.i = select i1 %trunc.i.i.i.i, double %10, double %.sroa.410.0.copyload
   %11 = bitcast i64 %.sroa.53.0.copyload to double
@@ -119289,7 +119289,7 @@ define hidden void @"_ZN5typst5model5table147_$LT$impl$u20$typst..layout..grid..
 
 19:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit.i"
   %trunc.i.i.i3.i = trunc nuw i64 %.sroa.016.0.copyload to i1
-  %.sroa.054.0.copyload55.sroa.speculated.i = select i1 %trunc.i.i.i3.i, i64 %.sroa.016.0.copyload, i64 %.sroa.713.sroa.0.0.copyload
+  %.sroa.054.0.copyload55.sroa.speculated.i = select i1 %trunc.i.i.i3.i, i64 1, i64 %.sroa.713.sroa.0.0.copyload
   %20 = bitcast i64 %.sroa.417.0.copyload to double
   %.sroa.556.0.copyload57.sroa.speculated.i = select i1 %trunc.i.i.i3.i, double %20, double %.sroa.713.sroa.4.0.copyload
   %21 = bitcast i64 %.sroa.518.0.copyload to double
@@ -119316,7 +119316,7 @@ define hidden void @"_ZN5typst5model5table147_$LT$impl$u20$typst..layout..grid..
 
 29:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit12.i"
   %trunc.i.i.i14.i = trunc nuw i64 %.sroa.024.0.copyload to i1
-  %.sroa.080.0.copyload81.sroa.speculated.i = select i1 %trunc.i.i.i14.i, i64 %.sroa.024.0.copyload, i64 %.sroa.814.sroa.0.0.copyload
+  %.sroa.080.0.copyload81.sroa.speculated.i = select i1 %trunc.i.i.i14.i, i64 1, i64 %.sroa.814.sroa.0.0.copyload
   %30 = bitcast i64 %.sroa.425.0.copyload to double
   %.sroa.582.0.copyload83.sroa.speculated.i = select i1 %trunc.i.i.i14.i, double %30, double %.sroa.814.sroa.4.0.copyload
   %31 = bitcast i64 %.sroa.526.0.copyload to double
@@ -119343,7 +119343,7 @@ define hidden void @"_ZN5typst5model5table147_$LT$impl$u20$typst..layout..grid..
 
 39:                                               ; preds = %"_ZN117_$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$T$GT$$GT$$u20$as$u20$typst..foundations..styles..Fold$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hdcb0427a61674880E.exit23.i"
   %trunc.i.i.i25.i = trunc nuw i64 %.sroa.032.0.copyload to i1
-  %.sroa.0106.0.copyload107.sroa.speculated.i = select i1 %trunc.i.i.i25.i, i64 %.sroa.032.0.copyload, i64 %.sroa.915.sroa.0.0.copyload
+  %.sroa.0106.0.copyload107.sroa.speculated.i = select i1 %trunc.i.i.i25.i, i64 1, i64 %.sroa.915.sroa.0.0.copyload
   %40 = bitcast i64 %.sroa.433.0.copyload to double
   %.sroa.5108.0.copyload109.sroa.speculated.i = select i1 %trunc.i.i.i25.i, double %40, double %.sroa.915.sroa.4.0.copyload
   %41 = bitcast i64 %.sroa.534.0.copyload to double

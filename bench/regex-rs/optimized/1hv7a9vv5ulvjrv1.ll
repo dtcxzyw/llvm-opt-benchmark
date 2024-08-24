@@ -3863,7 +3863,7 @@ _ZN12regex_syntax3hir9translate8HirFrame17unwrap_repetition17hb893e4b2ea7c3361E.
 
 .critedge.i.i:                                    ; preds = %837, %830, %818
   %834 = phi i32 [ %spec.select26.i.i, %837 ], [ %.sroa.7.0.i, %830 ], [ %.sroa.7.0.i, %818 ]
-  %835 = phi i32 [ %spec.select.i.i, %837 ], [ %.sroa.0.0.i288, %830 ], [ %.sroa.0.0.i288, %818 ]
+  %835 = phi i32 [ 1, %837 ], [ %.sroa.0.0.i288, %830 ], [ %.sroa.0.0.i288, %818 ]
   %836 = phi i32 [ %.0.sroa.speculated.i.i.i, %837 ], [ %.06.i, %830 ], [ %.06.i, %818 ]
   switch i32 %836, label %.thread.i.i [
     i32 0, label %840
@@ -3876,11 +3876,10 @@ _ZN12regex_syntax3hir9translate8HirFrame17unwrap_repetition17hb893e4b2ea7c3361E.
   store i32 %.0.sroa.speculated.i.i.i, ptr %822, align 8, !alias.scope !764, !noalias !767
   %trunc17.i.i = trunc nuw i32 %.sroa.0.0.i288 to i1
   %839 = icmp ne i32 %.sroa.7.0.i, 0
-  %spec.select.i.i = select i1 %trunc17.i.i, i32 %.sroa.0.0.i288, i32 1
   %not.trunc17.i.i = xor i1 %trunc17.i.i, true
   %narrow.i.i = or i1 %839, %not.trunc17.i.i
   %spec.select26.i.i = zext i1 %narrow.i.i to i32
-  store i32 %spec.select.i.i, ptr %32, align 8, !alias.scope !764, !noalias !767
+  store i32 1, ptr %32, align 8, !alias.scope !764, !noalias !767
   store i32 %spec.select26.i.i, ptr %823, align 4, !alias.scope !764, !noalias !767
   br label %.critedge.i.i
 

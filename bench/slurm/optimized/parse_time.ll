@@ -796,7 +796,7 @@ define i32 @time_str2secs(ptr noundef %0) #0 {
 
 .lr.ph.i:                                         ; preds = %16, %27
   %18 = phi i8 [ %29, %27 ], [ %17, %16 ]
-  %.056.i = phi i32 [ %.1.i, %27 ], [ 0, %16 ]
+  %.056.i = phi i1 [ %or.cond46.i, %27 ], [ false, %16 ]
   %.03255.i = phi i32 [ %.133.i, %27 ], [ 0, %16 ]
   %.03454.i = phi i32 [ %.135.i, %27 ], [ 0, %16 ]
   %.03653.i = phi i32 [ %.137.i, %27 ], [ 0, %16 ]
@@ -806,7 +806,8 @@ define i32 @time_str2secs(ptr noundef %0) #0 {
   br i1 %or.cond46.i, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = xor i32 %.056.i, 1
+  %not..i = xor i1 %.056.i, true
+  %21 = zext i1 %not..i to i32
   %spec.select.i = add nsw i32 %.03653.i, %21
   br label %27
 
@@ -829,7 +830,6 @@ define i32 @time_str2secs(ptr noundef %0) #0 {
   %.137.i = phi i32 [ %.03653.i, %23 ], [ %.03653.i, %25 ], [ %spec.select.i, %20 ]
   %.135.i = phi i32 [ %24, %23 ], [ %.03454.i, %25 ], [ %.03454.i, %20 ]
   %.133.i = phi i32 [ 0, %23 ], [ %26, %25 ], [ %.03255.i, %20 ]
-  %.1.i = phi i32 [ 0, %23 ], [ 0, %25 ], [ 1, %20 ]
   %28 = getelementptr inbounds i8, ptr %.03852.i, i64 1
   %29 = load i8, ptr %28, align 1
   %.not.i = icmp eq i8 %29, 0

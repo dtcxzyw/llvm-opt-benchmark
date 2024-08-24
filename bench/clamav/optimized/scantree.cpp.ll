@@ -922,7 +922,7 @@ define noundef zeroext i1 @_ZN8ScanTree15GetFilteredMaskEv(ptr noundef nonnull a
   %6 = getelementptr inbounds i8, ptr %0, i64 24616
   %7 = getelementptr inbounds i8, ptr %0, i64 8228
   %8 = tail call noundef zeroext i1 @_ZN10StringList9GetStringEPwm(ptr noundef nonnull align 8 dereferenceable(184) %6, ptr noundef nonnull %7, i64 noundef 2048)
-  br i1 %8, label %69, label %9
+  br i1 %8, label %68, label %9
 
 9:                                                ; preds = %5, %1
   %10 = getelementptr inbounds i8, ptr %0, i64 25000
@@ -933,18 +933,18 @@ define noundef zeroext i1 @_ZN8ScanTree15GetFilteredMaskEv(ptr noundef nonnull a
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8228
   %15 = tail call noundef zeroext i1 @_ZN10StringList9GetStringEPwm(ptr noundef nonnull align 8 dereferenceable(184) %13, ptr noundef nonnull %14, i64 noundef 2048)
-  br i1 %15, label %.preheader, label %69
+  br i1 %15, label %.preheader, label %68
 
-.preheader:                                       ; preds = %9, %29
-  %.034 = phi i32 [ %.135, %29 ], [ 0, %9 ]
-  %.033 = phi i32 [ %30, %29 ], [ 0, %9 ]
-  %.030 = phi i32 [ %.232, %29 ], [ 0, %9 ]
-  %.029 = phi i8 [ %.3, %29 ], [ 0, %9 ]
+.preheader:                                       ; preds = %9, %28
+  %.034 = phi i32 [ %.135, %28 ], [ 0, %9 ]
+  %.033 = phi i32 [ %29, %28 ], [ 0, %9 ]
+  %.030 = phi i32 [ %.232, %28 ], [ 0, %9 ]
+  %.029 = phi i8 [ %.3, %28 ], [ 0, %9 ]
   %16 = zext i32 %.033 to i64
   %17 = getelementptr inbounds [2048 x i32], ptr %14, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   switch i32 %18, label %20 [
-    i32 0, label %31
+    i32 0, label %30
     i32 63, label %19
     i32 42, label %19
   ]
@@ -960,103 +960,101 @@ define noundef zeroext i1 @_ZN8ScanTree15GetFilteredMaskEv(ptr noundef nonnull a
 22:                                               ; preds = %20
   %23 = load i32, ptr %17, align 4
   %24 = tail call noundef zeroext i1 @_Z10IsDriveDivi(i32 noundef %23)
-  br i1 %24, label %25, label %29
+  br i1 %24, label %25, label %28
 
 25:                                               ; preds = %22, %20
-  %26 = trunc nuw i8 %.1 to i1
   %.mask = and i8 %.1, 1
-  %27 = zext nneg i8 %.mask to i32
-  %spec.select = add i32 %.030, %27
-  %spec.select40 = select i1 %26, i8 0, i8 %.1
-  %28 = icmp eq i32 %spec.select, 0
-  %spec.select42 = select i1 %28, i32 %.033, i32 %.034
-  br label %29
+  %26 = zext nneg i8 %.mask to i32
+  %spec.select = add i32 %.030, %26
+  %27 = icmp eq i32 %spec.select, 0
+  %spec.select42 = select i1 %27, i32 %.033, i32 %.034
+  br label %28
 
-29:                                               ; preds = %25, %22
+28:                                               ; preds = %25, %22
   %.135 = phi i32 [ %.034, %22 ], [ %spec.select42, %25 ]
   %.232 = phi i32 [ %.030, %22 ], [ %spec.select, %25 ]
-  %.3 = phi i8 [ %.1, %22 ], [ %spec.select40, %25 ]
-  %30 = add i32 %.033, 1
+  %.3 = phi i8 [ %.1, %22 ], [ 0, %25 ]
+  %29 = add i32 %.033, 1
   br label %.preheader, !llvm.loop !11
 
-31:                                               ; preds = %.preheader
-  %32 = icmp eq i32 %.030, 0
-  br i1 %32, label %69, label %33
+30:                                               ; preds = %.preheader
+  %31 = icmp eq i32 %.030, 0
+  br i1 %31, label %68, label %32
 
-33:                                               ; preds = %31
+32:                                               ; preds = %30
   store i8 1, ptr %10, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 8208
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %40, label %37
+  %33 = getelementptr inbounds i8, ptr %0, i64 8208
+  %34 = load i32, ptr %33, align 8
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %39, label %36
 
-37:                                               ; preds = %33
-  %38 = icmp eq i32 %35, 1
-  %39 = icmp eq i32 %.030, 1
-  %or.cond = select i1 %38, i1 %39, i1 false
-  br i1 %or.cond, label %41, label %43
+36:                                               ; preds = %32
+  %37 = icmp eq i32 %34, 1
+  %38 = icmp eq i32 %.030, 1
+  %or.cond = select i1 %37, i1 %38, i1 false
+  br i1 %or.cond, label %40, label %42
 
-40:                                               ; preds = %33
+39:                                               ; preds = %32
   %.old1 = icmp eq i32 %.030, 1
-  br i1 %.old1, label %41, label %43
+  br i1 %.old1, label %40, label %42
 
-41:                                               ; preds = %37, %40
-  %42 = tail call noundef zeroext i1 @_ZN8ScanTree16ExpandFolderMaskEv(ptr noundef nonnull align 8 dereferenceable(33216) %0)
-  br label %69
+40:                                               ; preds = %36, %39
+  %41 = tail call noundef zeroext i1 @_ZN8ScanTree16ExpandFolderMaskEv(ptr noundef nonnull align 8 dereferenceable(33216) %0)
+  br label %68
 
-43:                                               ; preds = %40, %37
+42:                                               ; preds = %39, %36
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %2, ptr noundef nonnull @.str, i64 noundef 2048)
   call void @_Z11AddEndSlashPwm(ptr noundef nonnull %2, i64 noundef 2048)
-  %44 = zext i32 %.034 to i64
-  %45 = getelementptr inbounds [2048 x i32], ptr %14, i64 0, i64 %44
-  %46 = load i32, ptr %45, align 4
-  %47 = call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %46)
-  br i1 %47, label %51, label %48
+  %43 = zext i32 %.034 to i64
+  %44 = getelementptr inbounds [2048 x i32], ptr %14, i64 0, i64 %43
+  %45 = load i32, ptr %44, align 4
+  %46 = call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %45)
+  br i1 %46, label %50, label %47
 
-48:                                               ; preds = %43
-  %49 = load i32, ptr %45, align 4
-  %50 = call noundef zeroext i1 @_Z10IsDriveDivi(i32 noundef %49)
-  br i1 %50, label %51, label %53
+47:                                               ; preds = %42
+  %48 = load i32, ptr %44, align 4
+  %49 = call noundef zeroext i1 @_Z10IsDriveDivi(i32 noundef %48)
+  br i1 %49, label %50, label %52
 
-51:                                               ; preds = %48, %43
-  %52 = getelementptr inbounds i8, ptr %45, i64 4
-  br label %53
+50:                                               ; preds = %47, %42
+  %51 = getelementptr inbounds i8, ptr %44, i64 4
+  br label %52
 
-53:                                               ; preds = %48, %51
-  %54 = phi ptr [ %52, %51 ], [ %45, %48 ]
-  call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %2, ptr noundef nonnull %54, i64 noundef 2048)
-  %55 = call noundef ptr @_Z11PointToNamePKw(ptr noundef nonnull %2)
-  %56 = call i32 @wcscmp(ptr noundef %55, ptr noundef nonnull @.str) #15
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %61, label %58
+52:                                               ; preds = %47, %50
+  %53 = phi ptr [ %51, %50 ], [ %44, %47 ]
+  call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %2, ptr noundef nonnull %53, i64 noundef 2048)
+  %54 = call noundef ptr @_Z11PointToNamePKw(ptr noundef nonnull %2)
+  %55 = call i32 @wcscmp(ptr noundef %54, ptr noundef nonnull @.str) #15
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %60, label %57
 
-58:                                               ; preds = %53
-  %59 = call i32 @wcscmp(ptr noundef %55, ptr noundef nonnull @.str.1) #15
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %62
+57:                                               ; preds = %52
+  %58 = call i32 @wcscmp(ptr noundef %54, ptr noundef nonnull @.str.1) #15
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %61
 
-61:                                               ; preds = %58, %53
-  store i32 0, ptr %55, align 4
-  br label %62
+60:                                               ; preds = %57, %52
+  store i32 0, ptr %54, align 4
+  br label %61
 
-62:                                               ; preds = %61, %58
+61:                                               ; preds = %60, %57
   call void @_ZN10StringList9AddStringEPKw(ptr noundef nonnull align 8 dereferenceable(184) %11, ptr noundef nonnull %2)
-  %63 = load i32, ptr %45, align 4
-  %64 = call noundef zeroext i1 @_Z10IsDriveDivi(i32 noundef %63)
-  %65 = zext i1 %64 to i32
-  %spec.select41 = add i32 %.034, %65
-  %66 = zext i32 %spec.select41 to i64
-  %67 = getelementptr inbounds [2048 x i32], ptr %14, i64 0, i64 %66
-  store i32 0, ptr %67, align 4
-  br i1 %64, label %69, label %68
+  %62 = load i32, ptr %44, align 4
+  %63 = call noundef zeroext i1 @_Z10IsDriveDivi(i32 noundef %62)
+  %64 = zext i1 %63 to i32
+  %spec.select41 = add i32 %.034, %64
+  %65 = zext i32 %spec.select41 to i64
+  %66 = getelementptr inbounds [2048 x i32], ptr %14, i64 0, i64 %65
+  store i32 0, ptr %66, align 4
+  br i1 %63, label %68, label %67
 
-68:                                               ; preds = %62
+67:                                               ; preds = %61
   call void @_Z11AddEndSlashPwm(ptr noundef nonnull %14, i64 noundef 2048)
   call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %14, ptr noundef nonnull @.str, i64 noundef 2048)
-  br label %69
+  br label %68
 
-69:                                               ; preds = %62, %68, %31, %9, %5, %41
-  %.0 = phi i1 [ %42, %41 ], [ true, %5 ], [ false, %9 ], [ true, %31 ], [ true, %68 ], [ true, %62 ]
+68:                                               ; preds = %61, %67, %30, %9, %5, %40
+  %.0 = phi i1 [ %41, %40 ], [ true, %5 ], [ false, %9 ], [ true, %30 ], [ true, %67 ], [ true, %61 ]
   ret i1 %.0
 }
 

@@ -76,7 +76,7 @@ entry:
   tail call void @_ZN2EA6EAMain15PlatformStartupEv()
   tail call void @_ZN2EA6EAMain12SetVerbosityEj(i32 noundef 2)
   %cmp183 = icmp sgt i32 %argc, 1
-  br i1 %cmp183, label %for.body.preheader, label %for.end
+  br i1 %cmp183, label %for.body.preheader, label %if.then73
 
 for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %argc to i64
@@ -85,7 +85,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %bWaitAtEnd.0187 = phi i1 [ false, %for.body.preheader ], [ %bWaitAtEnd.1, %for.inc ]
-  %bPrintHelp.0186 = phi i8 [ 0, %for.body.preheader ], [ %bPrintHelp.1, %for.inc ]
+  %bPrintHelp.0186 = phi i1 [ false, %for.body.preheader ], [ %bPrintHelp.1, %for.inc ]
   %nOptionCount.0185 = phi i32 [ 0, %for.body.preheader ], [ %nOptionCount.1, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
@@ -219,24 +219,19 @@ if.then61:                                        ; preds = %if.else48.tail.thre
 
 for.inc:                                          ; preds = %if.then, %if.end32, %lor.lhs.false.tail, %if.then61, %if.then41, %if.then10
   %nOptionCount.1 = phi i32 [ %inc, %if.then ], [ %inc14, %if.then10 ], [ %inc33, %if.end32 ], [ %inc47, %if.then41 ], [ %inc62, %if.then61 ], [ %nOptionCount.0185, %lor.lhs.false.tail ]
-  %bPrintHelp.1 = phi i8 [ %bPrintHelp.0186, %if.then ], [ %bPrintHelp.0186, %if.then10 ], [ %bPrintHelp.0186, %if.end32 ], [ %bPrintHelp.0186, %if.then41 ], [ 1, %if.then61 ], [ %bPrintHelp.0186, %lor.lhs.false.tail ]
+  %bPrintHelp.1 = phi i1 [ %bPrintHelp.0186, %if.then ], [ %bPrintHelp.0186, %if.then10 ], [ %bPrintHelp.0186, %if.end32 ], [ %bPrintHelp.0186, %if.then41 ], [ true, %if.then61 ], [ %bPrintHelp.0186, %lor.lhs.false.tail ]
   %bWaitAtEnd.1 = phi i1 [ true, %if.then ], [ %bWaitAtEnd.0187, %if.then10 ], [ %bWaitAtEnd.0187, %if.end32 ], [ %bWaitAtEnd.0187, %if.then41 ], [ %bWaitAtEnd.0187, %if.then61 ], [ %bWaitAtEnd.0187, %lor.lhs.false.tail ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
-for.end:                                          ; preds = %for.inc, %entry
-  %nOptionCount.0.lcssa = phi i32 [ 0, %entry ], [ %nOptionCount.1, %for.inc ]
-  %bPrintHelp.0.lcssa = phi i8 [ 0, %entry ], [ %bPrintHelp.1, %for.inc ]
-  %bWaitAtEnd.0.lcssa = phi i1 [ false, %entry ], [ %bWaitAtEnd.1, %for.inc ]
-  %tobool = trunc nuw i8 %bPrintHelp.0.lcssa to i1
-  %cmp70 = icmp eq i32 %nOptionCount.0.lcssa, 0
-  %frombool = zext i1 %cmp70 to i8
-  %bPrintHelp.2 = select i1 %tobool, i8 %bPrintHelp.0.lcssa, i8 %frombool
-  %tobool72 = trunc nuw i8 %bPrintHelp.2 to i1
-  br i1 %tobool72, label %if.then73, label %if.end74
+for.end:                                          ; preds = %for.inc
+  %cmp70 = icmp eq i32 %nOptionCount.1, 0
+  %narrow = select i1 %bPrintHelp.1, i1 true, i1 %cmp70
+  br i1 %narrow, label %if.then73, label %if.end74
 
-if.then73:                                        ; preds = %for.end
+if.then73:                                        ; preds = %entry, %for.end
+  %bWaitAtEnd.0.lcssa207 = phi i1 [ %bWaitAtEnd.1, %for.end ], [ false, %entry ]
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.6)
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.7)
   tail call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.8)
@@ -245,6 +240,7 @@ if.then73:                                        ; preds = %for.end
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then73, %for.end
+  %bWaitAtEnd.0.lcssa206 = phi i1 [ %bWaitAtEnd.0.lcssa207, %if.then73 ], [ %bWaitAtEnd.1, %for.end ]
   %call75 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN9Benchmark14GetEnvironmentEv()
   %mRemainingSizeField.i.i.i.i = getelementptr inbounds i8, ptr %call75, i64 23
   %33 = load i8, ptr %mRemainingSizeField.i.i.i.i, align 1
@@ -512,7 +508,7 @@ invoke.cont98:                                    ; preds = %invoke.cont96
           to label %invoke.cont100 unwind label %lpad95
 
 invoke.cont100:                                   ; preds = %invoke.cont98
-  br i1 %bWaitAtEnd.0.lcssa, label %if.then102, label %if.end106
+  br i1 %bWaitAtEnd.0.lcssa206, label %if.then102, label %if.end106
 
 if.then102:                                       ; preds = %invoke.cont100
   invoke void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.14)

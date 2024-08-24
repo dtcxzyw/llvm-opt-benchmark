@@ -3324,7 +3324,6 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %34, %37
   %176 = trunc nuw i8 %.1132423 to i1
   %177 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %176, i32 %177, i32 %storemerge156418420
-  %spec.select528 = select i1 %176, i8 0, i8 %.1132423
   %178 = call double @llvm.fabs.f64(double %173)
   %or.cond380 = fcmp ogt double %178, 0x47847AE133333333
   br i1 %or.cond380, label %.critedge2, label %186
@@ -3352,7 +3351,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %34, %37
 
 186:                                              ; preds = %175, %171
   %storemerge156416 = phi i32 [ %storemerge156418420, %171 ], [ %spec.select, %175 ]
-  %.2133 = phi i8 [ %.1132423, %171 ], [ %spec.select528, %175 ]
+  %.2133 = phi i8 [ %.1132423, %171 ], [ 0, %175 ]
   %.1130 = phi i1 [ %.0129424, %171 ], [ false, %175 ]
   %187 = getelementptr inbounds double, ptr %141, i64 %indvars.iv
   %188 = load double, ptr %187, align 8
@@ -3363,7 +3362,6 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %34, %37
   %191 = trunc nuw i8 %.2133 to i1
   %192 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select529 = select i1 %191, i32 %192, i32 %storemerge156416
-  %spec.select530 = select i1 %191, i8 0, i8 %.2133
   %193 = call double @llvm.fabs.f64(double %188)
   %or.cond381 = fcmp ogt double %193, 0x47847AE133333333
   br i1 %or.cond381, label %.critedge4, label %201
@@ -3391,7 +3389,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %34, %37
 
 201:                                              ; preds = %190, %186
   %storemerge156414 = phi i32 [ %storemerge156416, %186 ], [ %spec.select529, %190 ]
-  %.5136 = phi i8 [ %.2133, %186 ], [ %spec.select530, %190 ]
+  %.5136 = phi i8 [ %.2133, %186 ], [ 0, %190 ]
   %.1128 = phi i1 [ %.0127425, %186 ], [ false, %190 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

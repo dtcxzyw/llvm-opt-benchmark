@@ -1407,14 +1407,13 @@ invoke.cont3:                                     ; preds = %entry
   %rx.sroa.6.0.ref.tmp7.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp7, i64 20
   br label %for.body
 
-for.cond:                                         ; preds = %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit
+for.cond:                                         ; preds = %invoke.cont12, %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i29
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx290, 4
   %cmp.not = icmp eq i64 %__begin1.0.add, 8
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont3, %for.cond
   %__begin1.0.idx290 = phi i64 [ 0, %invoke.cont3 ], [ %__begin1.0.add, %for.cond ]
-  %rx.sroa.10.0289 = phi i8 [ 0, %invoke.cont3 ], [ %spec.select, %for.cond ]
   %__begin1.0.ptr = getelementptr inbounds i8, ptr %ref.tmp4, i64 %__begin1.0.idx290
   %4 = load float, ptr %__begin1.0.ptr, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp822)
@@ -1427,13 +1426,19 @@ for.body:                                         ; preds = %invoke.cont3, %for.
   call void @_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsEEUlT_E_EEDcOSB_(ptr nonnull sret(%"class.pstd::optional.26") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(8) %camera, ptr noundef nonnull align 8 dereferenceable(16) %generate.i23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp822)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %generate.i23)
-  %tobool.i.i26 = trunc nuw i8 %rx.sroa.10.0289 to i1
-  %spec.select = select i1 %tobool.i.i26, i8 0, i8 %rx.sroa.10.0289
   %5 = load i8, ptr %set.i3.i, align 8
   %tobool.i4.i = trunc i8 %5 to i1
-  br i1 %tobool.i4.i, label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread, label %invoke.cont12
+  br i1 %tobool.i4.i, label %invoke.cont53, label %invoke.cont12
 
-_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread: ; preds = %for.body
+invoke.cont12:                                    ; preds = %for.body
+  %tobool.i.i28 = trunc i8 %5 to i1
+  br i1 %tobool.i.i28, label %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i29, label %for.cond
+
+_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i29: ; preds = %invoke.cont12
+  store i8 0, ptr %set.i3.i, align 8
+  br label %for.cond
+
+invoke.cont53:                                    ; preds = %for.body
   %rx.sroa.0.0.copyload = load float, ptr %ref.tmp7, align 8
   %rx.sroa.2.0.copyload = load float, ptr %rx.sroa.2.0.ref.tmp7.sroa_idx, align 4
   %rx.sroa.3.0.copyload = load float, ptr %rx.sroa.3.0.ref.tmp7.sroa_idx, align 8
@@ -1441,32 +1446,11 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread: ; preds = %for.body
   %rx.sroa.5.0.copyload = load float, ptr %rx.sroa.5.0.ref.tmp7.sroa_idx, align 8
   %rx.sroa.6.0.copyload = load float, ptr %rx.sroa.6.0.ref.tmp7.sroa_idx, align 4
   store i8 0, ptr %set.i3.i, align 8
-  br label %invoke.cont53
-
-invoke.cont12:                                    ; preds = %for.body
-  %tobool.i.i28 = trunc i8 %5 to i1
-  br i1 %tobool.i.i28, label %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i29, label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit
-
-_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i29: ; preds = %invoke.cont12
-  store i8 0, ptr %set.i3.i, align 8
-  br label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit
-
-_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit:    ; preds = %invoke.cont12, %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i29
-  %tobool.i31 = trunc nuw i8 %spec.select to i1
-  br i1 %tobool.i31, label %invoke.cont53, label %for.cond
-
-invoke.cont53:                                    ; preds = %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread
-  %rx.sroa.0.1327347 = phi float [ %rx.sroa.0.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit ]
-  %rx.sroa.2.1328346 = phi float [ %rx.sroa.2.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit ]
-  %rx.sroa.3.1329345 = phi float [ %rx.sroa.3.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit ]
-  %rx.sroa.4.1330344 = phi float [ %rx.sroa.4.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit ]
-  %rx.sroa.5.1331343 = phi float [ %rx.sroa.5.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit ]
-  %rx.sroa.6.1332342 = phi float [ %rx.sroa.6.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit ]
   %p.sroa.0.0.vec.extract.i = extractelement <2 x float> %rd.sroa.0.0.copyload, i64 0
-  %sub.i = fsub float %rx.sroa.0.1327347, %p.sroa.0.0.vec.extract.i
+  %sub.i = fsub float %rx.sroa.0.0.copyload, %p.sroa.0.0.vec.extract.i
   %p.sroa.0.4.vec.extract.i = extractelement <2 x float> %rd.sroa.0.0.copyload, i64 1
-  %sub4.i = fsub float %rx.sroa.2.1328346, %p.sroa.0.4.vec.extract.i
-  %sub6.i = fsub float %rx.sroa.3.1329345, %rd.sroa.8.0.copyload
+  %sub4.i = fsub float %rx.sroa.2.0.copyload, %p.sroa.0.4.vec.extract.i
+  %sub6.i = fsub float %rx.sroa.3.0.copyload, %rd.sroa.8.0.copyload
   %div.i = fdiv float %sub.i, %4
   %div2.i = fdiv float %sub4.i, %4
   %div3.i = fdiv float %sub6.i, %4
@@ -1476,10 +1460,10 @@ invoke.cont53:                                    ; preds = %_ZN4pstd8optionalIN
   %retval.sroa.0.0.vec.insert.i46 = insertelement <2 x float> poison, float %add.i, i64 0
   %retval.sroa.0.4.vec.insert.i47 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i46, float %add4.i, i64 1
   %c.sroa.0.0.vec.extract.i = extractelement <2 x float> %rd.sroa.12.0.copyload, i64 0
-  %sub.i56 = fsub float %rx.sroa.4.1330344, %c.sroa.0.0.vec.extract.i
+  %sub.i56 = fsub float %rx.sroa.4.0.copyload, %c.sroa.0.0.vec.extract.i
   %c.sroa.0.4.vec.extract.i = extractelement <2 x float> %rd.sroa.12.0.copyload, i64 1
-  %sub4.i58 = fsub float %rx.sroa.5.1331343, %c.sroa.0.4.vec.extract.i
-  %sub6.i60 = fsub float %rx.sroa.6.1332342, %rd.sroa.18.0.copyload
+  %sub4.i58 = fsub float %rx.sroa.5.0.copyload, %c.sroa.0.4.vec.extract.i
+  %sub6.i60 = fsub float %rx.sroa.6.0.copyload, %rd.sroa.18.0.copyload
   %div.i65 = fdiv float %sub.i56, %4
   %div2.i67 = fdiv float %sub4.i58, %4
   %div3.i69 = fdiv float %sub6.i60, %4
@@ -1491,7 +1475,6 @@ invoke.cont53:                                    ; preds = %_ZN4pstd8optionalIN
   br label %for.end
 
 for.end:                                          ; preds = %for.cond, %invoke.cont53
-  %tobool.i31348 = phi i1 [ true, %invoke.cont53 ], [ false, %for.cond ]
   %rd.sroa.28269.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i47, %invoke.cont53 ], [ zeroinitializer, %for.cond ]
   %rd.sroa.33.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i82, %invoke.cont53 ], [ zeroinitializer, %for.cond ]
   %rd.sroa.34.0 = phi float [ %add6.i80, %invoke.cont53 ], [ 0.000000e+00, %for.cond ]
@@ -1512,14 +1495,13 @@ for.end:                                          ; preds = %for.cond, %invoke.c
   %ry.sroa.6.0.ref.tmp77.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp77, i64 20
   br label %for.body72
 
-for.cond70:                                       ; preds = %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113
+for.cond70:                                       ; preds = %invoke.cont82, %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i112
   %__begin166.0.add = add nuw nsw i64 %__begin166.0.idx298, 4
   %cmp71.not = icmp eq i64 %__begin166.0.add, 8
   br i1 %cmp71.not, label %for.end134, label %for.body72
 
 for.body72:                                       ; preds = %for.end, %for.cond70
   %__begin166.0.idx298 = phi i64 [ 0, %for.end ], [ %__begin166.0.add, %for.cond70 ]
-  %ry.sroa.10.0291 = phi i8 [ 0, %for.end ], [ %spec.select276, %for.cond70 ]
   %__begin166.0.ptr = getelementptr inbounds i8, ptr %ref.tmp60, i64 %__begin166.0.idx298
   %7 = load float, ptr %__begin166.0.ptr, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp7892)
@@ -1533,13 +1515,19 @@ for.body72:                                       ; preds = %for.end, %for.cond7
   call void @_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsEEUlT_E_EEDcOSB_(ptr nonnull sret(%"class.pstd::optional.26") align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(8) %camera, ptr noundef nonnull align 8 dereferenceable(16) %generate.i93)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp7892)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %generate.i93)
-  %tobool.i.i97 = trunc nuw i8 %ry.sroa.10.0291 to i1
-  %spec.select276 = select i1 %tobool.i.i97, i8 0, i8 %ry.sroa.10.0291
   %8 = load i8, ptr %set.i3.i99, align 8
   %tobool.i4.i100 = trunc i8 %8 to i1
-  br i1 %tobool.i4.i100, label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread, label %invoke.cont82
+  br i1 %tobool.i4.i100, label %invoke.cont127, label %invoke.cont82
 
-_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread: ; preds = %for.body72
+invoke.cont82:                                    ; preds = %for.body72
+  %tobool.i.i111 = trunc i8 %8 to i1
+  br i1 %tobool.i.i111, label %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i112, label %for.cond70
+
+_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i112: ; preds = %invoke.cont82
+  store i8 0, ptr %set.i3.i99, align 8
+  br label %for.cond70
+
+invoke.cont127:                                   ; preds = %for.body72
   %ry.sroa.0.0.copyload = load float, ptr %ref.tmp77, align 8
   %ry.sroa.2.0.copyload = load float, ptr %ry.sroa.2.0.ref.tmp77.sroa_idx, align 4
   %ry.sroa.3.0.copyload = load float, ptr %ry.sroa.3.0.ref.tmp77.sroa_idx, align 8
@@ -1547,33 +1535,11 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread: ; preds = %for.body72
   %ry.sroa.5.0.copyload = load float, ptr %ry.sroa.5.0.ref.tmp77.sroa_idx, align 8
   %ry.sroa.6.0.copyload = load float, ptr %ry.sroa.6.0.ref.tmp77.sroa_idx, align 4
   store i8 0, ptr %set.i3.i99, align 8
-  br label %invoke.cont127
-
-invoke.cont82:                                    ; preds = %for.body72
-  %tobool.i.i111 = trunc i8 %8 to i1
-  br i1 %tobool.i.i111, label %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i112, label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113
-
-_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i112: ; preds = %invoke.cont82
-  store i8 0, ptr %set.i3.i99, align 8
-  br label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113
-
-_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113: ; preds = %invoke.cont82, %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i112
-  %tobool.i115 = trunc nuw i8 %spec.select276 to i1
-  br i1 %tobool.i115, label %invoke.cont127, label %for.cond70
-
-invoke.cont127:                                   ; preds = %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread
-  %ry.sroa.10.4358380 = phi i8 [ 1, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread ], [ %spec.select276, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113 ]
-  %ry.sroa.6.1359378 = phi float [ %ry.sroa.6.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113 ]
-  %ry.sroa.5.1360377 = phi float [ %ry.sroa.5.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113 ]
-  %ry.sroa.4.1361376 = phi float [ %ry.sroa.4.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113 ]
-  %ry.sroa.3.1362375 = phi float [ %ry.sroa.3.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113 ]
-  %ry.sroa.2.1363374 = phi float [ %ry.sroa.2.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113 ]
-  %ry.sroa.0.1364373 = phi float [ %ry.sroa.0.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit113 ]
   %p.sroa.0.0.vec.extract.i122 = extractelement <2 x float> %rd.sroa.0.0.copyload, i64 0
-  %sub.i123 = fsub float %ry.sroa.0.1364373, %p.sroa.0.0.vec.extract.i122
+  %sub.i123 = fsub float %ry.sroa.0.0.copyload, %p.sroa.0.0.vec.extract.i122
   %p.sroa.0.4.vec.extract.i125 = extractelement <2 x float> %rd.sroa.0.0.copyload, i64 1
-  %sub4.i126 = fsub float %ry.sroa.2.1363374, %p.sroa.0.4.vec.extract.i125
-  %sub6.i128 = fsub float %ry.sroa.3.1362375, %rd.sroa.8.0.copyload
+  %sub4.i126 = fsub float %ry.sroa.2.0.copyload, %p.sroa.0.4.vec.extract.i125
+  %sub6.i128 = fsub float %ry.sroa.3.0.copyload, %rd.sroa.8.0.copyload
   %div.i133 = fdiv float %sub.i123, %7
   %div2.i135 = fdiv float %sub4.i126, %7
   %div3.i137 = fdiv float %sub6.i128, %7
@@ -1583,10 +1549,10 @@ invoke.cont127:                                   ; preds = %_ZN4pstd8optionalIN
   %retval.sroa.0.0.vec.insert.i149 = insertelement <2 x float> poison, float %add.i143, i64 0
   %retval.sroa.0.4.vec.insert.i150 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i149, float %add4.i146, i64 1
   %c.sroa.0.0.vec.extract.i159 = extractelement <2 x float> %rd.sroa.12.0.copyload, i64 0
-  %sub.i160 = fsub float %ry.sroa.4.1361376, %c.sroa.0.0.vec.extract.i159
+  %sub.i160 = fsub float %ry.sroa.4.0.copyload, %c.sroa.0.0.vec.extract.i159
   %c.sroa.0.4.vec.extract.i162 = extractelement <2 x float> %rd.sroa.12.0.copyload, i64 1
-  %sub4.i163 = fsub float %ry.sroa.5.1360377, %c.sroa.0.4.vec.extract.i162
-  %sub6.i165 = fsub float %ry.sroa.6.1359378, %rd.sroa.18.0.copyload
+  %sub4.i163 = fsub float %ry.sroa.5.0.copyload, %c.sroa.0.4.vec.extract.i162
+  %sub6.i165 = fsub float %ry.sroa.6.0.copyload, %rd.sroa.18.0.copyload
   %div.i170 = fdiv float %sub.i160, %7
   %div2.i172 = fdiv float %sub4.i163, %7
   %div3.i174 = fdiv float %sub6.i165, %7
@@ -1598,7 +1564,7 @@ invoke.cont127:                                   ; preds = %_ZN4pstd8optionalIN
   br label %for.end134
 
 for.end134:                                       ; preds = %for.cond70, %invoke.cont127
-  %ry.sroa.10.4358379 = phi i8 [ %ry.sroa.10.4358380, %invoke.cont127 ], [ %spec.select276, %for.cond70 ]
+  %ry.sroa.10.4352373 = phi i8 [ 1, %invoke.cont127 ], [ 0, %for.cond70 ]
   %rd.sroa.31.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i150, %invoke.cont127 ], [ zeroinitializer, %for.cond70 ]
   %rd.sroa.35.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i187, %invoke.cont127 ], [ zeroinitializer, %for.cond70 ]
   %rd.sroa.36.0 = phi float [ %add6.i185, %invoke.cont127 ], [ 0.000000e+00, %for.cond70 ]
@@ -1612,8 +1578,7 @@ land.rhs.i.i203:                                  ; preds = %for.end134
   unreachable
 
 invoke.cont145:                                   ; preds = %for.end134
-  %10 = and i8 %ry.sroa.10.4358379, 1
-  %frombool = select i1 %tobool.i31348, i8 %10, i8 0
+  %frombool = select i1 %tobool.i4.i, i8 %ry.sroa.10.4352373, i8 0
   %weight144 = getelementptr inbounds i8, ptr %cr, i64 40
   %set.i207 = getelementptr inbounds i8, ptr %agg.result, i64 112
   store i8 1, ptr %set.i207, align 8

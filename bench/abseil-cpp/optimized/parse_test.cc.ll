@@ -19986,13 +19986,12 @@ _ZN7testing8internal14ArrayAwareFindIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1
 if.then27:                                        ; preds = %for.body, %_ZN7testing8internal14ArrayAwareFindIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EET_SG_SG_RKT0_.exit
   %tobool = trunc nuw i8 %printed_header.048 to i1
   %.str.481..str.482 = select i1 %tobool, ptr @.str.481, ptr @.str.482
-  %printed_header.048. = select i1 %tobool, i8 %printed_header.048, i8 1
   %call30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.str.481..str.482)
   tail call void @_ZN7testing8internal13PrintStringToERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.047, ptr noundef nonnull %0)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN7testing8internal14ArrayAwareFindIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EET_SG_SG_RKT0_.exit, %if.then27
-  %printed_header.2 = phi i8 [ %printed_header.048., %if.then27 ], [ %printed_header.048, %_ZN7testing8internal14ArrayAwareFindIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EET_SG_SG_RKT0_.exit ]
+  %printed_header.2 = phi i8 [ 1, %if.then27 ], [ %printed_header.048, %_ZN7testing8internal14ArrayAwareFindIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EET_SG_SG_RKT0_.exit ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.047, i64 32
   %6 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %6

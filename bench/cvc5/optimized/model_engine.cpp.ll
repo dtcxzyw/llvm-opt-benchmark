@@ -400,17 +400,13 @@ land.rhs:                                         ; preds = %entry
   %d_qim = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %d_qim, align 8
   %call2 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory24InferenceManagerBuffered15hasPendingLemmaEv(ptr noundef nonnull align 8 dereferenceable(353) %2)
-  %3 = zext i1 %call2 to i8
   br label %if.end
 
 if.end:                                           ; preds = %land.rhs, %entry
-  %doCheck.0 = phi i8 [ 0, %entry ], [ %3, %land.rhs ]
-  %tobool3 = trunc nuw i8 %doCheck.0 to i1
+  %doCheck.0 = phi i1 [ false, %entry ], [ %call2, %land.rhs ]
   %cmp5 = icmp eq i32 %quant_e, 2
-  %frombool6 = zext i1 %cmp5 to i8
-  %doCheck.1 = select i1 %tobool3, i8 %doCheck.0, i8 %frombool6
-  %tobool8 = trunc nuw i8 %doCheck.1 to i1
-  br i1 %tobool8, label %if.end133, label %if.end193
+  %narrow = or i1 %cmp5, %doCheck.0
+  br i1 %narrow, label %if.end133, label %if.end193
 
 if.end133:                                        ; preds = %if.end
   %d_incomplete_check = getelementptr inbounds i8, ptr %this, i64 48

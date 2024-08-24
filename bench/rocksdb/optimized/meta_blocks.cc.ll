@@ -2453,7 +2453,7 @@ invoke.cont.lr.ph:                                ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %_ZN7rocksdb6StatusD2Ev.exit
-  %all_succeeded.0124 = phi i8 [ 1, %invoke.cont.lr.ph ], [ %all_succeeded.1, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %all_succeeded.0124 = phi i1 [ true, %invoke.cont.lr.ph ], [ %all_succeeded.1, %_ZN7rocksdb6StatusD2Ev.exit ]
   %__begin1.sroa.0.0123 = phi ptr [ %0, %invoke.cont.lr.ph ], [ %incdec.ptr.i, %_ZN7rocksdb6StatusD2Ev.exit ]
   %2 = load ptr, ptr %__begin1.sroa.0.0123, align 8
   %vtable = load ptr, ptr %2, align 8
@@ -2885,8 +2885,6 @@ invoke.cont39:                                    ; preds = %invoke.cont37
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #21
-  %tobool = trunc nuw i8 %all_succeeded.0124 to i1
-  %spec.store.select = select i1 %tobool, i8 0, i8 %all_succeeded.0124
   br label %if.end43
 
 lpad26:                                           ; preds = %call.i15.noexc, %if.else
@@ -2926,7 +2924,7 @@ ehcleanup41:                                      ; preds = %lpad26, %lpad.i, %e
   br label %ehcleanup44
 
 if.end43:                                         ; preds = %.noexc, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit, %invoke.cont39
-  %all_succeeded.1 = phi i8 [ %spec.store.select, %invoke.cont39 ], [ %all_succeeded.0124, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit ], [ %all_succeeded.0124, %.noexc ]
+  %all_succeeded.1 = phi i1 [ false, %invoke.cont39 ], [ %all_succeeded.0124, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit ], [ %all_succeeded.0124, %.noexc ]
   %45 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %45, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -2939,7 +2937,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %if.end43, %_ZNKSt14
   store ptr null, ptr %state_.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0123, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
-  br i1 %cmp.i.not, label %for.end47.loopexit, label %invoke.cont
+  br i1 %cmp.i.not, label %for.end47, label %invoke.cont
 
 ehcleanup44:                                      ; preds = %lpad.loopexit86, %lpad.loopexit.split-lp87, %common.resume.i, %ehcleanup41, %lpad19
   %.pn10 = phi { ptr, i32 } [ %37, %lpad19 ], [ %.pn.pn.pn, %ehcleanup41 ], [ %common.resume.op.i, %common.resume.i ], [ %lpad.loopexit88, %lpad.loopexit86 ], [ %lpad.loopexit.split-lp89, %lpad.loopexit.split-lp87 ]
@@ -2954,12 +2952,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit31:                    ; preds = %ehcleanup44, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i30
   resume { ptr, i32 } %.pn10
 
-for.end47.loopexit:                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit
-  %47 = trunc nuw i8 %all_succeeded.1 to i1
-  br label %for.end47
-
-for.end47:                                        ; preds = %for.end47.loopexit, %entry
-  %all_succeeded.0.lcssa = phi i1 [ true, %entry ], [ %47, %for.end47.loopexit ]
+for.end47:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %entry
+  %all_succeeded.0.lcssa = phi i1 [ true, %entry ], [ %all_succeeded.1, %_ZN7rocksdb6StatusD2Ev.exit ]
   ret i1 %all_succeeded.0.lcssa
 }
 
