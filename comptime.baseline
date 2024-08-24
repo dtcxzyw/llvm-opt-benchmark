@@ -18449,7 +18449,7 @@ openblas/dgbtrf.c.ll 271620754
 openblas/dgedmd.c.ll 251087100
 openblas/dgedmdq.c.ll 128731018
 openblas/dgees.c.ll 133663634
-openblas/dgeesx.c.ll 153607404
+openblas/dgeesx.c.ll 153453669
 openblas/dgegs.c.ll 115818259
 openblas/dgegv.c.ll 194632842
 openblas/dgejsv.c.ll 852957709
