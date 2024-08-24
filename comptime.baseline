@@ -3592,7 +3592,7 @@ cmake/ctest.cxx.ll 975713736
 cmake/curl_addrinfo.c.ll 99008720
 cmake/curl_fnmatch.c.ll 36954098
 cmake/curl_memrchr.c.ll 38638777
-cmake/curl_ntlm_core.c.ll 109855601
+cmake/curl_ntlm_core.c.ll 109965548
 cmake/curl_range.c.ll 47913755
 cmake/curl_trc.c.ll 70109176
 cmake/curltest.c.ll 49450826
@@ -33906,7 +33906,7 @@ wasmtime-rs/172871zsy4nrpcmu.ll 863265871
 wasmtime-rs/172zkh8zulcvpwf2.ll 80923277
 wasmtime-rs/175xipdsovv1dz4r.ll 56853229
 wasmtime-rs/176tode9f0xidq5a.ll 59389104
-wasmtime-rs/17cbpygq2z26d22m.ll 64125246
+wasmtime-rs/17cbpygq2z26d22m.ll 64189380
 wasmtime-rs/17evukb5bsx7fp0o.ll 42526633
 wasmtime-rs/17poo9s8anpkt1t8.ll 1475319355
 wasmtime-rs/17r62b1yk14v1b3k.ll 36197529
