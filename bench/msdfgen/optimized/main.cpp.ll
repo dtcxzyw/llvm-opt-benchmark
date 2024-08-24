@@ -5371,11 +5371,9 @@ sw.bb29:                                          ; preds = %for.cond
   br label %for.inc
 
 sw.bb30:                                          ; preds = %for.cond, %for.cond, %for.cond, %for.cond, %for.cond, %for.cond, %for.cond, %for.cond
-  %tobool31 = trunc nuw i8 %change.0 to i1
   %tobool31.mask = and i8 %change.0, 1
   %inc33 = zext nneg i8 %tobool31.mask to i32
   %spec.select28 = add i32 %e.0, %inc33
-  %spec.select29 = select i1 %tobool31, i8 0, i8 %change.0
   %conv35 = zext i32 %spec.select28 to i64
   %_M_finish.i42 = getelementptr inbounds i8, ptr %contour.0, i64 8
   %10 = load ptr, ptr %_M_finish.i42, align 8
@@ -5409,7 +5407,7 @@ for.inc:                                          ; preds = %for.cond, %if.end25
   %c.1 = phi i32 [ %c.0, %if.then39 ], [ %c.0, %sw.bb30 ], [ %c.0, %sw.bb29 ], [ %inc19, %if.end25 ], [ %c.0, %for.cond ]
   %e.4 = phi i32 [ %spec.select28, %if.then39 ], [ %spec.select28, %sw.bb30 ], [ %e.0, %sw.bb29 ], [ 0, %if.end25 ], [ %e.0, %for.cond ]
   %contour.1 = phi ptr [ %contour.0, %if.then39 ], [ %contour.0, %sw.bb30 ], [ %contour.0, %sw.bb29 ], [ %add.ptr.i41, %if.end25 ], [ %contour.0, %for.cond ]
-  %change.2 = phi i8 [ 1, %if.then39 ], [ %spec.select29, %sw.bb30 ], [ %change.0, %sw.bb29 ], [ 0, %if.end25 ], [ %change.0, %for.cond ]
+  %change.2 = phi i8 [ 1, %if.then39 ], [ 0, %sw.bb30 ], [ %change.0, %sw.bb29 ], [ 0, %if.end25 ], [ %change.0, %for.cond ]
   %clear.1 = phi i1 [ %clear.0, %if.then39 ], [ %clear.0, %sw.bb30 ], [ false, %sw.bb29 ], [ true, %if.end25 ], [ %clear.0, %for.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %in.0, i64 1
   br label %for.cond, !llvm.loop !29

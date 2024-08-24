@@ -20698,8 +20698,6 @@ invoke.cont73:                                    ; preds = %if.end59, %if.end14
   ]
 
 invoke.cont82:                                    ; preds = %invoke.cont73
-  %tobool.i.i.i132 = trunc nuw i8 %src_e.sroa.0.2368 to i1
-  %spec.select406 = select i1 %tobool.i.i.i132, i8 %src_e.sroa.0.2368, i8 1
   %21 = load ptr, ptr %.fr.i.i377, align 8
   %22 = load ptr, ptr %_M_finish.i.i71, align 8
   %23 = load ptr, ptr %_M_end_of_storage.i.i72, align 8
@@ -20977,7 +20975,7 @@ call5.i.i.i.i.i.i.i.noexc:                        ; preds = %_ZNSt8_Rb_treeIN3ue
 if.end140:                                        ; preds = %invoke.cont73, %call5.i.i.i.i.i.i.i.noexc, %_ZNKSt4lessIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit16.i.i, %if.then.i.i11.i.i, %invoke.cont111
   %ei.sroa.0.1.in = phi ptr [ %m_header.i.i.i.i183, %invoke.cont111 ], [ %.fr.i.i377, %if.then.i.i11.i.i ], [ %.fr.i.i377, %_ZNKSt4lessIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit16.i.i ], [ %.fr.i.i377, %call5.i.i.i.i.i.i.i.noexc ], [ %.fr.i.i377, %invoke.cont73 ]
   %ei_end.sroa.0.1 = phi ptr [ %m_header.i.i.i.i183, %invoke.cont111 ], [ %ei_end.sroa.0.0367, %if.then.i.i11.i.i ], [ %ei_end.sroa.0.0367, %_ZNKSt4lessIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit16.i.i ], [ %ei_end.sroa.0.0367, %call5.i.i.i.i.i.i.i.noexc ], [ %ei_end.sroa.0.0367, %invoke.cont73 ]
-  %src_e.sroa.0.3 = phi i8 [ %spec.select406, %invoke.cont111 ], [ %src_e.sroa.0.2368, %if.then.i.i11.i.i ], [ %src_e.sroa.0.2368, %_ZNKSt4lessIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit16.i.i ], [ %src_e.sroa.0.2368, %call5.i.i.i.i.i.i.i.noexc ], [ %src_e.sroa.0.2368, %invoke.cont73 ]
+  %src_e.sroa.0.3 = phi i8 [ 1, %invoke.cont111 ], [ %src_e.sroa.0.2368, %if.then.i.i11.i.i ], [ %src_e.sroa.0.2368, %_ZNKSt4lessIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit16.i.i ], [ %src_e.sroa.0.2368, %call5.i.i.i.i.i.i.i.noexc ], [ %src_e.sroa.0.2368, %invoke.cont73 ]
   %u.sroa.0.1 = phi ptr [ %15, %invoke.cont111 ], [ %u.sroa.0.0375, %if.then.i.i11.i.i ], [ %u.sroa.0.0375, %_ZNKSt4lessIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit16.i.i ], [ %u.sroa.0.0375, %call5.i.i.i.i.i.i.i.noexc ], [ %u.sroa.0.0375, %invoke.cont73 ]
   %u.sroa.14.1 = phi i64 [ %16, %invoke.cont111 ], [ %u.sroa.14.0376, %if.then.i.i11.i.i ], [ %u.sroa.14.0376, %_ZNKSt4lessIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit16.i.i ], [ %u.sroa.14.0376, %call5.i.i.i.i.i.i.i.noexc ], [ %u.sroa.14.0376, %invoke.cont73 ]
   %ei.sroa.0.1 = load ptr, ptr %ei.sroa.0.1.in, align 8

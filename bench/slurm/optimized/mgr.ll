@@ -925,7 +925,6 @@ define dso_local void @stepd_send_step_complete_msgs(ptr nocapture noundef reado
 16:                                               ; preds = %.lr.ph.i
   %17 = trunc nsw i64 %indvars.iv.i to i32
   %spec.select = select i1 %15, i32 %.351, i32 %17
-  %spec.select59 = select i1 %15, i8 %.023.i, i8 1
   br label %.sink.split.i
 
 18:                                               ; preds = %.lr.ph.i
@@ -939,7 +938,7 @@ define dso_local void @stepd_send_step_complete_msgs(ptr nocapture noundef reado
 .sink.split.i:                                    ; preds = %16, %18
   %.553 = phi i32 [ %.351, %18 ], [ %spec.select, %16 ]
   %.3 = phi i32 [ %.2, %18 ], [ %17, %16 ]
-  %.1.i = phi i8 [ %.023.i, %18 ], [ %spec.select59, %16 ]
+  %.1.i = phi i8 [ %.023.i, %18 ], [ 1, %16 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = icmp eq i64 %indvars.iv.next.i, %zext
   br i1 %22, label %_bit_getrange.exit, label %.lr.ph.i, !llvm.loop !11
@@ -1005,7 +1004,6 @@ _bit_getrange.exit:                               ; preds = %.sink.split.i, %19
 42:                                               ; preds = %.lr.ph.i32
   %43 = trunc nsw i64 %indvars.iv.i33 to i32
   %spec.select62 = select i1 %41, i32 %.856, i32 %43
-  %spec.select63 = select i1 %41, i8 %.023.i34, i8 1
   br label %.sink.split.i36
 
 44:                                               ; preds = %.lr.ph.i32
@@ -1019,7 +1017,7 @@ _bit_getrange.exit:                               ; preds = %.sink.split.i, %19
 .sink.split.i36:                                  ; preds = %42, %44
   %.10 = phi i32 [ %.856, %44 ], [ %spec.select62, %42 ]
   %.7 = phi i32 [ %.6, %44 ], [ %43, %42 ]
-  %.1.i38 = phi i8 [ %.023.i34, %44 ], [ %spec.select63, %42 ]
+  %.1.i38 = phi i8 [ %.023.i34, %44 ], [ 1, %42 ]
   %indvars.iv.next.i39 = add nsw i64 %indvars.iv.i33, 1
   %lftr.wideiv.i40 = trunc i64 %indvars.iv.next.i39 to i32
   %exitcond.not.i41 = icmp eq i32 %9, %lftr.wideiv.i40

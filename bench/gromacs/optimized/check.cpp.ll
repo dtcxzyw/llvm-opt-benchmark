@@ -2656,16 +2656,16 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %10, %13
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   br label %20
 
-20:                                               ; preds = %.lr.ph, %54
-  %.051 = phi i32 [ 0, %.lr.ph ], [ %56, %54 ]
-  %.02650 = phi i1 [ true, %.lr.ph ], [ %.143, %54 ]
-  %.02749 = phi float [ -2.000000e+00, %.lr.ph ], [ %.02848, %54 ]
-  %.02848 = phi float [ -1.000000e+00, %.lr.ph ], [ %55, %54 ]
-  %.02947 = phi float [ 0.000000e+00, %.lr.ph ], [ %.13045, %54 ]
-  %.03146 = phi i8 [ 0, %.lr.ph ], [ %.13244, %54 ]
+20:                                               ; preds = %.lr.ph, %52
+  %.051 = phi i32 [ 0, %.lr.ph ], [ %54, %52 ]
+  %.02650 = phi i1 [ true, %.lr.ph ], [ %.143, %52 ]
+  %.02749 = phi float [ -2.000000e+00, %.lr.ph ], [ %.02848, %52 ]
+  %.02848 = phi float [ -1.000000e+00, %.lr.ph ], [ %53, %52 ]
+  %.02947 = phi float [ 0.000000e+00, %.lr.ph ], [ %.13045, %52 ]
+  %.03146 = phi i1 [ false, %.lr.ph ], [ true, %52 ]
   %21 = icmp ugt i32 %.051, 1
   %22 = load double, ptr %17, align 8
-  br i1 %21, label %23, label %44
+  br i1 %21, label %23, label %43
 
 23:                                               ; preds = %20
   %24 = fpext float %.02848 to double
@@ -2698,64 +2698,59 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %10, %13
   %41 = phi double [ %22, %23 ], [ %.pre, %36 ]
   %.1.ph = phi i1 [ %.02650, %23 ], [ false, %36 ]
   %42 = fptrunc double %41 to float
-  %43 = trunc nuw i8 %.03146 to i1
-  %.13241 = select i1 %43, i8 %.03146, i8 1
-  %.13042 = select i1 %43, float %.02947, float %42
-  br label %54
+  %.13042 = select i1 %.03146, float %.02947, float %42
+  br label %52
 
-44:                                               ; preds = %20
-  %45 = fptrunc double %22 to float
-  %46 = trunc nuw i8 %.03146 to i1
-  %.132 = select i1 %46, i8 %.03146, i8 1
-  %.130 = select i1 %46, float %.02947, float %45
-  %47 = icmp eq i32 %.051, 0
-  br i1 %47, label %48, label %54
+43:                                               ; preds = %20
+  %44 = fptrunc double %22 to float
+  %.130 = select i1 %.03146, float %.02947, float %44
+  %45 = icmp eq i32 %.051, 0
+  br i1 %45, label %46, label %52
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr @stderr, align 8
-  %50 = load i64, ptr %19, align 8
-  %51 = call noundef ptr @_Z12gmx_step_strlPc(i64 noundef %50, ptr noundef nonnull %5)
-  %52 = load double, ptr %17, align 8
-  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.96, ptr noundef %51, i32 noundef 0, double noundef %52) #23
-  br label %54
+46:                                               ; preds = %43
+  %47 = load ptr, ptr @stderr, align 8
+  %48 = load i64, ptr %19, align 8
+  %49 = call noundef ptr @_Z12gmx_step_strlPc(i64 noundef %48, ptr noundef nonnull %5)
+  %50 = load double, ptr %17, align 8
+  %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.96, ptr noundef %49, i32 noundef 0, double noundef %50) #23
+  br label %52
 
-54:                                               ; preds = %.thread, %48, %44
-  %.13045 = phi float [ %.13042, %.thread ], [ %.130, %48 ], [ %.130, %44 ]
-  %.13244 = phi i8 [ %.13241, %.thread ], [ %.132, %48 ], [ %.132, %44 ]
-  %55 = phi float [ %42, %.thread ], [ %45, %48 ], [ %45, %44 ]
-  %.143 = phi i1 [ %.1.ph, %.thread ], [ %.02650, %48 ], [ %.02650, %44 ]
-  %56 = add nuw nsw i32 %.051, 1
-  %57 = call noundef zeroext i1 @_Z6do_enxP9ener_fileP10t_enxframe(ptr noundef %9, ptr noundef nonnull %17)
-  br i1 %57, label %20, label %._crit_edge, !llvm.loop !28
+52:                                               ; preds = %.thread, %46, %43
+  %.13045 = phi float [ %.13042, %.thread ], [ %.130, %46 ], [ %.130, %43 ]
+  %53 = phi float [ %42, %.thread ], [ %44, %46 ], [ %44, %43 ]
+  %.143 = phi i1 [ %.1.ph, %.thread ], [ %.02650, %46 ], [ %.02650, %43 ]
+  %54 = add nuw nsw i32 %.051, 1
+  %55 = call noundef zeroext i1 @_Z6do_enxP9ener_fileP10t_enxframe(ptr noundef %9, ptr noundef nonnull %17)
+  br i1 %55, label %20, label %._crit_edge, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %54, %_ZNSt10filesystem7__cxx114pathD2Ev.exit
-  %.029.lcssa = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.13045, %54 ]
-  %.028.lcssa = phi float [ -1.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %55, %54 ]
-  %.026.lcssa = phi i1 [ true, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.143, %54 ]
-  %.0.lcssa = phi i32 [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %56, %54 ]
-  %58 = load ptr, ptr @stderr, align 8
-  %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.97, i32 noundef %.0.lcssa) #23
-  %60 = icmp ugt i32 %.0.lcssa, 1
-  %or.cond = and i1 %.026.lcssa, %60
-  br i1 %or.cond, label %61, label %69
+._crit_edge:                                      ; preds = %52, %_ZNSt10filesystem7__cxx114pathD2Ev.exit
+  %.029.lcssa = phi float [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.13045, %52 ]
+  %.028.lcssa = phi float [ -1.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %53, %52 ]
+  %.026.lcssa = phi i1 [ true, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.143, %52 ]
+  %.0.lcssa = phi i32 [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %54, %52 ]
+  %56 = load ptr, ptr @stderr, align 8
+  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.97, i32 noundef %.0.lcssa) #23
+  %58 = icmp ugt i32 %.0.lcssa, 1
+  %or.cond = and i1 %.026.lcssa, %58
+  br i1 %or.cond, label %59, label %67
 
-61:                                               ; preds = %._crit_edge
-  %62 = load ptr, ptr @stderr, align 8
-  %63 = fsub float %.028.lcssa, %.029.lcssa
-  %64 = add nsw i32 %.0.lcssa, -1
-  %65 = uitofp nneg i32 %64 to float
-  %66 = fdiv float %63, %65
-  %67 = fpext float %66 to double
-  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.98, double noundef %67) #23
-  br label %69
+59:                                               ; preds = %._crit_edge
+  %60 = load ptr, ptr @stderr, align 8
+  %61 = fsub float %.028.lcssa, %.029.lcssa
+  %62 = add nsw i32 %.0.lcssa, -1
+  %63 = uitofp nneg i32 %62 to float
+  %64 = fdiv float %61, %63
+  %65 = fpext float %64 to double
+  %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.98, double noundef %65) #23
+  br label %67
 
-69:                                               ; preds = %61, %._crit_edge
-  %70 = load ptr, ptr @stderr, align 8
-  %71 = call i64 @fwrite(ptr nonnull @.str.99, i64 2, i64 1, ptr %70) #19
+67:                                               ; preds = %59, %._crit_edge
+  %68 = load ptr, ptr @stderr, align 8
+  %69 = call i64 @fwrite(ptr nonnull @.str.99, i64 2, i64 1, ptr %68) #19
   call void @_Z13free_enxframeP10t_enxframe(ptr noundef %17)
-  %72 = load i32, ptr %3, align 4
-  %73 = load ptr, ptr %4, align 8
-  call void @_Z11free_enxnmsiP11gmx_enxnm_t(i32 noundef %72, ptr noundef %73)
+  %70 = load i32, ptr %3, align 4
+  %71 = load ptr, ptr %4, align 8
+  call void @_Z11free_enxnmsiP11gmx_enxnm_t(i32 noundef %70, ptr noundef %71)
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.59, i32 noundef 741, ptr noundef %17)
   ret void
 }

@@ -5554,11 +5554,10 @@ common.resume:                                    ; preds = %75, %.body.i, %35
   %trunc17.i = trunc nuw i32 %91 to i1
   %93 = load i32, ptr %92, align 4, !alias.scope !777, !noalias !774
   %94 = icmp ne i32 %93, 0
-  %spec.select.i = select i1 %trunc17.i, i32 %91, i32 1
   %not.trunc17.i = xor i1 %trunc17.i, true
   %narrow.i = select i1 %not.trunc17.i, i1 true, i1 %94
   %spec.select26.i = zext i1 %narrow.i to i32
-  store i32 %spec.select.i, ptr %8, align 8, !alias.scope !777, !noalias !774
+  store i32 1, ptr %8, align 8, !alias.scope !777, !noalias !774
   store i32 %spec.select26.i, ptr %92, align 4, !alias.scope !777, !noalias !774
   br label %.critedge.i
 

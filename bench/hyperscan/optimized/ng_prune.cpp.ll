@@ -5003,8 +5003,6 @@ invoke.cont75:                                    ; preds = %_ZNKSt4lessIN3ue212
 
 invoke.cont86:                                    ; preds = %invoke.cont75
   %35 = load i64, ptr %serial2.i.i.i.i.i.i.i, align 8
-  %tobool.i.i.i185 = trunc nuw i8 %src_e.sroa.0.3596 to i1
-  %spec.select633 = select i1 %tobool.i.i.i185, i8 %src_e.sroa.0.3596, i8 1
   %36 = load ptr, ptr %ei.sroa.0.0594, align 8
   %37 = load ptr, ptr %_M_finish.i.i75, align 8
   %38 = load ptr, ptr %_M_end_of_storage.i.i76, align 8
@@ -5301,7 +5299,7 @@ lpad100.loopexit.split-lp:                        ; preds = %if.then.i.i401
 if.end148:                                        ; preds = %invoke.cont75, %invoke.cont116
   %ei.sroa.0.1.in = phi ptr [ %m_header.i.i.i.i.i283, %invoke.cont116 ], [ %ei.sroa.0.0594, %invoke.cont75 ]
   %ei_end.sroa.0.1 = phi ptr [ %m_header.i.i.i.i.i283, %invoke.cont116 ], [ %ei_end.sroa.0.0595, %invoke.cont75 ]
-  %src_e.sroa.0.4 = phi i8 [ %spec.select633, %invoke.cont116 ], [ %src_e.sroa.0.3596, %invoke.cont75 ]
+  %src_e.sroa.0.4 = phi i8 [ 1, %invoke.cont116 ], [ %src_e.sroa.0.3596, %invoke.cont75 ]
   %u.sroa.0.1 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i.fr.i.i.i.i.i.i134, %invoke.cont116 ], [ %agg.tmp.sroa.0.0.copyload.i.fr.i.i.i.i.i.i310604, %invoke.cont75 ]
   %u.sroa.14.1 = phi i64 [ %23, %invoke.cont116 ], [ %u.sroa.14.0603, %invoke.cont75 ]
   %ei.sroa.0.1 = load ptr, ptr %ei.sroa.0.1.in, align 8
@@ -6770,8 +6768,6 @@ invoke.cont73:                                    ; preds = %if.end58, %if.end14
   br i1 %cmp, label %invoke.cont83, label %if.end140
 
 invoke.cont83:                                    ; preds = %invoke.cont73
-  %tobool.i.i.i136 = trunc nuw i8 %src_e.sroa.0.2368 to i1
-  %spec.select396 = select i1 %tobool.i.i.i136, i8 %src_e.sroa.0.2368, i8 1
   %27 = load ptr, ptr %ei.sroa.0.0366, align 8
   %28 = load ptr, ptr %_M_finish.i.i71, align 8
   %29 = load ptr, ptr %_M_end_of_storage.i.i72, align 8
@@ -6952,7 +6948,7 @@ lpad96.loopexit.split-lp:                         ; preds = %if.then.i.i258
 if.end140:                                        ; preds = %invoke.cont73, %invoke.cont111
   %ei.sroa.0.1.in = phi ptr [ %m_header.i.i.i.i196, %invoke.cont111 ], [ %ei.sroa.0.0366, %invoke.cont73 ]
   %ei_end.sroa.0.1 = phi ptr [ %m_header.i.i.i.i196, %invoke.cont111 ], [ %ei_end.sroa.0.0367, %invoke.cont73 ]
-  %src_e.sroa.0.3 = phi i8 [ %spec.select396, %invoke.cont111 ], [ %src_e.sroa.0.2368, %invoke.cont73 ]
+  %src_e.sroa.0.3 = phi i8 [ 1, %invoke.cont111 ], [ %src_e.sroa.0.2368, %invoke.cont73 ]
   %u.sroa.0.1 = phi ptr [ %17, %invoke.cont111 ], [ %u.sroa.0.0375, %invoke.cont73 ]
   %u.sroa.13.1 = phi i64 [ %18, %invoke.cont111 ], [ %u.sroa.13.0376, %invoke.cont73 ]
   %ei.sroa.0.1 = load ptr, ptr %ei.sroa.0.1.in, align 8
@@ -7467,8 +7463,6 @@ invoke.cont72:                                    ; preds = %if.end56, %if.end14
   br i1 %cmp, label %invoke.cont82, label %if.end140
 
 invoke.cont82:                                    ; preds = %invoke.cont72
-  %tobool.i.i.i138 = trunc nuw i8 %src_e.sroa.0.2373 to i1
-  %spec.select401 = select i1 %tobool.i.i.i138, i8 %src_e.sroa.0.2373, i8 1
   %27 = load ptr, ptr %ei.sroa.0.0371, align 8
   %28 = load ptr, ptr %_M_finish.i.i70, align 8
   %29 = load ptr, ptr %_M_end_of_storage.i.i71, align 8
@@ -7649,7 +7643,7 @@ lpad96.loopexit.split-lp:                         ; preds = %if.then.i.i263
 if.end140:                                        ; preds = %invoke.cont72, %invoke.cont110
   %ei.sroa.0.1.in = phi ptr [ %m_header.i.i.i.i.i198, %invoke.cont110 ], [ %ei.sroa.0.0371, %invoke.cont72 ]
   %ei_end.sroa.0.1 = phi ptr [ %m_header.i.i.i.i.i198, %invoke.cont110 ], [ %ei_end.sroa.0.0372, %invoke.cont72 ]
-  %src_e.sroa.0.3 = phi i8 [ %spec.select401, %invoke.cont110 ], [ %src_e.sroa.0.2373, %invoke.cont72 ]
+  %src_e.sroa.0.3 = phi i8 [ 1, %invoke.cont110 ], [ %src_e.sroa.0.2373, %invoke.cont72 ]
   %u.sroa.0.1 = phi ptr [ %17, %invoke.cont110 ], [ %u.sroa.0.0380, %invoke.cont72 ]
   %u.sroa.13.1 = phi i64 [ %18, %invoke.cont110 ], [ %u.sroa.13.0381, %invoke.cont72 ]
   %ei.sroa.0.1 = load ptr, ptr %ei.sroa.0.1.in, align 8

@@ -2078,12 +2078,11 @@ thread-pre-split.i:                               ; preds = %721, %716
 
 726:                                              ; preds = %709
   %727 = trunc nuw i8 %.0137.i to i1
-  %spec.select.i = select i1 %727, i8 %.0137.i, i8 1
   %spec.select154.i = select i1 %727, ptr %.1.i, ptr %.0131.i
   br label %728
 
 728:                                              ; preds = %726, %thread-pre-split.i
-  %.2139.i = phi i8 [ %.1138.i, %thread-pre-split.i ], [ %spec.select.i, %726 ]
+  %.2139.i = phi i8 [ %.1138.i, %thread-pre-split.i ], [ 1, %726 ]
   %.2136.i = phi i32 [ %.1135.i, %thread-pre-split.i ], [ %.0134.i, %726 ]
   %.2.i = phi ptr [ %.1.i, %thread-pre-split.i ], [ %spec.select154.i, %726 ]
   %729 = getelementptr i8, ptr %.0131.i, i64 1

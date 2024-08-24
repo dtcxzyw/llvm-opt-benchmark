@@ -5032,8 +5032,6 @@ invoke.cont76:                                    ; preds = %invoke.cont68
   %m_iter.i.i.i.i = getelementptr inbounds i8, ptr %ei.sroa.0.0378, i64 8
   %16 = load ptr, ptr %m_iter.i.i.i.i, align 8, !noalias !19
   %m_property.i.i.i.i.i127 = getelementptr inbounds i8, ptr %16, i64 32
-  %tobool.i.i.i130 = trunc nuw i8 %src_e.sroa.0.2382 to i1
-  %spec.select418 = select i1 %tobool.i.i.i130, i8 %src_e.sroa.0.2382, i8 1
   %incdec.ptr.i.i.i.i311320 = getelementptr inbounds i8, ptr %ei.sroa.0.0378, i64 16
   %17 = load ptr, ptr %_M_finish.i.i66, align 8
   %18 = load ptr, ptr %_M_end_of_storage.i.i67, align 8
@@ -5215,7 +5213,7 @@ if.end125:                                        ; preds = %invoke.cont100, %in
   %ei.sroa.19.1 = phi i64 [ %13, %invoke.cont100 ], [ %ei.sroa.19.0379, %invoke.cont122 ]
   %ei_end.sroa.10.1 = phi i64 [ %13, %invoke.cont100 ], [ %ei_end.sroa.10.0380, %invoke.cont122 ]
   %ei_end.sroa.0.1 = phi ptr [ %27, %invoke.cont100 ], [ %ei_end.sroa.0.0381, %invoke.cont122 ]
-  %src_e.sroa.0.3 = phi i8 [ %spec.select418, %invoke.cont100 ], [ %src_e.sroa.0.2382, %invoke.cont122 ]
+  %src_e.sroa.0.3 = phi i8 [ 1, %invoke.cont100 ], [ %src_e.sroa.0.2382, %invoke.cont122 ]
   %u.addr.1 = phi i64 [ %13, %invoke.cont100 ], [ %u.addr.0392, %invoke.cont122 ]
   %cmp.i.i.i.i.not = icmp eq ptr %ei.sroa.0.1, %ei_end.sroa.0.1
   br i1 %cmp.i.i.i.i.not, label %invoke.cont129, label %invoke.cont68, !llvm.loop !206

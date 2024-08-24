@@ -3919,7 +3919,7 @@ invoke.cont356:                                   ; preds = %if.then354
   %idx.ext.i.i12019 = zext nneg i32 %bf.clear.i.i95912018 to i64
   %add.ptr.i.i96012020 = getelementptr inbounds ptr, ptr %d_children.i.i95612015, i64 %idx.ext.i.i12019
   %cmp.i961.not12021 = icmp eq ptr %spec.select.i.i953, %add.ptr.i.i96012020
-  br i1 %cmp.i961.not12021, label %for.end.thread, label %for.body366
+  br i1 %cmp.i961.not12021, label %cleanup877, label %for.body366
 
 for.body366:                                      ; preds = %invoke.cont356, %for.inc
   %found_x.012025 = phi i1 [ %found_x.2.in, %for.inc ], [ false, %invoke.cont356 ]
@@ -5242,13 +5242,7 @@ for.inc:                                          ; preds = %if.end3.i.i.i.i.i.i
 for.end:                                          ; preds = %for.inc
   %tobool555 = trunc nuw i8 %eligible.012035 to i1
   %256 = select i1 %tobool555, i1 %found_x.2.in, i1 false
-  %eligible.012035.mux = select i1 %tobool555, i8 0, i8 %eligible.012035
   br i1 %256, label %if.end579, label %cleanup877
-
-for.end.thread:                                   ; preds = %invoke.cont356
-  %tobool55512557 = trunc nuw i8 %eligible.012035 to i1
-  %spec.select = select i1 %tobool55512557, i8 0, i8 %eligible.012035
-  br label %cleanup877
 
 if.end579:                                        ; preds = %for.end
   %257 = load ptr, ptr %posv, align 8
@@ -7054,9 +7048,9 @@ terminate.lpad.i3295:                             ; preds = %if.then13.i.i3294
   call void @__clang_call_terminate(ptr %419) #23
   unreachable
 
-cleanup877:                                       ; preds = %invoke.cont528, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1194, %for.end.thread, %for.end, %if.then13.i.i3294, %if.then.i.i3287, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_ED2Ev.exit
-  %eligible.4 = phi i8 [ %eligible.012035.mux, %for.end ], [ %eligible.5, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_ED2Ev.exit ], [ %eligible.5, %if.then.i.i3287 ], [ %eligible.5, %if.then13.i.i3294 ], [ %spec.select, %for.end.thread ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1194 ], [ 0, %invoke.cont528 ]
-  %cleanup.dest.slot.1 = phi i32 [ 4, %for.end ], [ %cleanup.dest.slot.2, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_ED2Ev.exit ], [ %cleanup.dest.slot.2, %if.then.i.i3287 ], [ %cleanup.dest.slot.2, %if.then13.i.i3294 ], [ 4, %for.end.thread ], [ 4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1194 ], [ 4, %invoke.cont528 ]
+cleanup877:                                       ; preds = %invoke.cont528, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1194, %invoke.cont356, %for.end, %if.then13.i.i3294, %if.then.i.i3287, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_ED2Ev.exit
+  %eligible.4 = phi i8 [ 0, %for.end ], [ %eligible.5, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_ED2Ev.exit ], [ %eligible.5, %if.then.i.i3287 ], [ %eligible.5, %if.then13.i.i3294 ], [ 0, %invoke.cont356 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1194 ], [ 0, %invoke.cont528 ]
+  %cleanup.dest.slot.1 = phi i32 [ 4, %for.end ], [ %cleanup.dest.slot.2, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_ED2Ev.exit ], [ %cleanup.dest.slot.2, %if.then.i.i3287 ], [ %cleanup.dest.slot.2, %if.then13.i.i3294 ], [ 4, %invoke.cont356 ], [ 4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1194 ], [ 4, %invoke.cont528 ]
   %420 = load ptr, ptr %_M_parent.i.i.i.i.i942, align 8
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %neg, ptr noundef %420)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb0EEEbSt4lessIS3_ESaISt4pairIKS3_bEEED2Ev.exit unwind label %terminate.lpad.i.i3297

@@ -36418,7 +36418,6 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit:             ; preds = %_ZNK4pbrt15SampledS
 
 if.then23:                                        ; preds = %_ZNK4pbrt11DiffuseBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit, %_ZNK4pbrt15SampledSpectrumcvbEv.exit
   %set.i1162 = phi ptr [ %set.i1155, %_ZNK4pbrt15SampledSpectrumcvbEv.exit ], [ %set.i11, %_ZNK4pbrt11DiffuseBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit ]
-  %16 = phi i8 [ 1, %_ZNK4pbrt15SampledSpectrumcvbEv.exit ], [ 0, %_ZNK4pbrt11DiffuseBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %agg.result, i8 0, i64 48, i1 false)
   br label %cleanup
 
@@ -36437,10 +36436,7 @@ invoke.cont26:                                    ; preds = %_ZNK4pbrt15SampledS
 
 cleanup:                                          ; preds = %invoke.cont26, %if.then23
   %set.i1161 = phi ptr [ %set.i1155, %invoke.cont26 ], [ %set.i1162, %if.then23 ]
-  %17 = phi i8 [ 0, %invoke.cont26 ], [ %16, %if.then23 ]
-  %tobool.i.i41 = trunc nuw i8 %17 to i1
-  %spec.store.select = select i1 %tobool.i.i41, i8 0, i8 %17
-  store i8 %spec.store.select, ptr %set.i1161, align 4
+  store i8 0, ptr %set.i1161, align 4
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then6, %if.then

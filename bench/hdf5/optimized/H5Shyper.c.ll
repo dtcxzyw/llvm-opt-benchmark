@@ -3587,87 +3587,84 @@ H5S__hyper_rebuild.exit64:                        ; preds = %54, %55
   %wide.trip.count.i = zext i32 %10 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %186, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %186 ]
-  %.02740.i = phi i8 [ 1, %.lr.ph.preheader.i ], [ %.1.i, %186 ]
-  %.02839.i = phi ptr [ %167, %.lr.ph.preheader.i ], [ %.129.i, %186 ]
-  %.03038.i = phi ptr [ %169, %.lr.ph.preheader.i ], [ %.131.i, %186 ]
+.lr.ph.i:                                         ; preds = %185, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %185 ]
+  %.02740.i = phi i1 [ true, %.lr.ph.preheader.i ], [ %.1.i, %185 ]
+  %.02839.i = phi ptr [ %167, %.lr.ph.preheader.i ], [ %.129.i, %185 ]
+  %.03038.i = phi ptr [ %169, %.lr.ph.preheader.i ], [ %.131.i, %185 ]
   %170 = load i64, ptr %.03038.i, align 8
   %171 = load i64, ptr %.02839.i, align 8
   %.not36.i = icmp eq i64 %170, %171
-  br i1 %.not36.i, label %176, label %172
+  br i1 %.not36.i, label %175, label %172
 
 172:                                              ; preds = %.lr.ph.i
   %173 = sub nsw i64 %171, %170
   %174 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv.i
   store i64 %173, ptr %174, align 8
-  %175 = trunc nuw i8 %.02740.i to i1
-  %spec.store.select.i = select i1 %175, i8 0, i8 %.02740.i
-  br label %176
+  br label %175
 
-176:                                              ; preds = %172, %.lr.ph.i
-  %.1.i = phi i8 [ %spec.store.select.i, %172 ], [ %.02740.i, %.lr.ph.i ]
-  %177 = getelementptr inbounds i8, ptr %.03038.i, i64 16
-  %178 = load ptr, ptr %177, align 8
-  %.not37.i = icmp eq ptr %178, null
-  br i1 %.not37.i, label %186, label %179
+175:                                              ; preds = %172, %.lr.ph.i
+  %.1.i = phi i1 [ false, %172 ], [ %.02740.i, %.lr.ph.i ]
+  %176 = getelementptr inbounds i8, ptr %.03038.i, i64 16
+  %177 = load ptr, ptr %176, align 8
+  %.not37.i = icmp eq ptr %177, null
+  br i1 %.not37.i, label %185, label %178
 
-179:                                              ; preds = %176
-  %180 = getelementptr inbounds i8, ptr %178, i64 56
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %.02839.i, i64 16
-  %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 56
-  %185 = load ptr, ptr %184, align 8
-  br label %186
+178:                                              ; preds = %175
+  %179 = getelementptr inbounds i8, ptr %177, i64 56
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds i8, ptr %.02839.i, i64 16
+  %182 = load ptr, ptr %181, align 8
+  %183 = getelementptr inbounds i8, ptr %182, i64 56
+  %184 = load ptr, ptr %183, align 8
+  br label %185
 
-186:                                              ; preds = %179, %176
-  %.131.i = phi ptr [ %181, %179 ], [ %.03038.i, %176 ]
-  %.129.i = phi ptr [ %185, %179 ], [ %.02839.i, %176 ]
+185:                                              ; preds = %178, %175
+  %.131.i = phi ptr [ %180, %178 ], [ %.03038.i, %175 ]
+  %.129.i = phi ptr [ %184, %178 ], [ %.02839.i, %175 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %186
-  %187 = trunc nuw i8 %.1.i to i1
-  br i1 %187, label %.critedge.i, label %.preheader.i
+._crit_edge.i:                                    ; preds = %185
+  br i1 %.1.i, label %.critedge.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %._crit_edge.i, %190
-  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %190 ], [ %wide.trip.count.i, %._crit_edge.i ]
+.preheader.i:                                     ; preds = %._crit_edge.i, %188
+  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %188 ], [ %wide.trip.count.i, %._crit_edge.i ]
   %indvars.iv.next44.i = add nsw i64 %indvars.iv43.i, -1
-  %188 = and i64 %indvars.iv.next44.i, 2147483648
-  %189 = icmp eq i64 %188, 0
-  br i1 %189, label %190, label %.loopexit.i
+  %186 = and i64 %indvars.iv.next44.i, 2147483648
+  %187 = icmp eq i64 %186, 0
+  br i1 %187, label %188, label %.loopexit.i
 
-190:                                              ; preds = %.preheader.i
-  %191 = and i64 %indvars.iv.next44.i, 2147483647
-  %192 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %191
-  %193 = load i64, ptr %192, align 8
-  %.not.i = icmp eq i64 %193, 0
-  br i1 %.not.i, label %.preheader.i, label %194
+188:                                              ; preds = %.preheader.i
+  %189 = and i64 %indvars.iv.next44.i, 2147483647
+  %190 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %189
+  %191 = load i64, ptr %190, align 8
+  %.not.i = icmp eq i64 %191, 0
+  br i1 %.not.i, label %.preheader.i, label %192
 
-194:                                              ; preds = %190
-  %195 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %191
-  store i8 1, ptr %195, align 1
+192:                                              ; preds = %188
+  %193 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 %189
+  store i8 1, ptr %193, align 1
   br label %.loopexit.i
 
 .critedge.i:                                      ; preds = %._crit_edge.i, %.loopexit67
-  %196 = tail call fastcc zeroext i1 @H5S__hyper_cmp_spans(ptr noundef readonly %.1, ptr noundef readonly %165) #16
+  %194 = tail call fastcc zeroext i1 @H5S__hyper_cmp_spans(ptr noundef readonly %.1, ptr noundef readonly %165) #16
   br label %H5S__hyper_spans_shape_same.exit
 
-.loopexit.i:                                      ; preds = %.preheader.i, %194
-  %197 = call fastcc zeroext i1 @H5S__hyper_spans_shape_same_helper(ptr noundef readonly %.1, ptr noundef readonly %165, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
+.loopexit.i:                                      ; preds = %.preheader.i, %192
+  %195 = call fastcc zeroext i1 @H5S__hyper_spans_shape_same_helper(ptr noundef readonly %.1, ptr noundef readonly %165, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
   br label %H5S__hyper_spans_shape_same.exit
 
 H5S__hyper_spans_shape_same.exit:                 ; preds = %.critedge.i, %.loopexit.i
-  %.025.in.i = phi i1 [ %196, %.critedge.i ], [ %197, %.loopexit.i ]
+  %.025.in.i = phi i1 [ %194, %.critedge.i ], [ %195, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %198 = zext i1 %.025.in.i to i32
+  %196 = zext i1 %.025.in.i to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %152, %.lr.ph, %108, %103, %96, %113, %.lr.ph76, %.preheader, %H5S__hyper_spans_shape_same.exit, %138, %126
-  %.0 = phi i32 [ -1, %126 ], [ -1, %138 ], [ %198, %H5S__hyper_spans_shape_same.exit ], [ 1, %.preheader ], [ 1, %113 ], [ 0, %.lr.ph76 ], [ 0, %96 ], [ 0, %103 ], [ 0, %108 ], [ 0, %.lr.ph ], [ 0, %152 ]
+  %.0 = phi i32 [ -1, %126 ], [ -1, %138 ], [ %196, %H5S__hyper_spans_shape_same.exit ], [ 1, %.preheader ], [ 1, %113 ], [ 0, %.lr.ph76 ], [ 0, %96 ], [ 0, %103 ], [ 0, %108 ], [ 0, %.lr.ph ], [ 0, %152 ]
   ret i32 %.0
 }
 

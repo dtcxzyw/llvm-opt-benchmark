@@ -6530,7 +6530,7 @@ _ZN14regex_automata4meta5regex6Config9overwrite17h693362ddc80bd652E.exit: ; pred
   %trunc60.i = trunc nuw i8 %87 to i1
   %88 = getelementptr inbounds i8, ptr %0, i64 104
   %89 = load i8, ptr %88, align 8, !range !476, !alias.scope !1079, !noalias !1086
-  %.sroa.031.0.i = select i1 %trunc60.i, i8 %87, i8 %89
+  %.sroa.031.0.i = select i1 %trunc60.i, i8 1, i8 %89
   %.pn61.i = select i1 %trunc60.i, ptr %1, ptr %0
   %.sroa.433.0.in.i = getelementptr inbounds i8, ptr %.pn61.i, i64 105
   %.sroa.433.0.i = load i8, ptr %.sroa.433.0.in.i, align 1, !alias.scope !1112, !noalias !1113

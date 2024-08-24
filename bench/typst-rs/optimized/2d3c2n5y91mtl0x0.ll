@@ -1700,7 +1700,7 @@ define hidden void @_ZN12unicode_bidi8BidiInfo20new_with_data_source17h41b57b3e9
   %.172.i.i = phi i64 [ %.071166.i.i, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h897cfc0a6e30826aE.exit.i.i" ], [ %.071166.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1d3325f73f94cc70E.exit.i.i" ], [ %132, %164 ], [ %.071166.i.i, %130 ], [ %.071166.i.i, %180 ], [ %.071166.i.i, %171 ], [ %.071166.i.i, %146 ], [ %.071166.i.i, %149 ], [ %.071166.i.i, %192 ]
   %.1.i.i = phi i8 [ %.070168.i.i, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h897cfc0a6e30826aE.exit.i.i" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1d3325f73f94cc70E.exit.i.i" ], [ 1, %164 ], [ 0, %130 ], [ %spec.select.i.i, %180 ], [ %spec.select.i.i, %171 ], [ %.070168.i.i, %146 ], [ %.070168.i.i, %149 ], [ %spec.select.i.i, %192 ]
   %.sroa.9.1.i.i = phi i8 [ %.sroa.9.0170.i.i, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h897cfc0a6e30826aE.exit.i.i" ], [ %.sroa.9.0170.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1d3325f73f94cc70E.exit.i.i" ], [ %5, %164 ], [ %.sroa.9.0170.i.i, %130 ], [ %.sroa.9.0170.i.i, %180 ], [ %spec.select102.i.i, %171 ], [ %.sroa.9.0170.i.i, %146 ], [ %.sroa.9.0170.i.i, %149 ], [ %.sroa.9.0170.i.i, %192 ]
-  %.sroa.05.1.i.i = phi i8 [ %.sroa.05.0172.i.i, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h897cfc0a6e30826aE.exit.i.i" ], [ %.sroa.05.0172.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1d3325f73f94cc70E.exit.i.i" ], [ %34, %164 ], [ %.sroa.05.0172.i.i, %130 ], [ %.sroa.05.0172.i.i, %180 ], [ %spec.select103.i.i, %171 ], [ %.sroa.05.0172.i.i, %146 ], [ %.sroa.05.0172.i.i, %149 ], [ %.sroa.05.0172.i.i, %192 ]
+  %.sroa.05.1.i.i = phi i8 [ %.sroa.05.0172.i.i, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h897cfc0a6e30826aE.exit.i.i" ], [ %.sroa.05.0172.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1d3325f73f94cc70E.exit.i.i" ], [ %34, %164 ], [ %.sroa.05.0172.i.i, %130 ], [ %.sroa.05.0172.i.i, %180 ], [ 1, %171 ], [ %.sroa.05.0172.i.i, %146 ], [ %.sroa.05.0172.i.i, %149 ], [ %.sroa.05.0172.i.i, %192 ]
   %127 = icmp eq ptr %.sink.i.i, %35
   br i1 %127, label %.thread.i.i, label %.lr.ph.i.i
 
@@ -1809,7 +1809,6 @@ define hidden void @_ZN12unicode_bidi8BidiInfo20new_with_data_source17h41b57b3e9
   %172 = trunc nuw i8 %.sroa.05.0172.i.i to i1
   %..i.i = zext i1 %.not84.i.i to i8
   %spec.select102.i.i = select i1 %172, i8 %.sroa.9.0170.i.i, i8 %..i.i
-  %spec.select103.i.i = select i1 %172, i8 %.sroa.05.0172.i.i, i8 1
   br label %.thread142.i.i
 
 173:                                              ; preds = %128

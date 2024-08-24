@@ -31230,9 +31230,9 @@ if.else303:                                       ; preds = %land.end296
   %spec.select74 = add nsw i32 %significandDigit.7521, %inc313
   %30 = load i8, ptr %incdec.ptr.i100, align 1
   %cmp290 = icmp sgt i8 %30, 47
-  br i1 %cmp290, label %land.end296, label %if.end518.thread, !llvm.loop !341
+  br i1 %cmp290, label %land.end296, label %if.end318, !llvm.loop !341
 
-if.end518.thread:                                 ; preds = %if.else303
+if.end318:                                        ; preds = %if.else303
   %conv317 = uitofp nneg i64 %add310 to double
   br label %if.then524
 
@@ -31300,7 +31300,6 @@ if.then363:                                       ; preds = %if.end358, %if.end3
   %cond = select i1 %use64bit.0402411, i64 %i64.7, i64 %conv367
   %conv368 = uitofp i64 %cond to double
   %d.8 = select i1 %tobool364, double %d.6, double %conv368
-  %useDouble.4 = select i1 %tobool364, i8 %useDouble.2, i8 1
   %36 = load i8, ptr %copy.sroa.0.15, align 1
   switch i8 %36, label %if.end378.thread [
     i8 43, label %if.end378
@@ -31415,23 +31414,22 @@ if.end513:                                        ; preds = %if.end444, %while.c
   %exp.3 = phi i32 [ %sub396, %if.then398 ], [ %exp.2, %while.cond449 ], [ %add420, %while.cond426 ], [ %add420, %if.end444 ]
   %sub516 = sub nsw i32 0, %exp.3
   %spec.select77 = select i1 %expMinus.0596602, i32 %sub516, i32 %exp.3
-  br label %if.end518
+  br label %if.then524
 
-if.end518:                                        ; preds = %if.end353, %if.end358, %if.end513
-  %expFrac.4435 = phi i32 [ %expFrac.4, %if.end513 ], [ %expFrac.4, %if.end358 ], [ %expFrac.3, %if.end353 ]
-  %i64.7430 = phi i64 [ %i64.7, %if.end513 ], [ %i64.7, %if.end358 ], [ %i64.4580, %if.end353 ]
-  %copy.sroa.0.16 = phi ptr [ %copy.sroa.0.23, %if.end513 ], [ %copy.sroa.0.14, %if.end358 ], [ %copy.sroa.0.13, %if.end353 ]
-  %d.7 = phi double [ %d.8, %if.end513 ], [ %d.6, %if.end358 ], [ %d.5, %if.end353 ]
-  %useDouble.3 = phi i8 [ %useDouble.4, %if.end513 ], [ %useDouble.2, %if.end358 ], [ %useDouble.1582, %if.end353 ]
-  %exp.0 = phi i32 [ %spec.select77, %if.end513 ], [ 0, %if.end358 ], [ 0, %if.end353 ]
+if.end518:                                        ; preds = %if.end353, %if.end358
+  %expFrac.4435 = phi i32 [ %expFrac.4, %if.end358 ], [ %expFrac.3, %if.end353 ]
+  %i64.7430 = phi i64 [ %i64.7, %if.end358 ], [ %i64.4580, %if.end353 ]
+  %copy.sroa.0.16 = phi ptr [ %copy.sroa.0.14, %if.end358 ], [ %copy.sroa.0.13, %if.end353 ]
+  %d.7 = phi double [ %d.6, %if.end358 ], [ %d.5, %if.end353 ]
+  %useDouble.3 = phi i8 [ %useDouble.2, %if.end358 ], [ %useDouble.1582, %if.end353 ]
   %tobool523 = trunc nuw i8 %useDouble.3 to i1
   br i1 %tobool523, label %if.then524, label %if.else562
 
-if.then524:                                       ; preds = %if.end518.thread, %if.end518
-  %exp.0629 = phi i32 [ 0, %if.end518.thread ], [ %exp.0, %if.end518 ]
-  %d.7628 = phi double [ %conv317, %if.end518.thread ], [ %d.7, %if.end518 ]
-  %copy.sroa.0.16619 = phi ptr [ %incdec.ptr.i100, %if.end518.thread ], [ %copy.sroa.0.16, %if.end518 ]
-  %expFrac.4435617 = phi i32 [ %dec, %if.end518.thread ], [ %expFrac.4435, %if.end518 ]
+if.then524:                                       ; preds = %if.end318, %if.end513, %if.end518
+  %exp.0629 = phi i32 [ 0, %if.end518 ], [ 0, %if.end318 ], [ %spec.select77, %if.end513 ]
+  %d.7628 = phi double [ %d.7, %if.end518 ], [ %conv317, %if.end318 ], [ %d.8, %if.end513 ]
+  %copy.sroa.0.16619 = phi ptr [ %copy.sroa.0.16, %if.end518 ], [ %incdec.ptr.i100, %if.end318 ], [ %copy.sroa.0.23, %if.end513 ]
+  %expFrac.4435617 = phi i32 [ %expFrac.4435, %if.end518 ], [ %dec, %if.end318 ], [ %expFrac.4, %if.end513 ]
   %add525 = add nsw i32 %exp.0629, %expFrac.4435617
   %cmp.i123 = icmp slt i32 %add525, -308
   br i1 %cmp.i123, label %if.then.i124, label %if.else.i8.i

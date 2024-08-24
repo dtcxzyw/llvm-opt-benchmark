@@ -986,7 +986,7 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %275, %285
 
 .critedge.i:                                      ; preds = %206, %197, %188
   %201 = phi i32 [ %spec.select26.i, %206 ], [ %196, %197 ], [ %196, %188 ]
-  %202 = phi i32 [ %spec.select.i, %206 ], [ %194, %197 ], [ %194, %188 ]
+  %202 = phi i32 [ 1, %206 ], [ %194, %197 ], [ %194, %188 ]
   %203 = phi i32 [ %.0.sroa.speculated.i.i, %206 ], [ %193, %197 ], [ %193, %188 ]
   switch i32 %203, label %.thread.i [
     i32 0, label %210
@@ -1006,11 +1006,10 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %275, %285
   %208 = getelementptr inbounds i8, ptr %21, i64 4
   %trunc17.i = trunc i64 %75 to i1
   %209 = icmp ugt i64 %75, 4294967295
-  %spec.select.i = select i1 %trunc17.i, i32 %194, i32 1
   %not.trunc17.i = xor i1 %trunc17.i, true
   %narrow.i = or i1 %209, %not.trunc17.i
   %spec.select26.i = zext i1 %narrow.i to i32
-  store i32 %spec.select.i, ptr %21, align 8, !alias.scope !108, !noalias !105
+  store i32 1, ptr %21, align 8, !alias.scope !108, !noalias !105
   store i32 %spec.select26.i, ptr %208, align 4, !alias.scope !108, !noalias !105
   br label %.critedge.i
 

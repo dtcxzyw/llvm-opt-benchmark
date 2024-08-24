@@ -7320,7 +7320,6 @@ _ZNK16UndrivenVarEntry10drivenFlagEi.exit78:      ; preds = %_ZNK16UndrivenVarEn
 _ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread: ; preds = %52, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit78, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit68, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit
   %109 = trunc nuw i8 %.0183 to i1
   %spec.select = select i1 %109, i32 %.031182, i32 %.042184
-  %spec.select54 = select i1 %109, i8 %.0183, i8 1
   br label %361
 
 .loopexit:                                        ; preds = %123, %111, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i, %_ZNK13AstBasicDType2loEv.exit, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i86, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i3.i.i, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i97, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i96, %_ZNK13AstBasicDType2loEv.exit101, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i.i.i135, %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.i6.i.i134, %_ZNK13AstBasicDType2loEv.exit139
@@ -7960,7 +7959,7 @@ _ZNK13AstBasicDType2loEv.exit158:                 ; preds = %325, %_ZNK8AstRange
 
 361:                                              ; preds = %_ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread, %161, %350, %264, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread
   %.132 = phi i32 [ %.031182, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread ], [ %spec.select, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread ], [ %.031182, %264 ], [ %.031182, %350 ], [ %.031182, %161 ]
-  %.1 = phi i8 [ %.0183, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread ], [ %spec.select54, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread ], [ 0, %264 ], [ 0, %350 ], [ 0, %161 ]
+  %.1 = phi i8 [ %.0183, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread ], [ 1, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread ], [ 0, %264 ], [ 0, %350 ], [ 0, %161 ]
   %362 = icmp ult i32 %.042184, -2147483647
   br i1 %362, label %36, label %._crit_edge, !llvm.loop !128
 

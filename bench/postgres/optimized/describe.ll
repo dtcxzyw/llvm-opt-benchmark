@@ -1339,31 +1339,28 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
 66:                                               ; preds = %63
   %67 = trunc nuw i8 %.169 to i1
   %.str.71..str.72 = select i1 %67, ptr @.str.71, ptr @.str.72
-  %.169. = select i1 %67, i8 %.169, i8 1
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull %.str.71..str.72) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull @.str.75) #9
   br label %68
 
 68:                                               ; preds = %66, %63
-  %.3 = phi i8 [ %.169, %63 ], [ %.169., %66 ]
+  %.3 = phi i8 [ %.169, %63 ], [ 1, %66 ]
   br i1 %.072.shrunk, label %71, label %69
 
 69:                                               ; preds = %68
   %70 = trunc nuw i8 %.3 to i1
   %.str.71..str.72104 = select i1 %70, ptr @.str.71, ptr @.str.72
-  %.3. = select i1 %70, i8 %.3, i8 1
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull %.str.71..str.72104) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull @.str.76) #9
   br label %71
 
 71:                                               ; preds = %69, %68
-  %.5 = phi i8 [ %.3, %68 ], [ %.3., %69 ]
+  %.5 = phi i8 [ %.3, %68 ], [ 1, %69 ]
   br i1 %.071.shrunk, label %95, label %72
 
 72:                                               ; preds = %71
   %73 = trunc nuw i8 %.5 to i1
   %.str.71..str.72105 = select i1 %73, ptr @.str.71, ptr @.str.72
-  %.5. = select i1 %73, i8 %.5, i8 1
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull %.str.71..str.72105) #9
   %74 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 316), align 4
   %75 = icmp sgt i32 %74, 109999
@@ -1434,12 +1431,11 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
 
 .sink.split102:                                   ; preds = %72, %89, %.sink.split101
   %.str.87.sink = phi ptr [ @.str.87, %.sink.split101 ], [ @.str.87, %89 ], [ %spec.select106, %72 ]
-  %.068.ph = phi i8 [ 1, %.sink.split101 ], [ 1, %89 ], [ %.5., %72 ]
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull %.str.87.sink) #9
   br label %95
 
 95:                                               ; preds = %.sink.split102, %55, %71
-  %.068 = phi i8 [ %.5, %71 ], [ 0, %55 ], [ %.068.ph, %.sink.split102 ]
+  %.068 = phi i8 [ %.5, %71 ], [ 0, %55 ], [ 1, %.sink.split102 ]
   %96 = trunc nuw i8 %.068 to i1
   %97 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %7, ptr noundef %1, i1 noundef zeroext %96, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef null, i32 noundef 3)
   br i1 %97, label %.preheader, label %.loopexit

@@ -2763,7 +2763,6 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %10
 _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit40: ; preds = %22
   %25 = trunc nuw i8 %.sroa.259.094 to i1
   %spec.select = select i1 %25, ptr %.sroa.058.093, ptr %21
-  %spec.select75 = select i1 %25, i8 %.sroa.259.094, i8 1
   %26 = add i64 %.095, 1
   %27 = getelementptr inbounds i8, ptr %21, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -2910,7 +2909,7 @@ _ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %83, %7
 
 _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit40.thread: ; preds = %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit40, %19, %22
   %.sroa.058.2 = phi ptr [ %.sroa.058.093, %22 ], [ %.sroa.058.093, %19 ], [ %spec.select, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit40 ], [ %spec.select, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread ]
-  %.sroa.259.2 = phi i8 [ %.sroa.259.094, %22 ], [ %.sroa.259.094, %19 ], [ %spec.select75, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit40 ], [ %spec.select75, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread ]
+  %.sroa.259.2 = phi i8 [ %.sroa.259.094, %22 ], [ %.sroa.259.094, %19 ], [ 1, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit40 ], [ 1, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread ]
   %.1 = phi i64 [ %.095, %22 ], [ %.095, %19 ], [ %26, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit40 ], [ %26, %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread ]
   %87 = getelementptr inbounds i8, ptr %.sroa.055.092, i64 8
   %.not = icmp eq ptr %87, %14

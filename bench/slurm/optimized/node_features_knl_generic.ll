@@ -2601,7 +2601,7 @@ define ptr @node_features_p_job_xlate(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not2229, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %28
-  %.01233 = phi i8 [ %.113, %28 ], [ 0, %7 ]
+  %.01233 = phi i1 [ %.113, %28 ], [ false, %7 ]
   %.01432 = phi i1 [ %.115, %28 ], [ false, %7 ]
   %.01631 = phi ptr [ %29, %28 ], [ %9, %7 ]
   %.01730 = phi ptr [ %.118, %28 ], [ @.str.49, %7 ]
@@ -2615,43 +2615,44 @@ define ptr @node_features_p_job_xlate(ptr noundef %0, ptr nocapture noundef read
 
 12:                                               ; preds = %11, %.lr.ph
   %13 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.01631)
-  %.not24 = icmp eq i16 %13, 0
-  %14 = trunc nuw i8 %.01233 to i1
-  %15 = select i1 %.not24, i1 true, i1 %14
-  %.113 = select i1 %15, i8 %.01233, i8 1
-  %16 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.62) #15
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %_knl_numa_token.exit, label %17
+  %.not24 = icmp ne i16 %13, 0
+  %.113 = select i1 %.not24, i1 true, i1 %.01233
+  %14 = xor i1 %.01233, true
+  %15 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.62) #15
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %_knl_numa_token.exit, label %16
 
-17:                                               ; preds = %12
-  %18 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.68) #15
-  %.not10.i = icmp eq i32 %18, 0
-  br i1 %.not10.i, label %_knl_numa_token.exit, label %19
+16:                                               ; preds = %12
+  %17 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.68) #15
+  %.not10.i = icmp eq i32 %17, 0
+  br i1 %.not10.i, label %_knl_numa_token.exit, label %18
 
-19:                                               ; preds = %17
-  %20 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.70) #15
-  %.not11.i = icmp eq i32 %20, 0
-  br i1 %.not11.i, label %_knl_numa_token.exit, label %21
+18:                                               ; preds = %16
+  %19 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.70) #15
+  %.not11.i = icmp eq i32 %19, 0
+  br i1 %.not11.i, label %_knl_numa_token.exit, label %20
 
-21:                                               ; preds = %19
-  %22 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.64) #15
-  %.not12.i = icmp eq i32 %22, 0
-  br i1 %.not12.i, label %_knl_numa_token.exit, label %23
+20:                                               ; preds = %18
+  %21 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.64) #15
+  %.not12.i = icmp eq i32 %21, 0
+  br i1 %.not12.i, label %_knl_numa_token.exit, label %22
 
-23:                                               ; preds = %21
-  %24 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.66) #15
-  %.not13.i = icmp eq i32 %24, 0
+22:                                               ; preds = %20
+  %23 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.66) #15
+  %.not13.i = icmp eq i32 %23, 0
   %spec.select.i = select i1 %.not13.i, i16 16, i16 0
   br label %_knl_numa_token.exit
 
-_knl_numa_token.exit:                             ; preds = %12, %17, %19, %21, %23
-  %.0.i = phi i16 [ 1, %12 ], [ 1, %17 ], [ 1, %19 ], [ 1, %21 ], [ %spec.select.i, %23 ]
+_knl_numa_token.exit:                             ; preds = %12, %16, %18, %20, %22
+  %.0.i = phi i16 [ 1, %12 ], [ 1, %16 ], [ 1, %18 ], [ 1, %20 ], [ %spec.select.i, %22 ]
   %.not25 = icmp eq i16 %.0.i, 0
-  %25 = select i1 %.not25, i1 true, i1 %.01432
-  %not. = xor i1 %25, true
-  %.115 = select i1 %not., i1 true, i1 %.01432
-  %26 = select i1 %25, i1 %15, i1 false
-  br i1 %26, label %28, label %27
+  %not..not25 = xor i1 %.not25, true
+  %.115 = select i1 %not..not25, i1 true, i1 %.01432
+  %24 = select i1 %.not25, i1 true, i1 %.01432
+  %25 = select i1 %.not24, i1 %14, i1 false
+  %not. = xor i1 %24, true
+  %26 = select i1 %not., i1 true, i1 %25
+  br i1 %26, label %27, label %28
 
 27:                                               ; preds = %_knl_numa_token.exit
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.73, ptr noundef %.01730, ptr noundef nonnull %.01631) #15

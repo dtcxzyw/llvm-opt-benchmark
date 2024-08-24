@@ -1042,7 +1042,6 @@ html_output_c.exit1418:                           ; preds = %218, %224
 229:                                              ; preds = %html_output_c.exit1418
   %230 = trunc nuw i8 %.11005.ph763 to i1
   %brmerge = or i1 %.not.i1395, %230
-  %.11005.ph.mux = select i1 %230, i8 %.11005.ph763, i8 1
   br i1 %brmerge, label %html_output_c.exit1421, label %231
 
 231:                                              ; preds = %229
@@ -1064,7 +1063,7 @@ html_output_flush.exit.i1420:                     ; preds = %231
   br label %html_output_c.exit1421
 
 html_output_c.exit1421:                           ; preds = %229, %236, %html_output_c.exit1418
-  %.31007 = phi i8 [ %.11005.ph.mux, %229 ], [ %.11005.ph763, %html_output_c.exit1418 ], [ 1, %236 ]
+  %.31007 = phi i8 [ 1, %229 ], [ %.11005.ph763, %html_output_c.exit1418 ], [ 1, %236 ]
   br i1 %.not1275, label %246, label %240
 
 240:                                              ; preds = %html_output_c.exit1421

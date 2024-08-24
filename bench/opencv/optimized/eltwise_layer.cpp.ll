@@ -4035,7 +4035,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn20EltwiseLayerInt8Impl
   %170 = trunc nuw i8 %.053169 to i1
   %171 = select i1 %169, i1 true, i1 %170
   %.156 = select i1 %171, i64 %.055168, i64 %.052170
-  %.154 = select i1 %171, i8 %.053169, i8 1
+  %.154 = select i1 %169, i8 %.053169, i8 1
   %.not = icmp eq i64 %.052170, %.156
   %or.cond = select i1 %169, i1 true, i1 %.not
   %brmerge = or i1 %or.cond, %164

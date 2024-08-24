@@ -21639,7 +21639,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit95: ; 
   %79 = sub nsw i64 %56, %58
   %80 = trunc nuw i8 %.064192 to i1
   %.str.83..str.29 = select i1 %80, ptr @.str.83, ptr @.str.29
-  %..064192 = select i1 %80, i8 0, i8 %.064192
   %81 = call noundef nonnull align 8 dereferenceable(3097) ptr @_ZN6casadi13CodeGeneratorlsIPKcEERS0_T_(ptr noundef nonnull align 8 dereferenceable(3097) %1, ptr noundef nonnull %.str.83..str.29)
   %82 = load i8, ptr %51, align 8
   %83 = trunc i8 %82 to i1
@@ -21663,7 +21662,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit95: ; 
   br label %96
 
 96:                                               ; preds = %85, %88, %52
-  %.165 = phi i8 [ %.064192, %52 ], [ %..064192, %85 ], [ %..064192, %88 ]
+  %.165 = phi i8 [ %.064192, %52 ], [ 0, %85 ], [ 0, %88 ]
   %97 = load ptr, ptr %45, align 8
   %98 = load ptr, ptr %44, align 8
   %99 = ptrtoint ptr %97 to i64

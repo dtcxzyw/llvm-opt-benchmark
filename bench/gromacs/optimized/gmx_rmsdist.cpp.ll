@@ -1682,7 +1682,6 @@ _ZL10dump_equivP8_IO_FILEiPP7t_equiv.exit.i:      ; preds = %._crit_edge.i.i, %6
 
 ._crit_edge.i203.i:                               ; preds = %.preheader48.i.i
   %brmerge83.not.i.i = and i1 %680, %679
-  %.060.mux.i.i = select i1 %680, i8 0, i8 %.060.i.i
   br i1 %brmerge83.not.i.i, label %.lr.ph57.i.i.preheader, label %.loopexit.i201.i
 
 .lr.ph57.i.i.preheader:                           ; preds = %._crit_edge.i203.i, %._crit_edge.loopexit.i200.i
@@ -1725,7 +1724,7 @@ _ZL10dump_equivP8_IO_FILEiPP7t_equiv.exit.i:      ; preds = %._crit_edge.i.i, %6
   br label %.loopexit.i201.i
 
 .loopexit.i201.i:                                 ; preds = %.loopexit.loopexit.i202.i, %._crit_edge.i203.i, %._crit_edge.loopexit.i200.i
-  %.3.i.i = phi i8 [ %.060.mux.i.i, %._crit_edge.i203.i ], [ %722, %.loopexit.loopexit.i202.i ], [ 0, %._crit_edge.loopexit.i200.i ]
+  %.3.i.i = phi i8 [ 0, %._crit_edge.i203.i ], [ %722, %.loopexit.loopexit.i202.i ], [ 0, %._crit_edge.loopexit.i200.i ]
   %indvars.iv.next74.i.i = add nuw nsw i64 %indvars.iv73.i.i, 1
   %723 = icmp uge i64 %indvars.iv.next74.i.i, %643
   %724 = trunc nuw i8 %.3.i.i to i1

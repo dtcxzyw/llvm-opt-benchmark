@@ -19260,10 +19260,8 @@ if.then.i.i.i.i.i.i.i.i1260:                      ; preds = %invoke.cont555
 
 invoke.cont.i.i.i1254:                            ; preds = %if.then.i.i.i.i.i.i.i.i1260, %invoke.cont555
   %insert_result.sroa.15.4 = phi i8 [ 0, %if.then.i.i.i.i.i.i.i.i1260 ], [ %insert_result.sroa.15.21567175617841810, %invoke.cont555 ]
-  %tobool.i.i.i.i.i5.i.i.i = trunc nuw i8 %insert_result.sroa.15.4 to i1
-  %spec.select1698 = select i1 %tobool.i.i.i.i.i5.i.i.i, i8 %insert_result.sroa.15.4, i8 1
   %insert_result.sroa.30.41666 = select i1 %ref.tmp554.sroa.9.0, i64 %ref.tmp554.sroa.18.0, i64 %insert_result.sroa.30.21585174017851808
-  %insert_result.sroa.15.61655 = select i1 %ref.tmp554.sroa.9.0, i8 %spec.select1698, i8 %insert_result.sroa.15.4
+  %insert_result.sroa.15.61655 = select i1 %ref.tmp554.sroa.9.0, i8 1, i8 %insert_result.sroa.15.4
   %tobool.i.i.i.i1267 = trunc nuw i8 %node.sroa.0.11 to i1
   %lnot560 = and i8 %node.sroa.0.11, 1
   %frombool561 = xor i8 %lnot560, 1

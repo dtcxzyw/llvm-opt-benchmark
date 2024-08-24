@@ -3525,7 +3525,6 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit738
 572:                                              ; preds = %569
   %573 = trunc nuw i8 %.0483 to i1
   %spec.select682 = select i1 %573, ptr %.2492, ptr %.0484
-  %spec.select683 = select i1 %573, i8 0, i8 %.0483
   br label %578
 
 574:                                              ; preds = %569
@@ -3536,7 +3535,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit738
 
 578:                                              ; preds = %572, %574
   %.1485 = phi ptr [ %.0484, %574 ], [ %spec.select682, %572 ]
-  %.1 = phi i8 [ %.0483, %574 ], [ %spec.select683, %572 ]
+  %.1 = phi i8 [ %.0483, %574 ], [ 0, %572 ]
   %579 = tail call i32 @fileblobAddData(ptr noundef nonnull %563, ptr noundef nonnull @.str.153, i64 noundef 1) #19
   %580 = getelementptr inbounds i8, ptr %.2492, i64 8
   %581 = load ptr, ptr %580, align 8

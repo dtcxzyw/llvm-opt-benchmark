@@ -43142,8 +43142,6 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 if.then334:                                       ; preds = %land.rhs.i501, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit508
   %call336 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i444) #35
   %call337 = call i64 @strtoull(ptr nocapture noundef %call336, ptr noundef null, i32 noundef 10) #35
-  %tobool.i.i = trunc nuw i8 %expected_size.sroa.3.0860 to i1
-  %spec.select = select i1 %tobool.i.i, i8 %expected_size.sroa.3.0860, i8 1
   br label %for.inc
 
 if.else339:                                       ; preds = %if.else332, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit508
@@ -43339,7 +43337,7 @@ lpad404:                                          ; preds = %invoke.cont403
 for.inc:                                          ; preds = %if.then334, %invoke.cont342, %if.else360, %if.then357, %invoke.cont330, %if.then350, %if.then410, %invoke.cont405
   %temp.1 = phi i8 [ %temp.0858, %invoke.cont330 ], [ %63, %if.then350 ], [ %temp.0858, %if.then357 ], [ %temp.0858, %if.else360 ], [ %temp.0858, %if.then410 ], [ %temp.0858, %invoke.cont405 ], [ 0, %invoke.cont342 ], [ %temp.0858, %if.then334 ]
   %expected_size.sroa.0.3 = phi i64 [ %expected_size.sroa.0.2859, %invoke.cont330 ], [ %expected_size.sroa.0.2859, %if.then350 ], [ %expected_size.sroa.0.2859, %if.then357 ], [ %expected_size.sroa.0.2859, %if.else360 ], [ %expected_size.sroa.0.2859, %if.then410 ], [ %expected_size.sroa.0.2859, %invoke.cont405 ], [ %expected_size.sroa.0.2859, %invoke.cont342 ], [ %call337, %if.then334 ]
-  %expected_size.sroa.3.1 = phi i8 [ %expected_size.sroa.3.0860, %invoke.cont330 ], [ %expected_size.sroa.3.0860, %if.then350 ], [ %expected_size.sroa.3.0860, %if.then357 ], [ %expected_size.sroa.3.0860, %if.else360 ], [ %expected_size.sroa.3.0860, %if.then410 ], [ %expected_size.sroa.3.0860, %invoke.cont405 ], [ %expected_size.sroa.3.0860, %invoke.cont342 ], [ %spec.select, %if.then334 ]
+  %expected_size.sroa.3.1 = phi i8 [ %expected_size.sroa.3.0860, %invoke.cont330 ], [ %expected_size.sroa.3.0860, %if.then350 ], [ %expected_size.sroa.3.0860, %if.then357 ], [ %expected_size.sroa.3.0860, %if.else360 ], [ %expected_size.sroa.3.0860, %if.then410 ], [ %expected_size.sroa.3.0860, %invoke.cont405 ], [ %expected_size.sroa.3.0860, %invoke.cont342 ], [ 1, %if.then334 ]
   %excluded.1 = phi i1 [ %excluded.0861, %invoke.cont330 ], [ %excluded.0861, %if.then350 ], [ true, %if.then357 ], [ false, %if.else360 ], [ %excluded.0861, %if.then410 ], [ %excluded.0861, %invoke.cont405 ], [ %excluded.0861, %invoke.cont342 ], [ %excluded.0861, %if.then334 ]
   %add420 = add i32 %i.0862, 2
   %conv291 = zext i32 %add420 to i64

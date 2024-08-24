@@ -617,14 +617,13 @@ define hidden void @zend_optimize_cfg(ptr noundef %0, ptr noundef %1) local_unna
   %312 = load ptr, ptr @stderr, align 8
   %313 = trunc nuw i64 %indvars.iv279.i to i32
   %.str.4..str.3.i = select i1 %311, ptr @.str.4, ptr @.str.3
-  %.0204250..i = select i1 %311, i8 %.0204250.i, i8 1
   %314 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %312, ptr noundef nonnull %.str.4..str.3.i, i32 noundef %313) #16
   %.pre663 = load i32, ptr %16, align 8
   br label %315
 
 315:                                              ; preds = %.sink.split298.i, %.lr.ph253.i
   %316 = phi i32 [ %304, %.lr.ph253.i ], [ %.pre663, %.sink.split298.i ]
-  %.1.i = phi i8 [ %.0204250.i, %.lr.ph253.i ], [ %.0204250..i, %.sink.split298.i ]
+  %.1.i = phi i8 [ %.0204250.i, %.lr.ph253.i ], [ 1, %.sink.split298.i ]
   %indvars.iv.next280.i = add nuw nsw i64 %indvars.iv279.i, 1
   %317 = zext i32 %316 to i64
   %318 = icmp ult i64 %indvars.iv.next280.i, %317
