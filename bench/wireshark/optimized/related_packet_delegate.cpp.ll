@@ -290,7 +290,7 @@ define void @_ZNK21RelatedPacketDelegate5paintEP8QPainterRK20QStyleOptionViewIte
 
 47:                                               ; preds = %45
   tail call void @_ZNK19QStyledItemDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %495
+  br label %488
 
 48:                                               ; preds = %41, %45, %39, %4
   call void @_ZN20QStyleOptionViewItemC2ERKS_(ptr noundef nonnull align 8 dereferenceable(208) %27, ptr noundef nonnull align 8 dereferenceable(208) %2)
@@ -345,13 +345,13 @@ define void @_ZNK21RelatedPacketDelegate5paintEP8QPainterRK20QStyleOptionViewIte
   %74 = load i64, ptr %73, align 8
   %75 = inttoptr i64 %74 to ptr
   %.not159 = icmp eq i64 %74, 0
-  br i1 %.not159, label %485, label %76
+  br i1 %.not159, label %478, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds i8, ptr %75, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %485, label %80
+  br i1 %79, label %478, label %80
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds i8, ptr %0, i64 16
@@ -783,10 +783,10 @@ _ZNK8QPalette4textEv.exit:                        ; preds = %224
     i32 4, label %316
   ]
 
-273:                                              ; preds = %472, %.noexc263, %453, %.noexc254, %433, %417, %397, %379, %.noexc221, %361, %.noexc213, %343, %333, %327, %311, %306, %301, %294, %262, %254, %483, %338, %316, %315, %283, %275, %266, %253, %252, %251
+273:                                              ; preds = %465, %.noexc263, %446, %.noexc254, %426, %417, %397, %379, %.noexc221, %361, %.noexc213, %343, %333, %327, %311, %306, %301, %294, %262, %254, %476, %338, %316, %315, %283, %275, %266, %253, %252, %251
   %274 = landingpad { ptr, i32 }
           cleanup
-  br label %496
+  br label %489
 
 275:                                              ; preds = %267
   %276 = add nsw i32 %54, -1
@@ -830,7 +830,7 @@ _ZNK8QPalette4textEv.exit:                        ; preds = %224
   %290 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #16
-  br label %496
+  br label %489
 
 291:                                              ; preds = %288, %284
   %292 = getelementptr inbounds i8, ptr %78, i64 96
@@ -958,7 +958,7 @@ _ZN8QPainter8drawLineEiiii.exit212:               ; preds = %333
 
 337:                                              ; preds = %_ZN8QPainter8drawLineEiiii.exit212, %267, %324, %315, %275
   %.not167 = icmp eq i32 %155, 7
-  br i1 %.not167, label %483, label %338
+  br i1 %.not167, label %476, label %338
 
 338:                                              ; preds = %337
   invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 4 dereferenceable(14) %30, i32 noundef 1)
@@ -970,20 +970,20 @@ _ZN8QPainter8drawLineEiiii.exit212:               ; preds = %333
 
 340:                                              ; preds = %339
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #16
-  switch i32 %155, label %472 [
+  switch i32 %155, label %465 [
     i32 1, label %343
     i32 2, label %361
     i32 3, label %379
     i32 4, label %397
-    i32 5, label %433
-    i32 6, label %453
+    i32 5, label %426
+    i32 6, label %446
   ]
 
 341:                                              ; preds = %339
   %342 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #16
-  br label %496
+  br label %489
 
 343:                                              ; preds = %340
   %344 = sdiv i32 %272, 2
@@ -1028,7 +1028,7 @@ _ZN8QPainter8drawLineEiiii.exit212:               ; preds = %333
 
 _ZNK21RelatedPacketDelegate9drawArrowEP8QPainter6QPointS2_i.exit: ; preds = %.noexc213
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  br label %483
+  br label %476
 
 361:                                              ; preds = %340
   %362 = sdiv i32 %272, 2
@@ -1074,7 +1074,7 @@ _ZNK21RelatedPacketDelegate9drawArrowEP8QPainter6QPointS2_i.exit: ; preds = %.no
 
 _ZNK21RelatedPacketDelegate9drawArrowEP8QPainter6QPointS2_i.exit223: ; preds = %.noexc221
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  br label %483
+  br label %476
 
 379:                                              ; preds = %340
   %380 = sub nsw i32 2, %54
@@ -1109,7 +1109,7 @@ _ZNK21RelatedPacketDelegate9drawArrowEP8QPainter6QPointS2_i.exit223: ; preds = %
 
 _ZNK21RelatedPacketDelegate13drawCheckMarkEP8QPainter5QRect.exit: ; preds = %379
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  br label %483
+  br label %476
 
 397:                                              ; preds = %340
   %398 = sub nsw i32 2, %54
@@ -1145,208 +1145,200 @@ _ZNK21RelatedPacketDelegate13drawCheckMarkEP8QPainter5QRect.exit: ; preds = %379
           to label %417 unwind label %273
 
 417:                                              ; preds = %397
-  %418 = add nsw i32 %402, -1
-  %419 = add i32 %418, %401
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  %420 = mul i32 %55, 3
-  %421 = add i32 %401, %420
-  %.sroa.3.0.insert.ext = zext i32 %421 to i64
+  %418 = mul i32 %55, 3
+  %419 = add i32 %401, %418
+  %.sroa.3.0.insert.ext = zext i32 %419 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  %422 = add i32 %420, 1
-  %reass.sub.i245 = sub i32 %422, %421
-  %423 = add i32 %reass.sub.i245, %419
-  %424 = sdiv i32 %423, 2
-  %425 = add i32 %424, %421
+  %420 = add i32 %405, %419
   store i32 %398, ptr %10, align 16
-  %426 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 %425, ptr %426, align 4
-  %427 = getelementptr inbounds i8, ptr %10, i64 8
-  %428 = mul i32 %423, 3
-  %429 = sdiv i32 %428, 4
-  %430 = add i32 %429, %421
-  store i32 %411, ptr %427, align 8
-  %431 = getelementptr inbounds i8, ptr %10, i64 12
-  store i32 %430, ptr %431, align 4
-  %432 = getelementptr inbounds i8, ptr %10, i64 16
+  %421 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 %420, ptr %421, align 4
+  %422 = getelementptr inbounds i8, ptr %10, i64 8
+  %423 = add i32 %413, %419
+  store i32 %411, ptr %422, align 8
+  %424 = getelementptr inbounds i8, ptr %10, i64 12
+  store i32 %423, ptr %424, align 4
+  %425 = getelementptr inbounds i8, ptr %10, i64 16
   %.sroa.0.0.insert.insert.i.i249 = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.7.8.insert.ext
-  store i64 %.sroa.0.0.insert.insert.i.i249, ptr %432, align 16
+  store i64 %.sroa.0.0.insert.insert.i.i249, ptr %425, align 16
   invoke void @_ZN8QPainter12drawPolylineEPK6QPointi(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %10, i32 noundef 3)
           to label %_ZNK21RelatedPacketDelegate13drawCheckMarkEP8QPainter5QRect.exit251 unwind label %273
 
 _ZNK21RelatedPacketDelegate13drawCheckMarkEP8QPainter5QRect.exit251: ; preds = %417
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  br label %483
+  br label %476
 
-433:                                              ; preds = %340
-  %434 = sdiv i32 %272, 2
-  %435 = sub nsw i32 2, %54
-  %.sroa.2276.0.insert.ext = zext i32 %434 to i64
+426:                                              ; preds = %340
+  %427 = sdiv i32 %272, 2
+  %428 = sub nsw i32 2, %54
+  %.sroa.2276.0.insert.ext = zext i32 %427 to i64
   %.sroa.2276.0.insert.shift = shl nuw i64 %.sroa.2276.0.insert.ext, 32
   %.sroa.0273.0.insert.ext = zext i32 %54 to i64
   %.sroa.0273.0.insert.insert = or disjoint i64 %.sroa.2276.0.insert.shift, %.sroa.0273.0.insert.ext
-  %436 = sdiv i32 %272, 4
+  %429 = sdiv i32 %272, 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  %437 = icmp sgt i32 %54, %435
+  %430 = icmp sgt i32 %54, %428
   store i64 %.sroa.0273.0.insert.insert, ptr %8, align 16
-  %438 = getelementptr inbounds i8, ptr %8, i64 8
-  %439 = sub nsw i32 0, %436
-  %440 = select i1 %437, i32 %439, i32 %436
-  %441 = add nsw i32 %440, %54
-  %442 = sdiv i32 %272, 8
-  %443 = add nsw i32 %442, %434
-  store i32 %441, ptr %438, align 8
-  %444 = getelementptr inbounds i8, ptr %8, i64 12
-  store i32 %443, ptr %444, align 4
-  %445 = getelementptr inbounds i8, ptr %8, i64 16
-  %446 = sub nsw i32 %434, %442
-  store i32 %441, ptr %445, align 16
-  %447 = getelementptr inbounds i8, ptr %8, i64 20
-  store i32 %446, ptr %447, align 4
-  %.sroa.0.0.insert.ext.i = zext i32 %441 to i64
+  %431 = getelementptr inbounds i8, ptr %8, i64 8
+  %432 = sub nsw i32 0, %429
+  %433 = select i1 %430, i32 %432, i32 %429
+  %434 = add nsw i32 %433, %54
+  %435 = sdiv i32 %272, 8
+  %436 = add nsw i32 %435, %427
+  store i32 %434, ptr %431, align 8
+  %437 = getelementptr inbounds i8, ptr %8, i64 12
+  store i32 %436, ptr %437, align 4
+  %438 = getelementptr inbounds i8, ptr %8, i64 16
+  %439 = sub nsw i32 %427, %435
+  store i32 %434, ptr %438, align 16
+  %440 = getelementptr inbounds i8, ptr %8, i64 20
+  store i32 %439, ptr %440, align 4
+  %.sroa.0.0.insert.ext.i = zext i32 %434 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2276.0.insert.shift, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %9, align 16
-  %448 = getelementptr inbounds i8, ptr %9, i64 8
-  %449 = add nsw i32 %441, %440
-  store i32 %449, ptr %448, align 8
-  %450 = getelementptr inbounds i8, ptr %9, i64 12
-  store i32 %443, ptr %450, align 4
-  %451 = getelementptr inbounds i8, ptr %9, i64 16
-  store i32 %449, ptr %451, align 16
-  %452 = getelementptr inbounds i8, ptr %9, i64 20
-  store i32 %446, ptr %452, align 4
+  %441 = getelementptr inbounds i8, ptr %9, i64 8
+  %442 = add nsw i32 %434, %433
+  store i32 %442, ptr %441, align 8
+  %443 = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 %436, ptr %443, align 4
+  %444 = getelementptr inbounds i8, ptr %9, i64 16
+  store i32 %442, ptr %444, align 16
+  %445 = getelementptr inbounds i8, ptr %9, i64 20
+  store i32 %439, ptr %445, align 4
   invoke void @_ZN8QPainter11drawPolygonEPK6QPointiN2Qt8FillRuleE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %8, i32 noundef 3, i32 noundef 0)
           to label %.noexc254 unwind label %273
 
-.noexc254:                                        ; preds = %433
+.noexc254:                                        ; preds = %426
   invoke void @_ZN8QPainter11drawPolygonEPK6QPointiN2Qt8FillRuleE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %9, i32 noundef 3, i32 noundef 0)
           to label %_ZNK21RelatedPacketDelegate12drawChevronsEP8QPainter6QPointS2_i.exit unwind label %273
 
 _ZNK21RelatedPacketDelegate12drawChevronsEP8QPainter6QPointS2_i.exit: ; preds = %.noexc254
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  br label %483
+  br label %476
 
-453:                                              ; preds = %340
-  %454 = sdiv i32 %272, 2
-  %455 = sub nsw i32 1, %54
-  %.sroa.2272.0.insert.ext = zext i32 %454 to i64
+446:                                              ; preds = %340
+  %447 = sdiv i32 %272, 2
+  %448 = sub nsw i32 1, %54
+  %.sroa.2272.0.insert.ext = zext i32 %447 to i64
   %.sroa.2272.0.insert.shift = shl nuw i64 %.sroa.2272.0.insert.ext, 32
-  %.sroa.0269.0.insert.ext = zext i32 %455 to i64
+  %.sroa.0269.0.insert.ext = zext i32 %448 to i64
   %.sroa.0269.0.insert.insert = or disjoint i64 %.sroa.2272.0.insert.shift, %.sroa.0269.0.insert.ext
-  %456 = sdiv i32 %272, 4
+  %449 = sdiv i32 %272, 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %.not319 = icmp slt i32 %455, %54
+  %.not319 = icmp slt i32 %448, %54
   store i64 %.sroa.0269.0.insert.insert, ptr %6, align 16
-  %457 = getelementptr inbounds i8, ptr %6, i64 8
-  %458 = sub nsw i32 0, %456
-  %459 = select i1 %.not319, i32 %456, i32 %458
-  %460 = add nsw i32 %459, %455
-  %461 = sdiv i32 %272, 8
-  %462 = add nsw i32 %461, %454
-  store i32 %460, ptr %457, align 8
-  %463 = getelementptr inbounds i8, ptr %6, i64 12
-  store i32 %462, ptr %463, align 4
-  %464 = getelementptr inbounds i8, ptr %6, i64 16
-  %465 = sub nsw i32 %454, %461
-  store i32 %460, ptr %464, align 16
-  %466 = getelementptr inbounds i8, ptr %6, i64 20
-  store i32 %465, ptr %466, align 4
-  %.sroa.0.0.insert.ext.i261 = zext i32 %460 to i64
+  %450 = getelementptr inbounds i8, ptr %6, i64 8
+  %451 = sub nsw i32 0, %449
+  %452 = select i1 %.not319, i32 %449, i32 %451
+  %453 = add nsw i32 %452, %448
+  %454 = sdiv i32 %272, 8
+  %455 = add nsw i32 %454, %447
+  store i32 %453, ptr %450, align 8
+  %456 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 %455, ptr %456, align 4
+  %457 = getelementptr inbounds i8, ptr %6, i64 16
+  %458 = sub nsw i32 %447, %454
+  store i32 %453, ptr %457, align 16
+  %459 = getelementptr inbounds i8, ptr %6, i64 20
+  store i32 %458, ptr %459, align 4
+  %.sroa.0.0.insert.ext.i261 = zext i32 %453 to i64
   %.sroa.0.0.insert.insert.i262 = or disjoint i64 %.sroa.2272.0.insert.shift, %.sroa.0.0.insert.ext.i261
   store i64 %.sroa.0.0.insert.insert.i262, ptr %7, align 16
-  %467 = getelementptr inbounds i8, ptr %7, i64 8
-  %468 = add i32 %460, %459
-  store i32 %468, ptr %467, align 8
-  %469 = getelementptr inbounds i8, ptr %7, i64 12
-  store i32 %462, ptr %469, align 4
-  %470 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 %468, ptr %470, align 16
-  %471 = getelementptr inbounds i8, ptr %7, i64 20
-  store i32 %465, ptr %471, align 4
+  %460 = getelementptr inbounds i8, ptr %7, i64 8
+  %461 = add i32 %453, %452
+  store i32 %461, ptr %460, align 8
+  %462 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 %455, ptr %462, align 4
+  %463 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 %461, ptr %463, align 16
+  %464 = getelementptr inbounds i8, ptr %7, i64 20
+  store i32 %458, ptr %464, align 4
   invoke void @_ZN8QPainter11drawPolygonEPK6QPointiN2Qt8FillRuleE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %6, i32 noundef 3, i32 noundef 0)
           to label %.noexc263 unwind label %273
 
-.noexc263:                                        ; preds = %453
+.noexc263:                                        ; preds = %446
   invoke void @_ZN8QPainter11drawPolygonEPK6QPointiN2Qt8FillRuleE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7, i32 noundef 3, i32 noundef 0)
           to label %_ZNK21RelatedPacketDelegate12drawChevronsEP8QPainter6QPointS2_i.exit265 unwind label %273
 
 _ZNK21RelatedPacketDelegate12drawChevronsEP8QPainter6QPointS2_i.exit265: ; preds = %.noexc263
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %483
+  br label %476
 
-472:                                              ; preds = %340
-  %473 = load i32, ptr %268, align 4
-  %474 = load i32, ptr %258, align 4
-  %475 = add i32 %473, 1
-  %476 = sub i32 %475, %474
-  %477 = sdiv i32 %476, 2
+465:                                              ; preds = %340
+  %466 = load i32, ptr %268, align 4
+  %467 = load i32, ptr %258, align 4
+  %468 = add i32 %466, 1
+  %469 = sub i32 %468, %467
+  %470 = sdiv i32 %469, 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %478 = add nsw i32 %477, -2
-  %479 = sitofp i32 %478 to double
+  %471 = add nsw i32 %470, -2
+  %472 = sitofp i32 %471 to double
   store double -2.000000e+00, ptr %5, align 8
-  %480 = getelementptr inbounds i8, ptr %5, i64 8
-  store double %479, ptr %480, align 8
-  %481 = getelementptr inbounds i8, ptr %5, i64 16
-  store double 4.000000e+00, ptr %481, align 8
-  %482 = getelementptr inbounds i8, ptr %5, i64 24
-  store double 4.000000e+00, ptr %482, align 8
+  %473 = getelementptr inbounds i8, ptr %5, i64 8
+  store double %472, ptr %473, align 8
+  %474 = getelementptr inbounds i8, ptr %5, i64 16
+  store double 4.000000e+00, ptr %474, align 8
+  %475 = getelementptr inbounds i8, ptr %5, i64 24
+  store double 4.000000e+00, ptr %475, align 8
   invoke void @_ZN8QPainter11drawEllipseERK6QRectF(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN8QPainter11drawEllipseERK7QPointFdd.exit unwind label %273
 
-_ZN8QPainter11drawEllipseERK7QPointFdd.exit:      ; preds = %472
+_ZN8QPainter11drawEllipseERK7QPointFdd.exit:      ; preds = %465
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br label %483
+  br label %476
 
-483:                                              ; preds = %_ZN8QPainter11drawEllipseERK7QPointFdd.exit, %_ZNK21RelatedPacketDelegate12drawChevronsEP8QPainter6QPointS2_i.exit265, %_ZNK21RelatedPacketDelegate12drawChevronsEP8QPainter6QPointS2_i.exit, %_ZNK21RelatedPacketDelegate13drawCheckMarkEP8QPainter5QRect.exit251, %_ZNK21RelatedPacketDelegate13drawCheckMarkEP8QPainter5QRect.exit, %_ZNK21RelatedPacketDelegate9drawArrowEP8QPainter6QPointS2_i.exit223, %_ZNK21RelatedPacketDelegate9drawArrowEP8QPainter6QPointS2_i.exit, %337
+476:                                              ; preds = %_ZN8QPainter11drawEllipseERK7QPointFdd.exit, %_ZNK21RelatedPacketDelegate12drawChevronsEP8QPainter6QPointS2_i.exit265, %_ZNK21RelatedPacketDelegate12drawChevronsEP8QPainter6QPointS2_i.exit, %_ZNK21RelatedPacketDelegate13drawCheckMarkEP8QPainter5QRect.exit251, %_ZNK21RelatedPacketDelegate13drawCheckMarkEP8QPainter5QRect.exit, %_ZNK21RelatedPacketDelegate9drawArrowEP8QPainter6QPointS2_i.exit223, %_ZNK21RelatedPacketDelegate9drawArrowEP8QPainter6QPointS2_i.exit, %337
   invoke void @_ZN8QPainter7restoreEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %484 unwind label %273
+          to label %477 unwind label %273
 
-484:                                              ; preds = %483
+477:                                              ; preds = %476
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #16
-  br label %485
+  br label %478
 
-485:                                              ; preds = %72, %76, %484
-  %486 = getelementptr inbounds i8, ptr %27, i64 200
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %486) #16
-  %487 = getelementptr inbounds i8, ptr %27, i64 168
-  %488 = load ptr, ptr %487, align 8
-  %.not.i.i.i.i267 = icmp eq ptr %488, null
+478:                                              ; preds = %72, %76, %477
+  %479 = getelementptr inbounds i8, ptr %27, i64 200
+  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %479) #16
+  %480 = getelementptr inbounds i8, ptr %27, i64 168
+  %481 = load ptr, ptr %480, align 8
+  %.not.i.i.i.i267 = icmp eq ptr %481, null
   br i1 %.not.i.i.i.i267, label %_ZN20QStyleOptionViewItemD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %485
-  %489 = atomicrmw sub ptr %488, i32 1 seq_cst, align 4
-  %.not.i.i.i268 = icmp eq i32 %489, 1
-  br i1 %.not.i.i.i268, label %490, label %_ZN20QStyleOptionViewItemD2Ev.exit
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %478
+  %482 = atomicrmw sub ptr %481, i32 1 seq_cst, align 4
+  %.not.i.i.i268 = icmp eq i32 %482, 1
+  br i1 %.not.i.i.i268, label %483, label %_ZN20QStyleOptionViewItemD2Ev.exit
 
-490:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
-  %491 = load ptr, ptr %487, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %491, i64 noundef 2, i64 noundef 8) #16
+483:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i
+  %484 = load ptr, ptr %480, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %484, i64 noundef 2, i64 noundef 8) #16
   br label %_ZN20QStyleOptionViewItemD2Ev.exit
 
-_ZN20QStyleOptionViewItemD2Ev.exit:               ; preds = %485, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %490
-  %492 = getelementptr inbounds i8, ptr %27, i64 160
-  call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %492) #16
-  %493 = getelementptr inbounds i8, ptr %27, i64 112
-  call void @_ZN7QLocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %493) #16
-  %494 = getelementptr inbounds i8, ptr %27, i64 88
-  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %494) #16
+_ZN20QStyleOptionViewItemD2Ev.exit:               ; preds = %478, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i, %483
+  %485 = getelementptr inbounds i8, ptr %27, i64 160
+  call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %485) #16
+  %486 = getelementptr inbounds i8, ptr %27, i64 112
+  call void @_ZN7QLocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %486) #16
+  %487 = getelementptr inbounds i8, ptr %27, i64 88
+  call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %487) #16
   call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %27) #16
-  br label %495
+  br label %488
 
-495:                                              ; preds = %_ZN20QStyleOptionViewItemD2Ev.exit, %47
+488:                                              ; preds = %_ZN20QStyleOptionViewItemD2Ev.exit, %47
   ret void
 
-496:                                              ; preds = %341, %289, %273
+489:                                              ; preds = %341, %289, %273
   %.pn168 = phi { ptr, i32 } [ %274, %273 ], [ %342, %341 ], [ %290, %289 ]
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #16
   br label %.body
 
-.body:                                            ; preds = %213, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i188, %_ZN7QStringD2Ev.exit186, %70, %201, %496, %228
-  %.pn168.pn = phi { ptr, i32 } [ %.pn168, %496 ], [ %229, %228 ], [ %71, %70 ], [ %202, %201 ], [ %.pn, %_ZN7QStringD2Ev.exit186 ], [ %.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i188 ], [ %.pn, %213 ]
+.body:                                            ; preds = %213, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i188, %_ZN7QStringD2Ev.exit186, %70, %201, %489, %228
+  %.pn168.pn = phi { ptr, i32 } [ %.pn168, %489 ], [ %229, %228 ], [ %71, %70 ], [ %202, %201 ], [ %.pn, %_ZN7QStringD2Ev.exit186 ], [ %.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i188 ], [ %.pn, %213 ]
   call void @_ZN20QStyleOptionViewItemD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %27) #16
   resume { ptr, i32 } %.pn168.pn
 }

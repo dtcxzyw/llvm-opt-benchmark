@@ -6828,7 +6828,7 @@ declare dso_local i32 @down_trylock(ptr noundef) local_unnamed_addr #0
 define internal fastcc i64 @msg_add_dict_text(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #1 align 16 {
   %5 = tail call i64 @strlen(ptr noundef %3) #27
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %91, label %7
+  br i1 %6, label %88, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %0, i64 %1
@@ -6902,67 +6902,64 @@ define internal fastcc i64 @msg_add_dict_text(ptr noundef %0, i64 noundef %1, pt
 50:                                               ; preds = %48, %.loopexit
   %51 = phi ptr [ %49, %48 ], [ %46, %.loopexit ]
   %52 = ptrtoint ptr %51 to i64
-  %53 = sub i64 %52, %14
-  %54 = add i64 %53, %16
-  %55 = getelementptr i8, ptr %0, i64 %54
-  %56 = ptrtoint ptr %8 to i64
-  br label %57
+  %53 = sub i64 %52, %15
+  %54 = getelementptr i8, ptr %0, i64 %53
+  %55 = ptrtoint ptr %8 to i64
+  br label %56
 
-57:                                               ; preds = %77, %50
-  %58 = phi i64 [ 0, %50 ], [ %79, %77 ]
-  %59 = phi ptr [ %55, %50 ], [ %78, %77 ]
-  %60 = getelementptr i8, ptr %3, i64 %58
-  %61 = load i8, ptr %60, align 1
-  %62 = add i8 %61, -127
-  %63 = icmp ult i8 %62, -95
-  %64 = icmp eq i8 %61, 92
-  %65 = or i1 %64, %63
-  br i1 %65, label %66, label %73
+56:                                               ; preds = %76, %50
+  %57 = phi i64 [ 0, %50 ], [ %78, %76 ]
+  %58 = phi ptr [ %54, %50 ], [ %77, %76 ]
+  %59 = getelementptr i8, ptr %3, i64 %57
+  %60 = load i8, ptr %59, align 1
+  %61 = add i8 %60, -127
+  %62 = icmp ult i8 %61, -95
+  %63 = icmp eq i8 %60, 92
+  %64 = or i1 %63, %62
+  br i1 %64, label %65, label %72
 
-66:                                               ; preds = %57
-  %67 = zext i8 %61 to i32
-  %68 = ptrtoint ptr %59 to i64
-  %69 = sub i64 %56, %68
-  %70 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %59, i64 noundef %69, ptr noundef nonnull @.str.98, i32 noundef %67) #27
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr i8, ptr %59, i64 %71
-  br label %77
+65:                                               ; preds = %56
+  %66 = zext i8 %60 to i32
+  %67 = ptrtoint ptr %58 to i64
+  %68 = sub i64 %55, %67
+  %69 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %58, i64 noundef %68, ptr noundef nonnull @.str.98, i32 noundef %66) #27
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr i8, ptr %58, i64 %70
+  br label %76
 
-73:                                               ; preds = %57
-  %74 = icmp ult ptr %59, %8
-  br i1 %74, label %75, label %77
+72:                                               ; preds = %56
+  %73 = icmp ult ptr %58, %8
+  br i1 %73, label %74, label %76
 
-75:                                               ; preds = %73
-  %76 = getelementptr i8, ptr %59, i64 1
-  store i8 %61, ptr %59, align 1
-  br label %77
+74:                                               ; preds = %72
+  %75 = getelementptr i8, ptr %58, i64 1
+  store i8 %60, ptr %58, align 1
+  br label %76
 
-77:                                               ; preds = %75, %73, %66
-  %78 = phi ptr [ %72, %66 ], [ %76, %75 ], [ %59, %73 ]
-  %79 = add nuw i64 %58, 1
-  %80 = icmp eq i64 %79, %5
-  br i1 %80, label %81, label %57, !llvm.loop !75
+76:                                               ; preds = %74, %72, %65
+  %77 = phi ptr [ %71, %65 ], [ %75, %74 ], [ %58, %72 ]
+  %78 = add nuw i64 %57, 1
+  %79 = icmp eq i64 %78, %5
+  br i1 %79, label %80, label %56, !llvm.loop !75
 
-81:                                               ; preds = %77
-  %82 = icmp ult ptr %78, %8
-  br i1 %82, label %83, label %85
+80:                                               ; preds = %76
+  %81 = icmp ult ptr %77, %8
+  br i1 %81, label %82, label %84
 
-83:                                               ; preds = %81
-  %84 = getelementptr i8, ptr %78, i64 1
-  store i8 10, ptr %78, align 1
-  br label %85
+82:                                               ; preds = %80
+  %83 = getelementptr i8, ptr %77, i64 1
+  store i8 10, ptr %77, align 1
+  br label %84
 
-85:                                               ; preds = %83, %81
-  %86 = phi ptr [ %84, %83 ], [ %78, %81 ]
-  %87 = ptrtoint ptr %86 to i64
-  %88 = ptrtoint ptr %55 to i64
-  %89 = sub i64 %54, %88
-  %90 = add i64 %89, %87
-  br label %91
+84:                                               ; preds = %82, %80
+  %85 = phi ptr [ %83, %82 ], [ %77, %80 ]
+  %86 = ptrtoint ptr %85 to i64
+  %87 = sub i64 %86, %15
+  br label %88
 
-91:                                               ; preds = %85, %4
-  %92 = phi i64 [ %90, %85 ], [ 0, %4 ]
-  ret i64 %92
+88:                                               ; preds = %84, %4
+  %89 = phi i64 [ %87, %84 ], [ 0, %4 ]
+  ret i64 %89
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)

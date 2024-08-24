@@ -7818,10 +7818,8 @@ if.then215:                                       ; preds = %if.then206
   br i1 %cmp216, label %for.inc256, label %if.else223
 
 if.else223:                                       ; preds = %if.then215
-  %sub224 = sub i32 %cond.i, %conv197
-  %add225 = add nsw i32 %sub224, %sub198
-  %104 = trunc i32 %add225 to i16
-  %conv227 = add i16 %104, -1
+  %104 = xor i32 %conv197, -1
+  %sub226 = add i32 %16, %104
   br label %for.inc256.sink.split
 
 if.else231:                                       ; preds = %if.then206
@@ -7833,24 +7831,22 @@ if.then234:                                       ; preds = %if.else231
   %add235 = add nsw i32 %conv197, 1
   %shr236 = lshr exact i32 %add235, 1
   %sub237 = sub i32 %cond.i, %shr236
-  %conv238 = trunc i32 %sub237 to i16
   br label %for.inc256.sink.split
 
 if.else241:                                       ; preds = %if.else231
   %shr242 = lshr exact i32 %conv197, 1
   %add243 = add i32 %cond.i, %shr242
-  %conv244 = trunc i32 %add243 to i16
   br label %for.inc256.sink.split
 
 if.else249:                                       ; preds = %for.body167
   %arrayidx251 = getelementptr inbounds [256 x i8], ptr %step2_flag, i64 0, i64 %indvars.iv528
   store i8 0, ptr %arrayidx251, align 1
-  %conv252 = trunc i32 %cond.i to i16
   br label %for.inc256.sink.split
 
 for.inc256.sink.split:                            ; preds = %if.else223, %if.else241, %if.then234, %if.else249
-  %conv252.sink = phi i16 [ %conv252, %if.else249 ], [ %conv238, %if.then234 ], [ %conv244, %if.else241 ], [ %conv227, %if.else223 ]
-  store i16 %conv252.sink, ptr %arrayidx196, align 2
+  %cond.i.sink = phi i32 [ %cond.i, %if.else249 ], [ %sub237, %if.then234 ], [ %add243, %if.else241 ], [ %sub226, %if.else223 ]
+  %conv252 = trunc i32 %cond.i.sink to i16
+  store i16 %conv252, ptr %arrayidx196, align 2
   br label %for.inc256
 
 for.inc256:                                       ; preds = %for.inc256.sink.split, %if.then215
