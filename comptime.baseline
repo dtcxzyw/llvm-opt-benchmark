@@ -22448,7 +22448,7 @@ openjdk/zLiveMap.ll 171407155
 openjdk/zMark.ll 3282621646
 openjdk/zMarkCache.ll 75746025
 openjdk/zMarkStack.ll 222516847
-openjdk/zMarkStackAllocator.ll 186877302
+openjdk/zMarkStackAllocator.ll 187064257
 openjdk/zMemory.ll 171397119
 openjdk/zMetronome.ll 70093482
 openjdk/zMountPoint_linux.ll 167338637
