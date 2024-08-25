@@ -29647,7 +29647,7 @@ redis/prof_log.ll 211776130
 redis/prof_log.sym.ll 211776881
 redis/prof_recent.ll 157724870
 redis/prof_recent.sym.ll 157726072
-redis/prof_sys.ll 92958701
+redis/prof_sys.ll 92865740
 redis/prof_sys.sym.ll 92962204
 redis/psset.ll 283184612
 redis/psset.sym.ll 283190361
