@@ -31,7 +31,14 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git -C llvm/llvm-project checkout .
           git -C llvm/llvm-project clean -fdx
+          git -C llvm/llvm-project apply ../llvm-cov.diff
 
       - name: Build LLVM with coverage instrumentation
         run: ${{ github.workspace }}/scripts/build_cov.sh
 
+      - name: Run opt
+        run: python3 ${{ github.workspace }}/scripts/gen_optimized_cov.py bench ${{ github.workspace }}/llvm/llvm-cov-build/bin/opt
+
+      - name: Collect coverage data
+        working-directory: ${{ github.workspace }}/llvm/llvm-cov-build
+        run: cmake --build . --target generate-coverage-report

@@ -1,0 +1,12 @@
+diff --git a/llvm/cmake/modules/CoverageReport.cmake b/llvm/cmake/modules/CoverageReport.cmake
+index db8ff7de16b1..a69d3aa1b594 100644
+--- a/llvm/cmake/modules/CoverageReport.cmake
++++ b/llvm/cmake/modules/CoverageReport.cmake
+@@ -60,5 +60,5 @@ add_custom_target(generate-coverage-report
+                           ${LLVM_PROFDATA} ${LLVM_COV} ${LLVM_PROFILE_DATA_DIR}
+                           ${REPORT_DIR} ${coverage_binaries}
+                           --unified-report ${restrict_flags}
+-                  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+-                  DEPENDS check-llvm) # Run tests
++                  WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
++                  #DEPENDS check-llvm) # Run tests
