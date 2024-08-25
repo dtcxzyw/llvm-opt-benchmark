@@ -1078,7 +1078,7 @@ abseil-cpp/cord_data_edge_test.cc.ll 495643037
 abseil-cpp/cord_rep_btree.cc.ll 1688056498
 abseil-cpp/cord_rep_btree_navigator.cc.ll 167990020
 abseil-cpp/cord_rep_btree_navigator_test.cc.ll 3930225407
-abseil-cpp/cord_rep_btree_reader_test.cc.ll 2452298040
+abseil-cpp/cord_rep_btree_reader_test.cc.ll 2454751718
 abseil-cpp/cord_rep_btree_test.cc.ll 15868982452
 abseil-cpp/cord_rep_crc_test.cc.ll 2252895988
 abseil-cpp/cord_test.cc.ll 20693608069
@@ -16216,7 +16216,7 @@ mitsuba3/hair.cpp.ll 1940972051
 mitsuba3/hdrfilm.cpp.ll 2038501035
 mitsuba3/heterogeneous.cpp.ll 629169285
 mitsuba3/hg.cpp.ll 658177855
-mitsuba3/homogeneous.cpp.ll 618210474
+mitsuba3/homogeneous.cpp.ll 618828746
 mitsuba3/imageblock.cpp.ll 1554118207
 mitsuba3/independent.cpp.ll 296899737
 mitsuba3/inst.cpp.ll 46058842
