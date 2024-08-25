@@ -42,3 +42,15 @@ jobs:
       - name: Collect coverage data
         working-directory: ${{ github.workspace }}/llvm/llvm-cov-build
         run: cmake --build . --target generate-coverage-report
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ github.workspace }}/llvm/llvm-cov-build/report
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
