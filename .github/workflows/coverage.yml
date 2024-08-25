@@ -39,18 +39,18 @@ jobs:
       - name: Run opt
         run: python3 ${{ github.workspace }}/scripts/gen_optimized_cov.py bench ${{ github.workspace }}/llvm/llvm-cov-build/bin/opt
 
-      - name: Collect coverage data
-        working-directory: ${{ github.workspace }}/llvm/llvm-cov-build
-        run: cmake --build . --target generate-coverage-report
+      # - name: Collect coverage data
+      #   working-directory: ${{ github.workspace }}/llvm/llvm-cov-build
+      #   run: cmake --build . --target generate-coverage-report
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+      # - name: Setup Pages
+      #   uses: actions/configure-pages@v4
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ${{ github.workspace }}/llvm/llvm-cov-build/report
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     path: ${{ github.workspace }}/llvm/llvm-cov-build/report
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # - name: Deploy to GitHub Pages
+      #   id: deployment
+      #   uses: actions/deploy-pages@v4

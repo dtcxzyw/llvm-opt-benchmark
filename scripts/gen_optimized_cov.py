@@ -12,9 +12,9 @@ opt_exec = sys.argv[2]
 def run_opt(input_file):
     try:
         cmd = [opt_exec, '-O3', '-disable-loop-unrolling', '-vectorize-loops=false', '-vectorize-slp=false', input_file, '-disable-output']
-        subprocess.check_call(cmd,stdin=subprocess.DEVNULL, capture_output=True, timeout=1200.0,env={})
-    except Exception:
-        pass
+        subprocess.check_call(cmd,stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=1200.0, env={})
+    except Exception as e:
+        return (input_file, str(e))
 
     return None
 
@@ -36,5 +36,7 @@ if __name__ == '__main__':
     progress = tqdm.tqdm(work_list, miniters=len(work_list)/200)
 
     for res in pool.imap_unordered(run_opt, work_list):
+        if res is not None:
+            print(res)
         progress.update()
     progress.close()
