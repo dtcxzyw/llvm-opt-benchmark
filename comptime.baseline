@@ -21051,7 +21051,7 @@ openjdk/c1_MacroAssembler_x86.ll 211548966
 openjdk/c1_Optimizer.ll 1278997635
 openjdk/c1_RangeCheckElimination.ll 1427136289
 openjdk/c1_Runtime1.ll 1583208997
-openjdk/c1_Runtime1_x86.ll 482051194
+openjdk/c1_Runtime1_x86.ll 482533393
 openjdk/c1_ValueMap.ll 940213542
 openjdk/c1_ValueStack.ll 411829181
 openjdk/c1_ValueType.ll 216254251
