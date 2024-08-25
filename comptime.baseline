@@ -21762,7 +21762,7 @@ openjdk/logFileStreamOutput.ll 119269657
 openjdk/logLevel.ll 50125986
 openjdk/logMessageBuffer.ll 84416252
 openjdk/logOutput.ll 202764662
-openjdk/logOutputList.ll 132977061
+openjdk/logOutputList.ll 133110210
 openjdk/logSelection.ll 394140748
 openjdk/logSelectionList.ll 63643328
 openjdk/logStream.ll 111379505
