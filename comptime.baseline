@@ -18604,7 +18604,7 @@ openblas/dlasv2.c.ll 59233394
 openblas/dlaswlq.c.ll 65399217
 openblas/dlaswp_minus.c.ll 271534408
 openblas/dlaswp_ncopy.c.ll 111957030
-openblas/dlaswp_plus.c.ll 269674846
+openblas/dlaswp_plus.c.ll 269944535
 openblas/dlasyf.c.ll 241632816
 openblas/dlasyf_aa.c.ll 136763887
 openblas/dlasyf_rk.c.ll 288634257
@@ -27445,7 +27445,7 @@ postgres/rewriteSupport.ll 47408996
 postgres/rewriteheap.ll 249306591
 postgres/ri_triggers.ll 701721685
 postgres/rls.ll 55930349
-postgres/rmgr.ll 90348907
+postgres/rmgr.ll 90258485
 postgres/rmgrdesc.ll 53484195
 postgres/rmtree.ll 65806423
 postgres/rmtree_shlib.ll 65795215
