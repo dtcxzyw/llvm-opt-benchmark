@@ -7,8 +7,6 @@ LLVM Opt Benchmark is an LLVM IR dataset for data-driven compiler optimization r
 
 Don't submit PR to add new benchmarks. You can request new open-source C/C++/Rust repos [here](https://github.com/dtcxzyw/llvm-opt-benchmark/issues/133).
 
-Coverage result: https://dtcxzyw.github.io/llvm-opt-benchmark/
-
 Please cite this work with the following BibTex entry:
 ```
 @misc{opt-benchmark,
@@ -34,6 +32,10 @@ Please cite this work with the following BibTex entry:
 + Codegen pre-commit testing
 
   See also [llvm-codegen-benchmark](https://github.com/dtcxzyw/llvm-codegen-benchmark).
+
++ Weekly coverage report: 
+  
+  https://dtcxzyw.github.io/llvm-opt-benchmark/
 
 ## Benchmark List
 
