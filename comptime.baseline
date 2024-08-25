@@ -36269,7 +36269,7 @@ wireshark/str_util.c.ll 409584535
 wireshark/stream.c.ll 85037095
 wireshark/strip_headers_dialog.cpp.ll 215648417
 wireshark/strtoi.c.ll 133117468
-wireshark/strutil.c.ll 293096507
+wireshark/strutil.c.ll 292803365
 wireshark/sttype-field.c.ll 64797543
 wireshark/sttype-pointer.c.ll 49869626
 wireshark/summary.c.ll 120681578
