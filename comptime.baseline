@@ -12589,7 +12589,7 @@ lief/LoadConfigurationV7.cpp.ll 6854034163
 lief/LoadConfigurationV8.cpp.ll 6846783688
 lief/LoadConfigurationV9.cpp.ll 6854398073
 lief/MainCommand.cpp.ll 116776757
-lief/MapItem.cpp.ll 60896241
+lief/MapItem.cpp.ll 60957231
 lief/MapList.cpp.ll 11185878654
 lief/MemoryStream.cpp.ll 12201321516
 lief/Method.cpp.ll 628788876
@@ -18292,7 +18292,7 @@ oiio/benchmark.cpp.ll 8253391428
 oiio/bmp_pvt.cpp.ll 125681463
 oiio/bmpinput.cpp.ll 7734150911
 oiio/bmpoutput.cpp.ll 6866223134
-oiio/cineoninput.cpp.ll 7682831474
+oiio/cineoninput.cpp.ll 7690514359
 oiio/color_ocio.cpp.ll 16408675151
 oiio/ddsinput.cpp.ll 10062954750
 oiio/deepdata.cpp.ll 3471588716
@@ -31839,7 +31839,7 @@ spike/fdiv_s.ll 634825309
 spike/fdt.ll 269424020
 spike/fdt_addresses.ll 76960573
 spike/fdt_overlay.ll 247999392
-spike/fdt_ro.ll 503545177
+spike/fdt_ro.ll 504048829
 spike/fdt_rw.ll 388659551
 spike/fdt_strerror.ll 38362942
 spike/fdt_sw.ll 265612917
