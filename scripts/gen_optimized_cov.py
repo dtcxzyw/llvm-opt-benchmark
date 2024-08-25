@@ -28,7 +28,6 @@ if __name__ == '__main__':
             if file.endswith('.ll'):
                 work_list.append(os.path.join(original_dir, file))
 
-    work_list=work_list[:100]
     print("total items: ", len(work_list))
     print("threads: ", os.cpu_count())
 
