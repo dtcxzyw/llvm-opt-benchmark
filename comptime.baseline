@@ -7698,7 +7698,7 @@ git/replace-object.ll 59858356
 git/replace.ll 368865722
 git/replay.ll 440142148
 git/repository.ll 116129930
-git/rerere.ll 692224711
+git/rerere.ll 692916942
 git/resolve-undo.ll 123649505
 git/rev-list.ll 368652615
 git/rev-parse.ll 710241853
@@ -27618,7 +27618,7 @@ postgres/trigger.ll 1703071771
 postgres/ts_cache.ll 164538765
 postgres/ts_locale.ll 79929721
 postgres/ts_parse.ll 298010837
-postgres/ts_selfuncs.ll 122106378
+postgres/ts_selfuncs.ll 122228521
 postgres/ts_typanalyze.ll 125633973
 postgres/ts_utils.ll 65971847
 postgres/tsearchcmds.ll 535416630
