@@ -4129,7 +4129,7 @@ coreutils-rs/2kp67l99mfbx1s03.ll 618902320
 coreutils-rs/2l4k5986r7enqe0l.ll 777701159
 coreutils-rs/2l6nxvvz97tcra6u.ll 1739803577
 coreutils-rs/2lcs74mw0szypyam.ll 128301764
-coreutils-rs/2lduwb7g8gfz5flp.ll 80257662
+coreutils-rs/2lduwb7g8gfz5flp.ll 80337978
 coreutils-rs/2lidb8m7l4tl7gq1.ll 349947496
 coreutils-rs/2lifsm2aj3rlgzh6.ll 39982402
 coreutils-rs/2ljj7mm5k13lf5w9.ll 114703508
@@ -26767,7 +26767,7 @@ postgres/c_keywords.ll 55324536
 postgres/cash.ll 303764970
 postgres/catalog.ll 121421143
 postgres/catcache.ll 529439396
-postgres/char.ll 105819358
+postgres/char.ll 105713533
 postgres/check.ll 422055139
 postgres/checkpointer.ll 232675500
 postgres/checksum.ll 63979985
