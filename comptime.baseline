@@ -204,7 +204,7 @@ abc/bacWriteVer.c.ll 1098333485
 abc/bblif.c.ll 551031244
 abc/bbrCex.c.ll 116021720
 abc/bbrImage.c.ll 405199066
-abc/bbrReach.c.ll 338757061
+abc/bbrReach.c.ll 338418139
 abc/bdcCore.c.ll 425435185
 abc/bdcDec.c.ll 545743059
 abc/bdcSpfd.c.ll 1080156890
