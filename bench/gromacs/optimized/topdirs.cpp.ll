@@ -2360,20 +2360,16 @@ define noundef range(i32 0, 2) i32 @_Z9DS_SearchP8DirStack9Directive(ptr noundef
   %.05 = phi ptr [ %6, %4 ], [ %0, %2 ]
   %3 = load i32, ptr %.05, align 8
   %.not = icmp eq i32 %3, %1
-  br i1 %.not, label %.critedge.loopexit, label %4
+  br i1 %.not, label %.critedge, label %4
 
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds i8, ptr %.05, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
-  br i1 %.not9, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not9, label %.critedge, label %.lr.ph, !llvm.loop !17
 
-.critedge.loopexit:                               ; preds = %4, %.lr.ph
-  %7 = zext i1 %.not to i32
-  br label %.critedge
-
-.critedge:                                        ; preds = %.critedge.loopexit, %2
-  %.lcssa = phi i32 [ 0, %2 ], [ %7, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.lr.ph, %4, %2
+  %.lcssa = phi i32 [ 0, %2 ], [ 0, %4 ], [ 1, %.lr.ph ]
   ret i32 %.lcssa
 }
 
@@ -2406,8 +2402,8 @@ _Z9DS_SearchP8DirStack9Directive.exit.thread:     ; preds = %5, %2
   %.mux = zext i1 %12 to i32
   br i1 %brmerge, label %_Z9DS_SearchP8DirStack9Directive.exit, label %.lr.ph.i12.preheader
 
-.lr.ph.i12.preheader:                             ; preds = %_Z9DS_SearchP8DirStack9Directive.exit.thread, %_Z9DS_SearchP8DirStack9Directive.exit18.thread.loopexit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_Z9DS_SearchP8DirStack9Directive.exit18.thread.loopexit ], [ 0, %_Z9DS_SearchP8DirStack9Directive.exit.thread ]
+.lr.ph.i12.preheader:                             ; preds = %_Z9DS_SearchP8DirStack9Directive.exit.thread, %.loopexit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %_Z9DS_SearchP8DirStack9Directive.exit.thread ]
   %13 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   br label %.lr.ph.i12
@@ -2422,15 +2418,15 @@ _Z9DS_SearchP8DirStack9Directive.exit.thread:     ; preds = %5, %2
   %17 = getelementptr inbounds i8, ptr %.05.i13, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not9.i15 = icmp eq ptr %18, null
-  br i1 %.not9.i15, label %_Z9DS_SearchP8DirStack9Directive.exit18.thread.loopexit, label %.lr.ph.i12, !llvm.loop !17
+  br i1 %.not9.i15, label %.loopexit, label %.lr.ph.i12, !llvm.loop !17
 
-_Z9DS_SearchP8DirStack9Directive.exit18.thread.loopexit: ; preds = %16
+.loopexit:                                        ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not10 = icmp eq i32 %14, 41
   br i1 %.not10, label %_Z9DS_SearchP8DirStack9Directive.exit, label %.lr.ph.i12.preheader, !llvm.loop !18
 
-_Z9DS_SearchP8DirStack9Directive.exit:            ; preds = %.lr.ph.i, %_Z9DS_SearchP8DirStack9Directive.exit18.thread.loopexit, %.lr.ph.i12, %_Z9DS_SearchP8DirStack9Directive.exit.thread
-  %.08 = phi i32 [ %.mux, %_Z9DS_SearchP8DirStack9Directive.exit.thread ], [ 1, %.lr.ph.i12 ], [ 0, %_Z9DS_SearchP8DirStack9Directive.exit18.thread.loopexit ], [ 0, %.lr.ph.i ]
+_Z9DS_SearchP8DirStack9Directive.exit:            ; preds = %.lr.ph.i, %.loopexit, %.lr.ph.i12, %_Z9DS_SearchP8DirStack9Directive.exit.thread
+  %.08 = phi i32 [ %.mux, %_Z9DS_SearchP8DirStack9Directive.exit.thread ], [ 1, %.lr.ph.i12 ], [ 0, %.loopexit ], [ 0, %.lr.ph.i ]
   ret i32 %.08
 }
 

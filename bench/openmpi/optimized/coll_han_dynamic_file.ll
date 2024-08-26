@@ -1254,37 +1254,28 @@ define void @mca_coll_han_free_dynamic_rules() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %23
-  br i1 %15, label %24, label %._crit_edge.thread
-
-24:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef nonnull %14) #7
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.lr.ph34, %._crit_edge, %24
+._crit_edge.thread:                               ; preds = %.lr.ph34, %._crit_edge
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
   br i1 %exitcond45.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !19
 
 ._crit_edge35:                                    ; preds = %._crit_edge.thread
-  br i1 %9, label %25, label %._crit_edge35.thread
-
-25:                                               ; preds = %._crit_edge35
   tail call void @free(ptr noundef %8) #7
   br label %._crit_edge35.thread
 
-._crit_edge35.thread:                             ; preds = %.lr.ph38, %._crit_edge35, %25
+._crit_edge35.thread:                             ; preds = %.lr.ph38, %._crit_edge35
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
   br i1 %exitcond50.not, label %._crit_edge39, label %.lr.ph38, !llvm.loop !20
 
 ._crit_edge39:                                    ; preds = %._crit_edge35.thread
-  br i1 %3, label %26, label %._crit_edge39.thread
-
-26:                                               ; preds = %._crit_edge39
   tail call void @free(ptr noundef %2) #7
   br label %._crit_edge39.thread
 
-._crit_edge39.thread:                             ; preds = %0, %26, %._crit_edge39
+._crit_edge39.thread:                             ; preds = %0, %._crit_edge39
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 664), align 8
   ret void
 }

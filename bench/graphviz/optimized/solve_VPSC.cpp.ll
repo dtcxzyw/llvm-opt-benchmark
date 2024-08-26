@@ -1316,11 +1316,8 @@ define noundef zeroext i1 @_ZN4VPSC23constraintGraphIsCyclicEjPP8Variable(ptr no
   %wide.trip.count = zext i32 %1 to i64
   br label %13
 
-.preheader172:                                    ; preds = %58
-  br i1 %.not215, label %.preheader165, label %.lr.ph207.preheader
-
-.lr.ph207.preheader:                              ; preds = %.preheader172
-  %wide.trip.count238 = zext i32 %1 to i64
+.lr.ph207.preheader:                              ; preds = %58
+  %wide.trip.count240 = zext i32 %1 to i64
   br label %.lr.ph207
 
 13:                                               ; preds = %.lr.ph, %58
@@ -1439,7 +1436,7 @@ _ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE12emplace_backI
   store ptr %55, ptr %57, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader172, label %13, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph207.preheader, label %13, !llvm.loop !19
 
 .loopexit166:                                     ; preds = %261
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1472,16 +1469,16 @@ _ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE12emplace_backI
   call void @_ZNSt3mapIP8VariableP4nodeSt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #21
   resume { ptr, i32 } %eh.lpad-body
 
-.preheader165:                                    ; preds = %._crit_edge205, %3, %.preheader172
+.preheader165:                                    ; preds = %._crit_edge205, %3
   %59 = getelementptr inbounds i8, ptr %5, i64 8
   %60 = load ptr, ptr %5, align 8
   %61 = load ptr, ptr %59, align 8
-  %.not240 = icmp eq ptr %60, %61
-  br i1 %.not240, label %._crit_edge212, label %.preheader
+  %.not217 = icmp eq ptr %60, %61
+  br i1 %.not217, label %._crit_edge212, label %.preheader
 
 .lr.ph207:                                        ; preds = %.lr.ph207.preheader, %._crit_edge205
-  %indvars.iv235 = phi i64 [ 0, %.lr.ph207.preheader ], [ %indvars.iv.next236, %._crit_edge205 ]
-  %62 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv235
+  %indvars.iv237 = phi i64 [ 0, %.lr.ph207.preheader ], [ %indvars.iv.next238, %._crit_edge205 ]
+  %62 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv237
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 48
   %65 = load ptr, ptr %64, align 8
@@ -1983,15 +1980,15 @@ _ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_N
   br i1 %.not163, label %._crit_edge205, label %.lr.ph204
 
 ._crit_edge205:                                   ; preds = %246, %._crit_edge
-  %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
-  %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
-  br i1 %exitcond239.not, label %.preheader165, label %.lr.ph207, !llvm.loop !22
+  %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
+  %exitcond241.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count240
+  br i1 %exitcond241.not, label %.preheader165, label %.lr.ph207, !llvm.loop !22
 
 .loopexit:                                        ; preds = %_ZNSt3setIP4nodeSt4lessIS1_ESaIS1_EE5eraseERKS1_.exit, %_ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EE.exit
   %248 = load ptr, ptr %5, align 8
   %249 = load ptr, ptr %59, align 8
-  %.not241 = icmp eq ptr %248, %249
-  br i1 %.not241, label %._crit_edge212, label %.preheader, !llvm.loop !23
+  %.not218 = icmp eq ptr %248, %249
+  br i1 %.not218, label %._crit_edge212, label %.preheader, !llvm.loop !23
 
 .preheader:                                       ; preds = %.preheader165, %.loopexit
   %250 = phi ptr [ %249, %.loopexit ], [ %61, %.preheader165 ]
@@ -2150,7 +2147,7 @@ _ZNSt3setIP4nodeSt4lessIS1_ESaIS1_EE5eraseERKS1_.exit: ; preds = %.lr.ph.i2.i, %
   br i1 %.not161, label %.loopexit, label %.lr.ph211
 
 ._crit_edge212:                                   ; preds = %259, %.loopexit, %257, %.preheader165
-  %.lcssa = phi i1 [ false, %.preheader165 ], [ true, %257 ], [ true, %259 ], [ %260, %.loopexit ]
+  %.lcssa = phi i1 [ false, %.preheader165 ], [ true, %257 ], [ %260, %.loopexit ], [ %260, %259 ]
   call void @_ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #21
   %307 = load ptr, ptr %7, align 8
   invoke void @_ZNSt8_Rb_treeIP8VariableSt4pairIKS1_P4nodeESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %307)
@@ -2538,8 +2535,8 @@ _ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE12emplace_backI
   %64 = getelementptr inbounds i8, ptr %3, i64 8
   %65 = load ptr, ptr %3, align 8
   %66 = load ptr, ptr %64, align 8
-  %.not225 = icmp eq ptr %65, %66
-  br i1 %.not225, label %._crit_edge205, label %.preheader
+  %.not208 = icmp eq ptr %65, %66
+  br i1 %.not208, label %._crit_edge205, label %.preheader
 
 .lr.ph200:                                        ; preds = %._crit_edge, %255
   %.sroa.0144.0198 = phi ptr [ %256, %255 ], [ %63, %._crit_edge ]
@@ -3061,8 +3058,8 @@ _ZNSt8_Rb_treeIP4nodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_N
 .loopexit:                                        ; preds = %_ZNSt3setIP4nodeSt4lessIS1_ESaIS1_EE5eraseERKS1_.exit, %_ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EE.exit
   %257 = load ptr, ptr %3, align 8
   %258 = load ptr, ptr %64, align 8
-  %.not226 = icmp eq ptr %257, %258
-  br i1 %.not226, label %._crit_edge205, label %.preheader, !llvm.loop !38
+  %.not209 = icmp eq ptr %257, %258
+  br i1 %.not209, label %._crit_edge205, label %.preheader, !llvm.loop !38
 
 .preheader:                                       ; preds = %.preheader160, %.loopexit
   %259 = phi ptr [ %258, %.loopexit ], [ %66, %.preheader160 ]
@@ -3221,7 +3218,7 @@ _ZNSt3setIP4nodeSt4lessIS1_ESaIS1_EE5eraseERKS1_.exit: ; preds = %.lr.ph.i2.i, %
   br i1 %.not158, label %.loopexit, label %.lr.ph204
 
 ._crit_edge205:                                   ; preds = %268, %.loopexit, %266, %.preheader160
-  %.lcssa = phi i1 [ false, %.preheader160 ], [ true, %266 ], [ true, %268 ], [ %269, %.loopexit ]
+  %.lcssa = phi i1 [ false, %.preheader160 ], [ true, %266 ], [ %269, %.loopexit ], [ %269, %268 ]
   call void @_ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
   %316 = load ptr, ptr %6, align 8
   invoke void @_ZNSt8_Rb_treeIP5BlockSt4pairIKS1_P4nodeESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %316)

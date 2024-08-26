@@ -2140,17 +2140,17 @@ invoke.cont194:                                   ; preds = %call3.i.noexc222, %
   %mBones = getelementptr inbounds i8, ptr %53, i64 224
   store ptr %retval.0.i221, ptr %mBones, align 8
   %tobool.not.i.i.i225 = icmp eq ptr %bones154.sroa.0.3, null
-  br i1 %tobool.not.i.i.i225, label %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit227, label %if.then.i.i.i226
+  br i1 %tobool.not.i.i.i225, label %for.body.i.i.i.i.preheader, label %if.then.i.i.i226
 
 if.then.i.i.i226:                                 ; preds = %invoke.cont194
   call void @_ZdlPv(ptr noundef nonnull %bones154.sroa.0.3) #25
-  br label %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit227
+  br label %for.body.i.i.i.i.preheader
 
-_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit227:        ; preds = %invoke.cont194, %if.then.i.i.i226
-  br i1 %cmp157493.not, label %invoke.cont.i230, label %for.body.i.i.i.i
+for.body.i.i.i.i.preheader:                       ; preds = %invoke.cont194, %if.then.i.i.i226
+  br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit227, %_ZSt8_DestroyISt6vectorI14aiVertexWeightSaIS1_EEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt6vectorI14aiVertexWeightSaIS1_EEEvPT_.exit.i.i.i.i ], [ %vweights.sroa.0.2, %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit227 ]
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %_ZSt8_DestroyISt6vectorI14aiVertexWeightSaIS1_EEEvPT_.exit.i.i.i.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt6vectorI14aiVertexWeightSaIS1_EEEvPT_.exit.i.i.i.i ], [ %vweights.sroa.0.2, %for.body.i.i.i.i.preheader ]
   %181 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %181, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorI14aiVertexWeightSaIS1_EEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2164,7 +2164,7 @@ _ZSt8_DestroyISt6vectorI14aiVertexWeightSaIS1_EEEvPT_.exit.i.i.i.i: ; preds = %i
   %cmp.not.i.i.i.i229 = icmp eq ptr %incdec.ptr.i.i.i.i, %__cur.0.lcssa.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i229, label %invoke.cont.i230, label %for.body.i.i.i.i, !llvm.loop !22
 
-invoke.cont.i230:                                 ; preds = %_ZSt8_DestroyISt6vectorI14aiVertexWeightSaIS1_EEEvPT_.exit.i.i.i.i, %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit227.thread, %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit227
+invoke.cont.i230:                                 ; preds = %_ZSt8_DestroyISt6vectorI14aiVertexWeightSaIS1_EEEvPT_.exit.i.i.i.i, %_ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit227.thread
   %tobool.not.i.i.i231 = icmp eq ptr %vweights.sroa.0.2, null
   br i1 %tobool.not.i.i.i231, label %_ZNSt6vectorIS_I14aiVertexWeightSaIS0_EESaIS2_EED2Ev.exit, label %if.then.i.i.i232
 
@@ -4995,9 +4995,6 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
 arrayctor.cont:                                   ; preds = %arrayctor.loop
   %mFaces = getelementptr inbounds i8, ptr %call10, i64 208
   store ptr %16, ptr %mFaces, align 8
-  br i1 %isempty, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %arrayctor.cont
   %_vertices = getelementptr inbounds i8, ptr %this, i64 192
   %_M_finish.i91 = getelementptr inbounds i8, ptr %this, i64 200
   %17 = load ptr, ptr %_M_finish.i91, align 8
@@ -5009,11 +5006,11 @@ for.body.lr.ph:                                   ; preds = %arrayctor.cont
   %conv32 = trunc i64 %sub.ptr.div.i95 to i32
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont58
-  %19 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont58 ]
-  %i.0124 = phi i32 [ 0, %for.body.lr.ph ], [ %inc67, %invoke.cont58 ]
-  %face.0123 = phi ptr [ %16, %for.body.lr.ph ], [ %incdec.ptr, %invoke.cont58 ]
-  %add.i72120122 = phi i64 [ %add.i, %for.body.lr.ph ], [ %add.i72, %invoke.cont58 ]
+for.body:                                         ; preds = %arrayctor.cont, %invoke.cont58
+  %19 = phi i32 [ 0, %arrayctor.cont ], [ %inc, %invoke.cont58 ]
+  %i.0124 = phi i32 [ 0, %arrayctor.cont ], [ %inc67, %invoke.cont58 ]
+  %face.0123 = phi ptr [ %16, %arrayctor.cont ], [ %incdec.ptr, %invoke.cont58 ]
+  %add.i72120122 = phi i64 [ %add.i, %arrayctor.cont ], [ %add.i72, %invoke.cont58 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i27)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i28)
   %add.i30 = add i64 %add.i72120122, 4
@@ -5213,7 +5210,7 @@ invoke.cont58:                                    ; preds = %if.end57
   %cmp20 = icmp ugt i64 %div, %conv19
   br i1 %cmp20, label %for.body, label %for.end, !llvm.loop !48
 
-for.end:                                          ; preds = %invoke.cont58, %arrayctor.cont.thread, %arrayctor.cont
+for.end:                                          ; preds = %invoke.cont58, %arrayctor.cont.thread
   %_meshes = getelementptr inbounds i8, ptr %this, i64 240
   %_M_finish.i106 = getelementptr inbounds i8, ptr %this, i64 248
   %29 = load ptr, ptr %_M_finish.i106, align 8

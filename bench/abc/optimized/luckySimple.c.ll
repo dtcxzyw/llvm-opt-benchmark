@@ -628,10 +628,7 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %wide.trip.count225 = zext i32 %29 to i64
   br label %.lr.ph189
 
-.preheader180:                                    ; preds = %.lr.ph189
-  br i1 %.not165186, label %.preheader179, label %.lr.ph194.preheader
-
-.lr.ph194.preheader:                              ; preds = %.preheader180
+.lr.ph194.preheader:                              ; preds = %.lr.ph189
   %30 = zext nneg i32 %4 to i64
   %31 = add nuw i32 %4, 1
   %wide.trip.count230 = zext i32 %31 to i64
@@ -652,9 +649,9 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i32 %38, ptr %39, align 4
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count225
-  br i1 %exitcond226.not, label %.preheader180, label %.lr.ph189, !llvm.loop !14
+  br i1 %exitcond226.not, label %.lr.ph194.preheader, label %.lr.ph189, !llvm.loop !14
 
-.preheader179:                                    ; preds = %.lr.ph194, %21, %.preheader180
+.preheader179:                                    ; preds = %.lr.ph194, %21
   %.not167195 = icmp slt i32 %22, 0
   br i1 %.not167195, label %.preheader178, label %.lr.ph197.preheader
 
@@ -694,9 +691,6 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 54:                                               ; preds = %.preheader178, %157
   br i1 %.not165186, label %._crit_edge207, label %.lr.ph203
-
-.preheader:                                       ; preds = %minWord3.exit
-  br i1 %.not165186, label %._crit_edge207, label %.lr.ph206
 
 .lr.ph203:                                        ; preds = %54, %minWord3.exit
   %indvars.iv235 = phi i64 [ %indvars.iv.next236, %minWord3.exit ], [ 1, %54 ]
@@ -782,10 +776,10 @@ minWord3.exit.sink.split:                         ; preds = %98, %95
 minWord3.exit:                                    ; preds = %minWord3.exit.sink.split, %98, %95, %91, %58, %.lr.ph203
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
-  br i1 %exitcond239.not, label %.preheader, label %.lr.ph203, !llvm.loop !16
+  br i1 %exitcond239.not, label %.lr.ph206, label %.lr.ph203, !llvm.loop !16
 
-.lr.ph206:                                        ; preds = %.preheader, %minWord3.exit176
-  %indvars.iv240 = phi i64 [ %indvars.iv.next241, %minWord3.exit176 ], [ 1, %.preheader ]
+.lr.ph206:                                        ; preds = %minWord3.exit, %minWord3.exit176
+  %indvars.iv240 = phi i64 [ %indvars.iv.next241, %minWord3.exit176 ], [ 1, %minWord3.exit ]
   %101 = add nuw nsw i64 %indvars.iv240, %10
   %102 = getelementptr inbounds i32, ptr %27, i64 %101
   %103 = load i32, ptr %102, align 4
@@ -863,7 +857,7 @@ minWord3.exit176:                                 ; preds = %minWord3.exit176.si
   %exitcond244.not = icmp eq i64 %indvars.iv.next241, %wide.trip.count243
   br i1 %exitcond244.not, label %._crit_edge207, label %.lr.ph206, !llvm.loop !17
 
-._crit_edge207:                                   ; preds = %minWord3.exit176, %54, %.preheader
+._crit_edge207:                                   ; preds = %minWord3.exit176, %54
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %27, i8 0, i64 %25, i1 false)
   %143 = load i32, ptr %51, align 4
   %144 = load i32, ptr %52, align 4

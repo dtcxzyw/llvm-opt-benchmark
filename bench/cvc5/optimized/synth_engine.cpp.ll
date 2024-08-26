@@ -1802,24 +1802,23 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
-  %3 = and i64 %sub.ptr.div.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %cmp8 = phi i1 [ false, %for.body.preheader ], [ %cmp, %for.inc ]
-  %4 = load ptr, ptr %d_conjs, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.433", ptr %4, i64 %indvars.iv
-  %5 = load ptr, ptr %add.ptr.i, align 8
-  %d_embed_quant.i = getelementptr inbounds i8, ptr %5, i64 848
-  %6 = load ptr, ptr %d_embed_quant.i, align 8
-  %7 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
-  %guard.uninitialized.i.i.i = icmp eq i8 %7, 0
+  %3 = load ptr, ptr %d_conjs, align 8
+  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.433", ptr %3, i64 %indvars.iv
+  %4 = load ptr, ptr %add.ptr.i, align 8
+  %d_embed_quant.i = getelementptr inbounds i8, ptr %4, i64 848
+  %5 = load ptr, ptr %d_embed_quant.i, align 8
+  %6 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
+  %guard.uninitialized.i.i.i = icmp eq i8 %6, 0
   br i1 %guard.uninitialized.i.i.i, label %init.check.i.i.i, label %_ZN4cvc58internal6theory11quantifiers15SynthConjecture10isAssignedEv.exit, !prof !19
 
 init.check.i.i.i:                                 ; preds = %for.body
-  %8 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #19
-  %tobool.not.i.i.i = icmp eq i32 %8, 0
+  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #19
+  %tobool.not.i.i.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i.i.i, label %_ZN4cvc58internal6theory11quantifiers15SynthConjecture10isAssignedEv.exit, label %init.i.i.i
 
 init.i.i.i:                                       ; preds = %init.check.i.i.i
@@ -1837,31 +1836,30 @@ invoke.cont.i.i.i:                                ; preds = %init.i.i.i
   br label %_ZN4cvc58internal6theory11quantifiers15SynthConjecture10isAssignedEv.exit
 
 lpad.i.i.i:                                       ; preds = %init.i.i.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #19
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 
 _ZN4cvc58internal6theory11quantifiers15SynthConjecture10isAssignedEv.exit: ; preds = %for.body, %init.check.i.i.i, %invoke.cont.i.i.i
-  %10 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
-  %cmp.i.i.not = icmp eq ptr %6, %10
+  %9 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
+  %cmp.i.i.not = icmp eq ptr %5, %9
   br i1 %cmp.i.i.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %_ZN4cvc58internal6theory11quantifiers15SynthConjecture10isAssignedEv.exit
-  %11 = load ptr, ptr %d_conjs, align 8
-  %add.ptr.i4 = getelementptr inbounds %"class.std::unique_ptr.433", ptr %11, i64 %indvars.iv
-  %12 = load ptr, ptr %add.ptr.i4, align 8
-  %call11 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SynthConjecture17getSynthSolutionsERSt3mapINS0_12NodeTemplateILb1EEES4_IS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEES8_SaIS9_ISA_SD_EEE(ptr noundef nonnull align 8 dereferenceable(912) %12, ptr noundef nonnull align 8 dereferenceable(48) %sol_map)
+  %10 = load ptr, ptr %d_conjs, align 8
+  %add.ptr.i4 = getelementptr inbounds %"class.std::unique_ptr.433", ptr %10, i64 %indvars.iv
+  %11 = load ptr, ptr %add.ptr.i4, align 8
+  %call11 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SynthConjecture17getSynthSolutionsERSt3mapINS0_12NodeTemplateILb1EEES4_IS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEES8_SaIS9_ISA_SD_EEE(ptr noundef nonnull align 8 dereferenceable(912) %11, ptr noundef nonnull align 8 dereferenceable(48) %sol_map)
   br i1 %call11, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %_ZN4cvc58internal6theory11quantifiers15SynthConjecture10isAssignedEv.exit, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp uge i64 %indvars.iv.next, %3
-  %exitcond = icmp eq i64 %indvars.iv.next, %3
-  br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !25
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc, %if.then, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ %cmp8, %if.then ], [ %cmp, %for.inc ]
+  %cmp.lcssa = phi i1 [ true, %entry ], [ false, %if.then ], [ true, %for.inc ]
   ret i1 %cmp.lcssa
 }
 

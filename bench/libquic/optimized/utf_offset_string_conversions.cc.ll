@@ -595,20 +595,16 @@ if.end.thread:                                    ; preds = %entry
   %conv20 = trunc i64 %src_len to i32
   store i32 0, ptr %i, align 4
   %cmp1421 = icmp sgt i32 %conv20, 0
-  br i1 %cmp1421, label %for.body.us.preheader, label %for.end
+  br i1 %cmp1421, label %for.body.us, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %adjustments, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %adjustments, i64 16
-  br i1 %tobool.not, label %for.body.us.preheader, label %for.body
+  br label %for.body
 
-for.body.us.preheader:                            ; preds = %if.end.thread, %for.body.lr.ph
-  %conv2226 = phi i32 [ %conv, %for.body.lr.ph ], [ %conv20, %if.end.thread ]
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
-  %success.016.us = phi i1 [ %success.1.us, %for.body.us ], [ true, %for.body.us.preheader ]
-  %call.us = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %src, i32 noundef %conv2226, ptr noundef nonnull %i, ptr noundef nonnull %code_point)
+for.body.us:                                      ; preds = %if.end.thread, %for.body.us
+  %success.016.us = phi i1 [ %success.1.us, %for.body.us ], [ true, %if.end.thread ]
+  %call.us = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %src, i32 noundef %conv20, ptr noundef nonnull %i, ptr noundef nonnull %code_point)
   %2 = load i32, ptr %code_point, align 4
   %.sink = select i1 %call.us, i32 %2, i32 65533
   %success.1.us = select i1 %call.us, i1 %success.016.us, i1 false
@@ -616,7 +612,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %3 = load i32, ptr %i, align 4
   %inc.us = add nsw i32 %3, 1
   store i32 %inc.us, ptr %i, align 4
-  %cmp.us = icmp slt i32 %inc.us, %conv2226
+  %cmp.us = icmp slt i32 %inc.us, %conv20
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !20
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1117,20 +1113,16 @@ if.end.thread:                                    ; preds = %entry
   %conv20 = trunc i64 %src_len to i32
   store i32 0, ptr %i, align 4
   %cmp1421 = icmp sgt i32 %conv20, 0
-  br i1 %cmp1421, label %for.body.us.preheader, label %for.end
+  br i1 %cmp1421, label %for.body.us, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %adjustments, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %adjustments, i64 16
-  br i1 %tobool.not, label %for.body.us.preheader, label %for.body
+  br label %for.body
 
-for.body.us.preheader:                            ; preds = %if.end.thread, %for.body.lr.ph
-  %conv2226 = phi i32 [ %conv, %for.body.lr.ph ], [ %conv20, %if.end.thread ]
-  br label %for.body.us
-
-for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
-  %success.016.us = phi i1 [ %success.1.us, %for.body.us ], [ true, %for.body.us.preheader ]
-  %call.us = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef %src, i32 noundef %conv2226, ptr noundef nonnull %i, ptr noundef nonnull %code_point)
+for.body.us:                                      ; preds = %if.end.thread, %for.body.us
+  %success.016.us = phi i1 [ %success.1.us, %for.body.us ], [ true, %if.end.thread ]
+  %call.us = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef %src, i32 noundef %conv20, ptr noundef nonnull %i, ptr noundef nonnull %code_point)
   %2 = load i32, ptr %code_point, align 4
   %.sink = select i1 %call.us, i32 %2, i32 65533
   %success.1.us = select i1 %call.us, i1 %success.016.us, i1 false
@@ -1138,7 +1130,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %3 = load i32, ptr %i, align 4
   %inc.us = add nsw i32 %3, 1
   store i32 %inc.us, ptr %i, align 4
-  %cmp.us = icmp slt i32 %inc.us, %conv2226
+  %cmp.us = icmp slt i32 %inc.us, %conv20
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !27
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc

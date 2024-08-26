@@ -3384,29 +3384,21 @@ define dso_local noundef zeroext i1 @_ZNK10cmPolicies9PolicyMap9IsDefinedENS_8Po
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK10cmPolicies9PolicyMap7IsEmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #7 align 2 {
-  %2 = load i64, ptr %0, align 8
-  %.not.i1.i = icmp eq i64 %2, 0
-  br i1 %.not.i1.i, label %.lr.ph.i, label %_ZNKSt6bitsetILm489EE4noneEv.exit
+  br label %2
 
-.lr.ph.i:                                         ; preds = %1, %4
-  %.05.i2.i = phi i64 [ %3, %4 ], [ 0, %1 ]
-  %3 = add nuw nsw i64 %.05.i2.i, 1
-  %exitcond.not.i.i = icmp eq i64 %3, 8
-  br i1 %exitcond.not.i.i, label %_ZNKSt12_Base_bitsetILm8EE9_M_is_anyEv.exit.loopexit.i, label %4, !llvm.loop !176
+2:                                                ; preds = %2, %1
+  %.05.i.i = phi i64 [ 0, %1 ], [ %5, %2 ]
+  %3 = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %.05.i.i
+  %4 = load i64, ptr %3, align 8
+  %.not.i.i = icmp ne i64 %4, 0
+  %5 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %5, 8
+  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %exitcond.not.i.i
+  br i1 %or.cond.i.i, label %_ZNKSt6bitsetILm489EE4noneEv.exit, label %2, !llvm.loop !176
 
-4:                                                ; preds = %.lr.ph.i
-  %5 = getelementptr inbounds [8 x i64], ptr %0, i64 0, i64 %3
-  %6 = load i64, ptr %5, align 8
-  %.not.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i, label %.lr.ph.i, label %_ZNKSt12_Base_bitsetILm8EE9_M_is_anyEv.exit.loopexit.i, !llvm.loop !176
-
-_ZNKSt12_Base_bitsetILm8EE9_M_is_anyEv.exit.loopexit.i: ; preds = %4, %.lr.ph.i
-  %7 = icmp ugt i64 %.05.i2.i, 6
-  br label %_ZNKSt6bitsetILm489EE4noneEv.exit
-
-_ZNKSt6bitsetILm489EE4noneEv.exit:                ; preds = %1, %_ZNKSt12_Base_bitsetILm8EE9_M_is_anyEv.exit.loopexit.i
-  %.lcssa.i.i = phi i1 [ false, %1 ], [ %7, %_ZNKSt12_Base_bitsetILm8EE9_M_is_anyEv.exit.loopexit.i ]
-  ret i1 %.lcssa.i.i
+_ZNKSt6bitsetILm489EE4noneEv.exit:                ; preds = %2
+  %6 = xor i1 %.not.i.i, true
+  ret i1 %6
 }
 
 ; Function Attrs: noreturn nounwind uwtable

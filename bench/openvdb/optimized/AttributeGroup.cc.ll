@@ -1008,23 +1008,28 @@ if.end11:                                         ; preds = %_ZN3tbb6detail2d118
   %mIsUniform.i = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load i8, ptr %mIsUniform.i, align 8
   %tobool.i3 = trunc i8 %13 to i1
-  br i1 %tobool.i3, label %if.then13, label %if.end14
+  br i1 %tobool.i3, label %if.end14, label %if.end14.thread
 
-if.then13:                                        ; preds = %if.end11
+if.end14.thread:                                  ; preds = %if.end11
+  %14 = zext i32 %n to i64
+  br label %16
+
+if.end14:                                         ; preds = %if.end11
   tail call void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE6expandEb(ptr noundef nonnull align 8 dereferenceable(40) %this, i1 noundef zeroext true)
   %.pre = load i8, ptr %mIsUniform.i, align 8
-  %.pre6 = trunc i8 %.pre to i1
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then13, %if.end11
-  %tobool.i5.pre-phi = phi i1 [ %.pre6, %if.then13 ], [ false, %if.end11 ]
-  %mData.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %mData.i.i, align 8
+  %.pre.fr = freeze i8 %.pre
+  %.pre6 = trunc i8 %.pre.fr to i1
   %15 = zext i32 %n to i64
-  %idxprom.i = select i1 %tobool.i5.pre-phi, i64 0, i64 %15
-  %arrayidx.i = getelementptr inbounds i8, ptr %14, i64 %idxprom.i
-  %16 = load i8, ptr %val, align 1
-  store i8 %16, ptr %arrayidx.i, align 1
+  %spec.select = select i1 %.pre6, i64 0, i64 %15
+  br label %16
+
+16:                                               ; preds = %if.end14, %if.end14.thread
+  %17 = phi i64 [ %14, %if.end14.thread ], [ %spec.select, %if.end14 ]
+  %.in = getelementptr inbounds i8, ptr %this, i64 24
+  %18 = load ptr, ptr %.in, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %18, i64 %17
+  %19 = load i8, ptr %val, align 1
+  store i8 %19, ptr %arrayidx.i, align 1
   ret void
 
 unreachable:                                      ; preds = %try.cont

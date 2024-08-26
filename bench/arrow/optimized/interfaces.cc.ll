@@ -2625,8 +2625,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %entry
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %lor.lhs.false.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %2, %lor.lhs.false.i.i.i.i ], [ %5, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -5155,8 +5155,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %entry
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %lor.lhs.false.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %2, %lor.lhs.false.i.i.i.i ], [ %5, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -8546,7 +8546,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6v
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.i18.i.i.i.i)
   br label %while.cond.i.i.i.i.preheader
 
-while.cond.i.i.i.i.preheader:                     ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_T0_.exit.i9.i.i.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_T0_.exit.i.i.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_T0_.exit55.i.i.i.i
+while.cond.i.i.i.i.preheader:                     ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_T0_.exit.i9.i.i.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_T0_.exit55.i.i.i.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_T0_.exit.i.i.i.i
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.preheader, %while.body.i.i.i.i
@@ -8605,12 +8605,13 @@ if.end20.i.i.i:                                   ; preds = %if.then16.i.i.i, %w
 while.end.i.i.i:                                  ; preds = %if.end20.i.i.i, %if.end.i.i.i
   %__dest.sroa.0.0.lcssa.i.i.i = phi ptr [ %__first.sroa.0.0.i.i.i.i, %if.end.i.i.i ], [ %__dest.sroa.0.1.i.i.i, %if.end20.i.i.i ]
   %incdec.ptr.i5.i.i.i = getelementptr inbounds i8, ptr %__dest.sroa.0.0.lcssa.i.i.i, i64 16
+  %.pre = ptrtoint ptr %incdec.ptr.i5.i.i.i to i64
   br label %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SE_E0_ET_SG_SG_T0_.exit.i
 
 _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SE_E0_ET_SG_SG_T0_.exit.i: ; preds = %while.cond.i.i.i.i, %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_E_ET_SG_SG_T0_.exit.i, %while.end.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %incdec.ptr.i5.i.i.i, %while.end.i.i.i ], [ %0, %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_E_ET_SG_SG_T0_.exit.i ], [ %retval.sroa.0.0.i.i.i, %while.cond.i.i.i.i ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
+  %sub.ptr.lhs.cast.i.i.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i.i.i, %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_E_ET_SG_SG_T0_.exit.i ], [ %.pre, %while.end.i.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i, %while.cond.i.i.i.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %0, %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_E_ET_SG_SG_T0_.exit.i ], [ %incdec.ptr.i5.i.i.i, %while.end.i.i.i ], [ %retval.sroa.0.0.i.i.i, %while.cond.i.i.i.i ]
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 4
   %cmp.i.i = icmp ugt i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i
@@ -11772,8 +11773,8 @@ land.lhs.true.i.i.i.i.i.i:                        ; preds = %entry
 
 do.body.i.i.i.i.i.i.i:                            ; preds = %do.cond.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i
   %__count.0.i.i.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i.i, label %_ZN5arrow10WeakFutureINS_8internal5EmptyEE3getEv.exit.thread.i, label %do.cond.i.i.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i.i, label %_ZN5arrow10WeakFutureINS_8internal5EmptyEE3getEv.exit.thread.i, label %do.cond.i.i.i.i.i.i.i
 
 do.cond.i.i.i.i.i.i.i:                            ; preds = %do.body.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i.i.i, 1
@@ -13806,8 +13807,8 @@ land.lhs.true.i.i.i.i.i.i:                        ; preds = %entry
 
 do.body.i.i.i.i.i.i.i:                            ; preds = %do.cond.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i
   %__count.0.i.i.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i.i, label %_ZN5arrow10WeakFutureISt10shared_ptrIKNS_16KeyValueMetadataEEE3getEv.exit.thread.i, label %do.cond.i.i.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i.i, label %_ZN5arrow10WeakFutureISt10shared_ptrIKNS_16KeyValueMetadataEEE3getEv.exit.thread.i, label %do.cond.i.i.i.i.i.i.i
 
 do.cond.i.i.i.i.i.i.i:                            ; preds = %do.body.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i.i.i, 1
@@ -15567,8 +15568,8 @@ land.lhs.true.i.i.i.i.i.i:                        ; preds = %entry
 
 do.body.i.i.i.i.i.i.i:                            ; preds = %do.cond.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i
   %__count.0.i.i.i.i.i.i.i = phi i32 [ %1, %land.lhs.true.i.i.i.i.i.i ], [ %4, %do.cond.i.i.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i.i.i, label %_ZN5arrow10WeakFutureISt10shared_ptrINS_6BufferEEE3getEv.exit.thread.i, label %do.cond.i.i.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i.i.i, label %_ZN5arrow10WeakFutureISt10shared_ptrINS_6BufferEEE3getEv.exit.thread.i, label %do.cond.i.i.i.i.i.i.i
 
 do.cond.i.i.i.i.i.i.i:                            ; preds = %do.body.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i.i.i, 1

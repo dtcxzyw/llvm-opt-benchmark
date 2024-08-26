@@ -5732,15 +5732,8 @@ _ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit: ; preds = %if.the
   %cmp16.not = icmp eq i32 %conv.i, 0
   br i1 %cmp16.not, label %return, label %for.body
 
-for.cond:                                         ; preds = %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit
-  %inc = add nuw i32 %j.017, 1
-  %cmp = icmp ult i32 %inc, %conv.i
-  %exitcond.not = icmp eq i32 %inc, %conv.i
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !64
-
-for.body:                                         ; preds = %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit, %for.cond
-  %cmp18 = phi i1 [ %cmp, %for.cond ], [ true, %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit ]
-  %j.017 = phi i32 [ %inc, %for.cond ], [ 0, %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit ]
+for.body:                                         ; preds = %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit
+  %j.017 = phi i32 [ %inc, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ], [ 0, %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit ]
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %8, align 8
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %9, align 8
@@ -5881,10 +5874,13 @@ default.unreachable:                              ; preds = %_ZNK6hermes2vm9Arra
 _ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit: ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit, %sw.bb.i, %sw.bb4.i, %sw.bb8.i, %sw.bb12.i, %sw.bb18.i, %sw.bb22.i, %sw.bb29.i, %sw.bb36.i, %sw.bb39.i
   %retval.sroa.0.0.i8 = phi i64 [ -1548112371908608, %sw.bb39.i ], [ -1970324836974592, %sw.bb36.i ], [ %or.i.i14.i, %sw.bb29.i ], [ %or.i.i.i, %sw.bb22.i ], [ %24, %sw.bb18.i ], [ %retval.sroa.0.0.i.i9, %sw.bb12.i ], [ %or.i.i.i8.i, %sw.bb8.i ], [ %or.i.i.i4.i, %sw.bb4.i ], [ %or.i.i.i.i, %sw.bb.i ], [ -1688849860263936, %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit ]
   %call11 = tail call noundef zeroext i1 @_ZN6hermes2vm11isSameValueENS0_11HermesValueES1_(i64 %value.coerce, i64 %retval.sroa.0.0.i8) #13
-  br i1 %call11, label %return, label %for.cond
+  %inc = add nuw i32 %j.017, 1
+  %exitcond.not = icmp eq i32 %inc, %conv.i
+  %or.cond = select i1 %call11, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !64
 
-return:                                           ; preds = %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit, %for.cond, %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit
-  %cmp.lcssa = phi i1 [ false, %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit ], [ %cmp, %for.cond ], [ %cmp18, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ]
+return:                                           ; preds = %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit, %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit
+  %cmp.lcssa = phi i1 [ false, %_ZN6hermes2vm7JSArray9getLengthEPKS1_RNS0_11PointerBaseE.exit ], [ %call11, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ]
   ret i1 %cmp.lcssa
 }
 

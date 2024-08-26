@@ -1967,19 +1967,13 @@ for.inc103:                                       ; preds = %land.lhs.true67, %i
 
 for.end105:                                       ; preds = %for.inc103
   %tobool106.not = icmp eq i32 %invalid_args.1, 0
-  br i1 %tobool106.not, label %for.cond109.preheader, label %err
+  br i1 %tobool106.not, label %for.body112.preheader, label %err
 
-for.cond109.preheader:                            ; preds = %for.end105
-  br i1 %cmp141, label %for.body112.preheader, label %for.end227
-
-for.body112.preheader:                            ; preds = %for.cond109.preheader
+for.body112.preheader:                            ; preds = %for.end105
   %wide.trip.count = zext nneg i32 %div to i64
   br label %for.body112
 
-for.cond123.preheader:                            ; preds = %for.body112
-  br i1 %cmp141, label %for.body126.preheader, label %for.end227
-
-for.body126.preheader:                            ; preds = %for.cond123.preheader
+for.body126.preheader:                            ; preds = %for.body112
   %wide.trip.count184 = zext nneg i32 %div to i64
   br label %for.body126
 
@@ -1994,12 +1988,9 @@ for.body112:                                      ; preds = %for.body112.prehead
   store ptr %call117, ptr %arrayidx119, align 8
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count
-  br i1 %exitcond177.not, label %for.cond123.preheader, label %for.body112, !llvm.loop !19
+  br i1 %exitcond177.not, label %for.body126.preheader, label %for.body112, !llvm.loop !19
 
-for.cond195.preheader:                            ; preds = %for.inc192
-  br i1 %cmp141, label %land.rhs198.preheader, label %for.end227
-
-land.rhs198.preheader:                            ; preds = %for.cond195.preheader
+land.rhs198.preheader:                            ; preds = %for.inc192
   %wide.trip.count189 = zext nneg i32 %div to i64
   br label %land.rhs198
 
@@ -2151,7 +2142,7 @@ if.then178:                                       ; preds = %for.cond156, %for.c
 for.inc192:                                       ; preds = %for.body163, %performInterfaceSet.exit, %if.then147, %if.then178, %if.else150
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
-  br i1 %exitcond185.not, label %for.cond195.preheader, label %for.body126, !llvm.loop !21
+  br i1 %exitcond185.not, label %land.rhs198.preheader, label %for.body126, !llvm.loop !21
 
 for.cond195:                                      ; preds = %for.body204
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
@@ -2196,9 +2187,9 @@ do.end:                                           ; preds = %do.body, %if.end213
   store ptr %70, ptr %err_arg_name, align 8
   br label %err
 
-for.end227:                                       ; preds = %land.rhs198, %for.cond195, %if.end, %for.cond109.preheader, %for.cond123.preheader, %for.cond195.preheader
-  %deny_loading_error.0.lcssa201207210215 = phi i32 [ %deny_loading_error.1, %for.cond195.preheader ], [ %deny_loading_error.1, %for.cond123.preheader ], [ %deny_loading_error.1, %for.cond109.preheader ], [ 0, %if.end ], [ %deny_loading_error.1, %for.cond195 ], [ %deny_loading_error.1, %land.rhs198 ]
-  %invalid_arg_name.0.lcssa203206211214 = phi ptr [ %invalid_arg_name.1, %for.cond195.preheader ], [ %invalid_arg_name.1, %for.cond123.preheader ], [ %invalid_arg_name.1, %for.cond109.preheader ], [ null, %if.end ], [ %invalid_arg_name.1, %for.cond195 ], [ %invalid_arg_name.1, %land.rhs198 ]
+for.end227:                                       ; preds = %land.rhs198, %for.cond195, %if.end
+  %deny_loading_error.0.lcssa201207210215 = phi i32 [ 0, %if.end ], [ %deny_loading_error.1, %for.cond195 ], [ %deny_loading_error.1, %land.rhs198 ]
+  %invalid_arg_name.0.lcssa203206211214 = phi ptr [ null, %if.end ], [ %invalid_arg_name.1, %for.cond195 ], [ %invalid_arg_name.1, %land.rhs198 ]
   %call228 = call i32 @moduleConfigApplyConfig(ptr noundef %call, ptr noundef nonnull %errstr, ptr noundef nonnull %err_arg_name) #25
   %tobool229.not = icmp eq i32 %call228, 0
   br i1 %tobool229.not, label %if.then230, label %if.end231
@@ -2445,9 +2436,8 @@ for.inc:                                          ; preds = %performInterfaceSet
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc
-  %tobool10.not = icmp ne ptr %apply_fns, null
-  %or.cond22 = and i1 %tobool10.not, %cmp18
-  br i1 %or.cond22, label %land.rhs.preheader, label %if.end32
+  %tobool10.not.not = icmp eq ptr %apply_fns, null
+  br i1 %tobool10.not.not, label %if.end32, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %for.end
   %wide.trip.count27 = zext nneg i32 %count to i64
@@ -7595,7 +7585,7 @@ lor.lhs.false16:                                  ; preds = %lor.lhs.false
   br i1 %or.cond1, label %return.sink.split, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader.thread, %for.cond.preheader
-  %cmp42238 = phi i1 [ false, %for.cond.preheader.thread ], [ false, %for.cond.preheader ], [ %cmp422, %for.cond ]
+  %cmp42238 = phi i1 [ false, %for.cond.preheader.thread ], [ false, %for.cond.preheader ], [ true, %for.cond ]
   %argc.addr.03437 = phi i32 [ 0, %for.cond.preheader.thread ], [ %argc, %for.cond.preheader ], [ %argc, %for.cond ]
   %.b = load i1, ptr @reading_config_file, align 4
   br i1 %.b, label %if.else, label %if.end30.sink.split

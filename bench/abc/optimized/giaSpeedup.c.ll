@@ -452,12 +452,9 @@ define float @Gia_ObjComputeArrival(ptr nocapture noundef readonly %0, i32 nound
 .critedge.i:                                      ; preds = %134, %._crit_edge.i
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next75.i, %smax
-  br i1 %exitcond149.not, label %Gia_LutDelayTraceSortPins.exit, label %.lr.ph65.i, !llvm.loop !7
+  br i1 %exitcond149.not, label %.lr.ph, label %.lr.ph65.i, !llvm.loop !7
 
-Gia_LutDelayTraceSortPins.exit:                   ; preds = %.critedge.i
-  br i1 %97, label %.lr.ph, label %.critedge
-
-.lr.ph:                                           ; preds = %.critedge.preheader.i, %Gia_LutDelayTraceSortPins.exit
+.lr.ph:                                           ; preds = %.critedge.i, %.critedge.preheader.i
   %140 = getelementptr inbounds i8, ptr %93, i64 4
   %141 = getelementptr i8, ptr %0, i64 728
   %.val114 = load ptr, ptr %141, align 8
@@ -505,8 +502,8 @@ Gia_LutDelayTraceSortPins.exit:                   ; preds = %.critedge.i
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
   br i1 %exitcond156.not, label %.critedge.thread, label %157, !llvm.loop !12
 
-.critedge:                                        ; preds = %101, %Gia_LutDelayTraceSortPins.exit, %.preheader129, %61, %.preheader
-  %168 = phi i32 [ 1, %Gia_LutDelayTraceSortPins.exit ], [ %94, %.preheader129 ], [ %68, %61 ], [ %41, %.preheader ], [ %94, %101 ]
+.critedge:                                        ; preds = %101, %.preheader129, %61, %.preheader
+  %168 = phi i32 [ %94, %.preheader129 ], [ %68, %61 ], [ %41, %.preheader ], [ %94, %101 ]
   %.fr = freeze i32 %168
   %169 = icmp eq i32 %.fr, 0
   br i1 %169, label %170, label %.critedge.thread
@@ -761,12 +758,9 @@ define float @Gia_ObjPropagateRequired(ptr nocapture noundef readonly %0, i32 no
 .critedge.i:                                      ; preds = %132, %._crit_edge.i
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next75.i, %smax
-  br i1 %exitcond143.not, label %Gia_LutDelayTraceSortPins.exit, label %.lr.ph65.i, !llvm.loop !7
+  br i1 %exitcond143.not, label %.lr.ph, label %.lr.ph65.i, !llvm.loop !7
 
-Gia_LutDelayTraceSortPins.exit:                   ; preds = %.critedge.i
-  br i1 %95, label %.lr.ph, label %.critedge
-
-.lr.ph:                                           ; preds = %.critedge.preheader.i, %Gia_LutDelayTraceSortPins.exit
+.lr.ph:                                           ; preds = %.critedge.i, %.critedge.preheader.i
   %138 = getelementptr i8, ptr %0, i64 728
   %139 = mul nsw i32 %1, 3
   %140 = sext i32 %139 to i64
@@ -861,8 +855,8 @@ Gia_LutDelayTraceSortPins.exit:                   ; preds = %.critedge.i
   %199 = icmp slt i64 %indvars.iv.next146, %198
   br i1 %199, label %172, label %.critedge, !llvm.loop !16
 
-.critedge:                                        ; preds = %163, %191, %85, %39, %99, %Gia_LutDelayTraceSortPins.exit, %.preheader, %62, %9
-  %.0 = phi float [ %17, %9 ], [ %71, %62 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %Gia_LutDelayTraceSortPins.exit ], [ 0.000000e+00, %99 ], [ %17, %39 ], [ %71, %85 ], [ %183, %191 ], [ %149, %163 ]
+.critedge:                                        ; preds = %163, %191, %85, %39, %99, %.preheader, %62, %9
+  %.0 = phi float [ %17, %9 ], [ %71, %62 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %99 ], [ %17, %39 ], [ %71, %85 ], [ %183, %191 ], [ %149, %163 ]
   ret float %.0
 }
 
@@ -1736,12 +1730,9 @@ define i32 @Gia_LutDelayTraceTCEdges(ptr nocapture noundef readonly %0, i32 noun
 .critedge.i:                                      ; preds = %115, %._crit_edge.i
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next75.i, %smax
-  br i1 %exitcond92.not, label %Gia_LutDelayTraceSortPins.exit, label %.lr.ph65.i, !llvm.loop !7
+  br i1 %exitcond92.not, label %.lr.ph, label %.lr.ph65.i, !llvm.loop !7
 
-Gia_LutDelayTraceSortPins.exit:                   ; preds = %.critedge.i
-  br i1 %85, label %.lr.ph, label %.critedge
-
-.lr.ph:                                           ; preds = %.critedge.preheader.i, %Gia_LutDelayTraceSortPins.exit
+.lr.ph:                                           ; preds = %.critedge.i, %.critedge.preheader.i
   %121 = getelementptr inbounds i8, ptr %81, i64 4
   %wide.trip.count = zext nneg i32 %82 to i64
   br label %122
@@ -1770,8 +1761,8 @@ Gia_LutDelayTraceSortPins.exit:                   ; preds = %.critedge.i
   %exitcond94.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond94.not, label %.critedge, label %122, !llvm.loop !27
 
-.critedge:                                        ; preds = %122, %60, %28, %73, %Gia_LutDelayTraceSortPins.exit, %45, %.preheader
-  %.263 = phi i32 [ 0, %.preheader ], [ 0, %45 ], [ 0, %Gia_LutDelayTraceSortPins.exit ], [ 0, %73 ], [ %.162, %28 ], [ %.4, %60 ], [ %.6, %122 ]
+.critedge:                                        ; preds = %122, %60, %28, %73, %45, %.preheader
+  %.263 = phi i32 [ 0, %.preheader ], [ 0, %45 ], [ 0, %73 ], [ %.162, %28 ], [ %.4, %60 ], [ %.6, %122 ]
   ret i32 %.263
 }
 

@@ -986,10 +986,8 @@ invoke.cont68:                                    ; preds = %if.then.i1.i.i, %_Z
   %second.i146 = getelementptr inbounds i8, ptr %ref.tmp78, i64 8
   %d_jcache142 = getelementptr inbounds i8, ptr %this, i64 576
   %d_maxStackSize = getelementptr inbounds i8, ptr %this, i64 928
-  %d_cnfStream = getelementptr inbounds i8, ptr %this, i64 24
-  %d_currStatusDec210 = getelementptr inbounds i8, ptr %this, i64 888
-  %d_decisionStopOnly = getelementptr inbounds i8, ptr %this, i64 890
   %d_currUnderStatus = getelementptr inbounds i8, ptr %this, i64 880
+  %d_currStatusDec = getelementptr inbounds i8, ptr %this, i64 888
   %d_assertions = getelementptr inbounds i8, ptr %this, i64 32
   br label %do.body71
 
@@ -1115,7 +1113,7 @@ invoke.cont95:                                    ; preds = %invoke.cont.i.i180,
   br i1 %cmp.i174, label %if.end111, label %if.then97
 
 if.then97:                                        ; preds = %invoke.cont95
-  %31 = load i8, ptr %d_currStatusDec210, align 8
+  %31 = load i8, ptr %d_currStatusDec, align 8
   %tobool = trunc i8 %31 to i1
   %d_numStatusDecision.d_stats101.v = select i1 %tobool, i64 912, i64 904
   %d_numStatusDecision.d_stats101 = getelementptr inbounds i8, ptr %this, i64 %d_numStatusDecision.d_stats101.v
@@ -1162,6 +1160,7 @@ cond.end163:                                      ; preds = %invoke.cont153, %co
   br i1 %call169, label %if.then171, label %if.else221
 
 if.then171:                                       ; preds = %cond.end163
+  %d_cnfStream = getelementptr inbounds i8, ptr %this, i64 24
   %34 = load ptr, ptr %d_cnfStream, align 8
   store ptr %nextAtom.sroa.0.0, ptr %agg.tmp172, align 8
   %call176 = call i64 @_ZN4cvc58internal4prop9CnfStream10getLiteralENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(352) %34, ptr noundef nonnull %agg.tmp172)
@@ -1193,7 +1192,8 @@ if.then.i1.i.i389:                                ; preds = %_ZN4cvc57context10C
   br label %invoke.cont208
 
 invoke.cont208:                                   ; preds = %if.then.i1.i.i389, %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i386
-  store i8 1, ptr %d_currStatusDec210, align 8
+  store i8 1, ptr %d_currStatusDec, align 8
+  %d_decisionStopOnly = getelementptr inbounds i8, ptr %this, i64 890
   %40 = load i8, ptr %d_decisionStopOnly, align 2
   %tobool211 = trunc i8 %40 to i1
   br i1 %tobool211, label %if.then212, label %if.end213
@@ -1226,7 +1226,7 @@ cond.true270:                                     ; preds = %do.cond262
   %retval.sroa.0.0.copyload8 = select i1 %retval.sroa.0.0.copyload8.b, i64 -2, i64 0
   br label %return
 
-return:                                           ; preds = %if.end213, %if.then212, %cond.true270, %cond.end
+return:                                           ; preds = %if.then212, %if.end213, %cond.true270, %cond.end
   %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload, %cond.end ], [ %retval.sroa.0.0.copyload8, %cond.true270 ], [ %retval.sroa.0.0.copyload6, %if.then212 ], [ %spec.select577, %if.end213 ]
   ret i64 %retval.sroa.0.0
 }
@@ -2150,9 +2150,8 @@ cond.false17:                                     ; preds = %invoke.cont10
 invoke.cont21:                                    ; preds = %invoke.cont10
   %inc = add nuw i64 %index.0180, 1
   %bf.clear.i26 = and i16 %bf.load.i, 1023
-  %cmp23 = icmp ne i16 %bf.clear.i26, 19
-  %brmerge = or i1 %cmp12.not, %cmp23
-  br i1 %brmerge, label %if.else85, label %if.then
+  %cmp23.not = icmp eq i16 %bf.clear.i26, 19
+  br i1 %cmp23.not, label %if.then, label %if.else85
 
 if.then:                                          ; preds = %invoke.cont21
   %4 = load ptr, ptr %toProcess, align 8
@@ -2204,8 +2203,7 @@ if.else:                                          ; preds = %cond.false17
   %inc187 = add nuw i64 %index.0180, 1
   %bf.clear.i26189 = and i16 %bf.load.i25.pre, 1023
   %cmp43 = icmp eq i16 %bf.clear.i26189, 21
-  %brmerge22.not = and i1 %cmp12.not, %cmp43
-  br i1 %brmerge22.not, label %if.then46, label %if.else85
+  br i1 %cmp43, label %if.then46, label %if.else85
 
 if.then46:                                        ; preds = %if.else
   %d_kind.i24188 = getelementptr inbounds i8, ptr %8, i64 8
@@ -2845,11 +2843,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont, %if.th
   call void @_ZN4cvc58internal8decision13AssertionList16getNextAssertionEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %curr, ptr noundef nonnull align 8 dereferenceable(272) %cond-lvalue)
   %d_jcache = getelementptr inbounds i8, ptr %this, i64 576
   %d_stats = getelementptr inbounds i8, ptr %this, i64 904
-  %.pre105 = load ptr, ptr %curr, align 8
+  %.pre103 = load ptr, ptr %curr, align 8
   br i1 %useSkolemList, label %while.cond.us, label %while.cond
 
 while.cond.us:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %while.cond.us.backedge
-  %8 = phi ptr [ %.be, %while.cond.us.backedge ], [ %.pre105, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  %8 = phi ptr [ %.be, %while.cond.us.backedge ], [ %.pre103, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   %9 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i.us = icmp eq i8 %9, 0
   br i1 %guard.uninitialized.i.i.us, label %init.check.i.i.us, label %invoke.cont5.us, !prof !4
@@ -2906,7 +2904,7 @@ lpad.i.i.split.us:                                ; preds = %init.i.i.us
   br label %lpad.i.i
 
 while.cond:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %while.cond.backedge
-  %16 = phi ptr [ %.be112, %while.cond.backedge ], [ %.pre105, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  %16 = phi ptr [ %.be110, %while.cond.backedge ], [ %.pre103, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   %17 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %17, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont5, !prof !4
@@ -3063,7 +3061,7 @@ if.end45:                                         ; preds = %cond.true11
   br i1 %cmp.not.i91, label %while.cond.backedge, label %if.then.i92
 
 while.cond.backedge:                              ; preds = %if.end45, %if.then.i92
-  %.be112 = phi ptr [ %36, %if.end45 ], [ %37, %if.then.i92 ]
+  %.be110 = phi ptr [ %36, %if.end45 ], [ %37, %if.then.i92 ]
   br label %while.cond, !llvm.loop !65
 
 if.then.i92:                                      ; preds = %if.end45

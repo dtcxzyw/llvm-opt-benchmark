@@ -18330,7 +18330,7 @@ cond.end:                                         ; preds = %_ZNK11flatbuffers5T
   %5 = sext i8 %4 to i32
   %6 = add nsw i32 %5, -1
   %7 = icmp ult i32 %6, 12
-  br i1 %7, label %cond.end.sink.split.i, label %if.end26
+  br i1 %7, label %cond.end.i, label %if.end26
 
 cond.end.thread159:                               ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i26
   %idx.ext.i.i30 = zext i16 %3 to i64
@@ -18339,34 +18339,18 @@ cond.end.thread159:                               ; preds = %_ZNK11flatbuffers5T
   %9 = sext i8 %8 to i32
   %10 = add nsw i32 %9, -1
   %11 = icmp ult i32 %10, 12
-  br i1 %11, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i, label %if.end26
+  br i1 %11, label %cond.end.i, label %if.end26
 
-_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i: ; preds = %cond.end.thread159
-  %add.ptr.i.i.i10.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 4
-  %12 = load i16, ptr %add.ptr.i.i.i10.i, align 2
-  %tobool.not.i.i11.i = icmp eq i16 %12, 0
-  br i1 %tobool.not.i.i11.i, label %cond.end.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.cond.end.sink.split.i_crit_edge
-
-_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.cond.end.sink.split.i_crit_edge: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i
-  %idx.ext.i.i13.i.phi.trans.insert = zext i16 %12 to i64
-  %add.ptr.i.i14.i.phi.trans.insert = getelementptr inbounds i8, ptr %type, i64 %idx.ext.i.i13.i.phi.trans.insert
-  %.pre = load i8, ptr %add.ptr.i.i14.i.phi.trans.insert, align 1
-  br label %cond.end.sink.split.i
-
-cond.end.sink.split.i:                            ; preds = %cond.end, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.cond.end.sink.split.i_crit_edge
-  %13 = phi i8 [ %.pre, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.cond.end.sink.split.i_crit_edge ], [ %4, %cond.end ]
-  %cond161167 = phi i32 [ %9, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i.cond.end.sink.split.i_crit_edge ], [ %5, %cond.end ]
-  %14 = icmp eq i8 %13, 15
-  br label %cond.end.i
-
-cond.end.i:                                       ; preds = %cond.end.sink.split.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i
-  %cond161168 = phi i32 [ %9, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i ], [ %cond161167, %cond.end.sink.split.i ]
-  %cond.i = phi i1 [ false, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i9.i ], [ %14, %cond.end.sink.split.i ]
+cond.end.i:                                       ; preds = %cond.end, %cond.end.thread159
+  %12 = phi i8 [ %4, %cond.end ], [ %8, %cond.end.thread159 ]
+  %cond161167 = phi i32 [ %5, %cond.end ], [ %9, %cond.end.thread159 ]
+  %13 = icmp eq i8 %12, 15
   %cmp.i.i.i18.i = icmp ugt i16 %1, 8
   br i1 %cmp.i.i.i18.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i20.i, label %if.then21
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i20.i: ; preds = %cond.end.i
-  %add.ptr.i.i.i21.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
+  %14 = getelementptr inbounds i8, ptr %type, i64 %idx.neg.i.i.i.i
+  %add.ptr.i.i.i21.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i16, ptr %add.ptr.i.i.i21.i, align 2
   %tobool.not.i.i22.i = icmp eq i16 %15, 0
   br i1 %tobool.not.i.i22.i, label %if.then21, label %_ZNK10reflection4Type5indexEv.exit.i
@@ -18376,7 +18360,7 @@ _ZNK10reflection4Type5indexEv.exit.i:             ; preds = %_ZNK11flatbuffers5T
   %add.ptr.i.i25.i = getelementptr inbounds i8, ptr %type, i64 %idx.ext.i.i24.i
   %16 = load i32, ptr %add.ptr.i.i25.i, align 4
   %cmp.i = icmp slt i32 %16, 0
-  %or.cond.i = select i1 %cmp.i, i1 true, i1 %cond.i
+  %or.cond.i = or i1 %cmp.i, %13
   br i1 %or.cond.i, label %if.then21, label %_ZNK10reflection4Type5indexEv.exit37.i
 
 _ZNK10reflection4Type5indexEv.exit37.i:           ; preds = %_ZNK10reflection4Type5indexEv.exit.i
@@ -18510,7 +18494,7 @@ ehcleanup18:                                      ; preds = %lpad.i, %ehcleanup,
   br label %eh.resume
 
 if.then21:                                        ; preds = %cond.end.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i20.i, %_ZNK10reflection4Type5indexEv.exit37.i, %lor.lhs.false2.i.i, %_ZNK10reflection4Type5indexEv.exit.i
-  call fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EN10reflection8BaseTypeE(ptr noalias nonnull align 8 %ref.tmp22, i32 noundef %cond161168)
+  call fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116NimBfbsGenerator12GenerateTypeB5cxx11EN10reflection8BaseTypeE(ptr noalias nonnull align 8 %ref.tmp22, i32 noundef %cond161167)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %importns.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %importns.i) #25, !noalias !178
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ns.i.i), !noalias !178

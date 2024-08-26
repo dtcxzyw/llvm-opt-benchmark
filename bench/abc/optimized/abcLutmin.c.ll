@@ -1423,8 +1423,8 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   %21 = tail call ptr @Cudd_Cofactor(ptr noundef %6, ptr noundef %20, ptr noundef %14) #18
   tail call void @Cudd_Ref(ptr noundef %21) #18
   %22 = tail call i32 @Cudd_SupportSize(ptr noundef %6, ptr noundef %19) #18
-  %.not = icmp sle i32 %22, %12
-  br i1 %.not, label %._crit_edge.loopexit, label %23
+  %.not.not.not.not = icmp sle i32 %22, %12
+  br i1 %.not.not.not.not, label %._crit_edge.loopexit, label %23
 
 23:                                               ; preds = %13
   %24 = tail call i32 @Cudd_SupportSize(ptr noundef %6, ptr noundef %21) #18
@@ -1440,7 +1440,7 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %27, label %13, label %._crit_edge.loopexit, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %23, %13, %25
-  %.099.lcssa.ph = phi i32 [ %26, %25 ], [ %.099124, %13 ], [ %.099124, %23 ]
+  %.099.lcssa.ph = phi i32 [ %.099124, %23 ], [ %.099124, %13 ], [ %26, %25 ]
   %.val113.pre = load i32, ptr %9, align 4
   br label %._crit_edge
 
@@ -1449,7 +1449,7 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   %.099.lcssa = phi i32 [ 0, %3 ], [ %.099.lcssa.ph, %._crit_edge.loopexit ]
   %.1105 = phi ptr [ null, %3 ], [ %21, %._crit_edge.loopexit ]
   %.1103 = phi ptr [ null, %3 ], [ %19, %._crit_edge.loopexit ]
-  %.not109 = phi i1 [ false, %3 ], [ %.not, %._crit_edge.loopexit ]
+  %.not109 = phi i1 [ false, %3 ], [ %.not.not.not.not, %._crit_edge.loopexit ]
   %28 = icmp eq i32 %.099.lcssa, %.val113
   br i1 %28, label %95, label %29
 

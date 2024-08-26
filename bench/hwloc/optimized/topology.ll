@@ -1925,8 +1925,7 @@ hwloc_tma_strdup.exit50.us:                       ; preds = %hwloc_tma_strdup.ex
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr readonly align 1 %25, i64 %27, i1 false)
   %29 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %28, ptr %29, align 8
-  %or.cond.us = or i1 %.not.i49.us, %.not.i45.us
-  br i1 %or.cond.us, label %.preheader, label %30
+  br i1 %.not.i45.us, label %.preheader, label %30
 
 30:                                               ; preds = %hwloc_tma_strdup.exit50.us
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
@@ -1970,8 +1969,7 @@ hwloc_tma_strdup.exit50:                          ; preds = %hwloc_tma_strdup.ex
   store ptr %49, ptr %50, align 8
   %51 = load ptr, ptr %42, align 8
   %.not39 = icmp eq ptr %51, null
-  %or.cond = or i1 %.not.i49, %.not39
-  br i1 %or.cond, label %.preheader, label %54
+  br i1 %.not39, label %.preheader, label %54
 
 .preheader.sink.split:                            ; preds = %hwloc_tma_strdup.exit, %hwloc_tma_strdup.exit.us
   %.lcssa88.sink = phi ptr [ %22, %hwloc_tma_strdup.exit.us ], [ %42, %hwloc_tma_strdup.exit ]
@@ -8593,7 +8591,7 @@ hwloc_dont_merge_group_level.exit265:             ; preds = %63, %59
 96:                                               ; preds = %93
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next17.i, %wide.trip.count19.i
-  br i1 %exitcond20.not.i, label %hwloc_compare_levels_structure.exit, label %.lr.ph.split.us.i, !llvm.loop !82
+  br i1 %exitcond20.not.i, label %.lr.ph400, label %.lr.ph.split.us.i, !llvm.loop !82
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i268, %106
   %indvars.iv.i269 = phi i64 [ %indvars.iv.next.i270, %106 ], [ 0, %.lr.ph.i268 ]
@@ -8615,12 +8613,9 @@ hwloc_dont_merge_group_level.exit265:             ; preds = %63, %59
 106:                                              ; preds = %103
   %indvars.iv.next.i270 = add nuw nsw i64 %indvars.iv.i269, 1
   %exitcond.not.i271 = icmp eq i64 %indvars.iv.next.i270, %wide.trip.count19.i
-  br i1 %exitcond.not.i271, label %hwloc_compare_levels_structure.exit, label %.lr.ph.split.i, !llvm.loop !82
+  br i1 %exitcond.not.i271, label %.lr.ph400, label %.lr.ph.split.i, !llvm.loop !82
 
-hwloc_compare_levels_structure.exit:              ; preds = %106, %96
-  br i1 %.not11.i267, label %._crit_edge401, label %.lr.ph400
-
-.lr.ph400:                                        ; preds = %hwloc_compare_levels_structure.exit
+.lr.ph400:                                        ; preds = %106, %96
   %.not243 = icmp eq i32 %.1223, 0
   br label %107
 
@@ -9245,8 +9240,8 @@ hwloc__free_object_contents.exit368:              ; preds = %.lr.ph.i.i365, %353
   %388 = icmp ult i64 %indvars.iv.next443, %387
   br i1 %388, label %107, label %._crit_edge401, !llvm.loop !88
 
-._crit_edge401:                                   ; preds = %370, %.preheader.i, %hwloc_compare_levels_structure.exit
-  %389 = phi i32 [ 0, %hwloc_compare_levels_structure.exit ], [ 0, %.preheader.i ], [ %386, %370 ]
+._crit_edge401:                                   ; preds = %370, %.preheader.i
+  %389 = phi i32 [ 0, %.preheader.i ], [ %386, %370 ]
   %390 = icmp ne i32 %.1225, 0
   %391 = icmp ne i64 %indvars.iv448, 1
   %or.cond5 = and i1 %391, %390

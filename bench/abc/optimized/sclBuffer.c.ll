@@ -6103,7 +6103,8 @@ define void @Abc_BufPerformOne(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 
 .critedge11._crit_edge.thread:                    ; preds = %.critedge11.preheader
   tail call void @Abc_BufUpdateArr(ptr noundef nonnull %0, ptr noundef %11)
-  br label %._crit_edge249.thread
+  tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef %11)
+  br label %.loopexit
 
 .critedge11.preheader269:                         ; preds = %.critedge11.preheader
   %181 = sext i32 %.val215.val to i64
@@ -6168,9 +6169,6 @@ define void @Abc_BufPerformOne(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 
 .critedge11._crit_edge:                           ; preds = %.critedge11
   tail call void @Abc_BufUpdateArr(ptr noundef nonnull %0, ptr noundef %11)
-  br i1 %180, label %.lr.ph248, label %._crit_edge249.thread
-
-.lr.ph248:                                        ; preds = %.critedge11._crit_edge
   %213 = getelementptr inbounds i8, ptr %0, i64 24
   %214 = getelementptr i8, ptr %0, i64 48
   %215 = getelementptr i8, ptr %0, i64 32
@@ -6178,8 +6176,8 @@ define void @Abc_BufPerformOne(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   %wide.trip.count279 = zext nneg i32 %128 to i64
   br label %217
 
-217:                                              ; preds = %.lr.ph248, %Abc_BufComputeDep.exit
-  %indvars.iv276 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next277, %Abc_BufComputeDep.exit ]
+217:                                              ; preds = %.critedge11._crit_edge, %Abc_BufComputeDep.exit
+  %indvars.iv276 = phi i64 [ 0, %.critedge11._crit_edge ], [ %indvars.iv.next277, %Abc_BufComputeDep.exit ]
   %218 = load ptr, ptr %5, align 8
   %219 = getelementptr i8, ptr %218, i64 32
   %.val200 = load ptr, ptr %219, align 8
@@ -6276,29 +6274,19 @@ Abc_BufComputeDep.exit:                           ; preds = %260, %217
   %exitcond280.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count279
   br i1 %exitcond280.not, label %._crit_edge249, label %217, !llvm.loop !66
 
-._crit_edge249.thread:                            ; preds = %.critedge11._crit_edge.thread, %.critedge11._crit_edge
-  tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef %11)
-  br label %.loopexit
-
 ._crit_edge249:                                   ; preds = %Abc_BufComputeDep.exit
   tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef %11)
-  br i1 %180, label %.lr.ph252.preheader, label %.loopexit
-
-.lr.ph252.preheader:                              ; preds = %._crit_edge249
   %269 = sext i32 %.val215.val to i64
   %wide.trip.count284 = zext nneg i32 %128 to i64
   br label %.lr.ph252
 
-.preheader:                                       ; preds = %.lr.ph252
-  br i1 %180, label %.lr.ph254.preheader, label %.loopexit
-
-.lr.ph254.preheader:                              ; preds = %.preheader
+.lr.ph254.preheader:                              ; preds = %.lr.ph252
   %270 = sext i32 %.val215.val to i64
   %wide.trip.count289 = zext nneg i32 %128 to i64
   br label %.lr.ph254
 
-.lr.ph252:                                        ; preds = %.lr.ph252.preheader, %.lr.ph252
-  %indvars.iv281 = phi i64 [ 0, %.lr.ph252.preheader ], [ %indvars.iv.next282, %.lr.ph252 ]
+.lr.ph252:                                        ; preds = %._crit_edge249, %.lr.ph252
+  %indvars.iv281 = phi i64 [ 0, %._crit_edge249 ], [ %indvars.iv.next282, %.lr.ph252 ]
   %271 = load ptr, ptr %5, align 8
   %272 = getelementptr i8, ptr %271, i64 32
   %.val199 = load ptr, ptr %272, align 8
@@ -6310,7 +6298,7 @@ Abc_BufComputeDep.exit:                           ; preds = %260, %217
   tail call void @Abc_BufAddToQue(ptr noundef nonnull %0, ptr noundef %276)
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count284
-  br i1 %exitcond285.not, label %.preheader, label %.lr.ph252, !llvm.loop !67
+  br i1 %exitcond285.not, label %.lr.ph254.preheader, label %.lr.ph252, !llvm.loop !67
 
 .lr.ph254:                                        ; preds = %.lr.ph254.preheader, %.lr.ph254
   %indvars.iv286 = phi i64 [ 0, %.lr.ph254.preheader ], [ %indvars.iv.next287, %.lr.ph254 ]
@@ -6334,7 +6322,7 @@ Abc_BufComputeDep.exit:                           ; preds = %260, %217
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph254, %._crit_edge249, %._crit_edge249.thread, %.preheader, %115, %.critedge9, %283, %284, %.critedge, %52
+.loopexit:                                        ; preds = %.lr.ph254, %.critedge11._crit_edge.thread, %115, %.critedge9, %283, %284, %.critedge, %52
   ret void
 }
 

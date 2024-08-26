@@ -12296,8 +12296,8 @@ if.end.i.i12:                                     ; preds = %for.cond
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit15: ; preds = %for.cond, %if.end.i.i12
   %retval.0.i.i14 = phi i32 [ %15, %if.end.i.i12 ], [ 0, %for.cond ]
   %16 = zext i32 %retval.0.i.i14 to i64
-  %cmp.not.not = icmp uge i64 %indvars.iv, %16
-  br i1 %cmp.not.not, label %return, label %for.body
+  %cmp.not.not.not.not.not.not = icmp uge i64 %indvars.iv, %16
+  br i1 %cmp.not.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit15
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
@@ -12354,7 +12354,8 @@ for.inc:                                          ; preds = %land.lhs.true.i
   br label %for.cond, !llvm.loop !75
 
 return:                                           ; preds = %for.body, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit15, %for.body.i18, %for.inc.i
-  ret i1 %cmp.not.not
+  %cmp.not.not.not.not.not52 = phi i1 [ false, %for.inc.i ], [ false, %for.body.i18 ], [ %cmp.not.not.not.not.not.not, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit15 ], [ %cmp.not.not.not.not.not.not, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i ], [ %cmp.not.not.not.not.not.not, %for.body ]
+  ret i1 %cmp.not.not.not.not.not52
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15289,18 +15290,15 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNK6vectorISt4pair
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i, i64 16
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %_ZSt20uninitialized_move_nIPSt4pairIP3appjEjS4_ES0_IT_T1_ES5_T0_S6_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !89
+  br i1 %cmp.i.i.not.i.i.i.i.i.i, label %if.then.i, label %for.body.i.i.i.i.i.i, !llvm.loop !89
 
-_ZSt20uninitialized_move_nIPSt4pairIP3appjEjS4_ES0_IT_T1_ES5_T0_S6_.exit: ; preds = %for.body.i.i.i.i.i.i
-  br i1 %cmp.i, label %_ZN6vectorISt4pairIP3appjELb0EjE7destroyEv.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %_ZNK6vectorISt4pairIP3appjELb0EjE4sizeEv.exit, %_ZSt20uninitialized_move_nIPSt4pairIP3appjEjS4_ES0_IT_T1_ES5_T0_S6_.exit
+if.then.i:                                        ; preds = %for.body.i.i.i.i.i.i, %_ZNK6vectorISt4pairIP3appjELb0EjE4sizeEv.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i)
   br label %_ZN6vectorISt4pairIP3appjELb0EjE7destroyEv.exit
 
-_ZN6vectorISt4pairIP3appjELb0EjE7destroyEv.exit:  ; preds = %_ZSt20uninitialized_move_nIPSt4pairIP3appjEjS4_ES0_IT_T1_ES5_T0_S6_.exit.thread, %_ZSt20uninitialized_move_nIPSt4pairIP3appjEjS4_ES0_IT_T1_ES5_T0_S6_.exit, %if.then.i
-  %add.ptr282832 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIP3appjEjS4_ES0_IT_T1_ES5_T0_S6_.exit.thread ], [ %add.ptr28, %_ZSt20uninitialized_move_nIPSt4pairIP3appjEjS4_ES0_IT_T1_ES5_T0_S6_.exit ], [ %add.ptr28, %if.then.i ]
+_ZN6vectorISt4pairIP3appjELb0EjE7destroyEv.exit:  ; preds = %_ZSt20uninitialized_move_nIPSt4pairIP3appjEjS4_ES0_IT_T1_ES5_T0_S6_.exit.thread, %if.then.i
+  %add.ptr282832 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIP3appjEjS4_ES0_IT_T1_ES5_T0_S6_.exit.thread ], [ %add.ptr28, %if.then.i ]
   store ptr %add.ptr282832, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end32

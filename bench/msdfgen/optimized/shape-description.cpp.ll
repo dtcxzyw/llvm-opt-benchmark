@@ -368,13 +368,11 @@ do.body.i35.backedge:                             ; preds = %do.body.i35, %do.bo
 
 _ZN7msdfgen9readCharFEP8_IO_FILE.exit38:          ; preds = %do.body.i35
   %cmp9.not = icmp eq i32 %call.i36, %terminator
-  br i1 %cmp9.not, label %return, label %while.body
+  %cmp10.not = icmp ne i32 %call.i36, 59
+  %or.cond.not = or i1 %cmp10.not, %cmp9.not
+  br i1 %or.cond.not, label %return, label %if.end12
 
-while.body:                                       ; preds = %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38
-  %cmp10.not = icmp eq i32 %call.i36, 59
-  br i1 %cmp10.not, label %if.end12, label %return
-
-if.end12:                                         ; preds = %while.body
+if.end12:                                         ; preds = %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38
   %call.i40 = call noundef i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %input, ptr noundef nonnull @.str, ptr noundef nonnull %arrayidx14, ptr noundef nonnull %y.i39)
   switch i32 %call.i40, label %do.body.i42 [
     i32 2, label %if.then17
@@ -644,8 +642,8 @@ lpad104:                                          ; preds = %sw.bb94
           cleanup
   br label %eh.resume
 
-return:                                           ; preds = %sw.epilog.i, %READ_CONTROL_POINTS, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38, %FINISH_EDGE, %if.end12, %while.body, %do.body.i47, %do.body.i.i, %do.body.i11.i, %do.body.i15.i, %do.body.i51, %do.body.i57, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit, %if.else, %sw.default
-  %retval.0 = phi i1 [ %cmp41, %sw.default ], [ %cmp5, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit ], [ false, %if.else ], [ false, %do.body.i57 ], [ false, %do.body.i51 ], [ false, %do.body.i15.i ], [ false, %do.body.i11.i ], [ false, %do.body.i.i ], [ false, %do.body.i47 ], [ %cmp9.not, %sw.epilog.i ], [ %cmp9.not, %READ_CONTROL_POINTS ], [ true, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38 ], [ %cmp9.not, %FINISH_EDGE ], [ false, %if.end12 ], [ false, %while.body ]
+return:                                           ; preds = %sw.epilog.i, %READ_CONTROL_POINTS, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38, %FINISH_EDGE, %if.end12, %do.body.i47, %do.body.i.i, %do.body.i11.i, %do.body.i15.i, %do.body.i51, %do.body.i57, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit, %if.else, %sw.default
+  %retval.0 = phi i1 [ %cmp41, %sw.default ], [ %cmp5, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit ], [ false, %if.else ], [ false, %do.body.i57 ], [ false, %do.body.i51 ], [ false, %do.body.i15.i ], [ false, %do.body.i11.i ], [ false, %do.body.i.i ], [ false, %do.body.i47 ], [ %cmp9.not, %if.end12 ], [ %cmp9.not, %FINISH_EDGE ], [ %cmp9.not, %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38 ], [ %cmp9.not, %READ_CONTROL_POINTS ], [ %cmp9.not, %sw.epilog.i ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad104, %lpad90, %lpad78, %lpad32, %lpad

@@ -24586,14 +24586,14 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i.i
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.04.i.i.i.i.i) #27
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit, label %for.body.i.i.i.i.i, !llvm.loop !399
+  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i, label %for.body.i.i.i.i.i, !llvm.loop !399
 
-_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit: ; preds = %for.body.i.i.i.i.i
+_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i: ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i, i64 48
   br label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit, %invoke.cont14.i.thread.i
-  %incdec.ptr.i5.i = phi ptr [ %incdec.ptr.i4.i, %invoke.cont14.i.thread.i ], [ %incdec.ptr.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit ]
+_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i, %invoke.cont14.i.thread.i
+  %incdec.ptr.i5.i = phi ptr [ %incdec.ptr.i4.i, %invoke.cont14.i.thread.i ], [ %incdec.ptr.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i ]
   %tobool.not.i.i.i = icmp eq ptr %this.val.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i41.i.i
 
@@ -35709,14 +35709,14 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i.i
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.04.i.i.i.i.i) #27
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit, label %for.body.i.i.i.i.i, !llvm.loop !620
+  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i, label %for.body.i.i.i.i.i, !llvm.loop !620
 
-_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit: ; preds = %for.body.i.i.i.i.i
+_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i: ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i, i64 48
   br label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit, %invoke.cont14.i.thread.i
-  %incdec.ptr.i5.i = phi ptr [ %incdec.ptr.i4.i, %invoke.cont14.i.thread.i ], [ %incdec.ptr.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit ]
+_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i, %invoke.cont14.i.thread.i
+  %incdec.ptr.i5.i = phi ptr [ %incdec.ptr.i4.i, %invoke.cont14.i.thread.i ], [ %incdec.ptr.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i ]
   %tobool.not.i.i.i = icmp eq ptr %this.val.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i41.i.i
 
@@ -52064,14 +52064,14 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i.i
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.04.i.i.i.i.i) #27
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit, label %for.body.i.i.i.i.i, !llvm.loop !864
+  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i, label %for.body.i.i.i.i.i, !llvm.loop !864
 
-_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit: ; preds = %for.body.i.i.i.i.i
+_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i: ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i, i64 48
   br label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit, %invoke.cont14.i.thread.i
-  %incdec.ptr.i5.i = phi ptr [ %incdec.ptr.i4.i, %invoke.cont14.i.thread.i ], [ %incdec.ptr.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit ]
+_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i, %invoke.cont14.i.thread.i
+  %incdec.ptr.i5.i = phi ptr [ %incdec.ptr.i4.i, %invoke.cont14.i.thread.i ], [ %incdec.ptr.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i ]
   %tobool.not.i.i.i = icmp eq ptr %this.val.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i41.i.i
 
@@ -56320,14 +56320,14 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i.i
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.04.i.i.i.i.i) #27
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit, label %for.body.i.i.i.i.i, !llvm.loop !960
+  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i, label %for.body.i.i.i.i.i, !llvm.loop !960
 
-_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit: ; preds = %for.body.i.i.i.i.i
+_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i: ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i, i64 48
   br label %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit, %invoke.cont14.i.thread.i
-  %incdec.ptr.i5.i = phi ptr [ %incdec.ptr.i4.i, %invoke.cont14.i.thread.i ], [ %incdec.ptr.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i.loopexit ]
+_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i, %invoke.cont14.i.thread.i
+  %incdec.ptr.i5.i = phi ptr [ %incdec.ptr.i4.i, %invoke.cont14.i.thread.i ], [ %incdec.ptr.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.loopexit.i ]
   %tobool.not.i.i.i = icmp eq ptr %this.val.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i41.i.i
 

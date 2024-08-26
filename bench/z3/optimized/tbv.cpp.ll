@@ -1289,26 +1289,25 @@ entry.split:                                      ; preds = %entry
   br i1 %cmp23, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry.split
-  %3 = zext i32 %2 to i64
+  %wide.trip.count = zext i32 %2 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %cmp25 = phi i1 [ false, %for.body.preheader ], [ %cmp, %for.inc ]
   %arrayidx.i6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
-  %4 = load i32, ptr %arrayidx.i6, align 4
-  %mul.i.i = shl i32 %4, 1
+  %3 = load i32, ptr %arrayidx.i6, align 4
+  %mul.i.i = shl i32 %3, 1
   %div1.i.i.i.i = lshr i32 %mul.i.i, 5
   %idxprom.i.i.i.i = zext nneg i32 %div1.i.i.i.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [1 x i32], ptr %a, i64 0, i64 %idxprom.i.i.i.i
-  %5 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %rem.i.i.i.i = and i32 %mul.i.i, 30
   %shl.i.i.i.i = shl nuw nsw i32 1, %rem.i.i.i.i
-  %and.i.i.i = and i32 %shl.i.i.i.i, %5
+  %and.i.i.i = and i32 %shl.i.i.i.i, %4
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   %shl.i.i = select i1 %cmp.i.not.i.i, i32 0, i32 2
   %shl.i.i7.i.i = shl nuw i32 2, %rem.i.i.i.i
-  %and.i8.i.i = and i32 %shl.i.i7.i.i, %5
+  %and.i8.i.i = and i32 %shl.i.i7.i.i, %4
   %cmp.i9.i.i = icmp ne i32 %and.i8.i.i, 0
   %conv3.i.i = zext i1 %cmp.i9.i.i to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv3.i.i
@@ -1317,19 +1316,19 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.end:                                           ; preds = %for.body
   %arrayidx.i8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %6 = load i32, ptr %arrayidx.i8, align 4
-  %mul.i.i9 = shl i32 %6, 1
+  %5 = load i32, ptr %arrayidx.i8, align 4
+  %mul.i.i9 = shl i32 %5, 1
   %div1.i.i.i.i10 = lshr i32 %mul.i.i9, 5
   %idxprom.i.i.i.i11 = zext nneg i32 %div1.i.i.i.i10 to i64
   %arrayidx.i.i.i.i12 = getelementptr inbounds [1 x i32], ptr %b, i64 0, i64 %idxprom.i.i.i.i11
-  %7 = load i32, ptr %arrayidx.i.i.i.i12, align 4
+  %6 = load i32, ptr %arrayidx.i.i.i.i12, align 4
   %rem.i.i.i.i13 = and i32 %mul.i.i9, 30
   %shl.i.i.i.i14 = shl nuw nsw i32 1, %rem.i.i.i.i13
-  %and.i.i.i15 = and i32 %shl.i.i.i.i14, %7
+  %and.i.i.i15 = and i32 %shl.i.i.i.i14, %6
   %cmp.i.not.i.i16 = icmp eq i32 %and.i.i.i15, 0
   %shl.i.i17 = select i1 %cmp.i.not.i.i16, i32 0, i32 2
   %shl.i.i7.i.i18 = shl nuw i32 2, %rem.i.i.i.i13
-  %and.i8.i.i19 = and i32 %shl.i.i7.i.i18, %7
+  %and.i8.i.i19 = and i32 %shl.i.i7.i.i18, %6
   %cmp.i9.i.i20 = icmp ne i32 %and.i8.i.i19, 0
   %conv3.i.i21 = zext i1 %cmp.i9.i.i20 to i32
   %or.i.i22 = or disjoint i32 %shl.i.i17, %conv3.i.i21
@@ -1338,12 +1337,11 @@ if.end:                                           ; preds = %for.body
 
 for.inc:                                          ; preds = %if.end, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp = icmp uge i64 %indvars.iv.next, %3
-  %exitcond = icmp eq i64 %indvars.iv.next, %3
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !20
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !20
 
 return:                                           ; preds = %for.inc, %if.end, %entry.split, %entry
-  %.us-phi = phi i1 [ true, %entry ], [ true, %entry.split ], [ %cmp, %for.inc ], [ %cmp25, %if.end ]
+  %.us-phi = phi i1 [ true, %entry ], [ true, %entry.split ], [ true, %for.inc ], [ false, %if.end ]
   ret i1 %.us-phi
 }
 

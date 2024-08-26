@@ -1412,7 +1412,8 @@ define range(i32 -2, 1) i32 @mca_fcoll_vulcan_break_file_view(ptr nocapture noun
   store ptr %15, ptr %6, align 8
   store ptr %24, ptr %7, align 8
   store ptr %25, ptr %8, align 8
-  br label %._crit_edge317.thread
+  tail call void @free(ptr noundef %30) #11
+  br label %._crit_edge321
 
 .preheader294.preheader:                          ; preds = %.preheader295
   %wide.trip.count351 = zext nneg i32 %9 to i64
@@ -1618,14 +1619,11 @@ define range(i32 -2, 1) i32 @mca_fcoll_vulcan_break_file_view(ptr nocapture noun
   store ptr %15, ptr %6, align 8
   store ptr %24, ptr %7, align 8
   store ptr %25, ptr %8, align 8
-  br i1 %18, label %.lr.ph316.preheader, label %._crit_edge317.thread
-
-.lr.ph316.preheader:                              ; preds = %._crit_edge313
   %wide.trip.count356 = zext nneg i32 %9 to i64
   br label %.lr.ph316
 
-.lr.ph316:                                        ; preds = %.lr.ph316.preheader, %.lr.ph316
-  %indvars.iv353 = phi i64 [ 0, %.lr.ph316.preheader ], [ %indvars.iv.next354, %.lr.ph316 ]
+.lr.ph316:                                        ; preds = %._crit_edge313, %.lr.ph316
+  %indvars.iv353 = phi i64 [ 0, %._crit_edge313 ], [ %indvars.iv.next354, %.lr.ph316 ]
   %149 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv353
   %150 = load ptr, ptr %149, align 8
   tail call void @free(ptr noundef %150) #11
@@ -1633,20 +1631,13 @@ define range(i32 -2, 1) i32 @mca_fcoll_vulcan_break_file_view(ptr nocapture noun
   %exitcond357.not = icmp eq i64 %indvars.iv.next354, %wide.trip.count356
   br i1 %exitcond357.not, label %._crit_edge317, label %.lr.ph316, !llvm.loop !33
 
-._crit_edge317.thread:                            ; preds = %._crit_edge313.thread, %._crit_edge313
-  tail call void @free(ptr noundef %30) #11
-  br label %._crit_edge321
-
 ._crit_edge317:                                   ; preds = %.lr.ph316
   tail call void @free(ptr noundef nonnull %30) #11
-  br i1 %18, label %.lr.ph320.preheader, label %._crit_edge321
-
-.lr.ph320.preheader:                              ; preds = %._crit_edge317
   %wide.trip.count361 = zext nneg i32 %9 to i64
   br label %.lr.ph320
 
-.lr.ph320:                                        ; preds = %.lr.ph320.preheader, %.lr.ph320
-  %indvars.iv358 = phi i64 [ 0, %.lr.ph320.preheader ], [ %indvars.iv.next359, %.lr.ph320 ]
+.lr.ph320:                                        ; preds = %._crit_edge317, %.lr.ph320
+  %indvars.iv358 = phi i64 [ 0, %._crit_edge317 ], [ %indvars.iv.next359, %.lr.ph320 ]
   %151 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv358
   %152 = load ptr, ptr %151, align 8
   tail call void @free(ptr noundef %152) #11
@@ -1654,7 +1645,7 @@ define range(i32 -2, 1) i32 @mca_fcoll_vulcan_break_file_view(ptr nocapture noun
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
   br i1 %exitcond362.not, label %._crit_edge321, label %.lr.ph320, !llvm.loop !34
 
-._crit_edge321:                                   ; preds = %.lr.ph320, %._crit_edge317.thread, %._crit_edge317
+._crit_edge321:                                   ; preds = %.lr.ph320, %._crit_edge313.thread
   tail call void @free(ptr noundef %31) #11
   br label %161
 
@@ -2496,12 +2487,9 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   %506 = shl nuw nsw i64 %500, 2
   %507 = tail call noalias ptr @malloc(i64 noundef %506) #12
   %508 = icmp eq ptr %507, null
-  br i1 %508, label %512, label %.preheader565
+  br i1 %508, label %512, label %.preheader564.lr.ph
 
-.preheader565:                                    ; preds = %505
-  br i1 %484, label %.preheader564.lr.ph, label %._crit_edge610
-
-.preheader564.lr.ph:                              ; preds = %.preheader565
+.preheader564.lr.ph:                              ; preds = %505
   %509 = load ptr, ptr %3, align 8
   %510 = getelementptr inbounds i8, ptr %3, i64 40
   %511 = getelementptr inbounds i8, ptr %3, i64 48
@@ -2565,7 +2553,7 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   %exitcond662.not = icmp eq i64 %indvars.iv.next659, %wide.trip.count661
   br i1 %exitcond662.not, label %._crit_edge610, label %.preheader564, !llvm.loop !44
 
-._crit_edge610:                                   ; preds = %._crit_edge606, %.preheader565
+._crit_edge610:                                   ; preds = %._crit_edge606
   %537 = add nsw i32 %.2507.lcssa, -1
   %538 = tail call noalias ptr @malloc(i64 noundef %506) #12
   %539 = icmp eq ptr %538, null
@@ -2587,12 +2575,9 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   store i32 %543, ptr %542, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %500
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %.preheader130.preheader.i, label %.lr.ph.i, !llvm.loop !45
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
-  br i1 %.not557, label %._crit_edge139.i, label %.preheader130.preheader.i
-
-.preheader130.preheader.i:                        ; preds = %._crit_edge.i
+.preheader130.preheader.i:                        ; preds = %.lr.ph.i
   %544 = lshr i32 %.2507.lcssa, 1
   br label %.preheader130.i
 
@@ -2758,7 +2743,7 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   %637 = icmp sgt i64 %indvars.iv142.i, 1
   br i1 %637, label %.lr.ph138.i, label %._crit_edge139.i, !llvm.loop !47
 
-._crit_edge139.i:                                 ; preds = %634, %541, %._crit_edge.i
+._crit_edge139.i:                                 ; preds = %634, %541
   %638 = load i32, ptr %538, align 4
   store i32 %638, ptr %507, align 4
   tail call void @free(ptr noundef nonnull %538) #11

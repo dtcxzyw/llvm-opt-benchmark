@@ -2848,8 +2848,8 @@ for.cond839.preheader:                            ; preds = %for.cond.preheader,
   %cmp87723792389 = phi i1 [ true, %257 ], [ true, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit1585 ], [ true, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit1489 ], [ true, %sw.bb745 ], [ false, %sw.bb726 ]
   %mode.123802387 = phi i64 [ %mode.1.ph, %257 ], [ 13, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit1585 ], [ 12, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit1489 ], [ 11, %sw.bb745 ], [ 10, %sw.bb726 ]
   %262 = phi i64 [ %259, %257 ], [ 0, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit1585 ], [ 0, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit1489 ], [ 0, %sw.bb745 ], [ 0, %sw.bb726 ]
-  %tobool = icmp ne i32 %isSigned, 0
-  br i1 %tobool, label %if.end875.thread, label %if.end875
+  %tobool.not = icmp eq i32 %isSigned, 0
+  br i1 %tobool.not, label %if.end875, label %if.end875.thread
 
 if.end875.thread:                                 ; preds = %260
   %263 = load i32, ptr %r, align 16
@@ -2872,11 +2872,10 @@ if.end875.thread:                                 ; preds = %260
 
 if.end875:                                        ; preds = %260
   %or.cond = and i1 %cmp87623782391, %cmp87723792389
-  %or.cond1 = or i1 %tobool, %or.cond
-  br i1 %or.cond1, label %for.cond880.preheader, label %if.end912
+  br i1 %or.cond, label %for.cond880.preheader, label %if.end912
 
 for.cond880.preheader:                            ; preds = %if.end875.thread, %if.end875
-  %or.cond2576 = phi i1 [ %or.cond2573, %if.end875.thread ], [ %or.cond, %if.end875 ]
+  %or.cond2576 = phi i1 [ %or.cond2573, %if.end875.thread ], [ true, %if.end875 ]
   %266 = phi i32 [ %shr.i1593, %if.end875.thread ], [ %261, %if.end875 ]
   %arrayidx888 = getelementptr inbounds [14 x i8], ptr getelementptr inbounds (i8, ptr @_ZZ15bcdec_bc6h_halfE17actual_bits_count, i64 14), i64 0, i64 %mode.123802387
   %267 = load i8, ptr %arrayidx888, align 1
@@ -2914,7 +2913,7 @@ for.body884:                                      ; preds = %for.cond880.prehead
   br i1 %exitcond.not, label %if.end912, label %for.body884, !llvm.loop !13
 
 if.end912:                                        ; preds = %for.body884, %if.end875
-  %or.cond2575 = phi i1 [ %or.cond, %if.end875 ], [ %or.cond2576, %for.body884 ]
+  %or.cond2575 = phi i1 [ false, %if.end875 ], [ %or.cond2576, %for.body884 ]
   %273 = phi i32 [ %261, %if.end875 ], [ %266, %for.body884 ]
   br i1 %or.cond2575, label %for.cond917.preheader, label %if.end912.if.end952_crit_edge
 
@@ -6432,8 +6431,8 @@ if.end106:                                        ; preds = %lor.lhs.false89, %l
   %mul109 = mul nsw i32 %26, %w
   %conv110 = sext i32 %mul109 to i64
   %call111 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv110) #31
-  %cmp113.not120 = icmp sgt i32 %d, 0
-  br i1 %cmp113.not120, label %for.cond116.preheader.lr.ph, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit81.thread
+  %cmp113120 = icmp sgt i32 %d, 0
+  br i1 %cmp113120, label %for.cond116.preheader.lr.ph, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit81.thread
 
 for.cond116.preheader.lr.ph:                      ; preds = %if.end106
   %cmp117105 = icmp sgt i32 %h, 0
@@ -6627,8 +6626,8 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit81: ; preds = %invoke.cont
   tail call void @_ZdaPv(ptr noundef nonnull %call111) #28
   br label %return
 
-return:                                           ; preds = %for.cond19.for.inc67_crit_edge.us, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit81.thread, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit, %if.then17, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit81, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit73.thread, %if.then100.critedge
-  %retval.1 = phi i1 [ %call105, %if.then100.critedge ], [ false, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit81 ], [ false, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit73.thread ], [ true, %if.then17 ], [ true, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit ], [ true, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit81.thread ], [ true, %for.cond19.for.inc67_crit_edge.us ]
+return:                                           ; preds = %for.cond19.for.inc67_crit_edge.us, %if.then17, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit81.thread, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit81, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit73.thread, %if.then100.critedge
+  %retval.1 = phi i1 [ %call105, %if.then100.critedge ], [ false, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit81 ], [ false, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit73.thread ], [ true, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit ], [ true, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit81.thread ], [ true, %if.then17 ], [ true, %for.cond19.for.inc67_crit_edge.us ]
   ret i1 %retval.1
 
 eh.resume:                                        ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit77, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit

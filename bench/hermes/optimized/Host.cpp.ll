@@ -1285,7 +1285,7 @@ for.body21.lr.ph:                                 ; preds = %for.end
 
 for.body21:                                       ; preds = %for.body21.lr.ph, %for.inc29
   %indvars.iv119 = phi i64 [ 0, %for.body21.lr.ph ], [ %indvars.iv.next120, %for.inc29 ]
-  %HaveVectorSupport.0111 = phi i8 [ 0, %for.body21.lr.ph ], [ %HaveVectorSupport.1, %for.inc29 ]
+  %HaveVectorSupport.0111 = phi i8 [ 0, %for.body21.lr.ph ], [ %HaveVectorSupport.1.fr, %for.inc29 ]
   %arrayidx.i196 = getelementptr inbounds %"class.llvh::StringRef", ptr %10, i64 %indvars.iv119
   %agg.tmp22.sroa.2.0.arrayidx.i196.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i196, i64 8
   %agg.tmp22.sroa.2.0.copyload = load i64, ptr %agg.tmp22.sroa.2.0.arrayidx.i196.sroa_idx, align 8
@@ -1301,12 +1301,13 @@ if.end.i.i:                                       ; preds = %for.body21
 
 for.inc29:                                        ; preds = %if.end.i.i, %for.body21
   %HaveVectorSupport.1 = phi i8 [ %HaveVectorSupport.0111, %for.body21 ], [ %spec.select, %if.end.i.i ]
+  %HaveVectorSupport.1.fr = freeze i8 %HaveVectorSupport.1
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %cmp20.not = icmp eq i64 %indvars.iv.next120, %11
   br i1 %cmp20.not, label %for.end31.loopexit, label %for.body21, !llvm.loop !15
 
 for.end31.loopexit:                               ; preds = %for.inc29
-  %12 = trunc nuw i8 %HaveVectorSupport.1 to i1
+  %12 = trunc i8 %HaveVectorSupport.1.fr to i1
   br label %for.end31
 
 for.end31:                                        ; preds = %for.end31.loopexit, %for.end
@@ -1368,15 +1369,17 @@ if.then57:                                        ; preds = %lor.lhs.false.i
   br i1 %cmp58, label %land.lhs.true, label %if.end60
 
 land.lhs.true:                                    ; preds = %if.then57
-  br i1 %HaveVectorSupport.0.lcssa.ph, label %cleanup, label %land.lhs.true62
+  %spec.select138 = select i1 %HaveVectorSupport.0.lcssa.ph, ptr @.str.102, ptr @.str.104
+  %spec.select139 = select i1 %HaveVectorSupport.0.lcssa.ph, i64 3, i64 5
+  br label %cleanup
 
 if.end60:                                         ; preds = %if.then57
   %cmp61 = icmp ugt i64 %20, 2963
   br i1 %cmp61, label %land.lhs.true62, label %if.end65
 
-land.lhs.true62:                                  ; preds = %if.end60, %land.lhs.true
-  %spec.select104 = select i1 %HaveVectorSupport.0.lcssa.ph, ptr @.str.103, ptr @.str.104
-  %spec.select105 = select i1 %HaveVectorSupport.0.lcssa.ph, i64 3, i64 5
+land.lhs.true62:                                  ; preds = %if.end60
+  %spec.select144 = select i1 %HaveVectorSupport.0.lcssa.ph, ptr @.str.103, ptr @.str.104
+  %spec.select145 = select i1 %HaveVectorSupport.0.lcssa.ph, i64 3, i64 5
   br label %cleanup
 
 if.end65:                                         ; preds = %if.end60
@@ -1395,9 +1398,9 @@ for.inc75:                                        ; preds = %if.end.i273, %for.b
 _ZN4llvh9StringRefC2EPKc.exit178:                 ; preds = %for.inc75, %entry, %for.end31, %_ZNK4llvh9StringRef12getAsIntegerIjEENSt9enable_ifIXntsr3std14numeric_limitsIT_EE9is_signedEbE4typeEjRS3_.exit.thread, %if.then43, %if.end68
   br label %cleanup
 
-cleanup:                                          ; preds = %land.lhs.true62, %if.end68, %if.end65, %land.lhs.true, %_ZN4llvh9StringRefC2EPKc.exit178
-  %retval.sroa.0.0 = phi ptr [ @.str.1, %_ZN4llvh9StringRefC2EPKc.exit178 ], [ @.str.102, %land.lhs.true ], [ @.str.104, %if.end65 ], [ @.str.105, %if.end68 ], [ %spec.select104, %land.lhs.true62 ]
-  %retval.sroa.6.0 = phi i64 [ 7, %_ZN4llvh9StringRefC2EPKc.exit178 ], [ 3, %land.lhs.true ], [ 5, %if.end65 ], [ 4, %if.end68 ], [ %spec.select105, %land.lhs.true62 ]
+cleanup:                                          ; preds = %land.lhs.true62, %land.lhs.true, %if.end68, %if.end65, %_ZN4llvh9StringRefC2EPKc.exit178
+  %retval.sroa.0.0 = phi ptr [ @.str.1, %_ZN4llvh9StringRefC2EPKc.exit178 ], [ @.str.104, %if.end65 ], [ @.str.105, %if.end68 ], [ %spec.select138, %land.lhs.true ], [ %spec.select144, %land.lhs.true62 ]
+  %retval.sroa.6.0 = phi i64 [ 7, %_ZN4llvh9StringRefC2EPKc.exit178 ], [ 5, %if.end65 ], [ 4, %if.end68 ], [ %spec.select139, %land.lhs.true ], [ %spec.select145, %land.lhs.true62 ]
   %21 = load ptr, ptr %CPUFeatures, align 8
   %cmp.i.i.i = icmp eq ptr %21, %add.ptr.i.i.i.i.i67
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit, label %if.then.i.i

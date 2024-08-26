@@ -451,7 +451,7 @@ cond.end.us:                                      ; preds = %if.then20.us
   %proxy_alpn.us = getelementptr inbounds i8, ptr %10, i64 1165
   %11 = load i8, ptr %proxy_alpn.us, align 1
   %switch.us = icmp ult i8 %11, 3
-  br i1 %switch.us, label %do.body24.us, label %do.body65
+  br i1 %switch.us, label %do.body24.us, label %return
 
 do.body24.us:                                     ; preds = %cond.end.us, %if.then20.us
   %call60.us = tail call i32 @Curl_cf_h1_proxy_insert_after(ptr noundef nonnull %cf, ptr noundef null) #5
@@ -534,19 +534,14 @@ if.end63:                                         ; preds = %do.end59
   %tobool15.not = icmp eq i32 %call, 0
   br i1 %tobool15.not, label %lor.lhs.false, label %return
 
-do.body65:                                        ; preds = %cond.end.us
-  %conv.us.le = zext i8 %11 to i32
-  br i1 %tobool2.not, label %return, label %land.lhs.true67
-
-land.lhs.true67:                                  ; preds = %cond.end, %do.body65
-  %.us-phi5164 = phi i32 [ %conv.us.le, %do.body65 ], [ %conv, %cond.end ]
+land.lhs.true67:                                  ; preds = %cond.end
   %bf.load70 = load i64, ptr %verbose28, align 2
   %26 = and i64 %bf.load70, 536870912
   %tobool74.not = icmp eq i64 %26, 0
   br i1 %tobool74.not, label %return, label %if.then75
 
 if.then75:                                        ; preds = %land.lhs.true67
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.14, i32 noundef %.us-phi5164) #5
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.14, i32 noundef %conv) #5
   br label %return
 
 if.then83:                                        ; preds = %if.end18, %if.end18.us
@@ -556,8 +551,8 @@ if.then83:                                        ; preds = %if.end18, %if.end18
   store i8 1, ptr %done, align 1
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %if.end63, %do.end59, %lor.lhs.false.us, %if.end63.us, %do.body24.us, %do.end, %if.then75, %land.lhs.true67, %do.body65, %if.then83, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then83 ], [ 7, %if.then75 ], [ 7, %land.lhs.true67 ], [ 7, %do.body65 ], [ %call47, %do.end ], [ 0, %lor.lhs.false.us ], [ %call.us, %if.end63.us ], [ %call60.us, %do.body24.us ], [ 0, %lor.lhs.false ], [ %call, %if.end63 ], [ %call60, %do.end59 ]
+return:                                           ; preds = %lor.lhs.false, %if.end63, %do.end59, %lor.lhs.false.us, %if.end63.us, %do.body24.us, %cond.end.us, %do.end, %if.then75, %land.lhs.true67, %if.then83, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then83 ], [ 7, %if.then75 ], [ 7, %land.lhs.true67 ], [ %call47, %do.end ], [ 0, %lor.lhs.false.us ], [ %call.us, %if.end63.us ], [ %call60.us, %do.body24.us ], [ 7, %cond.end.us ], [ 0, %lor.lhs.false ], [ %call, %if.end63 ], [ %call60, %do.end59 ]
   ret i32 %retval.0
 }
 

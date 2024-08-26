@@ -151,9 +151,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler14print_locationEPhS0_S0_P12
 45:                                               ; preds = %.thread
   %.pre34 = load i8, ptr @_ZN20AbstractDisassembler12_show_offsetE, align 1
   %.pre37 = trunc i8 %.pre34 to i1
-  %46 = xor i1 %.pre37, true
-  %brmerge = or i1 %5, %46
-  br i1 %brmerge, label %.thread30, label %.thread28
+  br i1 %.pre37, label %.thread28, label %.thread30
 
 .thread28:                                        ; preds = %36, %.thread, %45
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.9) #3
@@ -161,19 +159,19 @@ define hidden noundef i32 @_ZN20AbstractDisassembler14print_locationEPhS0_S0_P12
 
 .thread30:                                        ; preds = %36, %.thread29, %45, %.thread28
   %.pre36 = load i32, ptr %7, align 8
-  br i1 %4, label %47, label %51
+  br i1 %4, label %46, label %50
 
-47:                                               ; preds = %.thread30
-  %48 = add i32 %.pre36, 7
-  %49 = and i32 %48, -8
-  %50 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %49) #3
+46:                                               ; preds = %.thread30
+  %47 = add i32 %.pre36, 7
+  %48 = and i32 %47, -8
+  %49 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %48) #3
   %.pre35 = load i32, ptr %7, align 8
-  br label %51
+  br label %50
 
-51:                                               ; preds = %47, %.thread30
-  %52 = phi i32 [ %.pre35, %47 ], [ %.pre36, %.thread30 ]
-  %53 = sub nsw i32 %52, %8
-  ret i32 %53
+50:                                               ; preds = %46, %.thread30
+  %51 = phi i32 [ %.pre35, %46 ], [ %.pre36, %.thread30 ]
+  %52 = sub nsw i32 %51, %8
+  ret i32 %52
 }
 
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1

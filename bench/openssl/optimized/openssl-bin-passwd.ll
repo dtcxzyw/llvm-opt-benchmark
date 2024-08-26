@@ -248,38 +248,42 @@ if.then70:                                        ; preds = %if.end67
 
 if.end75:                                         ; preds = %if.then70
   %cmp76 = icmp eq ptr %passwds.0, null
-  br i1 %cmp76, label %if.end94, label %do.body104.preheader
+  br i1 %cmp76, label %if.end79, label %do.body104.preheader
 
 if.end75.thread:                                  ; preds = %if.end67
-  %cmp76126 = icmp eq ptr %passwds.0, null
-  br i1 %cmp76126, label %if.then85, label %do.body.preheader
+  %cmp76127 = icmp eq ptr %passwds.0, null
+  br i1 %cmp76127, label %if.then85, label %if.end79.thread.do.body.preheader_crit_edge
 
-do.body104.preheader:                             ; preds = %if.end75, %if.end94
-  %passwd.05153.ph = phi ptr [ %call78, %if.end94 ], [ null, %if.end75 ]
+if.end79.thread.do.body.preheader_crit_edge:      ; preds = %if.end75.thread
+  %.pre.pre = load ptr, ptr %passwds.0, align 8
+  br label %do.body.preheader
+
+if.end79:                                         ; preds = %if.end75
+  %call78 = tail call ptr @app_malloc(i64 noundef 258, ptr noundef nonnull @.str.48) #8
+  br label %do.body104.preheader
+
+do.body104.preheader:                             ; preds = %if.end79, %if.end75
+  %passwd.05153.ph = phi ptr [ %call78, %if.end79 ], [ null, %if.end75 ]
   br label %do.body104
 
 if.then85:                                        ; preds = %if.end75.thread
-  %call78135 = tail call ptr @app_malloc(i64 noundef 258, ptr noundef nonnull @.str.48) #8
+  %call78137 = tail call ptr @app_malloc(i64 noundef 258, ptr noundef nonnull @.str.48) #8
   %tobool86 = icmp eq i32 %passed_salt.0, 0
   %tobool87 = icmp eq i32 %in_noverify.0, 0
   %.not = select i1 %tobool86, i1 %tobool87, i1 false
   %lnot.ext = zext i1 %.not to i32
-  %call88 = tail call i32 @EVP_read_pw_string(ptr noundef %call78135, i32 noundef 258, ptr noundef nonnull @.str.49, i32 noundef %lnot.ext) #8
+  %call88 = tail call i32 @EVP_read_pw_string(ptr noundef %call78137, i32 noundef 258, ptr noundef nonnull @.str.49, i32 noundef %lnot.ext) #8
   %cmp89.not = icmp eq i32 %call88, 0
   br i1 %cmp89.not, label %if.end93, label %end
 
 if.end93:                                         ; preds = %if.then85
-  store ptr %call78135, ptr @passwd_main.passwds_static, align 16
+  store ptr %call78137, ptr @passwd_main.passwds_static, align 16
   br label %do.body.preheader
 
-if.end94:                                         ; preds = %if.end75
-  %call78 = tail call ptr @app_malloc(i64 noundef 258, ptr noundef nonnull @.str.48) #8
-  br label %do.body104.preheader
-
-do.body.preheader:                                ; preds = %if.end75.thread, %if.end93
-  %passwd.05154.ph = phi ptr [ %call78135, %if.end93 ], [ null, %if.end75.thread ]
-  %passwds.2.ph = phi ptr [ @passwd_main.passwds_static, %if.end93 ], [ %passwds.0, %if.end75.thread ]
-  %.pre = load ptr, ptr %passwds.2.ph, align 8
+do.body.preheader:                                ; preds = %if.end79.thread.do.body.preheader_crit_edge, %if.end93
+  %.pre = phi ptr [ %.pre.pre, %if.end79.thread.do.body.preheader_crit_edge ], [ %call78137, %if.end93 ]
+  %passwd.05154.ph = phi ptr [ null, %if.end79.thread.do.body.preheader_crit_edge ], [ %call78137, %if.end93 ]
+  %passwds.2.ph = phi ptr [ %passwds.0, %if.end79.thread.do.body.preheader_crit_edge ], [ @passwd_main.passwds_static, %if.end93 ]
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond
@@ -337,7 +341,7 @@ end.loopexit59:                                   ; preds = %sw.bb37, %sw.bb43
   br label %end
 
 end:                                              ; preds = %do.cond, %do.body, %do.body104, %end.loopexit57.split.loop.exit92, %end.loopexit59, %if.then85, %if.then70, %if.end55, %if.then65, %sw.bb3, %opthelp
-  %passwd_malloc.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then65 ], [ null, %if.then70 ], [ %call78135, %if.then85 ], [ null, %if.end55 ], [ null, %end.loopexit59 ], [ %passwd.05153.ph, %end.loopexit57.split.loop.exit92 ], [ %passwd.05153.ph, %do.body104 ], [ %passwd.05154.ph, %do.body ], [ %passwd.05154.ph, %do.cond ]
+  %passwd_malloc.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then65 ], [ null, %if.then70 ], [ %call78137, %if.then85 ], [ null, %if.end55 ], [ null, %end.loopexit59 ], [ %passwd.05153.ph, %end.loopexit57.split.loop.exit92 ], [ %passwd.05153.ph, %do.body104 ], [ %passwd.05154.ph, %do.body ], [ %passwd.05154.ph, %do.cond ]
   %ret.0 = phi i32 [ 1, %opthelp ], [ 0, %sw.bb3 ], [ 1, %if.then65 ], [ 1, %if.then70 ], [ 1, %if.then85 ], [ 1, %if.end55 ], [ 1, %end.loopexit59 ], [ %.mux.le, %end.loopexit57.split.loop.exit92 ], [ 0, %do.body104 ], [ 0, %do.cond ], [ 1, %do.body ]
   %in.0 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then65 ], [ null, %if.then70 ], [ null, %if.then85 ], [ null, %if.end55 ], [ null, %end.loopexit59 ], [ %call71, %end.loopexit57.split.loop.exit92 ], [ %call71, %do.body104 ], [ null, %do.body ], [ null, %do.cond ]
   %7 = load ptr, ptr %salt_malloc, align 8

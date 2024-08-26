@@ -4084,7 +4084,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$
   %.not.i.i.i = icmp ne i16 %41, 0
   %42 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %41, i1 true)
   %43 = zext nneg i16 %42 to i64
-  %44 = add i64 %.sroa.0.022.i.i, %43
+  %.sroa.6.0.i.i.i = select i1 %.not.i.i.i, i64 %43, i64 undef
+  %44 = add i64 %.sroa.6.0.i.i.i, %.sroa.0.022.i.i
   %45 = and i64 %44, %.val6.i
   %.sroa.3.0.i18.i.i = select i1 %.not.i.i.i, i64 %45, i64 undef
   %.sroa.0.0.i19.i.i = zext i1 %.not.i.i.i to i64
@@ -4288,7 +4289,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %.not.i.i.i = icmp ne i16 %41, 0
   %42 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %41, i1 true)
   %43 = zext nneg i16 %42 to i64
-  %44 = add i64 %.sroa.0.022.i.i, %43
+  %.sroa.6.0.i.i.i = select i1 %.not.i.i.i, i64 %43, i64 undef
+  %44 = add i64 %.sroa.6.0.i.i.i, %.sroa.0.022.i.i
   %45 = and i64 %44, %.val6.i
   %.sroa.3.0.i18.i.i = select i1 %.not.i.i.i, i64 %45, i64 undef
   %.sroa.0.0.i19.i.i = zext i1 %.not.i.i.i to i64
@@ -4478,7 +4480,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %.not.i.i.i = icmp ne i16 %38, 0
   %39 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %38, i1 true)
   %40 = zext nneg i16 %39 to i64
-  %41 = add i64 %.sroa.0.022.i.i, %40
+  %.sroa.6.0.i.i.i = select i1 %.not.i.i.i, i64 %40, i64 undef
+  %41 = add i64 %.sroa.6.0.i.i.i, %.sroa.0.022.i.i
   %42 = and i64 %41, %.val6.i
   %.sroa.3.0.i18.i.i = select i1 %.not.i.i.i, i64 %42, i64 undef
   %.sroa.0.0.i19.i.i = zext i1 %.not.i.i.i to i64

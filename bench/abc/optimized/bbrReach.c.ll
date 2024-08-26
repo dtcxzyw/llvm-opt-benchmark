@@ -860,7 +860,7 @@ Vec_PtrPush.exit255:                              ; preds = %.Vec_PtrGrow.exit11
   %.1198 = phi i32 [ 0, %Vec_PtrPush.exit ], [ %.0197281, %143 ], [ %147, %.loopexit ], [ %147, %146 ], [ %147, %.thread263 ]
   %.1195 = phi ptr [ null, %Vec_PtrPush.exit ], [ %144, %143 ], [ %144, %.loopexit ], [ %144, %146 ], [ %144, %.thread263 ]
   %.1 = phi ptr [ %3, %Vec_PtrPush.exit ], [ %.0190283, %143 ], [ %.2, %.loopexit ], [ %.0190283, %146 ], [ %206, %.thread263 ]
-  %.not219 = phi i1 [ true, %Vec_PtrPush.exit ], [ false, %143 ], [ %.not209, %.loopexit ], [ true, %146 ], [ %.not209, %.thread263 ]
+  %.not219 = phi i1 [ true, %Vec_PtrPush.exit ], [ %.not209, %143 ], [ %.not209, %.loopexit ], [ %.not209, %146 ], [ %.not209, %.thread263 ]
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1195) #14
   %.val244308 = load i32, ptr %60, align 4
   %224 = icmp sgt i32 %.val244308, 0
@@ -1253,15 +1253,15 @@ Aig_ManCreateOutputs.exit:                        ; preds = %68, %57
   br i1 %108, label %.lr.ph137, label %.critedge
 
 .lr.ph137:                                        ; preds = %.loopexit, %.lr.ph137
-  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.lr.ph137 ], [ 0, %.loopexit ]
+  %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.lr.ph137 ], [ 0, %.loopexit ]
   %.val111 = load ptr, ptr %61, align 8
-  %109 = getelementptr inbounds ptr, ptr %.val111, i64 %indvars.iv151
+  %109 = getelementptr inbounds ptr, ptr %.val111, i64 %indvars.iv150
   %110 = load ptr, ptr %109, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %24, ptr noundef %110) #14
-  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
+  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %.val114 = load i32, ptr %59, align 4
   %111 = sext i32 %.val114 to i64
-  %112 = icmp slt i64 %indvars.iv.next152, %111
+  %112 = icmp slt i64 %indvars.iv.next151, %111
   br i1 %112, label %.lr.ph137, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %.lr.ph137, %.loopexit
@@ -1290,14 +1290,14 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %114
   br i1 %119, label %.lr.ph140, label %._crit_edge
 
 .lr.ph140:                                        ; preds = %117, %.lr.ph140
-  %indvars.iv154 = phi i64 [ %indvars.iv.next155, %.lr.ph140 ], [ 0, %117 ]
-  %120 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv154
+  %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.lr.ph140 ], [ 0, %117 ]
+  %120 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv153
   %121 = load ptr, ptr %120, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %24, ptr noundef %121) #14
-  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %.val = load i32, ptr %118, align 8
   %122 = sext i32 %.val to i64
-  %123 = icmp slt i64 %indvars.iv.next155, %122
+  %123 = icmp slt i64 %indvars.iv.next154, %122
   br i1 %123, label %.lr.ph140, label %._crit_edge.thread, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %117
@@ -1314,14 +1314,14 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %114
   br i1 %125, label %.lr.ph144, label %._crit_edge145
 
 .lr.ph144:                                        ; preds = %124, %.lr.ph144
-  %indvars.iv157 = phi i64 [ %indvars.iv.next158, %.lr.ph144 ], [ 0, %124 ]
-  %126 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv157
+  %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph144 ], [ 0, %124 ]
+  %126 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv156
   %127 = load ptr, ptr %126, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %24, ptr noundef %127) #14
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %.val112 = load i32, ptr %62, align 8
   %128 = sext i32 %.val112 to i64
-  %129 = icmp slt i64 %indvars.iv.next158, %128
+  %129 = icmp slt i64 %indvars.iv.next157, %128
   br i1 %129, label %.lr.ph144, label %._crit_edge145.thread, !llvm.loop !15
 
 ._crit_edge145:                                   ; preds = %124

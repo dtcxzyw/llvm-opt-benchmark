@@ -98,28 +98,20 @@ define noundef zeroext i1 @_ZNK5faiss15IDSelectorArray9is_memberEl(ptr nocapture
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = icmp eq i64 %7, %1
-  br i1 %8, label %._crit_edge, label %.lr.ph10
+  br label %7
 
-.lr.ph10:                                         ; preds = %.lr.ph, %10
-  %.069 = phi i64 [ %9, %10 ], [ 0, %.lr.ph ]
-  %9 = add nuw i64 %.069, 1
-  %exitcond.not = icmp eq i64 %9, %4
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %10, !llvm.loop !5
+7:                                                ; preds = %7, %.lr.ph
+  %.06 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
+  %8 = getelementptr inbounds i64, ptr %6, i64 %.06
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp eq i64 %9, %1
+  %11 = add nuw i64 %.06, 1
+  %exitcond.not = icmp eq i64 %11, %4
+  %or.cond = select i1 %10, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %7, !llvm.loop !5
 
-10:                                               ; preds = %.lr.ph10
-  %11 = getelementptr inbounds i64, ptr %6, i64 %9
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %12, %1
-  br i1 %13, label %._crit_edge.loopexit, label %.lr.ph10, !llvm.loop !5
-
-._crit_edge.loopexit:                             ; preds = %10, %.lr.ph10
-  %14 = icmp ult i64 %9, %4
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ %14, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %7, %2
+  %.lcssa = phi i1 [ false, %2 ], [ %10, %7 ]
   ret i1 %.lcssa
 }
 

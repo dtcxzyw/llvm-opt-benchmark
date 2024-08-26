@@ -3916,10 +3916,7 @@ define void @Mio_DeriveGateDelays(ptr noundef %0, ptr nocapture noundef readonly
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph
-  br i1 %8, label %.lr.ph52, label %._crit_edge53
-
-.lr.ph52:                                         ; preds = %.preheader
+.lr.ph52:                                         ; preds = %.lr.ph
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %wide.trip.count62 = zext nneg i32 %3 to i64
   br label %11
@@ -3930,7 +3927,7 @@ define void @Mio_DeriveGateDelays(ptr noundef %0, ptr nocapture noundef readonly
   store float %4, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %.lr.ph52, label %.lr.ph, !llvm.loop !51
 
 11:                                               ; preds = %.lr.ph52, %33
   %indvars.iv59 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next60, %33 ]
@@ -3996,8 +3993,8 @@ define void @Mio_DeriveGateDelays(ptr noundef %0, ptr nocapture noundef readonly
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
   br i1 %exitcond63.not, label %._crit_edge53, label %11, !llvm.loop !53
 
-._crit_edge53:                                    ; preds = %33, %7, %.preheader
-  %.036.lcssa = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %7 ], [ %.137, %33 ]
+._crit_edge53:                                    ; preds = %33, %7
+  %.036.lcssa = phi float [ 0.000000e+00, %7 ], [ %.137, %33 ]
   store float %.036.lcssa, ptr %6, align 4
   ret void
 }
@@ -4429,8 +4426,8 @@ define void @Nf_ManPreparePrint(i32 noundef %0, ptr nocapture noundef readonly %
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %17
   store i8 0, ptr %18, align 1
-  %19 = icmp slt i32 %5, 1
-  br i1 %19, label %.preheader77.thread, label %.split.us
+  %19 = icmp sgt i32 %5, 0
+  br i1 %19, label %.split.us, label %.preheader77.thread
 
 .split.us:                                        ; preds = %._crit_edge
   %.not = icmp eq i32 %0, 31
@@ -4550,8 +4547,7 @@ define void @Nf_ManPreparePrint(i32 noundef %0, ptr nocapture noundef readonly %
 
 .preheader77:                                     ; preds = %._crit_edge86.split.us.us.us, %._crit_edge86.split.us92
   %.not113 = icmp eq i32 %0, 31
-  %or.cond = or i1 %19, %.not113
-  br i1 %or.cond, label %.split111.us, label %.preheader76.us.us.preheader
+  br i1 %.not113, label %.split111.us, label %.preheader76.us.us.preheader
 
 .preheader76.us.us.preheader:                     ; preds = %.preheader77
   %smax141 = tail call i32 @llvm.smax.i32(i32 %6, i32 1)

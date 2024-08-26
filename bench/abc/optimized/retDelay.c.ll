@@ -30,8 +30,8 @@ define noundef i32 @Abc_NtkRetimeMinDelay(ptr noundef %0, ptr noundef %1, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Abc_NtkRetimeMinDelayTry(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) unnamed_addr #0 {
-  %.not128 = icmp eq i32 %3, 0
-  br i1 %.not128, label %13, label %8
+  %.not122 = icmp eq i32 %3, 0
+  br i1 %.not122, label %13, label %8
 
 8:                                                ; preds = %7
   %.not = icmp eq i32 %2, 0
@@ -265,9 +265,9 @@ Vec_PtrPush.exit.i:                               ; preds = %88, %Vec_PtrGrow.ex
 104:                                              ; preds = %95
   %105 = load i32, ptr %100, align 8
   %106 = shl nsw i32 %105, 1
-  %.not122 = icmp slt i32 %.val161.i, %106
+  %.not123 = icmp slt i32 %.val161.i, %106
   %.not.i.i110.not = icmp sgt i32 %105, %.val161.i
-  br i1 %.not122, label %119, label %107
+  br i1 %.not123, label %119, label %107
 
 107:                                              ; preds = %104
   br i1 %.not.i.i110.not, label %Vec_IntGrow.exit.i, label %108
@@ -325,8 +325,8 @@ Vec_IntGrow.exit.sink.split.i:                    ; preds = %129, %117
 
 Vec_IntGrow.exit.i:                               ; preds = %Vec_IntGrow.exit.sink.split.i, %119, %107
   %131 = phi i32 [ %.pre, %Vec_IntGrow.exit.sink.split.i ], [ %103, %119 ], [ %103, %107 ]
-  %.not123 = icmp sgt i32 %131, %.val161.i
-  br i1 %.not123, label %._crit_edge.i, label %.lr.ph.i111
+  %.not124 = icmp sgt i32 %131, %.val161.i
+  br i1 %.not124, label %._crit_edge.i, label %.lr.ph.i111
 
 .lr.ph.i111:                                      ; preds = %Vec_IntGrow.exit.i
   %132 = getelementptr inbounds i8, ptr %.val160.i, i64 232
@@ -1279,35 +1279,35 @@ Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %498
   br i1 %500, label %501, label %513
 
 501:                                              ; preds = %Abc_NtkRetimeTiming.exit
-  %.val104.pre136 = load i32, ptr %16, align 8
+  %.val104.pre135 = load i32, ptr %16, align 8
   br i1 %or.cond121, label %513, label %502
 
 502:                                              ; preds = %501
-  %503 = sub nsw i32 %.val104.pre136, %.0
+  %503 = sub nsw i32 %.val104.pre135, %.0
   %504 = sitofp i32 %503 to double
   %505 = sub nsw i32 %.081, %.6.i
   %506 = sitofp i32 %505 to double
   %507 = fdiv double %504, %506
   %508 = fmul double %504, 1.000000e+02
-  %509 = sitofp i32 %.val104.pre136 to double
+  %509 = sitofp i32 %.val104.pre135 to double
   %510 = fdiv double %508, %509
   %511 = fdiv double %510, %506
-  %512 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %28, i32 noundef %.087, i32 noundef %.6.i, i32 noundef %.val104.pre136, double noundef %507, double noundef %511)
+  %512 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %28, i32 noundef %.087, i32 noundef %.6.i, i32 noundef %.val104.pre135, double noundef %507, double noundef %511)
   %.val104.pre = load i32, ptr %16, align 8
   br label %513
 
 513:                                              ; preds = %501, %502, %Abc_NtkRetimeTiming.exit
   %.185 = phi i32 [ %.084, %Abc_NtkRetimeTiming.exit ], [ %.087, %502 ], [ %.087, %501 ]
   %.182 = phi i32 [ %.081, %Abc_NtkRetimeTiming.exit ], [ %.6.i, %502 ], [ %.6.i, %501 ]
-  %.1 = phi i32 [ %.0, %Abc_NtkRetimeTiming.exit ], [ %.val104.pre, %502 ], [ %.val104.pre136, %501 ]
+  %.1 = phi i32 [ %.0, %Abc_NtkRetimeTiming.exit ], [ %.val104.pre, %502 ], [ %.val104.pre135, %501 ]
   %514 = icmp ne i32 %.087, %4
   %515 = sub nsw i32 %.087, %.185
   %516 = icmp slt i32 %515, 21
-  %or.cond98.not131 = select i1 %514, i1 %516, i1 false
+  %or.cond98.not130 = select i1 %514, i1 %516, i1 false
   %.not92 = icmp sgt i32 %.6.i, %1
   %or.cond99 = or i1 %29, %.not92
-  %or.cond127 = select i1 %or.cond98.not131, i1 %or.cond99, i1 false
-  br i1 %or.cond127, label %.preheader, label %527
+  %or.cond = select i1 %or.cond98.not130, i1 %or.cond99, i1 false
+  br i1 %or.cond, label %.preheader, label %527
 
 .preheader:                                       ; preds = %513
   %.val105 = load i32, ptr %18, align 4
@@ -1358,7 +1358,7 @@ Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %498
 
 Vec_PtrFree.exit:                                 ; preds = %527, %529
   tail call void @free(ptr noundef nonnull %17) #8
-  br i1 %.not128, label %536, label %530
+  br i1 %.not122, label %536, label %530
 
 530:                                              ; preds = %Vec_PtrFree.exit
   br i1 %.not.i, label %532, label %531

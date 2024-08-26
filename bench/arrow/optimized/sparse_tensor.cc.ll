@@ -2056,7 +2056,6 @@ for.body.lr.ph:                                   ; preds = %if.end
   br i1 %cmp1535, label %for.body.us, label %for.body.lr.ph.split
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end30.us
-  %cmp1240.us = phi i1 [ %cmp12.us, %if.end30.us ], [ false, %for.body.lr.ph ]
   %i.039.us = phi i64 [ %inc31.us, %if.end30.us ], [ 1, %for.body.lr.ph ]
   invoke fastcc void @_ZN5arrow12_GLOBAL__N_120GetCOOIndexTensorRowERKSt10shared_ptrINS_6TensorEElPSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(16) %coords, i64 noundef %i.039.us, ptr noundef nonnull %index)
           to label %while.cond14.preheader.us unwind label %lpad.loopexit.split.us
@@ -2076,12 +2075,12 @@ if.end21.us:                                      ; preds = %while.body16.us
 
 if.end26.us:                                      ; preds = %if.end21.us
   %inc.us = add nuw nsw i64 %j.036.us, 1
-  %exitcond60.not = icmp eq i64 %inc.us, %.fr
-  br i1 %exitcond60.not, label %if.then.i.i.i22, label %while.body16.us, !llvm.loop !83
+  %exitcond57.not = icmp eq i64 %inc.us, %.fr
+  br i1 %exitcond57.not, label %if.then.i.i.i22, label %while.body16.us, !llvm.loop !83
 
 while.end27.us:                                   ; preds = %if.end21.us
-  %cmp28.us = icmp eq i64 %j.036.us, %.fr
-  br i1 %cmp28.us, label %if.then.i.i.i22, label %if.end30.us
+  %cmp28.us.not.not = icmp ne i64 %j.036.us, %.fr
+  br i1 %cmp28.us.not.not, label %if.end30.us, label %if.then.i.i.i22
 
 if.end30.us:                                      ; preds = %while.end27.us
   %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8
@@ -2095,9 +2094,8 @@ if.end30.us:                                      ; preds = %while.end27.us
   store ptr %6, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %7, ptr %_M_end_of_storage.i4.i.i.i, align 8
   %inc31.us = add nuw nsw i64 %i.039.us, 1
-  %cmp12.us = icmp sge i64 %inc31.us, %2
-  %exitcond61 = icmp eq i64 %inc31.us, %2
-  br i1 %exitcond61, label %if.then.i.i.i22, label %for.body.us, !llvm.loop !84
+  %exitcond58.not = icmp eq i64 %inc31.us, %2
+  br i1 %exitcond58.not, label %if.then.i.i.i22, label %for.body.us, !llvm.loop !84
 
 while.cond14.preheader.us:                        ; preds = %for.body.us
   %10 = load ptr, ptr %last_index, align 8
@@ -2145,8 +2143,8 @@ while.cond14.preheader:                           ; preds = %for.body
   store ptr %13, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %14, ptr %_M_end_of_storage.i4.i.i.i, align 8
   %inc31 = add nuw nsw i64 %i.039, 1
-  %exitcond = icmp eq i64 %inc31, %2
-  br i1 %exitcond, label %cleanup, label %for.body, !llvm.loop !84
+  %exitcond.not = icmp eq i64 %inc31, %2
+  br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !84
 
 lpad.loopexit.split.split:                        ; preds = %for.body
   %lpad.loopexit28 = landingpad { ptr, i32 }
@@ -2186,8 +2184,8 @@ cleanup:                                          ; preds = %while.cond14.prehea
   br i1 %tobool.not.i.i.i21, label %_ZNSt6vectorIlSaIlEED2Ev.exit23, label %if.then.i.i.i22
 
 if.then.i.i.i22:                                  ; preds = %if.end30.us, %while.end27.us, %if.end26.us, %while.body16.us, %cleanup
-  %cmp1233 = phi i1 [ %cmp28, %cleanup ], [ %cmp1240.us, %while.body16.us ], [ %cmp1240.us, %if.end26.us ], [ %cmp1240.us, %while.end27.us ], [ %cmp12.us, %if.end30.us ]
-  %20 = phi ptr [ %.pr, %cleanup ], [ %11, %while.body16.us ], [ %11, %if.end26.us ], [ %11, %while.end27.us ], [ %10, %if.end30.us ]
+  %cmp1233 = phi i1 [ %cmp28, %cleanup ], [ false, %while.body16.us ], [ false, %if.end26.us ], [ %cmp28.us.not.not, %while.end27.us ], [ %cmp28.us.not.not, %if.end30.us ]
+  %20 = phi ptr [ %.pr, %cleanup ], [ %11, %while.body16.us ], [ %11, %if.end26.us ], [ %10, %if.end30.us ], [ %11, %while.end27.us ]
   call void @_ZdlPv(ptr noundef nonnull %20) #21
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit23
 

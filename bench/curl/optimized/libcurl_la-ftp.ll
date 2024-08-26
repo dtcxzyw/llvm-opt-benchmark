@@ -4331,25 +4331,24 @@ if.else55:                                        ; preds = %entry
 
 while.cond.preheader:                             ; preds = %if.else55
   %15 = load i8, ptr %arrayidx, align 1
-  %tobool63.not126 = icmp eq i8 %15, 0
-  br i1 %tobool63.not126, label %if.then69, label %while.body
+  %tobool63.not127 = icmp eq i8 %15, 0
+  br i1 %tobool63.not127, label %if.then69, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end66
-  %str.0127 = phi ptr [ %incdec.ptr67, %if.end66 ], [ %arrayidx, %while.cond.preheader ]
+  %str.0128 = phi ptr [ %incdec.ptr67, %if.end66 ], [ %arrayidx, %while.cond.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endp.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end16.i, %while.body
   %indvars.iv.i = phi i64 [ 0, %while.body ], [ %indvars.iv.next.i, %if.end16.i ]
-  %cmp11.i = phi i1 [ false, %while.body ], [ %cmp.i, %if.end16.i ]
-  %p.addr.09.i = phi ptr [ %str.0127, %while.body ], [ %19, %if.end16.i ]
+  %p.addr.09.i = phi ptr [ %str.0128, %while.body ], [ %19, %if.end16.i ]
   %tobool.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %tobool.not.i, label %if.end4.i, label %if.then.i103
 
 if.then.i103:                                     ; preds = %for.body.i
   %16 = load i8, ptr %p.addr.09.i, align 1
   %cmp1.not.i = icmp eq i8 %16, 44
-  br i1 %cmp1.not.i, label %if.end.i104, label %match_pasv_6nums.exit
+  br i1 %cmp1.not.i, label %if.end.i104, label %if.end66
 
 if.end.i104:                                      ; preds = %if.then.i103
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.09.i, i64 1
@@ -4360,12 +4359,12 @@ if.end4.i:                                        ; preds = %if.end.i104, %for.b
   %17 = load i8, ptr %p.addr.1.i, align 1
   %18 = add i8 %17, -48
   %or.cond.i105 = icmp ult i8 %18, 10
-  br i1 %or.cond.i105, label %if.end12.i, label %match_pasv_6nums.exit
+  br i1 %or.cond.i105, label %if.end12.i, label %if.end66
 
 if.end12.i:                                       ; preds = %if.end4.i
   %call.i = call i64 @strtoul(ptr noundef nonnull %p.addr.1.i, ptr noundef nonnull %endp.i, i32 noundef 10) #10
   %cmp13.i = icmp ugt i64 %call.i, 255
-  br i1 %cmp13.i, label %match_pasv_6nums.exit, label %if.end16.i
+  br i1 %cmp13.i, label %if.end66, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end12.i
   %conv17.i = trunc nuw nsw i64 %call.i to i32
@@ -4373,23 +4372,19 @@ if.end16.i:                                       ; preds = %if.end12.i
   store i32 %conv17.i, ptr %arrayidx.i, align 4
   %19 = load ptr, ptr %endp.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 4
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.i, label %match_pasv_6nums.exit, label %for.body.i, !llvm.loop !15
+  br i1 %exitcond.i, label %while.end, label %for.body.i, !llvm.loop !15
 
-match_pasv_6nums.exit:                            ; preds = %if.then.i103, %if.end4.i, %if.end12.i, %if.end16.i
-  %cmp.lcssa.i = phi i1 [ %cmp.i, %if.end16.i ], [ %cmp11.i, %if.end12.i ], [ %cmp11.i, %if.end4.i ], [ %cmp11.i, %if.then.i103 ]
+if.end66:                                         ; preds = %if.end12.i, %if.end4.i, %if.then.i103
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endp.i)
-  br i1 %cmp.lcssa.i, label %while.end, label %if.end66
-
-if.end66:                                         ; preds = %match_pasv_6nums.exit
-  %incdec.ptr67 = getelementptr inbounds i8, ptr %str.0127, i64 1
+  %incdec.ptr67 = getelementptr inbounds i8, ptr %str.0128, i64 1
   %20 = load i8, ptr %incdec.ptr67, align 1
   %tobool63.not = icmp eq i8 %20, 0
   br i1 %tobool63.not, label %if.then69, label %while.body, !llvm.loop !16
 
-while.end:                                        ; preds = %match_pasv_6nums.exit
-  %.pr = load i8, ptr %str.0127, align 1
+while.end:                                        ; preds = %if.end16.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endp.i)
+  %.pr = load i8, ptr %str.0128, align 1
   %tobool68.not = icmp eq i8 %.pr, 0
   br i1 %tobool68.not, label %if.then69, label %if.end70
 

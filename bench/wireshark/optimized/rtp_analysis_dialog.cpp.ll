@@ -17126,15 +17126,9 @@ _ZN5QListIP13_rtpstream_idED2Ev.exit:             ; preds = %24, %_ZN17QArrayDat
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %35, %_ZN5QListIP13_rtpstream_idED2Ev.exit
   ret void
 
-_ZN5QListIP13_rtpstream_idED2Ev.exit13:           ; preds = %.loopexit20, %33, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i11, %29
+_ZN5QListIP13_rtpstream_idED2Ev.exit13:           ; preds = %29, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i11, %33, %.loopexit20
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %30, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i11 ], [ %30, %33 ], [ %lpad.loopexit, %.loopexit20 ]
-  br i1 %.not.i.i, label %37, label %_ZNSt11unique_lockISt5mutexED2Ev.exit16
-
-37:                                               ; preds = %_ZN5QListIP13_rtpstream_idED2Ev.exit13
-  %38 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN17RtpAnalysisDialog10run_mutex_E) #20
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit16
-
-_ZNSt11unique_lockISt5mutexED2Ev.exit16:          ; preds = %_ZN5QListIP13_rtpstream_idED2Ev.exit13, %37
+  %37 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN17RtpAnalysisDialog10run_mutex_E) #20
   resume { ptr, i32 } %.pn
 }
 

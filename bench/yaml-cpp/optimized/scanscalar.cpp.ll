@@ -274,10 +274,10 @@ if.end:                                           ; preds = %invoke.cont, %entry
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %if.end
   %lastEscapedChar.0.ph = phi i64 [ -1, %if.end ], [ %lastEscapedChar.3, %while.cond.outer.backedge ]
-  %foldedNewlineStartedMoreIndented.0.ph = phi i1 [ false, %if.end ], [ %foldedNewlineStartedMoreIndented.1, %while.cond.outer.backedge ]
+  %foldedNewlineStartedMoreIndented.0.ph = phi i1 [ false, %if.end ], [ %foldedNewlineStartedMoreIndented.1721, %while.cond.outer.backedge ]
   %foldedNewlineCount.0.ph = phi i32 [ 0, %if.end ], [ %foldedNewlineCount.0.ph.be, %while.cond.outer.backedge ]
   %moreIndented.0.ph = phi i1 [ false, %if.end ], [ %cond.i.i.i467, %while.cond.outer.backedge ]
-  %emptyLine.0.ph = phi i1 [ false, %if.end ], [ %cond.i.i.i435, %while.cond.outer.backedge ]
+  %emptyLine.0.ph = phi i1 [ false, %if.end ], [ %emptyLine.0.ph.be, %while.cond.outer.backedge ]
   %pastOpeningBreak.0.ph = phi i1 [ %cmp, %if.end ], [ true, %while.cond.outer.backedge ]
   %foundNonEmptyLine.0.ph = phi i8 [ 0, %if.end ], [ %foundNonEmptyLine.2, %while.cond.outer.backedge ]
   %cmp240 = icmp eq i32 %foldedNewlineCount.0.ph, 0
@@ -287,7 +287,7 @@ while.cond:                                       ; preds = %while.cond.outer, %
   %lastEscapedChar.0 = phi i64 [ %lastEscapedChar.3, %if.then304 ], [ %lastEscapedChar.0.ph, %while.cond.outer ]
   %foldedNewlineStartedMoreIndented.0 = phi i1 [ %foldedNewlineStartedMoreIndented.1, %if.then304 ], [ %foldedNewlineStartedMoreIndented.0.ph, %while.cond.outer ]
   %moreIndented.0 = phi i1 [ %cond.i.i.i467, %if.then304 ], [ %moreIndented.0.ph, %while.cond.outer ]
-  %emptyLine.0 = phi i1 [ %cond.i.i.i435, %if.then304 ], [ %emptyLine.0.ph, %while.cond.outer ]
+  %emptyLine.0 = phi i1 [ true, %if.then304 ], [ %emptyLine.0.ph, %while.cond.outer ]
   %pastOpeningBreak.0 = phi i1 [ true, %if.then304 ], [ %pastOpeningBreak.0.ph, %while.cond.outer ]
   %foundNonEmptyLine.0 = phi i8 [ %foundNonEmptyLine.2, %if.then304 ], [ %foundNonEmptyLine.0.ph, %while.cond.outer ]
   %call3 = invoke noundef zeroext i1 @_ZNK4YAML6StreamcvbEv(ptr noundef nonnull align 8 dereferenceable(128) %INPUT)
@@ -1305,7 +1305,9 @@ if.end274.thread:                                 ; preds = %land.lhs.true260, %
   br label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %if.end274.thread, %land.lhs.true322, %if.end316
+  %foldedNewlineStartedMoreIndented.1721 = phi i1 [ %foldedNewlineStartedMoreIndented.1722, %if.end316 ], [ %foldedNewlineStartedMoreIndented.1720, %land.lhs.true322 ], [ %foldedNewlineStartedMoreIndented.1, %if.end274.thread ]
   %foldedNewlineCount.0.ph.be = phi i32 [ %foldedNewlineCount.1, %if.end316 ], [ %foldedNewlineCount.1504, %land.lhs.true322 ], [ %inc, %if.end274.thread ]
+  %emptyLine.0.ph.be = phi i1 [ true, %if.end316 ], [ false, %land.lhs.true322 ], [ %cond.i.i.i435, %if.end274.thread ]
   br label %while.cond.outer, !llvm.loop !9
 
 if.else270.invoke:                                ; preds = %land.lhs.true260, %if.else
@@ -1378,10 +1380,12 @@ if.then311:                                       ; preds = %if.else307
           to label %land.lhs.true322 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp
 
 if.end316:                                        ; preds = %if.then248, %invoke.cont234, %lor.lhs.false290, %if.then297, %sw.bb, %if.end274
+  %foldedNewlineStartedMoreIndented.1722 = phi i1 [ %foldedNewlineStartedMoreIndented.1, %if.end274 ], [ %foldedNewlineStartedMoreIndented.1, %sw.bb ], [ %foldedNewlineStartedMoreIndented.1, %if.then297 ], [ false, %lor.lhs.false290 ], [ %foldedNewlineStartedMoreIndented.1, %invoke.cont234 ], [ %foldedNewlineStartedMoreIndented.1, %if.then248 ]
   %foldedNewlineCount.1 = phi i32 [ %foldedNewlineCount.0.ph, %if.end274 ], [ %foldedNewlineCount.0.ph, %sw.bb ], [ 0, %if.then297 ], [ 0, %lor.lhs.false290 ], [ %foldedNewlineCount.0.ph, %invoke.cont234 ], [ %foldedNewlineCount.0.ph, %if.then248 ]
   br i1 %cond.i.i.i435, label %while.cond.outer.backedge, label %land.lhs.true322
 
 land.lhs.true322:                                 ; preds = %if.then311, %if.else307, %if.end316
+  %foldedNewlineStartedMoreIndented.1720 = phi i1 [ %foldedNewlineStartedMoreIndented.1722, %if.end316 ], [ %foldedNewlineStartedMoreIndented.1, %if.else307 ], [ %foldedNewlineStartedMoreIndented.1, %if.then311 ]
   %foldedNewlineCount.1504 = phi i32 [ %foldedNewlineCount.1, %if.end316 ], [ %foldedNewlineCount.0.ph, %if.else307 ], [ %foldedNewlineCount.0.ph, %if.then311 ]
   %134 = load i32, ptr %column.i, align 8
   %135 = load i32, ptr %indent, align 4

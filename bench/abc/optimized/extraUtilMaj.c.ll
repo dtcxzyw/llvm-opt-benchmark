@@ -497,13 +497,13 @@ define i32 @Gem_GroupsDerive(ptr noundef readonly %0, i32 noundef %1, ptr nounde
   %17 = getelementptr inbounds i64, ptr %2, i64 %wide.trip.count59.i.i
   %18 = getelementptr inbounds i64, ptr %3, i64 %wide.trip.count59.i.i
   %wide.trip.count34 = zext nneg i32 %5 to i64
-  br i1 %12, label %.lr.ph.preheader.i.i.us, label %.lr.ph.split
+  br i1 %12, label %Abc_TtCofactor0p.exit.thread61.i.us, label %.lr.ph.split
 
-.lr.ph.preheader.i.i.us:                          ; preds = %.lr.ph, %.lr.ph.preheader.i.i.us
-  %19 = phi i64 [ %34, %.lr.ph.preheader.i.i.us ], [ -6148914691236517206, %.lr.ph ]
-  %20 = phi i64 [ %42, %.lr.ph.preheader.i.i.us ], [ 6148914691236517205, %.lr.ph ]
-  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.lr.ph.preheader.i.i.us ], [ 0, %.lr.ph ]
-  %.024.us = phi i32 [ %spec.select, %.lr.ph.preheader.i.i.us ], [ %6, %.lr.ph ]
+Abc_TtCofactor0p.exit.thread61.i.us:              ; preds = %.lr.ph, %Abc_TtCofactor0p.exit.thread61.i.us
+  %19 = phi i64 [ %34, %Abc_TtCofactor0p.exit.thread61.i.us ], [ -6148914691236517206, %.lr.ph ]
+  %20 = phi i64 [ %42, %Abc_TtCofactor0p.exit.thread61.i.us ], [ 6148914691236517205, %.lr.ph ]
+  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %Abc_TtCofactor0p.exit.thread61.i.us ], [ 0, %.lr.ph ]
+  %.024.us = phi i32 [ %spec.select, %Abc_TtCofactor0p.exit.thread61.i.us ], [ %6, %.lr.ph ]
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %21 = load i64, ptr %0, align 8
   %22 = and i64 %20, %21
@@ -539,7 +539,7 @@ define i32 @Gem_GroupsDerive(ptr noundef readonly %0, i32 noundef %1, ptr nounde
   %47 = select i1 %.not.i58.i.us, i32 0, i32 %24
   %spec.select = or i32 %.024.us, %47
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %._crit_edge, label %.lr.ph.preheader.i.i.us, !llvm.loop !11
+  br i1 %exitcond35.not, label %._crit_edge, label %Abc_TtCofactor0p.exit.thread61.i.us, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %Abc_TtVarsAreSymmetric.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_TtVarsAreSymmetric.exit.thread ], [ 0, %.lr.ph ]
@@ -753,7 +753,7 @@ Abc_TtCofactor1p.exit.thread.i:                   ; preds = %._crit_edge.us.i26.
 ._crit_edge.us.i37.i:                             ; preds = %131
   %136 = getelementptr inbounds i64, ptr %.043.us.i.i, i64 %128
   %137 = icmp ult ptr %136, %17
-  br i1 %137, label %.preheader.us.i33.i, label %Abc_TtCofactor1.exit.thread.thread.i.loopexit, !llvm.loop !20
+  br i1 %137, label %.preheader.us.i33.i, label %Abc_TtCofactor1.exit.thread.thread.i, !llvm.loop !20
 
 Abc_TtCofactor1.exit.thread.i:                    ; preds = %116
   %138 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.next
@@ -772,13 +772,13 @@ Abc_TtCofactor1.exit.thread.i:                    ; preds = %116
   %exitcond52.not.i54.i = icmp eq i64 %indvars.iv.next49.i53.i, %wide.trip.count59.i.i
   br i1 %exitcond52.not.i54.i, label %Abc_TtCofactor0.exit.i, label %140, !llvm.loop !21
 
-Abc_TtCofactor1.exit.thread.thread.i.loopexit:    ; preds = %._crit_edge.us.i37.i
+Abc_TtCofactor1.exit.thread.thread.i:             ; preds = %._crit_edge.us.i37.i
   %146 = add nsw i64 %indvars.iv, -5
   %147 = trunc nsw i64 %146 to i32
   %148 = shl nuw i32 1, %147
   br i1 %15, label %.preheader.lr.ph.i39.i, label %Abc_TtVarsAreSymmetric.exit.thread
 
-.preheader.lr.ph.i39.i:                           ; preds = %Abc_TtCofactor1.exit.thread.thread.i.loopexit
+.preheader.lr.ph.i39.i:                           ; preds = %Abc_TtCofactor1.exit.thread.thread.i
   %149 = icmp eq i64 %146, 31
   %150 = shl i32 2, %147
   %151 = sext i32 %150 to i64
@@ -835,13 +835,13 @@ Abc_TtCofactor0.exit.i:                           ; preds = %._crit_edge.us.i49.
   %167 = or i32 %.024, %166
   br label %Abc_TtVarsAreSymmetric.exit.thread
 
-Abc_TtVarsAreSymmetric.exit.thread:               ; preds = %160, %78, %Abc_TtCofactor0p.exit.thread.thread.i, %49, %61, %122, %111, %Abc_TtCofactor1.exit.thread.thread.i.loopexit, %Abc_TtCofactor0.exit.i, %165
-  %168 = phi i32 [ %167, %165 ], [ %.024, %Abc_TtCofactor0.exit.i ], [ %.024, %Abc_TtCofactor1.exit.thread.thread.i.loopexit ], [ %.024, %111 ], [ %.024, %122 ], [ %.024, %61 ], [ %.024, %49 ], [ %.024, %Abc_TtCofactor0p.exit.thread.thread.i ], [ %.024, %78 ], [ %.024, %160 ]
+Abc_TtVarsAreSymmetric.exit.thread:               ; preds = %160, %78, %Abc_TtCofactor0p.exit.thread.thread.i, %49, %61, %122, %111, %Abc_TtCofactor1.exit.thread.thread.i, %Abc_TtCofactor0.exit.i, %165
+  %168 = phi i32 [ %167, %165 ], [ %.024, %Abc_TtCofactor0.exit.i ], [ %.024, %Abc_TtCofactor1.exit.thread.thread.i ], [ %.024, %111 ], [ %.024, %122 ], [ %.024, %61 ], [ %.024, %49 ], [ %.024, %Abc_TtCofactor0p.exit.thread.thread.i ], [ %.024, %78 ], [ %.024, %160 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %Abc_TtVarsAreSymmetric.exit.thread, %.lr.ph.preheader.i.i.us, %4
-  %.0.lcssa = phi i32 [ %6, %4 ], [ %spec.select, %.lr.ph.preheader.i.i.us ], [ %168, %Abc_TtVarsAreSymmetric.exit.thread ]
+._crit_edge:                                      ; preds = %Abc_TtVarsAreSymmetric.exit.thread, %Abc_TtCofactor0p.exit.thread61.i.us, %4
+  %.0.lcssa = phi i32 [ %6, %4 ], [ %spec.select, %Abc_TtCofactor0p.exit.thread61.i.us ], [ %168, %Abc_TtVarsAreSymmetric.exit.thread ]
   ret i32 %.0.lcssa
 }
 

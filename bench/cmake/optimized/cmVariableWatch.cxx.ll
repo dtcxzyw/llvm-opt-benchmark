@@ -805,9 +805,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10shared_ptrIN15cmVariableWatch4PairEESaISA_EESt4lessIS5_ESaISt4pairIKS5_SC_EEE4findERSG_.exit: ; preds = %18
   %24 = icmp slt i32 %20, 0
-  %.not3637 = icmp eq ptr %.19.i.i.i, %10
-  %.not36 = select i1 %24, i1 true, i1 %.not3637
-  br i1 %.not36, label %_ZNSt6vectorISt8weak_ptrIN15cmVariableWatch4PairEESaIS3_EED2Ev.exit, label %25
+  br i1 %24, label %_ZNSt6vectorISt8weak_ptrIN15cmVariableWatch4PairEESaIS3_EED2Ev.exit, label %25
 
 25:                                               ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10shared_ptrIN15cmVariableWatch4PairEESaISA_EESt4lessIS5_ESaISt4pairIKS5_SC_EEE4findERSG_.exit
   %26 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
@@ -876,17 +874,17 @@ _ZSt10_ConstructISt8weak_ptrIN15cmVariableWatch4PairEEJRKSt10shared_ptrIS2_EEEvP
   %.pre = load ptr, ptr %6, align 8
   %52 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %51, ptr %52, align 8
-  %.not32 = icmp eq ptr %.pre, %51
-  br i1 %.not32, label %_ZSt8_DestroyIPSt8weak_ptrIN15cmVariableWatch4PairEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph
+  %.not3234 = icmp eq ptr %.pre, %51
+  br i1 %.not3234, label %_ZSt8_DestroyIPSt8weak_ptrIN15cmVariableWatch4PairEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit
   %53 = getelementptr inbounds i8, ptr %7, i64 8
   br label %54
 
 54:                                               ; preds = %.lr.ph, %_ZNSt10shared_ptrIN15cmVariableWatch4PairEED2Ev.exit
-  %.sroa.023.033 = phi ptr [ %.pre, %.lr.ph ], [ %108, %_ZNSt10shared_ptrIN15cmVariableWatch4PairEED2Ev.exit ]
+  %.sroa.023.035 = phi ptr [ %.pre, %.lr.ph ], [ %108, %_ZNSt10shared_ptrIN15cmVariableWatch4PairEED2Ev.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %55 = getelementptr inbounds i8, ptr %.sroa.023.033, i64 8
+  %55 = getelementptr inbounds i8, ptr %.sroa.023.035, i64 8
   %56 = load ptr, ptr %55, align 8, !noalias !14
   store ptr %56, ptr %53, align 8, !alias.scope !14
   %.not.i.i.i.i = icmp eq ptr %56, null
@@ -899,8 +897,8 @@ _ZSt10_ConstructISt8weak_ptrIN15cmVariableWatch4PairEEJRKSt10shared_ptrIS2_EEEvP
 
 60:                                               ; preds = %61, %57
   %.06.i.i.i.i.i = phi i32 [ %59, %57 ], [ %65, %61 ]
-  %.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %61
+  %.not.not.not.i.not.i.i.i.i = icmp eq i32 %.06.i.i.i.i.i, 0
+  br i1 %.not.not.not.i.not.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %61
 
 61:                                               ; preds = %60
   %62 = add nsw i32 %.06.i.i.i.i.i, 1
@@ -923,13 +921,13 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
   %67 = load atomic i32, ptr %66 monotonic, align 8, !noalias !14
   %.fr.i.i.i = freeze i32 %67
   %.not.i.i.i16 = icmp eq i32 %.fr.i.i.i, 0
-  %68 = load ptr, ptr %.sroa.023.033, align 8, !noalias !14
+  %68 = load ptr, ptr %.sroa.023.035, align 8, !noalias !14
   br i1 %.not.i.i.i16, label %74, label %_ZNKSt8weak_ptrIN15cmVariableWatch4PairEE4lockEv.exit
 
 _ZNKSt8weak_ptrIN15cmVariableWatch4PairEE4lockEv.exit: ; preds = %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
   store ptr %68, ptr %7, align 8, !alias.scope !14
-  %.not31 = icmp eq ptr %68, null
-  br i1 %.not31, label %.thread, label %69
+  %.not33 = icmp eq ptr %68, null
+  br i1 %.not33, label %.thread, label %69
 
 69:                                               ; preds = %_ZNKSt8weak_ptrIN15cmVariableWatch4PairEE4lockEv.exit
   %70 = load ptr, ptr %68, align 8
@@ -1022,18 +1020,18 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN15cmVariableWatch4PairEED2Ev.exit
 
 _ZNSt10shared_ptrIN15cmVariableWatch4PairEED2Ev.exit: ; preds = %.thread42, %90, %103, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %108 = getelementptr inbounds i8, ptr %.sroa.023.033, i64 16
-  %.not = icmp eq ptr %.sroa.023.033, %.09.i.i.i.i.i.i
-  br i1 %.not, label %._crit_edge, label %54
+  %108 = getelementptr inbounds i8, ptr %.sroa.023.035, i64 16
+  %.not32 = icmp eq ptr %.sroa.023.035, %.09.i.i.i.i.i.i
+  br i1 %.not32, label %._crit_edge, label %54
 
 ._crit_edge:                                      ; preds = %_ZNSt10shared_ptrIN15cmVariableWatch4PairEED2Ev.exit
-  %.pre34 = load ptr, ptr %6, align 8
-  %.pre35 = load ptr, ptr %52, align 8
-  %.not4.i.i.i.i = icmp eq ptr %.pre34, %.pre35
+  %.pre36 = load ptr, ptr %6, align 8
+  %.pre37 = load ptr, ptr %52, align 8
+  %.not4.i.i.i.i = icmp eq ptr %.pre36, %.pre37
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt8weak_ptrIN15cmVariableWatch4PairEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %_ZSt8_DestroyISt8weak_ptrIN15cmVariableWatch4PairEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %125, %_ZSt8_DestroyISt8weak_ptrIN15cmVariableWatch4PairEEEvPT_.exit.i.i.i.i ], [ %.pre34, %._crit_edge ]
+  %.05.i.i.i.i = phi ptr [ %125, %_ZSt8_DestroyISt8weak_ptrIN15cmVariableWatch4PairEEEvPT_.exit.i.i.i.i ], [ %.pre36, %._crit_edge ]
   %109 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
   %110 = load ptr, ptr %109, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %110, null
@@ -1069,7 +1067,7 @@ _ZNSt10shared_ptrIN15cmVariableWatch4PairEED2Ev.exit: ; preds = %.thread42, %90,
 
 _ZSt8_DestroyISt8weak_ptrIN15cmVariableWatch4PairEEEvPT_.exit.i.i.i.i: ; preds = %121, %119, %.lr.ph.i.i.i.i
   %125 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
-  %.not.i.i.i.i20 = icmp eq ptr %125, %.pre35
+  %.not.i.i.i.i20 = icmp eq ptr %125, %.pre37
   br i1 %.not.i.i.i.i20, label %_ZSt8_DestroyIPSt8weak_ptrIN15cmVariableWatch4PairEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
 
 _ZSt8_DestroyIPSt8weak_ptrIN15cmVariableWatch4PairEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt8weak_ptrIN15cmVariableWatch4PairEEEvPT_.exit.i.i.i.i
@@ -1077,7 +1075,7 @@ _ZSt8_DestroyIPSt8weak_ptrIN15cmVariableWatch4PairEES3_EvT_S5_RSaIT0_E.exitthrea
   br label %_ZSt8_DestroyIPSt8weak_ptrIN15cmVariableWatch4PairEES3_EvT_S5_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt8weak_ptrIN15cmVariableWatch4PairEES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %.loopexit, %_ZSt8_DestroyIPSt8weak_ptrIN15cmVariableWatch4PairEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %126 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt8weak_ptrIN15cmVariableWatch4PairEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %.pre34, %._crit_edge ], [ %.pre, %.loopexit ]
+  %126 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt8weak_ptrIN15cmVariableWatch4PairEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %.pre36, %._crit_edge ], [ %.pre, %.loopexit ]
   %.not.i.i.i21 = icmp eq ptr %126, null
   br i1 %.not.i.i.i21, label %_ZNSt6vectorISt8weak_ptrIN15cmVariableWatch4PairEESaIS3_EED2Ev.exit, label %127
 

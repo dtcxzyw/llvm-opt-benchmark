@@ -2658,7 +2658,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nocap
 
 ._crit_edge:                                      ; preds = %39
   %40 = icmp sgt i32 %.1, 1
-  br i1 %40, label %.lr.ph30.i, label %Vec_IntSelectSortCost.exit
+  br i1 %40, label %.lr.ph30.i, label %.lr.ph129
 
 .lr.ph30.i:                                       ; preds = %._crit_edge
   %41 = add nsw i32 %.1, -1
@@ -2706,12 +2706,9 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nocap
   store i32 %59, ptr %61, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
-  br i1 %exitcond39.not.i, label %Vec_IntSelectSortCost.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond39.not.i, label %.lr.ph129, label %.lr.ph.i, !llvm.loop !24
 
-Vec_IntSelectSortCost.exit:                       ; preds = %._crit_edge.i, %._crit_edge
-  br i1 %27, label %.lr.ph129, label %.critedge3
-
-.lr.ph129:                                        ; preds = %Vec_IntSelectSortCost.exit
+.lr.ph129:                                        ; preds = %._crit_edge.i, %._crit_edge
   %63 = getelementptr i8, ptr %0, i64 32
   %64 = getelementptr i8, ptr %3, i64 8
   br label %65
@@ -2742,7 +2739,7 @@ Vec_IntSelectSortCost.exit:                       ; preds = %._crit_edge.i, %._c
   %74 = icmp slt i64 %indvars.iv.next148, %73
   br i1 %74, label %65, label %.critedge3, !llvm.loop !25
 
-.critedge3:                                       ; preds = %65, %66, %Vec_IntSelectSortCost.exit
+.critedge3:                                       ; preds = %65, %66
   %75 = icmp sgt i32 %.1, 0
   br i1 %75, label %.lr.ph132, label %._crit_edge133.thread
 
@@ -2788,15 +2785,12 @@ Vec_IntSelectSortCost.exit:                       ; preds = %._crit_edge.i, %._c
   %95 = tail call i32 @Ga2_ObjComputeTruth_rec(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1)
   %96 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %96, align 4
-  br i1 %75, label %.lr.ph136, label %.preheader
-
-.lr.ph136:                                        ; preds = %._crit_edge133
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
   %wide.trip.count158 = zext nneg i32 %.1 to i64
   br label %98
 
-.preheader:                                       ; preds = %Vec_IntPush.exit, %._crit_edge133.thread, %._crit_edge133
-  %97 = phi i32 [ %93, %._crit_edge133.thread ], [ %95, %._crit_edge133 ], [ %95, %Vec_IntPush.exit ]
+.preheader:                                       ; preds = %Vec_IntPush.exit, %._crit_edge133.thread
+  %97 = phi i32 [ %93, %._crit_edge133.thread ], [ %95, %Vec_IntPush.exit ]
   %.val138.pre = load i32, ptr %7, align 4
   br label %.loopexit
 
@@ -2804,9 +2798,9 @@ thread-pre-split:                                 ; preds = %Vec_IntPush.exit
   %.pr = load i32, ptr %96, align 4
   br label %98
 
-98:                                               ; preds = %thread-pre-split, %.lr.ph136
-  %99 = phi i32 [ %.pr, %thread-pre-split ], [ 0, %.lr.ph136 ]
-  %indvars.iv155 = phi i64 [ %indvars.iv.next156, %thread-pre-split ], [ 0, %.lr.ph136 ]
+98:                                               ; preds = %thread-pre-split, %._crit_edge133
+  %99 = phi i32 [ %.pr, %thread-pre-split ], [ 0, %._crit_edge133 ]
+  %indvars.iv155 = phi i64 [ %indvars.iv.next156, %thread-pre-split ], [ 0, %._crit_edge133 ]
   %100 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 %indvars.iv155
   %101 = load i32, ptr %100, align 4
   %102 = load i32, ptr %3, align 8

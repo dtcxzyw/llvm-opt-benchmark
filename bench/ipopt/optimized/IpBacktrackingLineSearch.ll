@@ -9552,7 +9552,6 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit114:     ; preds = %74, %69
   br i1 %106, label %.loopexit.sink.split, label %.critedge95.preheader
 
 .critedge95.preheader:                            ; preds = %.thread, %100
-  %.055202 = phi i1 [ false, %.thread ], [ %106, %100 ]
   %107 = load double, ptr %2, align 8
   %108 = fcmp ogt double %107, %.077
   %109 = load i32, ptr %5, align 4
@@ -9916,7 +9915,6 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit138:     ; preds = %182, %177, %_ZN5Ipo
   br i1 %279, label %.loopexit.sink.split, label %.critedge95
 
 .critedge95:                                      ; preds = %260, %274, %257
-  %.4 = phi i1 [ false, %257 ], [ %279, %274 ], [ false, %260 ]
   %280 = load double, ptr %117, align 8
   %281 = load double, ptr %2, align 8
   %282 = fmul double %280, %281
@@ -9933,13 +9931,12 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit138:     ; preds = %182, %177, %_ZN5Ipo
 .loopexit.sink.split:                             ; preds = %274, %100
   %.sink = phi ptr [ %3, %100 ], [ %4, %274 ]
   %.172.ph = phi double [ %.071, %100 ], [ %.576174, %274 ]
-  %.156.ph = phi i1 [ %106, %100 ], [ %279, %274 ]
   store i8 1, ptr %.sink, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge95, %.loopexit.sink.split, %.critedge95.preheader
   %.172 = phi double [ %.071, %.critedge95.preheader ], [ %.172.ph, %.loopexit.sink.split ], [ %.576174, %.critedge95 ]
-  %.156 = phi i1 [ %.055202, %.critedge95.preheader ], [ %.156.ph, %.loopexit.sink.split ], [ %.4, %.critedge95 ]
+  %.156 = phi i1 [ false, %.critedge95.preheader ], [ true, %.loopexit.sink.split ], [ false, %.critedge95 ]
   br i1 %.156, label %.critedge103, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %249, %252, %.loopexit

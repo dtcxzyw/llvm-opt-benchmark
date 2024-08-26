@@ -9322,26 +9322,19 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i2.i.i54, i8 0, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i54, i64 16
   %cmp.i.i.i.i.i.i.i53 = icmp eq i64 %sub.ptr.sub.i, 16
-  br i1 %cmp.i.i.i.i.i.i.i53, label %invoke.cont19.thread101, label %for.body.i.i.i.i.i.i.i.i.i
-
-invoke.cont19.thread101:                          ; preds = %call5.i.i.i.i2.i.i.noexc
-  %_M_finish.i.i7.i103 = getelementptr inbounds i8, ptr %regions, i64 8
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i7.i103, align 8
-  br label %for.body.lr.ph
+  br i1 %cmp.i.i.i.i.i.i.i53, label %for.body.lr.ph, label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %call5.i.i.i.i2.i.i.noexc, %for.body.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i2.i.i54, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont19, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !324
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !324
 
-invoke.cont19:                                    ; preds = %for.body.i.i.i.i.i.i.i.i.i
+for.body.lr.ph:                                   ; preds = %for.body.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
+  %add.ptr.i.i.i.sink = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %regions, i64 8
-  store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
-  br i1 %cmp.not.i.i.i.i, label %for.end, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %invoke.cont19.thread101, %invoke.cont19
+  store ptr %add.ptr.i.i.i.sink, ptr %_M_finish.i.i7.i, align 8
   %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   br label %for.body
 
@@ -9562,7 +9555,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i:         ; preds = %if.end8.sink.split.
 _ZN5arrow6ResultIlED2Ev.exit:                     ; preds = %cleanup63, %_ZN5arrow6Status11DeleteStateEv.exit.i.i
   br i1 %cmp.i.i60, label %for.cond, label %cleanup67
 
-for.end:                                          ; preds = %for.cond, %invoke.cont19.thread, %invoke.cont19
+for.end:                                          ; preds = %for.cond, %invoke.cont19.thread
   invoke void @_ZN5arrow8internal20MemoryAdviseWillNeedERKSt6vectorINS0_12MemoryRegionESaIS2_EE(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %regions)
           to label %cleanup67 unwind label %lpad25.loopexit.split-lp
 
@@ -10466,8 +10459,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %do.end57
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %lor.lhs.false.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %25, %lor.lhs.false.i.i.i.i ], [ %28, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i85, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i85, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i84 = add nsw i32 %__count.0.i.i.i.i.i, 1
@@ -14035,8 +14028,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end30
 
 do.body.i.i.i.i.i:                                ; preds = %do.cond.i.i.i.i.i, %lor.lhs.false.i.i.i.i
   %__count.0.i.i.i.i.i = phi i32 [ %10, %lor.lhs.false.i.i.i.i ], [ %13, %do.cond.i.i.i.i.i ]
-  %cmp.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
+  %cmp.not.not.not.i.not.i.i.i.i = icmp eq i32 %__count.0.i.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.i.i.i.i, label %if.then.i.i.i.i, label %do.cond.i.i.i.i.i
 
 do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i32 %__count.0.i.i.i.i.i, 1

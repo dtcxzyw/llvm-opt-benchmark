@@ -522,8 +522,8 @@ if.end10:                                         ; preds = %invoke.cont3
 
 do.body.i.i.i:                                    ; preds = %do.cond.i.i.i, %if.end10
   %count.0.i.i.i = phi i64 [ %5, %if.end10 ], [ %8, %do.cond.i.i.i ]
-  %cmp.not.i.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
-  br i1 %cmp.not.i.not.i.not.i, label %cleanup, label %do.cond.i.i.i
+  %cmp.not.not.not.i.not.not.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not.i, label %cleanup, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   %add.i.i.i = add nsw i64 %count.0.i.i.i, 1
@@ -622,8 +622,8 @@ land.rhs:                                         ; preds = %for.body
 
 do.body.i.i.i:                                    ; preds = %do.cond.i.i.i, %land.rhs
   %count.0.i.i.i = phi i64 [ %4, %land.rhs ], [ %7, %do.cond.i.i.i ]
-  %cmp.not.i.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
-  br i1 %cmp.not.i.not.i.not.i, label %for.inc, label %do.cond.i.i.i
+  %cmp.not.not.not.i.not.not.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not.i, label %for.inc, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   %add.i.i.i = add nsw i64 %count.0.i.i.i, 1
@@ -1657,8 +1657,8 @@ land.rhs:                                         ; preds = %for.body
 
 do.body.i.i.i:                                    ; preds = %do.cond.i.i.i, %land.rhs
   %count.0.i.i.i = phi i64 [ %4, %land.rhs ], [ %7, %do.cond.i.i.i ]
-  %cmp.not.i.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
-  br i1 %cmp.not.i.not.i.not.i, label %for.inc, label %do.cond.i.i.i
+  %cmp.not.not.not.i.not.not.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not.i, label %for.inc, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   %add.i.i.i = add nsw i64 %count.0.i.i.i, 1
@@ -2345,8 +2345,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 do.body.i.i.i:                                    ; preds = %do.cond.i.i.i, %for.body
   %count.0.i.i.i = phi i64 [ %2, %for.body ], [ %5, %do.cond.i.i.i ]
-  %cmp.not.i.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
-  br i1 %cmp.not.i.not.i.not.i, label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit16, label %do.cond.i.i.i
+  %cmp.not.not.not.i.not.not.not.i.not.i = icmp eq i64 %count.0.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not.i, label %_ZN9grpc_core13RefCountedPtrINS_8channelz8BaseNodeEED2Ev.exit16, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
   %add.i.i.i = add nsw i64 %count.0.i.i.i, 1
@@ -2517,7 +2517,7 @@ invoke.cont23:                                    ; preds = %invoke.cont20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %json) #21
   %inc = add nuw i64 %i.058, 1
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp, label %for.body16, label %for.end26, !llvm.loop !64
+  br i1 %cmp, label %for.body16, label %for.body.i.i.i.i, !llvm.loop !64
 
 ehcleanup:                                        ; preds = %if.then.i.i, %if.then.i8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
@@ -2536,11 +2536,8 @@ lpad22:                                           ; preds = %invoke.cont20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %json) #21
   br label %ehcleanup27
 
-for.end26:                                        ; preds = %invoke.cont23
-  br i1 %cmp57.not, label %if.then.i.i.i, label %for.body.i.i.i.i
-
-for.body.i.i.i.i:                                 ; preds = %for.end26, %_ZSt8_DestroyIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEEEvPT_.exit.i.i.i.i ], [ %14, %for.end26 ]
+for.body.i.i.i.i:                                 ; preds = %invoke.cont23, %_ZSt8_DestroyIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEEEvPT_.exit.i.i.i.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEEEvPT_.exit.i.i.i.i ], [ %14, %invoke.cont23 ]
   %21 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -2572,9 +2569,8 @@ invoke.cont.i:                                    ; preds = %for.cond14.preheade
   %tobool.not.i.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEESaIS4_EED2Ev.exit, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %for.end26, %invoke.cont.i
-  %25 = phi ptr [ %24, %invoke.cont.i ], [ %14, %for.end26 ]
-  call void @_ZdlPv(ptr noundef nonnull %25) #24
+if.then.i.i.i:                                    ; preds = %invoke.cont.i
+  call void @_ZdlPv(ptr noundef nonnull %24) #24
   br label %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_8channelz8BaseNodeEEESaIS4_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
@@ -4011,8 +4007,8 @@ if.end10.i:                                       ; preds = %invoke.cont3.i
 
 do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %if.end10.i
   %count.0.i.i.i.i = phi i64 [ %10, %if.end10.i ], [ %13, %do.cond.i.i.i.i ]
-  %cmp.not.i.not.i.not.i.i = icmp eq i64 %count.0.i.i.i.i, 0
-  br i1 %cmp.not.i.not.i.not.i.i, label %cleanup.i, label %do.cond.i.i.i.i
+  %cmp.not.not.not.i.not.not.not.i.not.i.i = icmp eq i64 %count.0.i.i.i.i, 0
+  br i1 %cmp.not.not.not.i.not.not.not.i.not.i.i, label %cleanup.i, label %do.cond.i.i.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %add.i.i.i.i = add nsw i64 %count.0.i.i.i.i, 1

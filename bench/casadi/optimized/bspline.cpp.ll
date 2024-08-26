@@ -11763,17 +11763,13 @@ _ZN6casadi14casadi_de_boorIdEEvT_PKS1_xxPS1_.exit: ; preds = %._crit_edge.i, %_Z
   %150 = getelementptr inbounds i64, ptr %10, i64 %30
   store i64 %149, ptr %150, align 8
   %exitcond.not = icmp eq i64 %30, %1
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !105
+  br i1 %exitcond.not, label %.lr.ph196.preheader, label %21, !llvm.loop !105
 
-._crit_edge:                                      ; preds = %_ZN6casadi14casadi_de_boorIdEEvT_PKS1_xxPS1_.exit
-  br i1 %20, label %.lr.ph196.preheader, label %_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread
-
-_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread: ; preds = %._crit_edge, %12
-  %.0168.lcssa219.ph = phi i64 [ %147, %._crit_edge ], [ 1, %12 ]
+_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread: ; preds = %12
   %151 = add i64 %1, -1
   br label %.preheader190
 
-.lr.ph196.preheader:                              ; preds = %._crit_edge
+.lr.ph196.preheader:                              ; preds = %_ZN6casadi14casadi_de_boorIdEEvT_PKS1_xxPS1_.exit
   %152 = shl nuw i64 %1, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %15, i8 0, i64 %152, i1 false)
   %153 = add nsw i64 %1, -1
@@ -11781,7 +11777,7 @@ _ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread: ; preds = %._crit_edge, %12
 
 .preheader190:                                    ; preds = %.lr.ph196, %_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread
   %154 = phi i64 [ %151, %_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread ], [ %153, %.lr.ph196 ]
-  %.0168.lcssa219221 = phi i64 [ %.0168.lcssa219.ph, %_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread ], [ %147, %.lr.ph196 ]
+  %.0168.lcssa219221 = phi i64 [ 1, %_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread ], [ %147, %.lr.ph196 ]
   %155 = icmp sgt i64 %.0168.lcssa219221, 0
   br i1 %155, label %.preheader.lr.ph, label %._crit_edge212
 
@@ -13864,17 +13860,13 @@ _ZN6casadi14casadi_de_boorIdEEvT_PKS1_xxPS1_.exit: ; preds = %._crit_edge.i, %_Z
   %149 = getelementptr inbounds i64, ptr %9, i64 %29
   store i64 %148, ptr %149, align 8
   %exitcond.not = icmp eq i64 %29, %2
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !116
+  br i1 %exitcond.not, label %.lr.ph191.preheader, label %20, !llvm.loop !116
 
-._crit_edge:                                      ; preds = %_ZN6casadi14casadi_de_boorIdEEvT_PKS1_xxPS1_.exit
-  br i1 %19, label %.lr.ph191.preheader, label %_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread
-
-_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread: ; preds = %._crit_edge, %11
-  %.0165.lcssa215.ph = phi i64 [ %146, %._crit_edge ], [ 1, %11 ]
+_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread: ; preds = %11
   %150 = add i64 %2, -1
   br label %.preheader
 
-.lr.ph191.preheader:                              ; preds = %._crit_edge
+.lr.ph191.preheader:                              ; preds = %_ZN6casadi14casadi_de_boorIdEEvT_PKS1_xxPS1_.exit
   %151 = shl nuw i64 %2, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %14, i8 0, i64 %151, i1 false)
   %152 = add nsw i64 %2, -1
@@ -13882,7 +13874,7 @@ _ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread: ; preds = %._crit_edge, %11
 
 .preheader:                                       ; preds = %.lr.ph191, %_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread
   %153 = phi i64 [ %150, %_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread ], [ %152, %.lr.ph191 ]
-  %.0165.lcssa215217 = phi i64 [ %.0165.lcssa215.ph, %_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread ], [ %146, %.lr.ph191 ]
+  %.0165.lcssa215217 = phi i64 [ 1, %_ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread ], [ %146, %.lr.ph191 ]
   %154 = icmp sgt i64 %.0165.lcssa215217, 0
   br i1 %154, label %.lr.ph205, label %._crit_edge206
 

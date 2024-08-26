@@ -905,10 +905,7 @@ define range(i32 0, 2) i32 @Aig_ManPackAddPatternTry(ptr nocapture noundef reado
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %22
 
-.critedge.preheader:                              ; preds = %39
-  br i1 %5, label %.lr.ph45, label %.critedge2
-
-.lr.ph45:                                         ; preds = %.critedge.preheader
+.lr.ph45:                                         ; preds = %39
   %15 = getelementptr i8, ptr %2, i64 8
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = getelementptr inbounds i8, ptr %0, i64 24
@@ -946,7 +943,7 @@ define range(i32 0, 2) i32 @Aig_ManPackAddPatternTry(ptr nocapture noundef reado
 39:                                               ; preds = %22, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %22, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph45, label %22, !llvm.loop !13
 
 40:                                               ; preds = %.lr.ph45, %.critedge
   %indvars.iv48 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next49, %.critedge ]
@@ -987,8 +984,8 @@ define range(i32 0, 2) i32 @Aig_ManPackAddPatternTry(ptr nocapture noundef reado
   %63 = icmp slt i64 %indvars.iv.next49, %62
   br i1 %63, label %40, label %.critedge2, !llvm.loop !14
 
-.critedge2:                                       ; preds = %29, %.critedge, %3, %.critedge.preheader
-  %.032 = phi i32 [ 1, %.critedge.preheader ], [ 1, %3 ], [ 1, %.critedge ], [ 0, %29 ]
+.critedge2:                                       ; preds = %29, %.critedge, %3
+  %.032 = phi i32 [ 1, %3 ], [ 1, %.critedge ], [ 0, %29 ]
   ret i32 %.032
 }
 
@@ -1047,9 +1044,9 @@ define void @Aig_ManPackAddPattern(ptr nocapture noundef %0, ptr nocapture nound
 31:                                               ; preds = %21, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph45.i, label %14, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.critedge.preheader.i, label %14, !llvm.loop !13
 
-.lr.ph45.i:                                       ; preds = %31, %.critedge.i
+.critedge.preheader.i:                            ; preds = %31, %.critedge.i
   %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %.critedge.i ], [ 0, %31 ]
   %.val35.i = load ptr, ptr %7, align 8
   %32 = getelementptr inbounds i32, ptr %.val35.i, i64 %indvars.iv48.i
@@ -1076,17 +1073,17 @@ define void @Aig_ManPackAddPattern(ptr nocapture noundef %0, ptr nocapture nound
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %.critedge.i
 
-51:                                               ; preds = %.lr.ph45.i
+51:                                               ; preds = %.critedge.preheader.i
   %52 = xor i32 %46, %13
   store i32 %52, ptr %45, align 4
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %51, %.lr.ph45.i
+.critedge.i:                                      ; preds = %51, %.critedge.preheader.i
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %.val33.i = load i32, ptr %3, align 4
   %53 = sext i32 %.val33.i to i64
   %54 = icmp slt i64 %indvars.iv.next49.i, %53
-  br i1 %54, label %.lr.ph45.i, label %Aig_ManPackAddPatternTry.exit.thread, !llvm.loop !14
+  br i1 %54, label %.critedge.preheader.i, label %Aig_ManPackAddPatternTry.exit.thread, !llvm.loop !14
 
 Aig_ManPackAddPatternTry.exit:                    ; preds = %21
   %55 = add nuw nsw i32 %.020, 1

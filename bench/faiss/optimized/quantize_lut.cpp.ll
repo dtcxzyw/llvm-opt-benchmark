@@ -1182,13 +1182,12 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i439: ; preds = %.lr.ph.i.i.
   br i1 %.not.i.i.i.i.i.i.i.i.i443, label %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit448, label %.lr.ph.i.i.i.i.i.i.i.i.i441, !llvm.loop !28
 
 _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit448:         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i441, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i434
-  %.not.i.i.i.i435930 = phi i1 [ true, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i434 ], [ %.not.i.i.i.i435, %.lr.ph.i.i.i.i.i.i.i.i.i441 ]
   %.sroa.0502.0637 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i434 ], [ %249, %.lr.ph.i.i.i.i.i.i.i.i.i441 ]
   %.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i434 ], [ %252, %.lr.ph.i.i.i.i.i.i.i.i.i441 ]
   br i1 %.not763, label %.preheader641, label %.preheader642.lr.ph
 
 .preheader642.lr.ph:                              ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit448
-  br i1 %.not.i.i.i.i435930, label %.preheader.lr.ph, label %.preheader642.lr.ph.split.us
+  br i1 %.not.i.i.i.i435, label %.preheader.lr.ph, label %.preheader642.lr.ph.split.us
 
 .preheader642.lr.ph.split.us:                     ; preds = %.preheader642.lr.ph
   %.not.i449 = icmp eq i64 %2, 0
@@ -1250,13 +1249,13 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit467.loopexit.us: ; preds 
 ._crit_edge714.split.us721:                       ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit467.loopexit.us
   %indvars.iv.next852 = add nuw nsw i64 %indvars.iv851, 1
   %exitcond854.not = icmp eq i64 %indvars.iv.next852, %0
-  br i1 %exitcond854.not, label %.preheader641, label %.preheader642.us, !llvm.loop !30
+  br i1 %exitcond854.not, label %.lr.ph727.preheader, label %.preheader642.us, !llvm.loop !30
 
-.preheader641:                                    ; preds = %._crit_edge714.split.us721, %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit448
-  br i1 %.not.i.i.i.i435930, label %._crit_edge728, label %.lr.ph727.preheader
-
-.lr.ph727.preheader:                              ; preds = %.preheader642.lr.ph.split.us, %.preheader641
+.lr.ph727.preheader:                              ; preds = %._crit_edge714.split.us721, %.preheader642.lr.ph.split.us, %.preheader641
   br label %.lr.ph727
+
+.preheader641:                                    ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit448
+  br i1 %.not.i.i.i.i435, label %._crit_edge728, label %.lr.ph727.preheader
 
 270:                                              ; preds = %247, %246
   %271 = landingpad { ptr, i32 }

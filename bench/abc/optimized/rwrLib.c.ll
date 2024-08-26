@@ -501,10 +501,9 @@ define internal fastcc void @Rwr_ManTryNode(ptr nocapture noundef %0, ptr nounde
 
 ._crit_edge:                                      ; preds = %76
   %78 = getelementptr inbounds i8, ptr %.05967, i64 40
-  br i1 %.not6366, label %._crit_edge.thread, label %89
+  br label %89
 
-._crit_edge.thread:                               ; preds = %57, %._crit_edge
-  %.057.lcssa72 = phi ptr [ %78, %._crit_edge ], [ %60, %57 ]
+._crit_edge.thread:                               ; preds = %57
   %79 = getelementptr inbounds i8, ptr %0, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i16, ptr %80, i64 %.pre-phi
@@ -520,8 +519,8 @@ define internal fastcc void @Rwr_ManTryNode(ptr nocapture noundef %0, ptr nounde
   store i32 %88, ptr %86, align 4
   br label %89
 
-89:                                               ; preds = %85, %._crit_edge.thread, %._crit_edge
-  %.057.lcssa71 = phi ptr [ %.057.lcssa72, %85 ], [ %.057.lcssa72, %._crit_edge.thread ], [ %78, %._crit_edge ]
+89:                                               ; preds = %._crit_edge, %85, %._crit_edge.thread
+  %.057.lcssa71 = phi ptr [ %60, %85 ], [ %60, %._crit_edge.thread ], [ %78, %._crit_edge ]
   %90 = getelementptr inbounds i8, ptr %0, i64 88
   %91 = load ptr, ptr %90, align 8
   %92 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %91) #10

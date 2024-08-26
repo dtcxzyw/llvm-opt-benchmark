@@ -10556,7 +10556,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not, label %.critedge2, label %64, !llvm.loop !132
 
 .critedge2:                                       ; preds = %.critedge6, %16, %.critedge.preheader
-  %85 = phi i1 [ false, %.critedge.preheader ], [ false, %16 ], [ %20, %.critedge6 ]
+  %85 = phi i1 [ false, %.critedge.preheader ], [ false, %16 ], [ true, %.critedge6 ]
   %.val5792 = phi i32 [ %.val57.pre, %.critedge.preheader ], [ 0, %16 ], [ %.val57.pre, %.critedge6 ]
   br i1 %.not, label %88, label %86
 

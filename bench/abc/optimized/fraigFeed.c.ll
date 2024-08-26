@@ -875,9 +875,9 @@ Fraig_FeedBackCoveringStart.exit.i:               ; preds = %._crit_edge180.i.i,
 Fraig_GetSmallestColumn.exit.i:                   ; preds = %224, %.lr.ph.i53.i
   %.018.i.i = phi i32 [ %.116.i.i, %224 ], [ %221, %.lr.ph.i53.i ]
   %.not.i = icmp eq i32 %.018.i.i, -1
-  br i1 %.not.i, label %.lr.ph79.i, label %226
+  br i1 %.not.i, label %.preheader.i, label %226
 
-.lr.ph79.i:                                       ; preds = %Fraig_GetSmallestColumn.exit.i
+.preheader.i:                                     ; preds = %Fraig_GetSmallestColumn.exit.i
   %225 = getelementptr inbounds i8, ptr %0, i64 224
   br label %259
 
@@ -888,7 +888,7 @@ Fraig_GetSmallestColumn.exit.i:                   ; preds = %224, %.lr.ph.i53.i
   %230 = load ptr, ptr %229, align 8
   %231 = load i32, ptr %215, align 8
   %232 = icmp sgt i32 %231, 0
-  br i1 %232, label %.lr.ph.preheader.i56.i, label %.lr.ph.i65.i
+  br i1 %232, label %.lr.ph.preheader.i56.i, label %Fraig_GetHittingPattern.exit.i
 
 .lr.ph.preheader.i56.i:                           ; preds = %226
   %wide.trip.count.i57.i = zext nneg i32 %231 to i64
@@ -912,7 +912,7 @@ Fraig_GetSmallestColumn.exit.i:                   ; preds = %224, %.lr.ph.i53.i
   %239 = trunc nuw nsw i64 %indvars.iv.i59.i to i32
   %240 = shl nsw i32 %239, 5
   %241 = add nuw nsw i32 %.017.i.i, %240
-  br label %.lr.ph.i65.i
+  br label %Fraig_GetHittingPattern.exit.i
 
 242:                                              ; preds = %.preheader.i.i
   %243 = add nuw nsw i32 %.017.i.i, 1
@@ -922,9 +922,9 @@ Fraig_GetSmallestColumn.exit.i:                   ; preds = %224, %.lr.ph.i53.i
 .loopexit.i62.i:                                  ; preds = %242, %.lr.ph.i58.i
   %indvars.iv.next.i63.i = add nuw nsw i64 %indvars.iv.i59.i, 1
   %exitcond22.not.i.i = icmp eq i64 %indvars.iv.next.i63.i, %wide.trip.count.i57.i
-  br i1 %exitcond22.not.i.i, label %.lr.ph.i65.i, label %.lr.ph.i58.i, !llvm.loop !29
+  br i1 %exitcond22.not.i.i, label %Fraig_GetHittingPattern.exit.i, label %.lr.ph.i58.i, !llvm.loop !29
 
-.lr.ph.i65.i:                                     ; preds = %.loopexit.i62.i, %226, %238
+Fraig_GetHittingPattern.exit.i:                   ; preds = %.loopexit.i62.i, %238, %226
   %.013.i.i = phi i32 [ %241, %238 ], [ -1, %226 ], [ -1, %.loopexit.i62.i ]
   %244 = ashr i32 %.013.i.i, 5
   %245 = sext i32 %244 to i64
@@ -932,8 +932,8 @@ Fraig_GetSmallestColumn.exit.i:                   ; preds = %224, %.lr.ph.i53.i
   %247 = shl nuw i32 1, %246
   br label %248
 
-248:                                              ; preds = %256, %.lr.ph.i65.i
-  %indvars.iv.i66.i = phi i64 [ 0, %.lr.ph.i65.i ], [ %indvars.iv.next.i69.i, %256 ]
+248:                                              ; preds = %256, %Fraig_GetHittingPattern.exit.i
+  %indvars.iv.i66.i = phi i64 [ 0, %Fraig_GetHittingPattern.exit.i ], [ %indvars.iv.next.i69.i, %256 ]
   %249 = getelementptr inbounds ptr, ptr %227, i64 %indvars.iv.i66.i
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds i32, ptr %250, i64 %245
@@ -958,8 +958,8 @@ Fraig_CancelCoveredColumns.exit.i:                ; preds = %256
   %258 = icmp sgt i32 %257, 0
   br i1 %258, label %.lr.ph.preheader.i.i, label %._crit_edge80.i, !llvm.loop !31
 
-259:                                              ; preds = %259, %.lr.ph79.i
-  %indvars.iv89.i = phi i64 [ 0, %.lr.ph79.i ], [ %indvars.iv.next90.i, %259 ]
+259:                                              ; preds = %259, %.preheader.i
+  %indvars.iv89.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next90.i, %259 ]
   %260 = load ptr, ptr %225, align 8
   %261 = load ptr, ptr %214, align 8
   %262 = getelementptr inbounds ptr, ptr %261, i64 %indvars.iv89.i

@@ -1657,6 +1657,7 @@ define dso_local void @llvm_emit_global_variable_init(ptr noundef %0, ptr nounde
   br label %49
 
 49:                                               ; preds = %45, %47, %37, %.critedge2
+  %.not131165 = phi i1 [ false, %37 ], [ false, %.critedge2 ], [ %.not131, %45 ], [ %.not131, %47 ]
   %.0121 = phi ptr [ %40, %37 ], [ %41, %.critedge2 ], [ %46, %45 ], [ %48, %47 ]
   %50 = getelementptr inbounds i8, ptr %1, i64 32
   %51 = load ptr, ptr %50, align 8
@@ -1756,7 +1757,7 @@ llvm_set_global_tls.exit:                         ; preds = %82, %89, %94
   br label %100
 
 100:                                              ; preds = %97, %llvm_set_global_tls.exit
-  br i1 %.not131, label %.critedge148, label %101
+  br i1 %.not131165, label %.critedge148, label %101
 
 101:                                              ; preds = %100
   %102 = load ptr, ptr %.0122, align 8

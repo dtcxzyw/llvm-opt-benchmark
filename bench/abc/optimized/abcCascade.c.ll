@@ -1596,7 +1596,7 @@ Abc_ResMigrate.exit.thread:                       ; preds = %72
   store i32 %73, ptr %14, align 16
   store i32 %74, ptr %38, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  br label %.lr.ph23.split.i.preheader
+  br label %.lr.ph23.split.i
 
 .lr.ph84.split.us.i.preheader:                    ; preds = %72
   %.pre895 = load i32, ptr %14, align 16
@@ -1697,11 +1697,7 @@ Abc_ResMigrate.exit:                              ; preds = %..loopexit_crit_edg
   store i32 %.sroa.0.4.us.i, ptr %14, align 16
   store i32 %.sroa.3.4.us.i, ptr %38, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  br i1 %39, label %.lr.ph.us.i, label %.lr.ph23.split.i.preheader
-
-.lr.ph23.split.i.preheader:                       ; preds = %Abc_ResMigrate.exit.thread, %Abc_ResMigrate.exit
-  %.0.lcssa.i903 = phi i32 [ 0, %Abc_ResMigrate.exit.thread ], [ %.4.us.i, %Abc_ResMigrate.exit ]
-  br label %.lr.ph23.split.i
+  br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %Abc_ResMigrate.exit, %._crit_edge.us.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %._crit_edge.us.i ], [ 0, %Abc_ResMigrate.exit ]
@@ -1743,9 +1739,9 @@ Abc_ResMigrate.exit:                              ; preds = %..loopexit_crit_edg
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, 2
   br i1 %exitcond33.not.i, label %Abc_ResPrint.exit, label %.lr.ph.us.i, !llvm.loop !23
 
-.lr.ph23.split.i:                                 ; preds = %.lr.ph23.split.i.preheader, %.lr.ph23.split.i
-  %indvars.iv.i144 = phi i64 [ %indvars.iv.next.i147, %.lr.ph23.split.i ], [ 0, %.lr.ph23.split.i.preheader ]
-  %.021.i = phi i32 [ %169, %.lr.ph23.split.i ], [ 0, %.lr.ph23.split.i.preheader ]
+.lr.ph23.split.i:                                 ; preds = %Abc_ResMigrate.exit.thread, %.lr.ph23.split.i
+  %indvars.iv.i144 = phi i64 [ %indvars.iv.next.i147, %.lr.ph23.split.i ], [ 0, %Abc_ResMigrate.exit.thread ]
+  %.021.i = phi i32 [ %169, %.lr.ph23.split.i ], [ 0, %Abc_ResMigrate.exit.thread ]
   %157 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i144
   %158 = load i32, ptr %157, align 4
   %159 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %158, ptr noundef nonnull %13)
@@ -1768,7 +1764,7 @@ Abc_ResMigrate.exit:                              ; preds = %..loopexit_crit_edg
   br i1 %exitcond.not.i148, label %Abc_ResPrint.exit, label %.lr.ph23.split.i, !llvm.loop !23
 
 Abc_ResPrint.exit:                                ; preds = %.lr.ph23.split.i, %._crit_edge.us.i
-  %.0.lcssa.i902 = phi i32 [ %.4.us.i, %._crit_edge.us.i ], [ %.0.lcssa.i903, %.lr.ph23.split.i ]
+  %.0.lcssa.i902 = phi i32 [ %.4.us.i, %._crit_edge.us.i ], [ 0, %.lr.ph23.split.i ]
   %.0.lcssa.i149 = phi i32 [ %154, %._crit_edge.us.i ], [ %169, %.lr.ph23.split.i ]
   %172 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0.lcssa.i149)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -3933,18 +3929,15 @@ define void @Abc_NtkExploreCofs(ptr noundef %0, ptr noundef %1, ptr nocapture re
 ._crit_edge:                                      ; preds = %50
   %51 = call i32 @Abc_NtkBddCofCount(ptr noundef %9, ptr noundef %13, ptr noundef nonnull %6, i32 noundef %.140)
   %52 = icmp sgt i32 %51, 8
-  br i1 %52, label %62, label %.preheader
+  br i1 %52, label %62, label %.lr.ph53
 
 ._crit_edge.thread:                               ; preds = %.preheader49
   %53 = call i32 @Abc_NtkBddCofCount(ptr noundef %9, ptr noundef %13, ptr noundef nonnull %6, i32 noundef 0)
   %54 = icmp sgt i32 %53, 8
   br i1 %54, label %62, label %._crit_edge54
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %17, label %.lr.ph53, label %._crit_edge54
-
-.lr.ph53:                                         ; preds = %.preheader, %.lr.ph53
-  %.152 = phi i32 [ %59, %.lr.ph53 ], [ 0, %.preheader ]
+.lr.ph53:                                         ; preds = %._crit_edge, %.lr.ph53
+  %.152 = phi i32 [ %59, %.lr.ph53 ], [ 0, %._crit_edge ]
   %55 = shl nuw i32 1, %.152
   %56 = and i32 %55, %.055
   %57 = icmp eq i32 %56, 0
@@ -3955,8 +3948,8 @@ define void @Abc_NtkExploreCofs(ptr noundef %0, ptr noundef %1, ptr nocapture re
   %exitcond61.not = icmp eq i32 %59, %3
   br i1 %exitcond61.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !41
 
-._crit_edge54:                                    ; preds = %.lr.ph53, %._crit_edge.thread, %.preheader
-  %60 = phi i32 [ %51, %.preheader ], [ %53, %._crit_edge.thread ], [ %51, %.lr.ph53 ]
+._crit_edge54:                                    ; preds = %.lr.ph53, %._crit_edge.thread
+  %60 = phi i32 [ %53, %._crit_edge.thread ], [ %51, %.lr.ph53 ]
   %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %60)
   br label %62
 

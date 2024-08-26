@@ -33405,14 +33405,14 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i.i
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.04.i.i.i.i.i) #34
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEES8_EvT_SA_RSaIT0_E.exit.i.i.loopexit, label %for.body.i.i.i.i.i, !llvm.loop !821
+  br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEES8_EvT_SA_RSaIT0_E.exit.i.loopexit.i, label %for.body.i.i.i.i.i, !llvm.loop !821
 
-_ZSt8_DestroyIPN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEES8_EvT_SA_RSaIT0_E.exit.i.i.loopexit: ; preds = %for.body.i.i.i.i.i
+_ZSt8_DestroyIPN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEES8_EvT_SA_RSaIT0_E.exit.i.loopexit.i: ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i, i64 48
   br label %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEES8_EvT_SA_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEES8_EvT_SA_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEES8_EvT_SA_RSaIT0_E.exit.i.i.loopexit, %invoke.cont14.i.thread.i
-  %incdec.ptr.i5.i = phi ptr [ %incdec.ptr.i4.i, %invoke.cont14.i.thread.i ], [ %incdec.ptr.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEES8_EvT_SA_RSaIT0_E.exit.i.i.loopexit ]
+_ZSt8_DestroyIPN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEES8_EvT_SA_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEES8_EvT_SA_RSaIT0_E.exit.i.loopexit.i, %invoke.cont14.i.thread.i
+  %incdec.ptr.i5.i = phi ptr [ %incdec.ptr.i4.i, %invoke.cont14.i.thread.i ], [ %incdec.ptr.i.i, %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEES8_EvT_SA_RSaIT0_E.exit.i.loopexit.i ]
   %tobool.not.i.i.i = icmp eq ptr %this.val.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_112PoisonInlineEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, label %if.then.i41.i.i
 
@@ -176175,7 +176175,7 @@ invoke.cont7:                                     ; preds = %while.body.i.i
   store ptr %spec.select.i, ptr %ref.tmp5, align 8
   %12 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr %add.ptr6.i.i, ptr %12, align 8
-  br i1 %cmp.i3.i.i, label %while.body.i.i.i.i, label %invoke.cont9
+  br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %invoke.cont7, %while.body.i.i.i.i
   %13 = phi ptr [ %add.ptr6.i.i.i.i, %while.body.i.i.i.i ], [ %3, %invoke.cont7 ]
@@ -176193,11 +176193,11 @@ while.body.i.i.i.i:                               ; preds = %invoke.cont7, %whil
   %cmp.i.i.i.i.i15 = icmp slt i8 %18, -1
   br i1 %cmp.i.i.i.i.i15, label %while.body.i.i.i.i, label %invoke.cont9, !llvm.loop !925
 
-invoke.cont9:                                     ; preds = %while.body.i.i.i.i, %invoke.cont7.thread, %invoke.cont7
-  %spec.select.i156 = phi ptr [ %spec.select.i, %invoke.cont7 ], [ %spec.select.i155, %invoke.cont7.thread ], [ %spec.select.i, %while.body.i.i.i.i ]
-  %retval.sroa.5.0.i.i.i = phi ptr [ %3, %invoke.cont7 ], [ %3, %invoke.cont7.thread ], [ %add.ptr6.i.i.i.i, %while.body.i.i.i.i ]
-  %retval.sroa.0.0.i.i.i = phi ptr [ %2, %invoke.cont7 ], [ %2, %invoke.cont7.thread ], [ %add.ptr.i.i.i.i, %while.body.i.i.i.i ]
-  %.lcssa.i.i.i.i = phi i8 [ %4, %invoke.cont7 ], [ %4, %invoke.cont7.thread ], [ %18, %while.body.i.i.i.i ]
+invoke.cont9:                                     ; preds = %while.body.i.i.i.i, %invoke.cont7.thread
+  %spec.select.i156 = phi ptr [ %spec.select.i155, %invoke.cont7.thread ], [ %spec.select.i, %while.body.i.i.i.i ]
+  %retval.sroa.5.0.i.i.i = phi ptr [ %3, %invoke.cont7.thread ], [ %add.ptr6.i.i.i.i, %while.body.i.i.i.i ]
+  %retval.sroa.0.0.i.i.i = phi ptr [ %2, %invoke.cont7.thread ], [ %add.ptr.i.i.i.i, %while.body.i.i.i.i ]
+  %.lcssa.i.i.i.i = phi i8 [ %4, %invoke.cont7.thread ], [ %18, %while.body.i.i.i.i ]
   %cmp.i.i.i.i = icmp eq i8 %.lcssa.i.i.i.i, -1
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i, ptr null, ptr %retval.sroa.0.0.i.i.i
   store ptr %spec.select.i.i.i, ptr %ref.tmp8, align 8
@@ -180539,7 +180539,7 @@ invoke.cont7:                                     ; preds = %while.body.i.i
   store ptr %spec.select.i, ptr %ref.tmp5, align 8
   %12 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr %add.ptr6.i.i, ptr %12, align 8
-  br i1 %cmp.i3.i.i, label %while.body.i.i.i.i, label %invoke.cont9
+  br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %invoke.cont7, %while.body.i.i.i.i
   %13 = phi ptr [ %add.ptr6.i.i.i.i, %while.body.i.i.i.i ], [ %3, %invoke.cont7 ]
@@ -180557,11 +180557,11 @@ while.body.i.i.i.i:                               ; preds = %invoke.cont7, %whil
   %cmp.i.i.i.i.i15 = icmp slt i8 %18, -1
   br i1 %cmp.i.i.i.i.i15, label %while.body.i.i.i.i, label %invoke.cont9, !llvm.loop !984
 
-invoke.cont9:                                     ; preds = %while.body.i.i.i.i, %invoke.cont7.thread, %invoke.cont7
-  %spec.select.i156 = phi ptr [ %spec.select.i, %invoke.cont7 ], [ %spec.select.i155, %invoke.cont7.thread ], [ %spec.select.i, %while.body.i.i.i.i ]
-  %retval.sroa.5.0.i.i.i = phi ptr [ %3, %invoke.cont7 ], [ %3, %invoke.cont7.thread ], [ %add.ptr6.i.i.i.i, %while.body.i.i.i.i ]
-  %retval.sroa.0.0.i.i.i = phi ptr [ %2, %invoke.cont7 ], [ %2, %invoke.cont7.thread ], [ %add.ptr.i.i.i.i, %while.body.i.i.i.i ]
-  %.lcssa.i.i.i.i = phi i8 [ %4, %invoke.cont7 ], [ %4, %invoke.cont7.thread ], [ %18, %while.body.i.i.i.i ]
+invoke.cont9:                                     ; preds = %while.body.i.i.i.i, %invoke.cont7.thread
+  %spec.select.i156 = phi ptr [ %spec.select.i155, %invoke.cont7.thread ], [ %spec.select.i, %while.body.i.i.i.i ]
+  %retval.sroa.5.0.i.i.i = phi ptr [ %3, %invoke.cont7.thread ], [ %add.ptr6.i.i.i.i, %while.body.i.i.i.i ]
+  %retval.sroa.0.0.i.i.i = phi ptr [ %2, %invoke.cont7.thread ], [ %add.ptr.i.i.i.i, %while.body.i.i.i.i ]
+  %.lcssa.i.i.i.i = phi i8 [ %4, %invoke.cont7.thread ], [ %18, %while.body.i.i.i.i ]
   %cmp.i.i.i.i = icmp eq i8 %.lcssa.i.i.i.i, -1
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i, ptr null, ptr %retval.sroa.0.0.i.i.i
   store ptr %spec.select.i.i.i, ptr %ref.tmp8, align 8
@@ -182453,7 +182453,7 @@ invoke.cont7:                                     ; preds = %while.body.i.i
   store ptr %spec.select.i, ptr %ref.tmp5, align 8
   %12 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr %add.ptr6.i.i, ptr %12, align 8
-  br i1 %cmp.i3.i.i, label %while.body.i.i.i.i, label %invoke.cont9
+  br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %invoke.cont7, %while.body.i.i.i.i
   %13 = phi ptr [ %add.ptr6.i.i.i.i, %while.body.i.i.i.i ], [ %3, %invoke.cont7 ]
@@ -182471,11 +182471,11 @@ while.body.i.i.i.i:                               ; preds = %invoke.cont7, %whil
   %cmp.i.i.i.i.i15 = icmp slt i8 %18, -1
   br i1 %cmp.i.i.i.i.i15, label %while.body.i.i.i.i, label %invoke.cont9, !llvm.loop !1011
 
-invoke.cont9:                                     ; preds = %while.body.i.i.i.i, %invoke.cont7.thread, %invoke.cont7
-  %spec.select.i156 = phi ptr [ %spec.select.i, %invoke.cont7 ], [ %spec.select.i155, %invoke.cont7.thread ], [ %spec.select.i, %while.body.i.i.i.i ]
-  %retval.sroa.5.0.i.i.i = phi ptr [ %3, %invoke.cont7 ], [ %3, %invoke.cont7.thread ], [ %add.ptr6.i.i.i.i, %while.body.i.i.i.i ]
-  %retval.sroa.0.0.i.i.i = phi ptr [ %2, %invoke.cont7 ], [ %2, %invoke.cont7.thread ], [ %add.ptr.i.i.i.i, %while.body.i.i.i.i ]
-  %.lcssa.i.i.i.i = phi i8 [ %4, %invoke.cont7 ], [ %4, %invoke.cont7.thread ], [ %18, %while.body.i.i.i.i ]
+invoke.cont9:                                     ; preds = %while.body.i.i.i.i, %invoke.cont7.thread
+  %spec.select.i156 = phi ptr [ %spec.select.i155, %invoke.cont7.thread ], [ %spec.select.i, %while.body.i.i.i.i ]
+  %retval.sroa.5.0.i.i.i = phi ptr [ %3, %invoke.cont7.thread ], [ %add.ptr6.i.i.i.i, %while.body.i.i.i.i ]
+  %retval.sroa.0.0.i.i.i = phi ptr [ %2, %invoke.cont7.thread ], [ %add.ptr.i.i.i.i, %while.body.i.i.i.i ]
+  %.lcssa.i.i.i.i = phi i8 [ %4, %invoke.cont7.thread ], [ %18, %while.body.i.i.i.i ]
   %cmp.i.i.i.i = icmp eq i8 %.lcssa.i.i.i.i, -1
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i, ptr null, ptr %retval.sroa.0.0.i.i.i
   store ptr %spec.select.i.i.i, ptr %ref.tmp8, align 8

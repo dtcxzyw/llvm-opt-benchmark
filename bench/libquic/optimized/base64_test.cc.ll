@@ -39,18 +39,16 @@ entry:
   %out.i = alloca [9 x i8], align 1
   tail call void @CRYPTO_library_init()
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %out.i)
-  %call2.i40 = call i64 @EVP_EncodeBlock(ptr noundef nonnull %out.i, ptr noundef nonnull @.str.2, i64 noundef 0)
-  %cmp4.not.i42 = icmp eq i64 %call2.i40, 0
-  br i1 %cmp4.not.i42, label %for.cond.i, label %return.critedge
+  br label %for.body.i
 
-for.cond.i:                                       ; preds = %entry, %lor.lhs.false.i
-  %i.013.i44106 = phi i64 [ %inc.i, %lor.lhs.false.i ], [ 0, %entry ]
-  %inc.i = add nuw nsw i64 %i.013.i44106, 1
+for.cond.i:                                       ; preds = %lor.lhs.false.i
+  %inc.i = add nuw nsw i64 %i.013.i, 1
   %exitcond.i = icmp eq i64 %inc.i, 7
-  br i1 %exitcond.i, label %_ZL10TestEncodev.exit, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.i, label %lor.lhs.false, label %for.body.i, !llvm.loop !7
 
-for.body.i:                                       ; preds = %for.cond.i
-  %arrayidx.i = getelementptr inbounds [7 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %inc.i
+for.body.i:                                       ; preds = %for.cond.i, %entry
+  %i.013.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds [7 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %i.013.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %call2.i = call i64 @EVP_EncodeBlock(ptr noundef nonnull %out.i, ptr noundef %0, i64 noundef %call.i)
@@ -58,26 +56,22 @@ for.body.i:                                       ; preds = %for.cond.i
   %1 = load ptr, ptr %encoded.i, align 8
   %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   %cmp4.not.i = icmp eq i64 %call2.i, %call3.i
-  br i1 %cmp4.not.i, label %lor.lhs.false.i, label %if.then.i, !llvm.loop !7
+  br i1 %cmp4.not.i, label %lor.lhs.false.i, label %_ZL10TestEncodev.exit
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %bcmp.i = call i32 @bcmp(ptr nonnull %out.i, ptr %1, i64 %call2.i)
   %cmp8.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp8.not.i, label %for.cond.i, label %if.then.i, !llvm.loop !7
+  br i1 %cmp8.not.i, label %for.cond.i, label %_ZL10TestEncodev.exit
 
-if.then.i:                                        ; preds = %lor.lhs.false.i, %for.body.i
-  %cmp.i.le = icmp ugt i64 %i.013.i44106, 5
+_ZL10TestEncodev.exit:                            ; preds = %for.body.i, %lor.lhs.false.i
   %2 = load ptr, ptr @stderr, align 8
   %conv.i = trunc i64 %call2.i to i32
   %call12.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef %0, i32 noundef %conv.i, ptr noundef nonnull %out.i, ptr noundef %1) #8
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %out.i)
-  br i1 %cmp.i.le, label %lor.lhs.false, label %return
+  br label %return
 
-_ZL10TestEncodev.exit:                            ; preds = %for.cond.i
+lor.lhs.false:                                    ; preds = %for.cond.i
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %out.i)
-  br label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %_ZL10TestEncodev.exit, %if.then.i
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %out.i1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i)
   br label %for.body.i2
@@ -205,15 +199,8 @@ if.end:                                           ; preds = %if.end68.i
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %return
 
-return.critedge:                                  ; preds = %entry
-  %20 = load ptr, ptr @stderr, align 8
-  %conv.i.c = trunc i64 %call2.i40 to i32
-  %call12.i.c = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef %conv.i.c, ptr noundef nonnull %out.i, ptr noundef nonnull @.str.2) #8
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %out.i)
-  br label %return
-
-return:                                           ; preds = %return.critedge, %_ZL10TestDecodev.exit.thread, %if.then.i, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %if.then.i ], [ 1, %_ZL10TestDecodev.exit.thread ], [ 1, %return.critedge ]
+return:                                           ; preds = %_ZL10TestDecodev.exit.thread, %_ZL10TestEncodev.exit, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %_ZL10TestEncodev.exit ], [ 1, %_ZL10TestDecodev.exit.thread ]
   ret i32 %retval.0
 }
 

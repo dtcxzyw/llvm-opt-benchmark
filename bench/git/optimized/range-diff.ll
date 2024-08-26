@@ -1502,10 +1502,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %wide.trip.count = zext i32 %1 to i64
   br label %for.body
 
-for.cond9.preheader:                              ; preds = %for.body
-  br i1 %cmp410.not, label %if.end27, label %for.body13.lr.ph
-
-for.body13.lr.ph:                                 ; preds = %for.cond9.preheader
+for.body13.lr.ph:                                 ; preds = %for.body
   %objects15 = getelementptr inbounds i8, ptr %revs, i64 16
   br label %for.body13
 
@@ -1523,7 +1520,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %negative.2 = add i32 %.lobit, %negative.112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond9.preheader, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %for.body13.lr.ph, label %for.body, !llvm.loop !20
 
 for.body13:                                       ; preds = %for.body13.lr.ph, %for.inc24
   %5 = phi i32 [ %1, %for.body13.lr.ph ], [ %9, %for.inc24 ]
@@ -1546,18 +1543,20 @@ for.inc24:                                        ; preds = %for.body13, %if.the
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %10 = zext i32 %9 to i64
   %cmp12 = icmp ult i64 %indvars.iv.next19, %10
-  br i1 %cmp12, label %for.body13, label %if.end27, !llvm.loop !21
+  br i1 %cmp12, label %for.body13, label %if.end27.loopexit, !llvm.loop !21
 
-if.end27:                                         ; preds = %for.inc24, %for.cond.preheader, %for.cond9.preheader, %entry
-  %positive.0 = phi i32 [ 0, %entry ], [ %positive.2, %for.cond9.preheader ], [ 0, %for.cond.preheader ], [ %positive.2, %for.inc24 ]
-  %negative.0 = phi i32 [ 0, %entry ], [ %negative.2, %for.cond9.preheader ], [ 0, %for.cond.preheader ], [ %negative.2, %for.inc24 ]
+if.end27.loopexit:                                ; preds = %for.inc24
+  %11 = icmp sgt i32 %negative.2, 0
+  %12 = icmp ne i32 %positive.2, 0
+  %13 = select i1 %11, i1 %12, i1 false
+  %14 = zext i1 %13 to i32
+  br label %if.end27
+
+if.end27:                                         ; preds = %if.end27.loopexit, %for.cond.preheader, %entry
+  %negative.0 = phi i32 [ 0, %entry ], [ 0, %for.cond.preheader ], [ %14, %if.end27.loopexit ]
   call void @free(ptr noundef %call) #14
   call void @release_revisions(ptr noundef nonnull %revs) #14
-  %cmp28 = icmp sgt i32 %negative.0, 0
-  %cmp29 = icmp sgt i32 %positive.0, 0
-  %11 = select i1 %cmp28, i1 %cmp29, i1 false
-  %land.ext = zext i1 %11 to i32
-  ret i32 %land.ext
+  ret i32 %negative.0
 }
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2

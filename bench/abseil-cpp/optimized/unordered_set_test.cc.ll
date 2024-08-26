@@ -34239,8 +34239,8 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.loopexit.i
   %rem.i.i.i.i.i.i.i = urem i64 %57, %55
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %56, i64 %rem.i.i.i.i.i.i.i
   %58 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !noalias !677
-  %tobool.not.i.not.i.not.i.i = icmp eq ptr %58, null
-  br i1 %tobool.not.i.not.i.not.i.i, label %if.end.i.i88, label %if.end11.i.i.i.i
+  %tobool.not.not.i.not.i.i.i = icmp eq ptr %58, null
+  br i1 %tobool.not.not.i.not.i.i.i, label %if.end.i.i88, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__itx.sroa.0.021.i.i.i.i, i64 8
@@ -34475,8 +34475,8 @@ for.body.i.i.i.i125:                              ; preds = %for.cond.loopexit.i
   %rem.i.i.i.i.i.i.i128 = urem i64 %82, %80
   %arrayidx.i.i.i.i129 = getelementptr inbounds ptr, ptr %81, i64 %rem.i.i.i.i.i.i.i128
   %83 = load ptr, ptr %arrayidx.i.i.i.i129, align 8, !noalias !684
-  %tobool.not.i.not.i.not.i.i130 = icmp eq ptr %83, null
-  br i1 %tobool.not.i.not.i.not.i.i130, label %if.then.i, label %if.end11.i.i.i.i131
+  %tobool.not.not.i.not.i.i.i130 = icmp eq ptr %83, null
+  br i1 %tobool.not.not.i.not.i.i.i130, label %if.then.i, label %if.end11.i.i.i.i131
 
 if.end11.i.i.i.i131:                              ; preds = %for.body.i.i.i.i125
   %add.ptr.i.i.i.i132 = getelementptr inbounds i8, ptr %__itx.sroa.0.021.i.i.i.i126, i64 8
@@ -37124,8 +37124,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load ptr, ptr %_M_buckets, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %rem.i.i.i
   %5 = load ptr, ptr %arrayidx, align 8
-  %tobool.not = icmp ne ptr %5, null
-  br i1 %tobool.not, label %if.end11, label %return
+  %tobool.not.not.not = icmp ne ptr %5, null
+  br i1 %tobool.not.not.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %for.body
   %6 = load ptr, ptr %5, align 8
@@ -37170,7 +37170,7 @@ for.inc28:                                        ; preds = %land.rhs.i, %_ZSteq
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !798
 
 return:                                           ; preds = %for.body, %for.inc28, %if.end18, %lor.lhs.false, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %lor.lhs.false ], [ false, %if.end18 ], [ false, %for.body ], [ %tobool.not, %for.inc28 ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %lor.lhs.false ], [ false, %if.end18 ], [ %tobool.not.not.not, %for.inc28 ], [ %tobool.not.not.not, %for.body ]
   ret i1 %retval.0
 }
 
@@ -40082,8 +40082,8 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.loopexit.i
   %rem.i.i.i.i.i.i.i89 = urem i64 %69, %67
   %arrayidx.i.i.i.i90 = getelementptr inbounds ptr, ptr %68, i64 %rem.i.i.i.i.i.i.i89
   %70 = load ptr, ptr %arrayidx.i.i.i.i90, align 8, !noalias !883
-  %tobool.not.i.not.i.not.i.i = icmp eq ptr %70, null
-  br i1 %tobool.not.i.not.i.not.i.i, label %if.end.i.i87, label %if.end11.i.i.i.i
+  %tobool.not.not.i.not.i.i.i = icmp eq ptr %70, null
+  br i1 %tobool.not.not.i.not.i.i.i, label %if.end.i.i87, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %add.ptr.i.i.i.i91 = getelementptr inbounds i8, ptr %__itx.sroa.0.021.i.i.i.i, i64 8
@@ -48023,8 +48023,8 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.loopexit.i
   %rem.i.i.i.i.i.i.i = urem i64 %46, %44
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %45, i64 %rem.i.i.i.i.i.i.i
   %47 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !noalias !1110
-  %tobool.not.i.not.i.not.i.i = icmp eq ptr %47, null
-  br i1 %tobool.not.i.not.i.not.i.i, label %if.end.i.i60, label %if.end11.i.i.i.i
+  %tobool.not.not.i.not.i.i.i = icmp eq ptr %47, null
+  br i1 %tobool.not.not.i.not.i.i.i, label %if.end.i.i60, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %add.ptr.i.i.i.i61 = getelementptr inbounds i8, ptr %__itx.sroa.0.021.i.i.i.i, i64 8
@@ -51042,8 +51042,8 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.loopexit.i
   %rem.i.i.i.i.i.i.i72 = urem i64 %61, %59
   %arrayidx.i.i.i.i73 = getelementptr inbounds ptr, ptr %60, i64 %rem.i.i.i.i.i.i.i72
   %62 = load ptr, ptr %arrayidx.i.i.i.i73, align 8, !noalias !1194
-  %tobool.not.i.not.i.not.i.i = icmp eq ptr %62, null
-  br i1 %tobool.not.i.not.i.not.i.i, label %if.end.i.i69, label %if.end11.i.i.i.i
+  %tobool.not.not.i.not.i.i.i = icmp eq ptr %62, null
+  br i1 %tobool.not.not.i.not.i.i.i, label %if.end.i.i69, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %add.ptr.i.i.i.i74 = getelementptr inbounds i8, ptr %__itx.sroa.0.021.i.i.i.i, i64 8
@@ -55348,8 +55348,8 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.loopexit.i
   %rem.i.i.i.i.i.i.i = urem i64 %26, %24
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %25, i64 %rem.i.i.i.i.i.i.i
   %27 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !noalias !1280
-  %tobool.not.i.not.i.not.i.i = icmp eq ptr %27, null
-  br i1 %tobool.not.i.not.i.not.i.i, label %if.end.i.i, label %if.end11.i.i.i.i
+  %tobool.not.not.i.not.i.i.i = icmp eq ptr %27, null
+  br i1 %tobool.not.not.i.not.i.i.i, label %if.end.i.i, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %add.ptr.i.i.i.i31 = getelementptr inbounds i8, ptr %__itx.sroa.0.021.i.i.i.i, i64 8
@@ -57301,8 +57301,8 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.loopexit.i
   %rem.i.i.i.i.i.i.i37 = urem i64 %45, %43
   %arrayidx.i.i.i.i38 = getelementptr inbounds ptr, ptr %44, i64 %rem.i.i.i.i.i.i.i37
   %46 = load ptr, ptr %arrayidx.i.i.i.i38, align 8, !noalias !1306
-  %tobool.not.i.not.i.not.i.i = icmp eq ptr %46, null
-  br i1 %tobool.not.i.not.i.not.i.i, label %if.end.i.i, label %if.end11.i.i.i.i
+  %tobool.not.not.i.not.i.i.i = icmp eq ptr %46, null
+  br i1 %tobool.not.not.i.not.i.i.i, label %if.end.i.i, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
   %add.ptr.i.i.i.i39 = getelementptr inbounds i8, ptr %__itx.sroa.0.021.i.i.i.i, i64 8

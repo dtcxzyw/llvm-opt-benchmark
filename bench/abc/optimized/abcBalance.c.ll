@@ -919,12 +919,9 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_NodeBalanceCone_rec(ptr noundef
 17:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %22, !llvm.loop !17
+  br i1 %exitcond.not, label %.lr.ph59, label %22, !llvm.loop !17
 
-.preheader:                                       ; preds = %17
-  br i1 %14, label %.lr.ph59, label %.loopexit
-
-.lr.ph59:                                         ; preds = %.preheader
+.lr.ph59:                                         ; preds = %17
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = xor i64 %6, 1
@@ -1113,8 +1110,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %111 = zext i1 %110 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %27, %26, %.preheader54, %.preheader, %79, %107, %Vec_PtrPush.exit
-  %.038 = phi i32 [ %111, %107 ], [ 0, %Vec_PtrPush.exit ], [ -1, %79 ], [ 0, %.preheader ], [ 0, %.preheader54 ], [ -1, %27 ], [ 0, %26 ], [ 1, %22 ]
+.loopexit:                                        ; preds = %22, %27, %26, %.preheader54, %79, %107, %Vec_PtrPush.exit
+  %.038 = phi i32 [ %111, %107 ], [ 0, %Vec_PtrPush.exit ], [ -1, %79 ], [ 0, %.preheader54 ], [ -1, %27 ], [ 0, %26 ], [ 1, %22 ]
   ret i32 %.038
 }
 

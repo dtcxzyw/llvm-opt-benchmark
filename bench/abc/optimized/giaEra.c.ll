@@ -142,8 +142,7 @@ Vec_PtrPush.exit:                                 ; preds = %.preheader.i, %36
 
 Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   %62 = icmp sgt i32 %50, 0
-  %or.cond.i = and i1 %58, %62
-  br i1 %or.cond.i, label %.lr.ph33.split.us.split.us.preheader.i, label %Vec_PtrAllocTruthTables.exit
+  br i1 %62, label %.lr.ph33.split.us.split.us.preheader.i, label %.lr.ph
 
 .lr.ph33.split.us.split.us.preheader.i:           ; preds = %Vec_PtrAllocSimInfo.exit.i
   %wide.trip.count77.i = zext nneg i32 %46 to i64
@@ -172,7 +171,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
 ..loopexit27_crit_edge.us.us.i:                   ; preds = %66, %70
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %wide.trip.count77.i
-  br i1 %exitcond78.not.i, label %Vec_PtrAllocTruthTables.exit, label %.lr.ph33.split.us.split.us.i, !llvm.loop !9
+  br i1 %exitcond78.not.i, label %.lr.ph, label %.lr.ph33.split.us.split.us.i, !llvm.loop !9
 
 70:                                               ; preds = %.preheader.us.us.i, %70
   %indvars.iv69.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next70.i, %70 ]
@@ -193,10 +192,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   %76 = shl nuw i32 1, %75
   br label %66
 
-Vec_PtrAllocTruthTables.exit:                     ; preds = %..loopexit27_crit_edge.us.us.i, %Vec_PtrAllocSimInfo.exit.i
-  br i1 %58, label %.lr.ph, label %.critedge
-
-.lr.ph:                                           ; preds = %Vec_PtrAllocTruthTables.exit
+.lr.ph:                                           ; preds = %..loopexit27_crit_edge.us.us.i, %Vec_PtrAllocSimInfo.exit.i
   %77 = sext i32 %10 to i64
   %78 = shl nsw i64 %77, 2
   %wide.trip.count = zext nneg i32 %46 to i64
@@ -220,7 +216,7 @@ Vec_PtrAllocTruthTables.exit:                     ; preds = %..loopexit27_crit_e
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.thread, label %81, !llvm.loop !11
 
-.critedge:                                        ; preds = %Vec_PtrPush.exit, %Vec_PtrAllocTruthTables.exit
+.critedge:                                        ; preds = %Vec_PtrPush.exit
   %.not.i48 = icmp eq ptr %56, null
   br i1 %.not.i48, label %Vec_PtrFree.exit, label %.critedge.thread
 

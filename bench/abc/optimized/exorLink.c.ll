@@ -123,9 +123,6 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
   %45 = load i16, ptr %44, align 2
   %46 = sext i16 %45 to i32
   store i32 %46, ptr @StartingLiterals, align 4
-  br i1 %25, label %.lr.ph116, label %.preheader106
-
-.lr.ph116:                                        ; preds = %._crit_edge112
   %47 = getelementptr inbounds i8, ptr %43, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @pCB, align 8
@@ -134,8 +131,8 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
   %wide.trip.count174 = zext nneg i32 %22 to i64
   br label %55
 
-.preheader106:                                    ; preds = %72, %._crit_edge112.thread, %._crit_edge112
-  %52 = phi i32 [ 0, %._crit_edge112 ], [ 0, %._crit_edge112.thread ], [ %87, %72 ]
+.preheader106:                                    ; preds = %72, %._crit_edge112.thread
+  %52 = phi i32 [ 0, %._crit_edge112.thread ], [ %87, %72 ]
   %53 = load i32, ptr @nCubesInGroup, align 4
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.lr.ph118, label %.preheader105
@@ -144,11 +141,11 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
   %wide.trip.count179 = zext nneg i32 %53 to i64
   br label %102
 
-55:                                               ; preds = %.lr.ph116, %72
-  %indvars.iv171 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next172, %72 ]
-  %storemerge113 = phi i32 [ 0, %.lr.ph116 ], [ %88, %72 ]
-  %56 = phi i32 [ 0, %.lr.ph116 ], [ %87, %72 ]
-  %57 = phi i32 [ %46, %.lr.ph116 ], [ %73, %72 ]
+55:                                               ; preds = %._crit_edge112, %72
+  %indvars.iv171 = phi i64 [ 0, %._crit_edge112 ], [ %indvars.iv.next172, %72 ]
+  %storemerge113 = phi i32 [ 0, %._crit_edge112 ], [ %88, %72 ]
+  %56 = phi i32 [ 0, %._crit_edge112 ], [ %87, %72 ]
+  %57 = phi i32 [ %46, %._crit_edge112 ], [ %73, %72 ]
   %58 = getelementptr inbounds [5 x i32], ptr @DiffVarWords, i64 0, i64 %indvars.iv171
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
@@ -236,7 +233,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
   store i32 %101, ptr %93, align 4
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %._crit_edge126, label %.lr.ph121.us, !llvm.loop !8
+  br i1 %exitcond193.not, label %.lr.ph130.preheader, label %.lr.ph121.us, !llvm.loop !8
 
 102:                                              ; preds = %.lr.ph118, %102
   %indvars.iv176 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next177, %102 ]
@@ -253,10 +250,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
   br i1 %exitcond180.not, label %.preheader105, label %102, !llvm.loop !9
 
-._crit_edge126:                                   ; preds = %._crit_edge122.us
-  br i1 %90, label %.lr.ph130.preheader, label %._crit_edge131
-
-.lr.ph130.preheader:                              ; preds = %._crit_edge126.thread, %._crit_edge126
+.lr.ph130.preheader:                              ; preds = %._crit_edge122.us, %._crit_edge126.thread
   %wide.trip.count197 = zext nneg i32 %89 to i64
   br label %.lr.ph130
 
@@ -279,7 +273,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr nocapture noundef writ
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
   br i1 %exitcond198.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !10
 
-._crit_edge131:                                   ; preds = %117, %.preheader105, %._crit_edge126
+._crit_edge131:                                   ; preds = %117, %.preheader105
   store i32 0, ptr @LastGroup, align 4
   %119 = icmp sgt i32 %12, 0
   br i1 %119, label %.lr.ph159, label %._crit_edge160

@@ -924,15 +924,12 @@ extcap_parse_arg_sentence.exit.thread:            ; preds = %178, %182, %.lr.ph,
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %extcap_parse_arg_sentence.exit.thread
-  br i1 %.not28, label %extcap_free_tokenized_sentences.exit, label %201
-
-201:                                              ; preds = %._crit_edge
   tail call void @g_list_foreach(ptr noundef nonnull %2, ptr noundef nonnull @extcap_free_tokenized_sentence, ptr noundef null) #9
   tail call void @g_list_free(ptr noundef nonnull %2) #9
   br label %extcap_free_tokenized_sentences.exit
 
-extcap_free_tokenized_sentences.exit:             ; preds = %1, %._crit_edge, %201
-  %.0.lcssa32 = phi ptr [ %.1, %._crit_edge ], [ %.1, %201 ], [ null, %1 ]
+extcap_free_tokenized_sentences.exit:             ; preds = %1, %._crit_edge
+  %.0.lcssa32 = phi ptr [ %.1, %._crit_edge ], [ null, %1 ]
   ret ptr %.0.lcssa32
 }
 
@@ -1204,15 +1201,12 @@ define hidden ptr @extcap_parse_values(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %7
-  br i1 %.not14, label %extcap_free_tokenized_sentences.exit, label %10
-
-10:                                               ; preds = %._crit_edge
   tail call void @g_list_foreach(ptr noundef nonnull %2, ptr noundef nonnull @extcap_free_tokenized_sentence, ptr noundef null) #9
   tail call void @g_list_free(ptr noundef nonnull %2) #9
   br label %extcap_free_tokenized_sentences.exit
 
-extcap_free_tokenized_sentences.exit:             ; preds = %1, %._crit_edge, %10
-  %.0.lcssa18 = phi ptr [ %.1, %._crit_edge ], [ %.1, %10 ], [ null, %1 ]
+extcap_free_tokenized_sentences.exit:             ; preds = %1, %._crit_edge
+  %.0.lcssa18 = phi ptr [ %.1, %._crit_edge ], [ null, %1 ]
   ret ptr %.0.lcssa18
 }
 
@@ -1766,15 +1760,12 @@ extcap_parse_interface_sentence.exit.thread:      ; preds = %19, %34, %28, %extc
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %extcap_parse_interface_sentence.exit.thread
-  br i1 %.not41, label %extcap_free_tokenized_sentences.exit, label %217
-
-217:                                              ; preds = %._crit_edge
   call void @g_list_foreach(ptr noundef nonnull %4, ptr noundef nonnull @extcap_free_tokenized_sentence, ptr noundef null) #9
   call void @g_list_free(ptr noundef nonnull %4) #9
   br label %extcap_free_tokenized_sentences.exit
 
-extcap_free_tokenized_sentences.exit:             ; preds = %2, %._crit_edge, %217
-  %.0.lcssa45 = phi ptr [ %.1, %._crit_edge ], [ %.1, %217 ], [ null, %2 ]
+extcap_free_tokenized_sentences.exit:             ; preds = %2, %._crit_edge
+  %.0.lcssa45 = phi ptr [ %.1, %._crit_edge ], [ null, %2 ]
   ret ptr %.0.lcssa45
 }
 
@@ -1866,15 +1857,12 @@ extcap_parse_dlt_sentence.exit.thread:            ; preds = %5, %.lr.ph, %30, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %extcap_parse_dlt_sentence.exit.thread
-  br i1 %.not15, label %extcap_free_tokenized_sentences.exit, label %37
-
-37:                                               ; preds = %._crit_edge
   tail call void @g_list_foreach(ptr noundef nonnull %2, ptr noundef nonnull @extcap_free_tokenized_sentence, ptr noundef null) #9
   tail call void @g_list_free(ptr noundef nonnull %2) #9
   br label %extcap_free_tokenized_sentences.exit
 
-extcap_free_tokenized_sentences.exit:             ; preds = %1, %._crit_edge, %37
-  %.0.lcssa19 = phi ptr [ %.1, %._crit_edge ], [ %.1, %37 ], [ null, %1 ]
+extcap_free_tokenized_sentences.exit:             ; preds = %1, %._crit_edge
+  %.0.lcssa19 = phi ptr [ %.1, %._crit_edge ], [ null, %1 ]
   ret ptr %.0.lcssa19
 }
 

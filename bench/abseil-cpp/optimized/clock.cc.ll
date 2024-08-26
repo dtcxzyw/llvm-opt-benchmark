@@ -100,31 +100,36 @@ entry:
 
 while.cond:                                       ; preds = %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit, %entry
   %agg.tmp.sroa.2.0.copyload = phi i32 [ %agg.tmp.sroa.2.0.copyload.pre, %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit ], [ %duration.coerce1, %entry ]
-  %to_sleep.sroa.0.0.copyload20 = phi i64 [ %agg.tmp.sroa.0.0.copyload.pre, %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit ], [ %duration.coerce0, %entry ]
+  %to_sleep.sroa.0.0.copyload = phi i64 [ %agg.tmp.sroa.0.0.copyload.pre, %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit ], [ %duration.coerce0, %entry ]
   %agg.tmp.sroa.2.0.copyload.fr = freeze i32 %agg.tmp.sroa.2.0.copyload
-  %cmp.not.i.i = icmp eq i64 %to_sleep.sroa.0.0.copyload20, 0
+  %cmp.not.i.i = icmp eq i64 %to_sleep.sroa.0.0.copyload, 0
   br i1 %cmp.not.i.i, label %_ZN4abslgtENS_8DurationES0_.exit, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %while.cond
-  %cmp8.i.i = icmp sgt i64 %to_sleep.sroa.0.0.copyload20, 0
+  %cmp8.i.i = icmp sgt i64 %to_sleep.sroa.0.0.copyload, 0
   br i1 %cmp8.i.i, label %while.body, label %while.end
 
 _ZN4abslgtENS_8DurationES0_.exit:                 ; preds = %while.cond
   %cmp25.i.i.not = icmp eq i32 %agg.tmp.sroa.2.0.copyload.fr, 0
-  br i1 %cmp25.i.i.not, label %while.end, label %while.body
+  br i1 %cmp25.i.i.not, label %while.end, label %.thread
 
-while.body:                                       ; preds = %cond.true.i.i, %_ZN4abslgtENS_8DurationES0_.exit
-  %cmp.not.i.i2 = icmp eq i64 %to_sleep.sroa.0.0.copyload20, 9223372036854775807
-  %1 = select i1 %cmp.not.i.i2, i32 0, i32 %agg.tmp.sroa.2.0.copyload.fr
+while.body:                                       ; preds = %cond.true.i.i
+  %cmp.not.i.i2 = icmp eq i64 %to_sleep.sroa.0.0.copyload, 9223372036854775807
+  %spec.select31 = select i1 %cmp.not.i.i2, i32 0, i32 %agg.tmp.sroa.2.0.copyload.fr
+  br label %.thread
+
+.thread:                                          ; preds = %while.body, %_ZN4abslgtENS_8DurationES0_.exit
+  %to_sleep.sroa.0.0.copyload22 = phi i64 [ 0, %_ZN4abslgtENS_8DurationES0_.exit ], [ %to_sleep.sroa.0.0.copyload, %while.body ]
+  %1 = phi i32 [ %agg.tmp.sroa.2.0.copyload.fr, %_ZN4abslgtENS_8DurationES0_.exit ], [ %spec.select31, %while.body ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sleep_time.i)
-  %call.i = call { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64 %to_sleep.sroa.0.0.copyload20, i32 %1) #6
+  %call.i = call { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64 %to_sleep.sroa.0.0.copyload22, i32 %1) #6
   %2 = extractvalue { i64, i64 } %call.i, 0
   store i64 %2, ptr %sleep_time.i, align 8
   %3 = extractvalue { i64, i64 } %call.i, 1
   store i64 %3, ptr %0, align 8
   br label %while.cond.i
 
-while.cond.i:                                     ; preds = %land.rhs.i, %while.body
+while.cond.i:                                     ; preds = %land.rhs.i, %.thread
   %call1.i = call i32 @nanosleep(ptr noundef nonnull %sleep_time.i, ptr noundef nonnull %sleep_time.i)
   %cmp.not.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.not.i, label %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit, label %land.rhs.i
@@ -137,7 +142,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
 
 _ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit: ; preds = %while.cond.i, %land.rhs.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sleep_time.i)
-  %call8 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %duration, i64 %to_sleep.sroa.0.0.copyload20, i32 %1)
+  %call8 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %duration, i64 %to_sleep.sroa.0.0.copyload22, i32 %1)
   %agg.tmp.sroa.0.0.copyload.pre = load i64, ptr %duration, align 8
   %agg.tmp.sroa.2.0.copyload.pre = load i32, ptr %coerce.sroa.2.0.duration.sroa_idx, align 8
   br label %while.cond, !llvm.loop !7

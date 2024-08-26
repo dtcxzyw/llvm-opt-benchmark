@@ -2027,14 +2027,10 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3E6resize
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp = icmp slt i32 %newsize, %0
-  br i1 %cmp, label %if.end16, label %if.else
-
-if.else:                                          ; preds = %entry
   %cmp3 = icmp sgt i32 %newsize, %0
   br i1 %cmp3, label %if.then4, label %if.end16
 
-if.then4:                                         ; preds = %if.else
+if.then4:                                         ; preds = %entry
   %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp slt i32 %1, %newsize
@@ -2093,9 +2089,9 @@ if.end:                                           ; preds = %_ZNK20btAlignedObje
   store i8 1, ptr %m_ownsMemory.i, align 8
   store ptr %retval.0.i.i, ptr %m_data.i5.i, align 8
   store i32 %newsize, ptr %m_capacity.i.i, align 8
-  br i1 %cmp3, label %for.body8.lr.ph, label %if.end16
+  br label %for.body8.lr.ph
 
-for.body8.lr.ph:                                  ; preds = %if.then4, %if.end
+for.body8.lr.ph:                                  ; preds = %if.end, %if.then4
   %m_data9 = getelementptr inbounds i8, ptr %this, i64 16
   %6 = sext i32 %0 to i64
   %wide.trip.count = sext i32 %newsize to i64
@@ -2110,7 +2106,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end16, label %for.body8, !llvm.loop !16
 
-if.end16:                                         ; preds = %for.body8, %if.else, %entry, %if.end
+if.end16:                                         ; preds = %for.body8, %entry
   store i32 %newsize, ptr %m_size.i, align 4
   ret void
 }
@@ -2435,16 +2431,16 @@ for.body8.i.i.i:                                  ; preds = %for.body8.i.i.i, %f
   store i32 0, ptr %arrayidx11.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %conv.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i, label %for.body.lr.ph.i.i.i, label %for.body8.i.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i, label %for.body8.i.i.i, !llvm.loop !18
 
-for.body.lr.ph.i.i.i:                             ; preds = %for.body8.i.i.i
+_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i: ; preds = %for.body8.i.i.i
   %.pre.i.i = load ptr, ptr %m_data.i.i.i, align 8
   store i32 %4, ptr %m_size.i.i.i, align 4
   %m_data.i4.i.i = getelementptr inbounds i8, ptr %_Val, i64 16
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
-  %indvars.iv.i6.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i7.i.i, %for.body.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i
+  %indvars.iv.i6.i.i = phi i64 [ 0, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i ], [ %indvars.iv.next.i7.i.i, %for.body.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 %indvars.iv.i6.i.i
   %10 = load ptr, ptr %m_data.i4.i.i, align 8
   %arrayidx3.i.i.i = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i6.i.i
@@ -3570,16 +3566,16 @@ for.body8.i.i.i:                                  ; preds = %for.body8.i.i.i, %f
   store i32 0, ptr %arrayidx11.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %conv.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i, label %for.body.lr.ph.i.i.i, label %for.body8.i.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i, label %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i, label %for.body8.i.i.i, !llvm.loop !18
 
-for.body.lr.ph.i.i.i:                             ; preds = %for.body8.i.i.i
+_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i: ; preds = %for.body8.i.i.i
   %.pre.i.i = load ptr, ptr %m_data.i.i.i, align 8
   store i32 %2, ptr %m_size.i.i.i, align 4
   %m_data.i4.i.i = getelementptr inbounds i8, ptr %arrayidx3, i64 16
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
-  %indvars.iv.i6.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i7.i.i, %for.body.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i
+  %indvars.iv.i6.i.i = phi i64 [ 0, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i.i ], [ %indvars.iv.next.i7.i.i, %for.body.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %.pre.i.i, i64 %indvars.iv.i6.i.i
   %8 = load ptr, ptr %m_data.i4.i.i, align 8
   %arrayidx3.i.i.i = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.i6.i.i

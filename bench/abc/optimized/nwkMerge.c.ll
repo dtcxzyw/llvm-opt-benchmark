@@ -2670,10 +2670,10 @@ define void @Nwk_ManGraphSolve(ptr noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %.backedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond.not, label %.critedge.preheader.loopexit, label %.backedge.backedge
+  br i1 %exitcond.not, label %.critedge.preheader, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %5, %8, %.loopexit
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %5 ], [ 1, %8 ], [ 1, %.loopexit ]
+.backedge.backedge:                               ; preds = %5, %.loopexit, %8
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %5 ], [ 1, %.loopexit ], [ 1, %8 ]
   br label %.backedge, !llvm.loop !29
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
@@ -2696,14 +2696,14 @@ define void @Nwk_ManGraphSolve(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Nwk_ManGraphUpdate(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %17)
   br label %.backedge.backedge
 
-.critedge.preheader.loopexit:                     ; preds = %5, %.critedge
+.critedge.preheader:                              ; preds = %5, %.critedge
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.critedge ], [ 2, %5 ]
   %18 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv47
   %19 = load i32, ptr %18, align 4
   %.not30 = icmp eq i32 %19, 0
   br i1 %.not30, label %.critedge, label %20
 
-20:                                               ; preds = %.critedge.preheader.loopexit
+20:                                               ; preds = %.critedge.preheader
   %21 = load ptr, ptr %3, align 8
   %22 = sext i32 %19 to i64
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
@@ -2807,10 +2807,10 @@ Nwk_ManGraphListFindMin.exit:                     ; preds = %._crit_edge.i, %34,
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count.i32
   br i1 %exitcond.not.i35, label %.loopexit, label %45, !llvm.loop !26
 
-.critedge:                                        ; preds = %.critedge.preheader.loopexit
+.critedge:                                        ; preds = %.critedge.preheader
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 17
-  br i1 %exitcond50.not, label %.loopexit.thread, label %.critedge.preheader.loopexit, !llvm.loop !30
+  br i1 %exitcond50.not, label %.loopexit.thread, label %.critedge.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %59, %Nwk_ManGraphListFindMin.exit
   %.010.lcssa.i = phi ptr [ null, %Nwk_ManGraphListFindMin.exit ], [ %.1.i, %59 ]

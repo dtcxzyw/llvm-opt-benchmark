@@ -341,16 +341,13 @@ define void @Abc_TruthNpnPrint(ptr noundef readonly %0, i32 noundef %1, i32 noun
   %.not = icmp eq i32 %11, 0
   %12 = select i1 %.not, i32 122, i32 90
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %12)
-  br i1 %5, label %.lr.ph21, label %._crit_edge22
-
-.lr.ph21:                                         ; preds = %._crit_edge
   %14 = add nsw i32 %2, -1
   %15 = zext nneg i32 %14 to i64
   %wide.trip.count29 = zext nneg i32 %2 to i64
   br label %16
 
-16:                                               ; preds = %.lr.ph21, %16
-  %indvars.iv26 = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next27, %16 ]
+16:                                               ; preds = %._crit_edge, %16
+  %indvars.iv26 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next27, %16 ]
   %17 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %indvars.iv26
   %18 = load i8, ptr %17, align 1
   %19 = sext i8 %18 to i32
@@ -376,7 +373,7 @@ define void @Abc_TruthNpnPrint(ptr noundef readonly %0, i32 noundef %1, i32 noun
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %32)
   br label %._crit_edge22
 
-._crit_edge22:                                    ; preds = %16, %._crit_edge22.critedge, %._crit_edge
+._crit_edge22:                                    ; preds = %16, %._crit_edge22.critedge
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   ret void
 }
@@ -568,9 +565,9 @@ switch.lookup:                                    ; preds = %18
   %87 = load i32, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %.lr.ph21.i, label %._crit_edge22.critedge.i
+  br i1 %88, label %.lr.ph.i, label %._crit_edge22.critedge.i
 
-.lr.ph21.i:                                       ; preds = %75
+.lr.ph.i:                                         ; preds = %75
   %wide.trip.count.i = zext nneg i32 %87 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 16 %10, i64 %wide.trip.count.i, i1 false)
   %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 122)
@@ -578,8 +575,8 @@ switch.lookup:                                    ; preds = %18
   %91 = zext nneg i32 %90 to i64
   br label %92
 
-92:                                               ; preds = %92, %.lr.ph21.i
-  %indvars.iv26.i = phi i64 [ 0, %.lr.ph21.i ], [ %indvars.iv.next27.i, %92 ]
+92:                                               ; preds = %92, %.lr.ph.i
+  %indvars.iv26.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next27.i, %92 ]
   %93 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %indvars.iv26.i
   %94 = load i8, ptr %93, align 1
   %95 = sext i8 %94 to i32

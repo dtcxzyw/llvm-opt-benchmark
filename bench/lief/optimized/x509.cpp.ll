@@ -2788,7 +2788,7 @@ _ZN4LIEF2PE16from_mbedtls_errEj.exit:             ; preds = %67
 68:                                               ; preds = %._crit_edge
   %69 = landingpad { ptr, i32 }
           cleanup
-  br label %96
+  br label %95
 
 70:                                               ; preds = %.noexc, %40
   %71 = landingpad { ptr, i32 }
@@ -2798,7 +2798,7 @@ _ZN4LIEF2PE16from_mbedtls_errEj.exit:             ; preds = %67
 .body:                                            ; preds = %42, %70
   %eh.lpad-body = phi { ptr, i32 } [ %71, %70 ], [ %43, %42 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
-  br label %96
+  br label %95
 
 72:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
   %73 = landingpad { ptr, i32 }
@@ -2824,7 +2824,7 @@ _ZN4LIEF2PE16from_mbedtls_errEj.exit:             ; preds = %67
 78:                                               ; preds = %76, %.body24, %72
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %eh.lpad-body25, %.body24 ], [ %73, %72 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
-  br label %96
+  br label %95
 
 79:                                               ; preds = %_ZN4LIEF2PE16from_mbedtls_errEj.exit, %39
   %.016 = phi i32 [ %.1.i, %_ZN4LIEF2PE16from_mbedtls_errEj.exit ], [ 0, %39 ]
@@ -2849,13 +2849,10 @@ _ZN4LIEF2PE16from_mbedtls_errEj.exit:             ; preds = %67
   store ptr null, ptr %88, align 8
   %89 = add nuw i64 %.033, 1
   %exitcond41.not = icmp eq i64 %89, %umax
-  br i1 %exitcond41.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !23
+  br i1 %exitcond41.not, label %.lr.ph.i.i.i.i, label %.lr.ph35, !llvm.loop !23
 
-._crit_edge36:                                    ; preds = %.lr.ph35
-  br i1 %.not40, label %_ZSt8_DestroyIPN4LIEF2PE4x509ES2_EvT_S4_RSaIT0_E.exit.i.thread, label %.lr.ph.i.i.i.i
-
-.lr.ph.i.i.i.i:                                   ; preds = %._crit_edge36, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %93, %.lr.ph.i.i.i.i ], [ %81, %._crit_edge36 ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph35, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %93, %.lr.ph.i.i.i.i ], [ %81, %.lr.ph35 ]
   %90 = load ptr, ptr %.05.i.i.i.i, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
@@ -2873,12 +2870,11 @@ _ZSt8_DestroyIPN4LIEF2PE4x509ES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %79, %_ZSt8_D
   %.not.i.i.i = icmp eq ptr %94, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4LIEF2PE4x509ESaIS2_EED2Ev.exit, label %_ZSt8_DestroyIPN4LIEF2PE4x509ES2_EvT_S4_RSaIT0_E.exit.i.thread
 
-_ZSt8_DestroyIPN4LIEF2PE4x509ES2_EvT_S4_RSaIT0_E.exit.i.thread: ; preds = %._crit_edge36, %_ZSt8_DestroyIPN4LIEF2PE4x509ES2_EvT_S4_RSaIT0_E.exit.i
-  %95 = phi ptr [ %94, %_ZSt8_DestroyIPN4LIEF2PE4x509ES2_EvT_S4_RSaIT0_E.exit.i ], [ %81, %._crit_edge36 ]
-  call void @_ZdlPv(ptr noundef nonnull %95) #26
+_ZSt8_DestroyIPN4LIEF2PE4x509ES2_EvT_S4_RSaIT0_E.exit.i.thread: ; preds = %_ZSt8_DestroyIPN4LIEF2PE4x509ES2_EvT_S4_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %94) #26
   br label %_ZNSt6vectorIN4LIEF2PE4x509ESaIS2_EED2Ev.exit
 
-96:                                               ; preds = %78, %.body, %68
+95:                                               ; preds = %78, %.body, %68
   %.pn.pn = phi { ptr, i32 } [ %.pn, %78 ], [ %eh.lpad-body, %.body ], [ %69, %68 ]
   call void @_ZNSt6vectorIN4LIEF2PE4x509ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #25
   resume { ptr, i32 } %.pn.pn

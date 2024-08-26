@@ -3775,10 +3775,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %wide.trip.count73 = zext nneg i32 %2 to i64
   br label %100
 
-.preheader:                                       ; preds = %100
-  br i1 %6, label %.lr.ph64, label %._crit_edge65
-
-.lr.ph64:                                         ; preds = %.preheader
+.lr.ph64:                                         ; preds = %100
   %96 = getelementptr i8, ptr %0, i64 72
   %97 = getelementptr i8, ptr %21, i64 32
   %98 = getelementptr inbounds i8, ptr %21, i64 72
@@ -3806,7 +3803,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   tail call void @Gia_ManDupCones2_rec(ptr noundef nonnull %21, ptr noundef nonnull %0, ptr noundef nonnull %112)
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %.preheader, label %100, !llvm.loop !28
+  br i1 %exitcond74.not, label %.lr.ph64, label %100, !llvm.loop !28
 
 113:                                              ; preds = %.lr.ph64, %Gia_ManAppendCo.exit
   %indvars.iv75 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next76, %Gia_ManAppendCo.exit ]
@@ -3947,7 +3944,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
   br i1 %exitcond79.not, label %._crit_edge65, label %113, !llvm.loop !29
 
-._crit_edge65:                                    ; preds = %Gia_ManAppendCo.exit, %.critedge, %.preheader
+._crit_edge65:                                    ; preds = %Gia_ManAppendCo.exit, %.critedge
   ret ptr %21
 }
 
@@ -5950,10 +5947,7 @@ define range(i32 0, 2) i32 @Min_ManBitPackTry(ptr nocapture noundef readonly %0,
   %wide.trip.count = zext nneg i32 %.val35 to i64
   br label %22
 
-.critedge.preheader:                              ; preds = %41
-  br i1 %6, label %.lr.ph47, label %.critedge2
-
-.lr.ph47:                                         ; preds = %.critedge.preheader
+.lr.ph47:                                         ; preds = %41
   %15 = getelementptr i8, ptr %3, i64 8
   %16 = getelementptr i8, ptr %0, i64 8
   %17 = getelementptr i8, ptr %0, i64 4
@@ -5991,7 +5985,7 @@ define range(i32 0, 2) i32 @Min_ManBitPackTry(ptr nocapture noundef readonly %0,
 41:                                               ; preds = %22, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %22, !llvm.loop !47
+  br i1 %exitcond.not, label %.lr.ph47, label %22, !llvm.loop !47
 
 42:                                               ; preds = %.lr.ph47, %.critedge
   %indvars.iv50 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next51, %.critedge ]
@@ -6031,8 +6025,8 @@ define range(i32 0, 2) i32 @Min_ManBitPackTry(ptr nocapture noundef readonly %0,
   %64 = icmp slt i64 %indvars.iv.next51, %63
   br i1 %64, label %42, label %.critedge2, !llvm.loop !48
 
-.critedge2:                                       ; preds = %34, %.critedge, %4, %.critedge.preheader
-  %.0 = phi i32 [ 1, %.critedge.preheader ], [ 1, %4 ], [ 1, %.critedge ], [ 0, %34 ]
+.critedge2:                                       ; preds = %34, %.critedge, %4
+  %.0 = phi i32 [ 1, %4 ], [ 1, %.critedge ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -6098,9 +6092,9 @@ Min_ManBitPackTry.exit.us:                        ; preds = %29
 38:                                               ; preds = %29, %17
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %.lr.ph47.i, label %17, !llvm.loop !47
+  br i1 %exitcond.not.i.us, label %.critedge.preheader.i, label %17, !llvm.loop !47
 
-.lr.ph47.i:                                       ; preds = %38, %.critedge.i
+.critedge.preheader.i:                            ; preds = %38, %.critedge.i
   %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %.critedge.i ], [ 0, %38 ]
   %.val36.i = load ptr, ptr %11, align 8
   %39 = getelementptr inbounds i32, ptr %.val36.i, i64 %indvars.iv50.i
@@ -6126,17 +6120,17 @@ Min_ManBitPackTry.exit.us:                        ; preds = %29
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %.critedge.i
 
-57:                                               ; preds = %.lr.ph47.i
+57:                                               ; preds = %.critedge.preheader.i
   %58 = xor i32 %52, %16
   store i32 %58, ptr %51, align 4
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %57, %.lr.ph47.i
+.critedge.i:                                      ; preds = %57, %.critedge.preheader.i
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %.val.i = load i32, ptr %7, align 4
   %59 = sext i32 %.val.i to i64
   %60 = icmp slt i64 %indvars.iv.next51.i, %59
-  br i1 %60, label %.lr.ph47.i, label %Min_ManBitPackTry.exit.thread, !llvm.loop !48
+  br i1 %60, label %.critedge.preheader.i, label %Min_ManBitPackTry.exit.thread, !llvm.loop !48
 
 Min_ManBitPackTry.exit.thread:                    ; preds = %Min_ManBitPackTry.exit.us, %.critedge.i, %4
   %.015 = phi i32 [ %6, %4 ], [ %.022.us, %.critedge.i ], [ %1, %Min_ManBitPackTry.exit.us ]
@@ -6517,9 +6511,9 @@ Min_ManBitPackTry.exit.us.i:                      ; preds = %100
 109:                                              ; preds = %100, %88
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.us.i, label %.lr.ph47.i.i, label %88, !llvm.loop !47
+  br i1 %exitcond.not.i.us.i, label %.critedge.preheader.i.i, label %88, !llvm.loop !47
 
-.lr.ph47.i.i:                                     ; preds = %109, %.critedge.i.i
+.critedge.preheader.i.i:                          ; preds = %109, %.critedge.i.i
   %indvars.iv50.i.i = phi i64 [ %indvars.iv.next51.i.i, %.critedge.i.i ], [ 0, %109 ]
   %.val36.i.i = load ptr, ptr %82, align 8
   %110 = getelementptr inbounds i32, ptr %.val36.i.i, i64 %indvars.iv50.i.i
@@ -6545,17 +6539,17 @@ Min_ManBitPackTry.exit.us.i:                      ; preds = %100
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %128, label %.critedge.i.i
 
-128:                                              ; preds = %.lr.ph47.i.i
+128:                                              ; preds = %.critedge.preheader.i.i
   %129 = xor i32 %123, %87
   store i32 %129, ptr %122, align 4
   br label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %128, %.lr.ph47.i.i
+.critedge.i.i:                                    ; preds = %128, %.critedge.preheader.i.i
   %indvars.iv.next51.i.i = add nuw nsw i64 %indvars.iv50.i.i, 1
   %.val.i.i = load i32, ptr %77, align 4
   %130 = sext i32 %.val.i.i to i64
   %131 = icmp slt i64 %indvars.iv.next51.i.i, %130
-  br i1 %131, label %.lr.ph47.i.i, label %Min_ManBitPackOne.exit, !llvm.loop !48
+  br i1 %131, label %.critedge.preheader.i.i, label %Min_ManBitPackOne.exit, !llvm.loop !48
 
 Min_ManBitPackOne.exit:                           ; preds = %Min_ManBitPackTry.exit.us.i, %.critedge.i.i, %79
   %.015.i = phi i32 [ %80, %79 ], [ %.022.us.i, %.critedge.i.i ], [ %.0110, %Min_ManBitPackTry.exit.us.i ]

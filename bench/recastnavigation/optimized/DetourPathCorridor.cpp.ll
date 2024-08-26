@@ -1601,32 +1601,22 @@ define noundef zeroext i1 @_ZN14dtPathCorridor7isValidEiP14dtNavMeshQueryPK13dtQ
 
 .lr.ph:                                           ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = zext nneg i32 %7 to i64
   %wide.trip.count = zext nneg i32 %7 to i64
+  br label %10
+
+10:                                               ; preds = %10, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %9, align 8
-  %12 = load i32, ptr %11, align 4
-  %13 = tail call noundef zeroext i1 @_ZNK14dtNavMeshQuery14isValidPolyRefEjPK13dtQueryFilter(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %12, ptr noundef %3)
-  br i1 %13, label %.lr.ph13, label %._crit_edge
+  %12 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %13 = load i32, ptr %12, align 4
+  %14 = tail call noundef zeroext i1 @_ZNK14dtNavMeshQuery14isValidPolyRefEjPK13dtQueryFilter(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %13, ptr noundef %3)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not = select i1 %14, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %10, label %._crit_edge, !llvm.loop !17
 
-.lr.ph13:                                         ; preds = %.lr.ph, %14
-  %indvars.iv12 = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv12, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge.loopexit, label %14, !llvm.loop !17
-
-14:                                               ; preds = %.lr.ph13
-  %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.next
-  %17 = load i32, ptr %16, align 4
-  %18 = tail call noundef zeroext i1 @_ZNK14dtNavMeshQuery14isValidPolyRefEjPK13dtQueryFilter(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %17, ptr noundef %3)
-  br i1 %18, label %.lr.ph13, label %._crit_edge.loopexit, !llvm.loop !17
-
-._crit_edge.loopexit:                             ; preds = %14, %.lr.ph13
-  %19 = icmp uge i64 %indvars.iv.next, %10
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %4
-  %.lcssa = phi i1 [ true, %4 ], [ false, %.lr.ph ], [ %19, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %10, %4
+  %.lcssa = phi i1 [ true, %4 ], [ %14, %10 ]
   ret i1 %.lcssa
 }
 

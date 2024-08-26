@@ -2311,7 +2311,7 @@ if.then:                                          ; preds = %_ZN12_GLOBAL__N_112
 
 if.end:                                           ; preds = %while.cond.i.i, %if.then, %_ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit
   %cmp7.not = icmp eq i64 %3, 0
-  br i1 %cmp7.not, label %if.end.i.thread37, label %land.lhs.true8
+  br i1 %cmp7.not, label %_ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %if.end
   %12 = load i8, ptr %2, align 1
@@ -2350,11 +2350,7 @@ if.end12:                                         ; preds = %_ZN4llvh23SmallVect
   %conv.i5.i = zext i32 %17 to i64
   %sub.i13 = sub nsw i64 %conv.i.i, %conv.i5.i
   %cmp.i = icmp ugt i64 %3, %sub.i13
-  br i1 %cmp.i, label %if.end.i.thread, label %if.end.i
-
-if.end.i.thread37:                                ; preds = %if.end
-  %.pre = load i32, ptr %Size.i, align 8
-  br label %_ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit
+  br i1 %cmp.i, label %if.end.i.thread, label %if.then.i.i
 
 if.end.i.thread:                                  ; preds = %if.end12
   %add.i18 = add i64 %3, %conv.i5.i
@@ -2363,20 +2359,16 @@ if.end.i.thread:                                  ; preds = %if.end12
   %.pre13.pre.i = load i32, ptr %Size.i, align 8
   br label %if.then.i.i
 
-if.end.i:                                         ; preds = %if.end12
-  br i1 %cmp7.not, label %_ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %if.end.i.thread, %if.end.i
-  %.pre13.i30 = phi i32 [ %.pre13.pre.i, %if.end.i.thread ], [ %17, %if.end.i ]
+if.then.i.i:                                      ; preds = %if.end12, %if.end.i.thread
+  %.pre13.i30 = phi i32 [ %.pre13.pre.i, %if.end.i.thread ], [ %17, %if.end12 ]
   %19 = load ptr, ptr %path, align 8
   %conv.i9.i = zext i32 %.pre13.i30 to i64
   %add.ptr.i.i15 = getelementptr inbounds i8, ptr %19, i64 %conv.i9.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i15, ptr nonnull align 1 %2, i64 %3, i1 false)
-  %.pre.i16 = load i32, ptr %Size.i, align 8
   br label %_ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit
 
-_ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit: ; preds = %if.end.i.thread37, %if.end.i, %if.then.i.i
-  %20 = phi i32 [ %17, %if.end.i ], [ %.pre.i16, %if.then.i.i ], [ %.pre, %if.end.i.thread37 ]
+_ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit: ; preds = %if.end, %if.then.i.i
+  %20 = load i32, ptr %Size.i, align 8
   %21 = trunc i64 %3 to i32
   %conv.i12.i = add i32 %20, %21
   store i32 %conv.i12.i, ptr %Size.i, align 8

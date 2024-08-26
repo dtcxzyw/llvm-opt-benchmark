@@ -792,9 +792,9 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
 321:                                              ; preds = %.critedge.i37.i, %.outer.split.i.i
   %322 = tail call i32 @Ver_ParseCheckNondrivenNets(ptr noundef %299)
   %.not73.i.i = icmp eq i32 %322, 0
-  br i1 %.not73.i.i, label %.split.i.i, label %.lr.ph.i34.i
+  br i1 %.not73.i.i, label %.split.i.i, label %.preheader63.i.i
 
-.lr.ph.i34.i:                                     ; preds = %321, %Ver_ParseGetNondrivenBundle.exit.thread.i.i
+.preheader63.i.i:                                 ; preds = %321, %Ver_ParseGetNondrivenBundle.exit.thread.i.i
   %indvars.iv.i35.i = phi i64 [ %indvars.iv.next.i36.i, %Ver_ParseGetNondrivenBundle.exit.thread.i.i ], [ 0, %321 ]
   %323 = getelementptr inbounds ptr, ptr %.val21.i.i.i, i64 %indvars.iv.i35.i
   %324 = load ptr, ptr %323, align 8
@@ -805,7 +805,7 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
   %328 = icmp sgt i32 %.val31.i.i.i, 0
   br i1 %328, label %.lr.ph46.split.us.preheader.i.i.i, label %Ver_ParseGetNondrivenBundle.exit.thread.i.i
 
-.lr.ph46.split.us.preheader.i.i.i:                ; preds = %.lr.ph.i34.i
+.lr.ph46.split.us.preheader.i.i.i:                ; preds = %.preheader63.i.i
   %329 = getelementptr i8, ptr %326, i64 8
   %.val34.i.i.i = load ptr, ptr %329, align 8
   %wide.trip.count58.i.i.i.i = zext nneg i32 %.val31.i.i.i to i64
@@ -950,10 +950,10 @@ Ver_ParseFormalNetsAreDriven.exit.us.us.i.i.i:    ; preds = %376, %347
   %exitcond59.not.i.us.us.i.i.i = icmp eq i64 %indvars.iv.next56.i.us.us.i.i.i, %wide.trip.count58.i.i.i.i
   br i1 %exitcond59.not.i.us.us.i.i.i, label %.critedge.i37.i, label %352, !llvm.loop !14
 
-Ver_ParseGetNondrivenBundle.exit.thread.i.i:      ; preds = %.critedge2.us.i.i.i, %.lr.ph.i34.i
+Ver_ParseGetNondrivenBundle.exit.thread.i.i:      ; preds = %.critedge2.us.i.i.i, %.preheader63.i.i
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i36.i, %wide.trip.count32.i.i.i
-  br i1 %exitcond.not.i.i, label %.outer.i.i, label %.lr.ph.i34.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.outer.i.i, label %.preheader63.i.i, !llvm.loop !15
 
 .outer.i.i:                                       ; preds = %Ver_ParseGetNondrivenBundle.exit.thread.i.i
   %382 = add nuw nsw i32 %.037.ph70.i.i, 1
@@ -4307,12 +4307,9 @@ define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1,
 63:                                               ; preds = %65
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge6.preheader, label %65, !llvm.loop !64
+  br i1 %exitcond.not, label %.critedge6.preheader118, label %65, !llvm.loop !64
 
-.critedge6.preheader:                             ; preds = %63
-  br i1 %61, label %.critedge6.preheader118, label %.critedge8
-
-.critedge6.preheader118:                          ; preds = %.critedge6.preheader
+.critedge6.preheader118:                          ; preds = %63
   %64 = zext nneg i32 %.val80 to i64
   br label %.critedge6
 
@@ -4378,7 +4375,7 @@ define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1,
   %98 = icmp ugt i64 %indvars.iv123, 1
   br i1 %98, label %.critedge6, label %.critedge8, !llvm.loop !65
 
-.critedge8:                                       ; preds = %.critedge6, %.preheader, %.critedge6.preheader
+.critedge8:                                       ; preds = %.critedge6, %.preheader
   %99 = load ptr, ptr %.273132, align 8
   %.not.i95 = icmp eq ptr %99, null
   br i1 %.not.i95, label %101, label %100
@@ -8027,10 +8024,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %wide.trip.count186 = zext nneg i32 %6 to i64
   br label %.critedge
 
-.preheader:                                       ; preds = %.critedge
-  br i1 %187, label %.lr.ph167, label %Ver_ParsePrintErrorMessage.exit
-
-.lr.ph167:                                        ; preds = %.preheader
+.lr.ph167:                                        ; preds = %.critedge
   %189 = getelementptr i8, ptr %57, i64 32
   %190 = zext nneg i32 %6 to i64
   br label %194
@@ -8044,7 +8038,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   tail call fastcc void @Vec_IntPush(ptr noundef %191, i32 noundef %193)
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
-  br i1 %exitcond187.not, label %.preheader, label %.critedge, !llvm.loop !90
+  br i1 %exitcond187.not, label %.lr.ph167, label %.critedge, !llvm.loop !90
 
 194:                                              ; preds = %.lr.ph167, %194
   %indvars.iv188 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next189, %194 ]
@@ -8064,8 +8058,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %190
   br i1 %exitcond192.not, label %Ver_ParsePrintErrorMessage.exit, label %194, !llvm.loop !91
 
-Ver_ParsePrintErrorMessage.exit:                  ; preds = %89, %73, %182, %194, %.critedge.preheader, %.preheader148, %.preheader, %54, %51, %26, %23, %29, %27, %178, %167, %154, %105, %Ver_ParseFindNet.exit.thread, %85, %79, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %79 ], [ 0, %85 ], [ 0, %Ver_ParseFindNet.exit.thread ], [ 0, %105 ], [ 0, %178 ], [ 0, %167 ], [ 0, %154 ], [ 0, %27 ], [ 0, %29 ], [ 0, %23 ], [ 0, %26 ], [ 0, %51 ], [ 0, %54 ], [ 1, %.preheader ], [ 1, %.preheader148 ], [ 1, %.critedge.preheader ], [ 1, %194 ], [ 1, %182 ], [ 0, %73 ], [ 0, %89 ]
+Ver_ParsePrintErrorMessage.exit:                  ; preds = %89, %73, %182, %194, %.critedge.preheader, %.preheader148, %54, %51, %26, %23, %29, %27, %178, %167, %154, %105, %Ver_ParseFindNet.exit.thread, %85, %79, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %79 ], [ 0, %85 ], [ 0, %Ver_ParseFindNet.exit.thread ], [ 0, %105 ], [ 0, %178 ], [ 0, %167 ], [ 0, %154 ], [ 0, %27 ], [ 0, %29 ], [ 0, %23 ], [ 0, %26 ], [ 0, %51 ], [ 0, %54 ], [ 1, %.preheader148 ], [ 1, %.critedge.preheader ], [ 1, %194 ], [ 1, %182 ], [ 0, %73 ], [ 0, %89 ]
   ret i32 %.0
 }
 

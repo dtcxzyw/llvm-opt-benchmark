@@ -67,42 +67,29 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_Z28grpc_status_code_from_stringPKcP16grpc_status_code(ptr nocapture noundef readonly %status_str, ptr nocapture noundef writeonly %status) local_unnamed_addr #3 {
 entry:
-  %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %status_str, ptr noundef nonnull dereferenceable(3) @.str) #18
-  %cmp115 = icmp eq i32 %call14, 0
-  br i1 %cmp115, label %if.then, label %for.cond
+  br label %for.body
 
-for.cond:                                         ; preds = %entry, %for.body
-  %i.0616 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %inc = add nuw nsw i64 %i.0616, 1
+for.cond:                                         ; preds = %for.body
+  %inc = add nuw nsw i64 %i.06, 1
   %exitcond.not = icmp eq i64 %inc, 17
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !4
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
-for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds [17 x %struct.status_string_entry], ptr @_ZL23g_status_string_entries, i64 0, i64 %inc
+for.body:                                         ; preds = %entry, %for.cond
+  %i.06 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [17 x %struct.status_string_entry], ptr @_ZL23g_status_string_entries, i64 0, i64 %i.06
   %0 = load ptr, ptr %arrayidx, align 16
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %status_str, ptr noundef nonnull dereferenceable(1) %0) #18
   %cmp1 = icmp eq i32 %call, 0
-  br i1 %cmp1, label %if.then.loopexit, label %for.cond, !llvm.loop !4
+  br i1 %cmp1, label %if.then, label %for.cond
 
-if.then.loopexit:                                 ; preds = %for.body
-  %cmp.le = icmp ult i64 %i.0616, 16
-  br label %if.then
-
-if.then:                                          ; preds = %if.then.loopexit, %entry
-  %cmp7.lcssa = phi i1 [ true, %entry ], [ %cmp.le, %if.then.loopexit ]
-  %arrayidx.lcssa = phi ptr [ @_ZL23g_status_string_entries, %entry ], [ %arrayidx, %if.then.loopexit ]
-  %status3 = getelementptr inbounds i8, ptr %arrayidx.lcssa, i64 8
+if.then:                                          ; preds = %for.body
+  %status3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %status3, align 8
   store i32 %1, ptr %status, align 4
   br label %return
 
-return.loopexit:                                  ; preds = %for.cond
-  %cmp.le22 = icmp ult i64 %i.0616, 16
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %if.then
-  %cmp5 = phi i1 [ %cmp7.lcssa, %if.then ], [ %cmp.le22, %return.loopexit ]
-  ret i1 %cmp5
+return:                                           ; preds = %for.cond, %if.then
+  ret i1 %cmp1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

@@ -236,8 +236,7 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   %113 = lshr i32 %112, 4
   %114 = and i32 %113, 1
   %.not4.i96 = icmp eq i32 %114, %107
-  %brmerge = or i1 %.not.i, %.not4.i96
-  br i1 %brmerge, label %Aig_ObjSatValue.exit, label %tailrecurse.backedge
+  br i1 %.not4.i96, label %Aig_ObjSatValue.exit, label %tailrecurse.backedge
 
 .thread105:                                       ; preds = %.thread106
   %115 = add nsw i32 %.tr119.ph149, 1
@@ -252,7 +251,7 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   br i1 %.not140, label %Aig_ObjSatValue.exit, label %.lr.ph
 
 Aig_ObjSatValue.exit:                             ; preds = %.thread105, %tailrecurse.backedge, %68, %83, %109, %.thread, %5, %25, %Vec_IntPush.exit, %13
-  %.0.shrunk = phi i1 [ %17, %13 ], [ true, %Vec_IntPush.exit ], [ true, %25 ], [ true, %5 ], [ %.not4.i96170, %.thread ], [ true, %tailrecurse.backedge ], [ false, %68 ], [ true, %83 ], [ %.not4.i96, %109 ], [ true, %.thread105 ]
+  %.0.shrunk = phi i1 [ %17, %13 ], [ true, %Vec_IntPush.exit ], [ true, %25 ], [ true, %5 ], [ %.not4.i96170, %.thread ], [ true, %tailrecurse.backedge ], [ false, %68 ], [ true, %83 ], [ true, %109 ], [ true, %.thread105 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

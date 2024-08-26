@@ -4823,17 +4823,14 @@ ehcleanup183:                                     ; preds = %ehcleanup183.loopex
   %lpad.phi822 = phi { ptr, i32 } [ %lpad.loopexit820, %ehcleanup183.loopexit ], [ %lpad.loopexit823, %ehcleanup183.loopexit.split-lp.loopexit ], [ %lpad.loopexit826, %ehcleanup183.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp827, %ehcleanup183.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %normalizedFragment) #10
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fragment) #10
-  br i1 %new.isnull79, label %ehcleanup185, label %delete.notnull.i315
-
-delete.notnull.i315:                              ; preds = %ehcleanup183
   %vtable.i316 = load ptr, ptr %call78, align 8
   %vfn.i317 = getelementptr inbounds i8, ptr %vtable.i316, i64 8
   %74 = load ptr, ptr %vfn.i317, align 8
   call void %74(ptr noundef nonnull align 8 dereferenceable(32) %call78) #10
   br label %ehcleanup185
 
-ehcleanup185:                                     ; preds = %delete.notnull.i315, %ehcleanup183, %lpad83
-  %.pn.pn.pn = phi { ptr, i32 } [ %34, %lpad83 ], [ %lpad.phi822, %ehcleanup183 ], [ %lpad.phi822, %delete.notnull.i315 ]
+ehcleanup185:                                     ; preds = %ehcleanup183, %lpad83
+  %.pn.pn.pn = phi { ptr, i32 } [ %34, %lpad83 ], [ %lpad.phi822, %ehcleanup183 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %normalizedInput) #10
   br label %ehcleanup543
 

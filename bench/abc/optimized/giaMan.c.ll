@@ -5173,14 +5173,11 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntFindMax.exit
 
 Vec_IntSum.exit:                                  ; preds = %38
   %42 = sitofp i32 %41 to double
-  br i1 %37, label %.lr.ph64, label %Vec_IntFree.exit57
-
-.lr.ph64:                                         ; preds = %Vec_IntSum.exit
   %wide.trip.count74 = zext nneg i32 %20 to i64
   br label %43
 
-43:                                               ; preds = %.lr.ph64, %43
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next72, %43 ]
+43:                                               ; preds = %Vec_IntSum.exit, %43
+  %indvars.iv71 = phi i64 [ 0, %Vec_IntSum.exit ], [ %indvars.iv.next72, %43 ]
   %44 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv71
   %45 = load i32, ptr %44, align 4
   %46 = trunc nuw nsw i64 %indvars.iv71 to i32
@@ -5200,7 +5197,7 @@ Vec_IntSum.exit:                                  ; preds = %38
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
   br i1 %exitcond75.not, label %Vec_IntFree.exit57, label %43, !llvm.loop !38
 
-Vec_IntFree.exit57:                               ; preds = %43, %.critedge2, %Vec_IntSum.exit
+Vec_IntFree.exit57:                               ; preds = %43, %.critedge2
   tail call void @free(ptr noundef nonnull %.val47) #25
   tail call void @free(ptr noundef nonnull %2) #25
   %.not.i58 = icmp eq ptr %27, null
@@ -12571,14 +12568,11 @@ Gia_ManDumpModuleName.exit:                       ; preds = %105, %.lr.ph141
   %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %56, ptr noundef nonnull @.str.174, i32 noundef %1) #25
   %126 = tail call i64 @fwrite(ptr nonnull @.str.175, i64 10, i64 1, ptr nonnull %56)
   %127 = tail call i32 @fclose(ptr noundef nonnull %56)
-  br i1 %5, label %.lr.ph145.preheader, label %Gia_FreeMany.exit124
-
-.lr.ph145.preheader:                              ; preds = %._crit_edge142
   %wide.trip.count175 = zext nneg i32 %1 to i64
   br label %.lr.ph145
 
-.lr.ph145:                                        ; preds = %.lr.ph145.preheader, %.lr.ph145
-  %indvars.iv171 = phi i64 [ 0, %.lr.ph145.preheader ], [ %indvars.iv.next172, %.lr.ph145 ]
+.lr.ph145:                                        ; preds = %._crit_edge142, %.lr.ph145
+  %indvars.iv171 = phi i64 [ 0, %._crit_edge142 ], [ %indvars.iv.next172, %.lr.ph145 ]
   %128 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %indvars.iv171
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 8
@@ -12590,12 +12584,9 @@ Gia_ManDumpModuleName.exit:                       ; preds = %105, %.lr.ph141
   %135 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.176, ptr noundef %134)
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count175
-  br i1 %exitcond176.not, label %._crit_edge146, label %.lr.ph145, !llvm.loop !108
+  br i1 %exitcond176.not, label %.lr.ph.preheader.i117, label %.lr.ph145, !llvm.loop !108
 
-._crit_edge146:                                   ; preds = %.lr.ph145
-  br i1 %5, label %.lr.ph.preheader.i117, label %Gia_FreeMany.exit124
-
-.lr.ph.preheader.i117:                            ; preds = %._crit_edge146
+.lr.ph.preheader.i117:                            ; preds = %.lr.ph145
   %wide.trip.count.i118 = zext nneg i32 %1 to i64
   br label %.lr.ph.i119
 
@@ -12622,7 +12613,7 @@ Gia_FreeMany.exit124.critedge:                    ; preds = %._crit_edge
   %142 = tail call i32 @fclose(ptr noundef nonnull %56)
   br label %Gia_FreeMany.exit124
 
-Gia_FreeMany.exit124:                             ; preds = %Gia_ManStopP.exit.i121, %Gia_FreeMany.exit124.critedge, %._crit_edge142, %._crit_edge146
+Gia_FreeMany.exit124:                             ; preds = %Gia_ManStopP.exit.i121, %Gia_FreeMany.exit124.critedge
   %143 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.177, ptr noundef %2)
   br label %Gia_FreeMany.exit
 
