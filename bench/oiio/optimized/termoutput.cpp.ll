@@ -841,11 +841,11 @@ _ZNK18OpenImageIO_v2_6_012AttrDelegateINS_9ImageSpecEE3getINS_17basic_string_vie
   %arraylen4.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i11, i64 4
   store i32 0, ptr %arraylen4.i.i.i, align 4, !alias.scope !11
   %call.i15 = call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_09ImageSpec12getattributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEPvb(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull %agg.tmp.i10, ptr noundef nonnull %agg.tmp2.i11, ptr noundef nonnull %result.i, i1 noundef zeroext false)
-  %.pre.i = load i32, ptr %result.i, align 4
+  %result.val.i = load i32, ptr %result.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i11)
-  %tobool23 = icmp ne i32 %.pre.i, 0
+  %tobool23 = icmp ne i32 %result.val.i, 0
   %not.call.i15 = xor i1 %call.i15, true
   %tobool = select i1 %not.call.i15, i1 true, i1 %tobool23
   %m_fit = getelementptr inbounds i8, ptr %this, i64 264

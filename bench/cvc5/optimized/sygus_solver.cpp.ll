@@ -7596,28 +7596,28 @@ if.else247:                                       ; preds = %if.else240
           to label %if.end251.sink.split unwind label %lpad224
 
 if.end251.sink.split:                             ; preds = %if.else247, %if.then244
-  %.sink.in = phi ptr [ %ref.tmp245, %if.then244 ], [ %ref.tmp248, %if.else247 ]
-  %.sink = load i64, ptr %.sink.in, align 4
-  store i64 %.sink, ptr %retval, align 8
+  %ref.tmp245.sink = phi ptr [ %ref.tmp245, %if.then244 ], [ %ref.tmp248, %if.else247 ]
+  %204 = load i64, ptr %ref.tmp245.sink, align 4
+  store i64 %204, ptr %retval, align 8
   br label %if.end251
 
 if.end251:                                        ; preds = %if.end251.sink.split, %invoke.cont230, %invoke.cont236
-  %204 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %sol_map, ptr noundef %204)
+  %205 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %sol_map, ptr noundef %205)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit unwind label %terminate.lpad.i.i899
 
 terminate.lpad.i.i899:                            ; preds = %if.end251
-  %205 = landingpad { ptr, i32 }
+  %206 = landingpad { ptr, i32 }
           catch ptr null
-  %206 = extractvalue { ptr, i32 } %205, 0
-  call void @__clang_call_terminate(ptr %206) #23
+  %207 = extractvalue { ptr, i32 } %206, 0
+  call void @__clang_call_terminate(ptr %207) #23
   unreachable
 
 _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit: ; preds = %if.end251
   %d_inputName.i900 = getelementptr inbounds i8, ptr %r, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i900) #21
-  %207 = load i64, ptr %retval, align 8
-  ret i64 %207
+  %208 = load i64, ptr %retval, align 8
+  ret i64 %208
 
 ehcleanup253:                                     ; preds = %lpad224, %ehcleanup221, %lpad201
   %.pn17 = phi { ptr, i32 } [ %202, %lpad224 ], [ %179, %lpad201 ], [ %.pn15, %ehcleanup221 ]

@@ -50,9 +50,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
-  %.in = phi ptr [ %call1, %if.then ], [ %sockerr, %entry ]
-  %0 = load i32, ptr %.in, align 4
-  ret i32 %0
+  %sockerr.sink = phi ptr [ %call1, %if.then ], [ %sockerr, %entry ]
+  %.pre = load i32, ptr %sockerr.sink, align 4
+  ret i32 %.pre
 }
 
 ; Function Attrs: nounwind

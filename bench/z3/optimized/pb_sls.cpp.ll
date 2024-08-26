@@ -3374,10 +3374,12 @@ entry:
   %m_manager.i = getelementptr inbounds i8, ptr %tmp, i64 8
   store ptr %0, ptr %m_manager.i, align 8
   %m_rewrite = getelementptr inbounds i8, ptr %this, i64 672
-  %ref.tmp200.sink431.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp200, i64 4
-  %ref.tmp200.sink431.sroa.gep438 = getelementptr inbounds i8, ptr %ref.tmp227, i64 4
-  %ref.tmp200.sink431.sroa.gep440 = getelementptr inbounds i8, ptr %ref.tmp200, i64 8
-  %ref.tmp200.sink431.sroa.gep441 = getelementptr inbounds i8, ptr %ref.tmp227, i64 8
+  %ref.tmp200.sink432.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp200, i64 4
+  %ref.tmp200.sink432.sroa.gep439 = getelementptr inbounds i8, ptr %ref.tmp227, i64 4
+  %ref.tmp200.sink432.sroa.gep440 = getelementptr inbounds i8, ptr %ref.tmp200, i64 4
+  %ref.tmp200.sink432.sroa.gep442 = getelementptr inbounds i8, ptr %ref.tmp200, i64 8
+  %ref.tmp200.sink432.sroa.gep443 = getelementptr inbounds i8, ptr %ref.tmp227, i64 8
+  %ref.tmp200.sink432.sroa.gep444 = getelementptr inbounds i8, ptr %ref.tmp200, i64 8
   invoke void @_ZN11th_rewriterclEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(16) %m_rewrite, ptr noundef %_f, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
           to label %invoke.cont3 unwind label %lpad
 
@@ -4159,14 +4161,14 @@ _ZN8rationalD2Ev.exit231:                         ; preds = %.noexc.i229
 
 invoke.cont106:                                   ; preds = %_ZN8rationalD2Ev.exit231
   store i32 %call107, ptr %lit, align 4
-  %.b433 = load i1, ptr @_ZN3smtL12null_literalE.0, align 4
-  %130 = select i1 %.b433, i32 -2, i32 0
+  %.b434 = load i1, ptr @_ZN3smtL12null_literalE.0, align 4
+  %130 = select i1 %.b434, i32 -2, i32 0
   %cmp.i232 = icmp eq i32 %call107, %130
   br i1 %cmp.i232, label %cleanup, label %if.end111
 
 if.end111:                                        ; preds = %invoke.cont106
-  %.b435 = load i1, ptr @_ZN3smtL13false_literalE.0, align 4
-  %131 = zext i1 %.b435 to i32
+  %.b436 = load i1, ptr @_ZN3smtL13false_literalE.0, align 4
+  %131 = zext i1 %.b436 to i32
   %cmp.i233 = icmp eq i32 %call107, %131
   br i1 %cmp.i233, label %for.inc145, label %if.end115
 
@@ -4350,7 +4352,7 @@ invoke.cont153:                                   ; preds = %land.rhs.i.i
 
 for.cond157.preheader:                            ; preds = %invoke.cont153
   %cmp158410.not = icmp eq i32 %3, 0
-  br i1 %cmp158410.not, label %for.end198, label %for.body159.lr.ph
+  br i1 %cmp158410.not, label %invoke.cont225.invoke, label %for.body159.lr.ph
 
 for.body159.lr.ph:                                ; preds = %for.cond157.preheader
   %m_weights181 = getelementptr inbounds i8, ptr %cls, i64 8
@@ -4374,14 +4376,14 @@ for.body159:                                      ; preds = %for.body159.lr.ph, 
 
 invoke.cont163:                                   ; preds = %for.body159
   store i32 %call164, ptr %lit, align 4
-  %.b432 = load i1, ptr @_ZN3smtL12null_literalE.0, align 4
-  %166 = select i1 %.b432, i32 -2, i32 0
+  %.b433 = load i1, ptr @_ZN3smtL12null_literalE.0, align 4
+  %166 = select i1 %.b433, i32 -2, i32 0
   %cmp.i291 = icmp eq i32 %call164, %166
   br i1 %cmp.i291, label %cleanup, label %if.end169
 
 if.end169:                                        ; preds = %invoke.cont163
-  %.b434 = load i1, ptr @_ZN3smtL13false_literalE.0, align 4
-  %167 = zext i1 %.b434 to i32
+  %.b435 = load i1, ptr @_ZN3smtL13false_literalE.0, align 4
+  %167 = zext i1 %.b435 to i32
   %cmp.i292 = icmp eq i32 %call164, %167
   br i1 %cmp.i292, label %for.inc196, label %if.end173
 
@@ -4525,13 +4527,7 @@ if.then189:                                       ; preds = %invoke.cont187
 for.inc196:                                       ; preds = %if.then189, %invoke.cont187, %if.end169
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond420.not = icmp eq i64 %indvars.iv.next417, %wide.trip.count419
-  br i1 %exitcond420.not, label %for.end198, label %for.body159, !llvm.loop !36
-
-for.end198:                                       ; preds = %for.inc196, %for.cond157.preheader
-  %m_eq199 = getelementptr inbounds i8, ptr %cls, i64 72
-  store i8 0, ptr %m_eq199, align 8
-  store i32 1, ptr %ref.tmp200, align 8
-  br label %invoke.cont225.invoke
+  br i1 %exitcond420.not, label %invoke.cont225.invoke, label %for.body159, !llvm.loop !36
 
 if.else205:                                       ; preds = %land.rhs.i.i, %if.else151, %invoke.cont153
   %193 = load ptr, ptr %this, align 8
@@ -4563,22 +4559,20 @@ invoke.cont220:                                   ; preds = %if.end218
   %m_ptr.i369 = getelementptr inbounds i8, ptr %ref.tmp223, i64 8
   store ptr null, ptr %m_ptr.i369, align 8
   invoke void @_ZN22_scoped_numeral_vectorI11mpz_managerILb0EEE9push_backERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %m_weights222, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp223)
-          to label %invoke.cont225 unwind label %lpad18.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont225.invoke unwind label %lpad18.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont225:                                   ; preds = %invoke.cont220
-  %m_eq226 = getelementptr inbounds i8, ptr %cls, i64 72
-  store i8 1, ptr %m_eq226, align 8
-  store i32 1, ptr %ref.tmp227, align 8
-  br label %invoke.cont225.invoke
-
-invoke.cont225.invoke:                            ; preds = %for.end198, %invoke.cont225
-  %ref.tmp200.sink431.sroa.phi = phi ptr [ %ref.tmp200.sink431.sroa.gep, %for.end198 ], [ %ref.tmp200.sink431.sroa.gep438, %invoke.cont225 ]
-  %ref.tmp200.sink431.sroa.phi439 = phi ptr [ %ref.tmp200.sink431.sroa.gep440, %for.end198 ], [ %ref.tmp200.sink431.sroa.gep441, %invoke.cont225 ]
-  %ref.tmp200.sink431 = phi ptr [ %ref.tmp200, %for.end198 ], [ %ref.tmp227, %invoke.cont225 ]
-  store i8 0, ptr %ref.tmp200.sink431.sroa.phi, align 4
-  store ptr null, ptr %ref.tmp200.sink431.sroa.phi439, align 8
+invoke.cont225.invoke:                            ; preds = %for.inc196, %invoke.cont220, %for.cond157.preheader
+  %.sink = phi i8 [ 0, %for.cond157.preheader ], [ 1, %invoke.cont220 ], [ 0, %for.inc196 ]
+  %ref.tmp200.sink432.sroa.phi = phi ptr [ %ref.tmp200.sink432.sroa.gep, %for.cond157.preheader ], [ %ref.tmp200.sink432.sroa.gep439, %invoke.cont220 ], [ %ref.tmp200.sink432.sroa.gep440, %for.inc196 ]
+  %ref.tmp200.sink432.sroa.phi441 = phi ptr [ %ref.tmp200.sink432.sroa.gep442, %for.cond157.preheader ], [ %ref.tmp200.sink432.sroa.gep443, %invoke.cont220 ], [ %ref.tmp200.sink432.sroa.gep444, %for.inc196 ]
+  %ref.tmp200.sink432 = phi ptr [ %ref.tmp200, %for.cond157.preheader ], [ %ref.tmp227, %invoke.cont220 ], [ %ref.tmp200, %for.inc196 ]
+  %m_eq199 = getelementptr inbounds i8, ptr %cls, i64 72
+  store i8 %.sink, ptr %m_eq199, align 8
+  store i32 1, ptr %ref.tmp200.sink432, align 8
+  store i8 0, ptr %ref.tmp200.sink432.sroa.phi, align 4
+  store ptr null, ptr %ref.tmp200.sink432.sroa.phi441, align 8
   %m_k202 = getelementptr inbounds i8, ptr %cls, i64 24
-  %196 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN15_scoped_numeralI11mpz_managerILb0EEEaSERK3mpz(ptr noundef nonnull align 8 dereferenceable(24) %m_k202, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp200.sink431)
+  %196 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN15_scoped_numeralI11mpz_managerILb0EEEaSERK3mpz(ptr noundef nonnull align 8 dereferenceable(24) %m_k202, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp200.sink432)
           to label %cleanup unwind label %lpad18.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %if.end173, %invoke.cont163, %invoke.cont106, %invoke.cont225.invoke, %if.then.i.i.i.i.i, %invoke.cont8.i.i, %_ZN6vectorI8rationalLb1EjED2Ev.exit, %invoke.cont149, %invoke.cont212, %if.else205

@@ -133147,8 +133147,8 @@ define void @"_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_co
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.i.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.i.sroa.6.0..sroa_idx596, i64 24, i1 false), !noalias !20775
   %.sroa.7.i.sroa.7.0..sroa_idx597 = getelementptr inbounds i8, ptr %209, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.i.sroa.7, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.i.sroa.7.0..sroa_idx597, i64 56, i1 false), !noalias !20775
-  %.sroa.7.i364.sink.sroa.gep = getelementptr inbounds i8, ptr %.sroa.714.i, i64 8
-  %.sroa.7.i364.sink.sroa.gep1356 = getelementptr inbounds i8, ptr %.sroa.7.i364, i64 8
+  %.sroa.7.i364.sink1206.sroa.gep = getelementptr inbounds i8, ptr %.sroa.7.i364, i64 8
+  %.sroa.7.i364.sink1206.sroa.gep1357 = getelementptr inbounds i8, ptr %.sroa.714.i, i64 8
   br i1 %243, label %_ZN14deltalake_core5table5state15DeltaTableState12file_actions17h291aee9bd80ffb89E.exit, label %_ZN14deltalake_core5table5state15DeltaTableState12file_actions17h291aee9bd80ffb89E.exit.thread
 
 _ZN14deltalake_core5table5state15DeltaTableState12file_actions17h291aee9bd80ffb89E.exit.thread: ; preds = %3
@@ -137584,11 +137584,11 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10148583022391705530.e
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #46, !noalias !21392
   unreachable
 
-1475:                                             ; preds = %1626, %1456
-  %.sroa.7.i364.sink.sroa.phi = phi ptr [ %.sroa.7.i364.sink.sroa.gep, %1456 ], [ %.sroa.7.i364.sink.sroa.gep1356, %1626 ]
-  %.sroa.7.i364.sink = phi ptr [ %.sroa.714.i, %1456 ], [ %.sroa.7.i364, %1626 ]
-  %.sroa.6553.1 = load i64, ptr %.sroa.7.i364.sink, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.i364.sink.sroa.phi, i64 24, i1 false)
+1475:                                             ; preds = %1456, %1626
+  %.sroa.7.i364.sink1206.sroa.phi = phi ptr [ %.sroa.7.i364.sink1206.sroa.gep, %1626 ], [ %.sroa.7.i364.sink1206.sroa.gep1357, %1456 ]
+  %.sroa.7.i364.sink1206 = phi ptr [ %.sroa.7.i364, %1626 ], [ %.sroa.714.i, %1456 ]
+  %.sroa.6553.8.copyload556 = load i64, ptr %.sroa.7.i364.sink1206, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.i364.sink1206.sroa.phi, i64 24, i1 false)
   invoke void @"_ZN86_$LT$arrow_buffer..buffer..mutable..MutableBuffer$u20$as$u20$core..ops..drop..Drop$GT$4drop17h47fe387639924742E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %103)
           to label %"_ZN4core3ptr68drop_in_place$LT$arrow_buffer..builder..BufferBuilder$LT$i64$GT$$GT$17h02ed97ee004ccc78E.exit.i197.i" unwind label %1476, !noalias !21392
 
@@ -138305,7 +138305,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10148583022391705530.e
   unreachable
 
 "_ZN4core3ptr140drop_in_place$LT$arrow_array..builder..generic_bytes_builder..GenericByteBuilder$LT$arrow_array..types..GenericStringType$LT$i32$GT$$GT$$GT$17h26a568eab27514f2E.exit312.sink.split.i": ; preds = %"_ZN4core3ptr68drop_in_place$LT$arrow_buffer..builder..BufferBuilder$LT$i32$GT$$GT$17h6859c9790a2cf883E.exit2.i310.i", %"_ZN4core3ptr68drop_in_place$LT$arrow_buffer..builder..BufferBuilder$LT$i32$GT$$GT$17h6859c9790a2cf883E.exit2.i277.i"
-  %.sroa.6553.0 = phi i64 [ %.sroa.6553.1, %"_ZN4core3ptr68drop_in_place$LT$arrow_buffer..builder..BufferBuilder$LT$i32$GT$$GT$17h6859c9790a2cf883E.exit2.i310.i" ], [ %.sink.i, %"_ZN4core3ptr68drop_in_place$LT$arrow_buffer..builder..BufferBuilder$LT$i32$GT$$GT$17h6859c9790a2cf883E.exit2.i277.i" ]
+  %.sroa.6553.0 = phi i64 [ %.sroa.6553.8.copyload556, %"_ZN4core3ptr68drop_in_place$LT$arrow_buffer..builder..BufferBuilder$LT$i32$GT$$GT$17h6859c9790a2cf883E.exit2.i310.i" ], [ %.sink.i, %"_ZN4core3ptr68drop_in_place$LT$arrow_buffer..builder..BufferBuilder$LT$i32$GT$$GT$17h6859c9790a2cf883E.exit2.i277.i" ]
   %1689 = phi i1 [ false, %"_ZN4core3ptr68drop_in_place$LT$arrow_buffer..builder..BufferBuilder$LT$i32$GT$$GT$17h6859c9790a2cf883E.exit2.i310.i" ], [ true, %"_ZN4core3ptr68drop_in_place$LT$arrow_buffer..builder..BufferBuilder$LT$i32$GT$$GT$17h6859c9790a2cf883E.exit2.i277.i" ]
   %.sroa.0552.0 = phi i64 [ 15, %"_ZN4core3ptr68drop_in_place$LT$arrow_buffer..builder..BufferBuilder$LT$i32$GT$$GT$17h6859c9790a2cf883E.exit2.i310.i" ], [ 45, %"_ZN4core3ptr68drop_in_place$LT$arrow_buffer..builder..BufferBuilder$LT$i32$GT$$GT$17h6859c9790a2cf883E.exit2.i277.i" ]
   %.sink34.i = phi ptr [ %1744, %"_ZN4core3ptr68drop_in_place$LT$arrow_buffer..builder..BufferBuilder$LT$i32$GT$$GT$17h6859c9790a2cf883E.exit2.i310.i" ], [ %1684, %"_ZN4core3ptr68drop_in_place$LT$arrow_buffer..builder..BufferBuilder$LT$i32$GT$$GT$17h6859c9790a2cf883E.exit2.i277.i" ]
@@ -139518,7 +139518,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
 
 2188:                                             ; preds = %.thread915, %2185
   %.sroa.0552.2919 = phi i64 [ 15, %.thread915 ], [ %.sroa.0552.0, %2185 ]
-  %.sroa.6553.2918 = phi i64 [ %.sroa.6553.1, %.thread915 ], [ %.sroa.6553.0, %2185 ]
+  %.sroa.6553.2918 = phi i64 [ %.sroa.6553.8.copyload556, %.thread915 ], [ %.sroa.6553.0, %2185 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.759.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.11)
   store i64 %.sroa.0552.2919, ptr %0, align 8

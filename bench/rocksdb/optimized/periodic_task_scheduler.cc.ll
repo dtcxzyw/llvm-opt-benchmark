@@ -673,8 +673,10 @@ entry:
   store i8 %task_type, ptr %task_type.addr, align 1
   tail call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) @_ZN7rocksdbL11timer_mutexE)
   %cmp = icmp eq i64 %repeat_period_seconds, 0
-  %ref.tmp47.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp47, i64 8
-  %ref.tmp47.sink.sroa.gep68 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
+  %ref.tmp47.sink68.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp47, i64 8
+  %ref.tmp47.sink68.sroa.gep69 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
+  %ref.tmp45.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp45, i64 8
+  %ref.tmp45.sink.sroa.gep70 = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -880,9 +882,6 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %invoke.cont42, %if.
 
 if.then44:                                        ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   store ptr @.str.7, ptr %ref.tmp45, align 8
-  %size_.i25 = getelementptr inbounds i8, ptr %ref.tmp45, i64 8
-  store i64 32, ptr %size_.i25, align 8
-  store ptr @.str.10, ptr %ref.tmp47, align 8
   br label %if.then62.critedge.invoke
 
 lpad33:                                           ; preds = %invoke.cont32
@@ -978,21 +977,22 @@ if.then62.critedge:                               ; preds = %lor.rhs.i48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp53) #21
   store ptr @.str.8, ptr %ref.tmp63, align 8
-  %size_.i54 = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
-  store i64 27, ptr %size_.i54, align 8
-  store ptr @.str.10, ptr %ref.tmp65, align 8
   br label %if.then62.critedge.invoke
 
 if.then62.critedge.invoke:                        ; preds = %if.then44, %if.then62.critedge
-  %ref.tmp47.sink.sroa.phi = phi ptr [ %ref.tmp47.sink.sroa.gep, %if.then44 ], [ %ref.tmp47.sink.sroa.gep68, %if.then62.critedge ]
-  %ref.tmp47.sink = phi ptr [ %ref.tmp47, %if.then44 ], [ %ref.tmp65, %if.then62.critedge ]
-  %35 = phi ptr [ %ref.tmp45, %if.then44 ], [ %ref.tmp63, %if.then62.critedge ]
-  store i64 0, ptr %ref.tmp47.sink.sroa.phi, align 8
-  invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 10, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp47.sink, i8 noundef zeroext 0)
+  %ref.tmp45.sink.sroa.phi = phi ptr [ %ref.tmp45.sink.sroa.gep, %if.then44 ], [ %ref.tmp45.sink.sroa.gep70, %if.then62.critedge ]
+  %ref.tmp45.sink = phi ptr [ %ref.tmp45, %if.then44 ], [ %ref.tmp63, %if.then62.critedge ]
+  %.sink = phi i64 [ 32, %if.then44 ], [ 27, %if.then62.critedge ]
+  %ref.tmp47.sink68.sroa.phi = phi ptr [ %ref.tmp47.sink68.sroa.gep, %if.then44 ], [ %ref.tmp47.sink68.sroa.gep69, %if.then62.critedge ]
+  %ref.tmp47.sink68 = phi ptr [ %ref.tmp47, %if.then44 ], [ %ref.tmp65, %if.then62.critedge ]
+  store i64 %.sink, ptr %ref.tmp45.sink.sroa.phi, align 8
+  store ptr @.str.10, ptr %ref.tmp47.sink68, align 8
+  store i64 0, ptr %ref.tmp47.sink68.sroa.phi, align 8
+  invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 10, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp45.sink, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp47.sink68, i8 noundef zeroext 0)
           to label %cleanup unwind label %lpad37
 
 lpad57:                                           ; preds = %if.then.i50
-  %36 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp53) #21
@@ -1003,7 +1003,7 @@ cleanup:                                          ; preds = %if.then62.critedge.
   br label %cleanup71
 
 ehcleanup70:                                      ; preds = %if.then.i.i30, %lpad41, %lpad37, %if.then.i.i, %lpad.i, %lpad57
-  %.pn = phi { ptr, i32 } [ %36, %lpad57 ], [ %26, %lpad37 ], [ %17, %if.then.i.i ], [ %17, %lpad.i ], [ %27, %lpad41 ], [ %27, %if.then.i.i30 ]
+  %.pn = phi { ptr, i32 } [ %35, %lpad57 ], [ %26, %lpad37 ], [ %17, %if.then.i.i ], [ %17, %lpad.i ], [ %27, %lpad41 ], [ %27, %if.then.i.i30 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %unique_id) #21
   br label %ehcleanup72
 
@@ -1012,10 +1012,10 @@ cleanup71:                                        ; preds = %if.then, %if.then14
           to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup71
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #22
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #22
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %cleanup71
@@ -1027,10 +1027,10 @@ ehcleanup72:                                      ; preds = %ehcleanup70, %lpad3
           to label %_ZN7rocksdb9MutexLockD2Ev.exit62 unwind label %terminate.lpad.i60
 
 terminate.lpad.i60:                               ; preds = %ehcleanup72
-  %39 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #22
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #22
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit62:                 ; preds = %ehcleanup72

@@ -4610,12 +4610,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE7Networ
   %4 = alloca [1 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = tail call noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE15read_parametersERSi(ptr noundef nonnull align 64 dereferenceable(41024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br i1 %6, label %7, label %34
+  br i1 %6, label %7, label %35
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 41088
   %9 = tail call noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE15read_parametersERSi(ptr noundef nonnull align 64 dereferenceable(1152) %8, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br i1 %9, label %10, label %34
+  br i1 %9, label %10, label %35
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 42304
@@ -4651,36 +4651,36 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.loopexit.i: ; preds
 
 _ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i: ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.loopexit.i, %12
   %24 = getelementptr inbounds i8, ptr %0, i64 42368
-  br label %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit.i
+  br label %25
 
-_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit.i: ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit.i, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i
-  %indvars.iv.i = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i ], [ %indvars.iv.next.i, %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit.i ]
+25:                                               ; preds = %25, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i
+  %indvars.iv.i = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i ], [ %indvars.iv.next.i, %25 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %.b6.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  %..i = select i1 %.b6.i.i, ptr %3, ptr %4
-  %25 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %..i, i64 noundef 1) #15
-  %26 = load i8, ptr %..i, align 1
+  %..i.i = select i1 %.b6.i.i, ptr %3, ptr %4
+  %26 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %..i.i, i64 noundef 1) #15
+  %27 = load i8, ptr %..i.i, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %27 = getelementptr inbounds [32 x i8], ptr %24, i64 0, i64 %indvars.iv.i
-  store i8 %26, ptr %27, align 1
+  %28 = getelementptr inbounds [32 x i8], ptr %24, i64 0, i64 %indvars.iv.i
+  store i8 %27, ptr %28, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit, label %25, !llvm.loop !56
 
-_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit: ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit.i
-  %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr i8, ptr %28, i64 -24
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 %30
-  %32 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %31) #15
-  %33 = xor i1 %32, true
-  br label %34
+_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit: ; preds = %25
+  %29 = load ptr, ptr %1, align 8
+  %30 = getelementptr i8, ptr %29, i64 -24
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %1, i64 %31
+  %33 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %32) #15
+  %34 = xor i1 %33, true
+  br label %35
 
-34:                                               ; preds = %_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit, %7, %2
-  %35 = phi i1 [ false, %7 ], [ false, %2 ], [ %33, %_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit ]
-  ret i1 %35
+35:                                               ; preds = %_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit, %7, %2
+  %36 = phi i1 [ false, %7 ], [ false, %2 ], [ %34, %_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit ]
+  ret i1 %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4741,32 +4741,32 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i: ; preds = %13, %9
 
 _ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit: ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i, %7
   %24 = getelementptr inbounds i8, ptr %0, i64 64
-  br label %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit
+  br label %25
 
-_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit: ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit, %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit
-  %indvars.iv = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit ], [ %indvars.iv.next, %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit ]
+25:                                               ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit, %25
+  %indvars.iv = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit ], [ %indvars.iv.next, %25 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %.b6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  %. = select i1 %.b6.i, ptr %3, ptr %4
-  %25 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %., i64 noundef 1) #15
-  %26 = load i8, ptr %., align 1
+  %..i = select i1 %.b6.i, ptr %3, ptr %4
+  %26 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %..i, i64 noundef 1) #15
+  %27 = load i8, ptr %..i, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %27 = getelementptr inbounds [40960 x i8], ptr %24, i64 0, i64 %indvars.iv
-  store i8 %26, ptr %27, align 1
+  %28 = getelementptr inbounds [40960 x i8], ptr %24, i64 0, i64 %indvars.iv
+  store i8 %27, ptr %28, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40960
-  br i1 %exitcond.not, label %28, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit, !llvm.loop !58
+  br i1 %exitcond.not, label %29, label %25, !llvm.loop !58
 
-28:                                               ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit
-  %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr i8, ptr %29, i64 -24
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 %31
-  %33 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %32) #15
-  %34 = xor i1 %33, true
-  ret i1 %34
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %1, align 8
+  %31 = getelementptr i8, ptr %30, i64 -24
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 %32
+  %34 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %33) #15
+  %35 = xor i1 %34, true
+  ret i1 %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4827,32 +4827,32 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i: ; preds = %13, %9
 
 _ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit: ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i, %7
   %24 = getelementptr inbounds i8, ptr %0, i64 128
-  br label %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit
+  br label %25
 
-_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit: ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit, %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit
-  %indvars.iv = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit ], [ %indvars.iv.next, %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit ]
+25:                                               ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit, %25
+  %indvars.iv = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit ], [ %indvars.iv.next, %25 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %.b6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  %. = select i1 %.b6.i, ptr %3, ptr %4
-  %25 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %., i64 noundef 1) #15
-  %26 = load i8, ptr %., align 1
+  %..i = select i1 %.b6.i, ptr %3, ptr %4
+  %26 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %..i, i64 noundef 1) #15
+  %27 = load i8, ptr %..i, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %27 = getelementptr inbounds [1024 x i8], ptr %24, i64 0, i64 %indvars.iv
-  store i8 %26, ptr %27, align 1
+  %28 = getelementptr inbounds [1024 x i8], ptr %24, i64 0, i64 %indvars.iv
+  store i8 %27, ptr %28, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %28, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit, !llvm.loop !59
+  br i1 %exitcond.not, label %29, label %25, !llvm.loop !59
 
-28:                                               ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit
-  %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr i8, ptr %29, i64 -24
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 %31
-  %33 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %32) #15
-  %34 = xor i1 %33, true
-  ret i1 %34
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %1, align 8
+  %31 = getelementptr i8, ptr %30, i64 -24
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 %32
+  %34 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %33) #15
+  %35 = xor i1 %34, true
+  ret i1 %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4861,12 +4861,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE7Networ
   %4 = alloca [1 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = tail call noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj128ELj16EE15read_parametersERSi(ptr noundef nonnull align 64 dereferenceable(2112) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br i1 %6, label %7, label %34
+  br i1 %6, label %7, label %35
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 2176
   %9 = tail call noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE15read_parametersERSi(ptr noundef nonnull align 64 dereferenceable(1152) %8, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br i1 %9, label %10, label %34
+  br i1 %9, label %10, label %35
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 3392
@@ -4902,36 +4902,36 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.loopexit.i: ; preds
 
 _ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i: ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.loopexit.i, %12
   %24 = getelementptr inbounds i8, ptr %0, i64 3456
-  br label %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit.i
+  br label %25
 
-_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit.i: ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit.i, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i
-  %indvars.iv.i = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i ], [ %indvars.iv.next.i, %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit.i ]
+25:                                               ; preds = %25, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i
+  %indvars.iv.i = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit.i ], [ %indvars.iv.next.i, %25 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %.b6.i.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  %..i = select i1 %.b6.i.i, ptr %3, ptr %4
-  %25 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %..i, i64 noundef 1) #15
-  %26 = load i8, ptr %..i, align 1
+  %..i.i = select i1 %.b6.i.i, ptr %3, ptr %4
+  %26 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %..i.i, i64 noundef 1) #15
+  %27 = load i8, ptr %..i.i, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %27 = getelementptr inbounds [32 x i8], ptr %24, i64 0, i64 %indvars.iv.i
-  store i8 %26, ptr %27, align 1
+  %28 = getelementptr inbounds [32 x i8], ptr %24, i64 0, i64 %indvars.iv.i
+  store i8 %27, ptr %28, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit, label %25, !llvm.loop !56
 
-_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit: ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit.i
-  %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr i8, ptr %28, i64 -24
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 %30
-  %32 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %31) #15
-  %33 = xor i1 %32, true
-  br label %34
+_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit: ; preds = %25
+  %29 = load ptr, ptr %1, align 8
+  %30 = getelementptr i8, ptr %29, i64 -24
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %1, i64 %31
+  %33 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %32) #15
+  %34 = xor i1 %33, true
+  br label %35
 
-34:                                               ; preds = %_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit, %7, %2
-  %35 = phi i1 [ false, %7 ], [ false, %2 ], [ %33, %_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit ]
-  ret i1 %35
+35:                                               ; preds = %_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit, %7, %2
+  %36 = phi i1 [ false, %7 ], [ false, %2 ], [ %34, %_ZN9Stockfish4Eval4NNUE6Layers15AffineTransformILj32ELj1EE15read_parametersERSi.exit ]
+  ret i1 %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4992,32 +4992,32 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i: ; preds = %13, %9
 
 _ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit: ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i, %7
   %24 = getelementptr inbounds i8, ptr %0, i64 64
-  br label %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit
+  br label %25
 
-_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit: ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit, %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit
-  %indvars.iv = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit ], [ %indvars.iv.next, %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit ]
+25:                                               ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit, %25
+  %indvars.iv = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE18read_little_endianIiEEvRSiPT_m.exit ], [ %indvars.iv.next, %25 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %.b6.i = load i1, ptr @_ZN9StockfishL14IsLittleEndianE, align 1
-  %. = select i1 %.b6.i, ptr %3, ptr %4
-  %25 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %., i64 noundef 1) #15
-  %26 = load i8, ptr %., align 1
+  %..i = select i1 %.b6.i, ptr %3, ptr %4
+  %26 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %..i, i64 noundef 1) #15
+  %27 = load i8, ptr %..i, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %27 = getelementptr inbounds [2048 x i8], ptr %24, i64 0, i64 %indvars.iv
-  store i8 %26, ptr %27, align 1
+  %28 = getelementptr inbounds [2048 x i8], ptr %24, i64 0, i64 %indvars.iv
+  store i8 %27, ptr %28, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2048
-  br i1 %exitcond.not, label %28, label %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit, !llvm.loop !60
+  br i1 %exitcond.not, label %29, label %25, !llvm.loop !60
 
-28:                                               ; preds = %_ZN9Stockfish4Eval4NNUE18read_little_endianIaEET_RSi.exit
-  %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr i8, ptr %29, i64 -24
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 %31
-  %33 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %32) #15
-  %34 = xor i1 %33, true
-  ret i1 %34
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %1, align 8
+  %31 = getelementptr i8, ptr %30, i64 -24
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 %32
+  %34 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %33) #15
+  %35 = xor i1 %34, true
+  ret i1 %35
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0

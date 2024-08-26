@@ -992,18 +992,18 @@ define void @_ZN22EditManipulatorsPlugin12UpdateMatrixER9MeshModelP6GLAreabb(ptr
   %84 = tail call float @llvm.fmuladd.f32(float %66, float %66, float %83)
   %85 = tail call float @llvm.fmuladd.f32(float %70, float %70, float %84)
   %86 = fcmp ogt float %85, 0.000000e+00
-  %.sink920.sroa.gep = getelementptr inbounds i8, ptr %32, i64 4
-  %.sink920.sroa.gep959 = getelementptr inbounds i8, ptr %34, i64 4
-  %.sink920.sroa.gep961 = getelementptr inbounds i8, ptr %32, i64 20
-  %.sink920.sroa.gep962 = getelementptr inbounds i8, ptr %34, i64 20
-  %.sink920.sroa.gep964 = getelementptr inbounds i8, ptr %32, i64 24
-  %.sink920.sroa.gep965 = getelementptr inbounds i8, ptr %34, i64 24
-  %.sink920.sroa.gep967 = getelementptr inbounds i8, ptr %32, i64 40
-  %.sink920.sroa.gep968 = getelementptr inbounds i8, ptr %34, i64 40
-  %.sink920.sroa.gep970 = getelementptr inbounds i8, ptr %32, i64 44
-  %.sink920.sroa.gep971 = getelementptr inbounds i8, ptr %34, i64 44
-  %.sink920.sroa.gep973 = getelementptr inbounds i8, ptr %32, i64 60
-  %.sink920.sroa.gep974 = getelementptr inbounds i8, ptr %34, i64 60
+  %.sink921.sroa.gep = getelementptr inbounds i8, ptr %32, i64 4
+  %.sink921.sroa.gep960 = getelementptr inbounds i8, ptr %34, i64 4
+  %.sink921.sroa.gep962 = getelementptr inbounds i8, ptr %32, i64 20
+  %.sink921.sroa.gep963 = getelementptr inbounds i8, ptr %34, i64 20
+  %.sink921.sroa.gep965 = getelementptr inbounds i8, ptr %32, i64 24
+  %.sink921.sroa.gep966 = getelementptr inbounds i8, ptr %34, i64 24
+  %.sink921.sroa.gep968 = getelementptr inbounds i8, ptr %32, i64 40
+  %.sink921.sroa.gep969 = getelementptr inbounds i8, ptr %34, i64 40
+  %.sink921.sroa.gep971 = getelementptr inbounds i8, ptr %32, i64 44
+  %.sink921.sroa.gep972 = getelementptr inbounds i8, ptr %34, i64 44
+  %.sink921.sroa.gep974 = getelementptr inbounds i8, ptr %32, i64 60
+  %.sink921.sroa.gep975 = getelementptr inbounds i8, ptr %34, i64 60
   br i1 %86, label %87, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit
 
 87:                                               ; preds = %5
@@ -3168,24 +3168,24 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit491:             ; preds = %946
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1143, %1142
-  %.sink920.sroa.phi = phi ptr [ %.sink920.sroa.gep, %1142 ], [ %.sink920.sroa.gep959, %1143 ]
-  %.sink920.sroa.phi960 = phi ptr [ %.sink920.sroa.gep961, %1142 ], [ %.sink920.sroa.gep962, %1143 ]
-  %.sink920.sroa.phi963 = phi ptr [ %.sink920.sroa.gep964, %1142 ], [ %.sink920.sroa.gep965, %1143 ]
-  %.sink920.sroa.phi966 = phi ptr [ %.sink920.sroa.gep967, %1142 ], [ %.sink920.sroa.gep968, %1143 ]
-  %.sink920.sroa.phi969 = phi ptr [ %.sink920.sroa.gep970, %1142 ], [ %.sink920.sroa.gep971, %1143 ]
-  %.sink920.sroa.phi972 = phi ptr [ %.sink920.sroa.gep973, %1142 ], [ %.sink920.sroa.gep974, %1143 ]
-  %.sink920 = phi ptr [ %32, %1142 ], [ %34, %1143 ]
-  %.sroa.0715.2.ph = load float, ptr %.sink920, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.15, ptr noundef nonnull align 4 dereferenceable(16) %.sink920.sroa.phi, i64 16, i1 false)
-  %.sroa.16.0.copyload759 = load float, ptr %.sink920.sroa.phi960, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.17, ptr noundef nonnull align 4 dereferenceable(16) %.sink920.sroa.phi963, i64 16, i1 false)
-  %.sroa.17781.0.copyload799 = load float, ptr %.sink920.sroa.phi966, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.18, ptr noundef nonnull align 4 dereferenceable(16) %.sink920.sroa.phi969, i64 16, i1 false)
-  %.sroa.18821.0.copyload839 = load float, ptr %.sink920.sroa.phi972, align 4
+  %.sink921.sroa.phi = phi ptr [ %.sink921.sroa.gep, %1142 ], [ %.sink921.sroa.gep960, %1143 ]
+  %.sink921.sroa.phi961 = phi ptr [ %.sink921.sroa.gep962, %1142 ], [ %.sink921.sroa.gep963, %1143 ]
+  %.sink921.sroa.phi964 = phi ptr [ %.sink921.sroa.gep965, %1142 ], [ %.sink921.sroa.gep966, %1143 ]
+  %.sink921.sroa.phi967 = phi ptr [ %.sink921.sroa.gep968, %1142 ], [ %.sink921.sroa.gep969, %1143 ]
+  %.sink921.sroa.phi970 = phi ptr [ %.sink921.sroa.gep971, %1142 ], [ %.sink921.sroa.gep972, %1143 ]
+  %.sink921.sroa.phi973 = phi ptr [ %.sink921.sroa.gep974, %1142 ], [ %.sink921.sroa.gep975, %1143 ]
+  %.sink921 = phi ptr [ %32, %1142 ], [ %34, %1143 ]
+  %.sroa.0715.0.copyload724 = load float, ptr %.sink921, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.15, ptr noundef nonnull align 4 dereferenceable(16) %.sink921.sroa.phi, i64 16, i1 false)
+  %.sroa.16.0.copyload759 = load float, ptr %.sink921.sroa.phi961, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.17, ptr noundef nonnull align 4 dereferenceable(16) %.sink921.sroa.phi964, i64 16, i1 false)
+  %.sroa.17781.0.copyload799 = load float, ptr %.sink921.sroa.phi967, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.18, ptr noundef nonnull align 4 dereferenceable(16) %.sink921.sroa.phi970, i64 16, i1 false)
+  %.sroa.18821.0.copyload839 = load float, ptr %.sink921.sroa.phi973, align 4
   br label %1144
 
 1144:                                             ; preds = %.sink.split, %947
-  %.sroa.0715.2 = phi float [ %.sroa.0715.1, %947 ], [ %.sroa.0715.2.ph, %.sink.split ]
+  %.sroa.0715.2 = phi float [ %.sroa.0715.1, %947 ], [ %.sroa.0715.0.copyload724, %.sink.split ]
   %.sroa.18821.2 = phi float [ %.sroa.18821.1, %947 ], [ %.sroa.18821.0.copyload839, %.sink.split ]
   %.sroa.17781.2 = phi float [ %.sroa.17781.1, %947 ], [ %.sroa.17781.0.copyload799, %.sink.split ]
   %.sroa.16.2 = phi float [ %.sroa.16.1, %947 ], [ %.sroa.16.0.copyload759, %.sink.split ]

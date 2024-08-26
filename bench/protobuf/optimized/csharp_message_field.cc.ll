@@ -1110,27 +1110,27 @@ lpad.i:                                           ; preds = %if.then
   %tobool.not.i.i.i.i = icmp eq i64 %8, 0
   br i1 %tobool.not.i.i.i.i, label %common.resume, label %common.resume.sink.split
 
-common.resume.sink.split:                         ; preds = %lpad.i10, %lpad.i
-  %.sink.in = phi ptr [ %map.i, %lpad.i ], [ %map.i8, %lpad.i10 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %7, %lpad.i ], [ %11, %lpad.i10 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %add.ptr.i.i.i.i4.i14 = getelementptr inbounds i8, ptr %.sink, i64 -8
+common.resume.sink.split:                         ; preds = %lpad.i, %lpad.i10
+  %map.i8.sink = phi ptr [ %map.i8, %lpad.i10 ], [ %map.i, %lpad.i ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %12, %lpad.i10 ], [ %7, %lpad.i ]
+  %9 = load ptr, ptr %map.i8.sink, align 8
+  %add.ptr.i.i.i.i4.i14 = getelementptr inbounds i8, ptr %9, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i4.i14) #23
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i10, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i ], [ %11, %lpad.i10 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i ], [ %12, %lpad.i10 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont5.i:                                   ; preds = %if.then
   %capacity_.i.i.i.i.i5.i = getelementptr inbounds i8, ptr %map.i, i64 16
-  %9 = load i64, ptr %capacity_.i.i.i.i.i5.i, align 8
-  %tobool.not.i.i.i6.i = icmp eq i64 %9, 0
+  %10 = load i64, ptr %capacity_.i.i.i.i.i5.i, align 8
+  %tobool.not.i.i.i6.i = icmp eq i64 %10, 0
   br i1 %tobool.not.i.i.i6.i, label %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit, label %invoke.cont13.i.i.i7.i
 
 invoke.cont13.i.i.i7.i:                           ; preds = %invoke.cont5.i
-  %10 = load ptr, ptr %map.i, align 8
-  %add.ptr.i.i.i.i8.i = getelementptr inbounds i8, ptr %10, i64 -8
+  %11 = load ptr, ptr %map.i, align 8
+  %add.ptr.i.i.i.i8.i = getelementptr inbounds i8, ptr %11, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i8.i) #23
   br label %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit
 
@@ -1147,22 +1147,22 @@ if.else:                                          ; preds = %_ZNK6google8protobu
           to label %invoke.cont5.i16 unwind label %lpad.i10
 
 lpad.i10:                                         ; preds = %if.else
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   %capacity_.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %map.i8, i64 16
-  %12 = load i64, ptr %capacity_.i.i.i.i.i.i11, align 8
-  %tobool.not.i.i.i.i12 = icmp eq i64 %12, 0
+  %13 = load i64, ptr %capacity_.i.i.i.i.i.i11, align 8
+  %tobool.not.i.i.i.i12 = icmp eq i64 %13, 0
   br i1 %tobool.not.i.i.i.i12, label %common.resume, label %common.resume.sink.split
 
 invoke.cont5.i16:                                 ; preds = %if.else
   %capacity_.i.i.i.i.i5.i17 = getelementptr inbounds i8, ptr %map.i8, i64 16
-  %13 = load i64, ptr %capacity_.i.i.i.i.i5.i17, align 8
-  %tobool.not.i.i.i6.i18 = icmp eq i64 %13, 0
+  %14 = load i64, ptr %capacity_.i.i.i.i.i5.i17, align 8
+  %tobool.not.i.i.i6.i18 = icmp eq i64 %14, 0
   br i1 %tobool.not.i.i.i6.i18, label %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit21, label %invoke.cont13.i.i.i7.i19
 
 invoke.cont13.i.i.i7.i19:                         ; preds = %invoke.cont5.i16
-  %14 = load ptr, ptr %map.i8, align 8
-  %add.ptr.i.i.i.i8.i20 = getelementptr inbounds i8, ptr %14, i64 -8
+  %15 = load ptr, ptr %map.i8, align 8
+  %add.ptr.i.i.i.i8.i20 = getelementptr inbounds i8, ptr %15, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i8.i20) #23
   br label %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit21
 

@@ -266,10 +266,10 @@ define internal i32 @cf_tcp_connect(ptr noundef %0, ptr noundef %1, i1 noundef z
 
 13:                                               ; preds = %4
   store i8 1, ptr %3, align 1
-  br label %136
+  br label %135
 
 14:                                               ; preds = %4
-  br i1 %2, label %136, label %15
+  br i1 %2, label %135, label %15
 
 15:                                               ; preds = %14
   store i8 0, ptr %3, align 1
@@ -291,7 +291,7 @@ define internal i32 @cf_tcp_connect(ptr noundef %0, ptr noundef %1, i1 noundef z
 
 24:                                               ; preds = %21
   store i8 1, ptr %3, align 1
-  br label %136
+  br label %135
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %0, i64 24
@@ -341,7 +341,7 @@ define internal i32 @cf_tcp_connect(ptr noundef %0, ptr noundef %1, i1 noundef z
 50:                                               ; preds = %48
   %51 = getelementptr inbounds i8, ptr %9, i64 224
   %52 = tail call fastcc i32 @socket_connect_result(ptr noundef %1, ptr noundef nonnull %51, i32 noundef %34)
-  br label %102
+  br label %101
 
 53:                                               ; preds = %._crit_edge, %15
   %54 = phi i32 [ %.pre, %._crit_edge ], [ %17, %15 ]
@@ -354,25 +354,25 @@ define internal i32 @cf_tcp_connect(ptr noundef %0, ptr noundef %1, i1 noundef z
 
 56:                                               ; preds = %53
   %.not97 = icmp eq ptr %1, null
-  br i1 %.not97, label %136, label %57
+  br i1 %.not97, label %135, label %57
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds i8, ptr %1, i64 2642
   %59 = load i64, ptr %58, align 2
   %60 = and i64 %59, 268435456
   %.not112 = icmp eq i64 %60, 0
-  br i1 %.not112, label %136, label %61
+  br i1 %.not112, label %135, label %61
 
 61:                                               ; preds = %57
   %62 = load ptr, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %66, label %136
+  br i1 %65, label %66, label %135
 
 66:                                               ; preds = %61
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #13
-  br label %136
+  br label %135
 
 67:                                               ; preds = %53
   %68 = getelementptr inbounds i8, ptr %0, i64 24
@@ -381,7 +381,7 @@ define internal i32 @cf_tcp_connect(ptr noundef %0, ptr noundef %1, i1 noundef z
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 16777216
   %.not94 = icmp eq i32 %72, 0
-  br i1 %.not94, label %97, label %73
+  br i1 %.not94, label %96, label %73
 
 73:                                               ; preds = %53, %67
   %74 = load i32, ptr %16, align 8
@@ -399,141 +399,141 @@ define internal i32 @cf_tcp_connect(ptr noundef %0, ptr noundef %1, i1 noundef z
   br label %verifyconnect.exit
 
 verifyconnect.exit:                               ; preds = %73, %77
-  %.in.i = phi ptr [ %78, %77 ], [ %5, %73 ]
-  %79 = load i32, ptr %.in.i, align 4
-  store i32 %79, ptr %75, align 4
+  %.sink.i = phi ptr [ %78, %77 ], [ %5, %73 ]
+  %.pre.i = load i32, ptr %.sink.i, align 4
+  store i32 %.pre.i, ptr %75, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  switch i32 %79, label %102 [
-    i32 106, label %80
-    i32 0, label %80
+  switch i32 %.pre.i, label %101 [
+    i32 106, label %79
+    i32 0, label %79
   ]
 
-80:                                               ; preds = %verifyconnect.exit, %verifyconnect.exit
-  %81 = getelementptr inbounds i8, ptr %9, i64 344
-  %82 = call { i64, i32 } @Curl_now() #13
-  %83 = extractvalue { i64, i32 } %82, 0
-  %84 = extractvalue { i64, i32 } %82, 1
-  store i64 %83, ptr %81, align 8
+79:                                               ; preds = %verifyconnect.exit, %verifyconnect.exit
+  %80 = getelementptr inbounds i8, ptr %9, i64 344
+  %81 = call { i64, i32 } @Curl_now() #13
+  %82 = extractvalue { i64, i32 } %81, 0
+  %83 = extractvalue { i64, i32 } %81, 1
+  store i64 %82, ptr %80, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 352
-  store i32 %84, ptr %.sroa.2.0..sroa_idx, align 8
+  store i32 %83, ptr %.sroa.2.0..sroa_idx, align 8
   %.val103 = load ptr, ptr %8, align 8
   call fastcc void @set_local_ip(ptr %.val103, ptr noundef %1)
   store i8 1, ptr %3, align 1
-  %85 = load i8, ptr %10, align 4
-  %86 = or i8 %85, 1
-  store i8 %86, ptr %10, align 4
+  %84 = load i8, ptr %10, align 4
+  %85 = or i8 %84, 1
+  store i8 %85, ptr %10, align 4
   %.not96 = icmp eq ptr %1, null
-  br i1 %.not96, label %136, label %87
+  br i1 %.not96, label %135, label %86
 
-87:                                               ; preds = %80
-  %88 = getelementptr inbounds i8, ptr %1, i64 2642
-  %89 = load i64, ptr %88, align 2
-  %90 = and i64 %89, 268435456
-  %.not113 = icmp eq i64 %90, 0
-  br i1 %.not113, label %136, label %91
+86:                                               ; preds = %79
+  %87 = getelementptr inbounds i8, ptr %1, i64 2642
+  %88 = load i64, ptr %87, align 2
+  %89 = and i64 %88, 268435456
+  %.not113 = icmp eq i64 %89, 0
+  br i1 %.not113, label %135, label %90
 
-91:                                               ; preds = %87
-  %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 12
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %96, label %136
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %0, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 12
+  %93 = load i32, ptr %92, align 4
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %95, label %135
 
-96:                                               ; preds = %91
+95:                                               ; preds = %90
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #13
-  br label %136
+  br label %135
 
-97:                                               ; preds = %67
-  %98 = and i32 %55, 4
-  %.not95 = icmp eq i32 %98, 0
-  br i1 %.not95, label %102, label %99
+96:                                               ; preds = %67
+  %97 = and i32 %55, 4
+  %.not95 = icmp eq i32 %97, 0
+  br i1 %.not95, label %101, label %98
 
-99:                                               ; preds = %97
-  %100 = load i32, ptr %16, align 8
-  %101 = getelementptr inbounds i8, ptr %9, i64 376
-  tail call fastcc void @verifyconnect(i32 noundef %100, ptr noundef nonnull %101)
+98:                                               ; preds = %96
+  %99 = load i32, ptr %16, align 8
+  %100 = getelementptr inbounds i8, ptr %9, i64 376
+  tail call fastcc void @verifyconnect(i32 noundef %99, ptr noundef nonnull %100)
   br label %.thread
 
-102:                                              ; preds = %verifyconnect.exit, %97, %50
-  %.1 = phi i32 [ %52, %50 ], [ %.081, %verifyconnect.exit ], [ %.081, %97 ]
+101:                                              ; preds = %verifyconnect.exit, %96, %50
+  %.1 = phi i32 [ %52, %50 ], [ %.081, %verifyconnect.exit ], [ %.081, %96 ]
   %.not98 = icmp eq i32 %.1, 0
-  br i1 %.not98, label %136, label %.thread
+  br i1 %.not98, label %135, label %.thread
 
-.thread:                                          ; preds = %99, %19, %102
-  %.1110 = phi i32 [ %.1, %102 ], [ 7, %99 ], [ %20, %19 ]
-  %103 = getelementptr inbounds i8, ptr %9, i64 376
-  %104 = load i32, ptr %103, align 8
-  %.not99 = icmp eq i32 %104, 0
-  br i1 %.not99, label %121, label %105
+.thread:                                          ; preds = %98, %19, %101
+  %.1110 = phi i32 [ %.1, %101 ], [ 7, %98 ], [ %20, %19 ]
+  %102 = getelementptr inbounds i8, ptr %9, i64 376
+  %103 = load i32, ptr %102, align 8
+  %.not99 = icmp eq i32 %103, 0
+  br i1 %.not99, label %120, label %104
 
-105:                                              ; preds = %.thread
+104:                                              ; preds = %.thread
   %.val104 = load ptr, ptr %8, align 8
   call fastcc void @set_local_ip(ptr %.val104, ptr noundef %1)
-  %106 = load i32, ptr %103, align 8
-  %107 = getelementptr inbounds i8, ptr %1, i64 3340
-  store i32 %106, ptr %107, align 4
-  %108 = tail call ptr @__errno_location() #14
-  store i32 %106, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %1, i64 2642
-  %110 = load i64, ptr %109, align 2
-  %111 = and i64 %110, 268435456
-  %.not101 = icmp eq i64 %111, 0
-  br i1 %.not101, label %121, label %112
+  %105 = load i32, ptr %102, align 8
+  %106 = getelementptr inbounds i8, ptr %1, i64 3340
+  store i32 %105, ptr %106, align 4
+  %107 = tail call ptr @__errno_location() #14
+  store i32 %105, ptr %107, align 4
+  %108 = getelementptr inbounds i8, ptr %1, i64 2642
+  %109 = load i64, ptr %108, align 2
+  %110 = and i64 %109, 268435456
+  %.not101 = icmp eq i64 %110, 0
+  br i1 %.not101, label %120, label %111
 
-112:                                              ; preds = %105
-  %113 = getelementptr inbounds i8, ptr %9, i64 224
-  %114 = getelementptr inbounds i8, ptr %9, i64 272
-  %115 = load i32, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %9, i64 276
-  %117 = getelementptr inbounds i8, ptr %9, i64 324
-  %118 = load i32, ptr %117, align 4
-  %119 = load i32, ptr %103, align 8
-  %120 = call ptr @Curl_strerror(i32 noundef %119, ptr noundef nonnull %7, i64 noundef 256) #13
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.10, ptr noundef nonnull %113, i32 noundef %115, ptr noundef nonnull %116, i32 noundef %118, ptr noundef %120) #13
-  br label %121
+111:                                              ; preds = %104
+  %112 = getelementptr inbounds i8, ptr %9, i64 224
+  %113 = getelementptr inbounds i8, ptr %9, i64 272
+  %114 = load i32, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %9, i64 276
+  %116 = getelementptr inbounds i8, ptr %9, i64 324
+  %117 = load i32, ptr %116, align 4
+  %118 = load i32, ptr %102, align 8
+  %119 = call ptr @Curl_strerror(i32 noundef %118, ptr noundef nonnull %7, i64 noundef 256) #13
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.10, ptr noundef nonnull %112, i32 noundef %114, ptr noundef nonnull %115, i32 noundef %117, ptr noundef %119) #13
+  br label %120
 
-121:                                              ; preds = %112, %105, %.thread
-  %122 = load i32, ptr %16, align 8
-  %.not102 = icmp eq i32 %122, -1
-  br i1 %.not102, label %135, label %123
+120:                                              ; preds = %111, %104, %.thread
+  %121 = load i32, ptr %16, align 8
+  %.not102 = icmp eq i32 %121, -1
+  br i1 %.not102, label %134, label %122
 
-123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %0, i64 24
-  %125 = load ptr, ptr %124, align 8
-  %.not114 = icmp eq ptr %125, null
-  br i1 %.not114, label %.thread.i, label %126
+122:                                              ; preds = %120
+  %123 = getelementptr inbounds i8, ptr %0, i64 24
+  %124 = load ptr, ptr %123, align 8
+  %.not114 = icmp eq ptr %124, null
+  br i1 %.not114, label %.thread.i, label %125
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %125, i64 24
-  %128 = load ptr, ptr %127, align 8
-  %.not.i107 = icmp eq ptr %128, null
-  call void @Curl_multi_closed(ptr noundef %1, i32 noundef %122) #13
-  br i1 %.not.i107, label %.thread.i, label %129
+125:                                              ; preds = %122
+  %126 = getelementptr inbounds i8, ptr %124, i64 24
+  %127 = load ptr, ptr %126, align 8
+  %.not.i107 = icmp eq ptr %127, null
+  call void @Curl_multi_closed(ptr noundef %1, i32 noundef %121) #13
+  br i1 %.not.i107, label %.thread.i, label %128
 
-129:                                              ; preds = %126
+128:                                              ; preds = %125
   call void @Curl_set_in_callback(ptr noundef %1, i1 noundef zeroext true) #13
-  %130 = load ptr, ptr %127, align 8
-  %131 = getelementptr inbounds i8, ptr %125, i64 32
-  %132 = load ptr, ptr %131, align 8
-  %133 = call i32 %130(ptr noundef %132, i32 noundef %122) #13
+  %129 = load ptr, ptr %126, align 8
+  %130 = getelementptr inbounds i8, ptr %124, i64 32
+  %131 = load ptr, ptr %130, align 8
+  %132 = call i32 %129(ptr noundef %131, i32 noundef %121) #13
   call void @Curl_set_in_callback(ptr noundef %1, i1 noundef zeroext false) #13
   br label %socket_close.exit
 
-.thread.i:                                        ; preds = %126, %123
-  %134 = call i32 @close(i32 noundef %122) #13
+.thread.i:                                        ; preds = %125, %122
+  %133 = call i32 @close(i32 noundef %121) #13
   br label %socket_close.exit
 
-socket_close.exit:                                ; preds = %129, %.thread.i
+socket_close.exit:                                ; preds = %128, %.thread.i
   store i32 -1, ptr %16, align 8
+  br label %134
+
+134:                                              ; preds = %socket_close.exit, %120
+  store i8 0, ptr %3, align 1
   br label %135
 
-135:                                              ; preds = %socket_close.exit, %121
-  store i8 0, ptr %3, align 1
-  br label %136
-
-136:                                              ; preds = %102, %135, %96, %91, %87, %80, %66, %61, %57, %56, %14, %24, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %24 ], [ 1, %14 ], [ 0, %56 ], [ 0, %57 ], [ 0, %61 ], [ 0, %66 ], [ 0, %80 ], [ 0, %87 ], [ 0, %91 ], [ 0, %96 ], [ %.1110, %135 ], [ 0, %102 ]
+135:                                              ; preds = %101, %134, %95, %90, %86, %79, %66, %61, %57, %56, %14, %24, %13
+  %.0 = phi i32 [ 0, %13 ], [ 0, %24 ], [ 1, %14 ], [ 0, %56 ], [ 0, %57 ], [ 0, %61 ], [ 0, %66 ], [ 0, %79 ], [ 0, %86 ], [ 0, %90 ], [ 0, %95 ], [ %.1110, %134 ], [ 0, %101 ]
   ret i32 %.0
 }
 
@@ -2977,16 +2977,16 @@ define internal fastcc void @verifyconnect(i32 noundef %0, ptr noundef writeonly
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2, %6
-  %.in = phi ptr [ %7, %6 ], [ %3, %2 ]
+  %.sink = phi ptr [ %7, %6 ], [ %3, %2 ]
   %.not5 = icmp eq ptr %1, null
-  br i1 %.not5, label %10, label %8
+  br i1 %.not5, label %9, label %8
 
 8:                                                ; preds = %._crit_edge
-  %9 = load i32, ptr %.in, align 4
-  store i32 %9, ptr %1, align 4
-  br label %10
+  %.pre = load i32, ptr %.sink, align 4
+  store i32 %.pre, ptr %1, align 4
+  br label %9
 
-10:                                               ; preds = %8, %._crit_edge
+9:                                                ; preds = %8, %._crit_edge
   ret void
 }
 

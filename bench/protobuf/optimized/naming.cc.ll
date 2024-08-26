@@ -225,8 +225,10 @@ entry:
   call void @_ZN6google8protobuf8compiler10StripProtoB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %basename, i64 %2, ptr %3)
   %4 = load ptr, ptr %file, align 8
   %5 = load i32, ptr %4, align 4
+  %ref.tmp5.sink4.sroa.gep8 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
+  %ref.tmp.sink6.sroa.gep9 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   switch i32 %5, label %sw.default [
-    i32 0, label %invoke.cont6
+    i32 0, label %invoke.cont12.invoke
     i32 1, label %invoke.cont12
   ]
 
@@ -236,35 +238,25 @@ lpad:                                             ; preds = %invoke.cont12.invok
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %basename) #20
   resume { ptr, i32 } %6
 
-invoke.cont6:                                     ; preds = %entry
-  %ref.tmp5.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
+invoke.cont12:                                    ; preds = %entry
+  %ref.tmp.sink6.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
+  %ref.tmp5.sink4.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  br label %invoke.cont12.invoke
+
+invoke.cont12.invoke:                             ; preds = %entry, %invoke.cont12
+  %ref.tmp.sink6.sroa.phi = phi ptr [ %ref.tmp.sink6.sroa.gep, %invoke.cont12 ], [ %ref.tmp.sink6.sroa.gep9, %entry ]
+  %ref.tmp.sink6 = phi ptr [ %ref.tmp9, %invoke.cont12 ], [ %ref.tmp, %entry ]
+  %ref.tmp5.sink4.sroa.phi = phi ptr [ %ref.tmp5.sink4.sroa.gep, %invoke.cont12 ], [ %ref.tmp5.sink4.sroa.gep8, %entry ]
+  %ref.tmp5.sink4 = phi ptr [ %ref.tmp11, %invoke.cont12 ], [ %ref.tmp5, %entry ]
+  %.str.3.sink = phi ptr [ @.str.4, %invoke.cont12 ], [ @.str.3, %entry ]
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %basename) #20
   %7 = extractvalue { i64, ptr } %call.i, 0
-  store i64 %7, ptr %ref.tmp, align 8
-  %8 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %9 = extractvalue { i64, ptr } %call.i, 1
-  store ptr %9, ptr %8, align 8
-  store i64 8, ptr %ref.tmp5, align 8
-  br label %invoke.cont12.invoke
-
-invoke.cont12:                                    ; preds = %entry
-  %ref.tmp5.sink.sroa.gep4 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
-  %call.i2 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %basename) #20
-  %10 = extractvalue { i64, ptr } %call.i2, 0
-  store i64 %10, ptr %ref.tmp9, align 8
-  %11 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
-  %12 = extractvalue { i64, ptr } %call.i2, 1
-  store ptr %12, ptr %11, align 8
-  store i64 8, ptr %ref.tmp11, align 8
-  br label %invoke.cont12.invoke
-
-invoke.cont12.invoke:                             ; preds = %invoke.cont6, %invoke.cont12
-  %ref.tmp5.sink.sroa.phi = phi ptr [ %ref.tmp5.sink.sroa.gep, %invoke.cont6 ], [ %ref.tmp5.sink.sroa.gep4, %invoke.cont12 ]
-  %ref.tmp5.sink = phi ptr [ %ref.tmp5, %invoke.cont6 ], [ %ref.tmp11, %invoke.cont12 ]
-  %.str.3.sink = phi ptr [ @.str.3, %invoke.cont6 ], [ @.str.4, %invoke.cont12 ]
-  %13 = phi ptr [ %ref.tmp, %invoke.cont6 ], [ %ref.tmp9, %invoke.cont12 ]
-  store ptr %.str.3.sink, ptr %ref.tmp5.sink.sroa.phi, align 8
-  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5.sink)
+  store i64 %7, ptr %ref.tmp.sink6, align 8
+  %8 = extractvalue { i64, ptr } %call.i, 1
+  store ptr %8, ptr %ref.tmp.sink6.sroa.phi, align 8
+  store i64 8, ptr %ref.tmp5.sink4, align 8
+  store ptr %.str.3.sink, ptr %ref.tmp5.sink4.sroa.phi, align 8
+  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.sink6, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5.sink4)
           to label %cleanup unwind label %lpad
 
 sw.default:                                       ; preds = %entry
@@ -284,7 +276,7 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   unreachable
 
 lpad17:                                           ; preds = %invoke.cont16, %invoke.cont20
-  %14 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #23
   unreachable

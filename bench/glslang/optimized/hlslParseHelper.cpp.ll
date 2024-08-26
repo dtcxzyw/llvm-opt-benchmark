@@ -65870,84 +65870,69 @@ define internal fastcc void @"_ZZN7glslang16HlslParseContext26addPatchConstantIn
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
-  br label %12
-
-12:                                               ; preds = %.lr.ph, %60
-  %.01 = phi i32 [ 0, %.lr.ph ], [ %62, %60 ]
-  %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 320
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.01 = phi i32 [ %54, %.lr.ph ], [ 0, %2 ]
+  %10 = load ptr, ptr %0, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 320
+  %12 = load ptr, ptr %11, align 8
+  %13 = call noundef nonnull align 8 dereferenceable(24) ptr %12(ptr noundef nonnull align 8 dereferenceable(340) %0, i32 noundef %.01) #24
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = call noundef nonnull align 8 dereferenceable(24) ptr %15(ptr noundef nonnull align 8 dereferenceable(340) %0, i32 noundef %.01) #24
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 80
   %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 80
-  %21 = load ptr, ptr %20, align 8
-  %22 = call noundef nonnull align 8 dereferenceable(80) ptr %21(ptr noundef nonnull align 8 dereferenceable(152) %18) #24
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load i64, ptr %23, align 8
-  %25 = trunc i64 %24 to i32
-  %26 = and i32 %25, 127
-  %27 = icmp eq i32 %26, 19
-  %spec.store.select = select i1 %27, i32 16, i32 %26
-  %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 320
+  %19 = call noundef nonnull align 8 dereferenceable(80) ptr %18(ptr noundef nonnull align 8 dereferenceable(152) %15) #24
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load i64, ptr %20, align 8
+  %22 = trunc i64 %21 to i32
+  %23 = and i32 %22, 127
+  %24 = icmp eq i32 %23, 19
+  %spec.store.select = select i1 %24, i32 16, i32 %23
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 320
+  %27 = load ptr, ptr %26, align 8
+  %28 = call noundef nonnull align 8 dereferenceable(24) ptr %27(ptr noundef nonnull align 8 dereferenceable(340) %0, i32 noundef %.01) #24
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = call noundef nonnull align 8 dereferenceable(24) ptr %30(ptr noundef nonnull align 8 dereferenceable(340) %0, i32 noundef %.01) #24
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 80
-  %36 = load ptr, ptr %35, align 8
-  %37 = call noundef nonnull align 8 dereferenceable(80) ptr %36(ptr noundef nonnull align 8 dereferenceable(152) %33) #24
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  %39 = load i64, ptr %38, align 8
-  %40 = and i64 %39, 33488896
-  %.not = icmp eq i64 %40, 0
-  %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 320
+  %34 = call noundef nonnull align 8 dereferenceable(80) ptr %33(ptr noundef nonnull align 8 dereferenceable(152) %30) #24
+  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = load i64, ptr %35, align 8
+  %37 = and i64 %36, 33488896
+  %.not = icmp eq i64 %37, 0
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 320
+  %40 = load ptr, ptr %39, align 8
+  %41 = call noundef nonnull align 8 dereferenceable(24) ptr %40(ptr noundef nonnull align 8 dereferenceable(340) %0, i32 noundef %.01) #24
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = call noundef nonnull align 8 dereferenceable(24) ptr %43(ptr noundef nonnull align 8 dereferenceable(340) %0, i32 noundef %.01) #24
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 80
   %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 80
-  %49 = load ptr, ptr %48, align 8
-  %50 = call noundef nonnull align 8 dereferenceable(80) ptr %49(ptr noundef nonnull align 8 dereferenceable(152) %46) #24
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
-  %52 = load i64, ptr %51, align 8
-  %53 = trunc i64 %52 to i32
-  br i1 %.not, label %57, label %54
+  %47 = call noundef nonnull align 8 dereferenceable(80) ptr %46(ptr noundef nonnull align 8 dereferenceable(152) %43) #24
+  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = load i64, ptr %48, align 8
+  %50 = trunc i64 %49 to i32
+  %. = select i1 %.not, i32 7, i32 16
+  %.7 = select i1 %.not, ptr %4, ptr %3
+  %.8.v.sroa.sel.v = select i1 %.not, ptr %4, ptr %3
+  %.8.v.sroa.sel = getelementptr inbounds i8, ptr %.8.v.sroa.sel.v, i64 4
+  %51 = lshr i32 %50, %.
+  %52 = and i32 %51, 511
+  store i32 %52, ptr %.7, align 4
+  store i32 %spec.store.select, ptr %.8.v.sroa.sel, align 4
+  %53 = call { ptr, i8 } @_ZNSt8_Rb_treeIN7glslang16HlslParseContext17tInterstageIoDataES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 4 dereferenceable(8) %.7)
+  %54 = add nuw nsw i32 %.01, 1
+  %55 = load ptr, ptr %0, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 288
+  %57 = load ptr, ptr %56, align 8
+  %58 = call noundef i32 %57(ptr noundef nonnull align 8 dereferenceable(340) %0) #24
+  %59 = icmp slt i32 %54, %58
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !333
 
-54:                                               ; preds = %12
-  %55 = lshr i32 %53, 16
-  %56 = and i32 %55, 511
-  store i32 %56, ptr %3, align 4
-  br label %60
-
-57:                                               ; preds = %12
-  %58 = lshr i32 %53, 7
-  %59 = and i32 %58, 511
-  store i32 %59, ptr %4, align 4
-  br label %60
-
-60:                                               ; preds = %54, %57
-  %.sink2 = phi ptr [ %10, %54 ], [ %11, %57 ]
-  %.sink = phi ptr [ %3, %54 ], [ %4, %57 ]
-  store i32 %spec.store.select, ptr %.sink2, align 4
-  %61 = call { ptr, i8 } @_ZNSt8_Rb_treeIN7glslang16HlslParseContext17tInterstageIoDataES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 4 dereferenceable(8) %.sink)
-  %62 = add nuw nsw i32 %.01, 1
-  %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 288
-  %65 = load ptr, ptr %64, align 8
-  %66 = call noundef i32 %65(ptr noundef nonnull align 8 dereferenceable(340) %0) #24
-  %67 = icmp slt i32 %62, %66
-  br i1 %67, label %12, label %._crit_edge, !llvm.loop !333
-
-._crit_edge:                                      ; preds = %60, %2
+._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
 }
 

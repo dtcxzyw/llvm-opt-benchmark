@@ -10294,8 +10294,16 @@ entry:
   %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %0, 63
-  %tobool.not64 = icmp eq ptr %call, null
-  %tobool.not = or i1 %tobool.not64, %cmp.i.i.i.i.i.i.i
+  %tobool.not65 = icmp eq ptr %call, null
+  %tobool.not = or i1 %tobool.not65, %cmp.i.i.i.i.i.i.i
+  %ref.tmp10.sink16.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %ref.tmp10.sink16.i.sroa.gep53 = getelementptr inbounds i8, ptr %ref.tmp10.i, i64 16
+  %ref.tmp10.sink16.i.sroa.gep55 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 17
+  %ref.tmp10.sink16.i.sroa.gep56 = getelementptr inbounds i8, ptr %ref.tmp10.i, i64 17
+  %ref.tmp10.sink16.i35.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i23, i64 16
+  %ref.tmp10.sink16.i35.sroa.gep57 = getelementptr inbounds i8, ptr %ref.tmp10.i24, i64 16
+  %ref.tmp10.sink16.i35.sroa.gep59 = getelementptr inbounds i8, ptr %ref.tmp.i23, i64 17
+  %ref.tmp10.sink16.i35.sroa.gep60 = getelementptr inbounds i8, ptr %ref.tmp10.i24, i64 17
   br i1 %tobool.not, label %if.else24, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -10316,49 +10324,32 @@ if.then3:                                         ; preds = %if.then
   %call.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6hermes6ESTree12getArgumentsEPNS0_22CallExpressionLikeNodeE(ptr noundef %node) #15
   %3 = load ptr, ptr %call.i, align 8
   %cmp.i.i.i = icmp eq ptr %call.i, %3
-  br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then3
-  %sm_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %4 = load ptr, ptr %sm_.i, align 8
-  %sourceRange_.i.i = getelementptr inbounds i8, ptr %node, i64 24
-  %retval.sroa.0.0.copyload.i.i = load ptr, ptr %sourceRange_.i.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i = getelementptr inbounds i8, ptr %node, i64 32
-  %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i, align 8
-  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 17
-  store i8 1, ptr %RHSKind.i.i, align 1
-  store ptr @.str.23, ptr %ref.tmp.i, align 8
-  store i8 3, ptr %LHSKind.i.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %4, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 0) #15
-  br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit.thread
+  br i1 %cmp.i.i.i, label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3
   %Next.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %5 = load ptr, ptr %Next.i.i.i.i.i.i, align 8
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  %6 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %6, 33
-  %tobool.not13.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %Next.i.i.i.i.i.i, align 8
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %5, 33
+  %tobool.not13.i = icmp eq ptr %4, null
   %tobool.not.i = or i1 %tobool.not13.i, %cmp.i.i.i.i.i.i.i.i
-  br i1 %tobool.not.i, label %if.then6.i, label %if.then6
+  br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit.thread, label %if.then6
 
-if.then6.i:                                       ; preds = %if.end.i
+_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit.thread: ; preds = %if.then3, %if.end.i
+  %ref.tmp10.sink16.i.sroa.phi = phi ptr [ %ref.tmp10.sink16.i.sroa.gep, %if.then3 ], [ %ref.tmp10.sink16.i.sroa.gep53, %if.end.i ]
+  %ref.tmp10.sink16.i.sroa.phi54 = phi ptr [ %ref.tmp10.sink16.i.sroa.gep55, %if.then3 ], [ %ref.tmp10.sink16.i.sroa.gep56, %if.end.i ]
+  %ref.tmp10.sink16.i = phi ptr [ %ref.tmp.i, %if.then3 ], [ %ref.tmp10.i, %if.end.i ]
   %sm_7.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load ptr, ptr %sm_7.i, align 8
+  %6 = load ptr, ptr %sm_7.i, align 8
   %sourceRange_.i5.i = getelementptr inbounds i8, ptr %node, i64 24
   %retval.sroa.0.0.copyload.i6.i = load ptr, ptr %sourceRange_.i5.i, align 8
   %retval.sroa.2.0.sourceRange_.sroa_idx.i7.i = getelementptr inbounds i8, ptr %node, i64 32
   %retval.sroa.2.0.copyload.i8.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i7.i, align 8
-  %LHSKind.i11.i = getelementptr inbounds i8, ptr %ref.tmp10.i, i64 16
-  %RHSKind.i12.i = getelementptr inbounds i8, ptr %ref.tmp10.i, i64 17
-  store i8 1, ptr %RHSKind.i12.i, align 1
-  store ptr @.str.23, ptr %ref.tmp10.i, align 8
-  store i8 3, ptr %LHSKind.i11.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %7, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i6.i, ptr %retval.sroa.2.0.copyload.i8.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp10.i, i32 noundef 0) #15
-  br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit.thread
-
-_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit.thread: ; preds = %if.then.i, %if.then6.i
+  store i8 1, ptr %ref.tmp10.sink16.i.sroa.phi54, align 1
+  store ptr @.str.23, ptr %ref.tmp10.sink16.i, align 8
+  store i8 3, ptr %ref.tmp10.sink16.i.sroa.phi, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %6, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i6.i, ptr %retval.sroa.2.0.copyload.i8.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp10.sink16.i, i32 noundef 0) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i)
   br label %if.end58
@@ -10366,10 +10357,10 @@ _ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTr
 if.then6:                                         ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i)
-  %_value = getelementptr inbounds i8, ptr %5, i64 48
-  %8 = load ptr, ptr %_value, align 8
-  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  %agg.tmp.sroa.2.0.call7.sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %_value = getelementptr inbounds i8, ptr %4, i64 48
+  %7 = load ptr, ptr %_value, align 8
+  %agg.tmp.sroa.0.0.copyload = load ptr, ptr %7, align 8
+  %agg.tmp.sroa.2.0.call7.sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call7.sroa_idx, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor13addDependencyEN4llvh9StringRefENS_14DependencyKindE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i32 noundef 2)
   br label %if.end58
@@ -10382,59 +10373,42 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds [6 x ptr], ptr %resourceIdents_, i64 0, i64 %indvars.iv
-  %9 = load ptr, ptr %arrayidx, align 8
-  %cmp10 = icmp eq ptr %9, %1
+  %8 = load ptr, ptr %arrayidx, align 8
+  %cmp10 = icmp eq ptr %8, %1
   br i1 %cmp10, label %if.then11, label %for.cond
 
 if.then11:                                        ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i23)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp10.i24)
   %call.i25 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6hermes6ESTree12getArgumentsEPNS0_22CallExpressionLikeNodeE(ptr noundef %node) #15
-  %10 = load ptr, ptr %call.i25, align 8
-  %cmp.i.i.i26 = icmp eq ptr %call.i25, %10
-  br i1 %cmp.i.i.i26, label %if.then.i42, label %if.end.i27
-
-if.then.i42:                                      ; preds = %if.then11
-  %sm_.i43 = getelementptr inbounds i8, ptr %this, i64 24
-  %11 = load ptr, ptr %sm_.i43, align 8
-  %sourceRange_.i.i44 = getelementptr inbounds i8, ptr %node, i64 24
-  %retval.sroa.0.0.copyload.i.i45 = load ptr, ptr %sourceRange_.i.i44, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i.i46 = getelementptr inbounds i8, ptr %node, i64 32
-  %retval.sroa.2.0.copyload.i.i47 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i.i46, align 8
-  %LHSKind.i.i48 = getelementptr inbounds i8, ptr %ref.tmp.i23, i64 16
-  %RHSKind.i.i49 = getelementptr inbounds i8, ptr %ref.tmp.i23, i64 17
-  store i8 1, ptr %RHSKind.i.i49, align 1
-  store ptr @.str.23, ptr %ref.tmp.i23, align 8
-  store i8 3, ptr %LHSKind.i.i48, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %11, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i45, ptr %retval.sroa.2.0.copyload.i.i47, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i23, i32 noundef 0) #15
-  br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit50.thread
+  %9 = load ptr, ptr %call.i25, align 8
+  %cmp.i.i.i26 = icmp eq ptr %call.i25, %9
+  br i1 %cmp.i.i.i26, label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit43.thread, label %if.end.i27
 
 if.end.i27:                                       ; preds = %if.then11
   %Next.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %call.i25, i64 8
-  %12 = load ptr, ptr %Next.i.i.i.i.i.i28, align 8
-  %kind_.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %12, i64 16
-  %13 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i29, align 8
-  %cmp.i.i.i.i.i.i.i.i30 = icmp ne i32 %13, 33
-  %tobool.not13.i31 = icmp eq ptr %12, null
+  %10 = load ptr, ptr %Next.i.i.i.i.i.i28, align 8
+  %kind_.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i29, align 8
+  %cmp.i.i.i.i.i.i.i.i30 = icmp ne i32 %11, 33
+  %tobool.not13.i31 = icmp eq ptr %10, null
   %tobool.not.i32 = or i1 %tobool.not13.i31, %cmp.i.i.i.i.i.i.i.i30
-  br i1 %tobool.not.i32, label %if.then6.i34, label %if.then15
+  br i1 %tobool.not.i32, label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit43.thread, label %if.then15
 
-if.then6.i34:                                     ; preds = %if.end.i27
-  %sm_7.i35 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %sm_7.i35, align 8
-  %sourceRange_.i5.i36 = getelementptr inbounds i8, ptr %node, i64 24
-  %retval.sroa.0.0.copyload.i6.i37 = load ptr, ptr %sourceRange_.i5.i36, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i7.i38 = getelementptr inbounds i8, ptr %node, i64 32
-  %retval.sroa.2.0.copyload.i8.i39 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i7.i38, align 8
-  %LHSKind.i11.i40 = getelementptr inbounds i8, ptr %ref.tmp10.i24, i64 16
-  %RHSKind.i12.i41 = getelementptr inbounds i8, ptr %ref.tmp10.i24, i64 17
-  store i8 1, ptr %RHSKind.i12.i41, align 1
-  store ptr @.str.23, ptr %ref.tmp10.i24, align 8
-  store i8 3, ptr %LHSKind.i11.i40, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %14, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i6.i37, ptr %retval.sroa.2.0.copyload.i8.i39, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp10.i24, i32 noundef 0) #15
-  br label %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit50.thread
-
-_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit50.thread: ; preds = %if.then.i42, %if.then6.i34
+_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit43.thread: ; preds = %if.then11, %if.end.i27
+  %ref.tmp10.sink16.i35.sroa.phi = phi ptr [ %ref.tmp10.sink16.i35.sroa.gep, %if.then11 ], [ %ref.tmp10.sink16.i35.sroa.gep57, %if.end.i27 ]
+  %ref.tmp10.sink16.i35.sroa.phi58 = phi ptr [ %ref.tmp10.sink16.i35.sroa.gep59, %if.then11 ], [ %ref.tmp10.sink16.i35.sroa.gep60, %if.end.i27 ]
+  %ref.tmp10.sink16.i35 = phi ptr [ %ref.tmp.i23, %if.then11 ], [ %ref.tmp10.i24, %if.end.i27 ]
+  %sm_7.i36 = getelementptr inbounds i8, ptr %this, i64 24
+  %12 = load ptr, ptr %sm_7.i36, align 8
+  %sourceRange_.i5.i37 = getelementptr inbounds i8, ptr %node, i64 24
+  %retval.sroa.0.0.copyload.i6.i38 = load ptr, ptr %sourceRange_.i5.i37, align 8
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i7.i39 = getelementptr inbounds i8, ptr %node, i64 32
+  %retval.sroa.2.0.copyload.i8.i40 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i7.i39, align 8
+  store i8 1, ptr %ref.tmp10.sink16.i35.sroa.phi58, align 1
+  store ptr @.str.23, ptr %ref.tmp10.sink16.i35, align 8
+  store i8 3, ptr %ref.tmp10.sink16.i35.sroa.phi, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %12, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i6.i38, ptr %retval.sroa.2.0.copyload.i8.i40, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp10.sink16.i35, i32 noundef 0) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i24)
   br label %if.end58
@@ -10442,68 +10416,68 @@ _ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTr
 if.then15:                                        ; preds = %if.end.i27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp10.i24)
-  %_value17 = getelementptr inbounds i8, ptr %12, i64 48
-  %15 = load ptr, ptr %_value17, align 8
-  %agg.tmp16.sroa.0.0.copyload = load ptr, ptr %15, align 8
-  %agg.tmp16.sroa.2.0.call18.sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  %_value17 = getelementptr inbounds i8, ptr %10, i64 48
+  %13 = load ptr, ptr %_value17, align 8
+  %agg.tmp16.sroa.0.0.copyload = load ptr, ptr %13, align 8
+  %agg.tmp16.sroa.2.0.call18.sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
   %agg.tmp16.sroa.2.0.copyload = load i64, ptr %agg.tmp16.sroa.2.0.call18.sroa_idx, align 8
   %kind = getelementptr inbounds [6 x %"struct.hermes::(anonymous namespace)::ResourceCallee"], ptr @_ZN6hermes12_GLOBAL__N_116RESOURCE_CALLEESE, i64 0, i64 %indvars.iv, i32 1
-  %16 = load i32, ptr %kind, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor13addDependencyEN4llvh9StringRefENS_14DependencyKindE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr %agg.tmp16.sroa.0.0.copyload, i64 %agg.tmp16.sroa.2.0.copyload, i32 noundef %16)
+  %14 = load i32, ptr %kind, align 8
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor13addDependencyEN4llvh9StringRefENS_14DependencyKindE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr %agg.tmp16.sroa.0.0.copyload, i64 %agg.tmp16.sroa.2.0.copyload, i32 noundef %14)
   br label %if.end58
 
 if.else24:                                        ; preds = %entry
-  %cmp.i.i.i.i.i.i.i52 = icmp ne i32 %0, 55
-  %tobool26.not = or i1 %tobool.not64, %cmp.i.i.i.i.i.i.i52
+  %cmp.i.i.i.i.i.i.i45 = icmp ne i32 %0, 55
+  %tobool26.not = or i1 %tobool.not65, %cmp.i.i.i.i.i.i.i45
   br i1 %tobool26.not, label %if.end58, label %if.then27
 
 if.then27:                                        ; preds = %if.else24
   %_object = getelementptr inbounds i8, ptr %call, i64 48
-  %17 = load ptr, ptr %_object, align 8
-  %kind_.i.i.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %17, i64 16
-  %18 = load i32, ptr %kind_.i.i.i.i.i.i.i.i54, align 8
-  %cmp.i.i.i.i.i.i.i55 = icmp ne i32 %18, 63
-  %tobool29.not66 = icmp eq ptr %17, null
-  %tobool29.not = or i1 %tobool29.not66, %cmp.i.i.i.i.i.i.i55
+  %15 = load ptr, ptr %_object, align 8
+  %kind_.i.i.i.i.i.i.i.i47 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = load i32, ptr %kind_.i.i.i.i.i.i.i.i47, align 8
+  %cmp.i.i.i.i.i.i.i48 = icmp ne i32 %16, 63
+  %tobool29.not67 = icmp eq ptr %15, null
+  %tobool29.not = or i1 %tobool29.not67, %cmp.i.i.i.i.i.i.i48
   br i1 %tobool29.not, label %if.end58, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then27
   %_computed = getelementptr inbounds i8, ptr %call, i64 64
-  %19 = load i8, ptr %_computed, align 8
-  %tobool30 = trunc i8 %19 to i1
+  %17 = load i8, ptr %_computed, align 8
+  %tobool30 = trunc i8 %17 to i1
   br i1 %tobool30, label %if.end58, label %land.lhs.true31
 
 land.lhs.true31:                                  ; preds = %land.lhs.true
-  %_name32 = getelementptr inbounds i8, ptr %17, i64 48
-  %20 = load ptr, ptr %_name32, align 8
+  %_name32 = getelementptr inbounds i8, ptr %15, i64 48
+  %18 = load ptr, ptr %_name32, align 8
   %requireIdent_33 = getelementptr inbounds i8, ptr %this, i64 32
-  %21 = load ptr, ptr %requireIdent_33, align 8
-  %cmp34 = icmp eq ptr %20, %21
+  %19 = load ptr, ptr %requireIdent_33, align 8
+  %cmp34 = icmp eq ptr %18, %19
   %jestIdent_ = getelementptr inbounds i8, ptr %this, i64 40
-  %22 = load ptr, ptr %jestIdent_, align 8
-  %cmp36 = icmp eq ptr %20, %22
+  %20 = load ptr, ptr %jestIdent_, align 8
+  %cmp36 = icmp eq ptr %18, %20
   %or.cond = select i1 %cmp34, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end58
 
 if.then37:                                        ; preds = %land.lhs.true31
   %_property = getelementptr inbounds i8, ptr %call, i64 56
-  %23 = load ptr, ptr %_property, align 8
-  %kind_.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %23, i64 16
-  %24 = load i32, ptr %kind_.i.i.i.i.i.i.i.i57, align 8
-  %cmp.i.i.i.i.i.i.i58 = icmp ne i32 %24, 63
-  %tobool39.not67 = icmp eq ptr %23, null
-  %tobool39.not = or i1 %tobool39.not67, %cmp.i.i.i.i.i.i.i58
+  %21 = load ptr, ptr %_property, align 8
+  %kind_.i.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = load i32, ptr %kind_.i.i.i.i.i.i.i.i50, align 8
+  %cmp.i.i.i.i.i.i.i51 = icmp ne i32 %22, 63
+  %tobool39.not68 = icmp eq ptr %21, null
+  %tobool39.not = or i1 %tobool39.not68, %cmp.i.i.i.i.i.i.i51
   br i1 %tobool39.not, label %if.end58, label %land.lhs.true40
 
 land.lhs.true40:                                  ; preds = %if.then37
-  %_name41 = getelementptr inbounds i8, ptr %23, i64 48
-  %25 = load ptr, ptr %_name41, align 8
+  %_name41 = getelementptr inbounds i8, ptr %21, i64 48
+  %23 = load ptr, ptr %_name41, align 8
   %requireActualIdent_ = getelementptr inbounds i8, ptr %this, i64 48
-  %26 = load ptr, ptr %requireActualIdent_, align 8
-  %cmp42 = icmp eq ptr %25, %26
+  %24 = load ptr, ptr %requireActualIdent_, align 8
+  %cmp42 = icmp eq ptr %23, %24
   %requireMockIdent_ = getelementptr inbounds i8, ptr %this, i64 56
-  %27 = load ptr, ptr %requireMockIdent_, align 8
-  %cmp45 = icmp eq ptr %25, %27
+  %25 = load ptr, ptr %requireMockIdent_, align 8
+  %cmp45 = icmp eq ptr %23, %25
   %or.cond22 = select i1 %cmp42, i1 true, i1 %cmp45
   br i1 %or.cond22, label %if.then46, label %if.end58
 
@@ -10514,14 +10488,14 @@ if.then46:                                        ; preds = %land.lhs.true40
 
 if.then50:                                        ; preds = %if.then46
   %_value52 = getelementptr inbounds i8, ptr %call48, i64 48
-  %28 = load ptr, ptr %_value52, align 8
-  %agg.tmp51.sroa.0.0.copyload = load ptr, ptr %28, align 8
-  %agg.tmp51.sroa.2.0.call53.sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
+  %26 = load ptr, ptr %_value52, align 8
+  %agg.tmp51.sroa.0.0.copyload = load ptr, ptr %26, align 8
+  %agg.tmp51.sroa.2.0.call53.sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
   %agg.tmp51.sroa.2.0.copyload = load i64, ptr %agg.tmp51.sroa.2.0.call53.sroa_idx, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor13addDependencyEN4llvh9StringRefENS_14DependencyKindE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr %agg.tmp51.sroa.0.0.copyload, i64 %agg.tmp51.sroa.2.0.copyload, i32 noundef 2)
   br label %if.end58
 
-if.end58:                                         ; preds = %for.cond, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit50.thread, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit.thread, %land.lhs.true40, %land.lhs.true31, %if.else24, %if.then37, %if.then50, %if.then46, %land.lhs.true, %if.then27, %if.then6, %if.then15
+if.end58:                                         ; preds = %for.cond, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit43.thread, %_ZN6hermes12_GLOBAL__N_119DependencyExtractor23needFirstStringArgumentEPNS_6ESTree22CallExpressionLikeNodeE.exit.thread, %land.lhs.true40, %land.lhs.true31, %if.else24, %if.then37, %if.then50, %if.then46, %land.lhs.true, %if.then27, %if.then6, %if.then15
   call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE13visitChildrenERS3_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %node)
   ret void
 }
@@ -10536,50 +10510,40 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6hermes6ESTree12getArgumentsEPNS0_22CallExpressionLikeNodeE(ptr noundef %node) #15
   %0 = load ptr, ptr %call, align 8
   %cmp.i.i = icmp eq ptr %call, %0
-  br i1 %cmp.i.i, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %sm_ = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load ptr, ptr %sm_, align 8
-  %sourceRange_.i = getelementptr inbounds i8, ptr %node, i64 24
-  %retval.sroa.0.0.copyload.i = load ptr, ptr %sourceRange_.i, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i = getelementptr inbounds i8, ptr %node, i64 32
-  %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i, align 8
-  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
-  store i8 1, ptr %RHSKind.i, align 1
-  store ptr @.str.23, ptr %ref.tmp, align 8
-  store i8 3, ptr %LHSKind.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %1, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, i32 noundef 0) #15
-  br label %return
+  %ref.tmp10.sink16.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %ref.tmp10.sink16.sroa.gep19 = getelementptr inbounds i8, ptr %ref.tmp, i64 17
+  br i1 %cmp.i.i, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
+  %ref.tmp10.sink16.sroa.gep20 = getelementptr inbounds i8, ptr %ref.tmp10, i64 17
+  %ref.tmp10.sink16.sroa.gep17 = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  %2 = load ptr, ptr %Next.i.i.i.i.i, align 8
-  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %3 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp ne i32 %3, 33
-  %tobool.not13 = icmp eq ptr %2, null
+  %1 = load ptr, ptr %Next.i.i.i.i.i, align 8
+  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i = icmp ne i32 %2, 33
+  %tobool.not13 = icmp eq ptr %1, null
   %tobool.not = or i1 %tobool.not13, %cmp.i.i.i.i.i.i.i
-  br i1 %tobool.not, label %if.then6, label %return
+  br i1 %tobool.not, label %return.sink.split, label %return
 
-if.then6:                                         ; preds = %if.end
+return.sink.split:                                ; preds = %if.end, %entry
+  %ref.tmp10.sink16.sroa.phi = phi ptr [ %ref.tmp10.sink16.sroa.gep, %entry ], [ %ref.tmp10.sink16.sroa.gep17, %if.end ]
+  %ref.tmp10.sink16.sroa.phi18 = phi ptr [ %ref.tmp10.sink16.sroa.gep19, %entry ], [ %ref.tmp10.sink16.sroa.gep20, %if.end ]
+  %ref.tmp10.sink16 = phi ptr [ %ref.tmp, %entry ], [ %ref.tmp10, %if.end ]
   %sm_7 = getelementptr inbounds i8, ptr %this, i64 24
-  %4 = load ptr, ptr %sm_7, align 8
+  %3 = load ptr, ptr %sm_7, align 8
   %sourceRange_.i5 = getelementptr inbounds i8, ptr %node, i64 24
   %retval.sroa.0.0.copyload.i6 = load ptr, ptr %sourceRange_.i5, align 8
   %retval.sroa.2.0.sourceRange_.sroa_idx.i7 = getelementptr inbounds i8, ptr %node, i64 32
   %retval.sroa.2.0.copyload.i8 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i7, align 8
-  %LHSKind.i11 = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
-  %RHSKind.i12 = getelementptr inbounds i8, ptr %ref.tmp10, i64 17
-  store i8 1, ptr %RHSKind.i12, align 1
-  store ptr @.str.23, ptr %ref.tmp10, align 8
-  store i8 3, ptr %LHSKind.i11, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %4, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i6, ptr %retval.sroa.2.0.copyload.i8, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp10, i32 noundef 0) #15
+  store i8 1, ptr %ref.tmp10.sink16.sroa.phi18, align 1
+  store ptr @.str.23, ptr %ref.tmp10.sink16, align 8
+  store i8 3, ptr %ref.tmp10.sink16.sroa.phi, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %3, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i6, ptr %retval.sroa.2.0.copyload.i8, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp10.sink16, i32 noundef 0) #15
   br label %return
 
-return:                                           ; preds = %if.end, %if.then6, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then6 ], [ %2, %if.end ]
+return:                                           ; preds = %return.sink.split, %if.end
+  %retval.0 = phi ptr [ %1, %if.end ], [ null, %return.sink.split ]
   ret ptr %retval.0
 }
 

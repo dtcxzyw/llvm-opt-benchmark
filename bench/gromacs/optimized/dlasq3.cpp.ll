@@ -396,7 +396,7 @@ define void @dlasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dlasq4_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %20, ptr noundef nonnull %4, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %13)
   br label %263
 
-263:                                              ; preds = %.backedge377, %262
+263:                                              ; preds = %.backedge378, %262
   call void @dlasq5_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %19, ptr noundef nonnull %4, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %11)
   %264 = load i32, ptr %1, align 4
   %265 = load i32, ptr %0, align 4
@@ -447,8 +447,7 @@ define void @dlasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %298 = getelementptr inbounds double, ptr %21, i64 %284
   %299 = getelementptr i8, ptr %298, i64 16
   store double 0.000000e+00, ptr %299, align 8
-  store double 0.000000e+00, ptr %4, align 8
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 300:                                              ; preds = %292, %278, %276
   br i1 %277, label %301, label %317
@@ -463,7 +462,7 @@ define void @dlasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 306:                                              ; preds = %301
   store double 0.000000e+00, ptr %19, align 8
-  br label %.backedge377
+  br label %.backedge378
 
 307:                                              ; preds = %301
   %308 = load double, ptr %19, align 8
@@ -476,9 +475,9 @@ define void @dlasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %312, ptr %19, align 8
   %313 = add nsw i32 %304, -11
   store i32 %313, ptr %13, align 4
-  br label %.backedge377
+  br label %.backedge378
 
-.backedge377:                                     ; preds = %309, %314, %306
+.backedge378:                                     ; preds = %309, %314, %306
   br label %263
 
 314:                                              ; preds = %307
@@ -486,7 +485,7 @@ define void @dlasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %315, ptr %19, align 8
   %316 = add nsw i32 %304, -12
   store i32 %316, ptr %13, align 4
-  br label %.backedge377
+  br label %.backedge378
 
 317:                                              ; preds = %300
   call void @dlasq6_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18)
@@ -500,10 +499,14 @@ define void @dlasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %324 = load i32, ptr %9, align 4
   %325 = add nsw i32 %324, 1
   store i32 %325, ptr %9, align 4
-  store double 0.000000e+00, ptr %19, align 8
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %297, %317
+  %.sink374 = phi ptr [ %19, %317 ], [ %4, %297 ]
+  store double 0.000000e+00, ptr %.sink374, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %263, %317, %297
+.loopexit:                                        ; preds = %263, %.loopexit.sink.split
   %326 = load double, ptr %19, align 8
   %327 = load double, ptr %5, align 8
   %328 = fcmp olt double %326, %327

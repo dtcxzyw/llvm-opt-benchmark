@@ -7002,18 +7002,7 @@ if.then88:                                        ; preds = %if.end85
 do.end96:                                         ; preds = %if.then88, %if.end85
   %49 = load ptr, ptr %data, align 8
   %cmp.not.i = icmp eq ptr %49, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i: ; preds = %do.end96
-  %vtable.i.i = load ptr, ptr %49, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %50 = load ptr, ptr %vfn.i.i, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(42) %49) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit: ; preds = %do.end96, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i
-  store ptr null, ptr %data, align 8
-  br label %sw.epilog
+  br i1 %cmp.not.i, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb98:                                          ; preds = %if.end68
   %call.i551 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -7023,36 +7012,36 @@ sw.bb98:                                          ; preds = %if.end68
 if.end.i553:                                      ; preds = %sw.bb98
   %vtable.i554 = load ptr, ptr %call.i551, align 8
   %vfn.i555 = getelementptr inbounds i8, ptr %vtable.i554, i64 16
-  %51 = load ptr, ptr %vfn.i555, align 8
-  %call2.i556 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(8) %call.i551, ptr noundef nonnull @.str) #19
+  %50 = load ptr, ptr %vfn.i555, align 8
+  %call2.i556 = call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(8) %call.i551, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit558
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit558: ; preds = %sw.bb98, %if.end.i553
   %retval.0.i557 = phi ptr [ %call2.i556, %if.end.i553 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb98 ]
-  %52 = load i8, ptr %retval.0.i557, align 1
-  %tobool100.not = icmp eq i8 %52, 0
+  %51 = load i8, ptr %retval.0.i557, align 1
+  %tobool100.not = icmp eq i8 %51, 0
   br i1 %tobool100.not, label %sw.epilog, label %if.then101
 
 if.then101:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit558
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data102) #19
-  %53 = load ptr, ptr %data102, align 8
-  %54 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i560 = getelementptr inbounds i8, ptr %54, i64 176
-  %55 = load ptr, ptr %env_.i.i560, align 8
-  %buffer_.i.i.i561 = getelementptr inbounds i8, ptr %55, i64 1032
-  %56 = load ptr, ptr %buffer_.i.i.i561, align 8
-  %57 = load double, ptr %56, align 8
-  %conv106 = fptosi double %57 to i64
+  %52 = load ptr, ptr %data102, align 8
+  %53 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i560 = getelementptr inbounds i8, ptr %53, i64 176
+  %54 = load ptr, ptr %env_.i.i560, align 8
+  %buffer_.i.i.i561 = getelementptr inbounds i8, ptr %54, i64 1032
+  %55 = load ptr, ptr %buffer_.i.i.i561, align 8
+  %56 = load double, ptr %55, align 8
+  %conv106 = fptosi double %56 to i64
   %conv107 = trunc i64 %conv106 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %53, ptr noundef nonnull @.str.181, i32 noundef %conv107) #19
-  %58 = load ptr, ptr %data102, align 8
-  %59 = load double, ptr %trigger_async_id_, align 8
-  %conv110 = fptosi double %59 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %52, ptr noundef nonnull @.str.181, i32 noundef %conv107) #19
+  %57 = load ptr, ptr %data102, align 8
+  %58 = load double, ptr %trigger_async_id_, align 8
+  %conv110 = fptosi double %58 to i64
   %conv111 = trunc i64 %conv110 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %58, ptr noundef nonnull @.str.182, i32 noundef %conv111) #19
-  %60 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_0.0 seq_cst, align 8
-  %61 = inttoptr i64 %60 to ptr
-  %tobool115.not = icmp eq i64 %60, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %57, ptr noundef nonnull @.str.182, i32 noundef %conv111) #19
+  %59 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_0.0 seq_cst, align 8
+  %60 = inttoptr i64 %59 to ptr
+  %tobool115.not = icmp eq i64 %59, 0
   br i1 %tobool115.not, label %if.then116, label %if.end118
 
 if.then116:                                       ; preds = %if.then101
@@ -7063,44 +7052,33 @@ if.then116:                                       ; preds = %if.then101
 if.end.i565:                                      ; preds = %if.then116
   %vtable.i566 = load ptr, ptr %call.i563, align 8
   %vfn.i567 = getelementptr inbounds i8, ptr %vtable.i566, i64 16
-  %62 = load ptr, ptr %vfn.i567, align 8
-  %call2.i568 = call noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(8) %call.i563, ptr noundef nonnull @.str) #19
+  %61 = load ptr, ptr %vfn.i567, align 8
+  %call2.i568 = call noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(8) %call.i563, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit570
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit570: ; preds = %if.then116, %if.end.i565
   %retval.0.i569 = phi ptr [ %call2.i568, %if.end.i565 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then116 ]
-  %63 = ptrtoint ptr %retval.0.i569 to i64
-  store atomic i64 %63, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_0.0 seq_cst, align 8
+  %62 = ptrtoint ptr %retval.0.i569 to i64
+  store atomic i64 %62, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_0.0 seq_cst, align 8
   br label %if.end118
 
 if.end118:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit570, %if.then101
-  %trace_event_unique_category_group_enabled626113.0 = phi ptr [ %61, %if.then101 ], [ %retval.0.i569, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit570 ]
-  %64 = load i8, ptr %trace_event_unique_category_group_enabled626113.0, align 1
-  %65 = and i8 %64, 5
-  %tobool121.not = icmp eq i8 %65, 0
+  %trace_event_unique_category_group_enabled626113.0 = phi ptr [ %60, %if.then101 ], [ %retval.0.i569, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit570 ]
+  %63 = load i8, ptr %trace_event_unique_category_group_enabled626113.0, align 1
+  %64 = and i8 %63, 5
+  %tobool121.not = icmp eq i8 %64, 0
   br i1 %tobool121.not, label %do.end132, label %if.then122
 
 if.then122:                                       ; preds = %if.end118
-  %66 = load double, ptr %async_id_, align 8
-  %conv126 = fptosi double %66 to i64
+  %65 = load double, ptr %async_id_, align 8
+  %conv126 = fptosi double %65 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626113.0, ptr noundef nonnull @.str.107, ptr noundef null, i64 noundef %conv126, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data102)
   br label %do.end132
 
 do.end132:                                        ; preds = %if.then122, %if.end118
-  %67 = load ptr, ptr %data102, align 8
-  %cmp.not.i574 = icmp eq ptr %67, null
-  br i1 %cmp.not.i574, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit579, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i575
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i575: ; preds = %do.end132
-  %vtable.i.i576 = load ptr, ptr %67, align 8
-  %vfn.i.i577 = getelementptr inbounds i8, ptr %vtable.i.i576, i64 8
-  %68 = load ptr, ptr %vfn.i.i577, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(42) %67) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit579
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit579: ; preds = %do.end132, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i575
-  store ptr null, ptr %data102, align 8
-  br label %sw.epilog
+  %66 = load ptr, ptr %data102, align 8
+  %cmp.not.i574 = icmp eq ptr %66, null
+  br i1 %cmp.not.i574, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb134:                                         ; preds = %if.end68
   %call.i580 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -7110,36 +7088,36 @@ sw.bb134:                                         ; preds = %if.end68
 if.end.i582:                                      ; preds = %sw.bb134
   %vtable.i583 = load ptr, ptr %call.i580, align 8
   %vfn.i584 = getelementptr inbounds i8, ptr %vtable.i583, i64 16
-  %69 = load ptr, ptr %vfn.i584, align 8
-  %call2.i585 = call noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(8) %call.i580, ptr noundef nonnull @.str) #19
+  %67 = load ptr, ptr %vfn.i584, align 8
+  %call2.i585 = call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(8) %call.i580, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit587
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit587: ; preds = %sw.bb134, %if.end.i582
   %retval.0.i586 = phi ptr [ %call2.i585, %if.end.i582 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb134 ]
-  %70 = load i8, ptr %retval.0.i586, align 1
-  %tobool136.not = icmp eq i8 %70, 0
+  %68 = load i8, ptr %retval.0.i586, align 1
+  %tobool136.not = icmp eq i8 %68, 0
   br i1 %tobool136.not, label %sw.epilog, label %if.then137
 
 if.then137:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit587
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data138) #19
-  %71 = load ptr, ptr %data138, align 8
-  %72 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i589 = getelementptr inbounds i8, ptr %72, i64 176
-  %73 = load ptr, ptr %env_.i.i589, align 8
-  %buffer_.i.i.i590 = getelementptr inbounds i8, ptr %73, i64 1032
-  %74 = load ptr, ptr %buffer_.i.i.i590, align 8
-  %75 = load double, ptr %74, align 8
-  %conv142 = fptosi double %75 to i64
+  %69 = load ptr, ptr %data138, align 8
+  %70 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i589 = getelementptr inbounds i8, ptr %70, i64 176
+  %71 = load ptr, ptr %env_.i.i589, align 8
+  %buffer_.i.i.i590 = getelementptr inbounds i8, ptr %71, i64 1032
+  %72 = load ptr, ptr %buffer_.i.i.i590, align 8
+  %73 = load double, ptr %72, align 8
+  %conv142 = fptosi double %73 to i64
   %conv143 = trunc i64 %conv142 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %71, ptr noundef nonnull @.str.181, i32 noundef %conv143) #19
-  %76 = load ptr, ptr %data138, align 8
-  %77 = load double, ptr %trigger_async_id_, align 8
-  %conv146 = fptosi double %77 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %69, ptr noundef nonnull @.str.181, i32 noundef %conv143) #19
+  %74 = load ptr, ptr %data138, align 8
+  %75 = load double, ptr %trigger_async_id_, align 8
+  %conv146 = fptosi double %75 to i64
   %conv147 = trunc i64 %conv146 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %76, ptr noundef nonnull @.str.182, i32 noundef %conv147) #19
-  %78 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_1.0 seq_cst, align 8
-  %79 = inttoptr i64 %78 to ptr
-  %tobool151.not = icmp eq i64 %78, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %74, ptr noundef nonnull @.str.182, i32 noundef %conv147) #19
+  %76 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_1.0 seq_cst, align 8
+  %77 = inttoptr i64 %76 to ptr
+  %tobool151.not = icmp eq i64 %76, 0
   br i1 %tobool151.not, label %if.then152, label %if.end154
 
 if.then152:                                       ; preds = %if.then137
@@ -7150,44 +7128,33 @@ if.then152:                                       ; preds = %if.then137
 if.end.i594:                                      ; preds = %if.then152
   %vtable.i595 = load ptr, ptr %call.i592, align 8
   %vfn.i596 = getelementptr inbounds i8, ptr %vtable.i595, i64 16
-  %80 = load ptr, ptr %vfn.i596, align 8
-  %call2.i597 = call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(8) %call.i592, ptr noundef nonnull @.str) #19
+  %78 = load ptr, ptr %vfn.i596, align 8
+  %call2.i597 = call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(8) %call.i592, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit599
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit599: ; preds = %if.then152, %if.end.i594
   %retval.0.i598 = phi ptr [ %call2.i597, %if.end.i594 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then152 ]
-  %81 = ptrtoint ptr %retval.0.i598 to i64
-  store atomic i64 %81, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_1.0 seq_cst, align 8
+  %79 = ptrtoint ptr %retval.0.i598 to i64
+  store atomic i64 %79, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_1.0 seq_cst, align 8
   br label %if.end154
 
 if.end154:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit599, %if.then137
-  %trace_event_unique_category_group_enabled626149.0 = phi ptr [ %79, %if.then137 ], [ %retval.0.i598, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit599 ]
-  %82 = load i8, ptr %trace_event_unique_category_group_enabled626149.0, align 1
-  %83 = and i8 %82, 5
-  %tobool157.not = icmp eq i8 %83, 0
+  %trace_event_unique_category_group_enabled626149.0 = phi ptr [ %77, %if.then137 ], [ %retval.0.i598, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit599 ]
+  %80 = load i8, ptr %trace_event_unique_category_group_enabled626149.0, align 1
+  %81 = and i8 %80, 5
+  %tobool157.not = icmp eq i8 %81, 0
   br i1 %tobool157.not, label %do.end168, label %if.then158
 
 if.then158:                                       ; preds = %if.end154
-  %84 = load double, ptr %async_id_, align 8
-  %conv162 = fptosi double %84 to i64
+  %82 = load double, ptr %async_id_, align 8
+  %conv162 = fptosi double %82 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626149.0, ptr noundef nonnull @.str.108, ptr noundef null, i64 noundef %conv162, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data138)
   br label %do.end168
 
 do.end168:                                        ; preds = %if.then158, %if.end154
-  %85 = load ptr, ptr %data138, align 8
-  %cmp.not.i603 = icmp eq ptr %85, null
-  br i1 %cmp.not.i603, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit608, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i604
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i604: ; preds = %do.end168
-  %vtable.i.i605 = load ptr, ptr %85, align 8
-  %vfn.i.i606 = getelementptr inbounds i8, ptr %vtable.i.i605, i64 8
-  %86 = load ptr, ptr %vfn.i.i606, align 8
-  call void %86(ptr noundef nonnull align 8 dereferenceable(42) %85) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit608
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit608: ; preds = %do.end168, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i604
-  store ptr null, ptr %data138, align 8
-  br label %sw.epilog
+  %83 = load ptr, ptr %data138, align 8
+  %cmp.not.i603 = icmp eq ptr %83, null
+  br i1 %cmp.not.i603, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb170:                                         ; preds = %if.end68
   %call.i609 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -7197,36 +7164,36 @@ sw.bb170:                                         ; preds = %if.end68
 if.end.i611:                                      ; preds = %sw.bb170
   %vtable.i612 = load ptr, ptr %call.i609, align 8
   %vfn.i613 = getelementptr inbounds i8, ptr %vtable.i612, i64 16
-  %87 = load ptr, ptr %vfn.i613, align 8
-  %call2.i614 = call noundef ptr %87(ptr noundef nonnull align 8 dereferenceable(8) %call.i609, ptr noundef nonnull @.str) #19
+  %84 = load ptr, ptr %vfn.i613, align 8
+  %call2.i614 = call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable(8) %call.i609, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit616
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit616: ; preds = %sw.bb170, %if.end.i611
   %retval.0.i615 = phi ptr [ %call2.i614, %if.end.i611 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb170 ]
-  %88 = load i8, ptr %retval.0.i615, align 1
-  %tobool172.not = icmp eq i8 %88, 0
+  %85 = load i8, ptr %retval.0.i615, align 1
+  %tobool172.not = icmp eq i8 %85, 0
   br i1 %tobool172.not, label %sw.epilog, label %if.then173
 
 if.then173:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit616
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data174) #19
-  %89 = load ptr, ptr %data174, align 8
-  %90 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i618 = getelementptr inbounds i8, ptr %90, i64 176
-  %91 = load ptr, ptr %env_.i.i618, align 8
-  %buffer_.i.i.i619 = getelementptr inbounds i8, ptr %91, i64 1032
-  %92 = load ptr, ptr %buffer_.i.i.i619, align 8
-  %93 = load double, ptr %92, align 8
-  %conv178 = fptosi double %93 to i64
+  %86 = load ptr, ptr %data174, align 8
+  %87 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i618 = getelementptr inbounds i8, ptr %87, i64 176
+  %88 = load ptr, ptr %env_.i.i618, align 8
+  %buffer_.i.i.i619 = getelementptr inbounds i8, ptr %88, i64 1032
+  %89 = load ptr, ptr %buffer_.i.i.i619, align 8
+  %90 = load double, ptr %89, align 8
+  %conv178 = fptosi double %90 to i64
   %conv179 = trunc i64 %conv178 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %89, ptr noundef nonnull @.str.181, i32 noundef %conv179) #19
-  %94 = load ptr, ptr %data174, align 8
-  %95 = load double, ptr %trigger_async_id_, align 8
-  %conv182 = fptosi double %95 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %86, ptr noundef nonnull @.str.181, i32 noundef %conv179) #19
+  %91 = load ptr, ptr %data174, align 8
+  %92 = load double, ptr %trigger_async_id_, align 8
+  %conv182 = fptosi double %92 to i64
   %conv183 = trunc i64 %conv182 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %94, ptr noundef nonnull @.str.182, i32 noundef %conv183) #19
-  %96 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_2.0 seq_cst, align 8
-  %97 = inttoptr i64 %96 to ptr
-  %tobool187.not = icmp eq i64 %96, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %91, ptr noundef nonnull @.str.182, i32 noundef %conv183) #19
+  %93 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_2.0 seq_cst, align 8
+  %94 = inttoptr i64 %93 to ptr
+  %tobool187.not = icmp eq i64 %93, 0
   br i1 %tobool187.not, label %if.then188, label %if.end190
 
 if.then188:                                       ; preds = %if.then173
@@ -7237,44 +7204,33 @@ if.then188:                                       ; preds = %if.then173
 if.end.i623:                                      ; preds = %if.then188
   %vtable.i624 = load ptr, ptr %call.i621, align 8
   %vfn.i625 = getelementptr inbounds i8, ptr %vtable.i624, i64 16
-  %98 = load ptr, ptr %vfn.i625, align 8
-  %call2.i626 = call noundef ptr %98(ptr noundef nonnull align 8 dereferenceable(8) %call.i621, ptr noundef nonnull @.str) #19
+  %95 = load ptr, ptr %vfn.i625, align 8
+  %call2.i626 = call noundef ptr %95(ptr noundef nonnull align 8 dereferenceable(8) %call.i621, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit628
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit628: ; preds = %if.then188, %if.end.i623
   %retval.0.i627 = phi ptr [ %call2.i626, %if.end.i623 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then188 ]
-  %99 = ptrtoint ptr %retval.0.i627 to i64
-  store atomic i64 %99, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_2.0 seq_cst, align 8
+  %96 = ptrtoint ptr %retval.0.i627 to i64
+  store atomic i64 %96, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_2.0 seq_cst, align 8
   br label %if.end190
 
 if.end190:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit628, %if.then173
-  %trace_event_unique_category_group_enabled626185.0 = phi ptr [ %97, %if.then173 ], [ %retval.0.i627, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit628 ]
-  %100 = load i8, ptr %trace_event_unique_category_group_enabled626185.0, align 1
-  %101 = and i8 %100, 5
-  %tobool193.not = icmp eq i8 %101, 0
+  %trace_event_unique_category_group_enabled626185.0 = phi ptr [ %94, %if.then173 ], [ %retval.0.i627, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit628 ]
+  %97 = load i8, ptr %trace_event_unique_category_group_enabled626185.0, align 1
+  %98 = and i8 %97, 5
+  %tobool193.not = icmp eq i8 %98, 0
   br i1 %tobool193.not, label %do.end204, label %if.then194
 
 if.then194:                                       ; preds = %if.end190
-  %102 = load double, ptr %async_id_, align 8
-  %conv198 = fptosi double %102 to i64
+  %99 = load double, ptr %async_id_, align 8
+  %conv198 = fptosi double %99 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626185.0, ptr noundef nonnull @.str.109, ptr noundef null, i64 noundef %conv198, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data174)
   br label %do.end204
 
 do.end204:                                        ; preds = %if.then194, %if.end190
-  %103 = load ptr, ptr %data174, align 8
-  %cmp.not.i632 = icmp eq ptr %103, null
-  br i1 %cmp.not.i632, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit637, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i633
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i633: ; preds = %do.end204
-  %vtable.i.i634 = load ptr, ptr %103, align 8
-  %vfn.i.i635 = getelementptr inbounds i8, ptr %vtable.i.i634, i64 8
-  %104 = load ptr, ptr %vfn.i.i635, align 8
-  call void %104(ptr noundef nonnull align 8 dereferenceable(42) %103) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit637
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit637: ; preds = %do.end204, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i633
-  store ptr null, ptr %data174, align 8
-  br label %sw.epilog
+  %100 = load ptr, ptr %data174, align 8
+  %cmp.not.i632 = icmp eq ptr %100, null
+  br i1 %cmp.not.i632, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb206:                                         ; preds = %if.end68
   %call.i638 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -7284,36 +7240,36 @@ sw.bb206:                                         ; preds = %if.end68
 if.end.i640:                                      ; preds = %sw.bb206
   %vtable.i641 = load ptr, ptr %call.i638, align 8
   %vfn.i642 = getelementptr inbounds i8, ptr %vtable.i641, i64 16
-  %105 = load ptr, ptr %vfn.i642, align 8
-  %call2.i643 = call noundef ptr %105(ptr noundef nonnull align 8 dereferenceable(8) %call.i638, ptr noundef nonnull @.str) #19
+  %101 = load ptr, ptr %vfn.i642, align 8
+  %call2.i643 = call noundef ptr %101(ptr noundef nonnull align 8 dereferenceable(8) %call.i638, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit645
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit645: ; preds = %sw.bb206, %if.end.i640
   %retval.0.i644 = phi ptr [ %call2.i643, %if.end.i640 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb206 ]
-  %106 = load i8, ptr %retval.0.i644, align 1
-  %tobool208.not = icmp eq i8 %106, 0
+  %102 = load i8, ptr %retval.0.i644, align 1
+  %tobool208.not = icmp eq i8 %102, 0
   br i1 %tobool208.not, label %sw.epilog, label %if.then209
 
 if.then209:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit645
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data210) #19
-  %107 = load ptr, ptr %data210, align 8
-  %108 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i647 = getelementptr inbounds i8, ptr %108, i64 176
-  %109 = load ptr, ptr %env_.i.i647, align 8
-  %buffer_.i.i.i648 = getelementptr inbounds i8, ptr %109, i64 1032
-  %110 = load ptr, ptr %buffer_.i.i.i648, align 8
-  %111 = load double, ptr %110, align 8
-  %conv214 = fptosi double %111 to i64
+  %103 = load ptr, ptr %data210, align 8
+  %104 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i647 = getelementptr inbounds i8, ptr %104, i64 176
+  %105 = load ptr, ptr %env_.i.i647, align 8
+  %buffer_.i.i.i648 = getelementptr inbounds i8, ptr %105, i64 1032
+  %106 = load ptr, ptr %buffer_.i.i.i648, align 8
+  %107 = load double, ptr %106, align 8
+  %conv214 = fptosi double %107 to i64
   %conv215 = trunc i64 %conv214 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %107, ptr noundef nonnull @.str.181, i32 noundef %conv215) #19
-  %112 = load ptr, ptr %data210, align 8
-  %113 = load double, ptr %trigger_async_id_, align 8
-  %conv218 = fptosi double %113 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %103, ptr noundef nonnull @.str.181, i32 noundef %conv215) #19
+  %108 = load ptr, ptr %data210, align 8
+  %109 = load double, ptr %trigger_async_id_, align 8
+  %conv218 = fptosi double %109 to i64
   %conv219 = trunc i64 %conv218 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %112, ptr noundef nonnull @.str.182, i32 noundef %conv219) #19
-  %114 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_3.0 seq_cst, align 8
-  %115 = inttoptr i64 %114 to ptr
-  %tobool223.not = icmp eq i64 %114, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %108, ptr noundef nonnull @.str.182, i32 noundef %conv219) #19
+  %110 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_3.0 seq_cst, align 8
+  %111 = inttoptr i64 %110 to ptr
+  %tobool223.not = icmp eq i64 %110, 0
   br i1 %tobool223.not, label %if.then224, label %if.end226
 
 if.then224:                                       ; preds = %if.then209
@@ -7324,44 +7280,33 @@ if.then224:                                       ; preds = %if.then209
 if.end.i652:                                      ; preds = %if.then224
   %vtable.i653 = load ptr, ptr %call.i650, align 8
   %vfn.i654 = getelementptr inbounds i8, ptr %vtable.i653, i64 16
-  %116 = load ptr, ptr %vfn.i654, align 8
-  %call2.i655 = call noundef ptr %116(ptr noundef nonnull align 8 dereferenceable(8) %call.i650, ptr noundef nonnull @.str) #19
+  %112 = load ptr, ptr %vfn.i654, align 8
+  %call2.i655 = call noundef ptr %112(ptr noundef nonnull align 8 dereferenceable(8) %call.i650, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit657
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit657: ; preds = %if.then224, %if.end.i652
   %retval.0.i656 = phi ptr [ %call2.i655, %if.end.i652 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then224 ]
-  %117 = ptrtoint ptr %retval.0.i656 to i64
-  store atomic i64 %117, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_3.0 seq_cst, align 8
+  %113 = ptrtoint ptr %retval.0.i656 to i64
+  store atomic i64 %113, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_3.0 seq_cst, align 8
   br label %if.end226
 
 if.end226:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit657, %if.then209
-  %trace_event_unique_category_group_enabled626221.0 = phi ptr [ %115, %if.then209 ], [ %retval.0.i656, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit657 ]
-  %118 = load i8, ptr %trace_event_unique_category_group_enabled626221.0, align 1
-  %119 = and i8 %118, 5
-  %tobool229.not = icmp eq i8 %119, 0
+  %trace_event_unique_category_group_enabled626221.0 = phi ptr [ %111, %if.then209 ], [ %retval.0.i656, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit657 ]
+  %114 = load i8, ptr %trace_event_unique_category_group_enabled626221.0, align 1
+  %115 = and i8 %114, 5
+  %tobool229.not = icmp eq i8 %115, 0
   br i1 %tobool229.not, label %do.end240, label %if.then230
 
 if.then230:                                       ; preds = %if.end226
-  %120 = load double, ptr %async_id_, align 8
-  %conv234 = fptosi double %120 to i64
+  %116 = load double, ptr %async_id_, align 8
+  %conv234 = fptosi double %116 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626221.0, ptr noundef nonnull @.str.110, ptr noundef null, i64 noundef %conv234, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data210)
   br label %do.end240
 
 do.end240:                                        ; preds = %if.then230, %if.end226
-  %121 = load ptr, ptr %data210, align 8
-  %cmp.not.i661 = icmp eq ptr %121, null
-  br i1 %cmp.not.i661, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit666, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i662
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i662: ; preds = %do.end240
-  %vtable.i.i663 = load ptr, ptr %121, align 8
-  %vfn.i.i664 = getelementptr inbounds i8, ptr %vtable.i.i663, i64 8
-  %122 = load ptr, ptr %vfn.i.i664, align 8
-  call void %122(ptr noundef nonnull align 8 dereferenceable(42) %121) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit666
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit666: ; preds = %do.end240, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i662
-  store ptr null, ptr %data210, align 8
-  br label %sw.epilog
+  %117 = load ptr, ptr %data210, align 8
+  %cmp.not.i661 = icmp eq ptr %117, null
+  br i1 %cmp.not.i661, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb242:                                         ; preds = %if.end68
   %call.i667 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -7371,36 +7316,36 @@ sw.bb242:                                         ; preds = %if.end68
 if.end.i669:                                      ; preds = %sw.bb242
   %vtable.i670 = load ptr, ptr %call.i667, align 8
   %vfn.i671 = getelementptr inbounds i8, ptr %vtable.i670, i64 16
-  %123 = load ptr, ptr %vfn.i671, align 8
-  %call2.i672 = call noundef ptr %123(ptr noundef nonnull align 8 dereferenceable(8) %call.i667, ptr noundef nonnull @.str) #19
+  %118 = load ptr, ptr %vfn.i671, align 8
+  %call2.i672 = call noundef ptr %118(ptr noundef nonnull align 8 dereferenceable(8) %call.i667, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit674
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit674: ; preds = %sw.bb242, %if.end.i669
   %retval.0.i673 = phi ptr [ %call2.i672, %if.end.i669 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb242 ]
-  %124 = load i8, ptr %retval.0.i673, align 1
-  %tobool244.not = icmp eq i8 %124, 0
+  %119 = load i8, ptr %retval.0.i673, align 1
+  %tobool244.not = icmp eq i8 %119, 0
   br i1 %tobool244.not, label %sw.epilog, label %if.then245
 
 if.then245:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit674
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data246) #19
-  %125 = load ptr, ptr %data246, align 8
-  %126 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i676 = getelementptr inbounds i8, ptr %126, i64 176
-  %127 = load ptr, ptr %env_.i.i676, align 8
-  %buffer_.i.i.i677 = getelementptr inbounds i8, ptr %127, i64 1032
-  %128 = load ptr, ptr %buffer_.i.i.i677, align 8
-  %129 = load double, ptr %128, align 8
-  %conv250 = fptosi double %129 to i64
+  %120 = load ptr, ptr %data246, align 8
+  %121 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i676 = getelementptr inbounds i8, ptr %121, i64 176
+  %122 = load ptr, ptr %env_.i.i676, align 8
+  %buffer_.i.i.i677 = getelementptr inbounds i8, ptr %122, i64 1032
+  %123 = load ptr, ptr %buffer_.i.i.i677, align 8
+  %124 = load double, ptr %123, align 8
+  %conv250 = fptosi double %124 to i64
   %conv251 = trunc i64 %conv250 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %125, ptr noundef nonnull @.str.181, i32 noundef %conv251) #19
-  %130 = load ptr, ptr %data246, align 8
-  %131 = load double, ptr %trigger_async_id_, align 8
-  %conv254 = fptosi double %131 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %120, ptr noundef nonnull @.str.181, i32 noundef %conv251) #19
+  %125 = load ptr, ptr %data246, align 8
+  %126 = load double, ptr %trigger_async_id_, align 8
+  %conv254 = fptosi double %126 to i64
   %conv255 = trunc i64 %conv254 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %130, ptr noundef nonnull @.str.182, i32 noundef %conv255) #19
-  %132 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_4.0 seq_cst, align 8
-  %133 = inttoptr i64 %132 to ptr
-  %tobool259.not = icmp eq i64 %132, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %125, ptr noundef nonnull @.str.182, i32 noundef %conv255) #19
+  %127 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_4.0 seq_cst, align 8
+  %128 = inttoptr i64 %127 to ptr
+  %tobool259.not = icmp eq i64 %127, 0
   br i1 %tobool259.not, label %if.then260, label %if.end262
 
 if.then260:                                       ; preds = %if.then245
@@ -7411,44 +7356,33 @@ if.then260:                                       ; preds = %if.then245
 if.end.i681:                                      ; preds = %if.then260
   %vtable.i682 = load ptr, ptr %call.i679, align 8
   %vfn.i683 = getelementptr inbounds i8, ptr %vtable.i682, i64 16
-  %134 = load ptr, ptr %vfn.i683, align 8
-  %call2.i684 = call noundef ptr %134(ptr noundef nonnull align 8 dereferenceable(8) %call.i679, ptr noundef nonnull @.str) #19
+  %129 = load ptr, ptr %vfn.i683, align 8
+  %call2.i684 = call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(8) %call.i679, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit686
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit686: ; preds = %if.then260, %if.end.i681
   %retval.0.i685 = phi ptr [ %call2.i684, %if.end.i681 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then260 ]
-  %135 = ptrtoint ptr %retval.0.i685 to i64
-  store atomic i64 %135, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_4.0 seq_cst, align 8
+  %130 = ptrtoint ptr %retval.0.i685 to i64
+  store atomic i64 %130, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_4.0 seq_cst, align 8
   br label %if.end262
 
 if.end262:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit686, %if.then245
-  %trace_event_unique_category_group_enabled626257.0 = phi ptr [ %133, %if.then245 ], [ %retval.0.i685, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit686 ]
-  %136 = load i8, ptr %trace_event_unique_category_group_enabled626257.0, align 1
-  %137 = and i8 %136, 5
-  %tobool265.not = icmp eq i8 %137, 0
+  %trace_event_unique_category_group_enabled626257.0 = phi ptr [ %128, %if.then245 ], [ %retval.0.i685, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit686 ]
+  %131 = load i8, ptr %trace_event_unique_category_group_enabled626257.0, align 1
+  %132 = and i8 %131, 5
+  %tobool265.not = icmp eq i8 %132, 0
   br i1 %tobool265.not, label %do.end276, label %if.then266
 
 if.then266:                                       ; preds = %if.end262
-  %138 = load double, ptr %async_id_, align 8
-  %conv270 = fptosi double %138 to i64
+  %133 = load double, ptr %async_id_, align 8
+  %conv270 = fptosi double %133 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626257.0, ptr noundef nonnull @.str.111, ptr noundef null, i64 noundef %conv270, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data246)
   br label %do.end276
 
 do.end276:                                        ; preds = %if.then266, %if.end262
-  %139 = load ptr, ptr %data246, align 8
-  %cmp.not.i690 = icmp eq ptr %139, null
-  br i1 %cmp.not.i690, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit695, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i691
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i691: ; preds = %do.end276
-  %vtable.i.i692 = load ptr, ptr %139, align 8
-  %vfn.i.i693 = getelementptr inbounds i8, ptr %vtable.i.i692, i64 8
-  %140 = load ptr, ptr %vfn.i.i693, align 8
-  call void %140(ptr noundef nonnull align 8 dereferenceable(42) %139) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit695
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit695: ; preds = %do.end276, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i691
-  store ptr null, ptr %data246, align 8
-  br label %sw.epilog
+  %134 = load ptr, ptr %data246, align 8
+  %cmp.not.i690 = icmp eq ptr %134, null
+  br i1 %cmp.not.i690, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb278:                                         ; preds = %if.end68
   %call.i696 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -7458,36 +7392,36 @@ sw.bb278:                                         ; preds = %if.end68
 if.end.i698:                                      ; preds = %sw.bb278
   %vtable.i699 = load ptr, ptr %call.i696, align 8
   %vfn.i700 = getelementptr inbounds i8, ptr %vtable.i699, i64 16
-  %141 = load ptr, ptr %vfn.i700, align 8
-  %call2.i701 = call noundef ptr %141(ptr noundef nonnull align 8 dereferenceable(8) %call.i696, ptr noundef nonnull @.str) #19
+  %135 = load ptr, ptr %vfn.i700, align 8
+  %call2.i701 = call noundef ptr %135(ptr noundef nonnull align 8 dereferenceable(8) %call.i696, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit703
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit703: ; preds = %sw.bb278, %if.end.i698
   %retval.0.i702 = phi ptr [ %call2.i701, %if.end.i698 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb278 ]
-  %142 = load i8, ptr %retval.0.i702, align 1
-  %tobool280.not = icmp eq i8 %142, 0
+  %136 = load i8, ptr %retval.0.i702, align 1
+  %tobool280.not = icmp eq i8 %136, 0
   br i1 %tobool280.not, label %sw.epilog, label %if.then281
 
 if.then281:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit703
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data282) #19
-  %143 = load ptr, ptr %data282, align 8
-  %144 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i705 = getelementptr inbounds i8, ptr %144, i64 176
-  %145 = load ptr, ptr %env_.i.i705, align 8
-  %buffer_.i.i.i706 = getelementptr inbounds i8, ptr %145, i64 1032
-  %146 = load ptr, ptr %buffer_.i.i.i706, align 8
-  %147 = load double, ptr %146, align 8
-  %conv286 = fptosi double %147 to i64
+  %137 = load ptr, ptr %data282, align 8
+  %138 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i705 = getelementptr inbounds i8, ptr %138, i64 176
+  %139 = load ptr, ptr %env_.i.i705, align 8
+  %buffer_.i.i.i706 = getelementptr inbounds i8, ptr %139, i64 1032
+  %140 = load ptr, ptr %buffer_.i.i.i706, align 8
+  %141 = load double, ptr %140, align 8
+  %conv286 = fptosi double %141 to i64
   %conv287 = trunc i64 %conv286 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %143, ptr noundef nonnull @.str.181, i32 noundef %conv287) #19
-  %148 = load ptr, ptr %data282, align 8
-  %149 = load double, ptr %trigger_async_id_, align 8
-  %conv290 = fptosi double %149 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %137, ptr noundef nonnull @.str.181, i32 noundef %conv287) #19
+  %142 = load ptr, ptr %data282, align 8
+  %143 = load double, ptr %trigger_async_id_, align 8
+  %conv290 = fptosi double %143 to i64
   %conv291 = trunc i64 %conv290 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %148, ptr noundef nonnull @.str.182, i32 noundef %conv291) #19
-  %150 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_5.0 seq_cst, align 8
-  %151 = inttoptr i64 %150 to ptr
-  %tobool295.not = icmp eq i64 %150, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %142, ptr noundef nonnull @.str.182, i32 noundef %conv291) #19
+  %144 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_5.0 seq_cst, align 8
+  %145 = inttoptr i64 %144 to ptr
+  %tobool295.not = icmp eq i64 %144, 0
   br i1 %tobool295.not, label %if.then296, label %if.end298
 
 if.then296:                                       ; preds = %if.then281
@@ -7498,44 +7432,33 @@ if.then296:                                       ; preds = %if.then281
 if.end.i710:                                      ; preds = %if.then296
   %vtable.i711 = load ptr, ptr %call.i708, align 8
   %vfn.i712 = getelementptr inbounds i8, ptr %vtable.i711, i64 16
-  %152 = load ptr, ptr %vfn.i712, align 8
-  %call2.i713 = call noundef ptr %152(ptr noundef nonnull align 8 dereferenceable(8) %call.i708, ptr noundef nonnull @.str) #19
+  %146 = load ptr, ptr %vfn.i712, align 8
+  %call2.i713 = call noundef ptr %146(ptr noundef nonnull align 8 dereferenceable(8) %call.i708, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit715
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit715: ; preds = %if.then296, %if.end.i710
   %retval.0.i714 = phi ptr [ %call2.i713, %if.end.i710 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then296 ]
-  %153 = ptrtoint ptr %retval.0.i714 to i64
-  store atomic i64 %153, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_5.0 seq_cst, align 8
+  %147 = ptrtoint ptr %retval.0.i714 to i64
+  store atomic i64 %147, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_5.0 seq_cst, align 8
   br label %if.end298
 
 if.end298:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit715, %if.then281
-  %trace_event_unique_category_group_enabled626293.0 = phi ptr [ %151, %if.then281 ], [ %retval.0.i714, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit715 ]
-  %154 = load i8, ptr %trace_event_unique_category_group_enabled626293.0, align 1
-  %155 = and i8 %154, 5
-  %tobool301.not = icmp eq i8 %155, 0
+  %trace_event_unique_category_group_enabled626293.0 = phi ptr [ %145, %if.then281 ], [ %retval.0.i714, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit715 ]
+  %148 = load i8, ptr %trace_event_unique_category_group_enabled626293.0, align 1
+  %149 = and i8 %148, 5
+  %tobool301.not = icmp eq i8 %149, 0
   br i1 %tobool301.not, label %do.end312, label %if.then302
 
 if.then302:                                       ; preds = %if.end298
-  %156 = load double, ptr %async_id_, align 8
-  %conv306 = fptosi double %156 to i64
+  %150 = load double, ptr %async_id_, align 8
+  %conv306 = fptosi double %150 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626293.0, ptr noundef nonnull @.str.112, ptr noundef null, i64 noundef %conv306, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data282)
   br label %do.end312
 
 do.end312:                                        ; preds = %if.then302, %if.end298
-  %157 = load ptr, ptr %data282, align 8
-  %cmp.not.i719 = icmp eq ptr %157, null
-  br i1 %cmp.not.i719, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit724, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i720
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i720: ; preds = %do.end312
-  %vtable.i.i721 = load ptr, ptr %157, align 8
-  %vfn.i.i722 = getelementptr inbounds i8, ptr %vtable.i.i721, i64 8
-  %158 = load ptr, ptr %vfn.i.i722, align 8
-  call void %158(ptr noundef nonnull align 8 dereferenceable(42) %157) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit724
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit724: ; preds = %do.end312, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i720
-  store ptr null, ptr %data282, align 8
-  br label %sw.epilog
+  %151 = load ptr, ptr %data282, align 8
+  %cmp.not.i719 = icmp eq ptr %151, null
+  br i1 %cmp.not.i719, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb314:                                         ; preds = %if.end68
   %call.i725 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -7545,36 +7468,36 @@ sw.bb314:                                         ; preds = %if.end68
 if.end.i727:                                      ; preds = %sw.bb314
   %vtable.i728 = load ptr, ptr %call.i725, align 8
   %vfn.i729 = getelementptr inbounds i8, ptr %vtable.i728, i64 16
-  %159 = load ptr, ptr %vfn.i729, align 8
-  %call2.i730 = call noundef ptr %159(ptr noundef nonnull align 8 dereferenceable(8) %call.i725, ptr noundef nonnull @.str) #19
+  %152 = load ptr, ptr %vfn.i729, align 8
+  %call2.i730 = call noundef ptr %152(ptr noundef nonnull align 8 dereferenceable(8) %call.i725, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit732
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit732: ; preds = %sw.bb314, %if.end.i727
   %retval.0.i731 = phi ptr [ %call2.i730, %if.end.i727 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb314 ]
-  %160 = load i8, ptr %retval.0.i731, align 1
-  %tobool316.not = icmp eq i8 %160, 0
+  %153 = load i8, ptr %retval.0.i731, align 1
+  %tobool316.not = icmp eq i8 %153, 0
   br i1 %tobool316.not, label %sw.epilog, label %if.then317
 
 if.then317:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit732
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data318) #19
-  %161 = load ptr, ptr %data318, align 8
-  %162 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i734 = getelementptr inbounds i8, ptr %162, i64 176
-  %163 = load ptr, ptr %env_.i.i734, align 8
-  %buffer_.i.i.i735 = getelementptr inbounds i8, ptr %163, i64 1032
-  %164 = load ptr, ptr %buffer_.i.i.i735, align 8
-  %165 = load double, ptr %164, align 8
-  %conv322 = fptosi double %165 to i64
+  %154 = load ptr, ptr %data318, align 8
+  %155 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i734 = getelementptr inbounds i8, ptr %155, i64 176
+  %156 = load ptr, ptr %env_.i.i734, align 8
+  %buffer_.i.i.i735 = getelementptr inbounds i8, ptr %156, i64 1032
+  %157 = load ptr, ptr %buffer_.i.i.i735, align 8
+  %158 = load double, ptr %157, align 8
+  %conv322 = fptosi double %158 to i64
   %conv323 = trunc i64 %conv322 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %161, ptr noundef nonnull @.str.181, i32 noundef %conv323) #19
-  %166 = load ptr, ptr %data318, align 8
-  %167 = load double, ptr %trigger_async_id_, align 8
-  %conv326 = fptosi double %167 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %154, ptr noundef nonnull @.str.181, i32 noundef %conv323) #19
+  %159 = load ptr, ptr %data318, align 8
+  %160 = load double, ptr %trigger_async_id_, align 8
+  %conv326 = fptosi double %160 to i64
   %conv327 = trunc i64 %conv326 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %166, ptr noundef nonnull @.str.182, i32 noundef %conv327) #19
-  %168 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_6.0 seq_cst, align 8
-  %169 = inttoptr i64 %168 to ptr
-  %tobool331.not = icmp eq i64 %168, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %159, ptr noundef nonnull @.str.182, i32 noundef %conv327) #19
+  %161 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_6.0 seq_cst, align 8
+  %162 = inttoptr i64 %161 to ptr
+  %tobool331.not = icmp eq i64 %161, 0
   br i1 %tobool331.not, label %if.then332, label %if.end334
 
 if.then332:                                       ; preds = %if.then317
@@ -7585,44 +7508,33 @@ if.then332:                                       ; preds = %if.then317
 if.end.i739:                                      ; preds = %if.then332
   %vtable.i740 = load ptr, ptr %call.i737, align 8
   %vfn.i741 = getelementptr inbounds i8, ptr %vtable.i740, i64 16
-  %170 = load ptr, ptr %vfn.i741, align 8
-  %call2.i742 = call noundef ptr %170(ptr noundef nonnull align 8 dereferenceable(8) %call.i737, ptr noundef nonnull @.str) #19
+  %163 = load ptr, ptr %vfn.i741, align 8
+  %call2.i742 = call noundef ptr %163(ptr noundef nonnull align 8 dereferenceable(8) %call.i737, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit744
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit744: ; preds = %if.then332, %if.end.i739
   %retval.0.i743 = phi ptr [ %call2.i742, %if.end.i739 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then332 ]
-  %171 = ptrtoint ptr %retval.0.i743 to i64
-  store atomic i64 %171, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_6.0 seq_cst, align 8
+  %164 = ptrtoint ptr %retval.0.i743 to i64
+  store atomic i64 %164, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_6.0 seq_cst, align 8
   br label %if.end334
 
 if.end334:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit744, %if.then317
-  %trace_event_unique_category_group_enabled626329.0 = phi ptr [ %169, %if.then317 ], [ %retval.0.i743, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit744 ]
-  %172 = load i8, ptr %trace_event_unique_category_group_enabled626329.0, align 1
-  %173 = and i8 %172, 5
-  %tobool337.not = icmp eq i8 %173, 0
+  %trace_event_unique_category_group_enabled626329.0 = phi ptr [ %162, %if.then317 ], [ %retval.0.i743, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit744 ]
+  %165 = load i8, ptr %trace_event_unique_category_group_enabled626329.0, align 1
+  %166 = and i8 %165, 5
+  %tobool337.not = icmp eq i8 %166, 0
   br i1 %tobool337.not, label %do.end348, label %if.then338
 
 if.then338:                                       ; preds = %if.end334
-  %174 = load double, ptr %async_id_, align 8
-  %conv342 = fptosi double %174 to i64
+  %167 = load double, ptr %async_id_, align 8
+  %conv342 = fptosi double %167 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626329.0, ptr noundef nonnull @.str.113, ptr noundef null, i64 noundef %conv342, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data318)
   br label %do.end348
 
 do.end348:                                        ; preds = %if.then338, %if.end334
-  %175 = load ptr, ptr %data318, align 8
-  %cmp.not.i748 = icmp eq ptr %175, null
-  br i1 %cmp.not.i748, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit753, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i749
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i749: ; preds = %do.end348
-  %vtable.i.i750 = load ptr, ptr %175, align 8
-  %vfn.i.i751 = getelementptr inbounds i8, ptr %vtable.i.i750, i64 8
-  %176 = load ptr, ptr %vfn.i.i751, align 8
-  call void %176(ptr noundef nonnull align 8 dereferenceable(42) %175) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit753
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit753: ; preds = %do.end348, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i749
-  store ptr null, ptr %data318, align 8
-  br label %sw.epilog
+  %168 = load ptr, ptr %data318, align 8
+  %cmp.not.i748 = icmp eq ptr %168, null
+  br i1 %cmp.not.i748, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb350:                                         ; preds = %if.end68
   %call.i754 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -7632,36 +7544,36 @@ sw.bb350:                                         ; preds = %if.end68
 if.end.i756:                                      ; preds = %sw.bb350
   %vtable.i757 = load ptr, ptr %call.i754, align 8
   %vfn.i758 = getelementptr inbounds i8, ptr %vtable.i757, i64 16
-  %177 = load ptr, ptr %vfn.i758, align 8
-  %call2.i759 = call noundef ptr %177(ptr noundef nonnull align 8 dereferenceable(8) %call.i754, ptr noundef nonnull @.str) #19
+  %169 = load ptr, ptr %vfn.i758, align 8
+  %call2.i759 = call noundef ptr %169(ptr noundef nonnull align 8 dereferenceable(8) %call.i754, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit761
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit761: ; preds = %sw.bb350, %if.end.i756
   %retval.0.i760 = phi ptr [ %call2.i759, %if.end.i756 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb350 ]
-  %178 = load i8, ptr %retval.0.i760, align 1
-  %tobool352.not = icmp eq i8 %178, 0
+  %170 = load i8, ptr %retval.0.i760, align 1
+  %tobool352.not = icmp eq i8 %170, 0
   br i1 %tobool352.not, label %sw.epilog, label %if.then353
 
 if.then353:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit761
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data354) #19
-  %179 = load ptr, ptr %data354, align 8
-  %180 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i763 = getelementptr inbounds i8, ptr %180, i64 176
-  %181 = load ptr, ptr %env_.i.i763, align 8
-  %buffer_.i.i.i764 = getelementptr inbounds i8, ptr %181, i64 1032
-  %182 = load ptr, ptr %buffer_.i.i.i764, align 8
-  %183 = load double, ptr %182, align 8
-  %conv358 = fptosi double %183 to i64
+  %171 = load ptr, ptr %data354, align 8
+  %172 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i763 = getelementptr inbounds i8, ptr %172, i64 176
+  %173 = load ptr, ptr %env_.i.i763, align 8
+  %buffer_.i.i.i764 = getelementptr inbounds i8, ptr %173, i64 1032
+  %174 = load ptr, ptr %buffer_.i.i.i764, align 8
+  %175 = load double, ptr %174, align 8
+  %conv358 = fptosi double %175 to i64
   %conv359 = trunc i64 %conv358 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %179, ptr noundef nonnull @.str.181, i32 noundef %conv359) #19
-  %184 = load ptr, ptr %data354, align 8
-  %185 = load double, ptr %trigger_async_id_, align 8
-  %conv362 = fptosi double %185 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %171, ptr noundef nonnull @.str.181, i32 noundef %conv359) #19
+  %176 = load ptr, ptr %data354, align 8
+  %177 = load double, ptr %trigger_async_id_, align 8
+  %conv362 = fptosi double %177 to i64
   %conv363 = trunc i64 %conv362 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %184, ptr noundef nonnull @.str.182, i32 noundef %conv363) #19
-  %186 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_7.0 seq_cst, align 8
-  %187 = inttoptr i64 %186 to ptr
-  %tobool367.not = icmp eq i64 %186, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %176, ptr noundef nonnull @.str.182, i32 noundef %conv363) #19
+  %178 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_7.0 seq_cst, align 8
+  %179 = inttoptr i64 %178 to ptr
+  %tobool367.not = icmp eq i64 %178, 0
   br i1 %tobool367.not, label %if.then368, label %if.end370
 
 if.then368:                                       ; preds = %if.then353
@@ -7672,44 +7584,33 @@ if.then368:                                       ; preds = %if.then353
 if.end.i768:                                      ; preds = %if.then368
   %vtable.i769 = load ptr, ptr %call.i766, align 8
   %vfn.i770 = getelementptr inbounds i8, ptr %vtable.i769, i64 16
-  %188 = load ptr, ptr %vfn.i770, align 8
-  %call2.i771 = call noundef ptr %188(ptr noundef nonnull align 8 dereferenceable(8) %call.i766, ptr noundef nonnull @.str) #19
+  %180 = load ptr, ptr %vfn.i770, align 8
+  %call2.i771 = call noundef ptr %180(ptr noundef nonnull align 8 dereferenceable(8) %call.i766, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit773
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit773: ; preds = %if.then368, %if.end.i768
   %retval.0.i772 = phi ptr [ %call2.i771, %if.end.i768 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then368 ]
-  %189 = ptrtoint ptr %retval.0.i772 to i64
-  store atomic i64 %189, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_7.0 seq_cst, align 8
+  %181 = ptrtoint ptr %retval.0.i772 to i64
+  store atomic i64 %181, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_7.0 seq_cst, align 8
   br label %if.end370
 
 if.end370:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit773, %if.then353
-  %trace_event_unique_category_group_enabled626365.0 = phi ptr [ %187, %if.then353 ], [ %retval.0.i772, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit773 ]
-  %190 = load i8, ptr %trace_event_unique_category_group_enabled626365.0, align 1
-  %191 = and i8 %190, 5
-  %tobool373.not = icmp eq i8 %191, 0
+  %trace_event_unique_category_group_enabled626365.0 = phi ptr [ %179, %if.then353 ], [ %retval.0.i772, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit773 ]
+  %182 = load i8, ptr %trace_event_unique_category_group_enabled626365.0, align 1
+  %183 = and i8 %182, 5
+  %tobool373.not = icmp eq i8 %183, 0
   br i1 %tobool373.not, label %do.end384, label %if.then374
 
 if.then374:                                       ; preds = %if.end370
-  %192 = load double, ptr %async_id_, align 8
-  %conv378 = fptosi double %192 to i64
+  %184 = load double, ptr %async_id_, align 8
+  %conv378 = fptosi double %184 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626365.0, ptr noundef nonnull @.str.114, ptr noundef null, i64 noundef %conv378, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data354)
   br label %do.end384
 
 do.end384:                                        ; preds = %if.then374, %if.end370
-  %193 = load ptr, ptr %data354, align 8
-  %cmp.not.i777 = icmp eq ptr %193, null
-  br i1 %cmp.not.i777, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit782, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i778
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i778: ; preds = %do.end384
-  %vtable.i.i779 = load ptr, ptr %193, align 8
-  %vfn.i.i780 = getelementptr inbounds i8, ptr %vtable.i.i779, i64 8
-  %194 = load ptr, ptr %vfn.i.i780, align 8
-  call void %194(ptr noundef nonnull align 8 dereferenceable(42) %193) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit782
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit782: ; preds = %do.end384, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i778
-  store ptr null, ptr %data354, align 8
-  br label %sw.epilog
+  %185 = load ptr, ptr %data354, align 8
+  %cmp.not.i777 = icmp eq ptr %185, null
+  br i1 %cmp.not.i777, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb386:                                         ; preds = %if.end68
   %call.i783 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -7719,36 +7620,36 @@ sw.bb386:                                         ; preds = %if.end68
 if.end.i785:                                      ; preds = %sw.bb386
   %vtable.i786 = load ptr, ptr %call.i783, align 8
   %vfn.i787 = getelementptr inbounds i8, ptr %vtable.i786, i64 16
-  %195 = load ptr, ptr %vfn.i787, align 8
-  %call2.i788 = call noundef ptr %195(ptr noundef nonnull align 8 dereferenceable(8) %call.i783, ptr noundef nonnull @.str) #19
+  %186 = load ptr, ptr %vfn.i787, align 8
+  %call2.i788 = call noundef ptr %186(ptr noundef nonnull align 8 dereferenceable(8) %call.i783, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit790
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit790: ; preds = %sw.bb386, %if.end.i785
   %retval.0.i789 = phi ptr [ %call2.i788, %if.end.i785 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb386 ]
-  %196 = load i8, ptr %retval.0.i789, align 1
-  %tobool388.not = icmp eq i8 %196, 0
+  %187 = load i8, ptr %retval.0.i789, align 1
+  %tobool388.not = icmp eq i8 %187, 0
   br i1 %tobool388.not, label %sw.epilog, label %if.then389
 
 if.then389:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit790
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data390) #19
-  %197 = load ptr, ptr %data390, align 8
-  %198 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i792 = getelementptr inbounds i8, ptr %198, i64 176
-  %199 = load ptr, ptr %env_.i.i792, align 8
-  %buffer_.i.i.i793 = getelementptr inbounds i8, ptr %199, i64 1032
-  %200 = load ptr, ptr %buffer_.i.i.i793, align 8
-  %201 = load double, ptr %200, align 8
-  %conv394 = fptosi double %201 to i64
+  %188 = load ptr, ptr %data390, align 8
+  %189 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i792 = getelementptr inbounds i8, ptr %189, i64 176
+  %190 = load ptr, ptr %env_.i.i792, align 8
+  %buffer_.i.i.i793 = getelementptr inbounds i8, ptr %190, i64 1032
+  %191 = load ptr, ptr %buffer_.i.i.i793, align 8
+  %192 = load double, ptr %191, align 8
+  %conv394 = fptosi double %192 to i64
   %conv395 = trunc i64 %conv394 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %197, ptr noundef nonnull @.str.181, i32 noundef %conv395) #19
-  %202 = load ptr, ptr %data390, align 8
-  %203 = load double, ptr %trigger_async_id_, align 8
-  %conv398 = fptosi double %203 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %188, ptr noundef nonnull @.str.181, i32 noundef %conv395) #19
+  %193 = load ptr, ptr %data390, align 8
+  %194 = load double, ptr %trigger_async_id_, align 8
+  %conv398 = fptosi double %194 to i64
   %conv399 = trunc i64 %conv398 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %202, ptr noundef nonnull @.str.182, i32 noundef %conv399) #19
-  %204 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_8.0 seq_cst, align 8
-  %205 = inttoptr i64 %204 to ptr
-  %tobool403.not = icmp eq i64 %204, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %193, ptr noundef nonnull @.str.182, i32 noundef %conv399) #19
+  %195 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_8.0 seq_cst, align 8
+  %196 = inttoptr i64 %195 to ptr
+  %tobool403.not = icmp eq i64 %195, 0
   br i1 %tobool403.not, label %if.then404, label %if.end406
 
 if.then404:                                       ; preds = %if.then389
@@ -7759,44 +7660,33 @@ if.then404:                                       ; preds = %if.then389
 if.end.i797:                                      ; preds = %if.then404
   %vtable.i798 = load ptr, ptr %call.i795, align 8
   %vfn.i799 = getelementptr inbounds i8, ptr %vtable.i798, i64 16
-  %206 = load ptr, ptr %vfn.i799, align 8
-  %call2.i800 = call noundef ptr %206(ptr noundef nonnull align 8 dereferenceable(8) %call.i795, ptr noundef nonnull @.str) #19
+  %197 = load ptr, ptr %vfn.i799, align 8
+  %call2.i800 = call noundef ptr %197(ptr noundef nonnull align 8 dereferenceable(8) %call.i795, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit802
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit802: ; preds = %if.then404, %if.end.i797
   %retval.0.i801 = phi ptr [ %call2.i800, %if.end.i797 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then404 ]
-  %207 = ptrtoint ptr %retval.0.i801 to i64
-  store atomic i64 %207, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_8.0 seq_cst, align 8
+  %198 = ptrtoint ptr %retval.0.i801 to i64
+  store atomic i64 %198, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_8.0 seq_cst, align 8
   br label %if.end406
 
 if.end406:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit802, %if.then389
-  %trace_event_unique_category_group_enabled626401.0 = phi ptr [ %205, %if.then389 ], [ %retval.0.i801, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit802 ]
-  %208 = load i8, ptr %trace_event_unique_category_group_enabled626401.0, align 1
-  %209 = and i8 %208, 5
-  %tobool409.not = icmp eq i8 %209, 0
+  %trace_event_unique_category_group_enabled626401.0 = phi ptr [ %196, %if.then389 ], [ %retval.0.i801, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit802 ]
+  %199 = load i8, ptr %trace_event_unique_category_group_enabled626401.0, align 1
+  %200 = and i8 %199, 5
+  %tobool409.not = icmp eq i8 %200, 0
   br i1 %tobool409.not, label %do.end420, label %if.then410
 
 if.then410:                                       ; preds = %if.end406
-  %210 = load double, ptr %async_id_, align 8
-  %conv414 = fptosi double %210 to i64
+  %201 = load double, ptr %async_id_, align 8
+  %conv414 = fptosi double %201 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626401.0, ptr noundef nonnull @.str.115, ptr noundef null, i64 noundef %conv414, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data390)
   br label %do.end420
 
 do.end420:                                        ; preds = %if.then410, %if.end406
-  %211 = load ptr, ptr %data390, align 8
-  %cmp.not.i806 = icmp eq ptr %211, null
-  br i1 %cmp.not.i806, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit811, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i807
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i807: ; preds = %do.end420
-  %vtable.i.i808 = load ptr, ptr %211, align 8
-  %vfn.i.i809 = getelementptr inbounds i8, ptr %vtable.i.i808, i64 8
-  %212 = load ptr, ptr %vfn.i.i809, align 8
-  call void %212(ptr noundef nonnull align 8 dereferenceable(42) %211) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit811
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit811: ; preds = %do.end420, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i807
-  store ptr null, ptr %data390, align 8
-  br label %sw.epilog
+  %202 = load ptr, ptr %data390, align 8
+  %cmp.not.i806 = icmp eq ptr %202, null
+  br i1 %cmp.not.i806, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb422:                                         ; preds = %if.end68
   %call.i812 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -7806,36 +7696,36 @@ sw.bb422:                                         ; preds = %if.end68
 if.end.i814:                                      ; preds = %sw.bb422
   %vtable.i815 = load ptr, ptr %call.i812, align 8
   %vfn.i816 = getelementptr inbounds i8, ptr %vtable.i815, i64 16
-  %213 = load ptr, ptr %vfn.i816, align 8
-  %call2.i817 = call noundef ptr %213(ptr noundef nonnull align 8 dereferenceable(8) %call.i812, ptr noundef nonnull @.str) #19
+  %203 = load ptr, ptr %vfn.i816, align 8
+  %call2.i817 = call noundef ptr %203(ptr noundef nonnull align 8 dereferenceable(8) %call.i812, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit819
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit819: ; preds = %sw.bb422, %if.end.i814
   %retval.0.i818 = phi ptr [ %call2.i817, %if.end.i814 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb422 ]
-  %214 = load i8, ptr %retval.0.i818, align 1
-  %tobool424.not = icmp eq i8 %214, 0
+  %204 = load i8, ptr %retval.0.i818, align 1
+  %tobool424.not = icmp eq i8 %204, 0
   br i1 %tobool424.not, label %sw.epilog, label %if.then425
 
 if.then425:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit819
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data426) #19
-  %215 = load ptr, ptr %data426, align 8
-  %216 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i821 = getelementptr inbounds i8, ptr %216, i64 176
-  %217 = load ptr, ptr %env_.i.i821, align 8
-  %buffer_.i.i.i822 = getelementptr inbounds i8, ptr %217, i64 1032
-  %218 = load ptr, ptr %buffer_.i.i.i822, align 8
-  %219 = load double, ptr %218, align 8
-  %conv430 = fptosi double %219 to i64
+  %205 = load ptr, ptr %data426, align 8
+  %206 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i821 = getelementptr inbounds i8, ptr %206, i64 176
+  %207 = load ptr, ptr %env_.i.i821, align 8
+  %buffer_.i.i.i822 = getelementptr inbounds i8, ptr %207, i64 1032
+  %208 = load ptr, ptr %buffer_.i.i.i822, align 8
+  %209 = load double, ptr %208, align 8
+  %conv430 = fptosi double %209 to i64
   %conv431 = trunc i64 %conv430 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %215, ptr noundef nonnull @.str.181, i32 noundef %conv431) #19
-  %220 = load ptr, ptr %data426, align 8
-  %221 = load double, ptr %trigger_async_id_, align 8
-  %conv434 = fptosi double %221 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %205, ptr noundef nonnull @.str.181, i32 noundef %conv431) #19
+  %210 = load ptr, ptr %data426, align 8
+  %211 = load double, ptr %trigger_async_id_, align 8
+  %conv434 = fptosi double %211 to i64
   %conv435 = trunc i64 %conv434 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %220, ptr noundef nonnull @.str.182, i32 noundef %conv435) #19
-  %222 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_9.0 seq_cst, align 8
-  %223 = inttoptr i64 %222 to ptr
-  %tobool439.not = icmp eq i64 %222, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %210, ptr noundef nonnull @.str.182, i32 noundef %conv435) #19
+  %212 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_9.0 seq_cst, align 8
+  %213 = inttoptr i64 %212 to ptr
+  %tobool439.not = icmp eq i64 %212, 0
   br i1 %tobool439.not, label %if.then440, label %if.end442
 
 if.then440:                                       ; preds = %if.then425
@@ -7846,44 +7736,33 @@ if.then440:                                       ; preds = %if.then425
 if.end.i826:                                      ; preds = %if.then440
   %vtable.i827 = load ptr, ptr %call.i824, align 8
   %vfn.i828 = getelementptr inbounds i8, ptr %vtable.i827, i64 16
-  %224 = load ptr, ptr %vfn.i828, align 8
-  %call2.i829 = call noundef ptr %224(ptr noundef nonnull align 8 dereferenceable(8) %call.i824, ptr noundef nonnull @.str) #19
+  %214 = load ptr, ptr %vfn.i828, align 8
+  %call2.i829 = call noundef ptr %214(ptr noundef nonnull align 8 dereferenceable(8) %call.i824, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit831
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit831: ; preds = %if.then440, %if.end.i826
   %retval.0.i830 = phi ptr [ %call2.i829, %if.end.i826 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then440 ]
-  %225 = ptrtoint ptr %retval.0.i830 to i64
-  store atomic i64 %225, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_9.0 seq_cst, align 8
+  %215 = ptrtoint ptr %retval.0.i830 to i64
+  store atomic i64 %215, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626_9.0 seq_cst, align 8
   br label %if.end442
 
 if.end442:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit831, %if.then425
-  %trace_event_unique_category_group_enabled626437.0 = phi ptr [ %223, %if.then425 ], [ %retval.0.i830, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit831 ]
-  %226 = load i8, ptr %trace_event_unique_category_group_enabled626437.0, align 1
-  %227 = and i8 %226, 5
-  %tobool445.not = icmp eq i8 %227, 0
+  %trace_event_unique_category_group_enabled626437.0 = phi ptr [ %213, %if.then425 ], [ %retval.0.i830, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit831 ]
+  %216 = load i8, ptr %trace_event_unique_category_group_enabled626437.0, align 1
+  %217 = and i8 %216, 5
+  %tobool445.not = icmp eq i8 %217, 0
   br i1 %tobool445.not, label %do.end456, label %if.then446
 
 if.then446:                                       ; preds = %if.end442
-  %228 = load double, ptr %async_id_, align 8
-  %conv450 = fptosi double %228 to i64
+  %218 = load double, ptr %async_id_, align 8
+  %conv450 = fptosi double %218 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626437.0, ptr noundef nonnull @.str.116, ptr noundef null, i64 noundef %conv450, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data426)
   br label %do.end456
 
 do.end456:                                        ; preds = %if.then446, %if.end442
-  %229 = load ptr, ptr %data426, align 8
-  %cmp.not.i835 = icmp eq ptr %229, null
-  br i1 %cmp.not.i835, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit840, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i836
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i836: ; preds = %do.end456
-  %vtable.i.i837 = load ptr, ptr %229, align 8
-  %vfn.i.i838 = getelementptr inbounds i8, ptr %vtable.i.i837, i64 8
-  %230 = load ptr, ptr %vfn.i.i838, align 8
-  call void %230(ptr noundef nonnull align 8 dereferenceable(42) %229) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit840
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit840: ; preds = %do.end456, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i836
-  store ptr null, ptr %data426, align 8
-  br label %sw.epilog
+  %219 = load ptr, ptr %data426, align 8
+  %cmp.not.i835 = icmp eq ptr %219, null
+  br i1 %cmp.not.i835, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb458:                                         ; preds = %if.end68
   %call.i841 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -7893,36 +7772,36 @@ sw.bb458:                                         ; preds = %if.end68
 if.end.i843:                                      ; preds = %sw.bb458
   %vtable.i844 = load ptr, ptr %call.i841, align 8
   %vfn.i845 = getelementptr inbounds i8, ptr %vtable.i844, i64 16
-  %231 = load ptr, ptr %vfn.i845, align 8
-  %call2.i846 = call noundef ptr %231(ptr noundef nonnull align 8 dereferenceable(8) %call.i841, ptr noundef nonnull @.str) #19
+  %220 = load ptr, ptr %vfn.i845, align 8
+  %call2.i846 = call noundef ptr %220(ptr noundef nonnull align 8 dereferenceable(8) %call.i841, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit848
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit848: ; preds = %sw.bb458, %if.end.i843
   %retval.0.i847 = phi ptr [ %call2.i846, %if.end.i843 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb458 ]
-  %232 = load i8, ptr %retval.0.i847, align 1
-  %tobool460.not = icmp eq i8 %232, 0
+  %221 = load i8, ptr %retval.0.i847, align 1
+  %tobool460.not = icmp eq i8 %221, 0
   br i1 %tobool460.not, label %sw.epilog, label %if.then461
 
 if.then461:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit848
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data462) #19
-  %233 = load ptr, ptr %data462, align 8
-  %234 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i850 = getelementptr inbounds i8, ptr %234, i64 176
-  %235 = load ptr, ptr %env_.i.i850, align 8
-  %buffer_.i.i.i851 = getelementptr inbounds i8, ptr %235, i64 1032
-  %236 = load ptr, ptr %buffer_.i.i.i851, align 8
-  %237 = load double, ptr %236, align 8
-  %conv466 = fptosi double %237 to i64
+  %222 = load ptr, ptr %data462, align 8
+  %223 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i850 = getelementptr inbounds i8, ptr %223, i64 176
+  %224 = load ptr, ptr %env_.i.i850, align 8
+  %buffer_.i.i.i851 = getelementptr inbounds i8, ptr %224, i64 1032
+  %225 = load ptr, ptr %buffer_.i.i.i851, align 8
+  %226 = load double, ptr %225, align 8
+  %conv466 = fptosi double %226 to i64
   %conv467 = trunc i64 %conv466 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %233, ptr noundef nonnull @.str.181, i32 noundef %conv467) #19
-  %238 = load ptr, ptr %data462, align 8
-  %239 = load double, ptr %trigger_async_id_, align 8
-  %conv470 = fptosi double %239 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %222, ptr noundef nonnull @.str.181, i32 noundef %conv467) #19
+  %227 = load ptr, ptr %data462, align 8
+  %228 = load double, ptr %trigger_async_id_, align 8
+  %conv470 = fptosi double %228 to i64
   %conv471 = trunc i64 %conv470 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %238, ptr noundef nonnull @.str.182, i32 noundef %conv471) #19
-  %240 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__10_.0 seq_cst, align 8
-  %241 = inttoptr i64 %240 to ptr
-  %tobool475.not = icmp eq i64 %240, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %227, ptr noundef nonnull @.str.182, i32 noundef %conv471) #19
+  %229 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__10_.0 seq_cst, align 8
+  %230 = inttoptr i64 %229 to ptr
+  %tobool475.not = icmp eq i64 %229, 0
   br i1 %tobool475.not, label %if.then476, label %if.end478
 
 if.then476:                                       ; preds = %if.then461
@@ -7933,44 +7812,33 @@ if.then476:                                       ; preds = %if.then461
 if.end.i855:                                      ; preds = %if.then476
   %vtable.i856 = load ptr, ptr %call.i853, align 8
   %vfn.i857 = getelementptr inbounds i8, ptr %vtable.i856, i64 16
-  %242 = load ptr, ptr %vfn.i857, align 8
-  %call2.i858 = call noundef ptr %242(ptr noundef nonnull align 8 dereferenceable(8) %call.i853, ptr noundef nonnull @.str) #19
+  %231 = load ptr, ptr %vfn.i857, align 8
+  %call2.i858 = call noundef ptr %231(ptr noundef nonnull align 8 dereferenceable(8) %call.i853, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit860
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit860: ; preds = %if.then476, %if.end.i855
   %retval.0.i859 = phi ptr [ %call2.i858, %if.end.i855 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then476 ]
-  %243 = ptrtoint ptr %retval.0.i859 to i64
-  store atomic i64 %243, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__10_.0 seq_cst, align 8
+  %232 = ptrtoint ptr %retval.0.i859 to i64
+  store atomic i64 %232, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__10_.0 seq_cst, align 8
   br label %if.end478
 
 if.end478:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit860, %if.then461
-  %trace_event_unique_category_group_enabled626473.0 = phi ptr [ %241, %if.then461 ], [ %retval.0.i859, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit860 ]
-  %244 = load i8, ptr %trace_event_unique_category_group_enabled626473.0, align 1
-  %245 = and i8 %244, 5
-  %tobool481.not = icmp eq i8 %245, 0
+  %trace_event_unique_category_group_enabled626473.0 = phi ptr [ %230, %if.then461 ], [ %retval.0.i859, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit860 ]
+  %233 = load i8, ptr %trace_event_unique_category_group_enabled626473.0, align 1
+  %234 = and i8 %233, 5
+  %tobool481.not = icmp eq i8 %234, 0
   br i1 %tobool481.not, label %do.end492, label %if.then482
 
 if.then482:                                       ; preds = %if.end478
-  %246 = load double, ptr %async_id_, align 8
-  %conv486 = fptosi double %246 to i64
+  %235 = load double, ptr %async_id_, align 8
+  %conv486 = fptosi double %235 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626473.0, ptr noundef nonnull @.str.117, ptr noundef null, i64 noundef %conv486, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data462)
   br label %do.end492
 
 do.end492:                                        ; preds = %if.then482, %if.end478
-  %247 = load ptr, ptr %data462, align 8
-  %cmp.not.i864 = icmp eq ptr %247, null
-  br i1 %cmp.not.i864, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit869, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i865
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i865: ; preds = %do.end492
-  %vtable.i.i866 = load ptr, ptr %247, align 8
-  %vfn.i.i867 = getelementptr inbounds i8, ptr %vtable.i.i866, i64 8
-  %248 = load ptr, ptr %vfn.i.i867, align 8
-  call void %248(ptr noundef nonnull align 8 dereferenceable(42) %247) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit869
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit869: ; preds = %do.end492, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i865
-  store ptr null, ptr %data462, align 8
-  br label %sw.epilog
+  %236 = load ptr, ptr %data462, align 8
+  %cmp.not.i864 = icmp eq ptr %236, null
+  br i1 %cmp.not.i864, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb494:                                         ; preds = %if.end68
   %call.i870 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -7980,36 +7848,36 @@ sw.bb494:                                         ; preds = %if.end68
 if.end.i872:                                      ; preds = %sw.bb494
   %vtable.i873 = load ptr, ptr %call.i870, align 8
   %vfn.i874 = getelementptr inbounds i8, ptr %vtable.i873, i64 16
-  %249 = load ptr, ptr %vfn.i874, align 8
-  %call2.i875 = call noundef ptr %249(ptr noundef nonnull align 8 dereferenceable(8) %call.i870, ptr noundef nonnull @.str) #19
+  %237 = load ptr, ptr %vfn.i874, align 8
+  %call2.i875 = call noundef ptr %237(ptr noundef nonnull align 8 dereferenceable(8) %call.i870, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit877
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit877: ; preds = %sw.bb494, %if.end.i872
   %retval.0.i876 = phi ptr [ %call2.i875, %if.end.i872 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb494 ]
-  %250 = load i8, ptr %retval.0.i876, align 1
-  %tobool496.not = icmp eq i8 %250, 0
+  %238 = load i8, ptr %retval.0.i876, align 1
+  %tobool496.not = icmp eq i8 %238, 0
   br i1 %tobool496.not, label %sw.epilog, label %if.then497
 
 if.then497:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit877
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data498) #19
-  %251 = load ptr, ptr %data498, align 8
-  %252 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i879 = getelementptr inbounds i8, ptr %252, i64 176
-  %253 = load ptr, ptr %env_.i.i879, align 8
-  %buffer_.i.i.i880 = getelementptr inbounds i8, ptr %253, i64 1032
-  %254 = load ptr, ptr %buffer_.i.i.i880, align 8
-  %255 = load double, ptr %254, align 8
-  %conv502 = fptosi double %255 to i64
+  %239 = load ptr, ptr %data498, align 8
+  %240 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i879 = getelementptr inbounds i8, ptr %240, i64 176
+  %241 = load ptr, ptr %env_.i.i879, align 8
+  %buffer_.i.i.i880 = getelementptr inbounds i8, ptr %241, i64 1032
+  %242 = load ptr, ptr %buffer_.i.i.i880, align 8
+  %243 = load double, ptr %242, align 8
+  %conv502 = fptosi double %243 to i64
   %conv503 = trunc i64 %conv502 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %251, ptr noundef nonnull @.str.181, i32 noundef %conv503) #19
-  %256 = load ptr, ptr %data498, align 8
-  %257 = load double, ptr %trigger_async_id_, align 8
-  %conv506 = fptosi double %257 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %239, ptr noundef nonnull @.str.181, i32 noundef %conv503) #19
+  %244 = load ptr, ptr %data498, align 8
+  %245 = load double, ptr %trigger_async_id_, align 8
+  %conv506 = fptosi double %245 to i64
   %conv507 = trunc i64 %conv506 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %256, ptr noundef nonnull @.str.182, i32 noundef %conv507) #19
-  %258 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__11_.0 seq_cst, align 8
-  %259 = inttoptr i64 %258 to ptr
-  %tobool511.not = icmp eq i64 %258, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %244, ptr noundef nonnull @.str.182, i32 noundef %conv507) #19
+  %246 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__11_.0 seq_cst, align 8
+  %247 = inttoptr i64 %246 to ptr
+  %tobool511.not = icmp eq i64 %246, 0
   br i1 %tobool511.not, label %if.then512, label %if.end514
 
 if.then512:                                       ; preds = %if.then497
@@ -8020,44 +7888,33 @@ if.then512:                                       ; preds = %if.then497
 if.end.i884:                                      ; preds = %if.then512
   %vtable.i885 = load ptr, ptr %call.i882, align 8
   %vfn.i886 = getelementptr inbounds i8, ptr %vtable.i885, i64 16
-  %260 = load ptr, ptr %vfn.i886, align 8
-  %call2.i887 = call noundef ptr %260(ptr noundef nonnull align 8 dereferenceable(8) %call.i882, ptr noundef nonnull @.str) #19
+  %248 = load ptr, ptr %vfn.i886, align 8
+  %call2.i887 = call noundef ptr %248(ptr noundef nonnull align 8 dereferenceable(8) %call.i882, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit889
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit889: ; preds = %if.then512, %if.end.i884
   %retval.0.i888 = phi ptr [ %call2.i887, %if.end.i884 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then512 ]
-  %261 = ptrtoint ptr %retval.0.i888 to i64
-  store atomic i64 %261, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__11_.0 seq_cst, align 8
+  %249 = ptrtoint ptr %retval.0.i888 to i64
+  store atomic i64 %249, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__11_.0 seq_cst, align 8
   br label %if.end514
 
 if.end514:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit889, %if.then497
-  %trace_event_unique_category_group_enabled626509.0 = phi ptr [ %259, %if.then497 ], [ %retval.0.i888, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit889 ]
-  %262 = load i8, ptr %trace_event_unique_category_group_enabled626509.0, align 1
-  %263 = and i8 %262, 5
-  %tobool517.not = icmp eq i8 %263, 0
+  %trace_event_unique_category_group_enabled626509.0 = phi ptr [ %247, %if.then497 ], [ %retval.0.i888, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit889 ]
+  %250 = load i8, ptr %trace_event_unique_category_group_enabled626509.0, align 1
+  %251 = and i8 %250, 5
+  %tobool517.not = icmp eq i8 %251, 0
   br i1 %tobool517.not, label %do.end528, label %if.then518
 
 if.then518:                                       ; preds = %if.end514
-  %264 = load double, ptr %async_id_, align 8
-  %conv522 = fptosi double %264 to i64
+  %252 = load double, ptr %async_id_, align 8
+  %conv522 = fptosi double %252 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626509.0, ptr noundef nonnull @.str.118, ptr noundef null, i64 noundef %conv522, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data498)
   br label %do.end528
 
 do.end528:                                        ; preds = %if.then518, %if.end514
-  %265 = load ptr, ptr %data498, align 8
-  %cmp.not.i893 = icmp eq ptr %265, null
-  br i1 %cmp.not.i893, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit898, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i894
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i894: ; preds = %do.end528
-  %vtable.i.i895 = load ptr, ptr %265, align 8
-  %vfn.i.i896 = getelementptr inbounds i8, ptr %vtable.i.i895, i64 8
-  %266 = load ptr, ptr %vfn.i.i896, align 8
-  call void %266(ptr noundef nonnull align 8 dereferenceable(42) %265) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit898
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit898: ; preds = %do.end528, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i894
-  store ptr null, ptr %data498, align 8
-  br label %sw.epilog
+  %253 = load ptr, ptr %data498, align 8
+  %cmp.not.i893 = icmp eq ptr %253, null
+  br i1 %cmp.not.i893, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb530:                                         ; preds = %if.end68
   %call.i899 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -8067,36 +7924,36 @@ sw.bb530:                                         ; preds = %if.end68
 if.end.i901:                                      ; preds = %sw.bb530
   %vtable.i902 = load ptr, ptr %call.i899, align 8
   %vfn.i903 = getelementptr inbounds i8, ptr %vtable.i902, i64 16
-  %267 = load ptr, ptr %vfn.i903, align 8
-  %call2.i904 = call noundef ptr %267(ptr noundef nonnull align 8 dereferenceable(8) %call.i899, ptr noundef nonnull @.str) #19
+  %254 = load ptr, ptr %vfn.i903, align 8
+  %call2.i904 = call noundef ptr %254(ptr noundef nonnull align 8 dereferenceable(8) %call.i899, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit906
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit906: ; preds = %sw.bb530, %if.end.i901
   %retval.0.i905 = phi ptr [ %call2.i904, %if.end.i901 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb530 ]
-  %268 = load i8, ptr %retval.0.i905, align 1
-  %tobool532.not = icmp eq i8 %268, 0
+  %255 = load i8, ptr %retval.0.i905, align 1
+  %tobool532.not = icmp eq i8 %255, 0
   br i1 %tobool532.not, label %sw.epilog, label %if.then533
 
 if.then533:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit906
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data534) #19
-  %269 = load ptr, ptr %data534, align 8
-  %270 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i908 = getelementptr inbounds i8, ptr %270, i64 176
-  %271 = load ptr, ptr %env_.i.i908, align 8
-  %buffer_.i.i.i909 = getelementptr inbounds i8, ptr %271, i64 1032
-  %272 = load ptr, ptr %buffer_.i.i.i909, align 8
-  %273 = load double, ptr %272, align 8
-  %conv538 = fptosi double %273 to i64
+  %256 = load ptr, ptr %data534, align 8
+  %257 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i908 = getelementptr inbounds i8, ptr %257, i64 176
+  %258 = load ptr, ptr %env_.i.i908, align 8
+  %buffer_.i.i.i909 = getelementptr inbounds i8, ptr %258, i64 1032
+  %259 = load ptr, ptr %buffer_.i.i.i909, align 8
+  %260 = load double, ptr %259, align 8
+  %conv538 = fptosi double %260 to i64
   %conv539 = trunc i64 %conv538 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %269, ptr noundef nonnull @.str.181, i32 noundef %conv539) #19
-  %274 = load ptr, ptr %data534, align 8
-  %275 = load double, ptr %trigger_async_id_, align 8
-  %conv542 = fptosi double %275 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %256, ptr noundef nonnull @.str.181, i32 noundef %conv539) #19
+  %261 = load ptr, ptr %data534, align 8
+  %262 = load double, ptr %trigger_async_id_, align 8
+  %conv542 = fptosi double %262 to i64
   %conv543 = trunc i64 %conv542 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %274, ptr noundef nonnull @.str.182, i32 noundef %conv543) #19
-  %276 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__12_.0 seq_cst, align 8
-  %277 = inttoptr i64 %276 to ptr
-  %tobool547.not = icmp eq i64 %276, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %261, ptr noundef nonnull @.str.182, i32 noundef %conv543) #19
+  %263 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__12_.0 seq_cst, align 8
+  %264 = inttoptr i64 %263 to ptr
+  %tobool547.not = icmp eq i64 %263, 0
   br i1 %tobool547.not, label %if.then548, label %if.end550
 
 if.then548:                                       ; preds = %if.then533
@@ -8107,44 +7964,33 @@ if.then548:                                       ; preds = %if.then533
 if.end.i913:                                      ; preds = %if.then548
   %vtable.i914 = load ptr, ptr %call.i911, align 8
   %vfn.i915 = getelementptr inbounds i8, ptr %vtable.i914, i64 16
-  %278 = load ptr, ptr %vfn.i915, align 8
-  %call2.i916 = call noundef ptr %278(ptr noundef nonnull align 8 dereferenceable(8) %call.i911, ptr noundef nonnull @.str) #19
+  %265 = load ptr, ptr %vfn.i915, align 8
+  %call2.i916 = call noundef ptr %265(ptr noundef nonnull align 8 dereferenceable(8) %call.i911, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit918
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit918: ; preds = %if.then548, %if.end.i913
   %retval.0.i917 = phi ptr [ %call2.i916, %if.end.i913 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then548 ]
-  %279 = ptrtoint ptr %retval.0.i917 to i64
-  store atomic i64 %279, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__12_.0 seq_cst, align 8
+  %266 = ptrtoint ptr %retval.0.i917 to i64
+  store atomic i64 %266, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__12_.0 seq_cst, align 8
   br label %if.end550
 
 if.end550:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit918, %if.then533
-  %trace_event_unique_category_group_enabled626545.0 = phi ptr [ %277, %if.then533 ], [ %retval.0.i917, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit918 ]
-  %280 = load i8, ptr %trace_event_unique_category_group_enabled626545.0, align 1
-  %281 = and i8 %280, 5
-  %tobool553.not = icmp eq i8 %281, 0
+  %trace_event_unique_category_group_enabled626545.0 = phi ptr [ %264, %if.then533 ], [ %retval.0.i917, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit918 ]
+  %267 = load i8, ptr %trace_event_unique_category_group_enabled626545.0, align 1
+  %268 = and i8 %267, 5
+  %tobool553.not = icmp eq i8 %268, 0
   br i1 %tobool553.not, label %do.end564, label %if.then554
 
 if.then554:                                       ; preds = %if.end550
-  %282 = load double, ptr %async_id_, align 8
-  %conv558 = fptosi double %282 to i64
+  %269 = load double, ptr %async_id_, align 8
+  %conv558 = fptosi double %269 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626545.0, ptr noundef nonnull @.str.119, ptr noundef null, i64 noundef %conv558, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data534)
   br label %do.end564
 
 do.end564:                                        ; preds = %if.then554, %if.end550
-  %283 = load ptr, ptr %data534, align 8
-  %cmp.not.i922 = icmp eq ptr %283, null
-  br i1 %cmp.not.i922, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit927, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i923
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i923: ; preds = %do.end564
-  %vtable.i.i924 = load ptr, ptr %283, align 8
-  %vfn.i.i925 = getelementptr inbounds i8, ptr %vtable.i.i924, i64 8
-  %284 = load ptr, ptr %vfn.i.i925, align 8
-  call void %284(ptr noundef nonnull align 8 dereferenceable(42) %283) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit927
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit927: ; preds = %do.end564, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i923
-  store ptr null, ptr %data534, align 8
-  br label %sw.epilog
+  %270 = load ptr, ptr %data534, align 8
+  %cmp.not.i922 = icmp eq ptr %270, null
+  br i1 %cmp.not.i922, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb566:                                         ; preds = %if.end68
   %call.i928 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -8154,36 +8000,36 @@ sw.bb566:                                         ; preds = %if.end68
 if.end.i930:                                      ; preds = %sw.bb566
   %vtable.i931 = load ptr, ptr %call.i928, align 8
   %vfn.i932 = getelementptr inbounds i8, ptr %vtable.i931, i64 16
-  %285 = load ptr, ptr %vfn.i932, align 8
-  %call2.i933 = call noundef ptr %285(ptr noundef nonnull align 8 dereferenceable(8) %call.i928, ptr noundef nonnull @.str) #19
+  %271 = load ptr, ptr %vfn.i932, align 8
+  %call2.i933 = call noundef ptr %271(ptr noundef nonnull align 8 dereferenceable(8) %call.i928, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit935
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit935: ; preds = %sw.bb566, %if.end.i930
   %retval.0.i934 = phi ptr [ %call2.i933, %if.end.i930 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb566 ]
-  %286 = load i8, ptr %retval.0.i934, align 1
-  %tobool568.not = icmp eq i8 %286, 0
+  %272 = load i8, ptr %retval.0.i934, align 1
+  %tobool568.not = icmp eq i8 %272, 0
   br i1 %tobool568.not, label %sw.epilog, label %if.then569
 
 if.then569:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit935
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data570) #19
-  %287 = load ptr, ptr %data570, align 8
-  %288 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i937 = getelementptr inbounds i8, ptr %288, i64 176
-  %289 = load ptr, ptr %env_.i.i937, align 8
-  %buffer_.i.i.i938 = getelementptr inbounds i8, ptr %289, i64 1032
-  %290 = load ptr, ptr %buffer_.i.i.i938, align 8
-  %291 = load double, ptr %290, align 8
-  %conv574 = fptosi double %291 to i64
+  %273 = load ptr, ptr %data570, align 8
+  %274 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i937 = getelementptr inbounds i8, ptr %274, i64 176
+  %275 = load ptr, ptr %env_.i.i937, align 8
+  %buffer_.i.i.i938 = getelementptr inbounds i8, ptr %275, i64 1032
+  %276 = load ptr, ptr %buffer_.i.i.i938, align 8
+  %277 = load double, ptr %276, align 8
+  %conv574 = fptosi double %277 to i64
   %conv575 = trunc i64 %conv574 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %287, ptr noundef nonnull @.str.181, i32 noundef %conv575) #19
-  %292 = load ptr, ptr %data570, align 8
-  %293 = load double, ptr %trigger_async_id_, align 8
-  %conv578 = fptosi double %293 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %273, ptr noundef nonnull @.str.181, i32 noundef %conv575) #19
+  %278 = load ptr, ptr %data570, align 8
+  %279 = load double, ptr %trigger_async_id_, align 8
+  %conv578 = fptosi double %279 to i64
   %conv579 = trunc i64 %conv578 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %292, ptr noundef nonnull @.str.182, i32 noundef %conv579) #19
-  %294 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__13_.0 seq_cst, align 8
-  %295 = inttoptr i64 %294 to ptr
-  %tobool583.not = icmp eq i64 %294, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %278, ptr noundef nonnull @.str.182, i32 noundef %conv579) #19
+  %280 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__13_.0 seq_cst, align 8
+  %281 = inttoptr i64 %280 to ptr
+  %tobool583.not = icmp eq i64 %280, 0
   br i1 %tobool583.not, label %if.then584, label %if.end586
 
 if.then584:                                       ; preds = %if.then569
@@ -8194,44 +8040,33 @@ if.then584:                                       ; preds = %if.then569
 if.end.i942:                                      ; preds = %if.then584
   %vtable.i943 = load ptr, ptr %call.i940, align 8
   %vfn.i944 = getelementptr inbounds i8, ptr %vtable.i943, i64 16
-  %296 = load ptr, ptr %vfn.i944, align 8
-  %call2.i945 = call noundef ptr %296(ptr noundef nonnull align 8 dereferenceable(8) %call.i940, ptr noundef nonnull @.str) #19
+  %282 = load ptr, ptr %vfn.i944, align 8
+  %call2.i945 = call noundef ptr %282(ptr noundef nonnull align 8 dereferenceable(8) %call.i940, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit947
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit947: ; preds = %if.then584, %if.end.i942
   %retval.0.i946 = phi ptr [ %call2.i945, %if.end.i942 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then584 ]
-  %297 = ptrtoint ptr %retval.0.i946 to i64
-  store atomic i64 %297, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__13_.0 seq_cst, align 8
+  %283 = ptrtoint ptr %retval.0.i946 to i64
+  store atomic i64 %283, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__13_.0 seq_cst, align 8
   br label %if.end586
 
 if.end586:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit947, %if.then569
-  %trace_event_unique_category_group_enabled626581.0 = phi ptr [ %295, %if.then569 ], [ %retval.0.i946, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit947 ]
-  %298 = load i8, ptr %trace_event_unique_category_group_enabled626581.0, align 1
-  %299 = and i8 %298, 5
-  %tobool589.not = icmp eq i8 %299, 0
+  %trace_event_unique_category_group_enabled626581.0 = phi ptr [ %281, %if.then569 ], [ %retval.0.i946, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit947 ]
+  %284 = load i8, ptr %trace_event_unique_category_group_enabled626581.0, align 1
+  %285 = and i8 %284, 5
+  %tobool589.not = icmp eq i8 %285, 0
   br i1 %tobool589.not, label %do.end600, label %if.then590
 
 if.then590:                                       ; preds = %if.end586
-  %300 = load double, ptr %async_id_, align 8
-  %conv594 = fptosi double %300 to i64
+  %286 = load double, ptr %async_id_, align 8
+  %conv594 = fptosi double %286 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626581.0, ptr noundef nonnull @.str.120, ptr noundef null, i64 noundef %conv594, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data570)
   br label %do.end600
 
 do.end600:                                        ; preds = %if.then590, %if.end586
-  %301 = load ptr, ptr %data570, align 8
-  %cmp.not.i951 = icmp eq ptr %301, null
-  br i1 %cmp.not.i951, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit956, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i952
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i952: ; preds = %do.end600
-  %vtable.i.i953 = load ptr, ptr %301, align 8
-  %vfn.i.i954 = getelementptr inbounds i8, ptr %vtable.i.i953, i64 8
-  %302 = load ptr, ptr %vfn.i.i954, align 8
-  call void %302(ptr noundef nonnull align 8 dereferenceable(42) %301) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit956
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit956: ; preds = %do.end600, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i952
-  store ptr null, ptr %data570, align 8
-  br label %sw.epilog
+  %287 = load ptr, ptr %data570, align 8
+  %cmp.not.i951 = icmp eq ptr %287, null
+  br i1 %cmp.not.i951, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb602:                                         ; preds = %if.end68
   %call.i957 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -8241,36 +8076,36 @@ sw.bb602:                                         ; preds = %if.end68
 if.end.i959:                                      ; preds = %sw.bb602
   %vtable.i960 = load ptr, ptr %call.i957, align 8
   %vfn.i961 = getelementptr inbounds i8, ptr %vtable.i960, i64 16
-  %303 = load ptr, ptr %vfn.i961, align 8
-  %call2.i962 = call noundef ptr %303(ptr noundef nonnull align 8 dereferenceable(8) %call.i957, ptr noundef nonnull @.str) #19
+  %288 = load ptr, ptr %vfn.i961, align 8
+  %call2.i962 = call noundef ptr %288(ptr noundef nonnull align 8 dereferenceable(8) %call.i957, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit964
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit964: ; preds = %sw.bb602, %if.end.i959
   %retval.0.i963 = phi ptr [ %call2.i962, %if.end.i959 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb602 ]
-  %304 = load i8, ptr %retval.0.i963, align 1
-  %tobool604.not = icmp eq i8 %304, 0
+  %289 = load i8, ptr %retval.0.i963, align 1
+  %tobool604.not = icmp eq i8 %289, 0
   br i1 %tobool604.not, label %sw.epilog, label %if.then605
 
 if.then605:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit964
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data606) #19
-  %305 = load ptr, ptr %data606, align 8
-  %306 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i966 = getelementptr inbounds i8, ptr %306, i64 176
-  %307 = load ptr, ptr %env_.i.i966, align 8
-  %buffer_.i.i.i967 = getelementptr inbounds i8, ptr %307, i64 1032
-  %308 = load ptr, ptr %buffer_.i.i.i967, align 8
-  %309 = load double, ptr %308, align 8
-  %conv610 = fptosi double %309 to i64
+  %290 = load ptr, ptr %data606, align 8
+  %291 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i966 = getelementptr inbounds i8, ptr %291, i64 176
+  %292 = load ptr, ptr %env_.i.i966, align 8
+  %buffer_.i.i.i967 = getelementptr inbounds i8, ptr %292, i64 1032
+  %293 = load ptr, ptr %buffer_.i.i.i967, align 8
+  %294 = load double, ptr %293, align 8
+  %conv610 = fptosi double %294 to i64
   %conv611 = trunc i64 %conv610 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %305, ptr noundef nonnull @.str.181, i32 noundef %conv611) #19
-  %310 = load ptr, ptr %data606, align 8
-  %311 = load double, ptr %trigger_async_id_, align 8
-  %conv614 = fptosi double %311 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %290, ptr noundef nonnull @.str.181, i32 noundef %conv611) #19
+  %295 = load ptr, ptr %data606, align 8
+  %296 = load double, ptr %trigger_async_id_, align 8
+  %conv614 = fptosi double %296 to i64
   %conv615 = trunc i64 %conv614 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %310, ptr noundef nonnull @.str.182, i32 noundef %conv615) #19
-  %312 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__14_.0 seq_cst, align 8
-  %313 = inttoptr i64 %312 to ptr
-  %tobool619.not = icmp eq i64 %312, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %295, ptr noundef nonnull @.str.182, i32 noundef %conv615) #19
+  %297 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__14_.0 seq_cst, align 8
+  %298 = inttoptr i64 %297 to ptr
+  %tobool619.not = icmp eq i64 %297, 0
   br i1 %tobool619.not, label %if.then620, label %if.end622
 
 if.then620:                                       ; preds = %if.then605
@@ -8281,44 +8116,33 @@ if.then620:                                       ; preds = %if.then605
 if.end.i971:                                      ; preds = %if.then620
   %vtable.i972 = load ptr, ptr %call.i969, align 8
   %vfn.i973 = getelementptr inbounds i8, ptr %vtable.i972, i64 16
-  %314 = load ptr, ptr %vfn.i973, align 8
-  %call2.i974 = call noundef ptr %314(ptr noundef nonnull align 8 dereferenceable(8) %call.i969, ptr noundef nonnull @.str) #19
+  %299 = load ptr, ptr %vfn.i973, align 8
+  %call2.i974 = call noundef ptr %299(ptr noundef nonnull align 8 dereferenceable(8) %call.i969, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit976
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit976: ; preds = %if.then620, %if.end.i971
   %retval.0.i975 = phi ptr [ %call2.i974, %if.end.i971 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then620 ]
-  %315 = ptrtoint ptr %retval.0.i975 to i64
-  store atomic i64 %315, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__14_.0 seq_cst, align 8
+  %300 = ptrtoint ptr %retval.0.i975 to i64
+  store atomic i64 %300, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__14_.0 seq_cst, align 8
   br label %if.end622
 
 if.end622:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit976, %if.then605
-  %trace_event_unique_category_group_enabled626617.0 = phi ptr [ %313, %if.then605 ], [ %retval.0.i975, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit976 ]
-  %316 = load i8, ptr %trace_event_unique_category_group_enabled626617.0, align 1
-  %317 = and i8 %316, 5
-  %tobool625.not = icmp eq i8 %317, 0
+  %trace_event_unique_category_group_enabled626617.0 = phi ptr [ %298, %if.then605 ], [ %retval.0.i975, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit976 ]
+  %301 = load i8, ptr %trace_event_unique_category_group_enabled626617.0, align 1
+  %302 = and i8 %301, 5
+  %tobool625.not = icmp eq i8 %302, 0
   br i1 %tobool625.not, label %do.end636, label %if.then626
 
 if.then626:                                       ; preds = %if.end622
-  %318 = load double, ptr %async_id_, align 8
-  %conv630 = fptosi double %318 to i64
+  %303 = load double, ptr %async_id_, align 8
+  %conv630 = fptosi double %303 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626617.0, ptr noundef nonnull @.str.121, ptr noundef null, i64 noundef %conv630, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data606)
   br label %do.end636
 
 do.end636:                                        ; preds = %if.then626, %if.end622
-  %319 = load ptr, ptr %data606, align 8
-  %cmp.not.i980 = icmp eq ptr %319, null
-  br i1 %cmp.not.i980, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit985, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i981
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i981: ; preds = %do.end636
-  %vtable.i.i982 = load ptr, ptr %319, align 8
-  %vfn.i.i983 = getelementptr inbounds i8, ptr %vtable.i.i982, i64 8
-  %320 = load ptr, ptr %vfn.i.i983, align 8
-  call void %320(ptr noundef nonnull align 8 dereferenceable(42) %319) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit985
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit985: ; preds = %do.end636, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i981
-  store ptr null, ptr %data606, align 8
-  br label %sw.epilog
+  %304 = load ptr, ptr %data606, align 8
+  %cmp.not.i980 = icmp eq ptr %304, null
+  br i1 %cmp.not.i980, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb638:                                         ; preds = %if.end68
   %call.i986 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -8328,36 +8152,36 @@ sw.bb638:                                         ; preds = %if.end68
 if.end.i988:                                      ; preds = %sw.bb638
   %vtable.i989 = load ptr, ptr %call.i986, align 8
   %vfn.i990 = getelementptr inbounds i8, ptr %vtable.i989, i64 16
-  %321 = load ptr, ptr %vfn.i990, align 8
-  %call2.i991 = call noundef ptr %321(ptr noundef nonnull align 8 dereferenceable(8) %call.i986, ptr noundef nonnull @.str) #19
+  %305 = load ptr, ptr %vfn.i990, align 8
+  %call2.i991 = call noundef ptr %305(ptr noundef nonnull align 8 dereferenceable(8) %call.i986, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit993
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit993: ; preds = %sw.bb638, %if.end.i988
   %retval.0.i992 = phi ptr [ %call2.i991, %if.end.i988 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb638 ]
-  %322 = load i8, ptr %retval.0.i992, align 1
-  %tobool640.not = icmp eq i8 %322, 0
+  %306 = load i8, ptr %retval.0.i992, align 1
+  %tobool640.not = icmp eq i8 %306, 0
   br i1 %tobool640.not, label %sw.epilog, label %if.then641
 
 if.then641:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit993
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data642) #19
-  %323 = load ptr, ptr %data642, align 8
-  %324 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i995 = getelementptr inbounds i8, ptr %324, i64 176
-  %325 = load ptr, ptr %env_.i.i995, align 8
-  %buffer_.i.i.i996 = getelementptr inbounds i8, ptr %325, i64 1032
-  %326 = load ptr, ptr %buffer_.i.i.i996, align 8
-  %327 = load double, ptr %326, align 8
-  %conv646 = fptosi double %327 to i64
+  %307 = load ptr, ptr %data642, align 8
+  %308 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i995 = getelementptr inbounds i8, ptr %308, i64 176
+  %309 = load ptr, ptr %env_.i.i995, align 8
+  %buffer_.i.i.i996 = getelementptr inbounds i8, ptr %309, i64 1032
+  %310 = load ptr, ptr %buffer_.i.i.i996, align 8
+  %311 = load double, ptr %310, align 8
+  %conv646 = fptosi double %311 to i64
   %conv647 = trunc i64 %conv646 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %323, ptr noundef nonnull @.str.181, i32 noundef %conv647) #19
-  %328 = load ptr, ptr %data642, align 8
-  %329 = load double, ptr %trigger_async_id_, align 8
-  %conv650 = fptosi double %329 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %307, ptr noundef nonnull @.str.181, i32 noundef %conv647) #19
+  %312 = load ptr, ptr %data642, align 8
+  %313 = load double, ptr %trigger_async_id_, align 8
+  %conv650 = fptosi double %313 to i64
   %conv651 = trunc i64 %conv650 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %328, ptr noundef nonnull @.str.182, i32 noundef %conv651) #19
-  %330 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__15_.0 seq_cst, align 8
-  %331 = inttoptr i64 %330 to ptr
-  %tobool655.not = icmp eq i64 %330, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %312, ptr noundef nonnull @.str.182, i32 noundef %conv651) #19
+  %314 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__15_.0 seq_cst, align 8
+  %315 = inttoptr i64 %314 to ptr
+  %tobool655.not = icmp eq i64 %314, 0
   br i1 %tobool655.not, label %if.then656, label %if.end658
 
 if.then656:                                       ; preds = %if.then641
@@ -8368,44 +8192,33 @@ if.then656:                                       ; preds = %if.then641
 if.end.i1000:                                     ; preds = %if.then656
   %vtable.i1001 = load ptr, ptr %call.i998, align 8
   %vfn.i1002 = getelementptr inbounds i8, ptr %vtable.i1001, i64 16
-  %332 = load ptr, ptr %vfn.i1002, align 8
-  %call2.i1003 = call noundef ptr %332(ptr noundef nonnull align 8 dereferenceable(8) %call.i998, ptr noundef nonnull @.str) #19
+  %316 = load ptr, ptr %vfn.i1002, align 8
+  %call2.i1003 = call noundef ptr %316(ptr noundef nonnull align 8 dereferenceable(8) %call.i998, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1005
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1005: ; preds = %if.then656, %if.end.i1000
   %retval.0.i1004 = phi ptr [ %call2.i1003, %if.end.i1000 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then656 ]
-  %333 = ptrtoint ptr %retval.0.i1004 to i64
-  store atomic i64 %333, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__15_.0 seq_cst, align 8
+  %317 = ptrtoint ptr %retval.0.i1004 to i64
+  store atomic i64 %317, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__15_.0 seq_cst, align 8
   br label %if.end658
 
 if.end658:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1005, %if.then641
-  %trace_event_unique_category_group_enabled626653.0 = phi ptr [ %331, %if.then641 ], [ %retval.0.i1004, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1005 ]
-  %334 = load i8, ptr %trace_event_unique_category_group_enabled626653.0, align 1
-  %335 = and i8 %334, 5
-  %tobool661.not = icmp eq i8 %335, 0
+  %trace_event_unique_category_group_enabled626653.0 = phi ptr [ %315, %if.then641 ], [ %retval.0.i1004, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1005 ]
+  %318 = load i8, ptr %trace_event_unique_category_group_enabled626653.0, align 1
+  %319 = and i8 %318, 5
+  %tobool661.not = icmp eq i8 %319, 0
   br i1 %tobool661.not, label %do.end672, label %if.then662
 
 if.then662:                                       ; preds = %if.end658
-  %336 = load double, ptr %async_id_, align 8
-  %conv666 = fptosi double %336 to i64
+  %320 = load double, ptr %async_id_, align 8
+  %conv666 = fptosi double %320 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626653.0, ptr noundef nonnull @.str.122, ptr noundef null, i64 noundef %conv666, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data642)
   br label %do.end672
 
 do.end672:                                        ; preds = %if.then662, %if.end658
-  %337 = load ptr, ptr %data642, align 8
-  %cmp.not.i1009 = icmp eq ptr %337, null
-  br i1 %cmp.not.i1009, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1014, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1010
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1010: ; preds = %do.end672
-  %vtable.i.i1011 = load ptr, ptr %337, align 8
-  %vfn.i.i1012 = getelementptr inbounds i8, ptr %vtable.i.i1011, i64 8
-  %338 = load ptr, ptr %vfn.i.i1012, align 8
-  call void %338(ptr noundef nonnull align 8 dereferenceable(42) %337) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1014
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1014: ; preds = %do.end672, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1010
-  store ptr null, ptr %data642, align 8
-  br label %sw.epilog
+  %321 = load ptr, ptr %data642, align 8
+  %cmp.not.i1009 = icmp eq ptr %321, null
+  br i1 %cmp.not.i1009, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb674:                                         ; preds = %if.end68
   %call.i1015 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -8415,36 +8228,36 @@ sw.bb674:                                         ; preds = %if.end68
 if.end.i1017:                                     ; preds = %sw.bb674
   %vtable.i1018 = load ptr, ptr %call.i1015, align 8
   %vfn.i1019 = getelementptr inbounds i8, ptr %vtable.i1018, i64 16
-  %339 = load ptr, ptr %vfn.i1019, align 8
-  %call2.i1020 = call noundef ptr %339(ptr noundef nonnull align 8 dereferenceable(8) %call.i1015, ptr noundef nonnull @.str) #19
+  %322 = load ptr, ptr %vfn.i1019, align 8
+  %call2.i1020 = call noundef ptr %322(ptr noundef nonnull align 8 dereferenceable(8) %call.i1015, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1022
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1022: ; preds = %sw.bb674, %if.end.i1017
   %retval.0.i1021 = phi ptr [ %call2.i1020, %if.end.i1017 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb674 ]
-  %340 = load i8, ptr %retval.0.i1021, align 1
-  %tobool676.not = icmp eq i8 %340, 0
+  %323 = load i8, ptr %retval.0.i1021, align 1
+  %tobool676.not = icmp eq i8 %323, 0
   br i1 %tobool676.not, label %sw.epilog, label %if.then677
 
 if.then677:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1022
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data678) #19
-  %341 = load ptr, ptr %data678, align 8
-  %342 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1024 = getelementptr inbounds i8, ptr %342, i64 176
-  %343 = load ptr, ptr %env_.i.i1024, align 8
-  %buffer_.i.i.i1025 = getelementptr inbounds i8, ptr %343, i64 1032
-  %344 = load ptr, ptr %buffer_.i.i.i1025, align 8
-  %345 = load double, ptr %344, align 8
-  %conv682 = fptosi double %345 to i64
+  %324 = load ptr, ptr %data678, align 8
+  %325 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1024 = getelementptr inbounds i8, ptr %325, i64 176
+  %326 = load ptr, ptr %env_.i.i1024, align 8
+  %buffer_.i.i.i1025 = getelementptr inbounds i8, ptr %326, i64 1032
+  %327 = load ptr, ptr %buffer_.i.i.i1025, align 8
+  %328 = load double, ptr %327, align 8
+  %conv682 = fptosi double %328 to i64
   %conv683 = trunc i64 %conv682 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %341, ptr noundef nonnull @.str.181, i32 noundef %conv683) #19
-  %346 = load ptr, ptr %data678, align 8
-  %347 = load double, ptr %trigger_async_id_, align 8
-  %conv686 = fptosi double %347 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %324, ptr noundef nonnull @.str.181, i32 noundef %conv683) #19
+  %329 = load ptr, ptr %data678, align 8
+  %330 = load double, ptr %trigger_async_id_, align 8
+  %conv686 = fptosi double %330 to i64
   %conv687 = trunc i64 %conv686 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %346, ptr noundef nonnull @.str.182, i32 noundef %conv687) #19
-  %348 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__16_.0 seq_cst, align 8
-  %349 = inttoptr i64 %348 to ptr
-  %tobool691.not = icmp eq i64 %348, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %329, ptr noundef nonnull @.str.182, i32 noundef %conv687) #19
+  %331 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__16_.0 seq_cst, align 8
+  %332 = inttoptr i64 %331 to ptr
+  %tobool691.not = icmp eq i64 %331, 0
   br i1 %tobool691.not, label %if.then692, label %if.end694
 
 if.then692:                                       ; preds = %if.then677
@@ -8455,44 +8268,33 @@ if.then692:                                       ; preds = %if.then677
 if.end.i1029:                                     ; preds = %if.then692
   %vtable.i1030 = load ptr, ptr %call.i1027, align 8
   %vfn.i1031 = getelementptr inbounds i8, ptr %vtable.i1030, i64 16
-  %350 = load ptr, ptr %vfn.i1031, align 8
-  %call2.i1032 = call noundef ptr %350(ptr noundef nonnull align 8 dereferenceable(8) %call.i1027, ptr noundef nonnull @.str) #19
+  %333 = load ptr, ptr %vfn.i1031, align 8
+  %call2.i1032 = call noundef ptr %333(ptr noundef nonnull align 8 dereferenceable(8) %call.i1027, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1034
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1034: ; preds = %if.then692, %if.end.i1029
   %retval.0.i1033 = phi ptr [ %call2.i1032, %if.end.i1029 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then692 ]
-  %351 = ptrtoint ptr %retval.0.i1033 to i64
-  store atomic i64 %351, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__16_.0 seq_cst, align 8
+  %334 = ptrtoint ptr %retval.0.i1033 to i64
+  store atomic i64 %334, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__16_.0 seq_cst, align 8
   br label %if.end694
 
 if.end694:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1034, %if.then677
-  %trace_event_unique_category_group_enabled626689.0 = phi ptr [ %349, %if.then677 ], [ %retval.0.i1033, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1034 ]
-  %352 = load i8, ptr %trace_event_unique_category_group_enabled626689.0, align 1
-  %353 = and i8 %352, 5
-  %tobool697.not = icmp eq i8 %353, 0
+  %trace_event_unique_category_group_enabled626689.0 = phi ptr [ %332, %if.then677 ], [ %retval.0.i1033, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1034 ]
+  %335 = load i8, ptr %trace_event_unique_category_group_enabled626689.0, align 1
+  %336 = and i8 %335, 5
+  %tobool697.not = icmp eq i8 %336, 0
   br i1 %tobool697.not, label %do.end708, label %if.then698
 
 if.then698:                                       ; preds = %if.end694
-  %354 = load double, ptr %async_id_, align 8
-  %conv702 = fptosi double %354 to i64
+  %337 = load double, ptr %async_id_, align 8
+  %conv702 = fptosi double %337 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626689.0, ptr noundef nonnull @.str.123, ptr noundef null, i64 noundef %conv702, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data678)
   br label %do.end708
 
 do.end708:                                        ; preds = %if.then698, %if.end694
-  %355 = load ptr, ptr %data678, align 8
-  %cmp.not.i1038 = icmp eq ptr %355, null
-  br i1 %cmp.not.i1038, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1043, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1039
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1039: ; preds = %do.end708
-  %vtable.i.i1040 = load ptr, ptr %355, align 8
-  %vfn.i.i1041 = getelementptr inbounds i8, ptr %vtable.i.i1040, i64 8
-  %356 = load ptr, ptr %vfn.i.i1041, align 8
-  call void %356(ptr noundef nonnull align 8 dereferenceable(42) %355) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1043
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1043: ; preds = %do.end708, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1039
-  store ptr null, ptr %data678, align 8
-  br label %sw.epilog
+  %338 = load ptr, ptr %data678, align 8
+  %cmp.not.i1038 = icmp eq ptr %338, null
+  br i1 %cmp.not.i1038, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb710:                                         ; preds = %if.end68
   %call.i1044 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -8502,36 +8304,36 @@ sw.bb710:                                         ; preds = %if.end68
 if.end.i1046:                                     ; preds = %sw.bb710
   %vtable.i1047 = load ptr, ptr %call.i1044, align 8
   %vfn.i1048 = getelementptr inbounds i8, ptr %vtable.i1047, i64 16
-  %357 = load ptr, ptr %vfn.i1048, align 8
-  %call2.i1049 = call noundef ptr %357(ptr noundef nonnull align 8 dereferenceable(8) %call.i1044, ptr noundef nonnull @.str) #19
+  %339 = load ptr, ptr %vfn.i1048, align 8
+  %call2.i1049 = call noundef ptr %339(ptr noundef nonnull align 8 dereferenceable(8) %call.i1044, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1051
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1051: ; preds = %sw.bb710, %if.end.i1046
   %retval.0.i1050 = phi ptr [ %call2.i1049, %if.end.i1046 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb710 ]
-  %358 = load i8, ptr %retval.0.i1050, align 1
-  %tobool712.not = icmp eq i8 %358, 0
+  %340 = load i8, ptr %retval.0.i1050, align 1
+  %tobool712.not = icmp eq i8 %340, 0
   br i1 %tobool712.not, label %sw.epilog, label %if.then713
 
 if.then713:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1051
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data714) #19
-  %359 = load ptr, ptr %data714, align 8
-  %360 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1053 = getelementptr inbounds i8, ptr %360, i64 176
-  %361 = load ptr, ptr %env_.i.i1053, align 8
-  %buffer_.i.i.i1054 = getelementptr inbounds i8, ptr %361, i64 1032
-  %362 = load ptr, ptr %buffer_.i.i.i1054, align 8
-  %363 = load double, ptr %362, align 8
-  %conv718 = fptosi double %363 to i64
+  %341 = load ptr, ptr %data714, align 8
+  %342 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1053 = getelementptr inbounds i8, ptr %342, i64 176
+  %343 = load ptr, ptr %env_.i.i1053, align 8
+  %buffer_.i.i.i1054 = getelementptr inbounds i8, ptr %343, i64 1032
+  %344 = load ptr, ptr %buffer_.i.i.i1054, align 8
+  %345 = load double, ptr %344, align 8
+  %conv718 = fptosi double %345 to i64
   %conv719 = trunc i64 %conv718 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %359, ptr noundef nonnull @.str.181, i32 noundef %conv719) #19
-  %364 = load ptr, ptr %data714, align 8
-  %365 = load double, ptr %trigger_async_id_, align 8
-  %conv722 = fptosi double %365 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %341, ptr noundef nonnull @.str.181, i32 noundef %conv719) #19
+  %346 = load ptr, ptr %data714, align 8
+  %347 = load double, ptr %trigger_async_id_, align 8
+  %conv722 = fptosi double %347 to i64
   %conv723 = trunc i64 %conv722 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %364, ptr noundef nonnull @.str.182, i32 noundef %conv723) #19
-  %366 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__17_.0 seq_cst, align 8
-  %367 = inttoptr i64 %366 to ptr
-  %tobool727.not = icmp eq i64 %366, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %346, ptr noundef nonnull @.str.182, i32 noundef %conv723) #19
+  %348 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__17_.0 seq_cst, align 8
+  %349 = inttoptr i64 %348 to ptr
+  %tobool727.not = icmp eq i64 %348, 0
   br i1 %tobool727.not, label %if.then728, label %if.end730
 
 if.then728:                                       ; preds = %if.then713
@@ -8542,44 +8344,33 @@ if.then728:                                       ; preds = %if.then713
 if.end.i1058:                                     ; preds = %if.then728
   %vtable.i1059 = load ptr, ptr %call.i1056, align 8
   %vfn.i1060 = getelementptr inbounds i8, ptr %vtable.i1059, i64 16
-  %368 = load ptr, ptr %vfn.i1060, align 8
-  %call2.i1061 = call noundef ptr %368(ptr noundef nonnull align 8 dereferenceable(8) %call.i1056, ptr noundef nonnull @.str) #19
+  %350 = load ptr, ptr %vfn.i1060, align 8
+  %call2.i1061 = call noundef ptr %350(ptr noundef nonnull align 8 dereferenceable(8) %call.i1056, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1063
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1063: ; preds = %if.then728, %if.end.i1058
   %retval.0.i1062 = phi ptr [ %call2.i1061, %if.end.i1058 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then728 ]
-  %369 = ptrtoint ptr %retval.0.i1062 to i64
-  store atomic i64 %369, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__17_.0 seq_cst, align 8
+  %351 = ptrtoint ptr %retval.0.i1062 to i64
+  store atomic i64 %351, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__17_.0 seq_cst, align 8
   br label %if.end730
 
 if.end730:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1063, %if.then713
-  %trace_event_unique_category_group_enabled626725.0 = phi ptr [ %367, %if.then713 ], [ %retval.0.i1062, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1063 ]
-  %370 = load i8, ptr %trace_event_unique_category_group_enabled626725.0, align 1
-  %371 = and i8 %370, 5
-  %tobool733.not = icmp eq i8 %371, 0
+  %trace_event_unique_category_group_enabled626725.0 = phi ptr [ %349, %if.then713 ], [ %retval.0.i1062, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1063 ]
+  %352 = load i8, ptr %trace_event_unique_category_group_enabled626725.0, align 1
+  %353 = and i8 %352, 5
+  %tobool733.not = icmp eq i8 %353, 0
   br i1 %tobool733.not, label %do.end744, label %if.then734
 
 if.then734:                                       ; preds = %if.end730
-  %372 = load double, ptr %async_id_, align 8
-  %conv738 = fptosi double %372 to i64
+  %354 = load double, ptr %async_id_, align 8
+  %conv738 = fptosi double %354 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626725.0, ptr noundef nonnull @.str.124, ptr noundef null, i64 noundef %conv738, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data714)
   br label %do.end744
 
 do.end744:                                        ; preds = %if.then734, %if.end730
-  %373 = load ptr, ptr %data714, align 8
-  %cmp.not.i1067 = icmp eq ptr %373, null
-  br i1 %cmp.not.i1067, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1072, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1068
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1068: ; preds = %do.end744
-  %vtable.i.i1069 = load ptr, ptr %373, align 8
-  %vfn.i.i1070 = getelementptr inbounds i8, ptr %vtable.i.i1069, i64 8
-  %374 = load ptr, ptr %vfn.i.i1070, align 8
-  call void %374(ptr noundef nonnull align 8 dereferenceable(42) %373) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1072
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1072: ; preds = %do.end744, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1068
-  store ptr null, ptr %data714, align 8
-  br label %sw.epilog
+  %355 = load ptr, ptr %data714, align 8
+  %cmp.not.i1067 = icmp eq ptr %355, null
+  br i1 %cmp.not.i1067, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb746:                                         ; preds = %if.end68
   %call.i1073 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -8589,36 +8380,36 @@ sw.bb746:                                         ; preds = %if.end68
 if.end.i1075:                                     ; preds = %sw.bb746
   %vtable.i1076 = load ptr, ptr %call.i1073, align 8
   %vfn.i1077 = getelementptr inbounds i8, ptr %vtable.i1076, i64 16
-  %375 = load ptr, ptr %vfn.i1077, align 8
-  %call2.i1078 = call noundef ptr %375(ptr noundef nonnull align 8 dereferenceable(8) %call.i1073, ptr noundef nonnull @.str) #19
+  %356 = load ptr, ptr %vfn.i1077, align 8
+  %call2.i1078 = call noundef ptr %356(ptr noundef nonnull align 8 dereferenceable(8) %call.i1073, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1080
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1080: ; preds = %sw.bb746, %if.end.i1075
   %retval.0.i1079 = phi ptr [ %call2.i1078, %if.end.i1075 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb746 ]
-  %376 = load i8, ptr %retval.0.i1079, align 1
-  %tobool748.not = icmp eq i8 %376, 0
+  %357 = load i8, ptr %retval.0.i1079, align 1
+  %tobool748.not = icmp eq i8 %357, 0
   br i1 %tobool748.not, label %sw.epilog, label %if.then749
 
 if.then749:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1080
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data750) #19
-  %377 = load ptr, ptr %data750, align 8
-  %378 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1082 = getelementptr inbounds i8, ptr %378, i64 176
-  %379 = load ptr, ptr %env_.i.i1082, align 8
-  %buffer_.i.i.i1083 = getelementptr inbounds i8, ptr %379, i64 1032
-  %380 = load ptr, ptr %buffer_.i.i.i1083, align 8
-  %381 = load double, ptr %380, align 8
-  %conv754 = fptosi double %381 to i64
+  %358 = load ptr, ptr %data750, align 8
+  %359 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1082 = getelementptr inbounds i8, ptr %359, i64 176
+  %360 = load ptr, ptr %env_.i.i1082, align 8
+  %buffer_.i.i.i1083 = getelementptr inbounds i8, ptr %360, i64 1032
+  %361 = load ptr, ptr %buffer_.i.i.i1083, align 8
+  %362 = load double, ptr %361, align 8
+  %conv754 = fptosi double %362 to i64
   %conv755 = trunc i64 %conv754 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %377, ptr noundef nonnull @.str.181, i32 noundef %conv755) #19
-  %382 = load ptr, ptr %data750, align 8
-  %383 = load double, ptr %trigger_async_id_, align 8
-  %conv758 = fptosi double %383 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %358, ptr noundef nonnull @.str.181, i32 noundef %conv755) #19
+  %363 = load ptr, ptr %data750, align 8
+  %364 = load double, ptr %trigger_async_id_, align 8
+  %conv758 = fptosi double %364 to i64
   %conv759 = trunc i64 %conv758 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %382, ptr noundef nonnull @.str.182, i32 noundef %conv759) #19
-  %384 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__18_.0 seq_cst, align 8
-  %385 = inttoptr i64 %384 to ptr
-  %tobool763.not = icmp eq i64 %384, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %363, ptr noundef nonnull @.str.182, i32 noundef %conv759) #19
+  %365 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__18_.0 seq_cst, align 8
+  %366 = inttoptr i64 %365 to ptr
+  %tobool763.not = icmp eq i64 %365, 0
   br i1 %tobool763.not, label %if.then764, label %if.end766
 
 if.then764:                                       ; preds = %if.then749
@@ -8629,44 +8420,33 @@ if.then764:                                       ; preds = %if.then749
 if.end.i1087:                                     ; preds = %if.then764
   %vtable.i1088 = load ptr, ptr %call.i1085, align 8
   %vfn.i1089 = getelementptr inbounds i8, ptr %vtable.i1088, i64 16
-  %386 = load ptr, ptr %vfn.i1089, align 8
-  %call2.i1090 = call noundef ptr %386(ptr noundef nonnull align 8 dereferenceable(8) %call.i1085, ptr noundef nonnull @.str) #19
+  %367 = load ptr, ptr %vfn.i1089, align 8
+  %call2.i1090 = call noundef ptr %367(ptr noundef nonnull align 8 dereferenceable(8) %call.i1085, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1092
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1092: ; preds = %if.then764, %if.end.i1087
   %retval.0.i1091 = phi ptr [ %call2.i1090, %if.end.i1087 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then764 ]
-  %387 = ptrtoint ptr %retval.0.i1091 to i64
-  store atomic i64 %387, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__18_.0 seq_cst, align 8
+  %368 = ptrtoint ptr %retval.0.i1091 to i64
+  store atomic i64 %368, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__18_.0 seq_cst, align 8
   br label %if.end766
 
 if.end766:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1092, %if.then749
-  %trace_event_unique_category_group_enabled626761.0 = phi ptr [ %385, %if.then749 ], [ %retval.0.i1091, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1092 ]
-  %388 = load i8, ptr %trace_event_unique_category_group_enabled626761.0, align 1
-  %389 = and i8 %388, 5
-  %tobool769.not = icmp eq i8 %389, 0
+  %trace_event_unique_category_group_enabled626761.0 = phi ptr [ %366, %if.then749 ], [ %retval.0.i1091, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1092 ]
+  %369 = load i8, ptr %trace_event_unique_category_group_enabled626761.0, align 1
+  %370 = and i8 %369, 5
+  %tobool769.not = icmp eq i8 %370, 0
   br i1 %tobool769.not, label %do.end780, label %if.then770
 
 if.then770:                                       ; preds = %if.end766
-  %390 = load double, ptr %async_id_, align 8
-  %conv774 = fptosi double %390 to i64
+  %371 = load double, ptr %async_id_, align 8
+  %conv774 = fptosi double %371 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626761.0, ptr noundef nonnull @.str.125, ptr noundef null, i64 noundef %conv774, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data750)
   br label %do.end780
 
 do.end780:                                        ; preds = %if.then770, %if.end766
-  %391 = load ptr, ptr %data750, align 8
-  %cmp.not.i1096 = icmp eq ptr %391, null
-  br i1 %cmp.not.i1096, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1101, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1097
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1097: ; preds = %do.end780
-  %vtable.i.i1098 = load ptr, ptr %391, align 8
-  %vfn.i.i1099 = getelementptr inbounds i8, ptr %vtable.i.i1098, i64 8
-  %392 = load ptr, ptr %vfn.i.i1099, align 8
-  call void %392(ptr noundef nonnull align 8 dereferenceable(42) %391) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1101
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1101: ; preds = %do.end780, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1097
-  store ptr null, ptr %data750, align 8
-  br label %sw.epilog
+  %372 = load ptr, ptr %data750, align 8
+  %cmp.not.i1096 = icmp eq ptr %372, null
+  br i1 %cmp.not.i1096, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb782:                                         ; preds = %if.end68
   %call.i1102 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -8676,36 +8456,36 @@ sw.bb782:                                         ; preds = %if.end68
 if.end.i1104:                                     ; preds = %sw.bb782
   %vtable.i1105 = load ptr, ptr %call.i1102, align 8
   %vfn.i1106 = getelementptr inbounds i8, ptr %vtable.i1105, i64 16
-  %393 = load ptr, ptr %vfn.i1106, align 8
-  %call2.i1107 = call noundef ptr %393(ptr noundef nonnull align 8 dereferenceable(8) %call.i1102, ptr noundef nonnull @.str) #19
+  %373 = load ptr, ptr %vfn.i1106, align 8
+  %call2.i1107 = call noundef ptr %373(ptr noundef nonnull align 8 dereferenceable(8) %call.i1102, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1109
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1109: ; preds = %sw.bb782, %if.end.i1104
   %retval.0.i1108 = phi ptr [ %call2.i1107, %if.end.i1104 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb782 ]
-  %394 = load i8, ptr %retval.0.i1108, align 1
-  %tobool784.not = icmp eq i8 %394, 0
+  %374 = load i8, ptr %retval.0.i1108, align 1
+  %tobool784.not = icmp eq i8 %374, 0
   br i1 %tobool784.not, label %sw.epilog, label %if.then785
 
 if.then785:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1109
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data786) #19
-  %395 = load ptr, ptr %data786, align 8
-  %396 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1111 = getelementptr inbounds i8, ptr %396, i64 176
-  %397 = load ptr, ptr %env_.i.i1111, align 8
-  %buffer_.i.i.i1112 = getelementptr inbounds i8, ptr %397, i64 1032
-  %398 = load ptr, ptr %buffer_.i.i.i1112, align 8
-  %399 = load double, ptr %398, align 8
-  %conv790 = fptosi double %399 to i64
+  %375 = load ptr, ptr %data786, align 8
+  %376 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1111 = getelementptr inbounds i8, ptr %376, i64 176
+  %377 = load ptr, ptr %env_.i.i1111, align 8
+  %buffer_.i.i.i1112 = getelementptr inbounds i8, ptr %377, i64 1032
+  %378 = load ptr, ptr %buffer_.i.i.i1112, align 8
+  %379 = load double, ptr %378, align 8
+  %conv790 = fptosi double %379 to i64
   %conv791 = trunc i64 %conv790 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %395, ptr noundef nonnull @.str.181, i32 noundef %conv791) #19
-  %400 = load ptr, ptr %data786, align 8
-  %401 = load double, ptr %trigger_async_id_, align 8
-  %conv794 = fptosi double %401 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %375, ptr noundef nonnull @.str.181, i32 noundef %conv791) #19
+  %380 = load ptr, ptr %data786, align 8
+  %381 = load double, ptr %trigger_async_id_, align 8
+  %conv794 = fptosi double %381 to i64
   %conv795 = trunc i64 %conv794 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %400, ptr noundef nonnull @.str.182, i32 noundef %conv795) #19
-  %402 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__19_.0 seq_cst, align 8
-  %403 = inttoptr i64 %402 to ptr
-  %tobool799.not = icmp eq i64 %402, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %380, ptr noundef nonnull @.str.182, i32 noundef %conv795) #19
+  %382 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__19_.0 seq_cst, align 8
+  %383 = inttoptr i64 %382 to ptr
+  %tobool799.not = icmp eq i64 %382, 0
   br i1 %tobool799.not, label %if.then800, label %if.end802
 
 if.then800:                                       ; preds = %if.then785
@@ -8716,44 +8496,33 @@ if.then800:                                       ; preds = %if.then785
 if.end.i1116:                                     ; preds = %if.then800
   %vtable.i1117 = load ptr, ptr %call.i1114, align 8
   %vfn.i1118 = getelementptr inbounds i8, ptr %vtable.i1117, i64 16
-  %404 = load ptr, ptr %vfn.i1118, align 8
-  %call2.i1119 = call noundef ptr %404(ptr noundef nonnull align 8 dereferenceable(8) %call.i1114, ptr noundef nonnull @.str) #19
+  %384 = load ptr, ptr %vfn.i1118, align 8
+  %call2.i1119 = call noundef ptr %384(ptr noundef nonnull align 8 dereferenceable(8) %call.i1114, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1121
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1121: ; preds = %if.then800, %if.end.i1116
   %retval.0.i1120 = phi ptr [ %call2.i1119, %if.end.i1116 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then800 ]
-  %405 = ptrtoint ptr %retval.0.i1120 to i64
-  store atomic i64 %405, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__19_.0 seq_cst, align 8
+  %385 = ptrtoint ptr %retval.0.i1120 to i64
+  store atomic i64 %385, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__19_.0 seq_cst, align 8
   br label %if.end802
 
 if.end802:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1121, %if.then785
-  %trace_event_unique_category_group_enabled626797.0 = phi ptr [ %403, %if.then785 ], [ %retval.0.i1120, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1121 ]
-  %406 = load i8, ptr %trace_event_unique_category_group_enabled626797.0, align 1
-  %407 = and i8 %406, 5
-  %tobool805.not = icmp eq i8 %407, 0
+  %trace_event_unique_category_group_enabled626797.0 = phi ptr [ %383, %if.then785 ], [ %retval.0.i1120, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1121 ]
+  %386 = load i8, ptr %trace_event_unique_category_group_enabled626797.0, align 1
+  %387 = and i8 %386, 5
+  %tobool805.not = icmp eq i8 %387, 0
   br i1 %tobool805.not, label %do.end816, label %if.then806
 
 if.then806:                                       ; preds = %if.end802
-  %408 = load double, ptr %async_id_, align 8
-  %conv810 = fptosi double %408 to i64
+  %388 = load double, ptr %async_id_, align 8
+  %conv810 = fptosi double %388 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626797.0, ptr noundef nonnull @.str.126, ptr noundef null, i64 noundef %conv810, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data786)
   br label %do.end816
 
 do.end816:                                        ; preds = %if.then806, %if.end802
-  %409 = load ptr, ptr %data786, align 8
-  %cmp.not.i1125 = icmp eq ptr %409, null
-  br i1 %cmp.not.i1125, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1130, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1126
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1126: ; preds = %do.end816
-  %vtable.i.i1127 = load ptr, ptr %409, align 8
-  %vfn.i.i1128 = getelementptr inbounds i8, ptr %vtable.i.i1127, i64 8
-  %410 = load ptr, ptr %vfn.i.i1128, align 8
-  call void %410(ptr noundef nonnull align 8 dereferenceable(42) %409) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1130
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1130: ; preds = %do.end816, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1126
-  store ptr null, ptr %data786, align 8
-  br label %sw.epilog
+  %389 = load ptr, ptr %data786, align 8
+  %cmp.not.i1125 = icmp eq ptr %389, null
+  br i1 %cmp.not.i1125, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb818:                                         ; preds = %if.end68
   %call.i1131 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -8763,36 +8532,36 @@ sw.bb818:                                         ; preds = %if.end68
 if.end.i1133:                                     ; preds = %sw.bb818
   %vtable.i1134 = load ptr, ptr %call.i1131, align 8
   %vfn.i1135 = getelementptr inbounds i8, ptr %vtable.i1134, i64 16
-  %411 = load ptr, ptr %vfn.i1135, align 8
-  %call2.i1136 = call noundef ptr %411(ptr noundef nonnull align 8 dereferenceable(8) %call.i1131, ptr noundef nonnull @.str) #19
+  %390 = load ptr, ptr %vfn.i1135, align 8
+  %call2.i1136 = call noundef ptr %390(ptr noundef nonnull align 8 dereferenceable(8) %call.i1131, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1138
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1138: ; preds = %sw.bb818, %if.end.i1133
   %retval.0.i1137 = phi ptr [ %call2.i1136, %if.end.i1133 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb818 ]
-  %412 = load i8, ptr %retval.0.i1137, align 1
-  %tobool820.not = icmp eq i8 %412, 0
+  %391 = load i8, ptr %retval.0.i1137, align 1
+  %tobool820.not = icmp eq i8 %391, 0
   br i1 %tobool820.not, label %sw.epilog, label %if.then821
 
 if.then821:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1138
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data822) #19
-  %413 = load ptr, ptr %data822, align 8
-  %414 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1140 = getelementptr inbounds i8, ptr %414, i64 176
-  %415 = load ptr, ptr %env_.i.i1140, align 8
-  %buffer_.i.i.i1141 = getelementptr inbounds i8, ptr %415, i64 1032
-  %416 = load ptr, ptr %buffer_.i.i.i1141, align 8
-  %417 = load double, ptr %416, align 8
-  %conv826 = fptosi double %417 to i64
+  %392 = load ptr, ptr %data822, align 8
+  %393 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1140 = getelementptr inbounds i8, ptr %393, i64 176
+  %394 = load ptr, ptr %env_.i.i1140, align 8
+  %buffer_.i.i.i1141 = getelementptr inbounds i8, ptr %394, i64 1032
+  %395 = load ptr, ptr %buffer_.i.i.i1141, align 8
+  %396 = load double, ptr %395, align 8
+  %conv826 = fptosi double %396 to i64
   %conv827 = trunc i64 %conv826 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %413, ptr noundef nonnull @.str.181, i32 noundef %conv827) #19
-  %418 = load ptr, ptr %data822, align 8
-  %419 = load double, ptr %trigger_async_id_, align 8
-  %conv830 = fptosi double %419 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %392, ptr noundef nonnull @.str.181, i32 noundef %conv827) #19
+  %397 = load ptr, ptr %data822, align 8
+  %398 = load double, ptr %trigger_async_id_, align 8
+  %conv830 = fptosi double %398 to i64
   %conv831 = trunc i64 %conv830 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %418, ptr noundef nonnull @.str.182, i32 noundef %conv831) #19
-  %420 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__20_.0 seq_cst, align 8
-  %421 = inttoptr i64 %420 to ptr
-  %tobool835.not = icmp eq i64 %420, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %397, ptr noundef nonnull @.str.182, i32 noundef %conv831) #19
+  %399 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__20_.0 seq_cst, align 8
+  %400 = inttoptr i64 %399 to ptr
+  %tobool835.not = icmp eq i64 %399, 0
   br i1 %tobool835.not, label %if.then836, label %if.end838
 
 if.then836:                                       ; preds = %if.then821
@@ -8803,44 +8572,33 @@ if.then836:                                       ; preds = %if.then821
 if.end.i1145:                                     ; preds = %if.then836
   %vtable.i1146 = load ptr, ptr %call.i1143, align 8
   %vfn.i1147 = getelementptr inbounds i8, ptr %vtable.i1146, i64 16
-  %422 = load ptr, ptr %vfn.i1147, align 8
-  %call2.i1148 = call noundef ptr %422(ptr noundef nonnull align 8 dereferenceable(8) %call.i1143, ptr noundef nonnull @.str) #19
+  %401 = load ptr, ptr %vfn.i1147, align 8
+  %call2.i1148 = call noundef ptr %401(ptr noundef nonnull align 8 dereferenceable(8) %call.i1143, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1150
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1150: ; preds = %if.then836, %if.end.i1145
   %retval.0.i1149 = phi ptr [ %call2.i1148, %if.end.i1145 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then836 ]
-  %423 = ptrtoint ptr %retval.0.i1149 to i64
-  store atomic i64 %423, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__20_.0 seq_cst, align 8
+  %402 = ptrtoint ptr %retval.0.i1149 to i64
+  store atomic i64 %402, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__20_.0 seq_cst, align 8
   br label %if.end838
 
 if.end838:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1150, %if.then821
-  %trace_event_unique_category_group_enabled626833.0 = phi ptr [ %421, %if.then821 ], [ %retval.0.i1149, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1150 ]
-  %424 = load i8, ptr %trace_event_unique_category_group_enabled626833.0, align 1
-  %425 = and i8 %424, 5
-  %tobool841.not = icmp eq i8 %425, 0
+  %trace_event_unique_category_group_enabled626833.0 = phi ptr [ %400, %if.then821 ], [ %retval.0.i1149, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1150 ]
+  %403 = load i8, ptr %trace_event_unique_category_group_enabled626833.0, align 1
+  %404 = and i8 %403, 5
+  %tobool841.not = icmp eq i8 %404, 0
   br i1 %tobool841.not, label %do.end852, label %if.then842
 
 if.then842:                                       ; preds = %if.end838
-  %426 = load double, ptr %async_id_, align 8
-  %conv846 = fptosi double %426 to i64
+  %405 = load double, ptr %async_id_, align 8
+  %conv846 = fptosi double %405 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626833.0, ptr noundef nonnull @.str.127, ptr noundef null, i64 noundef %conv846, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data822)
   br label %do.end852
 
 do.end852:                                        ; preds = %if.then842, %if.end838
-  %427 = load ptr, ptr %data822, align 8
-  %cmp.not.i1154 = icmp eq ptr %427, null
-  br i1 %cmp.not.i1154, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1159, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1155
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1155: ; preds = %do.end852
-  %vtable.i.i1156 = load ptr, ptr %427, align 8
-  %vfn.i.i1157 = getelementptr inbounds i8, ptr %vtable.i.i1156, i64 8
-  %428 = load ptr, ptr %vfn.i.i1157, align 8
-  call void %428(ptr noundef nonnull align 8 dereferenceable(42) %427) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1159
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1159: ; preds = %do.end852, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1155
-  store ptr null, ptr %data822, align 8
-  br label %sw.epilog
+  %406 = load ptr, ptr %data822, align 8
+  %cmp.not.i1154 = icmp eq ptr %406, null
+  br i1 %cmp.not.i1154, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb854:                                         ; preds = %if.end68
   %call.i1160 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -8850,36 +8608,36 @@ sw.bb854:                                         ; preds = %if.end68
 if.end.i1162:                                     ; preds = %sw.bb854
   %vtable.i1163 = load ptr, ptr %call.i1160, align 8
   %vfn.i1164 = getelementptr inbounds i8, ptr %vtable.i1163, i64 16
-  %429 = load ptr, ptr %vfn.i1164, align 8
-  %call2.i1165 = call noundef ptr %429(ptr noundef nonnull align 8 dereferenceable(8) %call.i1160, ptr noundef nonnull @.str) #19
+  %407 = load ptr, ptr %vfn.i1164, align 8
+  %call2.i1165 = call noundef ptr %407(ptr noundef nonnull align 8 dereferenceable(8) %call.i1160, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1167
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1167: ; preds = %sw.bb854, %if.end.i1162
   %retval.0.i1166 = phi ptr [ %call2.i1165, %if.end.i1162 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb854 ]
-  %430 = load i8, ptr %retval.0.i1166, align 1
-  %tobool856.not = icmp eq i8 %430, 0
+  %408 = load i8, ptr %retval.0.i1166, align 1
+  %tobool856.not = icmp eq i8 %408, 0
   br i1 %tobool856.not, label %sw.epilog, label %if.then857
 
 if.then857:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1167
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data858) #19
-  %431 = load ptr, ptr %data858, align 8
-  %432 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1169 = getelementptr inbounds i8, ptr %432, i64 176
-  %433 = load ptr, ptr %env_.i.i1169, align 8
-  %buffer_.i.i.i1170 = getelementptr inbounds i8, ptr %433, i64 1032
-  %434 = load ptr, ptr %buffer_.i.i.i1170, align 8
-  %435 = load double, ptr %434, align 8
-  %conv862 = fptosi double %435 to i64
+  %409 = load ptr, ptr %data858, align 8
+  %410 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1169 = getelementptr inbounds i8, ptr %410, i64 176
+  %411 = load ptr, ptr %env_.i.i1169, align 8
+  %buffer_.i.i.i1170 = getelementptr inbounds i8, ptr %411, i64 1032
+  %412 = load ptr, ptr %buffer_.i.i.i1170, align 8
+  %413 = load double, ptr %412, align 8
+  %conv862 = fptosi double %413 to i64
   %conv863 = trunc i64 %conv862 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %431, ptr noundef nonnull @.str.181, i32 noundef %conv863) #19
-  %436 = load ptr, ptr %data858, align 8
-  %437 = load double, ptr %trigger_async_id_, align 8
-  %conv866 = fptosi double %437 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %409, ptr noundef nonnull @.str.181, i32 noundef %conv863) #19
+  %414 = load ptr, ptr %data858, align 8
+  %415 = load double, ptr %trigger_async_id_, align 8
+  %conv866 = fptosi double %415 to i64
   %conv867 = trunc i64 %conv866 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %436, ptr noundef nonnull @.str.182, i32 noundef %conv867) #19
-  %438 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__21_.0 seq_cst, align 8
-  %439 = inttoptr i64 %438 to ptr
-  %tobool871.not = icmp eq i64 %438, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %414, ptr noundef nonnull @.str.182, i32 noundef %conv867) #19
+  %416 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__21_.0 seq_cst, align 8
+  %417 = inttoptr i64 %416 to ptr
+  %tobool871.not = icmp eq i64 %416, 0
   br i1 %tobool871.not, label %if.then872, label %if.end874
 
 if.then872:                                       ; preds = %if.then857
@@ -8890,44 +8648,33 @@ if.then872:                                       ; preds = %if.then857
 if.end.i1174:                                     ; preds = %if.then872
   %vtable.i1175 = load ptr, ptr %call.i1172, align 8
   %vfn.i1176 = getelementptr inbounds i8, ptr %vtable.i1175, i64 16
-  %440 = load ptr, ptr %vfn.i1176, align 8
-  %call2.i1177 = call noundef ptr %440(ptr noundef nonnull align 8 dereferenceable(8) %call.i1172, ptr noundef nonnull @.str) #19
+  %418 = load ptr, ptr %vfn.i1176, align 8
+  %call2.i1177 = call noundef ptr %418(ptr noundef nonnull align 8 dereferenceable(8) %call.i1172, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1179
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1179: ; preds = %if.then872, %if.end.i1174
   %retval.0.i1178 = phi ptr [ %call2.i1177, %if.end.i1174 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then872 ]
-  %441 = ptrtoint ptr %retval.0.i1178 to i64
-  store atomic i64 %441, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__21_.0 seq_cst, align 8
+  %419 = ptrtoint ptr %retval.0.i1178 to i64
+  store atomic i64 %419, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__21_.0 seq_cst, align 8
   br label %if.end874
 
 if.end874:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1179, %if.then857
-  %trace_event_unique_category_group_enabled626869.0 = phi ptr [ %439, %if.then857 ], [ %retval.0.i1178, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1179 ]
-  %442 = load i8, ptr %trace_event_unique_category_group_enabled626869.0, align 1
-  %443 = and i8 %442, 5
-  %tobool877.not = icmp eq i8 %443, 0
+  %trace_event_unique_category_group_enabled626869.0 = phi ptr [ %417, %if.then857 ], [ %retval.0.i1178, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1179 ]
+  %420 = load i8, ptr %trace_event_unique_category_group_enabled626869.0, align 1
+  %421 = and i8 %420, 5
+  %tobool877.not = icmp eq i8 %421, 0
   br i1 %tobool877.not, label %do.end888, label %if.then878
 
 if.then878:                                       ; preds = %if.end874
-  %444 = load double, ptr %async_id_, align 8
-  %conv882 = fptosi double %444 to i64
+  %422 = load double, ptr %async_id_, align 8
+  %conv882 = fptosi double %422 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626869.0, ptr noundef nonnull @.str.128, ptr noundef null, i64 noundef %conv882, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data858)
   br label %do.end888
 
 do.end888:                                        ; preds = %if.then878, %if.end874
-  %445 = load ptr, ptr %data858, align 8
-  %cmp.not.i1183 = icmp eq ptr %445, null
-  br i1 %cmp.not.i1183, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1188, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1184
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1184: ; preds = %do.end888
-  %vtable.i.i1185 = load ptr, ptr %445, align 8
-  %vfn.i.i1186 = getelementptr inbounds i8, ptr %vtable.i.i1185, i64 8
-  %446 = load ptr, ptr %vfn.i.i1186, align 8
-  call void %446(ptr noundef nonnull align 8 dereferenceable(42) %445) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1188
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1188: ; preds = %do.end888, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1184
-  store ptr null, ptr %data858, align 8
-  br label %sw.epilog
+  %423 = load ptr, ptr %data858, align 8
+  %cmp.not.i1183 = icmp eq ptr %423, null
+  br i1 %cmp.not.i1183, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb890:                                         ; preds = %if.end68
   %call.i1189 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -8937,36 +8684,36 @@ sw.bb890:                                         ; preds = %if.end68
 if.end.i1191:                                     ; preds = %sw.bb890
   %vtable.i1192 = load ptr, ptr %call.i1189, align 8
   %vfn.i1193 = getelementptr inbounds i8, ptr %vtable.i1192, i64 16
-  %447 = load ptr, ptr %vfn.i1193, align 8
-  %call2.i1194 = call noundef ptr %447(ptr noundef nonnull align 8 dereferenceable(8) %call.i1189, ptr noundef nonnull @.str) #19
+  %424 = load ptr, ptr %vfn.i1193, align 8
+  %call2.i1194 = call noundef ptr %424(ptr noundef nonnull align 8 dereferenceable(8) %call.i1189, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1196
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1196: ; preds = %sw.bb890, %if.end.i1191
   %retval.0.i1195 = phi ptr [ %call2.i1194, %if.end.i1191 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb890 ]
-  %448 = load i8, ptr %retval.0.i1195, align 1
-  %tobool892.not = icmp eq i8 %448, 0
+  %425 = load i8, ptr %retval.0.i1195, align 1
+  %tobool892.not = icmp eq i8 %425, 0
   br i1 %tobool892.not, label %sw.epilog, label %if.then893
 
 if.then893:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1196
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data894) #19
-  %449 = load ptr, ptr %data894, align 8
-  %450 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1198 = getelementptr inbounds i8, ptr %450, i64 176
-  %451 = load ptr, ptr %env_.i.i1198, align 8
-  %buffer_.i.i.i1199 = getelementptr inbounds i8, ptr %451, i64 1032
-  %452 = load ptr, ptr %buffer_.i.i.i1199, align 8
-  %453 = load double, ptr %452, align 8
-  %conv898 = fptosi double %453 to i64
+  %426 = load ptr, ptr %data894, align 8
+  %427 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1198 = getelementptr inbounds i8, ptr %427, i64 176
+  %428 = load ptr, ptr %env_.i.i1198, align 8
+  %buffer_.i.i.i1199 = getelementptr inbounds i8, ptr %428, i64 1032
+  %429 = load ptr, ptr %buffer_.i.i.i1199, align 8
+  %430 = load double, ptr %429, align 8
+  %conv898 = fptosi double %430 to i64
   %conv899 = trunc i64 %conv898 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %449, ptr noundef nonnull @.str.181, i32 noundef %conv899) #19
-  %454 = load ptr, ptr %data894, align 8
-  %455 = load double, ptr %trigger_async_id_, align 8
-  %conv902 = fptosi double %455 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %426, ptr noundef nonnull @.str.181, i32 noundef %conv899) #19
+  %431 = load ptr, ptr %data894, align 8
+  %432 = load double, ptr %trigger_async_id_, align 8
+  %conv902 = fptosi double %432 to i64
   %conv903 = trunc i64 %conv902 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %454, ptr noundef nonnull @.str.182, i32 noundef %conv903) #19
-  %456 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__22_.0 seq_cst, align 8
-  %457 = inttoptr i64 %456 to ptr
-  %tobool907.not = icmp eq i64 %456, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %431, ptr noundef nonnull @.str.182, i32 noundef %conv903) #19
+  %433 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__22_.0 seq_cst, align 8
+  %434 = inttoptr i64 %433 to ptr
+  %tobool907.not = icmp eq i64 %433, 0
   br i1 %tobool907.not, label %if.then908, label %if.end910
 
 if.then908:                                       ; preds = %if.then893
@@ -8977,44 +8724,33 @@ if.then908:                                       ; preds = %if.then893
 if.end.i1203:                                     ; preds = %if.then908
   %vtable.i1204 = load ptr, ptr %call.i1201, align 8
   %vfn.i1205 = getelementptr inbounds i8, ptr %vtable.i1204, i64 16
-  %458 = load ptr, ptr %vfn.i1205, align 8
-  %call2.i1206 = call noundef ptr %458(ptr noundef nonnull align 8 dereferenceable(8) %call.i1201, ptr noundef nonnull @.str) #19
+  %435 = load ptr, ptr %vfn.i1205, align 8
+  %call2.i1206 = call noundef ptr %435(ptr noundef nonnull align 8 dereferenceable(8) %call.i1201, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1208
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1208: ; preds = %if.then908, %if.end.i1203
   %retval.0.i1207 = phi ptr [ %call2.i1206, %if.end.i1203 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then908 ]
-  %459 = ptrtoint ptr %retval.0.i1207 to i64
-  store atomic i64 %459, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__22_.0 seq_cst, align 8
+  %436 = ptrtoint ptr %retval.0.i1207 to i64
+  store atomic i64 %436, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__22_.0 seq_cst, align 8
   br label %if.end910
 
 if.end910:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1208, %if.then893
-  %trace_event_unique_category_group_enabled626905.0 = phi ptr [ %457, %if.then893 ], [ %retval.0.i1207, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1208 ]
-  %460 = load i8, ptr %trace_event_unique_category_group_enabled626905.0, align 1
-  %461 = and i8 %460, 5
-  %tobool913.not = icmp eq i8 %461, 0
+  %trace_event_unique_category_group_enabled626905.0 = phi ptr [ %434, %if.then893 ], [ %retval.0.i1207, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1208 ]
+  %437 = load i8, ptr %trace_event_unique_category_group_enabled626905.0, align 1
+  %438 = and i8 %437, 5
+  %tobool913.not = icmp eq i8 %438, 0
   br i1 %tobool913.not, label %do.end924, label %if.then914
 
 if.then914:                                       ; preds = %if.end910
-  %462 = load double, ptr %async_id_, align 8
-  %conv918 = fptosi double %462 to i64
+  %439 = load double, ptr %async_id_, align 8
+  %conv918 = fptosi double %439 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626905.0, ptr noundef nonnull @.str.129, ptr noundef null, i64 noundef %conv918, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data894)
   br label %do.end924
 
 do.end924:                                        ; preds = %if.then914, %if.end910
-  %463 = load ptr, ptr %data894, align 8
-  %cmp.not.i1212 = icmp eq ptr %463, null
-  br i1 %cmp.not.i1212, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1217, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1213
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1213: ; preds = %do.end924
-  %vtable.i.i1214 = load ptr, ptr %463, align 8
-  %vfn.i.i1215 = getelementptr inbounds i8, ptr %vtable.i.i1214, i64 8
-  %464 = load ptr, ptr %vfn.i.i1215, align 8
-  call void %464(ptr noundef nonnull align 8 dereferenceable(42) %463) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1217
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1217: ; preds = %do.end924, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1213
-  store ptr null, ptr %data894, align 8
-  br label %sw.epilog
+  %440 = load ptr, ptr %data894, align 8
+  %cmp.not.i1212 = icmp eq ptr %440, null
+  br i1 %cmp.not.i1212, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb926:                                         ; preds = %if.end68
   %call.i1218 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -9024,36 +8760,36 @@ sw.bb926:                                         ; preds = %if.end68
 if.end.i1220:                                     ; preds = %sw.bb926
   %vtable.i1221 = load ptr, ptr %call.i1218, align 8
   %vfn.i1222 = getelementptr inbounds i8, ptr %vtable.i1221, i64 16
-  %465 = load ptr, ptr %vfn.i1222, align 8
-  %call2.i1223 = call noundef ptr %465(ptr noundef nonnull align 8 dereferenceable(8) %call.i1218, ptr noundef nonnull @.str) #19
+  %441 = load ptr, ptr %vfn.i1222, align 8
+  %call2.i1223 = call noundef ptr %441(ptr noundef nonnull align 8 dereferenceable(8) %call.i1218, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1225
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1225: ; preds = %sw.bb926, %if.end.i1220
   %retval.0.i1224 = phi ptr [ %call2.i1223, %if.end.i1220 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb926 ]
-  %466 = load i8, ptr %retval.0.i1224, align 1
-  %tobool928.not = icmp eq i8 %466, 0
+  %442 = load i8, ptr %retval.0.i1224, align 1
+  %tobool928.not = icmp eq i8 %442, 0
   br i1 %tobool928.not, label %sw.epilog, label %if.then929
 
 if.then929:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1225
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data930) #19
-  %467 = load ptr, ptr %data930, align 8
-  %468 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1227 = getelementptr inbounds i8, ptr %468, i64 176
-  %469 = load ptr, ptr %env_.i.i1227, align 8
-  %buffer_.i.i.i1228 = getelementptr inbounds i8, ptr %469, i64 1032
-  %470 = load ptr, ptr %buffer_.i.i.i1228, align 8
-  %471 = load double, ptr %470, align 8
-  %conv934 = fptosi double %471 to i64
+  %443 = load ptr, ptr %data930, align 8
+  %444 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1227 = getelementptr inbounds i8, ptr %444, i64 176
+  %445 = load ptr, ptr %env_.i.i1227, align 8
+  %buffer_.i.i.i1228 = getelementptr inbounds i8, ptr %445, i64 1032
+  %446 = load ptr, ptr %buffer_.i.i.i1228, align 8
+  %447 = load double, ptr %446, align 8
+  %conv934 = fptosi double %447 to i64
   %conv935 = trunc i64 %conv934 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %467, ptr noundef nonnull @.str.181, i32 noundef %conv935) #19
-  %472 = load ptr, ptr %data930, align 8
-  %473 = load double, ptr %trigger_async_id_, align 8
-  %conv938 = fptosi double %473 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %443, ptr noundef nonnull @.str.181, i32 noundef %conv935) #19
+  %448 = load ptr, ptr %data930, align 8
+  %449 = load double, ptr %trigger_async_id_, align 8
+  %conv938 = fptosi double %449 to i64
   %conv939 = trunc i64 %conv938 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %472, ptr noundef nonnull @.str.182, i32 noundef %conv939) #19
-  %474 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__23_.0 seq_cst, align 8
-  %475 = inttoptr i64 %474 to ptr
-  %tobool943.not = icmp eq i64 %474, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %448, ptr noundef nonnull @.str.182, i32 noundef %conv939) #19
+  %450 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__23_.0 seq_cst, align 8
+  %451 = inttoptr i64 %450 to ptr
+  %tobool943.not = icmp eq i64 %450, 0
   br i1 %tobool943.not, label %if.then944, label %if.end946
 
 if.then944:                                       ; preds = %if.then929
@@ -9064,44 +8800,33 @@ if.then944:                                       ; preds = %if.then929
 if.end.i1232:                                     ; preds = %if.then944
   %vtable.i1233 = load ptr, ptr %call.i1230, align 8
   %vfn.i1234 = getelementptr inbounds i8, ptr %vtable.i1233, i64 16
-  %476 = load ptr, ptr %vfn.i1234, align 8
-  %call2.i1235 = call noundef ptr %476(ptr noundef nonnull align 8 dereferenceable(8) %call.i1230, ptr noundef nonnull @.str) #19
+  %452 = load ptr, ptr %vfn.i1234, align 8
+  %call2.i1235 = call noundef ptr %452(ptr noundef nonnull align 8 dereferenceable(8) %call.i1230, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1237
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1237: ; preds = %if.then944, %if.end.i1232
   %retval.0.i1236 = phi ptr [ %call2.i1235, %if.end.i1232 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then944 ]
-  %477 = ptrtoint ptr %retval.0.i1236 to i64
-  store atomic i64 %477, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__23_.0 seq_cst, align 8
+  %453 = ptrtoint ptr %retval.0.i1236 to i64
+  store atomic i64 %453, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__23_.0 seq_cst, align 8
   br label %if.end946
 
 if.end946:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1237, %if.then929
-  %trace_event_unique_category_group_enabled626941.0 = phi ptr [ %475, %if.then929 ], [ %retval.0.i1236, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1237 ]
-  %478 = load i8, ptr %trace_event_unique_category_group_enabled626941.0, align 1
-  %479 = and i8 %478, 5
-  %tobool949.not = icmp eq i8 %479, 0
+  %trace_event_unique_category_group_enabled626941.0 = phi ptr [ %451, %if.then929 ], [ %retval.0.i1236, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1237 ]
+  %454 = load i8, ptr %trace_event_unique_category_group_enabled626941.0, align 1
+  %455 = and i8 %454, 5
+  %tobool949.not = icmp eq i8 %455, 0
   br i1 %tobool949.not, label %do.end960, label %if.then950
 
 if.then950:                                       ; preds = %if.end946
-  %480 = load double, ptr %async_id_, align 8
-  %conv954 = fptosi double %480 to i64
+  %456 = load double, ptr %async_id_, align 8
+  %conv954 = fptosi double %456 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626941.0, ptr noundef nonnull @.str.130, ptr noundef null, i64 noundef %conv954, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data930)
   br label %do.end960
 
 do.end960:                                        ; preds = %if.then950, %if.end946
-  %481 = load ptr, ptr %data930, align 8
-  %cmp.not.i1241 = icmp eq ptr %481, null
-  br i1 %cmp.not.i1241, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1246, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1242
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1242: ; preds = %do.end960
-  %vtable.i.i1243 = load ptr, ptr %481, align 8
-  %vfn.i.i1244 = getelementptr inbounds i8, ptr %vtable.i.i1243, i64 8
-  %482 = load ptr, ptr %vfn.i.i1244, align 8
-  call void %482(ptr noundef nonnull align 8 dereferenceable(42) %481) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1246
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1246: ; preds = %do.end960, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1242
-  store ptr null, ptr %data930, align 8
-  br label %sw.epilog
+  %457 = load ptr, ptr %data930, align 8
+  %cmp.not.i1241 = icmp eq ptr %457, null
+  br i1 %cmp.not.i1241, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb962:                                         ; preds = %if.end68
   %call.i1247 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -9111,36 +8836,36 @@ sw.bb962:                                         ; preds = %if.end68
 if.end.i1249:                                     ; preds = %sw.bb962
   %vtable.i1250 = load ptr, ptr %call.i1247, align 8
   %vfn.i1251 = getelementptr inbounds i8, ptr %vtable.i1250, i64 16
-  %483 = load ptr, ptr %vfn.i1251, align 8
-  %call2.i1252 = call noundef ptr %483(ptr noundef nonnull align 8 dereferenceable(8) %call.i1247, ptr noundef nonnull @.str) #19
+  %458 = load ptr, ptr %vfn.i1251, align 8
+  %call2.i1252 = call noundef ptr %458(ptr noundef nonnull align 8 dereferenceable(8) %call.i1247, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1254
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1254: ; preds = %sw.bb962, %if.end.i1249
   %retval.0.i1253 = phi ptr [ %call2.i1252, %if.end.i1249 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb962 ]
-  %484 = load i8, ptr %retval.0.i1253, align 1
-  %tobool964.not = icmp eq i8 %484, 0
+  %459 = load i8, ptr %retval.0.i1253, align 1
+  %tobool964.not = icmp eq i8 %459, 0
   br i1 %tobool964.not, label %sw.epilog, label %if.then965
 
 if.then965:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1254
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data966) #19
-  %485 = load ptr, ptr %data966, align 8
-  %486 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1256 = getelementptr inbounds i8, ptr %486, i64 176
-  %487 = load ptr, ptr %env_.i.i1256, align 8
-  %buffer_.i.i.i1257 = getelementptr inbounds i8, ptr %487, i64 1032
-  %488 = load ptr, ptr %buffer_.i.i.i1257, align 8
-  %489 = load double, ptr %488, align 8
-  %conv970 = fptosi double %489 to i64
+  %460 = load ptr, ptr %data966, align 8
+  %461 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1256 = getelementptr inbounds i8, ptr %461, i64 176
+  %462 = load ptr, ptr %env_.i.i1256, align 8
+  %buffer_.i.i.i1257 = getelementptr inbounds i8, ptr %462, i64 1032
+  %463 = load ptr, ptr %buffer_.i.i.i1257, align 8
+  %464 = load double, ptr %463, align 8
+  %conv970 = fptosi double %464 to i64
   %conv971 = trunc i64 %conv970 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %485, ptr noundef nonnull @.str.181, i32 noundef %conv971) #19
-  %490 = load ptr, ptr %data966, align 8
-  %491 = load double, ptr %trigger_async_id_, align 8
-  %conv974 = fptosi double %491 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %460, ptr noundef nonnull @.str.181, i32 noundef %conv971) #19
+  %465 = load ptr, ptr %data966, align 8
+  %466 = load double, ptr %trigger_async_id_, align 8
+  %conv974 = fptosi double %466 to i64
   %conv975 = trunc i64 %conv974 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %490, ptr noundef nonnull @.str.182, i32 noundef %conv975) #19
-  %492 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__24_.0 seq_cst, align 8
-  %493 = inttoptr i64 %492 to ptr
-  %tobool979.not = icmp eq i64 %492, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %465, ptr noundef nonnull @.str.182, i32 noundef %conv975) #19
+  %467 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__24_.0 seq_cst, align 8
+  %468 = inttoptr i64 %467 to ptr
+  %tobool979.not = icmp eq i64 %467, 0
   br i1 %tobool979.not, label %if.then980, label %if.end982
 
 if.then980:                                       ; preds = %if.then965
@@ -9151,44 +8876,33 @@ if.then980:                                       ; preds = %if.then965
 if.end.i1261:                                     ; preds = %if.then980
   %vtable.i1262 = load ptr, ptr %call.i1259, align 8
   %vfn.i1263 = getelementptr inbounds i8, ptr %vtable.i1262, i64 16
-  %494 = load ptr, ptr %vfn.i1263, align 8
-  %call2.i1264 = call noundef ptr %494(ptr noundef nonnull align 8 dereferenceable(8) %call.i1259, ptr noundef nonnull @.str) #19
+  %469 = load ptr, ptr %vfn.i1263, align 8
+  %call2.i1264 = call noundef ptr %469(ptr noundef nonnull align 8 dereferenceable(8) %call.i1259, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1266
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1266: ; preds = %if.then980, %if.end.i1261
   %retval.0.i1265 = phi ptr [ %call2.i1264, %if.end.i1261 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then980 ]
-  %495 = ptrtoint ptr %retval.0.i1265 to i64
-  store atomic i64 %495, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__24_.0 seq_cst, align 8
+  %470 = ptrtoint ptr %retval.0.i1265 to i64
+  store atomic i64 %470, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__24_.0 seq_cst, align 8
   br label %if.end982
 
 if.end982:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1266, %if.then965
-  %trace_event_unique_category_group_enabled626977.0 = phi ptr [ %493, %if.then965 ], [ %retval.0.i1265, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1266 ]
-  %496 = load i8, ptr %trace_event_unique_category_group_enabled626977.0, align 1
-  %497 = and i8 %496, 5
-  %tobool985.not = icmp eq i8 %497, 0
+  %trace_event_unique_category_group_enabled626977.0 = phi ptr [ %468, %if.then965 ], [ %retval.0.i1265, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1266 ]
+  %471 = load i8, ptr %trace_event_unique_category_group_enabled626977.0, align 1
+  %472 = and i8 %471, 5
+  %tobool985.not = icmp eq i8 %472, 0
   br i1 %tobool985.not, label %do.end996, label %if.then986
 
 if.then986:                                       ; preds = %if.end982
-  %498 = load double, ptr %async_id_, align 8
-  %conv990 = fptosi double %498 to i64
+  %473 = load double, ptr %async_id_, align 8
+  %conv990 = fptosi double %473 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626977.0, ptr noundef nonnull @.str.131, ptr noundef null, i64 noundef %conv990, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data966)
   br label %do.end996
 
 do.end996:                                        ; preds = %if.then986, %if.end982
-  %499 = load ptr, ptr %data966, align 8
-  %cmp.not.i1270 = icmp eq ptr %499, null
-  br i1 %cmp.not.i1270, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1275, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1271
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1271: ; preds = %do.end996
-  %vtable.i.i1272 = load ptr, ptr %499, align 8
-  %vfn.i.i1273 = getelementptr inbounds i8, ptr %vtable.i.i1272, i64 8
-  %500 = load ptr, ptr %vfn.i.i1273, align 8
-  call void %500(ptr noundef nonnull align 8 dereferenceable(42) %499) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1275
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1275: ; preds = %do.end996, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1271
-  store ptr null, ptr %data966, align 8
-  br label %sw.epilog
+  %474 = load ptr, ptr %data966, align 8
+  %cmp.not.i1270 = icmp eq ptr %474, null
+  br i1 %cmp.not.i1270, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb998:                                         ; preds = %if.end68
   %call.i1276 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -9198,36 +8912,36 @@ sw.bb998:                                         ; preds = %if.end68
 if.end.i1278:                                     ; preds = %sw.bb998
   %vtable.i1279 = load ptr, ptr %call.i1276, align 8
   %vfn.i1280 = getelementptr inbounds i8, ptr %vtable.i1279, i64 16
-  %501 = load ptr, ptr %vfn.i1280, align 8
-  %call2.i1281 = call noundef ptr %501(ptr noundef nonnull align 8 dereferenceable(8) %call.i1276, ptr noundef nonnull @.str) #19
+  %475 = load ptr, ptr %vfn.i1280, align 8
+  %call2.i1281 = call noundef ptr %475(ptr noundef nonnull align 8 dereferenceable(8) %call.i1276, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1283
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1283: ; preds = %sw.bb998, %if.end.i1278
   %retval.0.i1282 = phi ptr [ %call2.i1281, %if.end.i1278 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb998 ]
-  %502 = load i8, ptr %retval.0.i1282, align 1
-  %tobool1000.not = icmp eq i8 %502, 0
+  %476 = load i8, ptr %retval.0.i1282, align 1
+  %tobool1000.not = icmp eq i8 %476, 0
   br i1 %tobool1000.not, label %sw.epilog, label %if.then1001
 
 if.then1001:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1283
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1002) #19
-  %503 = load ptr, ptr %data1002, align 8
-  %504 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1285 = getelementptr inbounds i8, ptr %504, i64 176
-  %505 = load ptr, ptr %env_.i.i1285, align 8
-  %buffer_.i.i.i1286 = getelementptr inbounds i8, ptr %505, i64 1032
-  %506 = load ptr, ptr %buffer_.i.i.i1286, align 8
-  %507 = load double, ptr %506, align 8
-  %conv1006 = fptosi double %507 to i64
+  %477 = load ptr, ptr %data1002, align 8
+  %478 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1285 = getelementptr inbounds i8, ptr %478, i64 176
+  %479 = load ptr, ptr %env_.i.i1285, align 8
+  %buffer_.i.i.i1286 = getelementptr inbounds i8, ptr %479, i64 1032
+  %480 = load ptr, ptr %buffer_.i.i.i1286, align 8
+  %481 = load double, ptr %480, align 8
+  %conv1006 = fptosi double %481 to i64
   %conv1007 = trunc i64 %conv1006 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %503, ptr noundef nonnull @.str.181, i32 noundef %conv1007) #19
-  %508 = load ptr, ptr %data1002, align 8
-  %509 = load double, ptr %trigger_async_id_, align 8
-  %conv1010 = fptosi double %509 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %477, ptr noundef nonnull @.str.181, i32 noundef %conv1007) #19
+  %482 = load ptr, ptr %data1002, align 8
+  %483 = load double, ptr %trigger_async_id_, align 8
+  %conv1010 = fptosi double %483 to i64
   %conv1011 = trunc i64 %conv1010 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %508, ptr noundef nonnull @.str.182, i32 noundef %conv1011) #19
-  %510 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__25_.0 seq_cst, align 8
-  %511 = inttoptr i64 %510 to ptr
-  %tobool1015.not = icmp eq i64 %510, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %482, ptr noundef nonnull @.str.182, i32 noundef %conv1011) #19
+  %484 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__25_.0 seq_cst, align 8
+  %485 = inttoptr i64 %484 to ptr
+  %tobool1015.not = icmp eq i64 %484, 0
   br i1 %tobool1015.not, label %if.then1016, label %if.end1018
 
 if.then1016:                                      ; preds = %if.then1001
@@ -9238,44 +8952,33 @@ if.then1016:                                      ; preds = %if.then1001
 if.end.i1290:                                     ; preds = %if.then1016
   %vtable.i1291 = load ptr, ptr %call.i1288, align 8
   %vfn.i1292 = getelementptr inbounds i8, ptr %vtable.i1291, i64 16
-  %512 = load ptr, ptr %vfn.i1292, align 8
-  %call2.i1293 = call noundef ptr %512(ptr noundef nonnull align 8 dereferenceable(8) %call.i1288, ptr noundef nonnull @.str) #19
+  %486 = load ptr, ptr %vfn.i1292, align 8
+  %call2.i1293 = call noundef ptr %486(ptr noundef nonnull align 8 dereferenceable(8) %call.i1288, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1295
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1295: ; preds = %if.then1016, %if.end.i1290
   %retval.0.i1294 = phi ptr [ %call2.i1293, %if.end.i1290 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1016 ]
-  %513 = ptrtoint ptr %retval.0.i1294 to i64
-  store atomic i64 %513, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__25_.0 seq_cst, align 8
+  %487 = ptrtoint ptr %retval.0.i1294 to i64
+  store atomic i64 %487, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__25_.0 seq_cst, align 8
   br label %if.end1018
 
 if.end1018:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1295, %if.then1001
-  %trace_event_unique_category_group_enabled6261013.0 = phi ptr [ %511, %if.then1001 ], [ %retval.0.i1294, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1295 ]
-  %514 = load i8, ptr %trace_event_unique_category_group_enabled6261013.0, align 1
-  %515 = and i8 %514, 5
-  %tobool1021.not = icmp eq i8 %515, 0
+  %trace_event_unique_category_group_enabled6261013.0 = phi ptr [ %485, %if.then1001 ], [ %retval.0.i1294, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1295 ]
+  %488 = load i8, ptr %trace_event_unique_category_group_enabled6261013.0, align 1
+  %489 = and i8 %488, 5
+  %tobool1021.not = icmp eq i8 %489, 0
   br i1 %tobool1021.not, label %do.end1032, label %if.then1022
 
 if.then1022:                                      ; preds = %if.end1018
-  %516 = load double, ptr %async_id_, align 8
-  %conv1026 = fptosi double %516 to i64
+  %490 = load double, ptr %async_id_, align 8
+  %conv1026 = fptosi double %490 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261013.0, ptr noundef nonnull @.str.132, ptr noundef null, i64 noundef %conv1026, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1002)
   br label %do.end1032
 
 do.end1032:                                       ; preds = %if.then1022, %if.end1018
-  %517 = load ptr, ptr %data1002, align 8
-  %cmp.not.i1299 = icmp eq ptr %517, null
-  br i1 %cmp.not.i1299, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1304, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1300
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1300: ; preds = %do.end1032
-  %vtable.i.i1301 = load ptr, ptr %517, align 8
-  %vfn.i.i1302 = getelementptr inbounds i8, ptr %vtable.i.i1301, i64 8
-  %518 = load ptr, ptr %vfn.i.i1302, align 8
-  call void %518(ptr noundef nonnull align 8 dereferenceable(42) %517) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1304
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1304: ; preds = %do.end1032, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1300
-  store ptr null, ptr %data1002, align 8
-  br label %sw.epilog
+  %491 = load ptr, ptr %data1002, align 8
+  %cmp.not.i1299 = icmp eq ptr %491, null
+  br i1 %cmp.not.i1299, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1034:                                        ; preds = %if.end68
   %call.i1305 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -9285,36 +8988,36 @@ sw.bb1034:                                        ; preds = %if.end68
 if.end.i1307:                                     ; preds = %sw.bb1034
   %vtable.i1308 = load ptr, ptr %call.i1305, align 8
   %vfn.i1309 = getelementptr inbounds i8, ptr %vtable.i1308, i64 16
-  %519 = load ptr, ptr %vfn.i1309, align 8
-  %call2.i1310 = call noundef ptr %519(ptr noundef nonnull align 8 dereferenceable(8) %call.i1305, ptr noundef nonnull @.str) #19
+  %492 = load ptr, ptr %vfn.i1309, align 8
+  %call2.i1310 = call noundef ptr %492(ptr noundef nonnull align 8 dereferenceable(8) %call.i1305, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1312
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1312: ; preds = %sw.bb1034, %if.end.i1307
   %retval.0.i1311 = phi ptr [ %call2.i1310, %if.end.i1307 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1034 ]
-  %520 = load i8, ptr %retval.0.i1311, align 1
-  %tobool1036.not = icmp eq i8 %520, 0
+  %493 = load i8, ptr %retval.0.i1311, align 1
+  %tobool1036.not = icmp eq i8 %493, 0
   br i1 %tobool1036.not, label %sw.epilog, label %if.then1037
 
 if.then1037:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1312
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1038) #19
-  %521 = load ptr, ptr %data1038, align 8
-  %522 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1314 = getelementptr inbounds i8, ptr %522, i64 176
-  %523 = load ptr, ptr %env_.i.i1314, align 8
-  %buffer_.i.i.i1315 = getelementptr inbounds i8, ptr %523, i64 1032
-  %524 = load ptr, ptr %buffer_.i.i.i1315, align 8
-  %525 = load double, ptr %524, align 8
-  %conv1042 = fptosi double %525 to i64
+  %494 = load ptr, ptr %data1038, align 8
+  %495 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1314 = getelementptr inbounds i8, ptr %495, i64 176
+  %496 = load ptr, ptr %env_.i.i1314, align 8
+  %buffer_.i.i.i1315 = getelementptr inbounds i8, ptr %496, i64 1032
+  %497 = load ptr, ptr %buffer_.i.i.i1315, align 8
+  %498 = load double, ptr %497, align 8
+  %conv1042 = fptosi double %498 to i64
   %conv1043 = trunc i64 %conv1042 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %521, ptr noundef nonnull @.str.181, i32 noundef %conv1043) #19
-  %526 = load ptr, ptr %data1038, align 8
-  %527 = load double, ptr %trigger_async_id_, align 8
-  %conv1046 = fptosi double %527 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %494, ptr noundef nonnull @.str.181, i32 noundef %conv1043) #19
+  %499 = load ptr, ptr %data1038, align 8
+  %500 = load double, ptr %trigger_async_id_, align 8
+  %conv1046 = fptosi double %500 to i64
   %conv1047 = trunc i64 %conv1046 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %526, ptr noundef nonnull @.str.182, i32 noundef %conv1047) #19
-  %528 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__26_.0 seq_cst, align 8
-  %529 = inttoptr i64 %528 to ptr
-  %tobool1051.not = icmp eq i64 %528, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %499, ptr noundef nonnull @.str.182, i32 noundef %conv1047) #19
+  %501 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__26_.0 seq_cst, align 8
+  %502 = inttoptr i64 %501 to ptr
+  %tobool1051.not = icmp eq i64 %501, 0
   br i1 %tobool1051.not, label %if.then1052, label %if.end1054
 
 if.then1052:                                      ; preds = %if.then1037
@@ -9325,44 +9028,33 @@ if.then1052:                                      ; preds = %if.then1037
 if.end.i1319:                                     ; preds = %if.then1052
   %vtable.i1320 = load ptr, ptr %call.i1317, align 8
   %vfn.i1321 = getelementptr inbounds i8, ptr %vtable.i1320, i64 16
-  %530 = load ptr, ptr %vfn.i1321, align 8
-  %call2.i1322 = call noundef ptr %530(ptr noundef nonnull align 8 dereferenceable(8) %call.i1317, ptr noundef nonnull @.str) #19
+  %503 = load ptr, ptr %vfn.i1321, align 8
+  %call2.i1322 = call noundef ptr %503(ptr noundef nonnull align 8 dereferenceable(8) %call.i1317, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1324
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1324: ; preds = %if.then1052, %if.end.i1319
   %retval.0.i1323 = phi ptr [ %call2.i1322, %if.end.i1319 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1052 ]
-  %531 = ptrtoint ptr %retval.0.i1323 to i64
-  store atomic i64 %531, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__26_.0 seq_cst, align 8
+  %504 = ptrtoint ptr %retval.0.i1323 to i64
+  store atomic i64 %504, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__26_.0 seq_cst, align 8
   br label %if.end1054
 
 if.end1054:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1324, %if.then1037
-  %trace_event_unique_category_group_enabled6261049.0 = phi ptr [ %529, %if.then1037 ], [ %retval.0.i1323, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1324 ]
-  %532 = load i8, ptr %trace_event_unique_category_group_enabled6261049.0, align 1
-  %533 = and i8 %532, 5
-  %tobool1057.not = icmp eq i8 %533, 0
+  %trace_event_unique_category_group_enabled6261049.0 = phi ptr [ %502, %if.then1037 ], [ %retval.0.i1323, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1324 ]
+  %505 = load i8, ptr %trace_event_unique_category_group_enabled6261049.0, align 1
+  %506 = and i8 %505, 5
+  %tobool1057.not = icmp eq i8 %506, 0
   br i1 %tobool1057.not, label %do.end1068, label %if.then1058
 
 if.then1058:                                      ; preds = %if.end1054
-  %534 = load double, ptr %async_id_, align 8
-  %conv1062 = fptosi double %534 to i64
+  %507 = load double, ptr %async_id_, align 8
+  %conv1062 = fptosi double %507 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261049.0, ptr noundef nonnull @.str.133, ptr noundef null, i64 noundef %conv1062, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1038)
   br label %do.end1068
 
 do.end1068:                                       ; preds = %if.then1058, %if.end1054
-  %535 = load ptr, ptr %data1038, align 8
-  %cmp.not.i1328 = icmp eq ptr %535, null
-  br i1 %cmp.not.i1328, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1333, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1329
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1329: ; preds = %do.end1068
-  %vtable.i.i1330 = load ptr, ptr %535, align 8
-  %vfn.i.i1331 = getelementptr inbounds i8, ptr %vtable.i.i1330, i64 8
-  %536 = load ptr, ptr %vfn.i.i1331, align 8
-  call void %536(ptr noundef nonnull align 8 dereferenceable(42) %535) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1333
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1333: ; preds = %do.end1068, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1329
-  store ptr null, ptr %data1038, align 8
-  br label %sw.epilog
+  %508 = load ptr, ptr %data1038, align 8
+  %cmp.not.i1328 = icmp eq ptr %508, null
+  br i1 %cmp.not.i1328, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1070:                                        ; preds = %if.end68
   %call.i1334 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -9372,36 +9064,36 @@ sw.bb1070:                                        ; preds = %if.end68
 if.end.i1336:                                     ; preds = %sw.bb1070
   %vtable.i1337 = load ptr, ptr %call.i1334, align 8
   %vfn.i1338 = getelementptr inbounds i8, ptr %vtable.i1337, i64 16
-  %537 = load ptr, ptr %vfn.i1338, align 8
-  %call2.i1339 = call noundef ptr %537(ptr noundef nonnull align 8 dereferenceable(8) %call.i1334, ptr noundef nonnull @.str) #19
+  %509 = load ptr, ptr %vfn.i1338, align 8
+  %call2.i1339 = call noundef ptr %509(ptr noundef nonnull align 8 dereferenceable(8) %call.i1334, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1341
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1341: ; preds = %sw.bb1070, %if.end.i1336
   %retval.0.i1340 = phi ptr [ %call2.i1339, %if.end.i1336 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1070 ]
-  %538 = load i8, ptr %retval.0.i1340, align 1
-  %tobool1072.not = icmp eq i8 %538, 0
+  %510 = load i8, ptr %retval.0.i1340, align 1
+  %tobool1072.not = icmp eq i8 %510, 0
   br i1 %tobool1072.not, label %sw.epilog, label %if.then1073
 
 if.then1073:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1341
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1074) #19
-  %539 = load ptr, ptr %data1074, align 8
-  %540 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1343 = getelementptr inbounds i8, ptr %540, i64 176
-  %541 = load ptr, ptr %env_.i.i1343, align 8
-  %buffer_.i.i.i1344 = getelementptr inbounds i8, ptr %541, i64 1032
-  %542 = load ptr, ptr %buffer_.i.i.i1344, align 8
-  %543 = load double, ptr %542, align 8
-  %conv1078 = fptosi double %543 to i64
+  %511 = load ptr, ptr %data1074, align 8
+  %512 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1343 = getelementptr inbounds i8, ptr %512, i64 176
+  %513 = load ptr, ptr %env_.i.i1343, align 8
+  %buffer_.i.i.i1344 = getelementptr inbounds i8, ptr %513, i64 1032
+  %514 = load ptr, ptr %buffer_.i.i.i1344, align 8
+  %515 = load double, ptr %514, align 8
+  %conv1078 = fptosi double %515 to i64
   %conv1079 = trunc i64 %conv1078 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %539, ptr noundef nonnull @.str.181, i32 noundef %conv1079) #19
-  %544 = load ptr, ptr %data1074, align 8
-  %545 = load double, ptr %trigger_async_id_, align 8
-  %conv1082 = fptosi double %545 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %511, ptr noundef nonnull @.str.181, i32 noundef %conv1079) #19
+  %516 = load ptr, ptr %data1074, align 8
+  %517 = load double, ptr %trigger_async_id_, align 8
+  %conv1082 = fptosi double %517 to i64
   %conv1083 = trunc i64 %conv1082 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %544, ptr noundef nonnull @.str.182, i32 noundef %conv1083) #19
-  %546 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__27_.0 seq_cst, align 8
-  %547 = inttoptr i64 %546 to ptr
-  %tobool1087.not = icmp eq i64 %546, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %516, ptr noundef nonnull @.str.182, i32 noundef %conv1083) #19
+  %518 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__27_.0 seq_cst, align 8
+  %519 = inttoptr i64 %518 to ptr
+  %tobool1087.not = icmp eq i64 %518, 0
   br i1 %tobool1087.not, label %if.then1088, label %if.end1090
 
 if.then1088:                                      ; preds = %if.then1073
@@ -9412,44 +9104,33 @@ if.then1088:                                      ; preds = %if.then1073
 if.end.i1348:                                     ; preds = %if.then1088
   %vtable.i1349 = load ptr, ptr %call.i1346, align 8
   %vfn.i1350 = getelementptr inbounds i8, ptr %vtable.i1349, i64 16
-  %548 = load ptr, ptr %vfn.i1350, align 8
-  %call2.i1351 = call noundef ptr %548(ptr noundef nonnull align 8 dereferenceable(8) %call.i1346, ptr noundef nonnull @.str) #19
+  %520 = load ptr, ptr %vfn.i1350, align 8
+  %call2.i1351 = call noundef ptr %520(ptr noundef nonnull align 8 dereferenceable(8) %call.i1346, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1353
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1353: ; preds = %if.then1088, %if.end.i1348
   %retval.0.i1352 = phi ptr [ %call2.i1351, %if.end.i1348 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1088 ]
-  %549 = ptrtoint ptr %retval.0.i1352 to i64
-  store atomic i64 %549, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__27_.0 seq_cst, align 8
+  %521 = ptrtoint ptr %retval.0.i1352 to i64
+  store atomic i64 %521, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__27_.0 seq_cst, align 8
   br label %if.end1090
 
 if.end1090:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1353, %if.then1073
-  %trace_event_unique_category_group_enabled6261085.0 = phi ptr [ %547, %if.then1073 ], [ %retval.0.i1352, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1353 ]
-  %550 = load i8, ptr %trace_event_unique_category_group_enabled6261085.0, align 1
-  %551 = and i8 %550, 5
-  %tobool1093.not = icmp eq i8 %551, 0
+  %trace_event_unique_category_group_enabled6261085.0 = phi ptr [ %519, %if.then1073 ], [ %retval.0.i1352, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1353 ]
+  %522 = load i8, ptr %trace_event_unique_category_group_enabled6261085.0, align 1
+  %523 = and i8 %522, 5
+  %tobool1093.not = icmp eq i8 %523, 0
   br i1 %tobool1093.not, label %do.end1104, label %if.then1094
 
 if.then1094:                                      ; preds = %if.end1090
-  %552 = load double, ptr %async_id_, align 8
-  %conv1098 = fptosi double %552 to i64
+  %524 = load double, ptr %async_id_, align 8
+  %conv1098 = fptosi double %524 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261085.0, ptr noundef nonnull @.str.134, ptr noundef null, i64 noundef %conv1098, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1074)
   br label %do.end1104
 
 do.end1104:                                       ; preds = %if.then1094, %if.end1090
-  %553 = load ptr, ptr %data1074, align 8
-  %cmp.not.i1357 = icmp eq ptr %553, null
-  br i1 %cmp.not.i1357, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1362, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1358
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1358: ; preds = %do.end1104
-  %vtable.i.i1359 = load ptr, ptr %553, align 8
-  %vfn.i.i1360 = getelementptr inbounds i8, ptr %vtable.i.i1359, i64 8
-  %554 = load ptr, ptr %vfn.i.i1360, align 8
-  call void %554(ptr noundef nonnull align 8 dereferenceable(42) %553) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1362
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1362: ; preds = %do.end1104, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1358
-  store ptr null, ptr %data1074, align 8
-  br label %sw.epilog
+  %525 = load ptr, ptr %data1074, align 8
+  %cmp.not.i1357 = icmp eq ptr %525, null
+  br i1 %cmp.not.i1357, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1106:                                        ; preds = %if.end68
   %call.i1363 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -9459,36 +9140,36 @@ sw.bb1106:                                        ; preds = %if.end68
 if.end.i1365:                                     ; preds = %sw.bb1106
   %vtable.i1366 = load ptr, ptr %call.i1363, align 8
   %vfn.i1367 = getelementptr inbounds i8, ptr %vtable.i1366, i64 16
-  %555 = load ptr, ptr %vfn.i1367, align 8
-  %call2.i1368 = call noundef ptr %555(ptr noundef nonnull align 8 dereferenceable(8) %call.i1363, ptr noundef nonnull @.str) #19
+  %526 = load ptr, ptr %vfn.i1367, align 8
+  %call2.i1368 = call noundef ptr %526(ptr noundef nonnull align 8 dereferenceable(8) %call.i1363, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1370
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1370: ; preds = %sw.bb1106, %if.end.i1365
   %retval.0.i1369 = phi ptr [ %call2.i1368, %if.end.i1365 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1106 ]
-  %556 = load i8, ptr %retval.0.i1369, align 1
-  %tobool1108.not = icmp eq i8 %556, 0
+  %527 = load i8, ptr %retval.0.i1369, align 1
+  %tobool1108.not = icmp eq i8 %527, 0
   br i1 %tobool1108.not, label %sw.epilog, label %if.then1109
 
 if.then1109:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1370
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1110) #19
-  %557 = load ptr, ptr %data1110, align 8
-  %558 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1372 = getelementptr inbounds i8, ptr %558, i64 176
-  %559 = load ptr, ptr %env_.i.i1372, align 8
-  %buffer_.i.i.i1373 = getelementptr inbounds i8, ptr %559, i64 1032
-  %560 = load ptr, ptr %buffer_.i.i.i1373, align 8
-  %561 = load double, ptr %560, align 8
-  %conv1114 = fptosi double %561 to i64
+  %528 = load ptr, ptr %data1110, align 8
+  %529 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1372 = getelementptr inbounds i8, ptr %529, i64 176
+  %530 = load ptr, ptr %env_.i.i1372, align 8
+  %buffer_.i.i.i1373 = getelementptr inbounds i8, ptr %530, i64 1032
+  %531 = load ptr, ptr %buffer_.i.i.i1373, align 8
+  %532 = load double, ptr %531, align 8
+  %conv1114 = fptosi double %532 to i64
   %conv1115 = trunc i64 %conv1114 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %557, ptr noundef nonnull @.str.181, i32 noundef %conv1115) #19
-  %562 = load ptr, ptr %data1110, align 8
-  %563 = load double, ptr %trigger_async_id_, align 8
-  %conv1118 = fptosi double %563 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %528, ptr noundef nonnull @.str.181, i32 noundef %conv1115) #19
+  %533 = load ptr, ptr %data1110, align 8
+  %534 = load double, ptr %trigger_async_id_, align 8
+  %conv1118 = fptosi double %534 to i64
   %conv1119 = trunc i64 %conv1118 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %562, ptr noundef nonnull @.str.182, i32 noundef %conv1119) #19
-  %564 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__28_.0 seq_cst, align 8
-  %565 = inttoptr i64 %564 to ptr
-  %tobool1123.not = icmp eq i64 %564, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %533, ptr noundef nonnull @.str.182, i32 noundef %conv1119) #19
+  %535 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__28_.0 seq_cst, align 8
+  %536 = inttoptr i64 %535 to ptr
+  %tobool1123.not = icmp eq i64 %535, 0
   br i1 %tobool1123.not, label %if.then1124, label %if.end1126
 
 if.then1124:                                      ; preds = %if.then1109
@@ -9499,44 +9180,33 @@ if.then1124:                                      ; preds = %if.then1109
 if.end.i1377:                                     ; preds = %if.then1124
   %vtable.i1378 = load ptr, ptr %call.i1375, align 8
   %vfn.i1379 = getelementptr inbounds i8, ptr %vtable.i1378, i64 16
-  %566 = load ptr, ptr %vfn.i1379, align 8
-  %call2.i1380 = call noundef ptr %566(ptr noundef nonnull align 8 dereferenceable(8) %call.i1375, ptr noundef nonnull @.str) #19
+  %537 = load ptr, ptr %vfn.i1379, align 8
+  %call2.i1380 = call noundef ptr %537(ptr noundef nonnull align 8 dereferenceable(8) %call.i1375, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1382
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1382: ; preds = %if.then1124, %if.end.i1377
   %retval.0.i1381 = phi ptr [ %call2.i1380, %if.end.i1377 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1124 ]
-  %567 = ptrtoint ptr %retval.0.i1381 to i64
-  store atomic i64 %567, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__28_.0 seq_cst, align 8
+  %538 = ptrtoint ptr %retval.0.i1381 to i64
+  store atomic i64 %538, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__28_.0 seq_cst, align 8
   br label %if.end1126
 
 if.end1126:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1382, %if.then1109
-  %trace_event_unique_category_group_enabled6261121.0 = phi ptr [ %565, %if.then1109 ], [ %retval.0.i1381, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1382 ]
-  %568 = load i8, ptr %trace_event_unique_category_group_enabled6261121.0, align 1
-  %569 = and i8 %568, 5
-  %tobool1129.not = icmp eq i8 %569, 0
+  %trace_event_unique_category_group_enabled6261121.0 = phi ptr [ %536, %if.then1109 ], [ %retval.0.i1381, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1382 ]
+  %539 = load i8, ptr %trace_event_unique_category_group_enabled6261121.0, align 1
+  %540 = and i8 %539, 5
+  %tobool1129.not = icmp eq i8 %540, 0
   br i1 %tobool1129.not, label %do.end1140, label %if.then1130
 
 if.then1130:                                      ; preds = %if.end1126
-  %570 = load double, ptr %async_id_, align 8
-  %conv1134 = fptosi double %570 to i64
+  %541 = load double, ptr %async_id_, align 8
+  %conv1134 = fptosi double %541 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261121.0, ptr noundef nonnull @.str.135, ptr noundef null, i64 noundef %conv1134, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1110)
   br label %do.end1140
 
 do.end1140:                                       ; preds = %if.then1130, %if.end1126
-  %571 = load ptr, ptr %data1110, align 8
-  %cmp.not.i1386 = icmp eq ptr %571, null
-  br i1 %cmp.not.i1386, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1391, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1387
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1387: ; preds = %do.end1140
-  %vtable.i.i1388 = load ptr, ptr %571, align 8
-  %vfn.i.i1389 = getelementptr inbounds i8, ptr %vtable.i.i1388, i64 8
-  %572 = load ptr, ptr %vfn.i.i1389, align 8
-  call void %572(ptr noundef nonnull align 8 dereferenceable(42) %571) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1391
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1391: ; preds = %do.end1140, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1387
-  store ptr null, ptr %data1110, align 8
-  br label %sw.epilog
+  %542 = load ptr, ptr %data1110, align 8
+  %cmp.not.i1386 = icmp eq ptr %542, null
+  br i1 %cmp.not.i1386, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1142:                                        ; preds = %if.end68
   %call.i1392 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -9546,36 +9216,36 @@ sw.bb1142:                                        ; preds = %if.end68
 if.end.i1394:                                     ; preds = %sw.bb1142
   %vtable.i1395 = load ptr, ptr %call.i1392, align 8
   %vfn.i1396 = getelementptr inbounds i8, ptr %vtable.i1395, i64 16
-  %573 = load ptr, ptr %vfn.i1396, align 8
-  %call2.i1397 = call noundef ptr %573(ptr noundef nonnull align 8 dereferenceable(8) %call.i1392, ptr noundef nonnull @.str) #19
+  %543 = load ptr, ptr %vfn.i1396, align 8
+  %call2.i1397 = call noundef ptr %543(ptr noundef nonnull align 8 dereferenceable(8) %call.i1392, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1399
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1399: ; preds = %sw.bb1142, %if.end.i1394
   %retval.0.i1398 = phi ptr [ %call2.i1397, %if.end.i1394 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1142 ]
-  %574 = load i8, ptr %retval.0.i1398, align 1
-  %tobool1144.not = icmp eq i8 %574, 0
+  %544 = load i8, ptr %retval.0.i1398, align 1
+  %tobool1144.not = icmp eq i8 %544, 0
   br i1 %tobool1144.not, label %sw.epilog, label %if.then1145
 
 if.then1145:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1399
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1146) #19
-  %575 = load ptr, ptr %data1146, align 8
-  %576 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1401 = getelementptr inbounds i8, ptr %576, i64 176
-  %577 = load ptr, ptr %env_.i.i1401, align 8
-  %buffer_.i.i.i1402 = getelementptr inbounds i8, ptr %577, i64 1032
-  %578 = load ptr, ptr %buffer_.i.i.i1402, align 8
-  %579 = load double, ptr %578, align 8
-  %conv1150 = fptosi double %579 to i64
+  %545 = load ptr, ptr %data1146, align 8
+  %546 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1401 = getelementptr inbounds i8, ptr %546, i64 176
+  %547 = load ptr, ptr %env_.i.i1401, align 8
+  %buffer_.i.i.i1402 = getelementptr inbounds i8, ptr %547, i64 1032
+  %548 = load ptr, ptr %buffer_.i.i.i1402, align 8
+  %549 = load double, ptr %548, align 8
+  %conv1150 = fptosi double %549 to i64
   %conv1151 = trunc i64 %conv1150 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %575, ptr noundef nonnull @.str.181, i32 noundef %conv1151) #19
-  %580 = load ptr, ptr %data1146, align 8
-  %581 = load double, ptr %trigger_async_id_, align 8
-  %conv1154 = fptosi double %581 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %545, ptr noundef nonnull @.str.181, i32 noundef %conv1151) #19
+  %550 = load ptr, ptr %data1146, align 8
+  %551 = load double, ptr %trigger_async_id_, align 8
+  %conv1154 = fptosi double %551 to i64
   %conv1155 = trunc i64 %conv1154 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %580, ptr noundef nonnull @.str.182, i32 noundef %conv1155) #19
-  %582 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__29_.0 seq_cst, align 8
-  %583 = inttoptr i64 %582 to ptr
-  %tobool1159.not = icmp eq i64 %582, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %550, ptr noundef nonnull @.str.182, i32 noundef %conv1155) #19
+  %552 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__29_.0 seq_cst, align 8
+  %553 = inttoptr i64 %552 to ptr
+  %tobool1159.not = icmp eq i64 %552, 0
   br i1 %tobool1159.not, label %if.then1160, label %if.end1162
 
 if.then1160:                                      ; preds = %if.then1145
@@ -9586,44 +9256,33 @@ if.then1160:                                      ; preds = %if.then1145
 if.end.i1406:                                     ; preds = %if.then1160
   %vtable.i1407 = load ptr, ptr %call.i1404, align 8
   %vfn.i1408 = getelementptr inbounds i8, ptr %vtable.i1407, i64 16
-  %584 = load ptr, ptr %vfn.i1408, align 8
-  %call2.i1409 = call noundef ptr %584(ptr noundef nonnull align 8 dereferenceable(8) %call.i1404, ptr noundef nonnull @.str) #19
+  %554 = load ptr, ptr %vfn.i1408, align 8
+  %call2.i1409 = call noundef ptr %554(ptr noundef nonnull align 8 dereferenceable(8) %call.i1404, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1411
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1411: ; preds = %if.then1160, %if.end.i1406
   %retval.0.i1410 = phi ptr [ %call2.i1409, %if.end.i1406 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1160 ]
-  %585 = ptrtoint ptr %retval.0.i1410 to i64
-  store atomic i64 %585, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__29_.0 seq_cst, align 8
+  %555 = ptrtoint ptr %retval.0.i1410 to i64
+  store atomic i64 %555, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__29_.0 seq_cst, align 8
   br label %if.end1162
 
 if.end1162:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1411, %if.then1145
-  %trace_event_unique_category_group_enabled6261157.0 = phi ptr [ %583, %if.then1145 ], [ %retval.0.i1410, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1411 ]
-  %586 = load i8, ptr %trace_event_unique_category_group_enabled6261157.0, align 1
-  %587 = and i8 %586, 5
-  %tobool1165.not = icmp eq i8 %587, 0
+  %trace_event_unique_category_group_enabled6261157.0 = phi ptr [ %553, %if.then1145 ], [ %retval.0.i1410, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1411 ]
+  %556 = load i8, ptr %trace_event_unique_category_group_enabled6261157.0, align 1
+  %557 = and i8 %556, 5
+  %tobool1165.not = icmp eq i8 %557, 0
   br i1 %tobool1165.not, label %do.end1176, label %if.then1166
 
 if.then1166:                                      ; preds = %if.end1162
-  %588 = load double, ptr %async_id_, align 8
-  %conv1170 = fptosi double %588 to i64
+  %558 = load double, ptr %async_id_, align 8
+  %conv1170 = fptosi double %558 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261157.0, ptr noundef nonnull @.str.136, ptr noundef null, i64 noundef %conv1170, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1146)
   br label %do.end1176
 
 do.end1176:                                       ; preds = %if.then1166, %if.end1162
-  %589 = load ptr, ptr %data1146, align 8
-  %cmp.not.i1415 = icmp eq ptr %589, null
-  br i1 %cmp.not.i1415, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1420, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1416
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1416: ; preds = %do.end1176
-  %vtable.i.i1417 = load ptr, ptr %589, align 8
-  %vfn.i.i1418 = getelementptr inbounds i8, ptr %vtable.i.i1417, i64 8
-  %590 = load ptr, ptr %vfn.i.i1418, align 8
-  call void %590(ptr noundef nonnull align 8 dereferenceable(42) %589) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1420
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1420: ; preds = %do.end1176, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1416
-  store ptr null, ptr %data1146, align 8
-  br label %sw.epilog
+  %559 = load ptr, ptr %data1146, align 8
+  %cmp.not.i1415 = icmp eq ptr %559, null
+  br i1 %cmp.not.i1415, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1178:                                        ; preds = %if.end68
   %call.i1421 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -9633,36 +9292,36 @@ sw.bb1178:                                        ; preds = %if.end68
 if.end.i1423:                                     ; preds = %sw.bb1178
   %vtable.i1424 = load ptr, ptr %call.i1421, align 8
   %vfn.i1425 = getelementptr inbounds i8, ptr %vtable.i1424, i64 16
-  %591 = load ptr, ptr %vfn.i1425, align 8
-  %call2.i1426 = call noundef ptr %591(ptr noundef nonnull align 8 dereferenceable(8) %call.i1421, ptr noundef nonnull @.str) #19
+  %560 = load ptr, ptr %vfn.i1425, align 8
+  %call2.i1426 = call noundef ptr %560(ptr noundef nonnull align 8 dereferenceable(8) %call.i1421, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1428
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1428: ; preds = %sw.bb1178, %if.end.i1423
   %retval.0.i1427 = phi ptr [ %call2.i1426, %if.end.i1423 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1178 ]
-  %592 = load i8, ptr %retval.0.i1427, align 1
-  %tobool1180.not = icmp eq i8 %592, 0
+  %561 = load i8, ptr %retval.0.i1427, align 1
+  %tobool1180.not = icmp eq i8 %561, 0
   br i1 %tobool1180.not, label %sw.epilog, label %if.then1181
 
 if.then1181:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1428
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1182) #19
-  %593 = load ptr, ptr %data1182, align 8
-  %594 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1430 = getelementptr inbounds i8, ptr %594, i64 176
-  %595 = load ptr, ptr %env_.i.i1430, align 8
-  %buffer_.i.i.i1431 = getelementptr inbounds i8, ptr %595, i64 1032
-  %596 = load ptr, ptr %buffer_.i.i.i1431, align 8
-  %597 = load double, ptr %596, align 8
-  %conv1186 = fptosi double %597 to i64
+  %562 = load ptr, ptr %data1182, align 8
+  %563 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1430 = getelementptr inbounds i8, ptr %563, i64 176
+  %564 = load ptr, ptr %env_.i.i1430, align 8
+  %buffer_.i.i.i1431 = getelementptr inbounds i8, ptr %564, i64 1032
+  %565 = load ptr, ptr %buffer_.i.i.i1431, align 8
+  %566 = load double, ptr %565, align 8
+  %conv1186 = fptosi double %566 to i64
   %conv1187 = trunc i64 %conv1186 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %593, ptr noundef nonnull @.str.181, i32 noundef %conv1187) #19
-  %598 = load ptr, ptr %data1182, align 8
-  %599 = load double, ptr %trigger_async_id_, align 8
-  %conv1190 = fptosi double %599 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %562, ptr noundef nonnull @.str.181, i32 noundef %conv1187) #19
+  %567 = load ptr, ptr %data1182, align 8
+  %568 = load double, ptr %trigger_async_id_, align 8
+  %conv1190 = fptosi double %568 to i64
   %conv1191 = trunc i64 %conv1190 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %598, ptr noundef nonnull @.str.182, i32 noundef %conv1191) #19
-  %600 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__30_.0 seq_cst, align 8
-  %601 = inttoptr i64 %600 to ptr
-  %tobool1195.not = icmp eq i64 %600, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %567, ptr noundef nonnull @.str.182, i32 noundef %conv1191) #19
+  %569 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__30_.0 seq_cst, align 8
+  %570 = inttoptr i64 %569 to ptr
+  %tobool1195.not = icmp eq i64 %569, 0
   br i1 %tobool1195.not, label %if.then1196, label %if.end1198
 
 if.then1196:                                      ; preds = %if.then1181
@@ -9673,44 +9332,33 @@ if.then1196:                                      ; preds = %if.then1181
 if.end.i1435:                                     ; preds = %if.then1196
   %vtable.i1436 = load ptr, ptr %call.i1433, align 8
   %vfn.i1437 = getelementptr inbounds i8, ptr %vtable.i1436, i64 16
-  %602 = load ptr, ptr %vfn.i1437, align 8
-  %call2.i1438 = call noundef ptr %602(ptr noundef nonnull align 8 dereferenceable(8) %call.i1433, ptr noundef nonnull @.str) #19
+  %571 = load ptr, ptr %vfn.i1437, align 8
+  %call2.i1438 = call noundef ptr %571(ptr noundef nonnull align 8 dereferenceable(8) %call.i1433, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1440
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1440: ; preds = %if.then1196, %if.end.i1435
   %retval.0.i1439 = phi ptr [ %call2.i1438, %if.end.i1435 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1196 ]
-  %603 = ptrtoint ptr %retval.0.i1439 to i64
-  store atomic i64 %603, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__30_.0 seq_cst, align 8
+  %572 = ptrtoint ptr %retval.0.i1439 to i64
+  store atomic i64 %572, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__30_.0 seq_cst, align 8
   br label %if.end1198
 
 if.end1198:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1440, %if.then1181
-  %trace_event_unique_category_group_enabled6261193.0 = phi ptr [ %601, %if.then1181 ], [ %retval.0.i1439, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1440 ]
-  %604 = load i8, ptr %trace_event_unique_category_group_enabled6261193.0, align 1
-  %605 = and i8 %604, 5
-  %tobool1201.not = icmp eq i8 %605, 0
+  %trace_event_unique_category_group_enabled6261193.0 = phi ptr [ %570, %if.then1181 ], [ %retval.0.i1439, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1440 ]
+  %573 = load i8, ptr %trace_event_unique_category_group_enabled6261193.0, align 1
+  %574 = and i8 %573, 5
+  %tobool1201.not = icmp eq i8 %574, 0
   br i1 %tobool1201.not, label %do.end1212, label %if.then1202
 
 if.then1202:                                      ; preds = %if.end1198
-  %606 = load double, ptr %async_id_, align 8
-  %conv1206 = fptosi double %606 to i64
+  %575 = load double, ptr %async_id_, align 8
+  %conv1206 = fptosi double %575 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261193.0, ptr noundef nonnull @.str.137, ptr noundef null, i64 noundef %conv1206, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1182)
   br label %do.end1212
 
 do.end1212:                                       ; preds = %if.then1202, %if.end1198
-  %607 = load ptr, ptr %data1182, align 8
-  %cmp.not.i1444 = icmp eq ptr %607, null
-  br i1 %cmp.not.i1444, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1449, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1445
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1445: ; preds = %do.end1212
-  %vtable.i.i1446 = load ptr, ptr %607, align 8
-  %vfn.i.i1447 = getelementptr inbounds i8, ptr %vtable.i.i1446, i64 8
-  %608 = load ptr, ptr %vfn.i.i1447, align 8
-  call void %608(ptr noundef nonnull align 8 dereferenceable(42) %607) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1449
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1449: ; preds = %do.end1212, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1445
-  store ptr null, ptr %data1182, align 8
-  br label %sw.epilog
+  %576 = load ptr, ptr %data1182, align 8
+  %cmp.not.i1444 = icmp eq ptr %576, null
+  br i1 %cmp.not.i1444, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1214:                                        ; preds = %if.end68
   %call.i1450 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -9720,36 +9368,36 @@ sw.bb1214:                                        ; preds = %if.end68
 if.end.i1452:                                     ; preds = %sw.bb1214
   %vtable.i1453 = load ptr, ptr %call.i1450, align 8
   %vfn.i1454 = getelementptr inbounds i8, ptr %vtable.i1453, i64 16
-  %609 = load ptr, ptr %vfn.i1454, align 8
-  %call2.i1455 = call noundef ptr %609(ptr noundef nonnull align 8 dereferenceable(8) %call.i1450, ptr noundef nonnull @.str) #19
+  %577 = load ptr, ptr %vfn.i1454, align 8
+  %call2.i1455 = call noundef ptr %577(ptr noundef nonnull align 8 dereferenceable(8) %call.i1450, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1457
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1457: ; preds = %sw.bb1214, %if.end.i1452
   %retval.0.i1456 = phi ptr [ %call2.i1455, %if.end.i1452 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1214 ]
-  %610 = load i8, ptr %retval.0.i1456, align 1
-  %tobool1216.not = icmp eq i8 %610, 0
+  %578 = load i8, ptr %retval.0.i1456, align 1
+  %tobool1216.not = icmp eq i8 %578, 0
   br i1 %tobool1216.not, label %sw.epilog, label %if.then1217
 
 if.then1217:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1457
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1218) #19
-  %611 = load ptr, ptr %data1218, align 8
-  %612 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1459 = getelementptr inbounds i8, ptr %612, i64 176
-  %613 = load ptr, ptr %env_.i.i1459, align 8
-  %buffer_.i.i.i1460 = getelementptr inbounds i8, ptr %613, i64 1032
-  %614 = load ptr, ptr %buffer_.i.i.i1460, align 8
-  %615 = load double, ptr %614, align 8
-  %conv1222 = fptosi double %615 to i64
+  %579 = load ptr, ptr %data1218, align 8
+  %580 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1459 = getelementptr inbounds i8, ptr %580, i64 176
+  %581 = load ptr, ptr %env_.i.i1459, align 8
+  %buffer_.i.i.i1460 = getelementptr inbounds i8, ptr %581, i64 1032
+  %582 = load ptr, ptr %buffer_.i.i.i1460, align 8
+  %583 = load double, ptr %582, align 8
+  %conv1222 = fptosi double %583 to i64
   %conv1223 = trunc i64 %conv1222 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %611, ptr noundef nonnull @.str.181, i32 noundef %conv1223) #19
-  %616 = load ptr, ptr %data1218, align 8
-  %617 = load double, ptr %trigger_async_id_, align 8
-  %conv1226 = fptosi double %617 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %579, ptr noundef nonnull @.str.181, i32 noundef %conv1223) #19
+  %584 = load ptr, ptr %data1218, align 8
+  %585 = load double, ptr %trigger_async_id_, align 8
+  %conv1226 = fptosi double %585 to i64
   %conv1227 = trunc i64 %conv1226 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %616, ptr noundef nonnull @.str.182, i32 noundef %conv1227) #19
-  %618 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__31_.0 seq_cst, align 8
-  %619 = inttoptr i64 %618 to ptr
-  %tobool1231.not = icmp eq i64 %618, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %584, ptr noundef nonnull @.str.182, i32 noundef %conv1227) #19
+  %586 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__31_.0 seq_cst, align 8
+  %587 = inttoptr i64 %586 to ptr
+  %tobool1231.not = icmp eq i64 %586, 0
   br i1 %tobool1231.not, label %if.then1232, label %if.end1234
 
 if.then1232:                                      ; preds = %if.then1217
@@ -9760,44 +9408,33 @@ if.then1232:                                      ; preds = %if.then1217
 if.end.i1464:                                     ; preds = %if.then1232
   %vtable.i1465 = load ptr, ptr %call.i1462, align 8
   %vfn.i1466 = getelementptr inbounds i8, ptr %vtable.i1465, i64 16
-  %620 = load ptr, ptr %vfn.i1466, align 8
-  %call2.i1467 = call noundef ptr %620(ptr noundef nonnull align 8 dereferenceable(8) %call.i1462, ptr noundef nonnull @.str) #19
+  %588 = load ptr, ptr %vfn.i1466, align 8
+  %call2.i1467 = call noundef ptr %588(ptr noundef nonnull align 8 dereferenceable(8) %call.i1462, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1469
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1469: ; preds = %if.then1232, %if.end.i1464
   %retval.0.i1468 = phi ptr [ %call2.i1467, %if.end.i1464 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1232 ]
-  %621 = ptrtoint ptr %retval.0.i1468 to i64
-  store atomic i64 %621, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__31_.0 seq_cst, align 8
+  %589 = ptrtoint ptr %retval.0.i1468 to i64
+  store atomic i64 %589, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__31_.0 seq_cst, align 8
   br label %if.end1234
 
 if.end1234:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1469, %if.then1217
-  %trace_event_unique_category_group_enabled6261229.0 = phi ptr [ %619, %if.then1217 ], [ %retval.0.i1468, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1469 ]
-  %622 = load i8, ptr %trace_event_unique_category_group_enabled6261229.0, align 1
-  %623 = and i8 %622, 5
-  %tobool1237.not = icmp eq i8 %623, 0
+  %trace_event_unique_category_group_enabled6261229.0 = phi ptr [ %587, %if.then1217 ], [ %retval.0.i1468, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1469 ]
+  %590 = load i8, ptr %trace_event_unique_category_group_enabled6261229.0, align 1
+  %591 = and i8 %590, 5
+  %tobool1237.not = icmp eq i8 %591, 0
   br i1 %tobool1237.not, label %do.end1248, label %if.then1238
 
 if.then1238:                                      ; preds = %if.end1234
-  %624 = load double, ptr %async_id_, align 8
-  %conv1242 = fptosi double %624 to i64
+  %592 = load double, ptr %async_id_, align 8
+  %conv1242 = fptosi double %592 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261229.0, ptr noundef nonnull @.str.138, ptr noundef null, i64 noundef %conv1242, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1218)
   br label %do.end1248
 
 do.end1248:                                       ; preds = %if.then1238, %if.end1234
-  %625 = load ptr, ptr %data1218, align 8
-  %cmp.not.i1473 = icmp eq ptr %625, null
-  br i1 %cmp.not.i1473, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1478, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1474
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1474: ; preds = %do.end1248
-  %vtable.i.i1475 = load ptr, ptr %625, align 8
-  %vfn.i.i1476 = getelementptr inbounds i8, ptr %vtable.i.i1475, i64 8
-  %626 = load ptr, ptr %vfn.i.i1476, align 8
-  call void %626(ptr noundef nonnull align 8 dereferenceable(42) %625) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1478
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1478: ; preds = %do.end1248, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1474
-  store ptr null, ptr %data1218, align 8
-  br label %sw.epilog
+  %593 = load ptr, ptr %data1218, align 8
+  %cmp.not.i1473 = icmp eq ptr %593, null
+  br i1 %cmp.not.i1473, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1250:                                        ; preds = %if.end68
   %call.i1479 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -9807,36 +9444,36 @@ sw.bb1250:                                        ; preds = %if.end68
 if.end.i1481:                                     ; preds = %sw.bb1250
   %vtable.i1482 = load ptr, ptr %call.i1479, align 8
   %vfn.i1483 = getelementptr inbounds i8, ptr %vtable.i1482, i64 16
-  %627 = load ptr, ptr %vfn.i1483, align 8
-  %call2.i1484 = call noundef ptr %627(ptr noundef nonnull align 8 dereferenceable(8) %call.i1479, ptr noundef nonnull @.str) #19
+  %594 = load ptr, ptr %vfn.i1483, align 8
+  %call2.i1484 = call noundef ptr %594(ptr noundef nonnull align 8 dereferenceable(8) %call.i1479, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1486
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1486: ; preds = %sw.bb1250, %if.end.i1481
   %retval.0.i1485 = phi ptr [ %call2.i1484, %if.end.i1481 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1250 ]
-  %628 = load i8, ptr %retval.0.i1485, align 1
-  %tobool1252.not = icmp eq i8 %628, 0
+  %595 = load i8, ptr %retval.0.i1485, align 1
+  %tobool1252.not = icmp eq i8 %595, 0
   br i1 %tobool1252.not, label %sw.epilog, label %if.then1253
 
 if.then1253:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1486
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1254) #19
-  %629 = load ptr, ptr %data1254, align 8
-  %630 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1488 = getelementptr inbounds i8, ptr %630, i64 176
-  %631 = load ptr, ptr %env_.i.i1488, align 8
-  %buffer_.i.i.i1489 = getelementptr inbounds i8, ptr %631, i64 1032
-  %632 = load ptr, ptr %buffer_.i.i.i1489, align 8
-  %633 = load double, ptr %632, align 8
-  %conv1258 = fptosi double %633 to i64
+  %596 = load ptr, ptr %data1254, align 8
+  %597 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1488 = getelementptr inbounds i8, ptr %597, i64 176
+  %598 = load ptr, ptr %env_.i.i1488, align 8
+  %buffer_.i.i.i1489 = getelementptr inbounds i8, ptr %598, i64 1032
+  %599 = load ptr, ptr %buffer_.i.i.i1489, align 8
+  %600 = load double, ptr %599, align 8
+  %conv1258 = fptosi double %600 to i64
   %conv1259 = trunc i64 %conv1258 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %629, ptr noundef nonnull @.str.181, i32 noundef %conv1259) #19
-  %634 = load ptr, ptr %data1254, align 8
-  %635 = load double, ptr %trigger_async_id_, align 8
-  %conv1262 = fptosi double %635 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %596, ptr noundef nonnull @.str.181, i32 noundef %conv1259) #19
+  %601 = load ptr, ptr %data1254, align 8
+  %602 = load double, ptr %trigger_async_id_, align 8
+  %conv1262 = fptosi double %602 to i64
   %conv1263 = trunc i64 %conv1262 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %634, ptr noundef nonnull @.str.182, i32 noundef %conv1263) #19
-  %636 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__32_.0 seq_cst, align 8
-  %637 = inttoptr i64 %636 to ptr
-  %tobool1267.not = icmp eq i64 %636, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %601, ptr noundef nonnull @.str.182, i32 noundef %conv1263) #19
+  %603 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__32_.0 seq_cst, align 8
+  %604 = inttoptr i64 %603 to ptr
+  %tobool1267.not = icmp eq i64 %603, 0
   br i1 %tobool1267.not, label %if.then1268, label %if.end1270
 
 if.then1268:                                      ; preds = %if.then1253
@@ -9847,44 +9484,33 @@ if.then1268:                                      ; preds = %if.then1253
 if.end.i1493:                                     ; preds = %if.then1268
   %vtable.i1494 = load ptr, ptr %call.i1491, align 8
   %vfn.i1495 = getelementptr inbounds i8, ptr %vtable.i1494, i64 16
-  %638 = load ptr, ptr %vfn.i1495, align 8
-  %call2.i1496 = call noundef ptr %638(ptr noundef nonnull align 8 dereferenceable(8) %call.i1491, ptr noundef nonnull @.str) #19
+  %605 = load ptr, ptr %vfn.i1495, align 8
+  %call2.i1496 = call noundef ptr %605(ptr noundef nonnull align 8 dereferenceable(8) %call.i1491, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1498
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1498: ; preds = %if.then1268, %if.end.i1493
   %retval.0.i1497 = phi ptr [ %call2.i1496, %if.end.i1493 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1268 ]
-  %639 = ptrtoint ptr %retval.0.i1497 to i64
-  store atomic i64 %639, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__32_.0 seq_cst, align 8
+  %606 = ptrtoint ptr %retval.0.i1497 to i64
+  store atomic i64 %606, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__32_.0 seq_cst, align 8
   br label %if.end1270
 
 if.end1270:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1498, %if.then1253
-  %trace_event_unique_category_group_enabled6261265.0 = phi ptr [ %637, %if.then1253 ], [ %retval.0.i1497, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1498 ]
-  %640 = load i8, ptr %trace_event_unique_category_group_enabled6261265.0, align 1
-  %641 = and i8 %640, 5
-  %tobool1273.not = icmp eq i8 %641, 0
+  %trace_event_unique_category_group_enabled6261265.0 = phi ptr [ %604, %if.then1253 ], [ %retval.0.i1497, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1498 ]
+  %607 = load i8, ptr %trace_event_unique_category_group_enabled6261265.0, align 1
+  %608 = and i8 %607, 5
+  %tobool1273.not = icmp eq i8 %608, 0
   br i1 %tobool1273.not, label %do.end1284, label %if.then1274
 
 if.then1274:                                      ; preds = %if.end1270
-  %642 = load double, ptr %async_id_, align 8
-  %conv1278 = fptosi double %642 to i64
+  %609 = load double, ptr %async_id_, align 8
+  %conv1278 = fptosi double %609 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261265.0, ptr noundef nonnull @.str.139, ptr noundef null, i64 noundef %conv1278, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1254)
   br label %do.end1284
 
 do.end1284:                                       ; preds = %if.then1274, %if.end1270
-  %643 = load ptr, ptr %data1254, align 8
-  %cmp.not.i1502 = icmp eq ptr %643, null
-  br i1 %cmp.not.i1502, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1507, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1503
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1503: ; preds = %do.end1284
-  %vtable.i.i1504 = load ptr, ptr %643, align 8
-  %vfn.i.i1505 = getelementptr inbounds i8, ptr %vtable.i.i1504, i64 8
-  %644 = load ptr, ptr %vfn.i.i1505, align 8
-  call void %644(ptr noundef nonnull align 8 dereferenceable(42) %643) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1507
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1507: ; preds = %do.end1284, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1503
-  store ptr null, ptr %data1254, align 8
-  br label %sw.epilog
+  %610 = load ptr, ptr %data1254, align 8
+  %cmp.not.i1502 = icmp eq ptr %610, null
+  br i1 %cmp.not.i1502, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1286:                                        ; preds = %if.end68
   %call.i1508 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -9894,36 +9520,36 @@ sw.bb1286:                                        ; preds = %if.end68
 if.end.i1510:                                     ; preds = %sw.bb1286
   %vtable.i1511 = load ptr, ptr %call.i1508, align 8
   %vfn.i1512 = getelementptr inbounds i8, ptr %vtable.i1511, i64 16
-  %645 = load ptr, ptr %vfn.i1512, align 8
-  %call2.i1513 = call noundef ptr %645(ptr noundef nonnull align 8 dereferenceable(8) %call.i1508, ptr noundef nonnull @.str) #19
+  %611 = load ptr, ptr %vfn.i1512, align 8
+  %call2.i1513 = call noundef ptr %611(ptr noundef nonnull align 8 dereferenceable(8) %call.i1508, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1515
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1515: ; preds = %sw.bb1286, %if.end.i1510
   %retval.0.i1514 = phi ptr [ %call2.i1513, %if.end.i1510 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1286 ]
-  %646 = load i8, ptr %retval.0.i1514, align 1
-  %tobool1288.not = icmp eq i8 %646, 0
+  %612 = load i8, ptr %retval.0.i1514, align 1
+  %tobool1288.not = icmp eq i8 %612, 0
   br i1 %tobool1288.not, label %sw.epilog, label %if.then1289
 
 if.then1289:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1515
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1290) #19
-  %647 = load ptr, ptr %data1290, align 8
-  %648 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1517 = getelementptr inbounds i8, ptr %648, i64 176
-  %649 = load ptr, ptr %env_.i.i1517, align 8
-  %buffer_.i.i.i1518 = getelementptr inbounds i8, ptr %649, i64 1032
-  %650 = load ptr, ptr %buffer_.i.i.i1518, align 8
-  %651 = load double, ptr %650, align 8
-  %conv1294 = fptosi double %651 to i64
+  %613 = load ptr, ptr %data1290, align 8
+  %614 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1517 = getelementptr inbounds i8, ptr %614, i64 176
+  %615 = load ptr, ptr %env_.i.i1517, align 8
+  %buffer_.i.i.i1518 = getelementptr inbounds i8, ptr %615, i64 1032
+  %616 = load ptr, ptr %buffer_.i.i.i1518, align 8
+  %617 = load double, ptr %616, align 8
+  %conv1294 = fptosi double %617 to i64
   %conv1295 = trunc i64 %conv1294 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %647, ptr noundef nonnull @.str.181, i32 noundef %conv1295) #19
-  %652 = load ptr, ptr %data1290, align 8
-  %653 = load double, ptr %trigger_async_id_, align 8
-  %conv1298 = fptosi double %653 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %613, ptr noundef nonnull @.str.181, i32 noundef %conv1295) #19
+  %618 = load ptr, ptr %data1290, align 8
+  %619 = load double, ptr %trigger_async_id_, align 8
+  %conv1298 = fptosi double %619 to i64
   %conv1299 = trunc i64 %conv1298 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %652, ptr noundef nonnull @.str.182, i32 noundef %conv1299) #19
-  %654 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__33_.0 seq_cst, align 8
-  %655 = inttoptr i64 %654 to ptr
-  %tobool1303.not = icmp eq i64 %654, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %618, ptr noundef nonnull @.str.182, i32 noundef %conv1299) #19
+  %620 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__33_.0 seq_cst, align 8
+  %621 = inttoptr i64 %620 to ptr
+  %tobool1303.not = icmp eq i64 %620, 0
   br i1 %tobool1303.not, label %if.then1304, label %if.end1306
 
 if.then1304:                                      ; preds = %if.then1289
@@ -9934,44 +9560,33 @@ if.then1304:                                      ; preds = %if.then1289
 if.end.i1522:                                     ; preds = %if.then1304
   %vtable.i1523 = load ptr, ptr %call.i1520, align 8
   %vfn.i1524 = getelementptr inbounds i8, ptr %vtable.i1523, i64 16
-  %656 = load ptr, ptr %vfn.i1524, align 8
-  %call2.i1525 = call noundef ptr %656(ptr noundef nonnull align 8 dereferenceable(8) %call.i1520, ptr noundef nonnull @.str) #19
+  %622 = load ptr, ptr %vfn.i1524, align 8
+  %call2.i1525 = call noundef ptr %622(ptr noundef nonnull align 8 dereferenceable(8) %call.i1520, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1527
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1527: ; preds = %if.then1304, %if.end.i1522
   %retval.0.i1526 = phi ptr [ %call2.i1525, %if.end.i1522 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1304 ]
-  %657 = ptrtoint ptr %retval.0.i1526 to i64
-  store atomic i64 %657, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__33_.0 seq_cst, align 8
+  %623 = ptrtoint ptr %retval.0.i1526 to i64
+  store atomic i64 %623, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__33_.0 seq_cst, align 8
   br label %if.end1306
 
 if.end1306:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1527, %if.then1289
-  %trace_event_unique_category_group_enabled6261301.0 = phi ptr [ %655, %if.then1289 ], [ %retval.0.i1526, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1527 ]
-  %658 = load i8, ptr %trace_event_unique_category_group_enabled6261301.0, align 1
-  %659 = and i8 %658, 5
-  %tobool1309.not = icmp eq i8 %659, 0
+  %trace_event_unique_category_group_enabled6261301.0 = phi ptr [ %621, %if.then1289 ], [ %retval.0.i1526, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1527 ]
+  %624 = load i8, ptr %trace_event_unique_category_group_enabled6261301.0, align 1
+  %625 = and i8 %624, 5
+  %tobool1309.not = icmp eq i8 %625, 0
   br i1 %tobool1309.not, label %do.end1320, label %if.then1310
 
 if.then1310:                                      ; preds = %if.end1306
-  %660 = load double, ptr %async_id_, align 8
-  %conv1314 = fptosi double %660 to i64
+  %626 = load double, ptr %async_id_, align 8
+  %conv1314 = fptosi double %626 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261301.0, ptr noundef nonnull @.str.140, ptr noundef null, i64 noundef %conv1314, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1290)
   br label %do.end1320
 
 do.end1320:                                       ; preds = %if.then1310, %if.end1306
-  %661 = load ptr, ptr %data1290, align 8
-  %cmp.not.i1531 = icmp eq ptr %661, null
-  br i1 %cmp.not.i1531, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1536, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1532
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1532: ; preds = %do.end1320
-  %vtable.i.i1533 = load ptr, ptr %661, align 8
-  %vfn.i.i1534 = getelementptr inbounds i8, ptr %vtable.i.i1533, i64 8
-  %662 = load ptr, ptr %vfn.i.i1534, align 8
-  call void %662(ptr noundef nonnull align 8 dereferenceable(42) %661) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1536
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1536: ; preds = %do.end1320, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1532
-  store ptr null, ptr %data1290, align 8
-  br label %sw.epilog
+  %627 = load ptr, ptr %data1290, align 8
+  %cmp.not.i1531 = icmp eq ptr %627, null
+  br i1 %cmp.not.i1531, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1322:                                        ; preds = %if.end68
   %call.i1537 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -9981,36 +9596,36 @@ sw.bb1322:                                        ; preds = %if.end68
 if.end.i1539:                                     ; preds = %sw.bb1322
   %vtable.i1540 = load ptr, ptr %call.i1537, align 8
   %vfn.i1541 = getelementptr inbounds i8, ptr %vtable.i1540, i64 16
-  %663 = load ptr, ptr %vfn.i1541, align 8
-  %call2.i1542 = call noundef ptr %663(ptr noundef nonnull align 8 dereferenceable(8) %call.i1537, ptr noundef nonnull @.str) #19
+  %628 = load ptr, ptr %vfn.i1541, align 8
+  %call2.i1542 = call noundef ptr %628(ptr noundef nonnull align 8 dereferenceable(8) %call.i1537, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1544
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1544: ; preds = %sw.bb1322, %if.end.i1539
   %retval.0.i1543 = phi ptr [ %call2.i1542, %if.end.i1539 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1322 ]
-  %664 = load i8, ptr %retval.0.i1543, align 1
-  %tobool1324.not = icmp eq i8 %664, 0
+  %629 = load i8, ptr %retval.0.i1543, align 1
+  %tobool1324.not = icmp eq i8 %629, 0
   br i1 %tobool1324.not, label %sw.epilog, label %if.then1325
 
 if.then1325:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1544
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1326) #19
-  %665 = load ptr, ptr %data1326, align 8
-  %666 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1546 = getelementptr inbounds i8, ptr %666, i64 176
-  %667 = load ptr, ptr %env_.i.i1546, align 8
-  %buffer_.i.i.i1547 = getelementptr inbounds i8, ptr %667, i64 1032
-  %668 = load ptr, ptr %buffer_.i.i.i1547, align 8
-  %669 = load double, ptr %668, align 8
-  %conv1330 = fptosi double %669 to i64
+  %630 = load ptr, ptr %data1326, align 8
+  %631 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1546 = getelementptr inbounds i8, ptr %631, i64 176
+  %632 = load ptr, ptr %env_.i.i1546, align 8
+  %buffer_.i.i.i1547 = getelementptr inbounds i8, ptr %632, i64 1032
+  %633 = load ptr, ptr %buffer_.i.i.i1547, align 8
+  %634 = load double, ptr %633, align 8
+  %conv1330 = fptosi double %634 to i64
   %conv1331 = trunc i64 %conv1330 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %665, ptr noundef nonnull @.str.181, i32 noundef %conv1331) #19
-  %670 = load ptr, ptr %data1326, align 8
-  %671 = load double, ptr %trigger_async_id_, align 8
-  %conv1334 = fptosi double %671 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %630, ptr noundef nonnull @.str.181, i32 noundef %conv1331) #19
+  %635 = load ptr, ptr %data1326, align 8
+  %636 = load double, ptr %trigger_async_id_, align 8
+  %conv1334 = fptosi double %636 to i64
   %conv1335 = trunc i64 %conv1334 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %670, ptr noundef nonnull @.str.182, i32 noundef %conv1335) #19
-  %672 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__34_.0 seq_cst, align 8
-  %673 = inttoptr i64 %672 to ptr
-  %tobool1339.not = icmp eq i64 %672, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %635, ptr noundef nonnull @.str.182, i32 noundef %conv1335) #19
+  %637 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__34_.0 seq_cst, align 8
+  %638 = inttoptr i64 %637 to ptr
+  %tobool1339.not = icmp eq i64 %637, 0
   br i1 %tobool1339.not, label %if.then1340, label %if.end1342
 
 if.then1340:                                      ; preds = %if.then1325
@@ -10021,44 +9636,33 @@ if.then1340:                                      ; preds = %if.then1325
 if.end.i1551:                                     ; preds = %if.then1340
   %vtable.i1552 = load ptr, ptr %call.i1549, align 8
   %vfn.i1553 = getelementptr inbounds i8, ptr %vtable.i1552, i64 16
-  %674 = load ptr, ptr %vfn.i1553, align 8
-  %call2.i1554 = call noundef ptr %674(ptr noundef nonnull align 8 dereferenceable(8) %call.i1549, ptr noundef nonnull @.str) #19
+  %639 = load ptr, ptr %vfn.i1553, align 8
+  %call2.i1554 = call noundef ptr %639(ptr noundef nonnull align 8 dereferenceable(8) %call.i1549, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1556
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1556: ; preds = %if.then1340, %if.end.i1551
   %retval.0.i1555 = phi ptr [ %call2.i1554, %if.end.i1551 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1340 ]
-  %675 = ptrtoint ptr %retval.0.i1555 to i64
-  store atomic i64 %675, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__34_.0 seq_cst, align 8
+  %640 = ptrtoint ptr %retval.0.i1555 to i64
+  store atomic i64 %640, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__34_.0 seq_cst, align 8
   br label %if.end1342
 
 if.end1342:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1556, %if.then1325
-  %trace_event_unique_category_group_enabled6261337.0 = phi ptr [ %673, %if.then1325 ], [ %retval.0.i1555, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1556 ]
-  %676 = load i8, ptr %trace_event_unique_category_group_enabled6261337.0, align 1
-  %677 = and i8 %676, 5
-  %tobool1345.not = icmp eq i8 %677, 0
+  %trace_event_unique_category_group_enabled6261337.0 = phi ptr [ %638, %if.then1325 ], [ %retval.0.i1555, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1556 ]
+  %641 = load i8, ptr %trace_event_unique_category_group_enabled6261337.0, align 1
+  %642 = and i8 %641, 5
+  %tobool1345.not = icmp eq i8 %642, 0
   br i1 %tobool1345.not, label %do.end1356, label %if.then1346
 
 if.then1346:                                      ; preds = %if.end1342
-  %678 = load double, ptr %async_id_, align 8
-  %conv1350 = fptosi double %678 to i64
+  %643 = load double, ptr %async_id_, align 8
+  %conv1350 = fptosi double %643 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261337.0, ptr noundef nonnull @.str.141, ptr noundef null, i64 noundef %conv1350, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1326)
   br label %do.end1356
 
 do.end1356:                                       ; preds = %if.then1346, %if.end1342
-  %679 = load ptr, ptr %data1326, align 8
-  %cmp.not.i1560 = icmp eq ptr %679, null
-  br i1 %cmp.not.i1560, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1565, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1561
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1561: ; preds = %do.end1356
-  %vtable.i.i1562 = load ptr, ptr %679, align 8
-  %vfn.i.i1563 = getelementptr inbounds i8, ptr %vtable.i.i1562, i64 8
-  %680 = load ptr, ptr %vfn.i.i1563, align 8
-  call void %680(ptr noundef nonnull align 8 dereferenceable(42) %679) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1565
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1565: ; preds = %do.end1356, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1561
-  store ptr null, ptr %data1326, align 8
-  br label %sw.epilog
+  %644 = load ptr, ptr %data1326, align 8
+  %cmp.not.i1560 = icmp eq ptr %644, null
+  br i1 %cmp.not.i1560, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1358:                                        ; preds = %if.end68
   %call.i1566 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -10068,36 +9672,36 @@ sw.bb1358:                                        ; preds = %if.end68
 if.end.i1568:                                     ; preds = %sw.bb1358
   %vtable.i1569 = load ptr, ptr %call.i1566, align 8
   %vfn.i1570 = getelementptr inbounds i8, ptr %vtable.i1569, i64 16
-  %681 = load ptr, ptr %vfn.i1570, align 8
-  %call2.i1571 = call noundef ptr %681(ptr noundef nonnull align 8 dereferenceable(8) %call.i1566, ptr noundef nonnull @.str) #19
+  %645 = load ptr, ptr %vfn.i1570, align 8
+  %call2.i1571 = call noundef ptr %645(ptr noundef nonnull align 8 dereferenceable(8) %call.i1566, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1573
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1573: ; preds = %sw.bb1358, %if.end.i1568
   %retval.0.i1572 = phi ptr [ %call2.i1571, %if.end.i1568 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1358 ]
-  %682 = load i8, ptr %retval.0.i1572, align 1
-  %tobool1360.not = icmp eq i8 %682, 0
+  %646 = load i8, ptr %retval.0.i1572, align 1
+  %tobool1360.not = icmp eq i8 %646, 0
   br i1 %tobool1360.not, label %sw.epilog, label %if.then1361
 
 if.then1361:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1573
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1362) #19
-  %683 = load ptr, ptr %data1362, align 8
-  %684 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1575 = getelementptr inbounds i8, ptr %684, i64 176
-  %685 = load ptr, ptr %env_.i.i1575, align 8
-  %buffer_.i.i.i1576 = getelementptr inbounds i8, ptr %685, i64 1032
-  %686 = load ptr, ptr %buffer_.i.i.i1576, align 8
-  %687 = load double, ptr %686, align 8
-  %conv1366 = fptosi double %687 to i64
+  %647 = load ptr, ptr %data1362, align 8
+  %648 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1575 = getelementptr inbounds i8, ptr %648, i64 176
+  %649 = load ptr, ptr %env_.i.i1575, align 8
+  %buffer_.i.i.i1576 = getelementptr inbounds i8, ptr %649, i64 1032
+  %650 = load ptr, ptr %buffer_.i.i.i1576, align 8
+  %651 = load double, ptr %650, align 8
+  %conv1366 = fptosi double %651 to i64
   %conv1367 = trunc i64 %conv1366 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %683, ptr noundef nonnull @.str.181, i32 noundef %conv1367) #19
-  %688 = load ptr, ptr %data1362, align 8
-  %689 = load double, ptr %trigger_async_id_, align 8
-  %conv1370 = fptosi double %689 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %647, ptr noundef nonnull @.str.181, i32 noundef %conv1367) #19
+  %652 = load ptr, ptr %data1362, align 8
+  %653 = load double, ptr %trigger_async_id_, align 8
+  %conv1370 = fptosi double %653 to i64
   %conv1371 = trunc i64 %conv1370 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %688, ptr noundef nonnull @.str.182, i32 noundef %conv1371) #19
-  %690 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__35_.0 seq_cst, align 8
-  %691 = inttoptr i64 %690 to ptr
-  %tobool1375.not = icmp eq i64 %690, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %652, ptr noundef nonnull @.str.182, i32 noundef %conv1371) #19
+  %654 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__35_.0 seq_cst, align 8
+  %655 = inttoptr i64 %654 to ptr
+  %tobool1375.not = icmp eq i64 %654, 0
   br i1 %tobool1375.not, label %if.then1376, label %if.end1378
 
 if.then1376:                                      ; preds = %if.then1361
@@ -10108,44 +9712,33 @@ if.then1376:                                      ; preds = %if.then1361
 if.end.i1580:                                     ; preds = %if.then1376
   %vtable.i1581 = load ptr, ptr %call.i1578, align 8
   %vfn.i1582 = getelementptr inbounds i8, ptr %vtable.i1581, i64 16
-  %692 = load ptr, ptr %vfn.i1582, align 8
-  %call2.i1583 = call noundef ptr %692(ptr noundef nonnull align 8 dereferenceable(8) %call.i1578, ptr noundef nonnull @.str) #19
+  %656 = load ptr, ptr %vfn.i1582, align 8
+  %call2.i1583 = call noundef ptr %656(ptr noundef nonnull align 8 dereferenceable(8) %call.i1578, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1585
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1585: ; preds = %if.then1376, %if.end.i1580
   %retval.0.i1584 = phi ptr [ %call2.i1583, %if.end.i1580 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1376 ]
-  %693 = ptrtoint ptr %retval.0.i1584 to i64
-  store atomic i64 %693, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__35_.0 seq_cst, align 8
+  %657 = ptrtoint ptr %retval.0.i1584 to i64
+  store atomic i64 %657, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__35_.0 seq_cst, align 8
   br label %if.end1378
 
 if.end1378:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1585, %if.then1361
-  %trace_event_unique_category_group_enabled6261373.0 = phi ptr [ %691, %if.then1361 ], [ %retval.0.i1584, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1585 ]
-  %694 = load i8, ptr %trace_event_unique_category_group_enabled6261373.0, align 1
-  %695 = and i8 %694, 5
-  %tobool1381.not = icmp eq i8 %695, 0
+  %trace_event_unique_category_group_enabled6261373.0 = phi ptr [ %655, %if.then1361 ], [ %retval.0.i1584, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1585 ]
+  %658 = load i8, ptr %trace_event_unique_category_group_enabled6261373.0, align 1
+  %659 = and i8 %658, 5
+  %tobool1381.not = icmp eq i8 %659, 0
   br i1 %tobool1381.not, label %do.end1392, label %if.then1382
 
 if.then1382:                                      ; preds = %if.end1378
-  %696 = load double, ptr %async_id_, align 8
-  %conv1386 = fptosi double %696 to i64
+  %660 = load double, ptr %async_id_, align 8
+  %conv1386 = fptosi double %660 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261373.0, ptr noundef nonnull @.str.142, ptr noundef null, i64 noundef %conv1386, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1362)
   br label %do.end1392
 
 do.end1392:                                       ; preds = %if.then1382, %if.end1378
-  %697 = load ptr, ptr %data1362, align 8
-  %cmp.not.i1589 = icmp eq ptr %697, null
-  br i1 %cmp.not.i1589, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1594, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1590
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1590: ; preds = %do.end1392
-  %vtable.i.i1591 = load ptr, ptr %697, align 8
-  %vfn.i.i1592 = getelementptr inbounds i8, ptr %vtable.i.i1591, i64 8
-  %698 = load ptr, ptr %vfn.i.i1592, align 8
-  call void %698(ptr noundef nonnull align 8 dereferenceable(42) %697) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1594
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1594: ; preds = %do.end1392, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1590
-  store ptr null, ptr %data1362, align 8
-  br label %sw.epilog
+  %661 = load ptr, ptr %data1362, align 8
+  %cmp.not.i1589 = icmp eq ptr %661, null
+  br i1 %cmp.not.i1589, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1394:                                        ; preds = %if.end68
   %call.i1595 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -10155,36 +9748,36 @@ sw.bb1394:                                        ; preds = %if.end68
 if.end.i1597:                                     ; preds = %sw.bb1394
   %vtable.i1598 = load ptr, ptr %call.i1595, align 8
   %vfn.i1599 = getelementptr inbounds i8, ptr %vtable.i1598, i64 16
-  %699 = load ptr, ptr %vfn.i1599, align 8
-  %call2.i1600 = call noundef ptr %699(ptr noundef nonnull align 8 dereferenceable(8) %call.i1595, ptr noundef nonnull @.str) #19
+  %662 = load ptr, ptr %vfn.i1599, align 8
+  %call2.i1600 = call noundef ptr %662(ptr noundef nonnull align 8 dereferenceable(8) %call.i1595, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1602
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1602: ; preds = %sw.bb1394, %if.end.i1597
   %retval.0.i1601 = phi ptr [ %call2.i1600, %if.end.i1597 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1394 ]
-  %700 = load i8, ptr %retval.0.i1601, align 1
-  %tobool1396.not = icmp eq i8 %700, 0
+  %663 = load i8, ptr %retval.0.i1601, align 1
+  %tobool1396.not = icmp eq i8 %663, 0
   br i1 %tobool1396.not, label %sw.epilog, label %if.then1397
 
 if.then1397:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1602
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1398) #19
-  %701 = load ptr, ptr %data1398, align 8
-  %702 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1604 = getelementptr inbounds i8, ptr %702, i64 176
-  %703 = load ptr, ptr %env_.i.i1604, align 8
-  %buffer_.i.i.i1605 = getelementptr inbounds i8, ptr %703, i64 1032
-  %704 = load ptr, ptr %buffer_.i.i.i1605, align 8
-  %705 = load double, ptr %704, align 8
-  %conv1402 = fptosi double %705 to i64
+  %664 = load ptr, ptr %data1398, align 8
+  %665 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1604 = getelementptr inbounds i8, ptr %665, i64 176
+  %666 = load ptr, ptr %env_.i.i1604, align 8
+  %buffer_.i.i.i1605 = getelementptr inbounds i8, ptr %666, i64 1032
+  %667 = load ptr, ptr %buffer_.i.i.i1605, align 8
+  %668 = load double, ptr %667, align 8
+  %conv1402 = fptosi double %668 to i64
   %conv1403 = trunc i64 %conv1402 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %701, ptr noundef nonnull @.str.181, i32 noundef %conv1403) #19
-  %706 = load ptr, ptr %data1398, align 8
-  %707 = load double, ptr %trigger_async_id_, align 8
-  %conv1406 = fptosi double %707 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %664, ptr noundef nonnull @.str.181, i32 noundef %conv1403) #19
+  %669 = load ptr, ptr %data1398, align 8
+  %670 = load double, ptr %trigger_async_id_, align 8
+  %conv1406 = fptosi double %670 to i64
   %conv1407 = trunc i64 %conv1406 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %706, ptr noundef nonnull @.str.182, i32 noundef %conv1407) #19
-  %708 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__36_.0 seq_cst, align 8
-  %709 = inttoptr i64 %708 to ptr
-  %tobool1411.not = icmp eq i64 %708, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %669, ptr noundef nonnull @.str.182, i32 noundef %conv1407) #19
+  %671 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__36_.0 seq_cst, align 8
+  %672 = inttoptr i64 %671 to ptr
+  %tobool1411.not = icmp eq i64 %671, 0
   br i1 %tobool1411.not, label %if.then1412, label %if.end1414
 
 if.then1412:                                      ; preds = %if.then1397
@@ -10195,44 +9788,33 @@ if.then1412:                                      ; preds = %if.then1397
 if.end.i1609:                                     ; preds = %if.then1412
   %vtable.i1610 = load ptr, ptr %call.i1607, align 8
   %vfn.i1611 = getelementptr inbounds i8, ptr %vtable.i1610, i64 16
-  %710 = load ptr, ptr %vfn.i1611, align 8
-  %call2.i1612 = call noundef ptr %710(ptr noundef nonnull align 8 dereferenceable(8) %call.i1607, ptr noundef nonnull @.str) #19
+  %673 = load ptr, ptr %vfn.i1611, align 8
+  %call2.i1612 = call noundef ptr %673(ptr noundef nonnull align 8 dereferenceable(8) %call.i1607, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1614
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1614: ; preds = %if.then1412, %if.end.i1609
   %retval.0.i1613 = phi ptr [ %call2.i1612, %if.end.i1609 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1412 ]
-  %711 = ptrtoint ptr %retval.0.i1613 to i64
-  store atomic i64 %711, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__36_.0 seq_cst, align 8
+  %674 = ptrtoint ptr %retval.0.i1613 to i64
+  store atomic i64 %674, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__36_.0 seq_cst, align 8
   br label %if.end1414
 
 if.end1414:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1614, %if.then1397
-  %trace_event_unique_category_group_enabled6261409.0 = phi ptr [ %709, %if.then1397 ], [ %retval.0.i1613, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1614 ]
-  %712 = load i8, ptr %trace_event_unique_category_group_enabled6261409.0, align 1
-  %713 = and i8 %712, 5
-  %tobool1417.not = icmp eq i8 %713, 0
+  %trace_event_unique_category_group_enabled6261409.0 = phi ptr [ %672, %if.then1397 ], [ %retval.0.i1613, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1614 ]
+  %675 = load i8, ptr %trace_event_unique_category_group_enabled6261409.0, align 1
+  %676 = and i8 %675, 5
+  %tobool1417.not = icmp eq i8 %676, 0
   br i1 %tobool1417.not, label %do.end1428, label %if.then1418
 
 if.then1418:                                      ; preds = %if.end1414
-  %714 = load double, ptr %async_id_, align 8
-  %conv1422 = fptosi double %714 to i64
+  %677 = load double, ptr %async_id_, align 8
+  %conv1422 = fptosi double %677 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261409.0, ptr noundef nonnull @.str.143, ptr noundef null, i64 noundef %conv1422, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1398)
   br label %do.end1428
 
 do.end1428:                                       ; preds = %if.then1418, %if.end1414
-  %715 = load ptr, ptr %data1398, align 8
-  %cmp.not.i1618 = icmp eq ptr %715, null
-  br i1 %cmp.not.i1618, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1623, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1619
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1619: ; preds = %do.end1428
-  %vtable.i.i1620 = load ptr, ptr %715, align 8
-  %vfn.i.i1621 = getelementptr inbounds i8, ptr %vtable.i.i1620, i64 8
-  %716 = load ptr, ptr %vfn.i.i1621, align 8
-  call void %716(ptr noundef nonnull align 8 dereferenceable(42) %715) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1623
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1623: ; preds = %do.end1428, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1619
-  store ptr null, ptr %data1398, align 8
-  br label %sw.epilog
+  %678 = load ptr, ptr %data1398, align 8
+  %cmp.not.i1618 = icmp eq ptr %678, null
+  br i1 %cmp.not.i1618, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1430:                                        ; preds = %if.end68
   %call.i1624 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -10242,36 +9824,36 @@ sw.bb1430:                                        ; preds = %if.end68
 if.end.i1626:                                     ; preds = %sw.bb1430
   %vtable.i1627 = load ptr, ptr %call.i1624, align 8
   %vfn.i1628 = getelementptr inbounds i8, ptr %vtable.i1627, i64 16
-  %717 = load ptr, ptr %vfn.i1628, align 8
-  %call2.i1629 = call noundef ptr %717(ptr noundef nonnull align 8 dereferenceable(8) %call.i1624, ptr noundef nonnull @.str) #19
+  %679 = load ptr, ptr %vfn.i1628, align 8
+  %call2.i1629 = call noundef ptr %679(ptr noundef nonnull align 8 dereferenceable(8) %call.i1624, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1631
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1631: ; preds = %sw.bb1430, %if.end.i1626
   %retval.0.i1630 = phi ptr [ %call2.i1629, %if.end.i1626 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1430 ]
-  %718 = load i8, ptr %retval.0.i1630, align 1
-  %tobool1432.not = icmp eq i8 %718, 0
+  %680 = load i8, ptr %retval.0.i1630, align 1
+  %tobool1432.not = icmp eq i8 %680, 0
   br i1 %tobool1432.not, label %sw.epilog, label %if.then1433
 
 if.then1433:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1631
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1434) #19
-  %719 = load ptr, ptr %data1434, align 8
-  %720 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1633 = getelementptr inbounds i8, ptr %720, i64 176
-  %721 = load ptr, ptr %env_.i.i1633, align 8
-  %buffer_.i.i.i1634 = getelementptr inbounds i8, ptr %721, i64 1032
-  %722 = load ptr, ptr %buffer_.i.i.i1634, align 8
-  %723 = load double, ptr %722, align 8
-  %conv1438 = fptosi double %723 to i64
+  %681 = load ptr, ptr %data1434, align 8
+  %682 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1633 = getelementptr inbounds i8, ptr %682, i64 176
+  %683 = load ptr, ptr %env_.i.i1633, align 8
+  %buffer_.i.i.i1634 = getelementptr inbounds i8, ptr %683, i64 1032
+  %684 = load ptr, ptr %buffer_.i.i.i1634, align 8
+  %685 = load double, ptr %684, align 8
+  %conv1438 = fptosi double %685 to i64
   %conv1439 = trunc i64 %conv1438 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %719, ptr noundef nonnull @.str.181, i32 noundef %conv1439) #19
-  %724 = load ptr, ptr %data1434, align 8
-  %725 = load double, ptr %trigger_async_id_, align 8
-  %conv1442 = fptosi double %725 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %681, ptr noundef nonnull @.str.181, i32 noundef %conv1439) #19
+  %686 = load ptr, ptr %data1434, align 8
+  %687 = load double, ptr %trigger_async_id_, align 8
+  %conv1442 = fptosi double %687 to i64
   %conv1443 = trunc i64 %conv1442 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %724, ptr noundef nonnull @.str.182, i32 noundef %conv1443) #19
-  %726 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__37_.0 seq_cst, align 8
-  %727 = inttoptr i64 %726 to ptr
-  %tobool1447.not = icmp eq i64 %726, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %686, ptr noundef nonnull @.str.182, i32 noundef %conv1443) #19
+  %688 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__37_.0 seq_cst, align 8
+  %689 = inttoptr i64 %688 to ptr
+  %tobool1447.not = icmp eq i64 %688, 0
   br i1 %tobool1447.not, label %if.then1448, label %if.end1450
 
 if.then1448:                                      ; preds = %if.then1433
@@ -10282,44 +9864,33 @@ if.then1448:                                      ; preds = %if.then1433
 if.end.i1638:                                     ; preds = %if.then1448
   %vtable.i1639 = load ptr, ptr %call.i1636, align 8
   %vfn.i1640 = getelementptr inbounds i8, ptr %vtable.i1639, i64 16
-  %728 = load ptr, ptr %vfn.i1640, align 8
-  %call2.i1641 = call noundef ptr %728(ptr noundef nonnull align 8 dereferenceable(8) %call.i1636, ptr noundef nonnull @.str) #19
+  %690 = load ptr, ptr %vfn.i1640, align 8
+  %call2.i1641 = call noundef ptr %690(ptr noundef nonnull align 8 dereferenceable(8) %call.i1636, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1643
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1643: ; preds = %if.then1448, %if.end.i1638
   %retval.0.i1642 = phi ptr [ %call2.i1641, %if.end.i1638 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1448 ]
-  %729 = ptrtoint ptr %retval.0.i1642 to i64
-  store atomic i64 %729, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__37_.0 seq_cst, align 8
+  %691 = ptrtoint ptr %retval.0.i1642 to i64
+  store atomic i64 %691, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__37_.0 seq_cst, align 8
   br label %if.end1450
 
 if.end1450:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1643, %if.then1433
-  %trace_event_unique_category_group_enabled6261445.0 = phi ptr [ %727, %if.then1433 ], [ %retval.0.i1642, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1643 ]
-  %730 = load i8, ptr %trace_event_unique_category_group_enabled6261445.0, align 1
-  %731 = and i8 %730, 5
-  %tobool1453.not = icmp eq i8 %731, 0
+  %trace_event_unique_category_group_enabled6261445.0 = phi ptr [ %689, %if.then1433 ], [ %retval.0.i1642, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1643 ]
+  %692 = load i8, ptr %trace_event_unique_category_group_enabled6261445.0, align 1
+  %693 = and i8 %692, 5
+  %tobool1453.not = icmp eq i8 %693, 0
   br i1 %tobool1453.not, label %do.end1464, label %if.then1454
 
 if.then1454:                                      ; preds = %if.end1450
-  %732 = load double, ptr %async_id_, align 8
-  %conv1458 = fptosi double %732 to i64
+  %694 = load double, ptr %async_id_, align 8
+  %conv1458 = fptosi double %694 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261445.0, ptr noundef nonnull @.str.144, ptr noundef null, i64 noundef %conv1458, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1434)
   br label %do.end1464
 
 do.end1464:                                       ; preds = %if.then1454, %if.end1450
-  %733 = load ptr, ptr %data1434, align 8
-  %cmp.not.i1647 = icmp eq ptr %733, null
-  br i1 %cmp.not.i1647, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1652, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1648
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1648: ; preds = %do.end1464
-  %vtable.i.i1649 = load ptr, ptr %733, align 8
-  %vfn.i.i1650 = getelementptr inbounds i8, ptr %vtable.i.i1649, i64 8
-  %734 = load ptr, ptr %vfn.i.i1650, align 8
-  call void %734(ptr noundef nonnull align 8 dereferenceable(42) %733) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1652
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1652: ; preds = %do.end1464, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1648
-  store ptr null, ptr %data1434, align 8
-  br label %sw.epilog
+  %695 = load ptr, ptr %data1434, align 8
+  %cmp.not.i1647 = icmp eq ptr %695, null
+  br i1 %cmp.not.i1647, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1466:                                        ; preds = %if.end68
   %call.i1653 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -10329,36 +9900,36 @@ sw.bb1466:                                        ; preds = %if.end68
 if.end.i1655:                                     ; preds = %sw.bb1466
   %vtable.i1656 = load ptr, ptr %call.i1653, align 8
   %vfn.i1657 = getelementptr inbounds i8, ptr %vtable.i1656, i64 16
-  %735 = load ptr, ptr %vfn.i1657, align 8
-  %call2.i1658 = call noundef ptr %735(ptr noundef nonnull align 8 dereferenceable(8) %call.i1653, ptr noundef nonnull @.str) #19
+  %696 = load ptr, ptr %vfn.i1657, align 8
+  %call2.i1658 = call noundef ptr %696(ptr noundef nonnull align 8 dereferenceable(8) %call.i1653, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1660
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1660: ; preds = %sw.bb1466, %if.end.i1655
   %retval.0.i1659 = phi ptr [ %call2.i1658, %if.end.i1655 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1466 ]
-  %736 = load i8, ptr %retval.0.i1659, align 1
-  %tobool1468.not = icmp eq i8 %736, 0
+  %697 = load i8, ptr %retval.0.i1659, align 1
+  %tobool1468.not = icmp eq i8 %697, 0
   br i1 %tobool1468.not, label %sw.epilog, label %if.then1469
 
 if.then1469:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1660
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1470) #19
-  %737 = load ptr, ptr %data1470, align 8
-  %738 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1662 = getelementptr inbounds i8, ptr %738, i64 176
-  %739 = load ptr, ptr %env_.i.i1662, align 8
-  %buffer_.i.i.i1663 = getelementptr inbounds i8, ptr %739, i64 1032
-  %740 = load ptr, ptr %buffer_.i.i.i1663, align 8
-  %741 = load double, ptr %740, align 8
-  %conv1474 = fptosi double %741 to i64
+  %698 = load ptr, ptr %data1470, align 8
+  %699 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1662 = getelementptr inbounds i8, ptr %699, i64 176
+  %700 = load ptr, ptr %env_.i.i1662, align 8
+  %buffer_.i.i.i1663 = getelementptr inbounds i8, ptr %700, i64 1032
+  %701 = load ptr, ptr %buffer_.i.i.i1663, align 8
+  %702 = load double, ptr %701, align 8
+  %conv1474 = fptosi double %702 to i64
   %conv1475 = trunc i64 %conv1474 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %737, ptr noundef nonnull @.str.181, i32 noundef %conv1475) #19
-  %742 = load ptr, ptr %data1470, align 8
-  %743 = load double, ptr %trigger_async_id_, align 8
-  %conv1478 = fptosi double %743 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %698, ptr noundef nonnull @.str.181, i32 noundef %conv1475) #19
+  %703 = load ptr, ptr %data1470, align 8
+  %704 = load double, ptr %trigger_async_id_, align 8
+  %conv1478 = fptosi double %704 to i64
   %conv1479 = trunc i64 %conv1478 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %742, ptr noundef nonnull @.str.182, i32 noundef %conv1479) #19
-  %744 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__38_.0 seq_cst, align 8
-  %745 = inttoptr i64 %744 to ptr
-  %tobool1483.not = icmp eq i64 %744, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %703, ptr noundef nonnull @.str.182, i32 noundef %conv1479) #19
+  %705 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__38_.0 seq_cst, align 8
+  %706 = inttoptr i64 %705 to ptr
+  %tobool1483.not = icmp eq i64 %705, 0
   br i1 %tobool1483.not, label %if.then1484, label %if.end1486
 
 if.then1484:                                      ; preds = %if.then1469
@@ -10369,44 +9940,33 @@ if.then1484:                                      ; preds = %if.then1469
 if.end.i1667:                                     ; preds = %if.then1484
   %vtable.i1668 = load ptr, ptr %call.i1665, align 8
   %vfn.i1669 = getelementptr inbounds i8, ptr %vtable.i1668, i64 16
-  %746 = load ptr, ptr %vfn.i1669, align 8
-  %call2.i1670 = call noundef ptr %746(ptr noundef nonnull align 8 dereferenceable(8) %call.i1665, ptr noundef nonnull @.str) #19
+  %707 = load ptr, ptr %vfn.i1669, align 8
+  %call2.i1670 = call noundef ptr %707(ptr noundef nonnull align 8 dereferenceable(8) %call.i1665, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1672
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1672: ; preds = %if.then1484, %if.end.i1667
   %retval.0.i1671 = phi ptr [ %call2.i1670, %if.end.i1667 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1484 ]
-  %747 = ptrtoint ptr %retval.0.i1671 to i64
-  store atomic i64 %747, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__38_.0 seq_cst, align 8
+  %708 = ptrtoint ptr %retval.0.i1671 to i64
+  store atomic i64 %708, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__38_.0 seq_cst, align 8
   br label %if.end1486
 
 if.end1486:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1672, %if.then1469
-  %trace_event_unique_category_group_enabled6261481.0 = phi ptr [ %745, %if.then1469 ], [ %retval.0.i1671, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1672 ]
-  %748 = load i8, ptr %trace_event_unique_category_group_enabled6261481.0, align 1
-  %749 = and i8 %748, 5
-  %tobool1489.not = icmp eq i8 %749, 0
+  %trace_event_unique_category_group_enabled6261481.0 = phi ptr [ %706, %if.then1469 ], [ %retval.0.i1671, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1672 ]
+  %709 = load i8, ptr %trace_event_unique_category_group_enabled6261481.0, align 1
+  %710 = and i8 %709, 5
+  %tobool1489.not = icmp eq i8 %710, 0
   br i1 %tobool1489.not, label %do.end1500, label %if.then1490
 
 if.then1490:                                      ; preds = %if.end1486
-  %750 = load double, ptr %async_id_, align 8
-  %conv1494 = fptosi double %750 to i64
+  %711 = load double, ptr %async_id_, align 8
+  %conv1494 = fptosi double %711 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261481.0, ptr noundef nonnull @.str.145, ptr noundef null, i64 noundef %conv1494, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1470)
   br label %do.end1500
 
 do.end1500:                                       ; preds = %if.then1490, %if.end1486
-  %751 = load ptr, ptr %data1470, align 8
-  %cmp.not.i1676 = icmp eq ptr %751, null
-  br i1 %cmp.not.i1676, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1681, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1677
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1677: ; preds = %do.end1500
-  %vtable.i.i1678 = load ptr, ptr %751, align 8
-  %vfn.i.i1679 = getelementptr inbounds i8, ptr %vtable.i.i1678, i64 8
-  %752 = load ptr, ptr %vfn.i.i1679, align 8
-  call void %752(ptr noundef nonnull align 8 dereferenceable(42) %751) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1681
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1681: ; preds = %do.end1500, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1677
-  store ptr null, ptr %data1470, align 8
-  br label %sw.epilog
+  %712 = load ptr, ptr %data1470, align 8
+  %cmp.not.i1676 = icmp eq ptr %712, null
+  br i1 %cmp.not.i1676, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1502:                                        ; preds = %if.end68
   %call.i1682 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -10416,36 +9976,36 @@ sw.bb1502:                                        ; preds = %if.end68
 if.end.i1684:                                     ; preds = %sw.bb1502
   %vtable.i1685 = load ptr, ptr %call.i1682, align 8
   %vfn.i1686 = getelementptr inbounds i8, ptr %vtable.i1685, i64 16
-  %753 = load ptr, ptr %vfn.i1686, align 8
-  %call2.i1687 = call noundef ptr %753(ptr noundef nonnull align 8 dereferenceable(8) %call.i1682, ptr noundef nonnull @.str) #19
+  %713 = load ptr, ptr %vfn.i1686, align 8
+  %call2.i1687 = call noundef ptr %713(ptr noundef nonnull align 8 dereferenceable(8) %call.i1682, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1689
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1689: ; preds = %sw.bb1502, %if.end.i1684
   %retval.0.i1688 = phi ptr [ %call2.i1687, %if.end.i1684 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1502 ]
-  %754 = load i8, ptr %retval.0.i1688, align 1
-  %tobool1504.not = icmp eq i8 %754, 0
+  %714 = load i8, ptr %retval.0.i1688, align 1
+  %tobool1504.not = icmp eq i8 %714, 0
   br i1 %tobool1504.not, label %sw.epilog, label %if.then1505
 
 if.then1505:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1689
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1506) #19
-  %755 = load ptr, ptr %data1506, align 8
-  %756 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1691 = getelementptr inbounds i8, ptr %756, i64 176
-  %757 = load ptr, ptr %env_.i.i1691, align 8
-  %buffer_.i.i.i1692 = getelementptr inbounds i8, ptr %757, i64 1032
-  %758 = load ptr, ptr %buffer_.i.i.i1692, align 8
-  %759 = load double, ptr %758, align 8
-  %conv1510 = fptosi double %759 to i64
+  %715 = load ptr, ptr %data1506, align 8
+  %716 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1691 = getelementptr inbounds i8, ptr %716, i64 176
+  %717 = load ptr, ptr %env_.i.i1691, align 8
+  %buffer_.i.i.i1692 = getelementptr inbounds i8, ptr %717, i64 1032
+  %718 = load ptr, ptr %buffer_.i.i.i1692, align 8
+  %719 = load double, ptr %718, align 8
+  %conv1510 = fptosi double %719 to i64
   %conv1511 = trunc i64 %conv1510 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %755, ptr noundef nonnull @.str.181, i32 noundef %conv1511) #19
-  %760 = load ptr, ptr %data1506, align 8
-  %761 = load double, ptr %trigger_async_id_, align 8
-  %conv1514 = fptosi double %761 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %715, ptr noundef nonnull @.str.181, i32 noundef %conv1511) #19
+  %720 = load ptr, ptr %data1506, align 8
+  %721 = load double, ptr %trigger_async_id_, align 8
+  %conv1514 = fptosi double %721 to i64
   %conv1515 = trunc i64 %conv1514 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %760, ptr noundef nonnull @.str.182, i32 noundef %conv1515) #19
-  %762 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__39_.0 seq_cst, align 8
-  %763 = inttoptr i64 %762 to ptr
-  %tobool1519.not = icmp eq i64 %762, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %720, ptr noundef nonnull @.str.182, i32 noundef %conv1515) #19
+  %722 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__39_.0 seq_cst, align 8
+  %723 = inttoptr i64 %722 to ptr
+  %tobool1519.not = icmp eq i64 %722, 0
   br i1 %tobool1519.not, label %if.then1520, label %if.end1522
 
 if.then1520:                                      ; preds = %if.then1505
@@ -10456,44 +10016,33 @@ if.then1520:                                      ; preds = %if.then1505
 if.end.i1696:                                     ; preds = %if.then1520
   %vtable.i1697 = load ptr, ptr %call.i1694, align 8
   %vfn.i1698 = getelementptr inbounds i8, ptr %vtable.i1697, i64 16
-  %764 = load ptr, ptr %vfn.i1698, align 8
-  %call2.i1699 = call noundef ptr %764(ptr noundef nonnull align 8 dereferenceable(8) %call.i1694, ptr noundef nonnull @.str) #19
+  %724 = load ptr, ptr %vfn.i1698, align 8
+  %call2.i1699 = call noundef ptr %724(ptr noundef nonnull align 8 dereferenceable(8) %call.i1694, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1701
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1701: ; preds = %if.then1520, %if.end.i1696
   %retval.0.i1700 = phi ptr [ %call2.i1699, %if.end.i1696 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1520 ]
-  %765 = ptrtoint ptr %retval.0.i1700 to i64
-  store atomic i64 %765, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__39_.0 seq_cst, align 8
+  %725 = ptrtoint ptr %retval.0.i1700 to i64
+  store atomic i64 %725, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__39_.0 seq_cst, align 8
   br label %if.end1522
 
 if.end1522:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1701, %if.then1505
-  %trace_event_unique_category_group_enabled6261517.0 = phi ptr [ %763, %if.then1505 ], [ %retval.0.i1700, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1701 ]
-  %766 = load i8, ptr %trace_event_unique_category_group_enabled6261517.0, align 1
-  %767 = and i8 %766, 5
-  %tobool1525.not = icmp eq i8 %767, 0
+  %trace_event_unique_category_group_enabled6261517.0 = phi ptr [ %723, %if.then1505 ], [ %retval.0.i1700, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1701 ]
+  %726 = load i8, ptr %trace_event_unique_category_group_enabled6261517.0, align 1
+  %727 = and i8 %726, 5
+  %tobool1525.not = icmp eq i8 %727, 0
   br i1 %tobool1525.not, label %do.end1536, label %if.then1526
 
 if.then1526:                                      ; preds = %if.end1522
-  %768 = load double, ptr %async_id_, align 8
-  %conv1530 = fptosi double %768 to i64
+  %728 = load double, ptr %async_id_, align 8
+  %conv1530 = fptosi double %728 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261517.0, ptr noundef nonnull @.str.146, ptr noundef null, i64 noundef %conv1530, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1506)
   br label %do.end1536
 
 do.end1536:                                       ; preds = %if.then1526, %if.end1522
-  %769 = load ptr, ptr %data1506, align 8
-  %cmp.not.i1705 = icmp eq ptr %769, null
-  br i1 %cmp.not.i1705, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1710, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1706
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1706: ; preds = %do.end1536
-  %vtable.i.i1707 = load ptr, ptr %769, align 8
-  %vfn.i.i1708 = getelementptr inbounds i8, ptr %vtable.i.i1707, i64 8
-  %770 = load ptr, ptr %vfn.i.i1708, align 8
-  call void %770(ptr noundef nonnull align 8 dereferenceable(42) %769) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1710
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1710: ; preds = %do.end1536, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1706
-  store ptr null, ptr %data1506, align 8
-  br label %sw.epilog
+  %729 = load ptr, ptr %data1506, align 8
+  %cmp.not.i1705 = icmp eq ptr %729, null
+  br i1 %cmp.not.i1705, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1538:                                        ; preds = %if.end68
   %call.i1711 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -10503,36 +10052,36 @@ sw.bb1538:                                        ; preds = %if.end68
 if.end.i1713:                                     ; preds = %sw.bb1538
   %vtable.i1714 = load ptr, ptr %call.i1711, align 8
   %vfn.i1715 = getelementptr inbounds i8, ptr %vtable.i1714, i64 16
-  %771 = load ptr, ptr %vfn.i1715, align 8
-  %call2.i1716 = call noundef ptr %771(ptr noundef nonnull align 8 dereferenceable(8) %call.i1711, ptr noundef nonnull @.str) #19
+  %730 = load ptr, ptr %vfn.i1715, align 8
+  %call2.i1716 = call noundef ptr %730(ptr noundef nonnull align 8 dereferenceable(8) %call.i1711, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1718
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1718: ; preds = %sw.bb1538, %if.end.i1713
   %retval.0.i1717 = phi ptr [ %call2.i1716, %if.end.i1713 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1538 ]
-  %772 = load i8, ptr %retval.0.i1717, align 1
-  %tobool1540.not = icmp eq i8 %772, 0
+  %731 = load i8, ptr %retval.0.i1717, align 1
+  %tobool1540.not = icmp eq i8 %731, 0
   br i1 %tobool1540.not, label %sw.epilog, label %if.then1541
 
 if.then1541:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1718
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1542) #19
-  %773 = load ptr, ptr %data1542, align 8
-  %774 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1720 = getelementptr inbounds i8, ptr %774, i64 176
-  %775 = load ptr, ptr %env_.i.i1720, align 8
-  %buffer_.i.i.i1721 = getelementptr inbounds i8, ptr %775, i64 1032
-  %776 = load ptr, ptr %buffer_.i.i.i1721, align 8
-  %777 = load double, ptr %776, align 8
-  %conv1546 = fptosi double %777 to i64
+  %732 = load ptr, ptr %data1542, align 8
+  %733 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1720 = getelementptr inbounds i8, ptr %733, i64 176
+  %734 = load ptr, ptr %env_.i.i1720, align 8
+  %buffer_.i.i.i1721 = getelementptr inbounds i8, ptr %734, i64 1032
+  %735 = load ptr, ptr %buffer_.i.i.i1721, align 8
+  %736 = load double, ptr %735, align 8
+  %conv1546 = fptosi double %736 to i64
   %conv1547 = trunc i64 %conv1546 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %773, ptr noundef nonnull @.str.181, i32 noundef %conv1547) #19
-  %778 = load ptr, ptr %data1542, align 8
-  %779 = load double, ptr %trigger_async_id_, align 8
-  %conv1550 = fptosi double %779 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %732, ptr noundef nonnull @.str.181, i32 noundef %conv1547) #19
+  %737 = load ptr, ptr %data1542, align 8
+  %738 = load double, ptr %trigger_async_id_, align 8
+  %conv1550 = fptosi double %738 to i64
   %conv1551 = trunc i64 %conv1550 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %778, ptr noundef nonnull @.str.182, i32 noundef %conv1551) #19
-  %780 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__40_.0 seq_cst, align 8
-  %781 = inttoptr i64 %780 to ptr
-  %tobool1555.not = icmp eq i64 %780, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %737, ptr noundef nonnull @.str.182, i32 noundef %conv1551) #19
+  %739 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__40_.0 seq_cst, align 8
+  %740 = inttoptr i64 %739 to ptr
+  %tobool1555.not = icmp eq i64 %739, 0
   br i1 %tobool1555.not, label %if.then1556, label %if.end1558
 
 if.then1556:                                      ; preds = %if.then1541
@@ -10543,44 +10092,33 @@ if.then1556:                                      ; preds = %if.then1541
 if.end.i1725:                                     ; preds = %if.then1556
   %vtable.i1726 = load ptr, ptr %call.i1723, align 8
   %vfn.i1727 = getelementptr inbounds i8, ptr %vtable.i1726, i64 16
-  %782 = load ptr, ptr %vfn.i1727, align 8
-  %call2.i1728 = call noundef ptr %782(ptr noundef nonnull align 8 dereferenceable(8) %call.i1723, ptr noundef nonnull @.str) #19
+  %741 = load ptr, ptr %vfn.i1727, align 8
+  %call2.i1728 = call noundef ptr %741(ptr noundef nonnull align 8 dereferenceable(8) %call.i1723, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1730
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1730: ; preds = %if.then1556, %if.end.i1725
   %retval.0.i1729 = phi ptr [ %call2.i1728, %if.end.i1725 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1556 ]
-  %783 = ptrtoint ptr %retval.0.i1729 to i64
-  store atomic i64 %783, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__40_.0 seq_cst, align 8
+  %742 = ptrtoint ptr %retval.0.i1729 to i64
+  store atomic i64 %742, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__40_.0 seq_cst, align 8
   br label %if.end1558
 
 if.end1558:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1730, %if.then1541
-  %trace_event_unique_category_group_enabled6261553.0 = phi ptr [ %781, %if.then1541 ], [ %retval.0.i1729, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1730 ]
-  %784 = load i8, ptr %trace_event_unique_category_group_enabled6261553.0, align 1
-  %785 = and i8 %784, 5
-  %tobool1561.not = icmp eq i8 %785, 0
+  %trace_event_unique_category_group_enabled6261553.0 = phi ptr [ %740, %if.then1541 ], [ %retval.0.i1729, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1730 ]
+  %743 = load i8, ptr %trace_event_unique_category_group_enabled6261553.0, align 1
+  %744 = and i8 %743, 5
+  %tobool1561.not = icmp eq i8 %744, 0
   br i1 %tobool1561.not, label %do.end1572, label %if.then1562
 
 if.then1562:                                      ; preds = %if.end1558
-  %786 = load double, ptr %async_id_, align 8
-  %conv1566 = fptosi double %786 to i64
+  %745 = load double, ptr %async_id_, align 8
+  %conv1566 = fptosi double %745 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261553.0, ptr noundef nonnull @.str.147, ptr noundef null, i64 noundef %conv1566, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1542)
   br label %do.end1572
 
 do.end1572:                                       ; preds = %if.then1562, %if.end1558
-  %787 = load ptr, ptr %data1542, align 8
-  %cmp.not.i1734 = icmp eq ptr %787, null
-  br i1 %cmp.not.i1734, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1739, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1735
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1735: ; preds = %do.end1572
-  %vtable.i.i1736 = load ptr, ptr %787, align 8
-  %vfn.i.i1737 = getelementptr inbounds i8, ptr %vtable.i.i1736, i64 8
-  %788 = load ptr, ptr %vfn.i.i1737, align 8
-  call void %788(ptr noundef nonnull align 8 dereferenceable(42) %787) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1739
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1739: ; preds = %do.end1572, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1735
-  store ptr null, ptr %data1542, align 8
-  br label %sw.epilog
+  %746 = load ptr, ptr %data1542, align 8
+  %cmp.not.i1734 = icmp eq ptr %746, null
+  br i1 %cmp.not.i1734, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1574:                                        ; preds = %if.end68
   %call.i1740 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -10590,36 +10128,36 @@ sw.bb1574:                                        ; preds = %if.end68
 if.end.i1742:                                     ; preds = %sw.bb1574
   %vtable.i1743 = load ptr, ptr %call.i1740, align 8
   %vfn.i1744 = getelementptr inbounds i8, ptr %vtable.i1743, i64 16
-  %789 = load ptr, ptr %vfn.i1744, align 8
-  %call2.i1745 = call noundef ptr %789(ptr noundef nonnull align 8 dereferenceable(8) %call.i1740, ptr noundef nonnull @.str) #19
+  %747 = load ptr, ptr %vfn.i1744, align 8
+  %call2.i1745 = call noundef ptr %747(ptr noundef nonnull align 8 dereferenceable(8) %call.i1740, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1747
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1747: ; preds = %sw.bb1574, %if.end.i1742
   %retval.0.i1746 = phi ptr [ %call2.i1745, %if.end.i1742 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1574 ]
-  %790 = load i8, ptr %retval.0.i1746, align 1
-  %tobool1576.not = icmp eq i8 %790, 0
+  %748 = load i8, ptr %retval.0.i1746, align 1
+  %tobool1576.not = icmp eq i8 %748, 0
   br i1 %tobool1576.not, label %sw.epilog, label %if.then1577
 
 if.then1577:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1747
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1578) #19
-  %791 = load ptr, ptr %data1578, align 8
-  %792 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1749 = getelementptr inbounds i8, ptr %792, i64 176
-  %793 = load ptr, ptr %env_.i.i1749, align 8
-  %buffer_.i.i.i1750 = getelementptr inbounds i8, ptr %793, i64 1032
-  %794 = load ptr, ptr %buffer_.i.i.i1750, align 8
-  %795 = load double, ptr %794, align 8
-  %conv1582 = fptosi double %795 to i64
+  %749 = load ptr, ptr %data1578, align 8
+  %750 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1749 = getelementptr inbounds i8, ptr %750, i64 176
+  %751 = load ptr, ptr %env_.i.i1749, align 8
+  %buffer_.i.i.i1750 = getelementptr inbounds i8, ptr %751, i64 1032
+  %752 = load ptr, ptr %buffer_.i.i.i1750, align 8
+  %753 = load double, ptr %752, align 8
+  %conv1582 = fptosi double %753 to i64
   %conv1583 = trunc i64 %conv1582 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %791, ptr noundef nonnull @.str.181, i32 noundef %conv1583) #19
-  %796 = load ptr, ptr %data1578, align 8
-  %797 = load double, ptr %trigger_async_id_, align 8
-  %conv1586 = fptosi double %797 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %749, ptr noundef nonnull @.str.181, i32 noundef %conv1583) #19
+  %754 = load ptr, ptr %data1578, align 8
+  %755 = load double, ptr %trigger_async_id_, align 8
+  %conv1586 = fptosi double %755 to i64
   %conv1587 = trunc i64 %conv1586 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %796, ptr noundef nonnull @.str.182, i32 noundef %conv1587) #19
-  %798 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__41_.0 seq_cst, align 8
-  %799 = inttoptr i64 %798 to ptr
-  %tobool1591.not = icmp eq i64 %798, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %754, ptr noundef nonnull @.str.182, i32 noundef %conv1587) #19
+  %756 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__41_.0 seq_cst, align 8
+  %757 = inttoptr i64 %756 to ptr
+  %tobool1591.not = icmp eq i64 %756, 0
   br i1 %tobool1591.not, label %if.then1592, label %if.end1594
 
 if.then1592:                                      ; preds = %if.then1577
@@ -10630,44 +10168,33 @@ if.then1592:                                      ; preds = %if.then1577
 if.end.i1754:                                     ; preds = %if.then1592
   %vtable.i1755 = load ptr, ptr %call.i1752, align 8
   %vfn.i1756 = getelementptr inbounds i8, ptr %vtable.i1755, i64 16
-  %800 = load ptr, ptr %vfn.i1756, align 8
-  %call2.i1757 = call noundef ptr %800(ptr noundef nonnull align 8 dereferenceable(8) %call.i1752, ptr noundef nonnull @.str) #19
+  %758 = load ptr, ptr %vfn.i1756, align 8
+  %call2.i1757 = call noundef ptr %758(ptr noundef nonnull align 8 dereferenceable(8) %call.i1752, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1759
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1759: ; preds = %if.then1592, %if.end.i1754
   %retval.0.i1758 = phi ptr [ %call2.i1757, %if.end.i1754 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1592 ]
-  %801 = ptrtoint ptr %retval.0.i1758 to i64
-  store atomic i64 %801, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__41_.0 seq_cst, align 8
+  %759 = ptrtoint ptr %retval.0.i1758 to i64
+  store atomic i64 %759, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__41_.0 seq_cst, align 8
   br label %if.end1594
 
 if.end1594:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1759, %if.then1577
-  %trace_event_unique_category_group_enabled6261589.0 = phi ptr [ %799, %if.then1577 ], [ %retval.0.i1758, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1759 ]
-  %802 = load i8, ptr %trace_event_unique_category_group_enabled6261589.0, align 1
-  %803 = and i8 %802, 5
-  %tobool1597.not = icmp eq i8 %803, 0
+  %trace_event_unique_category_group_enabled6261589.0 = phi ptr [ %757, %if.then1577 ], [ %retval.0.i1758, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1759 ]
+  %760 = load i8, ptr %trace_event_unique_category_group_enabled6261589.0, align 1
+  %761 = and i8 %760, 5
+  %tobool1597.not = icmp eq i8 %761, 0
   br i1 %tobool1597.not, label %do.end1608, label %if.then1598
 
 if.then1598:                                      ; preds = %if.end1594
-  %804 = load double, ptr %async_id_, align 8
-  %conv1602 = fptosi double %804 to i64
+  %762 = load double, ptr %async_id_, align 8
+  %conv1602 = fptosi double %762 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261589.0, ptr noundef nonnull @.str.148, ptr noundef null, i64 noundef %conv1602, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1578)
   br label %do.end1608
 
 do.end1608:                                       ; preds = %if.then1598, %if.end1594
-  %805 = load ptr, ptr %data1578, align 8
-  %cmp.not.i1763 = icmp eq ptr %805, null
-  br i1 %cmp.not.i1763, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1768, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1764
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1764: ; preds = %do.end1608
-  %vtable.i.i1765 = load ptr, ptr %805, align 8
-  %vfn.i.i1766 = getelementptr inbounds i8, ptr %vtable.i.i1765, i64 8
-  %806 = load ptr, ptr %vfn.i.i1766, align 8
-  call void %806(ptr noundef nonnull align 8 dereferenceable(42) %805) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1768
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1768: ; preds = %do.end1608, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1764
-  store ptr null, ptr %data1578, align 8
-  br label %sw.epilog
+  %763 = load ptr, ptr %data1578, align 8
+  %cmp.not.i1763 = icmp eq ptr %763, null
+  br i1 %cmp.not.i1763, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1610:                                        ; preds = %if.end68
   %call.i1769 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -10677,36 +10204,36 @@ sw.bb1610:                                        ; preds = %if.end68
 if.end.i1771:                                     ; preds = %sw.bb1610
   %vtable.i1772 = load ptr, ptr %call.i1769, align 8
   %vfn.i1773 = getelementptr inbounds i8, ptr %vtable.i1772, i64 16
-  %807 = load ptr, ptr %vfn.i1773, align 8
-  %call2.i1774 = call noundef ptr %807(ptr noundef nonnull align 8 dereferenceable(8) %call.i1769, ptr noundef nonnull @.str) #19
+  %764 = load ptr, ptr %vfn.i1773, align 8
+  %call2.i1774 = call noundef ptr %764(ptr noundef nonnull align 8 dereferenceable(8) %call.i1769, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1776
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1776: ; preds = %sw.bb1610, %if.end.i1771
   %retval.0.i1775 = phi ptr [ %call2.i1774, %if.end.i1771 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1610 ]
-  %808 = load i8, ptr %retval.0.i1775, align 1
-  %tobool1612.not = icmp eq i8 %808, 0
+  %765 = load i8, ptr %retval.0.i1775, align 1
+  %tobool1612.not = icmp eq i8 %765, 0
   br i1 %tobool1612.not, label %sw.epilog, label %if.then1613
 
 if.then1613:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1776
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1614) #19
-  %809 = load ptr, ptr %data1614, align 8
-  %810 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1778 = getelementptr inbounds i8, ptr %810, i64 176
-  %811 = load ptr, ptr %env_.i.i1778, align 8
-  %buffer_.i.i.i1779 = getelementptr inbounds i8, ptr %811, i64 1032
-  %812 = load ptr, ptr %buffer_.i.i.i1779, align 8
-  %813 = load double, ptr %812, align 8
-  %conv1618 = fptosi double %813 to i64
+  %766 = load ptr, ptr %data1614, align 8
+  %767 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1778 = getelementptr inbounds i8, ptr %767, i64 176
+  %768 = load ptr, ptr %env_.i.i1778, align 8
+  %buffer_.i.i.i1779 = getelementptr inbounds i8, ptr %768, i64 1032
+  %769 = load ptr, ptr %buffer_.i.i.i1779, align 8
+  %770 = load double, ptr %769, align 8
+  %conv1618 = fptosi double %770 to i64
   %conv1619 = trunc i64 %conv1618 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %809, ptr noundef nonnull @.str.181, i32 noundef %conv1619) #19
-  %814 = load ptr, ptr %data1614, align 8
-  %815 = load double, ptr %trigger_async_id_, align 8
-  %conv1622 = fptosi double %815 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %766, ptr noundef nonnull @.str.181, i32 noundef %conv1619) #19
+  %771 = load ptr, ptr %data1614, align 8
+  %772 = load double, ptr %trigger_async_id_, align 8
+  %conv1622 = fptosi double %772 to i64
   %conv1623 = trunc i64 %conv1622 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %814, ptr noundef nonnull @.str.182, i32 noundef %conv1623) #19
-  %816 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__42_.0 seq_cst, align 8
-  %817 = inttoptr i64 %816 to ptr
-  %tobool1627.not = icmp eq i64 %816, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %771, ptr noundef nonnull @.str.182, i32 noundef %conv1623) #19
+  %773 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__42_.0 seq_cst, align 8
+  %774 = inttoptr i64 %773 to ptr
+  %tobool1627.not = icmp eq i64 %773, 0
   br i1 %tobool1627.not, label %if.then1628, label %if.end1630
 
 if.then1628:                                      ; preds = %if.then1613
@@ -10717,44 +10244,33 @@ if.then1628:                                      ; preds = %if.then1613
 if.end.i1783:                                     ; preds = %if.then1628
   %vtable.i1784 = load ptr, ptr %call.i1781, align 8
   %vfn.i1785 = getelementptr inbounds i8, ptr %vtable.i1784, i64 16
-  %818 = load ptr, ptr %vfn.i1785, align 8
-  %call2.i1786 = call noundef ptr %818(ptr noundef nonnull align 8 dereferenceable(8) %call.i1781, ptr noundef nonnull @.str) #19
+  %775 = load ptr, ptr %vfn.i1785, align 8
+  %call2.i1786 = call noundef ptr %775(ptr noundef nonnull align 8 dereferenceable(8) %call.i1781, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1788
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1788: ; preds = %if.then1628, %if.end.i1783
   %retval.0.i1787 = phi ptr [ %call2.i1786, %if.end.i1783 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1628 ]
-  %819 = ptrtoint ptr %retval.0.i1787 to i64
-  store atomic i64 %819, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__42_.0 seq_cst, align 8
+  %776 = ptrtoint ptr %retval.0.i1787 to i64
+  store atomic i64 %776, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__42_.0 seq_cst, align 8
   br label %if.end1630
 
 if.end1630:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1788, %if.then1613
-  %trace_event_unique_category_group_enabled6261625.0 = phi ptr [ %817, %if.then1613 ], [ %retval.0.i1787, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1788 ]
-  %820 = load i8, ptr %trace_event_unique_category_group_enabled6261625.0, align 1
-  %821 = and i8 %820, 5
-  %tobool1633.not = icmp eq i8 %821, 0
+  %trace_event_unique_category_group_enabled6261625.0 = phi ptr [ %774, %if.then1613 ], [ %retval.0.i1787, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1788 ]
+  %777 = load i8, ptr %trace_event_unique_category_group_enabled6261625.0, align 1
+  %778 = and i8 %777, 5
+  %tobool1633.not = icmp eq i8 %778, 0
   br i1 %tobool1633.not, label %do.end1644, label %if.then1634
 
 if.then1634:                                      ; preds = %if.end1630
-  %822 = load double, ptr %async_id_, align 8
-  %conv1638 = fptosi double %822 to i64
+  %779 = load double, ptr %async_id_, align 8
+  %conv1638 = fptosi double %779 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261625.0, ptr noundef nonnull @.str.149, ptr noundef null, i64 noundef %conv1638, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1614)
   br label %do.end1644
 
 do.end1644:                                       ; preds = %if.then1634, %if.end1630
-  %823 = load ptr, ptr %data1614, align 8
-  %cmp.not.i1792 = icmp eq ptr %823, null
-  br i1 %cmp.not.i1792, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1797, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1793
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1793: ; preds = %do.end1644
-  %vtable.i.i1794 = load ptr, ptr %823, align 8
-  %vfn.i.i1795 = getelementptr inbounds i8, ptr %vtable.i.i1794, i64 8
-  %824 = load ptr, ptr %vfn.i.i1795, align 8
-  call void %824(ptr noundef nonnull align 8 dereferenceable(42) %823) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1797
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1797: ; preds = %do.end1644, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1793
-  store ptr null, ptr %data1614, align 8
-  br label %sw.epilog
+  %780 = load ptr, ptr %data1614, align 8
+  %cmp.not.i1792 = icmp eq ptr %780, null
+  br i1 %cmp.not.i1792, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1646:                                        ; preds = %if.end68
   %call.i1798 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -10764,36 +10280,36 @@ sw.bb1646:                                        ; preds = %if.end68
 if.end.i1800:                                     ; preds = %sw.bb1646
   %vtable.i1801 = load ptr, ptr %call.i1798, align 8
   %vfn.i1802 = getelementptr inbounds i8, ptr %vtable.i1801, i64 16
-  %825 = load ptr, ptr %vfn.i1802, align 8
-  %call2.i1803 = call noundef ptr %825(ptr noundef nonnull align 8 dereferenceable(8) %call.i1798, ptr noundef nonnull @.str) #19
+  %781 = load ptr, ptr %vfn.i1802, align 8
+  %call2.i1803 = call noundef ptr %781(ptr noundef nonnull align 8 dereferenceable(8) %call.i1798, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1805
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1805: ; preds = %sw.bb1646, %if.end.i1800
   %retval.0.i1804 = phi ptr [ %call2.i1803, %if.end.i1800 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1646 ]
-  %826 = load i8, ptr %retval.0.i1804, align 1
-  %tobool1648.not = icmp eq i8 %826, 0
+  %782 = load i8, ptr %retval.0.i1804, align 1
+  %tobool1648.not = icmp eq i8 %782, 0
   br i1 %tobool1648.not, label %sw.epilog, label %if.then1649
 
 if.then1649:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1805
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1650) #19
-  %827 = load ptr, ptr %data1650, align 8
-  %828 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1807 = getelementptr inbounds i8, ptr %828, i64 176
-  %829 = load ptr, ptr %env_.i.i1807, align 8
-  %buffer_.i.i.i1808 = getelementptr inbounds i8, ptr %829, i64 1032
-  %830 = load ptr, ptr %buffer_.i.i.i1808, align 8
-  %831 = load double, ptr %830, align 8
-  %conv1654 = fptosi double %831 to i64
+  %783 = load ptr, ptr %data1650, align 8
+  %784 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1807 = getelementptr inbounds i8, ptr %784, i64 176
+  %785 = load ptr, ptr %env_.i.i1807, align 8
+  %buffer_.i.i.i1808 = getelementptr inbounds i8, ptr %785, i64 1032
+  %786 = load ptr, ptr %buffer_.i.i.i1808, align 8
+  %787 = load double, ptr %786, align 8
+  %conv1654 = fptosi double %787 to i64
   %conv1655 = trunc i64 %conv1654 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %827, ptr noundef nonnull @.str.181, i32 noundef %conv1655) #19
-  %832 = load ptr, ptr %data1650, align 8
-  %833 = load double, ptr %trigger_async_id_, align 8
-  %conv1658 = fptosi double %833 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %783, ptr noundef nonnull @.str.181, i32 noundef %conv1655) #19
+  %788 = load ptr, ptr %data1650, align 8
+  %789 = load double, ptr %trigger_async_id_, align 8
+  %conv1658 = fptosi double %789 to i64
   %conv1659 = trunc i64 %conv1658 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %832, ptr noundef nonnull @.str.182, i32 noundef %conv1659) #19
-  %834 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__43_.0 seq_cst, align 8
-  %835 = inttoptr i64 %834 to ptr
-  %tobool1663.not = icmp eq i64 %834, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %788, ptr noundef nonnull @.str.182, i32 noundef %conv1659) #19
+  %790 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__43_.0 seq_cst, align 8
+  %791 = inttoptr i64 %790 to ptr
+  %tobool1663.not = icmp eq i64 %790, 0
   br i1 %tobool1663.not, label %if.then1664, label %if.end1666
 
 if.then1664:                                      ; preds = %if.then1649
@@ -10804,44 +10320,33 @@ if.then1664:                                      ; preds = %if.then1649
 if.end.i1812:                                     ; preds = %if.then1664
   %vtable.i1813 = load ptr, ptr %call.i1810, align 8
   %vfn.i1814 = getelementptr inbounds i8, ptr %vtable.i1813, i64 16
-  %836 = load ptr, ptr %vfn.i1814, align 8
-  %call2.i1815 = call noundef ptr %836(ptr noundef nonnull align 8 dereferenceable(8) %call.i1810, ptr noundef nonnull @.str) #19
+  %792 = load ptr, ptr %vfn.i1814, align 8
+  %call2.i1815 = call noundef ptr %792(ptr noundef nonnull align 8 dereferenceable(8) %call.i1810, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1817
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1817: ; preds = %if.then1664, %if.end.i1812
   %retval.0.i1816 = phi ptr [ %call2.i1815, %if.end.i1812 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1664 ]
-  %837 = ptrtoint ptr %retval.0.i1816 to i64
-  store atomic i64 %837, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__43_.0 seq_cst, align 8
+  %793 = ptrtoint ptr %retval.0.i1816 to i64
+  store atomic i64 %793, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__43_.0 seq_cst, align 8
   br label %if.end1666
 
 if.end1666:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1817, %if.then1649
-  %trace_event_unique_category_group_enabled6261661.0 = phi ptr [ %835, %if.then1649 ], [ %retval.0.i1816, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1817 ]
-  %838 = load i8, ptr %trace_event_unique_category_group_enabled6261661.0, align 1
-  %839 = and i8 %838, 5
-  %tobool1669.not = icmp eq i8 %839, 0
+  %trace_event_unique_category_group_enabled6261661.0 = phi ptr [ %791, %if.then1649 ], [ %retval.0.i1816, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1817 ]
+  %794 = load i8, ptr %trace_event_unique_category_group_enabled6261661.0, align 1
+  %795 = and i8 %794, 5
+  %tobool1669.not = icmp eq i8 %795, 0
   br i1 %tobool1669.not, label %do.end1680, label %if.then1670
 
 if.then1670:                                      ; preds = %if.end1666
-  %840 = load double, ptr %async_id_, align 8
-  %conv1674 = fptosi double %840 to i64
+  %796 = load double, ptr %async_id_, align 8
+  %conv1674 = fptosi double %796 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261661.0, ptr noundef nonnull @.str.150, ptr noundef null, i64 noundef %conv1674, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1650)
   br label %do.end1680
 
 do.end1680:                                       ; preds = %if.then1670, %if.end1666
-  %841 = load ptr, ptr %data1650, align 8
-  %cmp.not.i1821 = icmp eq ptr %841, null
-  br i1 %cmp.not.i1821, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1826, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1822
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1822: ; preds = %do.end1680
-  %vtable.i.i1823 = load ptr, ptr %841, align 8
-  %vfn.i.i1824 = getelementptr inbounds i8, ptr %vtable.i.i1823, i64 8
-  %842 = load ptr, ptr %vfn.i.i1824, align 8
-  call void %842(ptr noundef nonnull align 8 dereferenceable(42) %841) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1826
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1826: ; preds = %do.end1680, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1822
-  store ptr null, ptr %data1650, align 8
-  br label %sw.epilog
+  %797 = load ptr, ptr %data1650, align 8
+  %cmp.not.i1821 = icmp eq ptr %797, null
+  br i1 %cmp.not.i1821, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1682:                                        ; preds = %if.end68
   %call.i1827 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -10851,36 +10356,36 @@ sw.bb1682:                                        ; preds = %if.end68
 if.end.i1829:                                     ; preds = %sw.bb1682
   %vtable.i1830 = load ptr, ptr %call.i1827, align 8
   %vfn.i1831 = getelementptr inbounds i8, ptr %vtable.i1830, i64 16
-  %843 = load ptr, ptr %vfn.i1831, align 8
-  %call2.i1832 = call noundef ptr %843(ptr noundef nonnull align 8 dereferenceable(8) %call.i1827, ptr noundef nonnull @.str) #19
+  %798 = load ptr, ptr %vfn.i1831, align 8
+  %call2.i1832 = call noundef ptr %798(ptr noundef nonnull align 8 dereferenceable(8) %call.i1827, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1834
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1834: ; preds = %sw.bb1682, %if.end.i1829
   %retval.0.i1833 = phi ptr [ %call2.i1832, %if.end.i1829 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1682 ]
-  %844 = load i8, ptr %retval.0.i1833, align 1
-  %tobool1684.not = icmp eq i8 %844, 0
+  %799 = load i8, ptr %retval.0.i1833, align 1
+  %tobool1684.not = icmp eq i8 %799, 0
   br i1 %tobool1684.not, label %sw.epilog, label %if.then1685
 
 if.then1685:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1834
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1686) #19
-  %845 = load ptr, ptr %data1686, align 8
-  %846 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1836 = getelementptr inbounds i8, ptr %846, i64 176
-  %847 = load ptr, ptr %env_.i.i1836, align 8
-  %buffer_.i.i.i1837 = getelementptr inbounds i8, ptr %847, i64 1032
-  %848 = load ptr, ptr %buffer_.i.i.i1837, align 8
-  %849 = load double, ptr %848, align 8
-  %conv1690 = fptosi double %849 to i64
+  %800 = load ptr, ptr %data1686, align 8
+  %801 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1836 = getelementptr inbounds i8, ptr %801, i64 176
+  %802 = load ptr, ptr %env_.i.i1836, align 8
+  %buffer_.i.i.i1837 = getelementptr inbounds i8, ptr %802, i64 1032
+  %803 = load ptr, ptr %buffer_.i.i.i1837, align 8
+  %804 = load double, ptr %803, align 8
+  %conv1690 = fptosi double %804 to i64
   %conv1691 = trunc i64 %conv1690 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %845, ptr noundef nonnull @.str.181, i32 noundef %conv1691) #19
-  %850 = load ptr, ptr %data1686, align 8
-  %851 = load double, ptr %trigger_async_id_, align 8
-  %conv1694 = fptosi double %851 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %800, ptr noundef nonnull @.str.181, i32 noundef %conv1691) #19
+  %805 = load ptr, ptr %data1686, align 8
+  %806 = load double, ptr %trigger_async_id_, align 8
+  %conv1694 = fptosi double %806 to i64
   %conv1695 = trunc i64 %conv1694 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %850, ptr noundef nonnull @.str.182, i32 noundef %conv1695) #19
-  %852 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__44_.0 seq_cst, align 8
-  %853 = inttoptr i64 %852 to ptr
-  %tobool1699.not = icmp eq i64 %852, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %805, ptr noundef nonnull @.str.182, i32 noundef %conv1695) #19
+  %807 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__44_.0 seq_cst, align 8
+  %808 = inttoptr i64 %807 to ptr
+  %tobool1699.not = icmp eq i64 %807, 0
   br i1 %tobool1699.not, label %if.then1700, label %if.end1702
 
 if.then1700:                                      ; preds = %if.then1685
@@ -10891,44 +10396,33 @@ if.then1700:                                      ; preds = %if.then1685
 if.end.i1841:                                     ; preds = %if.then1700
   %vtable.i1842 = load ptr, ptr %call.i1839, align 8
   %vfn.i1843 = getelementptr inbounds i8, ptr %vtable.i1842, i64 16
-  %854 = load ptr, ptr %vfn.i1843, align 8
-  %call2.i1844 = call noundef ptr %854(ptr noundef nonnull align 8 dereferenceable(8) %call.i1839, ptr noundef nonnull @.str) #19
+  %809 = load ptr, ptr %vfn.i1843, align 8
+  %call2.i1844 = call noundef ptr %809(ptr noundef nonnull align 8 dereferenceable(8) %call.i1839, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1846
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1846: ; preds = %if.then1700, %if.end.i1841
   %retval.0.i1845 = phi ptr [ %call2.i1844, %if.end.i1841 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1700 ]
-  %855 = ptrtoint ptr %retval.0.i1845 to i64
-  store atomic i64 %855, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__44_.0 seq_cst, align 8
+  %810 = ptrtoint ptr %retval.0.i1845 to i64
+  store atomic i64 %810, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__44_.0 seq_cst, align 8
   br label %if.end1702
 
 if.end1702:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1846, %if.then1685
-  %trace_event_unique_category_group_enabled6261697.0 = phi ptr [ %853, %if.then1685 ], [ %retval.0.i1845, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1846 ]
-  %856 = load i8, ptr %trace_event_unique_category_group_enabled6261697.0, align 1
-  %857 = and i8 %856, 5
-  %tobool1705.not = icmp eq i8 %857, 0
+  %trace_event_unique_category_group_enabled6261697.0 = phi ptr [ %808, %if.then1685 ], [ %retval.0.i1845, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1846 ]
+  %811 = load i8, ptr %trace_event_unique_category_group_enabled6261697.0, align 1
+  %812 = and i8 %811, 5
+  %tobool1705.not = icmp eq i8 %812, 0
   br i1 %tobool1705.not, label %do.end1716, label %if.then1706
 
 if.then1706:                                      ; preds = %if.end1702
-  %858 = load double, ptr %async_id_, align 8
-  %conv1710 = fptosi double %858 to i64
+  %813 = load double, ptr %async_id_, align 8
+  %conv1710 = fptosi double %813 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261697.0, ptr noundef nonnull @.str.151, ptr noundef null, i64 noundef %conv1710, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1686)
   br label %do.end1716
 
 do.end1716:                                       ; preds = %if.then1706, %if.end1702
-  %859 = load ptr, ptr %data1686, align 8
-  %cmp.not.i1850 = icmp eq ptr %859, null
-  br i1 %cmp.not.i1850, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1855, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1851
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1851: ; preds = %do.end1716
-  %vtable.i.i1852 = load ptr, ptr %859, align 8
-  %vfn.i.i1853 = getelementptr inbounds i8, ptr %vtable.i.i1852, i64 8
-  %860 = load ptr, ptr %vfn.i.i1853, align 8
-  call void %860(ptr noundef nonnull align 8 dereferenceable(42) %859) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1855
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1855: ; preds = %do.end1716, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1851
-  store ptr null, ptr %data1686, align 8
-  br label %sw.epilog
+  %814 = load ptr, ptr %data1686, align 8
+  %cmp.not.i1850 = icmp eq ptr %814, null
+  br i1 %cmp.not.i1850, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1718:                                        ; preds = %if.end68
   %call.i1856 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -10938,36 +10432,36 @@ sw.bb1718:                                        ; preds = %if.end68
 if.end.i1858:                                     ; preds = %sw.bb1718
   %vtable.i1859 = load ptr, ptr %call.i1856, align 8
   %vfn.i1860 = getelementptr inbounds i8, ptr %vtable.i1859, i64 16
-  %861 = load ptr, ptr %vfn.i1860, align 8
-  %call2.i1861 = call noundef ptr %861(ptr noundef nonnull align 8 dereferenceable(8) %call.i1856, ptr noundef nonnull @.str) #19
+  %815 = load ptr, ptr %vfn.i1860, align 8
+  %call2.i1861 = call noundef ptr %815(ptr noundef nonnull align 8 dereferenceable(8) %call.i1856, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1863
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1863: ; preds = %sw.bb1718, %if.end.i1858
   %retval.0.i1862 = phi ptr [ %call2.i1861, %if.end.i1858 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1718 ]
-  %862 = load i8, ptr %retval.0.i1862, align 1
-  %tobool1720.not = icmp eq i8 %862, 0
+  %816 = load i8, ptr %retval.0.i1862, align 1
+  %tobool1720.not = icmp eq i8 %816, 0
   br i1 %tobool1720.not, label %sw.epilog, label %if.then1721
 
 if.then1721:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1863
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1722) #19
-  %863 = load ptr, ptr %data1722, align 8
-  %864 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1865 = getelementptr inbounds i8, ptr %864, i64 176
-  %865 = load ptr, ptr %env_.i.i1865, align 8
-  %buffer_.i.i.i1866 = getelementptr inbounds i8, ptr %865, i64 1032
-  %866 = load ptr, ptr %buffer_.i.i.i1866, align 8
-  %867 = load double, ptr %866, align 8
-  %conv1726 = fptosi double %867 to i64
+  %817 = load ptr, ptr %data1722, align 8
+  %818 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1865 = getelementptr inbounds i8, ptr %818, i64 176
+  %819 = load ptr, ptr %env_.i.i1865, align 8
+  %buffer_.i.i.i1866 = getelementptr inbounds i8, ptr %819, i64 1032
+  %820 = load ptr, ptr %buffer_.i.i.i1866, align 8
+  %821 = load double, ptr %820, align 8
+  %conv1726 = fptosi double %821 to i64
   %conv1727 = trunc i64 %conv1726 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %863, ptr noundef nonnull @.str.181, i32 noundef %conv1727) #19
-  %868 = load ptr, ptr %data1722, align 8
-  %869 = load double, ptr %trigger_async_id_, align 8
-  %conv1730 = fptosi double %869 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %817, ptr noundef nonnull @.str.181, i32 noundef %conv1727) #19
+  %822 = load ptr, ptr %data1722, align 8
+  %823 = load double, ptr %trigger_async_id_, align 8
+  %conv1730 = fptosi double %823 to i64
   %conv1731 = trunc i64 %conv1730 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %868, ptr noundef nonnull @.str.182, i32 noundef %conv1731) #19
-  %870 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__45_.0 seq_cst, align 8
-  %871 = inttoptr i64 %870 to ptr
-  %tobool1735.not = icmp eq i64 %870, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %822, ptr noundef nonnull @.str.182, i32 noundef %conv1731) #19
+  %824 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__45_.0 seq_cst, align 8
+  %825 = inttoptr i64 %824 to ptr
+  %tobool1735.not = icmp eq i64 %824, 0
   br i1 %tobool1735.not, label %if.then1736, label %if.end1738
 
 if.then1736:                                      ; preds = %if.then1721
@@ -10978,44 +10472,33 @@ if.then1736:                                      ; preds = %if.then1721
 if.end.i1870:                                     ; preds = %if.then1736
   %vtable.i1871 = load ptr, ptr %call.i1868, align 8
   %vfn.i1872 = getelementptr inbounds i8, ptr %vtable.i1871, i64 16
-  %872 = load ptr, ptr %vfn.i1872, align 8
-  %call2.i1873 = call noundef ptr %872(ptr noundef nonnull align 8 dereferenceable(8) %call.i1868, ptr noundef nonnull @.str) #19
+  %826 = load ptr, ptr %vfn.i1872, align 8
+  %call2.i1873 = call noundef ptr %826(ptr noundef nonnull align 8 dereferenceable(8) %call.i1868, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1875
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1875: ; preds = %if.then1736, %if.end.i1870
   %retval.0.i1874 = phi ptr [ %call2.i1873, %if.end.i1870 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1736 ]
-  %873 = ptrtoint ptr %retval.0.i1874 to i64
-  store atomic i64 %873, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__45_.0 seq_cst, align 8
+  %827 = ptrtoint ptr %retval.0.i1874 to i64
+  store atomic i64 %827, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__45_.0 seq_cst, align 8
   br label %if.end1738
 
 if.end1738:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1875, %if.then1721
-  %trace_event_unique_category_group_enabled6261733.0 = phi ptr [ %871, %if.then1721 ], [ %retval.0.i1874, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1875 ]
-  %874 = load i8, ptr %trace_event_unique_category_group_enabled6261733.0, align 1
-  %875 = and i8 %874, 5
-  %tobool1741.not = icmp eq i8 %875, 0
+  %trace_event_unique_category_group_enabled6261733.0 = phi ptr [ %825, %if.then1721 ], [ %retval.0.i1874, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1875 ]
+  %828 = load i8, ptr %trace_event_unique_category_group_enabled6261733.0, align 1
+  %829 = and i8 %828, 5
+  %tobool1741.not = icmp eq i8 %829, 0
   br i1 %tobool1741.not, label %do.end1752, label %if.then1742
 
 if.then1742:                                      ; preds = %if.end1738
-  %876 = load double, ptr %async_id_, align 8
-  %conv1746 = fptosi double %876 to i64
+  %830 = load double, ptr %async_id_, align 8
+  %conv1746 = fptosi double %830 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261733.0, ptr noundef nonnull @.str.152, ptr noundef null, i64 noundef %conv1746, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1722)
   br label %do.end1752
 
 do.end1752:                                       ; preds = %if.then1742, %if.end1738
-  %877 = load ptr, ptr %data1722, align 8
-  %cmp.not.i1879 = icmp eq ptr %877, null
-  br i1 %cmp.not.i1879, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1884, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1880
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1880: ; preds = %do.end1752
-  %vtable.i.i1881 = load ptr, ptr %877, align 8
-  %vfn.i.i1882 = getelementptr inbounds i8, ptr %vtable.i.i1881, i64 8
-  %878 = load ptr, ptr %vfn.i.i1882, align 8
-  call void %878(ptr noundef nonnull align 8 dereferenceable(42) %877) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1884
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1884: ; preds = %do.end1752, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1880
-  store ptr null, ptr %data1722, align 8
-  br label %sw.epilog
+  %831 = load ptr, ptr %data1722, align 8
+  %cmp.not.i1879 = icmp eq ptr %831, null
+  br i1 %cmp.not.i1879, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1754:                                        ; preds = %if.end68
   %call.i1885 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -11025,36 +10508,36 @@ sw.bb1754:                                        ; preds = %if.end68
 if.end.i1887:                                     ; preds = %sw.bb1754
   %vtable.i1888 = load ptr, ptr %call.i1885, align 8
   %vfn.i1889 = getelementptr inbounds i8, ptr %vtable.i1888, i64 16
-  %879 = load ptr, ptr %vfn.i1889, align 8
-  %call2.i1890 = call noundef ptr %879(ptr noundef nonnull align 8 dereferenceable(8) %call.i1885, ptr noundef nonnull @.str) #19
+  %832 = load ptr, ptr %vfn.i1889, align 8
+  %call2.i1890 = call noundef ptr %832(ptr noundef nonnull align 8 dereferenceable(8) %call.i1885, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1892
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1892: ; preds = %sw.bb1754, %if.end.i1887
   %retval.0.i1891 = phi ptr [ %call2.i1890, %if.end.i1887 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1754 ]
-  %880 = load i8, ptr %retval.0.i1891, align 1
-  %tobool1756.not = icmp eq i8 %880, 0
+  %833 = load i8, ptr %retval.0.i1891, align 1
+  %tobool1756.not = icmp eq i8 %833, 0
   br i1 %tobool1756.not, label %sw.epilog, label %if.then1757
 
 if.then1757:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1892
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1758) #19
-  %881 = load ptr, ptr %data1758, align 8
-  %882 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1894 = getelementptr inbounds i8, ptr %882, i64 176
-  %883 = load ptr, ptr %env_.i.i1894, align 8
-  %buffer_.i.i.i1895 = getelementptr inbounds i8, ptr %883, i64 1032
-  %884 = load ptr, ptr %buffer_.i.i.i1895, align 8
-  %885 = load double, ptr %884, align 8
-  %conv1762 = fptosi double %885 to i64
+  %834 = load ptr, ptr %data1758, align 8
+  %835 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1894 = getelementptr inbounds i8, ptr %835, i64 176
+  %836 = load ptr, ptr %env_.i.i1894, align 8
+  %buffer_.i.i.i1895 = getelementptr inbounds i8, ptr %836, i64 1032
+  %837 = load ptr, ptr %buffer_.i.i.i1895, align 8
+  %838 = load double, ptr %837, align 8
+  %conv1762 = fptosi double %838 to i64
   %conv1763 = trunc i64 %conv1762 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %881, ptr noundef nonnull @.str.181, i32 noundef %conv1763) #19
-  %886 = load ptr, ptr %data1758, align 8
-  %887 = load double, ptr %trigger_async_id_, align 8
-  %conv1766 = fptosi double %887 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %834, ptr noundef nonnull @.str.181, i32 noundef %conv1763) #19
+  %839 = load ptr, ptr %data1758, align 8
+  %840 = load double, ptr %trigger_async_id_, align 8
+  %conv1766 = fptosi double %840 to i64
   %conv1767 = trunc i64 %conv1766 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %886, ptr noundef nonnull @.str.182, i32 noundef %conv1767) #19
-  %888 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__46_.0 seq_cst, align 8
-  %889 = inttoptr i64 %888 to ptr
-  %tobool1771.not = icmp eq i64 %888, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %839, ptr noundef nonnull @.str.182, i32 noundef %conv1767) #19
+  %841 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__46_.0 seq_cst, align 8
+  %842 = inttoptr i64 %841 to ptr
+  %tobool1771.not = icmp eq i64 %841, 0
   br i1 %tobool1771.not, label %if.then1772, label %if.end1774
 
 if.then1772:                                      ; preds = %if.then1757
@@ -11065,44 +10548,33 @@ if.then1772:                                      ; preds = %if.then1757
 if.end.i1899:                                     ; preds = %if.then1772
   %vtable.i1900 = load ptr, ptr %call.i1897, align 8
   %vfn.i1901 = getelementptr inbounds i8, ptr %vtable.i1900, i64 16
-  %890 = load ptr, ptr %vfn.i1901, align 8
-  %call2.i1902 = call noundef ptr %890(ptr noundef nonnull align 8 dereferenceable(8) %call.i1897, ptr noundef nonnull @.str) #19
+  %843 = load ptr, ptr %vfn.i1901, align 8
+  %call2.i1902 = call noundef ptr %843(ptr noundef nonnull align 8 dereferenceable(8) %call.i1897, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1904
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1904: ; preds = %if.then1772, %if.end.i1899
   %retval.0.i1903 = phi ptr [ %call2.i1902, %if.end.i1899 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1772 ]
-  %891 = ptrtoint ptr %retval.0.i1903 to i64
-  store atomic i64 %891, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__46_.0 seq_cst, align 8
+  %844 = ptrtoint ptr %retval.0.i1903 to i64
+  store atomic i64 %844, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__46_.0 seq_cst, align 8
   br label %if.end1774
 
 if.end1774:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1904, %if.then1757
-  %trace_event_unique_category_group_enabled6261769.0 = phi ptr [ %889, %if.then1757 ], [ %retval.0.i1903, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1904 ]
-  %892 = load i8, ptr %trace_event_unique_category_group_enabled6261769.0, align 1
-  %893 = and i8 %892, 5
-  %tobool1777.not = icmp eq i8 %893, 0
+  %trace_event_unique_category_group_enabled6261769.0 = phi ptr [ %842, %if.then1757 ], [ %retval.0.i1903, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1904 ]
+  %845 = load i8, ptr %trace_event_unique_category_group_enabled6261769.0, align 1
+  %846 = and i8 %845, 5
+  %tobool1777.not = icmp eq i8 %846, 0
   br i1 %tobool1777.not, label %do.end1788, label %if.then1778
 
 if.then1778:                                      ; preds = %if.end1774
-  %894 = load double, ptr %async_id_, align 8
-  %conv1782 = fptosi double %894 to i64
+  %847 = load double, ptr %async_id_, align 8
+  %conv1782 = fptosi double %847 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261769.0, ptr noundef nonnull @.str.153, ptr noundef null, i64 noundef %conv1782, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1758)
   br label %do.end1788
 
 do.end1788:                                       ; preds = %if.then1778, %if.end1774
-  %895 = load ptr, ptr %data1758, align 8
-  %cmp.not.i1908 = icmp eq ptr %895, null
-  br i1 %cmp.not.i1908, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1913, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1909
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1909: ; preds = %do.end1788
-  %vtable.i.i1910 = load ptr, ptr %895, align 8
-  %vfn.i.i1911 = getelementptr inbounds i8, ptr %vtable.i.i1910, i64 8
-  %896 = load ptr, ptr %vfn.i.i1911, align 8
-  call void %896(ptr noundef nonnull align 8 dereferenceable(42) %895) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1913
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1913: ; preds = %do.end1788, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1909
-  store ptr null, ptr %data1758, align 8
-  br label %sw.epilog
+  %848 = load ptr, ptr %data1758, align 8
+  %cmp.not.i1908 = icmp eq ptr %848, null
+  br i1 %cmp.not.i1908, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1790:                                        ; preds = %if.end68
   %call.i1914 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -11112,36 +10584,36 @@ sw.bb1790:                                        ; preds = %if.end68
 if.end.i1916:                                     ; preds = %sw.bb1790
   %vtable.i1917 = load ptr, ptr %call.i1914, align 8
   %vfn.i1918 = getelementptr inbounds i8, ptr %vtable.i1917, i64 16
-  %897 = load ptr, ptr %vfn.i1918, align 8
-  %call2.i1919 = call noundef ptr %897(ptr noundef nonnull align 8 dereferenceable(8) %call.i1914, ptr noundef nonnull @.str) #19
+  %849 = load ptr, ptr %vfn.i1918, align 8
+  %call2.i1919 = call noundef ptr %849(ptr noundef nonnull align 8 dereferenceable(8) %call.i1914, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1921
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1921: ; preds = %sw.bb1790, %if.end.i1916
   %retval.0.i1920 = phi ptr [ %call2.i1919, %if.end.i1916 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1790 ]
-  %898 = load i8, ptr %retval.0.i1920, align 1
-  %tobool1792.not = icmp eq i8 %898, 0
+  %850 = load i8, ptr %retval.0.i1920, align 1
+  %tobool1792.not = icmp eq i8 %850, 0
   br i1 %tobool1792.not, label %sw.epilog, label %if.then1793
 
 if.then1793:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1921
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1794) #19
-  %899 = load ptr, ptr %data1794, align 8
-  %900 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1923 = getelementptr inbounds i8, ptr %900, i64 176
-  %901 = load ptr, ptr %env_.i.i1923, align 8
-  %buffer_.i.i.i1924 = getelementptr inbounds i8, ptr %901, i64 1032
-  %902 = load ptr, ptr %buffer_.i.i.i1924, align 8
-  %903 = load double, ptr %902, align 8
-  %conv1798 = fptosi double %903 to i64
+  %851 = load ptr, ptr %data1794, align 8
+  %852 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1923 = getelementptr inbounds i8, ptr %852, i64 176
+  %853 = load ptr, ptr %env_.i.i1923, align 8
+  %buffer_.i.i.i1924 = getelementptr inbounds i8, ptr %853, i64 1032
+  %854 = load ptr, ptr %buffer_.i.i.i1924, align 8
+  %855 = load double, ptr %854, align 8
+  %conv1798 = fptosi double %855 to i64
   %conv1799 = trunc i64 %conv1798 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %899, ptr noundef nonnull @.str.181, i32 noundef %conv1799) #19
-  %904 = load ptr, ptr %data1794, align 8
-  %905 = load double, ptr %trigger_async_id_, align 8
-  %conv1802 = fptosi double %905 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %851, ptr noundef nonnull @.str.181, i32 noundef %conv1799) #19
+  %856 = load ptr, ptr %data1794, align 8
+  %857 = load double, ptr %trigger_async_id_, align 8
+  %conv1802 = fptosi double %857 to i64
   %conv1803 = trunc i64 %conv1802 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %904, ptr noundef nonnull @.str.182, i32 noundef %conv1803) #19
-  %906 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__47_.0 seq_cst, align 8
-  %907 = inttoptr i64 %906 to ptr
-  %tobool1807.not = icmp eq i64 %906, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %856, ptr noundef nonnull @.str.182, i32 noundef %conv1803) #19
+  %858 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__47_.0 seq_cst, align 8
+  %859 = inttoptr i64 %858 to ptr
+  %tobool1807.not = icmp eq i64 %858, 0
   br i1 %tobool1807.not, label %if.then1808, label %if.end1810
 
 if.then1808:                                      ; preds = %if.then1793
@@ -11152,44 +10624,33 @@ if.then1808:                                      ; preds = %if.then1793
 if.end.i1928:                                     ; preds = %if.then1808
   %vtable.i1929 = load ptr, ptr %call.i1926, align 8
   %vfn.i1930 = getelementptr inbounds i8, ptr %vtable.i1929, i64 16
-  %908 = load ptr, ptr %vfn.i1930, align 8
-  %call2.i1931 = call noundef ptr %908(ptr noundef nonnull align 8 dereferenceable(8) %call.i1926, ptr noundef nonnull @.str) #19
+  %860 = load ptr, ptr %vfn.i1930, align 8
+  %call2.i1931 = call noundef ptr %860(ptr noundef nonnull align 8 dereferenceable(8) %call.i1926, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1933
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1933: ; preds = %if.then1808, %if.end.i1928
   %retval.0.i1932 = phi ptr [ %call2.i1931, %if.end.i1928 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1808 ]
-  %909 = ptrtoint ptr %retval.0.i1932 to i64
-  store atomic i64 %909, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__47_.0 seq_cst, align 8
+  %861 = ptrtoint ptr %retval.0.i1932 to i64
+  store atomic i64 %861, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__47_.0 seq_cst, align 8
   br label %if.end1810
 
 if.end1810:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1933, %if.then1793
-  %trace_event_unique_category_group_enabled6261805.0 = phi ptr [ %907, %if.then1793 ], [ %retval.0.i1932, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1933 ]
-  %910 = load i8, ptr %trace_event_unique_category_group_enabled6261805.0, align 1
-  %911 = and i8 %910, 5
-  %tobool1813.not = icmp eq i8 %911, 0
+  %trace_event_unique_category_group_enabled6261805.0 = phi ptr [ %859, %if.then1793 ], [ %retval.0.i1932, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1933 ]
+  %862 = load i8, ptr %trace_event_unique_category_group_enabled6261805.0, align 1
+  %863 = and i8 %862, 5
+  %tobool1813.not = icmp eq i8 %863, 0
   br i1 %tobool1813.not, label %do.end1824, label %if.then1814
 
 if.then1814:                                      ; preds = %if.end1810
-  %912 = load double, ptr %async_id_, align 8
-  %conv1818 = fptosi double %912 to i64
+  %864 = load double, ptr %async_id_, align 8
+  %conv1818 = fptosi double %864 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261805.0, ptr noundef nonnull @.str.154, ptr noundef null, i64 noundef %conv1818, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1794)
   br label %do.end1824
 
 do.end1824:                                       ; preds = %if.then1814, %if.end1810
-  %913 = load ptr, ptr %data1794, align 8
-  %cmp.not.i1937 = icmp eq ptr %913, null
-  br i1 %cmp.not.i1937, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1942, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1938
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1938: ; preds = %do.end1824
-  %vtable.i.i1939 = load ptr, ptr %913, align 8
-  %vfn.i.i1940 = getelementptr inbounds i8, ptr %vtable.i.i1939, i64 8
-  %914 = load ptr, ptr %vfn.i.i1940, align 8
-  call void %914(ptr noundef nonnull align 8 dereferenceable(42) %913) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1942
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1942: ; preds = %do.end1824, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1938
-  store ptr null, ptr %data1794, align 8
-  br label %sw.epilog
+  %865 = load ptr, ptr %data1794, align 8
+  %cmp.not.i1937 = icmp eq ptr %865, null
+  br i1 %cmp.not.i1937, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1826:                                        ; preds = %if.end68
   %call.i1943 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -11199,36 +10660,36 @@ sw.bb1826:                                        ; preds = %if.end68
 if.end.i1945:                                     ; preds = %sw.bb1826
   %vtable.i1946 = load ptr, ptr %call.i1943, align 8
   %vfn.i1947 = getelementptr inbounds i8, ptr %vtable.i1946, i64 16
-  %915 = load ptr, ptr %vfn.i1947, align 8
-  %call2.i1948 = call noundef ptr %915(ptr noundef nonnull align 8 dereferenceable(8) %call.i1943, ptr noundef nonnull @.str) #19
+  %866 = load ptr, ptr %vfn.i1947, align 8
+  %call2.i1948 = call noundef ptr %866(ptr noundef nonnull align 8 dereferenceable(8) %call.i1943, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1950
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1950: ; preds = %sw.bb1826, %if.end.i1945
   %retval.0.i1949 = phi ptr [ %call2.i1948, %if.end.i1945 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1826 ]
-  %916 = load i8, ptr %retval.0.i1949, align 1
-  %tobool1828.not = icmp eq i8 %916, 0
+  %867 = load i8, ptr %retval.0.i1949, align 1
+  %tobool1828.not = icmp eq i8 %867, 0
   br i1 %tobool1828.not, label %sw.epilog, label %if.then1829
 
 if.then1829:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1950
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1830) #19
-  %917 = load ptr, ptr %data1830, align 8
-  %918 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1952 = getelementptr inbounds i8, ptr %918, i64 176
-  %919 = load ptr, ptr %env_.i.i1952, align 8
-  %buffer_.i.i.i1953 = getelementptr inbounds i8, ptr %919, i64 1032
-  %920 = load ptr, ptr %buffer_.i.i.i1953, align 8
-  %921 = load double, ptr %920, align 8
-  %conv1834 = fptosi double %921 to i64
+  %868 = load ptr, ptr %data1830, align 8
+  %869 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1952 = getelementptr inbounds i8, ptr %869, i64 176
+  %870 = load ptr, ptr %env_.i.i1952, align 8
+  %buffer_.i.i.i1953 = getelementptr inbounds i8, ptr %870, i64 1032
+  %871 = load ptr, ptr %buffer_.i.i.i1953, align 8
+  %872 = load double, ptr %871, align 8
+  %conv1834 = fptosi double %872 to i64
   %conv1835 = trunc i64 %conv1834 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %917, ptr noundef nonnull @.str.181, i32 noundef %conv1835) #19
-  %922 = load ptr, ptr %data1830, align 8
-  %923 = load double, ptr %trigger_async_id_, align 8
-  %conv1838 = fptosi double %923 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %868, ptr noundef nonnull @.str.181, i32 noundef %conv1835) #19
+  %873 = load ptr, ptr %data1830, align 8
+  %874 = load double, ptr %trigger_async_id_, align 8
+  %conv1838 = fptosi double %874 to i64
   %conv1839 = trunc i64 %conv1838 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %922, ptr noundef nonnull @.str.182, i32 noundef %conv1839) #19
-  %924 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__48_.0 seq_cst, align 8
-  %925 = inttoptr i64 %924 to ptr
-  %tobool1843.not = icmp eq i64 %924, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %873, ptr noundef nonnull @.str.182, i32 noundef %conv1839) #19
+  %875 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__48_.0 seq_cst, align 8
+  %876 = inttoptr i64 %875 to ptr
+  %tobool1843.not = icmp eq i64 %875, 0
   br i1 %tobool1843.not, label %if.then1844, label %if.end1846
 
 if.then1844:                                      ; preds = %if.then1829
@@ -11239,44 +10700,33 @@ if.then1844:                                      ; preds = %if.then1829
 if.end.i1957:                                     ; preds = %if.then1844
   %vtable.i1958 = load ptr, ptr %call.i1955, align 8
   %vfn.i1959 = getelementptr inbounds i8, ptr %vtable.i1958, i64 16
-  %926 = load ptr, ptr %vfn.i1959, align 8
-  %call2.i1960 = call noundef ptr %926(ptr noundef nonnull align 8 dereferenceable(8) %call.i1955, ptr noundef nonnull @.str) #19
+  %877 = load ptr, ptr %vfn.i1959, align 8
+  %call2.i1960 = call noundef ptr %877(ptr noundef nonnull align 8 dereferenceable(8) %call.i1955, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1962
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1962: ; preds = %if.then1844, %if.end.i1957
   %retval.0.i1961 = phi ptr [ %call2.i1960, %if.end.i1957 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1844 ]
-  %927 = ptrtoint ptr %retval.0.i1961 to i64
-  store atomic i64 %927, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__48_.0 seq_cst, align 8
+  %878 = ptrtoint ptr %retval.0.i1961 to i64
+  store atomic i64 %878, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__48_.0 seq_cst, align 8
   br label %if.end1846
 
 if.end1846:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1962, %if.then1829
-  %trace_event_unique_category_group_enabled6261841.0 = phi ptr [ %925, %if.then1829 ], [ %retval.0.i1961, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1962 ]
-  %928 = load i8, ptr %trace_event_unique_category_group_enabled6261841.0, align 1
-  %929 = and i8 %928, 5
-  %tobool1849.not = icmp eq i8 %929, 0
+  %trace_event_unique_category_group_enabled6261841.0 = phi ptr [ %876, %if.then1829 ], [ %retval.0.i1961, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1962 ]
+  %879 = load i8, ptr %trace_event_unique_category_group_enabled6261841.0, align 1
+  %880 = and i8 %879, 5
+  %tobool1849.not = icmp eq i8 %880, 0
   br i1 %tobool1849.not, label %do.end1860, label %if.then1850
 
 if.then1850:                                      ; preds = %if.end1846
-  %930 = load double, ptr %async_id_, align 8
-  %conv1854 = fptosi double %930 to i64
+  %881 = load double, ptr %async_id_, align 8
+  %conv1854 = fptosi double %881 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261841.0, ptr noundef nonnull @.str.155, ptr noundef null, i64 noundef %conv1854, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1830)
   br label %do.end1860
 
 do.end1860:                                       ; preds = %if.then1850, %if.end1846
-  %931 = load ptr, ptr %data1830, align 8
-  %cmp.not.i1966 = icmp eq ptr %931, null
-  br i1 %cmp.not.i1966, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1971, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1967
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1967: ; preds = %do.end1860
-  %vtable.i.i1968 = load ptr, ptr %931, align 8
-  %vfn.i.i1969 = getelementptr inbounds i8, ptr %vtable.i.i1968, i64 8
-  %932 = load ptr, ptr %vfn.i.i1969, align 8
-  call void %932(ptr noundef nonnull align 8 dereferenceable(42) %931) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1971
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1971: ; preds = %do.end1860, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1967
-  store ptr null, ptr %data1830, align 8
-  br label %sw.epilog
+  %882 = load ptr, ptr %data1830, align 8
+  %cmp.not.i1966 = icmp eq ptr %882, null
+  br i1 %cmp.not.i1966, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1862:                                        ; preds = %if.end68
   %call.i1972 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -11286,36 +10736,36 @@ sw.bb1862:                                        ; preds = %if.end68
 if.end.i1974:                                     ; preds = %sw.bb1862
   %vtable.i1975 = load ptr, ptr %call.i1972, align 8
   %vfn.i1976 = getelementptr inbounds i8, ptr %vtable.i1975, i64 16
-  %933 = load ptr, ptr %vfn.i1976, align 8
-  %call2.i1977 = call noundef ptr %933(ptr noundef nonnull align 8 dereferenceable(8) %call.i1972, ptr noundef nonnull @.str) #19
+  %883 = load ptr, ptr %vfn.i1976, align 8
+  %call2.i1977 = call noundef ptr %883(ptr noundef nonnull align 8 dereferenceable(8) %call.i1972, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1979
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1979: ; preds = %sw.bb1862, %if.end.i1974
   %retval.0.i1978 = phi ptr [ %call2.i1977, %if.end.i1974 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1862 ]
-  %934 = load i8, ptr %retval.0.i1978, align 1
-  %tobool1864.not = icmp eq i8 %934, 0
+  %884 = load i8, ptr %retval.0.i1978, align 1
+  %tobool1864.not = icmp eq i8 %884, 0
   br i1 %tobool1864.not, label %sw.epilog, label %if.then1865
 
 if.then1865:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1979
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1866) #19
-  %935 = load ptr, ptr %data1866, align 8
-  %936 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i1981 = getelementptr inbounds i8, ptr %936, i64 176
-  %937 = load ptr, ptr %env_.i.i1981, align 8
-  %buffer_.i.i.i1982 = getelementptr inbounds i8, ptr %937, i64 1032
-  %938 = load ptr, ptr %buffer_.i.i.i1982, align 8
-  %939 = load double, ptr %938, align 8
-  %conv1870 = fptosi double %939 to i64
+  %885 = load ptr, ptr %data1866, align 8
+  %886 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i1981 = getelementptr inbounds i8, ptr %886, i64 176
+  %887 = load ptr, ptr %env_.i.i1981, align 8
+  %buffer_.i.i.i1982 = getelementptr inbounds i8, ptr %887, i64 1032
+  %888 = load ptr, ptr %buffer_.i.i.i1982, align 8
+  %889 = load double, ptr %888, align 8
+  %conv1870 = fptosi double %889 to i64
   %conv1871 = trunc i64 %conv1870 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %935, ptr noundef nonnull @.str.181, i32 noundef %conv1871) #19
-  %940 = load ptr, ptr %data1866, align 8
-  %941 = load double, ptr %trigger_async_id_, align 8
-  %conv1874 = fptosi double %941 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %885, ptr noundef nonnull @.str.181, i32 noundef %conv1871) #19
+  %890 = load ptr, ptr %data1866, align 8
+  %891 = load double, ptr %trigger_async_id_, align 8
+  %conv1874 = fptosi double %891 to i64
   %conv1875 = trunc i64 %conv1874 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %940, ptr noundef nonnull @.str.182, i32 noundef %conv1875) #19
-  %942 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__49_.0 seq_cst, align 8
-  %943 = inttoptr i64 %942 to ptr
-  %tobool1879.not = icmp eq i64 %942, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %890, ptr noundef nonnull @.str.182, i32 noundef %conv1875) #19
+  %892 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__49_.0 seq_cst, align 8
+  %893 = inttoptr i64 %892 to ptr
+  %tobool1879.not = icmp eq i64 %892, 0
   br i1 %tobool1879.not, label %if.then1880, label %if.end1882
 
 if.then1880:                                      ; preds = %if.then1865
@@ -11326,44 +10776,33 @@ if.then1880:                                      ; preds = %if.then1865
 if.end.i1986:                                     ; preds = %if.then1880
   %vtable.i1987 = load ptr, ptr %call.i1984, align 8
   %vfn.i1988 = getelementptr inbounds i8, ptr %vtable.i1987, i64 16
-  %944 = load ptr, ptr %vfn.i1988, align 8
-  %call2.i1989 = call noundef ptr %944(ptr noundef nonnull align 8 dereferenceable(8) %call.i1984, ptr noundef nonnull @.str) #19
+  %894 = load ptr, ptr %vfn.i1988, align 8
+  %call2.i1989 = call noundef ptr %894(ptr noundef nonnull align 8 dereferenceable(8) %call.i1984, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1991
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1991: ; preds = %if.then1880, %if.end.i1986
   %retval.0.i1990 = phi ptr [ %call2.i1989, %if.end.i1986 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1880 ]
-  %945 = ptrtoint ptr %retval.0.i1990 to i64
-  store atomic i64 %945, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__49_.0 seq_cst, align 8
+  %895 = ptrtoint ptr %retval.0.i1990 to i64
+  store atomic i64 %895, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__49_.0 seq_cst, align 8
   br label %if.end1882
 
 if.end1882:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1991, %if.then1865
-  %trace_event_unique_category_group_enabled6261877.0 = phi ptr [ %943, %if.then1865 ], [ %retval.0.i1990, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1991 ]
-  %946 = load i8, ptr %trace_event_unique_category_group_enabled6261877.0, align 1
-  %947 = and i8 %946, 5
-  %tobool1885.not = icmp eq i8 %947, 0
+  %trace_event_unique_category_group_enabled6261877.0 = phi ptr [ %893, %if.then1865 ], [ %retval.0.i1990, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1991 ]
+  %896 = load i8, ptr %trace_event_unique_category_group_enabled6261877.0, align 1
+  %897 = and i8 %896, 5
+  %tobool1885.not = icmp eq i8 %897, 0
   br i1 %tobool1885.not, label %do.end1896, label %if.then1886
 
 if.then1886:                                      ; preds = %if.end1882
-  %948 = load double, ptr %async_id_, align 8
-  %conv1890 = fptosi double %948 to i64
+  %898 = load double, ptr %async_id_, align 8
+  %conv1890 = fptosi double %898 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261877.0, ptr noundef nonnull @.str.156, ptr noundef null, i64 noundef %conv1890, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1866)
   br label %do.end1896
 
 do.end1896:                                       ; preds = %if.then1886, %if.end1882
-  %949 = load ptr, ptr %data1866, align 8
-  %cmp.not.i1995 = icmp eq ptr %949, null
-  br i1 %cmp.not.i1995, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2000, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1996
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1996: ; preds = %do.end1896
-  %vtable.i.i1997 = load ptr, ptr %949, align 8
-  %vfn.i.i1998 = getelementptr inbounds i8, ptr %vtable.i.i1997, i64 8
-  %950 = load ptr, ptr %vfn.i.i1998, align 8
-  call void %950(ptr noundef nonnull align 8 dereferenceable(42) %949) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2000
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2000: ; preds = %do.end1896, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i1996
-  store ptr null, ptr %data1866, align 8
-  br label %sw.epilog
+  %899 = load ptr, ptr %data1866, align 8
+  %cmp.not.i1995 = icmp eq ptr %899, null
+  br i1 %cmp.not.i1995, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1898:                                        ; preds = %if.end68
   %call.i2001 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -11373,36 +10812,36 @@ sw.bb1898:                                        ; preds = %if.end68
 if.end.i2003:                                     ; preds = %sw.bb1898
   %vtable.i2004 = load ptr, ptr %call.i2001, align 8
   %vfn.i2005 = getelementptr inbounds i8, ptr %vtable.i2004, i64 16
-  %951 = load ptr, ptr %vfn.i2005, align 8
-  %call2.i2006 = call noundef ptr %951(ptr noundef nonnull align 8 dereferenceable(8) %call.i2001, ptr noundef nonnull @.str) #19
+  %900 = load ptr, ptr %vfn.i2005, align 8
+  %call2.i2006 = call noundef ptr %900(ptr noundef nonnull align 8 dereferenceable(8) %call.i2001, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2008
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2008: ; preds = %sw.bb1898, %if.end.i2003
   %retval.0.i2007 = phi ptr [ %call2.i2006, %if.end.i2003 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1898 ]
-  %952 = load i8, ptr %retval.0.i2007, align 1
-  %tobool1900.not = icmp eq i8 %952, 0
+  %901 = load i8, ptr %retval.0.i2007, align 1
+  %tobool1900.not = icmp eq i8 %901, 0
   br i1 %tobool1900.not, label %sw.epilog, label %if.then1901
 
 if.then1901:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2008
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1902) #19
-  %953 = load ptr, ptr %data1902, align 8
-  %954 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2010 = getelementptr inbounds i8, ptr %954, i64 176
-  %955 = load ptr, ptr %env_.i.i2010, align 8
-  %buffer_.i.i.i2011 = getelementptr inbounds i8, ptr %955, i64 1032
-  %956 = load ptr, ptr %buffer_.i.i.i2011, align 8
-  %957 = load double, ptr %956, align 8
-  %conv1906 = fptosi double %957 to i64
+  %902 = load ptr, ptr %data1902, align 8
+  %903 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2010 = getelementptr inbounds i8, ptr %903, i64 176
+  %904 = load ptr, ptr %env_.i.i2010, align 8
+  %buffer_.i.i.i2011 = getelementptr inbounds i8, ptr %904, i64 1032
+  %905 = load ptr, ptr %buffer_.i.i.i2011, align 8
+  %906 = load double, ptr %905, align 8
+  %conv1906 = fptosi double %906 to i64
   %conv1907 = trunc i64 %conv1906 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %953, ptr noundef nonnull @.str.181, i32 noundef %conv1907) #19
-  %958 = load ptr, ptr %data1902, align 8
-  %959 = load double, ptr %trigger_async_id_, align 8
-  %conv1910 = fptosi double %959 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %902, ptr noundef nonnull @.str.181, i32 noundef %conv1907) #19
+  %907 = load ptr, ptr %data1902, align 8
+  %908 = load double, ptr %trigger_async_id_, align 8
+  %conv1910 = fptosi double %908 to i64
   %conv1911 = trunc i64 %conv1910 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %958, ptr noundef nonnull @.str.182, i32 noundef %conv1911) #19
-  %960 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__50_.0 seq_cst, align 8
-  %961 = inttoptr i64 %960 to ptr
-  %tobool1915.not = icmp eq i64 %960, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %907, ptr noundef nonnull @.str.182, i32 noundef %conv1911) #19
+  %909 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__50_.0 seq_cst, align 8
+  %910 = inttoptr i64 %909 to ptr
+  %tobool1915.not = icmp eq i64 %909, 0
   br i1 %tobool1915.not, label %if.then1916, label %if.end1918
 
 if.then1916:                                      ; preds = %if.then1901
@@ -11413,44 +10852,33 @@ if.then1916:                                      ; preds = %if.then1901
 if.end.i2015:                                     ; preds = %if.then1916
   %vtable.i2016 = load ptr, ptr %call.i2013, align 8
   %vfn.i2017 = getelementptr inbounds i8, ptr %vtable.i2016, i64 16
-  %962 = load ptr, ptr %vfn.i2017, align 8
-  %call2.i2018 = call noundef ptr %962(ptr noundef nonnull align 8 dereferenceable(8) %call.i2013, ptr noundef nonnull @.str) #19
+  %911 = load ptr, ptr %vfn.i2017, align 8
+  %call2.i2018 = call noundef ptr %911(ptr noundef nonnull align 8 dereferenceable(8) %call.i2013, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2020
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2020: ; preds = %if.then1916, %if.end.i2015
   %retval.0.i2019 = phi ptr [ %call2.i2018, %if.end.i2015 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1916 ]
-  %963 = ptrtoint ptr %retval.0.i2019 to i64
-  store atomic i64 %963, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__50_.0 seq_cst, align 8
+  %912 = ptrtoint ptr %retval.0.i2019 to i64
+  store atomic i64 %912, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__50_.0 seq_cst, align 8
   br label %if.end1918
 
 if.end1918:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2020, %if.then1901
-  %trace_event_unique_category_group_enabled6261913.0 = phi ptr [ %961, %if.then1901 ], [ %retval.0.i2019, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2020 ]
-  %964 = load i8, ptr %trace_event_unique_category_group_enabled6261913.0, align 1
-  %965 = and i8 %964, 5
-  %tobool1921.not = icmp eq i8 %965, 0
+  %trace_event_unique_category_group_enabled6261913.0 = phi ptr [ %910, %if.then1901 ], [ %retval.0.i2019, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2020 ]
+  %913 = load i8, ptr %trace_event_unique_category_group_enabled6261913.0, align 1
+  %914 = and i8 %913, 5
+  %tobool1921.not = icmp eq i8 %914, 0
   br i1 %tobool1921.not, label %do.end1932, label %if.then1922
 
 if.then1922:                                      ; preds = %if.end1918
-  %966 = load double, ptr %async_id_, align 8
-  %conv1926 = fptosi double %966 to i64
+  %915 = load double, ptr %async_id_, align 8
+  %conv1926 = fptosi double %915 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261913.0, ptr noundef nonnull @.str.157, ptr noundef null, i64 noundef %conv1926, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1902)
   br label %do.end1932
 
 do.end1932:                                       ; preds = %if.then1922, %if.end1918
-  %967 = load ptr, ptr %data1902, align 8
-  %cmp.not.i2024 = icmp eq ptr %967, null
-  br i1 %cmp.not.i2024, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2029, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2025
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2025: ; preds = %do.end1932
-  %vtable.i.i2026 = load ptr, ptr %967, align 8
-  %vfn.i.i2027 = getelementptr inbounds i8, ptr %vtable.i.i2026, i64 8
-  %968 = load ptr, ptr %vfn.i.i2027, align 8
-  call void %968(ptr noundef nonnull align 8 dereferenceable(42) %967) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2029
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2029: ; preds = %do.end1932, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2025
-  store ptr null, ptr %data1902, align 8
-  br label %sw.epilog
+  %916 = load ptr, ptr %data1902, align 8
+  %cmp.not.i2024 = icmp eq ptr %916, null
+  br i1 %cmp.not.i2024, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1934:                                        ; preds = %if.end68
   %call.i2030 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -11460,36 +10888,36 @@ sw.bb1934:                                        ; preds = %if.end68
 if.end.i2032:                                     ; preds = %sw.bb1934
   %vtable.i2033 = load ptr, ptr %call.i2030, align 8
   %vfn.i2034 = getelementptr inbounds i8, ptr %vtable.i2033, i64 16
-  %969 = load ptr, ptr %vfn.i2034, align 8
-  %call2.i2035 = call noundef ptr %969(ptr noundef nonnull align 8 dereferenceable(8) %call.i2030, ptr noundef nonnull @.str) #19
+  %917 = load ptr, ptr %vfn.i2034, align 8
+  %call2.i2035 = call noundef ptr %917(ptr noundef nonnull align 8 dereferenceable(8) %call.i2030, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2037
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2037: ; preds = %sw.bb1934, %if.end.i2032
   %retval.0.i2036 = phi ptr [ %call2.i2035, %if.end.i2032 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1934 ]
-  %970 = load i8, ptr %retval.0.i2036, align 1
-  %tobool1936.not = icmp eq i8 %970, 0
+  %918 = load i8, ptr %retval.0.i2036, align 1
+  %tobool1936.not = icmp eq i8 %918, 0
   br i1 %tobool1936.not, label %sw.epilog, label %if.then1937
 
 if.then1937:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2037
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1938) #19
-  %971 = load ptr, ptr %data1938, align 8
-  %972 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2039 = getelementptr inbounds i8, ptr %972, i64 176
-  %973 = load ptr, ptr %env_.i.i2039, align 8
-  %buffer_.i.i.i2040 = getelementptr inbounds i8, ptr %973, i64 1032
-  %974 = load ptr, ptr %buffer_.i.i.i2040, align 8
-  %975 = load double, ptr %974, align 8
-  %conv1942 = fptosi double %975 to i64
+  %919 = load ptr, ptr %data1938, align 8
+  %920 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2039 = getelementptr inbounds i8, ptr %920, i64 176
+  %921 = load ptr, ptr %env_.i.i2039, align 8
+  %buffer_.i.i.i2040 = getelementptr inbounds i8, ptr %921, i64 1032
+  %922 = load ptr, ptr %buffer_.i.i.i2040, align 8
+  %923 = load double, ptr %922, align 8
+  %conv1942 = fptosi double %923 to i64
   %conv1943 = trunc i64 %conv1942 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %971, ptr noundef nonnull @.str.181, i32 noundef %conv1943) #19
-  %976 = load ptr, ptr %data1938, align 8
-  %977 = load double, ptr %trigger_async_id_, align 8
-  %conv1946 = fptosi double %977 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %919, ptr noundef nonnull @.str.181, i32 noundef %conv1943) #19
+  %924 = load ptr, ptr %data1938, align 8
+  %925 = load double, ptr %trigger_async_id_, align 8
+  %conv1946 = fptosi double %925 to i64
   %conv1947 = trunc i64 %conv1946 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %976, ptr noundef nonnull @.str.182, i32 noundef %conv1947) #19
-  %978 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__51_.0 seq_cst, align 8
-  %979 = inttoptr i64 %978 to ptr
-  %tobool1951.not = icmp eq i64 %978, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %924, ptr noundef nonnull @.str.182, i32 noundef %conv1947) #19
+  %926 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__51_.0 seq_cst, align 8
+  %927 = inttoptr i64 %926 to ptr
+  %tobool1951.not = icmp eq i64 %926, 0
   br i1 %tobool1951.not, label %if.then1952, label %if.end1954
 
 if.then1952:                                      ; preds = %if.then1937
@@ -11500,44 +10928,33 @@ if.then1952:                                      ; preds = %if.then1937
 if.end.i2044:                                     ; preds = %if.then1952
   %vtable.i2045 = load ptr, ptr %call.i2042, align 8
   %vfn.i2046 = getelementptr inbounds i8, ptr %vtable.i2045, i64 16
-  %980 = load ptr, ptr %vfn.i2046, align 8
-  %call2.i2047 = call noundef ptr %980(ptr noundef nonnull align 8 dereferenceable(8) %call.i2042, ptr noundef nonnull @.str) #19
+  %928 = load ptr, ptr %vfn.i2046, align 8
+  %call2.i2047 = call noundef ptr %928(ptr noundef nonnull align 8 dereferenceable(8) %call.i2042, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2049
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2049: ; preds = %if.then1952, %if.end.i2044
   %retval.0.i2048 = phi ptr [ %call2.i2047, %if.end.i2044 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1952 ]
-  %981 = ptrtoint ptr %retval.0.i2048 to i64
-  store atomic i64 %981, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__51_.0 seq_cst, align 8
+  %929 = ptrtoint ptr %retval.0.i2048 to i64
+  store atomic i64 %929, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__51_.0 seq_cst, align 8
   br label %if.end1954
 
 if.end1954:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2049, %if.then1937
-  %trace_event_unique_category_group_enabled6261949.0 = phi ptr [ %979, %if.then1937 ], [ %retval.0.i2048, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2049 ]
-  %982 = load i8, ptr %trace_event_unique_category_group_enabled6261949.0, align 1
-  %983 = and i8 %982, 5
-  %tobool1957.not = icmp eq i8 %983, 0
+  %trace_event_unique_category_group_enabled6261949.0 = phi ptr [ %927, %if.then1937 ], [ %retval.0.i2048, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2049 ]
+  %930 = load i8, ptr %trace_event_unique_category_group_enabled6261949.0, align 1
+  %931 = and i8 %930, 5
+  %tobool1957.not = icmp eq i8 %931, 0
   br i1 %tobool1957.not, label %do.end1968, label %if.then1958
 
 if.then1958:                                      ; preds = %if.end1954
-  %984 = load double, ptr %async_id_, align 8
-  %conv1962 = fptosi double %984 to i64
+  %932 = load double, ptr %async_id_, align 8
+  %conv1962 = fptosi double %932 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261949.0, ptr noundef nonnull @.str.158, ptr noundef null, i64 noundef %conv1962, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1938)
   br label %do.end1968
 
 do.end1968:                                       ; preds = %if.then1958, %if.end1954
-  %985 = load ptr, ptr %data1938, align 8
-  %cmp.not.i2053 = icmp eq ptr %985, null
-  br i1 %cmp.not.i2053, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2058, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2054
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2054: ; preds = %do.end1968
-  %vtable.i.i2055 = load ptr, ptr %985, align 8
-  %vfn.i.i2056 = getelementptr inbounds i8, ptr %vtable.i.i2055, i64 8
-  %986 = load ptr, ptr %vfn.i.i2056, align 8
-  call void %986(ptr noundef nonnull align 8 dereferenceable(42) %985) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2058
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2058: ; preds = %do.end1968, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2054
-  store ptr null, ptr %data1938, align 8
-  br label %sw.epilog
+  %933 = load ptr, ptr %data1938, align 8
+  %cmp.not.i2053 = icmp eq ptr %933, null
+  br i1 %cmp.not.i2053, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1970:                                        ; preds = %if.end68
   %call.i2059 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -11547,36 +10964,36 @@ sw.bb1970:                                        ; preds = %if.end68
 if.end.i2061:                                     ; preds = %sw.bb1970
   %vtable.i2062 = load ptr, ptr %call.i2059, align 8
   %vfn.i2063 = getelementptr inbounds i8, ptr %vtable.i2062, i64 16
-  %987 = load ptr, ptr %vfn.i2063, align 8
-  %call2.i2064 = call noundef ptr %987(ptr noundef nonnull align 8 dereferenceable(8) %call.i2059, ptr noundef nonnull @.str) #19
+  %934 = load ptr, ptr %vfn.i2063, align 8
+  %call2.i2064 = call noundef ptr %934(ptr noundef nonnull align 8 dereferenceable(8) %call.i2059, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2066
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2066: ; preds = %sw.bb1970, %if.end.i2061
   %retval.0.i2065 = phi ptr [ %call2.i2064, %if.end.i2061 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb1970 ]
-  %988 = load i8, ptr %retval.0.i2065, align 1
-  %tobool1972.not = icmp eq i8 %988, 0
+  %935 = load i8, ptr %retval.0.i2065, align 1
+  %tobool1972.not = icmp eq i8 %935, 0
   br i1 %tobool1972.not, label %sw.epilog, label %if.then1973
 
 if.then1973:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2066
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data1974) #19
-  %989 = load ptr, ptr %data1974, align 8
-  %990 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2068 = getelementptr inbounds i8, ptr %990, i64 176
-  %991 = load ptr, ptr %env_.i.i2068, align 8
-  %buffer_.i.i.i2069 = getelementptr inbounds i8, ptr %991, i64 1032
-  %992 = load ptr, ptr %buffer_.i.i.i2069, align 8
-  %993 = load double, ptr %992, align 8
-  %conv1978 = fptosi double %993 to i64
+  %936 = load ptr, ptr %data1974, align 8
+  %937 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2068 = getelementptr inbounds i8, ptr %937, i64 176
+  %938 = load ptr, ptr %env_.i.i2068, align 8
+  %buffer_.i.i.i2069 = getelementptr inbounds i8, ptr %938, i64 1032
+  %939 = load ptr, ptr %buffer_.i.i.i2069, align 8
+  %940 = load double, ptr %939, align 8
+  %conv1978 = fptosi double %940 to i64
   %conv1979 = trunc i64 %conv1978 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %989, ptr noundef nonnull @.str.181, i32 noundef %conv1979) #19
-  %994 = load ptr, ptr %data1974, align 8
-  %995 = load double, ptr %trigger_async_id_, align 8
-  %conv1982 = fptosi double %995 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %936, ptr noundef nonnull @.str.181, i32 noundef %conv1979) #19
+  %941 = load ptr, ptr %data1974, align 8
+  %942 = load double, ptr %trigger_async_id_, align 8
+  %conv1982 = fptosi double %942 to i64
   %conv1983 = trunc i64 %conv1982 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %994, ptr noundef nonnull @.str.182, i32 noundef %conv1983) #19
-  %996 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__52_.0 seq_cst, align 8
-  %997 = inttoptr i64 %996 to ptr
-  %tobool1987.not = icmp eq i64 %996, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %941, ptr noundef nonnull @.str.182, i32 noundef %conv1983) #19
+  %943 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__52_.0 seq_cst, align 8
+  %944 = inttoptr i64 %943 to ptr
+  %tobool1987.not = icmp eq i64 %943, 0
   br i1 %tobool1987.not, label %if.then1988, label %if.end1990
 
 if.then1988:                                      ; preds = %if.then1973
@@ -11587,44 +11004,33 @@ if.then1988:                                      ; preds = %if.then1973
 if.end.i2073:                                     ; preds = %if.then1988
   %vtable.i2074 = load ptr, ptr %call.i2071, align 8
   %vfn.i2075 = getelementptr inbounds i8, ptr %vtable.i2074, i64 16
-  %998 = load ptr, ptr %vfn.i2075, align 8
-  %call2.i2076 = call noundef ptr %998(ptr noundef nonnull align 8 dereferenceable(8) %call.i2071, ptr noundef nonnull @.str) #19
+  %945 = load ptr, ptr %vfn.i2075, align 8
+  %call2.i2076 = call noundef ptr %945(ptr noundef nonnull align 8 dereferenceable(8) %call.i2071, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2078
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2078: ; preds = %if.then1988, %if.end.i2073
   %retval.0.i2077 = phi ptr [ %call2.i2076, %if.end.i2073 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then1988 ]
-  %999 = ptrtoint ptr %retval.0.i2077 to i64
-  store atomic i64 %999, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__52_.0 seq_cst, align 8
+  %946 = ptrtoint ptr %retval.0.i2077 to i64
+  store atomic i64 %946, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__52_.0 seq_cst, align 8
   br label %if.end1990
 
 if.end1990:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2078, %if.then1973
-  %trace_event_unique_category_group_enabled6261985.0 = phi ptr [ %997, %if.then1973 ], [ %retval.0.i2077, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2078 ]
-  %1000 = load i8, ptr %trace_event_unique_category_group_enabled6261985.0, align 1
-  %1001 = and i8 %1000, 5
-  %tobool1993.not = icmp eq i8 %1001, 0
+  %trace_event_unique_category_group_enabled6261985.0 = phi ptr [ %944, %if.then1973 ], [ %retval.0.i2077, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2078 ]
+  %947 = load i8, ptr %trace_event_unique_category_group_enabled6261985.0, align 1
+  %948 = and i8 %947, 5
+  %tobool1993.not = icmp eq i8 %948, 0
   br i1 %tobool1993.not, label %do.end2004, label %if.then1994
 
 if.then1994:                                      ; preds = %if.end1990
-  %1002 = load double, ptr %async_id_, align 8
-  %conv1998 = fptosi double %1002 to i64
+  %949 = load double, ptr %async_id_, align 8
+  %conv1998 = fptosi double %949 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261985.0, ptr noundef nonnull @.str.159, ptr noundef null, i64 noundef %conv1998, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1974)
   br label %do.end2004
 
 do.end2004:                                       ; preds = %if.then1994, %if.end1990
-  %1003 = load ptr, ptr %data1974, align 8
-  %cmp.not.i2082 = icmp eq ptr %1003, null
-  br i1 %cmp.not.i2082, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2087, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2083
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2083: ; preds = %do.end2004
-  %vtable.i.i2084 = load ptr, ptr %1003, align 8
-  %vfn.i.i2085 = getelementptr inbounds i8, ptr %vtable.i.i2084, i64 8
-  %1004 = load ptr, ptr %vfn.i.i2085, align 8
-  call void %1004(ptr noundef nonnull align 8 dereferenceable(42) %1003) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2087
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2087: ; preds = %do.end2004, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2083
-  store ptr null, ptr %data1974, align 8
-  br label %sw.epilog
+  %950 = load ptr, ptr %data1974, align 8
+  %cmp.not.i2082 = icmp eq ptr %950, null
+  br i1 %cmp.not.i2082, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb2006:                                        ; preds = %if.end68
   %call.i2088 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -11634,36 +11040,36 @@ sw.bb2006:                                        ; preds = %if.end68
 if.end.i2090:                                     ; preds = %sw.bb2006
   %vtable.i2091 = load ptr, ptr %call.i2088, align 8
   %vfn.i2092 = getelementptr inbounds i8, ptr %vtable.i2091, i64 16
-  %1005 = load ptr, ptr %vfn.i2092, align 8
-  %call2.i2093 = call noundef ptr %1005(ptr noundef nonnull align 8 dereferenceable(8) %call.i2088, ptr noundef nonnull @.str) #19
+  %951 = load ptr, ptr %vfn.i2092, align 8
+  %call2.i2093 = call noundef ptr %951(ptr noundef nonnull align 8 dereferenceable(8) %call.i2088, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2095
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2095: ; preds = %sw.bb2006, %if.end.i2090
   %retval.0.i2094 = phi ptr [ %call2.i2093, %if.end.i2090 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb2006 ]
-  %1006 = load i8, ptr %retval.0.i2094, align 1
-  %tobool2008.not = icmp eq i8 %1006, 0
+  %952 = load i8, ptr %retval.0.i2094, align 1
+  %tobool2008.not = icmp eq i8 %952, 0
   br i1 %tobool2008.not, label %sw.epilog, label %if.then2009
 
 if.then2009:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2095
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data2010) #19
-  %1007 = load ptr, ptr %data2010, align 8
-  %1008 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2097 = getelementptr inbounds i8, ptr %1008, i64 176
-  %1009 = load ptr, ptr %env_.i.i2097, align 8
-  %buffer_.i.i.i2098 = getelementptr inbounds i8, ptr %1009, i64 1032
-  %1010 = load ptr, ptr %buffer_.i.i.i2098, align 8
-  %1011 = load double, ptr %1010, align 8
-  %conv2014 = fptosi double %1011 to i64
+  %953 = load ptr, ptr %data2010, align 8
+  %954 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2097 = getelementptr inbounds i8, ptr %954, i64 176
+  %955 = load ptr, ptr %env_.i.i2097, align 8
+  %buffer_.i.i.i2098 = getelementptr inbounds i8, ptr %955, i64 1032
+  %956 = load ptr, ptr %buffer_.i.i.i2098, align 8
+  %957 = load double, ptr %956, align 8
+  %conv2014 = fptosi double %957 to i64
   %conv2015 = trunc i64 %conv2014 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1007, ptr noundef nonnull @.str.181, i32 noundef %conv2015) #19
-  %1012 = load ptr, ptr %data2010, align 8
-  %1013 = load double, ptr %trigger_async_id_, align 8
-  %conv2018 = fptosi double %1013 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %953, ptr noundef nonnull @.str.181, i32 noundef %conv2015) #19
+  %958 = load ptr, ptr %data2010, align 8
+  %959 = load double, ptr %trigger_async_id_, align 8
+  %conv2018 = fptosi double %959 to i64
   %conv2019 = trunc i64 %conv2018 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1012, ptr noundef nonnull @.str.182, i32 noundef %conv2019) #19
-  %1014 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__53_.0 seq_cst, align 8
-  %1015 = inttoptr i64 %1014 to ptr
-  %tobool2023.not = icmp eq i64 %1014, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %958, ptr noundef nonnull @.str.182, i32 noundef %conv2019) #19
+  %960 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__53_.0 seq_cst, align 8
+  %961 = inttoptr i64 %960 to ptr
+  %tobool2023.not = icmp eq i64 %960, 0
   br i1 %tobool2023.not, label %if.then2024, label %if.end2026
 
 if.then2024:                                      ; preds = %if.then2009
@@ -11674,44 +11080,33 @@ if.then2024:                                      ; preds = %if.then2009
 if.end.i2102:                                     ; preds = %if.then2024
   %vtable.i2103 = load ptr, ptr %call.i2100, align 8
   %vfn.i2104 = getelementptr inbounds i8, ptr %vtable.i2103, i64 16
-  %1016 = load ptr, ptr %vfn.i2104, align 8
-  %call2.i2105 = call noundef ptr %1016(ptr noundef nonnull align 8 dereferenceable(8) %call.i2100, ptr noundef nonnull @.str) #19
+  %962 = load ptr, ptr %vfn.i2104, align 8
+  %call2.i2105 = call noundef ptr %962(ptr noundef nonnull align 8 dereferenceable(8) %call.i2100, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2107
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2107: ; preds = %if.then2024, %if.end.i2102
   %retval.0.i2106 = phi ptr [ %call2.i2105, %if.end.i2102 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then2024 ]
-  %1017 = ptrtoint ptr %retval.0.i2106 to i64
-  store atomic i64 %1017, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__53_.0 seq_cst, align 8
+  %963 = ptrtoint ptr %retval.0.i2106 to i64
+  store atomic i64 %963, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__53_.0 seq_cst, align 8
   br label %if.end2026
 
 if.end2026:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2107, %if.then2009
-  %trace_event_unique_category_group_enabled6262021.0 = phi ptr [ %1015, %if.then2009 ], [ %retval.0.i2106, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2107 ]
-  %1018 = load i8, ptr %trace_event_unique_category_group_enabled6262021.0, align 1
-  %1019 = and i8 %1018, 5
-  %tobool2029.not = icmp eq i8 %1019, 0
+  %trace_event_unique_category_group_enabled6262021.0 = phi ptr [ %961, %if.then2009 ], [ %retval.0.i2106, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2107 ]
+  %964 = load i8, ptr %trace_event_unique_category_group_enabled6262021.0, align 1
+  %965 = and i8 %964, 5
+  %tobool2029.not = icmp eq i8 %965, 0
   br i1 %tobool2029.not, label %do.end2040, label %if.then2030
 
 if.then2030:                                      ; preds = %if.end2026
-  %1020 = load double, ptr %async_id_, align 8
-  %conv2034 = fptosi double %1020 to i64
+  %966 = load double, ptr %async_id_, align 8
+  %conv2034 = fptosi double %966 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262021.0, ptr noundef nonnull @.str.160, ptr noundef null, i64 noundef %conv2034, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2010)
   br label %do.end2040
 
 do.end2040:                                       ; preds = %if.then2030, %if.end2026
-  %1021 = load ptr, ptr %data2010, align 8
-  %cmp.not.i2111 = icmp eq ptr %1021, null
-  br i1 %cmp.not.i2111, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2116, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2112
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2112: ; preds = %do.end2040
-  %vtable.i.i2113 = load ptr, ptr %1021, align 8
-  %vfn.i.i2114 = getelementptr inbounds i8, ptr %vtable.i.i2113, i64 8
-  %1022 = load ptr, ptr %vfn.i.i2114, align 8
-  call void %1022(ptr noundef nonnull align 8 dereferenceable(42) %1021) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2116
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2116: ; preds = %do.end2040, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2112
-  store ptr null, ptr %data2010, align 8
-  br label %sw.epilog
+  %967 = load ptr, ptr %data2010, align 8
+  %cmp.not.i2111 = icmp eq ptr %967, null
+  br i1 %cmp.not.i2111, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb2042:                                        ; preds = %if.end68
   %call.i2117 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -11721,36 +11116,36 @@ sw.bb2042:                                        ; preds = %if.end68
 if.end.i2119:                                     ; preds = %sw.bb2042
   %vtable.i2120 = load ptr, ptr %call.i2117, align 8
   %vfn.i2121 = getelementptr inbounds i8, ptr %vtable.i2120, i64 16
-  %1023 = load ptr, ptr %vfn.i2121, align 8
-  %call2.i2122 = call noundef ptr %1023(ptr noundef nonnull align 8 dereferenceable(8) %call.i2117, ptr noundef nonnull @.str) #19
+  %968 = load ptr, ptr %vfn.i2121, align 8
+  %call2.i2122 = call noundef ptr %968(ptr noundef nonnull align 8 dereferenceable(8) %call.i2117, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2124
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2124: ; preds = %sw.bb2042, %if.end.i2119
   %retval.0.i2123 = phi ptr [ %call2.i2122, %if.end.i2119 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb2042 ]
-  %1024 = load i8, ptr %retval.0.i2123, align 1
-  %tobool2044.not = icmp eq i8 %1024, 0
+  %969 = load i8, ptr %retval.0.i2123, align 1
+  %tobool2044.not = icmp eq i8 %969, 0
   br i1 %tobool2044.not, label %sw.epilog, label %if.then2045
 
 if.then2045:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2124
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data2046) #19
-  %1025 = load ptr, ptr %data2046, align 8
-  %1026 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2126 = getelementptr inbounds i8, ptr %1026, i64 176
-  %1027 = load ptr, ptr %env_.i.i2126, align 8
-  %buffer_.i.i.i2127 = getelementptr inbounds i8, ptr %1027, i64 1032
-  %1028 = load ptr, ptr %buffer_.i.i.i2127, align 8
-  %1029 = load double, ptr %1028, align 8
-  %conv2050 = fptosi double %1029 to i64
+  %970 = load ptr, ptr %data2046, align 8
+  %971 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2126 = getelementptr inbounds i8, ptr %971, i64 176
+  %972 = load ptr, ptr %env_.i.i2126, align 8
+  %buffer_.i.i.i2127 = getelementptr inbounds i8, ptr %972, i64 1032
+  %973 = load ptr, ptr %buffer_.i.i.i2127, align 8
+  %974 = load double, ptr %973, align 8
+  %conv2050 = fptosi double %974 to i64
   %conv2051 = trunc i64 %conv2050 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1025, ptr noundef nonnull @.str.181, i32 noundef %conv2051) #19
-  %1030 = load ptr, ptr %data2046, align 8
-  %1031 = load double, ptr %trigger_async_id_, align 8
-  %conv2054 = fptosi double %1031 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %970, ptr noundef nonnull @.str.181, i32 noundef %conv2051) #19
+  %975 = load ptr, ptr %data2046, align 8
+  %976 = load double, ptr %trigger_async_id_, align 8
+  %conv2054 = fptosi double %976 to i64
   %conv2055 = trunc i64 %conv2054 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1030, ptr noundef nonnull @.str.182, i32 noundef %conv2055) #19
-  %1032 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__54_.0 seq_cst, align 8
-  %1033 = inttoptr i64 %1032 to ptr
-  %tobool2059.not = icmp eq i64 %1032, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %975, ptr noundef nonnull @.str.182, i32 noundef %conv2055) #19
+  %977 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__54_.0 seq_cst, align 8
+  %978 = inttoptr i64 %977 to ptr
+  %tobool2059.not = icmp eq i64 %977, 0
   br i1 %tobool2059.not, label %if.then2060, label %if.end2062
 
 if.then2060:                                      ; preds = %if.then2045
@@ -11761,44 +11156,33 @@ if.then2060:                                      ; preds = %if.then2045
 if.end.i2131:                                     ; preds = %if.then2060
   %vtable.i2132 = load ptr, ptr %call.i2129, align 8
   %vfn.i2133 = getelementptr inbounds i8, ptr %vtable.i2132, i64 16
-  %1034 = load ptr, ptr %vfn.i2133, align 8
-  %call2.i2134 = call noundef ptr %1034(ptr noundef nonnull align 8 dereferenceable(8) %call.i2129, ptr noundef nonnull @.str) #19
+  %979 = load ptr, ptr %vfn.i2133, align 8
+  %call2.i2134 = call noundef ptr %979(ptr noundef nonnull align 8 dereferenceable(8) %call.i2129, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2136
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2136: ; preds = %if.then2060, %if.end.i2131
   %retval.0.i2135 = phi ptr [ %call2.i2134, %if.end.i2131 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then2060 ]
-  %1035 = ptrtoint ptr %retval.0.i2135 to i64
-  store atomic i64 %1035, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__54_.0 seq_cst, align 8
+  %980 = ptrtoint ptr %retval.0.i2135 to i64
+  store atomic i64 %980, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__54_.0 seq_cst, align 8
   br label %if.end2062
 
 if.end2062:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2136, %if.then2045
-  %trace_event_unique_category_group_enabled6262057.0 = phi ptr [ %1033, %if.then2045 ], [ %retval.0.i2135, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2136 ]
-  %1036 = load i8, ptr %trace_event_unique_category_group_enabled6262057.0, align 1
-  %1037 = and i8 %1036, 5
-  %tobool2065.not = icmp eq i8 %1037, 0
+  %trace_event_unique_category_group_enabled6262057.0 = phi ptr [ %978, %if.then2045 ], [ %retval.0.i2135, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2136 ]
+  %981 = load i8, ptr %trace_event_unique_category_group_enabled6262057.0, align 1
+  %982 = and i8 %981, 5
+  %tobool2065.not = icmp eq i8 %982, 0
   br i1 %tobool2065.not, label %do.end2076, label %if.then2066
 
 if.then2066:                                      ; preds = %if.end2062
-  %1038 = load double, ptr %async_id_, align 8
-  %conv2070 = fptosi double %1038 to i64
+  %983 = load double, ptr %async_id_, align 8
+  %conv2070 = fptosi double %983 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262057.0, ptr noundef nonnull @.str.161, ptr noundef null, i64 noundef %conv2070, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2046)
   br label %do.end2076
 
 do.end2076:                                       ; preds = %if.then2066, %if.end2062
-  %1039 = load ptr, ptr %data2046, align 8
-  %cmp.not.i2140 = icmp eq ptr %1039, null
-  br i1 %cmp.not.i2140, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2145, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2141
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2141: ; preds = %do.end2076
-  %vtable.i.i2142 = load ptr, ptr %1039, align 8
-  %vfn.i.i2143 = getelementptr inbounds i8, ptr %vtable.i.i2142, i64 8
-  %1040 = load ptr, ptr %vfn.i.i2143, align 8
-  call void %1040(ptr noundef nonnull align 8 dereferenceable(42) %1039) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2145
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2145: ; preds = %do.end2076, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2141
-  store ptr null, ptr %data2046, align 8
-  br label %sw.epilog
+  %984 = load ptr, ptr %data2046, align 8
+  %cmp.not.i2140 = icmp eq ptr %984, null
+  br i1 %cmp.not.i2140, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb2078:                                        ; preds = %if.end68
   %call.i2146 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -11808,36 +11192,36 @@ sw.bb2078:                                        ; preds = %if.end68
 if.end.i2148:                                     ; preds = %sw.bb2078
   %vtable.i2149 = load ptr, ptr %call.i2146, align 8
   %vfn.i2150 = getelementptr inbounds i8, ptr %vtable.i2149, i64 16
-  %1041 = load ptr, ptr %vfn.i2150, align 8
-  %call2.i2151 = call noundef ptr %1041(ptr noundef nonnull align 8 dereferenceable(8) %call.i2146, ptr noundef nonnull @.str) #19
+  %985 = load ptr, ptr %vfn.i2150, align 8
+  %call2.i2151 = call noundef ptr %985(ptr noundef nonnull align 8 dereferenceable(8) %call.i2146, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2153
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2153: ; preds = %sw.bb2078, %if.end.i2148
   %retval.0.i2152 = phi ptr [ %call2.i2151, %if.end.i2148 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb2078 ]
-  %1042 = load i8, ptr %retval.0.i2152, align 1
-  %tobool2080.not = icmp eq i8 %1042, 0
+  %986 = load i8, ptr %retval.0.i2152, align 1
+  %tobool2080.not = icmp eq i8 %986, 0
   br i1 %tobool2080.not, label %sw.epilog, label %if.then2081
 
 if.then2081:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2153
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data2082) #19
-  %1043 = load ptr, ptr %data2082, align 8
-  %1044 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2155 = getelementptr inbounds i8, ptr %1044, i64 176
-  %1045 = load ptr, ptr %env_.i.i2155, align 8
-  %buffer_.i.i.i2156 = getelementptr inbounds i8, ptr %1045, i64 1032
-  %1046 = load ptr, ptr %buffer_.i.i.i2156, align 8
-  %1047 = load double, ptr %1046, align 8
-  %conv2086 = fptosi double %1047 to i64
+  %987 = load ptr, ptr %data2082, align 8
+  %988 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2155 = getelementptr inbounds i8, ptr %988, i64 176
+  %989 = load ptr, ptr %env_.i.i2155, align 8
+  %buffer_.i.i.i2156 = getelementptr inbounds i8, ptr %989, i64 1032
+  %990 = load ptr, ptr %buffer_.i.i.i2156, align 8
+  %991 = load double, ptr %990, align 8
+  %conv2086 = fptosi double %991 to i64
   %conv2087 = trunc i64 %conv2086 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1043, ptr noundef nonnull @.str.181, i32 noundef %conv2087) #19
-  %1048 = load ptr, ptr %data2082, align 8
-  %1049 = load double, ptr %trigger_async_id_, align 8
-  %conv2090 = fptosi double %1049 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %987, ptr noundef nonnull @.str.181, i32 noundef %conv2087) #19
+  %992 = load ptr, ptr %data2082, align 8
+  %993 = load double, ptr %trigger_async_id_, align 8
+  %conv2090 = fptosi double %993 to i64
   %conv2091 = trunc i64 %conv2090 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1048, ptr noundef nonnull @.str.182, i32 noundef %conv2091) #19
-  %1050 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__55_.0 seq_cst, align 8
-  %1051 = inttoptr i64 %1050 to ptr
-  %tobool2095.not = icmp eq i64 %1050, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %992, ptr noundef nonnull @.str.182, i32 noundef %conv2091) #19
+  %994 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__55_.0 seq_cst, align 8
+  %995 = inttoptr i64 %994 to ptr
+  %tobool2095.not = icmp eq i64 %994, 0
   br i1 %tobool2095.not, label %if.then2096, label %if.end2098
 
 if.then2096:                                      ; preds = %if.then2081
@@ -11848,44 +11232,33 @@ if.then2096:                                      ; preds = %if.then2081
 if.end.i2160:                                     ; preds = %if.then2096
   %vtable.i2161 = load ptr, ptr %call.i2158, align 8
   %vfn.i2162 = getelementptr inbounds i8, ptr %vtable.i2161, i64 16
-  %1052 = load ptr, ptr %vfn.i2162, align 8
-  %call2.i2163 = call noundef ptr %1052(ptr noundef nonnull align 8 dereferenceable(8) %call.i2158, ptr noundef nonnull @.str) #19
+  %996 = load ptr, ptr %vfn.i2162, align 8
+  %call2.i2163 = call noundef ptr %996(ptr noundef nonnull align 8 dereferenceable(8) %call.i2158, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2165
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2165: ; preds = %if.then2096, %if.end.i2160
   %retval.0.i2164 = phi ptr [ %call2.i2163, %if.end.i2160 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then2096 ]
-  %1053 = ptrtoint ptr %retval.0.i2164 to i64
-  store atomic i64 %1053, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__55_.0 seq_cst, align 8
+  %997 = ptrtoint ptr %retval.0.i2164 to i64
+  store atomic i64 %997, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__55_.0 seq_cst, align 8
   br label %if.end2098
 
 if.end2098:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2165, %if.then2081
-  %trace_event_unique_category_group_enabled6262093.0 = phi ptr [ %1051, %if.then2081 ], [ %retval.0.i2164, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2165 ]
-  %1054 = load i8, ptr %trace_event_unique_category_group_enabled6262093.0, align 1
-  %1055 = and i8 %1054, 5
-  %tobool2101.not = icmp eq i8 %1055, 0
+  %trace_event_unique_category_group_enabled6262093.0 = phi ptr [ %995, %if.then2081 ], [ %retval.0.i2164, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2165 ]
+  %998 = load i8, ptr %trace_event_unique_category_group_enabled6262093.0, align 1
+  %999 = and i8 %998, 5
+  %tobool2101.not = icmp eq i8 %999, 0
   br i1 %tobool2101.not, label %do.end2112, label %if.then2102
 
 if.then2102:                                      ; preds = %if.end2098
-  %1056 = load double, ptr %async_id_, align 8
-  %conv2106 = fptosi double %1056 to i64
+  %1000 = load double, ptr %async_id_, align 8
+  %conv2106 = fptosi double %1000 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262093.0, ptr noundef nonnull @.str.162, ptr noundef null, i64 noundef %conv2106, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2082)
   br label %do.end2112
 
 do.end2112:                                       ; preds = %if.then2102, %if.end2098
-  %1057 = load ptr, ptr %data2082, align 8
-  %cmp.not.i2169 = icmp eq ptr %1057, null
-  br i1 %cmp.not.i2169, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2174, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2170
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2170: ; preds = %do.end2112
-  %vtable.i.i2171 = load ptr, ptr %1057, align 8
-  %vfn.i.i2172 = getelementptr inbounds i8, ptr %vtable.i.i2171, i64 8
-  %1058 = load ptr, ptr %vfn.i.i2172, align 8
-  call void %1058(ptr noundef nonnull align 8 dereferenceable(42) %1057) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2174
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2174: ; preds = %do.end2112, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2170
-  store ptr null, ptr %data2082, align 8
-  br label %sw.epilog
+  %1001 = load ptr, ptr %data2082, align 8
+  %cmp.not.i2169 = icmp eq ptr %1001, null
+  br i1 %cmp.not.i2169, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb2114:                                        ; preds = %if.end68
   %call.i2175 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -11895,36 +11268,36 @@ sw.bb2114:                                        ; preds = %if.end68
 if.end.i2177:                                     ; preds = %sw.bb2114
   %vtable.i2178 = load ptr, ptr %call.i2175, align 8
   %vfn.i2179 = getelementptr inbounds i8, ptr %vtable.i2178, i64 16
-  %1059 = load ptr, ptr %vfn.i2179, align 8
-  %call2.i2180 = call noundef ptr %1059(ptr noundef nonnull align 8 dereferenceable(8) %call.i2175, ptr noundef nonnull @.str) #19
+  %1002 = load ptr, ptr %vfn.i2179, align 8
+  %call2.i2180 = call noundef ptr %1002(ptr noundef nonnull align 8 dereferenceable(8) %call.i2175, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2182
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2182: ; preds = %sw.bb2114, %if.end.i2177
   %retval.0.i2181 = phi ptr [ %call2.i2180, %if.end.i2177 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb2114 ]
-  %1060 = load i8, ptr %retval.0.i2181, align 1
-  %tobool2116.not = icmp eq i8 %1060, 0
+  %1003 = load i8, ptr %retval.0.i2181, align 1
+  %tobool2116.not = icmp eq i8 %1003, 0
   br i1 %tobool2116.not, label %sw.epilog, label %if.then2117
 
 if.then2117:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2182
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data2118) #19
-  %1061 = load ptr, ptr %data2118, align 8
-  %1062 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2184 = getelementptr inbounds i8, ptr %1062, i64 176
-  %1063 = load ptr, ptr %env_.i.i2184, align 8
-  %buffer_.i.i.i2185 = getelementptr inbounds i8, ptr %1063, i64 1032
-  %1064 = load ptr, ptr %buffer_.i.i.i2185, align 8
-  %1065 = load double, ptr %1064, align 8
-  %conv2122 = fptosi double %1065 to i64
+  %1004 = load ptr, ptr %data2118, align 8
+  %1005 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2184 = getelementptr inbounds i8, ptr %1005, i64 176
+  %1006 = load ptr, ptr %env_.i.i2184, align 8
+  %buffer_.i.i.i2185 = getelementptr inbounds i8, ptr %1006, i64 1032
+  %1007 = load ptr, ptr %buffer_.i.i.i2185, align 8
+  %1008 = load double, ptr %1007, align 8
+  %conv2122 = fptosi double %1008 to i64
   %conv2123 = trunc i64 %conv2122 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1061, ptr noundef nonnull @.str.181, i32 noundef %conv2123) #19
-  %1066 = load ptr, ptr %data2118, align 8
-  %1067 = load double, ptr %trigger_async_id_, align 8
-  %conv2126 = fptosi double %1067 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1004, ptr noundef nonnull @.str.181, i32 noundef %conv2123) #19
+  %1009 = load ptr, ptr %data2118, align 8
+  %1010 = load double, ptr %trigger_async_id_, align 8
+  %conv2126 = fptosi double %1010 to i64
   %conv2127 = trunc i64 %conv2126 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1066, ptr noundef nonnull @.str.182, i32 noundef %conv2127) #19
-  %1068 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__56_.0 seq_cst, align 8
-  %1069 = inttoptr i64 %1068 to ptr
-  %tobool2131.not = icmp eq i64 %1068, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1009, ptr noundef nonnull @.str.182, i32 noundef %conv2127) #19
+  %1011 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__56_.0 seq_cst, align 8
+  %1012 = inttoptr i64 %1011 to ptr
+  %tobool2131.not = icmp eq i64 %1011, 0
   br i1 %tobool2131.not, label %if.then2132, label %if.end2134
 
 if.then2132:                                      ; preds = %if.then2117
@@ -11935,44 +11308,33 @@ if.then2132:                                      ; preds = %if.then2117
 if.end.i2189:                                     ; preds = %if.then2132
   %vtable.i2190 = load ptr, ptr %call.i2187, align 8
   %vfn.i2191 = getelementptr inbounds i8, ptr %vtable.i2190, i64 16
-  %1070 = load ptr, ptr %vfn.i2191, align 8
-  %call2.i2192 = call noundef ptr %1070(ptr noundef nonnull align 8 dereferenceable(8) %call.i2187, ptr noundef nonnull @.str) #19
+  %1013 = load ptr, ptr %vfn.i2191, align 8
+  %call2.i2192 = call noundef ptr %1013(ptr noundef nonnull align 8 dereferenceable(8) %call.i2187, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2194
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2194: ; preds = %if.then2132, %if.end.i2189
   %retval.0.i2193 = phi ptr [ %call2.i2192, %if.end.i2189 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then2132 ]
-  %1071 = ptrtoint ptr %retval.0.i2193 to i64
-  store atomic i64 %1071, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__56_.0 seq_cst, align 8
+  %1014 = ptrtoint ptr %retval.0.i2193 to i64
+  store atomic i64 %1014, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__56_.0 seq_cst, align 8
   br label %if.end2134
 
 if.end2134:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2194, %if.then2117
-  %trace_event_unique_category_group_enabled6262129.0 = phi ptr [ %1069, %if.then2117 ], [ %retval.0.i2193, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2194 ]
-  %1072 = load i8, ptr %trace_event_unique_category_group_enabled6262129.0, align 1
-  %1073 = and i8 %1072, 5
-  %tobool2137.not = icmp eq i8 %1073, 0
+  %trace_event_unique_category_group_enabled6262129.0 = phi ptr [ %1012, %if.then2117 ], [ %retval.0.i2193, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2194 ]
+  %1015 = load i8, ptr %trace_event_unique_category_group_enabled6262129.0, align 1
+  %1016 = and i8 %1015, 5
+  %tobool2137.not = icmp eq i8 %1016, 0
   br i1 %tobool2137.not, label %do.end2148, label %if.then2138
 
 if.then2138:                                      ; preds = %if.end2134
-  %1074 = load double, ptr %async_id_, align 8
-  %conv2142 = fptosi double %1074 to i64
+  %1017 = load double, ptr %async_id_, align 8
+  %conv2142 = fptosi double %1017 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262129.0, ptr noundef nonnull @.str.163, ptr noundef null, i64 noundef %conv2142, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2118)
   br label %do.end2148
 
 do.end2148:                                       ; preds = %if.then2138, %if.end2134
-  %1075 = load ptr, ptr %data2118, align 8
-  %cmp.not.i2198 = icmp eq ptr %1075, null
-  br i1 %cmp.not.i2198, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2203, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2199
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2199: ; preds = %do.end2148
-  %vtable.i.i2200 = load ptr, ptr %1075, align 8
-  %vfn.i.i2201 = getelementptr inbounds i8, ptr %vtable.i.i2200, i64 8
-  %1076 = load ptr, ptr %vfn.i.i2201, align 8
-  call void %1076(ptr noundef nonnull align 8 dereferenceable(42) %1075) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2203
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2203: ; preds = %do.end2148, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2199
-  store ptr null, ptr %data2118, align 8
-  br label %sw.epilog
+  %1018 = load ptr, ptr %data2118, align 8
+  %cmp.not.i2198 = icmp eq ptr %1018, null
+  br i1 %cmp.not.i2198, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb2150:                                        ; preds = %if.end68
   %call.i2204 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -11982,36 +11344,36 @@ sw.bb2150:                                        ; preds = %if.end68
 if.end.i2206:                                     ; preds = %sw.bb2150
   %vtable.i2207 = load ptr, ptr %call.i2204, align 8
   %vfn.i2208 = getelementptr inbounds i8, ptr %vtable.i2207, i64 16
-  %1077 = load ptr, ptr %vfn.i2208, align 8
-  %call2.i2209 = call noundef ptr %1077(ptr noundef nonnull align 8 dereferenceable(8) %call.i2204, ptr noundef nonnull @.str) #19
+  %1019 = load ptr, ptr %vfn.i2208, align 8
+  %call2.i2209 = call noundef ptr %1019(ptr noundef nonnull align 8 dereferenceable(8) %call.i2204, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2211
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2211: ; preds = %sw.bb2150, %if.end.i2206
   %retval.0.i2210 = phi ptr [ %call2.i2209, %if.end.i2206 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb2150 ]
-  %1078 = load i8, ptr %retval.0.i2210, align 1
-  %tobool2152.not = icmp eq i8 %1078, 0
+  %1020 = load i8, ptr %retval.0.i2210, align 1
+  %tobool2152.not = icmp eq i8 %1020, 0
   br i1 %tobool2152.not, label %sw.epilog, label %if.then2153
 
 if.then2153:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2211
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data2154) #19
-  %1079 = load ptr, ptr %data2154, align 8
-  %1080 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2213 = getelementptr inbounds i8, ptr %1080, i64 176
-  %1081 = load ptr, ptr %env_.i.i2213, align 8
-  %buffer_.i.i.i2214 = getelementptr inbounds i8, ptr %1081, i64 1032
-  %1082 = load ptr, ptr %buffer_.i.i.i2214, align 8
-  %1083 = load double, ptr %1082, align 8
-  %conv2158 = fptosi double %1083 to i64
+  %1021 = load ptr, ptr %data2154, align 8
+  %1022 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2213 = getelementptr inbounds i8, ptr %1022, i64 176
+  %1023 = load ptr, ptr %env_.i.i2213, align 8
+  %buffer_.i.i.i2214 = getelementptr inbounds i8, ptr %1023, i64 1032
+  %1024 = load ptr, ptr %buffer_.i.i.i2214, align 8
+  %1025 = load double, ptr %1024, align 8
+  %conv2158 = fptosi double %1025 to i64
   %conv2159 = trunc i64 %conv2158 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1079, ptr noundef nonnull @.str.181, i32 noundef %conv2159) #19
-  %1084 = load ptr, ptr %data2154, align 8
-  %1085 = load double, ptr %trigger_async_id_, align 8
-  %conv2162 = fptosi double %1085 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1021, ptr noundef nonnull @.str.181, i32 noundef %conv2159) #19
+  %1026 = load ptr, ptr %data2154, align 8
+  %1027 = load double, ptr %trigger_async_id_, align 8
+  %conv2162 = fptosi double %1027 to i64
   %conv2163 = trunc i64 %conv2162 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1084, ptr noundef nonnull @.str.182, i32 noundef %conv2163) #19
-  %1086 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__57_.0 seq_cst, align 8
-  %1087 = inttoptr i64 %1086 to ptr
-  %tobool2167.not = icmp eq i64 %1086, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1026, ptr noundef nonnull @.str.182, i32 noundef %conv2163) #19
+  %1028 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__57_.0 seq_cst, align 8
+  %1029 = inttoptr i64 %1028 to ptr
+  %tobool2167.not = icmp eq i64 %1028, 0
   br i1 %tobool2167.not, label %if.then2168, label %if.end2170
 
 if.then2168:                                      ; preds = %if.then2153
@@ -12022,44 +11384,33 @@ if.then2168:                                      ; preds = %if.then2153
 if.end.i2218:                                     ; preds = %if.then2168
   %vtable.i2219 = load ptr, ptr %call.i2216, align 8
   %vfn.i2220 = getelementptr inbounds i8, ptr %vtable.i2219, i64 16
-  %1088 = load ptr, ptr %vfn.i2220, align 8
-  %call2.i2221 = call noundef ptr %1088(ptr noundef nonnull align 8 dereferenceable(8) %call.i2216, ptr noundef nonnull @.str) #19
+  %1030 = load ptr, ptr %vfn.i2220, align 8
+  %call2.i2221 = call noundef ptr %1030(ptr noundef nonnull align 8 dereferenceable(8) %call.i2216, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2223
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2223: ; preds = %if.then2168, %if.end.i2218
   %retval.0.i2222 = phi ptr [ %call2.i2221, %if.end.i2218 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then2168 ]
-  %1089 = ptrtoint ptr %retval.0.i2222 to i64
-  store atomic i64 %1089, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__57_.0 seq_cst, align 8
+  %1031 = ptrtoint ptr %retval.0.i2222 to i64
+  store atomic i64 %1031, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__57_.0 seq_cst, align 8
   br label %if.end2170
 
 if.end2170:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2223, %if.then2153
-  %trace_event_unique_category_group_enabled6262165.0 = phi ptr [ %1087, %if.then2153 ], [ %retval.0.i2222, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2223 ]
-  %1090 = load i8, ptr %trace_event_unique_category_group_enabled6262165.0, align 1
-  %1091 = and i8 %1090, 5
-  %tobool2173.not = icmp eq i8 %1091, 0
+  %trace_event_unique_category_group_enabled6262165.0 = phi ptr [ %1029, %if.then2153 ], [ %retval.0.i2222, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2223 ]
+  %1032 = load i8, ptr %trace_event_unique_category_group_enabled6262165.0, align 1
+  %1033 = and i8 %1032, 5
+  %tobool2173.not = icmp eq i8 %1033, 0
   br i1 %tobool2173.not, label %do.end2184, label %if.then2174
 
 if.then2174:                                      ; preds = %if.end2170
-  %1092 = load double, ptr %async_id_, align 8
-  %conv2178 = fptosi double %1092 to i64
+  %1034 = load double, ptr %async_id_, align 8
+  %conv2178 = fptosi double %1034 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262165.0, ptr noundef nonnull @.str.164, ptr noundef null, i64 noundef %conv2178, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2154)
   br label %do.end2184
 
 do.end2184:                                       ; preds = %if.then2174, %if.end2170
-  %1093 = load ptr, ptr %data2154, align 8
-  %cmp.not.i2227 = icmp eq ptr %1093, null
-  br i1 %cmp.not.i2227, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2232, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2228
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2228: ; preds = %do.end2184
-  %vtable.i.i2229 = load ptr, ptr %1093, align 8
-  %vfn.i.i2230 = getelementptr inbounds i8, ptr %vtable.i.i2229, i64 8
-  %1094 = load ptr, ptr %vfn.i.i2230, align 8
-  call void %1094(ptr noundef nonnull align 8 dereferenceable(42) %1093) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2232
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2232: ; preds = %do.end2184, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2228
-  store ptr null, ptr %data2154, align 8
-  br label %sw.epilog
+  %1035 = load ptr, ptr %data2154, align 8
+  %cmp.not.i2227 = icmp eq ptr %1035, null
+  br i1 %cmp.not.i2227, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb2186:                                        ; preds = %if.end68
   %call.i2233 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -12069,36 +11420,36 @@ sw.bb2186:                                        ; preds = %if.end68
 if.end.i2235:                                     ; preds = %sw.bb2186
   %vtable.i2236 = load ptr, ptr %call.i2233, align 8
   %vfn.i2237 = getelementptr inbounds i8, ptr %vtable.i2236, i64 16
-  %1095 = load ptr, ptr %vfn.i2237, align 8
-  %call2.i2238 = call noundef ptr %1095(ptr noundef nonnull align 8 dereferenceable(8) %call.i2233, ptr noundef nonnull @.str) #19
+  %1036 = load ptr, ptr %vfn.i2237, align 8
+  %call2.i2238 = call noundef ptr %1036(ptr noundef nonnull align 8 dereferenceable(8) %call.i2233, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2240
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2240: ; preds = %sw.bb2186, %if.end.i2235
   %retval.0.i2239 = phi ptr [ %call2.i2238, %if.end.i2235 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb2186 ]
-  %1096 = load i8, ptr %retval.0.i2239, align 1
-  %tobool2188.not = icmp eq i8 %1096, 0
+  %1037 = load i8, ptr %retval.0.i2239, align 1
+  %tobool2188.not = icmp eq i8 %1037, 0
   br i1 %tobool2188.not, label %sw.epilog, label %if.then2189
 
 if.then2189:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2240
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data2190) #19
-  %1097 = load ptr, ptr %data2190, align 8
-  %1098 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2242 = getelementptr inbounds i8, ptr %1098, i64 176
-  %1099 = load ptr, ptr %env_.i.i2242, align 8
-  %buffer_.i.i.i2243 = getelementptr inbounds i8, ptr %1099, i64 1032
-  %1100 = load ptr, ptr %buffer_.i.i.i2243, align 8
-  %1101 = load double, ptr %1100, align 8
-  %conv2194 = fptosi double %1101 to i64
+  %1038 = load ptr, ptr %data2190, align 8
+  %1039 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2242 = getelementptr inbounds i8, ptr %1039, i64 176
+  %1040 = load ptr, ptr %env_.i.i2242, align 8
+  %buffer_.i.i.i2243 = getelementptr inbounds i8, ptr %1040, i64 1032
+  %1041 = load ptr, ptr %buffer_.i.i.i2243, align 8
+  %1042 = load double, ptr %1041, align 8
+  %conv2194 = fptosi double %1042 to i64
   %conv2195 = trunc i64 %conv2194 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1097, ptr noundef nonnull @.str.181, i32 noundef %conv2195) #19
-  %1102 = load ptr, ptr %data2190, align 8
-  %1103 = load double, ptr %trigger_async_id_, align 8
-  %conv2198 = fptosi double %1103 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1038, ptr noundef nonnull @.str.181, i32 noundef %conv2195) #19
+  %1043 = load ptr, ptr %data2190, align 8
+  %1044 = load double, ptr %trigger_async_id_, align 8
+  %conv2198 = fptosi double %1044 to i64
   %conv2199 = trunc i64 %conv2198 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1102, ptr noundef nonnull @.str.182, i32 noundef %conv2199) #19
-  %1104 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__58_.0 seq_cst, align 8
-  %1105 = inttoptr i64 %1104 to ptr
-  %tobool2203.not = icmp eq i64 %1104, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1043, ptr noundef nonnull @.str.182, i32 noundef %conv2199) #19
+  %1045 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__58_.0 seq_cst, align 8
+  %1046 = inttoptr i64 %1045 to ptr
+  %tobool2203.not = icmp eq i64 %1045, 0
   br i1 %tobool2203.not, label %if.then2204, label %if.end2206
 
 if.then2204:                                      ; preds = %if.then2189
@@ -12109,44 +11460,33 @@ if.then2204:                                      ; preds = %if.then2189
 if.end.i2247:                                     ; preds = %if.then2204
   %vtable.i2248 = load ptr, ptr %call.i2245, align 8
   %vfn.i2249 = getelementptr inbounds i8, ptr %vtable.i2248, i64 16
-  %1106 = load ptr, ptr %vfn.i2249, align 8
-  %call2.i2250 = call noundef ptr %1106(ptr noundef nonnull align 8 dereferenceable(8) %call.i2245, ptr noundef nonnull @.str) #19
+  %1047 = load ptr, ptr %vfn.i2249, align 8
+  %call2.i2250 = call noundef ptr %1047(ptr noundef nonnull align 8 dereferenceable(8) %call.i2245, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2252
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2252: ; preds = %if.then2204, %if.end.i2247
   %retval.0.i2251 = phi ptr [ %call2.i2250, %if.end.i2247 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then2204 ]
-  %1107 = ptrtoint ptr %retval.0.i2251 to i64
-  store atomic i64 %1107, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__58_.0 seq_cst, align 8
+  %1048 = ptrtoint ptr %retval.0.i2251 to i64
+  store atomic i64 %1048, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__58_.0 seq_cst, align 8
   br label %if.end2206
 
 if.end2206:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2252, %if.then2189
-  %trace_event_unique_category_group_enabled6262201.0 = phi ptr [ %1105, %if.then2189 ], [ %retval.0.i2251, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2252 ]
-  %1108 = load i8, ptr %trace_event_unique_category_group_enabled6262201.0, align 1
-  %1109 = and i8 %1108, 5
-  %tobool2209.not = icmp eq i8 %1109, 0
+  %trace_event_unique_category_group_enabled6262201.0 = phi ptr [ %1046, %if.then2189 ], [ %retval.0.i2251, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2252 ]
+  %1049 = load i8, ptr %trace_event_unique_category_group_enabled6262201.0, align 1
+  %1050 = and i8 %1049, 5
+  %tobool2209.not = icmp eq i8 %1050, 0
   br i1 %tobool2209.not, label %do.end2220, label %if.then2210
 
 if.then2210:                                      ; preds = %if.end2206
-  %1110 = load double, ptr %async_id_, align 8
-  %conv2214 = fptosi double %1110 to i64
+  %1051 = load double, ptr %async_id_, align 8
+  %conv2214 = fptosi double %1051 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262201.0, ptr noundef nonnull @.str.165, ptr noundef null, i64 noundef %conv2214, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2190)
   br label %do.end2220
 
 do.end2220:                                       ; preds = %if.then2210, %if.end2206
-  %1111 = load ptr, ptr %data2190, align 8
-  %cmp.not.i2256 = icmp eq ptr %1111, null
-  br i1 %cmp.not.i2256, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2261, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2257
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2257: ; preds = %do.end2220
-  %vtable.i.i2258 = load ptr, ptr %1111, align 8
-  %vfn.i.i2259 = getelementptr inbounds i8, ptr %vtable.i.i2258, i64 8
-  %1112 = load ptr, ptr %vfn.i.i2259, align 8
-  call void %1112(ptr noundef nonnull align 8 dereferenceable(42) %1111) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2261
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2261: ; preds = %do.end2220, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2257
-  store ptr null, ptr %data2190, align 8
-  br label %sw.epilog
+  %1052 = load ptr, ptr %data2190, align 8
+  %cmp.not.i2256 = icmp eq ptr %1052, null
+  br i1 %cmp.not.i2256, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb2222:                                        ; preds = %if.end68
   %call.i2262 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -12156,36 +11496,36 @@ sw.bb2222:                                        ; preds = %if.end68
 if.end.i2264:                                     ; preds = %sw.bb2222
   %vtable.i2265 = load ptr, ptr %call.i2262, align 8
   %vfn.i2266 = getelementptr inbounds i8, ptr %vtable.i2265, i64 16
-  %1113 = load ptr, ptr %vfn.i2266, align 8
-  %call2.i2267 = call noundef ptr %1113(ptr noundef nonnull align 8 dereferenceable(8) %call.i2262, ptr noundef nonnull @.str) #19
+  %1053 = load ptr, ptr %vfn.i2266, align 8
+  %call2.i2267 = call noundef ptr %1053(ptr noundef nonnull align 8 dereferenceable(8) %call.i2262, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2269
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2269: ; preds = %sw.bb2222, %if.end.i2264
   %retval.0.i2268 = phi ptr [ %call2.i2267, %if.end.i2264 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb2222 ]
-  %1114 = load i8, ptr %retval.0.i2268, align 1
-  %tobool2224.not = icmp eq i8 %1114, 0
+  %1054 = load i8, ptr %retval.0.i2268, align 1
+  %tobool2224.not = icmp eq i8 %1054, 0
   br i1 %tobool2224.not, label %sw.epilog, label %if.then2225
 
 if.then2225:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2269
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data2226) #19
-  %1115 = load ptr, ptr %data2226, align 8
-  %1116 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2271 = getelementptr inbounds i8, ptr %1116, i64 176
-  %1117 = load ptr, ptr %env_.i.i2271, align 8
-  %buffer_.i.i.i2272 = getelementptr inbounds i8, ptr %1117, i64 1032
-  %1118 = load ptr, ptr %buffer_.i.i.i2272, align 8
-  %1119 = load double, ptr %1118, align 8
-  %conv2230 = fptosi double %1119 to i64
+  %1055 = load ptr, ptr %data2226, align 8
+  %1056 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2271 = getelementptr inbounds i8, ptr %1056, i64 176
+  %1057 = load ptr, ptr %env_.i.i2271, align 8
+  %buffer_.i.i.i2272 = getelementptr inbounds i8, ptr %1057, i64 1032
+  %1058 = load ptr, ptr %buffer_.i.i.i2272, align 8
+  %1059 = load double, ptr %1058, align 8
+  %conv2230 = fptosi double %1059 to i64
   %conv2231 = trunc i64 %conv2230 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1115, ptr noundef nonnull @.str.181, i32 noundef %conv2231) #19
-  %1120 = load ptr, ptr %data2226, align 8
-  %1121 = load double, ptr %trigger_async_id_, align 8
-  %conv2234 = fptosi double %1121 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1055, ptr noundef nonnull @.str.181, i32 noundef %conv2231) #19
+  %1060 = load ptr, ptr %data2226, align 8
+  %1061 = load double, ptr %trigger_async_id_, align 8
+  %conv2234 = fptosi double %1061 to i64
   %conv2235 = trunc i64 %conv2234 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1120, ptr noundef nonnull @.str.182, i32 noundef %conv2235) #19
-  %1122 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__59_.0 seq_cst, align 8
-  %1123 = inttoptr i64 %1122 to ptr
-  %tobool2239.not = icmp eq i64 %1122, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1060, ptr noundef nonnull @.str.182, i32 noundef %conv2235) #19
+  %1062 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__59_.0 seq_cst, align 8
+  %1063 = inttoptr i64 %1062 to ptr
+  %tobool2239.not = icmp eq i64 %1062, 0
   br i1 %tobool2239.not, label %if.then2240, label %if.end2242
 
 if.then2240:                                      ; preds = %if.then2225
@@ -12196,44 +11536,33 @@ if.then2240:                                      ; preds = %if.then2225
 if.end.i2276:                                     ; preds = %if.then2240
   %vtable.i2277 = load ptr, ptr %call.i2274, align 8
   %vfn.i2278 = getelementptr inbounds i8, ptr %vtable.i2277, i64 16
-  %1124 = load ptr, ptr %vfn.i2278, align 8
-  %call2.i2279 = call noundef ptr %1124(ptr noundef nonnull align 8 dereferenceable(8) %call.i2274, ptr noundef nonnull @.str) #19
+  %1064 = load ptr, ptr %vfn.i2278, align 8
+  %call2.i2279 = call noundef ptr %1064(ptr noundef nonnull align 8 dereferenceable(8) %call.i2274, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2281
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2281: ; preds = %if.then2240, %if.end.i2276
   %retval.0.i2280 = phi ptr [ %call2.i2279, %if.end.i2276 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then2240 ]
-  %1125 = ptrtoint ptr %retval.0.i2280 to i64
-  store atomic i64 %1125, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__59_.0 seq_cst, align 8
+  %1065 = ptrtoint ptr %retval.0.i2280 to i64
+  store atomic i64 %1065, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__59_.0 seq_cst, align 8
   br label %if.end2242
 
 if.end2242:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2281, %if.then2225
-  %trace_event_unique_category_group_enabled6262237.0 = phi ptr [ %1123, %if.then2225 ], [ %retval.0.i2280, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2281 ]
-  %1126 = load i8, ptr %trace_event_unique_category_group_enabled6262237.0, align 1
-  %1127 = and i8 %1126, 5
-  %tobool2245.not = icmp eq i8 %1127, 0
+  %trace_event_unique_category_group_enabled6262237.0 = phi ptr [ %1063, %if.then2225 ], [ %retval.0.i2280, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2281 ]
+  %1066 = load i8, ptr %trace_event_unique_category_group_enabled6262237.0, align 1
+  %1067 = and i8 %1066, 5
+  %tobool2245.not = icmp eq i8 %1067, 0
   br i1 %tobool2245.not, label %do.end2256, label %if.then2246
 
 if.then2246:                                      ; preds = %if.end2242
-  %1128 = load double, ptr %async_id_, align 8
-  %conv2250 = fptosi double %1128 to i64
+  %1068 = load double, ptr %async_id_, align 8
+  %conv2250 = fptosi double %1068 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262237.0, ptr noundef nonnull @.str.166, ptr noundef null, i64 noundef %conv2250, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2226)
   br label %do.end2256
 
 do.end2256:                                       ; preds = %if.then2246, %if.end2242
-  %1129 = load ptr, ptr %data2226, align 8
-  %cmp.not.i2285 = icmp eq ptr %1129, null
-  br i1 %cmp.not.i2285, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2290, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2286
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2286: ; preds = %do.end2256
-  %vtable.i.i2287 = load ptr, ptr %1129, align 8
-  %vfn.i.i2288 = getelementptr inbounds i8, ptr %vtable.i.i2287, i64 8
-  %1130 = load ptr, ptr %vfn.i.i2288, align 8
-  call void %1130(ptr noundef nonnull align 8 dereferenceable(42) %1129) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2290
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2290: ; preds = %do.end2256, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2286
-  store ptr null, ptr %data2226, align 8
-  br label %sw.epilog
+  %1069 = load ptr, ptr %data2226, align 8
+  %cmp.not.i2285 = icmp eq ptr %1069, null
+  br i1 %cmp.not.i2285, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb2258:                                        ; preds = %if.end68
   %call.i2291 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -12243,36 +11572,36 @@ sw.bb2258:                                        ; preds = %if.end68
 if.end.i2293:                                     ; preds = %sw.bb2258
   %vtable.i2294 = load ptr, ptr %call.i2291, align 8
   %vfn.i2295 = getelementptr inbounds i8, ptr %vtable.i2294, i64 16
-  %1131 = load ptr, ptr %vfn.i2295, align 8
-  %call2.i2296 = call noundef ptr %1131(ptr noundef nonnull align 8 dereferenceable(8) %call.i2291, ptr noundef nonnull @.str) #19
+  %1070 = load ptr, ptr %vfn.i2295, align 8
+  %call2.i2296 = call noundef ptr %1070(ptr noundef nonnull align 8 dereferenceable(8) %call.i2291, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2298
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2298: ; preds = %sw.bb2258, %if.end.i2293
   %retval.0.i2297 = phi ptr [ %call2.i2296, %if.end.i2293 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb2258 ]
-  %1132 = load i8, ptr %retval.0.i2297, align 1
-  %tobool2260.not = icmp eq i8 %1132, 0
+  %1071 = load i8, ptr %retval.0.i2297, align 1
+  %tobool2260.not = icmp eq i8 %1071, 0
   br i1 %tobool2260.not, label %sw.epilog, label %if.then2261
 
 if.then2261:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2298
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data2262) #19
-  %1133 = load ptr, ptr %data2262, align 8
-  %1134 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2300 = getelementptr inbounds i8, ptr %1134, i64 176
-  %1135 = load ptr, ptr %env_.i.i2300, align 8
-  %buffer_.i.i.i2301 = getelementptr inbounds i8, ptr %1135, i64 1032
-  %1136 = load ptr, ptr %buffer_.i.i.i2301, align 8
-  %1137 = load double, ptr %1136, align 8
-  %conv2266 = fptosi double %1137 to i64
+  %1072 = load ptr, ptr %data2262, align 8
+  %1073 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2300 = getelementptr inbounds i8, ptr %1073, i64 176
+  %1074 = load ptr, ptr %env_.i.i2300, align 8
+  %buffer_.i.i.i2301 = getelementptr inbounds i8, ptr %1074, i64 1032
+  %1075 = load ptr, ptr %buffer_.i.i.i2301, align 8
+  %1076 = load double, ptr %1075, align 8
+  %conv2266 = fptosi double %1076 to i64
   %conv2267 = trunc i64 %conv2266 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1133, ptr noundef nonnull @.str.181, i32 noundef %conv2267) #19
-  %1138 = load ptr, ptr %data2262, align 8
-  %1139 = load double, ptr %trigger_async_id_, align 8
-  %conv2270 = fptosi double %1139 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1072, ptr noundef nonnull @.str.181, i32 noundef %conv2267) #19
+  %1077 = load ptr, ptr %data2262, align 8
+  %1078 = load double, ptr %trigger_async_id_, align 8
+  %conv2270 = fptosi double %1078 to i64
   %conv2271 = trunc i64 %conv2270 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1138, ptr noundef nonnull @.str.182, i32 noundef %conv2271) #19
-  %1140 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__60_.0 seq_cst, align 8
-  %1141 = inttoptr i64 %1140 to ptr
-  %tobool2275.not = icmp eq i64 %1140, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1077, ptr noundef nonnull @.str.182, i32 noundef %conv2271) #19
+  %1079 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__60_.0 seq_cst, align 8
+  %1080 = inttoptr i64 %1079 to ptr
+  %tobool2275.not = icmp eq i64 %1079, 0
   br i1 %tobool2275.not, label %if.then2276, label %if.end2278
 
 if.then2276:                                      ; preds = %if.then2261
@@ -12283,44 +11612,33 @@ if.then2276:                                      ; preds = %if.then2261
 if.end.i2305:                                     ; preds = %if.then2276
   %vtable.i2306 = load ptr, ptr %call.i2303, align 8
   %vfn.i2307 = getelementptr inbounds i8, ptr %vtable.i2306, i64 16
-  %1142 = load ptr, ptr %vfn.i2307, align 8
-  %call2.i2308 = call noundef ptr %1142(ptr noundef nonnull align 8 dereferenceable(8) %call.i2303, ptr noundef nonnull @.str) #19
+  %1081 = load ptr, ptr %vfn.i2307, align 8
+  %call2.i2308 = call noundef ptr %1081(ptr noundef nonnull align 8 dereferenceable(8) %call.i2303, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2310
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2310: ; preds = %if.then2276, %if.end.i2305
   %retval.0.i2309 = phi ptr [ %call2.i2308, %if.end.i2305 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then2276 ]
-  %1143 = ptrtoint ptr %retval.0.i2309 to i64
-  store atomic i64 %1143, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__60_.0 seq_cst, align 8
+  %1082 = ptrtoint ptr %retval.0.i2309 to i64
+  store atomic i64 %1082, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__60_.0 seq_cst, align 8
   br label %if.end2278
 
 if.end2278:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2310, %if.then2261
-  %trace_event_unique_category_group_enabled6262273.0 = phi ptr [ %1141, %if.then2261 ], [ %retval.0.i2309, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2310 ]
-  %1144 = load i8, ptr %trace_event_unique_category_group_enabled6262273.0, align 1
-  %1145 = and i8 %1144, 5
-  %tobool2281.not = icmp eq i8 %1145, 0
+  %trace_event_unique_category_group_enabled6262273.0 = phi ptr [ %1080, %if.then2261 ], [ %retval.0.i2309, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2310 ]
+  %1083 = load i8, ptr %trace_event_unique_category_group_enabled6262273.0, align 1
+  %1084 = and i8 %1083, 5
+  %tobool2281.not = icmp eq i8 %1084, 0
   br i1 %tobool2281.not, label %do.end2292, label %if.then2282
 
 if.then2282:                                      ; preds = %if.end2278
-  %1146 = load double, ptr %async_id_, align 8
-  %conv2286 = fptosi double %1146 to i64
+  %1085 = load double, ptr %async_id_, align 8
+  %conv2286 = fptosi double %1085 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262273.0, ptr noundef nonnull @.str.167, ptr noundef null, i64 noundef %conv2286, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2262)
   br label %do.end2292
 
 do.end2292:                                       ; preds = %if.then2282, %if.end2278
-  %1147 = load ptr, ptr %data2262, align 8
-  %cmp.not.i2314 = icmp eq ptr %1147, null
-  br i1 %cmp.not.i2314, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2319, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2315
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2315: ; preds = %do.end2292
-  %vtable.i.i2316 = load ptr, ptr %1147, align 8
-  %vfn.i.i2317 = getelementptr inbounds i8, ptr %vtable.i.i2316, i64 8
-  %1148 = load ptr, ptr %vfn.i.i2317, align 8
-  call void %1148(ptr noundef nonnull align 8 dereferenceable(42) %1147) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2319
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2319: ; preds = %do.end2292, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2315
-  store ptr null, ptr %data2262, align 8
-  br label %sw.epilog
+  %1086 = load ptr, ptr %data2262, align 8
+  %cmp.not.i2314 = icmp eq ptr %1086, null
+  br i1 %cmp.not.i2314, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb2294:                                        ; preds = %if.end68
   %call.i2320 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -12330,36 +11648,36 @@ sw.bb2294:                                        ; preds = %if.end68
 if.end.i2322:                                     ; preds = %sw.bb2294
   %vtable.i2323 = load ptr, ptr %call.i2320, align 8
   %vfn.i2324 = getelementptr inbounds i8, ptr %vtable.i2323, i64 16
-  %1149 = load ptr, ptr %vfn.i2324, align 8
-  %call2.i2325 = call noundef ptr %1149(ptr noundef nonnull align 8 dereferenceable(8) %call.i2320, ptr noundef nonnull @.str) #19
+  %1087 = load ptr, ptr %vfn.i2324, align 8
+  %call2.i2325 = call noundef ptr %1087(ptr noundef nonnull align 8 dereferenceable(8) %call.i2320, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2327
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2327: ; preds = %sw.bb2294, %if.end.i2322
   %retval.0.i2326 = phi ptr [ %call2.i2325, %if.end.i2322 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb2294 ]
-  %1150 = load i8, ptr %retval.0.i2326, align 1
-  %tobool2296.not = icmp eq i8 %1150, 0
+  %1088 = load i8, ptr %retval.0.i2326, align 1
+  %tobool2296.not = icmp eq i8 %1088, 0
   br i1 %tobool2296.not, label %sw.epilog, label %if.then2297
 
 if.then2297:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2327
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data2298) #19
-  %1151 = load ptr, ptr %data2298, align 8
-  %1152 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2329 = getelementptr inbounds i8, ptr %1152, i64 176
-  %1153 = load ptr, ptr %env_.i.i2329, align 8
-  %buffer_.i.i.i2330 = getelementptr inbounds i8, ptr %1153, i64 1032
-  %1154 = load ptr, ptr %buffer_.i.i.i2330, align 8
-  %1155 = load double, ptr %1154, align 8
-  %conv2302 = fptosi double %1155 to i64
+  %1089 = load ptr, ptr %data2298, align 8
+  %1090 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2329 = getelementptr inbounds i8, ptr %1090, i64 176
+  %1091 = load ptr, ptr %env_.i.i2329, align 8
+  %buffer_.i.i.i2330 = getelementptr inbounds i8, ptr %1091, i64 1032
+  %1092 = load ptr, ptr %buffer_.i.i.i2330, align 8
+  %1093 = load double, ptr %1092, align 8
+  %conv2302 = fptosi double %1093 to i64
   %conv2303 = trunc i64 %conv2302 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1151, ptr noundef nonnull @.str.181, i32 noundef %conv2303) #19
-  %1156 = load ptr, ptr %data2298, align 8
-  %1157 = load double, ptr %trigger_async_id_, align 8
-  %conv2306 = fptosi double %1157 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1089, ptr noundef nonnull @.str.181, i32 noundef %conv2303) #19
+  %1094 = load ptr, ptr %data2298, align 8
+  %1095 = load double, ptr %trigger_async_id_, align 8
+  %conv2306 = fptosi double %1095 to i64
   %conv2307 = trunc i64 %conv2306 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1156, ptr noundef nonnull @.str.182, i32 noundef %conv2307) #19
-  %1158 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__61_.0 seq_cst, align 8
-  %1159 = inttoptr i64 %1158 to ptr
-  %tobool2311.not = icmp eq i64 %1158, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1094, ptr noundef nonnull @.str.182, i32 noundef %conv2307) #19
+  %1096 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__61_.0 seq_cst, align 8
+  %1097 = inttoptr i64 %1096 to ptr
+  %tobool2311.not = icmp eq i64 %1096, 0
   br i1 %tobool2311.not, label %if.then2312, label %if.end2314
 
 if.then2312:                                      ; preds = %if.then2297
@@ -12370,44 +11688,33 @@ if.then2312:                                      ; preds = %if.then2297
 if.end.i2334:                                     ; preds = %if.then2312
   %vtable.i2335 = load ptr, ptr %call.i2332, align 8
   %vfn.i2336 = getelementptr inbounds i8, ptr %vtable.i2335, i64 16
-  %1160 = load ptr, ptr %vfn.i2336, align 8
-  %call2.i2337 = call noundef ptr %1160(ptr noundef nonnull align 8 dereferenceable(8) %call.i2332, ptr noundef nonnull @.str) #19
+  %1098 = load ptr, ptr %vfn.i2336, align 8
+  %call2.i2337 = call noundef ptr %1098(ptr noundef nonnull align 8 dereferenceable(8) %call.i2332, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2339
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2339: ; preds = %if.then2312, %if.end.i2334
   %retval.0.i2338 = phi ptr [ %call2.i2337, %if.end.i2334 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then2312 ]
-  %1161 = ptrtoint ptr %retval.0.i2338 to i64
-  store atomic i64 %1161, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__61_.0 seq_cst, align 8
+  %1099 = ptrtoint ptr %retval.0.i2338 to i64
+  store atomic i64 %1099, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__61_.0 seq_cst, align 8
   br label %if.end2314
 
 if.end2314:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2339, %if.then2297
-  %trace_event_unique_category_group_enabled6262309.0 = phi ptr [ %1159, %if.then2297 ], [ %retval.0.i2338, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2339 ]
-  %1162 = load i8, ptr %trace_event_unique_category_group_enabled6262309.0, align 1
-  %1163 = and i8 %1162, 5
-  %tobool2317.not = icmp eq i8 %1163, 0
+  %trace_event_unique_category_group_enabled6262309.0 = phi ptr [ %1097, %if.then2297 ], [ %retval.0.i2338, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2339 ]
+  %1100 = load i8, ptr %trace_event_unique_category_group_enabled6262309.0, align 1
+  %1101 = and i8 %1100, 5
+  %tobool2317.not = icmp eq i8 %1101, 0
   br i1 %tobool2317.not, label %do.end2328, label %if.then2318
 
 if.then2318:                                      ; preds = %if.end2314
-  %1164 = load double, ptr %async_id_, align 8
-  %conv2322 = fptosi double %1164 to i64
+  %1102 = load double, ptr %async_id_, align 8
+  %conv2322 = fptosi double %1102 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262309.0, ptr noundef nonnull @.str.168, ptr noundef null, i64 noundef %conv2322, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2298)
   br label %do.end2328
 
 do.end2328:                                       ; preds = %if.then2318, %if.end2314
-  %1165 = load ptr, ptr %data2298, align 8
-  %cmp.not.i2343 = icmp eq ptr %1165, null
-  br i1 %cmp.not.i2343, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2348, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2344
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2344: ; preds = %do.end2328
-  %vtable.i.i2345 = load ptr, ptr %1165, align 8
-  %vfn.i.i2346 = getelementptr inbounds i8, ptr %vtable.i.i2345, i64 8
-  %1166 = load ptr, ptr %vfn.i.i2346, align 8
-  call void %1166(ptr noundef nonnull align 8 dereferenceable(42) %1165) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2348
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2348: ; preds = %do.end2328, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2344
-  store ptr null, ptr %data2298, align 8
-  br label %sw.epilog
+  %1103 = load ptr, ptr %data2298, align 8
+  %cmp.not.i2343 = icmp eq ptr %1103, null
+  br i1 %cmp.not.i2343, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb2330:                                        ; preds = %if.end68
   %call.i2349 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #19
@@ -12417,36 +11724,36 @@ sw.bb2330:                                        ; preds = %if.end68
 if.end.i2351:                                     ; preds = %sw.bb2330
   %vtable.i2352 = load ptr, ptr %call.i2349, align 8
   %vfn.i2353 = getelementptr inbounds i8, ptr %vtable.i2352, i64 16
-  %1167 = load ptr, ptr %vfn.i2353, align 8
-  %call2.i2354 = call noundef ptr %1167(ptr noundef nonnull align 8 dereferenceable(8) %call.i2349, ptr noundef nonnull @.str) #19
+  %1104 = load ptr, ptr %vfn.i2353, align 8
+  %call2.i2354 = call noundef ptr %1104(ptr noundef nonnull align 8 dereferenceable(8) %call.i2349, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2356
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2356: ; preds = %sw.bb2330, %if.end.i2351
   %retval.0.i2355 = phi ptr [ %call2.i2354, %if.end.i2351 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %sw.bb2330 ]
-  %1168 = load i8, ptr %retval.0.i2355, align 1
-  %tobool2332.not = icmp eq i8 %1168, 0
+  %1105 = load i8, ptr %retval.0.i2355, align 1
+  %tobool2332.not = icmp eq i8 %1105, 0
   br i1 %tobool2332.not, label %sw.epilog, label %if.then2333
 
 if.then2333:                                      ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2356
   call void @_ZN4node7tracing11TracedValue6CreateEv(ptr nonnull sret(%"class.std::unique_ptr.366") align 8 %data2334) #19
-  %1169 = load ptr, ptr %data2334, align 8
-  %1170 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2358 = getelementptr inbounds i8, ptr %1170, i64 176
-  %1171 = load ptr, ptr %env_.i.i2358, align 8
-  %buffer_.i.i.i2359 = getelementptr inbounds i8, ptr %1171, i64 1032
-  %1172 = load ptr, ptr %buffer_.i.i.i2359, align 8
-  %1173 = load double, ptr %1172, align 8
-  %conv2338 = fptosi double %1173 to i64
+  %1106 = load ptr, ptr %data2334, align 8
+  %1107 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2358 = getelementptr inbounds i8, ptr %1107, i64 176
+  %1108 = load ptr, ptr %env_.i.i2358, align 8
+  %buffer_.i.i.i2359 = getelementptr inbounds i8, ptr %1108, i64 1032
+  %1109 = load ptr, ptr %buffer_.i.i.i2359, align 8
+  %1110 = load double, ptr %1109, align 8
+  %conv2338 = fptosi double %1110 to i64
   %conv2339 = trunc i64 %conv2338 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1169, ptr noundef nonnull @.str.181, i32 noundef %conv2339) #19
-  %1174 = load ptr, ptr %data2334, align 8
-  %1175 = load double, ptr %trigger_async_id_, align 8
-  %conv2342 = fptosi double %1175 to i64
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1106, ptr noundef nonnull @.str.181, i32 noundef %conv2339) #19
+  %1111 = load ptr, ptr %data2334, align 8
+  %1112 = load double, ptr %trigger_async_id_, align 8
+  %conv2342 = fptosi double %1112 to i64
   %conv2343 = trunc i64 %conv2342 to i32
-  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1174, ptr noundef nonnull @.str.182, i32 noundef %conv2343) #19
-  %1176 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__62_.0 seq_cst, align 8
-  %1177 = inttoptr i64 %1176 to ptr
-  %tobool2347.not = icmp eq i64 %1176, 0
+  call void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %1111, ptr noundef nonnull @.str.182, i32 noundef %conv2343) #19
+  %1113 = load atomic i64, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__62_.0 seq_cst, align 8
+  %1114 = inttoptr i64 %1113 to ptr
+  %tobool2347.not = icmp eq i64 %1113, 0
   br i1 %tobool2347.not, label %if.then2348, label %if.end2350
 
 if.then2348:                                      ; preds = %if.then2333
@@ -12457,71 +11764,74 @@ if.then2348:                                      ; preds = %if.then2333
 if.end.i2362:                                     ; preds = %if.then2348
   %vtable.i2363 = load ptr, ptr %call.i, align 8
   %vfn.i2364 = getelementptr inbounds i8, ptr %vtable.i2363, i64 16
-  %1178 = load ptr, ptr %vfn.i2364, align 8
-  %call2.i2365 = call noundef ptr %1178(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str) #19
+  %1115 = load ptr, ptr %vfn.i2364, align 8
+  %call2.i2365 = call noundef ptr %1115(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str) #19
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2367
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2367: ; preds = %if.then2348, %if.end.i2362
   %retval.0.i2366 = phi ptr [ %call2.i2365, %if.end.i2362 ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then2348 ]
-  %1179 = ptrtoint ptr %retval.0.i2366 to i64
-  store atomic i64 %1179, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__62_.0 seq_cst, align 8
+  %1116 = ptrtoint ptr %retval.0.i2366 to i64
+  store atomic i64 %1116, ptr @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE28trace_event_unique_atomic626__62_.0 seq_cst, align 8
   br label %if.end2350
 
 if.end2350:                                       ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2367, %if.then2333
-  %trace_event_unique_category_group_enabled6262345.0 = phi ptr [ %1177, %if.then2333 ], [ %retval.0.i2366, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2367 ]
-  %1180 = load i8, ptr %trace_event_unique_category_group_enabled6262345.0, align 1
-  %1181 = and i8 %1180, 5
-  %tobool2353.not = icmp eq i8 %1181, 0
+  %trace_event_unique_category_group_enabled6262345.0 = phi ptr [ %1114, %if.then2333 ], [ %retval.0.i2366, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2367 ]
+  %1117 = load i8, ptr %trace_event_unique_category_group_enabled6262345.0, align 1
+  %1118 = and i8 %1117, 5
+  %tobool2353.not = icmp eq i8 %1118, 0
   br i1 %tobool2353.not, label %do.end2364, label %if.then2354
 
 if.then2354:                                      ; preds = %if.end2350
-  %1182 = load double, ptr %async_id_, align 8
-  %conv2358 = fptosi double %1182 to i64
+  %1119 = load double, ptr %async_id_, align 8
+  %conv2358 = fptosi double %1119 to i64
   call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262345.0, ptr noundef nonnull @.str.169, ptr noundef null, i64 noundef %conv2358, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2334)
   br label %do.end2364
 
 do.end2364:                                       ; preds = %if.then2354, %if.end2350
-  %1183 = load ptr, ptr %data2334, align 8
-  %cmp.not.i2371 = icmp eq ptr %1183, null
-  br i1 %cmp.not.i2371, label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2376, label %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2372
-
-_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2372: ; preds = %do.end2364
-  %vtable.i.i2373 = load ptr, ptr %1183, align 8
-  %vfn.i.i2374 = getelementptr inbounds i8, ptr %vtable.i.i2373, i64 8
-  %1184 = load ptr, ptr %vfn.i.i2374, align 8
-  call void %1184(ptr noundef nonnull align 8 dereferenceable(42) %1183) #19
-  br label %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2376
-
-_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2376: ; preds = %do.end2364, %_ZNKSt14default_deleteIN4node7tracing11TracedValueEEclEPS2_.exit.i2372
-  store ptr null, ptr %data2334, align 8
-  br label %sw.epilog
+  %1120 = load ptr, ptr %data2334, align 8
+  %cmp.not.i2371 = icmp eq ptr %1120, null
+  br i1 %cmp.not.i2371, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 do.body2366:                                      ; preds = %if.end68
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9AsyncWrap10AsyncResetEN2v85LocalINS1_6ObjectEEEdbE4args_1) #19
   call void @abort() #21
   unreachable
 
-sw.epilog:                                        ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2356, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2376, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2327, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2348, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2298, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2319, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2269, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2290, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2240, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2261, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2211, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2232, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2182, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2203, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2153, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2174, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2124, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2145, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2095, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2116, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2066, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2087, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2037, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2058, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2008, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2029, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1979, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit2000, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1950, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1971, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1921, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1942, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1892, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1913, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1863, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1884, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1834, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1855, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1805, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1826, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1776, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1797, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1747, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1768, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1718, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1739, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1689, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1710, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1660, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1681, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1631, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1652, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1602, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1623, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1573, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1594, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1544, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1565, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1515, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1536, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1486, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1507, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1457, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1478, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1428, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1449, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1399, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1420, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1370, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1391, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1341, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1362, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1312, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1333, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1283, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1304, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1254, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1275, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1225, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1246, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1196, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1217, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1167, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1188, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1138, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1159, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1109, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1130, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1080, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1101, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1051, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1072, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1022, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1043, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit993, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit1014, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit964, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit985, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit935, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit956, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit906, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit927, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit877, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit898, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit848, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit869, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit819, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit840, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit790, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit811, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit761, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit782, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit732, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit753, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit703, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit724, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit674, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit695, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit645, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit666, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit616, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit637, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit587, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit608, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit558, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit579, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit, %_ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit
+sw.epilog.sink.split.sink.split:                  ; preds = %do.end2364, %do.end2328, %do.end2292, %do.end2256, %do.end2220, %do.end2184, %do.end2148, %do.end2112, %do.end2076, %do.end2040, %do.end2004, %do.end1968, %do.end1932, %do.end1896, %do.end1860, %do.end1824, %do.end1788, %do.end1752, %do.end1716, %do.end1680, %do.end1644, %do.end1608, %do.end1572, %do.end1536, %do.end1500, %do.end1464, %do.end1428, %do.end1392, %do.end1356, %do.end1320, %do.end1284, %do.end1248, %do.end1212, %do.end1176, %do.end1140, %do.end1104, %do.end1068, %do.end1032, %do.end996, %do.end960, %do.end924, %do.end888, %do.end852, %do.end816, %do.end780, %do.end744, %do.end708, %do.end672, %do.end636, %do.end600, %do.end564, %do.end528, %do.end492, %do.end456, %do.end420, %do.end384, %do.end348, %do.end312, %do.end276, %do.end240, %do.end204, %do.end168, %do.end132, %do.end96
+  %.sink2390 = phi ptr [ %49, %do.end96 ], [ %66, %do.end132 ], [ %83, %do.end168 ], [ %100, %do.end204 ], [ %117, %do.end240 ], [ %134, %do.end276 ], [ %151, %do.end312 ], [ %168, %do.end348 ], [ %185, %do.end384 ], [ %202, %do.end420 ], [ %219, %do.end456 ], [ %236, %do.end492 ], [ %253, %do.end528 ], [ %270, %do.end564 ], [ %287, %do.end600 ], [ %304, %do.end636 ], [ %321, %do.end672 ], [ %338, %do.end708 ], [ %355, %do.end744 ], [ %372, %do.end780 ], [ %389, %do.end816 ], [ %406, %do.end852 ], [ %423, %do.end888 ], [ %440, %do.end924 ], [ %457, %do.end960 ], [ %474, %do.end996 ], [ %491, %do.end1032 ], [ %508, %do.end1068 ], [ %525, %do.end1104 ], [ %542, %do.end1140 ], [ %559, %do.end1176 ], [ %576, %do.end1212 ], [ %593, %do.end1248 ], [ %610, %do.end1284 ], [ %627, %do.end1320 ], [ %644, %do.end1356 ], [ %661, %do.end1392 ], [ %678, %do.end1428 ], [ %695, %do.end1464 ], [ %712, %do.end1500 ], [ %729, %do.end1536 ], [ %746, %do.end1572 ], [ %763, %do.end1608 ], [ %780, %do.end1644 ], [ %797, %do.end1680 ], [ %814, %do.end1716 ], [ %831, %do.end1752 ], [ %848, %do.end1788 ], [ %865, %do.end1824 ], [ %882, %do.end1860 ], [ %899, %do.end1896 ], [ %916, %do.end1932 ], [ %933, %do.end1968 ], [ %950, %do.end2004 ], [ %967, %do.end2040 ], [ %984, %do.end2076 ], [ %1001, %do.end2112 ], [ %1018, %do.end2148 ], [ %1035, %do.end2184 ], [ %1052, %do.end2220 ], [ %1069, %do.end2256 ], [ %1086, %do.end2292 ], [ %1103, %do.end2328 ], [ %1120, %do.end2364 ]
+  %data2334.sink.ph = phi ptr [ %data, %do.end96 ], [ %data102, %do.end132 ], [ %data138, %do.end168 ], [ %data174, %do.end204 ], [ %data210, %do.end240 ], [ %data246, %do.end276 ], [ %data282, %do.end312 ], [ %data318, %do.end348 ], [ %data354, %do.end384 ], [ %data390, %do.end420 ], [ %data426, %do.end456 ], [ %data462, %do.end492 ], [ %data498, %do.end528 ], [ %data534, %do.end564 ], [ %data570, %do.end600 ], [ %data606, %do.end636 ], [ %data642, %do.end672 ], [ %data678, %do.end708 ], [ %data714, %do.end744 ], [ %data750, %do.end780 ], [ %data786, %do.end816 ], [ %data822, %do.end852 ], [ %data858, %do.end888 ], [ %data894, %do.end924 ], [ %data930, %do.end960 ], [ %data966, %do.end996 ], [ %data1002, %do.end1032 ], [ %data1038, %do.end1068 ], [ %data1074, %do.end1104 ], [ %data1110, %do.end1140 ], [ %data1146, %do.end1176 ], [ %data1182, %do.end1212 ], [ %data1218, %do.end1248 ], [ %data1254, %do.end1284 ], [ %data1290, %do.end1320 ], [ %data1326, %do.end1356 ], [ %data1362, %do.end1392 ], [ %data1398, %do.end1428 ], [ %data1434, %do.end1464 ], [ %data1470, %do.end1500 ], [ %data1506, %do.end1536 ], [ %data1542, %do.end1572 ], [ %data1578, %do.end1608 ], [ %data1614, %do.end1644 ], [ %data1650, %do.end1680 ], [ %data1686, %do.end1716 ], [ %data1722, %do.end1752 ], [ %data1758, %do.end1788 ], [ %data1794, %do.end1824 ], [ %data1830, %do.end1860 ], [ %data1866, %do.end1896 ], [ %data1902, %do.end1932 ], [ %data1938, %do.end1968 ], [ %data1974, %do.end2004 ], [ %data2010, %do.end2040 ], [ %data2046, %do.end2076 ], [ %data2082, %do.end2112 ], [ %data2118, %do.end2148 ], [ %data2154, %do.end2184 ], [ %data2190, %do.end2220 ], [ %data2226, %do.end2256 ], [ %data2262, %do.end2292 ], [ %data2298, %do.end2328 ], [ %data2334, %do.end2364 ]
+  %vtable.i.i2373 = load ptr, ptr %.sink2390, align 8
+  %vfn.i.i2374 = getelementptr inbounds i8, ptr %vtable.i.i2373, i64 8
+  %1121 = load ptr, ptr %vfn.i.i2374, align 8
+  call void %1121(ptr noundef nonnull align 8 dereferenceable(42) %.sink2390) #19
+  br label %sw.epilog.sink.split
+
+sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %do.end2364, %do.end2328, %do.end2292, %do.end2256, %do.end2220, %do.end2184, %do.end2148, %do.end2112, %do.end2076, %do.end2040, %do.end2004, %do.end1968, %do.end1932, %do.end1896, %do.end1860, %do.end1824, %do.end1788, %do.end1752, %do.end1716, %do.end1680, %do.end1644, %do.end1608, %do.end1572, %do.end1536, %do.end1500, %do.end1464, %do.end1428, %do.end1392, %do.end1356, %do.end1320, %do.end1284, %do.end1248, %do.end1212, %do.end1176, %do.end1140, %do.end1104, %do.end1068, %do.end1032, %do.end996, %do.end960, %do.end924, %do.end888, %do.end852, %do.end816, %do.end780, %do.end744, %do.end708, %do.end672, %do.end636, %do.end600, %do.end564, %do.end528, %do.end492, %do.end456, %do.end420, %do.end384, %do.end348, %do.end312, %do.end276, %do.end240, %do.end204, %do.end168, %do.end132, %do.end96
+  %data2334.sink = phi ptr [ %data, %do.end96 ], [ %data102, %do.end132 ], [ %data138, %do.end168 ], [ %data174, %do.end204 ], [ %data210, %do.end240 ], [ %data246, %do.end276 ], [ %data282, %do.end312 ], [ %data318, %do.end348 ], [ %data354, %do.end384 ], [ %data390, %do.end420 ], [ %data426, %do.end456 ], [ %data462, %do.end492 ], [ %data498, %do.end528 ], [ %data534, %do.end564 ], [ %data570, %do.end600 ], [ %data606, %do.end636 ], [ %data642, %do.end672 ], [ %data678, %do.end708 ], [ %data714, %do.end744 ], [ %data750, %do.end780 ], [ %data786, %do.end816 ], [ %data822, %do.end852 ], [ %data858, %do.end888 ], [ %data894, %do.end924 ], [ %data930, %do.end960 ], [ %data966, %do.end996 ], [ %data1002, %do.end1032 ], [ %data1038, %do.end1068 ], [ %data1074, %do.end1104 ], [ %data1110, %do.end1140 ], [ %data1146, %do.end1176 ], [ %data1182, %do.end1212 ], [ %data1218, %do.end1248 ], [ %data1254, %do.end1284 ], [ %data1290, %do.end1320 ], [ %data1326, %do.end1356 ], [ %data1362, %do.end1392 ], [ %data1398, %do.end1428 ], [ %data1434, %do.end1464 ], [ %data1470, %do.end1500 ], [ %data1506, %do.end1536 ], [ %data1542, %do.end1572 ], [ %data1578, %do.end1608 ], [ %data1614, %do.end1644 ], [ %data1650, %do.end1680 ], [ %data1686, %do.end1716 ], [ %data1722, %do.end1752 ], [ %data1758, %do.end1788 ], [ %data1794, %do.end1824 ], [ %data1830, %do.end1860 ], [ %data1866, %do.end1896 ], [ %data1902, %do.end1932 ], [ %data1938, %do.end1968 ], [ %data1974, %do.end2004 ], [ %data2010, %do.end2040 ], [ %data2046, %do.end2076 ], [ %data2082, %do.end2112 ], [ %data2118, %do.end2148 ], [ %data2154, %do.end2184 ], [ %data2190, %do.end2220 ], [ %data2226, %do.end2256 ], [ %data2262, %do.end2292 ], [ %data2298, %do.end2328 ], [ %data2334, %do.end2364 ], [ %data2334.sink.ph, %sw.epilog.sink.split.sink.split ]
+  store ptr null, ptr %data2334.sink, align 8
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2356, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2327, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2298, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2269, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2240, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2211, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2182, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2153, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2124, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2095, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2066, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2037, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit2008, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1979, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1950, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1921, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1892, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1863, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1834, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1805, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1776, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1747, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1718, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1689, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1660, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1631, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1602, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1573, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1544, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1515, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1486, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1457, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1428, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1399, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1370, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1341, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1312, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1283, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1254, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1225, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1196, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1167, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1138, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1109, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1080, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1051, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit1022, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit993, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit964, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit935, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit906, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit877, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit848, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit819, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit790, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit761, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit732, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit703, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit674, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit645, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit616, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit587, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit558, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit
   br i1 %silent, label %return, label %if.end2371
 
 if.end2371:                                       ; preds = %sw.epilog
-  %1185 = load ptr, ptr %realm_.i521, align 8
-  %env_.i.i2378 = getelementptr inbounds i8, ptr %1185, i64 176
-  %1186 = load ptr, ptr %env_.i.i2378, align 8
-  %async_hooks_.i = getelementptr inbounds i8, ptr %1186, i64 880
-  %1187 = load i32, ptr %provider_type_.i, align 8
-  %1188 = ptrtoint ptr %async_hooks_.i to i64
-  %sub.i.i.i.i.i = add i64 %1188, -880
-  %1189 = inttoptr i64 %sub.i.i.i.i.i to ptr
-  %isolate_data_.i.i2382 = getelementptr inbounds i8, ptr %1189, i64 96
-  %1190 = load ptr, ptr %isolate_data_.i.i2382, align 8
-  %async_wrap_providers_.i.i = getelementptr inbounds i8, ptr %1190, i64 3544
-  %conv.i.i = sext i32 %1187 to i64
+  %1122 = load ptr, ptr %realm_.i521, align 8
+  %env_.i.i2378 = getelementptr inbounds i8, ptr %1122, i64 176
+  %1123 = load ptr, ptr %env_.i.i2378, align 8
+  %async_hooks_.i = getelementptr inbounds i8, ptr %1123, i64 880
+  %1124 = load i32, ptr %provider_type_.i, align 8
+  %1125 = ptrtoint ptr %async_hooks_.i to i64
+  %sub.i.i.i.i.i = add i64 %1125, -880
+  %1126 = inttoptr i64 %sub.i.i.i.i.i to ptr
+  %isolate_data_.i.i2382 = getelementptr inbounds i8, ptr %1126, i64 96
+  %1127 = load ptr, ptr %isolate_data_.i.i2382, align 8
+  %async_wrap_providers_.i.i = getelementptr inbounds i8, ptr %1127, i64 3544
+  %conv.i.i = sext i32 %1124 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [64 x %"class.v8::Eternal.302"], ptr %async_wrap_providers_.i.i, i64 0, i64 %conv.i.i
-  %1191 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  %1192 = load double, ptr %async_id_, align 8
-  %1193 = load double, ptr %trigger_async_id_, align 8
-  call void @_ZN4node9AsyncWrap13EmitAsyncInitEPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS4_INS3_6StringEEEdd(ptr noundef %1186, ptr %resource.coerce, ptr %1191, double noundef %1192, double noundef %1193)
+  %1128 = load ptr, ptr %arrayidx.i.i.i.i, align 8
+  %1129 = load double, ptr %async_id_, align 8
+  %1130 = load double, ptr %trigger_async_id_, align 8
+  call void @_ZN4node9AsyncWrap13EmitAsyncInitEPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS4_INS3_6StringEEEdd(ptr noundef %1123, ptr %resource.coerce, ptr %1128, double noundef %1129, double noundef %1130)
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.end2371

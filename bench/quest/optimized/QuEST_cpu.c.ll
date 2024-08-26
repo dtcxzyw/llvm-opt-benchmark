@@ -7351,17 +7351,8 @@ define void @statevec_pauliYDistributed(ptr nocapture noundef readonly byval(%st
   store i32 1, ptr %14, align 4
   store i32 1, ptr %15, align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %19, label %18
-
-18:                                               ; preds = %7
-  store i32 -1, ptr %15, align 4
-  br label %20
-
-19:                                               ; preds = %7
-  store i32 -1, ptr %14, align 4
-  br label %20
-
-20:                                               ; preds = %19, %18
+  %. = select i1 %.not, ptr %14, ptr %15
+  store i32 -1, ptr %., align 4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 8, ptr nonnull @statevec_pauliYDistributed.omp_outlined, ptr nonnull %9, ptr nonnull %12, ptr nonnull %8, ptr nonnull %14, ptr nonnull %11, ptr nonnull %13, ptr nonnull %15, ptr nonnull %10)
   ret void
 }

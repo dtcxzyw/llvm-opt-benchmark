@@ -99,9 +99,9 @@ if.end42:                                         ; preds = %if.then37
   br i1 %7, label %if.end48, label %if.end48.sink.split
 
 if.end48.sink.split:                              ; preds = %if.end42, %if.end42.thread
-  %.sink.in = phi ptr [ %newl, %if.end42.thread ], [ %newl.mux, %if.end42 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  store ptr %.sink, ptr @prereleases, align 8
+  %oldl.sink = phi ptr [ %newl, %if.end42.thread ], [ %newl.mux, %if.end42 ]
+  %8 = load ptr, ptr %oldl.sink, align 8
+  store ptr %8, ptr @prereleases, align 8
   br label %if.end48
 
 if.end48:                                         ; preds = %if.end42, %if.end48.sink.split
@@ -109,34 +109,34 @@ if.end48:                                         ; preds = %if.end42, %if.end48
   br label %if.end49
 
 if.end49:                                         ; preds = %if.end48, %while.end
-  %8 = load ptr, ptr @prereleases, align 8
-  %tobool50.not = icmp eq ptr %8, null
+  %9 = load ptr, ptr @prereleases, align 8
+  %tobool50.not = icmp eq ptr %9, null
   br i1 %tobool50.not, label %if.end57, label %land.lhs.true51
 
 land.lhs.true51:                                  ; preds = %if.end49
   %sub.ptr.lhs.cast = ptrtoint ptr %p1.0.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %s1 to i64
-  %9 = xor i64 %sub.ptr.rhs.cast, -1
-  %sub52 = add i64 %sub.ptr.lhs.cast, %9
+  %10 = xor i64 %sub.ptr.rhs.cast, -1
+  %sub52 = add i64 %sub.ptr.lhs.cast, %10
   %conv53 = trunc i64 %sub52 to i32
-  %nr40.i = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = load i64, ptr %nr40.i, align 8
-  %cmp41.not.i = icmp eq i64 %10, 0
+  %nr40.i = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = load i64, ptr %nr40.i, align 8
+  %cmp41.not.i = icmp eq i64 %11, 0
   br i1 %cmp41.not.i, label %if.end57, label %for.body.i
 
 for.body.i:                                       ; preds = %land.lhs.true51, %find_better_matching_suffix.exit37.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %find_better_matching_suffix.exit37.i ], [ 0, %land.lhs.true51 ]
-  %11 = phi ptr [ %22, %find_better_matching_suffix.exit37.i ], [ %8, %land.lhs.true51 ]
+  %12 = phi ptr [ %23, %find_better_matching_suffix.exit37.i ], [ %9, %land.lhs.true51 ]
   %match2.sroa.0.047.i = phi i32 [ %match2.sroa.0.1.i, %find_better_matching_suffix.exit37.i ], [ -1, %land.lhs.true51 ]
   %match2.sroa.3.046.i = phi i32 [ %match2.sroa.3.1.i, %find_better_matching_suffix.exit37.i ], [ %conv53, %land.lhs.true51 ]
   %match2.sroa.6.045.i = phi i32 [ %match2.sroa.6.1.i, %find_better_matching_suffix.exit37.i ], [ -1, %land.lhs.true51 ]
   %match1.sroa.0.044.i = phi i32 [ %match1.sroa.0.1.i, %find_better_matching_suffix.exit37.i ], [ -1, %land.lhs.true51 ]
   %match1.sroa.3.043.i = phi i32 [ %match1.sroa.3.1.i, %find_better_matching_suffix.exit37.i ], [ %conv53, %land.lhs.true51 ]
   %match1.sroa.6.042.i = phi i32 [ %match1.sroa.6.1.i, %find_better_matching_suffix.exit37.i ], [ -1, %land.lhs.true51 ]
-  %12 = load ptr, ptr %11, align 8
-  %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %indvars.iv.i
-  %13 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #4
+  %13 = load ptr, ptr %12, align 8
+  %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %13, i64 %indvars.iv.i
+  %14 = load ptr, ptr %arrayidx.i, align 8
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #4
   %conv6.i = trunc i64 %call.i to i32
   %cmp7.i = icmp sgt i32 %conv53, %conv6.i
   %sub.i = sub nsw i32 %conv53, %conv6.i
@@ -148,32 +148,32 @@ for.body.i:                                       ; preds = %land.lhs.true51, %f
   br i1 %cmp3.not11.i.i, label %find_better_matching_suffix.exit.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.body.i
-  %14 = sext i32 %start5.0.i to i64
-  %15 = add i32 %cond.i.i, 1
+  %15 = sext i32 %start5.0.i to i64
+  %16 = add i32 %cond.i.i, 1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %14, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
+  %indvars.iv.i.i = phi i64 [ %15, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %s1, i64 %indvars.iv.i.i
-  %call.i.i = call i32 @starts_with(ptr noundef nonnull %add.ptr.i.i, ptr noundef %13) #3
+  %call.i.i = call i32 @starts_with(ptr noundef nonnull %add.ptr.i.i, ptr noundef %14) #3
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %16 = trunc nsw i64 %indvars.iv.i.i to i32
-  %17 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %17 = trunc nsw i64 %indvars.iv.i.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %find_better_matching_suffix.exit.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
-  %exitcond.not.i.i = icmp eq i32 %15, %lftr.wideiv.i.i
+  %exitcond.not.i.i = icmp eq i32 %16, %lftr.wideiv.i.i
   br i1 %exitcond.not.i.i, label %find_better_matching_suffix.exit.i, label %for.body.i.i, !llvm.loop !7
 
 find_better_matching_suffix.exit.i:               ; preds = %for.inc.i.i, %if.then.i.i, %for.body.i
   %match1.sroa.6.1.i = phi i32 [ %match1.sroa.6.042.i, %for.body.i ], [ %conv6.i, %if.then.i.i ], [ %match1.sroa.6.042.i, %for.inc.i.i ]
-  %match1.sroa.3.1.i = phi i32 [ %match1.sroa.3.043.i, %for.body.i ], [ %16, %if.then.i.i ], [ %match1.sroa.3.043.i, %for.inc.i.i ]
-  %match1.sroa.0.1.i = phi i32 [ %match1.sroa.0.044.i, %for.body.i ], [ %17, %if.then.i.i ], [ %match1.sroa.0.044.i, %for.inc.i.i ]
+  %match1.sroa.3.1.i = phi i32 [ %match1.sroa.3.043.i, %for.body.i ], [ %17, %if.then.i.i ], [ %match1.sroa.3.043.i, %for.inc.i.i ]
+  %match1.sroa.0.1.i = phi i32 [ %match1.sroa.0.044.i, %for.body.i ], [ %18, %if.then.i.i ], [ %match1.sroa.0.044.i, %for.inc.i.i ]
   %cmp.i20.i = icmp sge i32 %match2.sroa.6.045.i, %conv6.i
   %sub.i22.i = sext i1 %cmp.i20.i to i32
   %cond.i23.i = add nsw i32 %match2.sroa.3.046.i, %sub.i22.i
@@ -181,37 +181,37 @@ find_better_matching_suffix.exit.i:               ; preds = %for.inc.i.i, %if.th
   br i1 %cmp3.not11.i24.i, label %find_better_matching_suffix.exit37.i, label %for.body.preheader.i25.i
 
 for.body.preheader.i25.i:                         ; preds = %find_better_matching_suffix.exit.i
-  %18 = sext i32 %start5.0.i to i64
-  %19 = add i32 %cond.i23.i, 1
+  %19 = sext i32 %start5.0.i to i64
+  %20 = add i32 %cond.i23.i, 1
   br label %for.body.i26.i
 
 for.body.i26.i:                                   ; preds = %for.inc.i33.i, %for.body.preheader.i25.i
-  %indvars.iv.i27.i = phi i64 [ %18, %for.body.preheader.i25.i ], [ %indvars.iv.next.i34.i, %for.inc.i33.i ]
+  %indvars.iv.i27.i = phi i64 [ %19, %for.body.preheader.i25.i ], [ %indvars.iv.next.i34.i, %for.inc.i33.i ]
   %add.ptr.i28.i = getelementptr inbounds i8, ptr %s2, i64 %indvars.iv.i27.i
-  %call.i29.i = call i32 @starts_with(ptr noundef nonnull %add.ptr.i28.i, ptr noundef %13) #3
+  %call.i29.i = call i32 @starts_with(ptr noundef nonnull %add.ptr.i28.i, ptr noundef %14) #3
   %tobool.not.i30.i = icmp eq i32 %call.i29.i, 0
   br i1 %tobool.not.i30.i, label %for.inc.i33.i, label %if.then.i31.i
 
 if.then.i31.i:                                    ; preds = %for.body.i26.i
-  %20 = trunc nsw i64 %indvars.iv.i27.i to i32
-  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %21 = trunc nsw i64 %indvars.iv.i27.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %find_better_matching_suffix.exit37.i
 
 for.inc.i33.i:                                    ; preds = %for.body.i26.i
   %indvars.iv.next.i34.i = add nsw i64 %indvars.iv.i27.i, 1
   %lftr.wideiv.i35.i = trunc i64 %indvars.iv.next.i34.i to i32
-  %exitcond.not.i36.i = icmp eq i32 %19, %lftr.wideiv.i35.i
+  %exitcond.not.i36.i = icmp eq i32 %20, %lftr.wideiv.i35.i
   br i1 %exitcond.not.i36.i, label %find_better_matching_suffix.exit37.i, label %for.body.i26.i, !llvm.loop !7
 
 find_better_matching_suffix.exit37.i:             ; preds = %for.inc.i33.i, %if.then.i31.i, %find_better_matching_suffix.exit.i
   %match2.sroa.6.1.i = phi i32 [ %match2.sroa.6.045.i, %find_better_matching_suffix.exit.i ], [ %conv6.i, %if.then.i31.i ], [ %match2.sroa.6.045.i, %for.inc.i33.i ]
-  %match2.sroa.3.1.i = phi i32 [ %match2.sroa.3.046.i, %find_better_matching_suffix.exit.i ], [ %20, %if.then.i31.i ], [ %match2.sroa.3.046.i, %for.inc.i33.i ]
-  %match2.sroa.0.1.i = phi i32 [ %match2.sroa.0.047.i, %find_better_matching_suffix.exit.i ], [ %21, %if.then.i31.i ], [ %match2.sroa.0.047.i, %for.inc.i33.i ]
+  %match2.sroa.3.1.i = phi i32 [ %match2.sroa.3.046.i, %find_better_matching_suffix.exit.i ], [ %21, %if.then.i31.i ], [ %match2.sroa.3.046.i, %for.inc.i33.i ]
+  %match2.sroa.0.1.i = phi i32 [ %match2.sroa.0.047.i, %find_better_matching_suffix.exit.i ], [ %22, %if.then.i31.i ], [ %match2.sroa.0.047.i, %for.inc.i33.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %22 = load ptr, ptr @prereleases, align 8
-  %nr.i = getelementptr inbounds i8, ptr %22, i64 8
-  %23 = load i64, ptr %nr.i, align 8
-  %cmp.i = icmp ugt i64 %23, %indvars.iv.next.i
+  %23 = load ptr, ptr @prereleases, align 8
+  %nr.i = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = load i64, ptr %nr.i, align 8
+  %cmp.i = icmp ugt i64 %24, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %find_better_matching_suffix.exit37.i
@@ -236,16 +236,16 @@ if.end57:                                         ; preds = %land.lhs.true51, %f
   %conv60 = zext i1 %cmp59 to i32
   %idxprom61 = zext i8 %c2.0.lcssa41 to i64
   %arrayidx62 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom61
-  %24 = load i8, ptr %arrayidx62, align 1
-  %25 = lshr i8 %24, 1
-  %.lobit25 = and i8 %25, 1
+  %25 = load i8, ptr %arrayidx62, align 1
+  %26 = lshr i8 %25, 1
+  %.lobit25 = and i8 %26, 1
   %conv66 = zext nneg i8 %.lobit25 to i32
   %add69 = add nuw nsw i32 %mul, %conv60
   %add70 = add nuw nsw i32 %add69, %conv66
   %idxprom71 = zext nneg i32 %add70 to i64
   %arrayidx72 = getelementptr inbounds [36 x i8], ptr @versioncmp.result_type, i64 0, i64 %idxprom71
-  %26 = load i8, ptr %arrayidx72, align 1
-  switch i8 %26, label %sw.default [
+  %27 = load i8, ptr %arrayidx72, align 1
+  switch i8 %27, label %sw.default [
     i8 2, label %return
     i8 3, label %while.cond75
   ]
@@ -253,37 +253,37 @@ if.end57:                                         ; preds = %land.lhs.true51, %f
 while.cond75:                                     ; preds = %if.end57, %while.body83
   %p2.1 = phi ptr [ %incdec.ptr84, %while.body83 ], [ %p2.0.lcssa, %if.end57 ]
   %p1.1 = phi ptr [ %incdec.ptr76, %while.body83 ], [ %p1.0.lcssa, %if.end57 ]
-  %27 = load i8, ptr %p1.1, align 1
-  %idxprom77 = zext i8 %27 to i64
+  %28 = load i8, ptr %p1.1, align 1
+  %idxprom77 = zext i8 %28 to i64
   %arrayidx78 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom77
-  %28 = load i8, ptr %arrayidx78, align 1
-  %29 = and i8 %28, 2
-  %cmp81.not = icmp eq i8 %29, 0
+  %29 = load i8, ptr %arrayidx78, align 1
+  %30 = and i8 %29, 2
+  %cmp81.not = icmp eq i8 %30, 0
   br i1 %cmp81.not, label %while.end93, label %while.body83
 
 while.body83:                                     ; preds = %while.cond75
   %incdec.ptr76 = getelementptr inbounds i8, ptr %p1.1, i64 1
   %incdec.ptr84 = getelementptr inbounds i8, ptr %p2.1, i64 1
-  %30 = load i8, ptr %p2.1, align 1
-  %idxprom85 = zext i8 %30 to i64
+  %31 = load i8, ptr %p2.1, align 1
+  %idxprom85 = zext i8 %31 to i64
   %arrayidx86 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom85
-  %31 = load i8, ptr %arrayidx86, align 1
-  %32 = and i8 %31, 2
-  %cmp89.not = icmp eq i8 %32, 0
+  %32 = load i8, ptr %arrayidx86, align 1
+  %33 = and i8 %32, 2
+  %cmp89.not = icmp eq i8 %33, 0
   br i1 %cmp89.not, label %return, label %while.cond75, !llvm.loop !9
 
 while.end93:                                      ; preds = %while.cond75
-  %33 = load i8, ptr %p2.1, align 1
-  %idxprom94 = zext i8 %33 to i64
+  %34 = load i8, ptr %p2.1, align 1
+  %idxprom94 = zext i8 %34 to i64
   %arrayidx95 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom94
-  %34 = load i8, ptr %arrayidx95, align 1
-  %35 = and i8 %34, 2
-  %cmp98.not = icmp eq i8 %35, 0
+  %35 = load i8, ptr %arrayidx95, align 1
+  %36 = and i8 %35, 2
+  %cmp98.not = icmp eq i8 %36, 0
   %cond = select i1 %cmp98.not, i32 %sub.le, i32 -1
   br label %return
 
 sw.default:                                       ; preds = %if.end57
-  %conv73 = sext i8 %26 to i32
+  %conv73 = sext i8 %27 to i32
   br label %return
 
 return:                                           ; preds = %while.body, %while.body83, %if.end57, %entry, %sw.default, %while.end93, %if.then56

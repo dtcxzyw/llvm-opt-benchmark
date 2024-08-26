@@ -2283,9 +2283,9 @@ mca_base_pvar_get.exit:                           ; preds = %opal_pointer_array_
   br label %mca_base_pvar_get.exit.thread.sink.split
 
 mca_base_pvar_get.exit.thread.sink.split:         ; preds = %155, %.loopexit
-  %.sink.in = phi ptr [ %6, %.loopexit ], [ %9, %155 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @free(ptr noundef %.sink) #16
+  %.sink85 = phi ptr [ %6, %.loopexit ], [ %9, %155 ]
+  %160 = load ptr, ptr %.sink85, align 8
+  call void @free(ptr noundef %160) #16
   br label %mca_base_pvar_get.exit.thread
 
 mca_base_pvar_get.exit.thread:                    ; preds = %mca_base_pvar_get.exit.thread.sink.split, %opal_pointer_array_get_item.exit.i.i, %3, %148, %146, %125, %50, %mca_base_pvar_get.exit

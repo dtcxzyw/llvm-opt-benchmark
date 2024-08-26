@@ -402,10 +402,12 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
   %11 = tail call double @cos(double noundef %10) #7
   %12 = fdiv double %0, %11
   %13 = getelementptr inbounds i8, ptr %8, i64 72
+  %.sink47.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink47.sroa.gep48 = getelementptr inbounds i8, ptr %6, i64 8
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.backedge, %3
-  %.0 = phi i32 [ 0, %3 ], [ %45, %.critedge2.backedge ]
+  %.0 = phi i32 [ 0, %3 ], [ %43, %.critedge2.backedge ]
   %.sroa.6.0 = phi double [ %10, %3 ], [ %.sroa.6.1, %.critedge2.backedge ]
   %.sroa.018.0 = phi double [ %12, %3 ], [ %.sroa.018.1, %.critedge2.backedge ]
   %14 = call fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double %.sroa.018.0, double %.sroa.6.0, ptr noundef %2, ptr noundef nonnull %4)
@@ -420,77 +422,70 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
   %21 = fsub double %16, %1
   %22 = tail call double @llvm.fabs.f64(double %21)
   %23 = fcmp ogt double %22, 1.000000e-10
-  br i1 %23, label %24, label %35
+  br i1 %23, label %24, label %33
 
 24:                                               ; preds = %20, %.critedge2
   %25 = fcmp oeq double %18, 0.000000e+00
-  br i1 %25, label %26, label %28
+  br i1 %25, label %.critedge.thread.sink.split, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
-  call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5)
-  %.sroa.031.0.copyload = load double, ptr %5, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %.critedge.thread
+  %27 = load double, ptr %13, align 8
+  %28 = fsub double %.sroa.6.0, %27
+  %29 = fsub double %1, %17
+  %30 = fmul double %29, %28
+  %31 = fdiv double %30, %18
+  %32 = fadd double %27, %31
+  br label %33
 
-28:                                               ; preds = %24
-  %29 = load double, ptr %13, align 8
-  %30 = fsub double %.sroa.6.0, %29
-  %31 = fsub double %1, %17
-  %32 = fmul double %31, %30
-  %33 = fdiv double %32, %18
-  %34 = fadd double %29, %33
-  br label %35
+33:                                               ; preds = %26, %20
+  %.sroa.6.1 = phi double [ %32, %26 ], [ %.sroa.6.0, %20 ]
+  %34 = fcmp une double %15, 0.000000e+00
+  br i1 %34, label %35, label %42
 
-35:                                               ; preds = %28, %20
-  %.sroa.6.1 = phi double [ %34, %28 ], [ %.sroa.6.0, %20 ]
-  %36 = fcmp une double %15, 0.000000e+00
-  br i1 %36, label %37, label %44
+35:                                               ; preds = %33
+  %36 = fsub double %15, %0
+  %37 = tail call double @llvm.fabs.f64(double %36)
+  %38 = fcmp ogt double %37, 1.000000e-10
+  br i1 %38, label %39, label %42
 
-37:                                               ; preds = %35
-  %38 = fsub double %15, %0
-  %39 = tail call double @llvm.fabs.f64(double %38)
-  %40 = fcmp ogt double %39, 1.000000e-10
-  br i1 %40, label %41, label %44
+39:                                               ; preds = %35
+  %40 = fmul double %0, %.sroa.018.0
+  %41 = fdiv double %40, %15
+  br label %42
 
-41:                                               ; preds = %37
-  %42 = fmul double %0, %.sroa.018.0
-  %43 = fdiv double %42, %15
-  br label %44
-
-44:                                               ; preds = %41, %37, %35
-  %.sroa.018.1 = phi double [ %43, %41 ], [ %.sroa.018.0, %37 ], [ %.sroa.018.0, %35 ]
-  %45 = add nuw nsw i32 %.0, 1
+42:                                               ; preds = %39, %35, %33
+  %.sroa.018.1 = phi double [ %41, %39 ], [ %.sroa.018.0, %35 ], [ %.sroa.018.0, %33 ]
+  %43 = add nuw nsw i32 %.0, 1
   %exitcond.not = icmp eq i32 %.0, 999
-  br i1 %exitcond.not, label %.critedge, label %46
+  br i1 %exitcond.not, label %.critedge.thread.sink.split, label %44
 
-46:                                               ; preds = %44
-  %47 = fsub double %15, %0
-  %48 = tail call double @llvm.fabs.f64(double %47)
-  %49 = fcmp ogt double %48, 1.000000e-10
-  br i1 %49, label %.critedge2.backedge, label %50
+44:                                               ; preds = %42
+  %45 = fsub double %15, %0
+  %46 = tail call double @llvm.fabs.f64(double %45)
+  %47 = fcmp ogt double %46, 1.000000e-10
+  br i1 %47, label %.critedge2.backedge, label %48
 
-50:                                               ; preds = %46
-  %51 = fsub double %16, %1
-  %52 = tail call double @llvm.fabs.f64(double %51)
-  %53 = fcmp ogt double %52, 1.000000e-10
-  br i1 %53, label %.critedge2.backedge, label %.critedge.thread
+48:                                               ; preds = %44
+  %49 = fsub double %16, %1
+  %50 = tail call double @llvm.fabs.f64(double %49)
+  %51 = fcmp ogt double %50, 1.000000e-10
+  br i1 %51, label %.critedge2.backedge, label %.critedge.thread
 
-.critedge2.backedge:                              ; preds = %50, %46
+.critedge2.backedge:                              ; preds = %48, %44
   br label %.critedge2, !llvm.loop !4
 
-.critedge:                                        ; preds = %44
-  %54 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
-  call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %6)
-  %.sroa.031.0.copyload32 = load double, ptr %6, align 8
-  %.sroa.4.0..sroa_idx33 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.4.0.copyload34 = load double, ptr %.sroa.4.0..sroa_idx33, align 8
+.critedge.thread.sink.split:                      ; preds = %42, %24
+  %.sink47.sroa.phi = phi ptr [ %.sink47.sroa.gep, %24 ], [ %.sink47.sroa.gep48, %42 ]
+  %.sink47 = phi ptr [ %5, %24 ], [ %6, %42 ]
+  %52 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
+  call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %.sink47)
+  %.sroa.031.0.copyload32 = load double, ptr %.sink47, align 8
+  %.sroa.4.0.copyload34 = load double, ptr %.sink47.sroa.phi, align 8
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %50, %.critedge, %26
-  %.sroa.031.0 = phi double [ %.sroa.031.0.copyload, %26 ], [ %.sroa.031.0.copyload32, %.critedge ], [ %.sroa.018.1, %50 ]
-  %.sroa.4.0 = phi double [ %.sroa.4.0.copyload, %26 ], [ %.sroa.4.0.copyload34, %.critedge ], [ %.sroa.6.1, %50 ]
+.critedge.thread:                                 ; preds = %48, %.critedge.thread.sink.split
+  %.sroa.031.0 = phi double [ %.sroa.031.0.copyload32, %.critedge.thread.sink.split ], [ %.sroa.018.1, %48 ]
+  %.sroa.4.0 = phi double [ %.sroa.4.0.copyload34, %.critedge.thread.sink.split ], [ %.sroa.6.1, %48 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.031.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert

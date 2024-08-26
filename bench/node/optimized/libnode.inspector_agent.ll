@@ -4399,55 +4399,53 @@ entry:
 
 _ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %entry
   call void @_ZN4node9inspector16Utf8ToStringViewESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::unique_ptr.585") align 8 %ref.tmp16, i64 18, ptr nonnull @.str.100) #22
-  %10 = load ptr, ptr %ref.tmp16, align 8
-  store ptr null, ptr %ref.tmp16, align 8
   br label %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit20
 
 _ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EEaSEOS4_.exit10: ; preds = %entry
   call void @_ZN4node9inspector16Utf8ToStringViewESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::unique_ptr.585") align 8 %ref.tmp19, i64 19, ptr nonnull @.str.101) #22
-  %11 = load ptr, ptr %ref.tmp19, align 8
-  store ptr null, ptr %ref.tmp19, align 8
   br label %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit20
 
 _ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit20: ; preds = %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EEaSEOS4_.exit10, %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EEaSEOS4_.exit
-  %aux_data_buffer.sroa.0.0 = phi ptr [ %10, %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EEaSEOS4_.exit ], [ %11, %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EEaSEOS4_.exit10 ]
-  %vtable24 = load ptr, ptr %aux_data_buffer.sroa.0.0, align 8
+  %ref.tmp19.sink34 = phi ptr [ %ref.tmp19, %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EEaSEOS4_.exit10 ], [ %ref.tmp16, %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EEaSEOS4_.exit ]
+  %10 = load ptr, ptr %ref.tmp19.sink34, align 8
+  store ptr null, ptr %ref.tmp19.sink34, align 8
+  %vtable24 = load ptr, ptr %10, align 8
   %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 16
-  %12 = load ptr, ptr %vfn25, align 8
-  call void %12(ptr nonnull sret(%"class.v8_inspector::StringView") align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(8) %aux_data_buffer.sroa.0.0) #22
+  %11 = load ptr, ptr %vfn25, align 8
+  call void %11(ptr nonnull sret(%"class.v8_inspector::StringView") align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(8) %10) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %auxData.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp22, i64 24, i1 false)
   %client_ = getelementptr inbounds i8, ptr %this, i64 24
-  %13 = load ptr, ptr %client_, align 8
-  %vtable27 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %client_, align 8
+  %vtable27 = load ptr, ptr %12, align 8
   %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 16
-  %14 = load ptr, ptr %vfn28, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(89) %v8info) #22
-  %vtable.i.i18 = load ptr, ptr %aux_data_buffer.sroa.0.0, align 8
+  %13 = load ptr, ptr %vfn28, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(89) %v8info) #22
+  %vtable.i.i18 = load ptr, ptr %10, align 8
   %vfn.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i18, i64 8
-  %15 = load ptr, ptr %vfn.i.i19, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(8) %aux_data_buffer.sroa.0.0) #22
-  %16 = load ptr, ptr %origin_buffer, align 8
-  %cmp.not.i21 = icmp eq ptr %16, null
+  %14 = load ptr, ptr %vfn.i.i19, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(8) %10) #22
+  %15 = load ptr, ptr %origin_buffer, align 8
+  %cmp.not.i21 = icmp eq ptr %15, null
   br i1 %cmp.not.i21, label %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit25, label %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i22
 
 _ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i22: ; preds = %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit20
-  %vtable.i.i23 = load ptr, ptr %16, align 8
+  %vtable.i.i23 = load ptr, ptr %15, align 8
   %vfn.i.i24 = getelementptr inbounds i8, ptr %vtable.i.i23, i64 8
-  %17 = load ptr, ptr %vfn.i.i24, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16) #22
+  %16 = load ptr, ptr %vfn.i.i24, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #22
   br label %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit25
 
 _ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit25: ; preds = %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit20, %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i22
   store ptr null, ptr %origin_buffer, align 8
-  %18 = load ptr, ptr %name_buffer, align 8
-  %cmp.not.i26 = icmp eq ptr %18, null
+  %17 = load ptr, ptr %name_buffer, align 8
+  %cmp.not.i26 = icmp eq ptr %17, null
   br i1 %cmp.not.i26, label %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit30, label %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i27
 
 _ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i27: ; preds = %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit25
-  %vtable.i.i28 = load ptr, ptr %18, align 8
+  %vtable.i.i28 = load ptr, ptr %17, align 8
   %vfn.i.i29 = getelementptr inbounds i8, ptr %vtable.i.i28, i64 8
-  %19 = load ptr, ptr %vfn.i.i29, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %18) #22
+  %18 = load ptr, ptr %vfn.i.i29, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17) #22
   br label %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit30
 
 _ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit30: ; preds = %_ZNSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS1_EED2Ev.exit25, %_ZNKSt14default_deleteIN12v8_inspector12StringBufferEEclEPS1_.exit.i27

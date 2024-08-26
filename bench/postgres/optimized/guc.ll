@@ -2143,7 +2143,7 @@ define internal fastcc void @InitializeOneGUCOption(ptr nocapture noundef %0) un
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %17, i8 0, i64 20, i1 false)
   %19 = load i32, ptr %18, align 4
-  switch i32 %19, label %137 [
+  switch i32 %19, label %138 [
     i32 0, label %20
     i32 1, label %45
     i32 2, label %65
@@ -2374,15 +2374,15 @@ guc_strdup.exit:                                  ; preds = %guc_malloc.exit.i, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %60, %80, %111, %131
+  %.sink78 = phi ptr [ %11, %131 ], [ %9, %111 ], [ %7, %80 ], [ %5, %60 ], [ %3, %39 ]
   %.sink77 = phi i64 [ 200, %131 ], [ 192, %111 ], [ 208, %80 ], [ 200, %60 ], [ 192, %39 ]
-  %.sink75.in = phi ptr [ %11, %131 ], [ %9, %111 ], [ %7, %80 ], [ %5, %60 ], [ %3, %39 ]
-  %.sink75 = load ptr, ptr %.sink75.in, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 %.sink77
-  store ptr %.sink75, ptr %136, align 8
-  store ptr %.sink75, ptr %16, align 8
-  br label %137
+  %136 = load ptr, ptr %.sink78, align 8
+  %137 = getelementptr inbounds i8, ptr %0, i64 %.sink77
+  store ptr %136, ptr %137, align 8
+  store ptr %136, ptr %16, align 8
+  br label %138
 
-137:                                              ; preds = %.sink.split, %1
+138:                                              ; preds = %.sink.split, %1
   ret void
 }
 

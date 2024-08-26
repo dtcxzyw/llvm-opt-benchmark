@@ -880,9 +880,9 @@ if.then15:                                        ; preds = %while.end
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then, %if.then15
-  %.sink.in = phi ptr [ %num16, %if.then15 ], [ %num, %if.then ]
-  %.sink = load i32, ptr %.sink.in, align 4
-  %call23 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %.sink) #8
+  %num16.sink = phi ptr [ %num16, %if.then15 ], [ %num, %if.then ]
+  %4 = load i32, ptr %num16.sink, align 4
+  %call23 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %4) #8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %while.end

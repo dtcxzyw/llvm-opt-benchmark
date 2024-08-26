@@ -5277,7 +5277,7 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents8fixEdgesER12Dfg
   %.not17 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 152
   %..i12 = select i1 %.not17, ptr %1, ptr null
   store ptr %..i12, ptr %5, align 8
-  br i1 %.not17, label %29, label %49
+  br i1 %.not17, label %29, label %50
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %6, i64 16
@@ -5326,12 +5326,12 @@ define linkonce_odr dso_local void @_ZN23ExtractCyclicComponents8fixEdgesER12Dfg
   unreachable
 
 .sink.split:                                      ; preds = %36, %34, %15, %13
-  %.sink.in = phi ptr [ %3, %13 ], [ %3, %15 ], [ %5, %34 ], [ %5, %36 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @_ZN23ExtractCyclicComponents8fixSinksER12DfgVertexVar(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(99) %.sink)
-  br label %49
+  %.sink18 = phi ptr [ %3, %13 ], [ %3, %15 ], [ %5, %34 ], [ %5, %36 ]
+  %49 = load ptr, ptr %.sink18, align 8
+  call void @_ZN23ExtractCyclicComponents8fixSinksER12DfgVertexVar(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(99) %49)
+  br label %50
 
-49:                                               ; preds = %.sink.split, %28
+50:                                               ; preds = %.sink.split, %28
   ret void
 
 _ZNSt8functionIFvR12DfgVarPackedR9DfgVertexmEED2Ev.exit10: ; preds = %44, %41, %23, %20

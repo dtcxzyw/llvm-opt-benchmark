@@ -722,12 +722,12 @@ pubkey_show.exit222:                              ; preds = %pubkey_show.exit212
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %pubkey_show.exit142, %pubkey_show.exit182, %pubkey_show.exit222
-  %.sink234.in = phi ptr [ %n, %pubkey_show.exit142 ], [ %g, %pubkey_show.exit182 ], [ %g171, %pubkey_show.exit222 ]
-  %.sink.in = phi ptr [ %e, %pubkey_show.exit142 ], [ %pub_key, %pubkey_show.exit182 ], [ %pub_key172, %pubkey_show.exit222 ]
-  %.sink234 = load ptr, ptr %.sink234.in, align 8
-  call void @BN_clear_free(ptr noundef %.sink234) #13
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @BN_clear_free(ptr noundef %.sink) #13
+  %g171.sink = phi ptr [ %g171, %pubkey_show.exit222 ], [ %g, %pubkey_show.exit182 ], [ %n, %pubkey_show.exit142 ]
+  %pub_key172.sink = phi ptr [ %pub_key172, %pubkey_show.exit222 ], [ %pub_key, %pubkey_show.exit182 ], [ %e, %pubkey_show.exit142 ]
+  %47 = load ptr, ptr %g171.sink, align 8
+  call void @BN_clear_free(ptr noundef %47) #13
+  %48 = load ptr, ptr %pub_key172.sink, align 8
+  call void @BN_clear_free(ptr noundef %48) #13
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.else
@@ -735,43 +735,43 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   br label %if.end177
 
 if.end177:                                        ; preds = %if.then143, %land.lhs.true, %do.body140, %sw.epilog
-  %47 = load ptr, ptr %psig, align 8
-  %tobool178.not = icmp eq ptr %47, null
+  %49 = load ptr, ptr %psig, align 8
+  %tobool178.not = icmp eq ptr %49, null
   br i1 %tobool178.not, label %if.end204, label %for.cond180.preheader
 
 for.cond180.preheader:                            ; preds = %if.end177
-  %48 = load i32, ptr %47, align 8
-  %cmp182225 = icmp sgt i32 %48, 0
+  %50 = load i32, ptr %49, align 8
+  %cmp182225 = icmp sgt i32 %50, 0
   br i1 %cmp182225, label %for.body184, label %do.body193
 
 for.body184:                                      ; preds = %for.cond180.preheader, %for.body184
   %indvars.iv231 = phi i64 [ %indvars.iv.next232, %for.body184 ], [ 0, %for.cond180.preheader ]
-  %49 = phi ptr [ %52, %for.body184 ], [ %47, %for.cond180.preheader ]
-  %data185 = getelementptr inbounds i8, ptr %49, i64 8
-  %50 = load ptr, ptr %data185, align 8
-  %arrayidx187 = getelementptr inbounds i8, ptr %50, i64 %indvars.iv231
-  %51 = load i8, ptr %arrayidx187, align 1
-  %conv188 = zext i8 %51 to i32
+  %51 = phi ptr [ %54, %for.body184 ], [ %49, %for.cond180.preheader ]
+  %data185 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = load ptr, ptr %data185, align 8
+  %arrayidx187 = getelementptr inbounds i8, ptr %52, i64 %indvars.iv231
+  %53 = load i8, ptr %arrayidx187, align 1
+  %conv188 = zext i8 %53 to i32
   %call189 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call8, ptr noundef nonnull @.str.24, i32 noundef %conv188) #13
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
-  %52 = load ptr, ptr %psig, align 8
-  %53 = load i32, ptr %52, align 8
-  %54 = sext i32 %53 to i64
-  %cmp182 = icmp slt i64 %indvars.iv.next232, %54
+  %54 = load ptr, ptr %psig, align 8
+  %55 = load i32, ptr %54, align 8
+  %56 = sext i32 %55 to i64
+  %cmp182 = icmp slt i64 %indvars.iv.next232, %56
   br i1 %cmp182, label %for.body184, label %do.body193, !llvm.loop !7
 
 do.body193:                                       ; preds = %for.body184, %for.cond180.preheader
   %call195 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr) #13
-  %55 = load ptr, ptr %ptr, align 8
-  %call196 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull @.str.25, ptr noundef %55, i64 noundef %call195) #13
+  %57 = load ptr, ptr %ptr, align 8
+  %call196 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull @.str.25, ptr noundef %57, i64 noundef %call195) #13
   %call197 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   br label %if.end204
 
 if.end204:                                        ; preds = %do.body193, %if.end177
   %call205 = call i32 @PEM_write_bio_X509(ptr noundef %call8, ptr noundef %call13) #13
   %call208 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %ptr) #13
-  %56 = load ptr, ptr %ptr, align 8
-  %call209 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull @.str.26, ptr noundef %56, i64 noundef %call208) #13
+  %58 = load ptr, ptr %ptr, align 8
+  %call209 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull @.str.26, ptr noundef %58, i64 noundef %call208) #13
   %call210 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   %inc218 = add nuw nsw i32 %i.0228, 1
   %exitcond.not = icmp eq i32 %inc218, %call2

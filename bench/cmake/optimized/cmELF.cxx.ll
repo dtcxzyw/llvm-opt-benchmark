@@ -363,7 +363,7 @@ _ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_E
   %69 = load ptr, ptr %0, align 8
   store ptr %68, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i.i, label %_ZNSt10unique_ptrI17cmELFInternalImplI12cmELFTypes32ESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit
+  br i1 %.not.i.i.i, label %.sink.split, label %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit
 
 _ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit: ; preds = %67
   %70 = load ptr, ptr %69, align 8
@@ -372,18 +372,14 @@ _ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI
   call void %72(ptr noundef nonnull align 8 dereferenceable(88) %69) #18
   %.pr = load ptr, ptr %6, align 8
   %.not.i17 = icmp eq ptr %.pr, null
-  br i1 %.not.i17, label %_ZNSt10unique_ptrI17cmELFInternalImplI12cmELFTypes32ESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes32EEclEPS2_.exit.i
+  br i1 %.not.i17, label %.sink.split, label %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes32EEclEPS2_.exit.i
 
 _ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes32EEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit
   %73 = load ptr, ptr %.pr, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(192) %.pr) #18
-  br label %_ZNSt10unique_ptrI17cmELFInternalImplI12cmELFTypes32ESt14default_deleteIS2_EED2Ev.exit
-
-_ZNSt10unique_ptrI17cmELFInternalImplI12cmELFTypes32ESt14default_deleteIS2_EED2Ev.exit: ; preds = %67, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit, %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes32EEclEPS2_.exit.i
-  store ptr null, ptr %6, align 8
-  br label %88
+  br label %.sink.split
 
 76:                                               ; preds = %63
   store ptr %0, ptr %9, align 8
@@ -396,7 +392,7 @@ _ZNSt10unique_ptrI17cmELFInternalImplI12cmELFTypes32ESt14default_deleteIS2_EED2E
   %79 = load ptr, ptr %0, align 8
   store ptr %78, ptr %0, align 8
   %.not.i.i.i18 = icmp eq ptr %79, null
-  br i1 %.not.i.i.i18, label %_ZNSt10unique_ptrI17cmELFInternalImplI12cmELFTypes64ESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit
+  br i1 %.not.i.i.i18, label %.sink.split, label %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit
 
 _ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit: ; preds = %77
   %80 = load ptr, ptr %79, align 8
@@ -405,25 +401,26 @@ _ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI
   call void %82(ptr noundef nonnull align 8 dereferenceable(88) %79) #18
   %.pr26 = load ptr, ptr %8, align 8
   %.not.i20 = icmp eq ptr %.pr26, null
-  br i1 %.not.i20, label %_ZNSt10unique_ptrI17cmELFInternalImplI12cmELFTypes64ESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes64EEclEPS2_.exit.i
+  br i1 %.not.i20, label %.sink.split, label %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes64EEclEPS2_.exit.i
 
 _ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes64EEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit
   %83 = load ptr, ptr %.pr26, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
   call void %85(ptr noundef nonnull align 8 dereferenceable(200) %.pr26) #18
-  br label %_ZNSt10unique_ptrI17cmELFInternalImplI12cmELFTypes64ESt14default_deleteIS2_EED2Ev.exit
-
-_ZNSt10unique_ptrI17cmELFInternalImplI12cmELFTypes64ESt14default_deleteIS2_EED2Ev.exit: ; preds = %77, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit, %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes64EEclEPS2_.exit.i
-  store ptr null, ptr %8, align 8
-  br label %88
+  br label %.sink.split
 
 .invoke:                                          ; preds = %20, %63, %59, %47, %46, %37
   %86 = phi ptr [ @.str.1, %37 ], [ @.str.2, %46 ], [ @.str.3, %47 ], [ @.str.4, %59 ], [ @.str.5, %63 ], [ @.str, %20 ]
   %87 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %86)
           to label %88 unwind label %23
 
-88:                                               ; preds = %.invoke, %_ZNSt10unique_ptrI17cmELFInternalImplI12cmELFTypes32ESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrI17cmELFInternalImplI12cmELFTypes64ESt14default_deleteIS2_EED2Ev.exit
+.sink.split:                                      ; preds = %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes64EEclEPS2_.exit.i, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit, %77, %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes32EEclEPS2_.exit.i, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit, %67
+  %.sink = phi ptr [ %6, %67 ], [ %6, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit ], [ %6, %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes32EEclEPS2_.exit.i ], [ %8, %77 ], [ %8, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit ], [ %8, %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes64EEclEPS2_.exit.i ]
+  store ptr null, ptr %.sink, align 8
+  br label %88
+
+88:                                               ; preds = %.sink.split, %.invoke
   %89 = load ptr, ptr %3, align 8
   %.not.i21 = icmp eq ptr %89, null
   br i1 %.not.i21, label %_ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit23, label %_ZNKSt14default_deleteISt14basic_ifstreamIcSt11char_traitsIcEEEclEPS3_.exit.i22

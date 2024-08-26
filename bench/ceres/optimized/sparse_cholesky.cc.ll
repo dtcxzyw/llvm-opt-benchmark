@@ -44,10 +44,10 @@ define hidden void @_ZN5ceres8internal14SparseCholesky6CreateERKNS0_12LinearSolv
   store ptr null, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8
-  switch i32 %9, label %41 [
+  switch i32 %9, label %39 [
     i32 0, label %10
     i32 1, label %21
-    i32 2, label %31
+    i32 2, label %29
   ]
 
 10:                                               ; preds = %2
@@ -66,8 +66,8 @@ define hidden void @_ZN5ceres8internal14SparseCholesky6CreateERKNS0_12LinearSolv
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #10
   unreachable
 
-16:                                               ; preds = %60, %41, %31, %29, %27, %10
-  %17 = phi ptr [ %55, %60 ], [ null, %41 ], [ null, %31 ], [ null, %29 ], [ null, %27 ], [ null, %10 ]
+16:                                               ; preds = %57, %39, %29, %28, %27, %10
+  %17 = phi ptr [ %52, %57 ], [ null, %39 ], [ null, %29 ], [ null, %28 ], [ null, %27 ], [ null, %10 ]
   %18 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -84,146 +84,137 @@ define hidden void @_ZN5ceres8internal14SparseCholesky6CreateERKNS0_12LinearSolv
   %24 = trunc i8 %23 to i1
   %25 = getelementptr inbounds i8, ptr %1, i64 20
   %26 = load i32, ptr %25, align 4
-  br i1 %24, label %27, label %29
+  br i1 %24, label %27, label %28
 
 27:                                               ; preds = %21
   invoke void @_ZN5ceres8internal24FloatEigenSparseCholesky6CreateENS0_12OrderingTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, i32 noundef %26)
           to label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit unwind label %16
 
-_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %27
-  %28 = load ptr, ptr %4, align 8
-  store ptr %28, ptr %0, align 8
-  store ptr null, ptr %4, align 8
-  br label %54
-
-29:                                               ; preds = %21
+28:                                               ; preds = %21
   invoke void @_ZN5ceres8internal19EigenSparseCholesky6CreateENS0_12OrderingTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %5, i32 noundef %26)
-          to label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit13 unwind label %16
+          to label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit unwind label %16
 
-_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit13: ; preds = %29
-  %30 = load ptr, ptr %5, align 8
-  store ptr %30, ptr %0, align 8
-  store ptr null, ptr %5, align 8
-  br label %54
-
-31:                                               ; preds = %2
+29:                                               ; preds = %2
   invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull @.str, i32 noundef 87)
-          to label %32 unwind label %16
+          to label %30 unwind label %16
 
-32:                                               ; preds = %31
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
-          to label %34 unwind label %39
+30:                                               ; preds = %29
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
+          to label %32 unwind label %37
+
+32:                                               ; preds = %30
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.4)
+          to label %34 unwind label %37
 
 34:                                               ; preds = %32
-  %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @.str.4)
-          to label %36 unwind label %39
+  %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @.str.5)
+          to label %36 unwind label %37
 
 36:                                               ; preds = %34
-  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @.str.5)
-          to label %38 unwind label %39
-
-38:                                               ; preds = %36
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #10
   unreachable
 
-39:                                               ; preds = %36, %34, %32
-  %40 = landingpad { ptr, i32 }
+37:                                               ; preds = %34, %32, %30
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #10
   unreachable
 
-41:                                               ; preds = %2
+39:                                               ; preds = %2
   invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull @.str, i32 noundef 92)
-          to label %42 unwind label %16
+          to label %40 unwind label %16
 
-42:                                               ; preds = %41
-  %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
-          to label %44 unwind label %52
+40:                                               ; preds = %39
+  %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
+          to label %42 unwind label %50
+
+42:                                               ; preds = %40
+  %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull @.str.6)
+          to label %44 unwind label %50
 
 44:                                               ; preds = %42
-  %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @.str.6)
-          to label %46 unwind label %52
+  %45 = load i32, ptr %8, align 8
+  %46 = invoke noundef ptr @_ZN5ceres38SparseLinearAlgebraLibraryTypeToStringENS_30SparseLinearAlgebraLibraryTypeE(i32 noundef %45)
+          to label %47 unwind label %50
 
-46:                                               ; preds = %44
-  %47 = load i32, ptr %8, align 8
-  %48 = invoke noundef ptr @_ZN5ceres38SparseLinearAlgebraLibraryTypeToStringENS_30SparseLinearAlgebraLibraryTypeE(i32 noundef %47)
-          to label %49 unwind label %52
+47:                                               ; preds = %44
+  %48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef %46)
+          to label %49 unwind label %50
 
-49:                                               ; preds = %46
-  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %48)
-          to label %51 unwind label %52
-
-51:                                               ; preds = %49
+49:                                               ; preds = %47
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #10
   unreachable
 
-52:                                               ; preds = %49, %46, %44, %42
-  %53 = landingpad { ptr, i32 }
+50:                                               ; preds = %47, %44, %42, %40
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #10
   unreachable
 
-54:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit, %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit13
-  %55 = phi ptr [ %28, %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit ], [ %30, %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit13 ]
-  %56 = ptrtoint ptr %55 to i64
-  %57 = getelementptr inbounds i8, ptr %1, i64 108
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %60, label %73
+_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %28, %27
+  %.sink32 = phi ptr [ %4, %27 ], [ %5, %28 ]
+  %52 = load ptr, ptr %.sink32, align 8
+  store ptr %52, ptr %0, align 8
+  store ptr null, ptr %.sink32, align 8
+  %53 = ptrtoint ptr %52 to i64
+  %54 = getelementptr inbounds i8, ptr %1, i64 108
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp sgt i32 %55, 0
+  br i1 %56, label %57, label %70
 
-60:                                               ; preds = %54
-  %61 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #11
+57:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit
+  %58 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #11
           to label %.noexc unwind label %16
 
-.noexc:                                           ; preds = %60
-  invoke void @_ZN5ceres8internal22SparseIterativeRefinerC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %61, i32 noundef %58)
-          to label %_ZSt11make_uniqueIN5ceres8internal22SparseIterativeRefinerEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %62, !noalias !4
+.noexc:                                           ; preds = %57
+  invoke void @_ZN5ceres8internal22SparseIterativeRefinerC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %58, i32 noundef %55)
+          to label %_ZSt11make_uniqueIN5ceres8internal22SparseIterativeRefinerEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %59, !noalias !4
 
-62:                                               ; preds = %.noexc
-  %63 = landingpad { ptr, i32 }
+59:                                               ; preds = %.noexc
+  %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %61) #12, !noalias !4
+  call void @_ZdlPv(ptr noundef nonnull %58) #12, !noalias !4
   br label %.body
 
 _ZSt11make_uniqueIN5ceres8internal22SparseIterativeRefinerEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %.noexc
-  %64 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
+  %61 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
           to label %_ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit24
 
 _ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZSt11make_uniqueIN5ceres8internal22SparseIterativeRefinerEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %65 = ptrtoint ptr %61 to i64
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal21RefinedSparseCholeskyE, i64 16), ptr %64, align 8, !noalias !7
-  %66 = getelementptr inbounds i8, ptr %64, i64 8
-  store i64 %56, ptr %66, align 8, !noalias !7
-  %67 = getelementptr inbounds i8, ptr %64, i64 16
-  store i64 %65, ptr %67, align 8, !noalias !7
-  %68 = getelementptr inbounds i8, ptr %64, i64 24
-  store ptr null, ptr %68, align 8, !noalias !7
-  store ptr %64, ptr %0, align 8
-  br label %73
+  %62 = ptrtoint ptr %58 to i64
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal21RefinedSparseCholeskyE, i64 16), ptr %61, align 8, !noalias !7
+  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  store i64 %53, ptr %63, align 8, !noalias !7
+  %64 = getelementptr inbounds i8, ptr %61, i64 16
+  store i64 %62, ptr %64, align 8, !noalias !7
+  %65 = getelementptr inbounds i8, ptr %61, i64 24
+  store ptr null, ptr %65, align 8, !noalias !7
+  store ptr %61, ptr %0, align 8
+  br label %70
 
 _ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit24: ; preds = %_ZSt11make_uniqueIN5ceres8internal22SparseIterativeRefinerEJRKiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %69 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %70 = load ptr, ptr %61, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
-  %72 = load ptr, ptr %71, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(64) %61) #13
+  %67 = load ptr, ptr %58, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %69 = load ptr, ptr %68, align 8
+  call void %69(ptr noundef nonnull align 8 dereferenceable(64) %58) #13
   br label %.body
 
-73:                                               ; preds = %54, %_ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit
+70:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EEaSEOS5_.exit, %_ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit
   ret void
 
-.body:                                            ; preds = %16, %62, %_ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit24
-  %74 = phi ptr [ %55, %_ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit24 ], [ %17, %16 ], [ %55, %62 ]
-  %.pn = phi { ptr, i32 } [ %69, %_ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit24 ], [ %18, %16 ], [ %63, %62 ]
-  %.not.i25 = icmp eq ptr %74, null
+.body:                                            ; preds = %16, %59, %_ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit24
+  %71 = phi ptr [ %52, %_ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit24 ], [ %17, %16 ], [ %52, %59 ]
+  %.pn = phi { ptr, i32 } [ %66, %_ZNSt10unique_ptrIN5ceres8internal22SparseIterativeRefinerESt14default_deleteIS2_EED2Ev.exit24 ], [ %18, %16 ], [ %60, %59 ]
+  %.not.i25 = icmp eq ptr %71, null
   br i1 %.not.i25, label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit27, label %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i26
 
 _ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i26: ; preds = %.body
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
-  %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(8) %74) #13
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %74 = load ptr, ptr %73, align 8
+  call void %74(ptr noundef nonnull align 8 dereferenceable(8) %71) #13
   br label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit27
 
 _ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit27: ; preds = %.body, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i26

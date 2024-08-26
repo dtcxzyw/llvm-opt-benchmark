@@ -2136,11 +2136,7 @@ invoke.cont193:                                   ; preds = %if.then.i.i5.i, %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i367)
   store ptr null, ptr %ra, align 8
   invoke void @_ZN7rocksdb14ThreadPoolImpl8ScheduleEPFvPvES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %thread_pool, ptr noundef nonnull @_ZN7rocksdb12ReplayerImpl14BackgroundWorkEPv, ptr noundef nonnull %call180, ptr noundef null, ptr noundef null)
-          to label %_ZNSt10unique_ptrIN7rocksdb17ReplayerWorkerArgESt14default_deleteIS1_EED2Ev.exit unwind label %lpad189
-
-_ZNSt10unique_ptrIN7rocksdb17ReplayerWorkerArgESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont193
-  store ptr null, ptr %ra, align 8
-  br label %cleanup214
+          to label %cleanup214.sink.split unwind label %lpad189
 
 lpad189:                                          ; preds = %invoke.cont179, %invoke.cont193
   %145 = landingpad { ptr, i32 }
@@ -2199,15 +2195,11 @@ _ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit
   store ptr null, ptr %ref.tmp207, align 8
   %151 = load ptr, ptr %state_.i402, align 8
   %cmp.not.i.i403 = icmp eq ptr %151, null
-  br i1 %cmp.not.i.i403, label %_ZN7rocksdb6StatusD2Ev.exit405, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i404
+  br i1 %cmp.not.i.i403, label %cleanup214.sink.split, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i404
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i404: ; preds = %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit401
   call void @_ZdaPv(ptr noundef nonnull %151) #15
-  br label %_ZN7rocksdb6StatusD2Ev.exit405
-
-_ZN7rocksdb6StatusD2Ev.exit405:                   ; preds = %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit401, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i404
-  store ptr null, ptr %state_.i402, align 8
-  br label %cleanup214
+  br label %cleanup214.sink.split
 
 lpad208.loopexit:                                 ; preds = %if.end.i390
   %lpad.loopexit513 = landingpad { ptr, i32 }
@@ -2250,7 +2242,12 @@ cleanup214.thread:                                ; preds = %invoke.cont122, %_Z
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i270) #14
   br label %while.end218
 
-cleanup214:                                       ; preds = %_ZNSt10unique_ptrIN7rocksdb17ReplayerWorkerArgESt14default_deleteIS1_EED2Ev.exit, %_ZN7rocksdb6StatusD2Ev.exit405, %if.else198
+cleanup214.sink.split:                            ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i404, %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit401, %invoke.cont193
+  %ra.sink = phi ptr [ %ra, %invoke.cont193 ], [ %state_.i402, %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit401 ], [ %state_.i402, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i404 ]
+  store ptr null, ptr %ra.sink, align 8
+  br label %cleanup214
+
+cleanup214:                                       ; preds = %cleanup214.sink.split, %if.else198
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i270) #14
   %155 = load i8, ptr %bg_s, align 8
   %cmp.i267 = icmp eq i8 %155, 0
@@ -2812,20 +2809,16 @@ invoke.cont33:                                    ; preds = %if.then29
   %47 = load ptr, ptr %state_16.i, align 8
   store ptr %46, ptr %state_16.i, align 8
   %tobool.not.i.i.i.i.i79 = icmp eq ptr %47, null
-  br i1 %tobool.not.i.i.i.i.i79, label %_ZN7rocksdb6StatusD2Ev.exit84, label %_ZN7rocksdb6StatusaSEOS0_.exit
+  br i1 %tobool.not.i.i.i.i.i79, label %if.end50, label %_ZN7rocksdb6StatusaSEOS0_.exit
 
 _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %invoke.cont33
   call void @_ZdaPv(ptr noundef nonnull %47) #15
   %.pr = load ptr, ptr %state_.i78, align 8
   %cmp.not.i.i82 = icmp eq ptr %.pr, null
-  br i1 %cmp.not.i.i82, label %_ZN7rocksdb6StatusD2Ev.exit84, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i83
+  br i1 %cmp.not.i.i82, label %if.end50, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i83
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i83: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit
   call void @_ZdaPv(ptr noundef nonnull %.pr) #15
-  br label %_ZN7rocksdb6StatusD2Ev.exit84
-
-_ZN7rocksdb6StatusD2Ev.exit84:                    ; preds = %invoke.cont33, %_ZN7rocksdb6StatusaSEOS0_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i83
-  store ptr null, ptr %state_.i78, align 8
   br label %if.end50
 
 if.else:                                          ; preds = %if.end25
@@ -2987,17 +2980,13 @@ _ZN7rocksdb6StatusD2Ev.exit151:                   ; preds = %invoke.cont49, %_ZN
   store ptr null, ptr %state_.i122, align 8
   %71 = load ptr, ptr %res, align 8
   %cmp.not.i152 = icmp eq ptr %71, null
-  br i1 %cmp.not.i152, label %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit157, label %_ZNKSt14default_deleteIN7rocksdb17TraceRecordResultEEclEPS1_.exit.i153
+  br i1 %cmp.not.i152, label %if.end50, label %_ZNKSt14default_deleteIN7rocksdb17TraceRecordResultEEclEPS1_.exit.i153
 
 _ZNKSt14default_deleteIN7rocksdb17TraceRecordResultEEclEPS1_.exit.i153: ; preds = %_ZN7rocksdb6StatusD2Ev.exit151
   %vtable.i.i154 = load ptr, ptr %71, align 8
   %vfn.i.i155 = getelementptr inbounds i8, ptr %vtable.i.i154, i64 8
   %72 = load ptr, ptr %vfn.i.i155, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(9) %71) #14
-  br label %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit157
-
-_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit157: ; preds = %_ZN7rocksdb6StatusD2Ev.exit151, %_ZNKSt14default_deleteIN7rocksdb17TraceRecordResultEEclEPS1_.exit.i153
-  store ptr null, ptr %res, align 8
   br label %if.end50
 
 lpad41:                                           ; preds = %if.else
@@ -3037,7 +3026,9 @@ _ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit
   store ptr null, ptr %res, align 8
   br label %ehcleanup51
 
-if.end50:                                         ; preds = %_ZNSt10unique_ptrIN7rocksdb17TraceRecordResultESt14default_deleteIS1_EED2Ev.exit157, %_ZN7rocksdb6StatusD2Ev.exit84
+if.end50:                                         ; preds = %_ZNKSt14default_deleteIN7rocksdb17TraceRecordResultEEclEPS1_.exit.i153, %_ZN7rocksdb6StatusD2Ev.exit151, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i83, %_ZN7rocksdb6StatusaSEOS0_.exit, %invoke.cont33
+  %res.sink = phi ptr [ %state_.i78, %invoke.cont33 ], [ %state_.i78, %_ZN7rocksdb6StatusaSEOS0_.exit ], [ %state_.i78, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i83 ], [ %res, %_ZN7rocksdb6StatusD2Ev.exit151 ], [ %res, %_ZNKSt14default_deleteIN7rocksdb17TraceRecordResultEEclEPS1_.exit.i153 ]
+  store ptr null, ptr %res.sink, align 8
   %78 = load ptr, ptr %record, align 8
   store ptr null, ptr %record, align 8
   %tobool.not.i.i168 = icmp eq ptr %78, null

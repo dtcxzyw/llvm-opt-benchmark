@@ -2424,7 +2424,7 @@ entry:
   %0 = load ptr, ptr %path, align 8
   store i8 0, ptr %0, align 1
   %cmp = icmp sgt i32 %resPathLen, 0
-  %agg.tmp77.sink.sroa.gep81 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %agg.tmp77.sink76.sroa.gep82 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -2470,8 +2470,8 @@ land.rhs21:                                       ; preds = %if.end, %land.rhs21
   %cmp23.not = icmp ne i8 %3, 47
   %incdec.ptr33 = getelementptr inbounds i8, ptr %resPathPtr.154, i64 1
   %cmp20 = icmp ult ptr %incdec.ptr33, %add.ptr
-  %or.cond79 = select i1 %cmp23.not, i1 %cmp20, i1 false
-  br i1 %or.cond79, label %land.rhs21, label %if.end34, !llvm.loop !12
+  %or.cond80 = select i1 %cmp23.not, i1 %cmp20, i1 false
+  br i1 %or.cond80, label %land.rhs21, label %if.end34, !llvm.loop !12
 
 if.end34:                                         ; preds = %land.rhs21, %if.end
   %resPathPtr.2 = phi ptr [ %resPathPtr.057, %if.end ], [ %incdec.ptr33, %land.rhs21 ]
@@ -2497,8 +2497,8 @@ land.rhs45:                                       ; preds = %while.cond43.prehea
   %cmp47.not = icmp ne i8 %6, 47
   %incdec.ptr57 = getelementptr inbounds i8, ptr %resPathPtr.461, i64 1
   %cmp44 = icmp ult ptr %incdec.ptr57, %add.ptr
-  %or.cond80 = select i1 %cmp47.not, i1 %cmp44, i1 false
-  br i1 %or.cond80, label %land.rhs45, label %if.end58, !llvm.loop !14
+  %or.cond81 = select i1 %cmp47.not, i1 %cmp44, i1 false
+  br i1 %or.cond81, label %land.rhs45, label %if.end58, !llvm.loop !14
 
 if.end58:                                         ; preds = %land.rhs45, %while.cond43.preheader
   %resPathPtr.5 = phi ptr [ %resPathPtr.365, %while.cond43.preheader ], [ %incdec.ptr57, %land.rhs45 ]
@@ -2530,16 +2530,16 @@ if.end75:                                         ; preds = %while.end68, %land.
   br label %if.end79
 
 if.else:                                          ; preds = %entry
-  %agg.tmp77.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp77, i64 8
+  %agg.tmp77.sink76.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp77, i64 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp77, ptr noundef %inKey)
   br label %if.end79
 
 if.end79:                                         ; preds = %if.else, %if.end75
-  %agg.tmp77.sink.sroa.phi = phi ptr [ %agg.tmp77.sink.sroa.gep, %if.else ], [ %agg.tmp77.sink.sroa.gep81, %if.end75 ]
-  %agg.tmp77.sink = phi ptr [ %agg.tmp77, %if.else ], [ %agg.tmp, %if.end75 ]
-  %.sink = load ptr, ptr %agg.tmp77.sink, align 8
-  %8 = load i32, ptr %agg.tmp77.sink.sroa.phi, align 8
-  %call3.i48 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %path, ptr noundef %.sink, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %agg.tmp77.sink76.sroa.phi = phi ptr [ %agg.tmp77.sink76.sroa.gep, %if.else ], [ %agg.tmp77.sink76.sroa.gep82, %if.end75 ]
+  %agg.tmp77.sink76 = phi ptr [ %agg.tmp77, %if.else ], [ %agg.tmp, %if.end75 ]
+  %8 = load ptr, ptr %agg.tmp77.sink76, align 8
+  %9 = load i32, ptr %agg.tmp77.sink76.sroa.phi, align 8
+  %call3.i48 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %path, ptr noundef %8, i32 noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
 }
 

@@ -9421,7 +9421,7 @@ php_cli_is_output_tty.exit:                       ; preds = %15, %18
   %38 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.2253, ptr noundef nonnull %31, i32 noundef %1, ptr noundef %34, ptr noundef nonnull %37) #29
   %39 = load ptr, ptr %4, align 8
   %.not22 = icmp eq ptr %39, null
-  br i1 %.not22, label %66, label %40
+  br i1 %.not22, label %67, label %40
 
 40:                                               ; preds = %28
   %.not23 = icmp eq ptr %2, null
@@ -9450,7 +9450,7 @@ php_cli_is_output_tty.exit:                       ; preds = %15, %18
 53:                                               ; preds = %45
   %54 = load ptr, ptr %4, align 8
   call void @_efree(ptr noundef %54) #29
-  br i1 %.not23, label %66, label %.sink.split
+  br i1 %.not23, label %67, label %.sink.split
 
 55:                                               ; preds = %45, %44
   %56 = phi ptr [ %52, %45 ], [ @.str.15, %44 ]
@@ -9477,15 +9477,15 @@ php_cli_is_output_tty.exit:                       ; preds = %15, %18
   br label %65
 
 65:                                               ; preds = %63, %61
-  br i1 %.0, label %.sink.split, label %66
+  br i1 %.0, label %.sink.split, label %67
 
 .sink.split:                                      ; preds = %65, %53, %41
-  %.sink.in = phi ptr [ %4, %41 ], [ %5, %53 ], [ %6, %65 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @_efree(ptr noundef %.sink) #29
-  br label %66
+  %.sink29 = phi ptr [ %4, %41 ], [ %5, %53 ], [ %6, %65 ]
+  %66 = load ptr, ptr %.sink29, align 8
+  call void @_efree(ptr noundef %66) #29
+  br label %67
 
-66:                                               ; preds = %.sink.split, %53, %28, %65
+67:                                               ; preds = %.sink.split, %53, %28, %65
   ret void
 }
 

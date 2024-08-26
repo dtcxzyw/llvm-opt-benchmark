@@ -42744,8 +42744,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.invoke
 
 .invoke:                                          ; preds = %308, %354
-  %.in = phi ptr [ %38, %354 ], [ %312, %308 ]
-  %358 = load ptr, ptr %.in, align 8
+  %.sink = phi ptr [ %312, %308 ], [ %38, %354 ]
+  %358 = load ptr, ptr %.sink, align 8
   invoke void @_ZN4Luau10Normalizer9normalizeEPKNS_4TypeE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.747") align 8 %0, ptr noundef nonnull align 8 dereferenceable(337) %46, ptr noundef %358)
           to label %360 unwind label %67
 

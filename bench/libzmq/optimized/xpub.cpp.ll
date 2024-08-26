@@ -1278,10 +1278,10 @@ while.end:                                        ; preds = %if.end114, %entry
   ret void
 
 eh.resume.sink.split:                             ; preds = %lpad104, %lpad
-  %.sink111.in = phi ptr [ %notification, %lpad ], [ %ref.tmp102, %lpad104 ]
+  %ref.tmp102.sink = phi ptr [ %notification, %lpad ], [ %ref.tmp102, %lpad104 ]
   %.pn.ph = phi { ptr, i32 } [ %27, %lpad ], [ %55, %lpad104 ]
-  %.sink111 = load ptr, ptr %.sink111.in, align 8
-  call void @free(ptr noundef %.sink111) #22
+  %65 = load ptr, ptr %ref.tmp102.sink, align 8
+  call void @free(ptr noundef %65) #22
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad104, %lpad

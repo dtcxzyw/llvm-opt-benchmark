@@ -5672,11 +5672,7 @@ _ZNK7datalog12dl_decl_util12is_rule_sortEP4sort.exit: ; preds = %_ZNK4decl13get_
 
 if.end:                                           ; preds = %entry, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %_ZNK7datalog12dl_decl_util12is_rule_sortEP4sort.exit
   %call3 = call noundef zeroext i1 @_ZN7datalog7context27try_get_sort_constant_countEP4sortRm(ptr noundef nonnull align 8 dereferenceable(3556) %this, ptr noundef nonnull %srt, ptr noundef nonnull align 8 dereferenceable(8) %res)
-  br i1 %call3, label %if.end.if.end11_crit_edge, label %if.then4
-
-if.end.if.end11_crit_edge:                        ; preds = %if.end
-  %.pre = load i64, ptr %res, align 8
-  br label %return
+  br i1 %call3, label %return.sink.split, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %4 = load ptr, ptr %m_info.i.i.i.i, align 8
@@ -5687,11 +5683,15 @@ if.then4:                                         ; preds = %if.end
 
 if.then7:                                         ; preds = %if.then4
   %m_size.i = getelementptr inbounds i8, ptr %4, i64 32
-  %6 = load i64, ptr %m_size.i, align 8
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.end, %if.then7
+  %m_size.i.sink = phi ptr [ %m_size.i, %if.then7 ], [ %res, %if.end ]
+  %6 = load i64, ptr %m_size.i.sink, align 8
   br label %return
 
-return:                                           ; preds = %if.then4, %if.then7, %if.end.if.end11_crit_edge, %_ZNK7datalog12dl_decl_util12is_rule_sortEP4sort.exit
-  %retval.0 = phi i64 [ 1, %_ZNK7datalog12dl_decl_util12is_rule_sortEP4sort.exit ], [ %.pre, %if.end.if.end11_crit_edge ], [ %6, %if.then7 ], [ -1, %if.then4 ]
+return:                                           ; preds = %return.sink.split, %if.then4, %_ZNK7datalog12dl_decl_util12is_rule_sortEP4sort.exit
+  %retval.0 = phi i64 [ 1, %_ZNK7datalog12dl_decl_util12is_rule_sortEP4sort.exit ], [ -1, %if.then4 ], [ %6, %return.sink.split ]
   ret i64 %retval.0
 }
 

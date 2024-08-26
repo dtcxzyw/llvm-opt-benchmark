@@ -4194,9 +4194,9 @@ agxbfree.exit757:                                 ; preds = %deparse.exit756, %1
   br label %1134
 
 .sink.split:                                      ; preds = %deparse.exit737, %deparse.exit
-  %.val715.sink.in = phi ptr [ %12, %deparse.exit ], [ %13, %deparse.exit737 ]
-  %.val715.sink = load ptr, ptr %.val715.sink.in, align 8
-  call void @free(ptr noundef %.val715.sink) #24
+  %.sink = phi ptr [ %12, %deparse.exit ], [ %13, %deparse.exit737 ]
+  %.val715 = load ptr, ptr %.sink, align 8
+  call void @free(ptr noundef %.val715) #24
   br label %1133
 
 1133:                                             ; preds = %.sink.split, %deparse.exit, %deparse.exit737

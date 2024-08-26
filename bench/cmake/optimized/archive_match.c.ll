@@ -1881,7 +1881,7 @@ define dso_local range(i32 -30, 2) i32 @archive_match_path_unmatched_inclusions_
 35:                                               ; preds = %29, %25
   %36 = load ptr, ptr %3, align 8
   %37 = icmp eq ptr %36, null
-  %spec.select.i = select i1 %37, ptr @.str.33, ptr %36
+  %spec.select35.i = select i1 %37, ptr @.str.33, ptr %36
   %38 = load ptr, ptr %.0.i, align 8
   store ptr %38, ptr %12, align 8
   %39 = icmp eq ptr %38, null
@@ -1896,7 +1896,7 @@ define dso_local range(i32 -30, 2) i32 @archive_match_path_unmatched_inclusions_
   br label %match_list_unmatched_inclusions_next.exit
 
 match_list_unmatched_inclusions_next.exit:        ; preds = %10, %15, %33, %35, %40, %41
-  %.07 = phi ptr [ null, %15 ], [ null, %41 ], [ null, %33 ], [ %spec.select.i, %40 ], [ %spec.select.i, %35 ], [ null, %10 ]
+  %.07 = phi ptr [ null, %15 ], [ null, %41 ], [ null, %33 ], [ %spec.select35.i, %40 ], [ %spec.select35.i, %35 ], [ null, %10 ]
   %.027.i = phi i32 [ 1, %15 ], [ 1, %41 ], [ -30, %33 ], [ 0, %40 ], [ 0, %35 ], [ 1, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr %.07, ptr %1, align 8

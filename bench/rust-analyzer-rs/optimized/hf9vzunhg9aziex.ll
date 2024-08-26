@@ -35181,7 +35181,6 @@ define internal fastcc void @_ZN3ide9runnables18module_def_doctest17h5eb4130592e
 333:                                              ; preds = %324
   %334 = landingpad { ptr, i32 }
           cleanup
-  store i64 -9223372036854775808, ptr %38, align 8
   br label %371
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb83004d8359efd5fE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdcf7b889bac065f1E.exit.i53", %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.exit"
@@ -35221,7 +35220,6 @@ define internal fastcc void @_ZN3ide9runnables18module_def_doctest17h5eb4130592e
 347:                                              ; preds = %338
   %348 = landingpad { ptr, i32 }
           cleanup
-  store i64 -9223372036854775808, ptr %335, align 8
   br label %371
 
 "_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ide_db..documentation..Documentation$GT$$GT$17h8325f2e33e666404E.exit": ; preds = %"_ZN4core3ptr57drop_in_place$LT$ide_db..documentation..Documentation$GT$17h6f40c4877003489fE.exit.i", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb83004d8359efd5fE.exit"
@@ -35317,7 +35315,9 @@ define internal fastcc void @_ZN3ide9runnables18module_def_doctest17h5eb4130592e
           to label %.body unwind label %368
 
 371:                                              ; preds = %347, %333
-  %.pn.ph = phi { ptr, i32 } [ %334, %333 ], [ %348, %347 ]
+  %.sink119 = phi ptr [ %335, %347 ], [ %38, %333 ]
+  %.pn.ph = phi { ptr, i32 } [ %348, %347 ], [ %334, %333 ]
+  store i64 -9223372036854775808, ptr %.sink119, align 8
   %372 = getelementptr inbounds i8, ptr %38, i64 48
   invoke void @"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17hb2095c3fd42dc75eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %372) #37
           to label %373 unwind label %368

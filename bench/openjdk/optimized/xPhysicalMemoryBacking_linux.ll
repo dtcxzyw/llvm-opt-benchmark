@@ -1215,9 +1215,9 @@ _ZNK22XPhysicalMemoryBacking9fallocateEbmm.exit16: ; preds = %40, %42
   br label %45
 
 45:                                               ; preds = %_ZNK22XPhysicalMemoryBacking9fallocateEbmm.exit16, %_ZNK22XPhysicalMemoryBacking9fallocateEbmm.exit, %44
-  %.in = phi ptr [ %7, %44 ], [ %8, %_ZNK22XPhysicalMemoryBacking9fallocateEbmm.exit ], [ %9, %_ZNK22XPhysicalMemoryBacking9fallocateEbmm.exit16 ]
-  %46 = load i32, ptr %.in, align 4
-  ret i32 %46
+  %.sink = phi ptr [ %7, %44 ], [ %8, %_ZNK22XPhysicalMemoryBacking9fallocateEbmm.exit ], [ %9, %_ZNK22XPhysicalMemoryBacking9fallocateEbmm.exit16 ]
+  %.pre = load i32, ptr %.sink, align 4
+  ret i32 %.pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

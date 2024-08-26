@@ -294,11 +294,7 @@ if.then.i.i25:                                    ; preds = %if.then.i22
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit, %if.then.i22, %if.then.i.i25
   %15 = load ptr, ptr %sc, align 8
   %cmp.i = icmp eq ptr %15, null
-  br i1 %cmp.i, label %if.then, label %if.end
-
-if.then:                                          ; preds = %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit
-  store ptr null, ptr %agg.result, align 8
-  br label %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit68
+  br i1 %cmp.i, label %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit68, label %if.end
 
 lpad:                                             ; preds = %entry
   %16 = landingpad { ptr, i32 }
@@ -390,10 +386,11 @@ invoke.cont24:                                    ; preds = %if.end
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #18
   %31 = load ptr, ptr %sc, align 8
   store ptr %31, ptr %agg.result, align 8
-  store ptr null, ptr %sc, align 8
   br label %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit68
 
-_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit68: ; preds = %if.then, %invoke.cont24
+_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit68: ; preds = %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit, %invoke.cont24
+  %agg.result.sink = phi ptr [ %sc, %invoke.cont24 ], [ %agg.result, %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit ]
+  store ptr null, ptr %agg.result.sink, align 8
   %32 = load i8, ptr %_M_engaged.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %32 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit

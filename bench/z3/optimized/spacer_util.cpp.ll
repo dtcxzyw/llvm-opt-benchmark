@@ -6939,12 +6939,12 @@ invoke.cont224.i.i.i.i:                           ; preds = %if.else222.i.i.i.i
   br i1 %call225.i.i.i.i, label %if.then226.i.invoke.i.i.i, label %cleanup.i.i.i.i
 
 if.then226.i.invoke.i.i.i:                        ; preds = %invoke.cont224.i.i.i.i, %invoke.cont202.i.i.i.i, %invoke.cont187.i.i.i.i
-  %.in.i.sroa.speculated.i.i = phi ptr [ %221, %invoke.cont187.i.i.i.i ], [ %221, %invoke.cont202.i.i.i.i ], [ %220, %invoke.cont224.i.i.i.i ]
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %.in.i.sroa.speculated.i.i, null
+  %f2.i.sink.i.sroa.speculated.i.i = phi ptr [ %221, %invoke.cont187.i.i.i.i ], [ %221, %invoke.cont202.i.i.i.i ], [ %220, %invoke.cont224.i.i.i.i ]
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %f2.i.sink.i.sroa.speculated.i.i, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i.i.i, label %if.then.i.i.i.i19.i.i
 
 if.then.i.i.i.i19.i.i:                            ; preds = %if.then226.i.invoke.i.i.i
-  %m_ref_count.i.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %.in.i.sroa.speculated.i.i, i64 8
+  %m_ref_count.i.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %f2.i.sink.i.sroa.speculated.i.i, i64 8
   %233 = load i32, ptr %m_ref_count.i.i.i.i.i20.i.i, align 4
   %inc.i.i.i.i.i21.i.i = add i32 %233, 1
   store i32 %inc.i.i.i.i.i21.i.i, ptr %m_ref_count.i.i.i.i.i20.i.i, align 4
@@ -6999,7 +6999,7 @@ invoke.cont265.i.i.i.i:                           ; preds = %if.else263.i.i.i.i
   br i1 %call266.i.i.i.i, label %if.then267.invoke.i.i.i.i, label %cleanup.i.i.i.i
 
 if.then267.invoke.i.i.sink.split.sink.split.i.i:  ; preds = %if.then.i.i27.i.i, %if.then.i.i45.i.i
-  %.in.i.sroa.speculated.sink.ph.i.i = phi ptr [ %220, %if.then.i.i45.i.i ], [ %.in.i.sroa.speculated.i.i, %if.then.i.i27.i.i ]
+  %f2.i.sink.i.sroa.speculated.sink.ph.i.i = phi ptr [ %220, %if.then.i.i45.i.i ], [ %f2.i.sink.i.sroa.speculated.i.i, %if.then.i.i27.i.i ]
   %.ph.ph.i.i = phi ptr [ %221, %if.then.i.i45.i.i ], [ %222, %if.then.i.i27.i.i ]
   %.pre.i.i28.i.i = load ptr, ptr %m_nodes.i.i.i, align 8
   %arrayidx8.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i28.i.i, i64 -4
@@ -7009,11 +7009,11 @@ if.then267.invoke.i.i.sink.split.sink.split.i.i:  ; preds = %if.then.i.i27.i.i, 
 if.then267.invoke.i.i.sink.split.i.i:             ; preds = %if.then267.invoke.i.i.sink.split.sink.split.i.i, %lor.lhs.false.i.i24.i.i, %lor.lhs.false.i.i37.i.i
   %.sink179.i.i = phi i32 [ %230, %lor.lhs.false.i.i37.i.i ], [ %235, %lor.lhs.false.i.i24.i.i ], [ %.pre1.i.i29.i.i, %if.then267.invoke.i.i.sink.split.sink.split.i.i ]
   %.sink.i.i = phi ptr [ %229, %lor.lhs.false.i.i37.i.i ], [ %234, %lor.lhs.false.i.i24.i.i ], [ %.pre.i.i28.i.i, %if.then267.invoke.i.i.sink.split.sink.split.i.i ]
-  %.in.i.sroa.speculated.sink.i.i = phi ptr [ %220, %lor.lhs.false.i.i37.i.i ], [ %.in.i.sroa.speculated.i.i, %lor.lhs.false.i.i24.i.i ], [ %.in.i.sroa.speculated.sink.ph.i.i, %if.then267.invoke.i.i.sink.split.sink.split.i.i ]
+  %f2.i.sink.i.sroa.speculated.sink.i.i = phi ptr [ %220, %lor.lhs.false.i.i37.i.i ], [ %f2.i.sink.i.sroa.speculated.i.i, %lor.lhs.false.i.i24.i.i ], [ %f2.i.sink.i.sroa.speculated.sink.ph.i.i, %if.then267.invoke.i.i.sink.split.sink.split.i.i ]
   %.ph.i.i = phi ptr [ %221, %lor.lhs.false.i.i37.i.i ], [ %222, %lor.lhs.false.i.i24.i.i ], [ %.ph.ph.i.i, %if.then267.invoke.i.i.sink.split.sink.split.i.i ]
   %idx.ext.i.i.i.i = zext i32 %.sink179.i.i to i64
   %add.ptr.i.i26.i.i = getelementptr inbounds ptr, ptr %.sink.i.i, i64 %idx.ext.i.i.i.i
-  store ptr %.in.i.sroa.speculated.sink.i.i, ptr %add.ptr.i.i26.i.i, align 8
+  store ptr %f2.i.sink.i.sroa.speculated.sink.i.i, ptr %add.ptr.i.i26.i.i, align 8
   %241 = load ptr, ptr %m_nodes.i.i.i, align 8
   %arrayidx10.i.i.i.i = getelementptr inbounds i8, ptr %241, i64 -4
   %242 = load i32, ptr %arrayidx10.i.i.i.i, align 4

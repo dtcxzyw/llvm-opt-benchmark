@@ -5497,7 +5497,6 @@ if.then142:                                       ; preds = %if.end139
   store ptr @.str.2, ptr %ref.tmp148, align 8
   store i8 3, ptr %LHSKind.i, align 8
   call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %485, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp148, i32 noundef 0) #18
-  store ptr null, ptr %agg.result, align 8
   br label %cleanup
 
 if.end150:                                        ; preds = %if.end139
@@ -5507,7 +5506,7 @@ if.end150:                                        ; preds = %if.end139
   call void @_ZN6hermes3hbc23BytecodeModuleGenerator20setFunctionGeneratorEPNS_8FunctionESt10unique_ptrINS0_25BytecodeFunctionGeneratorESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(964) %BMGen, ptr noundef nonnull %__begin187.sroa.0.0541, ptr noundef nonnull %agg.tmp151) #18
   %487 = load ptr, ptr %agg.tmp151, align 8
   %cmp.not.i390 = icmp eq ptr %487, null
-  br i1 %cmp.not.i390, label %_ZNSt10unique_ptrIN6hermes3hbc25BytecodeFunctionGeneratorESt14default_deleteIS2_EED2Ev.exit393, label %delete.notnull.i472
+  br i1 %cmp.not.i390, label %cleanup, label %delete.notnull.i472
 
 delete.notnull.i472:                              ; preds = %if.end150
   %jumpTable_.i.i473 = getelementptr inbounds i8, ptr %487, i64 176
@@ -5560,13 +5559,11 @@ if.then.i.i.i.i.i.i490:                           ; preds = %_ZNSt6vectorIN6herm
 
 _ZNKSt14default_deleteIN6hermes3hbc25BytecodeFunctionGeneratorEEclEPS2_.exit492: ; preds = %_ZNSt6vectorIN6hermes3hbc23HBCExceptionHandlerInfoESaIS2_EED2Ev.exit.i.i488, %if.then.i.i.i.i.i.i490
   call void @_ZdlPv(ptr noundef nonnull %487) #21
-  br label %_ZNSt10unique_ptrIN6hermes3hbc25BytecodeFunctionGeneratorESt14default_deleteIS2_EED2Ev.exit393
-
-_ZNSt10unique_ptrIN6hermes3hbc25BytecodeFunctionGeneratorESt14default_deleteIS2_EED2Ev.exit393: ; preds = %if.end150, %_ZNKSt14default_deleteIN6hermes3hbc25BytecodeFunctionGeneratorEEclEPS2_.exit492
-  store ptr null, ptr %agg.tmp151, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZNSt10unique_ptrIN6hermes3hbc25BytecodeFunctionGeneratorESt14default_deleteIS2_EED2Ev.exit393, %if.then142
+cleanup:                                          ; preds = %_ZNKSt14default_deleteIN6hermes3hbc25BytecodeFunctionGeneratorEEclEPS2_.exit492, %if.end150, %if.then142
+  %agg.tmp151.sink = phi ptr [ %agg.result, %if.then142 ], [ %agg.tmp151, %if.end150 ], [ %agg.tmp151, %_ZNKSt14default_deleteIN6hermes3hbc25BytecodeFunctionGeneratorEEclEPS2_.exit492 ]
+  store ptr null, ptr %agg.tmp151.sink, align 8
   %493 = load ptr, ptr %funcGen, align 8
   %cmp.not.i394 = icmp eq ptr %493, null
   br i1 %cmp.not.i394, label %_ZNSt10unique_ptrIN6hermes3hbc25BytecodeFunctionGeneratorESt14default_deleteIS2_EED2Ev.exit397, label %delete.notnull.i494

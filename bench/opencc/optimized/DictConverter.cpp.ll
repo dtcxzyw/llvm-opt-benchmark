@@ -96,8 +96,8 @@ define void @_Z14LoadDictionaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %5 = alloca %"class.std::shared_ptr.3", align 8
   %6 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.1) #12
   %7 = icmp eq i32 %6, 0
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
-  %.sink.sroa.gep16 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink16.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink16.sroa.gep17 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %3
@@ -194,13 +194,13 @@ common.resume:                                    ; preds = %36, %18
   unreachable
 
 _ZNSt10shared_ptrIN6opencc8TextDictEED2Ev.exit:   ; preds = %28, %10
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %10 ], [ %.sink.sroa.gep16, %28 ]
-  %.sink = phi ptr [ %4, %10 ], [ %5, %28 ]
-  %.sink15 = load ptr, ptr %.sink, align 8
-  store ptr %.sink15, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = load ptr, ptr %.sink.sroa.phi, align 8
-  store ptr %43, ptr %42, align 8
+  %.sink16.sroa.phi = phi ptr [ %.sink16.sroa.gep, %10 ], [ %.sink16.sroa.gep17, %28 ]
+  %.sink16 = phi ptr [ %4, %10 ], [ %5, %28 ]
+  %42 = load ptr, ptr %.sink16, align 8
+  store ptr %42, ptr %0, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = load ptr, ptr %.sink16.sroa.phi, align 8
+  store ptr %44, ptr %43, align 8
   ret void
 }
 
@@ -377,11 +377,11 @@ define void @_Z11ConvertDictRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %5 = alloca %"class.std::shared_ptr.3", align 8
   %6 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.1) #12
   %7 = icmp eq i32 %6, 0
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink17.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %7, label %_ZNSt10shared_ptrIN6opencc8TextDictEED2Ev.exit, label %9
 
 _ZNSt10shared_ptrIN6opencc8TextDictEED2Ev.exit:   ; preds = %3
-  %.sink.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink17.sroa.gep18 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %2, align 8
   call void @_ZN6opencc8TextDict11NewFromDictERKNS_4DictE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.0") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %8)
   br label %20
@@ -409,16 +409,16 @@ _ZNSt10shared_ptrIN6opencc10MarisaDictEED2Ev.exit: ; preds = %12
   unreachable
 
 20:                                               ; preds = %_ZNSt10shared_ptrIN6opencc10MarisaDictEED2Ev.exit, %_ZNSt10shared_ptrIN6opencc8TextDictEED2Ev.exit
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZNSt10shared_ptrIN6opencc10MarisaDictEED2Ev.exit ], [ %.sink.sroa.gep17, %_ZNSt10shared_ptrIN6opencc8TextDictEED2Ev.exit ]
-  %.sink = phi ptr [ %5, %_ZNSt10shared_ptrIN6opencc10MarisaDictEED2Ev.exit ], [ %4, %_ZNSt10shared_ptrIN6opencc8TextDictEED2Ev.exit ]
-  %.sink16 = load ptr, ptr %.sink, align 8
-  %21 = icmp eq ptr %.sink16, null
-  %22 = getelementptr inbounds i8, ptr %.sink16, i64 8
-  %spec.select.i.i4 = select i1 %21, ptr null, ptr %22
+  %.sink17.sroa.phi = phi ptr [ %.sink17.sroa.gep, %_ZNSt10shared_ptrIN6opencc10MarisaDictEED2Ev.exit ], [ %.sink17.sroa.gep18, %_ZNSt10shared_ptrIN6opencc8TextDictEED2Ev.exit ]
+  %.sink17 = phi ptr [ %5, %_ZNSt10shared_ptrIN6opencc10MarisaDictEED2Ev.exit ], [ %4, %_ZNSt10shared_ptrIN6opencc8TextDictEED2Ev.exit ]
+  %21 = load ptr, ptr %.sink17, align 8
+  %22 = icmp eq ptr %21, null
+  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %spec.select.i.i4 = select i1 %22, ptr null, ptr %23
   store ptr %spec.select.i.i4, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = load ptr, ptr %.sink.sroa.phi, align 8
-  store ptr %24, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = load ptr, ptr %.sink17.sroa.phi, align 8
+  store ptr %25, ptr %24, align 8
   ret void
 }
 

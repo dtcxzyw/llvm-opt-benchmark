@@ -1307,8 +1307,8 @@ define range(i32 -1, 1) i32 @H5HF__huge_get_obj_off(ptr nocapture noundef %0, pt
   br label %92
 
 90:                                               ; preds = %83, %57, %15
-  %.in = phi ptr [ %5, %15 ], [ %7, %57 ], [ %9, %83 ]
-  %91 = load i64, ptr %.in, align 8
+  %.sink = phi ptr [ %5, %15 ], [ %7, %57 ], [ %9, %83 ]
+  %91 = load i64, ptr %.sink, align 8
   store i64 %91, ptr %2, align 8
   br label %92
 

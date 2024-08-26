@@ -367,8 +367,8 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %2 = load ptr, ptr %vfn, align 8
-  %ref.tmp9.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %ref.tmp9.sink.sroa.gep76 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
+  %ref.tmp9.sink76.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp9.sink76.sroa.gep77 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   br i1 %cmp.i.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -400,24 +400,24 @@ invoke.cont12:                                    ; preds = %if.else
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %invoke.cont12, %invoke.cont4
-  %ref.tmp9.sink.sroa.phi = phi ptr [ %ref.tmp9.sink.sroa.gep, %invoke.cont4 ], [ %ref.tmp9.sink.sroa.gep76, %invoke.cont12 ]
-  %ref.tmp9.sink = phi ptr [ %ref.tmp, %invoke.cont4 ], [ %ref.tmp9, %invoke.cont12 ]
-  %.sink75 = load ptr, ptr %ref.tmp9.sink, align 8
-  %6 = load ptr, ptr %ref.tmp9.sink.sroa.phi, align 8
-  store ptr %.sink75, ptr %agg.result, align 8
+  %ref.tmp9.sink76.sroa.phi = phi ptr [ %ref.tmp9.sink76.sroa.gep, %invoke.cont4 ], [ %ref.tmp9.sink76.sroa.gep77, %invoke.cont12 ]
+  %ref.tmp9.sink76 = phi ptr [ %ref.tmp, %invoke.cont4 ], [ %ref.tmp9, %invoke.cont12 ]
+  %6 = load ptr, ptr %ref.tmp9.sink76, align 8
+  %7 = load ptr, ptr %ref.tmp9.sink76.sroa.phi, align 8
+  store ptr %6, ptr %agg.result, align 8
   %_M_refcount3.i.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %6, ptr %_M_refcount3.i.i.i6, align 8
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull %.sink75, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev26FixedFunctionTransformImplE, i64 0) #19
-  %m_data.i71 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %7, ptr %_M_refcount3.i.i.i6, align 8
+  %8 = tail call ptr @__dynamic_cast(ptr nonnull %6, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev26FixedFunctionTransformImplE, i64 0) #19
+  %m_data.i71 = getelementptr inbounds i8, ptr %8, i64 8
   %call.i73 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i71, ptr noundef nonnull align 8 dereferenceable(168) %m_data.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.end
   %m_style.i = getelementptr inbounds i8, ptr %this, i64 176
-  %8 = load i32, ptr %m_style.i, align 8
-  %m_style2.i = getelementptr inbounds i8, ptr %7, i64 176
-  store i32 %8, ptr %m_style2.i, align 8
-  %m_params.i72 = getelementptr inbounds i8, ptr %7, i64 184
+  %9 = load i32, ptr %m_style.i, align 8
+  %m_style2.i = getelementptr inbounds i8, ptr %8, i64 176
+  store i32 %9, ptr %m_style2.i, align 8
+  %m_params.i72 = getelementptr inbounds i8, ptr %8, i64 184
   %call4.i74 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_params.i72, ptr noundef nonnull align 8 dereferenceable(24) %m_params.i)
           to label %nrvo.skipdtor unwind label %lpad
 

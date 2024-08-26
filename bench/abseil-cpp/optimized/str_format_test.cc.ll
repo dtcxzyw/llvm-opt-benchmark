@@ -38606,16 +38606,11 @@ _ZN7testing7MessageD2Ev.exit201:                  ; preds = %invoke.cont168, %_Z
   store ptr null, ptr %ref.tmp157, align 8
   %88 = load ptr, ptr %message_.i195, align 8
   %cmp.not.i.i203 = icmp eq ptr %88, null
-  br i1 %cmp.not.i.i203, label %_ZN7testing15AssertionResultD2Ev.exit205, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204
+  br i1 %cmp.not.i.i203, label %cleanup308, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204: ; preds = %_ZN7testing7MessageD2Ev.exit201
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #21
-  call void @_ZdlPv(ptr noundef nonnull %88) #22
-  br label %_ZN7testing15AssertionResultD2Ev.exit205
-
-_ZN7testing15AssertionResultD2Ev.exit205:         ; preds = %_ZN7testing7MessageD2Ev.exit201, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204
-  store ptr null, ptr %message_.i195, align 8
-  br label %cleanup308
+  br label %cleanup308.sink.split
 
 lpad158:                                          ; preds = %if.else156
   %89 = landingpad { ptr, i32 }
@@ -39287,7 +39282,7 @@ cleanup306:                                       ; preds = %cleanup306.sink.spl
   store ptr null, ptr %message_.i318.sink, align 8
   %155 = load ptr, ptr %dollar, align 8
   %cmp.not.i365 = icmp eq ptr %155, null
-  br i1 %cmp.not.i365, label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit375, label %delete.notnull.i.i366
+  br i1 %cmp.not.i365, label %cleanup308, label %delete.notnull.i.i366
 
 delete.notnull.i.i366:                            ; preds = %cleanup306
   %items_.i.i.i.i367 = getelementptr inbounds i8, ptr %155, i64 16
@@ -39303,21 +39298,21 @@ _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3
   %data_.i.i.i.i371 = getelementptr inbounds i8, ptr %155, i64 8
   %157 = load ptr, ptr %data_.i.i.i.i371, align 8
   %cmp.not.i.i.i.i.i372 = icmp eq ptr %157, null
-  br i1 %cmp.not.i.i.i.i.i372, label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEEEclEPS4_.exit.i374, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373
+  br i1 %cmp.not.i.i.i.i.i372, label %cleanup308.sink.split, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373: ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i370
   call void @_ZdaPv(ptr noundef nonnull %157) #22
-  br label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEEEclEPS4_.exit.i374
+  br label %cleanup308.sink.split
 
-_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEEEclEPS4_.exit.i374: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i370
-  call void @_ZdlPv(ptr noundef nonnull %155) #22
-  br label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit375
-
-_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit375: ; preds = %cleanup306, %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEEEclEPS4_.exit.i374
-  store ptr null, ptr %dollar, align 8
+cleanup308.sink.split:                            ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i370, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204
+  %.sink458 = phi ptr [ %88, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204 ], [ %155, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373 ], [ %155, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i370 ]
+  %message_.i195.sink.ph = phi ptr [ %message_.i195, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204 ], [ %dollar, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373 ], [ %dollar, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i370 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink458) #22
   br label %cleanup308
 
-cleanup308:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit205, %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit375
+cleanup308:                                       ; preds = %cleanup308.sink.split, %cleanup306, %_ZN7testing7MessageD2Ev.exit201
+  %message_.i195.sink = phi ptr [ %message_.i195, %_ZN7testing7MessageD2Ev.exit201 ], [ %dollar, %cleanup306 ], [ %message_.i195.sink.ph, %cleanup308.sink.split ]
+  store ptr null, ptr %message_.i195.sink, align 8
   %158 = load ptr, ptr %star, align 8
   %cmp.not.i376 = icmp eq ptr %158, null
   br i1 %cmp.not.i376, label %delete.notnull.i.i386, label %delete.notnull.i.i377
@@ -45741,16 +45736,11 @@ _ZN7testing7MessageD2Ev.exit82:                   ; preds = %invoke.cont62, %_ZN
   store ptr null, ptr %ref.tmp51, align 8
   %33 = load ptr, ptr %message_.i76, align 8
   %cmp.not.i.i84 = icmp eq ptr %33, null
-  br i1 %cmp.not.i.i84, label %_ZN7testing15AssertionResultD2Ev.exit86, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85
+  br i1 %cmp.not.i.i84, label %cleanup161, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85: ; preds = %_ZN7testing7MessageD2Ev.exit82
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #21
-  call void @_ZdlPv(ptr noundef nonnull %33) #22
-  br label %_ZN7testing15AssertionResultD2Ev.exit86
-
-_ZN7testing15AssertionResultD2Ev.exit86:          ; preds = %_ZN7testing7MessageD2Ev.exit82, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85
-  store ptr null, ptr %message_.i76, align 8
-  br label %cleanup161
+  br label %cleanup161.sink.split
 
 lpad52:                                           ; preds = %if.else50
   %34 = landingpad { ptr, i32 }
@@ -45853,16 +45843,11 @@ _ZN7testing7MessageD2Ev.exit106:                  ; preds = %invoke.cont90, %_ZN
   store ptr null, ptr %ref.tmp79, align 8
   %44 = load ptr, ptr %message_.i100, align 8
   %cmp.not.i.i108 = icmp eq ptr %44, null
-  br i1 %cmp.not.i.i108, label %_ZN7testing15AssertionResultD2Ev.exit110, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109
+  br i1 %cmp.not.i.i108, label %cleanup159, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109: ; preds = %_ZN7testing7MessageD2Ev.exit106
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #21
-  call void @_ZdlPv(ptr noundef nonnull %44) #22
-  br label %_ZN7testing15AssertionResultD2Ev.exit110
-
-_ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %_ZN7testing7MessageD2Ev.exit106, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109
-  store ptr null, ptr %message_.i100, align 8
-  br label %cleanup159
+  br label %cleanup159.sink.split
 
 lpad80:                                           ; preds = %if.else78
   %45 = landingpad { ptr, i32 }
@@ -45965,16 +45950,11 @@ _ZN7testing7MessageD2Ev.exit130:                  ; preds = %invoke.cont118, %_Z
   store ptr null, ptr %ref.tmp107, align 8
   %55 = load ptr, ptr %message_.i124, align 8
   %cmp.not.i.i132 = icmp eq ptr %55, null
-  br i1 %cmp.not.i.i132, label %_ZN7testing15AssertionResultD2Ev.exit134, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i133
+  br i1 %cmp.not.i.i132, label %cleanup157, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i133
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i133: ; preds = %_ZN7testing7MessageD2Ev.exit130
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #21
-  call void @_ZdlPv(ptr noundef nonnull %55) #22
-  br label %_ZN7testing15AssertionResultD2Ev.exit134
-
-_ZN7testing15AssertionResultD2Ev.exit134:         ; preds = %_ZN7testing7MessageD2Ev.exit130, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i133
-  store ptr null, ptr %message_.i124, align 8
-  br label %cleanup157
+  br label %cleanup157.sink.split
 
 lpad108:                                          ; preds = %if.else106
   %56 = landingpad { ptr, i32 }
@@ -46126,7 +46106,7 @@ _ZN7testing15AssertionResultD2Ev.exit164:         ; preds = %invoke.cont128, %cl
   store ptr null, ptr %message_.i149, align 8
   %71 = load ptr, ptr %v4, align 8
   %cmp.not.i165 = icmp eq ptr %71, null
-  br i1 %cmp.not.i165, label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit, label %delete.notnull.i.i166
+  br i1 %cmp.not.i165, label %cleanup157, label %delete.notnull.i.i166
 
 delete.notnull.i.i166:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit164
   %items_.i.i.i.i167 = getelementptr inbounds i8, ptr %71, i64 16
@@ -46142,24 +46122,24 @@ _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3
   %data_.i.i.i.i171 = getelementptr inbounds i8, ptr %71, i64 8
   %73 = load ptr, ptr %data_.i.i.i.i171, align 8
   %cmp.not.i.i.i.i.i172 = icmp eq ptr %73, null
-  br i1 %cmp.not.i.i.i.i.i172, label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEEEclEPS4_.exit.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i173
+  br i1 %cmp.not.i.i.i.i.i172, label %cleanup157.sink.split, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i173
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i173: ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i170
   call void @_ZdaPv(ptr noundef nonnull %73) #22
-  br label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEEEclEPS4_.exit.i
+  br label %cleanup157.sink.split
 
-_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEEEclEPS4_.exit.i: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i173, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i170
-  call void @_ZdlPv(ptr noundef nonnull %71) #22
-  br label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit
-
-_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit164, %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEEEclEPS4_.exit.i
-  store ptr null, ptr %v4, align 8
+cleanup157.sink.split:                            ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i170, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i173, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i133
+  %.sink = phi ptr [ %55, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i133 ], [ %71, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i173 ], [ %71, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i170 ]
+  %message_.i124.sink.ph = phi ptr [ %message_.i124, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i133 ], [ %v4, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i173 ], [ %v4, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i170 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink) #22
   br label %cleanup157
 
-cleanup157:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit134, %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit
+cleanup157:                                       ; preds = %cleanup157.sink.split, %_ZN7testing15AssertionResultD2Ev.exit164, %_ZN7testing7MessageD2Ev.exit130
+  %message_.i124.sink = phi ptr [ %message_.i124, %_ZN7testing7MessageD2Ev.exit130 ], [ %v4, %_ZN7testing15AssertionResultD2Ev.exit164 ], [ %message_.i124.sink.ph, %cleanup157.sink.split ]
+  store ptr null, ptr %message_.i124.sink, align 8
   %74 = load ptr, ptr %v3, align 8
   %cmp.not.i174 = icmp eq ptr %74, null
-  br i1 %cmp.not.i174, label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit184, label %delete.notnull.i.i175
+  br i1 %cmp.not.i174, label %cleanup159, label %delete.notnull.i.i175
 
 delete.notnull.i.i175:                            ; preds = %cleanup157
   %items_.i.i.i.i176 = getelementptr inbounds i8, ptr %74, i64 16
@@ -46175,24 +46155,24 @@ _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3
   %data_.i.i.i.i180 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load ptr, ptr %data_.i.i.i.i180, align 8
   %cmp.not.i.i.i.i.i181 = icmp eq ptr %76, null
-  br i1 %cmp.not.i.i.i.i.i181, label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEEEclEPS4_.exit.i183, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i182
+  br i1 %cmp.not.i.i.i.i.i181, label %cleanup159.sink.split, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i182
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i182: ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i179
   call void @_ZdaPv(ptr noundef nonnull %76) #22
-  br label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEEEclEPS4_.exit.i183
+  br label %cleanup159.sink.split
 
-_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEEEclEPS4_.exit.i183: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i182, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i179
-  call void @_ZdlPv(ptr noundef nonnull %74) #22
-  br label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit184
-
-_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit184: ; preds = %cleanup157, %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEEEclEPS4_.exit.i183
-  store ptr null, ptr %v3, align 8
+cleanup159.sink.split:                            ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i179, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i182, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109
+  %.sink249 = phi ptr [ %44, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109 ], [ %74, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i182 ], [ %74, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i179 ]
+  %message_.i100.sink.ph = phi ptr [ %message_.i100, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109 ], [ %v3, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i182 ], [ %v3, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i179 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink249) #22
   br label %cleanup159
 
-cleanup159:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit110, %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE12ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit184
+cleanup159:                                       ; preds = %cleanup159.sink.split, %cleanup157, %_ZN7testing7MessageD2Ev.exit106
+  %message_.i100.sink = phi ptr [ %message_.i100, %_ZN7testing7MessageD2Ev.exit106 ], [ %v3, %cleanup157 ], [ %message_.i100.sink.ph, %cleanup159.sink.split ]
+  store ptr null, ptr %message_.i100.sink, align 8
   %77 = load ptr, ptr %v2, align 8
   %cmp.not.i185 = icmp eq ptr %77, null
-  br i1 %cmp.not.i185, label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit, label %delete.notnull.i.i186
+  br i1 %cmp.not.i185, label %cleanup161, label %delete.notnull.i.i186
 
 delete.notnull.i.i186:                            ; preds = %cleanup159
   %items_.i.i.i.i187 = getelementptr inbounds i8, ptr %77, i64 16
@@ -46208,21 +46188,21 @@ _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3
   %data_.i.i.i.i191 = getelementptr inbounds i8, ptr %77, i64 8
   %79 = load ptr, ptr %data_.i.i.i.i191, align 8
   %cmp.not.i.i.i.i.i192 = icmp eq ptr %79, null
-  br i1 %cmp.not.i.i.i.i.i192, label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEEEclEPS4_.exit.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i193
+  br i1 %cmp.not.i.i.i.i.i192, label %cleanup161.sink.split, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i193
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i193: ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i190
   call void @_ZdaPv(ptr noundef nonnull %79) #22
-  br label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEEEclEPS4_.exit.i
+  br label %cleanup161.sink.split
 
-_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEEEclEPS4_.exit.i: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i193, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i190
-  call void @_ZdlPv(ptr noundef nonnull %77) #22
-  br label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit
-
-_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %cleanup159, %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEEEclEPS4_.exit.i
-  store ptr null, ptr %v2, align 8
+cleanup161.sink.split:                            ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i190, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i193, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85
+  %.sink250 = phi ptr [ %33, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85 ], [ %77, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i193 ], [ %77, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i190 ]
+  %message_.i76.sink.ph = phi ptr [ %message_.i76, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85 ], [ %v2, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i193 ], [ %v2, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i190 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink250) #22
   br label %cleanup161
 
-cleanup161:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit86, %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit
+cleanup161:                                       ; preds = %cleanup161.sink.split, %cleanup159, %_ZN7testing7MessageD2Ev.exit82
+  %message_.i76.sink = phi ptr [ %message_.i76, %_ZN7testing7MessageD2Ev.exit82 ], [ %v2, %cleanup159 ], [ %message_.i76.sink.ph, %cleanup161.sink.split ]
+  store ptr null, ptr %message_.i76.sink, align 8
   %80 = load ptr, ptr %v1, align 8
   %cmp.not.i194 = icmp eq ptr %80, null
   br i1 %cmp.not.i194, label %cleanup.cont163, label %delete.notnull.i.i195
@@ -46847,16 +46827,11 @@ _ZN7testing7MessageD2Ev.exit82:                   ; preds = %invoke.cont62, %_ZN
   store ptr null, ptr %ref.tmp51, align 8
   %33 = load ptr, ptr %message_.i76, align 8
   %cmp.not.i.i84 = icmp eq ptr %33, null
-  br i1 %cmp.not.i.i84, label %_ZN7testing15AssertionResultD2Ev.exit86, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85
+  br i1 %cmp.not.i.i84, label %cleanup161, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85: ; preds = %_ZN7testing7MessageD2Ev.exit82
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #21
-  call void @_ZdlPv(ptr noundef nonnull %33) #22
-  br label %_ZN7testing15AssertionResultD2Ev.exit86
-
-_ZN7testing15AssertionResultD2Ev.exit86:          ; preds = %_ZN7testing7MessageD2Ev.exit82, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85
-  store ptr null, ptr %message_.i76, align 8
-  br label %cleanup161
+  br label %cleanup161.sink.split
 
 lpad52:                                           ; preds = %if.else50
   %34 = landingpad { ptr, i32 }
@@ -46959,16 +46934,11 @@ _ZN7testing7MessageD2Ev.exit106:                  ; preds = %invoke.cont90, %_ZN
   store ptr null, ptr %ref.tmp79, align 8
   %44 = load ptr, ptr %message_.i100, align 8
   %cmp.not.i.i108 = icmp eq ptr %44, null
-  br i1 %cmp.not.i.i108, label %_ZN7testing15AssertionResultD2Ev.exit110, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109
+  br i1 %cmp.not.i.i108, label %cleanup159, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109: ; preds = %_ZN7testing7MessageD2Ev.exit106
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #21
-  call void @_ZdlPv(ptr noundef nonnull %44) #22
-  br label %_ZN7testing15AssertionResultD2Ev.exit110
-
-_ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %_ZN7testing7MessageD2Ev.exit106, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109
-  store ptr null, ptr %message_.i100, align 8
-  br label %cleanup159
+  br label %cleanup159.sink.split
 
 lpad80:                                           ; preds = %if.else78
   %45 = landingpad { ptr, i32 }
@@ -47071,16 +47041,11 @@ _ZN7testing7MessageD2Ev.exit131:                  ; preds = %invoke.cont118, %_Z
   store ptr null, ptr %ref.tmp107, align 8
   %55 = load ptr, ptr %message_.i125, align 8
   %cmp.not.i.i133 = icmp eq ptr %55, null
-  br i1 %cmp.not.i.i133, label %_ZN7testing15AssertionResultD2Ev.exit135, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i134
+  br i1 %cmp.not.i.i133, label %cleanup157, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i134
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i134: ; preds = %_ZN7testing7MessageD2Ev.exit131
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #21
-  call void @_ZdlPv(ptr noundef nonnull %55) #22
-  br label %_ZN7testing15AssertionResultD2Ev.exit135
-
-_ZN7testing15AssertionResultD2Ev.exit135:         ; preds = %_ZN7testing7MessageD2Ev.exit131, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i134
-  store ptr null, ptr %message_.i125, align 8
-  br label %cleanup157
+  br label %cleanup157.sink.split
 
 lpad108:                                          ; preds = %if.else106
   %56 = landingpad { ptr, i32 }
@@ -47232,7 +47197,7 @@ _ZN7testing15AssertionResultD2Ev.exit165:         ; preds = %invoke.cont128, %cl
   store ptr null, ptr %message_.i150, align 8
   %71 = load ptr, ptr %v4, align 8
   %cmp.not.i166 = icmp eq ptr %71, null
-  br i1 %cmp.not.i166, label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEESt14default_deleteIS4_EED2Ev.exit, label %delete.notnull.i.i167
+  br i1 %cmp.not.i166, label %cleanup157, label %delete.notnull.i.i167
 
 delete.notnull.i.i167:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit165
   %items_.i.i.i.i168 = getelementptr inbounds i8, ptr %71, i64 16
@@ -47248,24 +47213,24 @@ _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3
   %data_.i.i.i.i172 = getelementptr inbounds i8, ptr %71, i64 8
   %73 = load ptr, ptr %data_.i.i.i.i172, align 8
   %cmp.not.i.i.i.i.i173 = icmp eq ptr %73, null
-  br i1 %cmp.not.i.i.i.i.i173, label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEEEclEPS4_.exit.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i174
+  br i1 %cmp.not.i.i.i.i.i173, label %cleanup157.sink.split, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i174
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i174: ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i171
   call void @_ZdaPv(ptr noundef nonnull %73) #22
-  br label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEEEclEPS4_.exit.i
+  br label %cleanup157.sink.split
 
-_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEEEclEPS4_.exit.i: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i174, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i171
-  call void @_ZdlPv(ptr noundef nonnull %71) #22
-  br label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEESt14default_deleteIS4_EED2Ev.exit
-
-_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit165, %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEEEclEPS4_.exit.i
-  store ptr null, ptr %v4, align 8
+cleanup157.sink.split:                            ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i171, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i174, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i134
+  %.sink = phi ptr [ %55, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i134 ], [ %71, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i174 ], [ %71, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i171 ]
+  %message_.i125.sink.ph = phi ptr [ %message_.i125, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i134 ], [ %v4, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i174 ], [ %v4, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i171 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink) #22
   br label %cleanup157
 
-cleanup157:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit135, %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEESt14default_deleteIS4_EED2Ev.exit
+cleanup157:                                       ; preds = %cleanup157.sink.split, %_ZN7testing15AssertionResultD2Ev.exit165, %_ZN7testing7MessageD2Ev.exit131
+  %message_.i125.sink = phi ptr [ %message_.i125, %_ZN7testing7MessageD2Ev.exit131 ], [ %v4, %_ZN7testing15AssertionResultD2Ev.exit165 ], [ %message_.i125.sink.ph, %cleanup157.sink.split ]
+  store ptr null, ptr %message_.i125.sink, align 8
   %74 = load ptr, ptr %v3, align 8
   %cmp.not.i175 = icmp eq ptr %74, null
-  br i1 %cmp.not.i175, label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEESt14default_deleteIS4_EED2Ev.exit185, label %delete.notnull.i.i176
+  br i1 %cmp.not.i175, label %cleanup159, label %delete.notnull.i.i176
 
 delete.notnull.i.i176:                            ; preds = %cleanup157
   %items_.i.i.i.i177 = getelementptr inbounds i8, ptr %74, i64 16
@@ -47281,24 +47246,24 @@ _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3
   %data_.i.i.i.i181 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load ptr, ptr %data_.i.i.i.i181, align 8
   %cmp.not.i.i.i.i.i182 = icmp eq ptr %76, null
-  br i1 %cmp.not.i.i.i.i.i182, label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEEEclEPS4_.exit.i184, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i183
+  br i1 %cmp.not.i.i.i.i.i182, label %cleanup159.sink.split, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i183
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i183: ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i180
   call void @_ZdaPv(ptr noundef nonnull %76) #22
-  br label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEEEclEPS4_.exit.i184
+  br label %cleanup159.sink.split
 
-_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEEEclEPS4_.exit.i184: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i183, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i180
-  call void @_ZdlPv(ptr noundef nonnull %74) #22
-  br label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEESt14default_deleteIS4_EED2Ev.exit185
-
-_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEESt14default_deleteIS4_EED2Ev.exit185: ; preds = %cleanup157, %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEEEclEPS4_.exit.i184
-  store ptr null, ptr %v3, align 8
+cleanup159.sink.split:                            ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i180, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i183, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109
+  %.sink252 = phi ptr [ %44, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109 ], [ %74, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i183 ], [ %74, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i180 ]
+  %message_.i100.sink.ph = phi ptr [ %message_.i100, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109 ], [ %v3, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i183 ], [ %v3, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i180 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink252) #22
   br label %cleanup159
 
-cleanup159:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit110, %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEESt14default_deleteIS4_EED2Ev.exit185
+cleanup159:                                       ; preds = %cleanup159.sink.split, %cleanup157, %_ZN7testing7MessageD2Ev.exit106
+  %message_.i100.sink = phi ptr [ %message_.i100, %_ZN7testing7MessageD2Ev.exit106 ], [ %v3, %cleanup157 ], [ %message_.i100.sink.ph, %cleanup159.sink.split ]
+  store ptr null, ptr %message_.i100.sink, align 8
   %77 = load ptr, ptr %v2, align 8
   %cmp.not.i186 = icmp eq ptr %77, null
-  br i1 %cmp.not.i186, label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEESt14default_deleteIS4_EED2Ev.exit196, label %delete.notnull.i.i187
+  br i1 %cmp.not.i186, label %cleanup161, label %delete.notnull.i.i187
 
 delete.notnull.i.i187:                            ; preds = %cleanup159
   %items_.i.i.i.i188 = getelementptr inbounds i8, ptr %77, i64 16
@@ -47314,21 +47279,21 @@ _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3
   %data_.i.i.i.i192 = getelementptr inbounds i8, ptr %77, i64 8
   %79 = load ptr, ptr %data_.i.i.i.i192, align 8
   %cmp.not.i.i.i.i.i193 = icmp eq ptr %79, null
-  br i1 %cmp.not.i.i.i.i.i193, label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEEEclEPS4_.exit.i195, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i194
+  br i1 %cmp.not.i.i.i.i.i193, label %cleanup161.sink.split, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i194
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i194: ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i191
   call void @_ZdaPv(ptr noundef nonnull %79) #22
-  br label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEEEclEPS4_.exit.i195
+  br label %cleanup161.sink.split
 
-_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEEEclEPS4_.exit.i195: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i194, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i191
-  call void @_ZdlPv(ptr noundef nonnull %77) #22
-  br label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEESt14default_deleteIS4_EED2Ev.exit196
-
-_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEESt14default_deleteIS4_EED2Ev.exit196: ; preds = %cleanup159, %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEEEclEPS4_.exit.i195
-  store ptr null, ptr %v2, align 8
+cleanup161.sink.split:                            ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i191, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i194, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85
+  %.sink253 = phi ptr [ %33, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85 ], [ %77, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i194 ], [ %77, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i191 ]
+  %message_.i76.sink.ph = phi ptr [ %message_.i76, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i85 ], [ %v2, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i194 ], [ %v2, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i191 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink253) #22
   br label %cleanup161
 
-cleanup161:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit86, %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE524288ELS3_524288EEEESt14default_deleteIS4_EED2Ev.exit196
+cleanup161:                                       ; preds = %cleanup161.sink.split, %cleanup159, %_ZN7testing7MessageD2Ev.exit82
+  %message_.i76.sink = phi ptr [ %message_.i76, %_ZN7testing7MessageD2Ev.exit82 ], [ %v2, %cleanup159 ], [ %message_.i76.sink.ph, %cleanup161.sink.split ]
+  store ptr null, ptr %message_.i76.sink, align 8
   %80 = load ptr, ptr %v1, align 8
   %cmp.not.i197 = icmp eq ptr %80, null
   br i1 %cmp.not.i197, label %cleanup.cont163, label %delete.notnull.i.i198
@@ -48407,16 +48372,11 @@ _ZN7testing7MessageD2Ev.exit201:                  ; preds = %invoke.cont168, %_Z
   store ptr null, ptr %ref.tmp157, align 8
   %88 = load ptr, ptr %message_.i195, align 8
   %cmp.not.i.i203 = icmp eq ptr %88, null
-  br i1 %cmp.not.i.i203, label %_ZN7testing15AssertionResultD2Ev.exit205, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204
+  br i1 %cmp.not.i.i203, label %cleanup308, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204: ; preds = %_ZN7testing7MessageD2Ev.exit201
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #21
-  call void @_ZdlPv(ptr noundef nonnull %88) #22
-  br label %_ZN7testing15AssertionResultD2Ev.exit205
-
-_ZN7testing15AssertionResultD2Ev.exit205:         ; preds = %_ZN7testing7MessageD2Ev.exit201, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204
-  store ptr null, ptr %message_.i195, align 8
-  br label %cleanup308
+  br label %cleanup308.sink.split
 
 lpad158:                                          ; preds = %if.else156
   %89 = landingpad { ptr, i32 }
@@ -49088,7 +49048,7 @@ cleanup306:                                       ; preds = %cleanup306.sink.spl
   store ptr null, ptr %message_.i318.sink, align 8
   %155 = load ptr, ptr %dollar, align 8
   %cmp.not.i365 = icmp eq ptr %155, null
-  br i1 %cmp.not.i365, label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit375, label %delete.notnull.i.i366
+  br i1 %cmp.not.i365, label %cleanup308, label %delete.notnull.i.i366
 
 delete.notnull.i.i366:                            ; preds = %cleanup306
   %items_.i.i.i.i367 = getelementptr inbounds i8, ptr %155, i64 16
@@ -49104,21 +49064,21 @@ _ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3
   %data_.i.i.i.i371 = getelementptr inbounds i8, ptr %155, i64 8
   %157 = load ptr, ptr %data_.i.i.i.i371, align 8
   %cmp.not.i.i.i.i.i372 = icmp eq ptr %157, null
-  br i1 %cmp.not.i.i.i.i.i372, label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEEEclEPS4_.exit.i374, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373
+  br i1 %cmp.not.i.i.i.i.i372, label %cleanup308.sink.split, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373: ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i370
   call void @_ZdaPv(ptr noundef nonnull %157) #22
-  br label %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEEEclEPS4_.exit.i374
+  br label %cleanup308.sink.split
 
-_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEEEclEPS4_.exit.i374: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i370
-  call void @_ZdlPv(ptr noundef nonnull %155) #22
-  br label %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit375
-
-_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit375: ; preds = %cleanup306, %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEEEclEPS4_.exit.i374
-  store ptr null, ptr %dollar, align 8
+cleanup308.sink.split:                            ; preds = %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i370, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204
+  %.sink458 = phi ptr [ %88, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204 ], [ %155, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373 ], [ %155, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i370 ]
+  %message_.i195.sink.ph = phi ptr [ %message_.i195, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i204 ], [ %dollar, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i373 ], [ %dollar, %_ZNSt6vectorIN4absl19str_format_internal16ParsedFormatBase14ConversionItemESaIS3_EED2Ev.exit.i.i.i.i370 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink458) #22
   br label %cleanup308
 
-cleanup308:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit205, %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_4EEEESt14default_deleteIS4_EED2Ev.exit375
+cleanup308:                                       ; preds = %cleanup308.sink.split, %cleanup306, %_ZN7testing7MessageD2Ev.exit201
+  %message_.i195.sink = phi ptr [ %message_.i195, %_ZN7testing7MessageD2Ev.exit201 ], [ %dollar, %cleanup306 ], [ %message_.i195.sink.ph, %cleanup308.sink.split ]
+  store ptr null, ptr %message_.i195.sink, align 8
   %158 = load ptr, ptr %star, align 8
   %cmp.not.i376 = icmp eq ptr %158, null
   br i1 %cmp.not.i376, label %delete.notnull.i.i386, label %delete.notnull.i.i377

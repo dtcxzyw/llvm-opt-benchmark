@@ -1917,134 +1917,123 @@ define hidden void @_ZN5zxing9BitMatrix10flipRegionEiiiiRNS_12ErrorHandlerE(ptr 
   %9 = alloca %"class.zxing::IllegalArgumentErrorHandler", align 8
   %10 = or i32 %2, %1
   %or.cond.not = icmp sgt i32 %10, -1
-  %.sink45.sroa.gep = getelementptr inbounds i8, ptr %9, i64 16
-  %.sink45.sroa.gep47 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sink45.sroa.gep48 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sink46.sroa.gep = getelementptr inbounds i8, ptr %9, i64 16
-  %.sink46.sroa.gep49 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sink46.sroa.gep50 = getelementptr inbounds i8, ptr %7, i64 16
-  br i1 %or.cond.not, label %17, label %11
+  %.sink48.sroa.gep = getelementptr inbounds i8, ptr %9, i64 16
+  %.sink48.sroa.gep49 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sink48.sroa.gep50 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sink.sroa.gep51 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sink.sroa.gep52 = getelementptr inbounds i8, ptr %9, i64 16
+  br i1 %or.cond.not, label %16, label %11
 
 11:                                               ; preds = %6
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull @.str)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing27IllegalArgumentErrorHandlerE, i64 16), ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 4, ptr %12, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %7)
-          to label %14 unwind label %15
+          to label %.loopexit.sink.split unwind label %14
 
 14:                                               ; preds = %11
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %7, align 8
-  br label %.loopexit.sink.split
-
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %7, align 8
-  br label %62
+  br label %59
 
-17:                                               ; preds = %6
-  %18 = icmp slt i32 %4, 1
-  %19 = icmp slt i32 %3, 1
-  %or.cond3 = or i1 %19, %18
-  br i1 %or.cond3, label %20, label %26
+16:                                               ; preds = %6
+  %17 = icmp slt i32 %4, 1
+  %18 = icmp slt i32 %3, 1
+  %or.cond3 = or i1 %18, %17
+  br i1 %or.cond3, label %19, label %24
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull @.str.1)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing27IllegalArgumentErrorHandlerE, i64 16), ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 4, ptr %21, align 8
-  %22 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %8)
-          to label %23 unwind label %24
+  %20 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 4, ptr %20, align 8
+  %21 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %8)
+          to label %.loopexit.sink.split unwind label %22
 
-23:                                               ; preds = %20
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %8, align 8
-  br label %.loopexit.sink.split
-
-24:                                               ; preds = %20
-  %25 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %8, align 8
-  br label %62
+  br label %59
 
-26:                                               ; preds = %17
-  %27 = add nuw nsw i32 %3, %1
-  %28 = add nuw nsw i32 %4, %2
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp sgt i32 %28, %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 12
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp sgt i32 %27, %33
-  %or.cond = select i1 %31, i1 true, i1 %34
-  br i1 %or.cond, label %56, label %.preheader.us.preheader
+24:                                               ; preds = %16
+  %25 = add nuw nsw i32 %3, %1
+  %26 = add nuw nsw i32 %4, %2
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp sgt i32 %26, %28
+  %30 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp sgt i32 %25, %31
+  %or.cond = select i1 %29, i1 true, i1 %32
+  br i1 %or.cond, label %54, label %.preheader.us.preheader
 
-.preheader.us.preheader:                          ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %0, i64 336
-  %36 = getelementptr inbounds i8, ptr %0, i64 312
-  %37 = sext i32 %2 to i64
-  %38 = sext i32 %28 to i64
+.preheader.us.preheader:                          ; preds = %24
+  %33 = getelementptr inbounds i8, ptr %0, i64 336
+  %34 = getelementptr inbounds i8, ptr %0, i64 312
+  %35 = sext i32 %2 to i64
+  %36 = sext i32 %26 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv = phi i64 [ %37, %.preheader.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  br label %39
+  %indvars.iv = phi i64 [ %35, %.preheader.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
+  br label %37
 
-39:                                               ; preds = %.preheader.us, %39
-  %.041.us = phi i32 [ %1, %.preheader.us ], [ %53, %39 ]
-  %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv
-  %44 = load i32, ptr %43, align 4
-  %45 = add nsw i32 %44, %.041.us
-  %46 = load ptr, ptr %36, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
-  %48 = sext i32 %45 to i64
-  %49 = load ptr, ptr %47, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 %48
-  %51 = load i8, ptr %50, align 1
-  %52 = xor i8 %51, 1
-  store i8 %52, ptr %50, align 1
-  %53 = add nuw nsw i32 %.041.us, 1
-  %54 = icmp slt i32 %53, %27
-  br i1 %54, label %39, label %._crit_edge.us, !llvm.loop !10
+37:                                               ; preds = %.preheader.us, %37
+  %.041.us = phi i32 [ %1, %.preheader.us ], [ %51, %37 ]
+  %38 = load ptr, ptr %33, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv
+  %42 = load i32, ptr %41, align 4
+  %43 = add nsw i32 %42, %.041.us
+  %44 = load ptr, ptr %34, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %46 = sext i32 %43 to i64
+  %47 = load ptr, ptr %45, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 %46
+  %49 = load i8, ptr %48, align 1
+  %50 = xor i8 %49, 1
+  store i8 %50, ptr %48, align 1
+  %51 = add nuw nsw i32 %.041.us, 1
+  %52 = icmp slt i32 %51, %25
+  br i1 %52, label %37, label %._crit_edge.us, !llvm.loop !10
 
-._crit_edge.us:                                   ; preds = %39
+._crit_edge.us:                                   ; preds = %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %55, label %.preheader.us, label %.loopexit, !llvm.loop !11
+  %53 = icmp slt i64 %indvars.iv.next, %36
+  br i1 %53, label %.preheader.us, label %.loopexit, !llvm.loop !11
 
-56:                                               ; preds = %26
+54:                                               ; preds = %24
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull @.str.2)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing27IllegalArgumentErrorHandlerE, i64 16), ptr %9, align 8
-  %57 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 4, ptr %57, align 8
-  %58 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %9)
-          to label %59 unwind label %60
+  %55 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 4, ptr %55, align 8
+  %56 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %9)
+          to label %.loopexit.sink.split unwind label %57
 
-59:                                               ; preds = %56
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %9, align 8
-  br label %.loopexit.sink.split
-
-60:                                               ; preds = %56
-  %61 = landingpad { ptr, i32 }
+57:                                               ; preds = %54
+  %58 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %9, align 8
-  br label %62
+  br label %59
 
-.loopexit.sink.split:                             ; preds = %14, %23, %59
-  %.sink45.sroa.phi = phi ptr [ %.sink45.sroa.gep, %59 ], [ %.sink45.sroa.gep47, %23 ], [ %.sink45.sroa.gep48, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink45.sroa.phi) #16
+.loopexit.sink.split:                             ; preds = %54, %19, %11
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %11 ], [ %.sink.sroa.gep51, %19 ], [ %.sink.sroa.gep52, %54 ]
+  %.sink = phi ptr [ %7, %11 ], [ %8, %19 ], [ %9, %54 ]
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %.sink, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.sroa.phi) #16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.loopexit.sink.split
   ret void
 
-62:                                               ; preds = %60, %24, %15
-  %.sink46.sroa.phi = phi ptr [ %.sink46.sroa.gep, %60 ], [ %.sink46.sroa.gep49, %24 ], [ %.sink46.sroa.gep50, %15 ]
-  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %25, %24 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink46.sroa.phi) #16
+59:                                               ; preds = %57, %22, %14
+  %.sink48.sroa.phi = phi ptr [ %.sink48.sroa.gep, %57 ], [ %.sink48.sroa.gep49, %22 ], [ %.sink48.sroa.gep50, %14 ]
+  %.sink48 = phi ptr [ %9, %57 ], [ %8, %22 ], [ %7, %14 ]
+  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %23, %22 ], [ %15, %14 ]
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %.sink48, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink48.sroa.phi) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -2065,132 +2054,121 @@ define hidden void @_ZN5zxing9BitMatrix9setRegionEiiiiRNS_12ErrorHandlerE(ptr no
   %9 = alloca %"class.zxing::IllegalArgumentErrorHandler", align 8
   %10 = or i32 %2, %1
   %or.cond.not = icmp sgt i32 %10, -1
-  %.sink45.sroa.gep = getelementptr inbounds i8, ptr %9, i64 16
-  %.sink45.sroa.gep47 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sink45.sroa.gep48 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sink46.sroa.gep = getelementptr inbounds i8, ptr %9, i64 16
-  %.sink46.sroa.gep49 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sink46.sroa.gep50 = getelementptr inbounds i8, ptr %7, i64 16
-  br i1 %or.cond.not, label %17, label %11
+  %.sink48.sroa.gep = getelementptr inbounds i8, ptr %9, i64 16
+  %.sink48.sroa.gep49 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sink48.sroa.gep50 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sink.sroa.gep51 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sink.sroa.gep52 = getelementptr inbounds i8, ptr %9, i64 16
+  br i1 %or.cond.not, label %16, label %11
 
 11:                                               ; preds = %6
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull @.str)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing27IllegalArgumentErrorHandlerE, i64 16), ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 4, ptr %12, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %7)
-          to label %14 unwind label %15
+          to label %.loopexit.sink.split unwind label %14
 
 14:                                               ; preds = %11
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %7, align 8
-  br label %.loopexit.sink.split
-
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %7, align 8
-  br label %60
+  br label %57
 
-17:                                               ; preds = %6
-  %18 = icmp slt i32 %4, 1
-  %19 = icmp slt i32 %3, 1
-  %or.cond3 = or i1 %19, %18
-  br i1 %or.cond3, label %20, label %26
+16:                                               ; preds = %6
+  %17 = icmp slt i32 %4, 1
+  %18 = icmp slt i32 %3, 1
+  %or.cond3 = or i1 %18, %17
+  br i1 %or.cond3, label %19, label %24
 
-20:                                               ; preds = %17
+19:                                               ; preds = %16
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull @.str.1)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing27IllegalArgumentErrorHandlerE, i64 16), ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 4, ptr %21, align 8
-  %22 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %8)
-          to label %23 unwind label %24
+  %20 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 4, ptr %20, align 8
+  %21 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %8)
+          to label %.loopexit.sink.split unwind label %22
 
-23:                                               ; preds = %20
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %8, align 8
-  br label %.loopexit.sink.split
-
-24:                                               ; preds = %20
-  %25 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %8, align 8
-  br label %60
+  br label %57
 
-26:                                               ; preds = %17
-  %27 = add nuw nsw i32 %3, %1
-  %28 = add nuw nsw i32 %4, %2
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp sgt i32 %28, %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 12
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp sgt i32 %27, %33
-  %or.cond = select i1 %31, i1 true, i1 %34
-  br i1 %or.cond, label %54, label %.preheader.us.preheader
+24:                                               ; preds = %16
+  %25 = add nuw nsw i32 %3, %1
+  %26 = add nuw nsw i32 %4, %2
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp sgt i32 %26, %28
+  %30 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp sgt i32 %25, %31
+  %or.cond = select i1 %29, i1 true, i1 %32
+  br i1 %or.cond, label %52, label %.preheader.us.preheader
 
-.preheader.us.preheader:                          ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %0, i64 336
-  %36 = getelementptr inbounds i8, ptr %0, i64 312
-  %37 = sext i32 %2 to i64
-  %38 = sext i32 %28 to i64
+.preheader.us.preheader:                          ; preds = %24
+  %33 = getelementptr inbounds i8, ptr %0, i64 336
+  %34 = getelementptr inbounds i8, ptr %0, i64 312
+  %35 = sext i32 %2 to i64
+  %36 = sext i32 %26 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv = phi i64 [ %37, %.preheader.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  br label %39
+  %indvars.iv = phi i64 [ %35, %.preheader.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
+  br label %37
 
-39:                                               ; preds = %.preheader.us, %39
-  %.041.us = phi i32 [ %1, %.preheader.us ], [ %51, %39 ]
-  %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv
-  %44 = load i32, ptr %43, align 4
-  %45 = add nsw i32 %44, %.041.us
-  %46 = load ptr, ptr %36, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
-  %48 = sext i32 %45 to i64
-  %49 = load ptr, ptr %47, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 %48
-  store i8 1, ptr %50, align 1
-  %51 = add nuw nsw i32 %.041.us, 1
-  %52 = icmp slt i32 %51, %27
-  br i1 %52, label %39, label %._crit_edge.us, !llvm.loop !12
+37:                                               ; preds = %.preheader.us, %37
+  %.041.us = phi i32 [ %1, %.preheader.us ], [ %49, %37 ]
+  %38 = load ptr, ptr %33, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv
+  %42 = load i32, ptr %41, align 4
+  %43 = add nsw i32 %42, %.041.us
+  %44 = load ptr, ptr %34, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %46 = sext i32 %43 to i64
+  %47 = load ptr, ptr %45, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 %46
+  store i8 1, ptr %48, align 1
+  %49 = add nuw nsw i32 %.041.us, 1
+  %50 = icmp slt i32 %49, %25
+  br i1 %50, label %37, label %._crit_edge.us, !llvm.loop !12
 
-._crit_edge.us:                                   ; preds = %39
+._crit_edge.us:                                   ; preds = %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %53, label %.preheader.us, label %.loopexit, !llvm.loop !13
+  %51 = icmp slt i64 %indvars.iv.next, %36
+  br i1 %51, label %.preheader.us, label %.loopexit, !llvm.loop !13
 
-54:                                               ; preds = %26
+52:                                               ; preds = %24
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull @.str.2)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing27IllegalArgumentErrorHandlerE, i64 16), ptr %9, align 8
-  %55 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 4, ptr %55, align 8
-  %56 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %9)
-          to label %57 unwind label %58
+  %53 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 4, ptr %53, align 8
+  %54 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %9)
+          to label %.loopexit.sink.split unwind label %55
 
-57:                                               ; preds = %54
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %9, align 8
-  br label %.loopexit.sink.split
-
-58:                                               ; preds = %54
-  %59 = landingpad { ptr, i32 }
+55:                                               ; preds = %52
+  %56 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %9, align 8
-  br label %60
+  br label %57
 
-.loopexit.sink.split:                             ; preds = %14, %23, %57
-  %.sink45.sroa.phi = phi ptr [ %.sink45.sroa.gep, %57 ], [ %.sink45.sroa.gep47, %23 ], [ %.sink45.sroa.gep48, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink45.sroa.phi) #16
+.loopexit.sink.split:                             ; preds = %52, %19, %11
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %11 ], [ %.sink.sroa.gep51, %19 ], [ %.sink.sroa.gep52, %52 ]
+  %.sink = phi ptr [ %7, %11 ], [ %8, %19 ], [ %9, %52 ]
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %.sink, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.sroa.phi) #16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.loopexit.sink.split
   ret void
 
-60:                                               ; preds = %58, %24, %15
-  %.sink46.sroa.phi = phi ptr [ %.sink46.sroa.gep, %58 ], [ %.sink46.sroa.gep49, %24 ], [ %.sink46.sroa.gep50, %15 ]
-  %.pn = phi { ptr, i32 } [ %59, %58 ], [ %25, %24 ], [ %16, %15 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink46.sroa.phi) #16
+57:                                               ; preds = %55, %22, %14
+  %.sink48.sroa.phi = phi ptr [ %.sink48.sroa.gep, %55 ], [ %.sink48.sroa.gep49, %22 ], [ %.sink48.sroa.gep50, %14 ]
+  %.sink48 = phi ptr [ %9, %55 ], [ %8, %22 ], [ %7, %14 ]
+  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %23, %22 ], [ %15, %14 ]
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %.sink48, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink48.sroa.phi) #16
   resume { ptr, i32 } %.pn
 }
 

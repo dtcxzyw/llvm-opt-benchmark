@@ -2406,17 +2406,13 @@ if.then:                                          ; preds = %land.lhs.true
 invoke.cont44:                                    ; preds = %if.then
   %22 = load ptr, ptr %agg.tmp41, align 8, !tbaa !16
   %cmp.not.i86 = icmp eq ptr %22, null
-  br i1 %cmp.not.i86, label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit90, label %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i87
+  br i1 %cmp.not.i86, label %cleanup, label %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i87
 
 _ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i87: ; preds = %invoke.cont44
   %vtable.i.i88 = load ptr, ptr %22, align 8, !tbaa !17
   %vfn.i.i89 = getelementptr inbounds i8, ptr %vtable.i.i88, i64 8
   %23 = load ptr, ptr %vfn.i.i89, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(97) %22) #18
-  br label %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit90
-
-_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit90: ; preds = %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i87, %invoke.cont44
-  store ptr null, ptr %agg.tmp41, align 8, !tbaa !16
   br label %cleanup
 
 lpad4:                                            ; preds = %invoke.cont5, %entry
@@ -2540,10 +2536,11 @@ _ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit115
 if.end:                                           ; preds = %land.lhs.true, %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit83
   %41 = load i64, ptr %op, align 8, !tbaa !16
   store i64 %41, ptr %agg.result, align 8, !tbaa !16
-  store ptr null, ptr %op, align 8, !tbaa !16
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end, %_ZNSt10unique_ptrIN6duckdb15LogicalOperatorESt14default_deleteIS1_EED2Ev.exit90
+cleanup:                                          ; preds = %invoke.cont44, %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i87, %if.end
+  %op.sink = phi ptr [ %op, %if.end ], [ %agg.tmp41, %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i87 ], [ %agg.tmp41, %invoke.cont44 ]
+  store ptr null, ptr %op.sink, align 8, !tbaa !16
   %42 = load ptr, ptr %right_pullup, align 8, !tbaa !20
   %_M_finish.i.i116 = getelementptr inbounds i8, ptr %right_pullup, i64 8
   %43 = load ptr, ptr %_M_finish.i.i116, align 8, !tbaa !19

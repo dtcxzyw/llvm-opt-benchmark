@@ -979,11 +979,11 @@ _ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28: ; preds = %_ZN5QListIN12
   ret void
 
 _ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22.sink.split: ; preds = %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i20
-  %.sink34.in = phi ptr [ %11, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i20 ], [ %12, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24 ]
+  %.sink35 = phi ptr [ %11, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i20 ], [ %12, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24 ]
   %_ZGVZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_.sink.ph = phi ptr [ @_ZGVZN12FilterAction11actionTypesENS_6ActionEE13action_types_, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i20 ], [ @_ZGVZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24 ]
   %.pn.ph = phi { ptr, i32 } [ %60, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i20 ], [ %64, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24 ]
-  %.sink34 = load ptr, ptr %.sink34.in, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink34, i64 noundef 4, i64 noundef 8) #17
+  %80 = load ptr, ptr %.sink35, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %80, i64 noundef 4, i64 noundef 8) #17
   br label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22
 
 _ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22: ; preds = %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22.sink.split, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24, %63, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i20, %59

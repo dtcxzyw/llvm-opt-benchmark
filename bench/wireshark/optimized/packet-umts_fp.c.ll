@@ -7030,7 +7030,7 @@ define internal fastcc void @dissect_common_timing_adjustment(ptr noundef %0, pt
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %.not = icmp eq i32 %.20.val, 9
-  br i1 %.not, label %16, label %6
+  br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %3
   %7 = load i32, ptr @hf_fp_cfn_control, align 4
@@ -7039,33 +7039,30 @@ define internal fastcc void @dissect_common_timing_adjustment(ptr noundef %0, pt
   %10 = sext i16 %9 to i32
   %11 = load i32, ptr @hf_fp_toa, align 4
   %12 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %2, i32 noundef 3, i32 noundef 2, i32 noundef 0) #8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = load i32, ptr %4, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.519, i32 noundef %15, i32 noundef %10) #8
-  br label %27
+  br label %21
 
-16:                                               ; preds = %3
-  %17 = load i32, ptr @hf_fp_pch_cfn, align 4
-  %18 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %17, ptr noundef %2, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #8
-  %19 = call i32 @tvb_get_ntoh24(ptr noundef %2, i32 noundef 4) #8
-  %20 = shl i32 %19, 8
-  %21 = sdiv i32 %20, 4096
-  %22 = load i32, ptr @hf_fp_pch_toa, align 4
-  %23 = call ptr @proto_tree_add_int(ptr noundef %1, i32 noundef %22, ptr noundef %2, i32 noundef 4, i32 noundef 3, i32 noundef %21) #8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i32, ptr %5, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.519, i32 noundef %26, i32 noundef %21) #8
-  br label %27
+13:                                               ; preds = %3
+  %14 = load i32, ptr @hf_fp_pch_cfn, align 4
+  %15 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %14, ptr noundef %2, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #8
+  %16 = call i32 @tvb_get_ntoh24(ptr noundef %2, i32 noundef 4) #8
+  %17 = shl i32 %16, 8
+  %18 = sdiv i32 %17, 4096
+  %19 = load i32, ptr @hf_fp_pch_toa, align 4
+  %20 = call ptr @proto_tree_add_int(ptr noundef %1, i32 noundef %19, ptr noundef %2, i32 noundef 4, i32 noundef 3, i32 noundef %18) #8
+  br label %21
 
-27:                                               ; preds = %16, %6
-  %.029 = phi i32 [ %10, %6 ], [ %21, %16 ]
-  %.0 = phi ptr [ %12, %6 ], [ %23, %16 ]
-  %28 = sitofp i32 %.029 to float
-  %29 = fmul float %28, 1.250000e-01
-  %30 = fpext float %29 to double
-  %31 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %0, ptr noundef %.0, ptr noundef nonnull @ei_fp_timing_adjustmentment_reported, ptr noundef nonnull @.str.351, double noundef %30) #8
+21:                                               ; preds = %13, %6
+  %.sink3 = phi ptr [ %5, %13 ], [ %4, %6 ]
+  %.sink2 = phi i32 [ %18, %13 ], [ %10, %6 ]
+  %.0 = phi ptr [ %20, %13 ], [ %12, %6 ]
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i32, ptr %.sink3, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.519, i32 noundef %24, i32 noundef %.sink2) #8
+  %25 = sitofp i32 %.sink2 to float
+  %26 = fmul float %25, 1.250000e-01
+  %27 = fpext float %26 to double
+  %28 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %0, ptr noundef %.0, ptr noundef nonnull @ei_fp_timing_adjustmentment_reported, ptr noundef nonnull @.str.351, double noundef %27) #8
   ret void
 }
 

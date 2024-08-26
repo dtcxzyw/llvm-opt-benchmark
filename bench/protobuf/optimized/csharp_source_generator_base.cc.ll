@@ -156,27 +156,27 @@ lpad.i:                                           ; preds = %entry
   %tobool.not.i.i.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i.i.i, label %common.resume, label %common.resume.sink.split
 
-common.resume.sink.split:                         ; preds = %lpad.i6, %lpad.i
-  %.sink.in = phi ptr [ %map.i, %lpad.i ], [ %map.i4, %lpad.i6 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %0, %lpad.i ], [ %4, %lpad.i6 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %add.ptr.i.i.i.i4.i10 = getelementptr inbounds i8, ptr %.sink, i64 -8
+common.resume.sink.split:                         ; preds = %lpad.i, %lpad.i6
+  %map.i4.sink = phi ptr [ %map.i4, %lpad.i6 ], [ %map.i, %lpad.i ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %5, %lpad.i6 ], [ %0, %lpad.i ]
+  %2 = load ptr, ptr %map.i4.sink, align 8
+  %add.ptr.i.i.i.i4.i10 = getelementptr inbounds i8, ptr %2, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i4.i10) #23
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i6, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %4, %lpad.i6 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %5, %lpad.i6 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont5.i:                                   ; preds = %entry
   %capacity_.i.i.i.i.i5.i = getelementptr inbounds i8, ptr %map.i, i64 16
-  %2 = load i64, ptr %capacity_.i.i.i.i.i5.i, align 8
-  %tobool.not.i.i.i6.i = icmp eq i64 %2, 0
+  %3 = load i64, ptr %capacity_.i.i.i.i.i5.i, align 8
+  %tobool.not.i.i.i6.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i.i.i6.i, label %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit, label %invoke.cont13.i.i.i7.i
 
 invoke.cont13.i.i.i7.i:                           ; preds = %invoke.cont5.i
-  %3 = load ptr, ptr %map.i, align 8
-  %add.ptr.i.i.i.i8.i = getelementptr inbounds i8, ptr %3, i64 -8
+  %4 = load ptr, ptr %map.i, align 8
+  %add.ptr.i.i.i.i8.i = getelementptr inbounds i8, ptr %4, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i8.i) #23
   br label %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit
 
@@ -190,22 +190,22 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
           to label %invoke.cont5.i12 unwind label %lpad.i6
 
 lpad.i6:                                          ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   %capacity_.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %map.i4, i64 16
-  %5 = load i64, ptr %capacity_.i.i.i.i.i.i7, align 8
-  %tobool.not.i.i.i.i8 = icmp eq i64 %5, 0
+  %6 = load i64, ptr %capacity_.i.i.i.i.i.i7, align 8
+  %tobool.not.i.i.i.i8 = icmp eq i64 %6, 0
   br i1 %tobool.not.i.i.i.i8, label %common.resume, label %common.resume.sink.split
 
 invoke.cont5.i12:                                 ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit
   %capacity_.i.i.i.i.i5.i13 = getelementptr inbounds i8, ptr %map.i4, i64 16
-  %6 = load i64, ptr %capacity_.i.i.i.i.i5.i13, align 8
-  %tobool.not.i.i.i6.i14 = icmp eq i64 %6, 0
+  %7 = load i64, ptr %capacity_.i.i.i.i.i5.i13, align 8
+  %tobool.not.i.i.i6.i14 = icmp eq i64 %7, 0
   br i1 %tobool.not.i.i.i6.i14, label %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit17, label %invoke.cont13.i.i.i7.i15
 
 invoke.cont13.i.i.i7.i15:                         ; preds = %invoke.cont5.i12
-  %7 = load ptr, ptr %map.i4, align 8
-  %add.ptr.i.i.i.i8.i16 = getelementptr inbounds i8, ptr %7, i64 -8
+  %8 = load ptr, ptr %map.i4, align 8
+  %add.ptr.i.i.i.i8.i16 = getelementptr inbounds i8, ptr %8, i64 -8
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i8.i16) #23
   br label %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit17
 

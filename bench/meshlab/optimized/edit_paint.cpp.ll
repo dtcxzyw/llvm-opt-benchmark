@@ -3236,28 +3236,28 @@ define void @_ZN15EditPaintPlugin8decorateER9MeshModelP6GLArea(ptr noundef nonnu
   %28 = getelementptr inbounds i8, ptr %2, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  %.sink105.sroa.gep = getelementptr inbounds i8, ptr %15, i64 4
-  %.sink105.sroa.gep107 = getelementptr inbounds i8, ptr %14, i64 4
-  br i1 %30, label %607, label %31
+  %.sink106.sroa.gep = getelementptr inbounds i8, ptr %15, i64 4
+  %.sink106.sroa.gep107 = getelementptr inbounds i8, ptr %14, i64 4
+  br i1 %30, label %608, label %31
 
 31:                                               ; preds = %3
   %32 = getelementptr inbounds i8, ptr %29, i64 240
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %607, label %35
+  br i1 %34, label %608, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %0, i64 488
   %37 = getelementptr inbounds i8, ptr %0, i64 529
   %38 = load i8, ptr %37, align 1
   %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %607
+  br i1 %39, label %40, label %608
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds i8, ptr %0, i64 528
   %42 = load i8, ptr %41, align 8
   %43 = trunc i8 %42 to i1
-  br i1 %43, label %607, label %44
+  br i1 %43, label %608, label %44
 
 44:                                               ; preds = %40
   store i8 1, ptr %41, align 8
@@ -3526,7 +3526,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %55
   %233 = getelementptr inbounds i8, ptr %0, i64 520
   %234 = load double, ptr %233, align 8
   %235 = fcmp ogt double %234, 0.000000e+00
-  br i1 %235, label %236, label %495
+  br i1 %235, label %236, label %496
 
 236:                                              ; preds = %232
   %237 = load i32, ptr %114, align 4
@@ -3554,7 +3554,7 @@ _ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE5clearEv
   %246 = getelementptr inbounds i8, ptr %0, i64 568
   %247 = load double, ptr %246, align 8
   %248 = fcmp oeq double %247, 0.000000e+00
-  br i1 %248, label %249, label %426
+  br i1 %248, label %249, label %427
 
 249:                                              ; preds = %245
   %250 = getelementptr inbounds i8, ptr %0, i64 328
@@ -3565,13 +3565,13 @@ _ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE5clearEv
   %254 = load i32, ptr %253, align 8
   switch i32 %254, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82 [
     i32 0, label %255
-    i32 4, label %285
-    i32 6, label %349
-    i32 2, label %385
-    i32 10, label %389
-    i32 9, label %389
-    i32 3, label %400
-    i32 8, label %413
+    i32 4, label %286
+    i32 6, label %350
+    i32 2, label %386
+    i32 10, label %390
+    i32 9, label %390
+    i32 3, label %401
+    i32 8, label %414
   ]
 
 255:                                              ; preds = %249
@@ -3592,692 +3592,692 @@ _ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE5clearEv
   br label %263
 
 263:                                              ; preds = %262, %261
-  %.sink105.sroa.phi = phi ptr [ %.sink105.sroa.gep, %262 ], [ %.sink105.sroa.gep107, %261 ]
-  %.sink105 = phi ptr [ %15, %262 ], [ %14, %261 ]
-  %.sink = load i32, ptr %.sink105, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %257, ptr noundef nonnull align 4 dereferenceable(10) %.sink105.sroa.phi, i64 10, i1 false)
-  store i32 %.sink, ptr %13, align 4
-  %264 = call noundef i32 @_ZNK6QColor3redEv(ptr noundef nonnull align 4 dereferenceable(14) %13) #26
-  %265 = trunc i32 %264 to i8
-  %266 = getelementptr inbounds i8, ptr %0, i64 616
-  store i8 %265, ptr %266, align 8
-  %267 = call noundef i32 @_ZNK6QColor5greenEv(ptr noundef nonnull align 4 dereferenceable(14) %13) #26
-  %268 = trunc i32 %267 to i8
-  %269 = getelementptr inbounds i8, ptr %0, i64 617
-  store i8 %268, ptr %269, align 1
-  %270 = call noundef i32 @_ZNK6QColor4blueEv(ptr noundef nonnull align 4 dereferenceable(14) %13) #26
-  %271 = trunc i32 %270 to i8
-  %272 = getelementptr inbounds i8, ptr %0, i64 618
-  store i8 %271, ptr %272, align 2
-  %273 = call noundef i32 @_ZNK6QColor5alphaEv(ptr noundef nonnull align 4 dereferenceable(14) %13) #26
-  %274 = trunc i32 %273 to i8
-  %275 = getelementptr inbounds i8, ptr %0, i64 619
-  store i8 %274, ptr %275, align 1
-  %276 = load ptr, ptr %250, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 808
-  %278 = load ptr, ptr %277, align 8
-  %279 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %278)
-  %280 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.17, i32 noundef 11)
-  store ptr %280, ptr %16, align 8
-  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %279, ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %281 unwind label %283
+  %.sink106.sroa.phi = phi ptr [ %.sink106.sroa.gep, %262 ], [ %.sink106.sroa.gep107, %261 ]
+  %.sink106 = phi ptr [ %15, %262 ], [ %14, %261 ]
+  %264 = load i32, ptr %.sink106, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %257, ptr noundef nonnull align 4 dereferenceable(10) %.sink106.sroa.phi, i64 10, i1 false)
+  store i32 %264, ptr %13, align 4
+  %265 = call noundef i32 @_ZNK6QColor3redEv(ptr noundef nonnull align 4 dereferenceable(14) %13) #26
+  %266 = trunc i32 %265 to i8
+  %267 = getelementptr inbounds i8, ptr %0, i64 616
+  store i8 %266, ptr %267, align 8
+  %268 = call noundef i32 @_ZNK6QColor5greenEv(ptr noundef nonnull align 4 dereferenceable(14) %13) #26
+  %269 = trunc i32 %268 to i8
+  %270 = getelementptr inbounds i8, ptr %0, i64 617
+  store i8 %269, ptr %270, align 1
+  %271 = call noundef i32 @_ZNK6QColor4blueEv(ptr noundef nonnull align 4 dereferenceable(14) %13) #26
+  %272 = trunc i32 %271 to i8
+  %273 = getelementptr inbounds i8, ptr %0, i64 618
+  store i8 %272, ptr %273, align 2
+  %274 = call noundef i32 @_ZNK6QColor5alphaEv(ptr noundef nonnull align 4 dereferenceable(14) %13) #26
+  %275 = trunc i32 %274 to i8
+  %276 = getelementptr inbounds i8, ptr %0, i64 619
+  store i8 %275, ptr %276, align 1
+  %277 = load ptr, ptr %250, align 8
+  %278 = getelementptr inbounds i8, ptr %277, i64 808
+  %279 = load ptr, ptr %278, align 8
+  %280 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %279)
+  %281 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.17, i32 noundef 11)
+  store ptr %281, ptr %16, align 8
+  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %280, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %282 unwind label %284
 
-281:                                              ; preds = %263
+282:                                              ; preds = %263
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #26
-  %282 = getelementptr inbounds i8, ptr %0, i64 344
-  call void @_ZN15EditPaintPlugin5paintEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %282)
+  %283 = getelementptr inbounds i8, ptr %0, i64 344
+  call void @_ZN15EditPaintPlugin5paintEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %283)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-283:                                              ; preds = %263
-  %284 = landingpad { ptr, i32 }
+284:                                              ; preds = %263
+  %285 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #26
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit
 
-285:                                              ; preds = %249
-  %286 = getelementptr inbounds i8, ptr %0, i64 512
-  %287 = load i32, ptr %286, align 8
-  %288 = and i32 %287, 67108864
-  %.not60 = icmp ne i32 %288, 0
-  %289 = load i32, ptr %36, align 8
-  %290 = icmp eq i32 %289, 2
-  %or.cond = select i1 %.not60, i1 true, i1 %290
-  br i1 %or.cond, label %.critedge, label %302
+286:                                              ; preds = %249
+  %287 = getelementptr inbounds i8, ptr %0, i64 512
+  %288 = load i32, ptr %287, align 8
+  %289 = and i32 %288, 67108864
+  %.not60 = icmp ne i32 %289, 0
+  %290 = load i32, ptr %36, align 8
+  %291 = icmp eq i32 %290, 2
+  %or.cond = select i1 %.not60, i1 true, i1 %291
+  br i1 %or.cond, label %.critedge, label %303
 
-.critedge:                                        ; preds = %285
-  %291 = getelementptr inbounds i8, ptr %0, i64 624
-  %292 = load ptr, ptr %291, align 8
-  %.not62 = icmp eq ptr %292, null
-  br i1 %.not62, label %294, label %293
+.critedge:                                        ; preds = %286
+  %292 = getelementptr inbounds i8, ptr %0, i64 624
+  %293 = load ptr, ptr %292, align 8
+  %.not62 = icmp eq ptr %293, null
+  br i1 %.not62, label %295, label %294
 
-293:                                              ; preds = %.critedge
-  call void @_ZdlPv(ptr noundef nonnull %292) #25
-  br label %294
+294:                                              ; preds = %.critedge
+  call void @_ZdlPv(ptr noundef nonnull %293) #25
+  br label %295
 
-294:                                              ; preds = %293, %.critedge
-  %295 = getelementptr inbounds i8, ptr %0, i64 632
-  %296 = load ptr, ptr %295, align 8
-  %.not63 = icmp eq ptr %296, null
-  br i1 %.not63, label %298, label %297
+295:                                              ; preds = %294, %.critedge
+  %296 = getelementptr inbounds i8, ptr %0, i64 632
+  %297 = load ptr, ptr %296, align 8
+  %.not63 = icmp eq ptr %297, null
+  br i1 %.not63, label %299, label %298
 
-297:                                              ; preds = %294
-  call void @_ZdlPv(ptr noundef nonnull %296) #25
-  br label %298
+298:                                              ; preds = %295
+  call void @_ZdlPv(ptr noundef nonnull %297) #25
+  br label %299
 
-298:                                              ; preds = %297, %294
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %291, i8 0, i64 16, i1 false)
-  %299 = load i32, ptr %114, align 4
-  %300 = and i32 %299, -9
-  store i32 %300, ptr %114, align 4
-  %301 = load ptr, ptr %27, align 8
-  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %301)
+299:                                              ; preds = %298, %295
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %292, i8 0, i64 16, i1 false)
+  %300 = load i32, ptr %114, align 4
+  %301 = and i32 %300, -9
+  store i32 %301, ptr %114, align 4
+  %302 = load ptr, ptr %27, align 8
+  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %302)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-302:                                              ; preds = %285
-  %303 = load ptr, ptr %250, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 832
-  %305 = load i8, ptr %304, align 8
-  %306 = trunc i8 %305 to i1
-  %307 = getelementptr inbounds i8, ptr %0, i64 624
-  br i1 %306, label %308, label %329
+303:                                              ; preds = %286
+  %304 = load ptr, ptr %250, align 8
+  %305 = getelementptr inbounds i8, ptr %304, i64 832
+  %306 = load i8, ptr %305, align 8
+  %307 = trunc i8 %306 to i1
+  %308 = getelementptr inbounds i8, ptr %0, i64 624
+  br i1 %307, label %309, label %330
 
-308:                                              ; preds = %302
-  %309 = getelementptr inbounds i8, ptr %0, i64 632
-  %310 = getelementptr inbounds i8, ptr %0, i64 664
-  %311 = getelementptr inbounds i8, ptr %0, i64 668
-  call void @_ZN8Paintbox15getPixmapBufferERPhRPfRiS4_(ptr noundef nonnull align 8 dereferenceable(844) %303, ptr noundef nonnull align 8 dereferenceable(8) %307, ptr noundef nonnull align 8 dereferenceable(8) %309, ptr noundef nonnull align 4 dereferenceable(4) %310, ptr noundef nonnull align 4 dereferenceable(4) %311)
-  %312 = load ptr, ptr %250, align 8
-  %313 = call i64 @_ZN8Paintbox14getPixmapDeltaEv(ptr noundef nonnull align 8 dereferenceable(844) %312)
-  %314 = getelementptr inbounds i8, ptr %0, i64 648
-  store i64 %313, ptr %314, align 8
-  %315 = load ptr, ptr %250, align 8
-  call void @_ZN8Paintbox15setPixmapOffsetEdd(ptr noundef nonnull align 8 dereferenceable(844) %315, double noundef 0.000000e+00, double noundef 0.000000e+00)
-  %316 = getelementptr inbounds i8, ptr %0, i64 496
-  %317 = getelementptr inbounds i8, ptr %0, i64 656
-  %318 = load i64, ptr %316, align 8
-  store i64 %318, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %0, i64 608
-  call void @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %319)
-  %320 = load ptr, ptr %250, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 808
-  %322 = load ptr, ptr %321, align 8
-  %323 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %322)
-  %324 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.18, i32 noundef 11)
-  store ptr %324, ptr %17, align 8
-  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %323, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %325 unwind label %327
+309:                                              ; preds = %303
+  %310 = getelementptr inbounds i8, ptr %0, i64 632
+  %311 = getelementptr inbounds i8, ptr %0, i64 664
+  %312 = getelementptr inbounds i8, ptr %0, i64 668
+  call void @_ZN8Paintbox15getPixmapBufferERPhRPfRiS4_(ptr noundef nonnull align 8 dereferenceable(844) %304, ptr noundef nonnull align 8 dereferenceable(8) %308, ptr noundef nonnull align 8 dereferenceable(8) %310, ptr noundef nonnull align 4 dereferenceable(4) %311, ptr noundef nonnull align 4 dereferenceable(4) %312)
+  %313 = load ptr, ptr %250, align 8
+  %314 = call i64 @_ZN8Paintbox14getPixmapDeltaEv(ptr noundef nonnull align 8 dereferenceable(844) %313)
+  %315 = getelementptr inbounds i8, ptr %0, i64 648
+  store i64 %314, ptr %315, align 8
+  %316 = load ptr, ptr %250, align 8
+  call void @_ZN8Paintbox15setPixmapOffsetEdd(ptr noundef nonnull align 8 dereferenceable(844) %316, double noundef 0.000000e+00, double noundef 0.000000e+00)
+  %317 = getelementptr inbounds i8, ptr %0, i64 496
+  %318 = getelementptr inbounds i8, ptr %0, i64 656
+  %319 = load i64, ptr %317, align 8
+  store i64 %319, ptr %318, align 8
+  %320 = getelementptr inbounds i8, ptr %0, i64 608
+  call void @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %320)
+  %321 = load ptr, ptr %250, align 8
+  %322 = getelementptr inbounds i8, ptr %321, i64 808
+  %323 = load ptr, ptr %322, align 8
+  %324 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %323)
+  %325 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.18, i32 noundef 11)
+  store ptr %325, ptr %17, align 8
+  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %324, ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %326 unwind label %328
 
-325:                                              ; preds = %308
+326:                                              ; preds = %309
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #26
-  %326 = getelementptr inbounds i8, ptr %0, i64 344
-  call void @_ZN15EditPaintPlugin5paintEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %326)
+  %327 = getelementptr inbounds i8, ptr %0, i64 344
+  call void @_ZN15EditPaintPlugin5paintEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %327)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-327:                                              ; preds = %308
-  %328 = landingpad { ptr, i32 }
+328:                                              ; preds = %309
+  %329 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #26
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit
 
-329:                                              ; preds = %302
-  %330 = load ptr, ptr %307, align 8
-  %.not61 = icmp eq ptr %330, null
-  br i1 %.not61, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82, label %331
+330:                                              ; preds = %303
+  %331 = load ptr, ptr %308, align 8
+  %.not61 = icmp eq ptr %331, null
+  br i1 %.not61, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82, label %332
 
-331:                                              ; preds = %329
-  %332 = getelementptr inbounds i8, ptr %0, i64 608
-  call void @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %332)
-  %333 = load ptr, ptr %250, align 8
-  %334 = call i64 @_ZN8Paintbox14getPixmapDeltaEv(ptr noundef nonnull align 8 dereferenceable(844) %333)
-  %335 = getelementptr inbounds i8, ptr %0, i64 648
-  store i64 %334, ptr %335, align 8
-  %336 = load ptr, ptr %250, align 8
-  call void @_ZN8Paintbox15setPixmapOffsetEdd(ptr noundef nonnull align 8 dereferenceable(844) %336, double noundef 0.000000e+00, double noundef 0.000000e+00)
-  %337 = getelementptr inbounds i8, ptr %0, i64 496
-  %338 = getelementptr inbounds i8, ptr %0, i64 656
-  %339 = load i64, ptr %337, align 8
-  store i64 %339, ptr %338, align 8
-  %340 = load ptr, ptr %250, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 808
-  %342 = load ptr, ptr %341, align 8
-  %343 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %342)
-  %344 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.18, i32 noundef 11)
-  store ptr %344, ptr %18, align 8
-  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %343, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %345 unwind label %347
+332:                                              ; preds = %330
+  %333 = getelementptr inbounds i8, ptr %0, i64 608
+  call void @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %333)
+  %334 = load ptr, ptr %250, align 8
+  %335 = call i64 @_ZN8Paintbox14getPixmapDeltaEv(ptr noundef nonnull align 8 dereferenceable(844) %334)
+  %336 = getelementptr inbounds i8, ptr %0, i64 648
+  store i64 %335, ptr %336, align 8
+  %337 = load ptr, ptr %250, align 8
+  call void @_ZN8Paintbox15setPixmapOffsetEdd(ptr noundef nonnull align 8 dereferenceable(844) %337, double noundef 0.000000e+00, double noundef 0.000000e+00)
+  %338 = getelementptr inbounds i8, ptr %0, i64 496
+  %339 = getelementptr inbounds i8, ptr %0, i64 656
+  %340 = load i64, ptr %338, align 8
+  store i64 %340, ptr %339, align 8
+  %341 = load ptr, ptr %250, align 8
+  %342 = getelementptr inbounds i8, ptr %341, i64 808
+  %343 = load ptr, ptr %342, align 8
+  %344 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %343)
+  %345 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.18, i32 noundef 11)
+  store ptr %345, ptr %18, align 8
+  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %344, ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %346 unwind label %348
 
-345:                                              ; preds = %331
+346:                                              ; preds = %332
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #26
-  %346 = getelementptr inbounds i8, ptr %0, i64 344
-  call void @_ZN15EditPaintPlugin5paintEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %346)
+  %347 = getelementptr inbounds i8, ptr %0, i64 344
+  call void @_ZN15EditPaintPlugin5paintEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %347)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-347:                                              ; preds = %331
-  %348 = landingpad { ptr, i32 }
+348:                                              ; preds = %332
+  %349 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #26
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit
 
-349:                                              ; preds = %249
-  %350 = getelementptr inbounds i8, ptr %0, i64 608
-  call void @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %350)
-  %351 = load ptr, ptr %250, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 592
-  %353 = load ptr, ptr %352, align 8
-  %354 = call noundef i32 @_ZNK15QAbstractSlider5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %353)
-  %355 = sitofp i32 %354 to float
-  %356 = fmul float %355, 1.000000e+01
-  %357 = getelementptr inbounds i8, ptr %1, i64 652
-  %358 = getelementptr inbounds i8, ptr %1, i64 664
-  %359 = load float, ptr %357, align 4
-  %360 = load float, ptr %358, align 8
-  %361 = fsub float %359, %360
-  %362 = getelementptr inbounds i8, ptr %1, i64 656
-  %363 = load float, ptr %362, align 8
-  %364 = getelementptr inbounds i8, ptr %1, i64 668
-  %365 = load float, ptr %364, align 4
-  %366 = fsub float %363, %365
-  %367 = getelementptr inbounds i8, ptr %1, i64 660
-  %368 = load float, ptr %367, align 4
-  %369 = getelementptr inbounds i8, ptr %1, i64 672
-  %370 = load float, ptr %369, align 8
-  %371 = fsub float %368, %370
-  %372 = fmul float %366, %366
-  %373 = call float @llvm.fmuladd.f32(float %361, float %361, float %372)
-  %374 = call float @llvm.fmuladd.f32(float %371, float %371, float %373)
-  %sqrt.i.i.i69 = call noundef float @llvm.sqrt.f32(float %374)
-  %375 = fdiv float %356, %sqrt.i.i.i69
-  %376 = getelementptr inbounds i8, ptr %0, i64 672
-  store float %375, ptr %376, align 8
-  %377 = load ptr, ptr %250, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 808
-  %379 = load ptr, ptr %378, align 8
-  %380 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %379)
-  %381 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.19, i32 noundef 11)
-  store ptr %381, ptr %19, align 8
-  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %380, ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %382 unwind label %383
+350:                                              ; preds = %249
+  %351 = getelementptr inbounds i8, ptr %0, i64 608
+  call void @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %351)
+  %352 = load ptr, ptr %250, align 8
+  %353 = getelementptr inbounds i8, ptr %352, i64 592
+  %354 = load ptr, ptr %353, align 8
+  %355 = call noundef i32 @_ZNK15QAbstractSlider5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %354)
+  %356 = sitofp i32 %355 to float
+  %357 = fmul float %356, 1.000000e+01
+  %358 = getelementptr inbounds i8, ptr %1, i64 652
+  %359 = getelementptr inbounds i8, ptr %1, i64 664
+  %360 = load float, ptr %358, align 4
+  %361 = load float, ptr %359, align 8
+  %362 = fsub float %360, %361
+  %363 = getelementptr inbounds i8, ptr %1, i64 656
+  %364 = load float, ptr %363, align 8
+  %365 = getelementptr inbounds i8, ptr %1, i64 668
+  %366 = load float, ptr %365, align 4
+  %367 = fsub float %364, %366
+  %368 = getelementptr inbounds i8, ptr %1, i64 660
+  %369 = load float, ptr %368, align 4
+  %370 = getelementptr inbounds i8, ptr %1, i64 672
+  %371 = load float, ptr %370, align 8
+  %372 = fsub float %369, %371
+  %373 = fmul float %367, %367
+  %374 = call float @llvm.fmuladd.f32(float %362, float %362, float %373)
+  %375 = call float @llvm.fmuladd.f32(float %372, float %372, float %374)
+  %sqrt.i.i.i69 = call noundef float @llvm.sqrt.f32(float %375)
+  %376 = fdiv float %357, %sqrt.i.i.i69
+  %377 = getelementptr inbounds i8, ptr %0, i64 672
+  store float %376, ptr %377, align 8
+  %378 = load ptr, ptr %250, align 8
+  %379 = getelementptr inbounds i8, ptr %378, i64 808
+  %380 = load ptr, ptr %379, align 8
+  %381 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %380)
+  %382 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.19, i32 noundef 11)
+  store ptr %382, ptr %19, align 8
+  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %381, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %383 unwind label %384
 
-382:                                              ; preds = %349
+383:                                              ; preds = %350
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #26
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-383:                                              ; preds = %349
-  %384 = landingpad { ptr, i32 }
+384:                                              ; preds = %350
+  %385 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #26
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit
 
-385:                                              ; preds = %249
-  %386 = getelementptr inbounds i8, ptr %0, i64 496
-  %387 = getelementptr inbounds i8, ptr %0, i64 688
-  %388 = load i64, ptr %386, align 8
-  store i64 %388, ptr %387, align 8
+386:                                              ; preds = %249
+  %387 = getelementptr inbounds i8, ptr %0, i64 496
+  %388 = getelementptr inbounds i8, ptr %0, i64 688
+  %389 = load i64, ptr %387, align 8
+  store i64 %389, ptr %388, align 8
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-389:                                              ; preds = %249, %249
-  %390 = getelementptr inbounds i8, ptr %0, i64 680
-  call void @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %390)
-  %391 = load ptr, ptr %250, align 8
-  %392 = getelementptr inbounds i8, ptr %391, i64 808
-  %393 = load ptr, ptr %392, align 8
-  %394 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %393)
-  %395 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.20, i32 noundef 14)
-  store ptr %395, ptr %20, align 8
-  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %394, ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %396 unwind label %398
+390:                                              ; preds = %249, %249
+  %391 = getelementptr inbounds i8, ptr %0, i64 680
+  call void @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %391)
+  %392 = load ptr, ptr %250, align 8
+  %393 = getelementptr inbounds i8, ptr %392, i64 808
+  %394 = load ptr, ptr %393, align 8
+  %395 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %394)
+  %396 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.20, i32 noundef 14)
+  store ptr %396, ptr %20, align 8
+  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %395, ptr noundef nonnull align 8 dereferenceable(8) %20)
+          to label %397 unwind label %399
 
-396:                                              ; preds = %389
+397:                                              ; preds = %390
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #26
-  %397 = getelementptr inbounds i8, ptr %0, i64 344
-  call void @_ZN15EditPaintPlugin6sculptER9MeshModelPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull %397)
+  %398 = getelementptr inbounds i8, ptr %0, i64 344
+  call void @_ZN15EditPaintPlugin6sculptER9MeshModelPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull %398)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-398:                                              ; preds = %389
-  %399 = landingpad { ptr, i32 }
+399:                                              ; preds = %390
+  %400 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #26
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit
 
-400:                                              ; preds = %249
-  %401 = load ptr, ptr %250, align 8
-  %402 = getelementptr inbounds i8, ptr %401, i64 808
-  %403 = load ptr, ptr %402, align 8
-  %404 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %403)
-  %405 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.21, i32 noundef 12)
-  store ptr %405, ptr %21, align 8
-  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %404, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %406 unwind label %411
+401:                                              ; preds = %249
+  %402 = load ptr, ptr %250, align 8
+  %403 = getelementptr inbounds i8, ptr %402, i64 808
+  %404 = load ptr, ptr %403, align 8
+  %405 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %404)
+  %406 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.21, i32 noundef 12)
+  store ptr %406, ptr %21, align 8
+  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %405, ptr noundef nonnull align 8 dereferenceable(8) %21)
+          to label %407 unwind label %412
 
-406:                                              ; preds = %400
+407:                                              ; preds = %401
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #26
-  %407 = getelementptr inbounds i8, ptr %0, i64 696
-  call void @_ZN5QHashIP8CVertexOS1_E5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %407)
-  %408 = getelementptr inbounds i8, ptr %1, i64 1112
-  %409 = load i32, ptr %408, align 8
-  %410 = add nsw i32 %409, 1
-  store i32 %410, ptr %408, align 8
+  %408 = getelementptr inbounds i8, ptr %0, i64 696
+  call void @_ZN5QHashIP8CVertexOS1_E5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %408)
+  %409 = getelementptr inbounds i8, ptr %1, i64 1112
+  %410 = load i32, ptr %409, align 8
+  %411 = add nsw i32 %410, 1
+  store i32 %411, ptr %409, align 8
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-411:                                              ; preds = %400
-  %412 = landingpad { ptr, i32 }
+412:                                              ; preds = %401
+  %413 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #26
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit
 
-413:                                              ; preds = %249
-  %414 = load ptr, ptr %250, align 8
-  %415 = getelementptr inbounds i8, ptr %414, i64 808
-  %416 = load ptr, ptr %415, align 8
-  %417 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %416)
-  %418 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.22, i32 noundef 11)
-  store ptr %418, ptr %22, align 8
-  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %417, ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %419 unwind label %424
+414:                                              ; preds = %249
+  %415 = load ptr, ptr %250, align 8
+  %416 = getelementptr inbounds i8, ptr %415, i64 808
+  %417 = load ptr, ptr %416, align 8
+  %418 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %417)
+  %419 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.22, i32 noundef 11)
+  store ptr %419, ptr %22, align 8
+  invoke void @_ZN10QUndoStack10beginMacroERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %418, ptr noundef nonnull align 8 dereferenceable(8) %22)
+          to label %420 unwind label %425
 
-419:                                              ; preds = %413
+420:                                              ; preds = %414
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #26
-  %420 = getelementptr inbounds i8, ptr %0, i64 696
-  call void @_ZN5QHashIP8CVertexOS1_E5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %420)
-  %421 = getelementptr inbounds i8, ptr %1, i64 1112
-  %422 = load i32, ptr %421, align 8
-  %423 = add nsw i32 %422, 1
-  store i32 %423, ptr %421, align 8
+  %421 = getelementptr inbounds i8, ptr %0, i64 696
+  call void @_ZN5QHashIP8CVertexOS1_E5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %421)
+  %422 = getelementptr inbounds i8, ptr %1, i64 1112
+  %423 = load i32, ptr %422, align 8
+  %424 = add nsw i32 %423, 1
+  store i32 %424, ptr %422, align 8
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-424:                                              ; preds = %413
-  %425 = landingpad { ptr, i32 }
+425:                                              ; preds = %414
+  %426 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #26
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit
 
-426:                                              ; preds = %245
-  %427 = getelementptr inbounds i8, ptr %0, i64 480
-  %428 = load i32, ptr %427, align 8
-  switch i32 %428, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82 [
-    i32 4, label %429
+427:                                              ; preds = %245
+  %428 = getelementptr inbounds i8, ptr %0, i64 480
+  %429 = load i32, ptr %428, align 8
+  switch i32 %429, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82 [
+    i32 4, label %430
     i32 0, label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit71
     i32 6, label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit71
     i32 2, label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit73
-    i32 7, label %460
+    i32 7, label %461
     i32 9, label %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit
     i32 10, label %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit
     i32 3, label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit76
     i32 8, label %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit78
   ]
 
-429:                                              ; preds = %426
-  %430 = getelementptr inbounds i8, ptr %0, i64 328
-  %431 = load ptr, ptr %430, align 8
-  %432 = getelementptr inbounds i8, ptr %0, i64 496
-  %433 = load i32, ptr %432, align 8
-  %434 = getelementptr inbounds i8, ptr %0, i64 656
-  %435 = load i32, ptr %434, align 8
-  %436 = sub nsw i32 %433, %435
-  %437 = sitofp i32 %436 to double
-  %438 = getelementptr inbounds i8, ptr %0, i64 500
-  %439 = load i32, ptr %438, align 4
-  %440 = getelementptr inbounds i8, ptr %0, i64 660
-  %441 = load i32, ptr %440, align 4
-  %442 = sub nsw i32 %439, %441
-  %443 = sitofp i32 %442 to double
-  call void @_ZN8Paintbox15setPixmapOffsetEdd(ptr noundef nonnull align 8 dereferenceable(844) %431, double noundef %437, double noundef %443)
-  %444 = getelementptr inbounds i8, ptr %0, i64 624
-  %445 = load ptr, ptr %444, align 8
-  %.not59 = icmp eq ptr %445, null
+430:                                              ; preds = %427
+  %431 = getelementptr inbounds i8, ptr %0, i64 328
+  %432 = load ptr, ptr %431, align 8
+  %433 = getelementptr inbounds i8, ptr %0, i64 496
+  %434 = load i32, ptr %433, align 8
+  %435 = getelementptr inbounds i8, ptr %0, i64 656
+  %436 = load i32, ptr %435, align 8
+  %437 = sub nsw i32 %434, %436
+  %438 = sitofp i32 %437 to double
+  %439 = getelementptr inbounds i8, ptr %0, i64 500
+  %440 = load i32, ptr %439, align 4
+  %441 = getelementptr inbounds i8, ptr %0, i64 660
+  %442 = load i32, ptr %441, align 4
+  %443 = sub nsw i32 %440, %442
+  %444 = sitofp i32 %443 to double
+  call void @_ZN8Paintbox15setPixmapOffsetEdd(ptr noundef nonnull align 8 dereferenceable(844) %432, double noundef %438, double noundef %444)
+  %445 = getelementptr inbounds i8, ptr %0, i64 624
+  %446 = load ptr, ptr %445, align 8
+  %.not59 = icmp eq ptr %446, null
   br i1 %.not59, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82, label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit
 
-_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit: ; preds = %429
-  %446 = getelementptr inbounds i8, ptr %0, i64 344
-  call void @_ZN15EditPaintPlugin5paintEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %446)
+_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit: ; preds = %430
+  %447 = getelementptr inbounds i8, ptr %0, i64 344
+  call void @_ZN15EditPaintPlugin5paintEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %447)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %11, i8 0, i64 7, i1 false)
-  %447 = getelementptr inbounds i8, ptr %11, i64 3
-  store i8 1, ptr %447, align 1
-  %448 = getelementptr inbounds i8, ptr %1, i64 1224
-  %449 = load i32, ptr %448, align 8
-  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %449, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %11)
+  %448 = getelementptr inbounds i8, ptr %11, i64 3
+  store i8 1, ptr %448, align 1
+  %449 = getelementptr inbounds i8, ptr %1, i64 1224
+  %450 = load i32, ptr %449, align 8
+  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %450, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %11)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %11)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit71: ; preds = %426, %426
-  %450 = getelementptr inbounds i8, ptr %0, i64 344
-  call void @_ZN15EditPaintPlugin5paintEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %450)
+_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit71: ; preds = %427, %427
+  %451 = getelementptr inbounds i8, ptr %0, i64 344
+  call void @_ZN15EditPaintPlugin5paintEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %451)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %10, i8 0, i64 7, i1 false)
-  %451 = getelementptr inbounds i8, ptr %10, i64 3
-  store i8 1, ptr %451, align 1
-  %452 = getelementptr inbounds i8, ptr %1, i64 1224
-  %453 = load i32, ptr %452, align 8
-  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %453, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %10)
+  %452 = getelementptr inbounds i8, ptr %10, i64 3
+  store i8 1, ptr %452, align 1
+  %453 = getelementptr inbounds i8, ptr %1, i64 1224
+  %454 = load i32, ptr %453, align 8
+  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %454, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %10)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %10)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit73: ; preds = %426
-  %454 = load ptr, ptr %27, align 8
-  %455 = getelementptr inbounds i8, ptr %0, i64 688
-  %456 = getelementptr inbounds i8, ptr %0, i64 496
-  call void @_Z8drawLineP6GLAreaR6QPointS2_(ptr noundef %454, ptr noundef nonnull align 4 dereferenceable(8) %455, ptr noundef nonnull align 4 dereferenceable(8) %456)
+_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit73: ; preds = %427
+  %455 = load ptr, ptr %27, align 8
+  %456 = getelementptr inbounds i8, ptr %0, i64 688
+  %457 = getelementptr inbounds i8, ptr %0, i64 496
+  call void @_Z8drawLineP6GLAreaR6QPointS2_(ptr noundef %455, ptr noundef nonnull align 4 dereferenceable(8) %456, ptr noundef nonnull align 4 dereferenceable(8) %457)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %9, i8 0, i64 7, i1 false)
-  %457 = getelementptr inbounds i8, ptr %9, i64 3
-  store i8 1, ptr %457, align 1
-  %458 = getelementptr inbounds i8, ptr %1, i64 1224
-  %459 = load i32, ptr %458, align 8
-  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %459, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %9)
+  %458 = getelementptr inbounds i8, ptr %9, i64 3
+  store i8 1, ptr %458, align 1
+  %459 = getelementptr inbounds i8, ptr %1, i64 1224
+  %460 = load i32, ptr %459, align 8
+  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %460, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %9)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %9)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-460:                                              ; preds = %426
-  %461 = getelementptr inbounds i8, ptr %0, i64 336
-  %462 = load ptr, ptr %461, align 8
+461:                                              ; preds = %427
+  %462 = getelementptr inbounds i8, ptr %0, i64 336
   %463 = load ptr, ptr %462, align 8
-  %464 = getelementptr inbounds i8, ptr %462, i64 8
-  %465 = load ptr, ptr %464, align 8
-  %.not9298 = icmp eq ptr %463, %465
+  %464 = load ptr, ptr %463, align 8
+  %465 = getelementptr inbounds i8, ptr %463, i64 8
+  %466 = load ptr, ptr %465, align 8
+  %.not9298 = icmp eq ptr %464, %466
   br i1 %.not9298, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %460, %.lr.ph
-  %.sroa.086.099 = phi ptr [ %472, %.lr.ph ], [ %463, %460 ]
-  %466 = load i32, ptr %36, align 8
-  %467 = icmp eq i32 %466, 1
-  %468 = load ptr, ptr %.sroa.086.099, align 8
-  %469 = getelementptr inbounds i8, ptr %468, i64 32
-  %470 = load i32, ptr %469, align 4
-  %471 = and i32 %470, -33
-  %masksel = select i1 %467, i32 32, i32 0
-  %.sink106 = or disjoint i32 %471, %masksel
-  store i32 %.sink106, ptr %469, align 4
-  %472 = getelementptr inbounds i8, ptr %.sroa.086.099, i64 8
-  %473 = load ptr, ptr %461, align 8
-  %474 = getelementptr inbounds i8, ptr %473, i64 8
-  %475 = load ptr, ptr %474, align 8
-  %.not92 = icmp eq ptr %472, %475
+.lr.ph:                                           ; preds = %461, %.lr.ph
+  %.sroa.086.099 = phi ptr [ %473, %.lr.ph ], [ %464, %461 ]
+  %467 = load i32, ptr %36, align 8
+  %468 = icmp eq i32 %467, 1
+  %469 = load ptr, ptr %.sroa.086.099, align 8
+  %470 = getelementptr inbounds i8, ptr %469, i64 32
+  %471 = load i32, ptr %470, align 4
+  %472 = and i32 %471, -33
+  %masksel = select i1 %468, i32 32, i32 0
+  %.sink = or disjoint i32 %472, %masksel
+  store i32 %.sink, ptr %470, align 4
+  %473 = getelementptr inbounds i8, ptr %.sroa.086.099, i64 8
+  %474 = load ptr, ptr %462, align 8
+  %475 = getelementptr inbounds i8, ptr %474, i64 8
+  %476 = load ptr, ptr %475, align 8
+  %.not92 = icmp eq ptr %473, %476
   br i1 %.not92, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %.lr.ph, %460
-  %476 = load ptr, ptr %27, align 8
-  %477 = getelementptr inbounds i8, ptr %1, i64 1224
-  %478 = load i32, ptr %477, align 8
-  call void @_ZN6GLArea15updateSelectionEibb(ptr noundef nonnull align 8 dereferenceable(1676) %476, i32 noundef %478, i1 noundef zeroext false, i1 noundef zeroext true)
+._crit_edge:                                      ; preds = %.lr.ph, %461
+  %477 = load ptr, ptr %27, align 8
+  %478 = getelementptr inbounds i8, ptr %1, i64 1224
+  %479 = load i32, ptr %478, align 8
+  call void @_ZN6GLArea15updateSelectionEibb(ptr noundef nonnull align 8 dereferenceable(1676) %477, i32 noundef %479, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit: ; preds = %426, %426
-  %479 = getelementptr inbounds i8, ptr %0, i64 344
-  call void @_ZN15EditPaintPlugin6sculptER9MeshModelPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull %479)
+_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit: ; preds = %427, %427
+  %480 = getelementptr inbounds i8, ptr %0, i64 344
+  call void @_ZN15EditPaintPlugin6sculptER9MeshModelPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull %480)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %8)
-  %480 = getelementptr inbounds i8, ptr %8, i64 3
-  store i32 0, ptr %480, align 1
+  %481 = getelementptr inbounds i8, ptr %8, i64 3
+  store i32 0, ptr %481, align 1
   store i8 1, ptr %8, align 1
-  %481 = getelementptr inbounds i8, ptr %8, i64 1
-  store i8 1, ptr %481, align 1
-  %482 = getelementptr inbounds i8, ptr %8, i64 2
+  %482 = getelementptr inbounds i8, ptr %8, i64 1
   store i8 1, ptr %482, align 1
-  %483 = getelementptr inbounds i8, ptr %1, i64 1224
-  %484 = load i32, ptr %483, align 8
-  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %484, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %8)
+  %483 = getelementptr inbounds i8, ptr %8, i64 2
+  store i8 1, ptr %483, align 1
+  %484 = getelementptr inbounds i8, ptr %1, i64 1224
+  %485 = load i32, ptr %484, align 8
+  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %485, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %8)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %8)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit76: ; preds = %426
-  %485 = getelementptr inbounds i8, ptr %0, i64 344
-  call void @_ZN15EditPaintPlugin6smoothEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %485)
+_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit76: ; preds = %427
+  %486 = getelementptr inbounds i8, ptr %0, i64 344
+  call void @_ZN15EditPaintPlugin6smoothEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %486)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, i8 0, i64 7, i1 false)
-  %486 = getelementptr inbounds i8, ptr %7, i64 3
-  store i8 1, ptr %486, align 1
-  %487 = getelementptr inbounds i8, ptr %1, i64 1224
-  %488 = load i32, ptr %487, align 8
-  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %488, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %7)
+  %487 = getelementptr inbounds i8, ptr %7, i64 3
+  store i8 1, ptr %487, align 1
+  %488 = getelementptr inbounds i8, ptr %1, i64 1224
+  %489 = load i32, ptr %488, align 8
+  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %489, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %7)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %7)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit78: ; preds = %426
-  %489 = getelementptr inbounds i8, ptr %0, i64 344
-  call void @_ZN15EditPaintPlugin6smoothEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %489)
+_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit78: ; preds = %427
+  %490 = getelementptr inbounds i8, ptr %0, i64 344
+  call void @_ZN15EditPaintPlugin6smoothEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %490)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %6)
-  %490 = getelementptr inbounds i8, ptr %6, i64 3
-  store i32 0, ptr %490, align 1
+  %491 = getelementptr inbounds i8, ptr %6, i64 3
+  store i32 0, ptr %491, align 1
   store i8 1, ptr %6, align 1
-  %491 = getelementptr inbounds i8, ptr %6, i64 1
-  store i8 1, ptr %491, align 1
-  %492 = getelementptr inbounds i8, ptr %6, i64 2
+  %492 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 1, ptr %492, align 1
-  %493 = getelementptr inbounds i8, ptr %1, i64 1224
-  %494 = load i32, ptr %493, align 8
-  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %494, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %6)
+  %493 = getelementptr inbounds i8, ptr %6, i64 2
+  store i8 1, ptr %493, align 1
+  %494 = getelementptr inbounds i8, ptr %1, i64 1224
+  %495 = load i32, ptr %494, align 8
+  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %495, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %6)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %6)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-495:                                              ; preds = %232
-  %496 = getelementptr inbounds i8, ptr %0, i64 568
-  %497 = load double, ptr %496, align 8
-  %498 = fcmp ogt double %497, 0.000000e+00
-  br i1 %498, label %499, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
+496:                                              ; preds = %232
+  %497 = getelementptr inbounds i8, ptr %0, i64 568
+  %498 = load double, ptr %497, align 8
+  %499 = fcmp ogt double %498, 0.000000e+00
+  br i1 %499, label %500, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-499:                                              ; preds = %495
-  %500 = getelementptr inbounds i8, ptr %0, i64 480
-  %501 = load i32, ptr %500, align 8
-  switch i32 %501, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82 [
-    i32 1, label %502
-    i32 5, label %527
+500:                                              ; preds = %496
+  %501 = getelementptr inbounds i8, ptr %0, i64 480
+  %502 = load i32, ptr %501, align 8
+  switch i32 %502, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82 [
+    i32 1, label %503
+    i32 5, label %528
     i32 2, label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit84
-    i32 4, label %577
-    i32 3, label %598
-    i32 6, label %598
-    i32 0, label %598
-    i32 8, label %598
-    i32 9, label %598
-    i32 10, label %598
+    i32 4, label %578
+    i32 3, label %599
+    i32 6, label %599
+    i32 0, label %599
+    i32 8, label %599
+    i32 9, label %599
+    i32 10, label %599
   ]
 
-502:                                              ; preds = %499
+503:                                              ; preds = %500
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  %503 = getelementptr inbounds i8, ptr %0, i64 504
-  %504 = load i32, ptr %503, align 8
-  %505 = getelementptr inbounds i8, ptr %0, i64 508
-  %506 = load i32, ptr %505, align 4
-  %507 = invoke noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE15PickVisibleFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEii(i32 noundef %504, i32 noundef %506, ptr noundef nonnull align 8 dereferenceable(1196) %1, ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 2, i32 noundef 2)
-          to label %508 unwind label %521
+  %504 = getelementptr inbounds i8, ptr %0, i64 504
+  %505 = load i32, ptr %504, align 8
+  %506 = getelementptr inbounds i8, ptr %0, i64 508
+  %507 = load i32, ptr %506, align 4
+  %508 = invoke noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE15PickVisibleFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEii(i32 noundef %505, i32 noundef %507, ptr noundef nonnull align 8 dereferenceable(1196) %1, ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef 2, i32 noundef 2)
+          to label %509 unwind label %522
 
-508:                                              ; preds = %502
-  %509 = icmp sgt i32 %507, 0
+509:                                              ; preds = %503
+  %510 = icmp sgt i32 %508, 0
   %.pr.pre101 = load ptr, ptr %23, align 8
-  br i1 %509, label %510, label %thread-pre-split
+  br i1 %510, label %511, label %thread-pre-split
 
-510:                                              ; preds = %508
-  %511 = load ptr, ptr %.pr.pre101, align 8
-  %.not57 = icmp eq ptr %511, null
-  br i1 %.not57, label %thread-pre-split.thread, label %512
+511:                                              ; preds = %509
+  %512 = load ptr, ptr %.pr.pre101, align 8
+  %.not57 = icmp eq ptr %512, null
+  br i1 %.not57, label %thread-pre-split.thread, label %513
 
-512:                                              ; preds = %510
-  %513 = getelementptr inbounds i8, ptr %511, i64 32
-  %514 = load i32, ptr %513, align 8
-  %515 = and i32 %514, 1
-  %.not91 = icmp eq i32 %515, 0
-  br i1 %.not91, label %516, label %thread-pre-split.thread
+513:                                              ; preds = %511
+  %514 = getelementptr inbounds i8, ptr %512, i64 32
+  %515 = load i32, ptr %514, align 8
+  %516 = and i32 %515, 1
+  %.not91 = icmp eq i32 %516, 0
+  br i1 %.not91, label %517, label %thread-pre-split.thread
 
-516:                                              ; preds = %512
-  invoke void @_ZN15EditPaintPlugin4fillER9MeshModelP6CFaceO(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull %511)
-          to label %517 unwind label %521
+517:                                              ; preds = %513
+  invoke void @_ZN15EditPaintPlugin4fillER9MeshModelP6CFaceO(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull %512)
+          to label %518 unwind label %522
 
-517:                                              ; preds = %516
+518:                                              ; preds = %517
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false)
-  %518 = getelementptr inbounds i8, ptr %5, i64 3
-  store i8 1, ptr %518, align 1
-  %519 = getelementptr inbounds i8, ptr %1, i64 1224
-  %520 = load i32, ptr %519, align 8
-  invoke void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %520, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %5)
-          to label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit80 unwind label %521
+  %519 = getelementptr inbounds i8, ptr %5, i64 3
+  store i8 1, ptr %519, align 1
+  %520 = getelementptr inbounds i8, ptr %1, i64 1224
+  %521 = load i32, ptr %520, align 8
+  invoke void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %521, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %5)
+          to label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit80 unwind label %522
 
-_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit80: ; preds = %517
+_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit80: ; preds = %518
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
   %.pr.pre = load ptr, ptr %23, align 8
   br label %thread-pre-split
 
-521:                                              ; preds = %517, %516, %502
-  %522 = landingpad { ptr, i32 }
+522:                                              ; preds = %518, %517, %503
+  %523 = landingpad { ptr, i32 }
           cleanup
-  %523 = load ptr, ptr %23, align 8
-  %.not.i.i.i = icmp eq ptr %523, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit, label %524
+  %524 = load ptr, ptr %23, align 8
+  %.not.i.i.i = icmp eq ptr %524, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit, label %525
 
-524:                                              ; preds = %521
-  call void @_ZdlPv(ptr noundef nonnull %523) #25
+525:                                              ; preds = %522
+  call void @_ZdlPv(ptr noundef nonnull %524) #25
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit
 
-thread-pre-split:                                 ; preds = %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit80, %508
-  %525 = phi ptr [ %.pr.pre101, %508 ], [ %.pr.pre, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit80 ]
-  %.not.i.i.i81 = icmp eq ptr %525, null
+thread-pre-split:                                 ; preds = %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit80, %509
+  %526 = phi ptr [ %.pr.pre101, %509 ], [ %.pr.pre, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit80 ]
+  %.not.i.i.i81 = icmp eq ptr %526, null
   br i1 %.not.i.i.i81, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82, label %thread-pre-split.thread
 
-thread-pre-split.thread:                          ; preds = %512, %510, %thread-pre-split
-  %526 = phi ptr [ %525, %thread-pre-split ], [ %.pr.pre101, %510 ], [ %.pr.pre101, %512 ]
-  call void @_ZdlPv(ptr noundef nonnull %526) #25
+thread-pre-split.thread:                          ; preds = %513, %511, %thread-pre-split
+  %527 = phi ptr [ %526, %thread-pre-split ], [ %.pr.pre101, %511 ], [ %.pr.pre101, %513 ]
+  call void @_ZdlPv(ptr noundef nonnull %527) #25
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-527:                                              ; preds = %499
+528:                                              ; preds = %500
   store i32 0, ptr %24, align 4
-  %528 = getelementptr inbounds i8, ptr %24, i64 4
-  store i16 -1, ptr %528, align 4
-  %529 = getelementptr inbounds i8, ptr %24, i64 6
-  store i64 0, ptr %529, align 2
+  %529 = getelementptr inbounds i8, ptr %24, i64 4
+  store i16 -1, ptr %529, align 4
+  %530 = getelementptr inbounds i8, ptr %24, i64 6
+  store i64 0, ptr %530, align 2
   store ptr null, ptr %25, align 8
-  %530 = getelementptr inbounds i8, ptr %0, i64 328
-  %531 = load ptr, ptr %530, align 8
-  %532 = getelementptr inbounds i8, ptr %531, i64 624
-  %533 = load ptr, ptr %532, align 8
-  %534 = call noundef i32 @_ZNK9QComboBox12currentIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %533)
-  %535 = icmp eq i32 %534, 0
-  %536 = getelementptr inbounds i8, ptr %0, i64 504
-  br i1 %535, label %537, label %555
+  %531 = getelementptr inbounds i8, ptr %0, i64 328
+  %532 = load ptr, ptr %531, align 8
+  %533 = getelementptr inbounds i8, ptr %532, i64 624
+  %534 = load ptr, ptr %533, align 8
+  %535 = call noundef i32 @_ZNK9QComboBox12currentIndexEv(ptr noundef nonnull align 8 dereferenceable(48) %534)
+  %536 = icmp eq i32 %535, 0
+  %537 = getelementptr inbounds i8, ptr %0, i64 504
+  br i1 %536, label %538, label %556
 
-537:                                              ; preds = %527
-  %538 = call noundef zeroext i1 @_Z16getVertexAtMouseR9MeshModelRP8CVertexOR6QPointPdS6_Pi(ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(8) %536, ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef nonnull %58)
-  br i1 %538, label %539, label %572
+538:                                              ; preds = %528
+  %539 = call noundef zeroext i1 @_Z16getVertexAtMouseR9MeshModelRP8CVertexOR6QPointPdS6_Pi(ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(8) %537, ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef nonnull %58)
+  br i1 %539, label %540, label %573
 
-539:                                              ; preds = %537
-  %540 = load ptr, ptr %25, align 8
-  %541 = getelementptr inbounds i8, ptr %540, i64 40
-  %542 = load i8, ptr %541, align 1
-  %543 = zext i8 %542 to i32
-  %544 = getelementptr inbounds i8, ptr %540, i64 41
-  %545 = load i8, ptr %544, align 1
-  %546 = zext i8 %545 to i32
-  %547 = getelementptr inbounds i8, ptr %540, i64 42
-  %548 = load i8, ptr %547, align 1
-  %549 = zext i8 %548 to i32
-  call void @_ZN6QColor6setRgbEiiii(ptr noundef nonnull align 4 dereferenceable(14) %24, i32 noundef %543, i32 noundef %546, i32 noundef %549, i32 noundef 255)
-  %550 = load i32, ptr %36, align 8
-  %551 = icmp eq i32 %550, 1
-  %552 = load ptr, ptr %530, align 8
-  br i1 %551, label %553, label %554
+540:                                              ; preds = %538
+  %541 = load ptr, ptr %25, align 8
+  %542 = getelementptr inbounds i8, ptr %541, i64 40
+  %543 = load i8, ptr %542, align 1
+  %544 = zext i8 %543 to i32
+  %545 = getelementptr inbounds i8, ptr %541, i64 41
+  %546 = load i8, ptr %545, align 1
+  %547 = zext i8 %546 to i32
+  %548 = getelementptr inbounds i8, ptr %541, i64 42
+  %549 = load i8, ptr %548, align 1
+  %550 = zext i8 %549 to i32
+  call void @_ZN6QColor6setRgbEiiii(ptr noundef nonnull align 4 dereferenceable(14) %24, i32 noundef %544, i32 noundef %547, i32 noundef %550, i32 noundef 255)
+  %551 = load i32, ptr %36, align 8
+  %552 = icmp eq i32 %551, 1
+  %553 = load ptr, ptr %531, align 8
+  br i1 %552, label %554, label %555
 
-553:                                              ; preds = %539
-  call void @_ZN8Paintbox18setForegroundColorER6QColor(ptr noundef nonnull align 8 dereferenceable(844) %552, ptr noundef nonnull align 4 dereferenceable(14) %24)
-  br label %572
+554:                                              ; preds = %540
+  call void @_ZN8Paintbox18setForegroundColorER6QColor(ptr noundef nonnull align 8 dereferenceable(844) %553, ptr noundef nonnull align 4 dereferenceable(14) %24)
+  br label %573
 
-554:                                              ; preds = %539
-  call void @_ZN8Paintbox18setBackgroundColorER6QColor(ptr noundef nonnull align 8 dereferenceable(844) %552, ptr noundef nonnull align 4 dereferenceable(14) %24)
-  br label %572
+555:                                              ; preds = %540
+  call void @_ZN8Paintbox18setBackgroundColorER6QColor(ptr noundef nonnull align 8 dereferenceable(844) %553, ptr noundef nonnull align 4 dereferenceable(14) %24)
+  br label %573
 
-555:                                              ; preds = %527
-  %556 = load i32, ptr %536, align 8
-  %557 = getelementptr inbounds i8, ptr %0, i64 508
-  %558 = load i32, ptr %557, align 4
-  call void @glReadPixels(i32 noundef %556, i32 noundef %558, i32 noundef 1, i32 noundef 1, i32 noundef 6407, i32 noundef 5121, ptr noundef nonnull %26)
-  %559 = load i8, ptr %26, align 1
-  %560 = zext i8 %559 to i32
-  %561 = getelementptr inbounds i8, ptr %26, i64 1
-  %562 = load i8, ptr %561, align 1
-  %563 = zext i8 %562 to i32
-  %564 = getelementptr inbounds i8, ptr %26, i64 2
-  %565 = load i8, ptr %564, align 1
-  %566 = zext i8 %565 to i32
-  call void @_ZN6QColor6setRgbEiiii(ptr noundef nonnull align 4 dereferenceable(14) %24, i32 noundef %560, i32 noundef %563, i32 noundef %566, i32 noundef 255)
-  %567 = load i32, ptr %36, align 8
-  %568 = icmp eq i32 %567, 1
-  %569 = load ptr, ptr %530, align 8
-  br i1 %568, label %570, label %571
+556:                                              ; preds = %528
+  %557 = load i32, ptr %537, align 8
+  %558 = getelementptr inbounds i8, ptr %0, i64 508
+  %559 = load i32, ptr %558, align 4
+  call void @glReadPixels(i32 noundef %557, i32 noundef %559, i32 noundef 1, i32 noundef 1, i32 noundef 6407, i32 noundef 5121, ptr noundef nonnull %26)
+  %560 = load i8, ptr %26, align 1
+  %561 = zext i8 %560 to i32
+  %562 = getelementptr inbounds i8, ptr %26, i64 1
+  %563 = load i8, ptr %562, align 1
+  %564 = zext i8 %563 to i32
+  %565 = getelementptr inbounds i8, ptr %26, i64 2
+  %566 = load i8, ptr %565, align 1
+  %567 = zext i8 %566 to i32
+  call void @_ZN6QColor6setRgbEiiii(ptr noundef nonnull align 4 dereferenceable(14) %24, i32 noundef %561, i32 noundef %564, i32 noundef %567, i32 noundef 255)
+  %568 = load i32, ptr %36, align 8
+  %569 = icmp eq i32 %568, 1
+  %570 = load ptr, ptr %531, align 8
+  br i1 %569, label %571, label %572
 
-570:                                              ; preds = %555
-  call void @_ZN8Paintbox18setForegroundColorER6QColor(ptr noundef nonnull align 8 dereferenceable(844) %569, ptr noundef nonnull align 4 dereferenceable(14) %24)
-  br label %572
+571:                                              ; preds = %556
+  call void @_ZN8Paintbox18setForegroundColorER6QColor(ptr noundef nonnull align 8 dereferenceable(844) %570, ptr noundef nonnull align 4 dereferenceable(14) %24)
+  br label %573
 
-571:                                              ; preds = %555
-  call void @_ZN8Paintbox18setBackgroundColorER6QColor(ptr noundef nonnull align 8 dereferenceable(844) %569, ptr noundef nonnull align 4 dereferenceable(14) %24)
-  br label %572
+572:                                              ; preds = %556
+  call void @_ZN8Paintbox18setBackgroundColorER6QColor(ptr noundef nonnull align 8 dereferenceable(844) %570, ptr noundef nonnull align 4 dereferenceable(14) %24)
+  br label %573
 
-572:                                              ; preds = %570, %571, %537, %554, %553
-  %573 = load ptr, ptr %530, align 8
-  call void @_ZN8Paintbox19restorePreviousTypeEv(ptr noundef nonnull align 8 dereferenceable(844) %573)
+573:                                              ; preds = %571, %572, %538, %555, %554
+  %574 = load ptr, ptr %531, align 8
+  call void @_ZN8Paintbox19restorePreviousTypeEv(ptr noundef nonnull align 8 dereferenceable(844) %574)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit84: ; preds = %499
+_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit84: ; preds = %500
   call void @_ZN15EditPaintPlugin8gradientER9MeshModelP6GLArea(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull %2)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, i8 0, i64 7, i1 false)
-  %574 = getelementptr inbounds i8, ptr %4, i64 3
-  store i8 1, ptr %574, align 1
-  %575 = getelementptr inbounds i8, ptr %1, i64 1224
-  %576 = load i32, ptr %575, align 8
-  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %576, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %4)
+  %575 = getelementptr inbounds i8, ptr %4, i64 3
+  store i8 1, ptr %575, align 1
+  %576 = getelementptr inbounds i8, ptr %1, i64 1224
+  %577 = load i32, ptr %576, align 8
+  call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %577, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %4)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-577:                                              ; preds = %499
-  %578 = getelementptr inbounds i8, ptr %0, i64 512
-  %579 = load i32, ptr %578, align 8
-  %580 = and i32 %579, 67108864
-  %.not56 = icmp ne i32 %580, 0
-  %581 = load i32, ptr %36, align 8
-  %582 = icmp eq i32 %581, 2
-  %or.cond67 = select i1 %.not56, i1 true, i1 %582
-  br i1 %or.cond67, label %.critedge2, label %583
+578:                                              ; preds = %500
+  %579 = getelementptr inbounds i8, ptr %0, i64 512
+  %580 = load i32, ptr %579, align 8
+  %581 = and i32 %580, 67108864
+  %.not56 = icmp ne i32 %581, 0
+  %582 = load i32, ptr %36, align 8
+  %583 = icmp eq i32 %582, 2
+  %or.cond67 = select i1 %.not56, i1 true, i1 %583
+  br i1 %or.cond67, label %.critedge2, label %584
 
-.critedge2:                                       ; preds = %577
+.critedge2:                                       ; preds = %578
   call void @_ZN15EditPaintPlugin7captureEv(ptr noundef nonnull align 8 dereferenceable(704) %0)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-583:                                              ; preds = %577
-  %584 = getelementptr inbounds i8, ptr %0, i64 328
-  %585 = load ptr, ptr %584, align 8
-  %586 = getelementptr inbounds i8, ptr %0, i64 496
-  %587 = load i32, ptr %586, align 8
-  %588 = getelementptr inbounds i8, ptr %0, i64 656
-  %589 = load i32, ptr %588, align 8
-  %590 = sub nsw i32 %589, %587
-  %591 = sitofp i32 %590 to double
-  %592 = getelementptr inbounds i8, ptr %0, i64 500
-  %593 = load i32, ptr %592, align 4
-  %594 = getelementptr inbounds i8, ptr %0, i64 660
-  %595 = load i32, ptr %594, align 4
-  %596 = sub nsw i32 %595, %593
-  %597 = sitofp i32 %596 to double
-  call void @_ZN8Paintbox15movePixmapDeltaEdd(ptr noundef nonnull align 8 dereferenceable(844) %585, double noundef %591, double noundef %597)
-  br label %598
+584:                                              ; preds = %578
+  %585 = getelementptr inbounds i8, ptr %0, i64 328
+  %586 = load ptr, ptr %585, align 8
+  %587 = getelementptr inbounds i8, ptr %0, i64 496
+  %588 = load i32, ptr %587, align 8
+  %589 = getelementptr inbounds i8, ptr %0, i64 656
+  %590 = load i32, ptr %589, align 8
+  %591 = sub nsw i32 %590, %588
+  %592 = sitofp i32 %591 to double
+  %593 = getelementptr inbounds i8, ptr %0, i64 500
+  %594 = load i32, ptr %593, align 4
+  %595 = getelementptr inbounds i8, ptr %0, i64 660
+  %596 = load i32, ptr %595, align 4
+  %597 = sub nsw i32 %596, %594
+  %598 = sitofp i32 %597 to double
+  call void @_ZN8Paintbox15movePixmapDeltaEdd(ptr noundef nonnull align 8 dereferenceable(844) %586, double noundef %592, double noundef %598)
+  br label %599
 
-598:                                              ; preds = %583, %499, %499, %499, %499, %499, %499
-  %599 = getelementptr inbounds i8, ptr %0, i64 328
-  %600 = load ptr, ptr %599, align 8
-  %601 = getelementptr inbounds i8, ptr %600, i64 808
-  %602 = load ptr, ptr %601, align 8
-  %603 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %602)
-  call void @_ZN10QUndoStack8endMacroEv(ptr noundef nonnull align 8 dereferenceable(16) %603)
+599:                                              ; preds = %584, %500, %500, %500, %500, %500, %500
+  %600 = getelementptr inbounds i8, ptr %0, i64 328
+  %601 = load ptr, ptr %600, align 8
+  %602 = getelementptr inbounds i8, ptr %601, i64 808
+  %603 = load ptr, ptr %602, align 8
+  %604 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %603)
+  call void @_ZN10QUndoStack8endMacroEv(ptr noundef nonnull align 8 dereferenceable(16) %604)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
-_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82:         ; preds = %thread-pre-split.thread, %thread-pre-split, %495, %499, %598, %.critedge2, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit84, %572, %249, %298, %329, %345, %325, %419, %406, %396, %385, %382, %281, %426, %429, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit, %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit78, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit76, %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit, %._crit_edge, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit73, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit71
-  %604 = getelementptr inbounds i8, ptr %1, i64 1224
-  %605 = load i32, ptr %604, align 8
-  %606 = call noundef zeroext i1 @_ZN26MLSceneGLSharedDataContext13manageBuffersEi(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %605)
-  br label %607
+_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82:         ; preds = %thread-pre-split.thread, %thread-pre-split, %496, %500, %599, %.critedge2, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit84, %573, %249, %299, %330, %346, %326, %420, %407, %397, %386, %383, %282, %427, %430, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit, %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit78, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit76, %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit, %._crit_edge, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit73, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit71
+  %605 = getelementptr inbounds i8, ptr %1, i64 1224
+  %606 = load i32, ptr %605, align 8
+  %607 = call noundef zeroext i1 @_ZN26MLSceneGLSharedDataContext13manageBuffersEi(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %606)
+  br label %608
 
-607:                                              ; preds = %35, %40, %31, %3, %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
+608:                                              ; preds = %35, %40, %31, %3, %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
   ret void
 
-_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit:           ; preds = %524, %521, %424, %411, %398, %383, %347, %327, %283
-  %.pn = phi { ptr, i32 } [ %425, %424 ], [ %412, %411 ], [ %399, %398 ], [ %384, %383 ], [ %328, %327 ], [ %348, %347 ], [ %284, %283 ], [ %522, %521 ], [ %522, %524 ]
+_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit:           ; preds = %525, %522, %425, %412, %399, %384, %348, %328, %284
+  %.pn = phi { ptr, i32 } [ %426, %425 ], [ %413, %412 ], [ %400, %399 ], [ %385, %384 ], [ %329, %328 ], [ %349, %348 ], [ %285, %284 ], [ %523, %522 ], [ %523, %525 ]
   resume { ptr, i32 } %.pn
 }
 

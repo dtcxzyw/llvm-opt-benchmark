@@ -29912,10 +29912,10 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %set, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i = getelementptr inbounds i8, ptr %set, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.this.sroa_idx.i.i, i8 0, i64 24, i1 false)
-  %set.sink.sroa.gep = getelementptr inbounds i8, ptr %set, i64 24
-  %set.sink.sroa.gep316 = getelementptr inbounds i8, ptr %set111, i64 24
-  %set.sink.sroa.gep317 = getelementptr inbounds i8, ptr %set146, i64 24
-  %set.sink.sroa.gep318 = getelementptr inbounds i8, ptr %set184, i64 24
+  %set.sink314.sroa.gep = getelementptr inbounds i8, ptr %set, i64 24
+  %set.sink314.sroa.gep317 = getelementptr inbounds i8, ptr %set111, i64 24
+  %set.sink314.sroa.gep318 = getelementptr inbounds i8, ptr %set146, i64 24
+  %set.sink314.sroa.gep319 = getelementptr inbounds i8, ptr %set184, i64 24
   invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6insertIS4_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S4_ENSC_22SameAsElementReferenceISI_EEEE5valueEiE4typeELi0ETnNSE_IXsr14IsDecomposableISI_EE5valueEiE4typeELi0EEESt4pairINSC_8iteratorEbESI_(ptr noalias nonnull align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(32) %set, ptr noundef nonnull align 8 dereferenceable(8) %a)
           to label %invoke.cont8 unwind label %lpad4
 
@@ -31529,14 +31529,14 @@ ehcleanup223:                                     ; preds = %if.end.i.i.i296, %e
   br i1 %cmp.i.i.i303, label %ehcleanup225, label %ehcleanup225.sink.split
 
 ehcleanup225.sink.split:                          ; preds = %ehcleanup223, %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit249, %ehcleanup145, %ehcleanup110
-  %set.sink.sroa.phi = phi ptr [ %set.sink.sroa.gep, %ehcleanup110 ], [ %set.sink.sroa.gep316, %ehcleanup145 ], [ %set.sink.sroa.gep317, %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit249 ], [ %set.sink.sroa.gep318, %ehcleanup223 ]
-  %set.sink = phi ptr [ %set, %ehcleanup110 ], [ %set111, %ehcleanup145 ], [ %set146, %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit249 ], [ %set184, %ehcleanup223 ]
+  %set.sink314.sroa.phi = phi ptr [ %set.sink314.sroa.gep, %ehcleanup110 ], [ %set.sink314.sroa.gep317, %ehcleanup145 ], [ %set.sink314.sroa.gep318, %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit249 ], [ %set.sink314.sroa.gep319, %ehcleanup223 ]
+  %set.sink314 = phi ptr [ %set, %ehcleanup110 ], [ %set111, %ehcleanup145 ], [ %set146, %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit249 ], [ %set184, %ehcleanup223 ]
   %.pn36.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn17.pn.pn, %ehcleanup110 ], [ %.pn23.pn.pn.pn, %ehcleanup145 ], [ %.pn30.pn.pn, %_ZN4absl13flat_hash_setINS_18container_internal12_GLOBAL__N_112PoisonInlineENS_13hash_internal4HashIS3_EESt8equal_toIS3_ESaIS3_EED2Ev.exit249 ], [ %.pn36.pn.pn.pn, %ehcleanup223 ]
-  %.sink = load ptr, ptr %set.sink, align 8
-  %182 = load i64, ptr %set.sink.sroa.phi, align 8
-  %and.i.i.i.i.i.i139 = and i64 %182, 1
+  %182 = load ptr, ptr %set.sink314, align 8
+  %183 = load i64, ptr %set.sink314.sroa.phi, align 8
+  %and.i.i.i.i.i.i139 = and i64 %183, 1
   %add.i.neg.i.i.i.i.i140 = sub nuw nsw i64 -8, %and.i.i.i.i.i.i139
-  %add.ptr.i.i.i.i.i141 = getelementptr inbounds i8, ptr %.sink, i64 %add.i.neg.i.i.i.i.i140
+  %add.ptr.i.i.i.i.i141 = getelementptr inbounds i8, ptr %182, i64 %add.i.neg.i.i.i.i.i140
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i141) #38
   br label %ehcleanup225
 

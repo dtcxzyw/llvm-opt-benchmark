@@ -2521,12 +2521,12 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias noc
   br label %.preheader
 
 .preheader:                                       ; preds = %43, %.split.us
-  %storemerge = phi i64 [ %53, %.split.us ], [ 0, %43 ]
-  store i64 %storemerge, ptr %9, align 16
+  %.sink257 = phi i64 [ %53, %.split.us ], [ 0, %43 ]
+  store i64 %.sink257, ptr %9, align 16
   %54 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %51, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %storemerge, ptr %55, align 16
+  store i64 %.sink257, ptr %55, align 16
   %56 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %51, ptr %56, align 8
   %.not195218 = icmp slt i32 %spec.select, %16

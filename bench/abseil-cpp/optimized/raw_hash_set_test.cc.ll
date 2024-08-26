@@ -100395,8 +100395,8 @@ entry:
   %cmp.i.i14.i.i.i.i.i.i = icmp eq <16 x i8> %.pre, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
   %2 = bitcast <16 x i1> %cmp.i.i14.i.i.i.i.i.i to i16
   %cmp.i15.not.i.i.i.i.i.i = icmp eq i16 %2, 0
-  %t7.sink.sroa.gep = getelementptr inbounds i8, ptr %t, i64 24
-  %t7.sink.sroa.gep302 = getelementptr inbounds i8, ptr %t7, i64 24
+  %t7.sink298.sroa.gep = getelementptr inbounds i8, ptr %t, i64 24
+  %t7.sink298.sroa.gep303 = getelementptr inbounds i8, ptr %t7, i64 24
   br label %while.body.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %for.end.i.i.i.i.i.i, %entry
@@ -101034,14 +101034,14 @@ ehcleanup73:                                      ; preds = %lpad8.loopexit, %lp
   br i1 %cmp.i.i.i246, label %eh.resume, label %eh.resume.sink.split
 
 eh.resume.sink.split:                             ; preds = %ehcleanup73, %lpad
-  %t7.sink.sroa.phi = phi ptr [ %t7.sink.sroa.gep, %lpad ], [ %t7.sink.sroa.gep302, %ehcleanup73 ]
-  %t7.sink = phi ptr [ %t, %lpad ], [ %t7, %ehcleanup73 ]
+  %t7.sink298.sroa.phi = phi ptr [ %t7.sink298.sroa.gep, %lpad ], [ %t7.sink298.sroa.gep303, %ehcleanup73 ]
+  %t7.sink298 = phi ptr [ %t, %lpad ], [ %t7, %ehcleanup73 ]
   %.pn9.ph = phi { ptr, i32 } [ %lpad.phi268, %lpad ], [ %.pn7, %ehcleanup73 ]
-  %.sink = load ptr, ptr %t7.sink, align 8
-  %70 = load i64, ptr %t7.sink.sroa.phi, align 8
-  %and.i.i.i.i.i.i249 = and i64 %70, 1
+  %70 = load ptr, ptr %t7.sink298, align 8
+  %71 = load i64, ptr %t7.sink298.sroa.phi, align 8
+  %and.i.i.i.i.i.i249 = and i64 %71, 1
   %add.i.neg.i.i.i.i.i250 = sub nuw nsw i64 -8, %and.i.i.i.i.i.i249
-  %add.ptr.i.i.i.i.i251 = getelementptr inbounds i8, ptr %.sink, i64 %add.i.neg.i.i.i.i.i250
+  %add.ptr.i.i.i.i.i251 = getelementptr inbounds i8, ptr %70, i64 %add.i.neg.i.i.i.i.i250
   call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i.i.i251) #41
   br label %eh.resume
 

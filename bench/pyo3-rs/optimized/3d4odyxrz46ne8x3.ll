@@ -876,8 +876,8 @@ define hidden void @_ZN19pyo3_macros_backend8pymethod13gen_py_method17hcde46a9ef
   %84 = alloca [360 x i8], align 8
   %.sroa.4221 = alloca [16 x i8], align 8
   %85 = alloca [24 x i8], align 8
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %17, i64 8
-  %.sink.sroa.gep308 = getelementptr inbounds i8, ptr %13, i64 8
+  %.sink306.sroa.gep = getelementptr inbounds i8, ptr %17, i64 8
+  %.sink306.sroa.gep309 = getelementptr inbounds i8, ptr %13, i64 8
   invoke void @_ZN19pyo3_macros_backend8pymethod13check_generic17h9f195b25c501a07dE(ptr nonnull sret([24 x i8]) align 8 %85, ptr align 8 %2)
           to label %86 unwind label %481
 
@@ -1943,10 +1943,10 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
   ]
 
 .noexc215:                                        ; preds = %.noexc218, %.noexc214
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %.noexc214 ], [ %.sink.sroa.gep308, %.noexc218 ]
-  %.sink = phi ptr [ %17, %.noexc214 ], [ %13, %.noexc218 ]
-  %.sroa.0234.0 = load i64, ptr %.sink, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5237, ptr noundef nonnull align 8 dereferenceable(16) %.sink.sroa.phi, i64 16, i1 false)
+  %.sink306.sroa.phi = phi ptr [ %.sink306.sroa.gep, %.noexc214 ], [ %.sink306.sroa.gep309, %.noexc218 ]
+  %.sink306 = phi ptr [ %17, %.noexc214 ], [ %13, %.noexc218 ]
+  %.sroa.0234.0.copyload236 = load i64, ptr %.sink306, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5237, ptr noundef nonnull align 8 dereferenceable(16) %.sink306.sroa.phi, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -1958,7 +1958,7 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
-  %331 = icmp eq i64 %.sroa.0234.0, -9223372036854775808
+  %331 = icmp eq i64 %.sroa.0234.0.copyload236, -9223372036854775808
   br i1 %331, label %332, label %333
 
 332:                                              ; preds = %.thread298, %.noexc215
@@ -1971,7 +1971,7 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
 
 333:                                              ; preds = %.noexc215
   %334 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0234.0, ptr %334, align 8
+  store i64 %.sroa.0234.0.copyload236, ptr %334, align 8
   %.sroa.2270.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2270.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5237, i64 16, i1 false)
   br label %.sink.split305
@@ -2337,10 +2337,10 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
           to label %303 unwind label %298
 
 .invoke:                                          ; preds = %460, %444, %420
-  %.sink307 = phi ptr [ %422, %420 ], [ %446, %444 ], [ %462, %460 ]
+  %.sink308 = phi ptr [ %422, %420 ], [ %446, %444 ], [ %462, %460 ]
   %464 = phi ptr [ %76, %420 ], [ %73, %444 ], [ %69, %460 ]
   %465 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %465, ptr noundef nonnull align 8 dereferenceable(24) %.sink307, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %465, ptr noundef nonnull align 8 dereferenceable(24) %.sink308, i64 24, i1 false)
   store i64 3, ptr %0, align 8
   invoke void @"_ZN4core3ptr58drop_in_place$LT$pyo3_macros_backend..utils..PythonDoc$GT$17h7e63866d37bbf73dE"(ptr nonnull align 8 %464)
           to label %304 unwind label %298

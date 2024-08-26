@@ -165075,14 +165075,14 @@ if.end13.i:                                       ; preds = %_ZNK5eastl13DequeIt
   br label %_ZN5eastl10vector_mapIiiNS_4lessIiEENS_9allocatorENS_5dequeINS_4pairIiiEES3_Lj32EEEE6insertENS_13DequeIteratorIS6_PKS6_RSA_Lj32EEEOS6_.exit
 
 _ZN5eastl10vector_mapIiiNS_4lessIiEENS_9allocatorENS_5dequeINS_4pairIiiEES3_Lj32EEEE6insertENS_13DequeIteratorIS6_PKS6_RSA_Lj32EEEOS6_.exit: ; preds = %if.then11.i, %if.end13.i
-  %itLB.sroa.0.0.copyload.in = phi ptr [ %ref.tmp5, %if.then11.i ], [ %result.i, %if.end13.i ]
-  %itLB.sroa.0.0.copyload = load ptr, ptr %itLB.sroa.0.0.copyload.in, align 8
+  %ref.tmp5.sink = phi ptr [ %ref.tmp5, %if.then11.i ], [ %result.i, %if.end13.i ]
+  %itLB.sroa.0.0.copyload.pre = load ptr, ptr %ref.tmp5.sink, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %result.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5eastl10vector_mapIiiNS_4lessIiEENS_9allocatorENS_5dequeINS_4pairIiiEES3_Lj32EEEE6insertENS_13DequeIteratorIS6_PKS6_RSA_Lj32EEEOS6_.exit, %lor.rhs
-  %itLB.sroa.0.0 = phi ptr [ %itLB.sroa.0.0.copyload, %_ZN5eastl10vector_mapIiiNS_4lessIiEENS_9allocatorENS_5dequeINS_4pairIiiEES3_Lj32EEEE6insertENS_13DequeIteratorIS6_PKS6_RSA_Lj32EEEOS6_.exit ], [ %21, %lor.rhs ]
+  %itLB.sroa.0.0 = phi ptr [ %itLB.sroa.0.0.copyload.pre, %_ZN5eastl10vector_mapIiiNS_4lessIiEENS_9allocatorENS_5dequeINS_4pairIiiEES3_Lj32EEEE6insertENS_13DequeIteratorIS6_PKS6_RSA_Lj32EEEOS6_.exit ], [ %21, %lor.rhs ]
   %second = getelementptr inbounds i8, ptr %itLB.sroa.0.0, i64 4
   ret ptr %second
 }
@@ -165893,8 +165893,8 @@ if.end13.i:                                       ; preds = %_ZNK5eastl13DequeIt
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %if.end13.i, %if.then11.i
-  %itLB.sroa.0.0.copyload.in = phi ptr [ %ref.tmp5, %if.then11.i ], [ %result.i, %if.end13.i ]
-  %itLB.sroa.0.0.copyload = load ptr, ptr %itLB.sroa.0.0.copyload.in, align 8
+  %ref.tmp5.sink = phi ptr [ %ref.tmp5, %if.then11.i ], [ %result.i, %if.end13.i ]
+  %itLB.sroa.0.0.copyload.pre = load ptr, ptr %ref.tmp5.sink, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %result.i)
   %40 = load i32, ptr %mMagicValue.i4.i, align 8
@@ -165940,7 +165940,7 @@ lpad9:                                            ; preds = %if.end13.i, %if.the
   resume { ptr, i32 } %46
 
 if.end:                                           ; preds = %_ZN10TestObjectD2Ev.exit, %lor.rhs
-  %itLB.sroa.0.0 = phi ptr [ %itLB.sroa.0.0.copyload, %_ZN10TestObjectD2Ev.exit ], [ %22, %lor.rhs ]
+  %itLB.sroa.0.0 = phi ptr [ %itLB.sroa.0.0.copyload.pre, %_ZN10TestObjectD2Ev.exit ], [ %22, %lor.rhs ]
   %second = getelementptr inbounds i8, ptr %itLB.sroa.0.0, i64 24
   ret ptr %second
 }

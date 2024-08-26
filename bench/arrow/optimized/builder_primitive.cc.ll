@@ -5293,8 +5293,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i15:         ; preds = %if.end8.sink.split.
   %msg.i.i.i16 = getelementptr inbounds i8, ptr %1, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i16) #15
   call void @_ZdlPv(ptr noundef nonnull %1) #16
-  store ptr null, ptr %__s, align 8
-  br label %cleanup7
+  br label %cleanup7.sink.split
 
 lpad:                                             ; preds = %entry
   %13 = landingpad { ptr, i32 }
@@ -5312,10 +5311,14 @@ _ZN5arrow6StatusD2Ev.exit72:                      ; preds = %_ZN5arrow6StatusD2E
   %15 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i, align 8
   store ptr %15, ptr %_M_refcount.i.i.i.i.i73, align 8
-  store ptr null, ptr %out, align 8
+  br label %cleanup7.sink.split
+
+cleanup7.sink.split:                              ; preds = %_ZN5arrow6StatusD2Ev.exit72, %_ZN5arrow6Status11DeleteStateEv.exit.i15
+  %__s.sink = phi ptr [ %__s, %_ZN5arrow6Status11DeleteStateEv.exit.i15 ], [ %out, %_ZN5arrow6StatusD2Ev.exit72 ]
+  store ptr null, ptr %__s.sink, align 8
   br label %cleanup7
 
-cleanup7:                                         ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i15, %if.then, %_ZN5arrow6StatusD2Ev.exit72
+cleanup7:                                         ; preds = %cleanup7.sink.split, %if.then
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %out, i64 8
   %16 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %16, null

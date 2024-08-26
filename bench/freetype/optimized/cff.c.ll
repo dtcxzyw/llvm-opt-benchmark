@@ -8689,7 +8689,7 @@ define internal fastcc i32 @cff_subfont_load(ptr noundef %0, ptr noundef %1, i32
 
 cff_parser_init.exit:                             ; preds = %8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br label %136
+  br label %135
 
 30:                                               ; preds = %8
   %31 = getelementptr inbounds i8, ptr %10, i64 48
@@ -8743,172 +8743,172 @@ cff_parser_init.exit:                             ; preds = %8
   %55 = load i64, ptr %54, align 8
   %56 = call i32 @FT_Stream_Seek(ptr noundef %3, i64 noundef %55) #19
   %.not89 = icmp eq i32 %56, 0
-  br i1 %.not89, label %57, label %136
+  br i1 %.not89, label %57, label %135
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds i8, ptr %1, i64 40
   %59 = load i64, ptr %58, align 8
   %60 = call i32 @FT_Stream_ExtractFrame(ptr noundef %3, i64 noundef %59, ptr noundef nonnull %11) #19
   %.not90 = icmp eq i32 %60, 0
-  br i1 %.not90, label %.thread, label %136
+  br i1 %.not90, label %.thread, label %135
 
 61:                                               ; preds = %30
   %62 = call fastcc i32 @cff_index_access_element(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %.not91 = icmp eq i32 %62, 0
-  br i1 %.not91, label %.thread, label %68
+  br i1 %.not91, label %.thread, label %67
 
 .thread:                                          ; preds = %61, %57
-  %.in = phi ptr [ %58, %57 ], [ %12, %61 ]
-  %63 = load i64, ptr %.in, align 8
-  %64 = load ptr, ptr %11, align 8
-  %.not92 = icmp eq ptr %64, null
-  %65 = getelementptr inbounds i8, ptr %64, i64 %63
-  %66 = select i1 %.not92, ptr null, ptr %65
-  %67 = call fastcc i32 @cff_parser_run(ptr noundef nonnull %10, ptr noundef %64, ptr noundef %66)
-  br label %68
+  %.sink = phi ptr [ %58, %57 ], [ %12, %61 ]
+  %.pre = load i64, ptr %.sink, align 8
+  %63 = load ptr, ptr %11, align 8
+  %.not92 = icmp eq ptr %63, null
+  %64 = getelementptr inbounds i8, ptr %63, i64 %.pre
+  %65 = select i1 %.not92, ptr null, ptr %64
+  %66 = call fastcc i32 @cff_parser_run(ptr noundef nonnull %10, ptr noundef %63, ptr noundef %65)
+  br label %67
 
-68:                                               ; preds = %.thread, %61
-  %.2 = phi i32 [ %62, %61 ], [ %67, %.thread ]
-  %69 = load i32, ptr %51, align 4
-  %.not93 = icmp eq i32 %69, 0
-  br i1 %.not93, label %cff_index_forget_element.exit.sink.split, label %70
+67:                                               ; preds = %.thread, %61
+  %.2 = phi i32 [ %62, %61 ], [ %66, %.thread ]
+  %68 = load i32, ptr %51, align 4
+  %.not93 = icmp eq i32 %68, 0
+  br i1 %.not93, label %cff_index_forget_element.exit.sink.split, label %69
 
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %1, i64 56
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %74, label %cff_index_forget_element.exit
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds i8, ptr %1, i64 56
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %cff_index_forget_element.exit
 
-74:                                               ; preds = %70
-  %75 = load ptr, ptr %1, align 8
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %1, align 8
   br label %cff_index_forget_element.exit.sink.split
 
-cff_index_forget_element.exit.sink.split:         ; preds = %68, %74
-  %.sink = phi ptr [ %75, %74 ], [ %3, %68 ]
-  call void @FT_Stream_ReleaseFrame(ptr noundef %.sink, ptr noundef nonnull %11) #19
+cff_index_forget_element.exit.sink.split:         ; preds = %67, %73
+  %.sink109 = phi ptr [ %74, %73 ], [ %3, %67 ]
+  call void @FT_Stream_ReleaseFrame(ptr noundef %.sink109, ptr noundef nonnull %11) #19
   br label %cff_index_forget_element.exit
 
-cff_index_forget_element.exit:                    ; preds = %cff_index_forget_element.exit.sink.split, %70
+cff_index_forget_element.exit:                    ; preds = %cff_index_forget_element.exit.sink.split, %69
   %.not94 = icmp eq i32 %.2, 0
-  br i1 %.not94, label %76, label %136
+  br i1 %.not94, label %75, label %135
 
-76:                                               ; preds = %cff_index_forget_element.exit
-  %77 = load i32, ptr %46, align 4
-  %.not95 = icmp eq i32 %77, 65535
-  br i1 %.not95, label %78, label %136
+75:                                               ; preds = %cff_index_forget_element.exit
+  %76 = load i32, ptr %46, align 4
+  %.not95 = icmp eq i32 %76, 65535
+  br i1 %.not95, label %77, label %135
 
-78:                                               ; preds = %76
-  %79 = call i32 @cff_load_private_dict(ptr noundef nonnull %6, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null)
-  %.not96 = icmp eq i32 %79, 0
-  br i1 %.not96, label %80, label %136
+77:                                               ; preds = %75
+  %78 = call i32 @cff_load_private_dict(ptr noundef nonnull %6, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null)
+  %.not96 = icmp eq i32 %78, 0
+  br i1 %.not96, label %79, label %135
 
-80:                                               ; preds = %78
-  switch i32 %5, label %81 [
-    i32 16384, label %121
-    i32 12288, label %121
+79:                                               ; preds = %77
+  switch i32 %5, label %80 [
+    i32 16384, label %120
+    i32 12288, label %120
   ]
 
-81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %7, i64 240
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 116
-  %85 = load i32, ptr %84, align 4
-  %86 = icmp eq i32 %85, -1
-  br i1 %86, label %87, label %99
+80:                                               ; preds = %79
+  %81 = getelementptr inbounds i8, ptr %7, i64 240
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 116
+  %84 = load i32, ptr %83, align 4
+  %85 = icmp eq i32 %84, -1
+  br i1 %85, label %86, label %98
 
-87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %7, i64 176
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 96
-  %91 = load i32, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 1216
-  store i32 %91, ptr %92, align 8
-  %.not98 = icmp eq i32 %91, 0
+86:                                               ; preds = %80
+  %87 = getelementptr inbounds i8, ptr %7, i64 176
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 96
+  %90 = load i32, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %0, i64 1216
+  store i32 %90, ptr %91, align 8
+  %.not98 = icmp eq i32 %90, 0
   br i1 %.not98, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %87
-  %93 = getelementptr inbounds i8, ptr %14, i64 40
-  br label %94
+.preheader:                                       ; preds = %86
+  %92 = getelementptr inbounds i8, ptr %14, i64 40
+  br label %93
 
-94:                                               ; preds = %.preheader, %94
-  %95 = phi i32 [ %91, %.preheader ], [ %97, %94 ]
-  %96 = load ptr, ptr %93, align 8
-  %97 = call i32 %96(i32 noundef %95) #19
-  store i32 %97, ptr %90, align 8
-  %98 = icmp slt i32 %97, 0
-  br i1 %98, label %94, label %.loopexit, !llvm.loop !52
+93:                                               ; preds = %.preheader, %93
+  %94 = phi i32 [ %90, %.preheader ], [ %96, %93 ]
+  %95 = load ptr, ptr %92, align 8
+  %96 = call i32 %95(i32 noundef %94) #19
+  store i32 %96, ptr %89, align 8
+  %97 = icmp slt i32 %96, 0
+  br i1 %97, label %93, label %.loopexit, !llvm.loop !52
 
-99:                                               ; preds = %81
-  %100 = getelementptr inbounds i8, ptr %0, i64 1216
-  store i32 %85, ptr %100, align 8
-  %101 = load ptr, ptr %82, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 116
-  %103 = load i32, ptr %102, align 4
-  %.not97 = icmp eq i32 %103, 0
+98:                                               ; preds = %80
+  %99 = getelementptr inbounds i8, ptr %0, i64 1216
+  store i32 %84, ptr %99, align 8
+  %100 = load ptr, ptr %81, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 116
+  %102 = load i32, ptr %101, align 4
+  %.not97 = icmp eq i32 %102, 0
   br i1 %.not97, label %.loopexit, label %.preheader105
 
-.preheader105:                                    ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %14, i64 40
-  br label %105
+.preheader105:                                    ; preds = %98
+  %103 = getelementptr inbounds i8, ptr %14, i64 40
+  br label %104
 
-105:                                              ; preds = %.preheader105, %105
-  %106 = phi i32 [ %103, %.preheader105 ], [ %113, %105 ]
-  %107 = load ptr, ptr %104, align 8
-  %108 = call i32 %107(i32 noundef %106) #19
-  %109 = load ptr, ptr %82, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 116
-  store i32 %108, ptr %110, align 4
-  %111 = load ptr, ptr %82, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 116
-  %113 = load i32, ptr %112, align 4
-  %114 = icmp slt i32 %113, 0
-  br i1 %114, label %105, label %.loopexit, !llvm.loop !53
+104:                                              ; preds = %.preheader105, %104
+  %105 = phi i32 [ %102, %.preheader105 ], [ %112, %104 ]
+  %106 = load ptr, ptr %103, align 8
+  %107 = call i32 %106(i32 noundef %105) #19
+  %108 = load ptr, ptr %81, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 116
+  store i32 %107, ptr %109, align 4
+  %110 = load ptr, ptr %81, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 116
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp slt i32 %112, 0
+  br i1 %113, label %104, label %.loopexit, !llvm.loop !53
 
-.loopexit:                                        ; preds = %105, %94, %99, %87
-  %115 = getelementptr inbounds i8, ptr %0, i64 1216
-  %116 = load i32, ptr %115, align 8
-  %.not99 = icmp eq i32 %116, 0
-  br i1 %.not99, label %117, label %121
+.loopexit:                                        ; preds = %104, %93, %98, %86
+  %114 = getelementptr inbounds i8, ptr %0, i64 1216
+  %115 = load i32, ptr %114, align 8
+  %.not99 = icmp eq i32 %115, 0
+  br i1 %.not99, label %116, label %120
 
-117:                                              ; preds = %.loopexit
-  %118 = getelementptr inbounds i8, ptr %0, i64 1008
-  %119 = load i64, ptr %118, align 8
-  %120 = trunc i64 %119 to i32
-  store i32 %120, ptr %115, align 8
-  br label %121
+116:                                              ; preds = %.loopexit
+  %117 = getelementptr inbounds i8, ptr %0, i64 1008
+  %118 = load i64, ptr %117, align 8
+  %119 = trunc i64 %118 to i32
+  store i32 %119, ptr %114, align 8
+  br label %120
 
-121:                                              ; preds = %80, %80, %.loopexit, %117
-  %122 = getelementptr inbounds i8, ptr %0, i64 1016
-  %123 = load i64, ptr %122, align 8
-  %.not100 = icmp eq i64 %123, 0
-  br i1 %.not100, label %136, label %124
+120:                                              ; preds = %79, %79, %.loopexit, %116
+  %121 = getelementptr inbounds i8, ptr %0, i64 1016
+  %122 = load i64, ptr %121, align 8
+  %.not100 = icmp eq i64 %122, 0
+  br i1 %.not100, label %135, label %123
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %0, i64 200
-  %126 = load i64, ptr %125, align 8
-  %127 = add i64 %123, %4
-  %128 = add i64 %127, %126
-  %129 = call i32 @FT_Stream_Seek(ptr noundef %3, i64 noundef %128) #19
-  %.not101 = icmp eq i32 %129, 0
-  br i1 %.not101, label %130, label %136
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds i8, ptr %0, i64 200
+  %125 = load i64, ptr %124, align 8
+  %126 = add i64 %122, %4
+  %127 = add i64 %126, %125
+  %128 = call i32 @FT_Stream_Seek(ptr noundef %3, i64 noundef %127) #19
+  %.not101 = icmp eq i32 %128, 0
+  br i1 %.not101, label %129, label %135
 
-130:                                              ; preds = %124
-  %131 = getelementptr inbounds i8, ptr %0, i64 1144
-  %132 = call fastcc i32 @cff_index_init(ptr noundef nonnull %131, ptr noundef %3, i8 noundef zeroext 1, i8 noundef zeroext %18)
-  %.not102 = icmp eq i32 %132, 0
-  br i1 %.not102, label %133, label %136
+129:                                              ; preds = %123
+  %130 = getelementptr inbounds i8, ptr %0, i64 1144
+  %131 = call fastcc i32 @cff_index_init(ptr noundef nonnull %130, ptr noundef %3, i8 noundef zeroext 1, i8 noundef zeroext %18)
+  %.not102 = icmp eq i32 %131, 0
+  br i1 %.not102, label %132, label %135
 
-133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %0, i64 1208
-  %135 = call fastcc i32 @cff_index_get_pointers(ptr noundef nonnull %131, ptr noundef nonnull %134, ptr noundef null, ptr noundef null)
-  br label %136
+132:                                              ; preds = %129
+  %133 = getelementptr inbounds i8, ptr %0, i64 1208
+  %134 = call fastcc i32 @cff_index_get_pointers(ptr noundef nonnull %130, ptr noundef nonnull %133, ptr noundef null, ptr noundef null)
+  br label %135
 
-136:                                              ; preds = %cff_parser_init.exit, %133, %121, %130, %124, %78, %76, %cff_index_forget_element.exit, %53, %57
-  %.0 = phi i32 [ %29, %cff_parser_init.exit ], [ %.2, %cff_index_forget_element.exit ], [ 0, %76 ], [ %79, %78 ], [ %129, %124 ], [ %132, %130 ], [ %135, %133 ], [ 0, %121 ], [ %56, %53 ], [ %60, %57 ]
-  %137 = load ptr, ptr %10, align 8
-  %138 = load ptr, ptr %137, align 8
-  %139 = load ptr, ptr %28, align 8
-  call void @ft_mem_free(ptr noundef %138, ptr noundef %139) #19
+135:                                              ; preds = %cff_parser_init.exit, %132, %120, %129, %123, %77, %75, %cff_index_forget_element.exit, %53, %57
+  %.0 = phi i32 [ %29, %cff_parser_init.exit ], [ %.2, %cff_index_forget_element.exit ], [ 0, %75 ], [ %78, %77 ], [ %128, %123 ], [ %131, %129 ], [ %134, %132 ], [ 0, %120 ], [ %56, %53 ], [ %60, %57 ]
+  %136 = load ptr, ptr %10, align 8
+  %137 = load ptr, ptr %136, align 8
+  %138 = load ptr, ptr %28, align 8
+  call void @ft_mem_free(ptr noundef %137, ptr noundef %138) #19
   ret i32 %.0
 }
 

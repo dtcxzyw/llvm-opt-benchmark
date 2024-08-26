@@ -926,8 +926,8 @@ switch.lookup:                                    ; preds = %54
   br label %61
 
 61:                                               ; preds = %switch.lookup, %58
-  %.0.i.in = phi ptr [ %5, %58 ], [ %switch.gep, %switch.lookup ]
-  %.0.i = load ptr, ptr %.0.i.in, align 8
+  %switch.gep.sink = phi ptr [ %switch.gep, %switch.lookup ], [ %5, %58 ]
+  %switch.load = load ptr, ptr %switch.gep.sink, align 8
   %62 = load ptr, ptr %10, align 8
   %63 = call ptr @bitmap2node_name(ptr noundef %62) #13
   store ptr %63, ptr %3, align 8
@@ -955,7 +955,7 @@ switch.lookup:                                    ; preds = %54
   %79 = getelementptr inbounds i8, ptr %9, i64 32
   %80 = load i16, ptr %79, align 8
   %81 = zext i16 %80 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__._log_feature_nodes, ptr noundef %72, i32 noundef %75, i32 noundef %78, i32 noundef %81, ptr noundef %.0.i, ptr noundef %63, ptr noundef %65) #13
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__._log_feature_nodes, ptr noundef %72, i32 noundef %75, i32 noundef %78, i32 noundef %81, ptr noundef %switch.load, ptr noundef %63, ptr noundef %65) #13
   br label %82
 
 82:                                               ; preds = %71, %68, %61

@@ -1105,14 +1105,14 @@ define hidden void @_ZN6parser7grammar5paths12path_segment17h4467060628ae9263E.l
   %16 = load i64, ptr %15, align 8, !alias.scope !133, !noalias !130, !noundef !11
   %17 = load i64, ptr %0, align 8, !alias.scope !135, !noalias !140, !noundef !11
   %18 = icmp eq i64 %16, %17
-  %.sink114.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
-  %.sink114.sroa.gep115 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink114.sroa.gep117 = getelementptr inbounds i8, ptr %4, i64 32
-  %.sink114.sroa.gep118 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink114.sroa.gep120 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sink114.sroa.gep121 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink114.sroa.gep123 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sink114.sroa.gep124 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink.sroa.gep115 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink.sroa.gep117 = getelementptr inbounds i8, ptr %4, i64 32
+  %.sink.sroa.gep118 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink.sroa.gep120 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sink.sroa.gep121 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink.sroa.gep123 = getelementptr inbounds i8, ptr %4, i64 24
+  %.sink.sroa.gep124 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %18, label %._crit_edge.i.i.i, label %_ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit
 
 ._crit_edge.i.i.i:                                ; preds = %3
@@ -1254,20 +1254,20 @@ _ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.ex
 
 68:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
-  store ptr @anon.b524e8eb8974857e663438d42e829098.18.llvm.6580822817679657170, ptr %6, align 8
   br label %.invoke
 
 .invoke:                                          ; preds = %162, %68
-  %.sink114.sroa.phi = phi ptr [ %.sink114.sroa.gep, %162 ], [ %.sink114.sroa.gep115, %68 ]
-  %.sink114.sroa.phi116 = phi ptr [ %.sink114.sroa.gep117, %162 ], [ %.sink114.sroa.gep118, %68 ]
-  %.sink114.sroa.phi119 = phi ptr [ %.sink114.sroa.gep120, %162 ], [ %.sink114.sroa.gep121, %68 ]
-  %.sink114.sroa.phi122 = phi ptr [ %.sink114.sroa.gep123, %162 ], [ %.sink114.sroa.gep124, %68 ]
-  %.sink114 = phi ptr [ %4, %162 ], [ %6, %68 ]
-  store i64 1, ptr %.sink114.sroa.phi, align 8
-  store ptr null, ptr %.sink114.sroa.phi116, align 8
-  store ptr @anon.b524e8eb8974857e663438d42e829098.3.llvm.6580822817679657170, ptr %.sink114.sroa.phi119, align 8
-  store i64 0, ptr %.sink114.sroa.phi122, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink114, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b524e8eb8974857e663438d42e829098.19.llvm.6580822817679657170) #10
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %162 ], [ %.sink.sroa.gep115, %68 ]
+  %.sink.sroa.phi116 = phi ptr [ %.sink.sroa.gep117, %162 ], [ %.sink.sroa.gep118, %68 ]
+  %.sink.sroa.phi119 = phi ptr [ %.sink.sroa.gep120, %162 ], [ %.sink.sroa.gep121, %68 ]
+  %.sink.sroa.phi122 = phi ptr [ %.sink.sroa.gep123, %162 ], [ %.sink.sroa.gep124, %68 ]
+  %.sink = phi ptr [ %4, %162 ], [ %6, %68 ]
+  store ptr @anon.b524e8eb8974857e663438d42e829098.18.llvm.6580822817679657170, ptr %.sink, align 8
+  store i64 1, ptr %.sink.sroa.phi, align 8
+  store ptr null, ptr %.sink.sroa.phi116, align 8
+  store ptr @anon.b524e8eb8974857e663438d42e829098.3.llvm.6580822817679657170, ptr %.sink.sroa.phi119, align 8
+  store i64 0, ptr %.sink.sroa.phi122, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b524e8eb8974857e663438d42e829098.19.llvm.6580822817679657170) #10
           to label %.cont unwind label %.thread95
 
 .cont:                                            ; preds = %.invoke
@@ -1582,7 +1582,6 @@ _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit66: ; preds = %_ZN6parser7g
 
 162:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  store ptr @anon.b524e8eb8974857e663438d42e829098.18.llvm.6580822817679657170, ptr %4, align 8
   br label %.invoke
 
 _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i: ; preds = %155

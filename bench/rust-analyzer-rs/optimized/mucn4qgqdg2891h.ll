@@ -63766,14 +63766,14 @@ define noundef zeroext i1 @"_ZN67_$LT$hir_def..import_map..ImportMap$u20$as$u20$
   %15 = getelementptr inbounds i8, ptr %9, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  %.sink32.i.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink32.i.sroa.gep22 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink32.i.sroa.gep24 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink32.i.sroa.gep25 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sink32.i.sroa.gep27 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink32.i.sroa.gep28 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink32.i.sroa.gep30 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sink32.i.sroa.gep31 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink.i.sroa.gep22 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink.i.sroa.gep24 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink.i.sroa.gep25 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink.i.sroa.gep27 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink.i.sroa.gep28 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink.i.sroa.gep30 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink.i.sroa.gep31 = getelementptr inbounds i8, ptr %5, i64 24
   invoke void @_ZN4core5slice4sort10merge_sort17h53b1f129c9841350E(ptr noalias noundef nonnull align 8 %14, i64 noundef %16, ptr noalias noundef nonnull align 1 %3)
           to label %19 unwind label %17
 
@@ -63900,7 +63900,6 @@ define noundef zeroext i1 @"_ZN67_$LT$hir_def..import_map..ImportMap$u20$as$u20$
 
 61:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !14136
-  store ptr @anon.5bcdf0f39a39a1f1bdb121e0a7249614.60, ptr %6, align 8, !noalias !14136
   br label %.invoke.i
 
 62:                                               ; preds = %.lr.ph.i
@@ -63911,20 +63910,20 @@ define noundef zeroext i1 @"_ZN67_$LT$hir_def..import_map..ImportMap$u20$as$u20$
 
 64:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !14146
-  store ptr @anon.5bcdf0f39a39a1f1bdb121e0a7249614.60, ptr %5, align 8, !noalias !14146
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %64, %61
-  %.sink32.i.sroa.phi = phi ptr [ %.sink32.i.sroa.gep, %61 ], [ %.sink32.i.sroa.gep22, %64 ]
-  %.sink32.i.sroa.phi23 = phi ptr [ %.sink32.i.sroa.gep24, %61 ], [ %.sink32.i.sroa.gep25, %64 ]
-  %.sink32.i.sroa.phi26 = phi ptr [ %.sink32.i.sroa.gep27, %61 ], [ %.sink32.i.sroa.gep28, %64 ]
-  %.sink32.i.sroa.phi29 = phi ptr [ %.sink32.i.sroa.gep30, %61 ], [ %.sink32.i.sroa.gep31, %64 ]
-  %.sink32.i = phi ptr [ %6, %61 ], [ %5, %64 ]
-  store i64 1, ptr %.sink32.i.sroa.phi, align 8, !noalias !14122
-  store ptr null, ptr %.sink32.i.sroa.phi23, align 8, !noalias !14122
-  store ptr @anon.5bcdf0f39a39a1f1bdb121e0a7249614.25.llvm.11603491536561601675, ptr %.sink32.i.sroa.phi26, align 8, !noalias !14122
-  store i64 0, ptr %.sink32.i.sroa.phi29, align 8, !noalias !14122
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink32.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5bcdf0f39a39a1f1bdb121e0a7249614.83) #56
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %61 ], [ %.sink.i.sroa.gep22, %64 ]
+  %.sink.i.sroa.phi23 = phi ptr [ %.sink.i.sroa.gep24, %61 ], [ %.sink.i.sroa.gep25, %64 ]
+  %.sink.i.sroa.phi26 = phi ptr [ %.sink.i.sroa.gep27, %61 ], [ %.sink.i.sroa.gep28, %64 ]
+  %.sink.i.sroa.phi29 = phi ptr [ %.sink.i.sroa.gep30, %61 ], [ %.sink.i.sroa.gep31, %64 ]
+  %.sink.i = phi ptr [ %6, %61 ], [ %5, %64 ]
+  store ptr @anon.5bcdf0f39a39a1f1bdb121e0a7249614.60, ptr %.sink.i, align 8, !noalias !14122
+  store i64 1, ptr %.sink.i.sroa.phi, align 8, !noalias !14122
+  store ptr null, ptr %.sink.i.sroa.phi23, align 8, !noalias !14122
+  store ptr @anon.5bcdf0f39a39a1f1bdb121e0a7249614.25.llvm.11603491536561601675, ptr %.sink.i.sroa.phi26, align 8, !noalias !14122
+  store i64 0, ptr %.sink.i.sroa.phi29, align 8, !noalias !14122
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5bcdf0f39a39a1f1bdb121e0a7249614.83) #56
           to label %.cont.i unwind label %36, !noalias !14121
 
 .cont.i:                                          ; preds = %.invoke.i

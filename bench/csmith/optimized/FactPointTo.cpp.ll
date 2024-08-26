@@ -5501,8 +5501,8 @@ define dso_local noundef i32 @_ZN11FactPointTo19find_union_pointeesERKSt6vectorI
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %8, %6
-  %.sink55.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
-  %.sink55.sroa.gep56 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink.sroa.gep56 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %.not.i.i, label %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit, label %9
 
 9:                                                ; preds = %3
@@ -5534,10 +5534,10 @@ _ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit:     ; preds = %_ZNSt6vectorIPK8Var
   call void @_ZN11FactPointTo25merge_pointees_of_pointerEPK8VariableiRKSt6vectorIPK4FactSaIS6_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %4, ptr noundef %20, i32 noundef %21, ptr noundef nonnull align 8 dereferenceable(24) %0)
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit26:      ; preds = %.lr.ph, %41
+_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit26:      ; preds = %.lr.ph, %42
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %30) #21
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
 _ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit28:   ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EE5clearEv.exit
@@ -5553,72 +5553,72 @@ _ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit28:   ; preds = %_ZNSt6vectorIPK8Var
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit28
-  %.sink55.sroa.phi = phi ptr [ %.sink55.sroa.gep, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit ], [ %.sink55.sroa.gep56, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit28 ]
-  %.sink55 = phi ptr [ %4, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit ], [ %5, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit28 ]
-  %.sroa.0.1 = load ptr, ptr %.sink55, align 8
-  %30 = load ptr, ptr %.sink55.sroa.phi, align 8
-  %.not44 = icmp eq ptr %30, %.sroa.0.1
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit ], [ %.sink.sroa.gep56, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit28 ]
+  %.sink = phi ptr [ %4, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit ], [ %5, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit28 ]
+  %30 = load ptr, ptr %.sink, align 8
+  %31 = load ptr, ptr %.sink.sroa.phi, align 8
+  %.not44 = icmp eq ptr %31, %30
   br i1 %.not44, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
-  %31 = ptrtoint ptr %30 to i64
-  %32 = ptrtoint ptr %.sroa.0.1 to i64
-  %33 = sub i64 %31, %32
-  %34 = ashr exact i64 %33, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %34, i64 1)
+  %32 = ptrtoint ptr %31 to i64
+  %33 = ptrtoint ptr %30 to i64
+  %34 = sub i64 %32, %33
+  %35 = ashr exact i64 %34, 3
+  %umax = tail call i64 @llvm.umax.i64(i64 %35, i64 1)
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
-  %.043 = phi i64 [ %44, %43 ], [ 0, %.lr.ph.preheader ]
-  %35 = getelementptr inbounds ptr, ptr %.sroa.0.1, i64 %.043
-  %36 = load ptr, ptr %35, align 8
-  %37 = invoke noundef ptr @_ZNK8Variable19get_container_unionEv(ptr noundef nonnull align 8 dereferenceable(200) %36)
-          to label %38 unwind label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit26
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %44
+  %.043 = phi i64 [ %45, %44 ], [ 0, %.lr.ph.preheader ]
+  %36 = getelementptr inbounds ptr, ptr %30, i64 %.043
+  %37 = load ptr, ptr %36, align 8
+  %38 = invoke noundef ptr @_ZNK8Variable19get_container_unionEv(ptr noundef nonnull align 8 dereferenceable(200) %37)
+          to label %39 unwind label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit26
 
-38:                                               ; preds = %.lr.ph
-  %.not = icmp eq ptr %37, null
-  br i1 %.not, label %43, label %39
+39:                                               ; preds = %.lr.ph
+  %.not = icmp eq ptr %38, null
+  br i1 %.not, label %44, label %40
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %35, align 8
-  %.not24 = icmp eq ptr %40, %37
-  br i1 %.not24, label %43, label %41
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %36, align 8
+  %.not24 = icmp eq ptr %41, %38
+  br i1 %.not24, label %44, label %42
 
-41:                                               ; preds = %39
-  %42 = invoke noundef zeroext i1 @_Z19add_variable_to_setRSt6vectorIPK8VariableSaIS2_EES2_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %37)
-          to label %43 unwind label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit26
+42:                                               ; preds = %40
+  %43 = invoke noundef zeroext i1 @_Z19add_variable_to_setRSt6vectorIPK8VariableSaIS2_EES2_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %38)
+          to label %44 unwind label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit26
 
-43:                                               ; preds = %38, %39, %41
-  %44 = add nuw i64 %.043, 1
-  %exitcond.not = icmp eq i64 %44, %umax
+44:                                               ; preds = %39, %40, %42
+  %45 = add nuw i64 %.043, 1
+  %exitcond.not = icmp eq i64 %45, %umax
   br i1 %exitcond.not, label %._crit_edge.thread51, label %.lr.ph, !llvm.loop !38
 
-._crit_edge.thread51:                             ; preds = %43
-  %45 = load ptr, ptr %7, align 8
-  %46 = load ptr, ptr %2, align 8
-  br label %49
+._crit_edge.thread51:                             ; preds = %44
+  %46 = load ptr, ptr %7, align 8
+  %47 = load ptr, ptr %2, align 8
+  br label %50
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
-  %47 = load ptr, ptr %7, align 8
-  %48 = load ptr, ptr %2, align 8
-  %.not.i.i.i31 = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not.i.i.i31, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit32, label %49
+  %48 = load ptr, ptr %7, align 8
+  %49 = load ptr, ptr %2, align 8
+  %.not.i.i.i31 = icmp eq ptr %30, null
+  br i1 %.not.i.i.i31, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit32, label %50
 
-49:                                               ; preds = %._crit_edge.thread51, %._crit_edge
-  %50 = phi ptr [ %46, %._crit_edge.thread51 ], [ %48, %._crit_edge ]
-  %51 = phi ptr [ %45, %._crit_edge.thread51 ], [ %47, %._crit_edge ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #21
+50:                                               ; preds = %._crit_edge.thread51, %._crit_edge
+  %51 = phi ptr [ %47, %._crit_edge.thread51 ], [ %49, %._crit_edge ]
+  %52 = phi ptr [ %46, %._crit_edge.thread51 ], [ %48, %._crit_edge ]
+  tail call void @_ZdlPv(ptr noundef nonnull %30) #21
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit32
 
-_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit32:      ; preds = %._crit_edge.thread, %._crit_edge, %49
-  %52 = phi ptr [ %13, %._crit_edge.thread ], [ %48, %._crit_edge ], [ %50, %49 ]
-  %53 = phi ptr [ %12, %._crit_edge.thread ], [ %47, %._crit_edge ], [ %51, %49 ]
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %52 to i64
-  %56 = sub i64 %54, %55
-  %57 = lshr exact i64 %56, 3
-  %58 = trunc i64 %57 to i32
-  ret i32 %58
+_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit32:      ; preds = %._crit_edge.thread, %._crit_edge, %50
+  %53 = phi ptr [ %13, %._crit_edge.thread ], [ %49, %._crit_edge ], [ %51, %50 ]
+  %54 = phi ptr [ %12, %._crit_edge.thread ], [ %48, %._crit_edge ], [ %52, %50 ]
+  %55 = ptrtoint ptr %54 to i64
+  %56 = ptrtoint ptr %53 to i64
+  %57 = sub i64 %55, %56
+  %58 = lshr exact i64 %57, 3
+  %59 = trunc i64 %58 to i32
+  ret i32 %59
 }
 
 declare noundef ptr @_ZNK8Variable19get_container_unionEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #0

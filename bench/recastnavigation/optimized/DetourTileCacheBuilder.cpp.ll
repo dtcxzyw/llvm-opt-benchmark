@@ -3935,16 +3935,12 @@ _ZL14countPolyVertsPKt.exit295:                   ; preds = %115
 _ZL9pushFronttPtRi.exit:                          ; preds = %.lr.ph.preheader.i, %166
   store i16 %153, ptr %5, align 16
   %170 = icmp sgt i32 %.1347417, 0
-  br i1 %170, label %.lr.ph.preheader.i298, label %_ZL9pushFronttPtRi.exit302
+  br i1 %170, label %.lr.ph.preheader.i298, label %.critedge
 
 .lr.ph.preheader.i298:                            ; preds = %_ZL9pushFronttPtRi.exit
   %171 = shl nuw i32 %.1347417, 1
   %172 = zext i32 %171 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %scevgep519, ptr nonnull align 16 %6, i64 %172, i1 false)
-  br label %_ZL9pushFronttPtRi.exit302
-
-_ZL9pushFronttPtRi.exit302:                       ; preds = %.lr.ph.preheader.i298, %_ZL9pushFronttPtRi.exit
-  store i16 %161, ptr %6, align 16
   br label %.critedge
 
 173:                                              ; preds = %.lr.ph422
@@ -3965,10 +3961,11 @@ _ZL9pushFronttPtRi.exit302:                       ; preds = %.lr.ph.preheader.i2
   store i16 %157, ptr %183, align 2
   %184 = sext i32 %.1347417 to i64
   %185 = getelementptr inbounds i16, ptr %6, i64 %184
-  store i16 %161, ptr %185, align 2
   br label %.critedge
 
-.critedge:                                        ; preds = %181, %_ZL9pushFronttPtRi.exit302
+.critedge:                                        ; preds = %_ZL9pushFronttPtRi.exit, %.lr.ph.preheader.i298, %181
+  %.sink = phi ptr [ %185, %181 ], [ %6, %.lr.ph.preheader.i298 ], [ %6, %_ZL9pushFronttPtRi.exit ]
+  store i16 %161, ptr %.sink, align 2
   %.3349 = add nsw i32 %.1347417, 1
   %.3353 = add nsw i32 %.1351416, 1
   %186 = mul i32 %.5420, 3

@@ -1359,15 +1359,15 @@ _ZNKSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEEclES4_S6_m.exit: ; preds = %_ZN
 223:                                              ; preds = %208
   store float 1.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
   store float 1.000000e+00, ptr %.sroa.2.0..sroa_idx.i, align 4
-  store float 1.000000e+00, ptr %8, align 8
   br label %226
 
 224:                                              ; preds = %208
   %225 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv
-  store float 1.000000e+00, ptr %225, align 4
   br label %226
 
 226:                                              ; preds = %224, %223
+  %.sink = phi ptr [ %225, %224 ], [ %8, %223 ]
+  store float 1.000000e+00, ptr %.sink, align 4
   %.sroa.0.0.copyload = load <2 x float>, ptr %8, align 8
   %.sroa.2.0.copyload = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i, align 8
   call void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.0.0.copyload, <2 x float> %.sroa.2.0.copyload)

@@ -54339,14 +54339,14 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17h60cff9f29e6dc7
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %1, i64 %2
   %7 = icmp eq i64 %2, 0
-  %.sink59.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
-  %.sink59.sroa.gep70 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink59.sroa.gep72 = getelementptr inbounds i8, ptr %4, i64 32
-  %.sink59.sroa.gep73 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sink59.sroa.gep75 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sink59.sroa.gep76 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink59.sroa.gep78 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sink59.sroa.gep79 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %4, i64 24
+  %.sink.sroa.gep70 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink.sroa.gep72 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sink.sroa.gep73 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink.sroa.gep75 = getelementptr inbounds i8, ptr %4, i64 32
+  %.sink.sroa.gep76 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink.sroa.gep78 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink.sroa.gep79 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %7, label %.loopexit, label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97a73c9595804feeE.exit.thread.i": ; preds = %11, %.lr.ph.i
@@ -54493,21 +54493,22 @@ _ZN3std2io7IoSlice14advance_slices17h77927b5c406bb381E.exit: ; preds = %"_ZN91_$
 
 62:                                               ; preds = %.thread.i17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !15175
-  store ptr @anon.ecbbdf4ce99fb387dde54de6349d4c38.64, ptr %5, align 8, !noalias !15175
   br label %.invoke
 
 .invoke:                                          ; preds = %68, %62
-  %.sink59.sroa.phi = phi ptr [ %.sink59.sroa.gep, %68 ], [ %.sink59.sroa.gep70, %62 ]
-  %.sink59.sroa.phi71 = phi ptr [ %.sink59.sroa.gep72, %68 ], [ %.sink59.sroa.gep73, %62 ]
-  %.sink59.sroa.phi74 = phi ptr [ %.sink59.sroa.gep75, %68 ], [ %.sink59.sroa.gep76, %62 ]
-  %.sink59.sroa.phi77 = phi ptr [ %.sink59.sroa.gep78, %68 ], [ %.sink59.sroa.gep79, %62 ]
-  %.sink59 = phi ptr [ %4, %68 ], [ %5, %62 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %68 ], [ %.sink.sroa.gep70, %62 ]
+  %.sink.sroa.phi71 = phi ptr [ %.sink.sroa.gep72, %68 ], [ %.sink.sroa.gep73, %62 ]
+  %.sink.sroa.phi74 = phi ptr [ %.sink.sroa.gep75, %68 ], [ %.sink.sroa.gep76, %62 ]
+  %.sink.sroa.phi77 = phi ptr [ %.sink.sroa.gep78, %68 ], [ %.sink.sroa.gep79, %62 ]
+  %.sink = phi ptr [ %4, %68 ], [ %5, %62 ]
+  %anon.ecbbdf4ce99fb387dde54de6349d4c38.69.sink = phi ptr [ @anon.ecbbdf4ce99fb387dde54de6349d4c38.69, %68 ], [ @anon.ecbbdf4ce99fb387dde54de6349d4c38.64, %62 ]
   %63 = phi ptr [ @anon.ecbbdf4ce99fb387dde54de6349d4c38.71, %68 ], [ @anon.ecbbdf4ce99fb387dde54de6349d4c38.65, %62 ]
-  store i64 1, ptr %.sink59.sroa.phi, align 8, !noalias !15175
-  store ptr null, ptr %.sink59.sroa.phi71, align 8, !noalias !15175
-  store ptr @anon.ecbbdf4ce99fb387dde54de6349d4c38.8.llvm.10579729455205085779, ptr %.sink59.sroa.phi74, align 8, !noalias !15175
-  store i64 0, ptr %.sink59.sroa.phi77, align 8, !noalias !15175
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63) #49
+  store ptr %anon.ecbbdf4ce99fb387dde54de6349d4c38.69.sink, ptr %.sink, align 8, !noalias !15175
+  store i64 1, ptr %.sink.sroa.phi77, align 8, !noalias !15175
+  store ptr null, ptr %.sink.sroa.phi74, align 8, !noalias !15175
+  store ptr @anon.ecbbdf4ce99fb387dde54de6349d4c38.8.llvm.10579729455205085779, ptr %.sink.sroa.phi71, align 8, !noalias !15175
+  store i64 0, ptr %.sink.sroa.phi, align 8, !noalias !15175
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63) #49
   unreachable
 
 64:                                               ; preds = %57
@@ -54519,7 +54520,6 @@ _ZN3std2io7IoSlice14advance_slices17h77927b5c406bb381E.exit: ; preds = %"_ZN91_$
 
 68:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !15181
-  store ptr @anon.ecbbdf4ce99fb387dde54de6349d4c38.69, ptr %4, align 8, !noalias !15181
   br label %.invoke
 
 _ZN3std3sys3pal4unix2io7IoSlice7advance17hff4cc207bfd5547eE.exit.i16: ; preds = %64

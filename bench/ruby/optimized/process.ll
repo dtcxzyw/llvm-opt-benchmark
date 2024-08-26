@@ -1503,8 +1503,8 @@ RB_SYMBOL_P.exit.thread138.i:                     ; preds = %RB_SYMBOL_P.exit.th
   %384 = load ptr, ptr %8, align 8
   store volatile i64 %383, ptr %384, align 8
   %385 = and i64 %257, 7
-  %.not85 = icmp eq i64 %385, 0
-  br i1 %.not85, label %386, label %.critedge121.i
+  %.not86 = icmp eq i64 %385, 0
+  br i1 %.not86, label %386, label %.critedge121.i
 
 386:                                              ; preds = %382
   %387 = inttoptr i64 %257 to ptr
@@ -1537,8 +1537,8 @@ RB_SYMBOL_P.exit.thread138.i:                     ; preds = %RB_SYMBOL_P.exit.th
 
 402:                                              ; preds = %398, %.critedge121.i
   %403 = and i64 %.0115.i, 7
-  %.not86 = icmp eq i64 %403, 0
-  br i1 %.not86, label %404, label %.critedge124.i
+  %.not87 = icmp eq i64 %403, 0
+  br i1 %.not87, label %404, label %.critedge124.i
 
 404:                                              ; preds = %402
   %405 = inttoptr i64 %.0115.i to ptr
@@ -1662,9 +1662,9 @@ check_exec_redirect.exit:                         ; preds = %276, %283, %290, %2
   br label %rb_type.exit.thread.sink.split
 
 rb_type.exit.thread.sink.split:                   ; preds = %rb_execarg_addopt_rlimit.exit, %455
-  %.sink84.in = phi ptr [ %16, %455 ], [ %14, %rb_execarg_addopt_rlimit.exit ]
-  %.sink84 = load ptr, ptr %.sink84.in, align 8
-  %456 = load volatile i64, ptr %.sink84, align 8
+  %.sink85 = phi ptr [ %16, %455 ], [ %14, %rb_execarg_addopt_rlimit.exit ]
+  %456 = load ptr, ptr %.sink85, align 8
+  %457 = load volatile i64, ptr %456, align 8
   br label %rb_type.exit.thread
 
 switch.hole_check:                                ; preds = %22

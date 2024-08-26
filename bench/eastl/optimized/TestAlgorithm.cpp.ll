@@ -25504,14 +25504,14 @@ lpad.i.i:                                         ; preds = %do.body.i.i
           cleanup
   %11 = load ptr, ptr %temp.i.i, align 8
   %cmp.not.i.i9.i.i = icmp eq ptr %11, null
-  br i1 %cmp.not.i.i9.i.i, label %common.resume.i, label %invoke.cont3.i.i10.i.i
+  br i1 %cmp.not.i.i9.i.i, label %common.resume.i, label %common.resume.sink.split.i
 
-invoke.cont3.i.i10.i.i:                           ; preds = %lpad.i.i
+common.resume.sink.split.i:                       ; preds = %lpad.i.i
   store ptr null, ptr %temp.i.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %11) #12
   br label %common.resume.i
 
-common.resume.i:                                  ; preds = %invoke.cont3.i.i10.i.i, %lpad.i.i
+common.resume.i:                                  ; preds = %common.resume.sink.split.i, %lpad.i.i
   resume { ptr, i32 } %10
 
 _ZN5eastl12partial_sortIPNS_10unique_ptrIiNS_14default_deleteIiEEEEEEvT_S6_S6_.exit: ; preds = %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEED2Ev.exit.i.i, %if.then

@@ -1651,20 +1651,23 @@ if.end.i.i.i.i.i.i.i46.i.i:                       ; preds = %lpad.i.i
   %chunkMask_.i.i.i.i.i.i.i.i48.i.i = getelementptr inbounds i8, ptr %constantSet.i.i, i64 8
   %21 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i.i, align 8, !noalias !22
   %cmp.i.i.i.i.i.i.i.i49.i.i = icmp eq i64 %21, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i49.i.i, label %if.then28.i.i.i.i.i.i.i51.i.i, label %if.end20.i.i.i.i.i.i.i50.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i49.i.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
-if.end20.i.i.i.i.i.i.i50.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i46.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i.i, i8 0, i64 16, i1 false), !noalias !22
-  br label %if.then28.i.i.i.i.i.i.i51.i.i
-
-if.then28.i.i.i.i.i.i.i51.i.i:                    ; preds = %if.end20.i.i.i.i.i.i.i50.i.i, %if.end.i.i.i.i.i.i.i46.i.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %constantSet.i.i, align 8, !noalias !22
+common.resume.sink.split.sink.split.i:            ; preds = %if.end.i.i.i.i.i.i.i46.i466.i, %if.end.i.i.i.i.i.i.i46.i416.i, %if.end.i.i.i.i.i.i.i46.i369.i, %if.end.i.i.i.i.i.i.i46.i322.i, %if.end.i.i.i.i.i.i.i46.i275.i, %if.end.i.i.i.i.i.i.i46.i228.i, %if.end.i.i.i.i.i.i.i46.i181.i, %if.end.i.i.i.i.i.i.i46.i134.i, %if.end.i.i.i.i.i.i.i46.i87.i, %if.end.i.i.i.i.i.i.i46.i40.i, %if.end.i.i.i.i.i.i.i46.i.i
+  %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i.sink.i = phi ptr [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i41.i, %if.end.i.i.i.i.i.i.i46.i40.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i88.i, %if.end.i.i.i.i.i.i.i46.i87.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i135.i, %if.end.i.i.i.i.i.i.i46.i134.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i182.i, %if.end.i.i.i.i.i.i.i46.i181.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i229.i, %if.end.i.i.i.i.i.i.i46.i228.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i276.i, %if.end.i.i.i.i.i.i.i46.i275.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i323.i, %if.end.i.i.i.i.i.i.i46.i322.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i370.i, %if.end.i.i.i.i.i.i.i46.i369.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i417.i, %if.end.i.i.i.i.i.i.i46.i416.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i467.i, %if.end.i.i.i.i.i.i.i46.i466.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i.i, %if.end.i.i.i.i.i.i.i46.i.i ]
+  %constantSet.i448.sink.ph.i = phi ptr [ %constantSet.i22.i, %if.end.i.i.i.i.i.i.i46.i40.i ], [ %constantSet.i69.i, %if.end.i.i.i.i.i.i.i46.i87.i ], [ %constantSet.i116.i, %if.end.i.i.i.i.i.i.i46.i134.i ], [ %constantSet.i163.i, %if.end.i.i.i.i.i.i.i46.i181.i ], [ %constantSet.i210.i, %if.end.i.i.i.i.i.i.i46.i228.i ], [ %constantSet.i257.i, %if.end.i.i.i.i.i.i.i46.i275.i ], [ %constantSet.i304.i, %if.end.i.i.i.i.i.i.i46.i322.i ], [ %constantSet.i351.i, %if.end.i.i.i.i.i.i.i46.i369.i ], [ %constantSet.i398.i, %if.end.i.i.i.i.i.i.i46.i416.i ], [ %constantSet.i448.i, %if.end.i.i.i.i.i.i.i46.i466.i ], [ %constantSet.i.i, %if.end.i.i.i.i.i.i.i46.i.i ]
+  %chunkMask_.i.i.i.i.i.i.i.i48.i468.sink.ph.i = phi ptr [ %chunkMask_.i.i.i.i.i.i.i.i48.i42.i, %if.end.i.i.i.i.i.i.i46.i40.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i89.i, %if.end.i.i.i.i.i.i.i46.i87.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i136.i, %if.end.i.i.i.i.i.i.i46.i134.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i183.i, %if.end.i.i.i.i.i.i.i46.i181.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i230.i, %if.end.i.i.i.i.i.i.i46.i228.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i277.i, %if.end.i.i.i.i.i.i.i46.i275.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i324.i, %if.end.i.i.i.i.i.i.i46.i322.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i371.i, %if.end.i.i.i.i.i.i.i46.i369.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i418.i, %if.end.i.i.i.i.i.i.i46.i416.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i468.i, %if.end.i.i.i.i.i.i.i46.i466.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i.i, %if.end.i.i.i.i.i.i.i46.i.i ]
+  %.sink.ph.i = phi ptr [ %32, %if.end.i.i.i.i.i.i.i46.i40.i ], [ %44, %if.end.i.i.i.i.i.i.i46.i87.i ], [ %56, %if.end.i.i.i.i.i.i.i46.i134.i ], [ %68, %if.end.i.i.i.i.i.i.i46.i181.i ], [ %80, %if.end.i.i.i.i.i.i.i46.i228.i ], [ %92, %if.end.i.i.i.i.i.i.i46.i275.i ], [ %104, %if.end.i.i.i.i.i.i.i46.i322.i ], [ %116, %if.end.i.i.i.i.i.i.i46.i369.i ], [ %128, %if.end.i.i.i.i.i.i.i46.i416.i ], [ %140, %if.end.i.i.i.i.i.i.i46.i466.i ], [ %20, %if.end.i.i.i.i.i.i.i46.i.i ]
+  %common.resume.op.ph.ph.i = phi { ptr, i32 } [ %31, %if.end.i.i.i.i.i.i.i46.i40.i ], [ %43, %if.end.i.i.i.i.i.i.i46.i87.i ], [ %55, %if.end.i.i.i.i.i.i.i46.i134.i ], [ %67, %if.end.i.i.i.i.i.i.i46.i181.i ], [ %79, %if.end.i.i.i.i.i.i.i46.i228.i ], [ %91, %if.end.i.i.i.i.i.i.i46.i275.i ], [ %103, %if.end.i.i.i.i.i.i.i46.i322.i ], [ %115, %if.end.i.i.i.i.i.i.i46.i369.i ], [ %127, %if.end.i.i.i.i.i.i.i46.i416.i ], [ %139, %if.end.i.i.i.i.i.i.i46.i466.i ], [ %19, %if.end.i.i.i.i.i.i.i46.i.i ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i.sink.i, i8 0, i64 16, i1 false), !noalias !16
   br label %common.resume.sink.split.i
 
-common.resume.sink.split.i:                       ; preds = %if.then28.i.i.i.i.i.i.i51.i471.i, %if.then28.i.i.i.i.i.i.i51.i421.i, %if.then28.i.i.i.i.i.i.i51.i374.i, %if.then28.i.i.i.i.i.i.i51.i327.i, %if.then28.i.i.i.i.i.i.i51.i280.i, %if.then28.i.i.i.i.i.i.i51.i233.i, %if.then28.i.i.i.i.i.i.i51.i186.i, %if.then28.i.i.i.i.i.i.i51.i139.i, %if.then28.i.i.i.i.i.i.i51.i92.i, %if.then28.i.i.i.i.i.i.i51.i45.i, %if.then28.i.i.i.i.i.i.i51.i.i
-  %chunkMask_.i.i.i.i.i.i.i.i48.i468.sink.i = phi ptr [ %chunkMask_.i.i.i.i.i.i.i.i48.i468.i, %if.then28.i.i.i.i.i.i.i51.i471.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i418.i, %if.then28.i.i.i.i.i.i.i51.i421.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i371.i, %if.then28.i.i.i.i.i.i.i51.i374.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i324.i, %if.then28.i.i.i.i.i.i.i51.i327.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i277.i, %if.then28.i.i.i.i.i.i.i51.i280.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i230.i, %if.then28.i.i.i.i.i.i.i51.i233.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i183.i, %if.then28.i.i.i.i.i.i.i51.i186.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i136.i, %if.then28.i.i.i.i.i.i.i51.i139.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i89.i, %if.then28.i.i.i.i.i.i.i51.i92.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i42.i, %if.then28.i.i.i.i.i.i.i51.i45.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i.i, %if.then28.i.i.i.i.i.i.i51.i.i ]
-  %.sink.i = phi ptr [ %140, %if.then28.i.i.i.i.i.i.i51.i471.i ], [ %128, %if.then28.i.i.i.i.i.i.i51.i421.i ], [ %116, %if.then28.i.i.i.i.i.i.i51.i374.i ], [ %104, %if.then28.i.i.i.i.i.i.i51.i327.i ], [ %92, %if.then28.i.i.i.i.i.i.i51.i280.i ], [ %80, %if.then28.i.i.i.i.i.i.i51.i233.i ], [ %68, %if.then28.i.i.i.i.i.i.i51.i186.i ], [ %56, %if.then28.i.i.i.i.i.i.i51.i139.i ], [ %44, %if.then28.i.i.i.i.i.i.i51.i92.i ], [ %32, %if.then28.i.i.i.i.i.i.i51.i45.i ], [ %20, %if.then28.i.i.i.i.i.i.i51.i.i ]
-  %common.resume.op.ph.i = phi { ptr, i32 } [ %139, %if.then28.i.i.i.i.i.i.i51.i471.i ], [ %127, %if.then28.i.i.i.i.i.i.i51.i421.i ], [ %115, %if.then28.i.i.i.i.i.i.i51.i374.i ], [ %103, %if.then28.i.i.i.i.i.i.i51.i327.i ], [ %91, %if.then28.i.i.i.i.i.i.i51.i280.i ], [ %79, %if.then28.i.i.i.i.i.i.i51.i233.i ], [ %67, %if.then28.i.i.i.i.i.i.i51.i186.i ], [ %55, %if.then28.i.i.i.i.i.i.i51.i139.i ], [ %43, %if.then28.i.i.i.i.i.i.i51.i92.i ], [ %31, %if.then28.i.i.i.i.i.i.i51.i45.i ], [ %19, %if.then28.i.i.i.i.i.i.i51.i.i ]
+common.resume.sink.split.i:                       ; preds = %if.end.i.i.i.i.i.i.i46.i466.i, %if.end.i.i.i.i.i.i.i46.i416.i, %if.end.i.i.i.i.i.i.i46.i369.i, %if.end.i.i.i.i.i.i.i46.i322.i, %if.end.i.i.i.i.i.i.i46.i275.i, %if.end.i.i.i.i.i.i.i46.i228.i, %if.end.i.i.i.i.i.i.i46.i181.i, %if.end.i.i.i.i.i.i.i46.i134.i, %if.end.i.i.i.i.i.i.i46.i87.i, %if.end.i.i.i.i.i.i.i46.i40.i, %common.resume.sink.split.sink.split.i, %if.end.i.i.i.i.i.i.i46.i.i
+  %constantSet.i448.sink.i = phi ptr [ %constantSet.i22.i, %if.end.i.i.i.i.i.i.i46.i40.i ], [ %constantSet.i69.i, %if.end.i.i.i.i.i.i.i46.i87.i ], [ %constantSet.i116.i, %if.end.i.i.i.i.i.i.i46.i134.i ], [ %constantSet.i163.i, %if.end.i.i.i.i.i.i.i46.i181.i ], [ %constantSet.i210.i, %if.end.i.i.i.i.i.i.i46.i228.i ], [ %constantSet.i257.i, %if.end.i.i.i.i.i.i.i46.i275.i ], [ %constantSet.i304.i, %if.end.i.i.i.i.i.i.i46.i322.i ], [ %constantSet.i351.i, %if.end.i.i.i.i.i.i.i46.i369.i ], [ %constantSet.i398.i, %if.end.i.i.i.i.i.i.i46.i416.i ], [ %constantSet.i448.i, %if.end.i.i.i.i.i.i.i46.i466.i ], [ %constantSet.i.i, %if.end.i.i.i.i.i.i.i46.i.i ], [ %constantSet.i448.sink.ph.i, %common.resume.sink.split.sink.split.i ]
+  %chunkMask_.i.i.i.i.i.i.i.i48.i468.sink.i = phi ptr [ %chunkMask_.i.i.i.i.i.i.i.i48.i42.i, %if.end.i.i.i.i.i.i.i46.i40.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i89.i, %if.end.i.i.i.i.i.i.i46.i87.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i136.i, %if.end.i.i.i.i.i.i.i46.i134.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i183.i, %if.end.i.i.i.i.i.i.i46.i181.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i230.i, %if.end.i.i.i.i.i.i.i46.i228.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i277.i, %if.end.i.i.i.i.i.i.i46.i275.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i324.i, %if.end.i.i.i.i.i.i.i46.i322.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i371.i, %if.end.i.i.i.i.i.i.i46.i369.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i418.i, %if.end.i.i.i.i.i.i.i46.i416.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i468.i, %if.end.i.i.i.i.i.i.i46.i466.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i.i, %if.end.i.i.i.i.i.i.i46.i.i ], [ %chunkMask_.i.i.i.i.i.i.i.i48.i468.sink.ph.i, %common.resume.sink.split.sink.split.i ]
+  %.sink.i = phi ptr [ %32, %if.end.i.i.i.i.i.i.i46.i40.i ], [ %44, %if.end.i.i.i.i.i.i.i46.i87.i ], [ %56, %if.end.i.i.i.i.i.i.i46.i134.i ], [ %68, %if.end.i.i.i.i.i.i.i46.i181.i ], [ %80, %if.end.i.i.i.i.i.i.i46.i228.i ], [ %92, %if.end.i.i.i.i.i.i.i46.i275.i ], [ %104, %if.end.i.i.i.i.i.i.i46.i322.i ], [ %116, %if.end.i.i.i.i.i.i.i46.i369.i ], [ %128, %if.end.i.i.i.i.i.i.i46.i416.i ], [ %140, %if.end.i.i.i.i.i.i.i46.i466.i ], [ %20, %if.end.i.i.i.i.i.i.i46.i.i ], [ %.sink.ph.i, %common.resume.sink.split.sink.split.i ]
+  %common.resume.op.ph.i = phi { ptr, i32 } [ %31, %if.end.i.i.i.i.i.i.i46.i40.i ], [ %43, %if.end.i.i.i.i.i.i.i46.i87.i ], [ %55, %if.end.i.i.i.i.i.i.i46.i134.i ], [ %67, %if.end.i.i.i.i.i.i.i46.i181.i ], [ %79, %if.end.i.i.i.i.i.i.i46.i228.i ], [ %91, %if.end.i.i.i.i.i.i.i46.i275.i ], [ %103, %if.end.i.i.i.i.i.i.i46.i322.i ], [ %115, %if.end.i.i.i.i.i.i.i46.i369.i ], [ %127, %if.end.i.i.i.i.i.i.i46.i416.i ], [ %139, %if.end.i.i.i.i.i.i.i46.i466.i ], [ %19, %if.end.i.i.i.i.i.i.i46.i.i ], [ %common.resume.op.ph.ph.i, %common.resume.sink.split.sink.split.i ]
+  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %constantSet.i448.sink.i, align 8, !noalias !16
   store i64 0, ptr %chunkMask_.i.i.i.i.i.i.i.i48.i468.sink.i, align 8, !noalias !16
   call void @_ZdlPv(ptr noundef %.sink.i) #32, !noalias !16
   br label %lpad.body
@@ -1777,15 +1780,7 @@ if.end.i.i.i.i.i.i.i46.i40.i:                     ; preds = %lpad.i38.i
   %chunkMask_.i.i.i.i.i.i.i.i48.i42.i = getelementptr inbounds i8, ptr %constantSet.i22.i, i64 8
   %33 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i41.i, align 8, !noalias !32
   %cmp.i.i.i.i.i.i.i.i49.i43.i = icmp eq i64 %33, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i49.i43.i, label %if.then28.i.i.i.i.i.i.i51.i45.i, label %if.end20.i.i.i.i.i.i.i50.i44.i
-
-if.end20.i.i.i.i.i.i.i50.i44.i:                   ; preds = %if.end.i.i.i.i.i.i.i46.i40.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i41.i, i8 0, i64 16, i1 false), !noalias !32
-  br label %if.then28.i.i.i.i.i.i.i51.i45.i
-
-if.then28.i.i.i.i.i.i.i51.i45.i:                  ; preds = %if.end20.i.i.i.i.i.i.i50.i44.i, %if.end.i.i.i.i.i.i.i46.i40.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %constantSet.i22.i, align 8, !noalias !32
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i49.i43.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE3EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEEED2Ev.exit44.i.i, %call5.i.i.i3.i.i.i.i.i65.i.noexc
   %_M_impl.i.i.i.i.i.i10.sink.i62.i = phi ptr [ %_M_impl.i.i.i.i.i.i10.i49.i, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEEED2Ev.exit44.i.i ], [ %_M_impl.i.i.i.i.i.i.i68.i, %call5.i.i.i3.i.i.i.i.i65.i.noexc ]
@@ -1895,15 +1890,7 @@ if.end.i.i.i.i.i.i.i46.i87.i:                     ; preds = %lpad.i85.i
   %chunkMask_.i.i.i.i.i.i.i.i48.i89.i = getelementptr inbounds i8, ptr %constantSet.i69.i, i64 8
   %45 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i88.i, align 8, !noalias !42
   %cmp.i.i.i.i.i.i.i.i49.i90.i = icmp eq i64 %45, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i49.i90.i, label %if.then28.i.i.i.i.i.i.i51.i92.i, label %if.end20.i.i.i.i.i.i.i50.i91.i
-
-if.end20.i.i.i.i.i.i.i50.i91.i:                   ; preds = %if.end.i.i.i.i.i.i.i46.i87.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i88.i, i8 0, i64 16, i1 false), !noalias !42
-  br label %if.then28.i.i.i.i.i.i.i51.i92.i
-
-if.then28.i.i.i.i.i.i.i51.i92.i:                  ; preds = %if.end20.i.i.i.i.i.i.i50.i91.i, %if.end.i.i.i.i.i.i.i46.i87.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %constantSet.i69.i, align 8, !noalias !42
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i49.i90.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE1EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEEED2Ev.exit44.i.i, %call5.i.i.i3.i.i.i.i.i112.i.noexc
   %_M_impl.i.i.i.i.i.i10.sink.i109.i = phi ptr [ %_M_impl.i.i.i.i.i.i10.i96.i, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEEED2Ev.exit44.i.i ], [ %_M_impl.i.i.i.i.i.i.i115.i, %call5.i.i.i3.i.i.i.i.i112.i.noexc ]
@@ -2013,15 +2000,7 @@ if.end.i.i.i.i.i.i.i46.i134.i:                    ; preds = %lpad.i132.i
   %chunkMask_.i.i.i.i.i.i.i.i48.i136.i = getelementptr inbounds i8, ptr %constantSet.i116.i, i64 8
   %57 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i135.i, align 8, !noalias !52
   %cmp.i.i.i.i.i.i.i.i49.i137.i = icmp eq i64 %57, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i49.i137.i, label %if.then28.i.i.i.i.i.i.i51.i139.i, label %if.end20.i.i.i.i.i.i.i50.i138.i
-
-if.end20.i.i.i.i.i.i.i50.i138.i:                  ; preds = %if.end.i.i.i.i.i.i.i46.i134.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i135.i, i8 0, i64 16, i1 false), !noalias !52
-  br label %if.then28.i.i.i.i.i.i.i51.i139.i
-
-if.then28.i.i.i.i.i.i.i51.i139.i:                 ; preds = %if.end20.i.i.i.i.i.i.i50.i138.i, %if.end.i.i.i.i.i.i.i46.i134.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %constantSet.i116.i, align 8, !noalias !52
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i49.i137.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE2EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEEED2Ev.exit44.i.i, %call5.i.i.i3.i.i.i.i.i159.i.noexc
   %_M_impl.i.i.i.i.i.i10.sink.i156.i = phi ptr [ %_M_impl.i.i.i.i.i.i10.i143.i, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEEED2Ev.exit44.i.i ], [ %_M_impl.i.i.i.i.i.i.i162.i, %call5.i.i.i3.i.i.i.i.i159.i.noexc ]
@@ -2131,15 +2110,7 @@ if.end.i.i.i.i.i.i.i46.i181.i:                    ; preds = %lpad.i179.i
   %chunkMask_.i.i.i.i.i.i.i.i48.i183.i = getelementptr inbounds i8, ptr %constantSet.i163.i, i64 8
   %69 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i182.i, align 8, !noalias !62
   %cmp.i.i.i.i.i.i.i.i49.i184.i = icmp eq i64 %69, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i49.i184.i, label %if.then28.i.i.i.i.i.i.i51.i186.i, label %if.end20.i.i.i.i.i.i.i50.i185.i
-
-if.end20.i.i.i.i.i.i.i50.i185.i:                  ; preds = %if.end.i.i.i.i.i.i.i46.i181.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i182.i, i8 0, i64 16, i1 false), !noalias !62
-  br label %if.then28.i.i.i.i.i.i.i51.i186.i
-
-if.then28.i.i.i.i.i.i.i51.i186.i:                 ; preds = %if.end20.i.i.i.i.i.i.i50.i185.i, %if.end.i.i.i.i.i.i.i46.i181.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %constantSet.i163.i, align 8, !noalias !62
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i49.i184.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE4EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEEED2Ev.exit44.i.i, %call5.i.i.i3.i.i.i.i.i206.i.noexc
   %_M_impl.i.i.i.i.i.i10.sink.i203.i = phi ptr [ %_M_impl.i.i.i.i.i.i10.i190.i, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEEED2Ev.exit44.i.i ], [ %_M_impl.i.i.i.i.i.i.i209.i, %call5.i.i.i3.i.i.i.i.i206.i.noexc ]
@@ -2249,15 +2220,7 @@ if.end.i.i.i.i.i.i.i46.i228.i:                    ; preds = %lpad.i226.i
   %chunkMask_.i.i.i.i.i.i.i.i48.i230.i = getelementptr inbounds i8, ptr %constantSet.i210.i, i64 8
   %81 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i229.i, align 8, !noalias !72
   %cmp.i.i.i.i.i.i.i.i49.i231.i = icmp eq i64 %81, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i49.i231.i, label %if.then28.i.i.i.i.i.i.i51.i233.i, label %if.end20.i.i.i.i.i.i.i50.i232.i
-
-if.end20.i.i.i.i.i.i.i50.i232.i:                  ; preds = %if.end.i.i.i.i.i.i.i46.i228.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i229.i, i8 0, i64 16, i1 false), !noalias !72
-  br label %if.then28.i.i.i.i.i.i.i51.i233.i
-
-if.then28.i.i.i.i.i.i.i51.i233.i:                 ; preds = %if.end20.i.i.i.i.i.i.i50.i232.i, %if.end.i.i.i.i.i.i.i46.i228.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %constantSet.i210.i, align 8, !noalias !72
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i49.i231.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE10EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEEED2Ev.exit44.i.i, %call5.i.i.i3.i.i.i.i.i253.i.noexc
   %_M_impl.i.i.i.i.i.i10.sink.i250.i = phi ptr [ %_M_impl.i.i.i.i.i.i10.i237.i, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEEED2Ev.exit44.i.i ], [ %_M_impl.i.i.i.i.i.i.i256.i, %call5.i.i.i3.i.i.i.i.i253.i.noexc ]
@@ -2367,15 +2330,7 @@ if.end.i.i.i.i.i.i.i46.i275.i:                    ; preds = %lpad.i273.i
   %chunkMask_.i.i.i.i.i.i.i.i48.i277.i = getelementptr inbounds i8, ptr %constantSet.i257.i, i64 8
   %93 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i276.i, align 8, !noalias !82
   %cmp.i.i.i.i.i.i.i.i49.i278.i = icmp eq i64 %93, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i49.i278.i, label %if.then28.i.i.i.i.i.i.i51.i280.i, label %if.end20.i.i.i.i.i.i.i50.i279.i
-
-if.end20.i.i.i.i.i.i.i50.i279.i:                  ; preds = %if.end.i.i.i.i.i.i.i46.i275.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i276.i, i8 0, i64 16, i1 false), !noalias !82
-  br label %if.then28.i.i.i.i.i.i.i51.i280.i
-
-if.then28.i.i.i.i.i.i.i51.i280.i:                 ; preds = %if.end20.i.i.i.i.i.i.i50.i279.i, %if.end.i.i.i.i.i.i.i46.i275.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %constantSet.i257.i, align 8, !noalias !82
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i49.i278.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE5EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEEED2Ev.exit44.i.i, %call5.i.i.i3.i.i.i.i.i300.i.noexc
   %_M_impl.i.i.i.i.i.i10.sink.i297.i = phi ptr [ %_M_impl.i.i.i.i.i.i10.i284.i, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEEED2Ev.exit44.i.i ], [ %_M_impl.i.i.i.i.i.i.i303.i, %call5.i.i.i3.i.i.i.i.i300.i.noexc ]
@@ -2485,15 +2440,7 @@ if.end.i.i.i.i.i.i.i46.i322.i:                    ; preds = %lpad.i320.i
   %chunkMask_.i.i.i.i.i.i.i.i48.i324.i = getelementptr inbounds i8, ptr %constantSet.i304.i, i64 8
   %105 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i323.i, align 8, !noalias !92
   %cmp.i.i.i.i.i.i.i.i49.i325.i = icmp eq i64 %105, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i49.i325.i, label %if.then28.i.i.i.i.i.i.i51.i327.i, label %if.end20.i.i.i.i.i.i.i50.i326.i
-
-if.end20.i.i.i.i.i.i.i50.i326.i:                  ; preds = %if.end.i.i.i.i.i.i.i46.i322.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i323.i, i8 0, i64 16, i1 false), !noalias !92
-  br label %if.then28.i.i.i.i.i.i.i51.i327.i
-
-if.then28.i.i.i.i.i.i.i51.i327.i:                 ; preds = %if.end20.i.i.i.i.i.i.i50.i326.i, %if.end.i.i.i.i.i.i.i46.i322.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %constantSet.i304.i, align 8, !noalias !92
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i49.i325.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE6EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEEED2Ev.exit44.i.i, %call5.i.i.i3.i.i.i.i.i347.i.noexc
   %_M_impl.i.i.i.i.i.i10.sink.i344.i = phi ptr [ %_M_impl.i.i.i.i.i.i10.i331.i, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEEED2Ev.exit44.i.i ], [ %_M_impl.i.i.i.i.i.i.i350.i, %call5.i.i.i3.i.i.i.i.i347.i.noexc ]
@@ -2603,15 +2550,7 @@ if.end.i.i.i.i.i.i.i46.i369.i:                    ; preds = %lpad.i367.i
   %chunkMask_.i.i.i.i.i.i.i.i48.i371.i = getelementptr inbounds i8, ptr %constantSet.i351.i, i64 8
   %117 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i370.i, align 8, !noalias !102
   %cmp.i.i.i.i.i.i.i.i49.i372.i = icmp eq i64 %117, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i49.i372.i, label %if.then28.i.i.i.i.i.i.i51.i374.i, label %if.end20.i.i.i.i.i.i.i50.i373.i
-
-if.end20.i.i.i.i.i.i.i50.i373.i:                  ; preds = %if.end.i.i.i.i.i.i.i46.i369.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i370.i, i8 0, i64 16, i1 false), !noalias !102
-  br label %if.then28.i.i.i.i.i.i.i51.i374.i
-
-if.then28.i.i.i.i.i.i.i51.i374.i:                 ; preds = %if.end20.i.i.i.i.i.i.i50.i373.i, %if.end.i.i.i.i.i.i.i46.i369.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %constantSet.i351.i, align 8, !noalias !102
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i49.i372.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE7EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEEED2Ev.exit44.i.i, %call5.i.i.i3.i.i.i.i.i394.i.noexc
   %_M_impl.i.i.i.i.i.i10.sink.i391.i = phi ptr [ %_M_impl.i.i.i.i.i.i10.i378.i, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEEED2Ev.exit44.i.i ], [ %_M_impl.i.i.i.i.i.i.i397.i, %call5.i.i.i3.i.i.i.i.i394.i.noexc ]
@@ -2721,15 +2660,7 @@ if.end.i.i.i.i.i.i.i46.i416.i:                    ; preds = %lpad.i414.i
   %chunkMask_.i.i.i.i.i.i.i.i48.i418.i = getelementptr inbounds i8, ptr %constantSet.i398.i, i64 8
   %129 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i417.i, align 8, !noalias !112
   %cmp.i.i.i.i.i.i.i.i49.i419.i = icmp eq i64 %129, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i49.i419.i, label %if.then28.i.i.i.i.i.i.i51.i421.i, label %if.end20.i.i.i.i.i.i.i50.i420.i
-
-if.end20.i.i.i.i.i.i.i50.i420.i:                  ; preds = %if.end.i.i.i.i.i.i.i46.i416.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i417.i, i8 0, i64 16, i1 false), !noalias !112
-  br label %if.then28.i.i.i.i.i.i.i51.i421.i
-
-if.then28.i.i.i.i.i.i.i51.i421.i:                 ; preds = %if.end20.i.i.i.i.i.i.i50.i420.i, %if.end.i.i.i.i.i.i.i46.i416.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %constantSet.i398.i, align 8, !noalias !112
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i49.i419.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE8EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEEED2Ev.exit44.i423.i, %call5.i.i.i3.i.i.i.i.i444.i.noexc
   %_M_impl.i.i.i.i.i.i10.sink.i440.i = phi ptr [ %_M_impl.i.i.i.i.i.i10.i427.i, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_10StringViewEEEED2Ev.exit44.i423.i ], [ %_M_impl.i.i.i.i.i.i.i447.i, %call5.i.i.i3.i.i.i.i.i444.i.noexc ]
@@ -2839,15 +2770,7 @@ if.end.i.i.i.i.i.i.i46.i466.i:                    ; preds = %lpad.i464.i
   %chunkMask_.i.i.i.i.i.i.i.i48.i468.i = getelementptr inbounds i8, ptr %constantSet.i448.i, i64 8
   %141 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i467.i, align 8, !noalias !122
   %cmp.i.i.i.i.i.i.i.i49.i469.i = icmp eq i64 %141, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i49.i469.i, label %if.then28.i.i.i.i.i.i.i51.i471.i, label %if.end20.i.i.i.i.i.i.i50.i470.i
-
-if.end20.i.i.i.i.i.i.i50.i470.i:                  ; preds = %if.end.i.i.i.i.i.i.i46.i466.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i47.i467.i, i8 0, i64 16, i1 false), !noalias !122
-  br label %if.then28.i.i.i.i.i.i.i51.i471.i
-
-if.then28.i.i.i.i.i.i.i51.i471.i:                 ; preds = %if.end20.i.i.i.i.i.i.i50.i470.i, %if.end.i.i.i.i.i.i.i46.i466.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %constantSet.i448.i, align 8, !noalias !122
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i49.i469.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_124createTypedArraysOverlapILNS0_8TypeKindE9EEEKSt10shared_ptrINS0_4exec14VectorFunctionEERKSt6vectorINS6_17VectorFunctionArgESaISB_EE.exit.i: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_9TimestampEEEED2Ev.exit44.i.i, %call5.i.i.i3.i.i.i.i.i491.i.noexc
   %_M_impl.i.i.i.i.i.i10.sink.i488.i = phi ptr [ %_M_impl.i.i.i.i.i.i10.i475.i, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS1_9TimestampEEEED2Ev.exit44.i.i ], [ %_M_impl.i.i.i.i.i.i.i494.i, %call5.i.i.i3.i.i.i.i.i491.i.noexc ]
@@ -3406,20 +3329,23 @@ if.end.i.i.i.i.i.i.i6.i.i:                        ; preds = %lpad.i.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %ref.tmp5.i.i, i64 8
   %19 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i.i, align 8, !noalias !135
   %cmp.i.i.i.i.i.i.i.i9.i.i = icmp eq i64 %19, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i.i, label %if.then28.i.i.i.i.i.i.i11.i.i, label %if.end20.i.i.i.i.i.i.i10.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
-if.end20.i.i.i.i.i.i.i10.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i6.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i.i, i8 0, i64 16, i1 false), !noalias !135
-  br label %if.then28.i.i.i.i.i.i.i11.i.i
-
-if.then28.i.i.i.i.i.i.i11.i.i:                    ; preds = %if.end20.i.i.i.i.i.i.i10.i.i, %if.end.i.i.i.i.i.i.i6.i.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i.i, align 8, !noalias !135
+common.resume.sink.split.sink.split.i:            ; preds = %if.end.i.i.i.i.i.i.i6.i398.i, %if.end.i.i.i.i.i.i.i6.i355.i, %if.end.i.i.i.i.i.i.i6.i315.i, %if.end.i.i.i.i.i.i.i6.i275.i, %if.end.i.i.i.i.i.i.i6.i235.i, %if.end.i.i.i.i.i.i.i6.i195.i, %if.end.i.i.i.i.i.i.i6.i155.i, %if.end.i.i.i.i.i.i.i6.i115.i, %if.end.i.i.i.i.i.i.i6.i75.i, %if.end.i.i.i.i.i.i.i6.i35.i, %if.end.i.i.i.i.i.i.i6.i.i
+  %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i.sink.i = phi ptr [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i36.i, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i76.i, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i116.i, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i156.i, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i196.i, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i236.i, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i276.i, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i316.i, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i356.i, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i399.i, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i.i, %if.end.i.i.i.i.i.i.i6.i.i ]
+  %ref.tmp5.i385.sink.ph.i = phi ptr [ %ref.tmp5.i22.i, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %ref.tmp5.i62.i, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %ref.tmp5.i102.i, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %ref.tmp5.i142.i, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %ref.tmp5.i182.i, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %ref.tmp5.i222.i, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %ref.tmp5.i262.i, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %ref.tmp5.i302.i, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %ref.tmp5.i342.i, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %ref.tmp5.i385.i, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %ref.tmp5.i.i, %if.end.i.i.i.i.i.i.i6.i.i ]
+  %chunkMask_.i.i.i.i.i.i.i.i8.i400.sink.ph.i = phi ptr [ %chunkMask_.i.i.i.i.i.i.i.i8.i37.i, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i77.i, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i117.i, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i157.i, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i197.i, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i237.i, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i277.i, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i317.i, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i357.i, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i400.i, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i.i, %if.end.i.i.i.i.i.i.i6.i.i ]
+  %.sink.ph.i = phi ptr [ %29, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %40, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %51, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %62, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %73, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %84, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %95, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %106, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %117, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %128, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %18, %if.end.i.i.i.i.i.i.i6.i.i ]
+  %common.resume.op.ph.ph.i = phi { ptr, i32 } [ %28, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %39, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %50, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %61, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %72, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %83, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %94, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %105, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %116, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %127, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %17, %if.end.i.i.i.i.i.i.i6.i.i ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i.sink.i, i8 0, i64 16, i1 false), !noalias !129
   br label %common.resume.sink.split.i
 
-common.resume.sink.split.i:                       ; preds = %if.then28.i.i.i.i.i.i.i11.i403.i, %if.then28.i.i.i.i.i.i.i11.i360.i, %if.then28.i.i.i.i.i.i.i11.i320.i, %if.then28.i.i.i.i.i.i.i11.i280.i, %if.then28.i.i.i.i.i.i.i11.i240.i, %if.then28.i.i.i.i.i.i.i11.i200.i, %if.then28.i.i.i.i.i.i.i11.i160.i, %if.then28.i.i.i.i.i.i.i11.i120.i, %if.then28.i.i.i.i.i.i.i11.i80.i, %if.then28.i.i.i.i.i.i.i11.i40.i, %if.then28.i.i.i.i.i.i.i11.i.i
-  %chunkMask_.i.i.i.i.i.i.i.i8.i400.sink.i = phi ptr [ %chunkMask_.i.i.i.i.i.i.i.i8.i400.i, %if.then28.i.i.i.i.i.i.i11.i403.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i357.i, %if.then28.i.i.i.i.i.i.i11.i360.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i317.i, %if.then28.i.i.i.i.i.i.i11.i320.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i277.i, %if.then28.i.i.i.i.i.i.i11.i280.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i237.i, %if.then28.i.i.i.i.i.i.i11.i240.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i197.i, %if.then28.i.i.i.i.i.i.i11.i200.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i157.i, %if.then28.i.i.i.i.i.i.i11.i160.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i117.i, %if.then28.i.i.i.i.i.i.i11.i120.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i77.i, %if.then28.i.i.i.i.i.i.i11.i80.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i37.i, %if.then28.i.i.i.i.i.i.i11.i40.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i.i, %if.then28.i.i.i.i.i.i.i11.i.i ]
-  %.sink.i = phi ptr [ %128, %if.then28.i.i.i.i.i.i.i11.i403.i ], [ %117, %if.then28.i.i.i.i.i.i.i11.i360.i ], [ %106, %if.then28.i.i.i.i.i.i.i11.i320.i ], [ %95, %if.then28.i.i.i.i.i.i.i11.i280.i ], [ %84, %if.then28.i.i.i.i.i.i.i11.i240.i ], [ %73, %if.then28.i.i.i.i.i.i.i11.i200.i ], [ %62, %if.then28.i.i.i.i.i.i.i11.i160.i ], [ %51, %if.then28.i.i.i.i.i.i.i11.i120.i ], [ %40, %if.then28.i.i.i.i.i.i.i11.i80.i ], [ %29, %if.then28.i.i.i.i.i.i.i11.i40.i ], [ %18, %if.then28.i.i.i.i.i.i.i11.i.i ]
-  %common.resume.op.ph.i = phi { ptr, i32 } [ %127, %if.then28.i.i.i.i.i.i.i11.i403.i ], [ %116, %if.then28.i.i.i.i.i.i.i11.i360.i ], [ %105, %if.then28.i.i.i.i.i.i.i11.i320.i ], [ %94, %if.then28.i.i.i.i.i.i.i11.i280.i ], [ %83, %if.then28.i.i.i.i.i.i.i11.i240.i ], [ %72, %if.then28.i.i.i.i.i.i.i11.i200.i ], [ %61, %if.then28.i.i.i.i.i.i.i11.i160.i ], [ %50, %if.then28.i.i.i.i.i.i.i11.i120.i ], [ %39, %if.then28.i.i.i.i.i.i.i11.i80.i ], [ %28, %if.then28.i.i.i.i.i.i.i11.i40.i ], [ %17, %if.then28.i.i.i.i.i.i.i11.i.i ]
+common.resume.sink.split.i:                       ; preds = %if.end.i.i.i.i.i.i.i6.i398.i, %if.end.i.i.i.i.i.i.i6.i355.i, %if.end.i.i.i.i.i.i.i6.i315.i, %if.end.i.i.i.i.i.i.i6.i275.i, %if.end.i.i.i.i.i.i.i6.i235.i, %if.end.i.i.i.i.i.i.i6.i195.i, %if.end.i.i.i.i.i.i.i6.i155.i, %if.end.i.i.i.i.i.i.i6.i115.i, %if.end.i.i.i.i.i.i.i6.i75.i, %if.end.i.i.i.i.i.i.i6.i35.i, %common.resume.sink.split.sink.split.i, %if.end.i.i.i.i.i.i.i6.i.i
+  %ref.tmp5.i385.sink.i = phi ptr [ %ref.tmp5.i22.i, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %ref.tmp5.i62.i, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %ref.tmp5.i102.i, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %ref.tmp5.i142.i, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %ref.tmp5.i182.i, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %ref.tmp5.i222.i, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %ref.tmp5.i262.i, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %ref.tmp5.i302.i, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %ref.tmp5.i342.i, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %ref.tmp5.i385.i, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %ref.tmp5.i.i, %if.end.i.i.i.i.i.i.i6.i.i ], [ %ref.tmp5.i385.sink.ph.i, %common.resume.sink.split.sink.split.i ]
+  %chunkMask_.i.i.i.i.i.i.i.i8.i400.sink.i = phi ptr [ %chunkMask_.i.i.i.i.i.i.i.i8.i37.i, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i77.i, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i117.i, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i157.i, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i197.i, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i237.i, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i277.i, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i317.i, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i357.i, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i400.i, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i.i, %if.end.i.i.i.i.i.i.i6.i.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i400.sink.ph.i, %common.resume.sink.split.sink.split.i ]
+  %.sink.i = phi ptr [ %29, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %40, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %51, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %62, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %73, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %84, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %95, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %106, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %117, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %128, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %18, %if.end.i.i.i.i.i.i.i6.i.i ], [ %.sink.ph.i, %common.resume.sink.split.sink.split.i ]
+  %common.resume.op.ph.i = phi { ptr, i32 } [ %28, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %39, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %50, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %61, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %72, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %83, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %94, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %105, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %116, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %127, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %17, %if.end.i.i.i.i.i.i.i6.i.i ], [ %common.resume.op.ph.ph.i, %common.resume.sink.split.sink.split.i ]
+  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i385.sink.i, align 8, !noalias !129
   store i64 0, ptr %chunkMask_.i.i.i.i.i.i.i.i8.i400.sink.i, align 8, !noalias !129
   call void @_ZdlPv(ptr noundef %.sink.i) #32, !noalias !129
   br label %lpad.body
@@ -3523,15 +3449,7 @@ if.end.i.i.i.i.i.i.i6.i35.i:                      ; preds = %lpad.i33.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i37.i = getelementptr inbounds i8, ptr %ref.tmp5.i22.i, i64 8
   %30 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i36.i, align 8, !noalias !145
   %cmp.i.i.i.i.i.i.i.i9.i38.i = icmp eq i64 %30, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i38.i, label %if.then28.i.i.i.i.i.i.i11.i40.i, label %if.end20.i.i.i.i.i.i.i10.i39.i
-
-if.end20.i.i.i.i.i.i.i10.i39.i:                   ; preds = %if.end.i.i.i.i.i.i.i6.i35.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i36.i, i8 0, i64 16, i1 false), !noalias !145
-  br label %if.then28.i.i.i.i.i.i.i11.i40.i
-
-if.then28.i.i.i.i.i.i.i11.i40.i:                  ; preds = %if.end20.i.i.i.i.i.i.i10.i39.i, %if.end.i.i.i.i.i.i.i6.i35.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i22.i, align 8, !noalias !145
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i38.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEEED2Ev.exit49.i.i: ; preds = %if.end.i28.i
   %call5.i.i.i3.i.i.i.i.i58.i6 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -3632,15 +3550,7 @@ if.end.i.i.i.i.i.i.i6.i75.i:                      ; preds = %lpad.i73.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i77.i = getelementptr inbounds i8, ptr %ref.tmp5.i62.i, i64 8
   %41 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i76.i, align 8, !noalias !155
   %cmp.i.i.i.i.i.i.i.i9.i78.i = icmp eq i64 %41, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i78.i, label %if.then28.i.i.i.i.i.i.i11.i80.i, label %if.end20.i.i.i.i.i.i.i10.i79.i
-
-if.end20.i.i.i.i.i.i.i10.i79.i:                   ; preds = %if.end.i.i.i.i.i.i.i6.i75.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i76.i, i8 0, i64 16, i1 false), !noalias !155
-  br label %if.then28.i.i.i.i.i.i.i11.i80.i
-
-if.then28.i.i.i.i.i.i.i11.i80.i:                  ; preds = %if.end20.i.i.i.i.i.i.i10.i79.i, %if.end.i.i.i.i.i.i.i6.i75.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i62.i, align 8, !noalias !155
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i78.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEEED2Ev.exit49.i.i: ; preds = %if.end.i68.i
   %call5.i.i.i3.i.i.i.i.i98.i8 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -3741,15 +3651,7 @@ if.end.i.i.i.i.i.i.i6.i115.i:                     ; preds = %lpad.i113.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i117.i = getelementptr inbounds i8, ptr %ref.tmp5.i102.i, i64 8
   %52 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i116.i, align 8, !noalias !165
   %cmp.i.i.i.i.i.i.i.i9.i118.i = icmp eq i64 %52, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i118.i, label %if.then28.i.i.i.i.i.i.i11.i120.i, label %if.end20.i.i.i.i.i.i.i10.i119.i
-
-if.end20.i.i.i.i.i.i.i10.i119.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i115.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i116.i, i8 0, i64 16, i1 false), !noalias !165
-  br label %if.then28.i.i.i.i.i.i.i11.i120.i
-
-if.then28.i.i.i.i.i.i.i11.i120.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i119.i, %if.end.i.i.i.i.i.i.i6.i115.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i102.i, align 8, !noalias !165
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i118.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEEED2Ev.exit49.i.i: ; preds = %if.end.i108.i
   %call5.i.i.i3.i.i.i.i.i138.i10 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -3850,15 +3752,7 @@ if.end.i.i.i.i.i.i.i6.i155.i:                     ; preds = %lpad.i153.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i157.i = getelementptr inbounds i8, ptr %ref.tmp5.i142.i, i64 8
   %63 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i156.i, align 8, !noalias !175
   %cmp.i.i.i.i.i.i.i.i9.i158.i = icmp eq i64 %63, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i158.i, label %if.then28.i.i.i.i.i.i.i11.i160.i, label %if.end20.i.i.i.i.i.i.i10.i159.i
-
-if.end20.i.i.i.i.i.i.i10.i159.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i155.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i156.i, i8 0, i64 16, i1 false), !noalias !175
-  br label %if.then28.i.i.i.i.i.i.i11.i160.i
-
-if.then28.i.i.i.i.i.i.i11.i160.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i159.i, %if.end.i.i.i.i.i.i.i6.i155.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i142.i, align 8, !noalias !175
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i158.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEEED2Ev.exit49.i.i: ; preds = %if.end.i148.i
   %call5.i.i.i3.i.i.i.i.i178.i12 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -3959,15 +3853,7 @@ if.end.i.i.i.i.i.i.i6.i195.i:                     ; preds = %lpad.i193.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i197.i = getelementptr inbounds i8, ptr %ref.tmp5.i182.i, i64 8
   %74 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i196.i, align 8, !noalias !185
   %cmp.i.i.i.i.i.i.i.i9.i198.i = icmp eq i64 %74, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i198.i, label %if.then28.i.i.i.i.i.i.i11.i200.i, label %if.end20.i.i.i.i.i.i.i10.i199.i
-
-if.end20.i.i.i.i.i.i.i10.i199.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i195.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i196.i, i8 0, i64 16, i1 false), !noalias !185
-  br label %if.then28.i.i.i.i.i.i.i11.i200.i
-
-if.then28.i.i.i.i.i.i.i11.i200.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i199.i, %if.end.i.i.i.i.i.i.i6.i195.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i182.i, align 8, !noalias !185
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i198.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEEED2Ev.exit49.i.i: ; preds = %if.end.i188.i
   %call5.i.i.i3.i.i.i.i.i218.i14 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -4068,15 +3954,7 @@ if.end.i.i.i.i.i.i.i6.i235.i:                     ; preds = %lpad.i233.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i237.i = getelementptr inbounds i8, ptr %ref.tmp5.i222.i, i64 8
   %85 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i236.i, align 8, !noalias !195
   %cmp.i.i.i.i.i.i.i.i9.i238.i = icmp eq i64 %85, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i238.i, label %if.then28.i.i.i.i.i.i.i11.i240.i, label %if.end20.i.i.i.i.i.i.i10.i239.i
-
-if.end20.i.i.i.i.i.i.i10.i239.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i235.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i236.i, i8 0, i64 16, i1 false), !noalias !195
-  br label %if.then28.i.i.i.i.i.i.i11.i240.i
-
-if.then28.i.i.i.i.i.i.i11.i240.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i239.i, %if.end.i.i.i.i.i.i.i6.i235.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i222.i, align 8, !noalias !195
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i238.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEEED2Ev.exit49.i.i: ; preds = %if.end.i228.i
   %call5.i.i.i3.i.i.i.i.i258.i16 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -4177,15 +4055,7 @@ if.end.i.i.i.i.i.i.i6.i275.i:                     ; preds = %lpad.i273.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i277.i = getelementptr inbounds i8, ptr %ref.tmp5.i262.i, i64 8
   %96 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i276.i, align 8, !noalias !205
   %cmp.i.i.i.i.i.i.i.i9.i278.i = icmp eq i64 %96, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i278.i, label %if.then28.i.i.i.i.i.i.i11.i280.i, label %if.end20.i.i.i.i.i.i.i10.i279.i
-
-if.end20.i.i.i.i.i.i.i10.i279.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i275.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i276.i, i8 0, i64 16, i1 false), !noalias !205
-  br label %if.then28.i.i.i.i.i.i.i11.i280.i
-
-if.then28.i.i.i.i.i.i.i11.i280.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i279.i, %if.end.i.i.i.i.i.i.i6.i275.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i262.i, align 8, !noalias !205
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i278.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEEED2Ev.exit49.i.i: ; preds = %if.end.i268.i
   %call5.i.i.i3.i.i.i.i.i298.i18 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -4286,15 +4156,7 @@ if.end.i.i.i.i.i.i.i6.i315.i:                     ; preds = %lpad.i313.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i317.i = getelementptr inbounds i8, ptr %ref.tmp5.i302.i, i64 8
   %107 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i316.i, align 8, !noalias !215
   %cmp.i.i.i.i.i.i.i.i9.i318.i = icmp eq i64 %107, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i318.i, label %if.then28.i.i.i.i.i.i.i11.i320.i, label %if.end20.i.i.i.i.i.i.i10.i319.i
-
-if.end20.i.i.i.i.i.i.i10.i319.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i315.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i316.i, i8 0, i64 16, i1 false), !noalias !215
-  br label %if.then28.i.i.i.i.i.i.i11.i320.i
-
-if.then28.i.i.i.i.i.i.i11.i320.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i319.i, %if.end.i.i.i.i.i.i.i6.i315.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i302.i, align 8, !noalias !215
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i318.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEEED2Ev.exit49.i.i: ; preds = %if.end.i308.i
   %call5.i.i.i3.i.i.i.i.i338.i20 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -4395,15 +4257,7 @@ if.end.i.i.i.i.i.i.i6.i355.i:                     ; preds = %lpad.i353.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i357.i = getelementptr inbounds i8, ptr %ref.tmp5.i342.i, i64 8
   %118 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i356.i, align 8, !noalias !225
   %cmp.i.i.i.i.i.i.i.i9.i358.i = icmp eq i64 %118, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i358.i, label %if.then28.i.i.i.i.i.i.i11.i360.i, label %if.end20.i.i.i.i.i.i.i10.i359.i
-
-if.end20.i.i.i.i.i.i.i10.i359.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i355.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i356.i, i8 0, i64 16, i1 false), !noalias !225
-  br label %if.then28.i.i.i.i.i.i.i11.i360.i
-
-if.then28.i.i.i.i.i.i.i11.i360.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i359.i, %if.end.i.i.i.i.i.i.i6.i355.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i342.i, align 8, !noalias !225
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i358.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_10StringViewEEEED2Ev.exit49.i380.i: ; preds = %if.end.i348.i
   %call5.i.i.i3.i.i.i.i.i381.i22 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -4504,15 +4358,7 @@ if.end.i.i.i.i.i.i.i6.i398.i:                     ; preds = %lpad.i396.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i400.i = getelementptr inbounds i8, ptr %ref.tmp5.i385.i, i64 8
   %129 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i399.i, align 8, !noalias !235
   %cmp.i.i.i.i.i.i.i.i9.i401.i = icmp eq i64 %129, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i401.i, label %if.then28.i.i.i.i.i.i.i11.i403.i, label %if.end20.i.i.i.i.i.i.i10.i402.i
-
-if.end20.i.i.i.i.i.i.i10.i402.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i398.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i399.i, i8 0, i64 16, i1 false), !noalias !235
-  br label %if.then28.i.i.i.i.i.i.i11.i403.i
-
-if.then28.i.i.i.i.i.i.i11.i403.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i402.i, %if.end.i.i.i.i.i.i.i6.i398.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i385.i, align 8, !noalias !235
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i401.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS1_9TimestampEEEED2Ev.exit49.i.i: ; preds = %if.end.i391.i
   %call5.i.i.i3.i.i.i.i.i421.i24 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -4975,20 +4821,23 @@ if.end.i.i.i.i.i.i.i6.i.i:                        ; preds = %lpad.i.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %ref.tmp5.i.i, i64 8
   %19 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i.i, align 8, !noalias !248
   %cmp.i.i.i.i.i.i.i.i9.i.i = icmp eq i64 %19, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i.i, label %if.then28.i.i.i.i.i.i.i11.i.i, label %if.end20.i.i.i.i.i.i.i10.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
-if.end20.i.i.i.i.i.i.i10.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i6.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i.i, i8 0, i64 16, i1 false), !noalias !248
-  br label %if.then28.i.i.i.i.i.i.i11.i.i
-
-if.then28.i.i.i.i.i.i.i11.i.i:                    ; preds = %if.end20.i.i.i.i.i.i.i10.i.i, %if.end.i.i.i.i.i.i.i6.i.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i.i, align 8, !noalias !248
+common.resume.sink.split.sink.split.i:            ; preds = %if.end.i.i.i.i.i.i.i6.i398.i, %if.end.i.i.i.i.i.i.i6.i355.i, %if.end.i.i.i.i.i.i.i6.i315.i, %if.end.i.i.i.i.i.i.i6.i275.i, %if.end.i.i.i.i.i.i.i6.i235.i, %if.end.i.i.i.i.i.i.i6.i195.i, %if.end.i.i.i.i.i.i.i6.i155.i, %if.end.i.i.i.i.i.i.i6.i115.i, %if.end.i.i.i.i.i.i.i6.i75.i, %if.end.i.i.i.i.i.i.i6.i35.i, %if.end.i.i.i.i.i.i.i6.i.i
+  %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i.sink.i = phi ptr [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i36.i, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i76.i, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i116.i, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i156.i, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i196.i, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i236.i, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i276.i, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i316.i, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i356.i, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i399.i, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i.i, %if.end.i.i.i.i.i.i.i6.i.i ]
+  %ref.tmp5.i385.sink.ph.i = phi ptr [ %ref.tmp5.i22.i, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %ref.tmp5.i62.i, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %ref.tmp5.i102.i, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %ref.tmp5.i142.i, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %ref.tmp5.i182.i, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %ref.tmp5.i222.i, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %ref.tmp5.i262.i, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %ref.tmp5.i302.i, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %ref.tmp5.i342.i, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %ref.tmp5.i385.i, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %ref.tmp5.i.i, %if.end.i.i.i.i.i.i.i6.i.i ]
+  %chunkMask_.i.i.i.i.i.i.i.i8.i400.sink.ph.i = phi ptr [ %chunkMask_.i.i.i.i.i.i.i.i8.i37.i, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i77.i, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i117.i, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i157.i, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i197.i, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i237.i, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i277.i, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i317.i, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i357.i, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i400.i, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i.i, %if.end.i.i.i.i.i.i.i6.i.i ]
+  %.sink.ph.i = phi ptr [ %29, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %40, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %51, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %62, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %73, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %84, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %95, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %106, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %117, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %128, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %18, %if.end.i.i.i.i.i.i.i6.i.i ]
+  %common.resume.op.ph.ph.i = phi { ptr, i32 } [ %28, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %39, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %50, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %61, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %72, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %83, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %94, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %105, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %116, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %127, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %17, %if.end.i.i.i.i.i.i.i6.i.i ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i.sink.i, i8 0, i64 16, i1 false), !noalias !242
   br label %common.resume.sink.split.i
 
-common.resume.sink.split.i:                       ; preds = %if.then28.i.i.i.i.i.i.i11.i403.i, %if.then28.i.i.i.i.i.i.i11.i360.i, %if.then28.i.i.i.i.i.i.i11.i320.i, %if.then28.i.i.i.i.i.i.i11.i280.i, %if.then28.i.i.i.i.i.i.i11.i240.i, %if.then28.i.i.i.i.i.i.i11.i200.i, %if.then28.i.i.i.i.i.i.i11.i160.i, %if.then28.i.i.i.i.i.i.i11.i120.i, %if.then28.i.i.i.i.i.i.i11.i80.i, %if.then28.i.i.i.i.i.i.i11.i40.i, %if.then28.i.i.i.i.i.i.i11.i.i
-  %chunkMask_.i.i.i.i.i.i.i.i8.i400.sink.i = phi ptr [ %chunkMask_.i.i.i.i.i.i.i.i8.i400.i, %if.then28.i.i.i.i.i.i.i11.i403.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i357.i, %if.then28.i.i.i.i.i.i.i11.i360.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i317.i, %if.then28.i.i.i.i.i.i.i11.i320.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i277.i, %if.then28.i.i.i.i.i.i.i11.i280.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i237.i, %if.then28.i.i.i.i.i.i.i11.i240.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i197.i, %if.then28.i.i.i.i.i.i.i11.i200.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i157.i, %if.then28.i.i.i.i.i.i.i11.i160.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i117.i, %if.then28.i.i.i.i.i.i.i11.i120.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i77.i, %if.then28.i.i.i.i.i.i.i11.i80.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i37.i, %if.then28.i.i.i.i.i.i.i11.i40.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i.i, %if.then28.i.i.i.i.i.i.i11.i.i ]
-  %.sink.i = phi ptr [ %128, %if.then28.i.i.i.i.i.i.i11.i403.i ], [ %117, %if.then28.i.i.i.i.i.i.i11.i360.i ], [ %106, %if.then28.i.i.i.i.i.i.i11.i320.i ], [ %95, %if.then28.i.i.i.i.i.i.i11.i280.i ], [ %84, %if.then28.i.i.i.i.i.i.i11.i240.i ], [ %73, %if.then28.i.i.i.i.i.i.i11.i200.i ], [ %62, %if.then28.i.i.i.i.i.i.i11.i160.i ], [ %51, %if.then28.i.i.i.i.i.i.i11.i120.i ], [ %40, %if.then28.i.i.i.i.i.i.i11.i80.i ], [ %29, %if.then28.i.i.i.i.i.i.i11.i40.i ], [ %18, %if.then28.i.i.i.i.i.i.i11.i.i ]
-  %common.resume.op.ph.i = phi { ptr, i32 } [ %127, %if.then28.i.i.i.i.i.i.i11.i403.i ], [ %116, %if.then28.i.i.i.i.i.i.i11.i360.i ], [ %105, %if.then28.i.i.i.i.i.i.i11.i320.i ], [ %94, %if.then28.i.i.i.i.i.i.i11.i280.i ], [ %83, %if.then28.i.i.i.i.i.i.i11.i240.i ], [ %72, %if.then28.i.i.i.i.i.i.i11.i200.i ], [ %61, %if.then28.i.i.i.i.i.i.i11.i160.i ], [ %50, %if.then28.i.i.i.i.i.i.i11.i120.i ], [ %39, %if.then28.i.i.i.i.i.i.i11.i80.i ], [ %28, %if.then28.i.i.i.i.i.i.i11.i40.i ], [ %17, %if.then28.i.i.i.i.i.i.i11.i.i ]
+common.resume.sink.split.i:                       ; preds = %if.end.i.i.i.i.i.i.i6.i398.i, %if.end.i.i.i.i.i.i.i6.i355.i, %if.end.i.i.i.i.i.i.i6.i315.i, %if.end.i.i.i.i.i.i.i6.i275.i, %if.end.i.i.i.i.i.i.i6.i235.i, %if.end.i.i.i.i.i.i.i6.i195.i, %if.end.i.i.i.i.i.i.i6.i155.i, %if.end.i.i.i.i.i.i.i6.i115.i, %if.end.i.i.i.i.i.i.i6.i75.i, %if.end.i.i.i.i.i.i.i6.i35.i, %common.resume.sink.split.sink.split.i, %if.end.i.i.i.i.i.i.i6.i.i
+  %ref.tmp5.i385.sink.i = phi ptr [ %ref.tmp5.i22.i, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %ref.tmp5.i62.i, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %ref.tmp5.i102.i, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %ref.tmp5.i142.i, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %ref.tmp5.i182.i, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %ref.tmp5.i222.i, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %ref.tmp5.i262.i, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %ref.tmp5.i302.i, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %ref.tmp5.i342.i, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %ref.tmp5.i385.i, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %ref.tmp5.i.i, %if.end.i.i.i.i.i.i.i6.i.i ], [ %ref.tmp5.i385.sink.ph.i, %common.resume.sink.split.sink.split.i ]
+  %chunkMask_.i.i.i.i.i.i.i.i8.i400.sink.i = phi ptr [ %chunkMask_.i.i.i.i.i.i.i.i8.i37.i, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i77.i, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i117.i, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i157.i, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i197.i, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i237.i, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i277.i, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i317.i, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i357.i, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i400.i, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i.i, %if.end.i.i.i.i.i.i.i6.i.i ], [ %chunkMask_.i.i.i.i.i.i.i.i8.i400.sink.ph.i, %common.resume.sink.split.sink.split.i ]
+  %.sink.i = phi ptr [ %29, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %40, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %51, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %62, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %73, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %84, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %95, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %106, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %117, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %128, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %18, %if.end.i.i.i.i.i.i.i6.i.i ], [ %.sink.ph.i, %common.resume.sink.split.sink.split.i ]
+  %common.resume.op.ph.i = phi { ptr, i32 } [ %28, %if.end.i.i.i.i.i.i.i6.i35.i ], [ %39, %if.end.i.i.i.i.i.i.i6.i75.i ], [ %50, %if.end.i.i.i.i.i.i.i6.i115.i ], [ %61, %if.end.i.i.i.i.i.i.i6.i155.i ], [ %72, %if.end.i.i.i.i.i.i.i6.i195.i ], [ %83, %if.end.i.i.i.i.i.i.i6.i235.i ], [ %94, %if.end.i.i.i.i.i.i.i6.i275.i ], [ %105, %if.end.i.i.i.i.i.i.i6.i315.i ], [ %116, %if.end.i.i.i.i.i.i.i6.i355.i ], [ %127, %if.end.i.i.i.i.i.i.i6.i398.i ], [ %17, %if.end.i.i.i.i.i.i.i6.i.i ], [ %common.resume.op.ph.ph.i, %common.resume.sink.split.sink.split.i ]
+  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i385.sink.i, align 8, !noalias !242
   store i64 0, ptr %chunkMask_.i.i.i.i.i.i.i.i8.i400.sink.i, align 8, !noalias !242
   call void @_ZdlPv(ptr noundef %.sink.i) #32, !noalias !242
   br label %lpad.body
@@ -5092,15 +4941,7 @@ if.end.i.i.i.i.i.i.i6.i35.i:                      ; preds = %lpad.i33.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i37.i = getelementptr inbounds i8, ptr %ref.tmp5.i22.i, i64 8
   %30 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i36.i, align 8, !noalias !258
   %cmp.i.i.i.i.i.i.i.i9.i38.i = icmp eq i64 %30, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i38.i, label %if.then28.i.i.i.i.i.i.i11.i40.i, label %if.end20.i.i.i.i.i.i.i10.i39.i
-
-if.end20.i.i.i.i.i.i.i10.i39.i:                   ; preds = %if.end.i.i.i.i.i.i.i6.i35.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i36.i, i8 0, i64 16, i1 false), !noalias !258
-  br label %if.then28.i.i.i.i.i.i.i11.i40.i
-
-if.then28.i.i.i.i.i.i.i11.i40.i:                  ; preds = %if.end20.i.i.i.i.i.i.i10.i39.i, %if.end.i.i.i.i.i.i.i6.i35.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i22.i, align 8, !noalias !258
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i38.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEEED2Ev.exit49.i.i: ; preds = %if.end.i28.i
   %call5.i.i.i3.i.i.i.i.i58.i6 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -5201,15 +5042,7 @@ if.end.i.i.i.i.i.i.i6.i75.i:                      ; preds = %lpad.i73.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i77.i = getelementptr inbounds i8, ptr %ref.tmp5.i62.i, i64 8
   %41 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i76.i, align 8, !noalias !268
   %cmp.i.i.i.i.i.i.i.i9.i78.i = icmp eq i64 %41, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i78.i, label %if.then28.i.i.i.i.i.i.i11.i80.i, label %if.end20.i.i.i.i.i.i.i10.i79.i
-
-if.end20.i.i.i.i.i.i.i10.i79.i:                   ; preds = %if.end.i.i.i.i.i.i.i6.i75.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i76.i, i8 0, i64 16, i1 false), !noalias !268
-  br label %if.then28.i.i.i.i.i.i.i11.i80.i
-
-if.then28.i.i.i.i.i.i.i11.i80.i:                  ; preds = %if.end20.i.i.i.i.i.i.i10.i79.i, %if.end.i.i.i.i.i.i.i6.i75.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i62.i, align 8, !noalias !268
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i78.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEEED2Ev.exit49.i.i: ; preds = %if.end.i68.i
   %call5.i.i.i3.i.i.i.i.i98.i8 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -5310,15 +5143,7 @@ if.end.i.i.i.i.i.i.i6.i115.i:                     ; preds = %lpad.i113.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i117.i = getelementptr inbounds i8, ptr %ref.tmp5.i102.i, i64 8
   %52 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i116.i, align 8, !noalias !278
   %cmp.i.i.i.i.i.i.i.i9.i118.i = icmp eq i64 %52, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i118.i, label %if.then28.i.i.i.i.i.i.i11.i120.i, label %if.end20.i.i.i.i.i.i.i10.i119.i
-
-if.end20.i.i.i.i.i.i.i10.i119.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i115.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i116.i, i8 0, i64 16, i1 false), !noalias !278
-  br label %if.then28.i.i.i.i.i.i.i11.i120.i
-
-if.then28.i.i.i.i.i.i.i11.i120.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i119.i, %if.end.i.i.i.i.i.i.i6.i115.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i102.i, align 8, !noalias !278
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i118.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEEED2Ev.exit49.i.i: ; preds = %if.end.i108.i
   %call5.i.i.i3.i.i.i.i.i138.i10 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -5419,15 +5244,7 @@ if.end.i.i.i.i.i.i.i6.i155.i:                     ; preds = %lpad.i153.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i157.i = getelementptr inbounds i8, ptr %ref.tmp5.i142.i, i64 8
   %63 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i156.i, align 8, !noalias !288
   %cmp.i.i.i.i.i.i.i.i9.i158.i = icmp eq i64 %63, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i158.i, label %if.then28.i.i.i.i.i.i.i11.i160.i, label %if.end20.i.i.i.i.i.i.i10.i159.i
-
-if.end20.i.i.i.i.i.i.i10.i159.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i155.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i156.i, i8 0, i64 16, i1 false), !noalias !288
-  br label %if.then28.i.i.i.i.i.i.i11.i160.i
-
-if.then28.i.i.i.i.i.i.i11.i160.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i159.i, %if.end.i.i.i.i.i.i.i6.i155.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i142.i, align 8, !noalias !288
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i158.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEEED2Ev.exit49.i.i: ; preds = %if.end.i148.i
   %call5.i.i.i3.i.i.i.i.i178.i12 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -5528,15 +5345,7 @@ if.end.i.i.i.i.i.i.i6.i195.i:                     ; preds = %lpad.i193.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i197.i = getelementptr inbounds i8, ptr %ref.tmp5.i182.i, i64 8
   %74 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i196.i, align 8, !noalias !298
   %cmp.i.i.i.i.i.i.i.i9.i198.i = icmp eq i64 %74, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i198.i, label %if.then28.i.i.i.i.i.i.i11.i200.i, label %if.end20.i.i.i.i.i.i.i10.i199.i
-
-if.end20.i.i.i.i.i.i.i10.i199.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i195.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i196.i, i8 0, i64 16, i1 false), !noalias !298
-  br label %if.then28.i.i.i.i.i.i.i11.i200.i
-
-if.then28.i.i.i.i.i.i.i11.i200.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i199.i, %if.end.i.i.i.i.i.i.i6.i195.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i182.i, align 8, !noalias !298
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i198.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEEED2Ev.exit49.i.i: ; preds = %if.end.i188.i
   %call5.i.i.i3.i.i.i.i.i218.i14 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -5637,15 +5446,7 @@ if.end.i.i.i.i.i.i.i6.i235.i:                     ; preds = %lpad.i233.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i237.i = getelementptr inbounds i8, ptr %ref.tmp5.i222.i, i64 8
   %85 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i236.i, align 8, !noalias !308
   %cmp.i.i.i.i.i.i.i.i9.i238.i = icmp eq i64 %85, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i238.i, label %if.then28.i.i.i.i.i.i.i11.i240.i, label %if.end20.i.i.i.i.i.i.i10.i239.i
-
-if.end20.i.i.i.i.i.i.i10.i239.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i235.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i236.i, i8 0, i64 16, i1 false), !noalias !308
-  br label %if.then28.i.i.i.i.i.i.i11.i240.i
-
-if.then28.i.i.i.i.i.i.i11.i240.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i239.i, %if.end.i.i.i.i.i.i.i6.i235.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i222.i, align 8, !noalias !308
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i238.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEEED2Ev.exit49.i.i: ; preds = %if.end.i228.i
   %call5.i.i.i3.i.i.i.i.i258.i16 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -5746,15 +5547,7 @@ if.end.i.i.i.i.i.i.i6.i275.i:                     ; preds = %lpad.i273.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i277.i = getelementptr inbounds i8, ptr %ref.tmp5.i262.i, i64 8
   %96 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i276.i, align 8, !noalias !318
   %cmp.i.i.i.i.i.i.i.i9.i278.i = icmp eq i64 %96, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i278.i, label %if.then28.i.i.i.i.i.i.i11.i280.i, label %if.end20.i.i.i.i.i.i.i10.i279.i
-
-if.end20.i.i.i.i.i.i.i10.i279.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i275.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i276.i, i8 0, i64 16, i1 false), !noalias !318
-  br label %if.then28.i.i.i.i.i.i.i11.i280.i
-
-if.then28.i.i.i.i.i.i.i11.i280.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i279.i, %if.end.i.i.i.i.i.i.i6.i275.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i262.i, align 8, !noalias !318
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i278.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEEED2Ev.exit49.i.i: ; preds = %if.end.i268.i
   %call5.i.i.i3.i.i.i.i.i298.i18 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -5855,15 +5648,7 @@ if.end.i.i.i.i.i.i.i6.i315.i:                     ; preds = %lpad.i313.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i317.i = getelementptr inbounds i8, ptr %ref.tmp5.i302.i, i64 8
   %107 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i316.i, align 8, !noalias !328
   %cmp.i.i.i.i.i.i.i.i9.i318.i = icmp eq i64 %107, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i318.i, label %if.then28.i.i.i.i.i.i.i11.i320.i, label %if.end20.i.i.i.i.i.i.i10.i319.i
-
-if.end20.i.i.i.i.i.i.i10.i319.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i315.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i316.i, i8 0, i64 16, i1 false), !noalias !328
-  br label %if.then28.i.i.i.i.i.i.i11.i320.i
-
-if.then28.i.i.i.i.i.i.i11.i320.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i319.i, %if.end.i.i.i.i.i.i.i6.i315.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i302.i, align 8, !noalias !328
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i318.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEEED2Ev.exit49.i.i: ; preds = %if.end.i308.i
   %call5.i.i.i3.i.i.i.i.i338.i20 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -5964,15 +5749,7 @@ if.end.i.i.i.i.i.i.i6.i355.i:                     ; preds = %lpad.i353.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i357.i = getelementptr inbounds i8, ptr %ref.tmp5.i342.i, i64 8
   %118 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i356.i, align 8, !noalias !338
   %cmp.i.i.i.i.i.i.i.i9.i358.i = icmp eq i64 %118, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i358.i, label %if.then28.i.i.i.i.i.i.i11.i360.i, label %if.end20.i.i.i.i.i.i.i10.i359.i
-
-if.end20.i.i.i.i.i.i.i10.i359.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i355.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i356.i, i8 0, i64 16, i1 false), !noalias !338
-  br label %if.then28.i.i.i.i.i.i.i11.i360.i
-
-if.then28.i.i.i.i.i.i.i11.i360.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i359.i, %if.end.i.i.i.i.i.i.i6.i355.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i342.i, align 8, !noalias !338
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i358.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_10StringViewEEEED2Ev.exit49.i380.i: ; preds = %if.end.i348.i
   %call5.i.i.i3.i.i.i.i.i381.i22 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
@@ -6073,15 +5850,7 @@ if.end.i.i.i.i.i.i.i6.i398.i:                     ; preds = %lpad.i396.i
   %chunkMask_.i.i.i.i.i.i.i.i8.i400.i = getelementptr inbounds i8, ptr %ref.tmp5.i385.i, i64 8
   %129 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i399.i, align 8, !noalias !348
   %cmp.i.i.i.i.i.i.i.i9.i401.i = icmp eq i64 %129, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i9.i401.i, label %if.then28.i.i.i.i.i.i.i11.i403.i, label %if.end20.i.i.i.i.i.i.i10.i402.i
-
-if.end20.i.i.i.i.i.i.i10.i402.i:                  ; preds = %if.end.i.i.i.i.i.i.i6.i398.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndPackedBegin_.i.i.i.i.i.i.i.i7.i399.i, i8 0, i64 16, i1 false), !noalias !348
-  br label %if.then28.i.i.i.i.i.i.i11.i403.i
-
-if.then28.i.i.i.i.i.i.i11.i403.i:                 ; preds = %if.end20.i.i.i.i.i.i.i10.i402.i, %if.end.i.i.i.i.i.i.i6.i398.i
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %ref.tmp5.i385.i, align 8, !noalias !348
-  br label %common.resume.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i.i9.i401.i, label %common.resume.sink.split.i, label %common.resume.sink.split.sink.split.i
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS1_9TimestampEEEED2Ev.exit49.i.i: ; preds = %if.end.i391.i
   %call5.i.i.i3.i.i.i.i.i421.i24 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33

@@ -1170,9 +1170,9 @@ entry:
   %needToRelease.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i8 0, ptr %needToRelease.i.i.i, align 4
   store i32 0, ptr %internalMuStatus, align 4
-  %agg.tmp169.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp155, i64 8
-  %agg.tmp169.sink.sroa.gep266 = getelementptr inbounds i8, ptr %agg.tmp164, i64 8
-  %agg.tmp169.sink.sroa.gep267 = getelementptr inbounds i8, ptr %agg.tmp169, i64 8
+  %agg.tmp169.sink262.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp164, i64 8
+  %agg.tmp169.sink262.sroa.gep267 = getelementptr inbounds i8, ptr %agg.tmp169, i64 8
+  %agg.tmp169.sink262.sroa.gep268 = getelementptr inbounds i8, ptr %agg.tmp155, i64 8
   invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef nonnull @.str.3)
           to label %invoke.cont unwind label %lpad
 
@@ -1959,11 +1959,11 @@ if.then154:                                       ; preds = %land.rhs.i161, %_ZN
   invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp155, ptr noundef nonnull @.str.14)
           to label %invoke.cont156.invoke unwind label %lpad96.loopexit.split-lp
 
-invoke.cont156.invoke:                            ; preds = %if.else168, %if.then163, %if.then154
-  %agg.tmp169.sink.sroa.phi = phi ptr [ %agg.tmp169.sink.sroa.gep, %if.then154 ], [ %agg.tmp169.sink.sroa.gep266, %if.then163 ], [ %agg.tmp169.sink.sroa.gep267, %if.else168 ]
-  %agg.tmp169.sink = phi ptr [ %agg.tmp155, %if.then154 ], [ %agg.tmp164, %if.then163 ], [ %agg.tmp169, %if.else168 ]
-  %137 = load ptr, ptr %agg.tmp169.sink, align 8
-  %138 = load i32, ptr %agg.tmp169.sink.sroa.phi, align 8
+invoke.cont156.invoke:                            ; preds = %if.then154, %if.else168, %if.then163
+  %agg.tmp169.sink262.sroa.phi = phi ptr [ %agg.tmp169.sink262.sroa.gep, %if.then163 ], [ %agg.tmp169.sink262.sroa.gep267, %if.else168 ], [ %agg.tmp169.sink262.sroa.gep268, %if.then154 ]
+  %agg.tmp169.sink262 = phi ptr [ %agg.tmp164, %if.then163 ], [ %agg.tmp169, %if.else168 ], [ %agg.tmp155, %if.then154 ]
+  %137 = load ptr, ptr %agg.tmp169.sink262, align 8
+  %138 = load i32, ptr %agg.tmp169.sink262.sroa.phi, align 8
   %139 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %region, ptr noundef %137, i32 noundef %138, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont179 unwind label %lpad96.loopexit.split-lp
 

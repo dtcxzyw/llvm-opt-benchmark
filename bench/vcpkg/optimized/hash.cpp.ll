@@ -398,8 +398,8 @@ _ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocess
   %.0.i.i = phi ptr [ %1, %36 ], [ %.0.i.i.i, %59 ]
   %50 = ptrtoint ptr %.0.i.i to i64
   %51 = sub i64 %47, %50
-  %.not.i.i4.i = icmp ult i64 %51, 128
-  br i1 %.not.i.i4.i, label %53, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit.i.i.i
+  %.not.i.i5.i = icmp ult i64 %51, 128
+  br i1 %.not.i.i5.i, label %53, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit.i.i.i
 
 _ZSt4copyIPKhPhET0_T_S4_S3_.exit.i.i.i:           ; preds = %49
   %52 = getelementptr inbounds i8, ptr %.0.i.i, i64 128
@@ -407,16 +407,16 @@ _ZSt4copyIPKhPhET0_T_S4_S3_.exit.i.i.i:           ; preds = %49
   br label %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocessedEPKvS6_.exit.i.i
 
 53:                                               ; preds = %49
-  %.not.i.i.i.i.i20.i.i8.i = icmp eq ptr %2, %.0.i.i
-  br i1 %.not.i.i.i.i.i20.i.i8.i, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit21.i.i.i, label %54
+  %.not.i.i.i.i.i20.i.i9.i = icmp eq ptr %2, %.0.i.i
+  br i1 %.not.i.i.i.i.i20.i.i9.i, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit21.i.i.i, label %54
 
 54:                                               ; preds = %53
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %45, ptr align 1 %.0.i.i, i64 %51, i1 false), !noalias !19
-  %.pre22.i.i9.i = load i64, ptr %46, align 8, !noalias !19
+  %.pre22.i.i10.i = load i64, ptr %46, align 8, !noalias !19
   br label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit21.i.i.i
 
 _ZSt4copyIPKhPhET0_T_S4_S3_.exit21.i.i.i:         ; preds = %54, %53
-  %55 = phi i64 [ %.pre22.i.i9.i, %54 ], [ 0, %53 ]
+  %55 = phi i64 [ %.pre22.i.i10.i, %54 ], [ 0, %53 ]
   %56 = add i64 %55, %51
   br label %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocessedEPKvS6_.exit.i.i
 
@@ -427,8 +427,8 @@ _ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocess
   store i64 %.sink24.i.i.i, ptr %46, align 8, !noalias !19
   %57 = shl nuw nsw i64 %.sink.i.i.i, 3
   %58 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5vcpkg7UInt128pLEm(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %57) #21, !noalias !19
-  %.not.i7.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i7.i, label %"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.exit", label %59
+  %.not.i8.i = icmp eq ptr %.0.i.i.i, null
+  br i1 %.not.i8.i, label %"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.exit", label %59
 
 59:                                               ; preds = %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocessedEPKvS6_.exit.i.i
   call fastcc void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha512Algorithm18process_full_chunkERKSt5arrayIhLm128EE(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 1 dereferenceable(128) %45) #21, !noalias !19
@@ -443,11 +443,11 @@ _ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocess
   unreachable
 
 "_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.exit": ; preds = %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocessedEPKvS6_.exit.i.i, %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocessedEPKvS6_.exit.thread.i.i
-  %.sink.i = phi ptr [ %5, %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocessedEPKvS6_.exit.thread.i.i ], [ %6, %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocessedEPKvS6_.exit.i.i ]
-  %.sink3.i = load ptr, ptr %.sink.i, align 8, !noalias !11
-  %62 = getelementptr inbounds i8, ptr %.sink3.i, i64 8
-  %63 = load ptr, ptr %62, align 8, !noalias !11
-  call void %63(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.sink.i)
+  %.sink4.i = phi ptr [ %5, %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocessedEPKvS6_.exit.thread.i.i ], [ %6, %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocessedEPKvS6_.exit.i.i ]
+  %62 = load ptr, ptr %.sink4.i, align 8, !noalias !11
+  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8, !noalias !11
+  call void %64(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.sink4.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -529,10 +529,10 @@ _ZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmE.exit: ; preds = %._c
   %29 = load i64, ptr %28, align 8, !noalias !29
   %30 = add i64 %29, %27
   store i64 %30, ptr %28, align 8, !noalias !29
-  %.sink3.i.i = load ptr, ptr %4, align 8, !noalias !26
-  %31 = getelementptr inbounds i8, ptr %.sink3.i.i, i64 8
-  %32 = load ptr, ptr %31, align 8, !noalias !26
-  call void %32(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %31 = load ptr, ptr %4, align 8, !noalias !26
+  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8, !noalias !26
+  call void %33(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4), !noalias !23
   ret void
 }

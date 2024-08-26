@@ -1874,22 +1874,22 @@ define internal fastcc void @_ZL23throw_dup_pkg_exceptionPKcP12PackageEntryP10Ja
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1112), align 8
-  br i1 %.not, label %16, label %13
+  br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %3
   %14 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %11) #14
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull @.str.92, ptr noundef %7, ptr noundef %0, ptr noundef %14)
-  %15 = load ptr, ptr %4, align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 267, ptr noundef %12, ptr noundef %15) #14
-  br label %18
+  br label %16
 
-16:                                               ; preds = %3
+15:                                               ; preds = %3
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull @.str.93, ptr noundef %7, ptr noundef %0)
-  %17 = load ptr, ptr %5, align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 271, ptr noundef %12, ptr noundef %17) #14
-  br label %18
+  br label %16
 
-18:                                               ; preds = %16, %13
+16:                                               ; preds = %15, %13
+  %.sink10 = phi ptr [ %5, %15 ], [ %4, %13 ]
+  %.sink = phi i32 [ 271, %15 ], [ 267, %13 ]
+  %17 = load ptr, ptr %.sink10, align 8
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef %12, ptr noundef %17) #14
   ret void
 }
 

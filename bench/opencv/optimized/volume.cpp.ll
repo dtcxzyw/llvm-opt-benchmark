@@ -469,17 +469,17 @@ define hidden void @_ZN2cv5kinfu10makeVolumeERKNS0_12VolumeParamsE(ptr dead_on_u
   ]
 
 _ZN2cv3PtrINS_5kinfu10TSDFVolumeEED2Ev.exit:      ; preds = %2
-  %.sink.sroa.gep26 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink25.sroa.gep27 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZN2cv5kinfu14makeTSDFVolumeERKNS0_12VolumeParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.7") align 8 %3, ptr noundef nonnull align 4 dereferenceable(104) %1)
   br label %17
 
 _ZN2cv3PtrINS_5kinfu14HashTSDFVolumeEED2Ev.exit:  ; preds = %2
-  %.sink.sroa.gep25 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink25.sroa.gep26 = getelementptr inbounds i8, ptr %4, i64 8
   call void @_ZN2cv5kinfu18makeHashTSDFVolumeERKNS0_12VolumeParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.11") align 8 %4, ptr noundef nonnull align 4 dereferenceable(104) %1)
   br label %17
 
 _ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit: ; preds = %2
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink25.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
   call void @_ZN2cv5kinfu21makeColoredTSDFVolumeERKNS0_12VolumeParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.15") align 8 %5, ptr noundef nonnull align 4 dereferenceable(104) %1)
   br label %17
 
@@ -512,13 +512,13 @@ _ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit: ; preds = %2
   resume { ptr, i32 } %.pn
 
 17:                                               ; preds = %_ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit, %_ZN2cv3PtrINS_5kinfu14HashTSDFVolumeEED2Ev.exit, %_ZN2cv3PtrINS_5kinfu10TSDFVolumeEED2Ev.exit
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit ], [ %.sink.sroa.gep25, %_ZN2cv3PtrINS_5kinfu14HashTSDFVolumeEED2Ev.exit ], [ %.sink.sroa.gep26, %_ZN2cv3PtrINS_5kinfu10TSDFVolumeEED2Ev.exit ]
-  %.sink = phi ptr [ %5, %_ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit ], [ %4, %_ZN2cv3PtrINS_5kinfu14HashTSDFVolumeEED2Ev.exit ], [ %3, %_ZN2cv3PtrINS_5kinfu10TSDFVolumeEED2Ev.exit ]
-  %.sink24 = load ptr, ptr %.sink, align 8
-  store ptr %.sink24, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load ptr, ptr %.sink.sroa.phi, align 8
-  store ptr %19, ptr %18, align 8
+  %.sink25.sroa.phi = phi ptr [ %.sink25.sroa.gep, %_ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit ], [ %.sink25.sroa.gep26, %_ZN2cv3PtrINS_5kinfu14HashTSDFVolumeEED2Ev.exit ], [ %.sink25.sroa.gep27, %_ZN2cv3PtrINS_5kinfu10TSDFVolumeEED2Ev.exit ]
+  %.sink25 = phi ptr [ %5, %_ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit ], [ %4, %_ZN2cv3PtrINS_5kinfu14HashTSDFVolumeEED2Ev.exit ], [ %3, %_ZN2cv3PtrINS_5kinfu10TSDFVolumeEED2Ev.exit ]
+  %18 = load ptr, ptr %.sink25, align 8
+  store ptr %18, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = load ptr, ptr %.sink25.sroa.phi, align 8
+  store ptr %20, ptr %19, align 8
   ret void
 }
 
@@ -547,7 +547,7 @@ define void @_ZN2cv5kinfu10makeVolumeENS0_10VolumeTypeEfNS_4MatxIfLi4ELi4EEEffif
   ]
 
 _ZN2cv3PtrINS_5kinfu10TSDFVolumeEED2Ev.exit:      ; preds = %9
-  %.sink.sroa.gep50 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink49.sroa.gep51 = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.3.0.insert.ext41 = zext i32 %17 to i64
   %.sroa.3.0.insert.shift42 = shl nuw i64 %.sroa.3.0.insert.ext41, 32
   %.sroa.0.0.insert.ext38 = zext i32 %15 to i64
@@ -556,12 +556,12 @@ _ZN2cv3PtrINS_5kinfu10TSDFVolumeEED2Ev.exit:      ; preds = %9
   br label %28
 
 _ZN2cv3PtrINS_5kinfu14HashTSDFVolumeEED2Ev.exit:  ; preds = %9
-  %.sink.sroa.gep49 = getelementptr inbounds i8, ptr %11, i64 8
+  %.sink49.sroa.gep50 = getelementptr inbounds i8, ptr %11, i64 8
   call void @_ZN2cv5kinfu18makeHashTSDFVolumeEfNS_4MatxIfLi4ELi4EEEffifi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.11") align 8 %11, float noundef %2, ptr noundef nonnull byval(%"class.cv::Matx.2") align 8 %3, float noundef %4, float noundef %5, i32 noundef %6, float noundef %7, i32 noundef 16)
   br label %28
 
 _ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit: ; preds = %9
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %12, i64 8
+  %.sink49.sroa.gep = getelementptr inbounds i8, ptr %12, i64 8
   %.sroa.3.0.insert.ext = zext i32 %17 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %15 to i64
@@ -598,13 +598,13 @@ _ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit: ; preds = %9
   resume { ptr, i32 } %.pn
 
 28:                                               ; preds = %_ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit, %_ZN2cv3PtrINS_5kinfu14HashTSDFVolumeEED2Ev.exit, %_ZN2cv3PtrINS_5kinfu10TSDFVolumeEED2Ev.exit
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit ], [ %.sink.sroa.gep49, %_ZN2cv3PtrINS_5kinfu14HashTSDFVolumeEED2Ev.exit ], [ %.sink.sroa.gep50, %_ZN2cv3PtrINS_5kinfu10TSDFVolumeEED2Ev.exit ]
-  %.sink = phi ptr [ %12, %_ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit ], [ %11, %_ZN2cv3PtrINS_5kinfu14HashTSDFVolumeEED2Ev.exit ], [ %10, %_ZN2cv3PtrINS_5kinfu10TSDFVolumeEED2Ev.exit ]
-  %.sink48 = load ptr, ptr %.sink, align 8
-  store ptr %.sink48, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = load ptr, ptr %.sink.sroa.phi, align 8
-  store ptr %30, ptr %29, align 8
+  %.sink49.sroa.phi = phi ptr [ %.sink49.sroa.gep, %_ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit ], [ %.sink49.sroa.gep50, %_ZN2cv3PtrINS_5kinfu14HashTSDFVolumeEED2Ev.exit ], [ %.sink49.sroa.gep51, %_ZN2cv3PtrINS_5kinfu10TSDFVolumeEED2Ev.exit ]
+  %.sink49 = phi ptr [ %12, %_ZN2cv3PtrINS_5kinfu17ColoredTSDFVolumeEED2Ev.exit ], [ %11, %_ZN2cv3PtrINS_5kinfu14HashTSDFVolumeEED2Ev.exit ], [ %10, %_ZN2cv3PtrINS_5kinfu10TSDFVolumeEED2Ev.exit ]
+  %29 = load ptr, ptr %.sink49, align 8
+  store ptr %29, ptr %0, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = load ptr, ptr %.sink49.sroa.phi, align 8
+  store ptr %31, ptr %30, align 8
   ret void
 }
 

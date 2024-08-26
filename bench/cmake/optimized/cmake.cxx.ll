@@ -22251,10 +22251,6 @@ _ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit: ; preds 
           cleanup
   br label %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit24
 
-_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit._crit_edge.thread: ; preds = %113, %_ZL20createExtraGeneratorRKSt6vectorIP41cmExternalMakefileProjectGeneratorFactorySaIS1_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  store ptr null, ptr %0, align 8
-  br label %134
-
 121:                                              ; preds = %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit
   store ptr %119, ptr %0, align 8
   %122 = load i64, ptr %11, align 8
@@ -22266,75 +22262,73 @@ _ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit._crit_edg
 123:                                              ; preds = %121
   %124 = load ptr, ptr %13, align 8
   %.not.i15 = icmp eq ptr %124, null
-  br i1 %.not.i15, label %_ZNSt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i
+  br i1 %.not.i15, label %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit._crit_edge.thread, label %_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i
 
 _ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i: ; preds = %123
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8
   call void %127(ptr noundef nonnull align 8 dereferenceable(72) %124) #31
-  br label %_ZNSt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS0_EED2Ev.exit
-
-_ZNSt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS0_EED2Ev.exit: ; preds = %123, %_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i
-  store ptr null, ptr %13, align 8
-  br label %134
+  br label %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit._crit_edge.thread
 
 128:                                              ; preds = %121
   %129 = landingpad { ptr, i32 }
           cleanup
   %130 = load ptr, ptr %13, align 8
   %.not.i16 = icmp eq ptr %130, null
-  br i1 %.not.i16, label %139, label %_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i17
+  br i1 %.not.i16, label %138, label %_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i17
 
 _ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i17: ; preds = %128
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
   call void %133(ptr noundef nonnull align 8 dereferenceable(72) %130) #31
-  br label %139
+  br label %138
 
-134:                                              ; preds = %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit._crit_edge.thread, %_ZNSt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS0_EED2Ev.exit
+_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit._crit_edge.thread: ; preds = %113, %_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i, %123, %_ZL20createExtraGeneratorRKSt6vectorIP41cmExternalMakefileProjectGeneratorFactorySaIS1_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %.sink = phi ptr [ %0, %_ZL20createExtraGeneratorRKSt6vectorIP41cmExternalMakefileProjectGeneratorFactorySaIS1_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %13, %123 ], [ %13, %_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i ], [ %0, %113 ]
+  store ptr null, ptr %.sink, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %109) #31
-  %135 = load ptr, ptr %11, align 8
-  %.not.i.i19 = icmp eq ptr %135, null
+  %134 = load ptr, ptr %11, align 8
+  %.not.i.i19 = icmp eq ptr %134, null
   br i1 %.not.i.i19, label %_ZNSt4pairISt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS1_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i.i20
 
-_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i.i20: ; preds = %134
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 8
-  %138 = load ptr, ptr %137, align 8
-  call void %138(ptr noundef nonnull align 8 dereferenceable(72) %135) #31
+_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i.i20: ; preds = %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit._crit_edge.thread
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %137 = load ptr, ptr %136, align 8
+  call void %137(ptr noundef nonnull align 8 dereferenceable(72) %134) #31
   br label %_ZNSt4pairISt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS1_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-_ZNSt4pairISt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS1_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %134, %_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i.i20
+_ZNSt4pairISt10unique_ptrI34cmExternalMakefileProjectGeneratorSt14default_deleteIS1_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit._crit_edge.thread, %_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i.i20
   ret void
 
-139:                                              ; preds = %_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i17, %128
+138:                                              ; preds = %_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i17, %128
   store ptr null, ptr %13, align 8
   %.pre = load ptr, ptr %0, align 8
   %.not.i22 = icmp eq ptr %.pre, null
   br i1 %.not.i22, label %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit24, label %_ZNKSt14default_deleteI17cmGlobalGeneratorEclEPS0_.exit.i23
 
-_ZNKSt14default_deleteI17cmGlobalGeneratorEclEPS0_.exit.i23: ; preds = %139
-  %140 = load ptr, ptr %.pre, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 8
-  %142 = load ptr, ptr %141, align 8
-  call void %142(ptr noundef nonnull align 8 dereferenceable(1778) %.pre) #31
+_ZNKSt14default_deleteI17cmGlobalGeneratorEclEPS0_.exit.i23: ; preds = %138
+  %139 = load ptr, ptr %.pre, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 8
+  %141 = load ptr, ptr %140, align 8
+  call void %141(ptr noundef nonnull align 8 dereferenceable(1778) %.pre) #31
   br label %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit24
 
-_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit24: ; preds = %.thread, %139, %_ZNKSt14default_deleteI17cmGlobalGeneratorEclEPS0_.exit.i23
-  %.pn49 = phi { ptr, i32 } [ %120, %.thread ], [ %129, %139 ], [ %129, %_ZNKSt14default_deleteI17cmGlobalGeneratorEclEPS0_.exit.i23 ]
+_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit24: ; preds = %.thread, %138, %_ZNKSt14default_deleteI17cmGlobalGeneratorEclEPS0_.exit.i23
+  %.pn49 = phi { ptr, i32 } [ %120, %.thread ], [ %129, %138 ], [ %129, %_ZNKSt14default_deleteI17cmGlobalGeneratorEclEPS0_.exit.i23 ]
   store ptr null, ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %109) #31
-  %143 = load ptr, ptr %11, align 8
-  %.not.i.i25 = icmp eq ptr %143, null
+  %142 = load ptr, ptr %11, align 8
+  %.not.i.i25 = icmp eq ptr %142, null
   br i1 %.not.i.i25, label %common.resume, label %_ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i.i26
 
 _ZNKSt14default_deleteI34cmExternalMakefileProjectGeneratorEclEPS0_.exit.i.i26: ; preds = %_ZNSt10unique_ptrI17cmGlobalGeneratorSt14default_deleteIS0_EED2Ev.exit24
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 8
-  %146 = load ptr, ptr %145, align 8
-  call void %146(ptr noundef nonnull align 8 dereferenceable(72) %143) #31
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 8
+  %145 = load ptr, ptr %144, align 8
+  call void %145(ptr noundef nonnull align 8 dereferenceable(72) %142) #31
   br label %common.resume
 }
 

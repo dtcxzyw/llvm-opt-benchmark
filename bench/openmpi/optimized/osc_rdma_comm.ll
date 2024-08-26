@@ -1206,11 +1206,11 @@ define internal fastcc ptr @ompi_osc_rdma_module_sync_lookup(ptr noundef %0, i32
   %7 = getelementptr inbounds i8, ptr %0, i64 512
   %8 = getelementptr inbounds i8, ptr %0, i64 536
   %9 = load i32, ptr %8, align 8
-  switch i32 %9, label %66 [
+  switch i32 %9, label %65 [
     i32 0, label %10
-    i32 1, label %30
-    i32 2, label %51
-    i32 3, label %64
+    i32 1, label %29
+    i32 2, label %50
+    i32 3, label %63
   ]
 
 10:                                               ; preds = %3
@@ -1238,116 +1238,116 @@ define internal fastcc ptr @ompi_osc_rdma_module_sync_lookup(ptr noundef %0, i32
   br label %23
 
 23:                                               ; preds = %20, %17
-  %.in.i = phi ptr [ %6, %20 ], [ %19, %17 ]
-  %24 = load ptr, ptr %.in.i, align 8
-  %25 = icmp ne ptr %24, null
-  %26 = icmp ne ptr %2, null
-  %or.cond.i = and i1 %26, %25
-  br i1 %or.cond.i, label %27, label %ompi_osc_rdma_module_lock_find.exit
+  %.sink.i = phi ptr [ %6, %20 ], [ %19, %17 ]
+  %.pre.i = load ptr, ptr %.sink.i, align 8
+  %24 = icmp ne ptr %.pre.i, null
+  %25 = icmp ne ptr %2, null
+  %or.cond.i = and i1 %25, %24
+  br i1 %or.cond.i, label %26, label %ompi_osc_rdma_module_lock_find.exit
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %24, i64 40
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %2, align 8
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %.pre.i, i64 40
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %2, align 8
   br label %ompi_osc_rdma_module_lock_find.exit
 
-ompi_osc_rdma_module_lock_find.exit:              ; preds = %23, %27
+ompi_osc_rdma_module_lock_find.exit:              ; preds = %23, %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.critedge
 
-30:                                               ; preds = %3
+29:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %31 = getelementptr inbounds i8, ptr %0, i64 1000
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %37
+  %30 = getelementptr inbounds i8, ptr %0, i64 1000
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %36
 
-34:                                               ; preds = %30
+33:                                               ; preds = %29
   store ptr null, ptr %5, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 928
-  %36 = call i32 @opal_hash_table_get_value_uint32(ptr noundef nonnull %35, i32 noundef %1, ptr noundef nonnull %5) #11
+  %34 = getelementptr inbounds i8, ptr %0, i64 928
+  %35 = call i32 @opal_hash_table_get_value_uint32(ptr noundef nonnull %34, i32 noundef %1, ptr noundef nonnull %5) #11
   br label %ompi_osc_module_get_peer.exit.i
 
-37:                                               ; preds = %30
-  %38 = sext i32 %1 to i64
-  %39 = getelementptr inbounds ptr, ptr %32, i64 %38
+36:                                               ; preds = %29
+  %37 = sext i32 %1 to i64
+  %38 = getelementptr inbounds ptr, ptr %31, i64 %37
   br label %ompi_osc_module_get_peer.exit.i
 
-ompi_osc_module_get_peer.exit.i:                  ; preds = %37, %34
-  %.0.in.i.i = phi ptr [ %5, %34 ], [ %39, %37 ]
+ompi_osc_module_get_peer.exit.i:                  ; preds = %36, %33
+  %.0.in.i.i = phi ptr [ %5, %33 ], [ %38, %36 ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not.i22 = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i22, label %40, label %ompi_osc_rdma_module_peer.exit
+  br i1 %.not.i22, label %39, label %ompi_osc_rdma_module_peer.exit
 
-40:                                               ; preds = %ompi_osc_module_get_peer.exit.i
-  %41 = call ptr @ompi_osc_rdma_peer_lookup(ptr noundef nonnull %0, i32 noundef %1) #11
+39:                                               ; preds = %ompi_osc_module_get_peer.exit.i
+  %40 = call ptr @ompi_osc_rdma_peer_lookup(ptr noundef nonnull %0, i32 noundef %1) #11
   br label %ompi_osc_rdma_module_peer.exit
 
-ompi_osc_rdma_module_peer.exit:                   ; preds = %ompi_osc_module_get_peer.exit.i, %40
-  %.0.i = phi ptr [ %41, %40 ], [ %.0.i.i, %ompi_osc_module_get_peer.exit.i ]
+ompi_osc_rdma_module_peer.exit:                   ; preds = %ompi_osc_module_get_peer.exit.i, %39
+  %.0.i = phi ptr [ %40, %39 ], [ %.0.i.i, %ompi_osc_module_get_peer.exit.i ]
   store ptr %.0.i, ptr %2, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 304
-  %43 = load i32, ptr %42, align 16
-  %44 = icmp eq i32 %43, 1
-  br i1 %44, label %45, label %.critedge
+  %41 = getelementptr inbounds i8, ptr %0, i64 304
+  %42 = load i32, ptr %41, align 16
+  %43 = icmp eq i32 %42, 1
+  br i1 %43, label %44, label %.critedge
 
-45:                                               ; preds = %ompi_osc_rdma_module_peer.exit
-  %46 = getelementptr inbounds i8, ptr %.0.i, i64 140
-  %47 = load volatile i32, ptr %46, align 4
-  %48 = and i32 %47, 128
-  %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %49, label %.critedge
+44:                                               ; preds = %ompi_osc_rdma_module_peer.exit
+  %45 = getelementptr inbounds i8, ptr %.0.i, i64 140
+  %46 = load volatile i32, ptr %45, align 4
+  %47 = and i32 %46, 128
+  %.not = icmp eq i32 %47, 0
+  br i1 %.not, label %48, label %.critedge
 
-49:                                               ; preds = %45
-  %50 = call i32 @ompi_osc_rdma_demand_lock_peer(ptr noundef nonnull %0, ptr noundef nonnull %.0.i) #11
+48:                                               ; preds = %44
+  %49 = call i32 @ompi_osc_rdma_demand_lock_peer(ptr noundef nonnull %0, ptr noundef nonnull %.0.i) #11
   br label %.critedge
 
-51:                                               ; preds = %3
-  %52 = getelementptr inbounds i8, ptr %0, i64 628
-  store i8 1, ptr %52, align 4
+50:                                               ; preds = %3
+  %51 = getelementptr inbounds i8, ptr %0, i64 628
+  store i8 1, ptr %51, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %53 = getelementptr inbounds i8, ptr %0, i64 1000
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %59
+  %52 = getelementptr inbounds i8, ptr %0, i64 1000
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %58
 
-56:                                               ; preds = %51
+55:                                               ; preds = %50
   store ptr null, ptr %4, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 928
-  %58 = call i32 @opal_hash_table_get_value_uint32(ptr noundef nonnull %57, i32 noundef %1, ptr noundef nonnull %4) #11
+  %56 = getelementptr inbounds i8, ptr %0, i64 928
+  %57 = call i32 @opal_hash_table_get_value_uint32(ptr noundef nonnull %56, i32 noundef %1, ptr noundef nonnull %4) #11
   br label %ompi_osc_module_get_peer.exit.i23
 
-59:                                               ; preds = %51
-  %60 = sext i32 %1 to i64
-  %61 = getelementptr inbounds ptr, ptr %54, i64 %60
+58:                                               ; preds = %50
+  %59 = sext i32 %1 to i64
+  %60 = getelementptr inbounds ptr, ptr %53, i64 %59
   br label %ompi_osc_module_get_peer.exit.i23
 
-ompi_osc_module_get_peer.exit.i23:                ; preds = %59, %56
-  %.0.in.i.i24 = phi ptr [ %4, %56 ], [ %61, %59 ]
+ompi_osc_module_get_peer.exit.i23:                ; preds = %58, %55
+  %.0.in.i.i24 = phi ptr [ %4, %55 ], [ %60, %58 ]
   %.0.i.i25 = load ptr, ptr %.0.in.i.i24, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not.i26 = icmp eq ptr %.0.i.i25, null
-  br i1 %.not.i26, label %62, label %ompi_osc_rdma_module_peer.exit28
+  br i1 %.not.i26, label %61, label %ompi_osc_rdma_module_peer.exit28
 
-62:                                               ; preds = %ompi_osc_module_get_peer.exit.i23
-  %63 = call ptr @ompi_osc_rdma_peer_lookup(ptr noundef nonnull %0, i32 noundef %1) #11
+61:                                               ; preds = %ompi_osc_module_get_peer.exit.i23
+  %62 = call ptr @ompi_osc_rdma_peer_lookup(ptr noundef nonnull %0, i32 noundef %1) #11
   br label %ompi_osc_rdma_module_peer.exit28
 
-ompi_osc_rdma_module_peer.exit28:                 ; preds = %ompi_osc_module_get_peer.exit.i23, %62
-  %.0.i27 = phi ptr [ %63, %62 ], [ %.0.i.i25, %ompi_osc_module_get_peer.exit.i23 ]
+ompi_osc_rdma_module_peer.exit28:                 ; preds = %ompi_osc_module_get_peer.exit.i23, %61
+  %.0.i27 = phi ptr [ %62, %61 ], [ %.0.i.i25, %ompi_osc_module_get_peer.exit.i23 ]
   store ptr %.0.i27, ptr %2, align 8
   br label %.critedge
 
-64:                                               ; preds = %3
-  %65 = tail call zeroext i1 @ompi_osc_rdma_sync_pscw_peer(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #11
-  br i1 %65, label %.critedge, label %66
+63:                                               ; preds = %3
+  %64 = tail call zeroext i1 @ompi_osc_rdma_sync_pscw_peer(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #11
+  br i1 %64, label %.critedge, label %65
 
-66:                                               ; preds = %64, %3
+65:                                               ; preds = %63, %3
   br label %.critedge
 
-.critedge:                                        ; preds = %64, %45, %49, %ompi_osc_rdma_module_peer.exit, %10, %66, %ompi_osc_rdma_module_peer.exit28, %ompi_osc_rdma_module_lock_find.exit
-  %.0 = phi ptr [ null, %66 ], [ %7, %ompi_osc_rdma_module_peer.exit28 ], [ %24, %ompi_osc_rdma_module_lock_find.exit ], [ null, %10 ], [ %7, %ompi_osc_rdma_module_peer.exit ], [ %7, %49 ], [ %7, %45 ], [ %7, %64 ]
+.critedge:                                        ; preds = %63, %44, %48, %ompi_osc_rdma_module_peer.exit, %10, %65, %ompi_osc_rdma_module_peer.exit28, %ompi_osc_rdma_module_lock_find.exit
+  %.0 = phi ptr [ null, %65 ], [ %7, %ompi_osc_rdma_module_peer.exit28 ], [ %.pre.i, %ompi_osc_rdma_module_lock_find.exit ], [ null, %10 ], [ %7, %ompi_osc_rdma_module_peer.exit ], [ %7, %48 ], [ %7, %44 ], [ %7, %63 ]
   ret ptr %.0
 }
 

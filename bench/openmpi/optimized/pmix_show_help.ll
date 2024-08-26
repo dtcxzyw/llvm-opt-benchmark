@@ -721,224 +721,224 @@ define internal fastcc i32 @load_array(ptr noundef %0, ptr noundef %1, ptr nound
   %.0.i = phi ptr [ %15, %.thread35.i ], [ %43, %41 ]
   %53 = load ptr, ptr %8, align 8
   %.not32.i = icmp eq ptr %53, null
-  br i1 %.not32.i, label %55, label %54
+  br i1 %.not32.i, label %56, label %54
 
 54:                                               ; preds = %.loopexit40.i
   call void @free(ptr noundef nonnull %53) #18
-  br label %55
+  br label %56
 
 open_file.exit.thread:                            ; preds = %34, %21, %.loopexit.i
-  %.sink.in = phi ptr [ %8, %.loopexit.i ], [ %8, %34 ], [ %7, %21 ]
+  %.sink111 = phi ptr [ %8, %.loopexit.i ], [ %7, %21 ], [ %8, %34 ]
   %.019.i.ph = phi i32 [ -46, %.loopexit.i ], [ -29, %21 ], [ -29, %34 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @free(ptr noundef %.sink) #18
+  %55 = load ptr, ptr %.sink111, align 8
+  call void @free(ptr noundef %55) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %121
+  br label %122
 
-55:                                               ; preds = %54, %.loopexit40.i
+56:                                               ; preds = %54, %.loopexit40.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
-  %56 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %.0.i)
-  %.not.i4.i = icmp eq ptr %56, null
+  %57 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %.0.i)
+  %.not.i4.i = icmp eq ptr %57, null
   br i1 %.not.i4.i, label %localgetline.exit.thread.i, label %.lr.ph.i15
 
-localgetline.exit.thread.i:                       ; preds = %.backedge.i, %55
+localgetline.exit.thread.i:                       ; preds = %.backedge.i, %56
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
   br label %.thread
 
-.lr.ph.i15:                                       ; preds = %55, %.backedge.i
-  %57 = load i8, ptr %6, align 16
-  %.not4.i.i = icmp eq i8 %57, 0
-  br i1 %.not4.i.i, label %localgetline.exit.i, label %58
+.lr.ph.i15:                                       ; preds = %56, %.backedge.i
+  %58 = load i8, ptr %6, align 16
+  %.not4.i.i = icmp eq i8 %58, 0
+  br i1 %.not4.i.i, label %localgetline.exit.i, label %59
 
-58:                                               ; preds = %.lr.ph.i15
-  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #23
-  %60 = add i64 %59, -1
-  %61 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %60
-  store i8 0, ptr %61, align 1
+59:                                               ; preds = %.lr.ph.i15
+  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #23
+  %61 = add i64 %60, -1
+  %62 = getelementptr inbounds [1024 x i8], ptr %6, i64 0, i64 %61
+  store i8 0, ptr %62, align 1
   br label %localgetline.exit.i
 
-localgetline.exit.i:                              ; preds = %58, %.lr.ph.i15
-  %62 = call noalias ptr @strdup(ptr noundef nonnull %6) #18
+localgetline.exit.i:                              ; preds = %59, %.lr.ph.i15
+  %63 = call noalias ptr @strdup(ptr noundef nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
-  %.not.i16 = icmp eq ptr %62, null
-  br i1 %.not.i16, label %.thread, label %63
+  %.not.i16 = icmp eq ptr %63, null
+  br i1 %.not.i16, label %.thread, label %64
 
-63:                                               ; preds = %localgetline.exit.i
-  %64 = load i8, ptr %62, align 1
-  %.not13.i = icmp eq i8 %64, 91
-  br i1 %.not13.i, label %66, label %.backedge.i
+64:                                               ; preds = %localgetline.exit.i
+  %65 = load i8, ptr %63, align 1
+  %.not13.i = icmp eq i8 %65, 91
+  br i1 %.not13.i, label %67, label %.backedge.i
 
-.backedge.i:                                      ; preds = %69, %66, %63
-  call void @free(ptr noundef nonnull %62) #18
+.backedge.i:                                      ; preds = %70, %67, %64
+  call void @free(ptr noundef nonnull %63) #18
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
-  %65 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %.0.i)
-  %.not.i.i = icmp eq ptr %65, null
+  %66 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %.0.i)
+  %.not.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i, label %localgetline.exit.thread.i, label %.lr.ph.i15, !llvm.loop !13
 
-66:                                               ; preds = %63
-  %67 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %62, i32 noundef 93) #23
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %.backedge.i, label %69
+67:                                               ; preds = %64
+  %68 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %63, i32 noundef 93) #23
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %.backedge.i, label %70
 
-69:                                               ; preds = %66
-  store i8 0, ptr %67, align 1
-  %70 = getelementptr inbounds i8, ptr %62, i64 1
-  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull readonly dereferenceable(1) %2) #23
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %.backedge.i
+70:                                               ; preds = %67
+  store i8 0, ptr %68, align 1
+  %71 = getelementptr inbounds i8, ptr %63, i64 1
+  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull readonly dereferenceable(1) %2) #23
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %.backedge.i
 
-73:                                               ; preds = %69
-  call void @free(ptr noundef nonnull %62) #18
+74:                                               ; preds = %70
+  call void @free(ptr noundef nonnull %63) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
-  %74 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %.0.i)
-  %.not.i2261 = icmp eq ptr %74, null
+  %75 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %.0.i)
+  %.not.i2261 = icmp eq ptr %75, null
   br i1 %.not.i2261, label %localgetline.exit.thread, label %.lr.ph
 
-localgetline.exit.thread:                         ; preds = %.backedge, %73
+localgetline.exit.thread:                         ; preds = %.backedge, %74
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %73, %.backedge
-  %75 = load i8, ptr %4, align 16
-  %.not4.i = icmp eq i8 %75, 0
-  br i1 %.not4.i, label %localgetline.exit, label %76
+.lr.ph:                                           ; preds = %74, %.backedge
+  %76 = load i8, ptr %4, align 16
+  %.not4.i = icmp eq i8 %76, 0
+  br i1 %.not4.i, label %localgetline.exit, label %77
 
-76:                                               ; preds = %.lr.ph
-  %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
-  %78 = add i64 %77, -1
-  %79 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 %78
-  store i8 0, ptr %79, align 1
+77:                                               ; preds = %.lr.ph
+  %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
+  %79 = add i64 %78, -1
+  %80 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 %79
+  store i8 0, ptr %80, align 1
   br label %localgetline.exit
 
-localgetline.exit:                                ; preds = %.lr.ph, %76
-  %80 = call noalias ptr @strdup(ptr noundef nonnull %4) #18
+localgetline.exit:                                ; preds = %.lr.ph, %77
+  %81 = call noalias ptr @strdup(ptr noundef nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
-  %.not.i19 = icmp eq ptr %80, null
-  br i1 %.not.i19, label %.loopexit, label %81
+  %.not.i19 = icmp eq ptr %81, null
+  br i1 %.not.i19, label %.loopexit, label %82
 
-81:                                               ; preds = %localgetline.exit
-  %82 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(10) @.str.19, i64 noundef 9) #23
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %84, label %95
+82:                                               ; preds = %localgetline.exit
+  %83 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(10) @.str.19, i64 noundef 9) #23
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %96
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %80, i64 9
-  %char0 = load i8, ptr %85, align 1
-  %86 = icmp eq i8 %char0, 0
-  br i1 %86, label %87, label %88
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds i8, ptr %81, i64 9
+  %char0 = load i8, ptr %86, align 1
+  %87 = icmp eq i8 %char0, 0
+  br i1 %87, label %88, label %89
 
-87:                                               ; preds = %84
-  call void @free(ptr noundef nonnull %80) #18
+88:                                               ; preds = %85
+  call void @free(ptr noundef nonnull %81) #18
   br label %.thread41
 
-88:                                               ; preds = %84
-  %89 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %85, i32 noundef 35) #23
-  %.not48.i = icmp eq ptr %89, null
-  br i1 %.not48.i, label %92, label %90
+89:                                               ; preds = %85
+  %90 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %86, i32 noundef 35) #23
+  %.not48.i = icmp eq ptr %90, null
+  br i1 %.not48.i, label %93, label %91
 
-90:                                               ; preds = %88
-  store i8 0, ptr %89, align 1
-  %91 = getelementptr inbounds i8, ptr %89, i64 1
-  br label %92
+91:                                               ; preds = %89
+  store i8 0, ptr %90, align 1
+  %92 = getelementptr inbounds i8, ptr %90, i64 1
+  br label %93
 
-92:                                               ; preds = %90, %88
-  %.039.i = phi ptr [ %91, %90 ], [ null, %88 ]
-  %93 = call fastcc i32 @load_array(ptr noundef nonnull %5, ptr noundef nonnull %85, ptr noundef %.039.i)
-  %.not49.i = icmp eq i32 %93, 0
-  br i1 %.not49.i, label %95, label %94
+93:                                               ; preds = %91, %89
+  %.039.i = phi ptr [ %92, %91 ], [ null, %89 ]
+  %94 = call fastcc i32 @load_array(ptr noundef nonnull %5, ptr noundef nonnull %86, ptr noundef %.039.i)
+  %.not49.i = icmp eq i32 %94, 0
+  br i1 %.not49.i, label %96, label %95
 
-94:                                               ; preds = %92
-  call void @free(ptr noundef nonnull %80) #18
+95:                                               ; preds = %93
+  call void @free(ptr noundef nonnull %81) #18
   br label %.thread41
 
-95:                                               ; preds = %92, %81
-  %96 = load i8, ptr %80, align 1
-  switch i8 %96, label %100 [
-    i8 35, label %97
-    i8 91, label %99
+96:                                               ; preds = %93, %82
+  %97 = load i8, ptr %81, align 1
+  switch i8 %97, label %101 [
+    i8 35, label %98
+    i8 91, label %100
   ]
 
-97:                                               ; preds = %95
-  call void @free(ptr noundef nonnull %80) #18
+98:                                               ; preds = %96
+  call void @free(ptr noundef nonnull %81) #18
   br label %.backedge
 
-.backedge:                                        ; preds = %97, %100
+.backedge:                                        ; preds = %98, %101
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
-  %98 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %.0.i)
-  %.not.i22 = icmp eq ptr %98, null
+  %99 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %.0.i)
+  %.not.i22 = icmp eq ptr %99, null
   br i1 %.not.i22, label %localgetline.exit.thread, label %.lr.ph, !llvm.loop !14
 
-99:                                               ; preds = %95
-  call void @free(ptr noundef nonnull %80) #18
+100:                                              ; preds = %96
+  call void @free(ptr noundef nonnull %81) #18
   br label %.loopexit
 
-100:                                              ; preds = %95
-  %101 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %5, ptr noundef nonnull %80) #18
-  call void @free(ptr noundef nonnull %80) #18
-  %.not50.i = icmp eq i32 %101, 0
+101:                                              ; preds = %96
+  %102 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %5, ptr noundef nonnull %81) #18
+  call void @free(ptr noundef nonnull %81) #18
+  %.not50.i = icmp eq i32 %102, 0
   br i1 %.not50.i, label %.backedge, label %.thread41
 
-.loopexit:                                        ; preds = %localgetline.exit, %localgetline.exit.thread, %99
-  %102 = load ptr, ptr %5, align 8
-  %103 = load ptr, ptr %102, align 8
-  %.not51.i62 = icmp eq ptr %103, null
+.loopexit:                                        ; preds = %localgetline.exit, %localgetline.exit.thread, %100
+  %103 = load ptr, ptr %5, align 8
+  %104 = load ptr, ptr %103, align 8
+  %.not51.i62 = icmp eq ptr %104, null
   br i1 %.not51.i62, label %._crit_edge.thread, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.loopexit, %.lr.ph66
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph66 ], [ 0, %.loopexit ]
-  %104 = phi ptr [ %109, %.lr.ph66 ], [ %103, %.loopexit ]
+  %105 = phi ptr [ %110, %.lr.ph66 ], [ %104, %.loopexit ]
   %.036.i64 = phi i32 [ %.1.i, %.lr.ph66 ], [ -1, %.loopexit ]
   %.037.i63 = phi i32 [ %.2.i, %.lr.ph66 ], [ -1, %.loopexit ]
-  %105 = load i8, ptr %104, align 1
-  %.not53.i = icmp eq i8 %105, 0
-  %106 = icmp eq i32 %.037.i63, -1
-  %107 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select.i20 = select i1 %106, i32 %107, i32 %.037.i63
+  %106 = load i8, ptr %105, align 1
+  %.not53.i = icmp eq i8 %106, 0
+  %107 = icmp eq i32 %.037.i63, -1
+  %108 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select.i20 = select i1 %107, i32 %108, i32 %.037.i63
   %.2.i = select i1 %.not53.i, i32 %.037.i63, i32 %spec.select.i20
-  %.1.i = select i1 %.not53.i, i32 %.036.i64, i32 %107
+  %.1.i = select i1 %.not53.i, i32 %.036.i64, i32 %108
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %108 = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv.next
-  %109 = load ptr, ptr %108, align 8
-  %.not51.i = icmp eq ptr %109, null
+  %109 = getelementptr inbounds ptr, ptr %103, i64 %indvars.iv.next
+  %110 = load ptr, ptr %109, align 8
+  %.not51.i = icmp eq ptr %110, null
   br i1 %.not51.i, label %._crit_edge, label %.lr.ph66, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph66
-  %110 = icmp eq i32 %.2.i, -1
-  br i1 %110, label %._crit_edge.thread, label %.preheader
+  %111 = icmp eq i32 %.2.i, -1
+  br i1 %111, label %._crit_edge.thread, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
   %.not52.i69 = icmp sgt i32 %.2.i, %.1.i
   br i1 %.not52.i69, label %._crit_edge72, label %.lr.ph71.preheader
 
 .lr.ph71.preheader:                               ; preds = %.preheader
-  %111 = sext i32 %.2.i to i64
-  %112 = add i32 %.1.i, 1
+  %112 = sext i32 %.2.i to i64
+  %113 = add i32 %.1.i, 1
   br label %.lr.ph71
 
 ._crit_edge.thread:                               ; preds = %.loopexit, %._crit_edge
-  call void @PMIx_Argv_free(ptr noundef nonnull %102) #18
+  call void @PMIx_Argv_free(ptr noundef nonnull %103) #18
   br label %.thread41
 
 .lr.ph71:                                         ; preds = %.lr.ph71.preheader, %.lr.ph71
-  %indvars.iv90 = phi i64 [ %111, %.lr.ph71.preheader ], [ %indvars.iv.next91, %.lr.ph71 ]
-  %113 = load ptr, ptr %5, align 8
-  %114 = getelementptr inbounds ptr, ptr %113, i64 %indvars.iv90
-  %115 = load ptr, ptr %114, align 8
-  %116 = call i32 @PMIx_Argv_append_nosize(ptr noundef %0, ptr noundef %115) #18
+  %indvars.iv90 = phi i64 [ %112, %.lr.ph71.preheader ], [ %indvars.iv.next91, %.lr.ph71 ]
+  %114 = load ptr, ptr %5, align 8
+  %115 = getelementptr inbounds ptr, ptr %114, i64 %indvars.iv90
+  %116 = load ptr, ptr %115, align 8
+  %117 = call i32 @PMIx_Argv_append_nosize(ptr noundef %0, ptr noundef %116) #18
   %indvars.iv.next91 = add nsw i64 %indvars.iv90, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next91 to i32
-  %exitcond.not = icmp eq i32 %112, %lftr.wideiv
+  %exitcond.not = icmp eq i32 %113, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge72.loopexit, label %.lr.ph71, !llvm.loop !16
 
-.thread41:                                        ; preds = %100, %87, %94, %._crit_edge.thread
-  %.040.i.ph = phi i32 [ -46, %._crit_edge.thread ], [ %93, %94 ], [ -27, %87 ], [ %101, %100 ]
+.thread41:                                        ; preds = %101, %88, %95, %._crit_edge.thread
+  %.040.i.ph = phi i32 [ -46, %._crit_edge.thread ], [ %94, %95 ], [ -27, %88 ], [ %102, %101 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.thread
 
@@ -947,20 +947,20 @@ localgetline.exit:                                ; preds = %.lr.ph, %76
   br label %._crit_edge72
 
 ._crit_edge72:                                    ; preds = %._crit_edge72.loopexit, %.preheader
-  %117 = phi ptr [ %.pre, %._crit_edge72.loopexit ], [ %102, %.preheader ]
-  call void @PMIx_Argv_free(ptr noundef %117) #18
+  %118 = phi ptr [ %.pre, %._crit_edge72.loopexit ], [ %103, %.preheader ]
+  call void @PMIx_Argv_free(ptr noundef %118) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %118 = call i32 @fclose(ptr noundef nonnull %.0.i)
-  br label %121
+  %119 = call i32 @fclose(ptr noundef nonnull %.0.i)
+  br label %122
 
 .thread:                                          ; preds = %localgetline.exit.i, %localgetline.exit.thread.i, %.thread41
   %.040 = phi i32 [ %.040.i.ph, %.thread41 ], [ -46, %localgetline.exit.thread.i ], [ -46, %localgetline.exit.i ]
-  %119 = call i32 @fclose(ptr noundef nonnull %.0.i)
-  %120 = load ptr, ptr %0, align 8
-  call void @PMIx_Argv_free(ptr noundef %120) #18
-  br label %121
+  %120 = call i32 @fclose(ptr noundef nonnull %.0.i)
+  %121 = load ptr, ptr %0, align 8
+  call void @PMIx_Argv_free(ptr noundef %121) #18
+  br label %122
 
-121:                                              ; preds = %._crit_edge72, %open_file.exit.thread, %.thread
+122:                                              ; preds = %._crit_edge72, %open_file.exit.thread, %.thread
   %.011 = phi i32 [ %.040, %.thread ], [ 0, %._crit_edge72 ], [ %.019.i.ph, %open_file.exit.thread ]
   ret i32 %.011
 }

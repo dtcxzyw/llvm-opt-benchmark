@@ -13636,7 +13636,7 @@ lpad.loopexit:                                    ; preds = %for.body, %invoke.c
           cleanup
   br label %ehcleanup
 
-lpad.loopexit.split-lp:                           ; preds = %if.else115.invoke, %invoke.cont74.invoke, %invoke.cont170.invoke, %invoke.cont201.invoke, %invoke.cont172.invoke, %invoke.cont79.invoke, %if.then27.invoke, %if.then.invoke, %if.else, %if.else5, %if.else30, %if.then34, %if.else37, %if.else55, %if.then59, %if.else64, %lor.lhs.false, %if.then71, %invoke.cont72, %if.else85, %if.then89, %invoke.cont90, %if.else103, %if.then107, %invoke.cont108, %if.else122, %if.then126, %if.then129, %if.else134, %invoke.cont135, %if.else142, %if.then146, %if.then149, %if.else154, %invoke.cont155, %if.else162, %if.then166, %if.then169, %if.else178, %invoke.cont179, %if.else190, %if.then194, %if.then197, %if.then200, %if.else207, %invoke.cont208, %invoke.cont210, %if.else219, %invoke.cont220, %if.then225, %if.else232, %invoke.cont233, %invoke.cont235, %if.else245, %if.then249, %invoke.cont250, %if.then265, %invoke.cont269, %invoke.cont271, %invoke.cont276, %if.else289, %if.then293, %if.then296, %if.else301, %invoke.cont302, %if.else309, %if.else320, %if.then325, %invoke.cont326, %if.else336, %if.then341, %if.else346, %land.lhs.true351, %if.then354, %invoke.cont355, %invoke.cont357, %if.else363, %land.lhs.true369, %if.then372, %invoke.cont373, %invoke.cont375, %if.else382, %if.then385, %invoke.cont386, %if.else392, %land.lhs.true398, %if.then401, %invoke.cont402, %invoke.cont404, %if.else408, %if.then411, %invoke.cont412, %invoke.cont414, %if.else422, %if.then455, %invoke.cont456, %land.lhs.true, %land.lhs.true366, %land.lhs.true395, %if.then427, %if.then444, %if.else479
+lpad.loopexit.split-lp:                           ; preds = %invoke.cont170.invoke, %invoke.cont92.invoke.invoke, %if.else115.invoke, %invoke.cont201.invoke, %invoke.cont172.invoke, %invoke.cont79.invoke, %if.then27.invoke, %if.then.invoke, %if.else, %if.else5, %if.else30, %if.then34, %if.else37, %if.else55, %if.then59, %if.else64, %lor.lhs.false, %if.then71, %invoke.cont72, %if.else85, %if.then89, %invoke.cont90, %if.else103, %if.then107, %invoke.cont108, %if.else122, %if.then126, %if.then129, %if.else134, %invoke.cont135, %if.else142, %if.then146, %if.then149, %if.else154, %invoke.cont155, %if.else162, %if.then166, %if.then169, %if.else178, %invoke.cont179, %if.else190, %if.then194, %if.then197, %if.then200, %if.else207, %invoke.cont208, %invoke.cont210, %if.else219, %invoke.cont220, %if.then225, %if.else232, %invoke.cont233, %invoke.cont235, %if.else245, %if.then249, %invoke.cont250, %if.then265, %invoke.cont269, %invoke.cont271, %invoke.cont276, %if.else289, %if.then293, %if.then296, %if.else301, %invoke.cont302, %if.else309, %if.else320, %if.then325, %invoke.cont326, %if.else336, %if.then341, %if.else346, %land.lhs.true351, %if.then354, %invoke.cont355, %invoke.cont357, %if.else363, %land.lhs.true369, %if.then372, %invoke.cont373, %invoke.cont375, %if.else382, %if.then385, %invoke.cont386, %if.else392, %land.lhs.true398, %if.then401, %invoke.cont402, %invoke.cont404, %if.else408, %if.then411, %invoke.cont412, %invoke.cont414, %if.else422, %if.then455, %invoke.cont456, %land.lhs.true, %land.lhs.true366, %land.lhs.true395, %if.then427, %if.then444, %if.else479
   %lpad.loopexit.split-lp207 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -13861,22 +13861,17 @@ invoke.cont74:                                    ; preds = %invoke.cont72
   %47 = load i8, ptr %html_encode76, align 8
   %tobool77 = trunc i8 %47 to i1
   %cond78 = select i1 %tobool77, ptr @.str.141, ptr @.str.133
-  br label %invoke.cont74.invoke
+  br label %invoke.cont92.invoke.invoke
 
-invoke.cont74.invoke:                             ; preds = %invoke.cont326, %invoke.cont250, %invoke.cont278, %invoke.cont92, %invoke.cont74
-  %48 = phi ptr [ %cond78, %invoke.cont74 ], [ %cond96, %invoke.cont92 ], [ %cond282, %invoke.cont278 ], [ @.str.154, %invoke.cont250 ], [ @.str.164, %invoke.cont326 ]
-  %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %48)
-          to label %invoke.cont79.invoke unwind label %lpad.loopexit.split-lp
-
-invoke.cont79.invoke:                             ; preds = %if.else115.invoke, %invoke.cont74.invoke, %invoke.cont414
-  %.in = phi ptr [ %s2, %invoke.cont414 ], [ %r2, %invoke.cont74.invoke ], [ %r1, %if.else115.invoke ]
-  %50 = load ptr, ptr %.in, align 8
-  %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8seq_util3rex2pp5printERSoP4expr(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %50)
+invoke.cont79.invoke:                             ; preds = %invoke.cont92.invoke.invoke, %if.else115.invoke, %invoke.cont414
+  %s2.sink = phi ptr [ %s2, %invoke.cont414 ], [ %r1, %if.else115.invoke ], [ %r2, %invoke.cont92.invoke.invoke ]
+  %48 = load ptr, ptr %s2.sink, align 8
+  %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8seq_util3rex2pp5printERSoP4expr(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %48)
           to label %if.then.invoke unwind label %lpad.loopexit.split-lp
 
 if.else85:                                        ; preds = %invoke.cont69
-  %52 = load ptr, ptr %this, align 8
-  %call88 = invoke noundef zeroext i1 @_ZNK8seq_util3rex15is_intersectionEPK4exprRPS1_S5_(ptr noundef nonnull align 8 dereferenceable(80) %52, ptr noundef nonnull %e, ptr noundef nonnull align 8 dereferenceable(8) %r1, ptr noundef nonnull align 8 dereferenceable(8) %r2)
+  %50 = load ptr, ptr %this, align 8
+  %call88 = invoke noundef zeroext i1 @_ZNK8seq_util3rex15is_intersectionEPK4exprRPS1_S5_(ptr noundef nonnull align 8 dereferenceable(80) %50, ptr noundef nonnull %e, ptr noundef nonnull align 8 dereferenceable(8) %r1, ptr noundef nonnull align 8 dereferenceable(8) %r2)
           to label %invoke.cont87 unwind label %lpad.loopexit.split-lp
 
 invoke.cont87:                                    ; preds = %if.else85
@@ -13887,16 +13882,21 @@ if.then89:                                        ; preds = %invoke.cont87
           to label %invoke.cont90 unwind label %lpad.loopexit.split-lp
 
 invoke.cont90:                                    ; preds = %if.then89
-  %53 = load ptr, ptr %r1, align 8
-  %call93 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8seq_util3rex2pp5printERSoP4expr(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %53)
+  %51 = load ptr, ptr %r1, align 8
+  %call93 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8seq_util3rex2pp5printERSoP4expr(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %51)
           to label %invoke.cont92 unwind label %lpad.loopexit.split-lp
 
 invoke.cont92:                                    ; preds = %invoke.cont90
   %html_encode94 = getelementptr inbounds i8, ptr %this, i64 16
-  %54 = load i8, ptr %html_encode94, align 8
-  %tobool95 = trunc i8 %54 to i1
+  %52 = load i8, ptr %html_encode94, align 8
+  %tobool95 = trunc i8 %52 to i1
   %cond96 = select i1 %tobool95, ptr @.str.143, ptr @.str.144
-  br label %invoke.cont74.invoke
+  br label %invoke.cont92.invoke.invoke
+
+invoke.cont92.invoke.invoke:                      ; preds = %invoke.cont92, %invoke.cont278, %invoke.cont250, %invoke.cont326, %invoke.cont74
+  %53 = phi ptr [ %cond78, %invoke.cont74 ], [ %cond96, %invoke.cont92 ], [ %cond282, %invoke.cont278 ], [ @.str.154, %invoke.cont250 ], [ @.str.164, %invoke.cont326 ]
+  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %53)
+          to label %invoke.cont79.invoke unwind label %lpad.loopexit.split-lp
 
 if.else103:                                       ; preds = %invoke.cont87
   %55 = load ptr, ptr %this, align 8
@@ -14122,7 +14122,7 @@ if.then249:                                       ; preds = %invoke.cont247
 invoke.cont250:                                   ; preds = %if.then249
   %88 = load ptr, ptr %r1, align 8
   %call253 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8seq_util3rex2pp5printERSoP4expr(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %88)
-          to label %invoke.cont74.invoke unwind label %lpad.loopexit.split-lp
+          to label %invoke.cont92.invoke.invoke unwind label %lpad.loopexit.split-lp
 
 if.else260:                                       ; preds = %invoke.cont247
   %89 = load ptr, ptr %this, align 8
@@ -14186,7 +14186,7 @@ invoke.cont278:                                   ; preds = %invoke.cont276
   %102 = load i8, ptr %html_encode266, align 8
   %tobool281 = trunc i8 %102 to i1
   %cond282 = select i1 %tobool281, ptr @.str.159, ptr @.str.160
-  br label %invoke.cont74.invoke
+  br label %invoke.cont92.invoke.invoke
 
 if.else289:                                       ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %if.else260, %land.rhs.i.i.i171
   %call292 = invoke noundef zeroext i1 @_ZNK8seq_util3rex6is_optEPK4exprRPS1_(ptr noundef nonnull align 8 dereferenceable(80) %89, ptr noundef nonnull %e, ptr noundef nonnull align 8 dereferenceable(8) %r1)
@@ -14242,7 +14242,7 @@ if.then325:                                       ; preds = %invoke.cont323
 invoke.cont326:                                   ; preds = %if.then325
   %109 = load ptr, ptr %r1, align 8
   %call329 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8seq_util3rex2pp5printERSoP4expr(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %109)
-          to label %invoke.cont74.invoke unwind label %lpad.loopexit.split-lp
+          to label %invoke.cont92.invoke.invoke unwind label %lpad.loopexit.split-lp
 
 if.else336:                                       ; preds = %invoke.cont323
   %110 = load ptr, ptr %this, align 8

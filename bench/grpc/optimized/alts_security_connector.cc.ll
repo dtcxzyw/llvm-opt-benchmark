@@ -358,19 +358,16 @@ if.then82:                                        ; preds = %invoke.cont79
 
 invoke.cont83:                                    ; preds = %if.then82
   invoke void @_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextE5resetERKNS_13DebugLocationEPKcPS1_(ptr noundef nonnull align 8 dereferenceable(8) %ctx, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp84, ptr noundef nonnull @.str.18, ptr noundef null)
-          to label %invoke.cont86 unwind label %lpad.loopexit.split-lp
-
-invoke.cont86:                                    ; preds = %invoke.cont83
-  store ptr null, ptr %agg.result, align 8
-  br label %cleanup
+          to label %cleanup unwind label %lpad.loopexit.split-lp
 
 if.end88:                                         ; preds = %invoke.cont79
   %24 = load ptr, ptr %ctx, align 8
   store ptr %24, ptr %agg.result, align 8
-  store ptr null, ptr %ctx, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end88, %invoke.cont86
+cleanup:                                          ; preds = %invoke.cont83, %if.end88
+  %ctx.sink = phi ptr [ %ctx, %if.end88 ], [ %agg.result, %invoke.cont83 ]
+  store ptr null, ptr %ctx.sink, align 8
   call void @_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ctx) #22
   br label %return
 

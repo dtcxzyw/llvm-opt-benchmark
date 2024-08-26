@@ -896,8 +896,8 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115PluralTableSinkE, i64 16), ptr %sink, align 8
   %outArray2.i = getelementptr inbounds i8, ptr %sink, i64 8
   store ptr %outArray, ptr %outArray2.i, align 8
-  %agg.tmp129.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp129, i64 8
-  %agg.tmp129.sink.sroa.gep118 = getelementptr inbounds i8, ptr %agg.tmp136, i64 8
+  %agg.tmp129.sink118.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp129, i64 8
+  %agg.tmp129.sink118.sroa.gep119 = getelementptr inbounds i8, ptr %agg.tmp136, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
@@ -1360,10 +1360,10 @@ if.then135:                                       ; preds = %invoke.cont125
           to label %invoke.cont137.invoke unwind label %lpad123
 
 invoke.cont137.invoke:                            ; preds = %if.then135, %if.then128
-  %agg.tmp129.sink.sroa.phi = phi ptr [ %agg.tmp129.sink.sroa.gep, %if.then128 ], [ %agg.tmp129.sink.sroa.gep118, %if.then135 ]
-  %agg.tmp129.sink = phi ptr [ %agg.tmp129, %if.then128 ], [ %agg.tmp136, %if.then135 ]
-  %73 = load ptr, ptr %agg.tmp129.sink, align 8
-  %74 = load i32, ptr %agg.tmp129.sink.sroa.phi, align 8
+  %agg.tmp129.sink118.sroa.phi = phi ptr [ %agg.tmp129.sink118.sroa.gep, %if.then128 ], [ %agg.tmp129.sink118.sroa.gep119, %if.then135 ]
+  %agg.tmp129.sink118 = phi ptr [ %agg.tmp129, %if.then128 ], [ %agg.tmp136, %if.then135 ]
+  %73 = load ptr, ptr %agg.tmp129.sink118, align 8
+  %74 = load i32, ptr %agg.tmp129.sink118.sroa.phi, align 8
   %75 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %key, ptr noundef %73, i32 noundef %74, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end141 unwind label %lpad123
 
@@ -3437,8 +3437,8 @@ entry:
   %tmp452 = alloca %"class.icu_75::UnicodeString", align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
-  %agg.tmp11.sink.i.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp11.i, i64 8
-  %agg.tmp11.sink.i.sroa.gep383 = getelementptr inbounds i8, ptr %agg.tmp17.i, i64 8
+  %agg.tmp11.sink22.i.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp11.i, i64 8
+  %agg.tmp11.sink22.i.sroa.gep383 = getelementptr inbounds i8, ptr %agg.tmp17.i, i64 8
   br i1 %cmp.i, label %if.end, label %cleanup.cont514
 
 if.end:                                           ; preds = %entry
@@ -3993,10 +3993,10 @@ if.then16.i:                                      ; preds = %invoke.cont8.i
           to label %invoke.cont18.invoke.i unwind label %lpad6.i
 
 invoke.cont18.invoke.i:                           ; preds = %if.then16.i, %if.then10.i
-  %agg.tmp11.sink.i.sroa.phi = phi ptr [ %agg.tmp11.sink.i.sroa.gep, %if.then10.i ], [ %agg.tmp11.sink.i.sroa.gep383, %if.then16.i ]
-  %agg.tmp11.sink.i = phi ptr [ %agg.tmp11.i, %if.then10.i ], [ %agg.tmp17.i, %if.then16.i ]
-  %70 = load ptr, ptr %agg.tmp11.sink.i, align 8
-  %71 = load i32, ptr %agg.tmp11.sink.i.sroa.phi, align 8
+  %agg.tmp11.sink22.i.sroa.phi = phi ptr [ %agg.tmp11.sink22.i.sroa.gep, %if.then10.i ], [ %agg.tmp11.sink22.i.sroa.gep383, %if.then16.i ]
+  %agg.tmp11.sink22.i = phi ptr [ %agg.tmp11.i, %if.then10.i ], [ %agg.tmp17.i, %if.then16.i ]
+  %70 = load ptr, ptr %agg.tmp11.sink22.i, align 8
+  %71 = load i32, ptr %agg.tmp11.sink22.i.sroa.phi, align 8
   %72 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %key.i, ptr noundef %70, i32 noundef %71, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end22.i unwind label %lpad6.i
 
@@ -5222,8 +5222,8 @@ entry:
   store ptr %call1, ptr %unitsBundle, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
-  %agg.tmp9.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp9, i64 8
-  %agg.tmp9.sink.sroa.gep1 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
+  %agg.tmp9.sink1.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp9, i64 8
+  %agg.tmp9.sink1.sroa.gep2 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -5278,10 +5278,10 @@ if.then14:                                        ; preds = %invoke.cont6
           to label %invoke.cont16.invoke unwind label %lpad4
 
 invoke.cont16.invoke:                             ; preds = %if.then14, %if.then8
-  %agg.tmp9.sink.sroa.phi = phi ptr [ %agg.tmp9.sink.sroa.gep, %if.then8 ], [ %agg.tmp9.sink.sroa.gep1, %if.then14 ]
-  %agg.tmp9.sink = phi ptr [ %agg.tmp9, %if.then8 ], [ %agg.tmp15, %if.then14 ]
-  %8 = load ptr, ptr %agg.tmp9.sink, align 8
-  %9 = load i32, ptr %agg.tmp9.sink.sroa.phi, align 8
+  %agg.tmp9.sink1.sroa.phi = phi ptr [ %agg.tmp9.sink1.sroa.gep, %if.then8 ], [ %agg.tmp9.sink1.sroa.gep2, %if.then14 ]
+  %agg.tmp9.sink1 = phi ptr [ %agg.tmp9, %if.then8 ], [ %agg.tmp15, %if.then14 ]
+  %8 = load ptr, ptr %agg.tmp9.sink1, align 8
+  %9 = load i32, ptr %agg.tmp9.sink1.sroa.phi, align 8
   %10 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %key, ptr noundef %8, i32 noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end20 unwind label %lpad4
 

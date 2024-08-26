@@ -718,18 +718,18 @@ define hidden void @zif_sin(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @sin(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @sin(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -766,18 +766,18 @@ define hidden void @zif_cos(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @cos(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @cos(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -814,18 +814,18 @@ define hidden void @zif_tan(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @tan(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @tan(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -862,18 +862,18 @@ define hidden void @zif_asin(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @asin(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @asin(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -910,18 +910,18 @@ define hidden void @zif_acos(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @acos(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @acos(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -958,18 +958,18 @@ define hidden void @zif_atan(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @atan(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @atan(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -1023,19 +1023,19 @@ define hidden void @zif_atan2(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.080110 = phi i32 [ 20, %14 ], [ 0, %7 ], [ 20, %21 ]
   %.081109 = phi ptr [ %9, %14 ], [ null, %7 ], [ %17, %21 ]
   call void @zend_wrong_parameter_error(i32 noundef %.077112, i32 noundef %.079111, ptr noundef null, i32 noundef %.080110, ptr noundef %.081109) #15
-  br label %27
+  br label %26
 
 .thread115:                                       ; preds = %21, %16
-  %.in = phi ptr [ %17, %16 ], [ %4, %21 ]
-  %23 = load double, ptr %.in, align 8
-  %24 = load double, ptr %3, align 8
-  %25 = call double @atan2(double noundef %24, double noundef %23) #15
-  store double %25, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %26, align 8
-  br label %27
+  %.sink = phi ptr [ %17, %16 ], [ %4, %21 ]
+  %.pre = load double, ptr %.sink, align 8
+  %23 = load double, ptr %3, align 8
+  %24 = call double @atan2(double noundef %23, double noundef %.pre) #15
+  store double %24, ptr %1, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %25, align 8
+  br label %26
 
-27:                                               ; preds = %.thread115, %.thread103
+26:                                               ; preds = %.thread115, %.thread103
   ret void
 }
 
@@ -1072,18 +1072,18 @@ define hidden void @zif_sinh(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @sinh(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @sinh(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -1120,18 +1120,18 @@ define hidden void @zif_cosh(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @cosh(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @cosh(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -1168,18 +1168,18 @@ define hidden void @zif_tanh(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @tanh(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @tanh(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -1216,18 +1216,18 @@ define hidden void @zif_asinh(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @asinh(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @asinh(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -1264,18 +1264,18 @@ define hidden void @zif_acosh(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @acosh(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @acosh(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -1312,18 +1312,18 @@ define hidden void @zif_atanh(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @atanh(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @atanh(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -1383,19 +1383,19 @@ define hidden void @zif_is_finite(ptr noundef %0, ptr nocapture noundef writeonl
   %.04884 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.04983 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.086, i32 noundef %.04785, ptr noundef null, i32 noundef %.04884, ptr noundef %.04983) #15
-  br label %19
+  br label %18
 
 .thread70:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @llvm.fabs.f64(double %14)
-  %16 = fcmp one double %15, 0x7FF0000000000000
-  %17 = select i1 %16, i32 3, i32 2
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %17, ptr %18, align 8
-  br label %19
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @llvm.fabs.f64(double %.pre)
+  %15 = fcmp one double %14, 0x7FF0000000000000
+  %16 = select i1 %15, i32 3, i32 2
+  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %16, ptr %17, align 8
+  br label %18
 
-19:                                               ; preds = %.thread70, %.thread77
+18:                                               ; preds = %.thread70, %.thread77
   ret void
 }
 
@@ -1429,19 +1429,19 @@ define hidden void @zif_is_infinite(ptr noundef %0, ptr nocapture noundef writeo
   %.04884 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.04983 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.086, i32 noundef %.04785, ptr noundef null, i32 noundef %.04884, ptr noundef %.04983) #15
-  br label %19
+  br label %18
 
 .thread70:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @llvm.fabs.f64(double %14) #17
-  %16 = fcmp oeq double %15, 0x7FF0000000000000
-  %17 = select i1 %16, i32 3, i32 2
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %17, ptr %18, align 8
-  br label %19
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @llvm.fabs.f64(double %.pre) #17
+  %15 = fcmp oeq double %14, 0x7FF0000000000000
+  %16 = select i1 %15, i32 3, i32 2
+  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %16, ptr %17, align 8
+  br label %18
 
-19:                                               ; preds = %.thread70, %.thread77
+18:                                               ; preds = %.thread70, %.thread77
   ret void
 }
 
@@ -1475,18 +1475,18 @@ define hidden void @zif_is_nan(ptr noundef %0, ptr nocapture noundef writeonly %
   %.04884 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.04983 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.086, i32 noundef %.04785, ptr noundef null, i32 noundef %.04884, ptr noundef %.04983) #15
-  br label %18
+  br label %17
 
 .thread70:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = fcmp uno double %14, 0.000000e+00
-  %16 = select i1 %15, i32 3, i32 2
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %16, ptr %17, align 8
-  br label %18
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = fcmp uno double %.pre, 0.000000e+00
+  %15 = select i1 %14, i32 3, i32 2
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %15, ptr %16, align 8
+  br label %17
 
-18:                                               ; preds = %.thread70, %.thread77
+17:                                               ; preds = %.thread70, %.thread77
   ret void
 }
 
@@ -1544,18 +1544,18 @@ define hidden void @zif_exp(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @exp(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @exp(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -1592,18 +1592,18 @@ define hidden void @zif_expm1(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @expm1(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @expm1(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -1640,18 +1640,18 @@ define hidden void @zif_log1p(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @log1p(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @log1p(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -1831,18 +1831,18 @@ define hidden void @zif_log10(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @log10(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @log10(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -1876,18 +1876,18 @@ define hidden void @zif_sqrt(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %17
+  br label %16
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = call double @sqrt(double noundef %14) #15
-  store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %16, align 8
-  br label %17
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = call double @sqrt(double noundef %.pre) #15
+  store double %14, ptr %1, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %15, align 8
+  br label %16
 
-17:                                               ; preds = %.thread72, %.thread79
+16:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -1998,19 +1998,19 @@ define hidden void @zif_deg2rad(ptr noundef %0, ptr nocapture noundef writeonly 
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %18
+  br label %17
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = fdiv double %14, 1.800000e+02
-  %16 = fmul double %15, 0x400921FB54442D18
-  store double %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %17, align 8
-  br label %18
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = fdiv double %.pre, 1.800000e+02
+  %15 = fmul double %14, 0x400921FB54442D18
+  store double %15, ptr %1, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %16, align 8
+  br label %17
 
-18:                                               ; preds = %.thread72, %.thread79
+17:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -2044,19 +2044,19 @@ define hidden void @zif_rad2deg(ptr noundef %0, ptr nocapture noundef writeonly 
   %.05086 = phi i32 [ 0, %6 ], [ 20, %12 ]
   %.05185 = phi ptr [ null, %6 ], [ %8, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04888, i32 noundef %.04987, ptr noundef null, i32 noundef %.05086, ptr noundef %.05185) #15
-  br label %18
+  br label %17
 
 .thread72:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load double, ptr %.in, align 8
-  %15 = fdiv double %14, 0x400921FB54442D18
-  %16 = fmul double %15, 1.800000e+02
-  store double %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %17, align 8
-  br label %18
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load double, ptr %.sink, align 8
+  %14 = fdiv double %.pre, 0x400921FB54442D18
+  %15 = fmul double %14, 1.800000e+02
+  store double %15, ptr %1, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %16, align 8
+  br label %17
 
-18:                                               ; preds = %.thread72, %.thread79
+17:                                               ; preds = %.thread72, %.thread79
   ret void
 }
 
@@ -3936,19 +3936,19 @@ define hidden void @zif_fmod(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %.080110 = phi i32 [ 20, %14 ], [ 0, %7 ], [ 20, %21 ]
   %.081109 = phi ptr [ %9, %14 ], [ null, %7 ], [ %17, %21 ]
   call void @zend_wrong_parameter_error(i32 noundef %.077112, i32 noundef %.079111, ptr noundef null, i32 noundef %.080110, ptr noundef %.081109) #15
-  br label %27
+  br label %26
 
 .thread115:                                       ; preds = %21, %16
-  %.in = phi ptr [ %17, %16 ], [ %4, %21 ]
-  %23 = load double, ptr %.in, align 8
-  %24 = load double, ptr %3, align 8
-  %25 = call double @fmod(double noundef %24, double noundef %23) #15
-  store double %25, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %26, align 8
-  br label %27
+  %.sink = phi ptr [ %17, %16 ], [ %4, %21 ]
+  %.pre = load double, ptr %.sink, align 8
+  %23 = load double, ptr %3, align 8
+  %24 = call double @fmod(double noundef %23, double noundef %.pre) #15
+  store double %24, ptr %1, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %25, align 8
+  br label %26
 
-27:                                               ; preds = %.thread115, %.thread103
+26:                                               ; preds = %.thread115, %.thread103
   ret void
 }
 
@@ -3999,19 +3999,19 @@ define hidden void @zif_fdiv(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %.080110 = phi i32 [ 20, %14 ], [ 0, %7 ], [ 20, %21 ]
   %.081109 = phi ptr [ %9, %14 ], [ null, %7 ], [ %17, %21 ]
   call void @zend_wrong_parameter_error(i32 noundef %.077112, i32 noundef %.079111, ptr noundef null, i32 noundef %.080110, ptr noundef %.081109) #15
-  br label %27
+  br label %26
 
 .thread115:                                       ; preds = %21, %16
-  %.in = phi ptr [ %17, %16 ], [ %4, %21 ]
-  %23 = load double, ptr %.in, align 8
-  %24 = load double, ptr %3, align 8
-  %25 = fdiv double %24, %23
-  store double %25, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %26, align 8
-  br label %27
+  %.sink = phi ptr [ %17, %16 ], [ %4, %21 ]
+  %.pre = load double, ptr %.sink, align 8
+  %23 = load double, ptr %3, align 8
+  %24 = fdiv double %23, %.pre
+  store double %24, ptr %1, align 8
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %25, align 8
+  br label %26
 
-27:                                               ; preds = %.thread115, %.thread103
+26:                                               ; preds = %.thread115, %.thread103
   ret void
 }
 

@@ -7714,8 +7714,7 @@ if.end4.i:                                        ; preds = %if.end.i27
 
 if.then8.i:                                       ; preds = %if.end4.i
   %path9.i = getelementptr inbounds i8, ptr %call, i64 40
-  store ptr null, ptr %path9.i, align 8
-  br label %if.end38.i
+  br label %if.end38.sink.split.i
 
 if.else.i:                                        ; preds = %if.end4.i
   %tobool10.i = icmp eq ptr %19, null
@@ -7725,8 +7724,7 @@ if.else.i:                                        ; preds = %if.end4.i
 if.then13.i:                                      ; preds = %if.else.i
   %path14.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %19, ptr %path14.i, align 8
-  store ptr null, ptr %path.i, align 8
-  br label %if.end38.i
+  br label %if.end38.sink.split.i
 
 if.else15.i:                                      ; preds = %if.else.i
   br i1 %tobool5.i, label %if.then17.i29, label %if.end22.i
@@ -7761,7 +7759,12 @@ if.end29.i:                                       ; preds = %if.then24.i, %if.en
   %tobool34.not.i28 = icmp eq ptr %call31.i, null
   br i1 %tobool34.not.i28, label %req_assign_url_path.exit, label %if.end38.i
 
-if.end38.i:                                       ; preds = %if.end29.i, %if.then13.i, %if.then8.i
+if.end38.sink.split.i:                            ; preds = %if.then13.i, %if.then8.i
+  %path.sink.i = phi ptr [ %path.i, %if.then13.i ], [ %path9.i, %if.then8.i ]
+  store ptr null, ptr %path.sink.i, align 8
+  br label %if.end38.i
+
+if.end38.i:                                       ; preds = %if.end38.sink.split.i, %if.end29.i
   br label %req_assign_url_path.exit
 
 req_assign_url_path.exit:                         ; preds = %if.end24, %if.end.i27, %if.then17.i29, %if.then24.i, %if.end29.i, %if.end38.i

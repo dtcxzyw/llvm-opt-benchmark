@@ -13687,36 +13687,25 @@ invoke.cont374:                                   ; preds = %invoke.cont372
 invoke.cont378:                                   ; preds = %invoke.cont374
   %263 = load ptr, ptr %ref.tmp376, align 8
   %cmp.not.i848 = icmp eq ptr %263, null
-  br i1 %cmp.not.i848, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit852, label %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i849
-
-_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i849: ; preds = %invoke.cont378
-  %vtable.i.i850 = load ptr, ptr %263, align 8
-  %vfn.i.i851 = getelementptr inbounds i8, ptr %vtable.i.i850, i64 8
-  %264 = load ptr, ptr %vfn.i.i851, align 8
-  call void %264(ptr noundef nonnull align 8 dereferenceable(24) %263) #35
-  br label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit852
-
-_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit852: ; preds = %invoke.cont378, %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i849
-  store ptr null, ptr %ref.tmp376, align 8
-  br label %if.end396
+  br i1 %cmp.not.i848, label %if.end396, label %if.end396.sink.split
 
 lpad371:                                          ; preds = %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_13scoped_padderEEESt14default_deleteIS4_EED2Ev.exit872, %if.else, %invoke.cont372, %if.then369
-  %265 = landingpad { ptr, i32 }
+  %264 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup397
 
 lpad377:                                          ; preds = %invoke.cont374
-  %266 = landingpad { ptr, i32 }
+  %265 = landingpad { ptr, i32 }
           cleanup
-  %267 = load ptr, ptr %ref.tmp376, align 8
-  %cmp.not.i853 = icmp eq ptr %267, null
+  %266 = load ptr, ptr %ref.tmp376, align 8
+  %cmp.not.i853 = icmp eq ptr %266, null
   br i1 %cmp.not.i853, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit857, label %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i854
 
 _ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i854: ; preds = %lpad377
-  %vtable.i.i855 = load ptr, ptr %267, align 8
+  %vtable.i.i855 = load ptr, ptr %266, align 8
   %vfn.i.i856 = getelementptr inbounds i8, ptr %vtable.i.i855, i64 8
-  %268 = load ptr, ptr %vfn.i.i856, align 8
-  call void %268(ptr noundef nonnull align 8 dereferenceable(24) %267) #35
+  %267 = load ptr, ptr %vfn.i.i856, align 8
+  call void %267(ptr noundef nonnull align 8 dereferenceable(24) %266) #35
   br label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit857
 
 _ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit857: ; preds = %lpad377, %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i854
@@ -13742,59 +13731,48 @@ invoke.cont384:                                   ; preds = %if.else
           to label %invoke.cont386 unwind label %lpad385
 
 invoke.cont386:                                   ; preds = %invoke.cont384
-  %269 = load ptr, ptr %ref.tmp382, align 8
-  %cmp.not.i865 = icmp eq ptr %269, null
+  %268 = load ptr, ptr %ref.tmp382, align 8
+  %cmp.not.i865 = icmp eq ptr %268, null
   br i1 %cmp.not.i865, label %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_13scoped_padderEEESt14default_deleteIS4_EED2Ev.exit872, label %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i866
 
 _ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i866: ; preds = %invoke.cont386
-  %vtable.i.i867 = load ptr, ptr %269, align 8
+  %vtable.i.i867 = load ptr, ptr %268, align 8
   %vfn.i.i868 = getelementptr inbounds i8, ptr %vtable.i.i867, i64 8
-  %270 = load ptr, ptr %vfn.i.i868, align 8
-  call void %270(ptr noundef nonnull align 8 dereferenceable(24) %269) #35
+  %269 = load ptr, ptr %vfn.i.i868, align 8
+  call void %269(ptr noundef nonnull align 8 dereferenceable(24) %268) #35
   br label %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_13scoped_padderEEESt14default_deleteIS4_EED2Ev.exit872
 
 _ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_13scoped_padderEEESt14default_deleteIS4_EED2Ev.exit872: ; preds = %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i866, %invoke.cont386
   store ptr null, ptr %ref.tmp382, align 8
-  %271 = load ptr, ptr %unknown_flag, align 8
-  %str_.i873 = getelementptr inbounds i8, ptr %271, i64 24
+  %270 = load ptr, ptr %unknown_flag, align 8
+  %str_.i873 = getelementptr inbounds i8, ptr %270, i64 24
   %call.i874875 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %str_.i873, i8 noundef signext %flag)
           to label %invoke.cont390 unwind label %lpad371
 
 invoke.cont390:                                   ; preds = %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_13scoped_padderEEESt14default_deleteIS4_EED2Ev.exit872
-  %272 = load ptr, ptr %unknown_flag, align 8
+  %271 = load ptr, ptr %unknown_flag, align 8
   store ptr null, ptr %unknown_flag, align 8
-  store ptr %272, ptr %ref.tmp392, align 8
+  store ptr %271, ptr %ref.tmp392, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_381, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp392)
           to label %invoke.cont394 unwind label %lpad393
 
 invoke.cont394:                                   ; preds = %invoke.cont390
-  %273 = load ptr, ptr %ref.tmp392, align 8
-  %cmp.not.i877 = icmp eq ptr %273, null
-  br i1 %cmp.not.i877, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit881, label %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i878
-
-_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i878: ; preds = %invoke.cont394
-  %vtable.i.i879 = load ptr, ptr %273, align 8
-  %vfn.i.i880 = getelementptr inbounds i8, ptr %vtable.i.i879, i64 8
-  %274 = load ptr, ptr %vfn.i.i880, align 8
-  call void %274(ptr noundef nonnull align 8 dereferenceable(24) %273) #35
-  br label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit881
-
-_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit881: ; preds = %invoke.cont394, %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i878
-  store ptr null, ptr %ref.tmp392, align 8
-  br label %if.end396
+  %272 = load ptr, ptr %ref.tmp392, align 8
+  %cmp.not.i877 = icmp eq ptr %272, null
+  br i1 %cmp.not.i877, label %if.end396, label %if.end396.sink.split
 
 lpad385:                                          ; preds = %invoke.cont384
-  %275 = landingpad { ptr, i32 }
+  %273 = landingpad { ptr, i32 }
           cleanup
-  %276 = load ptr, ptr %ref.tmp382, align 8
-  %cmp.not.i882 = icmp eq ptr %276, null
+  %274 = load ptr, ptr %ref.tmp382, align 8
+  %cmp.not.i882 = icmp eq ptr %274, null
   br i1 %cmp.not.i882, label %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_13scoped_padderEEESt14default_deleteIS4_EED2Ev.exit889, label %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i883
 
 _ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i883: ; preds = %lpad385
-  %vtable.i.i884 = load ptr, ptr %276, align 8
+  %vtable.i.i884 = load ptr, ptr %274, align 8
   %vfn.i.i885 = getelementptr inbounds i8, ptr %vtable.i.i884, i64 8
-  %277 = load ptr, ptr %vfn.i.i885, align 8
-  call void %277(ptr noundef nonnull align 8 dereferenceable(24) %276) #35
+  %275 = load ptr, ptr %vfn.i.i885, align 8
+  call void %275(ptr noundef nonnull align 8 dereferenceable(24) %274) #35
   br label %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_13scoped_padderEEESt14default_deleteIS4_EED2Ev.exit889
 
 _ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_13scoped_padderEEESt14default_deleteIS4_EED2Ev.exit889: ; preds = %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i883, %lpad385
@@ -13802,29 +13780,40 @@ _ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_13scoped_padde
   br label %ehcleanup397
 
 lpad393:                                          ; preds = %invoke.cont390
-  %278 = landingpad { ptr, i32 }
+  %276 = landingpad { ptr, i32 }
           cleanup
-  %279 = load ptr, ptr %ref.tmp392, align 8
-  %cmp.not.i890 = icmp eq ptr %279, null
+  %277 = load ptr, ptr %ref.tmp392, align 8
+  %cmp.not.i890 = icmp eq ptr %277, null
   br i1 %cmp.not.i890, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit894, label %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i891
 
 _ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i891: ; preds = %lpad393
-  %vtable.i.i892 = load ptr, ptr %279, align 8
+  %vtable.i.i892 = load ptr, ptr %277, align 8
   %vfn.i.i893 = getelementptr inbounds i8, ptr %vtable.i.i892, i64 8
-  %280 = load ptr, ptr %vfn.i.i893, align 8
-  call void %280(ptr noundef nonnull align 8 dereferenceable(24) %279) #35
+  %278 = load ptr, ptr %vfn.i.i893, align 8
+  call void %278(ptr noundef nonnull align 8 dereferenceable(24) %277) #35
   br label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit894
 
 _ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit894: ; preds = %lpad393, %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i891
   store ptr null, ptr %ref.tmp392, align 8
   br label %ehcleanup397
 
-if.end396:                                        ; preds = %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit881, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit852
+if.end396.sink.split:                             ; preds = %invoke.cont394, %invoke.cont378
+  %.sink1003 = phi ptr [ %263, %invoke.cont378 ], [ %272, %invoke.cont394 ]
+  %ref.tmp392.sink.ph = phi ptr [ %ref.tmp376, %invoke.cont378 ], [ %ref.tmp392, %invoke.cont394 ]
+  %vtable.i.i879 = load ptr, ptr %.sink1003, align 8
+  %vfn.i.i880 = getelementptr inbounds i8, ptr %vtable.i.i879, i64 8
+  %279 = load ptr, ptr %vfn.i.i880, align 8
+  call void %279(ptr noundef nonnull align 8 dereferenceable(24) %.sink1003) #35
+  br label %if.end396
+
+if.end396:                                        ; preds = %if.end396.sink.split, %invoke.cont394, %invoke.cont378
+  %ref.tmp392.sink = phi ptr [ %ref.tmp376, %invoke.cont378 ], [ %ref.tmp392, %invoke.cont394 ], [ %ref.tmp392.sink.ph, %if.end396.sink.split ]
+  store ptr null, ptr %ref.tmp392.sink, align 8
   call void @_ZNSt10unique_ptrIN6spdlog7details19aggregate_formatterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %unknown_flag) #35
   br label %sw.epilog
 
 ehcleanup397:                                     ; preds = %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit894, %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_13scoped_padderEEESt14default_deleteIS4_EED2Ev.exit889, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit857, %lpad371
-  %.pn = phi { ptr, i32 } [ %278, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit894 ], [ %265, %lpad371 ], [ %275, %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_13scoped_padderEEESt14default_deleteIS4_EED2Ev.exit889 ], [ %266, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit857 ]
+  %.pn = phi { ptr, i32 } [ %276, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit894 ], [ %264, %lpad371 ], [ %273, %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_13scoped_padderEEESt14default_deleteIS4_EED2Ev.exit889 ], [ %265, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit857 ]
   call void @_ZNSt10unique_ptrIN6spdlog7details19aggregate_formatterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %unknown_flag) #35
   br label %eh.resume
 
@@ -15978,36 +15967,25 @@ invoke.cont288:                                   ; preds = %invoke.cont286
 invoke.cont292:                                   ; preds = %invoke.cont288
   %263 = load ptr, ptr %ref.tmp290, align 8
   %cmp.not.i848 = icmp eq ptr %263, null
-  br i1 %cmp.not.i848, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit852, label %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i849
-
-_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i849: ; preds = %invoke.cont292
-  %vtable.i.i850 = load ptr, ptr %263, align 8
-  %vfn.i.i851 = getelementptr inbounds i8, ptr %vtable.i.i850, i64 8
-  %264 = load ptr, ptr %vfn.i.i851, align 8
-  call void %264(ptr noundef nonnull align 8 dereferenceable(24) %263) #35
-  br label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit852
-
-_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit852: ; preds = %invoke.cont292, %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i849
-  store ptr null, ptr %ref.tmp290, align 8
-  br label %if.end306
+  br i1 %cmp.not.i848, label %if.end306, label %if.end306.sink.split
 
 lpad285:                                          ; preds = %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_18null_scoped_padderEEESt14default_deleteIS4_EED2Ev.exit872, %if.else, %invoke.cont286, %if.then283
-  %265 = landingpad { ptr, i32 }
+  %264 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad291:                                          ; preds = %invoke.cont288
-  %266 = landingpad { ptr, i32 }
+  %265 = landingpad { ptr, i32 }
           cleanup
-  %267 = load ptr, ptr %ref.tmp290, align 8
-  %cmp.not.i853 = icmp eq ptr %267, null
+  %266 = load ptr, ptr %ref.tmp290, align 8
+  %cmp.not.i853 = icmp eq ptr %266, null
   br i1 %cmp.not.i853, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit857, label %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i854
 
 _ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i854: ; preds = %lpad291
-  %vtable.i.i855 = load ptr, ptr %267, align 8
+  %vtable.i.i855 = load ptr, ptr %266, align 8
   %vfn.i.i856 = getelementptr inbounds i8, ptr %vtable.i.i855, i64 8
-  %268 = load ptr, ptr %vfn.i.i856, align 8
-  call void %268(ptr noundef nonnull align 8 dereferenceable(24) %267) #35
+  %267 = load ptr, ptr %vfn.i.i856, align 8
+  call void %267(ptr noundef nonnull align 8 dereferenceable(24) %266) #35
   br label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit857
 
 _ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit857: ; preds = %lpad291, %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i854
@@ -16033,59 +16011,48 @@ invoke.cont297:                                   ; preds = %if.else
           to label %invoke.cont299 unwind label %lpad298
 
 invoke.cont299:                                   ; preds = %invoke.cont297
-  %269 = load ptr, ptr %ref.tmp295, align 8
-  %cmp.not.i865 = icmp eq ptr %269, null
+  %268 = load ptr, ptr %ref.tmp295, align 8
+  %cmp.not.i865 = icmp eq ptr %268, null
   br i1 %cmp.not.i865, label %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_18null_scoped_padderEEESt14default_deleteIS4_EED2Ev.exit872, label %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i866
 
 _ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i866: ; preds = %invoke.cont299
-  %vtable.i.i867 = load ptr, ptr %269, align 8
+  %vtable.i.i867 = load ptr, ptr %268, align 8
   %vfn.i.i868 = getelementptr inbounds i8, ptr %vtable.i.i867, i64 8
-  %270 = load ptr, ptr %vfn.i.i868, align 8
-  call void %270(ptr noundef nonnull align 8 dereferenceable(24) %269) #35
+  %269 = load ptr, ptr %vfn.i.i868, align 8
+  call void %269(ptr noundef nonnull align 8 dereferenceable(24) %268) #35
   br label %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_18null_scoped_padderEEESt14default_deleteIS4_EED2Ev.exit872
 
 _ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_18null_scoped_padderEEESt14default_deleteIS4_EED2Ev.exit872: ; preds = %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i866, %invoke.cont299
   store ptr null, ptr %ref.tmp295, align 8
-  %271 = load ptr, ptr %unknown_flag, align 8
-  %str_.i873 = getelementptr inbounds i8, ptr %271, i64 24
+  %270 = load ptr, ptr %unknown_flag, align 8
+  %str_.i873 = getelementptr inbounds i8, ptr %270, i64 24
   %call.i874875 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %str_.i873, i8 noundef signext %flag)
           to label %invoke.cont301 unwind label %lpad285
 
 invoke.cont301:                                   ; preds = %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_18null_scoped_padderEEESt14default_deleteIS4_EED2Ev.exit872
-  %272 = load ptr, ptr %unknown_flag, align 8
+  %271 = load ptr, ptr %unknown_flag, align 8
   store ptr null, ptr %unknown_flag, align 8
-  store ptr %272, ptr %ref.tmp303, align 8
+  store ptr %271, ptr %ref.tmp303, align 8
   invoke void @_ZNSt6vectorISt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(24) %formatters_294, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp303)
           to label %invoke.cont305 unwind label %lpad304
 
 invoke.cont305:                                   ; preds = %invoke.cont301
-  %273 = load ptr, ptr %ref.tmp303, align 8
-  %cmp.not.i877 = icmp eq ptr %273, null
-  br i1 %cmp.not.i877, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit881, label %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i878
-
-_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i878: ; preds = %invoke.cont305
-  %vtable.i.i879 = load ptr, ptr %273, align 8
-  %vfn.i.i880 = getelementptr inbounds i8, ptr %vtable.i.i879, i64 8
-  %274 = load ptr, ptr %vfn.i.i880, align 8
-  call void %274(ptr noundef nonnull align 8 dereferenceable(24) %273) #35
-  br label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit881
-
-_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit881: ; preds = %invoke.cont305, %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i878
-  store ptr null, ptr %ref.tmp303, align 8
-  br label %if.end306
+  %272 = load ptr, ptr %ref.tmp303, align 8
+  %cmp.not.i877 = icmp eq ptr %272, null
+  br i1 %cmp.not.i877, label %if.end306, label %if.end306.sink.split
 
 lpad298:                                          ; preds = %invoke.cont297
-  %275 = landingpad { ptr, i32 }
+  %273 = landingpad { ptr, i32 }
           cleanup
-  %276 = load ptr, ptr %ref.tmp295, align 8
-  %cmp.not.i882 = icmp eq ptr %276, null
+  %274 = load ptr, ptr %ref.tmp295, align 8
+  %cmp.not.i882 = icmp eq ptr %274, null
   br i1 %cmp.not.i882, label %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_18null_scoped_padderEEESt14default_deleteIS4_EED2Ev.exit889, label %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i883
 
 _ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i883: ; preds = %lpad298
-  %vtable.i.i884 = load ptr, ptr %276, align 8
+  %vtable.i.i884 = load ptr, ptr %274, align 8
   %vfn.i.i885 = getelementptr inbounds i8, ptr %vtable.i.i884, i64 8
-  %277 = load ptr, ptr %vfn.i.i885, align 8
-  call void %277(ptr noundef nonnull align 8 dereferenceable(24) %276) #35
+  %275 = load ptr, ptr %vfn.i.i885, align 8
+  call void %275(ptr noundef nonnull align 8 dereferenceable(24) %274) #35
   br label %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_18null_scoped_padderEEESt14default_deleteIS4_EED2Ev.exit889
 
 _ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_18null_scoped_padderEEESt14default_deleteIS4_EED2Ev.exit889: ; preds = %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i883, %lpad298
@@ -16093,29 +16060,40 @@ _ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_18null_scoped_
   br label %ehcleanup
 
 lpad304:                                          ; preds = %invoke.cont301
-  %278 = landingpad { ptr, i32 }
+  %276 = landingpad { ptr, i32 }
           cleanup
-  %279 = load ptr, ptr %ref.tmp303, align 8
-  %cmp.not.i890 = icmp eq ptr %279, null
+  %277 = load ptr, ptr %ref.tmp303, align 8
+  %cmp.not.i890 = icmp eq ptr %277, null
   br i1 %cmp.not.i890, label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit894, label %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i891
 
 _ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i891: ; preds = %lpad304
-  %vtable.i.i892 = load ptr, ptr %279, align 8
+  %vtable.i.i892 = load ptr, ptr %277, align 8
   %vfn.i.i893 = getelementptr inbounds i8, ptr %vtable.i.i892, i64 8
-  %280 = load ptr, ptr %vfn.i.i893, align 8
-  call void %280(ptr noundef nonnull align 8 dereferenceable(24) %279) #35
+  %278 = load ptr, ptr %vfn.i.i893, align 8
+  call void %278(ptr noundef nonnull align 8 dereferenceable(24) %277) #35
   br label %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit894
 
 _ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit894: ; preds = %lpad304, %_ZNKSt14default_deleteIN6spdlog7details14flag_formatterEEclEPS2_.exit.i891
   store ptr null, ptr %ref.tmp303, align 8
   br label %ehcleanup
 
-if.end306:                                        ; preds = %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit881, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit852
+if.end306.sink.split:                             ; preds = %invoke.cont305, %invoke.cont292
+  %.sink1003 = phi ptr [ %263, %invoke.cont292 ], [ %272, %invoke.cont305 ]
+  %ref.tmp303.sink.ph = phi ptr [ %ref.tmp290, %invoke.cont292 ], [ %ref.tmp303, %invoke.cont305 ]
+  %vtable.i.i879 = load ptr, ptr %.sink1003, align 8
+  %vfn.i.i880 = getelementptr inbounds i8, ptr %vtable.i.i879, i64 8
+  %279 = load ptr, ptr %vfn.i.i880, align 8
+  call void %279(ptr noundef nonnull align 8 dereferenceable(24) %.sink1003) #35
+  br label %if.end306
+
+if.end306:                                        ; preds = %if.end306.sink.split, %invoke.cont305, %invoke.cont292
+  %ref.tmp303.sink = phi ptr [ %ref.tmp290, %invoke.cont292 ], [ %ref.tmp303, %invoke.cont305 ], [ %ref.tmp303.sink.ph, %if.end306.sink.split ]
+  store ptr null, ptr %ref.tmp303.sink, align 8
   call void @_ZNSt10unique_ptrIN6spdlog7details19aggregate_formatterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %unknown_flag) #35
   br label %sw.epilog
 
 ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit894, %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_18null_scoped_padderEEESt14default_deleteIS4_EED2Ev.exit889, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit857, %lpad285
-  %.pn = phi { ptr, i32 } [ %278, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit894 ], [ %265, %lpad285 ], [ %275, %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_18null_scoped_padderEEESt14default_deleteIS4_EED2Ev.exit889 ], [ %266, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit857 ]
+  %.pn = phi { ptr, i32 } [ %276, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit894 ], [ %264, %lpad285 ], [ %273, %_ZNSt10unique_ptrIN6spdlog7details25source_funcname_formatterINS1_18null_scoped_padderEEESt14default_deleteIS4_EED2Ev.exit889 ], [ %265, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit857 ]
   call void @_ZNSt10unique_ptrIN6spdlog7details19aggregate_formatterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %unknown_flag) #35
   br label %eh.resume
 

@@ -4098,13 +4098,13 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %30
           to label %67 unwind label %.loopexit
 
 67:                                               ; preds = %64, %61, %57, %54
+  %.sink = phi ptr [ %4, %54 ], [ %5, %57 ], [ %6, %61 ], [ %7, %64 ]
   %.sroa.675.0..sroa_idx78.sink = phi ptr [ %.sroa.675.0..sroa_idx, %54 ], [ %.sroa.675.0..sroa_idx76, %57 ], [ %.sroa.675.0..sroa_idx78, %61 ], [ %.sroa.675.0..sroa_idx80, %64 ]
   %.sroa.8.0..sroa_idx83.sink = phi ptr [ %.sroa.8.0..sroa_idx, %54 ], [ %.sroa.8.0..sroa_idx82, %57 ], [ %.sroa.8.0..sroa_idx83, %61 ], [ %.sroa.8.0..sroa_idx84, %64 ]
   %.sroa.9.0..sroa_idx87.sink = phi ptr [ %.sroa.9.0..sroa_idx, %54 ], [ %.sroa.9.0..sroa_idx85, %57 ], [ %.sroa.9.0..sroa_idx87, %61 ], [ %.sroa.9.0..sroa_idx89, %64 ]
   %.sroa.1291.0..sroa_idx94.sink = phi ptr [ %.sroa.1291.0..sroa_idx, %54 ], [ %.sroa.1291.0..sroa_idx92, %57 ], [ %.sroa.1291.0..sroa_idx94, %61 ], [ %.sroa.1291.0..sroa_idx96, %64 ]
   %.sroa.14.0..sroa_idx100.sink = phi ptr [ %.sroa.14.0..sroa_idx, %54 ], [ %.sroa.14.0..sroa_idx98, %57 ], [ %.sroa.14.0..sroa_idx100, %61 ], [ %.sroa.14.0..sroa_idx102, %64 ]
-  %.sroa.071.0.in = phi ptr [ %4, %54 ], [ %5, %57 ], [ %6, %61 ], [ %7, %64 ]
-  %.sroa.071.0 = load i32, ptr %.sroa.071.0.in, align 4
+  %.sroa.071.0.copyload73 = load i32, ptr %.sink, align 4
   %.sroa.675.0.copyload79 = load i8, ptr %.sroa.675.0..sroa_idx78.sink, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.0..sroa_idx83.sink, i64 3, i1 false)
   %.sroa.9.0.copyload88 = load float, ptr %.sroa.9.0..sroa_idx87.sink, align 4
@@ -4124,7 +4124,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %2, %30
   %.sroa.10.1 = phi i32 [ %.sroa.1291.0.copyload95, %69 ], [ %.sroa.10.0126, %67 ]
   %.sroa.653.1 = phi float [ %.sroa.9.0.copyload88, %69 ], [ %.sroa.653.0127, %67 ]
   %.sroa.5.1 = phi i8 [ %.sroa.675.0.copyload79, %69 ], [ %.sroa.5.0128, %67 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.071.0, %69 ], [ %.sroa.0.0129, %67 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.071.0.copyload73, %69 ], [ %.sroa.0.0129, %67 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !41

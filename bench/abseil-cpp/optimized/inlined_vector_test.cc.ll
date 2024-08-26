@@ -156923,8 +156923,7 @@ _ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EE23D
   %101 = phi i64 [ %.pre920, %if.then.i.i.i.i ], [ %97, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_13test_internal20CopyableOnlyInstanceEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i ]
   store i64 %101, ptr %shorter, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %data_.i1.i.i.i.i66, ptr noundef nonnull align 8 dereferenceable(64) %data_.i1.i.i.i.i, i64 64, i1 false)
-  store i64 0, ptr %longer, align 8
-  br label %if.end72
+  br label %if.end72.sink.split
 
 ehcleanup64:                                      ; preds = %_ZN7testing7MessageD2Ev.exit171, %lpad52
   %.pn7.pn = phi { ptr, i32 } [ %.pn7, %_ZN7testing7MessageD2Ev.exit171 ], [ %87, %lpad52 ]
@@ -156987,8 +156986,7 @@ _ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EE23D
   %106 = phi i64 [ %.pre921, %if.then.i.i.i.i218 ], [ %102, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_13test_internal20CopyableOnlyInstanceEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i215 ]
   store i64 %106, ptr %longer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %data_.i1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %data_.i1.i.i.i.i66, i64 64, i1 false)
-  store i64 0, ptr %shorter, align 8
-  br label %if.end72
+  br label %if.end72.sink.split
 
 if.end.i.i223.invoke:                             ; preds = %if.else69, %if.then65
   %.sink = phi i64 [ %97, %if.then65 ], [ %102, %if.else69 ]
@@ -156998,7 +156996,12 @@ if.end.i.i223.invoke:                             ; preds = %if.else69, %if.then
   invoke void @_ZN4absl23inlined_vector_internal7StorageINS_13test_internal20CopyableOnlyInstanceELm8ESaIS3_EE6AssignINS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvT_m(ptr noundef nonnull align 8 dereferenceable(72) %107, ptr nonnull %108, i64 noundef %shr.i.i.i.i)
           to label %if.end72 unwind label %lpad10
 
-if.end72:                                         ; preds = %if.end.i.i223.invoke, %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EE23DestroyExistingAndAdoptEOS4_.exit.i.i219, %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EE23DestroyExistingAndAdoptEOS4_.exit.i.i
+if.end72.sink.split:                              ; preds = %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EE23DestroyExistingAndAdoptEOS4_.exit.i.i, %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EE23DestroyExistingAndAdoptEOS4_.exit.i.i219
+  %shorter.sink = phi ptr [ %shorter, %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EE23DestroyExistingAndAdoptEOS4_.exit.i.i219 ], [ %longer, %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EE23DestroyExistingAndAdoptEOS4_.exit.i.i ]
+  store i64 0, ptr %shorter.sink, align 8
+  br label %if.end72
+
+if.end72:                                         ; preds = %if.end72.sink.split, %if.end.i.i223.invoke
   %109 = load i32, ptr %src_len, align 4
   %cmp73 = icmp ugt i32 %109, 8
   %110 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4

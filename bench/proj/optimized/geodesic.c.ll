@@ -4131,11 +4131,11 @@ define i32 @geod_polygon_compute(ptr nocapture noundef readonly %0, ptr nocaptur
   %51 = icmp eq i32 %50, 0
   %52 = icmp ne ptr %4, null
   %or.cond = and i1 %52, %51
-  br i1 %or.cond, label %53, label %254
+  br i1 %or.cond, label %53, label %252
 
 53:                                               ; preds = %48
   store double 0.000000e+00, ptr %4, align 8
-  br label %254
+  br label %252
 
 54:                                               ; preds = %6
   %55 = getelementptr inbounds i8, ptr %1, i64 64
@@ -4145,13 +4145,13 @@ define i32 @geod_polygon_compute(ptr nocapture noundef readonly %0, ptr nocaptur
 
 57:                                               ; preds = %54
   %.not36 = icmp eq ptr %5, null
-  br i1 %.not36, label %254, label %58
+  br i1 %.not36, label %252, label %58
 
 58:                                               ; preds = %57
   %59 = getelementptr inbounds i8, ptr %1, i64 48
   %60 = load double, ptr %59, align 8
   store double %60, ptr %5, align 8
-  br label %254
+  br label %252
 
 61:                                               ; preds = %54
   %62 = load double, ptr %1, align 8
@@ -4171,7 +4171,7 @@ define i32 @geod_polygon_compute(ptr nocapture noundef readonly %0, ptr nocaptur
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   %.not34 = icmp eq ptr %5, null
-  br i1 %.not34, label %96, label %70
+  br i1 %.not34, label %95, label %70
 
 70:                                               ; preds = %61
   %71 = getelementptr inbounds i8, ptr %1, i64 48
@@ -4238,68 +4238,65 @@ sumx.exit.i.i:                                    ; preds = %85, %82
   store volatile double %91, ptr %33, align 8
   %.0..0..0..0..0..0..0..0..0..0.7.i15.i.i = load volatile double, ptr %31, align 8
   %92 = fcmp une double %.0..0..0..0..0..0..0..0..0..0.7.i15.i.i, 0.000000e+00
-  br i1 %92, label %93, label %94
+  br i1 %92, label %93, label %accsum.exit
 
 93:                                               ; preds = %sumx.exit.i.i
   %.0..0..0..0..0..0..0..0..0..0.4.i18.i.i = load volatile double, ptr %32, align 8
-  %.0..0..0..0..0..0..0..0..0..0.1.i19.i.i = load volatile double, ptr %33, align 8
   br label %accsum.exit
 
-94:                                               ; preds = %sumx.exit.i.i
-  %.0..0..0..0..0..0..0..0..0..0.8.i16.i.i = load volatile double, ptr %31, align 8
-  br label %accsum.exit
-
-accsum.exit:                                      ; preds = %93, %94
+accsum.exit:                                      ; preds = %sumx.exit.i.i, %93
+  %.sink.i = phi ptr [ %33, %93 ], [ %31, %sumx.exit.i.i ]
+  %.0..0..0..0..0..0..0.8.i16.i.i = load volatile double, ptr %.sink.i, align 8
   %.0..0..0..0..0..0..0..0..0..0.9.i17.i.i = load volatile double, ptr %31, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
-  %95 = fcmp oeq double %.0..0..0..0..0..0..0..0..0..0.9.i17.i.i, 0.000000e+00
-  %.sroa.0.0.i = select i1 %95, double %86, double %.0..0..0..0..0..0..0..0..0..0.9.i17.i.i
+  %94 = fcmp oeq double %.0..0..0..0..0..0..0..0..0..0.9.i17.i.i, 0.000000e+00
+  %.sroa.0.0.i = select i1 %94, double %86, double %.0..0..0..0..0..0..0..0..0..0.9.i17.i.i
   store double %.sroa.0.0.i, ptr %5, align 8
-  br label %96
+  br label %95
 
-96:                                               ; preds = %accsum.exit, %61
-  %97 = getelementptr inbounds i8, ptr %1, i64 32
-  %98 = load double, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %1, i64 40
-  %100 = load double, ptr %99, align 8
-  %101 = load double, ptr %42, align 8
+95:                                               ; preds = %accsum.exit, %61
+  %96 = getelementptr inbounds i8, ptr %1, i64 32
+  %97 = load double, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %1, i64 40
+  %99 = load double, ptr %98, align 8
+  %100 = load double, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
-  %102 = fadd double %100, %101
-  store volatile double %102, ptr %28, align 8
+  %101 = fadd double %99, %100
+  store volatile double %101, ptr %28, align 8
   %.0..0..0..0..0..0..0..0.5.i.i = load volatile double, ptr %28, align 8
-  %103 = fsub double %.0..0..0..0..0..0..0..0.5.i.i, %100
-  store volatile double %103, ptr %29, align 8
+  %102 = fsub double %.0..0..0..0..0..0..0..0.5.i.i, %99
+  store volatile double %102, ptr %29, align 8
   %.0..0..0..0..0..0..0..0.6.i.i = load volatile double, ptr %28, align 8
   %.0..0..0..0..0..0..0..0.2.i.i = load volatile double, ptr %29, align 8
-  %104 = fsub double %.0..0..0..0..0..0..0..0.6.i.i, %.0..0..0..0..0..0..0..0.2.i.i
-  store volatile double %104, ptr %30, align 8
+  %103 = fsub double %.0..0..0..0..0..0..0..0.6.i.i, %.0..0..0..0..0..0..0..0.2.i.i
+  store volatile double %103, ptr %30, align 8
   %.0..0..0..0..0..0..0..0.3.i.i = load volatile double, ptr %29, align 8
-  %105 = fsub double %.0..0..0..0..0..0..0..0.3.i.i, %101
-  store volatile double %105, ptr %29, align 8
+  %104 = fsub double %.0..0..0..0..0..0..0..0.3.i.i, %100
+  store volatile double %104, ptr %29, align 8
   %.0..0..0..0..0..0..0..0..i.i = load volatile double, ptr %30, align 8
-  %106 = fsub double %.0..0..0..0..0..0..0..0..i.i, %100
-  store volatile double %106, ptr %30, align 8
+  %105 = fsub double %.0..0..0..0..0..0..0..0..i.i, %99
+  store volatile double %105, ptr %30, align 8
   %.0..0..0..0..0..0..0..0.7.i.i = load volatile double, ptr %28, align 8
-  %107 = fcmp une double %.0..0..0..0..0..0..0..0.7.i.i, 0.000000e+00
-  br i1 %107, label %108, label %111
+  %106 = fcmp une double %.0..0..0..0..0..0..0..0.7.i.i, 0.000000e+00
+  br i1 %106, label %107, label %110
 
-108:                                              ; preds = %96
+107:                                              ; preds = %95
   %.0..0..0..0..0..0..0..0.4.i.i = load volatile double, ptr %29, align 8
   %.0..0..0..0..0..0..0..0.1.i.i = load volatile double, ptr %30, align 8
-  %109 = fadd double %.0..0..0..0..0..0..0..0.4.i.i, %.0..0..0..0..0..0..0..0.1.i.i
-  %110 = fsub double 0.000000e+00, %109
+  %108 = fadd double %.0..0..0..0..0..0..0..0.4.i.i, %.0..0..0..0..0..0..0..0.1.i.i
+  %109 = fsub double 0.000000e+00, %108
   br label %sumx.exit.i
 
-111:                                              ; preds = %96
+110:                                              ; preds = %95
   %.0..0..0..0..0..0..0..0.8.i.i = load volatile double, ptr %28, align 8
   br label %sumx.exit.i
 
-sumx.exit.i:                                      ; preds = %111, %108
-  %112 = phi double [ %110, %108 ], [ %.0..0..0..0..0..0..0..0.8.i.i, %111 ]
+sumx.exit.i:                                      ; preds = %110, %107
+  %111 = phi double [ %109, %107 ], [ %.0..0..0..0..0..0..0..0.8.i.i, %110 ]
   %.0..0..0..0..0..0..0..0.9.i.i = load volatile double, ptr %28, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
@@ -4307,400 +4304,397 @@ sumx.exit.i:                                      ; preds = %111, %108
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
-  %113 = fadd double %98, %.0..0..0..0..0..0..0..0.9.i.i
-  store volatile double %113, ptr %25, align 8
+  %112 = fadd double %97, %.0..0..0..0..0..0..0..0.9.i.i
+  store volatile double %112, ptr %25, align 8
   %.0..0..0..0..0..0..0..0.5.i10.i = load volatile double, ptr %25, align 8
-  %114 = fsub double %.0..0..0..0..0..0..0..0.5.i10.i, %98
-  store volatile double %114, ptr %26, align 8
+  %113 = fsub double %.0..0..0..0..0..0..0..0.5.i10.i, %97
+  store volatile double %113, ptr %26, align 8
   %.0..0..0..0..0..0..0..0.6.i11.i = load volatile double, ptr %25, align 8
   %.0..0..0..0..0..0..0..0.2.i12.i = load volatile double, ptr %26, align 8
-  %115 = fsub double %.0..0..0..0..0..0..0..0.6.i11.i, %.0..0..0..0..0..0..0..0.2.i12.i
-  store volatile double %115, ptr %27, align 8
+  %114 = fsub double %.0..0..0..0..0..0..0..0.6.i11.i, %.0..0..0..0..0..0..0..0.2.i12.i
+  store volatile double %114, ptr %27, align 8
   %.0..0..0..0..0..0..0..0.3.i13.i = load volatile double, ptr %26, align 8
-  %116 = fsub double %.0..0..0..0..0..0..0..0.3.i13.i, %.0..0..0..0..0..0..0..0.9.i.i
-  store volatile double %116, ptr %26, align 8
+  %115 = fsub double %.0..0..0..0..0..0..0..0.3.i13.i, %.0..0..0..0..0..0..0..0.9.i.i
+  store volatile double %115, ptr %26, align 8
   %.0..0..0..0..0..0..0..0..i14.i = load volatile double, ptr %27, align 8
-  %117 = fsub double %.0..0..0..0..0..0..0..0..i14.i, %98
-  store volatile double %117, ptr %27, align 8
+  %116 = fsub double %.0..0..0..0..0..0..0..0..i14.i, %97
+  store volatile double %116, ptr %27, align 8
   %.0..0..0..0..0..0..0..0.7.i15.i = load volatile double, ptr %25, align 8
-  %118 = fcmp une double %.0..0..0..0..0..0..0..0.7.i15.i, 0.000000e+00
-  br i1 %118, label %119, label %122
+  %117 = fcmp une double %.0..0..0..0..0..0..0..0.7.i15.i, 0.000000e+00
+  br i1 %117, label %118, label %121
 
-119:                                              ; preds = %sumx.exit.i
+118:                                              ; preds = %sumx.exit.i
   %.0..0..0..0..0..0..0..0.4.i18.i = load volatile double, ptr %26, align 8
   %.0..0..0..0..0..0..0..0.1.i19.i = load volatile double, ptr %27, align 8
-  %120 = fadd double %.0..0..0..0..0..0..0..0.4.i18.i, %.0..0..0..0..0..0..0..0.1.i19.i
-  %121 = fsub double 0.000000e+00, %120
+  %119 = fadd double %.0..0..0..0..0..0..0..0.4.i18.i, %.0..0..0..0..0..0..0..0.1.i19.i
+  %120 = fsub double 0.000000e+00, %119
   br label %sumx.exit20.i
 
-122:                                              ; preds = %sumx.exit.i
+121:                                              ; preds = %sumx.exit.i
   %.0..0..0..0..0..0..0..0.8.i16.i = load volatile double, ptr %25, align 8
   br label %sumx.exit20.i
 
-sumx.exit20.i:                                    ; preds = %122, %119
-  %123 = phi double [ %121, %119 ], [ %.0..0..0..0..0..0..0..0.8.i16.i, %122 ]
+sumx.exit20.i:                                    ; preds = %121, %118
+  %122 = phi double [ %120, %118 ], [ %.0..0..0..0..0..0..0..0.8.i16.i, %121 ]
   %.0..0..0..0..0..0..0..0.9.i17.i = load volatile double, ptr %25, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
-  %124 = fcmp oeq double %.0..0..0..0..0..0..0..0.9.i17.i, 0.000000e+00
-  %125 = fadd double %112, %123
-  %.sroa.20.0 = select i1 %124, double %123, double %125
-  %.sroa.0.0 = select i1 %124, double %112, double %.0..0..0..0..0..0..0..0.9.i17.i
+  %123 = fcmp oeq double %.0..0..0..0..0..0..0..0.9.i17.i, 0.000000e+00
+  %124 = fadd double %111, %122
+  %.sroa.20.0 = select i1 %123, double %122, double %124
+  %.sroa.0.0 = select i1 %123, double %111, double %.0..0..0..0..0..0..0..0.9.i17.i
   %.not35 = icmp eq ptr %4, null
-  br i1 %.not35, label %254, label %126
+  br i1 %.not35, label %252, label %125
 
-126:                                              ; preds = %sumx.exit20.i
-  %127 = load double, ptr @pi, align 8
-  %128 = fmul double %127, 4.000000e+00
-  %129 = getelementptr inbounds i8, ptr %0, i64 56
-  %130 = load double, ptr %129, align 8
-  %131 = fmul double %128, %130
-  %132 = getelementptr inbounds i8, ptr %1, i64 68
-  %133 = load i32, ptr %132, align 4
-  %134 = load double, ptr %63, align 8
-  %135 = load double, ptr %67, align 8
-  %136 = call fastcc double @AngDiff(double noundef %134, double noundef %135, ptr noundef null)
-  %137 = call double @remainder(double noundef %134, double noundef 3.600000e+02) #13
-  %138 = call double @llvm.fabs.f64(double %137)
-  %139 = fcmp oeq double %138, 1.800000e+02
-  %140 = call double @llvm.copysign.f64(double 1.800000e+02, double %134)
-  %141 = select i1 %139, double %140, double %137
-  %142 = call double @remainder(double noundef %135, double noundef 3.600000e+02) #13
-  %143 = call double @llvm.fabs.f64(double %142)
-  %144 = fcmp oeq double %143, 1.800000e+02
-  %145 = call double @llvm.copysign.f64(double 1.800000e+02, double %135)
-  %146 = select i1 %144, double %145, double %142
-  %147 = fcmp ogt double %136, 0.000000e+00
-  br i1 %147, label %148, label %154
+125:                                              ; preds = %sumx.exit20.i
+  %126 = load double, ptr @pi, align 8
+  %127 = fmul double %126, 4.000000e+00
+  %128 = getelementptr inbounds i8, ptr %0, i64 56
+  %129 = load double, ptr %128, align 8
+  %130 = fmul double %127, %129
+  %131 = getelementptr inbounds i8, ptr %1, i64 68
+  %132 = load i32, ptr %131, align 4
+  %133 = load double, ptr %63, align 8
+  %134 = load double, ptr %67, align 8
+  %135 = call fastcc double @AngDiff(double noundef %133, double noundef %134, ptr noundef null)
+  %136 = call double @remainder(double noundef %133, double noundef 3.600000e+02) #13
+  %137 = call double @llvm.fabs.f64(double %136)
+  %138 = fcmp oeq double %137, 1.800000e+02
+  %139 = call double @llvm.copysign.f64(double 1.800000e+02, double %133)
+  %140 = select i1 %138, double %139, double %136
+  %141 = call double @remainder(double noundef %134, double noundef 3.600000e+02) #13
+  %142 = call double @llvm.fabs.f64(double %141)
+  %143 = fcmp oeq double %142, 1.800000e+02
+  %144 = call double @llvm.copysign.f64(double 1.800000e+02, double %134)
+  %145 = select i1 %143, double %144, double %141
+  %146 = fcmp ogt double %135, 0.000000e+00
+  br i1 %146, label %147, label %153
 
-148:                                              ; preds = %126
-  %149 = fcmp olt double %141, 0.000000e+00
-  %150 = fcmp oge double %146, 0.000000e+00
-  %or.cond.i = select i1 %149, i1 %150, i1 false
-  br i1 %or.cond.i, label %transit.exit, label %151
+147:                                              ; preds = %125
+  %148 = fcmp olt double %140, 0.000000e+00
+  %149 = fcmp oge double %145, 0.000000e+00
+  %or.cond.i = select i1 %148, i1 %149, i1 false
+  br i1 %or.cond.i, label %transit.exit, label %150
 
-151:                                              ; preds = %148
-  %152 = fcmp ogt double %141, 0.000000e+00
-  %153 = fcmp oeq double %146, 0.000000e+00
-  %or.cond3.i = select i1 %152, i1 %153, i1 false
-  br i1 %or.cond3.i, label %transit.exit, label %154
+150:                                              ; preds = %147
+  %151 = fcmp ogt double %140, 0.000000e+00
+  %152 = fcmp oeq double %145, 0.000000e+00
+  %or.cond3.i = select i1 %151, i1 %152, i1 false
+  br i1 %or.cond3.i, label %transit.exit, label %153
 
-154:                                              ; preds = %151, %126
-  %155 = fcmp olt double %136, 0.000000e+00
-  %156 = fcmp oge double %141, 0.000000e+00
-  %or.cond5.i = select i1 %155, i1 %156, i1 false
-  %157 = fcmp olt double %146, 0.000000e+00
-  %narrow.i = select i1 %or.cond5.i, i1 %157, i1 false
-  %158 = zext i1 %narrow.i to i32
+153:                                              ; preds = %150, %125
+  %154 = fcmp olt double %135, 0.000000e+00
+  %155 = fcmp oge double %140, 0.000000e+00
+  %or.cond5.i = select i1 %154, i1 %155, i1 false
+  %156 = fcmp olt double %145, 0.000000e+00
+  %narrow.i = select i1 %or.cond5.i, i1 %156, i1 false
+  %157 = zext i1 %narrow.i to i32
   br label %transit.exit
 
-transit.exit:                                     ; preds = %148, %151, %154
-  %159 = phi i32 [ %158, %154 ], [ 1, %151 ], [ 1, %148 ]
-  %160 = add i32 %159, %133
-  %161 = call double @remainder(double noundef %.sroa.0.0, double noundef %131) #13
+transit.exit:                                     ; preds = %147, %150, %153
+  %158 = phi i32 [ %157, %153 ], [ 1, %150 ], [ 1, %147 ]
+  %159 = add i32 %158, %132
+  %160 = call double @remainder(double noundef %.sroa.0.0, double noundef %130) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %162 = fadd double %.sroa.20.0, 0.000000e+00
-  store volatile double %162, ptr %10, align 8
-  %.0..0..0..0..0..0..0..0.5.i.i84 = load volatile double, ptr %10, align 8
-  %163 = fsub double %.0..0..0..0..0..0..0..0.5.i.i84, %.sroa.20.0
-  store volatile double %163, ptr %11, align 8
-  %.0..0..0..0..0..0..0..0.6.i.i85 = load volatile double, ptr %10, align 8
-  %.0..0..0..0..0..0..0..0.2.i.i86 = load volatile double, ptr %11, align 8
-  %164 = fsub double %.0..0..0..0..0..0..0..0.6.i.i85, %.0..0..0..0..0..0..0..0.2.i.i86
+  %161 = fadd double %.sroa.20.0, 0.000000e+00
+  store volatile double %161, ptr %10, align 8
+  %.0..0..0..0..0..0..0..0.5.i.i85 = load volatile double, ptr %10, align 8
+  %162 = fsub double %.0..0..0..0..0..0..0..0.5.i.i85, %.sroa.20.0
+  store volatile double %162, ptr %11, align 8
+  %.0..0..0..0..0..0..0..0.6.i.i86 = load volatile double, ptr %10, align 8
+  %.0..0..0..0..0..0..0..0.2.i.i87 = load volatile double, ptr %11, align 8
+  %163 = fsub double %.0..0..0..0..0..0..0..0.6.i.i86, %.0..0..0..0..0..0..0..0.2.i.i87
+  store volatile double %163, ptr %12, align 8
+  %.0..0..0..0..0..0..0..0.3.i.i88 = load volatile double, ptr %11, align 8
+  store volatile double %.0..0..0..0..0..0..0..0.3.i.i88, ptr %11, align 8
+  %.0..0..0..0..0..0..0..0..i.i89 = load volatile double, ptr %12, align 8
+  %164 = fsub double %.0..0..0..0..0..0..0..0..i.i89, %.sroa.20.0
   store volatile double %164, ptr %12, align 8
-  %.0..0..0..0..0..0..0..0.3.i.i87 = load volatile double, ptr %11, align 8
-  store volatile double %.0..0..0..0..0..0..0..0.3.i.i87, ptr %11, align 8
-  %.0..0..0..0..0..0..0..0..i.i88 = load volatile double, ptr %12, align 8
-  %165 = fsub double %.0..0..0..0..0..0..0..0..i.i88, %.sroa.20.0
-  store volatile double %165, ptr %12, align 8
-  %.0..0..0..0..0..0..0..0.7.i.i89 = load volatile double, ptr %10, align 8
-  %166 = fcmp une double %.0..0..0..0..0..0..0..0.7.i.i89, 0.000000e+00
-  br i1 %166, label %167, label %170
+  %.0..0..0..0..0..0..0..0.7.i.i90 = load volatile double, ptr %10, align 8
+  %165 = fcmp une double %.0..0..0..0..0..0..0..0.7.i.i90, 0.000000e+00
+  br i1 %165, label %166, label %169
 
-167:                                              ; preds = %transit.exit
-  %.0..0..0..0..0..0..0..0.4.i.i104 = load volatile double, ptr %11, align 8
-  %.0..0..0..0..0..0..0..0.1.i.i105 = load volatile double, ptr %12, align 8
-  %168 = fadd double %.0..0..0..0..0..0..0..0.4.i.i104, %.0..0..0..0..0..0..0..0.1.i.i105
-  %169 = fsub double 0.000000e+00, %168
-  br label %sumx.exit.i91
+166:                                              ; preds = %transit.exit
+  %.0..0..0..0..0..0..0..0.4.i.i105 = load volatile double, ptr %11, align 8
+  %.0..0..0..0..0..0..0..0.1.i.i106 = load volatile double, ptr %12, align 8
+  %167 = fadd double %.0..0..0..0..0..0..0..0.4.i.i105, %.0..0..0..0..0..0..0..0.1.i.i106
+  %168 = fsub double 0.000000e+00, %167
+  br label %sumx.exit.i92
 
-170:                                              ; preds = %transit.exit
-  %.0..0..0..0..0..0..0..0.8.i.i90 = load volatile double, ptr %10, align 8
-  br label %sumx.exit.i91
+169:                                              ; preds = %transit.exit
+  %.0..0..0..0..0..0..0..0.8.i.i91 = load volatile double, ptr %10, align 8
+  br label %sumx.exit.i92
 
-sumx.exit.i91:                                    ; preds = %170, %167
-  %171 = phi double [ %169, %167 ], [ %.0..0..0..0..0..0..0..0.8.i.i90, %170 ]
-  %.0..0..0..0..0..0..0..0.9.i.i92 = load volatile double, ptr %10, align 8
+sumx.exit.i92:                                    ; preds = %169, %166
+  %170 = phi double [ %168, %166 ], [ %.0..0..0..0..0..0..0..0.8.i.i91, %169 ]
+  %.0..0..0..0..0..0..0..0.9.i.i93 = load volatile double, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %172 = fadd double %161, %.0..0..0..0..0..0..0..0.9.i.i92
-  store volatile double %172, ptr %7, align 8
-  %.0..0..0..0..0..0..0..0.5.i10.i93 = load volatile double, ptr %7, align 8
-  %173 = fsub double %.0..0..0..0..0..0..0..0.5.i10.i93, %161
-  store volatile double %173, ptr %8, align 8
-  %.0..0..0..0..0..0..0..0.6.i11.i94 = load volatile double, ptr %7, align 8
-  %.0..0..0..0..0..0..0..0.2.i12.i95 = load volatile double, ptr %8, align 8
-  %174 = fsub double %.0..0..0..0..0..0..0..0.6.i11.i94, %.0..0..0..0..0..0..0..0.2.i12.i95
-  store volatile double %174, ptr %9, align 8
-  %.0..0..0..0..0..0..0..0.3.i13.i96 = load volatile double, ptr %8, align 8
-  %175 = fsub double %.0..0..0..0..0..0..0..0.3.i13.i96, %.0..0..0..0..0..0..0..0.9.i.i92
-  store volatile double %175, ptr %8, align 8
-  %.0..0..0..0..0..0..0..0..i14.i97 = load volatile double, ptr %9, align 8
-  %176 = fsub double %.0..0..0..0..0..0..0..0..i14.i97, %161
-  store volatile double %176, ptr %9, align 8
-  %.0..0..0..0..0..0..0..0.7.i15.i98 = load volatile double, ptr %7, align 8
-  %177 = fcmp une double %.0..0..0..0..0..0..0..0.7.i15.i98, 0.000000e+00
-  br i1 %177, label %178, label %181
+  %171 = fadd double %160, %.0..0..0..0..0..0..0..0.9.i.i93
+  store volatile double %171, ptr %7, align 8
+  %.0..0..0..0..0..0..0..0.5.i10.i94 = load volatile double, ptr %7, align 8
+  %172 = fsub double %.0..0..0..0..0..0..0..0.5.i10.i94, %160
+  store volatile double %172, ptr %8, align 8
+  %.0..0..0..0..0..0..0..0.6.i11.i95 = load volatile double, ptr %7, align 8
+  %.0..0..0..0..0..0..0..0.2.i12.i96 = load volatile double, ptr %8, align 8
+  %173 = fsub double %.0..0..0..0..0..0..0..0.6.i11.i95, %.0..0..0..0..0..0..0..0.2.i12.i96
+  store volatile double %173, ptr %9, align 8
+  %.0..0..0..0..0..0..0..0.3.i13.i97 = load volatile double, ptr %8, align 8
+  %174 = fsub double %.0..0..0..0..0..0..0..0.3.i13.i97, %.0..0..0..0..0..0..0..0.9.i.i93
+  store volatile double %174, ptr %8, align 8
+  %.0..0..0..0..0..0..0..0..i14.i98 = load volatile double, ptr %9, align 8
+  %175 = fsub double %.0..0..0..0..0..0..0..0..i14.i98, %160
+  store volatile double %175, ptr %9, align 8
+  %.0..0..0..0..0..0..0..0.7.i15.i99 = load volatile double, ptr %7, align 8
+  %176 = fcmp une double %.0..0..0..0..0..0..0..0.7.i15.i99, 0.000000e+00
+  br i1 %176, label %177, label %180
 
-178:                                              ; preds = %sumx.exit.i91
-  %.0..0..0..0..0..0..0..0.4.i18.i102 = load volatile double, ptr %8, align 8
-  %.0..0..0..0..0..0..0..0.1.i19.i103 = load volatile double, ptr %9, align 8
-  %179 = fadd double %.0..0..0..0..0..0..0..0.4.i18.i102, %.0..0..0..0..0..0..0..0.1.i19.i103
-  %180 = fsub double 0.000000e+00, %179
-  br label %sumx.exit20.i100
+177:                                              ; preds = %sumx.exit.i92
+  %.0..0..0..0..0..0..0..0.4.i18.i103 = load volatile double, ptr %8, align 8
+  %.0..0..0..0..0..0..0..0.1.i19.i104 = load volatile double, ptr %9, align 8
+  %178 = fadd double %.0..0..0..0..0..0..0..0.4.i18.i103, %.0..0..0..0..0..0..0..0.1.i19.i104
+  %179 = fsub double 0.000000e+00, %178
+  br label %sumx.exit20.i101
 
-181:                                              ; preds = %sumx.exit.i91
-  %.0..0..0..0..0..0..0..0.8.i16.i99 = load volatile double, ptr %7, align 8
-  br label %sumx.exit20.i100
+180:                                              ; preds = %sumx.exit.i92
+  %.0..0..0..0..0..0..0..0.8.i16.i100 = load volatile double, ptr %7, align 8
+  br label %sumx.exit20.i101
 
-sumx.exit20.i100:                                 ; preds = %181, %178
-  %182 = phi double [ %180, %178 ], [ %.0..0..0..0..0..0..0..0.8.i16.i99, %181 ]
-  %.0..0..0..0..0..0..0..0.9.i17.i101 = load volatile double, ptr %7, align 8
+sumx.exit20.i101:                                 ; preds = %180, %177
+  %181 = phi double [ %179, %177 ], [ %.0..0..0..0..0..0..0..0.8.i16.i100, %180 ]
+  %.0..0..0..0..0..0..0..0.9.i17.i102 = load volatile double, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %183 = fcmp oeq double %.0..0..0..0..0..0..0..0.9.i17.i101, 0.000000e+00
-  %184 = fadd double %171, %182
-  %.sroa.20.4 = select i1 %183, double %182, double %184
-  %.sroa.0.6 = select i1 %183, double %171, double %.0..0..0..0..0..0..0..0.9.i17.i101
-  %185 = and i32 %160, 1
-  %.not.i = icmp eq i32 %185, 0
-  br i1 %.not.i, label %accadd.exit83, label %186
+  %182 = fcmp oeq double %.0..0..0..0..0..0..0..0.9.i17.i102, 0.000000e+00
+  %183 = fadd double %170, %181
+  %.sroa.20.4 = select i1 %182, double %181, double %183
+  %.sroa.0.6 = select i1 %182, double %170, double %.0..0..0..0..0..0..0..0.9.i17.i102
+  %184 = and i32 %159, 1
+  %.not.i = icmp eq i32 %184, 0
+  br i1 %.not.i, label %accadd.exit84, label %185
 
-186:                                              ; preds = %sumx.exit20.i100
-  %187 = fcmp olt double %.sroa.0.6, 0.000000e+00
-  %188 = fneg double %131
-  %189 = select i1 %187, double %131, double %188
-  %190 = fmul double %189, 5.000000e-01
+185:                                              ; preds = %sumx.exit20.i101
+  %186 = fcmp olt double %.sroa.0.6, 0.000000e+00
+  %187 = fneg double %130
+  %188 = select i1 %186, double %130, double %187
+  %189 = fmul double %188, 5.000000e-01
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  %191 = fadd double %.sroa.20.4, %190
-  store volatile double %191, ptr %16, align 8
-  %.0..0..0..0..0..0..0..0.5.i.i61 = load volatile double, ptr %16, align 8
-  %192 = fsub double %.0..0..0..0..0..0..0..0.5.i.i61, %.sroa.20.4
-  store volatile double %192, ptr %17, align 8
-  %.0..0..0..0..0..0..0..0.6.i.i62 = load volatile double, ptr %16, align 8
-  %.0..0..0..0..0..0..0..0.2.i.i63 = load volatile double, ptr %17, align 8
-  %193 = fsub double %.0..0..0..0..0..0..0..0.6.i.i62, %.0..0..0..0..0..0..0..0.2.i.i63
-  store volatile double %193, ptr %18, align 8
-  %.0..0..0..0..0..0..0..0.3.i.i64 = load volatile double, ptr %17, align 8
-  %194 = fsub double %.0..0..0..0..0..0..0..0.3.i.i64, %190
-  store volatile double %194, ptr %17, align 8
-  %.0..0..0..0..0..0..0..0..i.i65 = load volatile double, ptr %18, align 8
-  %195 = fsub double %.0..0..0..0..0..0..0..0..i.i65, %.sroa.20.4
-  store volatile double %195, ptr %18, align 8
-  %.0..0..0..0..0..0..0..0.7.i.i66 = load volatile double, ptr %16, align 8
-  %196 = fcmp une double %.0..0..0..0..0..0..0..0.7.i.i66, 0.000000e+00
-  br i1 %196, label %197, label %200
+  %190 = fadd double %.sroa.20.4, %189
+  store volatile double %190, ptr %16, align 8
+  %.0..0..0..0..0..0..0..0.5.i.i62 = load volatile double, ptr %16, align 8
+  %191 = fsub double %.0..0..0..0..0..0..0..0.5.i.i62, %.sroa.20.4
+  store volatile double %191, ptr %17, align 8
+  %.0..0..0..0..0..0..0..0.6.i.i63 = load volatile double, ptr %16, align 8
+  %.0..0..0..0..0..0..0..0.2.i.i64 = load volatile double, ptr %17, align 8
+  %192 = fsub double %.0..0..0..0..0..0..0..0.6.i.i63, %.0..0..0..0..0..0..0..0.2.i.i64
+  store volatile double %192, ptr %18, align 8
+  %.0..0..0..0..0..0..0..0.3.i.i65 = load volatile double, ptr %17, align 8
+  %193 = fsub double %.0..0..0..0..0..0..0..0.3.i.i65, %189
+  store volatile double %193, ptr %17, align 8
+  %.0..0..0..0..0..0..0..0..i.i66 = load volatile double, ptr %18, align 8
+  %194 = fsub double %.0..0..0..0..0..0..0..0..i.i66, %.sroa.20.4
+  store volatile double %194, ptr %18, align 8
+  %.0..0..0..0..0..0..0..0.7.i.i67 = load volatile double, ptr %16, align 8
+  %195 = fcmp une double %.0..0..0..0..0..0..0..0.7.i.i67, 0.000000e+00
+  br i1 %195, label %196, label %199
 
-197:                                              ; preds = %186
-  %.0..0..0..0..0..0..0..0.4.i.i81 = load volatile double, ptr %17, align 8
-  %.0..0..0..0..0..0..0..0.1.i.i82 = load volatile double, ptr %18, align 8
-  %198 = fadd double %.0..0..0..0..0..0..0..0.4.i.i81, %.0..0..0..0..0..0..0..0.1.i.i82
-  %199 = fsub double 0.000000e+00, %198
-  br label %sumx.exit.i68
+196:                                              ; preds = %185
+  %.0..0..0..0..0..0..0..0.4.i.i82 = load volatile double, ptr %17, align 8
+  %.0..0..0..0..0..0..0..0.1.i.i83 = load volatile double, ptr %18, align 8
+  %197 = fadd double %.0..0..0..0..0..0..0..0.4.i.i82, %.0..0..0..0..0..0..0..0.1.i.i83
+  %198 = fsub double 0.000000e+00, %197
+  br label %sumx.exit.i69
 
-200:                                              ; preds = %186
-  %.0..0..0..0..0..0..0..0.8.i.i67 = load volatile double, ptr %16, align 8
-  br label %sumx.exit.i68
+199:                                              ; preds = %185
+  %.0..0..0..0..0..0..0..0.8.i.i68 = load volatile double, ptr %16, align 8
+  br label %sumx.exit.i69
 
-sumx.exit.i68:                                    ; preds = %200, %197
-  %201 = phi double [ %199, %197 ], [ %.0..0..0..0..0..0..0..0.8.i.i67, %200 ]
-  %.0..0..0..0..0..0..0..0.9.i.i69 = load volatile double, ptr %16, align 8
+sumx.exit.i69:                                    ; preds = %199, %196
+  %200 = phi double [ %198, %196 ], [ %.0..0..0..0..0..0..0..0.8.i.i68, %199 ]
+  %.0..0..0..0..0..0..0..0.9.i.i70 = load volatile double, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  %202 = fadd double %.sroa.0.6, %.0..0..0..0..0..0..0..0.9.i.i69
-  store volatile double %202, ptr %13, align 8
-  %.0..0..0..0..0..0..0..0.5.i10.i70 = load volatile double, ptr %13, align 8
-  %203 = fsub double %.0..0..0..0..0..0..0..0.5.i10.i70, %.sroa.0.6
-  store volatile double %203, ptr %14, align 8
-  %.0..0..0..0..0..0..0..0.6.i11.i71 = load volatile double, ptr %13, align 8
-  %.0..0..0..0..0..0..0..0.2.i12.i72 = load volatile double, ptr %14, align 8
-  %204 = fsub double %.0..0..0..0..0..0..0..0.6.i11.i71, %.0..0..0..0..0..0..0..0.2.i12.i72
-  store volatile double %204, ptr %15, align 8
-  %.0..0..0..0..0..0..0..0.3.i13.i73 = load volatile double, ptr %14, align 8
-  %205 = fsub double %.0..0..0..0..0..0..0..0.3.i13.i73, %.0..0..0..0..0..0..0..0.9.i.i69
-  store volatile double %205, ptr %14, align 8
-  %.0..0..0..0..0..0..0..0..i14.i74 = load volatile double, ptr %15, align 8
-  %206 = fsub double %.0..0..0..0..0..0..0..0..i14.i74, %.sroa.0.6
-  store volatile double %206, ptr %15, align 8
-  %.0..0..0..0..0..0..0..0.7.i15.i75 = load volatile double, ptr %13, align 8
-  %207 = fcmp une double %.0..0..0..0..0..0..0..0.7.i15.i75, 0.000000e+00
-  br i1 %207, label %208, label %211
+  %201 = fadd double %.sroa.0.6, %.0..0..0..0..0..0..0..0.9.i.i70
+  store volatile double %201, ptr %13, align 8
+  %.0..0..0..0..0..0..0..0.5.i10.i71 = load volatile double, ptr %13, align 8
+  %202 = fsub double %.0..0..0..0..0..0..0..0.5.i10.i71, %.sroa.0.6
+  store volatile double %202, ptr %14, align 8
+  %.0..0..0..0..0..0..0..0.6.i11.i72 = load volatile double, ptr %13, align 8
+  %.0..0..0..0..0..0..0..0.2.i12.i73 = load volatile double, ptr %14, align 8
+  %203 = fsub double %.0..0..0..0..0..0..0..0.6.i11.i72, %.0..0..0..0..0..0..0..0.2.i12.i73
+  store volatile double %203, ptr %15, align 8
+  %.0..0..0..0..0..0..0..0.3.i13.i74 = load volatile double, ptr %14, align 8
+  %204 = fsub double %.0..0..0..0..0..0..0..0.3.i13.i74, %.0..0..0..0..0..0..0..0.9.i.i70
+  store volatile double %204, ptr %14, align 8
+  %.0..0..0..0..0..0..0..0..i14.i75 = load volatile double, ptr %15, align 8
+  %205 = fsub double %.0..0..0..0..0..0..0..0..i14.i75, %.sroa.0.6
+  store volatile double %205, ptr %15, align 8
+  %.0..0..0..0..0..0..0..0.7.i15.i76 = load volatile double, ptr %13, align 8
+  %206 = fcmp une double %.0..0..0..0..0..0..0..0.7.i15.i76, 0.000000e+00
+  br i1 %206, label %207, label %210
 
-208:                                              ; preds = %sumx.exit.i68
-  %.0..0..0..0..0..0..0..0.4.i18.i79 = load volatile double, ptr %14, align 8
-  %.0..0..0..0..0..0..0..0.1.i19.i80 = load volatile double, ptr %15, align 8
-  %209 = fadd double %.0..0..0..0..0..0..0..0.4.i18.i79, %.0..0..0..0..0..0..0..0.1.i19.i80
-  %210 = fsub double 0.000000e+00, %209
-  br label %sumx.exit20.i77
+207:                                              ; preds = %sumx.exit.i69
+  %.0..0..0..0..0..0..0..0.4.i18.i80 = load volatile double, ptr %14, align 8
+  %.0..0..0..0..0..0..0..0.1.i19.i81 = load volatile double, ptr %15, align 8
+  %208 = fadd double %.0..0..0..0..0..0..0..0.4.i18.i80, %.0..0..0..0..0..0..0..0.1.i19.i81
+  %209 = fsub double 0.000000e+00, %208
+  br label %sumx.exit20.i78
 
-211:                                              ; preds = %sumx.exit.i68
-  %.0..0..0..0..0..0..0..0.8.i16.i76 = load volatile double, ptr %13, align 8
-  br label %sumx.exit20.i77
+210:                                              ; preds = %sumx.exit.i69
+  %.0..0..0..0..0..0..0..0.8.i16.i77 = load volatile double, ptr %13, align 8
+  br label %sumx.exit20.i78
 
-sumx.exit20.i77:                                  ; preds = %211, %208
-  %212 = phi double [ %210, %208 ], [ %.0..0..0..0..0..0..0..0.8.i16.i76, %211 ]
-  %.0..0..0..0..0..0..0..0.9.i17.i78 = load volatile double, ptr %13, align 8
+sumx.exit20.i78:                                  ; preds = %210, %207
+  %211 = phi double [ %209, %207 ], [ %.0..0..0..0..0..0..0..0.8.i16.i77, %210 ]
+  %.0..0..0..0..0..0..0..0.9.i17.i79 = load volatile double, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  %213 = fcmp oeq double %.0..0..0..0..0..0..0..0.9.i17.i78, 0.000000e+00
-  br i1 %213, label %accadd.exit83, label %214
+  %212 = fcmp oeq double %.0..0..0..0..0..0..0..0.9.i17.i79, 0.000000e+00
+  br i1 %212, label %accadd.exit84, label %213
 
-214:                                              ; preds = %sumx.exit20.i77
-  %215 = fadd double %201, %212
-  br label %accadd.exit83
+213:                                              ; preds = %sumx.exit20.i78
+  %214 = fadd double %200, %211
+  br label %accadd.exit84
 
-accadd.exit83:                                    ; preds = %214, %sumx.exit20.i77, %sumx.exit20.i100
-  %.sroa.20.1 = phi double [ %.sroa.20.4, %sumx.exit20.i100 ], [ %215, %214 ], [ %212, %sumx.exit20.i77 ]
-  %.sroa.0.1 = phi double [ %.sroa.0.6, %sumx.exit20.i100 ], [ %.0..0..0..0..0..0..0..0.9.i17.i78, %214 ], [ %201, %sumx.exit20.i77 ]
+accadd.exit84:                                    ; preds = %213, %sumx.exit20.i78, %sumx.exit20.i101
+  %.sroa.20.1 = phi double [ %.sroa.20.4, %sumx.exit20.i101 ], [ %214, %213 ], [ %211, %sumx.exit20.i78 ]
+  %.sroa.0.1 = phi double [ %.sroa.0.6, %sumx.exit20.i101 ], [ %.0..0..0..0..0..0..0..0.9.i17.i79, %213 ], [ %200, %sumx.exit20.i78 ]
   %.not26.i = icmp eq i32 %2, 0
-  %216 = fneg double %.sroa.0.1
-  %217 = fneg double %.sroa.20.1
-  %.sroa.20.2 = select i1 %.not26.i, double %217, double %.sroa.20.1
-  %.sroa.0.2 = select i1 %.not26.i, double %216, double %.sroa.0.1
+  %215 = fneg double %.sroa.0.1
+  %216 = fneg double %.sroa.20.1
+  %.sroa.20.2 = select i1 %.not26.i, double %216, double %.sroa.20.1
+  %.sroa.0.2 = select i1 %.not26.i, double %215, double %.sroa.0.1
   %.not27.i = icmp eq i32 %3, 0
-  br i1 %.not27.i, label %226, label %218
+  br i1 %.not27.i, label %225, label %217
 
-218:                                              ; preds = %accadd.exit83
-  %219 = fmul double %131, 5.000000e-01
-  %220 = fcmp ogt double %.sroa.0.2, %219
-  br i1 %220, label %221, label %223
+217:                                              ; preds = %accadd.exit84
+  %218 = fmul double %130, 5.000000e-01
+  %219 = fcmp ogt double %.sroa.0.2, %218
+  br i1 %219, label %220, label %222
 
-221:                                              ; preds = %218
-  %222 = fneg double %131
+220:                                              ; preds = %217
+  %221 = fneg double %130
   br label %.sink.split.i
 
-223:                                              ; preds = %218
-  %224 = fmul double %131, -5.000000e-01
-  %225 = fcmp ugt double %.sroa.0.2, %224
-  br i1 %225, label %areareduceA.exit, label %.sink.split.i
+222:                                              ; preds = %217
+  %223 = fmul double %130, -5.000000e-01
+  %224 = fcmp ugt double %.sroa.0.2, %223
+  br i1 %224, label %areareduceA.exit, label %.sink.split.i
 
-226:                                              ; preds = %accadd.exit83
-  %227 = fcmp ult double %.sroa.0.2, %131
-  br i1 %227, label %230, label %228
+225:                                              ; preds = %accadd.exit84
+  %226 = fcmp ult double %.sroa.0.2, %130
+  br i1 %226, label %229, label %227
 
-228:                                              ; preds = %226
-  %229 = fneg double %131
+227:                                              ; preds = %225
+  %228 = fneg double %130
   br label %.sink.split.i
 
-230:                                              ; preds = %226
-  %231 = fcmp olt double %.sroa.0.2, 0.000000e+00
-  br i1 %231, label %.sink.split.i, label %areareduceA.exit
+229:                                              ; preds = %225
+  %230 = fcmp olt double %.sroa.0.2, 0.000000e+00
+  br i1 %230, label %.sink.split.i, label %areareduceA.exit
 
-.sink.split.i:                                    ; preds = %230, %228, %223, %221
-  %.sink.i = phi double [ %229, %228 ], [ %222, %221 ], [ %131, %223 ], [ %131, %230 ]
+.sink.split.i:                                    ; preds = %229, %227, %222, %220
+  %.sink.i38 = phi double [ %228, %227 ], [ %221, %220 ], [ %130, %222 ], [ %130, %229 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
-  %232 = fadd double %.sroa.20.2, %.sink.i
-  store volatile double %232, ptr %22, align 8
-  %.0..0..0..0..0..0..0..0.5.i.i38 = load volatile double, ptr %22, align 8
-  %233 = fsub double %.0..0..0..0..0..0..0..0.5.i.i38, %.sroa.20.2
-  store volatile double %233, ptr %23, align 8
-  %.0..0..0..0..0..0..0..0.6.i.i39 = load volatile double, ptr %22, align 8
-  %.0..0..0..0..0..0..0..0.2.i.i40 = load volatile double, ptr %23, align 8
-  %234 = fsub double %.0..0..0..0..0..0..0..0.6.i.i39, %.0..0..0..0..0..0..0..0.2.i.i40
-  store volatile double %234, ptr %24, align 8
-  %.0..0..0..0..0..0..0..0.3.i.i41 = load volatile double, ptr %23, align 8
-  %235 = fsub double %.0..0..0..0..0..0..0..0.3.i.i41, %.sink.i
-  store volatile double %235, ptr %23, align 8
-  %.0..0..0..0..0..0..0..0..i.i42 = load volatile double, ptr %24, align 8
-  %236 = fsub double %.0..0..0..0..0..0..0..0..i.i42, %.sroa.20.2
-  store volatile double %236, ptr %24, align 8
-  %.0..0..0..0..0..0..0..0.7.i.i43 = load volatile double, ptr %22, align 8
-  %237 = fcmp une double %.0..0..0..0..0..0..0..0.7.i.i43, 0.000000e+00
-  br i1 %237, label %238, label %241
+  %231 = fadd double %.sroa.20.2, %.sink.i38
+  store volatile double %231, ptr %22, align 8
+  %.0..0..0..0..0..0..0..0.5.i.i39 = load volatile double, ptr %22, align 8
+  %232 = fsub double %.0..0..0..0..0..0..0..0.5.i.i39, %.sroa.20.2
+  store volatile double %232, ptr %23, align 8
+  %.0..0..0..0..0..0..0..0.6.i.i40 = load volatile double, ptr %22, align 8
+  %.0..0..0..0..0..0..0..0.2.i.i41 = load volatile double, ptr %23, align 8
+  %233 = fsub double %.0..0..0..0..0..0..0..0.6.i.i40, %.0..0..0..0..0..0..0..0.2.i.i41
+  store volatile double %233, ptr %24, align 8
+  %.0..0..0..0..0..0..0..0.3.i.i42 = load volatile double, ptr %23, align 8
+  %234 = fsub double %.0..0..0..0..0..0..0..0.3.i.i42, %.sink.i38
+  store volatile double %234, ptr %23, align 8
+  %.0..0..0..0..0..0..0..0..i.i43 = load volatile double, ptr %24, align 8
+  %235 = fsub double %.0..0..0..0..0..0..0..0..i.i43, %.sroa.20.2
+  store volatile double %235, ptr %24, align 8
+  %.0..0..0..0..0..0..0..0.7.i.i44 = load volatile double, ptr %22, align 8
+  %236 = fcmp une double %.0..0..0..0..0..0..0..0.7.i.i44, 0.000000e+00
+  br i1 %236, label %237, label %240
 
-238:                                              ; preds = %.sink.split.i
-  %.0..0..0..0..0..0..0..0.4.i.i58 = load volatile double, ptr %23, align 8
-  %.0..0..0..0..0..0..0..0.1.i.i59 = load volatile double, ptr %24, align 8
-  %239 = fadd double %.0..0..0..0..0..0..0..0.4.i.i58, %.0..0..0..0..0..0..0..0.1.i.i59
-  %240 = fsub double 0.000000e+00, %239
-  br label %sumx.exit.i45
+237:                                              ; preds = %.sink.split.i
+  %.0..0..0..0..0..0..0..0.4.i.i59 = load volatile double, ptr %23, align 8
+  %.0..0..0..0..0..0..0..0.1.i.i60 = load volatile double, ptr %24, align 8
+  %238 = fadd double %.0..0..0..0..0..0..0..0.4.i.i59, %.0..0..0..0..0..0..0..0.1.i.i60
+  %239 = fsub double 0.000000e+00, %238
+  br label %sumx.exit.i46
 
-241:                                              ; preds = %.sink.split.i
-  %.0..0..0..0..0..0..0..0.8.i.i44 = load volatile double, ptr %22, align 8
-  br label %sumx.exit.i45
+240:                                              ; preds = %.sink.split.i
+  %.0..0..0..0..0..0..0..0.8.i.i45 = load volatile double, ptr %22, align 8
+  br label %sumx.exit.i46
 
-sumx.exit.i45:                                    ; preds = %241, %238
-  %242 = phi double [ %240, %238 ], [ %.0..0..0..0..0..0..0..0.8.i.i44, %241 ]
-  %.0..0..0..0..0..0..0..0.9.i.i46 = load volatile double, ptr %22, align 8
+sumx.exit.i46:                                    ; preds = %240, %237
+  %241 = phi double [ %239, %237 ], [ %.0..0..0..0..0..0..0..0.8.i.i45, %240 ]
+  %.0..0..0..0..0..0..0..0.9.i.i47 = load volatile double, ptr %22, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
-  %243 = fadd double %.sroa.0.2, %.0..0..0..0..0..0..0..0.9.i.i46
-  store volatile double %243, ptr %19, align 8
-  %.0..0..0..0..0..0..0..0.5.i10.i47 = load volatile double, ptr %19, align 8
-  %244 = fsub double %.0..0..0..0..0..0..0..0.5.i10.i47, %.sroa.0.2
-  store volatile double %244, ptr %20, align 8
-  %.0..0..0..0..0..0..0..0.6.i11.i48 = load volatile double, ptr %19, align 8
-  %.0..0..0..0..0..0..0..0.2.i12.i49 = load volatile double, ptr %20, align 8
-  %245 = fsub double %.0..0..0..0..0..0..0..0.6.i11.i48, %.0..0..0..0..0..0..0..0.2.i12.i49
-  store volatile double %245, ptr %21, align 8
-  %.0..0..0..0..0..0..0..0.3.i13.i50 = load volatile double, ptr %20, align 8
-  %246 = fsub double %.0..0..0..0..0..0..0..0.3.i13.i50, %.0..0..0..0..0..0..0..0.9.i.i46
-  store volatile double %246, ptr %20, align 8
-  %.0..0..0..0..0..0..0..0..i14.i51 = load volatile double, ptr %21, align 8
-  %247 = fsub double %.0..0..0..0..0..0..0..0..i14.i51, %.sroa.0.2
-  store volatile double %247, ptr %21, align 8
-  %.0..0..0..0..0..0..0..0.7.i15.i52 = load volatile double, ptr %19, align 8
-  %248 = fcmp une double %.0..0..0..0..0..0..0..0.7.i15.i52, 0.000000e+00
-  br i1 %248, label %249, label %250
+  %242 = fadd double %.sroa.0.2, %.0..0..0..0..0..0..0..0.9.i.i47
+  store volatile double %242, ptr %19, align 8
+  %.0..0..0..0..0..0..0..0.5.i10.i48 = load volatile double, ptr %19, align 8
+  %243 = fsub double %.0..0..0..0..0..0..0..0.5.i10.i48, %.sroa.0.2
+  store volatile double %243, ptr %20, align 8
+  %.0..0..0..0..0..0..0..0.6.i11.i49 = load volatile double, ptr %19, align 8
+  %.0..0..0..0..0..0..0..0.2.i12.i50 = load volatile double, ptr %20, align 8
+  %244 = fsub double %.0..0..0..0..0..0..0..0.6.i11.i49, %.0..0..0..0..0..0..0..0.2.i12.i50
+  store volatile double %244, ptr %21, align 8
+  %.0..0..0..0..0..0..0..0.3.i13.i51 = load volatile double, ptr %20, align 8
+  %245 = fsub double %.0..0..0..0..0..0..0..0.3.i13.i51, %.0..0..0..0..0..0..0..0.9.i.i47
+  store volatile double %245, ptr %20, align 8
+  %.0..0..0..0..0..0..0..0..i14.i52 = load volatile double, ptr %21, align 8
+  %246 = fsub double %.0..0..0..0..0..0..0..0..i14.i52, %.sroa.0.2
+  store volatile double %246, ptr %21, align 8
+  %.0..0..0..0..0..0..0..0.7.i15.i53 = load volatile double, ptr %19, align 8
+  %247 = fcmp une double %.0..0..0..0..0..0..0..0.7.i15.i53, 0.000000e+00
+  br i1 %247, label %248, label %sumx.exit20.i55
 
-249:                                              ; preds = %sumx.exit.i45
-  %.0..0..0..0..0..0..0..0.4.i18.i56 = load volatile double, ptr %20, align 8
-  %.0..0..0..0..0..0..0..0.1.i19.i57 = load volatile double, ptr %21, align 8
-  br label %sumx.exit20.i54
+248:                                              ; preds = %sumx.exit.i46
+  %.0..0..0..0..0..0..0..0.4.i18.i57 = load volatile double, ptr %20, align 8
+  br label %sumx.exit20.i55
 
-250:                                              ; preds = %sumx.exit.i45
-  %.0..0..0..0..0..0..0..0.8.i16.i53 = load volatile double, ptr %19, align 8
-  br label %sumx.exit20.i54
-
-sumx.exit20.i54:                                  ; preds = %250, %249
-  %.0..0..0..0..0..0..0..0.9.i17.i55 = load volatile double, ptr %19, align 8
+sumx.exit20.i55:                                  ; preds = %sumx.exit.i46, %248
+  %.sink = phi ptr [ %21, %248 ], [ %19, %sumx.exit.i46 ]
+  %.0..0..0..0..0..0..0.8.i16.i54 = load volatile double, ptr %.sink, align 8
+  %.0..0..0..0..0..0..0..0.9.i17.i56 = load volatile double, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  %251 = fcmp oeq double %.0..0..0..0..0..0..0..0.9.i17.i55, 0.000000e+00
-  br i1 %251, label %areareduceA.exit, label %252
+  %249 = fcmp oeq double %.0..0..0..0..0..0..0..0.9.i17.i56, 0.000000e+00
+  br i1 %249, label %areareduceA.exit, label %250
 
-252:                                              ; preds = %sumx.exit20.i54
+250:                                              ; preds = %sumx.exit20.i55
   br label %areareduceA.exit
 
-areareduceA.exit:                                 ; preds = %252, %sumx.exit20.i54, %223, %230
-  %.sroa.0.3 = phi double [ %.sroa.0.2, %230 ], [ %.sroa.0.2, %223 ], [ %.0..0..0..0..0..0..0..0.9.i17.i55, %252 ], [ %242, %sumx.exit20.i54 ]
-  %253 = fadd double %.sroa.0.3, 0.000000e+00
-  store double %253, ptr %4, align 8
-  br label %254
+areareduceA.exit:                                 ; preds = %250, %sumx.exit20.i55, %222, %229
+  %.sroa.0.3 = phi double [ %.sroa.0.2, %229 ], [ %.sroa.0.2, %222 ], [ %.0..0..0..0..0..0..0..0.9.i17.i56, %250 ], [ %241, %sumx.exit20.i55 ]
+  %251 = fadd double %.sroa.0.3, 0.000000e+00
+  store double %251, ptr %4, align 8
+  br label %252
 
-254:                                              ; preds = %sumx.exit20.i, %areareduceA.exit, %57, %58, %48, %53
+252:                                              ; preds = %sumx.exit20.i, %areareduceA.exit, %57, %58, %48, %53
   %.0 = load i32, ptr %43, align 8
   ret i32 %.0
 }

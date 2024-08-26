@@ -862,11 +862,11 @@ define dso_local void @_ZNK5vcpkg15ParagraphParser5errorEv(ptr dead_on_unwind no
   %8 = getelementptr inbounds i8, ptr %1, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink7.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %10, label %11, label %23
 
 11:                                               ; preds = %2
-  %.sink.sroa.gep6 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink7.sroa.gep8 = getelementptr inbounds i8, ptr %4, i64 8
   %12 = getelementptr inbounds i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
@@ -881,13 +881,13 @@ define dso_local void @_ZNK5vcpkg15ParagraphParser5errorEv(ptr dead_on_unwind no
   br label %41
 
 .invoke:                                          ; preds = %11, %37
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %37 ], [ %.sink.sroa.gep6, %11 ]
-  %.sink = phi ptr [ %5, %37 ], [ %4, %11 ]
-  %.in = phi ptr [ %32, %37 ], [ %12, %11 ]
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %.sink, ptr noundef nonnull align 8 dereferenceable(32) %1) #20
-  %19 = load ptr, ptr %.in, align 8
-  %20 = load ptr, ptr %.sink, align 8
-  %21 = load i64, ptr %.sink.sroa.phi, align 8
+  %.sink7.sroa.phi = phi ptr [ %.sink7.sroa.gep, %37 ], [ %.sink7.sroa.gep8, %11 ]
+  %.sink7 = phi ptr [ %5, %37 ], [ %4, %11 ]
+  %.sink6 = phi ptr [ %32, %37 ], [ %12, %11 ]
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %.sink7, ptr noundef nonnull align 8 dereferenceable(32) %1) #20
+  %19 = load ptr, ptr %.sink6, align 8
+  %20 = load ptr, ptr %.sink7, align 8
+  %21 = load i64, ptr %.sink7.sroa.phi, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_119append_field_errorsERN5vcpkg15LocalizedStringENS0_10StringViewERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairISA_NS0_10TextRowColEESt4lessIvESaISB_IKSA_SD_EEE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %20, i64 %21, ptr noundef nonnull align 8 dereferenceable(48) %19)
           to label %39 unwind label %.loopexit.split-lp
 

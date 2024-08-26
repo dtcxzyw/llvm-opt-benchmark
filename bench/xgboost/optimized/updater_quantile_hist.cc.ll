@@ -4918,23 +4918,18 @@ _ZN7xgboostlsERSoNS_10StringViewE.exit:           ; preds = %.noexc32
   %168 = load ptr, ptr %157, align 8
   store ptr %167, ptr %157, align 8
   %.not.i.i.i.i33 = icmp eq ptr %168, null
-  br i1 %.not.i.i.i.i33, label %_ZNSt10unique_ptrIN7xgboost4tree22MultiTargetHistBuilderESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN7xgboost4tree22MultiTargetHistBuilderESt14default_deleteIS2_EEaSEOS5_.exit
+  br i1 %.not.i.i.i.i33, label %.sink.split, label %_ZNSt10unique_ptrIN7xgboost4tree22MultiTargetHistBuilderESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN7xgboost4tree22MultiTargetHistBuilderESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %159
   call void @_ZN7xgboost4tree22MultiTargetHistBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %168) #19
   call void @_ZdlPvm(ptr noundef nonnull %168, i64 noundef 112) #38
   %.pr = load ptr, ptr %12, align 8
   %.not.i34 = icmp eq ptr %.pr, null
-  br i1 %.not.i34, label %_ZNSt10unique_ptrIN7xgboost4tree22MultiTargetHistBuilderESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7xgboost4tree22MultiTargetHistBuilderEEclEPS2_.exit.i
+  br i1 %.not.i34, label %.sink.split, label %_ZNKSt14default_deleteIN7xgboost4tree22MultiTargetHistBuilderEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN7xgboost4tree22MultiTargetHistBuilderEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN7xgboost4tree22MultiTargetHistBuilderESt14default_deleteIS2_EEaSEOS5_.exit
   call void @_ZN7xgboost4tree22MultiTargetHistBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %.pr) #19
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef 112) #38
-  br label %_ZNSt10unique_ptrIN7xgboost4tree22MultiTargetHistBuilderESt14default_deleteIS2_EED2Ev.exit
-
-_ZNSt10unique_ptrIN7xgboost4tree22MultiTargetHistBuilderESt14default_deleteIS2_EED2Ev.exit: ; preds = %159, %_ZNSt10unique_ptrIN7xgboost4tree22MultiTargetHistBuilderESt14default_deleteIS2_EEaSEOS5_.exit, %_ZNKSt14default_deleteIN7xgboost4tree22MultiTargetHistBuilderEEclEPS2_.exit.i
-  store ptr null, ptr %12, align 8
-  br label %195
+  br label %.sink.split.sink.split
 
 169:                                              ; preds = %_ZNSt10shared_ptrIN7xgboost6common13ColumnSamplerEED2Ev.exit
   br i1 %113, label %186, label %170
@@ -5002,25 +4997,31 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit37: ; preds = %.noexc36, %_ZN4dmlc
   %194 = load ptr, ptr %187, align 8
   store ptr %193, ptr %187, align 8
   %.not.i.i.i.i38 = icmp eq ptr %194, null
-  br i1 %.not.i.i.i.i38, label %_ZNSt10unique_ptrIN7xgboost4tree11HistUpdaterESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN7xgboost4tree11HistUpdaterESt14default_deleteIS2_EEaSEOS5_.exit
+  br i1 %.not.i.i.i.i38, label %.sink.split, label %_ZNSt10unique_ptrIN7xgboost4tree11HistUpdaterESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN7xgboost4tree11HistUpdaterESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %189
   call void @_ZN7xgboost4tree11HistUpdaterD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %194) #19
   call void @_ZdlPvm(ptr noundef nonnull %194, i64 noundef 112) #38
   %.pr76 = load ptr, ptr %16, align 8
   %.not.i39 = icmp eq ptr %.pr76, null
-  br i1 %.not.i39, label %_ZNSt10unique_ptrIN7xgboost4tree11HistUpdaterESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7xgboost4tree11HistUpdaterEEclEPS2_.exit.i
+  br i1 %.not.i39, label %.sink.split, label %_ZNKSt14default_deleteIN7xgboost4tree11HistUpdaterEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN7xgboost4tree11HistUpdaterEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN7xgboost4tree11HistUpdaterESt14default_deleteIS2_EEaSEOS5_.exit
   call void @_ZN7xgboost4tree11HistUpdaterD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %.pr76) #19
-  call void @_ZdlPvm(ptr noundef nonnull %.pr76, i64 noundef 112) #38
-  br label %_ZNSt10unique_ptrIN7xgboost4tree11HistUpdaterESt14default_deleteIS2_EED2Ev.exit
+  br label %.sink.split.sink.split
 
-_ZNSt10unique_ptrIN7xgboost4tree11HistUpdaterESt14default_deleteIS2_EED2Ev.exit: ; preds = %189, %_ZNSt10unique_ptrIN7xgboost4tree11HistUpdaterESt14default_deleteIS2_EEaSEOS5_.exit, %_ZNKSt14default_deleteIN7xgboost4tree11HistUpdaterEEclEPS2_.exit.i
-  store ptr null, ptr %16, align 8
+.sink.split.sink.split:                           ; preds = %_ZNKSt14default_deleteIN7xgboost4tree22MultiTargetHistBuilderEEclEPS2_.exit.i, %_ZNKSt14default_deleteIN7xgboost4tree11HistUpdaterEEclEPS2_.exit.i
+  %.pr76.sink = phi ptr [ %.pr76, %_ZNKSt14default_deleteIN7xgboost4tree11HistUpdaterEEclEPS2_.exit.i ], [ %.pr, %_ZNKSt14default_deleteIN7xgboost4tree22MultiTargetHistBuilderEEclEPS2_.exit.i ]
+  %.sink.ph = phi ptr [ %16, %_ZNKSt14default_deleteIN7xgboost4tree11HistUpdaterEEclEPS2_.exit.i ], [ %12, %_ZNKSt14default_deleteIN7xgboost4tree22MultiTargetHistBuilderEEclEPS2_.exit.i ]
+  call void @_ZdlPvm(ptr noundef nonnull %.pr76.sink, i64 noundef 112) #38
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %.sink.split.sink.split, %_ZNSt10unique_ptrIN7xgboost4tree11HistUpdaterESt14default_deleteIS2_EEaSEOS5_.exit, %189, %_ZNSt10unique_ptrIN7xgboost4tree22MultiTargetHistBuilderESt14default_deleteIS2_EEaSEOS5_.exit, %159
+  %.sink = phi ptr [ %12, %159 ], [ %12, %_ZNSt10unique_ptrIN7xgboost4tree22MultiTargetHistBuilderESt14default_deleteIS2_EEaSEOS5_.exit ], [ %16, %189 ], [ %16, %_ZNSt10unique_ptrIN7xgboost4tree11HistUpdaterESt14default_deleteIS2_EEaSEOS5_.exit ], [ %.sink.ph, %.sink.split.sink.split ]
+  store ptr null, ptr %.sink, align 8
   br label %195
 
-195:                                              ; preds = %186, %_ZNSt10unique_ptrIN7xgboost4tree11HistUpdaterESt14default_deleteIS2_EED2Ev.exit, %156, %_ZNSt10unique_ptrIN7xgboost4tree22MultiTargetHistBuilderESt14default_deleteIS2_EED2Ev.exit
+195:                                              ; preds = %.sink.split, %186, %156
   %196 = load ptr, ptr %5, align 8
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 28

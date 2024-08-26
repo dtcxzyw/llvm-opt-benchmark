@@ -1736,11 +1736,11 @@ if.then175:                                       ; preds = %if.else171
   br label %f_err
 
 if.end178.sink.split:                             ; preds = %lor.lhs.false159, %if.end114
-  %.sink.in = phi ptr [ %peer_key_len, %if.end114 ], [ %peer_key_len153, %lor.lhs.false159 ]
-  %.sink = load i64, ptr %.sink.in, align 8
-  %conv167 = trunc i64 %.sink to i16
-  %33 = load ptr, ptr %s3, align 8
-  %peer_key_len170 = getelementptr inbounds i8, ptr %33, i64 584
+  %peer_key_len153.sink = phi ptr [ %peer_key_len, %if.end114 ], [ %peer_key_len153, %lor.lhs.false159 ]
+  %33 = load i64, ptr %peer_key_len153.sink, align 8
+  %conv167 = trunc i64 %33 to i16
+  %34 = load ptr, ptr %s3, align 8
+  %peer_key_len170 = getelementptr inbounds i8, ptr %34, i64 584
   store i16 %conv167, ptr %peer_key_len170, align 8
   br label %if.end178
 
@@ -1750,19 +1750,19 @@ if.end178:                                        ; preds = %if.end178.sink.spli
   %call181 = call i64 @CBS_len(ptr noundef nonnull %server_key_exchange) #11
   %sub = sub i64 %call180, %call181
   call void @CBS_init(ptr noundef nonnull %parameter, ptr noundef %call179, i64 noundef %sub) #11
-  %34 = load ptr, ptr %s3, align 8
-  %new_cipher184 = getelementptr inbounds i8, ptr %34, i64 440
-  %35 = load ptr, ptr %new_cipher184, align 8
-  %call185 = call i32 @ssl_cipher_has_server_public_key(ptr noundef %35) #11
+  %35 = load ptr, ptr %s3, align 8
+  %new_cipher184 = getelementptr inbounds i8, ptr %35, i64 440
+  %36 = load ptr, ptr %new_cipher184, align 8
+  %call185 = call i32 @ssl_cipher_has_server_public_key(ptr noundef %36) #11
   %tobool186.not = icmp eq i32 %call185, 0
   br i1 %tobool186.not, label %if.else252, label %if.then187
 
 if.then187:                                       ; preds = %if.end178
   %session188 = getelementptr inbounds i8, ptr %ssl, i64 184
-  %36 = load ptr, ptr %session188, align 8
-  %peer = getelementptr inbounds i8, ptr %36, i64 144
-  %37 = load ptr, ptr %peer, align 8
-  %call189 = call ptr @X509_get_pubkey(ptr noundef %37) #11
+  %37 = load ptr, ptr %session188, align 8
+  %peer = getelementptr inbounds i8, ptr %37, i64 144
+  %38 = load ptr, ptr %peer, align 8
+  %call189 = call ptr @X509_get_pubkey(ptr noundef %38) #11
   %cmp190 = icmp eq ptr %call189, null
   br i1 %cmp190, label %err, label %if.end193
 
@@ -1788,23 +1788,23 @@ if.then204:                                       ; preds = %lor.lhs.false201, %
   br label %f_err
 
 if.end205:                                        ; preds = %lor.lhs.false201
-  %38 = load i8, ptr %hash, align 1
-  %39 = load i8, ptr %signature, align 1
-  %call206 = call i32 @tls12_check_peer_sigalg(ptr noundef nonnull %ssl, ptr noundef nonnull %md, ptr noundef nonnull %al, i8 noundef zeroext %38, i8 noundef zeroext %39, ptr noundef nonnull %call189) #11
+  %39 = load i8, ptr %hash, align 1
+  %40 = load i8, ptr %signature, align 1
+  %call206 = call i32 @tls12_check_peer_sigalg(ptr noundef nonnull %ssl, ptr noundef nonnull %md, ptr noundef nonnull %al, i8 noundef zeroext %39, i8 noundef zeroext %40, ptr noundef nonnull %call189) #11
   %tobool207.not = icmp eq i32 %call206, 0
   br i1 %tobool207.not, label %f_err, label %if.end209
 
 if.end209:                                        ; preds = %if.end205
-  %40 = load i8, ptr %hash, align 1
-  %41 = load ptr, ptr %s3, align 8
-  %server_key_exchange_hash = getelementptr inbounds i8, ptr %41, i64 554
-  store i8 %40, ptr %server_key_exchange_hash, align 2
+  %41 = load i8, ptr %hash, align 1
+  %42 = load ptr, ptr %s3, align 8
+  %server_key_exchange_hash = getelementptr inbounds i8, ptr %42, i64 554
+  store i8 %41, ptr %server_key_exchange_hash, align 2
   br label %if.end220
 
 if.else212:                                       ; preds = %if.end193
   %type = getelementptr inbounds i8, ptr %call189, i64 4
-  %42 = load i32, ptr %type, align 4
-  %cmp213 = icmp eq i32 %42, 6
+  %43 = load i32, ptr %type, align 4
+  %cmp213 = icmp eq i32 %43, 6
   br i1 %cmp213, label %if.then215, label %if.else217
 
 if.then215:                                       ; preds = %if.else212
@@ -1833,21 +1833,21 @@ if.then228:                                       ; preds = %lor.lhs.false224, %
   br label %f_err
 
 if.end229:                                        ; preds = %lor.lhs.false224
-  %43 = load ptr, ptr %md, align 8
-  %call230 = call i32 @EVP_DigestVerifyInit(ptr noundef nonnull %md_ctx, ptr noundef null, ptr noundef %43, ptr noundef null, ptr noundef nonnull %call189) #11
+  %44 = load ptr, ptr %md, align 8
+  %call230 = call i32 @EVP_DigestVerifyInit(ptr noundef nonnull %md_ctx, ptr noundef null, ptr noundef %44, ptr noundef null, ptr noundef nonnull %call189) #11
   %tobool231.not = icmp eq i32 %call230, 0
   br i1 %tobool231.not, label %if.then250, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end229
-  %44 = load ptr, ptr %s3, align 8
-  %client_random = getelementptr inbounds i8, ptr %44, i64 48
+  %45 = load ptr, ptr %s3, align 8
+  %client_random = getelementptr inbounds i8, ptr %45, i64 48
   %call233 = call i32 @EVP_DigestVerifyUpdate(ptr noundef nonnull %md_ctx, ptr noundef nonnull %client_random, i64 noundef 32) #11
   %tobool234.not = icmp eq i32 %call233, 0
   br i1 %tobool234.not, label %if.then250, label %land.lhs.true235
 
 land.lhs.true235:                                 ; preds = %land.lhs.true
-  %45 = load ptr, ptr %s3, align 8
-  %server_random = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = load ptr, ptr %s3, align 8
+  %server_random = getelementptr inbounds i8, ptr %46, i64 16
   %call238 = call i32 @EVP_DigestVerifyUpdate(ptr noundef nonnull %md_ctx, ptr noundef nonnull %server_random, i64 noundef 32) #11
   %tobool239.not = icmp eq i32 %call238, 0
   br i1 %tobool239.not, label %if.then250, label %land.lhs.true240
@@ -1889,8 +1889,8 @@ if.end258:                                        ; preds = %if.else252, %land.r
 
 f_err:                                            ; preds = %if.end205, %if.then256, %if.then250, %if.then228, %if.then204, %if.then175, %if.then151, %if.then144, %if.then80, %if.then53, %if.then46, %if.then39
   %pkey.0 = phi ptr [ null, %if.then46 ], [ null, %if.then80 ], [ %call189, %if.then228 ], [ %call189, %if.then250 ], [ %call189, %if.end205 ], [ %call189, %if.then204 ], [ null, %if.then256 ], [ null, %if.then144 ], [ null, %if.then151 ], [ null, %if.then175 ], [ null, %if.then53 ], [ null, %if.then39 ]
-  %46 = load i32, ptr %al, align 4
-  %call260 = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef %46) #11
+  %47 = load i32, ptr %al, align 4
+  %call260 = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef %47) #11
   br label %err
 
 err:                                              ; preds = %if.then187, %if.end152, %lor.lhs.false159, %if.end114, %if.end86, %if.end81, %f_err, %if.then112, %if.then107

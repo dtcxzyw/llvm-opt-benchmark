@@ -1498,13 +1498,7 @@ lpad65:                                           ; preds = %if.end59
 sw.bb:                                            ; preds = %invoke.cont66
   %logged_metadata73 = getelementptr inbounds i8, ptr %histogram_data_ptr, i64 56
   invoke void @_ZN4base9Histogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(32) %name61, i32 noundef %histogram_data.sroa.3.0.copyload, i32 noundef %histogram_data.sroa.5.0.copyload, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata73)
-          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit118 unwind label %lpad74.thread
-
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit118: ; preds = %sw.bb
-  %42 = load ptr, ptr %ref.tmp70, align 8
-  store ptr %42, ptr %agg.result, align 8
-  store ptr null, ptr %ref.tmp70, align 8
-  br label %sw.epilog
+          to label %sw.epilog unwind label %lpad74.thread
 
 lpad74.thread:                                    ; preds = %if.else118, %sw.bb92, %sw.bb86, %sw.bb77, %sw.bb
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -1514,10 +1508,10 @@ lpad74.thread:                                    ; preds = %if.else118, %sw.bb9
 _ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i120: ; preds = %if.end113, %invoke.cont116
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %vtable.i.i121 = load ptr, ptr %47, align 8
+  %vtable.i.i121 = load ptr, ptr %43, align 8
   %vfn.i.i122 = getelementptr inbounds i8, ptr %vtable.i.i121, i64 8
-  %43 = load ptr, ptr %vfn.i.i122, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(44) %47) #20
+  %42 = load ptr, ptr %vfn.i.i122, align 8
+  call void %42(ptr noundef nonnull align 8 dereferenceable(44) %43) #20
   br label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit124
 
 _ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit124: ; preds = %lpad74.thread, %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i120
@@ -1529,43 +1523,28 @@ _ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit124: ; 
 sw.bb77:                                          ; preds = %invoke.cont66
   %logged_metadata83 = getelementptr inbounds i8, ptr %histogram_data_ptr, i64 56
   invoke void @_ZN4base15LinearHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(32) %name61, i32 noundef %histogram_data.sroa.3.0.copyload, i32 noundef %histogram_data.sroa.5.0.copyload, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata83)
-          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit135 unwind label %lpad74.thread
-
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit135: ; preds = %sw.bb77
-  %44 = load ptr, ptr %ref.tmp78, align 8
-  store ptr %44, ptr %agg.result, align 8
-  store ptr null, ptr %ref.tmp78, align 8
-  br label %sw.epilog
+          to label %sw.epilog unwind label %lpad74.thread
 
 sw.bb86:                                          ; preds = %invoke.cont66
   %logged_metadata89 = getelementptr inbounds i8, ptr %histogram_data_ptr, i64 56
   invoke void @_ZN4base16BooleanHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_PNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef %add.ptr, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata89)
-          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit146 unwind label %lpad74.thread
-
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit146: ; preds = %sw.bb86
-  %45 = load ptr, ptr %ref.tmp87, align 8
-  store ptr %45, ptr %agg.result, align 8
-  store ptr null, ptr %ref.tmp87, align 8
-  br label %sw.epilog
+          to label %sw.epilog unwind label %lpad74.thread
 
 sw.bb92:                                          ; preds = %invoke.cont66
   %logged_metadata96 = getelementptr inbounds i8, ptr %histogram_data_ptr, i64 56
   invoke void @_ZN4base15CustomHistogram16PersistentCreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr nonnull sret(%"class.std::unique_ptr.17") align 8 %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %name61, ptr noundef %call38, ptr noundef nonnull %call.i.i9596, ptr noundef %add.ptr, i32 noundef %histogram_data.sroa.7.0.copyload, ptr noundef nonnull %histogram_data.sroa.21.0..sroa_idx, ptr noundef nonnull %logged_metadata96)
-          to label %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit157 unwind label %lpad74.thread
+          to label %sw.epilog unwind label %lpad74.thread
 
-_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit157: ; preds = %sw.bb92
-  %46 = load ptr, ptr %ref.tmp93, align 8
-  store ptr %46, ptr %agg.result, align 8
-  store ptr null, ptr %ref.tmp93, align 8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit157, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit146, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit135, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit118
-  %47 = phi ptr [ %46, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit157 ], [ %45, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit146 ], [ %44, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit135 ], [ %42, %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit118 ]
-  %cmp.i158.not = icmp eq ptr %47, null
+sw.epilog:                                        ; preds = %sw.bb92, %sw.bb86, %sw.bb77, %sw.bb
+  %ref.tmp93.sink180 = phi ptr [ %ref.tmp70, %sw.bb ], [ %ref.tmp78, %sw.bb77 ], [ %ref.tmp87, %sw.bb86 ], [ %ref.tmp93, %sw.bb92 ]
+  %43 = load ptr, ptr %ref.tmp93.sink180, align 8
+  store ptr %43, ptr %agg.result, align 8
+  store ptr null, ptr %ref.tmp93.sink180, align 8
+  %cmp.i158.not = icmp eq ptr %43, null
   br i1 %cmp.i158.not, label %if.else118, label %if.end113
 
 if.end113:                                        ; preds = %sw.epilog
-  invoke void @_ZN4base13HistogramBase8SetFlagsEi(ptr noundef nonnull align 8 dereferenceable(44) %47, i32 noundef %histogram_data.sroa.2.0.copyload)
+  invoke void @_ZN4base13HistogramBase8SetFlagsEi(ptr noundef nonnull align 8 dereferenceable(44) %43, i32 noundef %histogram_data.sroa.2.0.copyload)
           to label %invoke.cont116 unwind label %_ZNKSt14default_deleteIN4base13HistogramBaseEEclEPS1_.exit.i120
 
 invoke.cont116:                                   ; preds = %if.end113
@@ -1581,13 +1560,13 @@ nrvo.skipdtor123:                                 ; preds = %invoke.cont116, %if
   br label %cleanup
 
 cleanup:                                          ; preds = %nrvo.skipdtor123, %invoke.cont58, %invoke.cont34
-  %48 = load ptr, ptr %created_ranges, align 8
-  %cmp.not.i160 = icmp eq ptr %48, null
+  %44 = load ptr, ptr %created_ranges, align 8
+  %cmp.not.i160 = icmp eq ptr %44, null
   br i1 %cmp.not.i160, label %return, label %_ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIKN4base12BucketRangesEEclEPS2_.exit.i: ; preds = %cleanup
-  call void @_ZN4base12BucketRangesD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %48) #20
-  call void @_ZdlPv(ptr noundef nonnull %48) #23
+  call void @_ZN4base12BucketRangesD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %44) #20
+  call void @_ZdlPv(ptr noundef nonnull %44) #23
   br label %return
 
 ehcleanup126:                                     ; preds = %_ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit124, %lpad65, %lpad33

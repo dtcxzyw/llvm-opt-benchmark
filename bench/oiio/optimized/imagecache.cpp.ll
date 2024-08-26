@@ -6652,19 +6652,19 @@ invoke.cont178:                                   ; preds = %if.end168
           to label %invoke.cont180 unwind label %lpad80.loopexit.split-lp.loopexit
 
 invoke.cont180:                                   ; preds = %invoke.cont178
-  %.pre.i216 = load i32, ptr %result.i, align 4
+  %result.val.i = load i32, ptr %result.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i211)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i212)
-  %cmp182554 = icmp sgt i32 %.pre.i216, 1
+  %cmp182554 = icmp sgt i32 %result.val.i, 1
   %cmp182 = select i1 %call.i215217, i1 %cmp182554, i1 false
   br i1 %cmp182, label %if.then183, label %if.end189
 
 if.then183:                                       ; preds = %invoke.cont180
   %.sroa.speculated527 = call i32 @llvm.smax.i32(i32 %118, i32 64)
   %sub.i = add nsw i32 %.sroa.speculated527, -1
-  %value.addr.0.i = add nuw i32 %sub.i, %.pre.i216
-  %rem.i553 = urem i32 %value.addr.0.i, %.pre.i216
+  %value.addr.0.i = add nuw i32 %sub.i, %result.val.i
+  %rem.i553 = urem i32 %value.addr.0.i, %result.val.i
   %sub1.i = sub nsw i32 %value.addr.0.i, %rem.i553
   br label %if.end189
 

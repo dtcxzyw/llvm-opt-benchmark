@@ -8875,7 +8875,7 @@ for.cond.cleanup:                                 ; preds = %cleanup, %for.cond.
   %4 = load ptr, ptr %right_stats, align 8
   %cmp.i219 = icmp ne ptr %4, null
   %or.cond251 = select i1 %cmp.i, i1 %cmp.i219, i1 false
-  br i1 %or.cond251, label %if.end105, label %if.then104
+  br i1 %or.cond251, label %if.end105, label %cleanup114
 
 lpad:                                             ; preds = %invoke.cont, %entry
   %5 = landingpad { ptr, i32 }
@@ -9331,10 +9331,6 @@ ehcleanup95:                                      ; preds = %lpad88, %cleanup.ac
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %new_stats) #17
   br label %ehcleanup115
 
-if.then104:                                       ; preds = %for.cond.cleanup
-  store ptr null, ptr %agg.result, align 8, !tbaa !82
-  br label %cleanup114
-
 if.end105:                                        ; preds = %for.cond.cleanup
   %72 = ptrtoint ptr %3 to i64
   %type106 = getelementptr inbounds i8, ptr %setop, i64 8
@@ -9362,10 +9358,11 @@ lpad109:                                          ; preds = %invoke.cont110, %if
 if.end113:                                        ; preds = %invoke.cont110.if.end113_crit_edge, %if.end105
   %75 = phi i64 [ %.pre, %invoke.cont110.if.end113_crit_edge ], [ %72, %if.end105 ]
   store i64 %75, ptr %agg.result, align 8, !tbaa !3
-  store ptr null, ptr %left_stats, align 8, !tbaa !3
   br label %cleanup114
 
-cleanup114:                                       ; preds = %if.end113, %if.then104
+cleanup114:                                       ; preds = %for.cond.cleanup, %if.end113
+  %left_stats.sink = phi ptr [ %left_stats, %if.end113 ], [ %agg.result, %for.cond.cleanup ]
+  store ptr null, ptr %left_stats.sink, align 8, !tbaa !3
   %76 = load ptr, ptr %right_bindings, align 8, !tbaa !295
   %tobool.not.i.i.i = icmp eq ptr %76, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6duckdb13ColumnBindingESaIS1_EED2Ev.exit, label %if.then.i.i.i

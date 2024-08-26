@@ -9717,37 +9717,37 @@ land.lhs.true88:                                  ; preds = %land.lhs.true
   br i1 %cmp91, label %if.then102.invoke.sink.split, label %if.end104
 
 if.then102.invoke.sink.split:                     ; preds = %land.lhs.true88, %land.lhs.true
-  %.sink.in = phi ptr [ %u_var_degrees, %land.lhs.true ], [ %v_var_degrees, %land.lhs.true88 ]
+  %v_var_degrees.sink = phi ptr [ %u_var_degrees, %land.lhs.true ], [ %v_var_degrees, %land.lhs.true88 ]
   %.ph = phi ptr [ %u, %land.lhs.true ], [ %v, %land.lhs.true88 ]
   %.ph240 = phi ptr [ %v, %land.lhs.true ], [ %u, %land.lhs.true88 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
+  %67 = load ptr, ptr %v_var_degrees.sink, align 8
   %idxprom.i161 = zext i32 %.sroa.speculated to i64
-  %arrayidx.i162 = getelementptr inbounds %"class.polynomial::power", ptr %.sink, i64 %idxprom.i161
-  %67 = load i32, ptr %arrayidx.i162, align 4
+  %arrayidx.i162 = getelementptr inbounds %"class.polynomial::power", ptr %67, i64 %idxprom.i161
+  %68 = load i32, ptr %arrayidx.i162, align 4
   br label %if.then102.invoke
 
 if.then102.invoke:                                ; preds = %if.end75, %for.body, %if.then102.invoke.sink.split
-  %68 = phi ptr [ %.ph, %if.then102.invoke.sink.split ], [ %u, %for.body ], [ %v, %if.end75 ]
-  %69 = phi i32 [ %67, %if.then102.invoke.sink.split ], [ %65, %for.body ], [ %66, %if.end75 ]
-  %70 = phi ptr [ %.ph240, %if.then102.invoke.sink.split ], [ %v, %for.body ], [ %u, %if.end75 ]
-  invoke void @_ZN10polynomial7manager3imp11gcd_contentEPKNS_10polynomialEjS4_R7obj_refIS2_S0_E(ptr noundef nonnull align 8 dereferenceable(824) %this, ptr noundef %68, i32 noundef %69, ptr noundef %70, ptr noundef nonnull align 8 dereferenceable(16) %r)
+  %69 = phi ptr [ %.ph, %if.then102.invoke.sink.split ], [ %u, %for.body ], [ %v, %if.end75 ]
+  %70 = phi i32 [ %68, %if.then102.invoke.sink.split ], [ %65, %for.body ], [ %66, %if.end75 ]
+  %71 = phi ptr [ %.ph240, %if.then102.invoke.sink.split ], [ %v, %for.body ], [ %u, %if.end75 ]
+  invoke void @_ZN10polynomial7manager3imp11gcd_contentEPKNS_10polynomialEjS4_R7obj_refIS2_S0_E(ptr noundef nonnull align 8 dereferenceable(824) %this, ptr noundef %69, i32 noundef %70, ptr noundef %71, ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %cleanup unwind label %lpad2
 
 if.end104:                                        ; preds = %land.lhs.true88
   %sub = add i32 %.sroa.speculated, -1
-  %71 = load ptr, ptr %u_var_degrees, align 8
+  %72 = load ptr, ptr %u_var_degrees, align 8
   %idxprom.i163 = zext i32 %sub to i64
-  %arrayidx.i164 = getelementptr inbounds %"class.polynomial::power", ptr %71, i64 %idxprom.i163
-  %72 = load i32, ptr %arrayidx.i164, align 4
+  %arrayidx.i164 = getelementptr inbounds %"class.polynomial::power", ptr %72, i64 %idxprom.i163
+  %73 = load i32, ptr %arrayidx.i164, align 4
   %m_z.i = getelementptr inbounds i8, ptr %this, i64 24
-  %73 = load i8, ptr %m_z.i, align 8
-  %tobool.i = trunc i8 %73 to i1
+  %74 = load i8, ptr %m_z.i, align 8
+  %tobool.i = trunc i8 %74 to i1
   br i1 %tobool.i, label %land.lhs.true110, label %if.else129
 
 land.lhs.true110:                                 ; preds = %if.end104
   %m_use_prs_gcd = getelementptr inbounds i8, ptr %this, i64 593
-  %74 = load i8, ptr %m_use_prs_gcd, align 1
-  %tobool111 = trunc i8 %74 to i1
+  %75 = load i8, ptr %m_use_prs_gcd, align 1
+  %tobool111 = trunc i8 %75 to i1
   br i1 %tobool111, label %if.else129, label %if.then112
 
 if.then112:                                       ; preds = %land.lhs.true110
@@ -9763,21 +9763,21 @@ if.else:                                          ; preds = %if.then112
           to label %cleanup unwind label %lpad117
 
 lpad117:                                          ; preds = %if.else
-  %75 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN10polynomial7manager3imp18sparse_mgcd_failedE
-  %76 = extractvalue { ptr, i32 } %75, 1
-  %77 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10polynomial7manager3imp18sparse_mgcd_failedE) #30
-  %matches = icmp eq i32 %76, %77
+  %77 = extractvalue { ptr, i32 } %76, 1
+  %78 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10polynomial7manager3imp18sparse_mgcd_failedE) #30
+  %matches = icmp eq i32 %77, %78
   br i1 %matches, label %catch, label %ehcleanup132
 
 catch:                                            ; preds = %lpad117
-  %78 = extractvalue { ptr, i32 } %75, 0
-  %79 = call ptr @__cxa_begin_catch(ptr %78) #30
-  %80 = load i8, ptr %m_use_prs_gcd, align 1
-  %frombool.i = and i8 %80, 1
+  %79 = extractvalue { ptr, i32 } %76, 0
+  %80 = call ptr @__cxa_begin_catch(ptr %79) #30
+  %81 = load i8, ptr %m_use_prs_gcd, align 1
+  %frombool.i = and i8 %81, 1
   store i8 0, ptr %m_use_prs_gcd, align 1
-  invoke void @_ZN10polynomial7manager3imp7gcd_prsEPKNS_10polynomialES4_jR7obj_refIS2_S0_E(ptr noundef nonnull align 8 dereferenceable(824) %this, ptr noundef %u, ptr noundef %v, i32 noundef %72, ptr noundef nonnull align 8 dereferenceable(16) %r)
+  invoke void @_ZN10polynomial7manager3imp7gcd_prsEPKNS_10polynomialES4_jR7obj_refIS2_S0_E(ptr noundef nonnull align 8 dereferenceable(824) %this, ptr noundef %u, ptr noundef %v, i32 noundef %73, ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %invoke.cont123 unwind label %lpad122
 
 invoke.cont123:                                   ; preds = %catch
@@ -9786,66 +9786,66 @@ invoke.cont123:                                   ; preds = %catch
           to label %cleanup unwind label %lpad2
 
 lpad122:                                          ; preds = %catch
-  %81 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
   store i8 %frombool.i, ptr %m_use_prs_gcd, align 1
   invoke void @__cxa_end_catch()
           to label %ehcleanup132 unwind label %terminate.lpad
 
 if.else129:                                       ; preds = %land.lhs.true110, %if.end104
-  invoke void @_ZN10polynomial7manager3imp7gcd_prsEPKNS_10polynomialES4_jR7obj_refIS2_S0_E(ptr noundef nonnull align 8 dereferenceable(824) %this, ptr noundef %u, ptr noundef %v, i32 noundef %72, ptr noundef nonnull align 8 dereferenceable(16) %r)
+  invoke void @_ZN10polynomial7manager3imp7gcd_prsEPKNS_10polynomialES4_jR7obj_refIS2_S0_E(ptr noundef nonnull align 8 dereferenceable(824) %this, ptr noundef %u, ptr noundef %v, i32 noundef %73, ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %cleanup unwind label %lpad2
 
 cleanup:                                          ; preds = %invoke.cont15.invoke, %if.then102.invoke, %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit131, %if.else, %invoke.cont123, %if.then115, %if.else129
-  %82 = load ptr, ptr %v_var_degrees, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %82, %1
-  %cmp.i.i.i.i.i = icmp eq ptr %82, null
+  %83 = load ptr, ptr %v_var_degrees, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %83, %1
+  %cmp.i.i.i.i.i = icmp eq ptr %83, null
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i.i, %cmp.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN7sbufferIN10polynomial5powerELj32EED2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %cleanup
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %82)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %83)
           to label %_ZN7sbufferIN10polynomial5powerELj32EED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %83 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           catch ptr null
-  %84 = extractvalue { ptr, i32 } %83, 0
-  call void @__clang_call_terminate(ptr %84) #29
+  %85 = extractvalue { ptr, i32 } %84, 0
+  call void @__clang_call_terminate(ptr %85) #29
   unreachable
 
 _ZN7sbufferIN10polynomial5powerELj32EED2Ev.exit:  ; preds = %cleanup, %if.end.i.i.i.i.i
-  %85 = load ptr, ptr %u_var_degrees, align 8
-  %cmp.not.i.i.i.i170 = icmp eq ptr %85, %0
-  %cmp.i.i.i.i.i171 = icmp eq ptr %85, null
+  %86 = load ptr, ptr %u_var_degrees, align 8
+  %cmp.not.i.i.i.i170 = icmp eq ptr %86, %0
+  %cmp.i.i.i.i.i171 = icmp eq ptr %86, null
   %or.cond.i.i.i.i172 = or i1 %cmp.not.i.i.i.i170, %cmp.i.i.i.i.i171
   br i1 %or.cond.i.i.i.i172, label %_ZN7sbufferIN10polynomial5powerELj32EED2Ev.exit175, label %if.end.i.i.i.i.i173
 
 if.end.i.i.i.i.i173:                              ; preds = %_ZN7sbufferIN10polynomial5powerELj32EED2Ev.exit
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %85)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %86)
           to label %_ZN7sbufferIN10polynomial5powerELj32EED2Ev.exit175 unwind label %terminate.lpad.i.i174
 
 terminate.lpad.i.i174:                            ; preds = %if.end.i.i.i.i.i173
-  %86 = landingpad { ptr, i32 }
+  %87 = landingpad { ptr, i32 }
           catch ptr null
-  %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #29
+  %88 = extractvalue { ptr, i32 } %87, 0
+  call void @__clang_call_terminate(ptr %88) #29
   unreachable
 
 _ZN7sbufferIN10polynomial5powerELj32EED2Ev.exit175: ; preds = %_ZN7sbufferIN10polynomial5powerELj32EED2Ev.exit, %if.end.i.i.i.i.i173
   ret void
 
 ehcleanup132:                                     ; preds = %lpad122, %lpad117, %ehcleanup, %lpad2
-  %lpad.val137.merged = phi { ptr, i32 } [ %8, %lpad2 ], [ %.pn, %ehcleanup ], [ %81, %lpad122 ], [ %75, %lpad117 ]
+  %lpad.val137.merged = phi { ptr, i32 } [ %8, %lpad2 ], [ %.pn, %ehcleanup ], [ %82, %lpad122 ], [ %76, %lpad117 ]
   call void @_ZN7sbufferIN10polynomial5powerELj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %v_var_degrees) #30
   call void @_ZN7sbufferIN10polynomial5powerELj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %u_var_degrees) #30
   resume { ptr, i32 } %lpad.val137.merged
 
 terminate.lpad:                                   ; preds = %lpad122
-  %88 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #29
+  %90 = extractvalue { ptr, i32 } %89, 0
+  call void @__clang_call_terminate(ptr %90) #29
   unreachable
 }
 

@@ -1816,9 +1816,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i132:   ; preds = %602
   br label %.body
 
 _ZN5QListI7QStringED2Ev.exit.sink.split:          ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i127, %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, %593, %312
-  %.sink.in = phi ptr [ %18, %312 ], [ %21, %593 ], [ %18, %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i ], [ %21, %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i127 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 24, i64 noundef 8) #20
+  %.sink329 = phi ptr [ %18, %312 ], [ %21, %593 ], [ %18, %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i ], [ %21, %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i127 ]
+  %608 = load ptr, ptr %.sink329, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %608, i64 noundef 24, i64 noundef 8) #20
   br label %_ZN5QListI7QStringED2Ev.exit
 
 _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN5QListI7QStringED2Ev.exit.sink.split, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i118, %_ZN9QComboBox8addItemsERK5QListI7QStringE.exit116, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i, %_ZN9QComboBox8addItemsERK5QListI7QStringE.exit

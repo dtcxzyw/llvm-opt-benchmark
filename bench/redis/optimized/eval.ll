@@ -954,14 +954,14 @@ if.else:                                          ; preds = %if.end
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end15, %if.else
-  %.in = phi ptr [ %call24, %if.else ], [ %script_flags, %if.end15 ]
-  %15 = load i64, ptr %.in, align 8
-  %and = and i64 %15, 16
+  %script_flags.sink = phi ptr [ %call24, %if.else ], [ %script_flags, %if.end15 ]
+  %.pre18 = load i64, ptr %script_flags.sink, align 8
+  %and = and i64 %.pre18, 16
   %tobool26.not = icmp eq i64 %and, 0
   br i1 %tobool26.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end25
-  %call29 = call i64 @scriptFlagsToCmdFlags(i64 noundef %cmd_flags, i64 noundef %15) #17
+  %call29 = call i64 @scriptFlagsToCmdFlags(i64 noundef %cmd_flags, i64 noundef %.pre18) #17
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end25, %if.end15, %if.then12, %sdslen.exit, %if.end28

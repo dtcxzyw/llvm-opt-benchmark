@@ -84323,11 +84323,11 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx
 
 16:                                               ; preds = %15
   invoke void @_ZN8pybind115bytesC2EONS_6objectE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %41 unwind label %50, !noalias !4236
+          to label %41 unwind label %51, !noalias !4236
 
 17:                                               ; preds = %15
   invoke void @_ZN8pybind115bytesC2ERKNS_6objectE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %41 unwind label %50, !noalias !4236
+          to label %41 unwind label %51, !noalias !4236
 
 18:                                               ; preds = %2
   %19 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.356) #27, !noalias !4242
@@ -84339,11 +84339,11 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx
 
 22:                                               ; preds = %21
   invoke void @_ZN8pybind114noneC2EONS_6objectE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %41 unwind label %50, !noalias !4236
+          to label %41 unwind label %51, !noalias !4236
 
 23:                                               ; preds = %21
   invoke void @_ZN8pybind114noneC2ERKNS_6objectE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %41 unwind label %50, !noalias !4236
+          to label %41 unwind label %51, !noalias !4236
 
 24:                                               ; preds = %18
   %25 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.357) #27, !noalias !4242
@@ -84355,11 +84355,11 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx
 
 28:                                               ; preds = %27
   invoke void @_ZN8pybind118ellipsisC2EONS_6objectE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %41 unwind label %50, !noalias !4236
+          to label %41 unwind label %51, !noalias !4236
 
 29:                                               ; preds = %27
   invoke void @_ZN8pybind118ellipsisC2ERKNS_6objectE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %41 unwind label %50, !noalias !4236
+          to label %41 unwind label %51, !noalias !4236
 
 30:                                               ; preds = %24
   %31 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.358) #27, !noalias !4242
@@ -84371,11 +84371,11 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx
 
 34:                                               ; preds = %33
   invoke void @_ZN8pybind114typeC2EONS_6objectE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %41 unwind label %50, !noalias !4236
+          to label %41 unwind label %51, !noalias !4236
 
 35:                                               ; preds = %33
   invoke void @_ZN8pybind114typeC2ERKNS_6objectE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %41 unwind label %50, !noalias !4236
+          to label %41 unwind label %51, !noalias !4236
 
 36:                                               ; preds = %30
   %37 = tail call ptr @__cxa_allocate_exception(i64 16) #27, !noalias !4242
@@ -84384,7 +84384,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx
 
 38:                                               ; preds = %36
   invoke void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #32
-          to label %.noexc10.i unwind label %50, !noalias !4236
+          to label %.noexc10.i unwind label %51, !noalias !4236
 
 .noexc10.i:                                       ; preds = %38
   unreachable
@@ -84396,46 +84396,46 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx
   br label %.body.i
 
 41:                                               ; preds = %35, %34, %29, %28, %23, %22, %17, %16
-  %.sink.in.i.i = phi ptr [ %3, %17 ], [ %3, %16 ], [ %4, %23 ], [ %4, %22 ], [ %5, %29 ], [ %5, %28 ], [ %6, %35 ], [ %6, %34 ]
-  %.sink.i.i = load i64, ptr %.sink.in.i.i, align 8, !noalias !4242
-  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !4242
+  %.sink1.i.i = phi ptr [ %3, %16 ], [ %3, %17 ], [ %4, %22 ], [ %4, %23 ], [ %5, %28 ], [ %5, %29 ], [ %6, %34 ], [ %6, %35 ]
+  %42 = load i64, ptr %.sink1.i.i, align 8, !noalias !4242
+  store i64 %42, ptr %0, align 8, !alias.scope !4242
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !4236
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !4236
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !4236
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !4236
-  %42 = load ptr, ptr %7, align 8, !noalias !4236
-  %.not.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i, label %"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6objectEbEE9call_implISA_RZ22test_submodule_pytypesRNS_7module_EE4$_73JLm0ELm1ELm2EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit", label %43
+  %43 = load ptr, ptr %7, align 8, !noalias !4236
+  %.not.i.i.i.i = icmp eq ptr %43, null
+  br i1 %.not.i.i.i.i, label %"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6objectEbEE9call_implISA_RZ22test_submodule_pytypesRNS_7module_EE4$_73JLm0ELm1ELm2EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit", label %44
 
-43:                                               ; preds = %41
-  %44 = load i64, ptr %42, align 8, !noalias !4236
-  %45 = add nsw i64 %44, -1
-  store i64 %45, ptr %42, align 8, !noalias !4236
-  %.not.i.i.i.i.i = icmp eq i64 %45, 0
-  br i1 %.not.i.i.i.i.i, label %46, label %"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6objectEbEE9call_implISA_RZ22test_submodule_pytypesRNS_7module_EE4$_73JLm0ELm1ELm2EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit"
+44:                                               ; preds = %41
+  %45 = load i64, ptr %43, align 8, !noalias !4236
+  %46 = add nsw i64 %45, -1
+  store i64 %46, ptr %43, align 8, !noalias !4236
+  %.not.i.i.i.i.i = icmp eq i64 %46, 0
+  br i1 %.not.i.i.i.i.i, label %47, label %"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6objectEbEE9call_implISA_RZ22test_submodule_pytypesRNS_7module_EE4$_73JLm0ELm1ELm2EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit"
 
-46:                                               ; preds = %43
-  invoke void @_Py_Dealloc(ptr noundef nonnull %42)
-          to label %"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6objectEbEE9call_implISA_RZ22test_submodule_pytypesRNS_7module_EE4$_73JLm0ELm1ELm2EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit" unwind label %47, !noalias !4236
+47:                                               ; preds = %44
+  invoke void @_Py_Dealloc(ptr noundef nonnull %43)
+          to label %"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6objectEbEE9call_implISA_RZ22test_submodule_pytypesRNS_7module_EE4$_73JLm0ELm1ELm2EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit" unwind label %48, !noalias !4236
 
-47:                                               ; preds = %46
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %47
+  %49 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #28
+  %50 = extractvalue { ptr, i32 } %49, 0
+  call void @__clang_call_terminate(ptr %50) #28
   unreachable
 
-50:                                               ; preds = %38, %35, %34, %29, %28, %23, %22, %17, %16
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %38, %35, %34, %29, %28, %23, %22, %17, %16
+  %52 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %50, %39
-  %eh.lpad-body.i = phi { ptr, i32 } [ %51, %50 ], [ %40, %39 ]
+.body.i:                                          ; preds = %51, %39
+  %eh.lpad-body.i = phi { ptr, i32 } [ %52, %51 ], [ %40, %39 ]
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #27, !noalias !4236
   resume { ptr, i32 } %eh.lpad-body.i
 
-"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6objectEbEE9call_implISA_RZ22test_submodule_pytypesRNS_7module_EE4$_73JLm0ELm1ELm2EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit": ; preds = %41, %43, %46
+"_ZNO8pybind116detail15argument_loaderIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6objectEbEE9call_implISA_RZ22test_submodule_pytypesRNS_7module_EE4$_73JLm0ELm1ELm2EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit": ; preds = %41, %44, %47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 }

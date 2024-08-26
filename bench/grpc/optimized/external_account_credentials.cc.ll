@@ -2489,31 +2489,26 @@ invoke.cont634:                                   ; preds = %invoke.cont629
 
 if.then641:                                       ; preds = %invoke.cont634
   invoke void @_ZN9grpc_core14MakeRefCountedINS_29AwsExternalAccountCredentialsEJNS_26ExternalAccountCredentials7OptionsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERPN4absl12lts_202308026StatusEEEENS_13RefCountedPtrIT_EEDpOT0_(ptr nonnull sret(%"class.grpc_core::RefCountedPtr.25") align 8 %ref.tmp642, ptr noundef nonnull align 8 dereferenceable(384) %options, ptr noundef nonnull align 8 dereferenceable(24) %scopes, ptr noundef nonnull align 8 dereferenceable(8) %error.addr)
-          to label %_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentialsEEaSINS_29AwsExternalAccountCredentialsEEERS2_ONS0_IT_EE.exit unwind label %lpad621
-
-_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentialsEEaSINS_29AwsExternalAccountCredentialsEEERS2_ONS0_IT_EE.exit: ; preds = %if.then641
-  %175 = load ptr, ptr %ref.tmp642, align 8
-  store ptr null, ptr %ref.tmp642, align 8
-  br label %invoke.cont713
+          to label %invoke.cont713 unwind label %lpad621
 
 lpad621:                                          ; preds = %if.then693, %if.else671, %if.then667, %if.else645, %if.then641, %if.end617
-  %176 = landingpad { ptr, i32 }
+  %175 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup721
 
 lpad626:                                          ; preds = %invoke.cont622
-  %177 = landingpad { ptr, i32 }
+  %176 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup640
 
 lpad628:                                          ; preds = %invoke.cont629, %invoke.cont627
-  %178 = landingpad { ptr, i32 }
+  %177 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp624) #26
   br label %ehcleanup640
 
 ehcleanup640:                                     ; preds = %lpad628, %lpad626
-  %.pn59 = phi { ptr, i32 } [ %178, %lpad628 ], [ %177, %lpad626 ]
+  %.pn59 = phi { ptr, i32 } [ %177, %lpad628 ], [ %176, %lpad626 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp625) #26
   br label %ehcleanup721
 
@@ -2543,26 +2538,21 @@ invoke.cont660:                                   ; preds = %invoke.cont655
 
 if.then667:                                       ; preds = %invoke.cont660
   invoke void @_ZN9grpc_core14MakeRefCountedINS_30FileExternalAccountCredentialsEJNS_26ExternalAccountCredentials7OptionsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERPN4absl12lts_202308026StatusEEEENS_13RefCountedPtrIT_EEDpOT0_(ptr nonnull sret(%"class.grpc_core::RefCountedPtr.26") align 8 %ref.tmp668, ptr noundef nonnull align 8 dereferenceable(384) %options, ptr noundef nonnull align 8 dereferenceable(24) %scopes, ptr noundef nonnull align 8 dereferenceable(8) %error.addr)
-          to label %_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentialsEEaSINS_30FileExternalAccountCredentialsEEERS2_ONS0_IT_EE.exit unwind label %lpad621
-
-_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentialsEEaSINS_30FileExternalAccountCredentialsEEERS2_ONS0_IT_EE.exit: ; preds = %if.then667
-  %179 = load ptr, ptr %ref.tmp668, align 8
-  store ptr null, ptr %ref.tmp668, align 8
-  br label %invoke.cont713
+          to label %invoke.cont713 unwind label %lpad621
 
 lpad652:                                          ; preds = %invoke.cont648
-  %180 = landingpad { ptr, i32 }
+  %178 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup666
 
 lpad654:                                          ; preds = %invoke.cont655, %invoke.cont653
-  %181 = landingpad { ptr, i32 }
+  %179 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp650) #26
   br label %ehcleanup666
 
 ehcleanup666:                                     ; preds = %lpad654, %lpad652
-  %.pn61 = phi { ptr, i32 } [ %181, %lpad654 ], [ %180, %lpad652 ]
+  %.pn61 = phi { ptr, i32 } [ %179, %lpad654 ], [ %178, %lpad652 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp651) #26
   br label %ehcleanup721
 
@@ -2592,26 +2582,21 @@ invoke.cont686:                                   ; preds = %invoke.cont681
 
 if.then693:                                       ; preds = %invoke.cont686
   invoke void @_ZN9grpc_core14MakeRefCountedINS_29UrlExternalAccountCredentialsEJNS_26ExternalAccountCredentials7OptionsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERPN4absl12lts_202308026StatusEEEENS_13RefCountedPtrIT_EEDpOT0_(ptr nonnull sret(%"class.grpc_core::RefCountedPtr.27") align 8 %ref.tmp694, ptr noundef nonnull align 8 dereferenceable(384) %options, ptr noundef nonnull align 8 dereferenceable(24) %scopes, ptr noundef nonnull align 8 dereferenceable(8) %error.addr)
-          to label %_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentialsEEaSINS_29UrlExternalAccountCredentialsEEERS2_ONS0_IT_EE.exit unwind label %lpad621
-
-_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentialsEEaSINS_29UrlExternalAccountCredentialsEEERS2_ONS0_IT_EE.exit: ; preds = %if.then693
-  %182 = load ptr, ptr %ref.tmp694, align 8
-  store ptr null, ptr %ref.tmp694, align 8
-  br label %invoke.cont713
+          to label %invoke.cont713 unwind label %lpad621
 
 lpad678:                                          ; preds = %invoke.cont674
-  %183 = landingpad { ptr, i32 }
+  %180 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup692
 
 lpad680:                                          ; preds = %invoke.cont681, %invoke.cont679
-  %184 = landingpad { ptr, i32 }
+  %181 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp676) #26
   br label %ehcleanup692
 
 ehcleanup692:                                     ; preds = %lpad680, %lpad678
-  %.pn63 = phi { ptr, i32 } [ %184, %lpad680 ], [ %183, %lpad678 ]
+  %.pn63 = phi { ptr, i32 } [ %181, %lpad680 ], [ %180, %lpad678 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp677) #26
   br label %ehcleanup721
 
@@ -2621,52 +2606,54 @@ if.else697:                                       ; preds = %invoke.cont686
           to label %invoke.cont704 unwind label %lpad703
 
 invoke.cont704:                                   ; preds = %if.else697
-  %185 = load ptr, ptr %error.addr, align 8
-  %186 = load i64, ptr %185, align 8
-  %187 = load i64, ptr %ref.tmp698, align 8
-  %cmp.not.i529 = icmp eq i64 %187, %186
+  %182 = load ptr, ptr %error.addr, align 8
+  %183 = load i64, ptr %182, align 8
+  %184 = load i64, ptr %ref.tmp698, align 8
+  %cmp.not.i529 = icmp eq i64 %184, %183
   br i1 %cmp.not.i529, label %invoke.cont713.thread, label %if.then.i530
 
 if.then.i530:                                     ; preds = %invoke.cont704
-  store i64 %187, ptr %185, align 8
+  store i64 %184, ptr %182, align 8
   store i64 54, ptr %ref.tmp698, align 8
-  %and.i.i.i531 = and i64 %186, 1
+  %and.i.i.i531 = and i64 %183, 1
   %cmp.i.i.i532 = icmp eq i64 %and.i.i.i531, 0
   br i1 %cmp.i.i.i532, label %invoke.cont713.thread, label %if.then.i.i533
 
 if.then.i.i533:                                   ; preds = %if.then.i530
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %186)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %183)
           to label %invoke.cont713.thread unwind label %lpad705
 
 lpad703:                                          ; preds = %if.else697
-  %188 = landingpad { ptr, i32 }
+  %185 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup709
 
 lpad705:                                          ; preds = %if.then.i.i533
-  %189 = landingpad { ptr, i32 }
+  %186 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp698) #26
   br label %ehcleanup709
 
 ehcleanup709:                                     ; preds = %lpad705, %lpad703
-  %.pn65 = phi { ptr, i32 } [ %189, %lpad705 ], [ %188, %lpad703 ]
+  %.pn65 = phi { ptr, i32 } [ %186, %lpad705 ], [ %185, %lpad703 ]
   call void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp702) #26
   br label %ehcleanup721
 
-invoke.cont713:                                   ; preds = %_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentialsEEaSINS_29UrlExternalAccountCredentialsEEERS2_ONS0_IT_EE.exit, %_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentialsEEaSINS_30FileExternalAccountCredentialsEEERS2_ONS0_IT_EE.exit, %_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentialsEEaSINS_29AwsExternalAccountCredentialsEEERS2_ONS0_IT_EE.exit
-  %creds.sroa.0.0 = phi ptr [ %175, %_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentialsEEaSINS_29AwsExternalAccountCredentialsEEERS2_ONS0_IT_EE.exit ], [ %179, %_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentialsEEaSINS_30FileExternalAccountCredentialsEEERS2_ONS0_IT_EE.exit ], [ %182, %_ZN9grpc_core13RefCountedPtrINS_26ExternalAccountCredentialsEEaSINS_29UrlExternalAccountCredentialsEEERS2_ONS0_IT_EE.exit ]
-  %190 = load ptr, ptr %error.addr, align 8
-  %191 = load i64, ptr %190, align 8
-  %cmp.i536 = icmp eq i64 %191, 0
+invoke.cont713:                                   ; preds = %if.then693, %if.then667, %if.then641
+  %ref.tmp694.sink615 = phi ptr [ %ref.tmp642, %if.then641 ], [ %ref.tmp668, %if.then667 ], [ %ref.tmp694, %if.then693 ]
+  %187 = load ptr, ptr %ref.tmp694.sink615, align 8
+  store ptr null, ptr %ref.tmp694.sink615, align 8
+  %188 = load ptr, ptr %error.addr, align 8
+  %189 = load i64, ptr %188, align 8
+  %cmp.i536 = icmp eq i64 %189, 0
   br i1 %cmp.i536, label %cleanup718.thread, label %cleanup718
 
 invoke.cont713.thread:                            ; preds = %if.then.i.i533, %invoke.cont704, %if.then.i530
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp698) #26
   call void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp702) #26
-  %192 = load ptr, ptr %error.addr, align 8
-  %193 = load i64, ptr %192, align 8
-  %cmp.i536595 = icmp eq i64 %193, 0
+  %190 = load ptr, ptr %error.addr, align 8
+  %191 = load i64, ptr %190, align 8
+  %cmp.i536595 = icmp eq i64 %191, 0
   br i1 %cmp.i536595, label %cleanup718.thread, label %cleanup718.thread598
 
 cleanup718.thread598:                             ; preds = %invoke.cont713.thread
@@ -2674,26 +2661,26 @@ cleanup718.thread598:                             ; preds = %invoke.cont713.thre
   br label %cleanup720
 
 cleanup718.thread:                                ; preds = %invoke.cont713, %invoke.cont713.thread
-  %creds.sroa.0.0596 = phi ptr [ null, %invoke.cont713.thread ], [ %creds.sroa.0.0, %invoke.cont713 ]
+  %creds.sroa.0.0596 = phi ptr [ null, %invoke.cont713.thread ], [ %187, %invoke.cont713 ]
   store ptr %creds.sroa.0.0596, ptr %agg.result, align 8
   br label %cleanup720
 
 cleanup718:                                       ; preds = %invoke.cont713
   store ptr null, ptr %agg.result, align 8
-  %cmp.not.i537 = icmp eq ptr %creds.sroa.0.0, null
+  %cmp.not.i537 = icmp eq ptr %187, null
   br i1 %cmp.not.i537, label %cleanup720, label %if.then.i538
 
 if.then.i538:                                     ; preds = %cleanup718
-  %refs_.i.i539 = getelementptr inbounds i8, ptr %creds.sroa.0.0, i64 8
-  %194 = atomicrmw sub ptr %refs_.i.i539, i64 1 acq_rel, align 8
-  %cmp.i.i.i540 = icmp eq i64 %194, 1
+  %refs_.i.i539 = getelementptr inbounds i8, ptr %187, i64 8
+  %192 = atomicrmw sub ptr %refs_.i.i539, i64 1 acq_rel, align 8
+  %cmp.i.i.i540 = icmp eq i64 %192, 1
   br i1 %cmp.i.i.i540, label %if.then.i.i541, label %cleanup720
 
 if.then.i.i541:                                   ; preds = %if.then.i538
-  %vtable.i.i.i542 = load ptr, ptr %creds.sroa.0.0, align 8
+  %vtable.i.i.i542 = load ptr, ptr %187, align 8
   %vfn.i.i.i543 = getelementptr inbounds i8, ptr %vtable.i.i.i542, i64 8
-  %195 = load ptr, ptr %vfn.i.i.i543, align 8
-  call void %195(ptr noundef nonnull align 8 dereferenceable(20) %creds.sroa.0.0) #26
+  %193 = load ptr, ptr %vfn.i.i.i543, align 8
+  call void %193(ptr noundef nonnull align 8 dereferenceable(20) %187) #26
   br label %cleanup720
 
 cleanup720.critedge:                              ; preds = %invoke.cont557, %invoke.cont608, %invoke.cont582
@@ -2706,7 +2693,7 @@ cleanup720:                                       ; preds = %if.then.i.i541, %if
   ret void
 
 ehcleanup721:                                     ; preds = %ehcleanup709, %ehcleanup692, %ehcleanup666, %ehcleanup640, %lpad621, %ehcleanup616, %ehcleanup502, %ehcleanup486, %ehcleanup455, %ehcleanup428, %ehcleanup401, %ehcleanup374, %ehcleanup355, %ehcleanup336, %ehcleanup309, %ehcleanup288, %ehcleanup268, %ehcleanup249, %ehcleanup222, %ehcleanup201, %ehcleanup181, %ehcleanup162, %ehcleanup141, %ehcleanup121, %ehcleanup102, %ehcleanup84, %ehcleanup63, %ehcleanup44, %ehcleanup25, %ehcleanup, %lpad
-  %.pn89.pn = phi { ptr, i32 } [ %.pn89, %ehcleanup ], [ %.pn87, %ehcleanup44 ], [ %.pn85, %ehcleanup63 ], [ %.pn83, %ehcleanup84 ], [ %.pn81, %ehcleanup121 ], [ %.pn79, %ehcleanup141 ], [ %.pn77, %ehcleanup181 ], [ %.pn75, %ehcleanup201 ], [ %.pn73, %ehcleanup268 ], [ %.pn71, %ehcleanup288 ], [ %.pn69, %ehcleanup355 ], [ %.pn56.pn, %ehcleanup616 ], [ %14, %lpad ], [ %.pn48, %ehcleanup502 ], [ %.pn46, %ehcleanup486 ], [ %.pn44, %ehcleanup455 ], [ %.pn42, %ehcleanup428 ], [ %.pn40, %ehcleanup401 ], [ %.pn38, %ehcleanup374 ], [ %.pn36, %ehcleanup336 ], [ %.pn34, %ehcleanup309 ], [ %.pn32, %ehcleanup249 ], [ %.pn30, %ehcleanup222 ], [ %.pn28, %ehcleanup162 ], [ %.pn26, %ehcleanup102 ], [ %.pn, %ehcleanup25 ], [ %176, %lpad621 ], [ %.pn65, %ehcleanup709 ], [ %.pn63, %ehcleanup692 ], [ %.pn61, %ehcleanup666 ], [ %.pn59, %ehcleanup640 ]
+  %.pn89.pn = phi { ptr, i32 } [ %.pn89, %ehcleanup ], [ %.pn87, %ehcleanup44 ], [ %.pn85, %ehcleanup63 ], [ %.pn83, %ehcleanup84 ], [ %.pn81, %ehcleanup121 ], [ %.pn79, %ehcleanup141 ], [ %.pn77, %ehcleanup181 ], [ %.pn75, %ehcleanup201 ], [ %.pn73, %ehcleanup268 ], [ %.pn71, %ehcleanup288 ], [ %.pn69, %ehcleanup355 ], [ %.pn56.pn, %ehcleanup616 ], [ %14, %lpad ], [ %.pn48, %ehcleanup502 ], [ %.pn46, %ehcleanup486 ], [ %.pn44, %ehcleanup455 ], [ %.pn42, %ehcleanup428 ], [ %.pn40, %ehcleanup401 ], [ %.pn38, %ehcleanup374 ], [ %.pn36, %ehcleanup336 ], [ %.pn34, %ehcleanup309 ], [ %.pn32, %ehcleanup249 ], [ %.pn30, %ehcleanup222 ], [ %.pn28, %ehcleanup162 ], [ %.pn26, %ehcleanup102 ], [ %.pn, %ehcleanup25 ], [ %175, %lpad621 ], [ %.pn65, %ehcleanup709 ], [ %.pn63, %ehcleanup692 ], [ %.pn61, %ehcleanup666 ], [ %.pn59, %ehcleanup640 ]
   call void @_ZN9grpc_core26ExternalAccountCredentials7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %options) #26
   resume { ptr, i32 } %.pn89.pn
 }

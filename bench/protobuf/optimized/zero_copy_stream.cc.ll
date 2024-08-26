@@ -462,34 +462,34 @@ if.then.i60:                                      ; preds = %lpad27
   br label %ehcleanup
 
 cleanup.sink.split:                               ; preds = %invoke.cont28, %invoke.cont8
-  %.sink.in = phi ptr [ %agg.tmp, %invoke.cont8 ], [ %agg.tmp26, %invoke.cont28 ]
+  %agg.tmp26.sink = phi ptr [ %agg.tmp, %invoke.cont8 ], [ %agg.tmp26, %invoke.cont28 ]
   %retval.1.ph = phi i1 [ false, %invoke.cont8 ], [ true, %invoke.cont28 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @_ZdlPv(ptr noundef %.sink) #19
+  %70 = load ptr, ptr %agg.tmp26.sink, align 8
+  call void @_ZdlPv(ptr noundef %70) #19
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.then3.i50, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i43, %if.then3.i, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i, %invoke.cont28, %invoke.cont8
   %retval.1 = phi i1 [ false, %invoke.cont8 ], [ true, %invoke.cont28 ], [ false, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i ], [ false, %if.then3.i ], [ true, %_ZNK4absl12lts_2023080210CordBuffer6lengthEv.exit.thread.i43 ], [ true, %if.then3.i50 ], [ %retval.1.ph, %cleanup.sink.split ]
-  %70 = load i8, ptr %cord_buffer, align 8
-  %71 = and i8 %70, 1
-  %cmp.i.not.i62 = icmp eq i8 %71, 0
+  %71 = load i8, ptr %cord_buffer, align 8
+  %72 = and i8 %71, 1
+  %cmp.i.not.i62 = icmp eq i8 %72, 0
   br i1 %cmp.i.not.i62, label %if.then.i64, label %return
 
 if.then.i64:                                      ; preds = %cleanup
-  %72 = load ptr, ptr %cord_buffer, align 8
-  call void @_ZdlPv(ptr noundef %72) #19
+  %73 = load ptr, ptr %cord_buffer, align 8
+  call void @_ZdlPv(ptr noundef %73) #19
   br label %return
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %if.then.i60, %lpad27, %if.then.i17, %lpad7
   %.pn = phi { ptr, i32 } [ %36, %lpad7 ], [ %36, %if.then.i17 ], [ %66, %lpad27 ], [ %66, %if.then.i60 ], [ %lpad.loopexit94, %lpad.loopexit ], [ %lpad.loopexit.split-lp95, %lpad.loopexit.split-lp ]
-  %73 = load i8, ptr %cord_buffer, align 8
-  %74 = and i8 %73, 1
-  %cmp.i.not.i66 = icmp eq i8 %74, 0
+  %74 = load i8, ptr %cord_buffer, align 8
+  %75 = and i8 %74, 1
+  %cmp.i.not.i66 = icmp eq i8 %75, 0
   br i1 %cmp.i.not.i66, label %if.then.i68, label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit69
 
 if.then.i68:                                      ; preds = %ehcleanup
-  %75 = load ptr, ptr %cord_buffer, align 8
-  call void @_ZdlPv(ptr noundef %75) #19
+  %76 = load ptr, ptr %cord_buffer, align 8
+  call void @_ZdlPv(ptr noundef %76) #19
   br label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit69
 
 _ZN4absl12lts_2023080210CordBufferD2Ev.exit69:    ; preds = %ehcleanup, %if.then.i68

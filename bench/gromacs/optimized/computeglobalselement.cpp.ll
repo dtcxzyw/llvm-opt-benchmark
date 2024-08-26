@@ -4623,7 +4623,7 @@ define noundef ptr @_ZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithm
 18:                                               ; preds = %16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithmE1EE21getElementPointerImplEPNS_19LegacySimulatorDataEPNS_38ModularSimulatorAlgorithmBuilderHelperEPNS_19StatePropagatorDataEPNS_10EnergyDataEPNS_26FreeEnergyPerturbationDataEPNS_25GlobalCommunicationHelperEPNS_18ObservablesReducerEE3keyB5cxx11, ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %19 unwind label %44
+          to label %19 unwind label %43
 
 19:                                               ; preds = %18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
@@ -4636,7 +4636,7 @@ define noundef ptr @_ZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithm
   %22 = getelementptr inbounds i8, ptr %10, i64 16
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %_ZNKRSt8optionalISt3anyE5valueEv.exit, label %48
+  br i1 %24, label %_ZNKRSt8optionalISt3anyE5valueEv.exit, label %47
 
 _ZNKRSt8optionalISt3anyE5valueEv.exit:            ; preds = %21
   %25 = load ptr, ptr %10, align 8
@@ -4683,193 +4683,189 @@ _ZNKSt9type_infoeqERKS_.exit.i.i.i:               ; preds = %37
 
 41:                                               ; preds = %_ZNKSt9type_infoeqERKS_.exit.i.i.i, %37
   invoke void @_ZSt20__throw_bad_any_castv() #24
-          to label %.noexc23 unwind label %46
+          to label %.noexc23 unwind label %45
 
 .noexc23:                                         ; preds = %41
   unreachable
 
 _ZSt8any_castIPN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEET_RKSt3any.exit: ; preds = %_ZNKRSt8optionalISt3anyE5valueEv.exit, %_ZNKSt3any4typeEv.exit.i.i.i, %_ZNKSt9type_infoeqERKS_.exit.i.i.i
   %42 = getelementptr inbounds i8, ptr %10, i64 8
-  %43 = load ptr, ptr %42, align 8
-  br label %106
+  br label %_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit
 
-44:                                               ; preds = %18
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %18
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithmE1EE21getElementPointerImplEPNS_19LegacySimulatorDataEPNS_38ModularSimulatorAlgorithmBuilderHelperEPNS_19StatePropagatorDataEPNS_10EnergyDataEPNS_26FreeEnergyPerturbationDataEPNS_25GlobalCommunicationHelperEPNS_18ObservablesReducerEE3keyB5cxx11) #26
-  br label %115
+  br label %113
 
-46:                                               ; preds = %52, %41, %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit, %50, %48
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %51, %41, %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit, %49, %47
+  %46 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-48:                                               ; preds = %21
-  %49 = invoke noundef ptr @_ZN3gmx25GlobalCommunicationHelper17simulationSignalsEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %50 unwind label %46
+47:                                               ; preds = %21
+  %48 = invoke noundef ptr @_ZN3gmx25GlobalCommunicationHelper17simulationSignalsEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %49 unwind label %45
 
-50:                                               ; preds = %48
-  %51 = invoke noundef i32 @_ZNK3gmx25GlobalCommunicationHelper13nstglobalcommEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %52 unwind label %46
+49:                                               ; preds = %47
+  %50 = invoke noundef i32 @_ZNK3gmx25GlobalCommunicationHelper13nstglobalcommEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %51 unwind label %45
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 152
-  %56 = load ptr, ptr %55, align 8
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 152
+  %55 = load ptr, ptr %54, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %57 = invoke noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #22
-          to label %.noexc24 unwind label %46
+  %56 = invoke noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #22
+          to label %.noexc24 unwind label %45
 
-.noexc24:                                         ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %0, i64 80
-  %59 = getelementptr inbounds i8, ptr %0, i64 216
-  %60 = getelementptr inbounds i8, ptr %0, i64 208
-  %61 = getelementptr inbounds i8, ptr %0, i64 200
-  %62 = getelementptr inbounds i8, ptr %0, i64 192
-  %63 = getelementptr inbounds i8, ptr %0, i64 120
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  %65 = load ptr, ptr %0, align 8, !noalias !46
-  %66 = load ptr, ptr %64, align 8, !noalias !46
-  %67 = load ptr, ptr %63, align 8, !noalias !46
-  %68 = load ptr, ptr %62, align 8, !noalias !46
-  %69 = load ptr, ptr %61, align 8, !noalias !46
-  %70 = load ptr, ptr %60, align 8, !noalias !46
-  %71 = load ptr, ptr %59, align 8, !noalias !46
-  %72 = load ptr, ptr %58, align 8, !noalias !46
-  invoke void @_ZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithmE1EEC1EPNS_19StatePropagatorDataEPNS_10EnergyDataEPNS_26FreeEnergyPerturbationDataEPSt5arrayINS_16SimulationSignalELm3EEiP8_IO_FILERKNS_8MDLoggerEP9t_commrecPK10t_inputrecPKNS_7MDAtomsEP6t_nrnbP13gmx_wallcycleP10t_forcerecRK10gmx_mtop_tPNS_11ConstraintsEPNS_18ObservablesReducerE(ptr noundef nonnull align 8 dereferenceable(480) %57, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %49, i32 noundef %51, ptr noundef %65, ptr noundef nonnull align 1 %54, ptr noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef %71, ptr noundef nonnull align 8 dereferenceable(768) %56, ptr noundef %72, ptr noundef %6)
-          to label %75 unwind label %73, !noalias !46
+.noexc24:                                         ; preds = %51
+  %57 = getelementptr inbounds i8, ptr %0, i64 80
+  %58 = getelementptr inbounds i8, ptr %0, i64 216
+  %59 = getelementptr inbounds i8, ptr %0, i64 208
+  %60 = getelementptr inbounds i8, ptr %0, i64 200
+  %61 = getelementptr inbounds i8, ptr %0, i64 192
+  %62 = getelementptr inbounds i8, ptr %0, i64 120
+  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = load ptr, ptr %0, align 8, !noalias !46
+  %65 = load ptr, ptr %63, align 8, !noalias !46
+  %66 = load ptr, ptr %62, align 8, !noalias !46
+  %67 = load ptr, ptr %61, align 8, !noalias !46
+  %68 = load ptr, ptr %60, align 8, !noalias !46
+  %69 = load ptr, ptr %59, align 8, !noalias !46
+  %70 = load ptr, ptr %58, align 8, !noalias !46
+  %71 = load ptr, ptr %57, align 8, !noalias !46
+  invoke void @_ZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithmE1EEC1EPNS_19StatePropagatorDataEPNS_10EnergyDataEPNS_26FreeEnergyPerturbationDataEPSt5arrayINS_16SimulationSignalELm3EEiP8_IO_FILERKNS_8MDLoggerEP9t_commrecPK10t_inputrecPKNS_7MDAtomsEP6t_nrnbP13gmx_wallcycleP10t_forcerecRK10gmx_mtop_tPNS_11ConstraintsEPNS_18ObservablesReducerE(ptr noundef nonnull align 8 dereferenceable(480) %56, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %48, i32 noundef %50, ptr noundef %64, ptr noundef nonnull align 1 %53, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef nonnull align 8 dereferenceable(768) %55, ptr noundef %71, ptr noundef %6)
+          to label %74 unwind label %72, !noalias !46
 
-73:                                               ; preds = %.noexc24
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %.noexc24
+  %73 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %57) #23, !noalias !46
+  call void @_ZdlPv(ptr noundef nonnull %56) #23, !noalias !46
   br label %.body
 
-75:                                               ; preds = %.noexc24
-  store ptr %57, ptr %12, align 8, !alias.scope !46
-  %76 = invoke noundef ptr @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper12storeElementINS_21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithmE1EEEEEPT_St10unique_ptrIS5_St14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %12)
-          to label %77 unwind label %95
+74:                                               ; preds = %.noexc24
+  store ptr %56, ptr %12, align 8, !alias.scope !46
+  %75 = invoke noundef ptr @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper12storeElementINS_21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithmE1EEEEEPT_St10unique_ptrIS5_St14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %12)
+          to label %76 unwind label %93
 
-77:                                               ; preds = %75
-  %78 = load ptr, ptr %12, align 8
-  %.not.i = icmp eq ptr %78, null
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %12, align 8
+  %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEclEPS3_.exit.i
 
-_ZNKSt14default_deleteIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEclEPS3_.exit.i: ; preds = %77
-  call void @_ZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithmE1EED1Ev(ptr noundef nonnull align 8 dereferenceable(480) %78) #26
-  call void @_ZdlPv(ptr noundef nonnull %78) #23
+_ZNKSt14default_deleteIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEclEPS3_.exit.i: ; preds = %76
+  call void @_ZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithmE1EED1Ev(ptr noundef nonnull align 8 dereferenceable(480) %77) #26
+  call void @_ZdlPv(ptr noundef nonnull %77) #23
   br label %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %77, %_ZNKSt14default_deleteIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEclEPS3_.exit.i
+_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %76, %_ZNKSt14default_deleteIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEclEPS3_.exit.i
   store ptr null, ptr %12, align 8
-  store ptr %76, ptr %11, align 8
+  store ptr %75, ptr %11, align 8
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper16storeBuilderDataIPNS_21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithmE1EEEEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithmE1EE21getElementPointerImplEPNS_19LegacySimulatorDataEPNS_38ModularSimulatorAlgorithmBuilderHelperEPNS_19StatePropagatorDataEPNS_10EnergyDataEPNS_26FreeEnergyPerturbationDataEPNS_25GlobalCommunicationHelperEPNS_18ObservablesReducerEE3keyB5cxx11, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %79 unwind label %46
+          to label %78 unwind label %45
 
-79:                                               ; preds = %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit
-  %80 = load ptr, ptr %11, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 472
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %13, i64 16
-  %84 = getelementptr inbounds i8, ptr %13, i64 24
-  %85 = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 0, ptr %85, align 8, !alias.scope !49
-  %86 = ptrtoint ptr %82 to i64
-  store i64 %86, ptr %13, align 8, !alias.scope !49
-  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS8_18ObservablesReducerEE3$_0E9_M_invokeERKSt9_Any_dataOlOdS6_", ptr %84, align 8, !alias.scope !49
-  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS8_18ObservablesReducerEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %83, align 8, !alias.scope !49
+78:                                               ; preds = %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit
+  %79 = load ptr, ptr %11, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 472
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %13, i64 16
+  %83 = getelementptr inbounds i8, ptr %13, i64 24
+  %84 = getelementptr inbounds i8, ptr %13, i64 8
+  store i64 0, ptr %84, align 8, !alias.scope !49
+  %85 = ptrtoint ptr %81 to i64
+  store i64 %85, ptr %13, align 8, !alias.scope !49
+  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS8_18ObservablesReducerEE3$_0E9_M_invokeERKSt9_Any_dataOlOdS6_", ptr %83, align 8, !alias.scope !49
+  store ptr @"_ZNSt17_Function_handlerIFvldRKSt8functionIFvS0_IFvvEEEEEZN3gmx12_GLOBAL__N_134registerPostStepSchedulingFunctionEPNS8_18ObservablesReducerEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %82, align 8, !alias.scope !49
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper26registerPostStepSchedulingESt8functionIFvldRKS1_IFvS1_IFvvEEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %13)
-          to label %87 unwind label %98
+          to label %86 unwind label %96
 
-87:                                               ; preds = %79
-  %88 = load ptr, ptr %83, align 8
-  %.not.i.i = icmp eq ptr %88, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit, label %89
+86:                                               ; preds = %78
+  %87 = load ptr, ptr %82, align 8
+  %.not.i.i = icmp eq ptr %87, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit, label %88
 
-89:                                               ; preds = %87
-  %90 = invoke noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
-          to label %_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit unwind label %91
+88:                                               ; preds = %86
+  %89 = invoke noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+          to label %_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit unwind label %90
 
-91:                                               ; preds = %89
-  %92 = landingpad { ptr, i32 }
+90:                                               ; preds = %88
+  %91 = landingpad { ptr, i32 }
           catch ptr null
-  %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #25
+  %92 = extractvalue { ptr, i32 } %91, 0
+  call void @__clang_call_terminate(ptr %92) #25
   unreachable
 
-_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit:  ; preds = %87, %89
-  %94 = load ptr, ptr %11, align 8
-  br label %106
-
-95:                                               ; preds = %75
-  %96 = landingpad { ptr, i32 }
+93:                                               ; preds = %74
+  %94 = landingpad { ptr, i32 }
           cleanup
-  %97 = load ptr, ptr %12, align 8
-  %.not.i25 = icmp eq ptr %97, null
+  %95 = load ptr, ptr %12, align 8
+  %.not.i25 = icmp eq ptr %95, null
   br i1 %.not.i25, label %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit27, label %_ZNKSt14default_deleteIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEclEPS3_.exit.i26
 
-_ZNKSt14default_deleteIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEclEPS3_.exit.i26: ; preds = %95
-  call void @_ZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithmE1EED1Ev(ptr noundef nonnull align 8 dereferenceable(480) %97) #26
-  call void @_ZdlPv(ptr noundef nonnull %97) #23
+_ZNKSt14default_deleteIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEclEPS3_.exit.i26: ; preds = %93
+  call void @_ZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorithmE1EED1Ev(ptr noundef nonnull align 8 dereferenceable(480) %95) #26
+  call void @_ZdlPv(ptr noundef nonnull %95) #23
   br label %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit27
 
-_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit27: ; preds = %95, %_ZNKSt14default_deleteIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEclEPS3_.exit.i26
+_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit27: ; preds = %93, %_ZNKSt14default_deleteIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEclEPS3_.exit.i26
   store ptr null, ptr %12, align 8
   br label %.body
 
-98:                                               ; preds = %79
-  %99 = landingpad { ptr, i32 }
+96:                                               ; preds = %78
+  %97 = landingpad { ptr, i32 }
           cleanup
-  %100 = load ptr, ptr %83, align 8
-  %.not.i.i28 = icmp eq ptr %100, null
-  br i1 %.not.i.i28, label %.body, label %101
+  %98 = load ptr, ptr %82, align 8
+  %.not.i.i28 = icmp eq ptr %98, null
+  br i1 %.not.i.i28, label %.body, label %99
 
-101:                                              ; preds = %98
-  %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
-          to label %.body unwind label %103
+99:                                               ; preds = %96
+  %100 = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 3)
+          to label %.body unwind label %101
 
-103:                                              ; preds = %101
-  %104 = landingpad { ptr, i32 }
+101:                                              ; preds = %99
+  %102 = landingpad { ptr, i32 }
           catch ptr null
-  %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #25
+  %103 = extractvalue { ptr, i32 } %102, 0
+  call void @__clang_call_terminate(ptr %103) #25
   unreachable
 
-106:                                              ; preds = %_ZSt8any_castIPN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEET_RKSt3any.exit, %_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit
-  %.020 = phi ptr [ %94, %_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit ], [ %43, %_ZSt8any_castIPN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEET_RKSt3any.exit ]
-  %107 = load i8, ptr %22, align 8
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %109, label %_ZNSt8optionalISt3anyED2Ev.exit
+_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit:  ; preds = %88, %86, %_ZSt8any_castIPN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEET_RKSt3any.exit
+  %.sink = phi ptr [ %42, %_ZSt8any_castIPN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEET_RKSt3any.exit ], [ %11, %86 ], [ %11, %88 ]
+  %104 = load ptr, ptr %.sink, align 8
+  %105 = load i8, ptr %22, align 8
+  %106 = trunc i8 %105 to i1
+  br i1 %106, label %107, label %_ZNSt8optionalISt3anyED2Ev.exit
 
-109:                                              ; preds = %106
+107:                                              ; preds = %_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit
   store i8 0, ptr %22, align 8
-  %110 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %110, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt3anyED2Ev.exit, label %111
+  %108 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %108, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8optionalISt3anyED2Ev.exit, label %109
 
-111:                                              ; preds = %109
-  invoke void %110(i32 noundef 3, ptr noundef nonnull %10, ptr noundef null)
-          to label %_ZNSt8optionalISt3anyED2Ev.exit unwind label %112
+109:                                              ; preds = %107
+  invoke void %108(i32 noundef 3, ptr noundef nonnull %10, ptr noundef null)
+          to label %_ZNSt8optionalISt3anyED2Ev.exit unwind label %110
 
-112:                                              ; preds = %111
-  %113 = landingpad { ptr, i32 }
+110:                                              ; preds = %109
+  %111 = landingpad { ptr, i32 }
           catch ptr null
-  %114 = extractvalue { ptr, i32 } %113, 0
-  call void @__clang_call_terminate(ptr %114) #25
+  %112 = extractvalue { ptr, i32 } %111, 0
+  call void @__clang_call_terminate(ptr %112) #25
   unreachable
 
-_ZNSt8optionalISt3anyED2Ev.exit:                  ; preds = %111, %106, %109
-  ret ptr %.020
+_ZNSt8optionalISt3anyED2Ev.exit:                  ; preds = %109, %_ZNSt8functionIFvldRKS_IFvS_IFvvEEEEEED2Ev.exit, %107
+  ret ptr %104
 
-.body:                                            ; preds = %101, %98, %46, %73, %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit27
-  %.pn = phi { ptr, i32 } [ %96, %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit27 ], [ %47, %46 ], [ %74, %73 ], [ %99, %98 ], [ %99, %101 ]
+.body:                                            ; preds = %99, %96, %45, %72, %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit27
+  %.pn = phi { ptr, i32 } [ %94, %_ZNSt10unique_ptrIN3gmx21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEESt14default_deleteIS3_EED2Ev.exit27 ], [ %46, %45 ], [ %73, %72 ], [ %97, %96 ], [ %97, %99 ]
   call void @_ZNSt8optionalISt3anyED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #26
-  br label %115
+  br label %113
 
-115:                                              ; preds = %.body, %44
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %45, %44 ]
+113:                                              ; preds = %.body, %43
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %44, %43 ]
   resume { ptr, i32 } %.pn.pn
 }
 

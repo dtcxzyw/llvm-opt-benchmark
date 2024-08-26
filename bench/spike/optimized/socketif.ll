@@ -20021,63 +20021,63 @@ _ZN5boost20regex_traits_wrapperINS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC
   br label %.body7
 
 _ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit: ; preds = %42, %20
+  %.sink = phi ptr [ %6, %20 ], [ %7, %42 ]
   %.sink29 = phi ptr [ %23, %20 ], [ %45, %42 ]
-  %.sink28 = phi ptr [ %6, %20 ], [ %7, %42 ]
-  %.sink27 = load ptr, ptr %.sink28, align 8
-  %48 = load ptr, ptr %.sink29, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink28, i8 0, i64 16, i1 false)
-  store ptr %.sink27, ptr %5, align 8
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %48, ptr %49, align 8
-  invoke void @_ZN5boost16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6assignEPKcS8_j(ptr noundef nonnull align 8 dereferenceable(402) %.sink27, ptr noundef %1, ptr noundef %2, i32 noundef %3)
-          to label %50 unwind label %26
+  %48 = load ptr, ptr %.sink, align 8
+  %49 = load ptr, ptr %.sink29, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink, i8 0, i64 16, i1 false)
+  store ptr %48, ptr %5, align 8
+  %50 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %49, ptr %50, align 8
+  invoke void @_ZN5boost16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE6assignEPKcS8_j(ptr noundef nonnull align 8 dereferenceable(402) %48, ptr noundef %1, ptr noundef %2, i32 noundef %3)
+          to label %51 unwind label %26
 
-50:                                               ; preds = %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit
-  %51 = load ptr, ptr %0, align 8
-  store ptr %51, ptr %5, align 8
-  store ptr %.sink27, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
-  %54 = load ptr, ptr %53, align 8
-  store ptr %48, ptr %53, align 8
-  store ptr %54, ptr %52, align 8
-  %.not.i.i18 = icmp eq ptr %54, null
-  br i1 %.not.i.i18, label %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit20, label %55
+51:                                               ; preds = %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit
+  %52 = load ptr, ptr %0, align 8
+  store ptr %52, ptr %5, align 8
+  store ptr %48, ptr %0, align 8
+  %53 = getelementptr inbounds i8, ptr %5, i64 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = load ptr, ptr %54, align 8
+  store ptr %49, ptr %54, align 8
+  store ptr %55, ptr %53, align 8
+  %.not.i.i18 = icmp eq ptr %55, null
+  br i1 %.not.i.i18, label %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit20, label %56
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %54, i64 8
-  %57 = atomicrmw sub ptr %56, i32 1 acq_rel, align 4
-  %58 = icmp eq i32 %57, 1
-  br i1 %58, label %59, label %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit20
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  %58 = atomicrmw sub ptr %57, i32 1 acq_rel, align 4
+  %59 = icmp eq i32 %58, 1
+  br i1 %59, label %60, label %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit20
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %54, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
-  %62 = load ptr, ptr %61, align 8
-  invoke void %62(ptr noundef nonnull align 8 dereferenceable(16) %54)
-          to label %.noexc.i.i19 unwind label %70
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %55, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %63 = load ptr, ptr %62, align 8
+  invoke void %63(ptr noundef nonnull align 8 dereferenceable(16) %55)
+          to label %.noexc.i.i19 unwind label %71
 
-.noexc.i.i19:                                     ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %54, i64 12
-  %64 = atomicrmw sub ptr %63, i32 1 acq_rel, align 4
-  %65 = icmp eq i32 %64, 1
-  br i1 %65, label %66, label %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit20
+.noexc.i.i19:                                     ; preds = %60
+  %64 = getelementptr inbounds i8, ptr %55, i64 12
+  %65 = atomicrmw sub ptr %64, i32 1 acq_rel, align 4
+  %66 = icmp eq i32 %65, 1
+  br i1 %66, label %67, label %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit20
 
-66:                                               ; preds = %.noexc.i.i19
-  %67 = load ptr, ptr %54, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 24
-  %69 = load ptr, ptr %68, align 8
-  invoke void %69(ptr noundef nonnull align 8 dereferenceable(16) %54)
-          to label %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit20 unwind label %70
+67:                                               ; preds = %.noexc.i.i19
+  %68 = load ptr, ptr %55, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 24
+  %70 = load ptr, ptr %69, align 8
+  invoke void %70(ptr noundef nonnull align 8 dereferenceable(16) %55)
+          to label %_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit20 unwind label %71
 
-70:                                               ; preds = %66, %59
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %67, %60
+  %72 = landingpad { ptr, i32 }
           catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #32
+  %73 = extractvalue { ptr, i32 } %72, 0
+  call void @__clang_call_terminate(ptr %73) #32
   unreachable
 
-_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit20: ; preds = %50, %55, %.noexc.i.i19, %66
+_ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEED2Ev.exit20: ; preds = %51, %56, %.noexc.i.i19, %67
   ret ptr %0
 
 .body7:                                           ; preds = %24, %46, %26, %.body

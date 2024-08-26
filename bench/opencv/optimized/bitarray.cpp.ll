@@ -396,8 +396,8 @@ define hidden noundef zeroext i1 @_ZN5zxing8BitArray7isRangeEiibRNS_12ErrorHandl
   %6 = alloca %"class.zxing::IllegalArgumentErrorHandler", align 8
   %7 = alloca %"class.zxing::IllegalArgumentErrorHandler", align 8
   %8 = icmp slt i32 %2, %1
-  %.sink30.sroa.gep = getelementptr inbounds i8, ptr %7, i64 16
-  %.sink30.sroa.gep31 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %7, i64 16
+  %.sink.sroa.gep31 = getelementptr inbounds i8, ptr %6, i64 16
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %5
@@ -417,7 +417,6 @@ define hidden noundef zeroext i1 @_ZN5zxing8BitArray7isRangeEiibRNS_12ErrorHandl
 14:                                               ; preds = %9
   %15 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %6, align 8
   br label %63
 
 16:                                               ; preds = %5
@@ -455,7 +454,6 @@ define hidden noundef zeroext i1 @_ZN5zxing8BitArray7isRangeEiibRNS_12ErrorHandl
 34:                                               ; preds = %29
   %35 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %7, align 8
   br label %63
 
 36:                                               ; preds = %18
@@ -514,9 +512,11 @@ _ZN5zxing8BitArray12getNextUnsetEi.exit:          ; preds = %45, %44
   ret i1 %.020
 
 63:                                               ; preds = %34, %14
-  %.sink30.sroa.phi = phi ptr [ %.sink30.sroa.gep, %34 ], [ %.sink30.sroa.gep31, %14 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %34 ], [ %.sink.sroa.gep31, %14 ]
+  %.sink = phi ptr [ %7, %34 ], [ %6, %14 ]
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %15, %14 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink30.sroa.phi) #15
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %.sink, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.sroa.phi) #15
   resume { ptr, i32 } %.pn
 }
 

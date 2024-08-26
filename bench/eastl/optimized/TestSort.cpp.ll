@@ -26800,12 +26800,12 @@ entry:
   %agg.tmp57 = alloca %"struct.eastl::DequeIterator", align 8
   %agg.tmp69 = alloca %"struct.eastl::DequeIterator", align 8
   %cmp86 = icmp sgt i64 %stack_curr, 1
-  %agg.tmp18.sink93.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp18, i64 8
-  %agg.tmp18.sink93.sroa.gep98 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %agg.tmp18.sink93.sroa.gep100 = getelementptr inbounds i8, ptr %agg.tmp18, i64 16
-  %agg.tmp18.sink93.sroa.gep101 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %agg.tmp18.sink93.sroa.gep103 = getelementptr inbounds i8, ptr %agg.tmp18, i64 24
-  %agg.tmp18.sink93.sroa.gep104 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %agg.tmp18.sink94.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %agg.tmp18.sink94.sroa.gep99 = getelementptr inbounds i8, ptr %agg.tmp18, i64 8
+  %agg.tmp18.sink94.sroa.gep101 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %agg.tmp18.sink94.sroa.gep102 = getelementptr inbounds i8, ptr %agg.tmp18, i64 16
+  %agg.tmp18.sink94.sroa.gep104 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %agg.tmp18.sink94.sroa.gep105 = getelementptr inbounds i8, ptr %agg.tmp18, i64 24
   br i1 %cmp86, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -26821,8 +26821,8 @@ while.body.lr.ph:                                 ; preds = %entry
   %mpBegin.i79 = getelementptr inbounds i8, ptr %agg.tmp69, i64 8
   %mpEnd.i81 = getelementptr inbounds i8, ptr %agg.tmp69, i64 16
   %mpCurrentArrayPtr.i83 = getelementptr inbounds i8, ptr %agg.tmp69, i64 24
-  %cmp195 = icmp eq i64 %stack_curr, 2
-  br i1 %cmp195, label %land.lhs.true, label %if.end29
+  %cmp196 = icmp eq i64 %stack_curr, 2
+  br i1 %cmp196, label %land.lhs.true, label %if.end29
 
 land.lhs.true:                                    ; preds = %if.end79, %while.body.lr.ph
   %length = getelementptr inbounds i8, ptr %run_stack, i64 8
@@ -26831,91 +26831,81 @@ land.lhs.true:                                    ; preds = %if.end79, %while.bo
   %1 = load i64, ptr %length3, align 8
   %add = add nsw i64 %1, %0
   %cmp4 = icmp eq i64 %add, %size
-  br i1 %cmp4, label %if.then, label %land.lhs.true11
-
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load ptr, ptr %first, align 8
-  store ptr %2, ptr %agg.tmp, align 8
-  br label %while.end.sink.split
+  br i1 %cmp4, label %while.end.sink.split, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
   %cmp16.not = icmp sgt i64 %0, %1
-  br i1 %cmp16.not, label %while.end, label %if.then17
-
-if.then17:                                        ; preds = %land.lhs.true11
-  %3 = load ptr, ptr %first, align 8
-  store ptr %3, ptr %agg.tmp18, align 8
-  br label %while.end.sink.split
+  br i1 %cmp16.not, label %while.end, label %while.end.sink.split
 
 if.end29:                                         ; preds = %while.body.lr.ph, %if.end79
-  %stack_curr.addr.08796 = phi i64 [ %sub35, %if.end79 ], [ %stack_curr, %while.body.lr.ph ]
-  %4 = getelementptr %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %stack_curr.addr.08796
-  %length31 = getelementptr i8, ptr %4, i64 -40
-  %5 = load i64, ptr %length31, align 8
-  %length34 = getelementptr i8, ptr %4, i64 -24
-  %6 = load i64, ptr %length34, align 8
-  %sub35 = add nsw i64 %stack_curr.addr.08796, -1
+  %stack_curr.addr.08797 = phi i64 [ %sub35, %if.end79 ], [ %stack_curr, %while.body.lr.ph ]
+  %2 = getelementptr %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %stack_curr.addr.08797
+  %length31 = getelementptr i8, ptr %2, i64 -40
+  %3 = load i64, ptr %length31, align 8
+  %length34 = getelementptr i8, ptr %2, i64 -24
+  %4 = load i64, ptr %length34, align 8
+  %sub35 = add nsw i64 %stack_curr.addr.08797, -1
   %length37 = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35, i32 1
-  %7 = load i64, ptr %length37, align 8
-  %add38 = add nsw i64 %7, %6
-  %cmp39.not = icmp sgt i64 %5, %add38
+  %5 = load i64, ptr %length37, align 8
+  %add38 = add nsw i64 %5, %4
+  %cmp39.not = icmp sgt i64 %3, %add38
   br i1 %cmp39.not, label %if.else66, label %if.then40
 
 if.then40:                                        ; preds = %if.end29
-  %cmp41 = icmp slt i64 %5, %7
-  %8 = load ptr, ptr %first, align 8
+  %cmp41 = icmp slt i64 %3, %5
+  %6 = load ptr, ptr %first, align 8
   br i1 %cmp41, label %if.then42, label %if.else56
 
 if.then42:                                        ; preds = %if.then40
-  store ptr %8, ptr %agg.tmp43, align 8
-  %9 = load ptr, ptr %mpBegin3.i74, align 8
-  store ptr %9, ptr %mpBegin.i67, align 8
-  %10 = load ptr, ptr %mpEnd4.i76, align 8
-  store ptr %10, ptr %mpEnd.i69, align 8
-  %11 = load ptr, ptr %mpCurrentArrayPtr5.i78, align 8
-  store ptr %11, ptr %mpCurrentArrayPtr.i71, align 8
+  store ptr %6, ptr %agg.tmp43, align 8
+  %7 = load ptr, ptr %mpBegin3.i74, align 8
+  store ptr %7, ptr %mpBegin.i67, align 8
+  %8 = load ptr, ptr %mpEnd4.i76, align 8
+  store ptr %8, ptr %mpEnd.i69, align 8
+  %9 = load ptr, ptr %mpCurrentArrayPtr5.i78, align 8
+  store ptr %9, ptr %mpCurrentArrayPtr.i71, align 8
   call void @_ZN5eastl8Internal14tim_sort_mergeINS_13DequeIteratorIiPiRiLj64EEEiRNS0_15StatefulCompareEEEvT_PKNS0_12tim_sort_runElPT0_T1_(ptr noundef nonnull %agg.tmp43, ptr noundef nonnull %run_stack, i64 noundef %sub35, ptr noundef %pBuffer, ptr noundef nonnull align 1 dereferenceable(1) %compare)
-  %arrayidx47 = getelementptr i8, ptr %4, i64 -32
-  %12 = load i64, ptr %length34, align 8
-  %13 = load i64, ptr %length31, align 8
-  %add52 = add nsw i64 %13, %12
+  %arrayidx47 = getelementptr i8, ptr %2, i64 -32
+  %10 = load i64, ptr %length34, align 8
+  %11 = load i64, ptr %length31, align 8
+  %add52 = add nsw i64 %11, %10
   store i64 %add52, ptr %length31, align 8
   %arrayidx53 = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx47, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx53, i64 16, i1 false)
   br label %if.end79
 
 if.else56:                                        ; preds = %if.then40
-  store ptr %8, ptr %agg.tmp57, align 8
-  %14 = load ptr, ptr %mpBegin3.i74, align 8
-  store ptr %14, ptr %mpBegin.i73, align 8
-  %15 = load ptr, ptr %mpEnd4.i76, align 8
-  store ptr %15, ptr %mpEnd.i75, align 8
-  %16 = load ptr, ptr %mpCurrentArrayPtr5.i78, align 8
-  store ptr %16, ptr %mpCurrentArrayPtr.i77, align 8
-  call void @_ZN5eastl8Internal14tim_sort_mergeINS_13DequeIteratorIiPiRiLj64EEEiRNS0_15StatefulCompareEEEvT_PKNS0_12tim_sort_runElPT0_T1_(ptr noundef nonnull %agg.tmp57, ptr noundef nonnull %run_stack, i64 noundef %stack_curr.addr.08796, ptr noundef %pBuffer, ptr noundef nonnull align 1 dereferenceable(1) %compare)
-  %17 = load i64, ptr %length37, align 8
-  %18 = load i64, ptr %length34, align 8
-  %add64 = add nsw i64 %18, %17
+  store ptr %6, ptr %agg.tmp57, align 8
+  %12 = load ptr, ptr %mpBegin3.i74, align 8
+  store ptr %12, ptr %mpBegin.i73, align 8
+  %13 = load ptr, ptr %mpEnd4.i76, align 8
+  store ptr %13, ptr %mpEnd.i75, align 8
+  %14 = load ptr, ptr %mpCurrentArrayPtr5.i78, align 8
+  store ptr %14, ptr %mpCurrentArrayPtr.i77, align 8
+  call void @_ZN5eastl8Internal14tim_sort_mergeINS_13DequeIteratorIiPiRiLj64EEEiRNS0_15StatefulCompareEEEvT_PKNS0_12tim_sort_runElPT0_T1_(ptr noundef nonnull %agg.tmp57, ptr noundef nonnull %run_stack, i64 noundef %stack_curr.addr.08797, ptr noundef %pBuffer, ptr noundef nonnull align 1 dereferenceable(1) %compare)
+  %15 = load i64, ptr %length37, align 8
+  %16 = load i64, ptr %length34, align 8
+  %add64 = add nsw i64 %16, %15
   store i64 %add64, ptr %length34, align 8
   br label %if.end79
 
 if.else66:                                        ; preds = %if.end29
-  %cmp67.not = icmp sgt i64 %6, %7
+  %cmp67.not = icmp sgt i64 %4, %5
   br i1 %cmp67.not, label %while.end, label %if.then68
 
 if.then68:                                        ; preds = %if.else66
-  %19 = load ptr, ptr %first, align 8
-  store ptr %19, ptr %agg.tmp69, align 8
-  %20 = load ptr, ptr %mpBegin3.i74, align 8
-  store ptr %20, ptr %mpBegin.i79, align 8
-  %21 = load ptr, ptr %mpEnd4.i76, align 8
-  store ptr %21, ptr %mpEnd.i81, align 8
-  %22 = load ptr, ptr %mpCurrentArrayPtr5.i78, align 8
-  store ptr %22, ptr %mpCurrentArrayPtr.i83, align 8
-  call void @_ZN5eastl8Internal14tim_sort_mergeINS_13DequeIteratorIiPiRiLj64EEEiRNS0_15StatefulCompareEEEvT_PKNS0_12tim_sort_runElPT0_T1_(ptr noundef nonnull %agg.tmp69, ptr noundef nonnull %run_stack, i64 noundef %stack_curr.addr.08796, ptr noundef %pBuffer, ptr noundef nonnull align 1 dereferenceable(1) %compare)
-  %23 = load i64, ptr %length37, align 8
-  %24 = load i64, ptr %length34, align 8
-  %add76 = add nsw i64 %24, %23
+  %17 = load ptr, ptr %first, align 8
+  store ptr %17, ptr %agg.tmp69, align 8
+  %18 = load ptr, ptr %mpBegin3.i74, align 8
+  store ptr %18, ptr %mpBegin.i79, align 8
+  %19 = load ptr, ptr %mpEnd4.i76, align 8
+  store ptr %19, ptr %mpEnd.i81, align 8
+  %20 = load ptr, ptr %mpCurrentArrayPtr5.i78, align 8
+  store ptr %20, ptr %mpCurrentArrayPtr.i83, align 8
+  call void @_ZN5eastl8Internal14tim_sort_mergeINS_13DequeIteratorIiPiRiLj64EEEiRNS0_15StatefulCompareEEEvT_PKNS0_12tim_sort_runElPT0_T1_(ptr noundef nonnull %agg.tmp69, ptr noundef nonnull %run_stack, i64 noundef %stack_curr.addr.08797, ptr noundef %pBuffer, ptr noundef nonnull align 1 dereferenceable(1) %compare)
+  %21 = load i64, ptr %length37, align 8
+  %22 = load i64, ptr %length34, align 8
+  %add76 = add nsw i64 %22, %21
   store i64 %add76, ptr %length34, align 8
   br label %if.end79
 
@@ -26923,26 +26913,28 @@ if.end79:                                         ; preds = %if.then42, %if.else
   %cmp1 = icmp eq i64 %sub35, 2
   br i1 %cmp1, label %land.lhs.true, label %if.end29
 
-while.end.sink.split:                             ; preds = %if.then, %if.then17
-  %agg.tmp18.sink93.sroa.phi = phi ptr [ %agg.tmp18.sink93.sroa.gep, %if.then17 ], [ %agg.tmp18.sink93.sroa.gep98, %if.then ]
-  %agg.tmp18.sink93.sroa.phi99 = phi ptr [ %agg.tmp18.sink93.sroa.gep100, %if.then17 ], [ %agg.tmp18.sink93.sroa.gep101, %if.then ]
-  %agg.tmp18.sink93.sroa.phi102 = phi ptr [ %agg.tmp18.sink93.sroa.gep103, %if.then17 ], [ %agg.tmp18.sink93.sroa.gep104, %if.then ]
-  %agg.tmp18.sink93 = phi ptr [ %agg.tmp18, %if.then17 ], [ %agg.tmp, %if.then ]
-  %25 = load ptr, ptr %mpBegin3.i74, align 8
-  store ptr %25, ptr %agg.tmp18.sink93.sroa.phi, align 8
-  %26 = load ptr, ptr %mpEnd4.i76, align 8
-  store ptr %26, ptr %agg.tmp18.sink93.sroa.phi99, align 8
-  %27 = load ptr, ptr %mpCurrentArrayPtr5.i78, align 8
-  store ptr %27, ptr %agg.tmp18.sink93.sroa.phi102, align 8
-  call void @_ZN5eastl8Internal14tim_sort_mergeINS_13DequeIteratorIiPiRiLj64EEEiRNS0_15StatefulCompareEEEvT_PKNS0_12tim_sort_runElPT0_T1_(ptr noundef nonnull %agg.tmp18.sink93, ptr noundef nonnull %run_stack, i64 noundef 2, ptr noundef %pBuffer, ptr noundef nonnull align 1 dereferenceable(1) %compare)
-  %28 = load i64, ptr %length3, align 8
-  %29 = load i64, ptr %length, align 8
-  %add23 = add nsw i64 %29, %28
+while.end.sink.split:                             ; preds = %land.lhs.true11, %land.lhs.true
+  %agg.tmp18.sink94.sroa.phi = phi ptr [ %agg.tmp18.sink94.sroa.gep, %land.lhs.true ], [ %agg.tmp18.sink94.sroa.gep99, %land.lhs.true11 ]
+  %agg.tmp18.sink94.sroa.phi100 = phi ptr [ %agg.tmp18.sink94.sroa.gep101, %land.lhs.true ], [ %agg.tmp18.sink94.sroa.gep102, %land.lhs.true11 ]
+  %agg.tmp18.sink94.sroa.phi103 = phi ptr [ %agg.tmp18.sink94.sroa.gep104, %land.lhs.true ], [ %agg.tmp18.sink94.sroa.gep105, %land.lhs.true11 ]
+  %agg.tmp18.sink94 = phi ptr [ %agg.tmp, %land.lhs.true ], [ %agg.tmp18, %land.lhs.true11 ]
+  %23 = load ptr, ptr %first, align 8
+  store ptr %23, ptr %agg.tmp18.sink94, align 8
+  %24 = load ptr, ptr %mpBegin3.i74, align 8
+  store ptr %24, ptr %agg.tmp18.sink94.sroa.phi, align 8
+  %25 = load ptr, ptr %mpEnd4.i76, align 8
+  store ptr %25, ptr %agg.tmp18.sink94.sroa.phi100, align 8
+  %26 = load ptr, ptr %mpCurrentArrayPtr5.i78, align 8
+  store ptr %26, ptr %agg.tmp18.sink94.sroa.phi103, align 8
+  call void @_ZN5eastl8Internal14tim_sort_mergeINS_13DequeIteratorIiPiRiLj64EEEiRNS0_15StatefulCompareEEEvT_PKNS0_12tim_sort_runElPT0_T1_(ptr noundef nonnull %agg.tmp18.sink94, ptr noundef nonnull %run_stack, i64 noundef 2, ptr noundef %pBuffer, ptr noundef nonnull align 1 dereferenceable(1) %compare)
+  %27 = load i64, ptr %length3, align 8
+  %28 = load i64, ptr %length, align 8
+  %add23 = add nsw i64 %28, %27
   store i64 %add23, ptr %length, align 8
   br label %while.end
 
 while.end:                                        ; preds = %if.else66, %while.end.sink.split, %entry, %land.lhs.true11
-  %stack_curr.addr.1 = phi i64 [ 2, %land.lhs.true11 ], [ %stack_curr, %entry ], [ 1, %while.end.sink.split ], [ %stack_curr.addr.08796, %if.else66 ]
+  %stack_curr.addr.1 = phi i64 [ 2, %land.lhs.true11 ], [ %stack_curr, %entry ], [ 1, %while.end.sink.split ], [ %stack_curr.addr.08797, %if.else66 ]
   ret i64 %stack_curr.addr.1
 }
 

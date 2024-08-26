@@ -2877,8 +2877,8 @@ define internal fastcc noundef ptr @_ZL14scan_mem_chainP4NodeiiS0_S0_P8PhaseGVN(
   %26 = sext i32 %2 to i64
   br label %27
 
-27:                                               ; preds = %.lr.ph, %179
-  %28 = phi ptr [ %0, %.lr.ph ], [ %180, %179 ]
+27:                                               ; preds = %.lr.ph, %176
+  %28 = phi ptr [ %0, %.lr.ph ], [ %177, %176 ]
   %29 = getelementptr inbounds i8, ptr %28, i64 44
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 255
@@ -2946,7 +2946,7 @@ define internal fastcc noundef ptr @_ZL14scan_mem_chainP4NodeiiS0_S0_P8PhaseGVN(
 69:                                               ; preds = %53
   %70 = and i32 %54, 31
   %71 = icmp eq i32 %70, 17
-  br i1 %71, label %72, label %179
+  br i1 %71, label %72, label %176
 
 72:                                               ; preds = %69
   store ptr null, ptr %8, align 8
@@ -2966,7 +2966,7 @@ define internal fastcc noundef ptr @_ZL14scan_mem_chainP4NodeiiS0_S0_P8PhaseGVN(
 81:                                               ; preds = %38, %35
   %82 = and i32 %30, 127
   %83 = icmp eq i32 %82, 80
-  br i1 %83, label %84, label %110
+  br i1 %83, label %84, label %108
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %28, align 8
@@ -2977,140 +2977,140 @@ define internal fastcc noundef ptr @_ZL14scan_mem_chainP4NodeiiS0_S0_P8PhaseGVN(
   %90 = call noundef ptr @_ZN7Compile15find_alias_typeEPK7TypePtrbP7ciField(ptr noundef nonnull align 8 dereferenceable(2316) %89, ptr noundef %88, i1 noundef zeroext false, ptr noundef null) #8
   %91 = load i32, ptr %90, align 8
   %92 = icmp eq i32 %91, %1
-  br i1 %92, label %93, label %104
+  br i1 %92, label %93, label %102
 
 93:                                               ; preds = %84
   %94 = getelementptr inbounds i8, ptr %88, i64 36
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, %2
-  br i1 %96, label %97, label %104
+  br i1 %96, label %97, label %102
 
 97:                                               ; preds = %93
   %98 = getelementptr inbounds i8, ptr %88, i64 76
   %99 = load i32, ptr %98, align 4
   %100 = load i32, ptr %25, align 8
   %101 = icmp eq i32 %99, %100
-  br i1 %101, label %102, label %104
+  br i1 %101, label %.loopexit.sink.split, label %102
 
-102:                                              ; preds = %97
+102:                                              ; preds = %84, %93, %97
   %103 = load ptr, ptr %7, align 8
-  br label %.loopexit
-
-104:                                              ; preds = %84, %93, %97
-  %105 = load ptr, ptr %7, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 8
+  %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
-  %109 = load ptr, ptr %108, align 8
   br label %.sink.split
 
-110:                                              ; preds = %81
-  %111 = and i32 %30, 32767
-  %112 = icmp eq i32 %111, 16384
-  br i1 %112, label %113, label %123
+108:                                              ; preds = %81
+  %109 = and i32 %30, 32767
+  %110 = icmp eq i32 %109, 16384
+  br i1 %110, label %111, label %120
 
-113:                                              ; preds = %110
-  %114 = load i32, ptr %25, align 8
-  %115 = call noundef zeroext i1 @_ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues(ptr noundef nonnull %7, i32 noundef %114, ptr noundef %5) #8
-  br i1 %115, label %179, label %116
+111:                                              ; preds = %108
+  %112 = load i32, ptr %25, align 8
+  %113 = call noundef zeroext i1 @_ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues(ptr noundef nonnull %7, i32 noundef %112, ptr noundef %5) #8
+  br i1 %113, label %176, label %114
 
-116:                                              ; preds = %113
-  %117 = call noundef ptr @_ZN12AllocateNode14initializationEv(ptr noundef nonnull align 8 dereferenceable(131) %4) #8
-  %.not = icmp eq ptr %117, null
-  br i1 %.not, label %118, label %.loopexit
+114:                                              ; preds = %111
+  %115 = call noundef ptr @_ZN12AllocateNode14initializationEv(ptr noundef nonnull align 8 dereferenceable(131) %4) #8
+  %.not = icmp eq ptr %115, null
+  br i1 %.not, label %116, label %.loopexit
 
-118:                                              ; preds = %116
-  %119 = getelementptr inbounds i8, ptr %4, i64 8
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 16
+116:                                              ; preds = %114
+  %117 = getelementptr inbounds i8, ptr %4, i64 8
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 16
+  br label %.loopexit.sink.split
+
+120:                                              ; preds = %108
+  %121 = load ptr, ptr %28, align 8
   %122 = load ptr, ptr %121, align 8
-  br label %.loopexit
+  %123 = call noundef i32 %122(ptr noundef nonnull align 8 dereferenceable(52) %28) #8
+  %124 = icmp eq i32 %123, 311
+  %125 = load ptr, ptr %7, align 8
+  br i1 %124, label %126, label %151
 
-123:                                              ; preds = %110
-  %124 = load ptr, ptr %28, align 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = call noundef i32 %125(ptr noundef nonnull align 8 dereferenceable(52) %28) #8
-  %127 = icmp eq i32 %126, 311
-  %128 = load ptr, ptr %7, align 8
-  br i1 %127, label %129, label %154
+126:                                              ; preds = %120
+  %127 = getelementptr inbounds i8, ptr %125, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = load ptr, ptr %128, align 8
+  store ptr %129, ptr %7, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 44
+  %131 = load i32, ptr %130, align 4
+  %132 = and i32 %131, 255
+  %133 = icmp eq i32 %132, 144
+  %134 = getelementptr inbounds i8, ptr %129, i64 8
+  %135 = load ptr, ptr %134, align 8
+  %. = select i1 %133, i64 16, i64 24
+  %136 = getelementptr inbounds i8, ptr %135, i64 %.
+  %.053 = load ptr, ptr %136, align 8
+  %137 = load ptr, ptr %.053, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 40
+  %139 = load ptr, ptr %138, align 8
+  %140 = call noundef ptr %139(ptr noundef nonnull align 8 dereferenceable(52) %.053) #8
+  %141 = load ptr, ptr %10, align 8
+  %142 = call noundef ptr @_ZN7Compile15find_alias_typeEPK7TypePtrbP7ciField(ptr noundef nonnull align 8 dereferenceable(2316) %141, ptr noundef %140, i1 noundef zeroext false, ptr noundef null) #8
+  %143 = load i32, ptr %142, align 8
+  %144 = icmp eq i32 %143, %1
+  br i1 %144, label %.loopexit, label %145
 
-129:                                              ; preds = %123
-  %130 = getelementptr inbounds i8, ptr %128, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = load ptr, ptr %131, align 8
-  store ptr %132, ptr %7, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 44
-  %134 = load i32, ptr %133, align 4
-  %135 = and i32 %134, 255
-  %136 = icmp eq i32 %135, 144
-  %137 = getelementptr inbounds i8, ptr %132, i64 8
-  %138 = load ptr, ptr %137, align 8
-  %. = select i1 %136, i64 16, i64 24
-  %139 = getelementptr inbounds i8, ptr %138, i64 %.
-  %.053 = load ptr, ptr %139, align 8
-  %140 = load ptr, ptr %.053, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 40
-  %142 = load ptr, ptr %141, align 8
-  %143 = call noundef ptr %142(ptr noundef nonnull align 8 dereferenceable(52) %.053) #8
-  %144 = load ptr, ptr %10, align 8
-  %145 = call noundef ptr @_ZN7Compile15find_alias_typeEPK7TypePtrbP7ciField(ptr noundef nonnull align 8 dereferenceable(2316) %144, ptr noundef %143, i1 noundef zeroext false, ptr noundef null) #8
-  %146 = load i32, ptr %145, align 8
-  %147 = icmp eq i32 %146, %1
-  br i1 %147, label %.loopexit, label %148
+145:                                              ; preds = %126
+  %146 = load ptr, ptr %7, align 8
+  %147 = getelementptr inbounds i8, ptr %146, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  %150 = load ptr, ptr %149, align 8
+  br label %.sink.split
 
-148:                                              ; preds = %129
-  %149 = load ptr, ptr %7, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 8
+151:                                              ; preds = %120
+  %152 = load ptr, ptr %125, align 8
   %153 = load ptr, ptr %152, align 8
-  br label %.sink.split
+  %154 = call noundef i32 %153(ptr noundef nonnull align 8 dereferenceable(52) %125) #8
+  %155 = icmp eq i32 %154, 339
+  %156 = load ptr, ptr %7, align 8
+  br i1 %155, label %157, label %.loopexit
 
-154:                                              ; preds = %123
-  %155 = load ptr, ptr %128, align 8
-  %156 = load ptr, ptr %155, align 8
-  %157 = call noundef i32 %156(ptr noundef nonnull align 8 dereferenceable(52) %128) #8
-  %158 = icmp eq i32 %157, 339
-  %159 = load ptr, ptr %7, align 8
-  br i1 %158, label %160, label %.loopexit
-
-160:                                              ; preds = %154
-  %161 = getelementptr inbounds i8, ptr %159, i64 8
+157:                                              ; preds = %151
+  %158 = getelementptr inbounds i8, ptr %156, i64 8
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 24
+  %161 = load ptr, ptr %160, align 8
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 24
+  %163 = getelementptr inbounds i8, ptr %162, i64 40
   %164 = load ptr, ptr %163, align 8
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 40
-  %167 = load ptr, ptr %166, align 8
-  %168 = call noundef ptr %167(ptr noundef nonnull align 8 dereferenceable(52) %164) #8
-  %169 = load ptr, ptr %10, align 8
-  %170 = call noundef ptr @_ZN7Compile15find_alias_typeEPK7TypePtrbP7ciField(ptr noundef nonnull align 8 dereferenceable(2316) %169, ptr noundef %168, i1 noundef zeroext false, ptr noundef null) #8
-  %171 = load i32, ptr %170, align 8
-  %172 = icmp eq i32 %171, %1
-  br i1 %172, label %.loopexit, label %173
+  %165 = call noundef ptr %164(ptr noundef nonnull align 8 dereferenceable(52) %161) #8
+  %166 = load ptr, ptr %10, align 8
+  %167 = call noundef ptr @_ZN7Compile15find_alias_typeEPK7TypePtrbP7ciField(ptr noundef nonnull align 8 dereferenceable(2316) %166, ptr noundef %165, i1 noundef zeroext false, ptr noundef null) #8
+  %168 = load i32, ptr %167, align 8
+  %169 = icmp eq i32 %168, %1
+  br i1 %169, label %.loopexit, label %170
 
-173:                                              ; preds = %160
-  %174 = load ptr, ptr %7, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 8
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 8
-  %178 = load ptr, ptr %177, align 8
+170:                                              ; preds = %157
+  %171 = load ptr, ptr %7, align 8
+  %172 = getelementptr inbounds i8, ptr %171, i64 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 8
+  %175 = load ptr, ptr %174, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %64, %76, %173, %148, %104, %33
-  %.sink69 = phi ptr [ %34, %33 ], [ %109, %104 ], [ %153, %148 ], [ %178, %173 ], [ %80, %76 ], [ %68, %64 ]
+.sink.split:                                      ; preds = %64, %76, %170, %145, %102, %33
+  %.sink69 = phi ptr [ %34, %33 ], [ %107, %102 ], [ %150, %145 ], [ %175, %170 ], [ %80, %76 ], [ %68, %64 ]
   store ptr %.sink69, ptr %7, align 8
-  br label %179
+  br label %176
 
-179:                                              ; preds = %.sink.split, %113, %69
-  %180 = load ptr, ptr %7, align 8
-  %181 = icmp eq ptr %180, %9
-  %182 = icmp eq ptr %180, %3
-  %or.cond57 = or i1 %181, %182
+176:                                              ; preds = %.sink.split, %111, %69
+  %177 = load ptr, ptr %7, align 8
+  %178 = icmp eq ptr %177, %9
+  %179 = icmp eq ptr %177, %3
+  %or.cond57 = or i1 %178, %179
   br i1 %or.cond57, label %.loopexit, label %27, !llvm.loop !17
 
-.loopexit:                                        ; preds = %50, %62, %72, %129, %160, %179, %154, %6, %116, %118, %102
-  %.0 = phi ptr [ %103, %102 ], [ %122, %118 ], [ %117, %116 ], [ %0, %6 ], [ %159, %154 ], [ %45, %50 ], [ %45, %62 ], [ %74, %72 ], [ null, %129 ], [ null, %160 ], [ %180, %179 ]
+.loopexit.sink.split:                             ; preds = %97, %116
+  %.sink70 = phi ptr [ %119, %116 ], [ %7, %97 ]
+  %180 = load ptr, ptr %.sink70, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %50, %62, %72, %126, %157, %176, %151, %.loopexit.sink.split, %6, %114
+  %.0 = phi ptr [ %115, %114 ], [ %0, %6 ], [ %180, %.loopexit.sink.split ], [ %156, %151 ], [ %45, %50 ], [ %45, %62 ], [ %74, %72 ], [ null, %126 ], [ null, %157 ], [ %177, %176 ]
   ret ptr %.0
 }
 

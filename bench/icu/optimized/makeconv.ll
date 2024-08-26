@@ -819,10 +819,10 @@ invoke.cont75:                                    ; preds = %if.then74
   invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp77, ptr noundef %call76)
           to label %invoke.cont78.invoke unwind label %lpad47.loopexit.split-lp
 
-invoke.cont78.invoke:                             ; preds = %if.else81, %invoke.cont75
-  %.sink = phi ptr [ %31, %invoke.cont75 ], [ %32, %if.else81 ]
-  %.in = phi ptr [ %agg.tmp77, %invoke.cont75 ], [ %agg.tmp82, %if.else81 ]
-  %49 = load ptr, ptr %.in, align 8
+invoke.cont78.invoke:                             ; preds = %invoke.cont75, %if.else81
+  %agg.tmp82.sink = phi ptr [ %agg.tmp82, %if.else81 ], [ %agg.tmp77, %invoke.cont75 ]
+  %.sink = phi ptr [ %32, %if.else81 ], [ %31, %invoke.cont75 ]
+  %49 = load ptr, ptr %agg.tmp82.sink, align 8
   %50 = load i32, ptr %.sink, align 8
   %51 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %outFileName, ptr noundef %49, i32 noundef %50, ptr noundef nonnull align 4 dereferenceable(4) %localError)
           to label %if.end86 unwind label %lpad47.loopexit.split-lp

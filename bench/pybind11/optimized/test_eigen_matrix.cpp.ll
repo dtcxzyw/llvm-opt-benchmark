@@ -85749,7 +85749,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_
   %9 = load i16, ptr %8, align 1
   %10 = and i16 %9, 32
   %.not.i = icmp eq i16 %10, 0
-  br i1 %.not.i, label %17, label %11
+  br i1 %.not.i, label %18, label %11
 
 11:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2989)
@@ -85758,62 +85758,62 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !2998
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !2998
   invoke void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEENS2_IfLin1ELin1ELi0ELin1ELin1EEENS0_9assign_opIffEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %_ZN8pybind114noneD2Ev.exit.i unwind label %12
+          to label %_ZN8pybind114noneD2Ev.exit.i unwind label %13
 
-common.resume.i:                                  ; preds = %23, %18, %12
-  %.sink.in.i = phi ptr [ %5, %23 ], [ %5, %18 ], [ %4, %12 ]
-  %common.resume.op.i = phi { ptr, i32 } [ %24, %23 ], [ %19, %18 ], [ %13, %12 ]
-  %.sink.i = load ptr, ptr %.sink.in.i, align 8
-  call void @free(ptr noundef %.sink.i) #37
+common.resume.i:                                  ; preds = %24, %19, %13
+  %.sink1.i = phi ptr [ %5, %24 ], [ %5, %19 ], [ %4, %13 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %25, %24 ], [ %20, %19 ], [ %14, %13 ]
+  %12 = load ptr, ptr %.sink1.i, align 8
+  call void @free(ptr noundef %12) #37
   resume { ptr, i32 } %common.resume.op.i
 
-12:                                               ; preds = %11
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %11
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
 _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !2998
-  %14 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %14) #37
-  %15 = load i64, ptr @_Py_NoneStruct, align 8
-  %16 = add nsw i64 %15, 1
-  store i64 %16, ptr @_Py_NoneStruct, align 8
+  %15 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %15) #37
+  %16 = load i64, ptr @_Py_NoneStruct, align 8
+  %17 = add nsw i64 %16, 1
+  store i64 %17, ptr @_Py_NoneStruct, align 8
   br label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_38N5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEEJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit"
 
-17:                                               ; preds = %1
+18:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2999)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3002)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3005)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !3008
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !3008
   invoke void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEENS2_IfLin1ELin1ELi0ELin1ELin1EEENS0_9assign_opIffEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 1 dereferenceable(1) %2)
-          to label %"_ZNO8pybind116detail15argument_loaderIJEE4callIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEENS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_38EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit17.i" unwind label %18
+          to label %"_ZNO8pybind116detail15argument_loaderIJEE4callIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEENS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_38EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit17.i" unwind label %19
 
-18:                                               ; preds = %17
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %18
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
-"_ZNO8pybind116detail15argument_loaderIJEE4callIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEENS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_38EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit17.i": ; preds = %17
+"_ZNO8pybind116detail15argument_loaderIJEE4callIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEENS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_38EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit17.i": ; preds = %18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !3008
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
-  %.sroa.01.0.copyload.i = load ptr, ptr %20, align 8
-  %21 = invoke ptr @_ZN8pybind116detail11type_casterIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEEvE9cast_implIS4_EENS_6handleEPT_NS_19return_value_policyES7_(ptr noundef nonnull %5, i8 noundef zeroext 4, ptr %.sroa.01.0.copyload.i)
-          to label %_ZN8pybind116detail11type_casterIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit.i unwind label %23
+  %21 = getelementptr inbounds i8, ptr %0, i64 88
+  %.sroa.01.0.copyload.i = load ptr, ptr %21, align 8
+  %22 = invoke ptr @_ZN8pybind116detail11type_casterIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEEvE9cast_implIS4_EENS_6handleEPT_NS_19return_value_policyES7_(ptr noundef nonnull %5, i8 noundef zeroext 4, ptr %.sroa.01.0.copyload.i)
+          to label %_ZN8pybind116detail11type_casterIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit.i unwind label %24
 
 _ZN8pybind116detail11type_casterIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit.i: ; preds = %"_ZNO8pybind116detail15argument_loaderIJEE4callIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEENS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_38EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit17.i"
-  %22 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %22) #37
+  %23 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %23) #37
   br label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_38N5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEEJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit"
 
-23:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJEE4callIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEENS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_38EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit17.i"
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %"_ZNO8pybind116detail15argument_loaderIJEE4callIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEENS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_38EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESD_E4typeEOT1_.exit17.i"
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
 "_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_38N5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEEJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESO_.exit": ; preds = %_ZN8pybind114noneD2Ev.exit.i, %_ZN8pybind116detail11type_casterIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit.i
-  %.sroa.0.0.i = phi ptr [ %21, %_ZN8pybind116detail11type_casterIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit.i ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ]
+  %.sroa.0.0.i = phi ptr [ %22, %_ZN8pybind116detail11type_casterIN5Eigen6MatrixIfLin1ELin1ELi1ELin1ELin1EEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit.i ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret ptr %.sroa.0.0.i
@@ -99482,7 +99482,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_
   %11 = load i16, ptr %10, align 1
   %12 = and i16 %11, 32
   %.not.i = icmp eq i16 %12, 0
-  br i1 %.not.i, label %20, label %13
+  br i1 %.not.i, label %21, label %13
 
 13:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -99490,55 +99490,55 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3366
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !3369, !noalias !3372
   %14 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind116detail9load_typeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEvEERNS0_11type_casterIT_T0_EES9_RKNS_6handleE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %_ZN8pybind114noneD2Ev.exit.i unwind label %15, !noalias !3372
+          to label %_ZN8pybind114noneD2Ev.exit.i unwind label %16, !noalias !3372
 
-common.resume.i:                                  ; preds = %22, %15
-  %.sink.in.i = phi ptr [ %2, %22 ], [ %4, %15 ]
-  %common.resume.op.i = phi { ptr, i32 } [ %23, %22 ], [ %16, %15 ]
-  %.sink.i = load ptr, ptr %.sink.in.i, align 8, !noalias !1432
-  call void @free(ptr noundef %.sink.i) #37, !noalias !1432
+common.resume.i:                                  ; preds = %23, %16
+  %.sink3.i = phi ptr [ %2, %23 ], [ %4, %16 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %24, %23 ], [ %17, %16 ]
+  %15 = load ptr, ptr %.sink3.i, align 8, !noalias !1432
+  call void @free(ptr noundef %15) #37, !noalias !1432
   resume { ptr, i32 } %common.resume.op.i
 
-15:                                               ; preds = %13
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %13
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
 _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %13
-  %17 = load ptr, ptr %4, align 8, !noalias !3372
+  %18 = load ptr, ptr %4, align 8, !noalias !3372
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !3366
-  call void @free(ptr noundef %17) #37
+  call void @free(ptr noundef %18) #37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %18 = load i64, ptr @_Py_NoneStruct, align 8
-  %19 = add nsw i64 %18, 1
-  store i64 %19, ptr @_Py_NoneStruct, align 8
+  %19 = load i64, ptr @_Py_NoneStruct, align 8
+  %20 = add nsw i64 %19, 1
+  store i64 %20, ptr @_Py_NoneStruct, align 8
   br label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_52dJNS_6handleEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESM_.exit"
 
-20:                                               ; preds = %8
+21:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3375
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !alias.scope !3378, !noalias !3381
-  %21 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind116detail9load_typeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEvEERNS0_11type_casterIT_T0_EES9_RKNS_6handleE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %"_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIdNS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_52EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_.exit16.i" unwind label %22, !noalias !3381
+  %22 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN8pybind116detail9load_typeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEvEERNS0_11type_casterIT_T0_EES9_RKNS_6handleE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %"_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIdNS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_52EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_.exit16.i" unwind label %23, !noalias !3381
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %21
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
 
-"_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIdNS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_52EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_.exit16.i": ; preds = %20
-  %24 = load ptr, ptr %2, align 8, !noalias !3381
+"_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIdNS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_52EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_.exit16.i": ; preds = %21
+  %25 = load ptr, ptr %2, align 8, !noalias !3381
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !3375
-  %25 = getelementptr i8, ptr %24, i64 8
-  %26 = load double, ptr %25, align 8
-  call void @free(ptr noundef %24) #37
+  %26 = getelementptr i8, ptr %25, i64 8
+  %27 = load double, ptr %26, align 8
+  call void @free(ptr noundef %25) #37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %27 = call ptr @PyFloat_FromDouble(double noundef %26)
+  %28 = call ptr @PyFloat_FromDouble(double noundef %27)
   br label %"_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_52dJNS_6handleEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESM_.exit"
 
 "_ZZN8pybind1112cpp_function10initializeIZ27test_submodule_eigen_matrixRNS_7module_EE4$_52dJNS_6handleEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESM_.exit": ; preds = %1, %_ZN8pybind114noneD2Ev.exit.i, %"_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIdNS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_52EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_.exit16.i"
-  %.sroa.01.1.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ %27, %"_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIdNS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_52EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_.exit16.i" ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ]
+  %.sroa.01.1.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ %28, %"_ZNO8pybind116detail15argument_loaderIJNS_6handleEEE4callIdNS0_9void_typeERZ27test_submodule_eigen_matrixRNS_7module_EE4$_52EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_.exit16.i" ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ]
   ret ptr %.sroa.01.1.i
 }
 

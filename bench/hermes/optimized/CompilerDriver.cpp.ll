@@ -18813,12 +18813,8 @@ entry:
   %0 = load i8, ptr %LHSKind.i.i.i.i, align 8, !noalias !268
   switch i8 %0, label %if.end8.i.i [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit
-    i8 1, label %if.then4.i.i
+    i8 1, label %_ZN4llvhplERKNS_5TwineES2_.exit.sink.split
   ]
-
-if.then4.i.i:                                     ; preds = %entry
-  store ptr @.str.314, ptr %ref.tmp, align 8
-  br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 if.end8.i.i:                                      ; preds = %entry
   %RHSKind.i.i.i.i = getelementptr inbounds i8, ptr %fileName, i64 17
@@ -18829,12 +18825,18 @@ if.end8.i.i:                                      ; preds = %entry
   %spec.select20.i.i = select i1 %cmp.i13.i.i, ptr %NewLHS.sroa.0.0.copyload.i.i, ptr %fileName
   store ptr %spec.select20.i.i, ptr %ref.tmp, align 8, !alias.scope !268
   %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr @.str.314, ptr %RHS4.i.i.i, align 8, !alias.scope !268
+  br label %_ZN4llvhplERKNS_5TwineES2_.exit.sink.split
+
+_ZN4llvhplERKNS_5TwineES2_.exit.sink.split:       ; preds = %entry, %if.end8.i.i
+  %ref.tmp.sink = phi ptr [ %RHS4.i.i.i, %if.end8.i.i ], [ %ref.tmp, %entry ]
+  %.sink73.ph = phi i8 [ %spec.select.i.i, %if.end8.i.i ], [ 3, %entry ]
+  %.sink.ph = phi i8 [ 3, %if.end8.i.i ], [ %0, %entry ]
+  store ptr @.str.314, ptr %ref.tmp.sink, align 8
   br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
-_ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry, %if.then4.i.i, %if.end8.i.i
-  %.sink73 = phi i8 [ 3, %if.then4.i.i ], [ %spec.select.i.i, %if.end8.i.i ], [ %0, %entry ]
-  %.sink = phi i8 [ 1, %if.then4.i.i ], [ 3, %if.end8.i.i ], [ 1, %entry ]
+_ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit.sink.split, %entry
+  %.sink73 = phi i8 [ %0, %entry ], [ %.sink73.ph, %_ZN4llvhplERKNS_5TwineES2_.exit.sink.split ]
+  %.sink = phi i8 [ 1, %entry ], [ %.sink.ph, %_ZN4llvhplERKNS_5TwineES2_.exit.sink.split ]
   %LHSKind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 %.sink73, ptr %LHSKind.i.i.i, align 8
   %RHSKind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
@@ -25166,16 +25168,16 @@ _ZN4llvh11raw_ostreamlsEPKc.exit16:               ; preds = %if.then.i.i14, %if.
   %call.i17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %second) #25
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %second) #25
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i13, ptr noundef %call.i17, i64 noundef %call2.i) #25
-  store ptr null, ptr %agg.result, align 8
   br label %cleanup
 
 if.end8:                                          ; preds = %_ZNSt10unique_ptrIKN6hermes6BufferESt14default_deleteIS2_EED2Ev.exit
   %13 = ptrtoint ptr %9 to i64
   store i64 %13, ptr %agg.result, align 8
-  store ptr null, ptr %ret, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end8, %_ZN4llvh11raw_ostreamlsEPKc.exit16
+  %ret.sink = phi ptr [ %ret, %if.end8 ], [ %agg.result, %_ZN4llvh11raw_ostreamlsEPKc.exit16 ]
+  store ptr null, ptr %ret.sink, align 8
   %second.i = getelementptr inbounds i8, ptr %ret, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i) #25
   %14 = load ptr, ptr %ret, align 8

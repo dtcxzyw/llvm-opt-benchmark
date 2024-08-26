@@ -4327,7 +4327,6 @@ invoke.cont10:                                    ; preds = %invoke.cont6
 invoke.cont13:                                    ; preds = %invoke.cont10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
-  store ptr null, ptr %agg.result, align 8
   br label %cleanup
 
 lpad:                                             ; preds = %if.end8.i, %if.then3.i, %if.end.i, %if.then.i, %entry
@@ -4413,13 +4412,13 @@ invoke.cont19:                                    ; preds = %invoke.cont17
 invoke.cont21:                                    ; preds = %invoke.cont19
   %61 = load ptr, ptr %agg.tmp15, align 8
   %cmp.not.i = icmp eq ptr %61, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN9grpc_core15Chttp2ConnectorENS0_16OrphanableDeleteEED2Ev.exit, label %if.then.i18
+  br i1 %cmp.not.i, label %cleanup, label %if.then.i18
 
 if.then.i18:                                      ; preds = %invoke.cont21
   %vtable.i.i = load ptr, ptr %61, align 8
   %62 = load ptr, ptr %vtable.i.i, align 8
   invoke void %62(ptr noundef nonnull align 8 dereferenceable(16) %61)
-          to label %_ZNSt10unique_ptrIN9grpc_core15Chttp2ConnectorENS0_16OrphanableDeleteEED2Ev.exit unwind label %terminate.lpad.i
+          to label %cleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i18
   %63 = landingpad { ptr, i32 }
@@ -4427,10 +4426,6 @@ terminate.lpad.i:                                 ; preds = %if.then.i18
   %64 = extractvalue { ptr, i32 } %63, 0
   call void @__clang_call_terminate(ptr %64) #23
   unreachable
-
-_ZNSt10unique_ptrIN9grpc_core15Chttp2ConnectorENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %if.then.i18, %invoke.cont21
-  store ptr null, ptr %agg.tmp15, align 8
-  br label %cleanup
 
 lpad18:                                           ; preds = %if.then.i.i16, %invoke.cont19
   %65 = landingpad { ptr, i32 }
@@ -4456,7 +4451,9 @@ _ZNSt10unique_ptrIN9grpc_core15Chttp2ConnectorENS0_16OrphanableDeleteEED2Ev.exit
   store ptr null, ptr %agg.tmp15, align 8
   br label %ehcleanup24
 
-cleanup:                                          ; preds = %_ZNSt10unique_ptrIN9grpc_core15Chttp2ConnectorENS0_16OrphanableDeleteEED2Ev.exit, %invoke.cont13
+cleanup:                                          ; preds = %invoke.cont21, %if.then.i18, %invoke.cont13
+  %agg.tmp15.sink = phi ptr [ %agg.result, %invoke.cont13 ], [ %agg.tmp15, %if.then.i18 ], [ %agg.tmp15, %invoke.cont21 ]
+  store ptr null, ptr %agg.tmp15.sink, align 8
   %70 = load i64, ptr %new_args, align 8
   %cmp.i.i.i.i37 = icmp eq i64 %70, 0
   br i1 %cmp.i.i.i.i37, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i

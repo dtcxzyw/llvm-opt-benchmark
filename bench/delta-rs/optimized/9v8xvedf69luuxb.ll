@@ -50510,12 +50510,12 @@ define hidden void @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$
 .noexc2:                                          ; preds = %20
   br i1 %21, label %20, label %"_ZN4core3ptr565drop_in_place$LT$tokio..util..idle_notified_set..IdleNotifiedSet$LT$T$GT$..drain..AllEntries$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$C$$LT$tokio..task..join_set..JoinSet$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3fbebd14849ac70bE.exit"
 
-.loopexit19:                                      ; preds = %71
+.loopexit19:                                      ; preds = %70
   %lpad.loopexit21 = landingpad { ptr, i32 }
           cleanup
   br label %19
 
-.loopexit.split-lp20:                             ; preds = %16, %_ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.3801596959246744488.exit15, %70
+.loopexit.split-lp20:                             ; preds = %16, %_ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.3801596959246744488.exit15, %69
   %lpad.loopexit.split-lp22 = landingpad { ptr, i32 }
           cleanup
   br label %19
@@ -50585,7 +50585,6 @@ define hidden void @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$
   store ptr %.lcssa29, ptr %12, align 8, !alias.scope !9136, !noalias !9128
   store ptr %.lcssa24, ptr %23, align 8, !alias.scope !9133, !noalias !9131
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !9149
-  store ptr null, ptr %4, align 8, !noalias !9149
   br label %._crit_edge48.invoke
 
 41:                                               ; preds = %.lr.ph
@@ -50664,7 +50663,7 @@ _ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.380
   store ptr %.val7.i.i745, ptr %63, align 8, !noalias !9171
   store ptr null, ptr %60, align 8, !noalias !9171
   %.not.i2.i10 = icmp eq ptr %.val7.i.i745, null
-  br i1 %.not.i2.i10, label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$10push_front17hdd6b9dbc3432e372E.llvm.3801596959246744488.exit.i12", label %66
+  br i1 %.not.i2.i10, label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$10push_front17hdd6b9dbc3432e372E.llvm.3801596959246744488.exit.i12", label %65
 
 ._crit_edge48:                                    ; preds = %53, %.lr.ph.i5
   %.lcssa41 = phi ptr [ %.promoted40, %.lr.ph.i5 ], [ %spec.select52, %53 ]
@@ -50674,24 +50673,24 @@ _ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.380
   store ptr %.lcssa41, ptr %12, align 8, !alias.scope !9158, !noalias !9150
   store ptr %.lcssa, ptr %46, align 8, !alias.scope !9155, !noalias !9153
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !9171
-  store ptr null, ptr %2, align 8, !noalias !9171
   br label %._crit_edge48.invoke
 
 ._crit_edge48.invoke:                             ; preds = %._crit_edge, %._crit_edge48
-  %64 = phi ptr [ %3, %._crit_edge48 ], [ %5, %._crit_edge ]
-  %65 = phi ptr [ %2, %._crit_edge48 ], [ %4, %._crit_edge ]
-  invoke void @_ZN4core9panicking13assert_failed17h800a37815b052fbbE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %64, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17e6648beb32e5ba8aca87ae4c53798e.364.llvm.3801596959246744488) #57
+  %.sink = phi ptr [ %4, %._crit_edge ], [ %2, %._crit_edge48 ]
+  %64 = phi ptr [ %5, %._crit_edge ], [ %3, %._crit_edge48 ]
+  store ptr null, ptr %.sink, align 8, !noalias !21
+  invoke void @_ZN4core9panicking13assert_failed17h800a37815b052fbbE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %64, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17e6648beb32e5ba8aca87ae4c53798e.364.llvm.3801596959246744488) #57
           to label %._crit_edge48.cont unwind label %43
 
 ._crit_edge48.cont:                               ; preds = %._crit_edge48.invoke
   unreachable
 
-66:                                               ; preds = %.lr.ph47
-  %67 = getelementptr inbounds i8, ptr %.val7.i.i745, i64 8
-  store ptr %61, ptr %67, align 8, !noalias !9171
+65:                                               ; preds = %.lr.ph47
+  %66 = getelementptr inbounds i8, ptr %.val7.i.i745, i64 8
+  store ptr %61, ptr %66, align 8, !noalias !9171
   br label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$10push_front17hdd6b9dbc3432e372E.llvm.3801596959246744488.exit.i12"
 
-"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$10push_front17hdd6b9dbc3432e372E.llvm.3801596959246744488.exit.i12": ; preds = %66, %.lr.ph47
+"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$10push_front17hdd6b9dbc3432e372E.llvm.3801596959246744488.exit.i12": ; preds = %65, %.lr.ph47
   %.not6.i.i11 = icmp eq ptr %62, null
   %spec.select52 = select i1 %.not6.i.i11, ptr %61, ptr %62
   br i1 %.not.i.i846, label %"._ZN4core3ptr317drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..util..idle_notified_set..ListEntry$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$$GT$17hb6b2412c2f99eff3E.llvm.3801596959246744488.exit_crit_edge.i13", label %53
@@ -50703,31 +50702,31 @@ _ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.380
   br label %_ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.3801596959246744488.exit15
 
 _ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.3801596959246744488.exit15: ; preds = %"._ZN4core3ptr317drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..util..idle_notified_set..ListEntry$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$$GT$17hb6b2412c2f99eff3E.llvm.3801596959246744488.exit_crit_edge.i13", %_ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.3801596959246744488.exit
-  %68 = invoke { i1, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h31ec0f7623dce394E.llvm.4057250340930679409(ptr noundef nonnull %14, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
+  %67 = invoke { i1, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h31ec0f7623dce394E.llvm.4057250340930679409(ptr noundef nonnull %14, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
           to label %.noexc16 unwind label %.loopexit.split-lp20
 
 .noexc16:                                         ; preds = %_ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.3801596959246744488.exit15
-  %69 = extractvalue { i1, i8 } %68, 0
-  br i1 %69, label %70, label %"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit"
+  %68 = extractvalue { i1, i8 } %67, 0
+  br i1 %68, label %69, label %"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit"
 
-70:                                               ; preds = %.noexc16
+69:                                               ; preds = %.noexc16
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17he1c53a068c5a683eE(ptr noundef nonnull align 1 %14, i1 noundef zeroext false)
           to label %"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit" unwind label %.loopexit.split-lp20
 
-"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit": ; preds = %.noexc16, %70
+"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit": ; preds = %.noexc16, %69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %71
+  br label %70
 
-71:                                               ; preds = %73, %"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit"
-  %72 = invoke noundef zeroext i1 @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$5drain23AllEntries$LT$T$C$F$GT$8pop_next17h5f95eb29992b4b44E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %73 unwind label %.loopexit19
+70:                                               ; preds = %72, %"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit"
+  %71 = invoke noundef zeroext i1 @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$5drain23AllEntries$LT$T$C$F$GT$8pop_next17h5f95eb29992b4b44E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+          to label %72 unwind label %.loopexit19
 
-73:                                               ; preds = %71
-  br i1 %72, label %71, label %.preheader
+72:                                               ; preds = %70
+  br i1 %71, label %70, label %.preheader
 
-.preheader:                                       ; preds = %73, %.preheader
-  %74 = call noundef zeroext i1 @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$5drain23AllEntries$LT$T$C$F$GT$8pop_next17h5f95eb29992b4b44E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-  br i1 %74, label %.preheader, label %"_ZN4core3ptr565drop_in_place$LT$tokio..util..idle_notified_set..IdleNotifiedSet$LT$T$GT$..drain..AllEntries$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$C$$LT$tokio..task..join_set..JoinSet$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3fbebd14849ac70bE.exit18"
+.preheader:                                       ; preds = %72, %.preheader
+  %73 = call noundef zeroext i1 @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$5drain23AllEntries$LT$T$C$F$GT$8pop_next17h5f95eb29992b4b44E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  br i1 %73, label %.preheader, label %"_ZN4core3ptr565drop_in_place$LT$tokio..util..idle_notified_set..IdleNotifiedSet$LT$T$GT$..drain..AllEntries$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$C$$LT$tokio..task..join_set..JoinSet$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3fbebd14849ac70bE.exit18"
 
 "_ZN4core3ptr565drop_in_place$LT$tokio..util..idle_notified_set..IdleNotifiedSet$LT$T$GT$..drain..AllEntries$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$C$$LT$tokio..task..join_set..JoinSet$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h3fbebd14849ac70bE.exit18": ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -50786,12 +50785,12 @@ define hidden void @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$
 .noexc2:                                          ; preds = %20
   br i1 %21, label %20, label %"_ZN4core3ptr520drop_in_place$LT$tokio..util..idle_notified_set..IdleNotifiedSet$LT$T$GT$..drain..AllEntries$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$C$core..mem..drop$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hf173f690c59b470aE.exit"
 
-.loopexit19:                                      ; preds = %71
+.loopexit19:                                      ; preds = %70
   %lpad.loopexit21 = landingpad { ptr, i32 }
           cleanup
   br label %19
 
-.loopexit.split-lp20:                             ; preds = %16, %_ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.3801596959246744488.exit15, %70
+.loopexit.split-lp20:                             ; preds = %16, %_ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.3801596959246744488.exit15, %69
   %lpad.loopexit.split-lp22 = landingpad { ptr, i32 }
           cleanup
   br label %19
@@ -50861,7 +50860,6 @@ define hidden void @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$
   store ptr %.lcssa29, ptr %12, align 8, !alias.scope !9180, !noalias !9172
   store ptr %.lcssa24, ptr %23, align 8, !alias.scope !9177, !noalias !9175
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !9193
-  store ptr null, ptr %4, align 8, !noalias !9193
   br label %._crit_edge48.invoke
 
 41:                                               ; preds = %.lr.ph
@@ -50940,7 +50938,7 @@ _ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.380
   store ptr %.val7.i.i745, ptr %63, align 8, !noalias !9215
   store ptr null, ptr %60, align 8, !noalias !9215
   %.not.i2.i10 = icmp eq ptr %.val7.i.i745, null
-  br i1 %.not.i2.i10, label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$10push_front17hdd6b9dbc3432e372E.llvm.3801596959246744488.exit.i12", label %66
+  br i1 %.not.i2.i10, label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$10push_front17hdd6b9dbc3432e372E.llvm.3801596959246744488.exit.i12", label %65
 
 ._crit_edge48:                                    ; preds = %53, %.lr.ph.i5
   %.lcssa41 = phi ptr [ %.promoted40, %.lr.ph.i5 ], [ %spec.select52, %53 ]
@@ -50950,24 +50948,24 @@ _ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.380
   store ptr %.lcssa41, ptr %12, align 8, !alias.scope !9202, !noalias !9194
   store ptr %.lcssa, ptr %46, align 8, !alias.scope !9199, !noalias !9197
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !9215
-  store ptr null, ptr %2, align 8, !noalias !9215
   br label %._crit_edge48.invoke
 
 ._crit_edge48.invoke:                             ; preds = %._crit_edge, %._crit_edge48
-  %64 = phi ptr [ %3, %._crit_edge48 ], [ %5, %._crit_edge ]
-  %65 = phi ptr [ %2, %._crit_edge48 ], [ %4, %._crit_edge ]
-  invoke void @_ZN4core9panicking13assert_failed17h800a37815b052fbbE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %64, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17e6648beb32e5ba8aca87ae4c53798e.364.llvm.3801596959246744488) #57
+  %.sink = phi ptr [ %4, %._crit_edge ], [ %2, %._crit_edge48 ]
+  %64 = phi ptr [ %5, %._crit_edge ], [ %3, %._crit_edge48 ]
+  store ptr null, ptr %.sink, align 8, !noalias !21
+  invoke void @_ZN4core9panicking13assert_failed17h800a37815b052fbbE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %64, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.17e6648beb32e5ba8aca87ae4c53798e.364.llvm.3801596959246744488) #57
           to label %._crit_edge48.cont unwind label %43
 
 ._crit_edge48.cont:                               ; preds = %._crit_edge48.invoke
   unreachable
 
-66:                                               ; preds = %.lr.ph47
-  %67 = getelementptr inbounds i8, ptr %.val7.i.i745, i64 8
-  store ptr %61, ptr %67, align 8, !noalias !9215
+65:                                               ; preds = %.lr.ph47
+  %66 = getelementptr inbounds i8, ptr %.val7.i.i745, i64 8
+  store ptr %61, ptr %66, align 8, !noalias !9215
   br label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$10push_front17hdd6b9dbc3432e372E.llvm.3801596959246744488.exit.i12"
 
-"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$10push_front17hdd6b9dbc3432e372E.llvm.3801596959246744488.exit.i12": ; preds = %66, %.lr.ph47
+"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$10push_front17hdd6b9dbc3432e372E.llvm.3801596959246744488.exit.i12": ; preds = %65, %.lr.ph47
   %.not6.i.i11 = icmp eq ptr %62, null
   %spec.select52 = select i1 %.not6.i.i11, ptr %61, ptr %62
   br i1 %.not.i.i846, label %"._ZN4core3ptr317drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..util..idle_notified_set..ListEntry$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$$GT$17hb6b2412c2f99eff3E.llvm.3801596959246744488.exit_crit_edge.i13", label %53
@@ -50979,31 +50977,31 @@ _ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.380
   br label %_ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.3801596959246744488.exit15
 
 _ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.3801596959246744488.exit15: ; preds = %"._ZN4core3ptr317drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..util..idle_notified_set..ListEntry$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$$GT$17hb6b2412c2f99eff3E.llvm.3801596959246744488.exit_crit_edge.i13", %_ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.3801596959246744488.exit
-  %68 = invoke { i1, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h31ec0f7623dce394E.llvm.4057250340930679409(ptr noundef nonnull %14, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
+  %67 = invoke { i1, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h31ec0f7623dce394E.llvm.4057250340930679409(ptr noundef nonnull %14, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
           to label %.noexc16 unwind label %.loopexit.split-lp20
 
 .noexc16:                                         ; preds = %_ZN5tokio4util17idle_notified_set16move_to_new_list17he0df8a7c592ba7eaE.llvm.3801596959246744488.exit15
-  %69 = extractvalue { i1, i8 } %68, 0
-  br i1 %69, label %70, label %"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit"
+  %68 = extractvalue { i1, i8 } %67, 0
+  br i1 %68, label %69, label %"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit"
 
-70:                                               ; preds = %.noexc16
+69:                                               ; preds = %.noexc16
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17he1c53a068c5a683eE(ptr noundef nonnull align 1 %14, i1 noundef zeroext false)
           to label %"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit" unwind label %.loopexit.split-lp20
 
-"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit": ; preds = %.noexc16, %70
+"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit": ; preds = %.noexc16, %69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %71
+  br label %70
 
-71:                                               ; preds = %73, %"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit"
-  %72 = invoke noundef zeroext i1 @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$5drain23AllEntries$LT$T$C$F$GT$8pop_next17hb40cbe12d35db819E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %73 unwind label %.loopexit19
+70:                                               ; preds = %72, %"_ZN4core3ptr315drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..idle_notified_set..ListsInner$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hfae8970673867543E.exit"
+  %71 = invoke noundef zeroext i1 @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$5drain23AllEntries$LT$T$C$F$GT$8pop_next17hb40cbe12d35db819E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+          to label %72 unwind label %.loopexit19
 
-73:                                               ; preds = %71
-  br i1 %72, label %71, label %.preheader
+72:                                               ; preds = %70
+  br i1 %71, label %70, label %.preheader
 
-.preheader:                                       ; preds = %73, %.preheader
-  %74 = call noundef zeroext i1 @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$5drain23AllEntries$LT$T$C$F$GT$8pop_next17hb40cbe12d35db819E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-  br i1 %74, label %.preheader, label %"_ZN4core3ptr520drop_in_place$LT$tokio..util..idle_notified_set..IdleNotifiedSet$LT$T$GT$..drain..AllEntries$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$C$core..mem..drop$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hf173f690c59b470aE.exit18"
+.preheader:                                       ; preds = %72, %.preheader
+  %73 = call noundef zeroext i1 @"_ZN5tokio4util17idle_notified_set24IdleNotifiedSet$LT$T$GT$5drain23AllEntries$LT$T$C$F$GT$8pop_next17hb40cbe12d35db819E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  br i1 %73, label %.preheader, label %"_ZN4core3ptr520drop_in_place$LT$tokio..util..idle_notified_set..IdleNotifiedSet$LT$T$GT$..drain..AllEntries$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$C$core..mem..drop$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hf173f690c59b470aE.exit18"
 
 "_ZN4core3ptr520drop_in_place$LT$tokio..util..idle_notified_set..IdleNotifiedSet$LT$T$GT$..drain..AllEntries$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$C$core..mem..drop$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$$GT$17hf173f690c59b470aE.exit18": ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)

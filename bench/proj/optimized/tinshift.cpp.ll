@@ -6695,19 +6695,19 @@ define hidden noundef zeroext i1 @_ZN8TINShift9Evaluator7inverseEdddRdS1_S1_(ptr
   %14 = getelementptr inbounds i8, ptr %13, i64 448
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %53, label %17
+  br i1 %16, label %52, label %17
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds i8, ptr %13, i64 449
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %53
+  br i1 %20, label %21, label %52
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not68 = icmp eq ptr %23, null
-  br i1 %.not68, label %24, label %85
+  br i1 %.not68, label %24, label %83
 
 24:                                               ; preds = %21
   call fastcc void @_ZN8TINShiftL13BuildQuadTreeERKNS_12TINShiftFileEb(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(504) %13, i1 noundef zeroext true)
@@ -6716,7 +6716,7 @@ define hidden noundef zeroext i1 @_ZN8TINShift9Evaluator7inverseEdddRdS1_S1_(ptr
   %26 = load ptr, ptr %22, align 8
   store ptr %25, ptr %22, align 8
   %.not.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev.exit, label %27
+  br i1 %.not.i.i.i.i, label %.sink.split, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %26, i64 56
@@ -6756,7 +6756,7 @@ _ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEO
   call void @_ZdlPv(ptr noundef nonnull %26) #29
   %.pr = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.pr, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev.exit, label %40
+  br i1 %.not.i, label %.sink.split, label %40
 
 40:                                               ; preds = %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit
   %41 = getelementptr inbounds i8, ptr %.pr, i64 56
@@ -6786,232 +6786,229 @@ _ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i
   %50 = getelementptr inbounds i8, ptr %.pr, i64 32
   %51 = load ptr, ptr %50, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5osgeo4proj8QuadTree8QuadTreeIjEEEclEPS4_.exit.i, label %52
+  br i1 %.not.i.i.i.i.i.i.i, label %.sink.split.sink.split, label %.sink.split.sink.split.sink.split
 
-52:                                               ; preds = %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %51) #29
-  br label %_ZNKSt14default_deleteIN5osgeo4proj8QuadTree8QuadTreeIjEEEclEPS4_.exit.i
+52:                                               ; preds = %17, %7
+  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %54 = load ptr, ptr %53, align 8
+  %.not69 = icmp eq ptr %54, null
+  br i1 %.not69, label %55, label %83
 
-_ZNKSt14default_deleteIN5osgeo4proj8QuadTree8QuadTreeIjEEEclEPS4_.exit.i: ; preds = %52, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #29
-  br label %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev.exit
-
-_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev.exit: ; preds = %24, %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit, %_ZNKSt14default_deleteIN5osgeo4proj8QuadTree8QuadTreeIjEEEclEPS4_.exit.i
-  store ptr null, ptr %8, align 8
-  br label %85
-
-53:                                               ; preds = %17, %7
-  %54 = getelementptr inbounds i8, ptr %0, i64 40
-  %55 = load ptr, ptr %54, align 8
-  %.not69 = icmp eq ptr %55, null
-  br i1 %.not69, label %56, label %85
-
-56:                                               ; preds = %53
+55:                                               ; preds = %52
   call fastcc void @_ZN8TINShiftL13BuildQuadTreeERKNS_12TINShiftFileEb(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(504) %13, i1 noundef zeroext false)
-  %57 = load ptr, ptr %9, align 8
+  %56 = load ptr, ptr %9, align 8
   store ptr null, ptr %9, align 8
-  %58 = load ptr, ptr %54, align 8
-  store ptr %57, ptr %54, align 8
-  %.not.i.i.i.i51 = icmp eq ptr %58, null
-  br i1 %.not.i.i.i.i51, label %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev.exit64, label %59
+  %57 = load ptr, ptr %53, align 8
+  store ptr %56, ptr %53, align 8
+  %.not.i.i.i.i51 = icmp eq ptr %57, null
+  br i1 %.not.i.i.i.i51, label %.sink.split, label %58
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %58, i64 56
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %58, i64 64
-  %63 = load ptr, ptr %62, align 8
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5osgeo4proj8QuadTree8QuadTreeIjE4NodeEEEvT_S9_(ptr noundef %61, ptr noundef %63)
-          to label %_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i52 unwind label %64
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds i8, ptr %57, i64 56
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %57, i64 64
+  %62 = load ptr, ptr %61, align 8
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5osgeo4proj8QuadTree8QuadTreeIjE4NodeEEEvT_S9_(ptr noundef %60, ptr noundef %62)
+          to label %_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i52 unwind label %63
 
-64:                                               ; preds = %59
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %58
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #26
+  %65 = extractvalue { ptr, i32 } %64, 0
+  call void @__clang_call_terminate(ptr %65) #26
   unreachable
 
-_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i52: ; preds = %59
-  %67 = load ptr, ptr %60, align 8
-  %.not.i.i.i.i.i.i.i.i.i53 = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i53, label %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i54, label %68
+_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i52: ; preds = %58
+  %66 = load ptr, ptr %59, align 8
+  %.not.i.i.i.i.i.i.i.i.i53 = icmp eq ptr %66, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i53, label %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i54, label %67
 
-68:                                               ; preds = %_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i52
-  call void @_ZdlPv(ptr noundef nonnull %67) #29
+67:                                               ; preds = %_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i52
+  call void @_ZdlPv(ptr noundef nonnull %66) #29
   br label %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i54
 
-_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i54: ; preds = %68, %_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i52
-  %69 = getelementptr inbounds i8, ptr %58, i64 32
-  %70 = load ptr, ptr %69, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i55 = icmp eq ptr %70, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i55, label %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit57, label %71
+_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i54: ; preds = %67, %_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i52
+  %68 = getelementptr inbounds i8, ptr %57, i64 32
+  %69 = load ptr, ptr %68, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i55 = icmp eq ptr %69, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i55, label %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit57, label %70
 
-71:                                               ; preds = %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i54
-  call void @_ZdlPv(ptr noundef nonnull %70) #29
+70:                                               ; preds = %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i54
+  call void @_ZdlPv(ptr noundef nonnull %69) #29
   br label %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit57
 
-_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit57: ; preds = %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i54, %71
-  call void @_ZdlPv(ptr noundef nonnull %58) #29
+_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit57: ; preds = %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i.i.i.i54, %70
+  call void @_ZdlPv(ptr noundef nonnull %57) #29
   %.pr66 = load ptr, ptr %9, align 8
   %.not.i58 = icmp eq ptr %.pr66, null
-  br i1 %.not.i58, label %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev.exit64, label %72
+  br i1 %.not.i58, label %.sink.split, label %71
 
-72:                                               ; preds = %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit57
-  %73 = getelementptr inbounds i8, ptr %.pr66, i64 56
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.pr66, i64 64
-  %76 = load ptr, ptr %75, align 8
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5osgeo4proj8QuadTree8QuadTreeIjE4NodeEEEvT_S9_(ptr noundef %74, ptr noundef %76)
-          to label %_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i59 unwind label %77
+71:                                               ; preds = %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit57
+  %72 = getelementptr inbounds i8, ptr %.pr66, i64 56
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %.pr66, i64 64
+  %75 = load ptr, ptr %74, align 8
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5osgeo4proj8QuadTree8QuadTreeIjE4NodeEEEvT_S9_(ptr noundef %73, ptr noundef %75)
+          to label %_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i59 unwind label %76
 
-77:                                               ; preds = %72
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %71
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #26
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #26
   unreachable
 
-_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i59: ; preds = %72
-  %80 = load ptr, ptr %73, align 8
-  %.not.i.i.i.i.i.i60 = icmp eq ptr %80, null
-  br i1 %.not.i.i.i.i.i.i60, label %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61, label %81
+_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i59: ; preds = %71
+  %79 = load ptr, ptr %72, align 8
+  %.not.i.i.i.i.i.i60 = icmp eq ptr %79, null
+  br i1 %.not.i.i.i.i.i.i60, label %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61, label %80
 
-81:                                               ; preds = %_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i59
-  call void @_ZdlPv(ptr noundef nonnull %80) #29
+80:                                               ; preds = %_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i59
+  call void @_ZdlPv(ptr noundef nonnull %79) #29
   br label %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61
 
-_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61: ; preds = %81, %_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i59
-  %82 = getelementptr inbounds i8, ptr %.pr66, i64 32
-  %83 = load ptr, ptr %82, align 8
-  %.not.i.i.i.i.i.i.i62 = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i.i.i.i62, label %_ZNKSt14default_deleteIN5osgeo4proj8QuadTree8QuadTreeIjEEEclEPS4_.exit.i63, label %84
+_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61: ; preds = %80, %_ZNSt6vectorIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i59
+  %81 = getelementptr inbounds i8, ptr %.pr66, i64 32
+  %82 = load ptr, ptr %81, align 8
+  %.not.i.i.i.i.i.i.i62 = icmp eq ptr %82, null
+  br i1 %.not.i.i.i.i.i.i.i62, label %.sink.split.sink.split, label %.sink.split.sink.split.sink.split
 
-84:                                               ; preds = %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61
-  call void @_ZdlPv(ptr noundef nonnull %83) #29
-  br label %_ZNKSt14default_deleteIN5osgeo4proj8QuadTree8QuadTreeIjEEEclEPS4_.exit.i63
+.sink.split.sink.split.sink.split:                ; preds = %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i
+  %.sink70 = phi ptr [ %51, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i ], [ %82, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61 ]
+  %.pr66.sink.ph = phi ptr [ %.pr, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i ], [ %.pr66, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61 ]
+  %.sink.ph.ph = phi ptr [ %8, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i ], [ %9, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61 ]
+  %.048.in.ph.ph.ph = phi ptr [ %22, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i ], [ %53, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sink70) #29
+  br label %.sink.split.sink.split
 
-_ZNKSt14default_deleteIN5osgeo4proj8QuadTree8QuadTreeIjEEEclEPS4_.exit.i63: ; preds = %84, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61
-  call void @_ZdlPv(ptr noundef nonnull %.pr66) #29
-  br label %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev.exit64
+.sink.split.sink.split:                           ; preds = %.sink.split.sink.split.sink.split, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i
+  %.pr66.sink = phi ptr [ %.pr, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i ], [ %.pr66, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61 ], [ %.pr66.sink.ph, %.sink.split.sink.split.sink.split ]
+  %.sink.ph = phi ptr [ %8, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i ], [ %9, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61 ], [ %.sink.ph.ph, %.sink.split.sink.split.sink.split ]
+  %.048.in.ph.ph = phi ptr [ %22, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i ], [ %53, %_ZNSt12_Vector_baseIN5osgeo4proj8QuadTree8QuadTreeIjE4NodeESaIS5_EED2Ev.exit.i.i.i.i61 ], [ %.048.in.ph.ph.ph, %.sink.split.sink.split.sink.split ]
+  call void @_ZdlPv(ptr noundef nonnull %.pr66.sink) #29
+  br label %.sink.split
 
-_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev.exit64: ; preds = %56, %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit57, %_ZNKSt14default_deleteIN5osgeo4proj8QuadTree8QuadTreeIjEEEclEPS4_.exit.i63
-  store ptr null, ptr %9, align 8
-  br label %85
+.sink.split:                                      ; preds = %.sink.split.sink.split, %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit57, %55, %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit, %24
+  %.sink = phi ptr [ %8, %24 ], [ %8, %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit ], [ %9, %55 ], [ %9, %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit57 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.048.in.ph = phi ptr [ %22, %24 ], [ %22, %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit ], [ %53, %55 ], [ %53, %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EEaSEOS7_.exit57 ], [ %.048.in.ph.ph, %.sink.split.sink.split ]
+  store ptr null, ptr %.sink, align 8
+  br label %83
 
-85:                                               ; preds = %53, %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev.exit64, %21, %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev.exit
-  %.048.in = phi ptr [ %22, %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev.exit ], [ %22, %21 ], [ %54, %_ZNSt10unique_ptrIN5osgeo4proj8QuadTree8QuadTreeIjEESt14default_deleteIS4_EED2Ev.exit64 ], [ %54, %53 ]
+83:                                               ; preds = %.sink.split, %52, %21
+  %.048.in = phi ptr [ %22, %21 ], [ %53, %52 ], [ %.048.in.ph, %.sink.split ]
   %.048 = load ptr, ptr %.048.in, align 8
   store double 0.000000e+00, ptr %10, align 8
   store double 0.000000e+00, ptr %11, align 8
   store double 0.000000e+00, ptr %12, align 8
-  %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
-  %88 = call fastcc noundef ptr @_ZN8TINShiftL12FindTriangleERKNS_12TINShiftFileERKN5osgeo4proj8QuadTree8QuadTreeIjEERSt6vectorIjSaIjEEddbRdSE_SE_(ptr noundef nonnull align 8 dereferenceable(504) %86, ptr noundef nonnull align 8 dereferenceable(96) %.048, ptr noundef nonnull align 8 dereferenceable(24) %87, double noundef %1, double noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %.not = icmp ne ptr %88, null
-  br i1 %.not, label %89, label %173
+  %84 = load ptr, ptr %0, align 8
+  %85 = getelementptr inbounds i8, ptr %0, i64 8
+  %86 = call fastcc noundef ptr @_ZN8TINShiftL12FindTriangleERKNS_12TINShiftFileERKN5osgeo4proj8QuadTree8QuadTreeIjEERSt6vectorIjSaIjEEddbRdSE_SE_(ptr noundef nonnull align 8 dereferenceable(504) %84, ptr noundef nonnull align 8 dereferenceable(96) %.048, ptr noundef nonnull align 8 dereferenceable(24) %85, double noundef %1, double noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %.not = icmp ne ptr %86, null
+  br i1 %.not, label %87, label %171
 
-89:                                               ; preds = %85
-  %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 456
-  %92 = load i32, ptr %88, align 4
-  %93 = getelementptr inbounds i8, ptr %88, i64 4
+87:                                               ; preds = %83
+  %88 = load ptr, ptr %0, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 456
+  %90 = load i32, ptr %86, align 4
+  %91 = getelementptr inbounds i8, ptr %86, i64 4
+  %92 = load i32, ptr %91, align 4
+  %93 = getelementptr inbounds i8, ptr %86, i64 8
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %88, i64 8
+  %95 = getelementptr inbounds i8, ptr %88, i64 452
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %90, i64 452
-  %98 = load i32, ptr %97, align 4
-  %99 = getelementptr inbounds i8, ptr %90, i64 448
-  %100 = load i8, ptr %99, align 8
-  %101 = trunc i8 %100 to i1
-  br i1 %101, label %102, label %138
+  %97 = getelementptr inbounds i8, ptr %88, i64 448
+  %98 = load i8, ptr %97, align 8
+  %99 = trunc i8 %98 to i1
+  br i1 %99, label %100, label %136
 
-102:                                              ; preds = %89
-  %103 = mul i32 %98, %92
-  %104 = zext i32 %103 to i64
-  %105 = load ptr, ptr %91, align 8
-  %106 = getelementptr inbounds double, ptr %105, i64 %104
-  %107 = load double, ptr %106, align 8
-  %108 = load double, ptr %10, align 8
-  %109 = mul i32 %98, %94
-  %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds double, ptr %105, i64 %110
-  %112 = load double, ptr %111, align 8
-  %113 = load double, ptr %11, align 8
-  %114 = fmul double %112, %113
-  %115 = call double @llvm.fmuladd.f64(double %107, double %108, double %114)
-  %116 = mul i32 %98, %96
-  %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds double, ptr %105, i64 %117
-  %119 = load double, ptr %118, align 8
-  %120 = load double, ptr %12, align 8
-  %121 = call double @llvm.fmuladd.f64(double %119, double %120, double %115)
-  store double %121, ptr %4, align 8
-  %122 = add i32 %103, 1
-  %123 = zext i32 %122 to i64
-  %124 = load ptr, ptr %91, align 8
-  %125 = getelementptr inbounds double, ptr %124, i64 %123
-  %126 = load double, ptr %125, align 8
-  %127 = add i32 %109, 1
-  %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds double, ptr %124, i64 %128
-  %130 = load double, ptr %129, align 8
-  %131 = fmul double %113, %130
-  %132 = call double @llvm.fmuladd.f64(double %126, double %108, double %131)
-  %133 = add i32 %116, 1
-  %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds double, ptr %124, i64 %134
-  %136 = load double, ptr %135, align 8
-  %137 = call double @llvm.fmuladd.f64(double %136, double %120, double %132)
-  br label %139
+100:                                              ; preds = %87
+  %101 = mul i32 %96, %90
+  %102 = zext i32 %101 to i64
+  %103 = load ptr, ptr %89, align 8
+  %104 = getelementptr inbounds double, ptr %103, i64 %102
+  %105 = load double, ptr %104, align 8
+  %106 = load double, ptr %10, align 8
+  %107 = mul i32 %96, %92
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds double, ptr %103, i64 %108
+  %110 = load double, ptr %109, align 8
+  %111 = load double, ptr %11, align 8
+  %112 = fmul double %110, %111
+  %113 = call double @llvm.fmuladd.f64(double %105, double %106, double %112)
+  %114 = mul i32 %96, %94
+  %115 = zext i32 %114 to i64
+  %116 = getelementptr inbounds double, ptr %103, i64 %115
+  %117 = load double, ptr %116, align 8
+  %118 = load double, ptr %12, align 8
+  %119 = call double @llvm.fmuladd.f64(double %117, double %118, double %113)
+  store double %119, ptr %4, align 8
+  %120 = add i32 %101, 1
+  %121 = zext i32 %120 to i64
+  %122 = load ptr, ptr %89, align 8
+  %123 = getelementptr inbounds double, ptr %122, i64 %121
+  %124 = load double, ptr %123, align 8
+  %125 = add i32 %107, 1
+  %126 = zext i32 %125 to i64
+  %127 = getelementptr inbounds double, ptr %122, i64 %126
+  %128 = load double, ptr %127, align 8
+  %129 = fmul double %111, %128
+  %130 = call double @llvm.fmuladd.f64(double %124, double %106, double %129)
+  %131 = add i32 %114, 1
+  %132 = zext i32 %131 to i64
+  %133 = getelementptr inbounds double, ptr %122, i64 %132
+  %134 = load double, ptr %133, align 8
+  %135 = call double @llvm.fmuladd.f64(double %134, double %118, double %130)
+  br label %137
 
-138:                                              ; preds = %89
+136:                                              ; preds = %87
   store double %1, ptr %4, align 8
-  br label %139
+  br label %137
 
-139:                                              ; preds = %138, %102
-  %storemerge = phi double [ %2, %138 ], [ %137, %102 ]
+137:                                              ; preds = %136, %100
+  %storemerge = phi double [ %2, %136 ], [ %135, %100 ]
   store double %storemerge, ptr %5, align 8
-  %140 = load ptr, ptr %0, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 449
-  %142 = load i8, ptr %141, align 1
-  %143 = trunc i8 %142 to i1
-  br i1 %143, label %144, label %172
+  %138 = load ptr, ptr %0, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 449
+  %140 = load i8, ptr %139, align 1
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %142, label %170
 
-144:                                              ; preds = %139
-  %145 = getelementptr inbounds i8, ptr %140, i64 448
-  %146 = load i8, ptr %145, align 8
-  %147 = trunc i8 %146 to i1
-  %148 = select i1 %147, i32 4, i32 2
-  %149 = mul i32 %98, %92
-  %150 = add i32 %148, %149
-  %151 = zext i32 %150 to i64
-  %152 = load ptr, ptr %91, align 8
-  %153 = getelementptr inbounds double, ptr %152, i64 %151
-  %154 = load double, ptr %153, align 8
-  %155 = load double, ptr %10, align 8
-  %156 = mul i32 %98, %94
-  %157 = add i32 %148, %156
-  %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds double, ptr %152, i64 %158
-  %160 = load double, ptr %159, align 8
-  %161 = load double, ptr %11, align 8
-  %162 = fmul double %160, %161
-  %163 = call double @llvm.fmuladd.f64(double %154, double %155, double %162)
-  %164 = mul i32 %98, %96
-  %165 = add i32 %148, %164
-  %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds double, ptr %152, i64 %166
-  %168 = load double, ptr %167, align 8
-  %169 = load double, ptr %12, align 8
-  %170 = call double @llvm.fmuladd.f64(double %168, double %169, double %163)
-  %171 = fsub double %3, %170
-  br label %172
+142:                                              ; preds = %137
+  %143 = getelementptr inbounds i8, ptr %138, i64 448
+  %144 = load i8, ptr %143, align 8
+  %145 = trunc i8 %144 to i1
+  %146 = select i1 %145, i32 4, i32 2
+  %147 = mul i32 %96, %90
+  %148 = add i32 %146, %147
+  %149 = zext i32 %148 to i64
+  %150 = load ptr, ptr %89, align 8
+  %151 = getelementptr inbounds double, ptr %150, i64 %149
+  %152 = load double, ptr %151, align 8
+  %153 = load double, ptr %10, align 8
+  %154 = mul i32 %96, %92
+  %155 = add i32 %146, %154
+  %156 = zext i32 %155 to i64
+  %157 = getelementptr inbounds double, ptr %150, i64 %156
+  %158 = load double, ptr %157, align 8
+  %159 = load double, ptr %11, align 8
+  %160 = fmul double %158, %159
+  %161 = call double @llvm.fmuladd.f64(double %152, double %153, double %160)
+  %162 = mul i32 %96, %94
+  %163 = add i32 %146, %162
+  %164 = zext i32 %163 to i64
+  %165 = getelementptr inbounds double, ptr %150, i64 %164
+  %166 = load double, ptr %165, align 8
+  %167 = load double, ptr %12, align 8
+  %168 = call double @llvm.fmuladd.f64(double %166, double %167, double %161)
+  %169 = fsub double %3, %168
+  br label %170
 
-172:                                              ; preds = %139, %144
-  %storemerge50 = phi double [ %171, %144 ], [ %3, %139 ]
+170:                                              ; preds = %137, %142
+  %storemerge50 = phi double [ %169, %142 ], [ %3, %137 ]
   store double %storemerge50, ptr %6, align 8
-  br label %173
+  br label %171
 
-173:                                              ; preds = %85, %172
+171:                                              ; preds = %83, %170
   ret i1 %.not
 }
 

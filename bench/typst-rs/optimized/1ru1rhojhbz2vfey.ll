@@ -99398,54 +99398,54 @@ define void @_ZN5typst6layout4grid14show_grid_cell17h56ce392c4b17f2e2E(ptr noali
   %21 = alloca { { { { ptr, ptr } }, {}, {} }, i64 }, align 8
   %22 = load i64, ptr %2, align 8, !range !489, !alias.scope !19835, !noundef !5
   %23 = icmp eq i64 %22, 2
-  %.sink849.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink849.sroa.gep850 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sink849.sroa.gep851 = getelementptr inbounds i8, ptr %8, i64 8
-  %.sink849.sroa.gep852 = getelementptr inbounds i8, ptr %9, i64 8
-  %.sink849.sroa.gep853 = getelementptr inbounds i8, ptr %10, i64 8
-  %.sink849.sroa.gep854 = getelementptr inbounds i8, ptr %11, i64 8
-  %.sink849.sroa.gep855 = getelementptr inbounds i8, ptr %12, i64 8
-  %.sink849.sroa.gep856 = getelementptr inbounds i8, ptr %13, i64 8
-  %.sink849.sroa.gep857 = getelementptr inbounds i8, ptr %14, i64 8
-  %.sink849.sroa.gep858 = getelementptr inbounds i8, ptr %15, i64 8
-  %.sink849.sroa.gep859 = getelementptr inbounds i8, ptr %16, i64 8
-  %.sink849.sroa.gep860 = getelementptr inbounds i8, ptr %17, i64 8
-  %.sink849.sroa.gep862 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink849.sroa.gep863 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sink849.sroa.gep864 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sink849.sroa.gep865 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sink849.sroa.gep866 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sink849.sroa.gep867 = getelementptr inbounds i8, ptr %11, i64 32
-  %.sink849.sroa.gep868 = getelementptr inbounds i8, ptr %12, i64 32
-  %.sink849.sroa.gep869 = getelementptr inbounds i8, ptr %13, i64 32
-  %.sink849.sroa.gep870 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sink849.sroa.gep871 = getelementptr inbounds i8, ptr %15, i64 32
-  %.sink849.sroa.gep872 = getelementptr inbounds i8, ptr %16, i64 32
-  %.sink849.sroa.gep873 = getelementptr inbounds i8, ptr %17, i64 32
-  %.sink849.sroa.gep875 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink849.sroa.gep876 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sink849.sroa.gep877 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sink849.sroa.gep878 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sink849.sroa.gep879 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sink849.sroa.gep880 = getelementptr inbounds i8, ptr %11, i64 16
-  %.sink849.sroa.gep881 = getelementptr inbounds i8, ptr %12, i64 16
-  %.sink849.sroa.gep882 = getelementptr inbounds i8, ptr %13, i64 16
-  %.sink849.sroa.gep883 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sink849.sroa.gep884 = getelementptr inbounds i8, ptr %15, i64 16
-  %.sink849.sroa.gep885 = getelementptr inbounds i8, ptr %16, i64 16
-  %.sink849.sroa.gep886 = getelementptr inbounds i8, ptr %17, i64 16
-  %.sink849.sroa.gep888 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sink849.sroa.gep889 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sink849.sroa.gep890 = getelementptr inbounds i8, ptr %8, i64 24
-  %.sink849.sroa.gep891 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sink849.sroa.gep892 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sink849.sroa.gep893 = getelementptr inbounds i8, ptr %11, i64 24
-  %.sink849.sroa.gep894 = getelementptr inbounds i8, ptr %12, i64 24
-  %.sink849.sroa.gep895 = getelementptr inbounds i8, ptr %13, i64 24
-  %.sink849.sroa.gep896 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sink849.sroa.gep897 = getelementptr inbounds i8, ptr %15, i64 24
-  %.sink849.sroa.gep898 = getelementptr inbounds i8, ptr %16, i64 24
-  %.sink849.sroa.gep899 = getelementptr inbounds i8, ptr %17, i64 24
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %.sink.sroa.gep850 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sink.sroa.gep851 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sink.sroa.gep852 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink.sroa.gep853 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink.sroa.gep854 = getelementptr inbounds i8, ptr %11, i64 8
+  %.sink.sroa.gep855 = getelementptr inbounds i8, ptr %12, i64 8
+  %.sink.sroa.gep856 = getelementptr inbounds i8, ptr %13, i64 8
+  %.sink.sroa.gep857 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sink.sroa.gep858 = getelementptr inbounds i8, ptr %15, i64 8
+  %.sink.sroa.gep859 = getelementptr inbounds i8, ptr %16, i64 8
+  %.sink.sroa.gep860 = getelementptr inbounds i8, ptr %17, i64 8
+  %.sink.sroa.gep862 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sink.sroa.gep863 = getelementptr inbounds i8, ptr %7, i64 32
+  %.sink.sroa.gep864 = getelementptr inbounds i8, ptr %8, i64 32
+  %.sink.sroa.gep865 = getelementptr inbounds i8, ptr %9, i64 32
+  %.sink.sroa.gep866 = getelementptr inbounds i8, ptr %10, i64 32
+  %.sink.sroa.gep867 = getelementptr inbounds i8, ptr %11, i64 32
+  %.sink.sroa.gep868 = getelementptr inbounds i8, ptr %12, i64 32
+  %.sink.sroa.gep869 = getelementptr inbounds i8, ptr %13, i64 32
+  %.sink.sroa.gep870 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink.sroa.gep871 = getelementptr inbounds i8, ptr %15, i64 32
+  %.sink.sroa.gep872 = getelementptr inbounds i8, ptr %16, i64 32
+  %.sink.sroa.gep873 = getelementptr inbounds i8, ptr %17, i64 32
+  %.sink.sroa.gep875 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink.sroa.gep876 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sink.sroa.gep877 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sink.sroa.gep878 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sink.sroa.gep879 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sink.sroa.gep880 = getelementptr inbounds i8, ptr %11, i64 16
+  %.sink.sroa.gep881 = getelementptr inbounds i8, ptr %12, i64 16
+  %.sink.sroa.gep882 = getelementptr inbounds i8, ptr %13, i64 16
+  %.sink.sroa.gep883 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink.sroa.gep884 = getelementptr inbounds i8, ptr %15, i64 16
+  %.sink.sroa.gep885 = getelementptr inbounds i8, ptr %16, i64 16
+  %.sink.sroa.gep886 = getelementptr inbounds i8, ptr %17, i64 16
+  %.sink.sroa.gep888 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink.sroa.gep889 = getelementptr inbounds i8, ptr %7, i64 24
+  %.sink.sroa.gep890 = getelementptr inbounds i8, ptr %8, i64 24
+  %.sink.sroa.gep891 = getelementptr inbounds i8, ptr %9, i64 24
+  %.sink.sroa.gep892 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sink.sroa.gep893 = getelementptr inbounds i8, ptr %11, i64 24
+  %.sink.sroa.gep894 = getelementptr inbounds i8, ptr %12, i64 24
+  %.sink.sroa.gep895 = getelementptr inbounds i8, ptr %13, i64 24
+  %.sink.sroa.gep896 = getelementptr inbounds i8, ptr %14, i64 24
+  %.sink.sroa.gep897 = getelementptr inbounds i8, ptr %15, i64 24
+  %.sink.sroa.gep898 = getelementptr inbounds i8, ptr %16, i64 24
+  %.sink.sroa.gep899 = getelementptr inbounds i8, ptr %17, i64 24
   br i1 %23, label %"_ZN77_$LT$typst..layout..sides..Sides$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8c805420e40d4431E.exit.thread824", label %"_ZN5typst11foundations4auto14Smart$LT$T$GT$14unwrap_or_else17hcbf50f915a913492E.exit"
 
 "_ZN5typst11foundations4auto14Smart$LT$T$GT$14unwrap_or_else17hcbf50f915a913492E.exit": ; preds = %4
@@ -99500,20 +99500,20 @@ define void @_ZN5typst6layout4grid14show_grid_cell17h56ce392c4b17f2e2E(ptr noali
 
 25:                                               ; preds = %"_ZN5typst11foundations4auto14Smart$LT$T$GT$14unwrap_or_else17hcbf50f915a913492E.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !19840
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %17, align 8, !noalias !19840
   br label %.invoke
 
 .invoke:                                          ; preds = %69, %65, %61, %57, %53, %49, %45, %41, %37, %33, %29, %25
-  %.sink849.sroa.phi = phi ptr [ %.sink849.sroa.gep, %69 ], [ %.sink849.sroa.gep850, %65 ], [ %.sink849.sroa.gep851, %61 ], [ %.sink849.sroa.gep852, %57 ], [ %.sink849.sroa.gep853, %53 ], [ %.sink849.sroa.gep854, %49 ], [ %.sink849.sroa.gep855, %45 ], [ %.sink849.sroa.gep856, %41 ], [ %.sink849.sroa.gep857, %37 ], [ %.sink849.sroa.gep858, %33 ], [ %.sink849.sroa.gep859, %29 ], [ %.sink849.sroa.gep860, %25 ]
-  %.sink849.sroa.phi861 = phi ptr [ %.sink849.sroa.gep862, %69 ], [ %.sink849.sroa.gep863, %65 ], [ %.sink849.sroa.gep864, %61 ], [ %.sink849.sroa.gep865, %57 ], [ %.sink849.sroa.gep866, %53 ], [ %.sink849.sroa.gep867, %49 ], [ %.sink849.sroa.gep868, %45 ], [ %.sink849.sroa.gep869, %41 ], [ %.sink849.sroa.gep870, %37 ], [ %.sink849.sroa.gep871, %33 ], [ %.sink849.sroa.gep872, %29 ], [ %.sink849.sroa.gep873, %25 ]
-  %.sink849.sroa.phi874 = phi ptr [ %.sink849.sroa.gep875, %69 ], [ %.sink849.sroa.gep876, %65 ], [ %.sink849.sroa.gep877, %61 ], [ %.sink849.sroa.gep878, %57 ], [ %.sink849.sroa.gep879, %53 ], [ %.sink849.sroa.gep880, %49 ], [ %.sink849.sroa.gep881, %45 ], [ %.sink849.sroa.gep882, %41 ], [ %.sink849.sroa.gep883, %37 ], [ %.sink849.sroa.gep884, %33 ], [ %.sink849.sroa.gep885, %29 ], [ %.sink849.sroa.gep886, %25 ]
-  %.sink849.sroa.phi887 = phi ptr [ %.sink849.sroa.gep888, %69 ], [ %.sink849.sroa.gep889, %65 ], [ %.sink849.sroa.gep890, %61 ], [ %.sink849.sroa.gep891, %57 ], [ %.sink849.sroa.gep892, %53 ], [ %.sink849.sroa.gep893, %49 ], [ %.sink849.sroa.gep894, %45 ], [ %.sink849.sroa.gep895, %41 ], [ %.sink849.sroa.gep896, %37 ], [ %.sink849.sroa.gep897, %33 ], [ %.sink849.sroa.gep898, %29 ], [ %.sink849.sroa.gep899, %25 ]
-  %.sink849 = phi ptr [ %6, %69 ], [ %7, %65 ], [ %8, %61 ], [ %9, %57 ], [ %10, %53 ], [ %11, %49 ], [ %12, %45 ], [ %13, %41 ], [ %14, %37 ], [ %15, %33 ], [ %16, %29 ], [ %17, %25 ]
-  store i64 1, ptr %.sink849.sroa.phi, align 8, !noalias !19850
-  store ptr null, ptr %.sink849.sroa.phi861, align 8, !noalias !19850
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %.sink849.sroa.phi874, align 8, !noalias !19850
-  store i64 0, ptr %.sink849.sroa.phi887, align 8, !noalias !19850
-  invoke void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink849, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #64
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %69 ], [ %.sink.sroa.gep850, %65 ], [ %.sink.sroa.gep851, %61 ], [ %.sink.sroa.gep852, %57 ], [ %.sink.sroa.gep853, %53 ], [ %.sink.sroa.gep854, %49 ], [ %.sink.sroa.gep855, %45 ], [ %.sink.sroa.gep856, %41 ], [ %.sink.sroa.gep857, %37 ], [ %.sink.sroa.gep858, %33 ], [ %.sink.sroa.gep859, %29 ], [ %.sink.sroa.gep860, %25 ]
+  %.sink.sroa.phi861 = phi ptr [ %.sink.sroa.gep862, %69 ], [ %.sink.sroa.gep863, %65 ], [ %.sink.sroa.gep864, %61 ], [ %.sink.sroa.gep865, %57 ], [ %.sink.sroa.gep866, %53 ], [ %.sink.sroa.gep867, %49 ], [ %.sink.sroa.gep868, %45 ], [ %.sink.sroa.gep869, %41 ], [ %.sink.sroa.gep870, %37 ], [ %.sink.sroa.gep871, %33 ], [ %.sink.sroa.gep872, %29 ], [ %.sink.sroa.gep873, %25 ]
+  %.sink.sroa.phi874 = phi ptr [ %.sink.sroa.gep875, %69 ], [ %.sink.sroa.gep876, %65 ], [ %.sink.sroa.gep877, %61 ], [ %.sink.sroa.gep878, %57 ], [ %.sink.sroa.gep879, %53 ], [ %.sink.sroa.gep880, %49 ], [ %.sink.sroa.gep881, %45 ], [ %.sink.sroa.gep882, %41 ], [ %.sink.sroa.gep883, %37 ], [ %.sink.sroa.gep884, %33 ], [ %.sink.sroa.gep885, %29 ], [ %.sink.sroa.gep886, %25 ]
+  %.sink.sroa.phi887 = phi ptr [ %.sink.sroa.gep888, %69 ], [ %.sink.sroa.gep889, %65 ], [ %.sink.sroa.gep890, %61 ], [ %.sink.sroa.gep891, %57 ], [ %.sink.sroa.gep892, %53 ], [ %.sink.sroa.gep893, %49 ], [ %.sink.sroa.gep894, %45 ], [ %.sink.sroa.gep895, %41 ], [ %.sink.sroa.gep896, %37 ], [ %.sink.sroa.gep897, %33 ], [ %.sink.sroa.gep898, %29 ], [ %.sink.sroa.gep899, %25 ]
+  %.sink = phi ptr [ %6, %69 ], [ %7, %65 ], [ %8, %61 ], [ %9, %57 ], [ %10, %53 ], [ %11, %49 ], [ %12, %45 ], [ %13, %41 ], [ %14, %37 ], [ %15, %33 ], [ %16, %29 ], [ %17, %25 ]
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %.sink, align 8, !noalias !19850
+  store i64 1, ptr %.sink.sroa.phi, align 8, !noalias !19850
+  store ptr null, ptr %.sink.sroa.phi861, align 8, !noalias !19850
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %.sink.sroa.phi874, align 8, !noalias !19850
+  store i64 0, ptr %.sink.sroa.phi887, align 8, !noalias !19850
+  invoke void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #64
           to label %.cont unwind label %86
 
 .cont:                                            ; preds = %.invoke
@@ -99529,7 +99529,6 @@ define void @_ZN5typst6layout4grid14show_grid_cell17h56ce392c4b17f2e2E(ptr noali
 
 29:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !19851
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %16, align 8, !noalias !19851
   br label %.invoke
 
 "_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i.i": ; preds = %27
@@ -99542,7 +99541,6 @@ define void @_ZN5typst6layout4grid14show_grid_cell17h56ce392c4b17f2e2E(ptr noali
 
 33:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15), !noalias !19858
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %15, align 8, !noalias !19858
   br label %.invoke
 
 "_ZN73_$LT$typst..layout..rel..Rel$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he225eaeac69358efE.llvm.13383457361836014260.exit.i": ; preds = %31
@@ -99555,7 +99553,6 @@ define void @_ZN5typst6layout4grid14show_grid_cell17h56ce392c4b17f2e2E(ptr noali
 
 37:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !19862
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %14, align 8, !noalias !19862
   br label %.invoke
 
 "_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i1.i": ; preds = %35
@@ -99568,7 +99565,6 @@ define void @_ZN5typst6layout4grid14show_grid_cell17h56ce392c4b17f2e2E(ptr noali
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !19869
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %13, align 8, !noalias !19869
   br label %.invoke
 
 "_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i3.i": ; preds = %39
@@ -99581,7 +99577,6 @@ define void @_ZN5typst6layout4grid14show_grid_cell17h56ce392c4b17f2e2E(ptr noali
 
 45:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !19876
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %12, align 8, !noalias !19876
   br label %.invoke
 
 "_ZN73_$LT$typst..layout..rel..Rel$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he225eaeac69358efE.llvm.13383457361836014260.exit5.i": ; preds = %43
@@ -99594,7 +99589,6 @@ define void @_ZN5typst6layout4grid14show_grid_cell17h56ce392c4b17f2e2E(ptr noali
 
 49:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !19880
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %11, align 8, !noalias !19880
   br label %.invoke
 
 "_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i6.i": ; preds = %47
@@ -99607,7 +99601,6 @@ define void @_ZN5typst6layout4grid14show_grid_cell17h56ce392c4b17f2e2E(ptr noali
 
 53:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !19887
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %10, align 8, !noalias !19887
   br label %.invoke
 
 "_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i8.i": ; preds = %51
@@ -99620,7 +99613,6 @@ define void @_ZN5typst6layout4grid14show_grid_cell17h56ce392c4b17f2e2E(ptr noali
 
 57:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !19894
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %9, align 8, !noalias !19894
   br label %.invoke
 
 "_ZN73_$LT$typst..layout..rel..Rel$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he225eaeac69358efE.llvm.13383457361836014260.exit10.i": ; preds = %55
@@ -99633,7 +99625,6 @@ define void @_ZN5typst6layout4grid14show_grid_cell17h56ce392c4b17f2e2E(ptr noali
 
 61:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !19898
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %8, align 8, !noalias !19898
   br label %.invoke
 
 "_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i11.i": ; preds = %59
@@ -99646,7 +99637,6 @@ define void @_ZN5typst6layout4grid14show_grid_cell17h56ce392c4b17f2e2E(ptr noali
 
 65:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !19905
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %7, align 8, !noalias !19905
   br label %.invoke
 
 "_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i13.i": ; preds = %63
@@ -99659,7 +99649,6 @@ define void @_ZN5typst6layout4grid14show_grid_cell17h56ce392c4b17f2e2E(ptr noali
 
 69:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !19912
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %6, align 8, !noalias !19912
   br label %.invoke
 
 "_ZN77_$LT$typst..layout..sides..Sides$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8c805420e40d4431E.exit": ; preds = %67

@@ -3183,7 +3183,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   %25 = load double, ptr %.in, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %26 = load double, ptr %.0.i.ph, align 8
-  switch i32 %4, label %315 [
+  switch i32 %4, label %314 [
     i32 8, label %27
     i32 9, label %30
     i32 10, label %33
@@ -3199,28 +3199,28 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   store double %28, ptr %1, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 3, ptr %29, align 4
-  br label %315
+  br label %314
 
 30:                                               ; preds = %._crit_edge
   %31 = fsub double %26, %25
   store double %31, ptr %1, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 3, ptr %32, align 4
-  br label %315
+  br label %314
 
 33:                                               ; preds = %._crit_edge
   %34 = fmul double %26, %25
   store double %34, ptr %1, align 8
   %35 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 3, ptr %35, align 4
-  br label %315
+  br label %314
 
 36:                                               ; preds = %._crit_edge
   %37 = fdiv double %26, %25
   store double %37, ptr %1, align 8
   %38 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 3, ptr %38, align 4
-  br label %315
+  br label %314
 
 39:                                               ; preds = %._crit_edge
   %40 = fdiv double %26, %25
@@ -3228,7 +3228,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   store double %41, ptr %1, align 8
   %42 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 3, ptr %42, align 4
-  br label %315
+  br label %314
 
 43:                                               ; preds = %._crit_edge
   %44 = fdiv double %26, %25
@@ -3238,21 +3238,21 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   store double %47, ptr %1, align 8
   %48 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 3, ptr %48, align 4
-  br label %315
+  br label %314
 
 49:                                               ; preds = %._crit_edge
   %50 = call double @llvm.pow.f64(double %26, double %25)
   store double %50, ptr %1, align 8
   %51 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 3, ptr %51, align 4
-  br label %315
+  br label %314
 
 52:                                               ; preds = %._crit_edge
   %53 = fneg double %26
   store double %53, ptr %1, align 8
   %54 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 3, ptr %54, align 4
-  br label %315
+  br label %314
 
 55:                                               ; preds = %_Z13luaV_tonumberPK10lua_TValuePS_.exit221, %_Z13luaV_tonumberPK10lua_TValuePS_.exit
   %56 = load i32, ptr %10, align 4
@@ -3268,7 +3268,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   br i1 %or.cond, label %63, label %173
 
 63:                                               ; preds = %55
-  switch i32 %4, label %281 [
+  switch i32 %4, label %280 [
     i32 8, label %64
     i32 9, label %81
     i32 10, label %98
@@ -3298,7 +3298,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   store float %78, ptr %79, align 4
   %80 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 4, ptr %80, align 4
-  br label %315
+  br label %314
 
 81:                                               ; preds = %63
   %82 = load float, ptr %..i, align 4
@@ -3321,7 +3321,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   store float %95, ptr %96, align 4
   %97 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 4, ptr %97, align 4
-  br label %315
+  br label %314
 
 98:                                               ; preds = %63
   %99 = load float, ptr %..i, align 4
@@ -3344,7 +3344,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   store float %112, ptr %113, align 4
   %114 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 4, ptr %114, align 4
-  br label %315
+  br label %314
 
 115:                                              ; preds = %63
   %116 = load float, ptr %..i, align 4
@@ -3367,7 +3367,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   store float %129, ptr %130, align 4
   %131 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 4, ptr %131, align 4
-  br label %315
+  br label %314
 
 132:                                              ; preds = %63
   %133 = load float, ptr %..i, align 4
@@ -3402,7 +3402,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   store float %158, ptr %159, align 4
   %160 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 4, ptr %160, align 4
-  br label %315
+  br label %314
 
 161:                                              ; preds = %63
   %162 = load float, ptr %..i, align 4
@@ -3420,7 +3420,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
   store float %170, ptr %171, align 4
   %172 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 4, ptr %172, align 4
-  br label %315
+  br label %314
 
 173:                                              ; preds = %55
   br i1 %61, label %174, label %227
@@ -3441,14 +3441,14 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit221:       ; preds = %18, %21
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit225:       ; preds = %174, %175
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %281
+  br label %280
 
 ._crit_edge247:                                   ; preds = %175, %174
   %.in249 = phi ptr [ %3, %174 ], [ %7, %175 ]
   %179 = load double, ptr %.in249, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %180 = fptrunc double %179 to float
-  switch i32 %4, label %281 [
+  switch i32 %4, label %280 [
     i32 10, label %181
     i32 11, label %193
     i32 12, label %205
@@ -3470,7 +3470,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit225:       ; preds = %174, %175
   store float %190, ptr %191, align 4
   %192 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 4, ptr %192, align 4
-  br label %315
+  br label %314
 
 193:                                              ; preds = %._crit_edge247
   %194 = load float, ptr %..i, align 4
@@ -3488,7 +3488,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit225:       ; preds = %174, %175
   store float %202, ptr %203, align 4
   %204 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 4, ptr %204, align 4
-  br label %315
+  br label %314
 
 205:                                              ; preds = %._crit_edge247
   %206 = load float, ptr %..i, align 4
@@ -3516,10 +3516,10 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit225:       ; preds = %174, %175
   store float %224, ptr %225, align 4
   %226 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 4, ptr %226, align 4
-  br label %315
+  br label %314
 
 227:                                              ; preds = %173
-  br i1 %62, label %228, label %281
+  br i1 %62, label %228, label %280
 
 228:                                              ; preds = %227
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -3537,145 +3537,145 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit225:       ; preds = %174, %175
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit228:       ; preds = %228, %229
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %281
+  br label %280
 
 ._crit_edge245:                                   ; preds = %229, %228
-  %.in250 = phi ptr [ %2, %228 ], [ %6, %229 ]
-  %233 = load double, ptr %.in250, align 8
+  %.sink = phi ptr [ %2, %228 ], [ %6, %229 ]
+  %.pre246 = load double, ptr %.sink, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %234 = fptrunc double %233 to float
-  switch i32 %4, label %281 [
-    i32 10, label %235
-    i32 11, label %247
-    i32 12, label %259
+  %233 = fptrunc double %.pre246 to float
+  switch i32 %4, label %280 [
+    i32 10, label %234
+    i32 11, label %246
+    i32 12, label %258
   ]
 
-235:                                              ; preds = %._crit_edge245
-  %236 = load float, ptr %..i222, align 4
-  %237 = fmul float %236, %234
-  store float %237, ptr %1, align 4
-  %238 = getelementptr inbounds i8, ptr %..i222, i64 4
-  %239 = load float, ptr %238, align 4
-  %240 = fmul float %239, %234
-  %241 = getelementptr inbounds i8, ptr %1, i64 4
-  store float %240, ptr %241, align 4
-  %242 = getelementptr inbounds i8, ptr %..i222, i64 8
-  %243 = load float, ptr %242, align 4
-  %244 = fmul float %243, %234
-  %245 = getelementptr inbounds i8, ptr %1, i64 8
-  store float %244, ptr %245, align 4
-  %246 = getelementptr inbounds i8, ptr %1, i64 12
-  store i32 4, ptr %246, align 4
-  br label %315
+234:                                              ; preds = %._crit_edge245
+  %235 = load float, ptr %..i222, align 4
+  %236 = fmul float %235, %233
+  store float %236, ptr %1, align 4
+  %237 = getelementptr inbounds i8, ptr %..i222, i64 4
+  %238 = load float, ptr %237, align 4
+  %239 = fmul float %238, %233
+  %240 = getelementptr inbounds i8, ptr %1, i64 4
+  store float %239, ptr %240, align 4
+  %241 = getelementptr inbounds i8, ptr %..i222, i64 8
+  %242 = load float, ptr %241, align 4
+  %243 = fmul float %242, %233
+  %244 = getelementptr inbounds i8, ptr %1, i64 8
+  store float %243, ptr %244, align 4
+  %245 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 4, ptr %245, align 4
+  br label %314
 
-247:                                              ; preds = %._crit_edge245
-  %248 = load float, ptr %..i222, align 4
-  %249 = fdiv float %234, %248
-  store float %249, ptr %1, align 4
-  %250 = getelementptr inbounds i8, ptr %..i222, i64 4
-  %251 = load float, ptr %250, align 4
-  %252 = fdiv float %234, %251
-  %253 = getelementptr inbounds i8, ptr %1, i64 4
-  store float %252, ptr %253, align 4
-  %254 = getelementptr inbounds i8, ptr %..i222, i64 8
-  %255 = load float, ptr %254, align 4
-  %256 = fdiv float %234, %255
-  %257 = getelementptr inbounds i8, ptr %1, i64 8
-  store float %256, ptr %257, align 4
-  %258 = getelementptr inbounds i8, ptr %1, i64 12
-  store i32 4, ptr %258, align 4
-  br label %315
+246:                                              ; preds = %._crit_edge245
+  %247 = load float, ptr %..i222, align 4
+  %248 = fdiv float %233, %247
+  store float %248, ptr %1, align 4
+  %249 = getelementptr inbounds i8, ptr %..i222, i64 4
+  %250 = load float, ptr %249, align 4
+  %251 = fdiv float %233, %250
+  %252 = getelementptr inbounds i8, ptr %1, i64 4
+  store float %251, ptr %252, align 4
+  %253 = getelementptr inbounds i8, ptr %..i222, i64 8
+  %254 = load float, ptr %253, align 4
+  %255 = fdiv float %233, %254
+  %256 = getelementptr inbounds i8, ptr %1, i64 8
+  store float %255, ptr %256, align 4
+  %257 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 4, ptr %257, align 4
+  br label %314
 
-259:                                              ; preds = %._crit_edge245
-  %260 = fpext float %234 to double
-  %261 = load float, ptr %..i222, align 4
-  %262 = fpext float %261 to double
-  %263 = fdiv double %260, %262
-  %264 = call noundef double @llvm.floor.f64(double %263)
-  %265 = fptrunc double %264 to float
-  store float %265, ptr %1, align 4
-  %266 = getelementptr inbounds i8, ptr %..i222, i64 4
-  %267 = load float, ptr %266, align 4
-  %268 = fpext float %267 to double
-  %269 = fdiv double %260, %268
-  %270 = call noundef double @llvm.floor.f64(double %269)
-  %271 = fptrunc double %270 to float
-  %272 = getelementptr inbounds i8, ptr %1, i64 4
-  store float %271, ptr %272, align 4
-  %273 = getelementptr inbounds i8, ptr %..i222, i64 8
-  %274 = load float, ptr %273, align 4
-  %275 = fpext float %274 to double
-  %276 = fdiv double %260, %275
-  %277 = call noundef double @llvm.floor.f64(double %276)
-  %278 = fptrunc double %277 to float
-  %279 = getelementptr inbounds i8, ptr %1, i64 8
-  store float %278, ptr %279, align 4
-  %280 = getelementptr inbounds i8, ptr %1, i64 12
-  store i32 4, ptr %280, align 4
-  br label %315
+258:                                              ; preds = %._crit_edge245
+  %259 = fpext float %233 to double
+  %260 = load float, ptr %..i222, align 4
+  %261 = fpext float %260 to double
+  %262 = fdiv double %259, %261
+  %263 = call noundef double @llvm.floor.f64(double %262)
+  %264 = fptrunc double %263 to float
+  store float %264, ptr %1, align 4
+  %265 = getelementptr inbounds i8, ptr %..i222, i64 4
+  %266 = load float, ptr %265, align 4
+  %267 = fpext float %266 to double
+  %268 = fdiv double %259, %267
+  %269 = call noundef double @llvm.floor.f64(double %268)
+  %270 = fptrunc double %269 to float
+  %271 = getelementptr inbounds i8, ptr %1, i64 4
+  store float %270, ptr %271, align 4
+  %272 = getelementptr inbounds i8, ptr %..i222, i64 8
+  %273 = load float, ptr %272, align 4
+  %274 = fpext float %273 to double
+  %275 = fdiv double %259, %274
+  %276 = call noundef double @llvm.floor.f64(double %275)
+  %277 = fptrunc double %276 to float
+  %278 = getelementptr inbounds i8, ptr %1, i64 8
+  store float %277, ptr %278, align 4
+  %279 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 4, ptr %279, align 4
+  br label %314
 
-281:                                              ; preds = %_Z13luaV_tonumberPK10lua_TValuePS_.exit228, %_Z13luaV_tonumberPK10lua_TValuePS_.exit225, %._crit_edge247, %._crit_edge245, %227, %63
-  %282 = call noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %4)
-  %283 = getelementptr inbounds i8, ptr %282, i64 12
-  %284 = load i32, ptr %283, align 4
-  %285 = icmp eq i32 %284, 0
-  br i1 %285, label %286, label %.thread.i
+280:                                              ; preds = %_Z13luaV_tonumberPK10lua_TValuePS_.exit228, %_Z13luaV_tonumberPK10lua_TValuePS_.exit225, %._crit_edge247, %._crit_edge245, %227, %63
+  %281 = call noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %4)
+  %282 = getelementptr inbounds i8, ptr %281, i64 12
+  %283 = load i32, ptr %282, align 4
+  %284 = icmp eq i32 %283, 0
+  br i1 %284, label %285, label %.thread.i
 
-286:                                              ; preds = %281
-  %287 = call noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4)
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %287, i64 12
+285:                                              ; preds = %280
+  %286 = call noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %4)
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %286, i64 12
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  %288 = icmp eq i32 %.pre.i, 0
-  br i1 %288, label %314, label %.thread.i
+  %287 = icmp eq i32 %.pre.i, 0
+  br i1 %287, label %313, label %.thread.i
 
-.thread.i:                                        ; preds = %286, %281
-  %.015.i = phi ptr [ %287, %286 ], [ %282, %281 ]
-  %289 = getelementptr inbounds i8, ptr %0, i64 48
-  %290 = load ptr, ptr %289, align 8
-  %291 = getelementptr inbounds i8, ptr %0, i64 8
-  %292 = load ptr, ptr %291, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %292, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false)
-  %293 = load ptr, ptr %291, align 8
-  %294 = getelementptr inbounds i8, ptr %293, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %294, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %295 = load ptr, ptr %291, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %296, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
-  %297 = getelementptr inbounds i8, ptr %0, i64 40
-  %298 = load ptr, ptr %297, align 8
-  %299 = load ptr, ptr %291, align 8
+.thread.i:                                        ; preds = %285, %280
+  %.015.i = phi ptr [ %286, %285 ], [ %281, %280 ]
+  %288 = getelementptr inbounds i8, ptr %0, i64 48
+  %289 = load ptr, ptr %288, align 8
+  %290 = getelementptr inbounds i8, ptr %0, i64 8
+  %291 = load ptr, ptr %290, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %291, ptr noundef nonnull readonly align 8 dereferenceable(16) %.015.i, i64 16, i1 false)
+  %292 = load ptr, ptr %290, align 8
+  %293 = getelementptr inbounds i8, ptr %292, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %293, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false)
+  %294 = load ptr, ptr %290, align 8
+  %295 = getelementptr inbounds i8, ptr %294, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %295, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, i64 16, i1 false)
+  %296 = getelementptr inbounds i8, ptr %0, i64 40
+  %297 = load ptr, ptr %296, align 8
+  %298 = load ptr, ptr %290, align 8
+  %299 = ptrtoint ptr %297 to i64
   %300 = ptrtoint ptr %298 to i64
-  %301 = ptrtoint ptr %299 to i64
-  %302 = sub i64 %300, %301
-  %303 = icmp slt i64 %302, 49
-  br i1 %303, label %304, label %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit
+  %301 = sub i64 %299, %300
+  %302 = icmp slt i64 %301, 49
+  br i1 %302, label %303, label %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit
 
-304:                                              ; preds = %.thread.i
+303:                                              ; preds = %.thread.i
   call void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 3)
-  %.pre.i.i = load ptr, ptr %291, align 8
+  %.pre.i.i = load ptr, ptr %290, align 8
   br label %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit
 
-_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, %304
-  %305 = phi ptr [ %299, %.thread.i ], [ %.pre.i.i, %304 ]
-  %306 = ptrtoint ptr %1 to i64
-  %307 = ptrtoint ptr %290 to i64
-  %308 = sub i64 %306, %307
-  %309 = getelementptr inbounds i8, ptr %305, i64 48
-  store ptr %309, ptr %291, align 8
-  call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %305, i32 noundef 1)
-  %310 = load ptr, ptr %289, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 %308
-  %312 = load ptr, ptr %291, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 -16
-  store ptr %313, ptr %291, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %311, ptr noundef nonnull align 8 dereferenceable(16) %313, i64 16, i1 false)
-  br label %315
+_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, %303
+  %304 = phi ptr [ %298, %.thread.i ], [ %.pre.i.i, %303 ]
+  %305 = ptrtoint ptr %1 to i64
+  %306 = ptrtoint ptr %289 to i64
+  %307 = sub i64 %305, %306
+  %308 = getelementptr inbounds i8, ptr %304, i64 48
+  store ptr %308, ptr %290, align 8
+  call void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef nonnull %0, ptr noundef %304, i32 noundef 1)
+  %309 = load ptr, ptr %288, align 8
+  %310 = getelementptr inbounds i8, ptr %309, i64 %307
+  %311 = load ptr, ptr %290, align 8
+  %312 = getelementptr inbounds i8, ptr %311, i64 -16
+  store ptr %312, ptr %290, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %310, ptr noundef nonnull align 8 dereferenceable(16) %312, i64 16, i1 false)
+  br label %314
 
-314:                                              ; preds = %286
+313:                                              ; preds = %285
   call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %4) #10
   unreachable
 
-315:                                              ; preds = %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit, %27, %30, %33, %36, %39, %43, %49, %52, %._crit_edge, %259, %247, %235, %205, %193, %181, %161, %132, %115, %98, %81, %64
+314:                                              ; preds = %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit, %27, %30, %33, %36, %39, %43, %49, %52, %._crit_edge, %258, %246, %234, %205, %193, %181, %161, %132, %115, %98, %81, %64
   ret void
 }
 

@@ -115371,30 +115371,30 @@ define hidden void @"_ZN229_$LT$meilisearch..routes..tasks..TasksFilterQuery$u20
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %.sroa.12.sroa.0)
   %200 = load i64, ptr %1, align 8, !range !1940, !noundef !4
   %201 = icmp sgt i64 %200, -9223372036854775802
-  %.sink2211.sroa.gep = getelementptr inbounds i8, ptr %25, i64 8
-  %.sink2211.sroa.gep3251 = getelementptr inbounds i8, ptr %24, i64 8
-  %.sink2211.sroa.gep3252 = getelementptr inbounds i8, ptr %23, i64 8
-  %.sink2211.sroa.gep3253 = getelementptr inbounds i8, ptr %22, i64 8
-  %.sink2211.sroa.gep3254 = getelementptr inbounds i8, ptr %21, i64 8
-  %.sink2211.sroa.gep3255 = getelementptr inbounds i8, ptr %20, i64 8
-  %.sink2211.sroa.gep3257 = getelementptr inbounds i8, ptr %25, i64 32
-  %.sink2211.sroa.gep3258 = getelementptr inbounds i8, ptr %24, i64 32
-  %.sink2211.sroa.gep3259 = getelementptr inbounds i8, ptr %23, i64 32
-  %.sink2211.sroa.gep3260 = getelementptr inbounds i8, ptr %22, i64 32
-  %.sink2211.sroa.gep3261 = getelementptr inbounds i8, ptr %21, i64 32
-  %.sink2211.sroa.gep3262 = getelementptr inbounds i8, ptr %20, i64 32
-  %.sink2211.sroa.gep3264 = getelementptr inbounds i8, ptr %25, i64 16
-  %.sink2211.sroa.gep3265 = getelementptr inbounds i8, ptr %24, i64 16
-  %.sink2211.sroa.gep3266 = getelementptr inbounds i8, ptr %23, i64 16
-  %.sink2211.sroa.gep3267 = getelementptr inbounds i8, ptr %22, i64 16
-  %.sink2211.sroa.gep3268 = getelementptr inbounds i8, ptr %21, i64 16
-  %.sink2211.sroa.gep3269 = getelementptr inbounds i8, ptr %20, i64 16
-  %.sink2211.sroa.gep3271 = getelementptr inbounds i8, ptr %25, i64 24
-  %.sink2211.sroa.gep3272 = getelementptr inbounds i8, ptr %24, i64 24
-  %.sink2211.sroa.gep3273 = getelementptr inbounds i8, ptr %23, i64 24
-  %.sink2211.sroa.gep3274 = getelementptr inbounds i8, ptr %22, i64 24
-  %.sink2211.sroa.gep3275 = getelementptr inbounds i8, ptr %21, i64 24
-  %.sink2211.sroa.gep3276 = getelementptr inbounds i8, ptr %20, i64 24
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %25, i64 8
+  %.sink.sroa.gep3252 = getelementptr inbounds i8, ptr %24, i64 8
+  %.sink.sroa.gep3253 = getelementptr inbounds i8, ptr %23, i64 8
+  %.sink.sroa.gep3254 = getelementptr inbounds i8, ptr %22, i64 8
+  %.sink.sroa.gep3255 = getelementptr inbounds i8, ptr %21, i64 8
+  %.sink.sroa.gep3256 = getelementptr inbounds i8, ptr %20, i64 8
+  %.sink.sroa.gep3258 = getelementptr inbounds i8, ptr %25, i64 32
+  %.sink.sroa.gep3259 = getelementptr inbounds i8, ptr %24, i64 32
+  %.sink.sroa.gep3260 = getelementptr inbounds i8, ptr %23, i64 32
+  %.sink.sroa.gep3261 = getelementptr inbounds i8, ptr %22, i64 32
+  %.sink.sroa.gep3262 = getelementptr inbounds i8, ptr %21, i64 32
+  %.sink.sroa.gep3263 = getelementptr inbounds i8, ptr %20, i64 32
+  %.sink.sroa.gep3265 = getelementptr inbounds i8, ptr %25, i64 16
+  %.sink.sroa.gep3266 = getelementptr inbounds i8, ptr %24, i64 16
+  %.sink.sroa.gep3267 = getelementptr inbounds i8, ptr %23, i64 16
+  %.sink.sroa.gep3268 = getelementptr inbounds i8, ptr %22, i64 16
+  %.sink.sroa.gep3269 = getelementptr inbounds i8, ptr %21, i64 16
+  %.sink.sroa.gep3270 = getelementptr inbounds i8, ptr %20, i64 16
+  %.sink.sroa.gep3272 = getelementptr inbounds i8, ptr %25, i64 24
+  %.sink.sroa.gep3273 = getelementptr inbounds i8, ptr %24, i64 24
+  %.sink.sroa.gep3274 = getelementptr inbounds i8, ptr %23, i64 24
+  %.sink.sroa.gep3275 = getelementptr inbounds i8, ptr %22, i64 24
+  %.sink.sroa.gep3276 = getelementptr inbounds i8, ptr %21, i64 24
+  %.sink.sroa.gep3277 = getelementptr inbounds i8, ptr %20, i64 24
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %3
@@ -116396,65 +116396,60 @@ default.unreachable:                              ; preds = %609, %599, %589, %5
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread": ; preds = %490
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25), !noalias !19982
-  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %25, align 8, !noalias !19982
   br label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread.invoke"
 
 495:                                              ; preds = %490
-  %or.cond2728 = icmp ult i8 %.sroa.3953.0.lcssa, 3
-  br i1 %or.cond2728, label %496, label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread"
+  %or.cond2729 = icmp ult i8 %.sroa.3953.0.lcssa, 3
+  br i1 %or.cond2729, label %496, label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread"
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread": ; preds = %495
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24), !noalias !19987
-  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %24, align 8, !noalias !19987
   br label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread.invoke"
 
 496:                                              ; preds = %495
-  %or.cond2730 = icmp ult i8 %.sroa.3970.0.lcssa, 3
-  br i1 %or.cond2730, label %497, label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread"
+  %or.cond2731 = icmp ult i8 %.sroa.3970.0.lcssa, 3
+  br i1 %or.cond2731, label %497, label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread"
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread": ; preds = %496
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23), !noalias !19992
-  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %23, align 8, !noalias !19992
   br label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread.invoke"
 
 497:                                              ; preds = %496
-  %or.cond2732 = icmp ult i8 %.sroa.3987.0.lcssa, 3
-  br i1 %or.cond2732, label %498, label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread"
+  %or.cond2733 = icmp ult i8 %.sroa.3987.0.lcssa, 3
+  br i1 %or.cond2733, label %498, label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread"
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread": ; preds = %497
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22), !noalias !19997
-  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %22, align 8, !noalias !19997
   br label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread.invoke"
 
 498:                                              ; preds = %497
-  %or.cond2734 = icmp ult i8 %.sroa.31004.0.lcssa, 3
-  br i1 %or.cond2734, label %499, label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread"
+  %or.cond2735 = icmp ult i8 %.sroa.31004.0.lcssa, 3
+  br i1 %or.cond2735, label %499, label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread"
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread": ; preds = %498
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21), !noalias !20002
-  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %21, align 8, !noalias !20002
   br label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread.invoke"
 
 499:                                              ; preds = %498
-  %or.cond2736 = icmp ult i8 %.sroa.31021.0.lcssa, 3
-  br i1 %or.cond2736, label %513, label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread"
+  %or.cond2737 = icmp ult i8 %.sroa.31021.0.lcssa, 3
+  br i1 %or.cond2737, label %513, label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread"
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread": ; preds = %499
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20), !noalias !20007
-  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %20, align 8, !noalias !20007
   br label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread.invoke"
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread.invoke": ; preds = %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread", %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread", %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread", %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread", %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread", %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread"
-  %.sink2211.sroa.phi = phi ptr [ %.sink2211.sroa.gep, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink2211.sroa.gep3251, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread" ], [ %.sink2211.sroa.gep3252, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread" ], [ %.sink2211.sroa.gep3253, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread" ], [ %.sink2211.sroa.gep3254, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread" ], [ %.sink2211.sroa.gep3255, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread" ]
-  %.sink2211.sroa.phi3256 = phi ptr [ %.sink2211.sroa.gep3257, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink2211.sroa.gep3258, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread" ], [ %.sink2211.sroa.gep3259, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread" ], [ %.sink2211.sroa.gep3260, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread" ], [ %.sink2211.sroa.gep3261, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread" ], [ %.sink2211.sroa.gep3262, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread" ]
-  %.sink2211.sroa.phi3263 = phi ptr [ %.sink2211.sroa.gep3264, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink2211.sroa.gep3265, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread" ], [ %.sink2211.sroa.gep3266, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread" ], [ %.sink2211.sroa.gep3267, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread" ], [ %.sink2211.sroa.gep3268, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread" ], [ %.sink2211.sroa.gep3269, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread" ]
-  %.sink2211.sroa.phi3270 = phi ptr [ %.sink2211.sroa.gep3271, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink2211.sroa.gep3272, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread" ], [ %.sink2211.sroa.gep3273, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread" ], [ %.sink2211.sroa.gep3274, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread" ], [ %.sink2211.sroa.gep3275, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread" ], [ %.sink2211.sroa.gep3276, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread" ]
-  %.sink2211 = phi ptr [ %25, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %24, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread" ], [ %23, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread" ], [ %22, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread" ], [ %21, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread" ], [ %20, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread" ]
-  store i64 1, ptr %.sink2211.sroa.phi, align 8, !noalias !4
-  store ptr null, ptr %.sink2211.sroa.phi3256, align 8, !noalias !4
-  store ptr inttoptr (i64 8 to ptr), ptr %.sink2211.sroa.phi3263, align 8, !noalias !4
-  store i64 0, ptr %.sink2211.sroa.phi3270, align 8, !noalias !4
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink2211, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3fd1218b2f406ad1341fef897d5dd3d9.1036) #71
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink.sroa.gep3252, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread" ], [ %.sink.sroa.gep3253, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread" ], [ %.sink.sroa.gep3254, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread" ], [ %.sink.sroa.gep3255, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread" ], [ %.sink.sroa.gep3256, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread" ]
+  %.sink.sroa.phi3257 = phi ptr [ %.sink.sroa.gep3258, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink.sroa.gep3259, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread" ], [ %.sink.sroa.gep3260, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread" ], [ %.sink.sroa.gep3261, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread" ], [ %.sink.sroa.gep3262, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread" ], [ %.sink.sroa.gep3263, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread" ]
+  %.sink.sroa.phi3264 = phi ptr [ %.sink.sroa.gep3265, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink.sroa.gep3266, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread" ], [ %.sink.sroa.gep3267, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread" ], [ %.sink.sroa.gep3268, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread" ], [ %.sink.sroa.gep3269, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread" ], [ %.sink.sroa.gep3270, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread" ]
+  %.sink.sroa.phi3271 = phi ptr [ %.sink.sroa.gep3272, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink.sroa.gep3273, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread" ], [ %.sink.sroa.gep3274, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread" ], [ %.sink.sroa.gep3275, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread" ], [ %.sink.sroa.gep3276, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread" ], [ %.sink.sroa.gep3277, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread" ]
+  %.sink = phi ptr [ %25, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %24, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit330.thread" ], [ %23, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit335.thread" ], [ %22, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit340.thread" ], [ %21, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit345.thread" ], [ %20, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread" ]
+  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %.sink, align 8, !noalias !4
+  store i64 1, ptr %.sink.sroa.phi, align 8, !noalias !4
+  store ptr null, ptr %.sink.sroa.phi3257, align 8, !noalias !4
+  store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi3264, align 8, !noalias !4
+  store i64 0, ptr %.sink.sroa.phi3271, align 8, !noalias !4
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3fd1218b2f406ad1341fef897d5dd3d9.1036) #71
           to label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread.cont" unwind label %491
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread.cont": ; preds = %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit350.thread.invoke"
@@ -118416,8 +118411,8 @@ _ZN11meilisearch6routes5tasks22deserialize_date_after17hd4e702d6d0601b13E.exit47
   br label %.critedge
 
 "_ZN6deserr10serde_json79_$LT$impl$u20$deserr..value..IntoValue$u20$for$u20$serde_json..value..Value$GT$10into_value17hbd07734994dbc5d2E.exit373.thread": ; preds = %557, %556, %555, %554
-  %.sink = phi i64 [ -9223372036854775802, %557 ], [ -9223372036854775803, %556 ], [ %switch.select11.i371, %555 ], [ -9223372036854775807, %554 ]
-  store i64 %.sink, ptr %184, align 8, !alias.scope !20032, !noalias !20029
+  %.sink2213 = phi i64 [ -9223372036854775802, %557 ], [ -9223372036854775803, %556 ], [ %switch.select11.i371, %555 ], [ -9223372036854775807, %554 ]
+  store i64 %.sink2213, ptr %184, align 8, !alias.scope !20032, !noalias !20029
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %183)
   store ptr %311, ptr %268, align 8
   store i64 4, ptr %269, align 8
@@ -119162,30 +119157,30 @@ define hidden void @"_ZN243_$LT$meilisearch..routes..tasks..TaskDeletionOrCancel
   call void @llvm.lifetime.start.p0(i64 91, ptr nonnull %.sroa.12.sroa.0)
   %191 = load i64, ptr %1, align 8, !range !1940, !noundef !4
   %192 = icmp sgt i64 %191, -9223372036854775802
-  %.sink1902.sroa.gep = getelementptr inbounds i8, ptr %23, i64 8
-  %.sink1902.sroa.gep2695 = getelementptr inbounds i8, ptr %22, i64 8
-  %.sink1902.sroa.gep2696 = getelementptr inbounds i8, ptr %21, i64 8
-  %.sink1902.sroa.gep2697 = getelementptr inbounds i8, ptr %20, i64 8
-  %.sink1902.sroa.gep2698 = getelementptr inbounds i8, ptr %19, i64 8
-  %.sink1902.sroa.gep2699 = getelementptr inbounds i8, ptr %18, i64 8
-  %.sink1902.sroa.gep2701 = getelementptr inbounds i8, ptr %23, i64 32
-  %.sink1902.sroa.gep2702 = getelementptr inbounds i8, ptr %22, i64 32
-  %.sink1902.sroa.gep2703 = getelementptr inbounds i8, ptr %21, i64 32
-  %.sink1902.sroa.gep2704 = getelementptr inbounds i8, ptr %20, i64 32
-  %.sink1902.sroa.gep2705 = getelementptr inbounds i8, ptr %19, i64 32
-  %.sink1902.sroa.gep2706 = getelementptr inbounds i8, ptr %18, i64 32
-  %.sink1902.sroa.gep2708 = getelementptr inbounds i8, ptr %23, i64 16
-  %.sink1902.sroa.gep2709 = getelementptr inbounds i8, ptr %22, i64 16
-  %.sink1902.sroa.gep2710 = getelementptr inbounds i8, ptr %21, i64 16
-  %.sink1902.sroa.gep2711 = getelementptr inbounds i8, ptr %20, i64 16
-  %.sink1902.sroa.gep2712 = getelementptr inbounds i8, ptr %19, i64 16
-  %.sink1902.sroa.gep2713 = getelementptr inbounds i8, ptr %18, i64 16
-  %.sink1902.sroa.gep2715 = getelementptr inbounds i8, ptr %23, i64 24
-  %.sink1902.sroa.gep2716 = getelementptr inbounds i8, ptr %22, i64 24
-  %.sink1902.sroa.gep2717 = getelementptr inbounds i8, ptr %21, i64 24
-  %.sink1902.sroa.gep2718 = getelementptr inbounds i8, ptr %20, i64 24
-  %.sink1902.sroa.gep2719 = getelementptr inbounds i8, ptr %19, i64 24
-  %.sink1902.sroa.gep2720 = getelementptr inbounds i8, ptr %18, i64 24
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %23, i64 8
+  %.sink.sroa.gep2695 = getelementptr inbounds i8, ptr %22, i64 8
+  %.sink.sroa.gep2696 = getelementptr inbounds i8, ptr %21, i64 8
+  %.sink.sroa.gep2697 = getelementptr inbounds i8, ptr %20, i64 8
+  %.sink.sroa.gep2698 = getelementptr inbounds i8, ptr %19, i64 8
+  %.sink.sroa.gep2699 = getelementptr inbounds i8, ptr %18, i64 8
+  %.sink.sroa.gep2701 = getelementptr inbounds i8, ptr %23, i64 32
+  %.sink.sroa.gep2702 = getelementptr inbounds i8, ptr %22, i64 32
+  %.sink.sroa.gep2703 = getelementptr inbounds i8, ptr %21, i64 32
+  %.sink.sroa.gep2704 = getelementptr inbounds i8, ptr %20, i64 32
+  %.sink.sroa.gep2705 = getelementptr inbounds i8, ptr %19, i64 32
+  %.sink.sroa.gep2706 = getelementptr inbounds i8, ptr %18, i64 32
+  %.sink.sroa.gep2708 = getelementptr inbounds i8, ptr %23, i64 16
+  %.sink.sroa.gep2709 = getelementptr inbounds i8, ptr %22, i64 16
+  %.sink.sroa.gep2710 = getelementptr inbounds i8, ptr %21, i64 16
+  %.sink.sroa.gep2711 = getelementptr inbounds i8, ptr %20, i64 16
+  %.sink.sroa.gep2712 = getelementptr inbounds i8, ptr %19, i64 16
+  %.sink.sroa.gep2713 = getelementptr inbounds i8, ptr %18, i64 16
+  %.sink.sroa.gep2715 = getelementptr inbounds i8, ptr %23, i64 24
+  %.sink.sroa.gep2716 = getelementptr inbounds i8, ptr %22, i64 24
+  %.sink.sroa.gep2717 = getelementptr inbounds i8, ptr %21, i64 24
+  %.sink.sroa.gep2718 = getelementptr inbounds i8, ptr %20, i64 24
+  %.sink.sroa.gep2719 = getelementptr inbounds i8, ptr %19, i64 24
+  %.sink.sroa.gep2720 = getelementptr inbounds i8, ptr %18, i64 24
   br i1 %192, label %193, label %194
 
 193:                                              ; preds = %3
@@ -120166,7 +120161,6 @@ default.unreachable:                              ; preds = %591, %581, %570, %5
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread": ; preds = %469
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23), !noalias !20369
-  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %23, align 8, !noalias !20369
   br label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread.invoke"
 
 474:                                              ; preds = %469
@@ -120175,7 +120169,6 @@ default.unreachable:                              ; preds = %591, %581, %570, %5
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit301.thread": ; preds = %474
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22), !noalias !20374
-  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %22, align 8, !noalias !20374
   br label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread.invoke"
 
 475:                                              ; preds = %474
@@ -120184,7 +120177,6 @@ default.unreachable:                              ; preds = %591, %581, %570, %5
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit306.thread": ; preds = %475
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21), !noalias !20379
-  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %21, align 8, !noalias !20379
   br label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread.invoke"
 
 476:                                              ; preds = %475
@@ -120193,7 +120185,6 @@ default.unreachable:                              ; preds = %591, %581, %570, %5
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit311.thread": ; preds = %476
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20), !noalias !20384
-  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %20, align 8, !noalias !20384
   br label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread.invoke"
 
 477:                                              ; preds = %476
@@ -120202,7 +120193,6 @@ default.unreachable:                              ; preds = %591, %581, %570, %5
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit316.thread": ; preds = %477
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19), !noalias !20389
-  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %19, align 8, !noalias !20389
   br label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread.invoke"
 
 478:                                              ; preds = %477
@@ -120211,20 +120201,20 @@ default.unreachable:                              ; preds = %591, %581, %570, %5
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread": ; preds = %478
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18), !noalias !20394
-  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %18, align 8, !noalias !20394
   br label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread.invoke"
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread.invoke": ; preds = %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread", %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit301.thread", %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit306.thread", %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit311.thread", %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit316.thread", %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread"
-  %.sink1902.sroa.phi = phi ptr [ %.sink1902.sroa.gep, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink1902.sroa.gep2695, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit301.thread" ], [ %.sink1902.sroa.gep2696, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit306.thread" ], [ %.sink1902.sroa.gep2697, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit311.thread" ], [ %.sink1902.sroa.gep2698, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit316.thread" ], [ %.sink1902.sroa.gep2699, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread" ]
-  %.sink1902.sroa.phi2700 = phi ptr [ %.sink1902.sroa.gep2701, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink1902.sroa.gep2702, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit301.thread" ], [ %.sink1902.sroa.gep2703, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit306.thread" ], [ %.sink1902.sroa.gep2704, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit311.thread" ], [ %.sink1902.sroa.gep2705, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit316.thread" ], [ %.sink1902.sroa.gep2706, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread" ]
-  %.sink1902.sroa.phi2707 = phi ptr [ %.sink1902.sroa.gep2708, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink1902.sroa.gep2709, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit301.thread" ], [ %.sink1902.sroa.gep2710, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit306.thread" ], [ %.sink1902.sroa.gep2711, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit311.thread" ], [ %.sink1902.sroa.gep2712, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit316.thread" ], [ %.sink1902.sroa.gep2713, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread" ]
-  %.sink1902.sroa.phi2714 = phi ptr [ %.sink1902.sroa.gep2715, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink1902.sroa.gep2716, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit301.thread" ], [ %.sink1902.sroa.gep2717, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit306.thread" ], [ %.sink1902.sroa.gep2718, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit311.thread" ], [ %.sink1902.sroa.gep2719, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit316.thread" ], [ %.sink1902.sroa.gep2720, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread" ]
-  %.sink1902 = phi ptr [ %23, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %22, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit301.thread" ], [ %21, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit306.thread" ], [ %20, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit311.thread" ], [ %19, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit316.thread" ], [ %18, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread" ]
-  store i64 1, ptr %.sink1902.sroa.phi, align 8, !noalias !4
-  store ptr null, ptr %.sink1902.sroa.phi2700, align 8, !noalias !4
-  store ptr inttoptr (i64 8 to ptr), ptr %.sink1902.sroa.phi2707, align 8, !noalias !4
-  store i64 0, ptr %.sink1902.sroa.phi2714, align 8, !noalias !4
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink1902, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3fd1218b2f406ad1341fef897d5dd3d9.1038) #71
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink.sroa.gep2695, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit301.thread" ], [ %.sink.sroa.gep2696, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit306.thread" ], [ %.sink.sroa.gep2697, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit311.thread" ], [ %.sink.sroa.gep2698, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit316.thread" ], [ %.sink.sroa.gep2699, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread" ]
+  %.sink.sroa.phi2700 = phi ptr [ %.sink.sroa.gep2701, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink.sroa.gep2702, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit301.thread" ], [ %.sink.sroa.gep2703, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit306.thread" ], [ %.sink.sroa.gep2704, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit311.thread" ], [ %.sink.sroa.gep2705, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit316.thread" ], [ %.sink.sroa.gep2706, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread" ]
+  %.sink.sroa.phi2707 = phi ptr [ %.sink.sroa.gep2708, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink.sroa.gep2709, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit301.thread" ], [ %.sink.sroa.gep2710, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit306.thread" ], [ %.sink.sroa.gep2711, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit311.thread" ], [ %.sink.sroa.gep2712, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit316.thread" ], [ %.sink.sroa.gep2713, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread" ]
+  %.sink.sroa.phi2714 = phi ptr [ %.sink.sroa.gep2715, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %.sink.sroa.gep2716, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit301.thread" ], [ %.sink.sroa.gep2717, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit306.thread" ], [ %.sink.sroa.gep2718, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit311.thread" ], [ %.sink.sroa.gep2719, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit316.thread" ], [ %.sink.sroa.gep2720, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread" ]
+  %.sink = phi ptr [ %23, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit.thread" ], [ %22, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit301.thread" ], [ %21, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit306.thread" ], [ %20, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit311.thread" ], [ %19, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit316.thread" ], [ %18, %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread" ]
+  store ptr @anon.880c932b6d26fbcc815883ce24785fc3.426.llvm.784653754634180241, ptr %.sink, align 8, !noalias !4
+  store i64 1, ptr %.sink.sroa.phi, align 8, !noalias !4
+  store ptr null, ptr %.sink.sroa.phi2700, align 8, !noalias !4
+  store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi2707, align 8, !noalias !4
+  store i64 0, ptr %.sink.sroa.phi2714, align 8, !noalias !4
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3fd1218b2f406ad1341fef897d5dd3d9.1038) #71
           to label %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread.cont" unwind label %470
 
 "_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread.cont": ; preds = %"_ZN6deserr19FieldState$LT$T$GT$3map17hc00ccba62a67fefbE.exit321.thread.invoke"

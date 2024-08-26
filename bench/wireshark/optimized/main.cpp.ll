@@ -1714,19 +1714,19 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i35:     ; preds = %35
   br i1 %.not.i.i36, label %_ZN10QByteArrayD2Ev.exit27.sink.split, label %_ZN10QByteArrayD2Ev.exit27
 
 _ZN10QByteArrayD2Ev.exit.sink.split:              ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i31, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
-  %.sink.in = phi ptr [ %4, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ %5, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i31 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 1, i64 noundef 8) #17
+  %.sink46 = phi ptr [ %4, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ %5, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i31 ]
+  %39 = load ptr, ptr %.sink46, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %39, i64 noundef 1, i64 noundef 8) #17
   br label %_ZN10QByteArrayD2Ev.exit
 
 _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZN10QByteArrayD2Ev.exit.sink.split, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i31, %32, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %22
   ret void
 
 _ZN10QByteArrayD2Ev.exit27.sink.split:            ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i35, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i25
-  %.sink46.in = phi ptr [ %4, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i25 ], [ %5, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i35 ]
+  %.sink47 = phi ptr [ %4, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i25 ], [ %5, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i35 ]
   %.pn.ph = phi { ptr, i32 } [ %26, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i25 ], [ %36, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i35 ]
-  %.sink46 = load ptr, ptr %.sink46.in, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink46, i64 noundef 1, i64 noundef 8) #17
+  %40 = load ptr, ptr %.sink47, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %40, i64 noundef 1, i64 noundef 8) #17
   br label %_ZN10QByteArrayD2Ev.exit27
 
 _ZN10QByteArrayD2Ev.exit27:                       ; preds = %_ZN10QByteArrayD2Ev.exit27.sink.split, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i35, %35, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i25, %25

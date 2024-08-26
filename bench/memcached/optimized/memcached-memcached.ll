@@ -10210,11 +10210,11 @@ if.end12:                                         ; preds = %if.end4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then8, %if.end12
+  %tv.sink = phi ptr [ %tv, %if.end12 ], [ %ts, %if.then8 ]
   %process_started.sink = phi ptr [ @process_started, %if.end12 ], [ @monotonic_start, %if.then8 ]
-  %.sink.in = phi ptr [ %tv, %if.end12 ], [ %ts, %if.then8 ]
-  %.sink = load i64, ptr %.sink.in, align 8
-  %4 = load i64, ptr %process_started.sink, align 8
-  %sub15 = sub nsw i64 %.sink, %4
+  %4 = load i64, ptr %tv.sink, align 8
+  %5 = load i64, ptr %process_started.sink, align 8
+  %sub15 = sub nsw i64 %4, %5
   %conv16 = trunc i64 %sub15 to i32
   store volatile i32 %conv16, ptr @current_time, align 4
   br label %return

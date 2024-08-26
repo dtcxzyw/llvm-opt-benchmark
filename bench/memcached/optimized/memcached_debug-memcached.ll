@@ -10213,13 +10213,13 @@ if.end15:                                         ; preds = %if.end9
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then11, %if.end15
+  %tv.sink = phi ptr [ %tv, %if.end15 ], [ %ts, %if.then11 ]
   %process_started.sink = phi ptr [ @process_started, %if.end15 ], [ @monotonic_start, %if.then11 ]
-  %.sink.in = phi ptr [ %tv, %if.end15 ], [ %ts, %if.then11 ]
-  %.sink = load i64, ptr %.sink.in, align 8
-  %5 = load i64, ptr %process_started.sink, align 8
-  %sub18 = sub i64 %.sink, %5
-  %6 = load volatile i64, ptr @delta, align 8
-  %add19 = add nsw i64 %sub18, %6
+  %5 = load i64, ptr %tv.sink, align 8
+  %6 = load i64, ptr %process_started.sink, align 8
+  %sub18 = sub i64 %5, %6
+  %7 = load volatile i64, ptr @delta, align 8
+  %add19 = add nsw i64 %sub18, %7
   %conv20 = trunc i64 %add19 to i32
   store volatile i32 %conv20, ptr @current_time, align 4
   br label %return

@@ -2614,6 +2614,8 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 96
   %cmp.i.i.i = icmp ugt i64 %sub.ptr.div.i.i, 1537228672809129301
+  %ref.tmp51.sink806.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp51.sink806.sroa.gep963 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
@@ -7915,13 +7917,7 @@ invoke.cont49:                                    ; preds = %if.then.i.i.i501.i,
   %618 = load ptr, ptr %agg.result, align 8
   store ptr %617, ptr %agg.result, align 8
   %tobool.not.i.i.i.i.i247 = icmp eq ptr %618, null
-  br i1 %tobool.not.i.i.i.i.i247, label %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.thread, label %if.then.i.i.i.i.i248
-
-_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.thread:   ; preds = %invoke.cont49
-  %bytes.i441 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes3.i442 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i441, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i442, i64 16, i1 false)
-  br label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit
+  br i1 %tobool.not.i.i.i.i.i247, label %if.end54.sink.split, label %if.then.i.i.i.i.i248
 
 if.then.i.i.i.i.i248:                             ; preds = %invoke.cont49
   invoke void @_ZN3ue221aligned_free_internalEPv(ptr noundef nonnull %618)
@@ -7940,11 +7936,11 @@ _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit:          ; preds = %if.then.i.i.i.i.i24
   %bytes3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i, i64 16, i1 false)
   %cmp.not.i.i249 = icmp eq ptr %.pr, null
-  br i1 %cmp.not.i.i249, label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit, label %if.then.i.i250
+  br i1 %cmp.not.i.i249, label %if.end54, label %if.then.i.i250
 
 if.then.i.i250:                                   ; preds = %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit
   invoke void @_ZN3ue221aligned_free_internalEPv(ptr noundef nonnull %.pr)
-          to label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit unwind label %terminate.lpad.i.i
+          to label %if.end54 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i250
   %621 = landingpad { ptr, i32 }
@@ -7952,10 +7948,6 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i250
   %622 = extractvalue { ptr, i32 } %621, 0
   call void @__clang_call_terminate(ptr %622) #27
   unreachable
-
-_ZN3ue212bytecode_ptrI3NFAED2Ev.exit:             ; preds = %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.thread, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit, %if.then.i.i250
-  store ptr null, ptr %ref.tmp, align 8
-  br label %if.end54
 
 if.else:                                          ; preds = %invoke.cont4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
@@ -8878,13 +8870,7 @@ invoke.cont52:                                    ; preds = %if.then.i.i.i97.i, 
   %727 = load ptr, ptr %agg.result, align 8
   store ptr %726, ptr %agg.result, align 8
   %tobool.not.i.i.i.i.i412 = icmp eq ptr %727, null
-  br i1 %tobool.not.i.i.i.i.i412, label %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit417.thread, label %if.then.i.i.i.i.i413
-
-_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit417.thread: ; preds = %invoke.cont52
-  %bytes.i415445 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes3.i416446 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i415445, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i416446, i64 16, i1 false)
-  br label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit421
+  br i1 %tobool.not.i.i.i.i.i412, label %if.end54.sink.split, label %if.then.i.i.i.i.i413
 
 if.then.i.i.i.i.i413:                             ; preds = %invoke.cont52
   invoke void @_ZN3ue221aligned_free_internalEPv(ptr noundef nonnull %727)
@@ -8903,11 +8889,11 @@ _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit417:       ; preds = %if.then.i.i.i.i.i41
   %bytes3.i416 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i415, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i416, i64 16, i1 false)
   %cmp.not.i.i418 = icmp eq ptr %.pr444, null
-  br i1 %cmp.not.i.i418, label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit421, label %if.then.i.i419
+  br i1 %cmp.not.i.i418, label %if.end54, label %if.then.i.i419
 
 if.then.i.i419:                                   ; preds = %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit417
   invoke void @_ZN3ue221aligned_free_internalEPv(ptr noundef nonnull %.pr444)
-          to label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit421 unwind label %terminate.lpad.i.i420
+          to label %if.end54 unwind label %terminate.lpad.i.i420
 
 terminate.lpad.i.i420:                            ; preds = %if.then.i.i419
   %730 = landingpad { ptr, i32 }
@@ -8916,12 +8902,18 @@ terminate.lpad.i.i420:                            ; preds = %if.then.i.i419
   call void @__clang_call_terminate(ptr %731) #27
   unreachable
 
-_ZN3ue212bytecode_ptrI3NFAED2Ev.exit421:          ; preds = %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit417.thread, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit417, %if.then.i.i419
-  store ptr null, ptr %ref.tmp51, align 8
+if.end54.sink.split:                              ; preds = %invoke.cont52, %invoke.cont49
+  %ref.tmp51.sink806.sroa.phi = phi ptr [ %ref.tmp51.sink806.sroa.gep, %invoke.cont49 ], [ %ref.tmp51.sink806.sroa.gep963, %invoke.cont52 ]
+  %ref.tmp51.sink806 = phi ptr [ %ref.tmp, %invoke.cont49 ], [ %ref.tmp51, %invoke.cont52 ]
+  %.ph = phi ptr [ %617, %invoke.cont49 ], [ %726, %invoke.cont52 ]
+  %bytes.i415445 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i415445, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp51.sink806.sroa.phi, i64 16, i1 false)
   br label %if.end54
 
-if.end54:                                         ; preds = %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit421, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit
-  %732 = phi ptr [ %726, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit421 ], [ %617, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit ]
+if.end54:                                         ; preds = %if.end54.sink.split, %if.then.i.i419, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit417, %if.then.i.i250, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit
+  %ref.tmp51.sink = phi ptr [ %ref.tmp, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit ], [ %ref.tmp, %if.then.i.i250 ], [ %ref.tmp51, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit417 ], [ %ref.tmp51, %if.then.i.i419 ], [ %ref.tmp51.sink806, %if.end54.sink.split ]
+  %732 = phi ptr [ %617, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit ], [ %617, %if.then.i.i250 ], [ %726, %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit417 ], [ %726, %if.then.i.i419 ], [ %.ph, %if.end54.sink.split ]
+  store ptr null, ptr %ref.tmp51.sink, align 8
   br i1 %call5, label %if.then56, label %nrvo.skipdtor
 
 if.then56:                                        ; preds = %if.end54

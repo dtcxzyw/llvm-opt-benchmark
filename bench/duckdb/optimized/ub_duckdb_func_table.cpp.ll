@@ -34028,7 +34028,6 @@ invoke.cont259:                                   ; preds = %invoke.cont254
 
 _ZN6duckdb15MultiFileReader16InitializeReaderINS_17ParallelCSVReaderEEEvRT_RKNS_22MultiFileReaderOptionsERKNS_23MultiFileReaderBindDataERKNS_6vectorINS_11LogicalTypeELb1EEERKNSB_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEERKNSB_ImLb1EEENS_12optional_ptrINS_14TableFilterSetEEERKSL_RNS_13ClientContextE.exit: ; preds = %.noexc
   %filters.i = getelementptr inbounds i8, ptr %call255, i64 1088
-  store ptr null, ptr %filters.i, align 8, !tbaa !9
   br label %cleanup
 
 if.else262:                                       ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %land.rhs.i.i
@@ -34045,14 +34044,10 @@ invoke.cont263:                                   ; preds = %if.else262
 invoke.cont267:                                   ; preds = %invoke.cont263
   %154 = load ptr, ptr %agg.tmp265, align 8, !tbaa !9
   %cmp.not.i475 = icmp eq ptr %154, null
-  br i1 %cmp.not.i475, label %_ZNSt10unique_ptrIN6duckdb13CSVBufferReadESt14default_deleteIS1_EED2Ev.exit, label %if.then.i
+  br i1 %cmp.not.i475, label %cleanup, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont267
   call void @_ZNKSt14default_deleteIN6duckdb13CSVBufferReadEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp265, ptr noundef nonnull %154)
-  br label %_ZNSt10unique_ptrIN6duckdb13CSVBufferReadESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN6duckdb13CSVBufferReadESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then.i, %invoke.cont267
-  store ptr null, ptr %agg.tmp265, align 8, !tbaa !9
   br label %cleanup
 
 lpad266:                                          ; preds = %invoke.cont263
@@ -34070,7 +34065,9 @@ _ZNSt10unique_ptrIN6duckdb13CSVBufferReadESt14default_deleteIS1_EED2Ev.exit478: 
   store ptr null, ptr %agg.tmp265, align 8, !tbaa !9
   br label %ehcleanup270
 
-cleanup:                                          ; preds = %_ZNSt10unique_ptrIN6duckdb13CSVBufferReadESt14default_deleteIS1_EED2Ev.exit, %_ZN6duckdb15MultiFileReader16InitializeReaderINS_17ParallelCSVReaderEEEvRT_RKNS_22MultiFileReaderOptionsERKNS_23MultiFileReaderBindDataERKNS_6vectorINS_11LogicalTypeELb1EEERKNSB_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEERKNSB_ImLb1EEENS_12optional_ptrINS_14TableFilterSetEEERKSL_RNS_13ClientContextE.exit
+cleanup:                                          ; preds = %invoke.cont267, %if.then.i, %_ZN6duckdb15MultiFileReader16InitializeReaderINS_17ParallelCSVReaderEEEvRT_RKNS_22MultiFileReaderOptionsERKNS_23MultiFileReaderBindDataERKNS_6vectorINS_11LogicalTypeELb1EEERKNSB_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEERKNSB_ImLb1EEENS_12optional_ptrINS_14TableFilterSetEEERKSL_RNS_13ClientContextE.exit
+  %agg.tmp265.sink = phi ptr [ %filters.i, %_ZN6duckdb15MultiFileReader16InitializeReaderINS_17ParallelCSVReaderEEEvRT_RKNS_22MultiFileReaderOptionsERKNS_23MultiFileReaderBindDataERKNS_6vectorINS_11LogicalTypeELb1EEERKNSB_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEERKNSB_ImLb1EEENS_12optional_ptrINS_14TableFilterSetEEERKSL_RNS_13ClientContextE.exit ], [ %agg.tmp265, %if.then.i ], [ %agg.tmp265, %invoke.cont267 ]
+  store ptr null, ptr %agg.tmp265.sink, align 8, !tbaa !9
   %.pr513 = load ptr, ptr %result, align 8, !tbaa !9
   %cmp.not.i479 = icmp eq ptr %.pr513, null
   br i1 %cmp.not.i479, label %_ZNSt10unique_ptrIN6duckdb13CSVBufferReadESt14default_deleteIS1_EED2Ev.exit481, label %if.then.i480

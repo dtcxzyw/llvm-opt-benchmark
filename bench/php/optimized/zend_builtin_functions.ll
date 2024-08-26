@@ -1256,19 +1256,19 @@ define hidden void @zif_strlen(ptr noundef %0, ptr nocapture noundef writeonly %
   %.05591 = phi ptr [ null, %6 ], [ %8, %12 ]
   %.05690 = phi i32 [ 0, %6 ], [ 4, %12 ]
   call void @zend_wrong_parameter_error(i32 noundef %.05393, i32 noundef %.05492, ptr noundef null, i32 noundef %.05690, ptr noundef %.05591) #13
-  br label %18
+  br label %17
 
 .thread77:                                        ; preds = %12, %7
-  %.in = phi ptr [ %8, %7 ], [ %3, %12 ]
-  %14 = load ptr, ptr %.in, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
-  %16 = load i64, ptr %15, align 8
-  store i64 %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 4, ptr %17, align 8
-  br label %18
+  %.sink = phi ptr [ %8, %7 ], [ %3, %12 ]
+  %.pre = load ptr, ptr %.sink, align 8
+  %14 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %15 = load i64, ptr %14, align 8
+  store i64 %15, ptr %1, align 8
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 4, ptr %16, align 8
+  br label %17
 
-18:                                               ; preds = %.thread77, %.thread84
+17:                                               ; preds = %.thread77, %.thread84
   ret void
 }
 

@@ -1324,31 +1324,25 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
   store double %52, ptr %53, align 8
   %54 = and i32 %7, 64
   %.not = icmp eq i32 %54, 0
-  br i1 %.not, label %56, label %55
+  br i1 %.not, label %55, label %.sink.split
 
 55:                                               ; preds = %38
-  store double %.sroa.042.0, ptr %9, align 16
-  br label %.sink.split
+  %56 = and i32 %7, 128
+  %.not77 = icmp eq i32 %56, 0
+  br i1 %.not77, label %57, label %.sink.split
 
-56:                                               ; preds = %38
-  %57 = and i32 %7, 128
-  %.not77 = icmp eq i32 %57, 0
-  br i1 %.not77, label %59, label %58
-
-58:                                               ; preds = %56
-  store double %.sroa.042.0, ptr %43, align 16
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %55, %58
-  %.sink85 = phi ptr [ %45, %58 ], [ %41, %55 ]
-  %.sink84 = phi ptr [ %47, %58 ], [ %51, %55 ]
-  %.sink = phi ptr [ %49, %58 ], [ %53, %55 ]
+.sink.split:                                      ; preds = %55, %38
+  %.sink86 = phi ptr [ %9, %38 ], [ %43, %55 ]
+  %.sink85 = phi ptr [ %41, %38 ], [ %45, %55 ]
+  %.sink84 = phi ptr [ %51, %38 ], [ %47, %55 ]
+  %.sink = phi ptr [ %53, %38 ], [ %49, %55 ]
+  store double %.sroa.042.0, ptr %.sink86, align 16
   store double %.sroa.746.0, ptr %.sink85, align 8
   store double %.sroa.034.0, ptr %.sink84, align 16
   store double %.sroa.7.0, ptr %.sink, align 8
-  br label %59
+  br label %57
 
-59:                                               ; preds = %.sink.split, %56
+57:                                               ; preds = %.sink.split, %55
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef 1) #11
   store double %.sroa.067.0, ptr %9, align 16
   store double %.sroa.771.0, ptr %41, align 8
@@ -1430,46 +1424,40 @@ define internal { double, double } @arrow_type_box(ptr noundef %0, double %1, do
   store double %44, ptr %45, align 8
   %46 = and i32 %7, 64
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %48, label %47
+  br i1 %.not, label %47, label %.sink.split
 
 47:                                               ; preds = %26
-  store double %27, ptr %9, align 16
-  br label %.sink.split
+  %48 = and i32 %7, 128
+  %.not62 = icmp eq i32 %48, 0
+  br i1 %.not62, label %49, label %.sink.split
 
-48:                                               ; preds = %26
-  %49 = and i32 %7, 128
-  %.not62 = icmp eq i32 %49, 0
-  br i1 %.not62, label %51, label %50
-
-50:                                               ; preds = %48
-  store double %27, ptr %35, align 16
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %47, %50
-  %.sink65 = phi ptr [ %37, %50 ], [ %33, %47 ]
-  %.sink64 = phi ptr [ %39, %50 ], [ %43, %47 ]
-  %.sink = phi ptr [ %41, %50 ], [ %45, %47 ]
+.sink.split:                                      ; preds = %47, %26
+  %.sink66 = phi ptr [ %9, %26 ], [ %35, %47 ]
+  %.sink65 = phi ptr [ %33, %26 ], [ %37, %47 ]
+  %.sink64 = phi ptr [ %43, %26 ], [ %39, %47 ]
+  %.sink = phi ptr [ %45, %26 ], [ %41, %47 ]
+  store double %27, ptr %.sink66, align 16
   store double %28, ptr %.sink65, align 8
   store double %29, ptr %.sink64, align 16
   store double %30, ptr %.sink, align 8
-  br label %51
+  br label %49
 
-51:                                               ; preds = %.sink.split, %48
-  %52 = fadd double %2, %4
-  %53 = fsub double %52, %.sroa.5.0
-  %54 = fadd double %1, %3
-  %55 = fsub double %54, %.sroa.09.0
-  %56 = lshr i32 %7, 4
-  %.lobit = and i32 %56, 1
-  %57 = xor i32 %.lobit, 1
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef %57) #11
+49:                                               ; preds = %.sink.split, %47
+  %50 = fadd double %2, %4
+  %51 = fsub double %50, %.sroa.5.0
+  %52 = fadd double %1, %3
+  %53 = fsub double %52, %.sroa.09.0
+  %54 = lshr i32 %7, 4
+  %.lobit = and i32 %54, 1
+  %55 = xor i32 %.lobit, 1
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef %55) #11
   store double %29, ptr %9, align 16
   store double %30, ptr %33, align 8
-  store double %55, ptr %35, align 16
-  store double %53, ptr %37, align 8
+  store double %53, ptr %35, align 16
+  store double %51, ptr %37, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2) #11
-  %.fca.0.insert = insertvalue { double, double } poison, double %55, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %53, 1
+  %.fca.0.insert = insertvalue { double, double } poison, double %53, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %51, 1
   ret { double, double } %.fca.1.insert
 }
 

@@ -405,7 +405,7 @@ define void @slasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @slasq4_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %20, ptr noundef nonnull %4, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %13)
   br label %274
 
-274:                                              ; preds = %.backedge376, %273
+274:                                              ; preds = %.backedge377, %273
   call void @slasq5_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %19, ptr noundef nonnull %4, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %11)
   %275 = load i32, ptr %1, align 4
   %276 = load i32, ptr %0, align 4
@@ -456,8 +456,7 @@ define void @slasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %309 = getelementptr inbounds float, ptr %21, i64 %295
   %310 = getelementptr i8, ptr %309, i64 8
   store float 0.000000e+00, ptr %310, align 4
-  store float 0.000000e+00, ptr %4, align 4
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 311:                                              ; preds = %303, %289, %287
   br i1 %288, label %312, label %328
@@ -472,7 +471,7 @@ define void @slasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 317:                                              ; preds = %312
   store float 0.000000e+00, ptr %19, align 4
-  br label %.backedge376
+  br label %.backedge377
 
 318:                                              ; preds = %312
   %319 = load float, ptr %19, align 4
@@ -485,9 +484,9 @@ define void @slasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store float %323, ptr %19, align 4
   %324 = add nsw i32 %315, -11
   store i32 %324, ptr %13, align 4
-  br label %.backedge376
+  br label %.backedge377
 
-.backedge376:                                     ; preds = %320, %325, %317
+.backedge377:                                     ; preds = %320, %325, %317
   br label %274
 
 325:                                              ; preds = %318
@@ -495,7 +494,7 @@ define void @slasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store float %326, ptr %19, align 4
   %327 = add nsw i32 %315, -12
   store i32 %327, ptr %13, align 4
-  br label %.backedge376
+  br label %.backedge377
 
 328:                                              ; preds = %311
   call void @slasq6_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18)
@@ -509,10 +508,14 @@ define void @slasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %335 = load i32, ptr %9, align 4
   %336 = add nsw i32 %335, 1
   store i32 %336, ptr %9, align 4
-  store float 0.000000e+00, ptr %19, align 4
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %308, %328
+  %.sink373 = phi ptr [ %19, %328 ], [ %4, %308 ]
+  store float 0.000000e+00, ptr %.sink373, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %274, %328, %308
+.loopexit:                                        ; preds = %274, %.loopexit.sink.split
   %337 = load float, ptr %19, align 4
   %338 = load float, ptr %5, align 4
   %339 = fcmp olt float %337, %338

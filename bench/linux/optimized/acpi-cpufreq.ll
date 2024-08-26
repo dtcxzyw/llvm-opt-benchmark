@@ -1839,7 +1839,7 @@ define internal fastcc void @acpi_cpufreq_boost_init() unnamed_addr #0 section "
   %7 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 96), align 8
   %8 = and i64 %7, 2
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %25, label %10
+  br i1 %9, label %20, label %10
 
 10:                                               ; preds = %6, %0
   store ptr @set_boost, ptr getelementptr inbounds (i8, ptr @acpi_cpufreq_driver, i64 192), align 8
@@ -1848,37 +1848,36 @@ define internal fastcc void @acpi_cpufreq_boost_init() unnamed_addr #0 section "
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #16
   store i32 0, ptr %2, align 4, !annotation !19
   %11 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
-  switch i8 %11, label %22 [
-    i8 0, label %12
-    i8 5, label %12
-    i8 10, label %12
-    i8 9, label %17
-    i8 2, label %17
+  switch i8 %11, label %18 [
+    i8 0, label %.sink.split
+    i8 5, label %.sink.split
+    i8 10, label %.sink.split
+    i8 9, label %12
+    i8 2, label %12
   ]
 
-12:                                               ; preds = %10, %10, %10
-  %13 = call i32 @rdmsr_on_cpu(i32 noundef 0, i32 noundef 416, ptr noundef nonnull %1, ptr noundef nonnull %2) #16
-  %14 = load i32, ptr %2, align 4
-  %15 = and i32 %14, 64
+12:                                               ; preds = %10, %10
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %10, %10, %10, %12
+  %.sink3 = phi i32 [ -1073676267, %12 ], [ 416, %10 ], [ 416, %10 ], [ 416, %10 ]
+  %.sink = phi ptr [ %1, %12 ], [ %2, %10 ], [ %2, %10 ], [ %2, %10 ]
+  %.sink2 = phi i32 [ 33554432, %12 ], [ 64, %10 ], [ 64, %10 ], [ 64, %10 ]
+  %13 = call i32 @rdmsr_on_cpu(i32 noundef 0, i32 noundef %.sink3, ptr noundef nonnull %1, ptr noundef nonnull %2) #16
+  %14 = load i32, ptr %.sink, align 4
+  %15 = and i32 %14, %.sink2
   %16 = icmp eq i32 %15, 0
-  br label %22
+  %17 = zext i1 %16 to i8
+  br label %18
 
-17:                                               ; preds = %10, %10
-  %18 = call i32 @rdmsr_on_cpu(i32 noundef 0, i32 noundef -1073676267, ptr noundef nonnull %1, ptr noundef nonnull %2) #16
-  %19 = load i32, ptr %1, align 4
-  %20 = and i32 %19, 33554432
-  %21 = icmp eq i32 %20, 0
-  br label %22
-
-22:                                               ; preds = %17, %12, %10
-  %23 = phi i1 [ %21, %17 ], [ %16, %12 ], [ false, %10 ]
+18:                                               ; preds = %.sink.split, %10
+  %19 = phi i8 [ 0, %10 ], [ %17, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #16
-  %24 = zext i1 %23 to i8
-  store i8 %24, ptr getelementptr inbounds (i8, ptr @acpi_cpufreq_driver, i64 184), align 8
-  br label %25
+  store i8 %19, ptr getelementptr inbounds (i8, ptr @acpi_cpufreq_driver, i64 184), align 8
+  br label %20
 
-25:                                               ; preds = %22, %6
+20:                                               ; preds = %18, %6
   ret void
 }
 

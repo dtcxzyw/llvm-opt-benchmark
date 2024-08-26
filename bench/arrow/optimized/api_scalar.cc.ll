@@ -95848,8 +95848,8 @@ entry:
   %status_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %status_, align 8
   %cmp.i = icmp eq ptr %1, null
-  %ref.tmp.sink.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %ref.tmp.sink.i.sroa.gep44 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
+  %ref.tmp.sink5.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %ref.tmp.sink5.i.sroa.gep44 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   br i1 %cmp.i, label %if.end, label %cleanup.cont
 
 if.end:                                           ; preds = %entry
@@ -95882,13 +95882,13 @@ lpad:                                             ; preds = %if.end14
   br label %ehcleanup
 
 if.end14:                                         ; preds = %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.thread.i, %cleanup.action.i
-  %ref.tmp.sink.i.sroa.phi = phi ptr [ %ref.tmp.sink.i.sroa.gep, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.thread.i ], [ %ref.tmp.sink.i.sroa.gep44, %cleanup.action.i ]
-  %ref.tmp.sink.i = phi ptr [ %ref.tmp.i, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.thread.i ], [ %ref.tmp2.i, %cleanup.action.i ]
-  %.pre.sink.i = load ptr, ptr %ref.tmp.sink.i, align 8, !noalias !1226
-  %.pre1.i = load ptr, ptr %ref.tmp.sink.i.sroa.phi, align 8, !noalias !1226
+  %ref.tmp.sink5.i.sroa.phi = phi ptr [ %ref.tmp.sink5.i.sroa.gep, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.thread.i ], [ %ref.tmp.sink5.i.sroa.gep44, %cleanup.action.i ]
+  %ref.tmp.sink5.i = phi ptr [ %ref.tmp.i, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.thread.i ], [ %ref.tmp2.i, %cleanup.action.i ]
+  %.pre.i = load ptr, ptr %ref.tmp.sink5.i, align 8, !noalias !1226
+  %.pre1.i = load ptr, ptr %ref.tmp.sink5.i.sroa.phi, align 8, !noalias !1226
   store ptr null, ptr %result, align 8, !alias.scope !1226
   %storage_.i.i2.i = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %.pre.sink.i, ptr %storage_.i.i2.i, align 8, !alias.scope !1226
+  store ptr %.pre.i, ptr %storage_.i.i2.i, align 8, !alias.scope !1226
   %_M_refcount.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %result, i64 16
   store ptr %.pre1.i, ptr %_M_refcount.i.i.i.i.i3.i, align 8, !alias.scope !1226
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -95908,7 +95908,7 @@ invoke.cont17:                                    ; preds = %if.end14
   %values_ = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %values_, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1229)
-  store ptr %.pre.sink.i, ptr %ref.tmp19, align 8, !alias.scope !1229
+  store ptr %.pre.i, ptr %ref.tmp19, align 8, !alias.scope !1229
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i3.i, align 8, !noalias !1229
   store ptr %.pre1.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !1229
@@ -95921,7 +95921,7 @@ invoke.cont17:                                    ; preds = %if.end14
   br i1 %cmp.not.i.i, label %if.else.i.i, label %invoke.cont21.thread
 
 invoke.cont21.thread:                             ; preds = %invoke.cont17
-  store ptr %.pre.sink.i, ptr %9, align 8
+  store ptr %.pre.i, ptr %9, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr null, ptr %_M_refcount.i.i.i, align 8
   store ptr %.pre1.i, ptr %_M_refcount.i.i.i.i.i.i, align 8
@@ -96039,8 +96039,8 @@ entry:
   %status_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %status_, align 8
   %cmp.i = icmp eq ptr %1, null
-  %ref.tmp.sink.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %ref.tmp.sink.i.sroa.gep44 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
+  %ref.tmp.sink5.i.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %ref.tmp.sink5.i.sroa.gep44 = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   br i1 %cmp.i, label %if.end, label %cleanup.cont
 
 if.end:                                           ; preds = %entry
@@ -96074,13 +96074,13 @@ lpad:                                             ; preds = %if.end14
   br label %ehcleanup
 
 if.end14:                                         ; preds = %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.thread.i, %cleanup.action.i
-  %ref.tmp.sink.i.sroa.phi = phi ptr [ %ref.tmp.sink.i.sroa.gep, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.thread.i ], [ %ref.tmp.sink.i.sroa.gep44, %cleanup.action.i ]
-  %ref.tmp.sink.i = phi ptr [ %ref.tmp.i, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.thread.i ], [ %ref.tmp2.i, %cleanup.action.i ]
-  %.pre.sink.i = load ptr, ptr %ref.tmp.sink.i, align 8, !noalias !1232
-  %.pre1.i = load ptr, ptr %ref.tmp.sink.i.sroa.phi, align 8, !noalias !1232
+  %ref.tmp.sink5.i.sroa.phi = phi ptr [ %ref.tmp.sink5.i.sroa.gep, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.thread.i ], [ %ref.tmp.sink5.i.sroa.gep44, %cleanup.action.i ]
+  %ref.tmp.sink5.i = phi ptr [ %ref.tmp.i, %_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev.exit.thread.i ], [ %ref.tmp2.i, %cleanup.action.i ]
+  %.pre.i = load ptr, ptr %ref.tmp.sink5.i, align 8, !noalias !1232
+  %.pre1.i = load ptr, ptr %ref.tmp.sink5.i.sroa.phi, align 8, !noalias !1232
   store ptr null, ptr %result, align 8, !alias.scope !1232
   %storage_.i.i2.i = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %.pre.sink.i, ptr %storage_.i.i2.i, align 8, !alias.scope !1232
+  store ptr %.pre.i, ptr %storage_.i.i2.i, align 8, !alias.scope !1232
   %_M_refcount.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %result, i64 16
   store ptr %.pre1.i, ptr %_M_refcount.i.i.i.i.i3.i, align 8, !alias.scope !1232
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -96100,7 +96100,7 @@ invoke.cont17:                                    ; preds = %if.end14
   %values_ = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %values_, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1235)
-  store ptr %.pre.sink.i, ptr %ref.tmp19, align 8, !alias.scope !1235
+  store ptr %.pre.i, ptr %ref.tmp19, align 8, !alias.scope !1235
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i3.i, align 8, !noalias !1235
   store ptr %.pre1.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !1235
@@ -96113,7 +96113,7 @@ invoke.cont17:                                    ; preds = %if.end14
   br i1 %cmp.not.i.i, label %if.else.i.i, label %invoke.cont21.thread
 
 invoke.cont21.thread:                             ; preds = %invoke.cont17
-  store ptr %.pre.sink.i, ptr %9, align 8
+  store ptr %.pre.i, ptr %9, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr null, ptr %_M_refcount.i.i.i, align 8
   store ptr %.pre1.i, ptr %_M_refcount.i.i.i.i.i.i, align 8

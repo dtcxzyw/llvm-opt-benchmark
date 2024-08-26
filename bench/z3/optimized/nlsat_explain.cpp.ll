@@ -7030,10 +7030,10 @@ if.then37:                                        ; preds = %invoke.cont34
   br label %if.then37.invoke
 
 if.then37.invoke:                                 ; preds = %if.then92, %if.then37
-  %27 = phi i32 [ 10, %if.then37 ], [ %cond95, %if.then92 ]
-  %28 = phi i32 [ %add, %if.then37 ], [ %i_upper.1, %if.then92 ]
-  %.in = phi ptr [ %p, %if.then37 ], [ %p_upper, %if.then92 ]
-  %29 = load ptr, ptr %.in, align 8
+  %p_upper.sink = phi ptr [ %p_upper, %if.then92 ], [ %p, %if.then37 ]
+  %27 = phi i32 [ %cond95, %if.then92 ], [ 10, %if.then37 ]
+  %28 = phi i32 [ %i_upper.1, %if.then92 ], [ %add, %if.then37 ]
+  %29 = load ptr, ptr %p_upper.sink, align 8
   invoke void @_ZN5nlsat7explain3imp16add_root_literalENS_4atom4kindEjjPN10polynomial10polynomialE(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %27, i32 noundef %y, i32 noundef %28, ptr noundef %29)
           to label %cleanup unwind label %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

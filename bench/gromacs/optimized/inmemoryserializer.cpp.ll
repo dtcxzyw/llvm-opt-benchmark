@@ -101,29 +101,18 @@ define void @_ZN3gmx18InMemorySerializer6doBoolEPb(ptr nocapture noundef nonnull
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %2
-  %.sink.i.sroa.gep2 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %8, ptr %3, align 1
-  br label %_ZN3gmx18InMemorySerializer4Impl7doValueIbEEvT_.exit
-
-13:                                               ; preds = %2
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %4, i64 1
-  store i8 %8, ptr %4, align 1
-  br label %_ZN3gmx18InMemorySerializer4Impl7doValueIbEEvT_.exit
-
-_ZN3gmx18InMemorySerializer4Impl7doValueIbEEvT_.exit: ; preds = %12, %13
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %13 ], [ %.sink.i.sroa.gep2, %12 ]
-  %.sink.i = phi ptr [ %4, %13 ], [ %3, %12 ]
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = ptrtoint ptr %15 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %20 = getelementptr inbounds i8, ptr %16, i64 %19
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %20, ptr noundef nonnull %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %..i = select i1 %11, ptr %3, ptr %4
+  store i8 %8, ptr %..i, align 1
+  %13 = load ptr, ptr %12, align 8
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %11, ptr %3, ptr %4
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 1
+  %14 = load ptr, ptr %6, align 8
+  %15 = ptrtoint ptr %13 to i64
+  %16 = ptrtoint ptr %14 to i64
+  %17 = sub i64 %15, %16
+  %18 = getelementptr inbounds i8, ptr %14, i64 %17
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %18, ptr noundef nonnull %..i, ptr noundef nonnull %..i.sroa.sel.v.sroa.sel.v.sroa.sel)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
@@ -141,29 +130,18 @@ define void @_ZN3gmx18InMemorySerializer7doUCharEPh(ptr nocapture noundef nonnul
   %8 = getelementptr inbounds i8, ptr %6, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %2
-  %.sink.i.sroa.gep2 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %7, ptr %3, align 1
-  br label %_ZN3gmx18InMemorySerializer4Impl7doValueIhEEvT_.exit
-
-12:                                               ; preds = %2
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %4, i64 1
-  store i8 %7, ptr %4, align 1
-  br label %_ZN3gmx18InMemorySerializer4Impl7doValueIhEEvT_.exit
-
-_ZN3gmx18InMemorySerializer4Impl7doValueIhEEvT_.exit: ; preds = %11, %12
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %12 ], [ %.sink.i.sroa.gep2, %11 ]
-  %.sink.i = phi ptr [ %4, %12 ], [ %3, %11 ]
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = ptrtoint ptr %14 to i64
-  %17 = ptrtoint ptr %15 to i64
-  %18 = sub i64 %16, %17
-  %19 = getelementptr inbounds i8, ptr %15, i64 %18
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %19, ptr noundef nonnull %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
+  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %..i = select i1 %10, ptr %3, ptr %4
+  store i8 %7, ptr %..i, align 1
+  %12 = load ptr, ptr %11, align 8
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %10, ptr %3, ptr %4
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 1
+  %13 = load ptr, ptr %6, align 8
+  %14 = ptrtoint ptr %12 to i64
+  %15 = ptrtoint ptr %13 to i64
+  %16 = sub i64 %14, %15
+  %17 = getelementptr inbounds i8, ptr %13, i64 %16
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %17, ptr noundef nonnull %..i, ptr noundef nonnull %..i.sroa.sel.v.sroa.sel.v.sroa.sel)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
@@ -181,29 +159,18 @@ define void @_ZN3gmx18InMemorySerializer6doCharEPc(ptr nocapture noundef nonnull
   %8 = getelementptr inbounds i8, ptr %6, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %2
-  %.sink.i.sroa.gep2 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %7, ptr %3, align 1
-  br label %_ZN3gmx18InMemorySerializer4Impl7doValueIcEEvT_.exit
-
-12:                                               ; preds = %2
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %4, i64 1
-  store i8 %7, ptr %4, align 1
-  br label %_ZN3gmx18InMemorySerializer4Impl7doValueIcEEvT_.exit
-
-_ZN3gmx18InMemorySerializer4Impl7doValueIcEEvT_.exit: ; preds = %11, %12
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %12 ], [ %.sink.i.sroa.gep2, %11 ]
-  %.sink.i = phi ptr [ %4, %12 ], [ %3, %11 ]
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = ptrtoint ptr %14 to i64
-  %17 = ptrtoint ptr %15 to i64
-  %18 = sub i64 %16, %17
-  %19 = getelementptr inbounds i8, ptr %15, i64 %18
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %19, ptr noundef nonnull %.sink.i, ptr noundef nonnull %.sink.i.sroa.phi)
+  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %..i = select i1 %10, ptr %3, ptr %4
+  store i8 %7, ptr %..i, align 1
+  %12 = load ptr, ptr %11, align 8
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %10, ptr %3, ptr %4
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 1
+  %13 = load ptr, ptr %6, align 8
+  %14 = ptrtoint ptr %12 to i64
+  %15 = ptrtoint ptr %13 to i64
+  %16 = sub i64 %14, %15
+  %17 = getelementptr inbounds i8, ptr %13, i64 %16
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %17, ptr noundef nonnull %..i, ptr noundef nonnull %..i.sroa.sel.v.sroa.sel.v.sroa.sel)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void

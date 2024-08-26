@@ -8081,7 +8081,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 72:                                               ; preds = %70
   %73 = getelementptr inbounds i8, ptr %1, i64 32
   invoke void @_ZN2cv5gimpl18GStreamingExecutorC1EOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EERKSt6vectorINS_11GCompileArgESaISA_EE(ptr noundef nonnull align 8 dereferenceable(800) %71, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %73)
-          to label %74 unwind label %91
+          to label %74 unwind label %88
 
 74:                                               ; preds = %72
   store ptr %71, ptr %10, align 8
@@ -8092,142 +8092,131 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   %79 = getelementptr inbounds i8, ptr %7, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %78, %80
-  br i1 %77, label %101, label %82
+  br i1 %77, label %98, label %82
 
 82:                                               ; preds = %74
-  br i1 %81, label %116, label %83
+  br i1 %81, label %110, label %83
 
 83:                                               ; preds = %82
   %84 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN2cv18GStreamingCompiled4privEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-          to label %85 unwind label %93
+          to label %85 unwind label %90
 
 85:                                               ; preds = %83
   store ptr null, ptr %10, align 8
   store ptr %71, ptr %11, align 8
   invoke void @_ZN2cv18GStreamingCompiled4Priv5setupERKSt6vectorINS_4util7variantIJNS3_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISB_EESF_OSt10unique_ptrINS_5gimpl26GAbstractStreamingExecutorESt14default_deleteISI_EE(ptr noundef nonnull align 8 dereferenceable(104) %84, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %86 unwind label %95
+          to label %86 unwind label %92
 
 86:                                               ; preds = %85
   %87 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %87, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit.sink.split
 
-_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i: ; preds = %86
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
-  %90 = load ptr, ptr %89, align 8
-  call void %90(ptr noundef nonnull align 8 dereferenceable(137) %87) #23
-  br label %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit
-
-_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit: ; preds = %86, %_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i
-  store ptr null, ptr %11, align 8
-  br label %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit
-
-91:                                               ; preds = %72
-  %92 = landingpad { ptr, i32 }
+88:                                               ; preds = %72
+  %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %71) #25
   br label %.loopexit.split-lp
 
-93:                                               ; preds = %102, %83
-  %94 = landingpad { ptr, i32 }
+90:                                               ; preds = %99, %83
+  %91 = landingpad { ptr, i32 }
           cleanup
-  br label %134
+  br label %131
 
-95:                                               ; preds = %85
-  %96 = landingpad { ptr, i32 }
+92:                                               ; preds = %85
+  %93 = landingpad { ptr, i32 }
           cleanup
-  %97 = load ptr, ptr %11, align 8
-  %.not.i21 = icmp eq ptr %97, null
+  %94 = load ptr, ptr %11, align 8
+  %.not.i21 = icmp eq ptr %94, null
   br i1 %.not.i21, label %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit23, label %_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i22
 
-_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i22: ; preds = %95
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
-  %100 = load ptr, ptr %99, align 8
-  call void %100(ptr noundef nonnull align 8 dereferenceable(137) %97) #23
+_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i22: ; preds = %92
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %97 = load ptr, ptr %96, align 8
+  call void %97(ptr noundef nonnull align 8 dereferenceable(137) %94) #23
   br label %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit23
 
-_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit23: ; preds = %95, %_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i22
+_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit23: ; preds = %92, %_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i22
   store ptr null, ptr %11, align 8
-  br label %134
+  br label %131
 
-101:                                              ; preds = %74
-  br i1 %81, label %102, label %116
+98:                                               ; preds = %74
+  br i1 %81, label %99, label %110
 
-102:                                              ; preds = %101
-  %103 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN2cv18GStreamingCompiled4privEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-          to label %104 unwind label %93
+99:                                               ; preds = %98
+  %100 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN2cv18GStreamingCompiled4privEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+          to label %101 unwind label %90
 
-104:                                              ; preds = %102
+101:                                              ; preds = %99
   store ptr null, ptr %10, align 8
   store ptr %71, ptr %12, align 8
-  invoke void @_ZN2cv18GStreamingCompiled4Priv5setupEOSt10unique_ptrINS_5gimpl26GAbstractStreamingExecutorESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(104) %103, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %105 unwind label %110
+  invoke void @_ZN2cv18GStreamingCompiled4Priv5setupEOSt10unique_ptrINS_5gimpl26GAbstractStreamingExecutorESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(104) %100, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %102 unwind label %104
 
-105:                                              ; preds = %104
+102:                                              ; preds = %101
+  %103 = load ptr, ptr %12, align 8
+  %.not.i24 = icmp eq ptr %103, null
+  br i1 %.not.i24, label %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit.sink.split
+
+104:                                              ; preds = %101
+  %105 = landingpad { ptr, i32 }
+          cleanup
   %106 = load ptr, ptr %12, align 8
-  %.not.i24 = icmp eq ptr %106, null
-  br i1 %.not.i24, label %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit26, label %_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i25
+  %.not.i27 = icmp eq ptr %106, null
+  br i1 %.not.i27, label %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit29, label %_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i28
 
-_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i25: ; preds = %105
+_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i28: ; preds = %104
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   call void %109(ptr noundef nonnull align 8 dereferenceable(137) %106) #23
-  br label %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit26
-
-_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit26: ; preds = %105, %_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i25
-  store ptr null, ptr %12, align 8
-  br label %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit
-
-110:                                              ; preds = %104
-  %111 = landingpad { ptr, i32 }
-          cleanup
-  %112 = load ptr, ptr %12, align 8
-  %.not.i27 = icmp eq ptr %112, null
-  br i1 %.not.i27, label %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit29, label %_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i28
-
-_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i28: ; preds = %110
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 8
-  %115 = load ptr, ptr %114, align 8
-  call void %115(ptr noundef nonnull align 8 dereferenceable(137) %112) #23
   br label %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit29
 
-_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit29: ; preds = %110, %_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i28
+_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit29: ; preds = %104, %_ZNKSt14default_deleteIN2cv5gimpl26GAbstractStreamingExecutorEEclEPS2_.exit.i28
   store ptr null, ptr %12, align 8
-  br label %134
+  br label %131
 
-116:                                              ; preds = %82, %101
+110:                                              ; preds = %82, %98
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.38, ptr noundef nonnull align 1 dereferenceable(1) %14)
-          to label %117 unwind label %119
+          to label %111 unwind label %113
 
-117:                                              ; preds = %116
+111:                                              ; preds = %110
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__func__._ZN2cv5gimpl9GCompiler24produceStreamingCompiledEOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EE, ptr noundef nonnull @.str.26, i32 noundef 497) #26
-          to label %118 unwind label %121
+          to label %112 unwind label %115
 
-118:                                              ; preds = %117
+112:                                              ; preds = %111
   unreachable
 
-119:                                              ; preds = %116
-  %120 = landingpad { ptr, i32 }
+113:                                              ; preds = %110
+  %114 = landingpad { ptr, i32 }
           cleanup
-  br label %123
+  br label %117
 
-121:                                              ; preds = %117
-  %122 = landingpad { ptr, i32 }
+115:                                              ; preds = %111
+  %116 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #23
-  br label %123
+  br label %117
 
-123:                                              ; preds = %121, %119
-  %.pn = phi { ptr, i32 } [ %122, %121 ], [ %120, %119 ]
+117:                                              ; preds = %115, %113
+  %.pn = phi { ptr, i32 } [ %116, %115 ], [ %114, %113 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #23
-  br label %134
+  br label %131
 
-_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit26, %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit
+_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit.sink.split: ; preds = %102, %86
+  %.sink46 = phi ptr [ %87, %86 ], [ %103, %102 ]
+  %.sink.ph = phi ptr [ %11, %86 ], [ %12, %102 ]
+  %118 = load ptr, ptr %.sink46, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %120 = load ptr, ptr %119, align 8
+  call void %120(ptr noundef nonnull align 8 dereferenceable(137) %.sink46) #23
+  br label %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit
+
+_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit.sink.split, %102, %86
+  %.sink = phi ptr [ %11, %86 ], [ %12, %102 ], [ %.sink.ph, %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit.sink.split ]
+  store ptr null, ptr %.sink, align 8
   %.pre = load ptr, ptr %7, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 8
   %.pre39 = load ptr, ptr %.phi.trans.insert, align 8
@@ -8236,24 +8225,24 @@ _ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.ex
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEES9_EvT_SB_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %131, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEEvPT_.exit.i.i.i.i ], [ %.pre, %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit ]
-  %124 = load i64, ptr %.05.i.i.i.i, align 8
-  %125 = getelementptr inbounds [6 x ptr], ptr @constinit.58, i64 0, i64 %124
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
-  invoke void %126(ptr noundef nonnull %127)
-          to label %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEEvPT_.exit.i.i.i.i unwind label %128
+  %.05.i.i.i.i = phi ptr [ %128, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEEvPT_.exit.i.i.i.i ], [ %.pre, %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit ]
+  %121 = load i64, ptr %.05.i.i.i.i, align 8
+  %122 = getelementptr inbounds [6 x ptr], ptr @constinit.58, i64 0, i64 %121
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  invoke void %123(ptr noundef nonnull %124)
+          to label %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEEvPT_.exit.i.i.i.i unwind label %125
 
-128:                                              ; preds = %.lr.ph.i.i.i.i
-  %129 = landingpad { ptr, i32 }
+125:                                              ; preds = %.lr.ph.i.i.i.i
+  %126 = landingpad { ptr, i32 }
           catch ptr null
-  %130 = extractvalue { ptr, i32 } %129, 0
-  call void @__clang_call_terminate(ptr %130) #24
+  %127 = extractvalue { ptr, i32 } %126, 0
+  call void @__clang_call_terminate(ptr %127) #24
   unreachable
 
 _ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEEvPT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %131 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 56
-  %.not.i.i.i.i = icmp eq ptr %131, %.pre39
+  %128 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 56
+  %.not.i.i.i.i = icmp eq ptr %128, %.pre39
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !58
 
 _ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEEvPT_.exit.i.i.i.i
@@ -8261,24 +8250,24 @@ _ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDesc
   br label %_ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEES9_EvT_SB_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEES9_EvT_SB_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit
-  %132 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit ]
-  %.not.i.i.i = icmp eq ptr %132, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EED2Ev.exit, label %133
+  %129 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev.exit ]
+  %.not.i.i.i = icmp eq ptr %129, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EED2Ev.exit, label %130
 
-133:                                              ; preds = %_ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEES9_EvT_SB_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %132) #25
+130:                                              ; preds = %_ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEES9_EvT_SB_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %129) #25
   br label %_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EED2Ev.exit
 
-_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEES9_EvT_SB_RSaIT0_E.exit.i, %133
+_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEES9_EvT_SB_RSaIT0_E.exit.i, %130
   ret void
 
-134:                                              ; preds = %123, %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit29, %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit23, %93
-  %.pn10 = phi { ptr, i32 } [ %111, %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit29 ], [ %94, %93 ], [ %.pn, %123 ], [ %96, %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit23 ]
+131:                                              ; preds = %117, %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit29, %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit23, %90
+  %.pn10 = phi { ptr, i32 } [ %105, %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit29 ], [ %91, %90 ], [ %.pn, %117 ], [ %93, %_ZNSt10unique_ptrIN2cv5gimpl26GAbstractStreamingExecutorESt14default_deleteIS2_EED2Ev.exit23 ]
   call void @_ZNSt10unique_ptrIN2cv5gimpl18GStreamingExecutorESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #23
   br label %.loopexit.split-lp
 
-.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %134, %91
-  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %134 ], [ %92, %91 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit32, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp33, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %131, %88
+  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %131 ], [ %89, %88 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit32, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp33, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
   call void @_ZN2cv18GStreamingCompiledD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   resume { ptr, i32 } %.pn10.pn

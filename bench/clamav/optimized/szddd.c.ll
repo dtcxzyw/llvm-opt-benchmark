@@ -48,9 +48,9 @@ declare i32 @mspack_valid_system(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @szddd_open(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca [8 x i8], align 4
+  %3 = alloca [8 x i8], align 1
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %56, label %4
+  br i1 %.not, label %55, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -63,7 +63,7 @@ define internal ptr @szddd_open(ptr noundef %0, ptr noundef %1) #0 {
   %12 = icmp ne ptr %8, null
   %13 = icmp ne ptr %11, null
   %or.cond = select i1 %12, i1 %13, i1 false
-  br i1 %or.cond, label %14, label %43
+  br i1 %or.cond, label %14, label %42
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %11, i64 24
@@ -78,7 +78,7 @@ define internal ptr @szddd_open(ptr noundef %0, ptr noundef %1) #0 {
 19:                                               ; preds = %14
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %3, ptr noundef nonnull dereferenceable(8) @szdd_signature_expand, i64 8)
   %20 = icmp eq i32 %bcmp.i, 0
-  br i1 %20, label %21, label %32
+  br i1 %20, label %21, label %31
 
 21:                                               ; preds = %19
   store i32 0, ptr %11, align 8
@@ -88,7 +88,7 @@ define internal ptr @szddd_open(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not14.i, label %24, label %szddd_read_headers.exit
 
 24:                                               ; preds = %21
-  %25 = load i8, ptr %3, align 4
+  %25 = load i8, ptr %3, align 1
   %.not15.i = icmp eq i8 %25, 65
   br i1 %.not15.i, label %26, label %szddd_read_headers.exit
 
@@ -98,83 +98,82 @@ define internal ptr @szddd_open(ptr noundef %0, ptr noundef %1) #0 {
   %29 = getelementptr inbounds i8, ptr %11, i64 16
   store i8 %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %3, i64 2
-  %31 = load i32, ptr %30, align 2
   br label %.sink.split.i
 
-32:                                               ; preds = %19
+31:                                               ; preds = %19
   %bcmp12.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %3, ptr noundef nonnull dereferenceable(8) @szdd_signature_qbasic, i64 8)
-  %33 = icmp eq i32 %bcmp12.i, 0
-  br i1 %33, label %34, label %szddd_read_headers.exit
+  %32 = icmp eq i32 %bcmp12.i, 0
+  br i1 %32, label %33, label %szddd_read_headers.exit
 
-34:                                               ; preds = %32
+33:                                               ; preds = %31
   store i32 1, ptr %11, align 8
-  %35 = load ptr, ptr %16, align 8
-  %36 = call i32 %35(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 4) #5
-  %.not13.i = icmp eq i32 %36, 4
-  br i1 %.not13.i, label %37, label %szddd_read_headers.exit
+  %34 = load ptr, ptr %16, align 8
+  %35 = call i32 %34(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 4) #5
+  %.not13.i = icmp eq i32 %35, 4
+  br i1 %.not13.i, label %36, label %szddd_read_headers.exit
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %11, i64 16
-  store i8 0, ptr %38, align 8
-  %39 = load i32, ptr %3, align 4
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds i8, ptr %11, i64 16
+  store i8 0, ptr %37, align 8
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %37, %26
-  %.sink17.i = phi i32 [ %31, %26 ], [ %39, %37 ]
-  %40 = zext i32 %.sink17.i to i64
-  %41 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 %40, ptr %41, align 8
+.sink.split.i:                                    ; preds = %36, %26
+  %.sink.i = phi ptr [ %30, %26 ], [ %3, %36 ]
+  %38 = load i32, ptr %.sink.i, align 1
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 %39, ptr %40, align 8
   br label %szddd_read_headers.exit
 
-szddd_read_headers.exit:                          ; preds = %14, %21, %24, %32, %34, %.sink.split.i
-  %.0.i = phi i32 [ 3, %14 ], [ 3, %21 ], [ 8, %24 ], [ 3, %34 ], [ 7, %32 ], [ 0, %.sink.split.i ]
+szddd_read_headers.exit:                          ; preds = %14, %21, %24, %31, %33, %.sink.split.i
+  %.0.i = phi i32 [ 3, %14 ], [ 3, %21 ], [ 8, %24 ], [ 3, %33 ], [ 7, %31 ], [ 0, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %42 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 %.0.i, ptr %42, align 8
-  br label %47
-
-43:                                               ; preds = %4
-  br i1 %12, label %46, label %44
-
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 2, ptr %45, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 %.0.i, ptr %41, align 8
   br label %46
 
-46:                                               ; preds = %44, %43
+42:                                               ; preds = %4
+  br i1 %12, label %45, label %43
+
+43:                                               ; preds = %42
+  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 2, ptr %44, align 8
+  br label %45
+
+45:                                               ; preds = %43, %42
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 48
   br i1 %13, label %._crit_edge, label %.thread
 
-._crit_edge:                                      ; preds = %46
+._crit_edge:                                      ; preds = %45
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %47
+  br label %46
 
-.thread:                                          ; preds = %46
+.thread:                                          ; preds = %45
   store i32 6, ptr %.phi.trans.insert, align 8
-  br label %49
+  br label %48
 
-47:                                               ; preds = %._crit_edge, %szddd_read_headers.exit
-  %48 = phi i32 [ %.pre, %._crit_edge ], [ %.0.i, %szddd_read_headers.exit ]
-  %.not33 = icmp eq i32 %48, 0
-  br i1 %.not33, label %56, label %49
+46:                                               ; preds = %._crit_edge, %szddd_read_headers.exit
+  %47 = phi i32 [ %.pre, %._crit_edge ], [ %.0.i, %szddd_read_headers.exit ]
+  %.not33 = icmp eq i32 %47, 0
+  br i1 %.not33, label %55, label %48
 
-49:                                               ; preds = %.thread, %47
-  br i1 %12, label %50, label %53
+48:                                               ; preds = %.thread, %46
+  br i1 %12, label %49, label %52
 
-50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %6, i64 8
-  %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull %8) #5
-  br label %53
+49:                                               ; preds = %48
+  %50 = getelementptr inbounds i8, ptr %6, i64 8
+  %51 = load ptr, ptr %50, align 8
+  call void %51(ptr noundef nonnull %8) #5
+  br label %52
 
-53:                                               ; preds = %50, %49
-  %54 = getelementptr inbounds i8, ptr %6, i64 64
-  %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef %11) #5
-  br label %56
+52:                                               ; preds = %49, %48
+  %53 = getelementptr inbounds i8, ptr %6, i64 64
+  %54 = load ptr, ptr %53, align 8
+  call void %54(ptr noundef %11) #5
+  br label %55
 
-56:                                               ; preds = %47, %53, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %53 ], [ %11, %47 ]
+55:                                               ; preds = %46, %52, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %52 ], [ %11, %46 ]
   ret ptr %.0
 }
 

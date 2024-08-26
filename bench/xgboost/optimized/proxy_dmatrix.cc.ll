@@ -14303,7 +14303,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   store i32 1, ptr %15, align 4
   %171 = load i64, ptr %13, align 8
   %172 = icmp eq i64 %171, 1
-  br i1 %172, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit110, label %173
+  br i1 %172, label %.sink.split, label %173
 
 173:                                              ; preds = %170
   invoke void @_ZN4dmlc14LogCheckFormatIliEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %15)
@@ -14312,7 +14312,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 174:                                              ; preds = %173
   %.pr213 = load ptr, ptr %14, align 8
   %.not247 = icmp eq ptr %.pr213, null
-  br i1 %.not247, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit110, label %175
+  br i1 %.not247, label %.sink.split, label %175
 
 175:                                              ; preds = %174
   %176 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
@@ -14412,16 +14412,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit107: ; preds = %.noexc106, %_ZN4dm
 207:                                              ; preds = %195
   %.pr216 = load ptr, ptr %14, align 8
   %.not.i108 = icmp eq ptr %.pr216, null
-  br i1 %.not.i108, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit110, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i109
-
-_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i109: ; preds = %207
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.pr216) #15
-  call void @_ZdlPvm(ptr noundef nonnull %.pr216, i64 noundef 32) #31
-  br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit110
-
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit110: ; preds = %170, %174, %207, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i109
-  store ptr null, ptr %14, align 8
-  br label %260
+  br i1 %.not.i108, label %.sink.split, label %.sink.split.sink.split
 
 208:                                              ; preds = %205, %203
   %.pn60 = phi { ptr, i32 } [ %204, %203 ], [ %206, %205 ]
@@ -14441,7 +14432,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store i32 1, ptr %18, align 4
   %215 = load i64, ptr %13, align 8
   %216 = icmp eq i64 %215, 1
-  br i1 %216, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit120, label %217
+  br i1 %216, label %.sink.split, label %217
 
 217:                                              ; preds = %214
   invoke void @_ZN4dmlc14LogCheckFormatIliEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %18)
@@ -14450,7 +14441,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 218:                                              ; preds = %217
   %.pr221 = load ptr, ptr %17, align 8
   %.not246 = icmp eq ptr %.pr221, null
-  br i1 %.not246, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit120, label %219
+  br i1 %.not246, label %.sink.split, label %219
 
 219:                                              ; preds = %218
   %220 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
@@ -14524,16 +14515,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit117: ; preds = %.noexc116, %_ZN4dm
 244:                                              ; preds = %239
   %.pr224 = load ptr, ptr %17, align 8
   %.not.i118 = icmp eq ptr %.pr224, null
-  br i1 %.not.i118, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit120, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i119
-
-_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i119: ; preds = %244
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.pr224) #15
-  call void @_ZdlPvm(ptr noundef nonnull %.pr224, i64 noundef 32) #31
-  br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit120
-
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit120: ; preds = %214, %218, %244, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i119
-  store ptr null, ptr %17, align 8
-  br label %260
+  br i1 %.not.i118, label %.sink.split, label %.sink.split.sink.split
 
 245:                                              ; preds = %242, %240
   %.pn58 = phi { ptr, i32 } [ %241, %240 ], [ %243, %242 ]
@@ -14587,7 +14569,19 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit127: ; preds = %.noexc126, %_ZN4dm
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %427 unwind label %430
 
-260:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit120, %257, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit110
+.sink.split.sink.split:                           ; preds = %244, %207
+  %.pr224.sink258 = phi ptr [ %.pr216, %207 ], [ %.pr224, %244 ]
+  %.sink.ph = phi ptr [ %14, %207 ], [ %17, %244 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.pr224.sink258) #15
+  call void @_ZdlPvm(ptr noundef nonnull %.pr224.sink258, i64 noundef 32) #31
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %.sink.split.sink.split, %244, %218, %214, %207, %174, %170
+  %.sink = phi ptr [ %14, %170 ], [ %14, %174 ], [ %14, %207 ], [ %17, %214 ], [ %17, %218 ], [ %17, %244 ], [ %.sink.ph, %.sink.split.sink.split ]
+  store ptr null, ptr %.sink, align 8
+  br label %260
+
+260:                                              ; preds = %.sink.split, %257
   %261 = load ptr, ptr %86, align 8
   %262 = load ptr, ptr %3, align 8
   %.not.i.i128.not = icmp eq ptr %261, %262

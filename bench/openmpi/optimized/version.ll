@@ -306,8 +306,8 @@ pmix_pointer_array_get_item.exit39:               ; preds = %pmix_pointer_array_
   %.not3446 = icmp eq ptr %40, %.03045
   br i1 %.not3446, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %38, %142
-  %.03047 = phi ptr [ %.030, %142 ], [ %.03045, %38 ]
+.lr.ph:                                           ; preds = %38, %144
+  %.03047 = phi ptr [ %.030, %144 ], [ %.03045, %38 ]
   %41 = getelementptr inbounds i8, ptr %.03047, i64 144
   %42 = load ptr, ptr %41, align 8
   br i1 %11, label %47, label %43
@@ -316,7 +316,7 @@ pmix_pointer_array_get_item.exit39:               ; preds = %pmix_pointer_array_
   %44 = getelementptr inbounds i8, ptr %42, i64 84
   %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %1) #7
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %142
+  br i1 %46, label %47, label %144
 
 47:                                               ; preds = %43, %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -454,7 +454,7 @@ thread-pre-split.i:                               ; preds = %101
   %121 = load ptr, ptr %5, align 8
   %122 = load ptr, ptr %7, align 8
   call void @prte_info_out(ptr noundef %121, ptr noundef null, ptr noundef %122) #6
-  br label %show_mca_version.exit.sink.split
+  br label %.sink.split.i
 
 123:                                              ; preds = %56
   %124 = getelementptr inbounds i8, ptr %42, i64 84
@@ -490,42 +490,42 @@ thread-pre-split.i:                               ; preds = %101
   %140 = load ptr, ptr %5, align 8
   %141 = load ptr, ptr %7, align 8
   call void @prte_info_out(ptr noundef null, ptr noundef %140, ptr noundef %141) #6
-  br label %show_mca_version.exit.sink.split
+  br label %.sink.split.i
 
-show_mca_version.exit.sink.split:                 ; preds = %120, %138
-  %.sink.in = phi ptr [ %7, %138 ], [ %5, %120 ]
-  %.sink.in.i.ph = phi ptr [ %5, %138 ], [ %7, %120 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @free(ptr noundef %.sink) #6
+.sink.split.i:                                    ; preds = %138, %120
+  %.sink59.i = phi ptr [ %7, %138 ], [ %5, %120 ]
+  %.sink58.ph.i = phi ptr [ %5, %138 ], [ %7, %120 ]
+  %142 = load ptr, ptr %.sink59.i, align 8
+  call void @free(ptr noundef %142) #6
   br label %show_mca_version.exit
 
-show_mca_version.exit:                            ; preds = %show_mca_version.exit.sink.split, %137
-  %.sink.in.i = phi ptr [ %5, %137 ], [ %.sink.in.i.ph, %show_mca_version.exit.sink.split ]
-  %.sink.i = load ptr, ptr %.sink.in.i, align 8
-  call void @free(ptr noundef %.sink.i) #6
+show_mca_version.exit:                            ; preds = %137, %.sink.split.i
+  %.sink58.i = phi ptr [ %5, %137 ], [ %.sink58.ph.i, %.sink.split.i ]
+  %143 = load ptr, ptr %.sink58.i, align 8
+  call void @free(ptr noundef %143) #6
   call void @free(ptr noundef %62) #6
   call void @free(ptr noundef %69) #6
   call void @free(ptr noundef %76) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %142
+  br label %144
 
-142:                                              ; preds = %43, %show_mca_version.exit
-  %143 = getelementptr inbounds i8, ptr %.03047, i64 120
-  %.030 = load ptr, ptr %143, align 8
+144:                                              ; preds = %43, %show_mca_version.exit
+  %145 = getelementptr inbounds i8, ptr %.03047, i64 120
+  %.030 = load ptr, ptr %145, align 8
   %.not34 = icmp eq ptr %40, %.030
   br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .thread:                                          ; preds = %31, %.preheader, %32
-  %144 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.18, ptr noundef %0) #6
-  %145 = load ptr, ptr %8, align 8
-  call void @prte_info_out(ptr noundef %145, ptr noundef null, ptr noundef nonnull @.str.19) #6
-  %146 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %146) #6
+  %146 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.18, ptr noundef %0) #6
+  %147 = load ptr, ptr %8, align 8
+  call void @prte_info_out(ptr noundef %147, ptr noundef null, ptr noundef nonnull @.str.19) #6
+  %148 = load ptr, ptr %8, align 8
+  call void @free(ptr noundef %148) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %142, %38, %35, %.thread
+.loopexit:                                        ; preds = %144, %38, %35, %.thread
   ret void
 }
 

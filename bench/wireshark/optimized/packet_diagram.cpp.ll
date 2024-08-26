@@ -5145,10 +5145,10 @@ default.unreachable:                              ; preds = %112
   ret void
 
 _ZN9QPolygonFD2Ev.exit26.sink.split:              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24
-  %.sink.in = phi ptr [ %3, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24 ], [ %6, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34 ]
+  %.sink54 = phi ptr [ %3, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24 ], [ %6, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34 ]
   %.pn.ph = phi { ptr, i32 } [ %68, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24 ], [ %116, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 16, i64 noundef 8) #17
+  %178 = load ptr, ptr %.sink54, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %178, i64 noundef 16, i64 noundef 8) #17
   br label %_ZN9QPolygonFD2Ev.exit26
 
 _ZN9QPolygonFD2Ev.exit26:                         ; preds = %_ZN9QPolygonFD2Ev.exit26.sink.split, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34, %115, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24, %67

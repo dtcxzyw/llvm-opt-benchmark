@@ -462,8 +462,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i17:         ; preds = %if.end8.sink.split.
   %msg.i.i.i18 = getelementptr inbounds i8, ptr %12, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i18) #22
   call void @_ZdlPv(ptr noundef nonnull %12) #23
-  store ptr null, ptr %__s, align 8
-  br label %cleanup21
+  br label %cleanup21.sink.split
 
 lpad2:                                            ; preds = %_ZNSt10unique_ptrIN5arrow2io22CompressedOutputStream4ImplESt14default_deleteIS3_EE5resetEPS3_.exit, %invoke.cont
   %24 = landingpad { ptr, i32 }
@@ -481,10 +480,14 @@ _ZN5arrow6StatusD2Ev.exit74:                      ; preds = %_ZN5arrow6StatusD2E
   %26 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i, align 8
   store ptr %26, ptr %_M_refcount.i.i.i.i.i75, align 8
-  store ptr null, ptr %res, align 8
+  br label %cleanup21.sink.split
+
+cleanup21.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit74, %_ZN5arrow6Status11DeleteStateEv.exit.i17
+  %__s.sink = phi ptr [ %__s, %_ZN5arrow6Status11DeleteStateEv.exit.i17 ], [ %res, %_ZN5arrow6StatusD2Ev.exit74 ]
+  store ptr null, ptr %__s.sink, align 8
   br label %cleanup21
 
-cleanup21:                                        ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i17, %if.then, %_ZN5arrow6StatusD2Ev.exit74
+cleanup21:                                        ; preds = %cleanup21.sink.split, %if.then
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %res, i64 8
   %27 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %27, null
@@ -2696,8 +2699,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i17:         ; preds = %if.end8.sink.split.
   %msg.i.i.i18 = getelementptr inbounds i8, ptr %13, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i18) #22
   call void @_ZdlPv(ptr noundef nonnull %13) #23
-  store ptr null, ptr %__s, align 8
-  br label %cleanup21
+  br label %cleanup21.sink.split
 
 lpad2:                                            ; preds = %_ZNSt10unique_ptrIN5arrow2io21CompressedInputStream4ImplESt14default_deleteIS3_EE5resetEPS3_.exit, %invoke.cont
   %25 = landingpad { ptr, i32 }
@@ -2715,10 +2717,14 @@ _ZN5arrow6StatusD2Ev.exit74:                      ; preds = %_ZN5arrow6StatusD2E
   %27 = load ptr, ptr %_M_refcount4.i.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i, align 8
   store ptr %27, ptr %_M_refcount.i.i.i.i.i75, align 8
-  store ptr null, ptr %res, align 8
+  br label %cleanup21.sink.split
+
+cleanup21.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit74, %_ZN5arrow6Status11DeleteStateEv.exit.i17
+  %__s.sink = phi ptr [ %__s, %_ZN5arrow6Status11DeleteStateEv.exit.i17 ], [ %res, %_ZN5arrow6StatusD2Ev.exit74 ]
+  store ptr null, ptr %__s.sink, align 8
   br label %cleanup21
 
-cleanup21:                                        ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i17, %if.then, %_ZN5arrow6StatusD2Ev.exit74
+cleanup21:                                        ; preds = %cleanup21.sink.split, %if.then
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %res, i64 8
   %28 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %28, null

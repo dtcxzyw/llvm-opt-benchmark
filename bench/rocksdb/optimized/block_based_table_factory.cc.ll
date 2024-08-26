@@ -9267,8 +9267,10 @@ entry:
   %1 = load ptr, ptr %persistent_cache, align 8
   %cmp.i.i17 = icmp ne ptr %1, null
   %2 = and i1 %cmp.i.i, %cmp.i.i17
-  %ref.tmp98.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp98, i64 8
-  %ref.tmp98.sink.sroa.gep63 = getelementptr inbounds i8, ptr %ref.tmp110, i64 8
+  %ref.tmp98.sink63.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp98, i64 8
+  %ref.tmp98.sink63.sroa.gep64 = getelementptr inbounds i8, ptr %ref.tmp110, i64 8
+  %ref.tmp96.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp96, i64 8
+  %ref.tmp96.sink.sroa.gep65 = getelementptr inbounds i8, ptr %ref.tmp108, i64 8
   br i1 %2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -9470,9 +9472,6 @@ if.then89:                                        ; preds = %_ZN7rocksdb6StatusD
 
 if.then95:                                        ; preds = %if.then89
   store ptr @.str.133, ptr %ref.tmp96, align 8
-  %size_.i50 = getelementptr inbounds i8, ptr %ref.tmp96, i64 8
-  store i64 81, ptr %size_.i50, align 8
-  store ptr @.str.130, ptr %ref.tmp98, align 8
   br label %if.then107.invoke
 
 lpad79:                                           ; preds = %if.then107.invoke, %invoke.cont80
@@ -9489,33 +9488,34 @@ if.else101:                                       ; preds = %if.then89
 
 if.then107:                                       ; preds = %if.else101
   store ptr @.str.134, ptr %ref.tmp108, align 8
-  %size_.i57 = getelementptr inbounds i8, ptr %ref.tmp108, i64 8
-  store i64 39, ptr %size_.i57, align 8
-  store ptr @.str.130, ptr %ref.tmp110, align 8
   br label %if.then107.invoke
 
 if.then107.invoke:                                ; preds = %if.then95, %if.then107
-  %ref.tmp98.sink.sroa.phi = phi ptr [ %ref.tmp98.sink.sroa.gep, %if.then95 ], [ %ref.tmp98.sink.sroa.gep63, %if.then107 ]
-  %ref.tmp98.sink = phi ptr [ %ref.tmp98, %if.then95 ], [ %ref.tmp110, %if.then107 ]
+  %ref.tmp96.sink.sroa.phi = phi ptr [ %ref.tmp96.sink.sroa.gep, %if.then95 ], [ %ref.tmp96.sink.sroa.gep65, %if.then107 ]
+  %ref.tmp96.sink = phi ptr [ %ref.tmp96, %if.then95 ], [ %ref.tmp108, %if.then107 ]
+  %.sink = phi i64 [ 81, %if.then95 ], [ 39, %if.then107 ]
+  %ref.tmp98.sink63.sroa.phi = phi ptr [ %ref.tmp98.sink63.sroa.gep, %if.then95 ], [ %ref.tmp98.sink63.sroa.gep64, %if.then107 ]
+  %ref.tmp98.sink63 = phi ptr [ %ref.tmp98, %if.then95 ], [ %ref.tmp110, %if.then107 ]
   %38 = phi i8 [ 4, %if.then95 ], [ 2, %if.then107 ]
-  %39 = phi ptr [ %ref.tmp96, %if.then95 ], [ %ref.tmp108, %if.then107 ]
-  store i64 0, ptr %ref.tmp98.sink.sroa.phi, align 8
-  invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext %38, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp98.sink, i8 noundef zeroext 0)
+  store i64 %.sink, ptr %ref.tmp96.sink.sroa.phi, align 8
+  store ptr @.str.130, ptr %ref.tmp98.sink63, align 8
+  store i64 0, ptr %ref.tmp98.sink63.sroa.phi, align 8
+  invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext %38, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp96.sink, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp98.sink63, i8 noundef zeroext 0)
           to label %cleanupthread-pre-split unwind label %lpad79
 
 cleanupthread-pre-split:                          ; preds = %if.then107.invoke, %if.else101
-  %40 = phi i1 [ true, %if.else101 ], [ false, %if.then107.invoke ]
+  %39 = phi i1 [ true, %if.else101 ], [ false, %if.then107.invoke ]
   %.pr = load ptr, ptr %data, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanupthread-pre-split, %_ZN7rocksdb6StatusD2Ev.exit47
-  %41 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %31, %_ZN7rocksdb6StatusD2Ev.exit47 ]
-  %cleanup.dest.slot.0 = phi i1 [ %40, %cleanupthread-pre-split ], [ true, %_ZN7rocksdb6StatusD2Ev.exit47 ]
-  %cmp.not.i = icmp eq ptr %41, null
+  %40 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %31, %_ZN7rocksdb6StatusD2Ev.exit47 ]
+  %cleanup.dest.slot.0 = phi i1 [ %39, %cleanupthread-pre-split ], [ true, %_ZN7rocksdb6StatusD2Ev.exit47 ]
+  %cmp.not.i = icmp eq ptr %40, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %41) #23
+  call void @_ZdaPv(ptr noundef nonnull %40) #23
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %cleanup, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i

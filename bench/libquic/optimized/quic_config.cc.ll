@@ -971,10 +971,10 @@ lpad16:                                           ; preds = %if.then12
   br label %eh.resume
 
 if.end21:                                         ; preds = %if.else, %if.end9
-  %.sink.in = phi ptr [ %5, %if.end9 ], [ %negotiated_tag, %if.else ]
-  %.sink = load i32, ptr %.sink.in, align 4
+  %negotiated_tag.sink = phi ptr [ %5, %if.end9 ], [ %negotiated_tag, %if.else ]
+  %10 = load i32, ptr %negotiated_tag.sink, align 4
   %negotiated_tag_20 = getelementptr inbounds i8, ptr %this, i64 20
-  store i32 %.sink, ptr %negotiated_tag_20, align 4
+  store i32 %10, ptr %negotiated_tag_20, align 4
   %negotiated_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 1, ptr %negotiated_.i, align 8
   br label %return

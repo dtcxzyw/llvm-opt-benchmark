@@ -156,22 +156,20 @@ lpad13:                                           ; preds = %if.else
 
 if.end17:                                         ; preds = %invoke.cont14, %invoke.cont10
   %call18 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #12
-  br i1 %call18, label %if.then19, label %if.else
-
-if.then19:                                        ; preds = %if.end17
-  store i32 %call11, ptr %global_level, align 4
-  br label %cleanup
+  br i1 %call18, label %cleanup.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.end17
   %call.i910 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N6spdlog5level10level_enumEESaISC_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %levels, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
-          to label %invoke.cont20 unwind label %lpad13
+          to label %cleanup.sink.split unwind label %lpad13
 
-invoke.cont20:                                    ; preds = %if.else
-  store i32 %call11, ptr %call.i910, align 4
+cleanup.sink.split:                               ; preds = %if.else, %if.end17
+  %global_level.sink = phi ptr [ %global_level, %if.end17 ], [ %call.i910, %if.else ]
+  %global_level_found.1.ph = phi i1 [ true, %if.end17 ], [ %global_level_found.048, %if.else ]
+  store i32 %call11, ptr %global_level.sink, align 4
   br label %cleanup
 
-cleanup:                                          ; preds = %if.then19, %invoke.cont20, %invoke.cont14
-  %global_level_found.1 = phi i1 [ %global_level_found.048, %invoke.cont14 ], [ true, %if.then19 ], [ %global_level_found.048, %invoke.cont20 ]
+cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont14
+  %global_level_found.1 = phi i1 [ %global_level_found.048, %invoke.cont14 ], [ %global_level_found.1.ph, %cleanup.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %level_name) #12
   %4 = load ptr, ptr %__begin2.sroa.0.047, align 8
   %cmp.i.not = icmp eq ptr %4, null

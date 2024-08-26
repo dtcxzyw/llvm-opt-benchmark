@@ -1775,10 +1775,10 @@ invoke.cont138:                                   ; preds = %if.then.i.i8.i.i232
 
 invoke.cont138.invoke:                            ; preds = %invoke.cont57, %invoke.cont79, %invoke.cont117, %invoke.cont138
   %.sink = phi i32 [ %49, %invoke.cont57 ], [ %67, %invoke.cont79 ], [ %88, %invoke.cont117 ], [ %108, %invoke.cont138 ]
+  %e1.sink = phi ptr [ %e1, %invoke.cont57 ], [ %e1, %invoke.cont79 ], [ %e2, %invoke.cont117 ], [ %e2, %invoke.cont138 ]
   %109 = phi ptr [ %upper, %invoke.cont57 ], [ %upper, %invoke.cont79 ], [ %lower, %invoke.cont117 ], [ %lower, %invoke.cont138 ]
-  %.in332 = phi ptr [ %e1, %invoke.cont57 ], [ %e1, %invoke.cont79 ], [ %e2, %invoke.cont117 ], [ %e2, %invoke.cont138 ]
   store i32 %.sink, ptr %idx.i.i122, align 8
-  %110 = load ptr, ptr %.in332, align 8
+  %110 = load ptr, ptr %e1.sink, align 8
   invoke void @_ZN7obj_mapI4exprN19arith_bounds_tactic4infoEE6insertEPS0_RKS2_(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef %110, ptr noundef nonnull align 8 dereferenceable(37) %inf)
           to label %if.end148 unwind label %lpad30
 

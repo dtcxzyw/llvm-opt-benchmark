@@ -2729,7 +2729,7 @@ define hidden void @_ZN5ceres8internal27SparseSchurComplementSolver24SolveReduce
 
 10:                                               ; preds = %4
   tail call void @_ZN5ceres8internal27SparseSchurComplementSolver47SolveReducedLinearSystemUsingConjugateGradientsERKNS0_12LinearSolver15PerSolveOptionsEPd(ptr dead_on_unwind writable sret(%"struct.ceres::internal::LinearSolver::Summary") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3)
-  br label %71
+  br label %68
 
 11:                                               ; preds = %4
   store double -1.000000e+00, ptr %0, align 8
@@ -2752,9 +2752,9 @@ define hidden void @_ZN5ceres8internal27SparseSchurComplementSolver24SolveReduce
   %21 = getelementptr inbounds i8, ptr %20, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %71, label %26
+  br i1 %23, label %68, label %26
 
-24:                                               ; preds = %63, %60, %50, %48, %38, %26, %11
+24:                                               ; preds = %60, %54, %47, %45, %38, %26, %11
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #29
@@ -2774,10 +2774,10 @@ define hidden void @_ZN5ceres8internal27SparseSchurComplementSolver24SolveReduce
   %35 = getelementptr inbounds i8, ptr %1, i64 296
   %36 = load ptr, ptr %35, align 8
   %.not21 = icmp eq ptr %36, null
-  br i1 %34, label %37, label %49
+  br i1 %34, label %37, label %46
 
 37:                                               ; preds = %33
-  br i1 %.not21, label %38, label %48
+  br i1 %.not21, label %38, label %45
 
 38:                                               ; preds = %37
   invoke void @_ZNK5ceres8internal17BlockSparseMatrix27ToCompressedRowSparseMatrixEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.93") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %20)
@@ -2789,7 +2789,7 @@ define hidden void @_ZN5ceres8internal27SparseSchurComplementSolver24SolveReduce
   %41 = load ptr, ptr %35, align 8
   store ptr %40, ptr %35, align 8
   %.not.i.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit
+  br i1 %.not.i.i.i.i, label %.sink.split, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %39
   %42 = load ptr, ptr %41, align 8
@@ -2798,84 +2798,74 @@ _ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_delete
   call void %44(ptr noundef nonnull align 8 dereferenceable(144) %41) #29
   %.pr = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.pr, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i
+  br i1 %.not.i, label %.sink.split, label %.sink.split.sink.split
 
-_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit
-  %45 = load ptr, ptr %.pr, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(144) %.pr) #29
-  br label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
-
-_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit: ; preds = %39, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit, %_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i
-  store ptr null, ptr %5, align 8
-  br label %.sink.split
-
-48:                                               ; preds = %37
+45:                                               ; preds = %37
   invoke void @_ZNK5ceres8internal17BlockSparseMatrix31UpdateCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull %36)
-          to label %63 unwind label %24
+          to label %60 unwind label %24
 
-49:                                               ; preds = %33
-  br i1 %.not21, label %50, label %60
+46:                                               ; preds = %33
+  br i1 %.not21, label %47, label %54
 
-50:                                               ; preds = %49
+47:                                               ; preds = %46
   invoke void @_ZNK5ceres8internal17BlockSparseMatrix36ToCompressedRowSparseMatrixTransposeEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.93") align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %20)
-          to label %51 unwind label %24
+          to label %48 unwind label %24
 
-51:                                               ; preds = %50
-  %52 = load ptr, ptr %6, align 8
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %6, align 8
   store ptr null, ptr %6, align 8
-  %53 = load ptr, ptr %35, align 8
-  store ptr %52, ptr %35, align 8
-  %.not.i.i.i.i12 = icmp eq ptr %53, null
-  br i1 %.not.i.i.i.i12, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit17, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit14
+  %50 = load ptr, ptr %35, align 8
+  store ptr %49, ptr %35, align 8
+  %.not.i.i.i.i12 = icmp eq ptr %50, null
+  br i1 %.not.i.i.i.i12, label %.sink.split, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit14
 
-_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit14: ; preds = %51
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(144) %53) #29
+_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit14: ; preds = %48
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %53 = load ptr, ptr %52, align 8
+  call void %53(ptr noundef nonnull align 8 dereferenceable(144) %50) #29
   %.pr19 = load ptr, ptr %6, align 8
   %.not.i15 = icmp eq ptr %.pr19, null
-  br i1 %.not.i15, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit17, label %_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i16
+  br i1 %.not.i15, label %.sink.split, label %.sink.split.sink.split
 
-_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i16: ; preds = %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit14
-  %57 = load ptr, ptr %.pr19, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(144) %.pr19) #29
-  br label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit17
+54:                                               ; preds = %46
+  invoke void @_ZNK5ceres8internal17BlockSparseMatrix40UpdateCompressedRowSparseMatrixTransposeEPNS0_25CompressedRowSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull %36)
+          to label %60 unwind label %24
 
-_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit17: ; preds = %51, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit14, %_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i16
-  store ptr null, ptr %6, align 8
+.sink.split.sink.split:                           ; preds = %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit14, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit
+  %.pr19.sink28 = phi ptr [ %.pr, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit ], [ %.pr19, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit14 ]
+  %.sink24.ph = phi ptr [ %5, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit ], [ %6, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit14 ]
+  %.sink.ph = phi i32 [ 2, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit ], [ 1, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit14 ]
+  %55 = load ptr, ptr %.pr19.sink28, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = load ptr, ptr %56, align 8
+  call void %57(ptr noundef nonnull align 8 dereferenceable(144) %.pr19.sink28) #29
   br label %.sink.split
 
-60:                                               ; preds = %49
-  invoke void @_ZNK5ceres8internal17BlockSparseMatrix40UpdateCompressedRowSparseMatrixTransposeEPNS0_25CompressedRowSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull %36)
-          to label %63 unwind label %24
+.sink.split:                                      ; preds = %.sink.split.sink.split, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit14, %48, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit, %39
+  %.sink24 = phi ptr [ %5, %39 ], [ %5, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit ], [ %6, %48 ], [ %6, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit14 ], [ %.sink24.ph, %.sink.split.sink.split ]
+  %.sink = phi i32 [ 2, %39 ], [ 2, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit ], [ 1, %48 ], [ 1, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EEaSEOS5_.exit14 ], [ %.sink.ph, %.sink.split.sink.split ]
+  store ptr null, ptr %.sink24, align 8
+  %58 = load ptr, ptr %35, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 88
+  store i32 %.sink, ptr %59, align 8
+  br label %60
 
-.sink.split:                                      ; preds = %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit17, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
-  %.sink = phi i32 [ 2, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit ], [ 1, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit17 ]
-  %61 = load ptr, ptr %35, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 88
-  store i32 %.sink, ptr %62, align 8
-  br label %63
-
-63:                                               ; preds = %.sink.split, %48, %60
+60:                                               ; preds = %.sink.split, %45, %54
   store i32 1, ptr %12, align 8
-  %64 = load ptr, ptr %27, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 296
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 240
-  %68 = load ptr, ptr %67, align 8
-  %69 = invoke noundef i32 @_ZN5ceres8internal14SparseCholesky14FactorAndSolveEPNS0_25CompressedRowSparseMatrixEPKdPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %66, ptr noundef %68, ptr noundef %3, ptr noundef nonnull %14)
-          to label %70 unwind label %24
+  %61 = load ptr, ptr %27, align 8
+  %62 = getelementptr inbounds i8, ptr %1, i64 296
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %1, i64 240
+  %65 = load ptr, ptr %64, align 8
+  %66 = invoke noundef i32 @_ZN5ceres8internal14SparseCholesky14FactorAndSolveEPNS0_25CompressedRowSparseMatrixEPKdPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef %63, ptr noundef %65, ptr noundef %3, ptr noundef nonnull %14)
+          to label %67 unwind label %24
 
-70:                                               ; preds = %63
-  store i32 %69, ptr %13, align 4
-  br label %71
+67:                                               ; preds = %60
+  store i32 %66, ptr %13, align 4
+  br label %68
 
-71:                                               ; preds = %70, %16, %10
+68:                                               ; preds = %67, %16, %10
   ret void
 }
 

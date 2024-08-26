@@ -2281,10 +2281,10 @@ define noundef nonnull ptr @_ZN14regex_automata3nfa8thompson3nfa3NFA12always_mat
           cleanup
   br label %.body
 
-.body:                                            ; preds = %124, %98, %89, %79, %63, %44, %28, %22
-  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %29, %28 ], [ %45, %44 ], [ %64, %63 ], [ %80, %79 ], [ %90, %89 ], [ %99, %98 ], [ %125, %124 ]
+.body:                                            ; preds = %123, %98, %89, %79, %63, %44, %28, %22
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %29, %28 ], [ %45, %44 ], [ %64, %63 ], [ %80, %79 ], [ %90, %89 ], [ %99, %98 ], [ %124, %123 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$regex_automata..nfa..thompson..builder..Builder$GT$17h18817905af9fba3aE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %21) #30
-          to label %134 unwind label %132
+          to label %133 unwind label %131
 
 24:                                               ; preds = %0
   call void @llvm.experimental.noalias.scope.decl(metadata !190)
@@ -2331,7 +2331,6 @@ define noundef nonnull ptr @_ZN14regex_automata3nfa8thompson3nfa3NFA12always_mat
 
 39:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18)
-  store ptr null, ptr %18, align 8
   br label %.invoke41
 
 40:                                               ; preds = %38
@@ -2578,65 +2577,65 @@ _ZN14regex_automata3nfa8thompson7builder7Builder18current_pattern_id17h355b119e8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11)
   invoke void @_ZN14regex_automata3nfa8thompson7builder7Builder5build17hf9bd69cbc98cc1ddE(ptr noalias nocapture noundef nonnull sret({ i64, [15 x i64] }) align 8 dereferenceable(128) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %21, i32 noundef %51, i32 noundef %51)
-          to label %120 unwind label %22
+          to label %119 unwind label %22
 
 116:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
-  store ptr null, ptr %12, align 8
   br label %.invoke41
 
 .invoke41:                                        ; preds = %39, %116
-  %117 = phi ptr [ %13, %116 ], [ %19, %39 ]
-  %118 = phi ptr [ %12, %116 ], [ %18, %39 ]
-  %119 = phi ptr [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.66, %116 ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.67, %39 ]
-  invoke void @_ZN4core9panicking13assert_failed17h8dbfd0c2a35e0240E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %117, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.8a1b429415f23bfa071ebb028a9ce5fa.58, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %118, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %119) #29
+  %.sink = phi ptr [ %18, %39 ], [ %12, %116 ]
+  %117 = phi ptr [ %19, %39 ], [ %13, %116 ]
+  %118 = phi ptr [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.67, %39 ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.66, %116 ]
+  store ptr null, ptr %.sink, align 8
+  invoke void @_ZN4core9panicking13assert_failed17h8dbfd0c2a35e0240E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %117, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.8a1b429415f23bfa071ebb028a9ce5fa.58, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %118) #29
           to label %.cont42 unwind label %22
 
 .cont42:                                          ; preds = %.invoke41
   unreachable
 
-120:                                              ; preds = %115
+119:                                              ; preds = %115
   call void @llvm.experimental.noalias.scope.decl(metadata !258)
-  %121 = load i64, ptr %11, align 8, !range !82, !alias.scope !258, !noalias !261, !noundef !5
-  %122 = icmp eq i64 %121, -9223372036854775800
-  br i1 %122, label %129, label %123
+  %120 = load i64, ptr %11, align 8, !range !82, !alias.scope !258, !noalias !261, !noundef !5
+  %121 = icmp eq i64 %120, -9223372036854775800
+  br i1 %121, label %128, label %122
 
-123:                                              ; preds = %120
+122:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1), !noalias !263
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull readonly align 8 dereferenceable(128) %11, i64 128, i1 false), !noalias !261
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.8a1b429415f23bfa071ebb028a9ce5fa.21.llvm.4452766663292099101, i64 noundef 43, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a1b429415f23bfa071ebb028a9ce5fa.22.llvm.4452766663292099101, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a1b429415f23bfa071ebb028a9ce5fa.65) #29
-          to label %126 unwind label %124, !noalias !258
+          to label %125 unwind label %123, !noalias !258
 
-124:                                              ; preds = %123
-  %125 = landingpad { ptr, i32 }
+123:                                              ; preds = %122
+  %124 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17hb4b43ecdc339d16bE.llvm.17425413886787028408"(ptr noalias noundef nonnull align 8 dereferenceable(128) %1)
-          to label %.body unwind label %127, !noalias !258
+          to label %.body unwind label %126, !noalias !258
 
-126:                                              ; preds = %123
+125:                                              ; preds = %122
   unreachable
 
-127:                                              ; preds = %124
-  %128 = landingpad { ptr, i32 }
+126:                                              ; preds = %123
+  %127 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #31, !noalias !258
   unreachable
 
-129:                                              ; preds = %120
-  %130 = getelementptr inbounds i8, ptr %11, i64 8
-  %131 = load ptr, ptr %130, align 8, !alias.scope !258, !noalias !261, !nonnull !5, !noundef !5
+128:                                              ; preds = %119
+  %129 = getelementptr inbounds i8, ptr %11, i64 8
+  %130 = load ptr, ptr %129, align 8, !alias.scope !258, !noalias !261, !nonnull !5, !noundef !5
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11)
   call void @"_ZN4core3ptr68drop_in_place$LT$regex_automata..nfa..thompson..builder..Builder$GT$17h18817905af9fba3aE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %21)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %21)
-  ret ptr %131
+  ret ptr %130
 
-132:                                              ; preds = %.body
-  %133 = landingpad { ptr, i32 }
+131:                                              ; preds = %.body
+  %132 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #31
   unreachable
 
-134:                                              ; preds = %.body
+133:                                              ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

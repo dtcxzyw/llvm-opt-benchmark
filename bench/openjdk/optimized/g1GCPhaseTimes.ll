@@ -4429,49 +4429,41 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14G1GCPhaseTimes24debug_time_for_referenceEPKcd(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK14G1GCPhaseTimes24debug_time_for_referenceEPKcd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(872) %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogStream, align 8
   %5 = alloca %class.LogStream, align 8
   %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %10, label %7
+  %.sink14.sroa.gep = getelementptr inbounds i8, ptr %4, i64 56
+  %.sink14.sroa.gep17 = getelementptr inbounds i8, ptr %4, i64 144
+  %.sink14.sroa.gep20 = getelementptr inbounds i8, ptr %4, i64 152
+  br i1 %.not, label %7, label %.sink.split
 
 7:                                                ; preds = %3
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #18
-  %9 = getelementptr inbounds i8, ptr %4, i64 144
-  store i32 2, ptr %9, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
-  br label %.sink.split
+  %.sink14.sroa.gep21 = getelementptr inbounds i8, ptr %5, i64 152
+  %.sink14.sroa.gep18 = getelementptr inbounds i8, ptr %5, i64 144
+  %.sink14.sroa.gep15 = getelementptr inbounds i8, ptr %5, i64 56
+  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_126ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not5 = icmp eq ptr %8, null
+  br i1 %.not5, label %9, label %.sink.split
 
-10:                                               ; preds = %3
-  %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_126ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not5 = icmp eq ptr %11, null
-  br i1 %.not5, label %15, label %12
+.sink.split:                                      ; preds = %7, %3
+  %.sink14.sroa.phi = phi ptr [ %.sink14.sroa.gep, %3 ], [ %.sink14.sroa.gep15, %7 ]
+  %.sink14.sroa.phi16 = phi ptr [ %.sink14.sroa.gep17, %3 ], [ %.sink14.sroa.gep18, %7 ]
+  %.sink14.sroa.phi19 = phi ptr [ %.sink14.sroa.gep20, %3 ], [ %.sink14.sroa.gep21, %7 ]
+  %.sink14 = phi ptr [ %4, %3 ], [ %5, %7 ]
+  %_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_126ELS1_0ELS1_0ELS1_0EE7_tagsetE.sink = phi ptr [ @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, %3 ], [ @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_126ELS1_0ELS1_0ELS1_0EE7_tagsetE, %7 ]
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %.sink14, i1 noundef zeroext false) #18
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %.sink14, align 8
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %.sink14.sroa.phi) #18
+  store i32 2, ptr %.sink14.sroa.phi16, align 8
+  store ptr %_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_126ELS1_0ELS1_0ELS1_0EE7_tagsetE.sink, ptr %.sink14.sroa.phi19, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %.sink14, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %.sink14, ptr noundef nonnull @.str.120, ptr noundef %1, double noundef %2) #18
+  call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.sink14) #18
+  br label %9
 
-12:                                               ; preds = %10
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext false) #18
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %13) #18
-  %14 = getelementptr inbounds i8, ptr %5, i64 144
-  store i32 2, ptr %14, align 8
-  %.sroa.21.0..sroa_idx.i.i4 = getelementptr inbounds i8, ptr %5, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_126ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i4, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %5, align 8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %7, %12
-  %.sink6 = phi ptr [ %5, %12 ], [ %4, %7 ]
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %.sink6, ptr noundef nonnull @.str.120, ptr noundef %1, double noundef %2) #18
-  call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.sink6) #18
-  br label %15
-
-15:                                               ; preds = %.sink.split, %10
+9:                                                ; preds = %.sink.split, %7
   ret void
 }
 
@@ -5338,554 +5330,591 @@ define hidden noundef double @_ZNK14G1GCPhaseTimes34print_post_evacuate_collecti
   %17 = alloca %class.LogStream, align 8
   %18 = alloca %class.LogStream, align 8
   %19 = alloca %class.LogStream, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 400
-  %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 480
+  %20 = alloca %class.LogStream, align 8
+  %21 = alloca %class.LogStream, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 400
   %23 = load double, ptr %22, align 8
-  %24 = fadd double %21, %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 776
-  %26 = tail call noundef double @_ZNK18WeakProcessorTimes14total_time_secEv(ptr noundef nonnull align 8 dereferenceable(96) %25) #18
-  %27 = tail call double @llvm.fmuladd.f64(double %26, double 1.000000e+03, double %24)
-  %28 = getelementptr inbounds i8, ptr %0, i64 456
-  %29 = load double, ptr %28, align 8
-  %30 = fadd double %27, %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 464
-  %32 = load double, ptr %31, align 8
-  %33 = fadd double %30, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 552
-  %35 = load double, ptr %34, align 8
-  %36 = fadd double %33, %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 536
-  %38 = load double, ptr %37, align 8
-  %39 = fadd double %36, %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 472
-  %41 = load double, ptr %40, align 8
-  %42 = fadd double %39, %41
-  %43 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not.i = icmp eq ptr %43, null
-  br i1 %.not.i, label %_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit, label %44
+  %24 = getelementptr inbounds i8, ptr %0, i64 480
+  %25 = load double, ptr %24, align 8
+  %26 = fadd double %23, %25
+  %27 = getelementptr inbounds i8, ptr %0, i64 776
+  %28 = tail call noundef double @_ZNK18WeakProcessorTimes14total_time_secEv(ptr noundef nonnull align 8 dereferenceable(96) %27) #18
+  %29 = tail call double @llvm.fmuladd.f64(double %28, double 1.000000e+03, double %26)
+  %30 = getelementptr inbounds i8, ptr %0, i64 456
+  %31 = load double, ptr %30, align 8
+  %32 = fadd double %29, %31
+  %33 = getelementptr inbounds i8, ptr %0, i64 464
+  %34 = load double, ptr %33, align 8
+  %35 = fadd double %32, %34
+  %36 = getelementptr inbounds i8, ptr %0, i64 552
+  %37 = load double, ptr %36, align 8
+  %38 = fadd double %35, %37
+  %39 = getelementptr inbounds i8, ptr %0, i64 536
+  %40 = load double, ptr %39, align 8
+  %41 = fadd double %38, %40
+  %42 = getelementptr inbounds i8, ptr %0, i64 472
+  %43 = load double, ptr %42, align 8
+  %44 = fadd double %41, %43
+  %45 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not.i = icmp eq ptr %45, null
+  %.sink14.i.sroa.gep = getelementptr inbounds i8, ptr %20, i64 56
+  %.sink14.i.sroa.gep69 = getelementptr inbounds i8, ptr %21, i64 56
+  %.sink14.i.sroa.gep71 = getelementptr inbounds i8, ptr %20, i64 144
+  %.sink14.i.sroa.gep72 = getelementptr inbounds i8, ptr %21, i64 144
+  %.sink14.i.sroa.gep74 = getelementptr inbounds i8, ptr %20, i64 152
+  %.sink14.i.sroa.gep75 = getelementptr inbounds i8, ptr %21, i64 152
+  br i1 %.not.i, label %_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit, label %46
 
-44:                                               ; preds = %2
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.135, double noundef %42)
+46:                                               ; preds = %2
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.135, double noundef %44)
   br label %_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit
 
-_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit:         ; preds = %2, %44
-  %45 = load double, ptr %20, align 8
-  %46 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i4 = icmp eq ptr %46, null
-  br i1 %.not.i4, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit, label %47
+_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit:         ; preds = %2, %46
+  %47 = load double, ptr %22, align 8
+  %48 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i4 = icmp eq ptr %48, null
+  br i1 %.not.i4, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit, label %49
 
-47:                                               ; preds = %_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.136, double noundef %45)
+49:                                               ; preds = %_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.136, double noundef %47)
   br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit
 
-_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit:       ; preds = %_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit, %47
-  %48 = load double, ptr %22, align 8
-  tail call void @_ZNK14G1GCPhaseTimes24debug_time_for_referenceEPKcd(ptr nonnull align 8 poison, ptr noundef nonnull @.str.137, double noundef %48)
-  %49 = getelementptr inbounds i8, ptr %0, i64 592
-  tail call void @_ZNK28ReferenceProcessorPhaseTimes20print_all_referencesEjb(ptr noundef nonnull align 8 dereferenceable(184) %49, i32 noundef 2, i1 noundef zeroext false) #18
-  tail call void @_ZNK18WeakProcessorTimes9log_totalEj(ptr noundef nonnull align 8 dereferenceable(96) %25, i32 noundef 2) #18
-  tail call void @_ZNK18WeakProcessorTimes13log_subtotalsEj(ptr noundef nonnull align 8 dereferenceable(96) %25, i32 noundef 3) #18
-  %50 = load double, ptr %28, align 8
+_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit:       ; preds = %_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit, %49
+  %50 = load double, ptr %24, align 8
+  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %21)
   %51 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i5 = icmp eq ptr %51, null
-  br i1 %.not.i5, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit6, label %52
+  br i1 %.not.i5, label %52, label %.sink.split.i
 
 52:                                               ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.138, double noundef %50)
-  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit6
+  %53 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_126ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not5.i = icmp eq ptr %53, null
+  br i1 %.not5.i, label %_ZNK14G1GCPhaseTimes24debug_time_for_referenceEPKcd.exit, label %.sink.split.i
 
-_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit6:      ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit, %52
-  %53 = getelementptr inbounds i8, ptr %0, i64 296
-  %54 = load ptr, ptr %53, align 8
+.sink.split.i:                                    ; preds = %52, %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit
+  %.sink14.i.sroa.phi = phi ptr [ %.sink14.i.sroa.gep, %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit ], [ %.sink14.i.sroa.gep69, %52 ]
+  %.sink14.i.sroa.phi70 = phi ptr [ %.sink14.i.sroa.gep71, %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit ], [ %.sink14.i.sroa.gep72, %52 ]
+  %.sink14.i.sroa.phi73 = phi ptr [ %.sink14.i.sroa.gep74, %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit ], [ %.sink14.i.sroa.gep75, %52 ]
+  %.sink14.i = phi ptr [ %20, %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit ], [ %21, %52 ]
+  %_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_126ELS1_0ELS1_0ELS1_0EE7_tagsetE.sink.i = phi ptr [ @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit ], [ @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_126ELS1_0ELS1_0ELS1_0EE7_tagsetE, %52 ]
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %.sink14.i, i1 noundef zeroext false) #18
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %.sink14.i, align 8
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %.sink14.i.sroa.phi) #18
+  store i32 2, ptr %.sink14.i.sroa.phi70, align 8
+  store ptr %_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_126ELS1_0ELS1_0ELS1_0EE7_tagsetE.sink.i, ptr %.sink14.i.sroa.phi73, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %.sink14.i, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %.sink14.i, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.137, double noundef %50) #18
+  call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %.sink14.i) #18
+  br label %_ZNK14G1GCPhaseTimes24debug_time_for_referenceEPKcd.exit
+
+_ZNK14G1GCPhaseTimes24debug_time_for_referenceEPKcd.exit: ; preds = %52, %.sink.split.i
+  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %21)
+  %54 = getelementptr inbounds i8, ptr %0, i64 592
+  call void @_ZNK28ReferenceProcessorPhaseTimes20print_all_referencesEjb(ptr noundef nonnull align 8 dereferenceable(184) %54, i32 noundef 2, i1 noundef zeroext false) #18
+  call void @_ZNK18WeakProcessorTimes9log_totalEj(ptr noundef nonnull align 8 dereferenceable(96) %27, i32 noundef 2) #18
+  call void @_ZNK18WeakProcessorTimes13log_subtotalsEj(ptr noundef nonnull align 8 dereferenceable(96) %27, i32 noundef 3) #18
+  %55 = load double, ptr %30, align 8
+  %56 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i6 = icmp eq ptr %56, null
+  br i1 %.not.i6, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit7, label %57
+
+57:                                               ; preds = %_ZNK14G1GCPhaseTimes24debug_time_for_referenceEPKcd.exit
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.138, double noundef %55)
+  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit7
+
+_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit7:      ; preds = %_ZNK14G1GCPhaseTimes24debug_time_for_referenceEPKcd.exit, %57
+  %58 = getelementptr inbounds i8, ptr %0, i64 296
+  %59 = load ptr, ptr %58, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %19)
-  %55 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i7 = icmp eq ptr %55, null
-  br i1 %.not.i7, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit, label %56
+  %60 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i8 = icmp eq ptr %60, null
+  br i1 %.not.i8, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit, label %61
 
-56:                                               ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit6
+61:                                               ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit7
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %19, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %19, align 8
-  %57 = getelementptr inbounds i8, ptr %19, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %57) #18
-  %58 = getelementptr inbounds i8, ptr %19, i64 144
-  store i32 2, ptr %58, align 8
+  %62 = getelementptr inbounds i8, ptr %19, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %62) #18
+  %63 = getelementptr inbounds i8, ptr %19, i64 144
+  store i32 2, ptr %63, align 8
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %19, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %19, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %54, i32 noundef 3, ptr noundef nonnull %19, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %59, i32 noundef 3, ptr noundef nonnull %19, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %19) #18
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit: ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit6, %56
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit: ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit7, %61
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %19)
-  %59 = getelementptr inbounds i8, ptr %0, i64 320
-  %60 = load ptr, ptr %59, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 320
+  %65 = load ptr, ptr %64, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %18)
-  %61 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i8 = icmp eq ptr %61, null
-  br i1 %.not.i8, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit10, label %62
+  %66 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i9 = icmp eq ptr %66, null
+  br i1 %.not.i9, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit11, label %67
 
-62:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit
+67:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %18, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %18, align 8
-  %63 = getelementptr inbounds i8, ptr %18, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %63) #18
-  %64 = getelementptr inbounds i8, ptr %18, i64 144
-  store i32 2, ptr %64, align 8
-  %.sroa.21.0..sroa_idx.i.i.i9 = getelementptr inbounds i8, ptr %18, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i9, align 8
+  %68 = getelementptr inbounds i8, ptr %18, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %68) #18
+  %69 = getelementptr inbounds i8, ptr %18, i64 144
+  store i32 2, ptr %69, align 8
+  %.sroa.21.0..sroa_idx.i.i.i10 = getelementptr inbounds i8, ptr %18, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i10, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %18, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %60, i32 noundef 3, ptr noundef nonnull %18, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %65, i32 noundef 3, ptr noundef nonnull %18, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %18) #18
-  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit10
+  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit11
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit10: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit, %62
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit11: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit, %67
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %18)
-  %65 = getelementptr inbounds i8, ptr %0, i64 328
-  %66 = load ptr, ptr %65, align 8
+  %70 = getelementptr inbounds i8, ptr %0, i64 328
+  %71 = load ptr, ptr %70, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %17)
-  %67 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i11 = icmp eq ptr %67, null
-  br i1 %.not.i11, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13, label %68
+  %72 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i12 = icmp eq ptr %72, null
+  br i1 %.not.i12, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit14, label %73
 
-68:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit10
+73:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit11
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %17, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %17, align 8
-  %69 = getelementptr inbounds i8, ptr %17, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %69) #18
-  %70 = getelementptr inbounds i8, ptr %17, i64 144
-  store i32 2, ptr %70, align 8
-  %.sroa.21.0..sroa_idx.i.i.i12 = getelementptr inbounds i8, ptr %17, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i12, align 8
+  %74 = getelementptr inbounds i8, ptr %17, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %74) #18
+  %75 = getelementptr inbounds i8, ptr %17, i64 144
+  store i32 2, ptr %75, align 8
+  %.sroa.21.0..sroa_idx.i.i.i13 = getelementptr inbounds i8, ptr %17, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i13, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %17, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %66, i32 noundef 3, ptr noundef nonnull %17, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %71, i32 noundef 3, ptr noundef nonnull %17, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %17) #18
-  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13
+  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit14
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit10, %68
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit14: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit11, %73
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %17)
-  br i1 %1, label %71, label %.critedge
+  br i1 %1, label %76, label %.critedge
 
-71:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13
-  %72 = getelementptr inbounds i8, ptr %0, i64 304
-  %73 = load ptr, ptr %72, align 8
+76:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit14
+  %77 = getelementptr inbounds i8, ptr %0, i64 304
+  %78 = load ptr, ptr %77, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %16)
-  %74 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i14 = icmp eq ptr %74, null
-  br i1 %.not.i14, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit16, label %75
+  %79 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i15 = icmp eq ptr %79, null
+  br i1 %.not.i15, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit17, label %80
 
-75:                                               ; preds = %71
+80:                                               ; preds = %76
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %16, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %16, align 8
-  %76 = getelementptr inbounds i8, ptr %16, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %76) #18
-  %77 = getelementptr inbounds i8, ptr %16, i64 144
-  store i32 2, ptr %77, align 8
-  %.sroa.21.0..sroa_idx.i.i.i15 = getelementptr inbounds i8, ptr %16, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i15, align 8
+  %81 = getelementptr inbounds i8, ptr %16, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %81) #18
+  %82 = getelementptr inbounds i8, ptr %16, i64 144
+  store i32 2, ptr %82, align 8
+  %.sroa.21.0..sroa_idx.i.i.i16 = getelementptr inbounds i8, ptr %16, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i16, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %16, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %73, i32 noundef 3, ptr noundef nonnull %16, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %78, i32 noundef 3, ptr noundef nonnull %16, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %16) #18
-  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit16
+  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit17
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit16: ; preds = %71, %75
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit17: ; preds = %76, %80
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %16)
-  %78 = getelementptr inbounds i8, ptr %0, i64 312
-  %79 = load ptr, ptr %78, align 8
+  %83 = getelementptr inbounds i8, ptr %0, i64 312
+  %84 = load ptr, ptr %83, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %15)
-  %80 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i17 = icmp eq ptr %80, null
-  br i1 %.not.i17, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit19, label %81
+  %85 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i18 = icmp eq ptr %85, null
+  br i1 %.not.i18, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit20, label %86
 
-81:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit16
+86:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit17
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %15, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %15, align 8
-  %82 = getelementptr inbounds i8, ptr %15, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %82) #18
-  %83 = getelementptr inbounds i8, ptr %15, i64 144
-  store i32 2, ptr %83, align 8
-  %.sroa.21.0..sroa_idx.i.i.i18 = getelementptr inbounds i8, ptr %15, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i18, align 8
+  %87 = getelementptr inbounds i8, ptr %15, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %87) #18
+  %88 = getelementptr inbounds i8, ptr %15, i64 144
+  store i32 2, ptr %88, align 8
+  %.sroa.21.0..sroa_idx.i.i.i19 = getelementptr inbounds i8, ptr %15, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i19, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %15, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %79, i32 noundef 4, ptr noundef nonnull %15, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %84, i32 noundef 4, ptr noundef nonnull %15, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %15) #18
-  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit19
+  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit20
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit19: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit16, %81
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit20: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit17, %86
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %15)
-  %84 = load double, ptr %31, align 8
-  %85 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i20 = icmp eq ptr %85, null
-  br i1 %.not.i20, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit21, label %86
+  %89 = load double, ptr %33, align 8
+  %90 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i21 = icmp eq ptr %90, null
+  br i1 %.not.i21, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit22, label %91
 
-86:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit19
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.139, double noundef %84)
-  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit21
+91:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit20
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.139, double noundef %89)
+  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit22
 
-_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit21:     ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit19, %86
-  %87 = load ptr, ptr %65, align 8
+_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit22:     ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit20, %91
+  %92 = load ptr, ptr %70, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %14)
-  %88 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i22 = icmp eq ptr %88, null
-  br i1 %.not.i22, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit24, label %89
+  %93 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i23 = icmp eq ptr %93, null
+  br i1 %.not.i23, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit25, label %94
 
-89:                                               ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit21
+94:                                               ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit22
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %14, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %14, align 8
-  %90 = getelementptr inbounds i8, ptr %14, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %90) #18
-  %91 = getelementptr inbounds i8, ptr %14, i64 144
-  store i32 2, ptr %91, align 8
-  %.sroa.21.0..sroa_idx.i.i.i23 = getelementptr inbounds i8, ptr %14, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i23, align 8
+  %95 = getelementptr inbounds i8, ptr %14, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %95) #18
+  %96 = getelementptr inbounds i8, ptr %14, i64 144
+  store i32 2, ptr %96, align 8
+  %.sroa.21.0..sroa_idx.i.i.i24 = getelementptr inbounds i8, ptr %14, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i24, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %14, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %87, i32 noundef 3, ptr noundef nonnull %14, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %92, i32 noundef 3, ptr noundef nonnull %14, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %14) #18
-  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit24
+  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit25
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit24: ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit21, %89
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit25: ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit22, %94
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %14)
-  %92 = getelementptr inbounds i8, ptr %0, i64 352
-  %93 = load ptr, ptr %92, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 352
+  %98 = load ptr, ptr %97, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %13)
-  %94 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i25 = icmp eq ptr %94, null
-  br i1 %.not.i25, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit27, label %95
+  %99 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i26 = icmp eq ptr %99, null
+  br i1 %.not.i26, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28, label %100
 
-95:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit24
+100:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit25
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %13, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %13, align 8
-  %96 = getelementptr inbounds i8, ptr %13, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %96) #18
-  %97 = getelementptr inbounds i8, ptr %13, i64 144
-  store i32 2, ptr %97, align 8
-  %.sroa.21.0..sroa_idx.i.i.i26 = getelementptr inbounds i8, ptr %13, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i26, align 8
+  %101 = getelementptr inbounds i8, ptr %13, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %101) #18
+  %102 = getelementptr inbounds i8, ptr %13, i64 144
+  store i32 2, ptr %102, align 8
+  %.sroa.21.0..sroa_idx.i.i.i27 = getelementptr inbounds i8, ptr %13, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i27, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %13, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %93, i32 noundef 3, ptr noundef nonnull %13, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %98, i32 noundef 3, ptr noundef nonnull %13, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %13) #18
-  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit27
+  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit27: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit24, %95
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit25, %100
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13)
-  %98 = getelementptr inbounds i8, ptr %0, i64 360
-  %99 = load ptr, ptr %98, align 8
+  %103 = getelementptr inbounds i8, ptr %0, i64 360
+  %104 = load ptr, ptr %103, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %12)
-  %100 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i28 = icmp eq ptr %100, null
-  br i1 %.not.i28, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit30, label %101
+  %105 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i29 = icmp eq ptr %105, null
+  br i1 %.not.i29, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit31, label %106
 
-101:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit27
+106:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %12, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %12, align 8
-  %102 = getelementptr inbounds i8, ptr %12, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %102) #18
-  %103 = getelementptr inbounds i8, ptr %12, i64 144
-  store i32 2, ptr %103, align 8
-  %.sroa.21.0..sroa_idx.i.i.i29 = getelementptr inbounds i8, ptr %12, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i29, align 8
+  %107 = getelementptr inbounds i8, ptr %12, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %107) #18
+  %108 = getelementptr inbounds i8, ptr %12, i64 144
+  store i32 2, ptr %108, align 8
+  %.sroa.21.0..sroa_idx.i.i.i30 = getelementptr inbounds i8, ptr %12, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i30, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %12, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %99, i32 noundef 3, ptr noundef nonnull %12, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %104, i32 noundef 3, ptr noundef nonnull %12, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %12) #18
-  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit30
+  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit31
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit30: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit27, %101
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit31: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28, %106
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %12)
-  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit32
+  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit33
 
-.critedge:                                        ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13
-  %104 = load double, ptr %31, align 8
-  %105 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i31 = icmp eq ptr %105, null
-  br i1 %.not.i31, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit32, label %106
+.critedge:                                        ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit14
+  %109 = load double, ptr %33, align 8
+  %110 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i32 = icmp eq ptr %110, null
+  br i1 %.not.i32, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit33, label %111
 
-106:                                              ; preds = %.critedge
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.139, double noundef %104)
-  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit32
+111:                                              ; preds = %.critedge
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.139, double noundef %109)
+  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit33
 
-_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit32:     ; preds = %106, %.critedge, %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit30
-  %107 = getelementptr inbounds i8, ptr %0, i64 336
-  %108 = load ptr, ptr %107, align 8
+_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit33:     ; preds = %111, %.critedge, %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit31
+  %112 = getelementptr inbounds i8, ptr %0, i64 336
+  %113 = load ptr, ptr %112, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %11)
-  %109 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i33 = icmp eq ptr %109, null
-  br i1 %.not.i33, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit35, label %110
+  %114 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i34 = icmp eq ptr %114, null
+  br i1 %.not.i34, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit36, label %115
 
-110:                                              ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit32
+115:                                              ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit33
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %11, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %11, align 8
-  %111 = getelementptr inbounds i8, ptr %11, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %111) #18
-  %112 = getelementptr inbounds i8, ptr %11, i64 144
-  store i32 2, ptr %112, align 8
-  %.sroa.21.0..sroa_idx.i.i.i34 = getelementptr inbounds i8, ptr %11, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i34, align 8
+  %116 = getelementptr inbounds i8, ptr %11, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %116) #18
+  %117 = getelementptr inbounds i8, ptr %11, i64 144
+  store i32 2, ptr %117, align 8
+  %.sroa.21.0..sroa_idx.i.i.i35 = getelementptr inbounds i8, ptr %11, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i35, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %11, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %108, i32 noundef 3, ptr noundef nonnull %11, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %113, i32 noundef 3, ptr noundef nonnull %11, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %11) #18
-  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit35
+  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit36
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit35: ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit32, %110
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit36: ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit33, %115
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %11)
-  %113 = getelementptr inbounds i8, ptr %0, i64 344
-  %114 = load ptr, ptr %113, align 8
+  %118 = getelementptr inbounds i8, ptr %0, i64 344
+  %119 = load ptr, ptr %118, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %10)
-  %115 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i36 = icmp eq ptr %115, null
-  br i1 %.not.i36, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit38, label %116
+  %120 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i37 = icmp eq ptr %120, null
+  br i1 %.not.i37, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit39, label %121
 
-116:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit35
+121:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit36
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %10, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %10, align 8
-  %117 = getelementptr inbounds i8, ptr %10, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %117) #18
-  %118 = getelementptr inbounds i8, ptr %10, i64 144
-  store i32 2, ptr %118, align 8
-  %.sroa.21.0..sroa_idx.i.i.i37 = getelementptr inbounds i8, ptr %10, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i37, align 8
+  %122 = getelementptr inbounds i8, ptr %10, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %122) #18
+  %123 = getelementptr inbounds i8, ptr %10, i64 144
+  store i32 2, ptr %123, align 8
+  %.sroa.21.0..sroa_idx.i.i.i38 = getelementptr inbounds i8, ptr %10, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i38, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %10, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %114, i32 noundef 3, ptr noundef nonnull %10, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %119, i32 noundef 3, ptr noundef nonnull %10, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %10) #18
-  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit38
+  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit39
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit38: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit35, %116
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit39: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit36, %121
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %10)
-  %119 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %120 = call noundef zeroext i1 @_ZNK15G1CollectedHeap39should_sample_collection_set_candidatesEv(ptr noundef nonnull align 8 dereferenceable(1488) %119) #18
-  br i1 %120, label %121, label %128
+  %124 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %125 = call noundef zeroext i1 @_ZNK15G1CollectedHeap39should_sample_collection_set_candidatesEv(ptr noundef nonnull align 8 dereferenceable(1488) %124) #18
+  br i1 %125, label %126, label %133
 
-121:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit38
-  %122 = getelementptr inbounds i8, ptr %0, i64 288
-  %123 = load ptr, ptr %122, align 8
+126:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit39
+  %127 = getelementptr inbounds i8, ptr %0, i64 288
+  %128 = load ptr, ptr %127, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %9)
-  %124 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i39 = icmp eq ptr %124, null
-  br i1 %.not.i39, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit41, label %125
+  %129 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i40 = icmp eq ptr %129, null
+  br i1 %.not.i40, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit42, label %130
 
-125:                                              ; preds = %121
+130:                                              ; preds = %126
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %9, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %9, align 8
-  %126 = getelementptr inbounds i8, ptr %9, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %126) #18
-  %127 = getelementptr inbounds i8, ptr %9, i64 144
-  store i32 2, ptr %127, align 8
-  %.sroa.21.0..sroa_idx.i.i.i40 = getelementptr inbounds i8, ptr %9, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i40, align 8
+  %131 = getelementptr inbounds i8, ptr %9, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %131) #18
+  %132 = getelementptr inbounds i8, ptr %9, i64 144
+  store i32 2, ptr %132, align 8
+  %.sroa.21.0..sroa_idx.i.i.i41 = getelementptr inbounds i8, ptr %9, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i41, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %9, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %123, i32 noundef 3, ptr noundef nonnull %9, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %128, i32 noundef 3, ptr noundef nonnull %9, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %9) #18
-  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit41
+  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit42
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit41: ; preds = %121, %125
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit42: ; preds = %126, %130
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %9)
-  br label %128
+  br label %133
 
-128:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit41, %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit38
-  %129 = getelementptr inbounds i8, ptr %0, i64 240
-  %130 = load ptr, ptr %129, align 8
+133:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit42, %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit39
+  %134 = getelementptr inbounds i8, ptr %0, i64 240
+  %135 = load ptr, ptr %134, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8)
-  %131 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i42 = icmp eq ptr %131, null
-  br i1 %.not.i42, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit44, label %132
+  %136 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i43 = icmp eq ptr %136, null
+  br i1 %.not.i43, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit45, label %137
 
-132:                                              ; preds = %128
+137:                                              ; preds = %133
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %8, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %8, align 8
-  %133 = getelementptr inbounds i8, ptr %8, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %133) #18
-  %134 = getelementptr inbounds i8, ptr %8, i64 144
-  store i32 2, ptr %134, align 8
-  %.sroa.21.0..sroa_idx.i.i.i43 = getelementptr inbounds i8, ptr %8, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i43, align 8
+  %138 = getelementptr inbounds i8, ptr %8, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %138) #18
+  %139 = getelementptr inbounds i8, ptr %8, i64 144
+  store i32 2, ptr %139, align 8
+  %.sroa.21.0..sroa_idx.i.i.i44 = getelementptr inbounds i8, ptr %8, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i44, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %8, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %130, i32 noundef 3, ptr noundef nonnull %8, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %135, i32 noundef 3, ptr noundef nonnull %8, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %8) #18
-  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit44
+  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit45
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit44: ; preds = %128, %132
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit45: ; preds = %133, %137
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8)
-  %135 = load i8, ptr @UseTLAB, align 1
-  %136 = trunc i8 %135 to i1
-  br i1 %136, label %137, label %147
+  %140 = load i8, ptr @UseTLAB, align 1
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %142, label %152
 
-137:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit44
-  %138 = load i8, ptr @ResizeTLAB, align 1
-  %139 = trunc i8 %138 to i1
-  br i1 %139, label %140, label %147
+142:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit45
+  %143 = load i8, ptr @ResizeTLAB, align 1
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %145, label %152
 
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %0, i64 272
-  %142 = load ptr, ptr %141, align 8
+145:                                              ; preds = %142
+  %146 = getelementptr inbounds i8, ptr %0, i64 272
+  %147 = load ptr, ptr %146, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7)
-  %143 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i45 = icmp eq ptr %143, null
-  br i1 %.not.i45, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit47, label %144
+  %148 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i46 = icmp eq ptr %148, null
+  br i1 %.not.i46, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit48, label %149
 
-144:                                              ; preds = %140
+149:                                              ; preds = %145
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %7, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %7, align 8
-  %145 = getelementptr inbounds i8, ptr %7, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %145) #18
-  %146 = getelementptr inbounds i8, ptr %7, i64 144
-  store i32 2, ptr %146, align 8
-  %.sroa.21.0..sroa_idx.i.i.i46 = getelementptr inbounds i8, ptr %7, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i46, align 8
+  %150 = getelementptr inbounds i8, ptr %7, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %150) #18
+  %151 = getelementptr inbounds i8, ptr %7, i64 144
+  store i32 2, ptr %151, align 8
+  %.sroa.21.0..sroa_idx.i.i.i47 = getelementptr inbounds i8, ptr %7, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i47, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %7, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %142, i32 noundef 3, ptr noundef nonnull %7, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %147, i32 noundef 3, ptr noundef nonnull %7, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #18
-  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit47
+  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit48
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit47: ; preds = %140, %144
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit48: ; preds = %145, %149
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7)
-  br label %147
+  br label %152
 
-147:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit47, %137, %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit44
-  %148 = getelementptr inbounds i8, ptr %0, i64 248
-  %149 = load ptr, ptr %148, align 8
+152:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit48, %142, %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit45
+  %153 = getelementptr inbounds i8, ptr %0, i64 248
+  %154 = load ptr, ptr %153, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6)
-  %150 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i48 = icmp eq ptr %150, null
-  br i1 %.not.i48, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit50, label %151
+  %155 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i49 = icmp eq ptr %155, null
+  br i1 %.not.i49, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit51, label %156
 
-151:                                              ; preds = %147
+156:                                              ; preds = %152
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %6, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
-  %152 = getelementptr inbounds i8, ptr %6, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %152) #18
-  %153 = getelementptr inbounds i8, ptr %6, i64 144
-  store i32 2, ptr %153, align 8
-  %.sroa.21.0..sroa_idx.i.i.i49 = getelementptr inbounds i8, ptr %6, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i49, align 8
+  %157 = getelementptr inbounds i8, ptr %6, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %157) #18
+  %158 = getelementptr inbounds i8, ptr %6, i64 144
+  store i32 2, ptr %158, align 8
+  %.sroa.21.0..sroa_idx.i.i.i50 = getelementptr inbounds i8, ptr %6, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i50, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %6, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %149, i32 noundef 3, ptr noundef nonnull %6, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %154, i32 noundef 3, ptr noundef nonnull %6, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #18
-  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit50
+  br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit51
 
-_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit50: ; preds = %147, %151
+_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit51: ; preds = %152, %156
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6)
-  %154 = getelementptr inbounds i8, ptr %0, i64 256
-  %155 = load ptr, ptr %154, align 8
+  %159 = getelementptr inbounds i8, ptr %0, i64 256
+  %160 = load ptr, ptr %159, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5)
-  %156 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i51 = icmp eq ptr %156, null
-  br i1 %.not.i51, label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit, label %157
+  %161 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i52 = icmp eq ptr %161, null
+  br i1 %.not.i52, label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit, label %162
 
-157:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit50
+162:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit51
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %5, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %5, align 8
-  %158 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %158) #18
-  %159 = getelementptr inbounds i8, ptr %5, i64 144
-  store i32 1, ptr %159, align 8
-  %.sroa.21.0..sroa_idx.i.i.i52 = getelementptr inbounds i8, ptr %5, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i52, align 8
+  %163 = getelementptr inbounds i8, ptr %5, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %163) #18
+  %164 = getelementptr inbounds i8, ptr %5, i64 144
+  store i32 1, ptr %164, align 8
+  %.sroa.21.0..sroa_idx.i.i.i53 = getelementptr inbounds i8, ptr %5, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i53, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %5, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %155, i32 noundef 4, ptr noundef nonnull %5, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %160, i32 noundef 4, ptr noundef nonnull %5, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %5) #18
   br label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit
 
-_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit50, %157
+_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit51, %162
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
-  %160 = getelementptr inbounds i8, ptr %0, i64 264
-  %161 = load ptr, ptr %160, align 8
+  %165 = getelementptr inbounds i8, ptr %0, i64 264
+  %166 = load ptr, ptr %165, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
-  %162 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i53 = icmp eq ptr %162, null
-  br i1 %.not.i53, label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit55, label %163
+  %167 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i54 = icmp eq ptr %167, null
+  br i1 %.not.i54, label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit56, label %168
 
-163:                                              ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit
+168:                                              ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
-  %164 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %164) #18
-  %165 = getelementptr inbounds i8, ptr %4, i64 144
-  store i32 1, ptr %165, align 8
-  %.sroa.21.0..sroa_idx.i.i.i54 = getelementptr inbounds i8, ptr %4, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i54, align 8
+  %169 = getelementptr inbounds i8, ptr %4, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %169) #18
+  %170 = getelementptr inbounds i8, ptr %4, i64 144
+  store i32 1, ptr %170, align 8
+  %.sroa.21.0..sroa_idx.i.i.i55 = getelementptr inbounds i8, ptr %4, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i55, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %161, i32 noundef 4, ptr noundef nonnull %4, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %166, i32 noundef 4, ptr noundef nonnull %4, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #18
-  br label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit55
+  br label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit56
 
-_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit55: ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit, %163
+_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit56: ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit, %168
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
-  %166 = getelementptr inbounds i8, ptr %0, i64 544
-  %167 = load double, ptr %166, align 8
-  %168 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i56 = icmp eq ptr %168, null
-  br i1 %.not.i56, label %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit, label %169
+  %171 = getelementptr inbounds i8, ptr %0, i64 544
+  %172 = load double, ptr %171, align 8
+  %173 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i57 = icmp eq ptr %173, null
+  br i1 %.not.i57, label %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit, label %174
 
-169:                                              ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit55
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.140, double noundef %167)
+174:                                              ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit56
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.140, double noundef %172)
   br label %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit
 
-_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit:       ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit55, %169
-  %170 = load double, ptr %34, align 8
-  %171 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i57 = icmp eq ptr %171, null
-  br i1 %.not.i57, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit58, label %172
+_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit:       ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit56, %174
+  %175 = load double, ptr %36, align 8
+  %176 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i58 = icmp eq ptr %176, null
+  br i1 %.not.i58, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit59, label %177
 
-172:                                              ; preds = %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.141, double noundef %170)
-  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit58
+177:                                              ; preds = %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.141, double noundef %175)
+  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit59
 
-_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit58:     ; preds = %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit, %172
-  %173 = getelementptr inbounds i8, ptr %0, i64 560
-  %174 = load double, ptr %173, align 8
-  %175 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i59 = icmp eq ptr %175, null
-  br i1 %.not.i59, label %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit60, label %176
+_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit59:     ; preds = %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit, %177
+  %178 = getelementptr inbounds i8, ptr %0, i64 560
+  %179 = load double, ptr %178, align 8
+  %180 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i60 = icmp eq ptr %180, null
+  br i1 %.not.i60, label %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit61, label %181
 
-176:                                              ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit58
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.142, double noundef %174)
-  br label %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit60
+181:                                              ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit59
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.142, double noundef %179)
+  br label %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit61
 
-_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit60:     ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit58, %176
-  %177 = getelementptr inbounds i8, ptr %0, i64 280
-  %178 = load ptr, ptr %177, align 8
+_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit61:     ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit59, %181
+  %182 = getelementptr inbounds i8, ptr %0, i64 280
+  %183 = load ptr, ptr %182, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
-  %179 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i61 = icmp eq ptr %179, null
-  br i1 %.not.i61, label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit63, label %180
+  %184 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i62 = icmp eq ptr %184, null
+  br i1 %.not.i62, label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit64, label %185
 
-180:                                              ; preds = %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit60
+185:                                              ; preds = %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit61
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
-  %181 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %181) #18
-  %182 = getelementptr inbounds i8, ptr %3, i64 144
-  store i32 1, ptr %182, align 8
-  %.sroa.21.0..sroa_idx.i.i.i62 = getelementptr inbounds i8, ptr %3, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i62, align 8
+  %186 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %186) #18
+  %187 = getelementptr inbounds i8, ptr %3, i64 144
+  store i32 1, ptr %187, align 8
+  %.sroa.21.0..sroa_idx.i.i.i63 = getelementptr inbounds i8, ptr %3, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i63, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %178, i32 noundef 3, ptr noundef nonnull %3, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull readnone align 8 poison, ptr noundef %183, i32 noundef 3, ptr noundef nonnull %3, i1 noundef zeroext true)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #18
-  br label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit63
+  br label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit64
 
-_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit63: ; preds = %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit60, %180
+_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit64: ; preds = %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit61, %185
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
-  %183 = load double, ptr %37, align 8
-  %184 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i64 = icmp eq ptr %184, null
-  br i1 %.not.i64, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit65, label %185
+  %188 = load double, ptr %39, align 8
+  %189 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i65 = icmp eq ptr %189, null
+  br i1 %.not.i65, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit66, label %190
 
-185:                                              ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit63
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.143, double noundef %183)
-  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit65
+190:                                              ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit64
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.143, double noundef %188)
+  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit66
 
-_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit65:     ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit63, %185
-  %186 = load double, ptr %40, align 8
-  %187 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i66 = icmp eq ptr %187, null
-  br i1 %.not.i66, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit67, label %188
+_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit66:     ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit64, %190
+  %191 = load double, ptr %42, align 8
+  %192 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i67 = icmp eq ptr %192, null
+  br i1 %.not.i67, label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit68, label %193
 
-188:                                              ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit65
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.144, double noundef %186)
-  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit67
+193:                                              ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit66
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.144, double noundef %191)
+  br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit68
 
-_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit67:     ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit65, %188
-  ret double %42
+_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit68:     ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit66, %193
+  ret double %44
 }
 
 declare noundef double @_ZNK18WeakProcessorTimes14total_time_secEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #1

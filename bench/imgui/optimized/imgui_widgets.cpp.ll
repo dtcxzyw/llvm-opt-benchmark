@@ -3969,11 +3969,11 @@ entry:
   %SkipItems = getelementptr inbounds i8, ptr %2, i64 195
   %3 = load i8, ptr %SkipItems, align 1
   %tobool = trunc i8 %3 to i1
-  %ref.tmp6.sink7.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6, i64 4
-  %ref.tmp6.sink7.sroa.gep8 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %ref.tmp6.sink8.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp6, i64 4
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %ref.tmp6.sink8.sroa.gep9 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %LayoutType = getelementptr inbounds i8, ptr %2, i64 452
   %4 = load i32, ptr %LayoutType, align 4
   store i32 1, ptr %LayoutType, align 4
@@ -3982,24 +3982,20 @@ if.end:                                           ; preds = %entry
   %y = getelementptr inbounds i8, ptr %2, i64 316
   %5 = load float, ptr %y, align 4
   %cmp = fcmp ogt float %5, 0.000000e+00
-  br i1 %cmp, label %if.then5, label %if.else
-
-if.then5:                                         ; preds = %if.end
-  store float 0.000000e+00, ptr %ref.tmp, align 4
-  br label %if.end7
+  br i1 %cmp, label %if.end7, label %if.else
 
 if.else:                                          ; preds = %if.end
   %FontSize = getelementptr inbounds i8, ptr %0, i64 15680
   %6 = load float, ptr %FontSize, align 8
-  store float 0.000000e+00, ptr %ref.tmp6, align 4
   br label %if.end7
 
-if.end7:                                          ; preds = %if.else, %if.then5
-  %ref.tmp6.sink7.sroa.phi = phi ptr [ %ref.tmp6.sink7.sroa.gep, %if.else ], [ %ref.tmp6.sink7.sroa.gep8, %if.then5 ]
-  %ref.tmp6.sink7 = phi ptr [ %ref.tmp6, %if.else ], [ %ref.tmp, %if.then5 ]
-  %.sink = phi float [ %6, %if.else ], [ 0.000000e+00, %if.then5 ]
-  store float %.sink, ptr %ref.tmp6.sink7.sroa.phi, align 4
-  call void @_ZN5ImGui8ItemSizeERK6ImVec2f(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp6.sink7, float noundef -1.000000e+00)
+if.end7:                                          ; preds = %if.end, %if.else
+  %ref.tmp6.sink8.sroa.phi = phi ptr [ %ref.tmp6.sink8.sroa.gep, %if.else ], [ %ref.tmp6.sink8.sroa.gep9, %if.end ]
+  %ref.tmp6.sink8 = phi ptr [ %ref.tmp6, %if.else ], [ %ref.tmp, %if.end ]
+  %.sink = phi float [ %6, %if.else ], [ 0.000000e+00, %if.end ]
+  store float 0.000000e+00, ptr %ref.tmp6.sink8, align 4
+  store float %.sink, ptr %ref.tmp6.sink8.sroa.phi, align 4
+  call void @_ZN5ImGui8ItemSizeERK6ImVec2f(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp6.sink8, float noundef -1.000000e+00)
   store i32 %4, ptr %LayoutType, align 4
   br label %return
 

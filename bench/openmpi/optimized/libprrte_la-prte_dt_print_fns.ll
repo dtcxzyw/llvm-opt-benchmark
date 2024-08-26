@@ -154,81 +154,81 @@ pmix_pointer_array_get_item.exit:                 ; preds = %2, %45
   br label %61
 
 61:                                               ; preds = %58, %53
-  %.sink.in = phi ptr [ %3, %58 ], [ %4, %53 ]
+  %.sink43 = phi ptr [ %3, %58 ], [ %4, %53 ]
   %storemerge.in = phi ptr [ %4, %58 ], [ %5, %53 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @free(ptr noundef %.sink) #8
+  %62 = load ptr, ptr %.sink43, align 8
+  call void @free(ptr noundef %62) #8
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %3, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 460
-  %63 = load i32, ptr %62, align 4
-  %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %1, i64 436
-  %66 = load i32, ptr %65, align 4
-  %67 = zext i32 %66 to i64
-  %68 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.8, ptr noundef %storemerge, i64 noundef %64, i64 noundef %67) #8
-  %69 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %69) #8
-  %70 = load ptr, ptr %4, align 8
-  store ptr %70, ptr %3, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 464
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 128
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %pmix_pointer_array_get_item.exit34, label %._crit_edge37
+  %63 = getelementptr inbounds i8, ptr %1, i64 460
+  %64 = load i32, ptr %63, align 4
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %1, i64 436
+  %67 = load i32, ptr %66, align 4
+  %68 = zext i32 %67 to i64
+  %69 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.8, ptr noundef %storemerge, i64 noundef %65, i64 noundef %68) #8
+  %70 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %70) #8
+  %71 = load ptr, ptr %4, align 8
+  store ptr %71, ptr %3, align 8
+  %72 = getelementptr inbounds i8, ptr %1, i64 464
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 128
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %pmix_pointer_array_get_item.exit34, label %._crit_edge37
 
-pmix_pointer_array_get_item.exit34:               ; preds = %61, %90
-  %76 = phi ptr [ %91, %90 ], [ %70, %61 ]
-  %77 = phi ptr [ %92, %90 ], [ %72, %61 ]
-  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %90 ], [ 0, %61 ]
-  %78 = getelementptr inbounds i8, ptr %77, i64 152
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv39
-  %81 = load ptr, ptr %80, align 8
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %90, label %83
+pmix_pointer_array_get_item.exit34:               ; preds = %61, %91
+  %77 = phi ptr [ %92, %91 ], [ %71, %61 ]
+  %78 = phi ptr [ %93, %91 ], [ %73, %61 ]
+  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %91 ], [ 0, %61 ]
+  %79 = getelementptr inbounds i8, ptr %78, i64 152
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds ptr, ptr %80, i64 %indvars.iv39
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %91, label %84
 
-83:                                               ; preds = %pmix_pointer_array_get_item.exit34
-  call void @prte_proc_print(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %81)
-  %84 = load ptr, ptr %3, align 8
-  %85 = load ptr, ptr %4, align 8
-  %86 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.6, ptr noundef %84, ptr noundef %85) #8
-  %87 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %87) #8
-  %88 = load ptr, ptr %4, align 8
+84:                                               ; preds = %pmix_pointer_array_get_item.exit34
+  call void @prte_proc_print(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %82)
+  %85 = load ptr, ptr %3, align 8
+  %86 = load ptr, ptr %4, align 8
+  %87 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.6, ptr noundef %85, ptr noundef %86) #8
+  %88 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %88) #8
-  %89 = load ptr, ptr %5, align 8
-  store ptr %89, ptr %3, align 8
-  %.pre42 = load ptr, ptr %71, align 8
-  br label %90
+  %89 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %89) #8
+  %90 = load ptr, ptr %5, align 8
+  store ptr %90, ptr %3, align 8
+  %.pre42 = load ptr, ptr %72, align 8
+  br label %91
 
-90:                                               ; preds = %pmix_pointer_array_get_item.exit34, %83
-  %91 = phi ptr [ %76, %pmix_pointer_array_get_item.exit34 ], [ %89, %83 ]
-  %92 = phi ptr [ %77, %pmix_pointer_array_get_item.exit34 ], [ %.pre42, %83 ]
+91:                                               ; preds = %pmix_pointer_array_get_item.exit34, %84
+  %92 = phi ptr [ %77, %pmix_pointer_array_get_item.exit34 ], [ %90, %84 ]
+  %93 = phi ptr [ %78, %pmix_pointer_array_get_item.exit34 ], [ %.pre42, %84 ]
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %93 = getelementptr inbounds i8, ptr %92, i64 128
-  %94 = load i32, ptr %93, align 8
-  %95 = sext i32 %94 to i64
-  %96 = icmp slt i64 %indvars.iv.next40, %95
-  br i1 %96, label %pmix_pointer_array_get_item.exit34, label %._crit_edge37, !llvm.loop !6
+  %94 = getelementptr inbounds i8, ptr %93, i64 128
+  %95 = load i32, ptr %94, align 8
+  %96 = sext i32 %95 to i64
+  %97 = icmp slt i64 %indvars.iv.next40, %96
+  br i1 %97, label %pmix_pointer_array_get_item.exit34, label %._crit_edge37, !llvm.loop !6
 
-._crit_edge37:                                    ; preds = %90, %61
-  %97 = phi ptr [ %70, %61 ], [ %91, %90 ]
-  %98 = getelementptr inbounds i8, ptr %1, i64 496
-  %99 = load i32, ptr %98, align 8
-  %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds i8, ptr %1, i64 500
-  %102 = load i32, ptr %101, align 4
-  %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds i8, ptr %1, i64 504
-  %105 = load i32, ptr %104, align 8
-  %106 = zext i32 %105 to i64
-  %107 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.9, ptr noundef %97, i64 noundef %100, i64 noundef %103, i64 noundef %106) #8
-  %108 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %108) #8
-  %109 = load ptr, ptr %4, align 8
-  store ptr %109, ptr %0, align 8
+._crit_edge37:                                    ; preds = %91, %61
+  %98 = phi ptr [ %71, %61 ], [ %92, %91 ]
+  %99 = getelementptr inbounds i8, ptr %1, i64 496
+  %100 = load i32, ptr %99, align 8
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds i8, ptr %1, i64 500
+  %103 = load i32, ptr %102, align 4
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds i8, ptr %1, i64 504
+  %106 = load i32, ptr %105, align 8
+  %107 = zext i32 %106 to i64
+  %108 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.9, ptr noundef %98, i64 noundef %101, i64 noundef %104, i64 noundef %107) #8
+  %109 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %109) #8
+  %110 = load ptr, ptr %4, align 8
+  store ptr %110, ptr %0, align 8
   ret void
 }
 
@@ -863,9 +863,9 @@ hwloc_get_nbobjs_by_type.exit:                    ; preds = %22, %32, %33
   br label %150
 
 150:                                              ; preds = %86, %96, %41, %55, %140, %39
-  %.sink.in = phi ptr [ %6, %140 ], [ %4, %39 ], [ %4, %55 ], [ %4, %41 ], [ %4, %96 ], [ %4, %86 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  store ptr %.sink, ptr %0, align 8
+  %.sink89 = phi ptr [ %6, %140 ], [ %4, %39 ], [ %4, %55 ], [ %4, %41 ], [ %4, %96 ], [ %4, %86 ]
+  %151 = load ptr, ptr %.sink89, align 8
+  store ptr %151, ptr %0, align 8
   ret void
 }
 
@@ -1403,9 +1403,9 @@ pmix_pointer_array_get_item.exit85:               ; preds = %255, %277
   br i1 %282, label %pmix_pointer_array_get_item.exit85, label %._crit_edge92, !llvm.loop !15
 
 ._crit_edge92:                                    ; preds = %277, %255, %169, %._crit_edge96
-  %.sink.in = phi ptr [ %10, %._crit_edge96 ], [ %7, %169 ], [ %7, %255 ], [ %7, %277 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  store ptr %.sink, ptr %0, align 8
+  %.sink117 = phi ptr [ %10, %._crit_edge96 ], [ %7, %169 ], [ %7, %255 ], [ %7, %277 ]
+  %283 = load ptr, ptr %.sink117, align 8
+  store ptr %283, ptr %0, align 8
   ret void
 }
 

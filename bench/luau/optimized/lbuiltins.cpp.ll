@@ -2708,7 +2708,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tonumberP9lua_StateP10l
   %8 = icmp eq i32 %5, 1
   %9 = icmp slt i32 %3, 2
   %or.cond = and i1 %9, %8
-  br i1 %or.cond, label %10, label %18
+  br i1 %or.cond, label %10, label %19
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %2, i64 12
@@ -2726,18 +2726,18 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tonumberP9lua_StateP10l
   br i1 %.not, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %13, %10
-  %.sink16.in = phi ptr [ %2, %10 ], [ %7, %13 ]
-  %.sink16 = load double, ptr %.sink16.in, align 8
-  store double %.sink16, ptr %1, align 8
+  %.sink17 = phi ptr [ %2, %10 ], [ %7, %13 ]
+  %17 = load double, ptr %.sink17, align 8
+  store double %17, ptr %1, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %13, %10
   %.sink = phi i32 [ 0, %10 ], [ 0, %13 ], [ 3, %.sink.split.sink.split ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 12
-  store i32 %.sink, ptr %17, align 4
-  br label %18
+  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  store i32 %.sink, ptr %18, align 4
+  br label %19
 
-18:                                               ; preds = %.sink.split, %6
+19:                                               ; preds = %.sink.split, %6
   %.0 = phi i32 [ -1, %6 ], [ 1, %.sink.split ]
   ret i32 %.0
 }

@@ -700,10 +700,10 @@ _ZN7QStringD2Ev.exit:                             ; preds = %25, %_ZN17QArrayDat
   ret void
 
 _ZN7QStringD2Ev.exit10.sink.split:                ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i16, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i8
-  %.sink.in = phi ptr [ %6, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i8 ], [ %7, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i16 ]
+  %.sink19 = phi ptr [ %6, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i8 ], [ %7, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i16 ]
   %.pn.ph = phi { ptr, i32 } [ %18, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i8 ], [ %28, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i16 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 2, i64 noundef 8) #22
+  %33 = load ptr, ptr %.sink19, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %33, i64 noundef 2, i64 noundef 8) #22
   br label %_ZN7QStringD2Ev.exit10
 
 _ZN7QStringD2Ev.exit10:                           ; preds = %_ZN7QStringD2Ev.exit10.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i16, %27, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i8, %17
@@ -1155,10 +1155,10 @@ _ZN7QStringD2Ev.exit:                             ; preds = %60, %_ZN17QArrayDat
   ret void
 
 _ZN7QStringD2Ev.exit17.sink.split:                ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i24, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15
-  %.sink.in = phi ptr [ %5, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15 ], [ %6, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i24 ]
+  %.sink29 = phi ptr [ %5, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15 ], [ %6, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i24 ]
   %.pn.ph = phi { ptr, i32 } [ %43, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15 ], [ %63, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i24 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 2, i64 noundef 8) #22
+  %77 = load ptr, ptr %.sink29, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %77, i64 noundef 2, i64 noundef 8) #22
   br label %_ZN7QStringD2Ev.exit17
 
 _ZN7QStringD2Ev.exit17:                           ; preds = %_ZN7QStringD2Ev.exit17.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i24, %62, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15, %42
@@ -1943,21 +1943,21 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29:    ; preds = %_ZN7QStringD2Ev.exi
   br i1 %.not.i.i30, label %_ZN7QStringD2Ev.exit20.sink.split, label %_ZN7QStringD2Ev.exit20
 
 _ZN7QStringD2Ev.exit20.sink.split:                ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18
-  %.sink.in = phi ptr [ %4, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18 ], [ %6, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29 ]
+  %.sink33 = phi ptr [ %4, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18 ], [ %6, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29 ]
   %.0.ph = phi i32 [ %40, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18 ], [ %68, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 2, i64 noundef 8) #22
+  %75 = load ptr, ptr %.sink33, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %75, i64 noundef 2, i64 noundef 8) #22
   br label %_ZN7QStringD2Ev.exit20
 
 _ZN7QStringD2Ev.exit20:                           ; preds = %_ZN7QStringD2Ev.exit20.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29, %_ZN7QStringD2Ev.exit27, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18, %_ZN7QStringD2Ev.exit
   %.0 = phi i32 [ %40, %_ZN7QStringD2Ev.exit ], [ %40, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i18 ], [ %68, %_ZN7QStringD2Ev.exit27 ], [ %68, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i29 ], [ %.0.ph, %_ZN7QStringD2Ev.exit20.sink.split ]
-  %75 = icmp slt i32 %.0, 0
-  br i1 %75, label %76, label %_ZN7QStringD2Ev.exit20.thread
+  %76 = icmp slt i32 %.0, 0
+  br i1 %76, label %77, label %_ZN7QStringD2Ev.exit20.thread
 
 _ZN7QStringD2Ev.exit20.thread:                    ; preds = %16, %_ZN7QStringD2Ev.exit20, %3
-  br label %76
+  br label %77
 
-76:                                               ; preds = %_ZN7QStringD2Ev.exit20, %_ZN7QStringD2Ev.exit20.thread
+77:                                               ; preds = %_ZN7QStringD2Ev.exit20, %_ZN7QStringD2Ev.exit20.thread
   %.012 = phi i1 [ false, %_ZN7QStringD2Ev.exit20.thread ], [ true, %_ZN7QStringD2Ev.exit20 ]
   ret i1 %.012
 }

@@ -3869,37 +3869,37 @@ _convert_to_id.exit.thread:                       ; preds = %11, %9
   %13 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.677.sink, ptr noundef %1) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %15
+  br label %16
 
 _convert_to_id.exit:                              ; preds = %11, %9
-  %.sink.in = phi ptr [ %4, %9 ], [ %5, %11 ]
-  %.sink = load i32, ptr %.sink.in, align 4
-  %14 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.2, i32 noundef %.sink) #22
+  %.sink10 = phi ptr [ %4, %9 ], [ %5, %11 ]
+  %14 = load i32, ptr %.sink10, align 4
+  %15 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.2, i32 noundef %14) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  store ptr %14, ptr %6, align 8
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %15, label %17
+  store ptr %15, ptr %6, align 8
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %16, label %18
 
-15:                                               ; preds = %_convert_to_id.exit.thread, %_convert_to_id.exit
-  %16 = call i32 @list_flush(ptr noundef %0) #22
-  br label %21
+16:                                               ; preds = %_convert_to_id.exit.thread, %_convert_to_id.exit
+  %17 = call i32 @list_flush(ptr noundef %0) #22
+  br label %22
 
-17:                                               ; preds = %_convert_to_id.exit
-  %18 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef nonnull %14) #22
-  %.not7 = icmp eq ptr %18, null
-  br i1 %.not7, label %19, label %20
+18:                                               ; preds = %_convert_to_id.exit
+  %19 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef nonnull %15) #22
+  %.not7 = icmp eq ptr %19, null
+  br i1 %.not7, label %20, label %21
 
-19:                                               ; preds = %17
-  call void @list_append(ptr noundef %0, ptr noundef nonnull %14) #22
-  br label %21
+20:                                               ; preds = %18
+  call void @list_append(ptr noundef %0, ptr noundef nonnull %15) #22
+  br label %22
 
-20:                                               ; preds = %17
+21:                                               ; preds = %18
   call void @slurm_xfree(ptr noundef nonnull %6) #22
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %19, %15
-  %.0 = phi i32 [ 0, %20 ], [ 1, %19 ], [ -1, %15 ]
+22:                                               ; preds = %21, %20, %16
+  %.0 = phi i32 [ 0, %21 ], [ 1, %20 ], [ -1, %16 ]
   ret i32 %.0
 }
 

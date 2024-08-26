@@ -6539,23 +6539,14 @@ if.then62:                                        ; preds = %if.else
   %27 = load ptr, ptr %bs, align 8
   store ptr %26, ptr %bs, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %27, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit
+  br i1 %tobool.not.i.i.i.i, label %if.end80, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit
 
 _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %if.then62
   call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #19
   call void @_ZdlPv(ptr noundef nonnull %27) #19
   %.pr = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i = icmp eq ptr %.pr, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i
-
-_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit
-  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.pr) #19
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #19
-  br label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then62, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i
-  store ptr null, ptr %ref.tmp, align 8
-  br label %if.end80
+  br i1 %cmp.not.i, label %if.end80, label %if.end80.sink.split
 
 do.body:                                          ; preds = %if.else
   %28 = load ptr, ptr %bs, align 8
@@ -6596,18 +6587,18 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33: ; pred
   store ptr null, ptr %ref.tmp76, align 8
   %32 = load ptr, ptr %agg.tmp77, align 8
   %cmp.not.i34 = icmp eq ptr %32, null
-  br i1 %cmp.not.i34, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit36, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i35
+  br i1 %cmp.not.i34, label %if.end80, label %if.end80.sink.split
 
-_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i35: ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33
-  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #19
-  call void @_ZdlPv(ptr noundef nonnull %32) #19
-  br label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit36
-
-_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit36: ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i35
-  store ptr null, ptr %agg.tmp77, align 8
+if.end80.sink.split:                              ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit
+  %.sink147 = phi ptr [ %.pr, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit ], [ %32, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33 ]
+  %ref.tmp.sink.ph = phi ptr [ %ref.tmp, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit ], [ %agg.tmp77, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33 ]
+  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink147) #19
+  call void @_ZdlPv(ptr noundef nonnull %.sink147) #19
   br label %if.end80
 
-if.end80:                                         ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit36
+if.end80:                                         ; preds = %if.end80.sink.split, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit, %if.then62
+  %ref.tmp.sink = phi ptr [ %ref.tmp, %if.then62 ], [ %ref.tmp, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit ], [ %agg.tmp77, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit33 ], [ %ref.tmp.sink.ph, %if.end80.sink.split ]
+  store ptr null, ptr %ref.tmp.sink, align 8
   %33 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %33) #19
   %env_.i = getelementptr inbounds i8, ptr %try_catch, i64 48

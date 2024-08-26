@@ -398,7 +398,7 @@ _ZNK6vectorISt4pairIbP4exprELb0EjE5emptyEv.exit.lr.ph: ; preds = %_ZN6vectorISt4
   br label %_ZNK6vectorISt4pairIbP4exprELb0EjE5emptyEv.exit
 
 _ZNK6vectorISt4pairIbP4exprELb0EjE5emptyEv.exit:  ; preds = %_ZNK6vectorISt4pairIbP4exprELb0EjE5emptyEv.exit.lr.ph, %while.cond.backedge
-  %3 = phi ptr [ %2, %_ZNK6vectorISt4pairIbP4exprELb0EjE5emptyEv.exit.lr.ph ], [ %64, %while.cond.backedge ]
+  %3 = phi ptr [ %2, %_ZNK6vectorISt4pairIbP4exprELb0EjE5emptyEv.exit.lr.ph ], [ %65, %while.cond.backedge ]
   %arrayidx.i28 = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i28, align 4
   %cmp3.i.not = icmp ne i32 %4, 0
@@ -745,35 +745,35 @@ if.then.i156:                                     ; preds = %lor.lhs.false.i148,
           to label %while.cond.backedge.sink.split.sink.split unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 while.cond.backedge.sink.split.sink.split:        ; preds = %if.then.i156, %if.then.i139
-  %frombool.i145.sink.ph = phi i8 [ %frombool85, %if.then.i139 ], [ %frombool.i145, %if.then.i156 ]
-  %.sroa.9173.0.copyload.sink.ph = phi ptr [ %56, %if.then.i139 ], [ %.sroa.9173.0.copyload, %if.then.i156 ]
-  %.sink.in.ph = phi ptr [ %todo, %if.then.i139 ], [ %conjuncts, %if.then.i156 ]
-  %.pre.i157.sink = load ptr, ptr %.sink.in.ph, align 8
-  %arrayidx8.phi.trans.insert.i158 = getelementptr inbounds i8, ptr %.pre.i157.sink, i64 -4
+  %conjuncts.sink = phi ptr [ %todo, %if.then.i139 ], [ %conjuncts, %if.then.i156 ]
+  %frombool85.sink.ph = phi i8 [ %frombool85, %if.then.i139 ], [ %frombool.i145, %if.then.i156 ]
+  %.sink.ph = phi ptr [ %56, %if.then.i139 ], [ %.sroa.9173.0.copyload, %if.then.i156 ]
+  %.pre.i157 = load ptr, ptr %conjuncts.sink, align 8
+  %arrayidx8.phi.trans.insert.i158 = getelementptr inbounds i8, ptr %.pre.i157, i64 -4
   %.pre1.i159 = load i32, ptr %arrayidx8.phi.trans.insert.i158, align 4
   br label %while.cond.backedge.sink.split
 
 while.cond.backedge.sink.split:                   ; preds = %while.cond.backedge.sink.split.sink.split, %lor.lhs.false.i148, %lor.lhs.false.i131
-  %.sink248 = phi i32 [ %58, %lor.lhs.false.i131 ], [ %61, %lor.lhs.false.i148 ], [ %.pre1.i159, %while.cond.backedge.sink.split.sink.split ]
-  %.sink247 = phi ptr [ %57, %lor.lhs.false.i131 ], [ %60, %lor.lhs.false.i148 ], [ %.pre.i157.sink, %while.cond.backedge.sink.split.sink.split ]
-  %frombool.i145.sink = phi i8 [ %frombool85, %lor.lhs.false.i131 ], [ %frombool.i145, %lor.lhs.false.i148 ], [ %frombool.i145.sink.ph, %while.cond.backedge.sink.split.sink.split ]
-  %.sroa.9173.0.copyload.sink = phi ptr [ %56, %lor.lhs.false.i131 ], [ %.sroa.9173.0.copyload, %lor.lhs.false.i148 ], [ %.sroa.9173.0.copyload.sink.ph, %while.cond.backedge.sink.split.sink.split ]
-  %.sink.in = phi ptr [ %todo, %lor.lhs.false.i131 ], [ %conjuncts, %lor.lhs.false.i148 ], [ %.sink.in.ph, %while.cond.backedge.sink.split.sink.split ]
-  %idx.ext.i152 = zext i32 %.sink248 to i64
-  %add.ptr.i153 = getelementptr inbounds %"struct.std::pair", ptr %.sink247, i64 %idx.ext.i152
-  store i8 %frombool.i145.sink, ptr %add.ptr.i153, align 8
-  %ref.tmp90.sroa.2162.0.add.ptr.i153.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i153, i64 8
-  store ptr %.sroa.9173.0.copyload.sink, ptr %ref.tmp90.sroa.2162.0.add.ptr.i153.sroa_idx, align 8
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %arrayidx10.i137 = getelementptr inbounds i8, ptr %.sink, i64 -4
-  %63 = load i32, ptr %arrayidx10.i137, align 4
-  %inc.i138 = add i32 %63, 1
+  %.sink236 = phi i32 [ %58, %lor.lhs.false.i131 ], [ %61, %lor.lhs.false.i148 ], [ %.pre1.i159, %while.cond.backedge.sink.split.sink.split ]
+  %.sink235 = phi ptr [ %57, %lor.lhs.false.i131 ], [ %60, %lor.lhs.false.i148 ], [ %.pre.i157, %while.cond.backedge.sink.split.sink.split ]
+  %frombool85.sink = phi i8 [ %frombool85, %lor.lhs.false.i131 ], [ %frombool.i145, %lor.lhs.false.i148 ], [ %frombool85.sink.ph, %while.cond.backedge.sink.split.sink.split ]
+  %.sink = phi ptr [ %56, %lor.lhs.false.i131 ], [ %.sroa.9173.0.copyload, %lor.lhs.false.i148 ], [ %.sink.ph, %while.cond.backedge.sink.split.sink.split ]
+  %todo.sink = phi ptr [ %todo, %lor.lhs.false.i131 ], [ %conjuncts, %lor.lhs.false.i148 ], [ %conjuncts.sink, %while.cond.backedge.sink.split.sink.split ]
+  %idx.ext.i135 = zext i32 %.sink236 to i64
+  %add.ptr.i136 = getelementptr inbounds %"struct.std::pair", ptr %.sink235, i64 %idx.ext.i135
+  store i8 %frombool85.sink, ptr %add.ptr.i136, align 8
+  %ref.tmp81.sroa.2163.0.add.ptr.i136.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i136, i64 8
+  store ptr %.sink, ptr %ref.tmp81.sroa.2163.0.add.ptr.i136.sroa_idx, align 8
+  %63 = load ptr, ptr %todo.sink, align 8
+  %arrayidx10.i137 = getelementptr inbounds i8, ptr %63, i64 -4
+  %64 = load i32, ptr %arrayidx10.i137, align 4
+  %inc.i138 = add i32 %64, 1
   store i32 %inc.i138, ptr %arrayidx10.i137, align 4
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %for.inc, %for.inc73, %while.cond.backedge.sink.split, %if.then57, %if.then38, %invoke.cont13, %invoke.cont19, %land.rhs.i.i.i, %if.end29
-  %64 = load ptr, ptr %todo, align 8
-  %cmp.i27 = icmp eq ptr %64, null
+  %65 = load ptr, ptr %todo, align 8
+  %cmp.i27 = icmp eq ptr %65, null
   br i1 %cmp.i27, label %_ZN7svectorISt4pairIbP4exprEjED2Ev.exit, label %_ZNK6vectorISt4pairIbP4exprELb0EjE5emptyEv.exit, !llvm.loop !6
 
 cleanup:                                          ; preds = %invoke.cont5
@@ -788,10 +788,10 @@ if.then.i.i.i:                                    ; preds = %_ZNK6vectorISt4pair
           to label %_ZN7svectorISt4pairIbP4exprEjED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %65 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #20
+  %67 = extractvalue { ptr, i32 } %66, 0
+  call void @__clang_call_terminate(ptr %67) #20
   unreachable
 
 _ZN7svectorISt4pairIbP4exprEjED2Ev.exit:          ; preds = %while.cond.backedge, %_ZN6vectorISt4pairIbP4exprELb0EjE9push_backEOS3_.exit, %cleanup, %if.then.i.i.i

@@ -5964,11 +5964,11 @@ define internal fastcc noalias ptr @ssh_kex_shared_secret(i32 noundef %0, ptr no
   store i32 %18, ptr %26, align 8
   switch i32 %0, label %ssh_kex_make_bignum.exit.thread [
     i32 131072, label %27
-    i32 196632, label %52
-    i32 196630, label %52
-    i32 196628, label %52
-    i32 196609, label %52
-    i32 65536, label %81
+    i32 196632, label %49
+    i32 196630, label %49
+    i32 196628, label %49
+    i32 196609, label %49
+    i32 65536, label %75
   ]
 
 27:                                               ; preds = %20
@@ -5998,89 +5998,86 @@ define internal fastcc noalias ptr @ssh_kex_shared_secret(i32 noundef %0, ptr no
   %47 = load ptr, ptr %7, align 8
   call void @gcry_mpi_powm(ptr noundef %34, ptr noundef %45, ptr noundef %46, ptr noundef %47) #21
   %48 = call i32 @gcry_mpi_print(i32 noundef 5, ptr noundef %25, i64 noundef %24, ptr noundef nonnull %8, ptr noundef %34) #21
-  %49 = load i64, ptr %8, align 8
-  %50 = trunc i64 %49 to i32
-  store i32 %50, ptr %26, align 8
-  call void @gcry_mpi_release(ptr noundef %34) #21
-  %51 = load ptr, ptr %5, align 8
-  call void @gcry_mpi_release(ptr noundef %51) #21
   br label %.sink.split
 
-52:                                               ; preds = %20, %20, %20, %20
+49:                                               ; preds = %20, %20, %20, %20
   store ptr null, ptr %9, align 8
-  switch i32 %0, label %61 [
-    i32 196609, label %53
-    i32 196628, label %55
-    i32 196630, label %57
-    i32 196632, label %59
+  switch i32 %0, label %58 [
+    i32 196609, label %50
+    i32 196628, label %52
+    i32 196630, label %54
+    i32 196632, label %56
   ]
 
-53:                                               ; preds = %52
-  %54 = call i32 @gcry_mpi_scan(ptr noundef nonnull %9, i32 noundef 5, ptr noundef nonnull @ssh_kex_shared_secret.p, i64 noundef 128, ptr noundef null) #21
-  br label %61
+50:                                               ; preds = %49
+  %51 = call i32 @gcry_mpi_scan(ptr noundef nonnull %9, i32 noundef 5, ptr noundef nonnull @ssh_kex_shared_secret.p, i64 noundef 128, ptr noundef null) #21
+  br label %58
 
-55:                                               ; preds = %52
-  %56 = call i32 @gcry_mpi_scan(ptr noundef nonnull %9, i32 noundef 5, ptr noundef nonnull @ssh_kex_shared_secret.p.478, i64 noundef 256, ptr noundef null) #21
-  br label %61
+52:                                               ; preds = %49
+  %53 = call i32 @gcry_mpi_scan(ptr noundef nonnull %9, i32 noundef 5, ptr noundef nonnull @ssh_kex_shared_secret.p.478, i64 noundef 256, ptr noundef null) #21
+  br label %58
 
-57:                                               ; preds = %52
-  %58 = call i32 @gcry_mpi_scan(ptr noundef nonnull %9, i32 noundef 5, ptr noundef nonnull @ssh_kex_shared_secret.p.479, i64 noundef 512, ptr noundef null) #21
-  br label %61
+54:                                               ; preds = %49
+  %55 = call i32 @gcry_mpi_scan(ptr noundef nonnull %9, i32 noundef 5, ptr noundef nonnull @ssh_kex_shared_secret.p.479, i64 noundef 512, ptr noundef null) #21
+  br label %58
 
-59:                                               ; preds = %52
-  %60 = call i32 @gcry_mpi_scan(ptr noundef nonnull %9, i32 noundef 5, ptr noundef nonnull @ssh_kex_shared_secret.p.480, i64 noundef 1024, ptr noundef null) #21
-  br label %61
+56:                                               ; preds = %49
+  %57 = call i32 @gcry_mpi_scan(ptr noundef nonnull %9, i32 noundef 5, ptr noundef nonnull @ssh_kex_shared_secret.p.480, i64 noundef 1024, ptr noundef null) #21
+  br label %58
 
-61:                                               ; preds = %52, %55, %59, %57, %53
+58:                                               ; preds = %49, %52, %56, %54, %50
   store ptr null, ptr %10, align 8
-  %62 = load ptr, ptr %1, align 8
-  %63 = load i32, ptr %17, align 8
-  %64 = zext i32 %63 to i64
-  %65 = call i32 @gcry_mpi_scan(ptr noundef nonnull %10, i32 noundef 5, ptr noundef %62, i64 noundef %64, ptr noundef null) #21
+  %59 = load ptr, ptr %1, align 8
+  %60 = load i32, ptr %17, align 8
+  %61 = zext i32 %60 to i64
+  %62 = call i32 @gcry_mpi_scan(ptr noundef nonnull %10, i32 noundef 5, ptr noundef %59, i64 noundef %61, ptr noundef null) #21
   store ptr null, ptr %11, align 8
   store i64 0, ptr %12, align 8
-  %66 = load i32, ptr %17, align 8
-  %67 = shl i32 %66, 3
-  %68 = call ptr @gcry_mpi_new(i32 noundef %67) #21
-  %69 = load ptr, ptr %2, align 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 8
-  %71 = load i32, ptr %70, align 8
-  %72 = zext i32 %71 to i64
-  %73 = call i32 @gcry_mpi_scan(ptr noundef nonnull %11, i32 noundef 5, ptr noundef %69, i64 noundef %72, ptr noundef null) #21
-  %74 = load ptr, ptr %10, align 8
-  %75 = load ptr, ptr %11, align 8
-  %76 = load ptr, ptr %9, align 8
-  call void @gcry_mpi_powm(ptr noundef %68, ptr noundef %74, ptr noundef %75, ptr noundef %76) #21
-  %77 = call i32 @gcry_mpi_print(i32 noundef 5, ptr noundef %25, i64 noundef %24, ptr noundef nonnull %12, ptr noundef %68) #21
-  %78 = load i64, ptr %12, align 8
-  %79 = trunc i64 %78 to i32
-  store i32 %79, ptr %26, align 8
-  call void @gcry_mpi_release(ptr noundef %68) #21
-  %80 = load ptr, ptr %10, align 8
-  call void @gcry_mpi_release(ptr noundef %80) #21
+  %63 = load i32, ptr %17, align 8
+  %64 = shl i32 %63, 3
+  %65 = call ptr @gcry_mpi_new(i32 noundef %64) #21
+  %66 = load ptr, ptr %2, align 8
+  %67 = getelementptr inbounds i8, ptr %2, i64 8
+  %68 = load i32, ptr %67, align 8
+  %69 = zext i32 %68 to i64
+  %70 = call i32 @gcry_mpi_scan(ptr noundef nonnull %11, i32 noundef 5, ptr noundef %66, i64 noundef %69, ptr noundef null) #21
+  %71 = load ptr, ptr %10, align 8
+  %72 = load ptr, ptr %11, align 8
+  %73 = load ptr, ptr %9, align 8
+  call void @gcry_mpi_powm(ptr noundef %65, ptr noundef %71, ptr noundef %72, ptr noundef %73) #21
+  %74 = call i32 @gcry_mpi_print(i32 noundef 5, ptr noundef %25, i64 noundef %24, ptr noundef nonnull %12, ptr noundef %65) #21
   br label %.sink.split
 
-81:                                               ; preds = %20
-  %82 = load ptr, ptr %2, align 8
-  %83 = load ptr, ptr %1, align 8
-  %84 = tail call i32 @crypto_scalarmult_curve25519(ptr noundef %25, ptr noundef %82, ptr noundef %83) #21
-  %.not53 = icmp eq i32 %84, 0
-  br i1 %.not53, label %85, label %ssh_kex_make_bignum.exit.thread
+75:                                               ; preds = %20
+  %76 = load ptr, ptr %2, align 8
+  %77 = load ptr, ptr %1, align 8
+  %78 = tail call i32 @crypto_scalarmult_curve25519(ptr noundef %25, ptr noundef %76, ptr noundef %77) #21
+  %.not53 = icmp eq i32 %78, 0
+  br i1 %.not53, label %84, label %ssh_kex_make_bignum.exit.thread
 
-.sink.split:                                      ; preds = %27, %61
-  %.sink56.in = phi ptr [ %6, %27 ], [ %11, %61 ]
-  %.sink.in = phi ptr [ %7, %27 ], [ %9, %61 ]
-  %.sink56 = load ptr, ptr %.sink56.in, align 8
-  call void @gcry_mpi_release(ptr noundef %.sink56) #21
-  %.sink = load ptr, ptr %.sink.in, align 8
+.sink.split:                                      ; preds = %27, %58
+  %.sink61 = phi ptr [ %12, %58 ], [ %8, %27 ]
+  %.sink = phi ptr [ %65, %58 ], [ %34, %27 ]
+  %.sink58 = phi ptr [ %10, %58 ], [ %5, %27 ]
+  %.sink57 = phi ptr [ %11, %58 ], [ %6, %27 ]
+  %.sink56 = phi ptr [ %9, %58 ], [ %7, %27 ]
+  %79 = load i64, ptr %.sink61, align 8
+  %80 = trunc i64 %79 to i32
+  store i32 %80, ptr %26, align 8
   call void @gcry_mpi_release(ptr noundef %.sink) #21
-  br label %85
+  %81 = load ptr, ptr %.sink58, align 8
+  call void @gcry_mpi_release(ptr noundef %81) #21
+  %82 = load ptr, ptr %.sink57, align 8
+  call void @gcry_mpi_release(ptr noundef %82) #21
+  %83 = load ptr, ptr %.sink56, align 8
+  call void @gcry_mpi_release(ptr noundef %83) #21
+  br label %84
 
-85:                                               ; preds = %.sink.split, %81
+84:                                               ; preds = %.sink.split, %75
   br label %ssh_kex_make_bignum.exit.thread
 
-ssh_kex_make_bignum.exit.thread:                  ; preds = %20, %16, %81, %85
-  %.0 = phi ptr [ %22, %85 ], [ null, %81 ], [ null, %16 ], [ null, %20 ]
+ssh_kex_make_bignum.exit.thread:                  ; preds = %20, %16, %75, %84
+  %.0 = phi ptr [ %22, %84 ], [ null, %75 ], [ null, %16 ], [ null, %20 ]
   ret ptr %.0
 }
 

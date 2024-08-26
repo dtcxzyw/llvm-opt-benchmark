@@ -31,14 +31,14 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #7
   %11 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %269, label %12
+  br i1 %.not, label %270, label %12
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @cli_gentempfd(ptr noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %3) #7
   %.not225 = icmp eq i32 %15, 0
-  br i1 %.not225, label %16, label %269
+  br i1 %.not225, label %16, label %270
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %13, align 8
@@ -569,13 +569,13 @@ default.unreachable298:                           ; preds = %225
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %267
-  %.sink.in = phi ptr [ %6, %267 ], [ %5, %19 ]
+  %.sink311 = phi ptr [ %6, %267 ], [ %5, %19 ]
   %.0.ph = phi i32 [ %.7170, %267 ], [ %spec.select, %19 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @free(ptr noundef %.sink) #7
-  br label %269
+  %269 = load ptr, ptr %.sink311, align 8
+  call void @free(ptr noundef %269) #7
+  br label %270
 
-269:                                              ; preds = %.sink.split, %12, %1
+270:                                              ; preds = %.sink.split, %12, %1
   %.0 = phi i32 [ 0, %1 ], [ %15, %12 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

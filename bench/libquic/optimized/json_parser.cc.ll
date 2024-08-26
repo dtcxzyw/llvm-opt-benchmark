@@ -1256,11 +1256,7 @@ invoke.cont18:                                    ; preds = %while.cond
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont18
-  br i1 %call21, label %if.end23, label %if.then22
-
-if.then22:                                        ; preds = %invoke.cont20
-  store ptr null, ptr %agg.result, align 8
-  br label %cleanup61
+  br i1 %call21, label %if.end23, label %cleanup61
 
 lpad19:                                           ; preds = %if.end30, %invoke.cont18
   %17 = landingpad { ptr, i32 }
@@ -1287,7 +1283,6 @@ if.then28:                                        ; preds = %if.end23
   %sub.i39 = add i32 %21, 1
   %add.i40 = sub i32 %sub.i39, %22
   store i32 %add.i40, ptr %error_column_.i41, align 8
-  store ptr null, ptr %agg.result, align 8
   br label %cleanup61
 
 if.end30:                                         ; preds = %if.end23
@@ -1308,7 +1303,7 @@ invoke.cont32:                                    ; preds = %if.end30
 
 cleanup.thread:                                   ; preds = %invoke.cont32
   store ptr null, ptr %agg.result, align 8
-  br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit81
+  br label %cleanup61
 
 if.end35:                                         ; preds = %invoke.cont32
   %26 = load ptr, ptr %string_.i, align 8
@@ -1451,24 +1446,20 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   %token.2.ph = phi i32 [ 1, %land.lhs.true ], [ %call51, %if.then48 ], [ %call46, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ %token.2.ph.ph, %cleanup.sink.split ]
   %.pr = load ptr, ptr %value, align 8
   %cmp.not.i77 = icmp eq ptr %.pr, null
-  br i1 %cmp.not.i77, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit81, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78
+  br i1 %cmp.not.i77, label %cleanup61, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78: ; preds = %cleanup
   %vtable.i.i79 = load ptr, ptr %.pr, align 8
   %vfn.i.i80 = getelementptr inbounds i8, ptr %vtable.i.i79, i64 8
   %51 = load ptr, ptr %vfn.i.i80, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(12) %.pr) #17
-  br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit81
-
-_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit81: ; preds = %cleanup.thread, %cleanup, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78
-  %token.2104 = phi i32 [ 10, %cleanup.thread ], [ %token.2.ph, %cleanup ], [ %token.2.ph, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78 ]
-  %cleanup.dest.slot.1103 = phi i32 [ 1, %cleanup.thread ], [ %cleanup.dest.slot.1.ph, %cleanup ], [ %cleanup.dest.slot.1.ph, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78 ]
-  store ptr null, ptr %value, align 8
   br label %cleanup61
 
-cleanup61:                                        ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit81, %if.then28, %if.then22
-  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then28 ], [ %cleanup.dest.slot.1103, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit81 ], [ 1, %if.then22 ]
-  %token.1 = phi i32 [ %call26, %if.then28 ], [ %token.2104, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit81 ], [ 4, %if.then22 ]
+cleanup61:                                        ; preds = %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78, %cleanup, %cleanup.thread, %invoke.cont20, %if.then28
+  %value.sink = phi ptr [ %agg.result, %if.then28 ], [ %agg.result, %invoke.cont20 ], [ %value, %cleanup.thread ], [ %value, %cleanup ], [ %value, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then28 ], [ 1, %invoke.cont20 ], [ 1, %cleanup.thread ], [ %cleanup.dest.slot.1.ph, %cleanup ], [ %cleanup.dest.slot.1.ph, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78 ]
+  %token.1 = phi i32 [ %call26, %if.then28 ], [ 4, %invoke.cont20 ], [ 10, %cleanup.thread ], [ %token.2.ph, %cleanup ], [ %token.2.ph, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78 ]
+  store ptr null, ptr %value.sink, align 8
   %52 = load ptr, ptr %string_.i, align 8
   %isnull.i = icmp eq ptr %52, null
   br i1 %isnull.i, label %_ZN4base8internal10JSONParser13StringBuilderD2Ev.exit, label %delete.notnull.i

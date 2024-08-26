@@ -451,10 +451,9 @@ define hidden noundef i32 @_ZN5zxing11GridSampler19checkAndNudgePointsEiiRSt6vec
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %8, %9
-  %.sink79.sroa.gep = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink79.sroa.gep82 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink81.sroa.gep = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink81.sroa.gep83 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink83.sroa.gep = getelementptr inbounds i8, ptr %6, i64 16
+  %.sink83.sroa.gep84 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink80.sroa.gep85 = getelementptr inbounds i8, ptr %6, i64 16
   br i1 %.not, label %28, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
@@ -476,137 +475,132 @@ define hidden noundef i32 @_ZN5zxing11GridSampler19checkAndNudgePointsEiiRSt6vec
   %25 = sitofp i32 %24 to float
   %26 = add nsw i32 %1, -1
   %27 = sitofp i32 %26 to float
-  br label %34
+  br label %33
 
 28:                                               ; preds = %4
+  %.sink80.sroa.gep = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.1)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %5, align 8
   %29 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 3, ptr %29, align 8
   %30 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %5)
-          to label %31 unwind label %32
+          to label %.loopexit.sink.split unwind label %31
 
 31:                                               ; preds = %28
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %5, align 8
-  br label %.loopexit.sink.split
-
-32:                                               ; preds = %28
-  %33 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %5, align 8
-  br label %83
+  br label %81
 
-34:                                               ; preds = %.lr.ph, %74
-  %35 = phi ptr [ %9, %.lr.ph ], [ %77, %74 ]
-  %.05171 = phi i64 [ 0, %.lr.ph ], [ %75, %74 ]
-  %.05370 = phi i32 [ 0, %.lr.ph ], [ %.1, %74 ]
-  %36 = getelementptr inbounds float, ptr %9, i64 %.05171
-  %37 = load float, ptr %36, align 4
-  %38 = fptosi float %37 to i32
-  %39 = or disjoint i64 %.05171, 1
-  %40 = getelementptr inbounds float, ptr %9, i64 %39
-  %41 = load float, ptr %40, align 4
-  %42 = fptosi float %41 to i32
-  %43 = icmp slt i32 %38, -1
-  br i1 %43, label %49, label %44
+33:                                               ; preds = %.lr.ph, %72
+  %34 = phi ptr [ %9, %.lr.ph ], [ %75, %72 ]
+  %.05171 = phi i64 [ 0, %.lr.ph ], [ %73, %72 ]
+  %.05370 = phi i32 [ 0, %.lr.ph ], [ %.1, %72 ]
+  %35 = getelementptr inbounds float, ptr %9, i64 %.05171
+  %36 = load float, ptr %35, align 4
+  %37 = fptosi float %36 to i32
+  %38 = or disjoint i64 %.05171, 1
+  %39 = getelementptr inbounds float, ptr %9, i64 %38
+  %40 = load float, ptr %39, align 4
+  %41 = fptosi float %40 to i32
+  %42 = icmp slt i32 %37, -1
+  br i1 %42, label %48, label %43
 
-44:                                               ; preds = %34
-  %45 = icmp slt i32 %0, %38
-  %46 = icmp slt i32 %42, -1
-  %47 = icmp slt i32 %1, %42
-  %48 = or i1 %46, %47
-  %or.cond67 = select i1 %45, i1 true, i1 %48
-  br i1 %or.cond67, label %49, label %65
+43:                                               ; preds = %33
+  %44 = icmp slt i32 %0, %37
+  %45 = icmp slt i32 %41, -1
+  %46 = icmp slt i32 %1, %41
+  %47 = or i1 %45, %46
+  %or.cond67 = select i1 %44, i1 true, i1 %47
+  br i1 %or.cond67, label %48, label %63
 
-49:                                               ; preds = %44, %34
-  %50 = add nsw i32 %.05370, 1
-  %51 = sitofp i32 %38 to float
-  %52 = fcmp olt float %20, %51
-  br i1 %52, label %59, label %53
+48:                                               ; preds = %43, %33
+  %49 = add nsw i32 %.05370, 1
+  %50 = sitofp i32 %37 to float
+  %51 = fcmp olt float %20, %50
+  br i1 %51, label %58, label %52
 
-53:                                               ; preds = %49
-  %54 = sitofp i32 %42 to float
-  %55 = fcmp olt float %22, %54
-  br i1 %55, label %59, label %56
+52:                                               ; preds = %48
+  %53 = sitofp i32 %41 to float
+  %54 = fcmp olt float %22, %53
+  br i1 %54, label %58, label %55
 
-56:                                               ; preds = %53
-  %57 = fcmp olt float %51, %23
-  %58 = fcmp olt float %54, %23
-  %or.cond68 = or i1 %57, %58
-  br i1 %or.cond68, label %59, label %65
+55:                                               ; preds = %52
+  %56 = fcmp olt float %50, %23
+  %57 = fcmp olt float %53, %23
+  %or.cond68 = or i1 %56, %57
+  br i1 %or.cond68, label %58, label %63
 
-59:                                               ; preds = %56, %53, %49
+58:                                               ; preds = %55, %52, %48
   call void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull @.str.2)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing18ReaderErrorHandlerE, i64 16), ptr %6, align 8
-  %60 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 3, ptr %60, align 8
-  %61 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %6)
-          to label %62 unwind label %63
+  %59 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 3, ptr %59, align 8
+  %60 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing12ErrorHandleraSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %6)
+          to label %.loopexit.sink.split unwind label %61
 
-62:                                               ; preds = %59
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %6, align 8
-  br label %.loopexit.sink.split
-
-63:                                               ; preds = %59
-  %64 = landingpad { ptr, i32 }
+61:                                               ; preds = %58
+  %62 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %6, align 8
-  br label %83
+  br label %81
 
-65:                                               ; preds = %56, %44
-  %.1 = phi i32 [ %.05370, %44 ], [ %50, %56 ]
-  %66 = icmp slt i32 %38, 0
-  br i1 %66, label %.sink.split, label %67
+63:                                               ; preds = %55, %43
+  %.1 = phi i32 [ %.05370, %43 ], [ %49, %55 ]
+  %64 = icmp slt i32 %37, 0
+  br i1 %64, label %.sink.split, label %65
 
-67:                                               ; preds = %65
-  %.not64 = icmp sgt i32 %0, %38
-  br i1 %.not64, label %69, label %.sink.split
+65:                                               ; preds = %63
+  %.not64 = icmp sgt i32 %0, %37
+  br i1 %.not64, label %67, label %.sink.split
 
-.sink.split:                                      ; preds = %67, %65
-  %.sink = phi float [ 0.000000e+00, %65 ], [ %25, %67 ]
-  %68 = getelementptr inbounds float, ptr %35, i64 %.05171
-  store float %.sink, ptr %68, align 4
-  br label %69
+.sink.split:                                      ; preds = %65, %63
+  %.sink = phi float [ 0.000000e+00, %63 ], [ %25, %65 ]
+  %66 = getelementptr inbounds float, ptr %34, i64 %.05171
+  store float %.sink, ptr %66, align 4
+  br label %67
 
-69:                                               ; preds = %.sink.split, %67
-  %70 = icmp slt i32 %42, 0
-  br i1 %70, label %.sink.split74, label %71
+67:                                               ; preds = %.sink.split, %65
+  %68 = icmp slt i32 %41, 0
+  br i1 %68, label %.sink.split74, label %69
 
-71:                                               ; preds = %69
-  %.not65 = icmp sgt i32 %1, %42
-  br i1 %.not65, label %74, label %.sink.split74
+69:                                               ; preds = %67
+  %.not65 = icmp sgt i32 %1, %41
+  br i1 %.not65, label %72, label %.sink.split74
 
-.sink.split74:                                    ; preds = %71, %69
-  %.sink75 = phi float [ 0.000000e+00, %69 ], [ %27, %71 ]
-  %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds float, ptr %72, i64 %39
-  store float %.sink75, ptr %73, align 4
-  br label %74
+.sink.split74:                                    ; preds = %69, %67
+  %.sink75 = phi float [ 0.000000e+00, %67 ], [ %27, %69 ]
+  %70 = load ptr, ptr %2, align 8
+  %71 = getelementptr inbounds float, ptr %70, i64 %38
+  store float %.sink75, ptr %71, align 4
+  br label %72
 
-74:                                               ; preds = %.sink.split74, %71
-  %75 = add i64 %.05171, 2
-  %76 = load ptr, ptr %7, align 8
-  %77 = load ptr, ptr %2, align 8
-  %78 = ptrtoint ptr %76 to i64
-  %79 = ptrtoint ptr %77 to i64
-  %80 = sub i64 %78, %79
-  %81 = ashr exact i64 %80, 2
-  %82 = icmp ult i64 %75, %81
-  br i1 %82, label %34, label %.loopexit, !llvm.loop !8
+72:                                               ; preds = %.sink.split74, %69
+  %73 = add i64 %.05171, 2
+  %74 = load ptr, ptr %7, align 8
+  %75 = load ptr, ptr %2, align 8
+  %76 = ptrtoint ptr %74 to i64
+  %77 = ptrtoint ptr %75 to i64
+  %78 = sub i64 %76, %77
+  %79 = ashr exact i64 %78, 2
+  %80 = icmp ult i64 %73, %79
+  br i1 %80, label %33, label %.loopexit, !llvm.loop !8
 
-.loopexit.sink.split:                             ; preds = %31, %62
-  %.sink79.sroa.phi = phi ptr [ %.sink79.sroa.gep, %62 ], [ %.sink79.sroa.gep82, %31 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink79.sroa.phi) #12
+.loopexit.sink.split:                             ; preds = %58, %28
+  %.sink80.sroa.phi = phi ptr [ %.sink80.sroa.gep, %28 ], [ %.sink80.sroa.gep85, %58 ]
+  %.sink80 = phi ptr [ %5, %28 ], [ %6, %58 ]
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %.sink80, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink80.sroa.phi) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %74, %.loopexit.sink.split
-  %.0 = phi i32 [ -1, %.loopexit.sink.split ], [ %.1, %74 ]
+.loopexit:                                        ; preds = %72, %.loopexit.sink.split
+  %.0 = phi i32 [ -1, %.loopexit.sink.split ], [ %.1, %72 ]
   ret i32 %.0
 
-83:                                               ; preds = %63, %32
-  %.sink81.sroa.phi = phi ptr [ %.sink81.sroa.gep, %63 ], [ %.sink81.sroa.gep83, %32 ]
-  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %33, %32 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink81.sroa.phi) #12
+81:                                               ; preds = %61, %31
+  %.sink83.sroa.phi = phi ptr [ %.sink83.sroa.gep, %61 ], [ %.sink83.sroa.gep84, %31 ]
+  %.sink83 = phi ptr [ %6, %61 ], [ %5, %31 ]
+  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %32, %31 ]
+  store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %.sink83, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink83.sroa.phi) #12
   resume { ptr, i32 } %.pn
 }
 

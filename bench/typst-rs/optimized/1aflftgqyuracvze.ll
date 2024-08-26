@@ -2399,26 +2399,26 @@ define hidden void @_ZN9typst_pdf4font11write_fonts17h3e40f422e10bb97dE(ptr noal
   %78 = load i64, ptr %77, align 8, !alias.scope !462, !noundef !12
   %79 = getelementptr inbounds ptr, ptr %76, i64 %78
   %80 = icmp eq i64 %78, 0
-  %.sink695.sroa.gep = getelementptr inbounds i8, ptr %39, i64 8
-  %.sink695.sroa.gep702 = getelementptr inbounds i8, ptr %40, i64 8
-  %.sink695.sroa.gep703 = getelementptr inbounds i8, ptr %41, i64 8
-  %.sink695.sroa.gep704 = getelementptr inbounds i8, ptr %42, i64 8
-  %.sink695.sroa.gep705 = getelementptr inbounds i8, ptr %43, i64 8
-  %.sink695.sroa.gep707 = getelementptr inbounds i8, ptr %39, i64 32
-  %.sink695.sroa.gep708 = getelementptr inbounds i8, ptr %40, i64 32
-  %.sink695.sroa.gep709 = getelementptr inbounds i8, ptr %41, i64 32
-  %.sink695.sroa.gep710 = getelementptr inbounds i8, ptr %42, i64 32
-  %.sink695.sroa.gep711 = getelementptr inbounds i8, ptr %43, i64 32
-  %.sink695.sroa.gep713 = getelementptr inbounds i8, ptr %39, i64 16
-  %.sink695.sroa.gep714 = getelementptr inbounds i8, ptr %40, i64 16
-  %.sink695.sroa.gep715 = getelementptr inbounds i8, ptr %41, i64 16
-  %.sink695.sroa.gep716 = getelementptr inbounds i8, ptr %42, i64 16
-  %.sink695.sroa.gep717 = getelementptr inbounds i8, ptr %43, i64 16
-  %.sink695.sroa.gep719 = getelementptr inbounds i8, ptr %39, i64 24
-  %.sink695.sroa.gep720 = getelementptr inbounds i8, ptr %40, i64 24
-  %.sink695.sroa.gep721 = getelementptr inbounds i8, ptr %41, i64 24
-  %.sink695.sroa.gep722 = getelementptr inbounds i8, ptr %42, i64 24
-  %.sink695.sroa.gep723 = getelementptr inbounds i8, ptr %43, i64 24
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %39, i64 8
+  %.sink.sroa.gep702 = getelementptr inbounds i8, ptr %40, i64 8
+  %.sink.sroa.gep703 = getelementptr inbounds i8, ptr %41, i64 8
+  %.sink.sroa.gep704 = getelementptr inbounds i8, ptr %42, i64 8
+  %.sink.sroa.gep705 = getelementptr inbounds i8, ptr %43, i64 8
+  %.sink.sroa.gep707 = getelementptr inbounds i8, ptr %39, i64 32
+  %.sink.sroa.gep708 = getelementptr inbounds i8, ptr %40, i64 32
+  %.sink.sroa.gep709 = getelementptr inbounds i8, ptr %41, i64 32
+  %.sink.sroa.gep710 = getelementptr inbounds i8, ptr %42, i64 32
+  %.sink.sroa.gep711 = getelementptr inbounds i8, ptr %43, i64 32
+  %.sink.sroa.gep713 = getelementptr inbounds i8, ptr %39, i64 16
+  %.sink.sroa.gep714 = getelementptr inbounds i8, ptr %40, i64 16
+  %.sink.sroa.gep715 = getelementptr inbounds i8, ptr %41, i64 16
+  %.sink.sroa.gep716 = getelementptr inbounds i8, ptr %42, i64 16
+  %.sink.sroa.gep717 = getelementptr inbounds i8, ptr %43, i64 16
+  %.sink.sroa.gep719 = getelementptr inbounds i8, ptr %39, i64 24
+  %.sink.sroa.gep720 = getelementptr inbounds i8, ptr %40, i64 24
+  %.sink.sroa.gep721 = getelementptr inbounds i8, ptr %41, i64 24
+  %.sink.sroa.gep722 = getelementptr inbounds i8, ptr %42, i64 24
+  %.sink.sroa.gep723 = getelementptr inbounds i8, ptr %43, i64 24
   br i1 %80, label %._crit_edge674, label %.lr.ph673
 
 .lr.ph673:                                        ; preds = %1
@@ -2582,20 +2582,20 @@ define hidden void @_ZN9typst_pdf4font11write_fonts17h3e40f422e10bb97dE(ptr noal
 
 157:                                              ; preds = %152
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %43)
-  store ptr @anon.1d2698ec7d846f5132c773229768a489.7, ptr %43, align 8
   br label %.invoke
 
 .invoke:                                          ; preds = %169, %166, %163, %160, %157
-  %.sink695.sroa.phi = phi ptr [ %.sink695.sroa.gep, %169 ], [ %.sink695.sroa.gep702, %166 ], [ %.sink695.sroa.gep703, %163 ], [ %.sink695.sroa.gep704, %160 ], [ %.sink695.sroa.gep705, %157 ]
-  %.sink695.sroa.phi706 = phi ptr [ %.sink695.sroa.gep707, %169 ], [ %.sink695.sroa.gep708, %166 ], [ %.sink695.sroa.gep709, %163 ], [ %.sink695.sroa.gep710, %160 ], [ %.sink695.sroa.gep711, %157 ]
-  %.sink695.sroa.phi712 = phi ptr [ %.sink695.sroa.gep713, %169 ], [ %.sink695.sroa.gep714, %166 ], [ %.sink695.sroa.gep715, %163 ], [ %.sink695.sroa.gep716, %160 ], [ %.sink695.sroa.gep717, %157 ]
-  %.sink695.sroa.phi718 = phi ptr [ %.sink695.sroa.gep719, %169 ], [ %.sink695.sroa.gep720, %166 ], [ %.sink695.sroa.gep721, %163 ], [ %.sink695.sroa.gep722, %160 ], [ %.sink695.sroa.gep723, %157 ]
-  %.sink695 = phi ptr [ %39, %169 ], [ %40, %166 ], [ %41, %163 ], [ %42, %160 ], [ %43, %157 ]
-  store i64 1, ptr %.sink695.sroa.phi, align 8
-  store ptr null, ptr %.sink695.sroa.phi706, align 8
-  store ptr @anon.1d2698ec7d846f5132c773229768a489.8, ptr %.sink695.sroa.phi712, align 8
-  store i64 0, ptr %.sink695.sroa.phi718, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink695, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1d2698ec7d846f5132c773229768a489.105) #28
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %169 ], [ %.sink.sroa.gep702, %166 ], [ %.sink.sroa.gep703, %163 ], [ %.sink.sroa.gep704, %160 ], [ %.sink.sroa.gep705, %157 ]
+  %.sink.sroa.phi706 = phi ptr [ %.sink.sroa.gep707, %169 ], [ %.sink.sroa.gep708, %166 ], [ %.sink.sroa.gep709, %163 ], [ %.sink.sroa.gep710, %160 ], [ %.sink.sroa.gep711, %157 ]
+  %.sink.sroa.phi712 = phi ptr [ %.sink.sroa.gep713, %169 ], [ %.sink.sroa.gep714, %166 ], [ %.sink.sroa.gep715, %163 ], [ %.sink.sroa.gep716, %160 ], [ %.sink.sroa.gep717, %157 ]
+  %.sink.sroa.phi718 = phi ptr [ %.sink.sroa.gep719, %169 ], [ %.sink.sroa.gep720, %166 ], [ %.sink.sroa.gep721, %163 ], [ %.sink.sroa.gep722, %160 ], [ %.sink.sroa.gep723, %157 ]
+  %.sink = phi ptr [ %39, %169 ], [ %40, %166 ], [ %41, %163 ], [ %42, %160 ], [ %43, %157 ]
+  store ptr @anon.1d2698ec7d846f5132c773229768a489.7, ptr %.sink, align 8
+  store i64 1, ptr %.sink.sroa.phi, align 8
+  store ptr null, ptr %.sink.sroa.phi706, align 8
+  store ptr @anon.1d2698ec7d846f5132c773229768a489.8, ptr %.sink.sroa.phi712, align 8
+  store i64 0, ptr %.sink.sroa.phi718, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1d2698ec7d846f5132c773229768a489.105) #28
           to label %.cont unwind label %.loopexit.split-lp595
 
 .cont:                                            ; preds = %.invoke
@@ -2609,7 +2609,6 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit: ; preds = %152
 
 160:                                              ; preds = %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %42)
-  store ptr @anon.1d2698ec7d846f5132c773229768a489.7, ptr %42, align 8
   br label %.invoke
 
 _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit209: ; preds = %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit
@@ -2620,7 +2619,6 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit209: ; preds = %_ZN10pdf_
 
 163:                                              ; preds = %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit209
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %41)
-  store ptr @anon.1d2698ec7d846f5132c773229768a489.7, ptr %41, align 8
   br label %.invoke
 
 _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit211: ; preds = %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit209
@@ -2631,7 +2629,6 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit211: ; preds = %_ZN10pdf_
 
 166:                                              ; preds = %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit211
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %40)
-  store ptr @anon.1d2698ec7d846f5132c773229768a489.7, ptr %40, align 8
   br label %.invoke
 
 _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit213: ; preds = %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit211
@@ -2642,7 +2639,6 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit213: ; preds = %_ZN10pdf_
 
 169:                                              ; preds = %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit213
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %39)
-  store ptr @anon.1d2698ec7d846f5132c773229768a489.7, ptr %39, align 8
   br label %.invoke
 
 _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit215: ; preds = %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit213

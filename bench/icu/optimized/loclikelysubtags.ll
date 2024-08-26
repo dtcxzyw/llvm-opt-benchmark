@@ -4211,16 +4211,16 @@ entry:
   call void @_ZNK6icu_7513LikelySubtags8maximizeENS_11StringPieceES1_S1_bR10UErrorCode(ptr nonnull sret(%"struct.icu_75::LSR") align 8 %max, ptr noundef nonnull align 8 dereferenceable(352) %this, ptr %language.coerce0, i32 %language.coerce1, ptr %script.coerce0, i32 %script.coerce1, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %region, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
-  %agg.tmp34.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp34, i64 8
-  %agg.tmp34.sink.sroa.gep67 = getelementptr inbounds i8, ptr %agg.tmp58, i64 8
-  %agg.tmp34.sink.sroa.gep68 = getelementptr inbounds i8, ptr %agg.tmp83, i64 8
-  %agg.tmp34.sink.sroa.gep69 = getelementptr inbounds i8, ptr %agg.tmp109, i64 8
-  %agg.tmp34.sink.sroa.gep70 = getelementptr inbounds i8, ptr %agg.tmp120, i64 8
-  %agg.tmp31.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp31, i64 8
-  %agg.tmp31.sink.sroa.gep71 = getelementptr inbounds i8, ptr %agg.tmp55, i64 8
-  %agg.tmp31.sink.sroa.gep72 = getelementptr inbounds i8, ptr %agg.tmp80, i64 8
-  %agg.tmp31.sink.sroa.gep73 = getelementptr inbounds i8, ptr %agg.tmp106, i64 8
-  %agg.tmp31.sink.sroa.gep74 = getelementptr inbounds i8, ptr %agg.tmp117, i64 8
+  %agg.tmp34.sink66.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp34, i64 8
+  %agg.tmp34.sink66.sroa.gep68 = getelementptr inbounds i8, ptr %agg.tmp58, i64 8
+  %agg.tmp34.sink66.sroa.gep69 = getelementptr inbounds i8, ptr %agg.tmp83, i64 8
+  %agg.tmp34.sink66.sroa.gep70 = getelementptr inbounds i8, ptr %agg.tmp109, i64 8
+  %agg.tmp34.sink66.sroa.gep71 = getelementptr inbounds i8, ptr %agg.tmp120, i64 8
+  %agg.tmp31.sink67.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp31, i64 8
+  %agg.tmp31.sink67.sroa.gep72 = getelementptr inbounds i8, ptr %agg.tmp55, i64 8
+  %agg.tmp31.sink67.sroa.gep73 = getelementptr inbounds i8, ptr %agg.tmp80, i64 8
+  %agg.tmp31.sink67.sroa.gep74 = getelementptr inbounds i8, ptr %agg.tmp106, i64 8
+  %agg.tmp31.sink67.sroa.gep75 = getelementptr inbounds i8, ptr %agg.tmp117, i64 8
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -4480,16 +4480,16 @@ invoke.cont122:                                   ; preds = %invoke.cont119
           to label %invoke.cont125.invoke unwind label %lpad21
 
 invoke.cont125.invoke:                            ; preds = %invoke.cont122, %invoke.cont110, %invoke.cont85, %invoke.cont59, %invoke.cont35
-  %agg.tmp31.sink.sroa.phi = phi ptr [ %agg.tmp31.sink.sroa.gep, %invoke.cont35 ], [ %agg.tmp31.sink.sroa.gep71, %invoke.cont59 ], [ %agg.tmp31.sink.sroa.gep72, %invoke.cont85 ], [ %agg.tmp31.sink.sroa.gep73, %invoke.cont110 ], [ %agg.tmp31.sink.sroa.gep74, %invoke.cont122 ]
-  %agg.tmp31.sink = phi ptr [ %agg.tmp31, %invoke.cont35 ], [ %agg.tmp55, %invoke.cont59 ], [ %agg.tmp80, %invoke.cont85 ], [ %agg.tmp106, %invoke.cont110 ], [ %agg.tmp117, %invoke.cont122 ]
-  %agg.tmp34.sink.sroa.phi = phi ptr [ %agg.tmp34.sink.sroa.gep, %invoke.cont35 ], [ %agg.tmp34.sink.sroa.gep67, %invoke.cont59 ], [ %agg.tmp34.sink.sroa.gep68, %invoke.cont85 ], [ %agg.tmp34.sink.sroa.gep69, %invoke.cont110 ], [ %agg.tmp34.sink.sroa.gep70, %invoke.cont122 ]
-  %agg.tmp34.sink = phi ptr [ %agg.tmp34, %invoke.cont35 ], [ %agg.tmp58, %invoke.cont59 ], [ %agg.tmp83, %invoke.cont85 ], [ %agg.tmp109, %invoke.cont110 ], [ %agg.tmp120, %invoke.cont122 ]
+  %agg.tmp31.sink67.sroa.phi = phi ptr [ %agg.tmp31.sink67.sroa.gep, %invoke.cont35 ], [ %agg.tmp31.sink67.sroa.gep72, %invoke.cont59 ], [ %agg.tmp31.sink67.sroa.gep73, %invoke.cont85 ], [ %agg.tmp31.sink67.sroa.gep74, %invoke.cont110 ], [ %agg.tmp31.sink67.sroa.gep75, %invoke.cont122 ]
+  %agg.tmp31.sink67 = phi ptr [ %agg.tmp31, %invoke.cont35 ], [ %agg.tmp55, %invoke.cont59 ], [ %agg.tmp80, %invoke.cont85 ], [ %agg.tmp106, %invoke.cont110 ], [ %agg.tmp117, %invoke.cont122 ]
+  %agg.tmp34.sink66.sroa.phi = phi ptr [ %agg.tmp34.sink66.sroa.gep, %invoke.cont35 ], [ %agg.tmp34.sink66.sroa.gep68, %invoke.cont59 ], [ %agg.tmp34.sink66.sroa.gep69, %invoke.cont85 ], [ %agg.tmp34.sink66.sroa.gep70, %invoke.cont110 ], [ %agg.tmp34.sink66.sroa.gep71, %invoke.cont122 ]
+  %agg.tmp34.sink66 = phi ptr [ %agg.tmp34, %invoke.cont35 ], [ %agg.tmp58, %invoke.cont59 ], [ %agg.tmp83, %invoke.cont85 ], [ %agg.tmp109, %invoke.cont110 ], [ %agg.tmp120, %invoke.cont122 ]
   %32 = phi ptr [ %agg.tmp36, %invoke.cont35 ], [ %agg.tmp60, %invoke.cont59 ], [ %agg.tmp86, %invoke.cont85 ], [ %agg.tmp111, %invoke.cont110 ], [ %agg.tmp123, %invoke.cont122 ]
-  %33 = load i32, ptr %agg.tmp31.sink.sroa.phi, align 8
-  %34 = load ptr, ptr %agg.tmp34.sink, align 8
-  %35 = load ptr, ptr %agg.tmp31.sink, align 8
-  %36 = load i32, ptr %agg.tmp34.sink.sroa.phi, align 8
-  invoke void @_ZN6icu_753LSRC1ENS_11StringPieceES1_S1_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr %35, i32 %33, ptr %34, i32 %36, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %32, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %33 = load ptr, ptr %agg.tmp31.sink67, align 8
+  %34 = load i32, ptr %agg.tmp31.sink67.sroa.phi, align 8
+  %35 = load ptr, ptr %agg.tmp34.sink66, align 8
+  %36 = load i32, ptr %agg.tmp34.sink66.sroa.phi, align 8
+  invoke void @_ZN6icu_753LSRC1ENS_11StringPieceES1_S1_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr %33, i32 %34, ptr %35, i32 %36, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %32, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %cleanup unwind label %lpad21
 
 cleanup.sink.split:                               ; preds = %invoke.cont95, %_ZN6icu_753LSRD2Ev.exit51, %_ZN6icu_753LSRD2Ev.exit, %invoke.cont20

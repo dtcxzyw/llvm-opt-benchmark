@@ -557,8 +557,8 @@ declare noundef zeroext i1 @_ZN7nanogui6Widget18mouse_button_eventERKNS_5ArrayIi
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_positionERKNS_5ArrayIiLm2EEENS0_6RegionE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.nanogui::Color", align 8
-  %5 = alloca %"class.nanogui::Color", align 8
+  %4 = alloca %"class.nanogui::Color", align 4
+  %5 = alloca %"class.nanogui::Color", align 4
   %6 = load i32, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
@@ -589,7 +589,9 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   %sqrt = tail call float @llvm.sqrt.f32(float %32)
   %33 = and i32 %2, 2
   %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %56, label %34
+  %.sink117.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink117.sroa.gep119 = getelementptr inbounds i8, ptr %5, i64 8
+  br i1 %.not, label %49, label %34
 
 34:                                               ; preds = %3
   %35 = fcmp ult float %sqrt, %28
@@ -599,11 +601,11 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   %37 = fcmp ole float %sqrt, %27
   %38 = icmp eq i32 %2, 2
   %or.cond = or i1 %38, %37
-  br i1 %or.cond, label %40, label %56
+  br i1 %or.cond, label %40, label %49
 
 39:                                               ; preds = %34
   %.old1 = icmp eq i32 %2, 2
-  br i1 %.old1, label %40, label %56
+  br i1 %.old1, label %40, label %49
 
 40:                                               ; preds = %36, %39
   %41 = fdiv float %30, %29
@@ -617,106 +619,95 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   %47 = getelementptr inbounds i8, ptr %0, i64 176
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.not = icmp eq ptr %48, null
-  br i1 %.not.i.i.not, label %114, label %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit
+  br i1 %.not.i.i.not, label %106, label %.sink.split
 
-_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit: ; preds = %40
-  %49 = getelementptr inbounds i8, ptr %0, i64 160
-  %50 = tail call { <2 x float>, <2 x float> } @_ZNK7nanogui10ColorWheel5colorEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
-  %51 = extractvalue { <2 x float>, <2 x float> } %50, 0
-  store <2 x float> %51, ptr %4, align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 8
-  %53 = extractvalue { <2 x float>, <2 x float> } %50, 1
-  store <2 x float> %53, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 184
-  %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 4 dereferenceable(16) %4)
-  br label %114
-
-56:                                               ; preds = %36, %39, %3
-  %57 = getelementptr inbounds i8, ptr %0, i64 140
-  %58 = load float, ptr %57, align 4
-  %59 = fmul float %58, -2.000000e+00
-  %60 = fmul float %59, 0x400921FB60000000
-  %61 = tail call noundef float @sinf(float noundef %60) #17
-  %62 = tail call noundef float @cosf(float noundef %60) #17
-  %63 = fneg float %30
-  %64 = fmul float %61, %63
-  %65 = tail call float @llvm.fmuladd.f32(float %62, float %29, float %64)
-  %66 = fmul float %30, %62
-  %67 = tail call float @llvm.fmuladd.f32(float %61, float %29, float %66)
-  %68 = fadd float %28, -6.000000e+00
-  %69 = fsub float %68, %65
-  %70 = fpext float %69 to double
-  %71 = fpext float %67 to double
-  %72 = tail call double @llvm.fmuladd.f64(double %71, double 0x3FFBB67AE8584CAA, double %70)
-  %73 = fmul float %68, 3.000000e+00
-  %74 = fpext float %73 to double
-  %75 = fdiv double %72, %74
-  %76 = fptrunc double %75 to float
-  %77 = tail call double @llvm.fmuladd.f64(double %71, double 0xBFFBB67AE8584CAA, double %70)
-  %78 = fdiv double %77, %74
-  %79 = fptrunc double %78 to float
-  %80 = fsub float 1.000000e+00, %76
-  %81 = fsub float %80, %79
-  %82 = fcmp oge float %76, 0.000000e+00
-  %83 = fcmp ole float %76, 1.000000e+00
-  %or.cond4 = and i1 %82, %83
-  %84 = fcmp oge float %79, 0.000000e+00
-  %85 = fcmp ole float %79, 1.000000e+00
-  %86 = and i1 %84, %85
-  %or.cond10 = select i1 %or.cond4, i1 %86, i1 false
-  %87 = fcmp oge float %81, 0.000000e+00
-  %88 = fcmp ole float %81, 1.000000e+00
-  %89 = and i1 %87, %88
-  %spec.select = select i1 %or.cond10, i1 %89, i1 false
-  %90 = and i32 %2, 1
-  %.not67 = icmp ne i32 %90, 0
-  %91 = icmp eq i32 %2, 1
-  %or.cond16 = or i1 %91, %spec.select
+49:                                               ; preds = %36, %39, %3
+  %50 = getelementptr inbounds i8, ptr %0, i64 140
+  %51 = load float, ptr %50, align 4
+  %52 = fmul float %51, -2.000000e+00
+  %53 = fmul float %52, 0x400921FB60000000
+  %54 = tail call noundef float @sinf(float noundef %53) #17
+  %55 = tail call noundef float @cosf(float noundef %53) #17
+  %56 = fneg float %30
+  %57 = fmul float %54, %56
+  %58 = tail call float @llvm.fmuladd.f32(float %55, float %29, float %57)
+  %59 = fmul float %30, %55
+  %60 = tail call float @llvm.fmuladd.f32(float %54, float %29, float %59)
+  %61 = fadd float %28, -6.000000e+00
+  %62 = fsub float %61, %58
+  %63 = fpext float %62 to double
+  %64 = fpext float %60 to double
+  %65 = tail call double @llvm.fmuladd.f64(double %64, double 0x3FFBB67AE8584CAA, double %63)
+  %66 = fmul float %61, 3.000000e+00
+  %67 = fpext float %66 to double
+  %68 = fdiv double %65, %67
+  %69 = fptrunc double %68 to float
+  %70 = tail call double @llvm.fmuladd.f64(double %64, double 0xBFFBB67AE8584CAA, double %63)
+  %71 = fdiv double %70, %67
+  %72 = fptrunc double %71 to float
+  %73 = fsub float 1.000000e+00, %69
+  %74 = fsub float %73, %72
+  %75 = fcmp oge float %69, 0.000000e+00
+  %76 = fcmp ole float %69, 1.000000e+00
+  %or.cond4 = and i1 %75, %76
+  %77 = fcmp oge float %72, 0.000000e+00
+  %78 = fcmp ole float %72, 1.000000e+00
+  %79 = and i1 %77, %78
+  %or.cond10 = select i1 %or.cond4, i1 %79, i1 false
+  %80 = fcmp oge float %74, 0.000000e+00
+  %81 = fcmp ole float %74, 1.000000e+00
+  %82 = and i1 %80, %81
+  %spec.select = select i1 %or.cond10, i1 %82, i1 false
+  %83 = and i32 %2, 1
+  %.not67 = icmp ne i32 %83, 0
+  %84 = icmp eq i32 %2, 1
+  %or.cond16 = or i1 %84, %spec.select
   %or.cond68 = select i1 %.not67, i1 %or.cond16, i1 false
-  br i1 %or.cond68, label %92, label %114
+  br i1 %or.cond68, label %85, label %106
 
-92:                                               ; preds = %56
-  %93 = fcmp ogt float %76, 0.000000e+00
-  %.sroa.speculated96 = select i1 %93, float %76, float 0.000000e+00
-  %94 = fcmp ogt float %.sroa.speculated96, 1.000000e+00
-  %.sroa.speculated91 = select i1 %94, float 1.000000e+00, float %.sroa.speculated96
-  %95 = fcmp ogt float %79, 0.000000e+00
-  %.sroa.speculated86 = select i1 %95, float %79, float 0.000000e+00
-  %96 = fcmp ogt float %.sroa.speculated86, 1.000000e+00
-  %.sroa.speculated81 = select i1 %96, float 1.000000e+00, float %.sroa.speculated86
-  %97 = fcmp ogt float %81, 0.000000e+00
-  %.sroa.speculated78 = select i1 %97, float %81, float 0.000000e+00
-  %98 = fcmp ogt float %.sroa.speculated78, 1.000000e+00
-  %.sroa.speculated = select i1 %98, float 1.000000e+00, float %.sroa.speculated78
-  %99 = fadd float %.sroa.speculated91, %.sroa.speculated81
-  %100 = fadd float %99, %.sroa.speculated
-  %101 = fdiv float %.sroa.speculated91, %100
-  %102 = fdiv float %.sroa.speculated81, %100
-  %103 = getelementptr inbounds i8, ptr %0, i64 144
-  store float %101, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 148
-  store float %102, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %0, i64 176
-  %106 = load ptr, ptr %105, align 8
-  %.not.i.i75.not = icmp eq ptr %106, null
-  br i1 %.not.i.i75.not, label %114, label %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit77
+85:                                               ; preds = %49
+  %86 = fcmp ogt float %69, 0.000000e+00
+  %.sroa.speculated96 = select i1 %86, float %69, float 0.000000e+00
+  %87 = fcmp ogt float %.sroa.speculated96, 1.000000e+00
+  %.sroa.speculated91 = select i1 %87, float 1.000000e+00, float %.sroa.speculated96
+  %88 = fcmp ogt float %72, 0.000000e+00
+  %.sroa.speculated86 = select i1 %88, float %72, float 0.000000e+00
+  %89 = fcmp ogt float %.sroa.speculated86, 1.000000e+00
+  %.sroa.speculated81 = select i1 %89, float 1.000000e+00, float %.sroa.speculated86
+  %90 = fcmp ogt float %74, 0.000000e+00
+  %.sroa.speculated78 = select i1 %90, float %74, float 0.000000e+00
+  %91 = fcmp ogt float %.sroa.speculated78, 1.000000e+00
+  %.sroa.speculated = select i1 %91, float 1.000000e+00, float %.sroa.speculated78
+  %92 = fadd float %.sroa.speculated91, %.sroa.speculated81
+  %93 = fadd float %92, %.sroa.speculated
+  %94 = fdiv float %.sroa.speculated91, %93
+  %95 = fdiv float %.sroa.speculated81, %93
+  %96 = getelementptr inbounds i8, ptr %0, i64 144
+  store float %94, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 148
+  store float %95, ptr %97, align 4
+  %98 = getelementptr inbounds i8, ptr %0, i64 176
+  %99 = load ptr, ptr %98, align 8
+  %.not.i.i75.not = icmp eq ptr %99, null
+  br i1 %.not.i.i75.not, label %106, label %.sink.split
 
-_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit77: ; preds = %92
-  %107 = getelementptr inbounds i8, ptr %0, i64 160
-  %108 = tail call { <2 x float>, <2 x float> } @_ZNK7nanogui10ColorWheel5colorEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
-  %109 = extractvalue { <2 x float>, <2 x float> } %108, 0
-  store <2 x float> %109, ptr %5, align 8
-  %110 = getelementptr inbounds i8, ptr %5, i64 8
-  %111 = extractvalue { <2 x float>, <2 x float> } %108, 1
-  store <2 x float> %111, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 184
-  %113 = load ptr, ptr %112, align 8
-  call void %113(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 4 dereferenceable(16) %5)
-  br label %114
+.sink.split:                                      ; preds = %85, %40
+  %.sink117.sroa.phi = phi ptr [ %.sink117.sroa.gep, %40 ], [ %.sink117.sroa.gep119, %85 ]
+  %.sink117 = phi ptr [ %4, %40 ], [ %5, %85 ]
+  %.0.ph = phi i32 [ 2, %40 ], [ 1, %85 ]
+  %100 = getelementptr inbounds i8, ptr %0, i64 160
+  %101 = tail call { <2 x float>, <2 x float> } @_ZNK7nanogui10ColorWheel5colorEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
+  %102 = extractvalue { <2 x float>, <2 x float> } %101, 0
+  store <2 x float> %102, ptr %.sink117, align 4
+  %103 = extractvalue { <2 x float>, <2 x float> } %101, 1
+  store <2 x float> %103, ptr %.sink117.sroa.phi, align 4
+  %104 = getelementptr inbounds i8, ptr %0, i64 184
+  %105 = load ptr, ptr %104, align 8
+  call void %105(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 4 dereferenceable(16) %.sink117)
+  br label %106
 
-114:                                              ; preds = %56, %92, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit77, %40, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit
-  %.0 = phi i32 [ 2, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit ], [ 2, %40 ], [ 1, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit77 ], [ 1, %92 ], [ 0, %56 ]
+106:                                              ; preds = %.sink.split, %49, %85, %40
+  %.0 = phi i32 [ 2, %40 ], [ 1, %85 ], [ 0, %49 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

@@ -11632,8 +11632,8 @@ if.end.i.i.i:                                     ; preds = %while.body.lr.ph.i.
   br i1 %tobool.i.not.i.i.i, label %if.end9, label %while.body.i.i.i, !llvm.loop !9
 
 if.end9:                                          ; preds = %if.end.i.i.i, %if.then.i.i.i, %if.end.i.i2, %if.else, %_ZN11hb_vector_tIjLb0EE4pushIJRjEEEPjDpOT_.exit
-  %.in = phi ptr [ %v, %_ZN11hb_vector_tIjLb0EE4pushIJRjEEEPjDpOT_.exit ], [ @minus_1, %if.else ], [ @minus_1, %if.end.i.i2 ], [ %spec.select.i.i, %if.then.i.i.i ], [ @minus_1, %if.end.i.i.i ]
-  %21 = load i32, ptr %.in, align 4
+  %retval.0.i4.sink = phi ptr [ %v, %_ZN11hb_vector_tIjLb0EE4pushIJRjEEEPjDpOT_.exit ], [ @minus_1, %if.else ], [ @minus_1, %if.end.i.i2 ], [ %spec.select.i.i, %if.then.i.i.i ], [ @minus_1, %if.end.i.i.i ]
+  %21 = load i32, ptr %retval.0.i4.sink, align 4
   %add.i5 = add i32 %21, 391
   br label %return
 

@@ -1155,11 +1155,11 @@ entry:
   %agg.tmp121 = alloca %"class.icu_75::StringPiece", align 8
   store i32 0, ptr %subErrorCode, align 4
   %cmp = icmp eq ptr %path, null
-  %agg.tmp27.sink.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp27, i64 8
-  %agg.tmp27.sink.sroa.gep185 = getelementptr inbounds i8, ptr %agg.tmp32, i64 8
-  %agg.tmp27.sink.sroa.gep186 = getelementptr inbounds i8, ptr %agg.tmp48, i64 8
-  %agg.tmp27.sink.sroa.gep187 = getelementptr inbounds i8, ptr %agg.tmp63, i64 8
-  %agg.tmp27.sink.sroa.gep188 = getelementptr inbounds i8, ptr %agg.tmp68, i64 8
+  %agg.tmp27.sink185.sroa.gep = getelementptr inbounds i8, ptr %agg.tmp27, i64 8
+  %agg.tmp27.sink185.sroa.gep186 = getelementptr inbounds i8, ptr %agg.tmp32, i64 8
+  %agg.tmp27.sink185.sroa.gep187 = getelementptr inbounds i8, ptr %agg.tmp48, i64 8
+  %agg.tmp27.sink185.sroa.gep188 = getelementptr inbounds i8, ptr %agg.tmp63, i64 8
+  %agg.tmp27.sink185.sroa.gep189 = getelementptr inbounds i8, ptr %agg.tmp68, i64 8
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -1322,10 +1322,10 @@ if.else67:                                        ; preds = %if.else60
           to label %invoke.cont69.invoke unwind label %lpad13
 
 invoke.cont69.invoke:                             ; preds = %if.else67, %if.then62, %if.then47, %if.else31, %if.then26
-  %agg.tmp27.sink.sroa.phi = phi ptr [ %agg.tmp27.sink.sroa.gep, %if.then26 ], [ %agg.tmp27.sink.sroa.gep185, %if.else31 ], [ %agg.tmp27.sink.sroa.gep186, %if.then47 ], [ %agg.tmp27.sink.sroa.gep187, %if.then62 ], [ %agg.tmp27.sink.sroa.gep188, %if.else67 ]
-  %agg.tmp27.sink = phi ptr [ %agg.tmp27, %if.then26 ], [ %agg.tmp32, %if.else31 ], [ %agg.tmp48, %if.then47 ], [ %agg.tmp63, %if.then62 ], [ %agg.tmp68, %if.else67 ]
-  %15 = load ptr, ptr %agg.tmp27.sink, align 8
-  %16 = load i32, ptr %agg.tmp27.sink.sroa.phi, align 8
+  %agg.tmp27.sink185.sroa.phi = phi ptr [ %agg.tmp27.sink185.sroa.gep, %if.then26 ], [ %agg.tmp27.sink185.sroa.gep186, %if.else31 ], [ %agg.tmp27.sink185.sroa.gep187, %if.then47 ], [ %agg.tmp27.sink185.sroa.gep188, %if.then62 ], [ %agg.tmp27.sink185.sroa.gep189, %if.else67 ]
+  %agg.tmp27.sink185 = phi ptr [ %agg.tmp27, %if.then26 ], [ %agg.tmp32, %if.else31 ], [ %agg.tmp48, %if.then47 ], [ %agg.tmp63, %if.then62 ], [ %agg.tmp68, %if.else67 ]
+  %15 = load ptr, ptr %agg.tmp27.sink185, align 8
+  %16 = load i32, ptr %agg.tmp27.sink185.sroa.phi, align 8
   %17 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %pkgName, ptr noundef %15, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
           to label %if.end75 unwind label %lpad13
 

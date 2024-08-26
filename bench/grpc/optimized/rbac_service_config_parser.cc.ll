@@ -1919,18 +1919,14 @@ lpad9.i:                                          ; preds = %if.else.i.i
 
 invoke.cont8.thread:                              ; preds = %invoke.cont.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp.i)
-  br label %if.then10
+  br label %cleanup
 
 invoke.cont8:                                     ; preds = %_ZN9grpc_core4RbacD2Ev.exit.i
   %.pre = load ptr, ptr %rbac_policies, align 8
   %.pre24 = load ptr, ptr %_M_finish.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp.i)
   %cmp.i.i7 = icmp eq ptr %.pre, %.pre24
-  br i1 %cmp.i.i7, label %if.then10, label %if.end11
-
-if.then10:                                        ; preds = %invoke.cont8.thread, %invoke.cont8
-  store ptr null, ptr %agg.result, align 8
-  br label %cleanup
+  br i1 %cmp.i.i7, label %cleanup, label %if.end11
 
 if.end11:                                         ; preds = %invoke.cont8
   invoke void @_ZSt11make_uniqueIN9grpc_core22RbacMethodParsedConfigEJSt6vectorINS0_4RbacESaIS3_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr.22") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(24) %rbac_policies)
@@ -1939,7 +1935,6 @@ if.end11:                                         ; preds = %invoke.cont8
 _ZNSt10unique_ptrIN9grpc_core22RbacMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.end11
   %98 = load ptr, ptr %ref.tmp12, align 8
   store ptr %98, ptr %agg.result, align 8
-  store ptr null, ptr %ref.tmp12, align 8
   br label %cleanup
 
 lpad13:                                           ; preds = %if.end11
@@ -1947,7 +1942,9 @@ lpad13:                                           ; preds = %if.end11
           cleanup
   br label %ehcleanup
 
-cleanup:                                          ; preds = %_ZNSt10unique_ptrIN9grpc_core22RbacMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit, %if.then10
+cleanup:                                          ; preds = %invoke.cont8, %invoke.cont8.thread, %_ZNSt10unique_ptrIN9grpc_core22RbacMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit
+  %ref.tmp12.sink = phi ptr [ %ref.tmp12, %_ZNSt10unique_ptrIN9grpc_core22RbacMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit ], [ %agg.result, %invoke.cont8.thread ], [ %agg.result, %invoke.cont8 ]
+  store ptr null, ptr %ref.tmp12.sink, align 8
   call void @_ZNSt6vectorIN9grpc_core4RbacESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %rbac_policies) #25
   %100 = load ptr, ptr %rbac_config, align 8
   %101 = load ptr, ptr %4, align 8

@@ -7572,14 +7572,14 @@ define hidden void @_ZN6brotli3enc19backward_references2hq38BrotliCreateHqZopfli
   %49 = shl nuw i64 1, %48
   %50 = add i64 %49, -16
   %.not = icmp eq i64 %2, 0
-  %.sink1131.sroa.gep = getelementptr inbounds i8, ptr %17, i64 8
-  %.sink1131.sroa.gep1241 = getelementptr inbounds i8, ptr %18, i64 8
-  %.sink1131.sroa.gep1243 = getelementptr inbounds i8, ptr %17, i64 32
-  %.sink1131.sroa.gep1244 = getelementptr inbounds i8, ptr %18, i64 32
-  %.sink1131.sroa.gep1246 = getelementptr inbounds i8, ptr %17, i64 16
-  %.sink1131.sroa.gep1247 = getelementptr inbounds i8, ptr %18, i64 16
-  %.sink1131.sroa.gep1249 = getelementptr inbounds i8, ptr %17, i64 24
-  %.sink1131.sroa.gep1250 = getelementptr inbounds i8, ptr %18, i64 24
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %17, i64 8
+  %.sink.sroa.gep1241 = getelementptr inbounds i8, ptr %18, i64 8
+  %.sink.sroa.gep1243 = getelementptr inbounds i8, ptr %17, i64 32
+  %.sink.sroa.gep1244 = getelementptr inbounds i8, ptr %18, i64 32
+  %.sink.sroa.gep1246 = getelementptr inbounds i8, ptr %17, i64 16
+  %.sink.sroa.gep1247 = getelementptr inbounds i8, ptr %18, i64 16
+  %.sink.sroa.gep1249 = getelementptr inbounds i8, ptr %17, i64 24
+  %.sink.sroa.gep1250 = getelementptr inbounds i8, ptr %18, i64 24
   br i1 %.not, label %51, label %57
 
 51:                                               ; preds = %16
@@ -8853,21 +8853,21 @@ _ZN6brotli3enc19backward_references2hq12EvaluateNode17h5324db64ff98ae38E.exit.i:
 
 517:                                              ; preds = %.loopexit459
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18), !noalias !895
-  store ptr @anon.854811f44bca550c56cb6f681a6a9a44.30.llvm.2002727345234535996, ptr %18, align 8, !noalias !895
   br label %.invoke1126
 
 .invoke1126:                                      ; preds = %521, %517
-  %.sink1131.sroa.phi = phi ptr [ %.sink1131.sroa.gep, %521 ], [ %.sink1131.sroa.gep1241, %517 ]
-  %.sink1131.sroa.phi1242 = phi ptr [ %.sink1131.sroa.gep1243, %521 ], [ %.sink1131.sroa.gep1244, %517 ]
-  %.sink1131.sroa.phi1245 = phi ptr [ %.sink1131.sroa.gep1246, %521 ], [ %.sink1131.sroa.gep1247, %517 ]
-  %.sink1131.sroa.phi1248 = phi ptr [ %.sink1131.sroa.gep1249, %521 ], [ %.sink1131.sroa.gep1250, %517 ]
-  %.sink1131 = phi ptr [ %17, %521 ], [ %18, %517 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %521 ], [ %.sink.sroa.gep1241, %517 ]
+  %.sink.sroa.phi1242 = phi ptr [ %.sink.sroa.gep1243, %521 ], [ %.sink.sroa.gep1244, %517 ]
+  %.sink.sroa.phi1245 = phi ptr [ %.sink.sroa.gep1246, %521 ], [ %.sink.sroa.gep1247, %517 ]
+  %.sink.sroa.phi1248 = phi ptr [ %.sink.sroa.gep1249, %521 ], [ %.sink.sroa.gep1250, %517 ]
+  %.sink = phi ptr [ %17, %521 ], [ %18, %517 ]
   %518 = phi ptr [ @anon.854811f44bca550c56cb6f681a6a9a44.240, %521 ], [ @anon.854811f44bca550c56cb6f681a6a9a44.239, %517 ]
-  store i64 1, ptr %.sink1131.sroa.phi, align 8, !noalias !13
-  store ptr null, ptr %.sink1131.sroa.phi1242, align 8, !noalias !13
-  store ptr @anon.854811f44bca550c56cb6f681a6a9a44.5.llvm.2002727345234535996, ptr %.sink1131.sroa.phi1245, align 8, !noalias !13
-  store i64 0, ptr %.sink1131.sroa.phi1248, align 8, !noalias !13
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink1131, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %518) #31
+  store ptr @anon.854811f44bca550c56cb6f681a6a9a44.30.llvm.2002727345234535996, ptr %.sink, align 8, !noalias !13
+  store i64 1, ptr %.sink.sroa.phi, align 8, !noalias !13
+  store ptr null, ptr %.sink.sroa.phi1242, align 8, !noalias !13
+  store ptr @anon.854811f44bca550c56cb6f681a6a9a44.5.llvm.2002727345234535996, ptr %.sink.sroa.phi1245, align 8, !noalias !13
+  store i64 0, ptr %.sink.sroa.phi1248, align 8, !noalias !13
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %518) #31
           to label %.cont1127 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont1127:                                        ; preds = %.invoke1126
@@ -8880,7 +8880,6 @@ _ZN6brotli3enc19backward_references2hq12EvaluateNode17h5324db64ff98ae38E.exit.i:
 
 521:                                              ; preds = %519
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !900
-  store ptr @anon.854811f44bca550c56cb6f681a6a9a44.30.llvm.2002727345234535996, ptr %17, align 8, !noalias !900
   br label %.invoke1126
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit280": ; preds = %519

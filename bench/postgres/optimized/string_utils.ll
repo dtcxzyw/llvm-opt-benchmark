@@ -1499,23 +1499,23 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
   %.3 = phi ptr [ %103, %101 ], [ %.2, %98 ]
   %105 = icmp uge ptr %.3, %9
   %or.cond16 = and i1 %11, %105
-  br i1 %or.cond16, label %106, label %107
+  br i1 %or.cond16, label %106, label %108
 
 106:                                              ; preds = %104
   %..3 = select i1 %6, ptr %10, ptr %.3
-  %.sink = load ptr, ptr %..3, align 8
-  call void @appendPQExpBufferStr(ptr noundef nonnull %1, ptr noundef %.sink) #11
+  %107 = load ptr, ptr %..3, align 8
+  call void @appendPQExpBufferStr(ptr noundef nonnull %1, ptr noundef %107) #11
   call void @termPQExpBuffer(ptr noundef %.3) #11
-  br label %107
+  br label %108
 
-107:                                              ; preds = %106, %104
-  br i1 %6, label %108, label %109
+108:                                              ; preds = %106, %104
+  br i1 %6, label %109, label %110
 
-108:                                              ; preds = %107
+109:                                              ; preds = %108
   call void @termPQExpBuffer(ptr noundef nonnull %10) #11
-  br label %109
+  br label %110
 
-109:                                              ; preds = %108, %107
+110:                                              ; preds = %109, %108
   ret void
 }
 

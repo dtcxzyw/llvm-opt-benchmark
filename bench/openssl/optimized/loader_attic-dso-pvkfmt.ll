@@ -1635,7 +1635,7 @@ lor.lhs.false27.i:                                ; preds = %lor.lhs.false22.i
   %add29.i = add nsw i32 %call28.i, 7
   %div30.i = sdiv i32 %add29.i, 8
   %cmp31.i = icmp sgt i32 %div30.i, %shr.i
-  br i1 %cmp31.i, label %if.end8.thread.thread, label %if.end8.thread.thread157
+  br i1 %cmp31.i, label %if.end8.thread.thread, label %if.end8.thread.thread154
 
 if.end8.thread.thread:                            ; preds = %if.then, %if.else.i, %if.end8.i, %lor.lhs.false.i, %lor.lhs.false17.i, %lor.lhs.false22.i, %lor.lhs.false27.i
   call void @ERR_new() #6
@@ -1673,19 +1673,19 @@ if.then5:                                         ; preds = %if.else
   %call.i23 = call i32 @BN_num_bits(ptr noundef %7) #6
   %and.i = and i32 %call.i23, 7
   %tobool.not.i24 = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i24, label %lor.lhs.false.i27, label %if.end8.thread150
+  br i1 %tobool.not.i24, label %lor.lhs.false.i27, label %if.end8.thread147
 
 lor.lhs.false.i27:                                ; preds = %if.then5
   %8 = load ptr, ptr %q.i22, align 8
   %call1.i28 = call i32 @BN_num_bits(ptr noundef %8) #6
   %cmp.not.i = icmp eq i32 %call1.i28, 160
-  br i1 %cmp.not.i, label %lor.lhs.false2.i, label %if.end8.thread150
+  br i1 %cmp.not.i, label %lor.lhs.false2.i, label %if.end8.thread147
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i27
   %9 = load ptr, ptr %g.i, align 8
   %call3.i = call i32 @BN_num_bits(ptr noundef %9) #6
   %cmp4.i = icmp sgt i32 %call3.i, %call.i23
-  br i1 %cmp4.i, label %if.end8.thread150, label %if.end.i29
+  br i1 %cmp4.i, label %if.end8.thread147, label %if.end.i29
 
 if.end.i29:                                       ; preds = %lor.lhs.false2.i
   %tobool5.not.i = icmp eq i32 %ispub, 0
@@ -1695,15 +1695,15 @@ if.then6.i:                                       ; preds = %if.end.i29
   %10 = load ptr, ptr %pub_key.i, align 8
   %call7.i = call i32 @BN_num_bits(ptr noundef %10) #6
   %cmp8.i = icmp sgt i32 %call7.i, %call.i23
-  br i1 %cmp8.i, label %if.end8.thread150, label %if.end8
+  br i1 %cmp8.i, label %if.end8.thread147, label %if.end8
 
 if.else.i30:                                      ; preds = %if.end.i29
   %11 = load ptr, ptr %priv_key.i, align 8
   %call11.i = call i32 @BN_num_bits(ptr noundef %11) #6
   %cmp12.i31 = icmp sgt i32 %call11.i, 160
-  br i1 %cmp12.i31, label %if.end8.thread150, label %if.end8.thread169
+  br i1 %cmp12.i31, label %if.end8.thread147, label %if.end8.thread166
 
-if.end8.thread150:                                ; preds = %if.then5, %lor.lhs.false.i27, %lor.lhs.false2.i, %if.then6.i, %if.else.i30
+if.end8.thread147:                                ; preds = %if.then5, %lor.lhs.false.i27, %lor.lhs.false2.i, %if.then6.i, %if.else.i30
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 723, ptr noundef nonnull @__func__.check_bitlen_dsa) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 126, ptr noundef null) #6
@@ -1723,14 +1723,14 @@ if.end8:                                          ; preds = %if.then6.i
   %cmp = icmp eq i32 %call.i23, 0
   br i1 %cmp, label %end, label %if.then4.i
 
-if.end8.thread169:                                ; preds = %if.else.i30
+if.end8.thread166:                                ; preds = %if.else.i30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %q.i22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %g.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pub_key.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priv_key.i)
-  %cmp172 = icmp eq i32 %call.i23, 0
-  br i1 %cmp172, label %end, label %if.else.i37
+  %cmp169 = icmp eq i32 %call.i23, 0
+  br i1 %cmp169, label %end, label %if.else.i37
 
 if.end8.thread:                                   ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i)
@@ -1740,10 +1740,10 @@ if.end8.thread:                                   ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iqmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dmp1.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dmq1.i)
-  %cmp117 = icmp eq i32 %call1.i, 0
-  br i1 %cmp117, label %end, label %if.then10.i
+  %cmp114 = icmp eq i32 %call1.i, 0
+  br i1 %cmp114, label %end, label %if.then10.i
 
-if.end8.thread.thread157:                         ; preds = %lor.lhs.false27.i
+if.end8.thread.thread154:                         ; preds = %lor.lhs.false27.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
@@ -1751,8 +1751,8 @@ if.end8.thread.thread157:                         ; preds = %lor.lhs.false27.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iqmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dmp1.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dmq1.i)
-  %cmp117160 = icmp eq i32 %call1.i, 0
-  br i1 %cmp117160, label %end, label %if.else12.i
+  %cmp114157 = icmp eq i32 %call1.i, 0
+  br i1 %cmp114157, label %end, label %if.else12.i
 
 if.then4.i:                                       ; preds = %if.end8
   %shr.i33 = lshr exact i32 %call.i23, 3
@@ -1760,33 +1760,33 @@ if.then4.i:                                       ; preds = %if.end8
   %add5.i35 = add nuw nsw i32 %mul.i, 44
   br label %ossl_blob_length.exit
 
-if.else.i37:                                      ; preds = %if.end8.thread169
-  %shr.i33176 = lshr exact i32 %call.i23, 2
-  %add7.i = add nuw nsw i32 %shr.i33176, 64
+if.else.i37:                                      ; preds = %if.end8.thread166
+  %shr.i33173 = lshr exact i32 %call.i23, 2
+  %add7.i = add nuw nsw i32 %shr.i33173, 64
   br label %ossl_blob_length.exit
 
 if.then10.i:                                      ; preds = %if.end8.thread
-  %add.i32124 = add i32 %call1.i, 7
-  %shr.i33125 = lshr i32 %add.i32124, 3
-  %add11.i = add nuw nsw i32 %shr.i33125, 4
+  %add.i32121 = add i32 %call1.i, 7
+  %shr.i33122 = lshr i32 %add.i32121, 3
+  %add11.i = add nuw nsw i32 %shr.i33122, 4
   br label %ossl_blob_length.exit
 
-if.else12.i:                                      ; preds = %if.end8.thread.thread157
-  %add.i32124164 = add i32 %call1.i, 7
-  %add1.i126166 = add i32 %call1.i, 15
-  %shr2.i127167 = lshr i32 %add1.i126166, 4
-  %12 = lshr i32 %add.i32124164, 2
+if.else12.i:                                      ; preds = %if.end8.thread.thread154
+  %add.i32121161 = add i32 %call1.i, 7
+  %add1.i123163 = add i32 %call1.i, 15
+  %shr2.i124164 = lshr i32 %add1.i123163, 4
+  %12 = lshr i32 %add.i32121161, 2
   %mul13.i = and i32 %12, 1073741822
   %add14.i38 = add nuw nsw i32 %mul13.i, 4
-  %mul15.i = mul nuw nsw i32 %shr2.i127167, 5
+  %mul15.i = mul nuw nsw i32 %shr2.i124164, 5
   %add16.i = add nuw i32 %add14.i38, %mul15.i
   br label %ossl_blob_length.exit
 
 ossl_blob_length.exit:                            ; preds = %if.then4.i, %if.else.i37, %if.then10.i, %if.else12.i
-  %tobool9.not.i138 = phi i1 [ false, %if.then4.i ], [ true, %if.else.i37 ], [ false, %if.then10.i ], [ true, %if.else12.i ]
-  %magic.0118133 = phi i32 [ 827544388, %if.then4.i ], [ 844321604, %if.else.i37 ], [ 826364754, %if.then10.i ], [ 843141970, %if.else12.i ]
-  %bitlen.0119131 = phi i32 [ %call.i23, %if.then4.i ], [ %call.i23, %if.else.i37 ], [ %call1.i, %if.then10.i ], [ %call1.i, %if.else12.i ]
-  %keyalg.0120129 = phi i8 [ 34, %if.then4.i ], [ 34, %if.else.i37 ], [ -92, %if.then10.i ], [ -92, %if.else12.i ]
+  %tobool9.not.i135 = phi i1 [ false, %if.then4.i ], [ true, %if.else.i37 ], [ false, %if.then10.i ], [ true, %if.else12.i ]
+  %magic.0115130 = phi i32 [ 827544388, %if.then4.i ], [ 844321604, %if.else.i37 ], [ 826364754, %if.then10.i ], [ 843141970, %if.else12.i ]
+  %bitlen.0116128 = phi i32 [ %call.i23, %if.then4.i ], [ %call.i23, %if.else.i37 ], [ %call1.i, %if.then10.i ], [ %call1.i, %if.else12.i ]
+  %keyalg.0117126 = phi i8 [ 34, %if.then4.i ], [ 34, %if.else.i37 ], [ -92, %if.then10.i ], [ -92, %if.else12.i ]
   %retval.0.i36 = phi i32 [ %add5.i35, %if.then4.i ], [ %add7.i, %if.else.i37 ], [ %add11.i, %if.then10.i ], [ %add16.i, %if.else12.i ]
   %add = add nuw i32 %retval.0.i36, 16
   %cmp13 = icmp eq ptr %out, null
@@ -1809,7 +1809,7 @@ if.end23:                                         ; preds = %if.else18
 
 if.end24:                                         ; preds = %if.end15, %if.end23
   %p.0 = phi ptr [ %call19, %if.end23 ], [ %13, %if.end15 ]
-  %. = select i1 %tobool9.not.i138, i8 7, i8 6
+  %. = select i1 %tobool9.not.i135, i8 7, i8 6
   %p.1 = getelementptr inbounds i8, ptr %p.0, i64 1
   store i8 %., ptr %p.0, align 1
   %incdec.ptr30 = getelementptr inbounds i8, ptr %p.0, i64 2
@@ -1821,36 +1821,36 @@ if.end24:                                         ; preds = %if.end15, %if.end23
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0, i64 5
   store i8 0, ptr %incdec.ptr32, align 1
   %incdec.ptr3.i = getelementptr inbounds i8, ptr %p.0, i64 6
-  store i8 %keyalg.0120129, ptr %incdec.ptr.i, align 1
+  store i8 %keyalg.0117126, ptr %incdec.ptr.i, align 1
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %p.0, i64 7
   store i8 0, ptr %incdec.ptr3.i, align 1
   %incdec.ptr11.i = getelementptr inbounds i8, ptr %p.0, i64 8
   store i8 0, ptr %incdec.ptr7.i, align 1
-  %conv.i40 = trunc i32 %magic.0118133 to i8
+  %conv.i40 = trunc i32 %magic.0115130 to i8
   %incdec.ptr.i41 = getelementptr inbounds i8, ptr %p.0, i64 9
   store i8 %conv.i40, ptr %incdec.ptr11.i, align 1
   %incdec.ptr3.i44 = getelementptr inbounds i8, ptr %p.0, i64 10
   store i8 83, ptr %incdec.ptr.i41, align 1
-  %shr4.i = lshr i32 %magic.0118133, 16
+  %shr4.i = lshr i32 %magic.0115130, 16
   %conv6.i = trunc i32 %shr4.i to i8
   %incdec.ptr7.i45 = getelementptr inbounds i8, ptr %p.0, i64 11
   store i8 %conv6.i, ptr %incdec.ptr3.i44, align 1
-  %shr8.i = lshr i32 %magic.0118133, 24
+  %shr8.i = lshr i32 %magic.0115130, 24
   %conv10.i = trunc nuw nsw i32 %shr8.i to i8
   %incdec.ptr11.i46 = getelementptr inbounds i8, ptr %p.0, i64 12
   store i8 %conv10.i, ptr %incdec.ptr7.i45, align 1
-  %conv.i47 = trunc i32 %bitlen.0119131 to i8
+  %conv.i47 = trunc i32 %bitlen.0116128 to i8
   %incdec.ptr.i48 = getelementptr inbounds i8, ptr %p.0, i64 13
   store i8 %conv.i47, ptr %incdec.ptr11.i46, align 1
-  %shr.i49 = lshr i32 %bitlen.0119131, 8
+  %shr.i49 = lshr i32 %bitlen.0116128, 8
   %conv2.i50 = trunc i32 %shr.i49 to i8
   %incdec.ptr3.i51 = getelementptr inbounds i8, ptr %p.0, i64 14
   store i8 %conv2.i50, ptr %incdec.ptr.i48, align 1
-  %shr4.i52 = lshr i32 %bitlen.0119131, 16
+  %shr4.i52 = lshr i32 %bitlen.0116128, 16
   %conv6.i53 = trunc i32 %shr4.i52 to i8
   %incdec.ptr7.i54 = getelementptr inbounds i8, ptr %p.0, i64 15
   store i8 %conv6.i53, ptr %incdec.ptr3.i51, align 1
-  %shr8.i55 = lshr i32 %bitlen.0119131, 24
+  %shr8.i55 = lshr i32 %bitlen.0116128, 24
   %conv10.i56 = trunc nuw i32 %shr8.i55 to i8
   %incdec.ptr11.i57 = getelementptr inbounds i8, ptr %p.0, i64 16
   store i8 %conv10.i56, ptr %incdec.ptr7.i54, align 1
@@ -1874,7 +1874,7 @@ if.then35:                                        ; preds = %if.end24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %p.0, i64 20
   %15 = load ptr, ptr %n.i, align 8
   %call.i17.i = call i32 @BN_bn2lebinpad(ptr noundef %15, ptr noundef nonnull %add.ptr.i.i, i32 noundef %call.i65) #6
-  br i1 %tobool9.not.i138, label %if.end.i68, label %write_rsa.exit
+  br i1 %tobool9.not.i135, label %if.end.i68, label %write_rsa.exit
 
 if.end.i68:                                       ; preds = %if.then35
   %idx.ext.i.i = sext i32 %call.i65 to i64
@@ -1942,21 +1942,13 @@ if.else37:                                        ; preds = %if.end24
   %25 = load ptr, ptr %g.i73, align 8
   %call.i12.i = call i32 @BN_bn2lebinpad(ptr noundef %25, ptr noundef nonnull %add.ptr.i11.i, i32 noundef %div.i78) #6
   %add.ptr.i14.i = getelementptr inbounds i8, ptr %add.ptr.i11.i, i64 %idx.ext.i.i80
-  br i1 %tobool9.not.i138, label %if.else.i85, label %if.then.i83
-
-if.then.i83:                                      ; preds = %if.else37
-  %26 = load ptr, ptr %pub_key.i74, align 8
-  %call.i15.i = call i32 @BN_bn2lebinpad(ptr noundef %26, ptr noundef nonnull %add.ptr.i14.i, i32 noundef %div.i78) #6
-  br label %write_dsa.exit
-
-if.else.i85:                                      ; preds = %if.else37
-  %27 = load ptr, ptr %priv_key.i75, align 8
-  %call.i18.i = call i32 @BN_bn2lebinpad(ptr noundef %27, ptr noundef nonnull %add.ptr.i14.i, i32 noundef 20) #6
-  br label %write_dsa.exit
-
-write_dsa.exit:                                   ; preds = %if.then.i83, %if.else.i85
-  %.sink20.i = phi i64 [ 20, %if.else.i85 ], [ %idx.ext.i.i80, %if.then.i83 ]
-  %add.ptr.i19.i = getelementptr inbounds i8, ptr %add.ptr.i14.i, i64 %.sink20.i
+  %.div.i = select i1 %tobool9.not.i135, i32 20, i32 %div.i78
+  %.idx.ext.i.i = select i1 %tobool9.not.i135, i64 20, i64 %idx.ext.i.i80
+  %priv_key.val.i = load ptr, ptr %priv_key.i75, align 8
+  %pub_key.val.i = load ptr, ptr %pub_key.i74, align 8
+  %26 = select i1 %tobool9.not.i135, ptr %priv_key.val.i, ptr %pub_key.val.i
+  %call.i18.i = call i32 @BN_bn2lebinpad(ptr noundef %26, ptr noundef nonnull %add.ptr.i14.i, i32 noundef %.div.i) #6
+  %add.ptr.i19.i = getelementptr inbounds i8, ptr %add.ptr.i14.i, i64 %.idx.ext.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i19.i, i8 -1, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i71)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %q.i72)
@@ -1965,18 +1957,18 @@ write_dsa.exit:                                   ; preds = %if.then.i83, %if.el
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priv_key.i75)
   br label %if.end39
 
-if.end39:                                         ; preds = %write_dsa.exit, %write_rsa.exit
+if.end39:                                         ; preds = %if.else37, %write_rsa.exit
   br i1 %tobool16.not.not, label %end, label %if.then41
 
 if.then41:                                        ; preds = %if.end39
-  %28 = load ptr, ptr %out, align 8
+  %27 = load ptr, ptr %out, align 8
   %idx.ext = sext i32 %add to i64
-  %add.ptr = getelementptr inbounds i8, ptr %28, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %27, i64 %idx.ext
   store ptr %add.ptr, ptr %out, align 8
   br label %end
 
-end:                                              ; preds = %if.end8.thread169, %if.end8.thread.thread157, %if.end8.thread.thread, %if.end8.thread150, %if.end8.thread, %if.else, %if.else18, %if.end39, %if.then41, %ossl_blob_length.exit, %if.end8
-  %outlen.0 = phi i32 [ -1, %if.end8 ], [ %add, %ossl_blob_length.exit ], [ %add, %if.end39 ], [ %add, %if.then41 ], [ -1, %if.else18 ], [ -1, %if.else ], [ -1, %if.end8.thread ], [ -1, %if.end8.thread150 ], [ -1, %if.end8.thread.thread ], [ -1, %if.end8.thread.thread157 ], [ -1, %if.end8.thread169 ]
+end:                                              ; preds = %if.end8.thread166, %if.end8.thread.thread154, %if.end8.thread.thread, %if.end8.thread147, %if.end8.thread, %if.else, %if.else18, %if.end39, %if.then41, %ossl_blob_length.exit, %if.end8
+  %outlen.0 = phi i32 [ -1, %if.end8 ], [ %add, %ossl_blob_length.exit ], [ %add, %if.end39 ], [ %add, %if.then41 ], [ -1, %if.else18 ], [ -1, %if.else ], [ -1, %if.end8.thread ], [ -1, %if.end8.thread147 ], [ -1, %if.end8.thread.thread ], [ -1, %if.end8.thread.thread154 ], [ -1, %if.end8.thread166 ]
   ret i32 %outlen.0
 }
 

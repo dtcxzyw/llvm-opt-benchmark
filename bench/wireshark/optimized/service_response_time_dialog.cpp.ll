@@ -410,10 +410,10 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i31:    ; preds = %52
   br i1 %.not.i.i32, label %_ZN7QStringD2Ev.exit29.sink.split, label %_ZN7QStringD2Ev.exit29
 
 _ZN7QStringD2Ev.exit29.sink.split:                ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i31, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27
-  %.sink.in = phi ptr [ %6, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27 ], [ %7, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i31 ]
+  %.sink34 = phi ptr [ %6, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27 ], [ %7, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i31 ]
   %.pn.ph = phi { ptr, i32 } [ %49, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27 ], [ %53, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i31 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 2, i64 noundef 8) #21
+  %56 = load ptr, ptr %.sink34, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %56, i64 noundef 2, i64 noundef 8) #21
   br label %_ZN7QStringD2Ev.exit29
 
 _ZN7QStringD2Ev.exit29:                           ; preds = %_ZN7QStringD2Ev.exit29.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i31, %52, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27, %48
@@ -3232,13 +3232,13 @@ _ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i.i: ; preds = %_ZN5QListI8QVaria
 19:                                               ; preds = %23, %8
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %36
+  br label %37
 
 21:                                               ; preds = %9
   %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5QListI8QVariantED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
-  br label %36
+  br label %37
 
 23:                                               ; preds = %3
   invoke void @_ZN20SrtRowTreeWidgetItem7rowDataEv(ptr dead_on_unwind nonnull writable sret(%class.QList.20) align 8 %5, ptr noundef nonnull align 8 dereferenceable(104) %2)
@@ -3279,18 +3279,18 @@ _ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i.i14: ; preds = %_ZN5QListI8QVar
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5QListI8QVariantED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #21
-  br label %36
+  br label %37
 
 _ZN5QListI8QVariantED2Ev.exit.sink.split:         ; preds = %.lr.ph.i.i.i.i.i.i18, %.lr.ph.i.i.i.i.i.i, %27, %12
-  %.sink.in = phi ptr [ %4, %12 ], [ %5, %27 ], [ %4, %.lr.ph.i.i.i.i.i.i ], [ %5, %.lr.ph.i.i.i.i.i.i18 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 32, i64 noundef 8) #21
+  %.sink23 = phi ptr [ %4, %12 ], [ %5, %27 ], [ %4, %.lr.ph.i.i.i.i.i.i ], [ %5, %.lr.ph.i.i.i.i.i.i18 ]
+  %36 = load ptr, ptr %.sink23, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %36, i64 noundef 32, i64 noundef 8) #21
   br label %_ZN5QListI8QVariantED2Ev.exit
 
 _ZN5QListI8QVariantED2Ev.exit:                    ; preds = %_ZN5QListI8QVariantED2Ev.exit.sink.split, %3, %_ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i.i14, %_ZN5QListI8QVariantElsEOS1_.exit12, %_ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i.i, %_ZN5QListI8QVariantElsEOS1_.exit
   ret void
 
-36:                                               ; preds = %34, %21, %19
+37:                                               ; preds = %34, %21, %19
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ], [ %35, %34 ]
   call void @_ZN5QListI8QVariantED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   resume { ptr, i32 } %.pn

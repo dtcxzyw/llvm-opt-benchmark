@@ -2888,16 +2888,7 @@ invoke.cont17:                                    ; preds = %invoke.cont14
   %res.sroa.522.0.copyload = load i64, ptr %res.sroa.522.0.ref.tmp.sroa_idx, align 8
   %20 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %20, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
-
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %invoke.cont17
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #22
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %20) #22
-  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont17, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
-  store ptr null, ptr %agg.tmp, align 8
-  br label %if.end21
+  br i1 %cmp.not.i, label %if.end21, label %if.end21.sink.split
 
 if.else:                                          ; preds = %invoke.cont14
   %21 = load i64, ptr %result, align 8
@@ -2909,20 +2900,22 @@ if.else:                                          ; preds = %invoke.cont14
   %res.sroa.522.0.copyload23 = load i64, ptr %res.sroa.522.0.ref.tmp19.sroa_idx, align 8
   %22 = load ptr, ptr %agg.tmp20, align 8
   %cmp.not.i8 = icmp eq ptr %22, null
-  br i1 %cmp.not.i8, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit10, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i9
+  br i1 %cmp.not.i8, label %if.end21, label %if.end21.sink.split
 
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i9: ; preds = %if.else
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #22
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %22) #22
-  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit10
-
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit10: ; preds = %if.else, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i9
-  store ptr null, ptr %agg.tmp20, align 8
+if.end21.sink.split:                              ; preds = %if.else, %invoke.cont17
+  %.sink25 = phi ptr [ %20, %invoke.cont17 ], [ %22, %if.else ]
+  %agg.tmp20.sink.ph = phi ptr [ %agg.tmp, %invoke.cont17 ], [ %agg.tmp20, %if.else ]
+  %res.sroa.0.0.ph = phi i8 [ %res.sroa.0.0.copyload, %invoke.cont17 ], [ %res.sroa.0.0.copyload21, %if.else ]
+  %res.sroa.522.0.ph = phi i64 [ %res.sroa.522.0.copyload, %invoke.cont17 ], [ %res.sroa.522.0.copyload23, %if.else ]
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink25) #22
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.sink25) #22
   br label %if.end21
 
-if.end21:                                         ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit10, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  %res.sroa.0.0 = phi i8 [ %res.sroa.0.0.copyload, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %res.sroa.0.0.copyload21, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit10 ]
-  %res.sroa.522.0 = phi i64 [ %res.sroa.522.0.copyload, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %res.sroa.522.0.copyload23, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit10 ]
+if.end21:                                         ; preds = %if.end21.sink.split, %if.else, %invoke.cont17
+  %agg.tmp20.sink = phi ptr [ %agg.tmp, %invoke.cont17 ], [ %agg.tmp20, %if.else ], [ %agg.tmp20.sink.ph, %if.end21.sink.split ]
+  %res.sroa.0.0 = phi i8 [ %res.sroa.0.0.copyload, %invoke.cont17 ], [ %res.sroa.0.0.copyload21, %if.else ], [ %res.sroa.0.0.ph, %if.end21.sink.split ]
+  %res.sroa.522.0 = phi i64 [ %res.sroa.522.0.copyload, %invoke.cont17 ], [ %res.sroa.522.0.copyload23, %if.else ], [ %res.sroa.522.0.ph, %if.end21.sink.split ]
+  store ptr null, ptr %agg.tmp20.sink, align 8
   %cmp.i = icmp eq i8 %res.sroa.0.0, 2
   br i1 %cmp.i, label %if.then23, label %if.end43
 

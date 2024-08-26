@@ -1524,7 +1524,7 @@ _ZN8WasmEdge7Runtime8Instance17ComponentInstance19addFunctionInstanceESt10unique
   %170 = load ptr, ptr %34, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 8
   store ptr %171, ptr %34, align 8
-  br label %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS3_EED2Ev.exit
+  br label %.sink.split
 
 172:                                              ; preds = %_ZN8WasmEdge8Executor8Executor7liftingERNS_7Runtime8Instance17ComponentInstanceERKNS_3AST9Component8FuncTypeEPNS3_16FunctionInstanceEPNS3_14MemoryInstanceESC_.exit
   invoke void @_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr %167, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -1540,7 +1540,7 @@ _ZN8WasmEdge7Runtime8Instance17ComponentInstance19addFunctionInstanceESt10unique
 _ZN8WasmEdge7Runtime8Instance17ComponentInstance19addFunctionInstanceESt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit: ; preds = %172
   %.pr = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %.pr, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS3_EED2Ev.exit, label %176
+  br i1 %.not.i, label %.sink.split, label %176
 
 176:                                              ; preds = %_ZN8WasmEdge7Runtime8Instance17ComponentInstance19addFunctionInstanceESt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
@@ -1564,11 +1564,7 @@ _ZN8WasmEdge7Runtime8Instance17ComponentInstance19addFunctionInstanceESt10unique
 _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i: ; preds = %179, %176
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef 96) #21
-  br label %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS3_EED2Ev.exit
-
-_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN8WasmEdge7Runtime8Instance17ComponentInstance19addFunctionInstanceESt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit.thread, %_ZN8WasmEdge7Runtime8Instance17ComponentInstance19addFunctionInstanceESt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit, %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i
-  store ptr null, ptr %15, align 8
-  br label %336
+  br label %.sink.split
 
 .preheader194:                                    ; preds = %_ZSt17holds_alternativeIN8WasmEdge3AST9Component4LiftEJS3_NS2_5LowerENS2_11ResourceNewENS2_12ResourceDropENS2_11ResourceRepEEEbRKSt7variantIJDpT0_EE.exit, %189
   %.010.i.i108 = phi i64 [ %190, %189 ], [ 0, %_ZSt17holds_alternativeIN8WasmEdge3AST9Component4LiftEJS3_NS2_5LowerENS2_11ResourceNewENS2_12ResourceDropENS2_11ResourceRepEEEbRKSt7variantIJDpT0_EE.exit ]
@@ -1855,7 +1851,7 @@ _ZN8WasmEdge7Runtime8Instance17ComponentInstance23addCoreFunctionInstanceEOSt10u
   %289 = load ptr, ptr %29, align 8
   %290 = getelementptr inbounds i8, ptr %289, i64 8
   store ptr %290, ptr %29, align 8
-  br label %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS3_EED2Ev.exit152
+  br label %.sink.split
 
 291:                                              ; preds = %_ZN8WasmEdge8Executor8Executor8loweringEPNS_7Runtime8Instance16FunctionInstanceEPNS3_14MemoryInstanceES5_.exit
   invoke void @_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr %286, ptr noundef nonnull align 8 dereferenceable(8) %18)
@@ -1871,7 +1867,7 @@ _ZN8WasmEdge7Runtime8Instance17ComponentInstance23addCoreFunctionInstanceEOSt10u
 _ZN8WasmEdge7Runtime8Instance17ComponentInstance23addCoreFunctionInstanceEOSt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit: ; preds = %291
   %.pr183 = load ptr, ptr %18, align 8
   %.not.i149 = icmp eq ptr %.pr183, null
-  br i1 %.not.i149, label %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS3_EED2Ev.exit152, label %295
+  br i1 %.not.i149, label %.sink.split, label %295
 
 295:                                              ; preds = %_ZN8WasmEdge7Runtime8Instance17ComponentInstance23addCoreFunctionInstanceEOSt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
@@ -1895,11 +1891,7 @@ _ZN8WasmEdge7Runtime8Instance17ComponentInstance23addCoreFunctionInstanceEOSt10u
 _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i151: ; preds = %298, %295
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @_ZdlPvm(ptr noundef nonnull %.pr183, i64 noundef 96) #21
-  br label %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS3_EED2Ev.exit152
-
-_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS3_EED2Ev.exit152: ; preds = %_ZN8WasmEdge7Runtime8Instance17ComponentInstance23addCoreFunctionInstanceEOSt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit.thread, %_ZN8WasmEdge7Runtime8Instance17ComponentInstance23addCoreFunctionInstanceEOSt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit, %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i151
-  store ptr null, ptr %18, align 8
-  br label %336
+  br label %.sink.split
 
 .preheader193:                                    ; preds = %_ZSt17holds_alternativeIN8WasmEdge3AST9Component5LowerEJNS2_4LiftES3_NS2_11ResourceNewENS2_12ResourceDropENS2_11ResourceRepEEEbRKSt7variantIJDpT0_EE.exit, %308
   %.010.i.i153 = phi i64 [ %309, %308 ], [ 0, %_ZSt17holds_alternativeIN8WasmEdge3AST9Component5LowerEJNS2_4LiftES3_NS2_11ResourceNewENS2_12ResourceDropENS2_11ResourceRepEEEbRKSt7variantIJDpT0_EE.exit ]
@@ -2000,7 +1992,12 @@ _ZSt17holds_alternativeIN8WasmEdge3AST9Component11ResourceRepEJNS2_4LiftENS2_5Lo
   store i32 774, ptr %335, align 4
   br label %338
 
-336:                                              ; preds = %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS3_EED2Ev.exit, %_ZSt17holds_alternativeIN8WasmEdge3AST9Component11ResourceRepEJNS2_4LiftENS2_5LowerENS2_11ResourceNewENS2_12ResourceDropES3_EEbRKSt7variantIJDpT0_EE.exit, %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS3_EED2Ev.exit152
+.sink.split:                                      ; preds = %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i151, %_ZN8WasmEdge7Runtime8Instance17ComponentInstance23addCoreFunctionInstanceEOSt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit, %_ZN8WasmEdge7Runtime8Instance17ComponentInstance23addCoreFunctionInstanceEOSt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit.thread, %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i, %_ZN8WasmEdge7Runtime8Instance17ComponentInstance19addFunctionInstanceESt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit, %_ZN8WasmEdge7Runtime8Instance17ComponentInstance19addFunctionInstanceESt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit.thread
+  %.sink = phi ptr [ %15, %_ZN8WasmEdge7Runtime8Instance17ComponentInstance19addFunctionInstanceESt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit.thread ], [ %15, %_ZN8WasmEdge7Runtime8Instance17ComponentInstance19addFunctionInstanceESt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit ], [ %15, %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i ], [ %18, %_ZN8WasmEdge7Runtime8Instance17ComponentInstance23addCoreFunctionInstanceEOSt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit.thread ], [ %18, %_ZN8WasmEdge7Runtime8Instance17ComponentInstance23addCoreFunctionInstanceEOSt10unique_ptrINS1_16FunctionInstanceESt14default_deleteIS4_EE.exit ], [ %18, %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i151 ]
+  store ptr null, ptr %.sink, align 8
+  br label %336
+
+336:                                              ; preds = %.sink.split, %_ZSt17holds_alternativeIN8WasmEdge3AST9Component11ResourceRepEJNS2_4LiftENS2_5LowerENS2_11ResourceNewENS2_12ResourceDropES3_EEbRKSt7variantIJDpT0_EE.exit
   %337 = getelementptr inbounds i8, ptr %.0258, i64 48
   %.not = icmp eq ptr %337, %25
   br i1 %.not, label %._crit_edge261, label %37

@@ -809,9 +809,6 @@ if.then2.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fParams11.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %fParams20.i)
   %call3.i = call i64 @ZSTDv05_getFrameParams(ptr noundef nonnull %fParams.i, ptr noundef nonnull %src, i64 noundef %srcSize) #16
-  %cmp4.not.i = icmp eq i64 %call3.i, 0
-  %0 = load i64, ptr %fParams.i, align 8
-  %spec.select.i = select i1 %cmp4.not.i, i64 %0, i64 0
   br label %ZSTD_getDecompressedSize_legacy.exit
 
 if.then10.i:                                      ; preds = %if.end.i
@@ -819,9 +816,6 @@ if.then10.i:                                      ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fParams11.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %fParams20.i)
   %call13.i = call i64 @ZSTDv06_getFrameParams(ptr noundef nonnull %fParams11.i, ptr noundef nonnull %src, i64 noundef %srcSize) #16
-  %cmp14.not.i = icmp eq i64 %call13.i, 0
-  %1 = load i64, ptr %fParams11.i, align 8
-  %spec.select10.i = select i1 %cmp14.not.i, i64 %1, i64 0
   br label %ZSTD_getDecompressedSize_legacy.exit
 
 if.then19.i:                                      ; preds = %if.end.i
@@ -829,18 +823,19 @@ if.then19.i:                                      ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fParams11.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %fParams20.i)
   %call22.i = call i64 @ZSTDv07_getFrameParams(ptr noundef nonnull %fParams20.i, ptr noundef nonnull %src, i64 noundef %srcSize) #16
-  %cmp23.not.i = icmp eq i64 %call22.i, 0
-  %2 = load i64, ptr %fParams20.i, align 8
-  %spec.select11.i = select i1 %cmp23.not.i, i64 %2, i64 0
   br label %ZSTD_getDecompressedSize_legacy.exit
 
 ZSTD_getDecompressedSize_legacy.exit:             ; preds = %if.then2.i, %if.then10.i, %if.then19.i
-  %retval.0.i6 = phi i64 [ %spec.select.i, %if.then2.i ], [ %spec.select10.i, %if.then10.i ], [ %spec.select11.i, %if.then19.i ]
+  %call3.i.sink = phi i64 [ %call3.i, %if.then2.i ], [ %call13.i, %if.then10.i ], [ %call22.i, %if.then19.i ]
+  %fParams.i.sink = phi ptr [ %fParams.i, %if.then2.i ], [ %fParams11.i, %if.then10.i ], [ %fParams20.i, %if.then19.i ]
+  %cmp4.not.i = icmp eq i64 %call3.i.sink, 0
+  %0 = load i64, ptr %fParams.i.sink, align 8
+  %spec.select.i = select i1 %cmp4.not.i, i64 %0, i64 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %fParams.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %fParams11.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %fParams20.i)
-  %cmp = icmp eq i64 %retval.0.i6, 0
-  %cond = select i1 %cmp, i64 -1, i64 %retval.0.i6
+  %cmp = icmp eq i64 %spec.select.i, 0
+  %cond = select i1 %cmp, i64 -1, i64 %spec.select.i
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %entry
@@ -850,10 +845,10 @@ if.end:                                           ; preds = %if.end.i, %entry
 
 if.end5:                                          ; preds = %if.end
   %frameType = getelementptr inbounds i8, ptr %zfh, i64 20
-  %3 = load i32, ptr %frameType, align 4
-  %cmp6 = icmp eq i32 %3, 1
-  %4 = load i64, ptr %zfh, align 8
-  %spec.select = select i1 %cmp6, i64 0, i64 %4
+  %1 = load i32, ptr %frameType, align 4
+  %cmp6 = icmp eq i32 %1, 1
+  %2 = load i64, ptr %zfh, align 8
+  %spec.select = select i1 %cmp6, i64 0, i64 %2
   br label %return
 
 return:                                           ; preds = %if.end5, %if.end, %ZSTD_getDecompressedSize_legacy.exit
@@ -5395,18 +5390,18 @@ sw.bb44:                                          ; preds = %do.end
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %sw.bb6, %sw.bb20, %sw.bb44
-  %pos12.sink38 = phi ptr [ %pos12, %sw.bb6 ], [ %pos32, %sw.bb20 ], [ %pos56, %sw.bb44 ]
-  %.sink37.in = phi ptr [ %decodedSize, %sw.bb6 ], [ %decodedSize34, %sw.bb20 ], [ %decodedSize58, %sw.bb44 ]
-  %pos48.sink36 = phi ptr [ %pos, %sw.bb6 ], [ %pos24, %sw.bb20 ], [ %pos48, %sw.bb44 ]
-  %.sink35.in = phi ptr [ %readSize, %sw.bb6 ], [ %readSize26, %sw.bb20 ], [ %readSize50, %sw.bb44 ]
-  %retval.0.ph = phi i64 [ %call, %sw.bb6 ], [ %call39, %sw.bb20 ], [ %call63, %sw.bb44 ]
-  %.sink37 = load i64, ptr %.sink37.in, align 8
-  %18 = load i64, ptr %pos12.sink38, align 8
-  %add = add i64 %18, %.sink37
-  store i64 %add, ptr %pos12.sink38, align 8
-  %.sink35 = load i64, ptr %.sink35.in, align 8
-  %19 = load i64, ptr %pos48.sink36, align 8
-  %add67 = add i64 %19, %.sink35
+  %decodedSize58.sink = phi ptr [ %decodedSize58, %sw.bb44 ], [ %decodedSize34, %sw.bb20 ], [ %decodedSize, %sw.bb6 ]
+  %pos56.sink38 = phi ptr [ %pos56, %sw.bb44 ], [ %pos32, %sw.bb20 ], [ %pos12, %sw.bb6 ]
+  %readSize50.sink = phi ptr [ %readSize50, %sw.bb44 ], [ %readSize26, %sw.bb20 ], [ %readSize, %sw.bb6 ]
+  %pos48.sink36 = phi ptr [ %pos48, %sw.bb44 ], [ %pos24, %sw.bb20 ], [ %pos, %sw.bb6 ]
+  %retval.0.ph = phi i64 [ %call63, %sw.bb44 ], [ %call39, %sw.bb20 ], [ %call, %sw.bb6 ]
+  %18 = load i64, ptr %decodedSize58.sink, align 8
+  %19 = load i64, ptr %pos56.sink38, align 8
+  %add65 = add i64 %19, %18
+  store i64 %add65, ptr %pos56.sink38, align 8
+  %20 = load i64, ptr %readSize50.sink, align 8
+  %21 = load i64, ptr %pos48.sink36, align 8
+  %add67 = add i64 %21, %20
   store i64 %add67, ptr %pos48.sink36, align 8
   br label %return
 

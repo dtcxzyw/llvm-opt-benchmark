@@ -2093,23 +2093,14 @@ invoke.cont155:                                   ; preds = %cleanup.done149
   %62 = load ptr, ptr %pendingCR_84, align 8
   store ptr %61, ptr %pendingCR_84, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %62, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit75, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit
+  br i1 %tobool.not.i.i.i.i, label %if.end164, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %invoke.cont155
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %62) #20
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %62) #20
   %.pr = load ptr, ptr %ref.tmp153, align 8
   %cmp.not.i73 = icmp eq ptr %.pr, null
-  br i1 %cmp.not.i73, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit75, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i74
-
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i74: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.pr) #20
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.pr) #20
-  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit75
-
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit75: ; preds = %invoke.cont155, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i74
-  store ptr null, ptr %ref.tmp153, align 8
-  br label %if.end164
+  br i1 %cmp.not.i73, label %if.end164, label %if.end164.sink.split
 
 if.else158:                                       ; preds = %cond.end103, %land.lhs.true115, %if.end113
   invoke void @_ZN5folly10IOBufQueue5splitEmb(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp159, ptr noundef nonnull align 8 dereferenceable(72) %input_, i64 noundef %cond104, i1 noundef zeroext true)
@@ -2122,16 +2113,7 @@ invoke.cont161:                                   ; preds = %if.else158
 invoke.cont163:                                   ; preds = %invoke.cont161
   %63 = load ptr, ptr %ref.tmp159, align 8
   %cmp.not.i78 = icmp eq ptr %63, null
-  br i1 %cmp.not.i78, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit80, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i79
-
-_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i79: ; preds = %invoke.cont163
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %63) #20
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %63) #20
-  br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit80
-
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit80: ; preds = %invoke.cont163, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i79
-  store ptr null, ptr %ref.tmp159, align 8
-  br label %if.end164
+  br i1 %cmp.not.i78, label %if.end164, label %if.end164.sink.split
 
 lpad162:                                          ; preds = %invoke.cont161
   %64 = landingpad { ptr, i32 }
@@ -2139,7 +2121,16 @@ lpad162:                                          ; preds = %invoke.cont161
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp159) #20
   br label %ehcleanup
 
-if.end164:                                        ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit80, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit75
+if.end164.sink.split:                             ; preds = %invoke.cont163, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit
+  %.sink359 = phi ptr [ %.pr, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit ], [ %63, %invoke.cont163 ]
+  %ref.tmp159.sink.ph = phi ptr [ %ref.tmp153, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit ], [ %ref.tmp159, %invoke.cont163 ]
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink359) #20
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.sink359) #20
+  br label %if.end164
+
+if.end164:                                        ; preds = %if.end164.sink.split, %invoke.cont163, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit, %invoke.cont155
+  %ref.tmp159.sink = phi ptr [ %ref.tmp153, %invoke.cont155 ], [ %ref.tmp153, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit ], [ %ref.tmp159, %invoke.cont163 ], [ %ref.tmp159.sink.ph, %if.end164.sink.split ]
+  store ptr null, ptr %ref.tmp159.sink, align 8
   %65 = load i64, ptr %bytesProcessed_165, align 8
   %add166 = add i64 %65, %cond104
   store i64 %add166, ptr %bytesProcessed_165, align 8

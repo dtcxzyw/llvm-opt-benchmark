@@ -1307,10 +1307,10 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.not = icmp eq i64 %sub.ptr.sub.i, 64
-  %ref.tmp.sink134.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %ref.tmp.sink134.sroa.gep135 = getelementptr inbounds i8, ptr %ref.tmp53, i64 8
-  %ref.tmp.sink134.sroa.gep137 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %ref.tmp.sink134.sroa.gep138 = getelementptr inbounds i8, ptr %ref.tmp53, i64 16
+  %ref.tmp.sink135.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp.sink135.sroa.gep136 = getelementptr inbounds i8, ptr %ref.tmp53, i64 8
+  %ref.tmp.sink135.sroa.gep138 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %ref.tmp.sink135.sroa.gep139 = getelementptr inbounds i8, ptr %ref.tmp53, i64 16
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1425,11 +1425,11 @@ lpad46:                                           ; preds = %if.end60
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN8facebook5velox14VeloxExceptionE
-  %tobool.not.i.i.i27 = icmp eq ptr %binValues.sroa.0.1, null
+  %tobool.not.i.i.i27 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i27, label %catch.dispatch, label %if.then.i.i.i28
 
 if.then.i.i.i28:                                  ; preds = %lpad46
-  call void @_ZdlPv(ptr noundef nonnull %binValues.sroa.0.1) #26
+  call void @_ZdlPv(ptr noundef nonnull %26) #26
   br label %catch.dispatch
 
 catch.dispatch:                                   ; preds = %if.then.i.i.i28, %lpad46, %lpad46.thread, %lpad
@@ -1505,13 +1505,13 @@ if.else:                                          ; preds = %if.end41
           to label %if.end60 unwind label %lpad46.thread
 
 if.end60:                                         ; preds = %if.else, %if.then45
-  %ref.tmp.sink134.sroa.phi = phi ptr [ %ref.tmp.sink134.sroa.gep, %if.then45 ], [ %ref.tmp.sink134.sroa.gep135, %if.else ]
-  %ref.tmp.sink134.sroa.phi136 = phi ptr [ %ref.tmp.sink134.sroa.gep137, %if.then45 ], [ %ref.tmp.sink134.sroa.gep138, %if.else ]
-  %ref.tmp.sink134 = phi ptr [ %ref.tmp, %if.then45 ], [ %ref.tmp53, %if.else ]
-  %binValues.sroa.0.1 = load ptr, ptr %ref.tmp.sink134, align 8
-  %26 = load ptr, ptr %ref.tmp.sink134.sroa.phi, align 8
-  %27 = load ptr, ptr %ref.tmp.sink134.sroa.phi136, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sink134, i8 0, i64 24, i1 false)
+  %ref.tmp.sink135.sroa.phi = phi ptr [ %ref.tmp.sink135.sroa.gep, %if.then45 ], [ %ref.tmp.sink135.sroa.gep136, %if.else ]
+  %ref.tmp.sink135.sroa.phi137 = phi ptr [ %ref.tmp.sink135.sroa.gep138, %if.then45 ], [ %ref.tmp.sink135.sroa.gep139, %if.else ]
+  %ref.tmp.sink135 = phi ptr [ %ref.tmp, %if.then45 ], [ %ref.tmp53, %if.else ]
+  %26 = load ptr, ptr %ref.tmp.sink135, align 8
+  %27 = load ptr, ptr %ref.tmp.sink135.sroa.phi, align 8
+  %28 = load ptr, ptr %ref.tmp.sink135.sroa.phi137, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sink135, i8 0, i64 24, i1 false)
   %call5.i.i.i5.i.i.i.i48 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
           to label %_ZNSt6vectorIdSaIdEED2Ev.exit83 unwind label %lpad46
 
@@ -1524,26 +1524,26 @@ _ZNSt6vectorIdSaIdEED2Ev.exit83:                  ; preds = %if.end60
   %_M_impl.i.i.i.i.i.i47 = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i48, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_136WidthBucketArrayFunctionConstantBinsE, i64 16), ptr %_M_impl.i.i.i.i.i.i47, align 8, !noalias !10
   %bins_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i48, i64 24
-  store ptr %binValues.sroa.0.1, ptr %bins_.i.i.i.i.i.i.i.i, align 8, !noalias !10
+  store ptr %26, ptr %bins_.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i48, i64 32
-  store ptr %26, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !10
+  store ptr %27, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i48, i64 40
-  store ptr %27, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !10
+  store ptr %28, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !10
   br label %return
 
 lpad66:                                           ; preds = %cond.false, %lor.rhs
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad73:                                           ; preds = %invoke.cont74, %invoke.cont72
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp71) #23
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad73, %lpad66
-  %.pn21 = phi { ptr, i32 } [ %29, %lpad73 ], [ %28, %lpad66 ]
+  %.pn21 = phi { ptr, i32 } [ %30, %lpad73 ], [ %29, %lpad66 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
@@ -1573,10 +1573,10 @@ eh.resume:                                        ; preds = %ehcleanup, %catch.d
   resume { ptr, i32 } %lpad.val96.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #25
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #25
   unreachable
 }
 

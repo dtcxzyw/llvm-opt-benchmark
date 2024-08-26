@@ -20478,39 +20478,39 @@ ehcleanup395:                                     ; preds = %lpad334.loopexit, %
   br label %ehcleanup397
 
 cleanup.sink.split:                               ; preds = %invoke.cont310, %invoke.cont246
-  %.sink.in = phi ptr [ %ref.tmp244, %invoke.cont246 ], [ %ref.tmp308, %invoke.cont310 ]
+  %ref.tmp308.sink = phi ptr [ %ref.tmp244, %invoke.cont246 ], [ %ref.tmp308, %invoke.cont310 ]
   %ref.tmp309.sink = phi ptr [ %ref.tmp245, %invoke.cont246 ], [ %ref.tmp309, %invoke.cont310 ]
   %out294.sink = phi ptr [ %out, %invoke.cont246 ], [ %out294, %invoke.cont310 ]
-  %.sink = load i64, ptr %.sink.in, align 8
-  store i64 %.sink, ptr %id, align 8
+  %183 = load i64, ptr %ref.tmp308.sink, align 8
+  store i64 %183, ptr %id, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp309.sink) #26
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %out294.sink) #26
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.then2.i.i.i389, %if.then.i.i.i384, %invoke.cont392, %land.end, %invoke.cont321
   %retval.1 = phi i1 [ false, %invoke.cont321 ], [ false, %land.end ], [ true, %invoke.cont392 ], [ true, %if.then.i.i.i384 ], [ true, %if.then2.i.i.i389 ], [ true, %cleanup.sink.split ]
-  %183 = load ptr, ptr %term, align 8
-  %tobool.not.i.i392 = icmp eq ptr %183, null
+  %184 = load ptr, ptr %term, align 8
+  %tobool.not.i.i392 = icmp eq ptr %184, null
   br i1 %tobool.not.i.i392, label %return, label %if.then.i.i.i393
 
 if.then.i.i.i393:                                 ; preds = %cleanup
-  %184 = load ptr, ptr %m_manager.i200, align 8
-  %m_ref_count.i.i.i.i395 = getelementptr inbounds i8, ptr %183, i64 8
-  %185 = load i32, ptr %m_ref_count.i.i.i.i395, align 4
-  %dec.i.i.i.i396 = add i32 %185, -1
+  %185 = load ptr, ptr %m_manager.i200, align 8
+  %m_ref_count.i.i.i.i395 = getelementptr inbounds i8, ptr %184, i64 8
+  %186 = load i32, ptr %m_ref_count.i.i.i.i395, align 4
+  %dec.i.i.i.i396 = add i32 %186, -1
   store i32 %dec.i.i.i.i396, ptr %m_ref_count.i.i.i.i395, align 4
   %cmp.i.i.i397 = icmp eq i32 %dec.i.i.i.i396, 0
   br i1 %cmp.i.i.i397, label %if.then2.i.i.i398, label %return
 
 if.then2.i.i.i398:                                ; preds = %if.then.i.i.i393
-  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %184, ptr noundef nonnull %183)
+  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %185, ptr noundef nonnull %184)
           to label %return unwind label %terminate.lpad.i399
 
 terminate.lpad.i399:                              ; preds = %if.then2.i.i.i398
-  %186 = landingpad { ptr, i32 }
+  %187 = landingpad { ptr, i32 }
           catch ptr null
-  %187 = extractvalue { ptr, i32 } %186, 0
-  call void @__clang_call_terminate(ptr %187) #25
+  %188 = extractvalue { ptr, i32 } %187, 0
+  call void @__clang_call_terminate(ptr %188) #25
   unreachable
 
 ehcleanup397:                                     ; preds = %lpad178.loopexit, %lpad178.loopexit.split-lp.loopexit.split-lp, %lpad178.loopexit.split-lp.loopexit, %ehcleanup395, %ehcleanup314, %ehcleanup250

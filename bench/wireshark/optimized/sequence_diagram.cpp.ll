@@ -3743,9 +3743,9 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge: ; preds
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   br label %13
 
-13:                                               ; preds = %.lr.ph, %26
-  %.019 = phi i8 [ 0, %.lr.ph ], [ %.1, %26 ]
-  %.sroa.012.018 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %27, %26 ]
+13:                                               ; preds = %.lr.ph, %24
+  %.019 = phi i8 [ 0, %.lr.ph ], [ %.1, %24 ]
+  %.sroa.012.018 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %25, %24 ]
   %14 = getelementptr inbounds i8, ptr %.sroa.012.018, i64 32
   %15 = load double, ptr %14, align 8
   %16 = trunc nuw i8 %.019 to i1
@@ -3753,45 +3753,43 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge: ; preds
 
 17:                                               ; preds = %13
   store double %15, ptr %12, align 8
-  store double %15, ptr %4, align 8
-  br label %26
+  br label %.sink.split
 
 18:                                               ; preds = %13
   %19 = load double, ptr %4, align 8
   %20 = fcmp olt double %15, %19
-  br i1 %20, label %21, label %22
+  br i1 %20, label %.sink.split, label %21
 
 21:                                               ; preds = %18
-  store double %15, ptr %4, align 8
-  br label %26
+  %22 = load double, ptr %12, align 8
+  %23 = fcmp ogt double %15, %22
+  br i1 %23, label %.sink.split, label %24
 
-22:                                               ; preds = %18
-  %23 = load double, ptr %12, align 8
-  %24 = fcmp ogt double %15, %23
-  br i1 %24, label %25, label %26
+.sink.split:                                      ; preds = %21, %18, %17
+  %.sink = phi ptr [ %4, %17 ], [ %4, %18 ], [ %12, %21 ]
+  %.fca.0.load21.ph = phi double [ %15, %17 ], [ %15, %18 ], [ %19, %21 ]
+  %.1.ph = phi i8 [ 1, %17 ], [ %.019, %18 ], [ %.019, %21 ]
+  store double %15, ptr %.sink, align 8
+  br label %24
 
-25:                                               ; preds = %22
-  store double %15, ptr %12, align 8
-  br label %26
-
-26:                                               ; preds = %21, %25, %22, %17
-  %.fca.0.load21 = phi double [ %15, %21 ], [ %19, %25 ], [ %19, %22 ], [ %15, %17 ]
-  %.1 = phi i8 [ %.019, %21 ], [ %.019, %25 ], [ %.019, %22 ], [ 1, %17 ]
-  %27 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.012.018) #26
-  %28 = load ptr, ptr %6, align 8
-  %.not.i.i10 = icmp eq ptr %28, null
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
-  %.sroa.0.0.i.i11 = select i1 %.not.i.i10, ptr null, ptr %29
-  %.not = icmp eq ptr %27, %.sroa.0.0.i.i11
+24:                                               ; preds = %.sink.split, %21
+  %.fca.0.load21 = phi double [ %19, %21 ], [ %.fca.0.load21.ph, %.sink.split ]
+  %.1 = phi i8 [ %.019, %21 ], [ %.1.ph, %.sink.split ]
+  %25 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.012.018) #26
+  %26 = load ptr, ptr %6, align 8
+  %.not.i.i10 = icmp eq ptr %26, null
+  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %.sroa.0.0.i.i11 = select i1 %.not.i.i10, ptr null, ptr %27
+  %.not = icmp eq ptr %25, %.sroa.0.0.i.i11
   br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !57
 
-._crit_edge.loopexit:                             ; preds = %26
-  %30 = and i8 %.1, 1
+._crit_edge.loopexit:                             ; preds = %24
+  %28 = and i8 %.1, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge, %._crit_edge.loopexit
   %.fca.0.load = phi double [ %.fca.0.load.pre, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge ], [ %.fca.0.load21, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i8 [ 0, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge ], [ %30, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i8 [ 0, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge ], [ %28, %._crit_edge.loopexit ]
   store i8 %.0.lcssa, ptr %1, align 1
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8

@@ -1834,8 +1834,8 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeach
   store i32 1, ptr %32, align 8, !alias.scope !6
   %33 = icmp ne ptr %.sroa.0.0.i.i.i, null
   %34 = icmp ne i64 %.sroa.4.0.i.i.i, 0
-  %.not4.i.i9 = or i1 %33, %34
-  br i1 %.not4.i.i9, label %.lr.ph, label %._crit_edge
+  %.not4.i.i8 = or i1 %33, %34
+  br i1 %.not4.i.i8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit
   %35 = load i32, ptr %6, align 8
@@ -1864,8 +1864,8 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeach
   %49 = and i64 %42, 127
   %50 = getelementptr [128 x i8], ptr %48, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
-  %.not.i.i.i6.us = icmp eq i8 %51, -1
-  br i1 %.not.i.i.i6.us, label %40, label %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit.us, !llvm.loop !9
+  %.not.i.i.i5.us = icmp eq i8 %51, -1
+  br i1 %.not.i.i.i5.us, label %40, label %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit.us, !llvm.loop !9
 
 52:                                               ; preds = %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
@@ -1943,8 +1943,8 @@ _ZN9QtPrivate17QForeachContainerI5QHashIi16ft_framenum_typeEED2Ev.exit: ; preds 
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit
-  %79 = phi ptr [ %114, %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit ], [ %.sroa.0.0.i.i.i, %.lr.ph ]
-  %.pre.i.i = phi i64 [ %113, %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit ], [ %.sroa.4.0.i.i.i, %.lr.ph ]
+  %79 = phi ptr [ %112, %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit ], [ %.sroa.0.0.i.i.i, %.lr.ph ]
+  %.pre.i.i = phi i64 [ %111, %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit ], [ %.sroa.4.0.i.i.i, %.lr.ph ]
   %80 = getelementptr inbounds i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8
   %82 = lshr i64 %.pre.i.i, 7
@@ -1961,73 +1961,69 @@ _ZN9QtPrivate17QForeachContainerI5QHashIi16ft_framenum_typeEED2Ev.exit: ; preds 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %92 = load i32, ptr %6, align 8
   %.not2.i = icmp eq i32 %92, 0
-  br i1 %.not2.i, label %98, label %93
+  br i1 %.not2.i, label %96, label %93
 
 93:                                               ; preds = %.lr.ph.split
-  switch i32 %91, label %98 [
-    i32 1, label %94
-    i32 2, label %96
+  switch i32 %91, label %96 [
+    i32 1, label %.sink.split.i
+    i32 2, label %94
   ]
 
 94:                                               ; preds = %93
-  store i32 %92, ptr %3, align 4
-  %95 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5QHashIi16ft_framenum_typeEixERKi(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %.noexc unwind label %117
+  br label %.sink.split.i
 
-.noexc:                                           ; preds = %94
-  store i32 2, ptr %95, align 4
-  br label %98
+.sink.split.i:                                    ; preds = %94, %93
+  %.sink11.i = phi ptr [ %4, %94 ], [ %3, %93 ]
+  %.sink.i = phi i32 [ 1, %94 ], [ 2, %93 ]
+  store i32 %92, ptr %.sink11.i, align 4
+  %95 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5QHashIi16ft_framenum_typeEixERKi(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %.sink11.i)
+          to label %.noexc unwind label %115
 
-96:                                               ; preds = %93
-  store i32 %92, ptr %4, align 4
-  %97 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5QHashIi16ft_framenum_typeEixERKi(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %.noexc5 unwind label %117
+.noexc:                                           ; preds = %.sink.split.i
+  store i32 %.sink.i, ptr %95, align 4
+  br label %96
 
-.noexc5:                                          ; preds = %96
-  store i32 1, ptr %97, align 4
-  br label %98
-
-98:                                               ; preds = %.noexc5, %.noexc, %93, %.lr.ph.split
+96:                                               ; preds = %.noexc, %93, %.lr.ph.split
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %99 = getelementptr inbounds i8, ptr %79, i64 16
-  br label %100
+  %97 = getelementptr inbounds i8, ptr %79, i64 16
+  br label %98
 
-100:                                              ; preds = %106, %98
-  %101 = phi i64 [ %102, %106 ], [ %.pre.i.i, %98 ]
-  %102 = add i64 %101, 1
-  store i64 %102, ptr %30, align 8
-  %103 = load i64, ptr %99, align 8
-  %104 = icmp eq i64 %102, %103
-  br i1 %104, label %105, label %106
+98:                                               ; preds = %104, %96
+  %99 = phi i64 [ %100, %104 ], [ %.pre.i.i, %96 ]
+  %100 = add i64 %99, 1
+  store i64 %100, ptr %30, align 8
+  %101 = load i64, ptr %97, align 8
+  %102 = icmp eq i64 %100, %101
+  br i1 %102, label %103, label %104
 
-105:                                              ; preds = %100
+103:                                              ; preds = %98
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   br label %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit
 
-106:                                              ; preds = %100
-  %107 = load ptr, ptr %80, align 8
-  %108 = lshr i64 %102, 7
-  %109 = getelementptr %"struct.QHashPrivate::Span", ptr %107, i64 %108
-  %110 = and i64 %102, 127
-  %111 = getelementptr [128 x i8], ptr %109, i64 0, i64 %110
-  %112 = load i8, ptr %111, align 1
-  %.not.i.i.i6 = icmp eq i8 %112, -1
-  br i1 %.not.i.i.i6, label %100, label %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit, !llvm.loop !9
+104:                                              ; preds = %98
+  %105 = load ptr, ptr %80, align 8
+  %106 = lshr i64 %100, 7
+  %107 = getelementptr %"struct.QHashPrivate::Span", ptr %105, i64 %106
+  %108 = and i64 %100, 127
+  %109 = getelementptr [128 x i8], ptr %107, i64 0, i64 %108
+  %110 = load i8, ptr %109, align 1
+  %.not.i.i.i5 = icmp eq i8 %110, -1
+  br i1 %.not.i.i.i5, label %98, label %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit, !llvm.loop !9
 
-_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit: ; preds = %106, %105
-  %113 = phi i64 [ 0, %105 ], [ %102, %106 ]
-  %114 = phi ptr [ null, %105 ], [ %79, %106 ]
-  %115 = icmp ne ptr %114, null
-  %116 = icmp ne i64 %113, 0
-  %.not4.i.i = or i1 %115, %116
+_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit: ; preds = %104, %103
+  %111 = phi i64 [ 0, %103 ], [ %100, %104 ]
+  %112 = phi ptr [ null, %103 ], [ %79, %104 ]
+  %113 = icmp ne ptr %112, null
+  %114 = icmp ne i64 %111, 0
+  %.not4.i.i = or i1 %113, %114
   br i1 %.not4.i.i, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
 
-117:                                              ; preds = %96, %94
-  %118 = landingpad { ptr, i32 }
+115:                                              ; preds = %.sink.split.i
+  %116 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9QtPrivate17QForeachContainerI5QHashIi16ft_framenum_typeEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #16
-  resume { ptr, i32 } %118
+  resume { ptr, i32 } %116
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2128,29 +2124,27 @@ _ZNK5QHashIi16ft_framenum_typeE8containsERKi.exit.thread: ; preds = %46, %13, %_
   %61 = getelementptr inbounds i8, ptr %0, i64 32
   %62 = load i32, ptr %61, align 8
   %.not2 = icmp eq i32 %62, 0
-  br i1 %.not2, label %70, label %63
+  br i1 %.not2, label %67, label %63
 
 63:                                               ; preds = %60
-  switch i32 %2, label %70 [
-    i32 1, label %64
-    i32 2, label %67
+  switch i32 %2, label %67 [
+    i32 1, label %.sink.split
+    i32 2, label %64
   ]
 
 64:                                               ; preds = %63
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %63, %64
+  %.sink11 = phi ptr [ %6, %64 ], [ %5, %63 ]
+  %.sink = phi i32 [ 1, %64 ], [ 2, %63 ]
   %65 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %62, ptr %5, align 4
-  %66 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5QHashIi16ft_framenum_typeEixERKi(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  store i32 2, ptr %66, align 4
-  br label %70
+  store i32 %62, ptr %.sink11, align 4
+  %66 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5QHashIi16ft_framenum_typeEixERKi(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 4 dereferenceable(4) %.sink11)
+  store i32 %.sink, ptr %66, align 4
+  br label %67
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %62, ptr %6, align 4
-  %69 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5QHashIi16ft_framenum_typeEixERKi(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  store i32 1, ptr %69, align 4
-  br label %70
-
-70:                                               ; preds = %64, %67, %63, %60
+67:                                               ; preds = %.sink.split, %63, %60
   ret void
 }
 

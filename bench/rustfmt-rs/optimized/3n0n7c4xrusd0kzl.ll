@@ -14271,14 +14271,14 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17hfed74176e9ef1c
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
   %7 = icmp eq i64 %2, 0
-  %.sink59.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
-  %.sink59.sroa.gep70 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink59.sroa.gep72 = getelementptr inbounds i8, ptr %4, i64 32
-  %.sink59.sroa.gep73 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sink59.sroa.gep75 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sink59.sroa.gep76 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink59.sroa.gep78 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sink59.sroa.gep79 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink.sroa.gep = getelementptr inbounds i8, ptr %4, i64 24
+  %.sink.sroa.gep70 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sink.sroa.gep72 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sink.sroa.gep73 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink.sroa.gep75 = getelementptr inbounds i8, ptr %4, i64 32
+  %.sink.sroa.gep76 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sink.sroa.gep78 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink.sroa.gep79 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %7, label %.loopexit, label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha87e3f5ce2669613E.exit.thread.i": ; preds = %14, %.lr.ph.i
@@ -14413,21 +14413,22 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17hfed74176e9ef1c
 
 58:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e2e579e48705b59E.exit.thread.i17"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !2727
-  store ptr @anon.7b1732ea94d172e7ee709babd0ab4782.45, ptr %5, align 8, !noalias !2727
   br label %.invoke
 
 .invoke:                                          ; preds = %68, %58
-  %.sink59.sroa.phi = phi ptr [ %.sink59.sroa.gep, %68 ], [ %.sink59.sroa.gep70, %58 ]
-  %.sink59.sroa.phi71 = phi ptr [ %.sink59.sroa.gep72, %68 ], [ %.sink59.sroa.gep73, %58 ]
-  %.sink59.sroa.phi74 = phi ptr [ %.sink59.sroa.gep75, %68 ], [ %.sink59.sroa.gep76, %58 ]
-  %.sink59.sroa.phi77 = phi ptr [ %.sink59.sroa.gep78, %68 ], [ %.sink59.sroa.gep79, %58 ]
-  %.sink59 = phi ptr [ %4, %68 ], [ %5, %58 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %68 ], [ %.sink.sroa.gep70, %58 ]
+  %.sink.sroa.phi71 = phi ptr [ %.sink.sroa.gep72, %68 ], [ %.sink.sroa.gep73, %58 ]
+  %.sink.sroa.phi74 = phi ptr [ %.sink.sroa.gep75, %68 ], [ %.sink.sroa.gep76, %58 ]
+  %.sink.sroa.phi77 = phi ptr [ %.sink.sroa.gep78, %68 ], [ %.sink.sroa.gep79, %58 ]
+  %.sink = phi ptr [ %4, %68 ], [ %5, %58 ]
+  %anon.7b1732ea94d172e7ee709babd0ab4782.49.sink = phi ptr [ @anon.7b1732ea94d172e7ee709babd0ab4782.49, %68 ], [ @anon.7b1732ea94d172e7ee709babd0ab4782.45, %58 ]
   %59 = phi ptr [ @anon.7b1732ea94d172e7ee709babd0ab4782.51, %68 ], [ @anon.7b1732ea94d172e7ee709babd0ab4782.46, %58 ]
-  store i64 1, ptr %.sink59.sroa.phi, align 8, !noalias !2727
-  store ptr null, ptr %.sink59.sroa.phi71, align 8, !noalias !2727
-  store ptr @anon.7b1732ea94d172e7ee709babd0ab4782.10, ptr %.sink59.sroa.phi74, align 8, !noalias !2727
-  store i64 0, ptr %.sink59.sroa.phi77, align 8, !noalias !2727
-  call void @_ZN4core9panicking9panic_fmt17h5740899885667996E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %59) #24
+  store ptr %anon.7b1732ea94d172e7ee709babd0ab4782.49.sink, ptr %.sink, align 8, !noalias !2727
+  store i64 1, ptr %.sink.sroa.phi77, align 8, !noalias !2727
+  store ptr null, ptr %.sink.sroa.phi74, align 8, !noalias !2727
+  store ptr @anon.7b1732ea94d172e7ee709babd0ab4782.10, ptr %.sink.sroa.phi71, align 8, !noalias !2727
+  store i64 0, ptr %.sink.sroa.phi, align 8, !noalias !2727
+  call void @_ZN4core9panicking9panic_fmt17h5740899885667996E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %59) #24
   unreachable
 
 60:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e2e579e48705b59E.exit.i16"
@@ -14446,7 +14447,6 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17hfed74176e9ef1c
 
 68:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2727
-  store ptr @anon.7b1732ea94d172e7ee709babd0ab4782.49, ptr %4, align 8, !noalias !2727
   br label %.invoke
 
 _ZN3std2io7IoSlice14advance_slices17hb93cbed9136a538bE.exit21: ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1e2e579e48705b59E.exit.thread.i17", %64

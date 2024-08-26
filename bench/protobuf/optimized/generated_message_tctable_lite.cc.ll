@@ -15803,43 +15803,43 @@ invoke.cont:
   %2 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr %1, ptr %2, align 8
   %ref.tmp69.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp69, i64 8
-  %ref.tmp69.sink.sroa.gep158 = getelementptr inbounds i8, ptr %ref.tmp78, i64 8
-  %ref.tmp69.sink.sroa.gep159 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
-  %ref.tmp69.sink.sroa.gep160 = getelementptr inbounds i8, ptr %ref.tmp86, i64 8
-  %ref.tmp69.sink.sroa.gep161 = getelementptr inbounds i8, ptr %ref.tmp90, i64 8
-  %ref.tmp69.sink.sroa.gep162 = getelementptr inbounds i8, ptr %ref.tmp94, i64 8
-  %ref.tmp69.sink.sroa.gep163 = getelementptr inbounds i8, ptr %ref.tmp98, i64 8
-  %ref.tmp69.sink.sroa.gep164 = getelementptr inbounds i8, ptr %ref.tmp102, i64 8
-  %ref.tmp69.sink.sroa.gep165 = getelementptr inbounds i8, ptr %ref.tmp106, i64 8
-  %ref.tmp69.sink.sroa.gep166 = getelementptr inbounds i8, ptr %ref.tmp110, i64 8
-  %ref.tmp69.sink.sroa.gep167 = getelementptr inbounds i8, ptr %ref.tmp114, i64 8
-  %ref.tmp69.sink.sroa.gep168 = getelementptr inbounds i8, ptr %ref.tmp118, i64 8
-  %ref.tmp69.sink.sroa.gep169 = getelementptr inbounds i8, ptr %ref.tmp122, i64 8
-  %ref.tmp69.sink.sroa.gep170 = getelementptr inbounds i8, ptr %ref.tmp126, i64 8
-  %ref.tmp69.sink.sroa.gep171 = getelementptr inbounds i8, ptr %ref.tmp130, i64 8
-  %ref.tmp69.sink.sroa.gep172 = getelementptr inbounds i8, ptr %ref.tmp134, i64 8
-  %ref.tmp69.sink.sroa.gep173 = getelementptr inbounds i8, ptr %ref.tmp138, i64 8
-  %ref.tmp69.sink.sroa.gep174 = getelementptr inbounds i8, ptr %ref.tmp142, i64 8
-  %ref.tmp69.sink.sroa.gep175 = getelementptr inbounds i8, ptr %ref.tmp146, i64 8
-  %ref.tmp69.sink.sroa.gep176 = getelementptr inbounds i8, ptr %ref.tmp150, i64 8
-  %ref.tmp69.sink.sroa.gep177 = getelementptr inbounds i8, ptr %ref.tmp154, i64 8
-  %ref.tmp69.sink.sroa.gep178 = getelementptr inbounds i8, ptr %ref.tmp158, i64 8
-  %ref.tmp69.sink.sroa.gep179 = getelementptr inbounds i8, ptr %ref.tmp162, i64 8
-  %ref.tmp69.sink.sroa.gep180 = getelementptr inbounds i8, ptr %ref.tmp166, i64 8
-  %ref.tmp69.sink.sroa.gep181 = getelementptr inbounds i8, ptr %ref.tmp170, i64 8
-  %ref.tmp69.sink.sroa.gep182 = getelementptr inbounds i8, ptr %ref.tmp174, i64 8
-  %ref.tmp69.sink.sroa.gep183 = getelementptr inbounds i8, ptr %ref.tmp178, i64 8
-  %ref.tmp69.sink.sroa.gep184 = getelementptr inbounds i8, ptr %ref.tmp182, i64 8
-  %ref.tmp69.sink.sroa.gep185 = getelementptr inbounds i8, ptr %ref.tmp186, i64 8
-  %ref.tmp69.sink.sroa.gep186 = getelementptr inbounds i8, ptr %ref.tmp190, i64 8
-  %ref.tmp69.sink.sroa.gep187 = getelementptr inbounds i8, ptr %ref.tmp194, i64 8
-  %ref.tmp69.sink.sroa.gep188 = getelementptr inbounds i8, ptr %ref.tmp198, i64 8
-  %ref.tmp69.sink.sroa.gep189 = getelementptr inbounds i8, ptr %ref.tmp202, i64 8
-  %ref.tmp40.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp40, i64 8
-  %ref.tmp40.sink.sroa.gep190 = getelementptr inbounds i8, ptr %ref.tmp64, i64 8
+  %ref.tmp69.sink.sroa.gep160 = getelementptr inbounds i8, ptr %ref.tmp78, i64 8
+  %ref.tmp69.sink.sroa.gep161 = getelementptr inbounds i8, ptr %ref.tmp82, i64 8
+  %ref.tmp69.sink.sroa.gep162 = getelementptr inbounds i8, ptr %ref.tmp86, i64 8
+  %ref.tmp69.sink.sroa.gep163 = getelementptr inbounds i8, ptr %ref.tmp90, i64 8
+  %ref.tmp69.sink.sroa.gep164 = getelementptr inbounds i8, ptr %ref.tmp94, i64 8
+  %ref.tmp69.sink.sroa.gep165 = getelementptr inbounds i8, ptr %ref.tmp98, i64 8
+  %ref.tmp69.sink.sroa.gep166 = getelementptr inbounds i8, ptr %ref.tmp102, i64 8
+  %ref.tmp69.sink.sroa.gep167 = getelementptr inbounds i8, ptr %ref.tmp106, i64 8
+  %ref.tmp69.sink.sroa.gep168 = getelementptr inbounds i8, ptr %ref.tmp110, i64 8
+  %ref.tmp69.sink.sroa.gep169 = getelementptr inbounds i8, ptr %ref.tmp114, i64 8
+  %ref.tmp69.sink.sroa.gep170 = getelementptr inbounds i8, ptr %ref.tmp118, i64 8
+  %ref.tmp69.sink.sroa.gep171 = getelementptr inbounds i8, ptr %ref.tmp122, i64 8
+  %ref.tmp69.sink.sroa.gep172 = getelementptr inbounds i8, ptr %ref.tmp126, i64 8
+  %ref.tmp69.sink.sroa.gep173 = getelementptr inbounds i8, ptr %ref.tmp130, i64 8
+  %ref.tmp69.sink.sroa.gep174 = getelementptr inbounds i8, ptr %ref.tmp134, i64 8
+  %ref.tmp69.sink.sroa.gep175 = getelementptr inbounds i8, ptr %ref.tmp138, i64 8
+  %ref.tmp69.sink.sroa.gep176 = getelementptr inbounds i8, ptr %ref.tmp142, i64 8
+  %ref.tmp69.sink.sroa.gep177 = getelementptr inbounds i8, ptr %ref.tmp146, i64 8
+  %ref.tmp69.sink.sroa.gep178 = getelementptr inbounds i8, ptr %ref.tmp150, i64 8
+  %ref.tmp69.sink.sroa.gep179 = getelementptr inbounds i8, ptr %ref.tmp154, i64 8
+  %ref.tmp69.sink.sroa.gep180 = getelementptr inbounds i8, ptr %ref.tmp158, i64 8
+  %ref.tmp69.sink.sroa.gep181 = getelementptr inbounds i8, ptr %ref.tmp162, i64 8
+  %ref.tmp69.sink.sroa.gep182 = getelementptr inbounds i8, ptr %ref.tmp166, i64 8
+  %ref.tmp69.sink.sroa.gep183 = getelementptr inbounds i8, ptr %ref.tmp170, i64 8
+  %ref.tmp69.sink.sroa.gep184 = getelementptr inbounds i8, ptr %ref.tmp174, i64 8
+  %ref.tmp69.sink.sroa.gep185 = getelementptr inbounds i8, ptr %ref.tmp178, i64 8
+  %ref.tmp69.sink.sroa.gep186 = getelementptr inbounds i8, ptr %ref.tmp182, i64 8
+  %ref.tmp69.sink.sroa.gep187 = getelementptr inbounds i8, ptr %ref.tmp186, i64 8
+  %ref.tmp69.sink.sroa.gep188 = getelementptr inbounds i8, ptr %ref.tmp190, i64 8
+  %ref.tmp69.sink.sroa.gep189 = getelementptr inbounds i8, ptr %ref.tmp194, i64 8
+  %ref.tmp69.sink.sroa.gep190 = getelementptr inbounds i8, ptr %ref.tmp198, i64 8
+  %ref.tmp69.sink.sroa.gep191 = getelementptr inbounds i8, ptr %ref.tmp202, i64 8
+  %ref.tmp40.sink157.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp40, i64 8
+  %ref.tmp40.sink157.sroa.gep192 = getelementptr inbounds i8, ptr %ref.tmp64, i64 8
   %ref.tmp17.sink.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
-  %ref.tmp17.sink.sroa.gep191 = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
-  %ref.tmp17.sink.sroa.gep192 = getelementptr inbounds i8, ptr %ref.tmp25, i64 8
+  %ref.tmp17.sink.sroa.gep193 = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
+  %ref.tmp17.sink.sroa.gep194 = getelementptr inbounds i8, ptr %ref.tmp25, i64 8
   invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp4)
           to label %invoke.cont9 unwind label %lpad
 
@@ -15883,7 +15883,7 @@ invoke.cont26:                                    ; preds = %sw.bb
   br label %invoke.cont26.invoke
 
 invoke.cont26.invoke:                             ; preds = %invoke.cont18, %invoke.cont22, %invoke.cont26
-  %ref.tmp17.sink.sroa.phi = phi ptr [ %ref.tmp17.sink.sroa.gep, %invoke.cont18 ], [ %ref.tmp17.sink.sroa.gep191, %invoke.cont22 ], [ %ref.tmp17.sink.sroa.gep192, %invoke.cont26 ]
+  %ref.tmp17.sink.sroa.phi = phi ptr [ %ref.tmp17.sink.sroa.gep, %invoke.cont18 ], [ %ref.tmp17.sink.sroa.gep193, %invoke.cont22 ], [ %ref.tmp17.sink.sroa.gep194, %invoke.cont26 ]
   %ref.tmp17.sink = phi ptr [ %ref.tmp17, %invoke.cont18 ], [ %ref.tmp21, %invoke.cont22 ], [ %ref.tmp25, %invoke.cont26 ]
   %.str.6.sink = phi ptr [ @.str.6, %invoke.cont18 ], [ @.str.7, %invoke.cont22 ], [ @.str.8, %invoke.cont26 ]
   store ptr %.str.6.sink, ptr %ref.tmp17.sink.sroa.phi, align 8
@@ -15919,8 +15919,6 @@ invoke.cont39:                                    ; preds = %invoke.cont26.invok
   %idxprom41 = zext nneg i32 %shr to i64
   %arrayidx42 = getelementptr inbounds [5 x ptr], ptr @_ZZN6google8protobuf8internal16TypeCardToStringB5cxx11EtE9kRepNames, i64 0, i64 %idxprom41
   %6 = load ptr, ptr %arrayidx42, align 8
-  %call.i.i.i.i29 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #26
-  store i64 %call.i.i.i.i29, ptr %ref.tmp40, align 8
   br label %invoke.cont65.invoke
 
 invoke.cont47:                                    ; preds = %invoke.cont9
@@ -15961,17 +15959,17 @@ invoke.cont65:                                    ; preds = %if.end
   store i64 13, ptr %ref.tmp62, align 8
   %12 = getelementptr inbounds i8, ptr %ref.tmp62, i64 8
   store ptr @.str.24, ptr %12, align 8
-  %call.i.i.i.i48 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #26
-  store i64 %call.i.i.i.i48, ptr %ref.tmp64, align 8
   br label %invoke.cont65.invoke
 
 invoke.cont65.invoke:                             ; preds = %invoke.cont39, %invoke.cont65
-  %ref.tmp40.sink.sroa.phi = phi ptr [ %ref.tmp40.sink.sroa.gep, %invoke.cont39 ], [ %ref.tmp40.sink.sroa.gep190, %invoke.cont65 ]
-  %ref.tmp40.sink = phi ptr [ %ref.tmp40, %invoke.cont39 ], [ %ref.tmp64, %invoke.cont65 ]
-  %.sink = phi ptr [ %6, %invoke.cont39 ], [ %11, %invoke.cont65 ]
+  %.sink158 = phi ptr [ %6, %invoke.cont39 ], [ %11, %invoke.cont65 ]
+  %ref.tmp40.sink157.sroa.phi = phi ptr [ %ref.tmp40.sink157.sroa.gep, %invoke.cont39 ], [ %ref.tmp40.sink157.sroa.gep192, %invoke.cont65 ]
+  %ref.tmp40.sink157 = phi ptr [ %ref.tmp40, %invoke.cont39 ], [ %ref.tmp64, %invoke.cont65 ]
   %13 = phi ptr [ %ref.tmp38, %invoke.cont39 ], [ %ref.tmp62, %invoke.cont65 ]
-  store ptr %.sink, ptr %ref.tmp40.sink.sroa.phi, align 8
-  invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp40.sink)
+  %call.i.i.i.i29 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink158) #26
+  store i64 %call.i.i.i.i29, ptr %ref.tmp40.sink157, align 8
+  store ptr %.sink158, ptr %ref.tmp40.sink157.sroa.phi, align 8
+  invoke void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef nonnull %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp40.sink157)
           to label %sw.epilog218 unwind label %lpad
 
 invoke.cont70:                                    ; preds = %invoke.cont9
@@ -16144,7 +16142,7 @@ invoke.cont203:                                   ; preds = %sw.bb73
   br label %invoke.cont203.invoke
 
 invoke.cont203.invoke:                            ; preds = %invoke.cont70, %invoke.cont79, %invoke.cont83, %invoke.cont87, %invoke.cont91, %invoke.cont95, %invoke.cont99, %invoke.cont103, %invoke.cont107, %invoke.cont111, %invoke.cont115, %invoke.cont119, %invoke.cont123, %invoke.cont127, %invoke.cont131, %invoke.cont135, %invoke.cont139, %invoke.cont143, %invoke.cont147, %invoke.cont151, %invoke.cont155, %invoke.cont159, %invoke.cont163, %invoke.cont167, %invoke.cont171, %invoke.cont175, %invoke.cont179, %invoke.cont183, %invoke.cont187, %invoke.cont191, %invoke.cont195, %invoke.cont199, %invoke.cont203
-  %ref.tmp69.sink.sroa.phi = phi ptr [ %ref.tmp69.sink.sroa.gep, %invoke.cont70 ], [ %ref.tmp69.sink.sroa.gep158, %invoke.cont79 ], [ %ref.tmp69.sink.sroa.gep159, %invoke.cont83 ], [ %ref.tmp69.sink.sroa.gep160, %invoke.cont87 ], [ %ref.tmp69.sink.sroa.gep161, %invoke.cont91 ], [ %ref.tmp69.sink.sroa.gep162, %invoke.cont95 ], [ %ref.tmp69.sink.sroa.gep163, %invoke.cont99 ], [ %ref.tmp69.sink.sroa.gep164, %invoke.cont103 ], [ %ref.tmp69.sink.sroa.gep165, %invoke.cont107 ], [ %ref.tmp69.sink.sroa.gep166, %invoke.cont111 ], [ %ref.tmp69.sink.sroa.gep167, %invoke.cont115 ], [ %ref.tmp69.sink.sroa.gep168, %invoke.cont119 ], [ %ref.tmp69.sink.sroa.gep169, %invoke.cont123 ], [ %ref.tmp69.sink.sroa.gep170, %invoke.cont127 ], [ %ref.tmp69.sink.sroa.gep171, %invoke.cont131 ], [ %ref.tmp69.sink.sroa.gep172, %invoke.cont135 ], [ %ref.tmp69.sink.sroa.gep173, %invoke.cont139 ], [ %ref.tmp69.sink.sroa.gep174, %invoke.cont143 ], [ %ref.tmp69.sink.sroa.gep175, %invoke.cont147 ], [ %ref.tmp69.sink.sroa.gep176, %invoke.cont151 ], [ %ref.tmp69.sink.sroa.gep177, %invoke.cont155 ], [ %ref.tmp69.sink.sroa.gep178, %invoke.cont159 ], [ %ref.tmp69.sink.sroa.gep179, %invoke.cont163 ], [ %ref.tmp69.sink.sroa.gep180, %invoke.cont167 ], [ %ref.tmp69.sink.sroa.gep181, %invoke.cont171 ], [ %ref.tmp69.sink.sroa.gep182, %invoke.cont175 ], [ %ref.tmp69.sink.sroa.gep183, %invoke.cont179 ], [ %ref.tmp69.sink.sroa.gep184, %invoke.cont183 ], [ %ref.tmp69.sink.sroa.gep185, %invoke.cont187 ], [ %ref.tmp69.sink.sroa.gep186, %invoke.cont191 ], [ %ref.tmp69.sink.sroa.gep187, %invoke.cont195 ], [ %ref.tmp69.sink.sroa.gep188, %invoke.cont199 ], [ %ref.tmp69.sink.sroa.gep189, %invoke.cont203 ]
+  %ref.tmp69.sink.sroa.phi = phi ptr [ %ref.tmp69.sink.sroa.gep, %invoke.cont70 ], [ %ref.tmp69.sink.sroa.gep160, %invoke.cont79 ], [ %ref.tmp69.sink.sroa.gep161, %invoke.cont83 ], [ %ref.tmp69.sink.sroa.gep162, %invoke.cont87 ], [ %ref.tmp69.sink.sroa.gep163, %invoke.cont91 ], [ %ref.tmp69.sink.sroa.gep164, %invoke.cont95 ], [ %ref.tmp69.sink.sroa.gep165, %invoke.cont99 ], [ %ref.tmp69.sink.sroa.gep166, %invoke.cont103 ], [ %ref.tmp69.sink.sroa.gep167, %invoke.cont107 ], [ %ref.tmp69.sink.sroa.gep168, %invoke.cont111 ], [ %ref.tmp69.sink.sroa.gep169, %invoke.cont115 ], [ %ref.tmp69.sink.sroa.gep170, %invoke.cont119 ], [ %ref.tmp69.sink.sroa.gep171, %invoke.cont123 ], [ %ref.tmp69.sink.sroa.gep172, %invoke.cont127 ], [ %ref.tmp69.sink.sroa.gep173, %invoke.cont131 ], [ %ref.tmp69.sink.sroa.gep174, %invoke.cont135 ], [ %ref.tmp69.sink.sroa.gep175, %invoke.cont139 ], [ %ref.tmp69.sink.sroa.gep176, %invoke.cont143 ], [ %ref.tmp69.sink.sroa.gep177, %invoke.cont147 ], [ %ref.tmp69.sink.sroa.gep178, %invoke.cont151 ], [ %ref.tmp69.sink.sroa.gep179, %invoke.cont155 ], [ %ref.tmp69.sink.sroa.gep180, %invoke.cont159 ], [ %ref.tmp69.sink.sroa.gep181, %invoke.cont163 ], [ %ref.tmp69.sink.sroa.gep182, %invoke.cont167 ], [ %ref.tmp69.sink.sroa.gep183, %invoke.cont171 ], [ %ref.tmp69.sink.sroa.gep184, %invoke.cont175 ], [ %ref.tmp69.sink.sroa.gep185, %invoke.cont179 ], [ %ref.tmp69.sink.sroa.gep186, %invoke.cont183 ], [ %ref.tmp69.sink.sroa.gep187, %invoke.cont187 ], [ %ref.tmp69.sink.sroa.gep188, %invoke.cont191 ], [ %ref.tmp69.sink.sroa.gep189, %invoke.cont195 ], [ %ref.tmp69.sink.sroa.gep190, %invoke.cont199 ], [ %ref.tmp69.sink.sroa.gep191, %invoke.cont203 ]
   %ref.tmp69.sink = phi ptr [ %ref.tmp69, %invoke.cont70 ], [ %ref.tmp78, %invoke.cont79 ], [ %ref.tmp82, %invoke.cont83 ], [ %ref.tmp86, %invoke.cont87 ], [ %ref.tmp90, %invoke.cont91 ], [ %ref.tmp94, %invoke.cont95 ], [ %ref.tmp98, %invoke.cont99 ], [ %ref.tmp102, %invoke.cont103 ], [ %ref.tmp106, %invoke.cont107 ], [ %ref.tmp110, %invoke.cont111 ], [ %ref.tmp114, %invoke.cont115 ], [ %ref.tmp118, %invoke.cont119 ], [ %ref.tmp122, %invoke.cont123 ], [ %ref.tmp126, %invoke.cont127 ], [ %ref.tmp130, %invoke.cont131 ], [ %ref.tmp134, %invoke.cont135 ], [ %ref.tmp138, %invoke.cont139 ], [ %ref.tmp142, %invoke.cont143 ], [ %ref.tmp146, %invoke.cont147 ], [ %ref.tmp150, %invoke.cont151 ], [ %ref.tmp154, %invoke.cont155 ], [ %ref.tmp158, %invoke.cont159 ], [ %ref.tmp162, %invoke.cont163 ], [ %ref.tmp166, %invoke.cont167 ], [ %ref.tmp170, %invoke.cont171 ], [ %ref.tmp174, %invoke.cont175 ], [ %ref.tmp178, %invoke.cont179 ], [ %ref.tmp182, %invoke.cont183 ], [ %ref.tmp186, %invoke.cont187 ], [ %ref.tmp190, %invoke.cont191 ], [ %ref.tmp194, %invoke.cont195 ], [ %ref.tmp198, %invoke.cont199 ], [ %ref.tmp202, %invoke.cont203 ]
   %.str.25.sink = phi ptr [ @.str.25, %invoke.cont70 ], [ @.str.26, %invoke.cont79 ], [ @.str.27, %invoke.cont83 ], [ @.str.28, %invoke.cont87 ], [ @.str.29, %invoke.cont91 ], [ @.str.30, %invoke.cont95 ], [ @.str.31, %invoke.cont99 ], [ @.str.32, %invoke.cont103 ], [ @.str.33, %invoke.cont107 ], [ @.str.34, %invoke.cont111 ], [ @.str.35, %invoke.cont115 ], [ @.str.36, %invoke.cont119 ], [ @.str.37, %invoke.cont123 ], [ @.str.38, %invoke.cont127 ], [ @.str.39, %invoke.cont131 ], [ @.str.40, %invoke.cont135 ], [ @.str.41, %invoke.cont139 ], [ @.str.42, %invoke.cont143 ], [ @.str.43, %invoke.cont147 ], [ @.str.44, %invoke.cont151 ], [ @.str.45, %invoke.cont155 ], [ @.str.46, %invoke.cont159 ], [ @.str.47, %invoke.cont163 ], [ @.str.48, %invoke.cont167 ], [ @.str.49, %invoke.cont171 ], [ @.str.50, %invoke.cont175 ], [ @.str.51, %invoke.cont179 ], [ @.str.52, %invoke.cont183 ], [ @.str.53, %invoke.cont187 ], [ @.str.54, %invoke.cont191 ], [ @.str.55, %invoke.cont195 ], [ @.str.56, %invoke.cont199 ], [ @.str.57, %invoke.cont203 ]
   store ptr %.str.25.sink, ptr %ref.tmp69.sink.sroa.phi, align 8

@@ -102,11 +102,11 @@ define range(i32 -14, 1) i32 @opal_setenv(ptr noundef %0, ptr noundef %1, i1 nou
   %.020 = phi ptr [ @.str, %9 ], [ %1, %11 ]
   %14 = load ptr, ptr %6, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %56, label %16
+  br i1 %15, label %57, label %16
 
 16:                                               ; preds = %13
   %17 = icmp eq ptr %3, null
-  br i1 %17, label %56, label %18
+  br i1 %17, label %57, label %18
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %3, align 8
@@ -185,13 +185,13 @@ define range(i32 -14, 1) i32 @opal_setenv(ptr noundef %0, ptr noundef %1, i1 nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %29, %21, %26, %45, %51, %._crit_edge
-  %.sink.in = phi ptr [ %6, %._crit_edge ], [ %6, %51 ], [ %7, %45 ], [ %6, %26 ], [ %6, %21 ], [ %6, %29 ]
+  %.sink34 = phi ptr [ %6, %._crit_edge ], [ %6, %51 ], [ %7, %45 ], [ %6, %26 ], [ %6, %21 ], [ %6, %29 ]
   %.0.ph = phi i32 [ 0, %._crit_edge ], [ -14, %51 ], [ 0, %45 ], [ 0, %26 ], [ 0, %21 ], [ -2, %29 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @free(ptr noundef %.sink) #8
-  br label %56
+  %56 = load ptr, ptr %.sink34, align 8
+  call void @free(ptr noundef %56) #8
+  br label %57
 
-56:                                               ; preds = %.sink.split, %16, %13
+57:                                               ; preds = %.sink.split, %16, %13
   %.0 = phi i32 [ -2, %13 ], [ -5, %16 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
