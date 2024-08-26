@@ -140,56 +140,52 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 -1, 1) i32 @_test_val(ptr noundef %0) unnamed_addr #4 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
-  %3 = icmp eq ptr %0, null
-  br i1 %3, label %23, label %4
+  %3 = load i8, ptr %0, align 1
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %21, label %5
 
-4:                                                ; preds = %1
-  %5 = load i8, ptr %0, align 1
-  %6 = icmp eq i8 %5, 0
-  br i1 %6, label %23, label %7
+5:                                                ; preds = %1
+  %6 = add i8 %3, -48
+  %or.cond20 = icmp ult i8 %6, 10
+  br i1 %or.cond20, label %7, label %13
 
-7:                                                ; preds = %4
-  %8 = add i8 %5, -48
-  %or.cond20 = icmp ult i8 %8, 10
-  br i1 %or.cond20, label %9, label %15
+7:                                                ; preds = %5
+  %8 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 10) #6
+  %or.cond = icmp ugt i64 %8, 9223372036854775806
+  br i1 %or.cond, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 10) #6
-  %or.cond = icmp ugt i64 %10, 9223372036854775806
-  br i1 %or.cond, label %14, label %11
+  %10 = load ptr, ptr %2, align 8
+  %11 = load i8, ptr %10, align 1
+  %.not19 = icmp eq i8 %11, 0
+  br i1 %.not19, label %21, label %12
 
-11:                                               ; preds = %9
-  %12 = load ptr, ptr %2, align 8
-  %13 = load i8, ptr %12, align 1
-  %.not19 = icmp eq i8 %13, 0
-  br i1 %.not19, label %23, label %14
+12:                                               ; preds = %9, %7
+  br label %21
 
-14:                                               ; preds = %11, %9
-  br label %23
+13:                                               ; preds = %5
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.5) #7
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %21, label %15
 
-15:                                               ; preds = %7
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.5) #7
-  %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %23, label %17
+15:                                               ; preds = %13
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.6) #7
+  %.not16 = icmp eq i32 %16, 0
+  br i1 %.not16, label %21, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.6) #7
-  %.not16 = icmp eq i32 %18, 0
-  br i1 %.not16, label %23, label %19
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.7) #7
+  %.not17 = icmp eq i32 %18, 0
+  br i1 %.not17, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.7) #7
-  %.not17 = icmp eq i32 %20, 0
-  br i1 %.not17, label %23, label %21
-
-21:                                               ; preds = %19
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.8) #7
-  %.not18 = icmp ne i32 %22, 0
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.8) #7
+  %.not18 = icmp ne i32 %20, 0
   %spec.select = sext i1 %.not18 to i32
-  br label %23
+  br label %21
 
-23:                                               ; preds = %21, %14, %11, %19, %17, %15, %1, %4
-  %.013 = phi i32 [ -1, %4 ], [ -1, %1 ], [ -1, %14 ], [ 0, %11 ], [ 0, %19 ], [ 0, %17 ], [ 0, %15 ], [ %spec.select, %21 ]
+21:                                               ; preds = %19, %12, %9, %17, %15, %13, %1
+  %.013 = phi i32 [ -1, %1 ], [ -1, %12 ], [ 0, %9 ], [ 0, %17 ], [ 0, %15 ], [ 0, %13 ], [ %spec.select, %19 ]
   ret i32 %.013
 }
 

@@ -46239,7 +46239,7 @@ cond.end668:                                      ; preds = %invoke.cont584, %in
   %codeTimer1.sink = phi ptr [ %codeTimer1, %_ZNSt5dequeIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE5clearEv.exit ], [ %codeTimer0, %invoke.cont602 ], [ %codeTimer0, %invoke.cont584 ]
   %emmittedConflictOrSplit.4 = phi i8 [ %emmittedConflictOrSplit.23923, %_ZNSt5dequeIPN4cvc58internal6theory5arith6linear10ConstraintESaIS6_EE5clearEv.exit ], [ 1, %invoke.cont602 ], [ %emmittedConflictOrSplit.1, %invoke.cont584 ]
   call void @_ZN4cvc58internal9CodeTimerD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %codeTimer1.sink) #32
-  %tobool669 = trunc i8 %emmittedConflictOrSplit.4 to i1
+  %tobool669 = trunc nuw i8 %emmittedConflictOrSplit.4 to i1
   %cmp.i3074 = icmp ne i32 %effortLevel, 100
   %or.cond3946.not = or i1 %cmp.i3074, %tobool669
   br i1 %or.cond3946.not, label %cond.end1063, label %cond.end710.thread
@@ -46909,7 +46909,7 @@ ehcleanup940:                                     ; preds = %lpad719.loopexit, %
 
 cond.end1063:                                     ; preds = %if.end12.us.i.i, %cond.end668, %if.end939, %if.then.i.i3640, %if.then13.i.i3647, %_ZNK4cvc58internal6theory5arith6linear18TheoryArithPrivate20nextIntegerViolationEb.exit.i, %land.lhs.true714, %cond.end710.thread
   %emmittedConflictOrSplit.63938 = phi i8 [ 1, %cond.end710.thread ], [ 0, %land.lhs.true714 ], [ %emmittedConflictOrSplit.10, %if.end939 ], [ %emmittedConflictOrSplit.10, %if.then.i.i3640 ], [ %emmittedConflictOrSplit.10, %if.then13.i.i3647 ], [ 0, %_ZNK4cvc58internal6theory5arith6linear18TheoryArithPrivate20nextIntegerViolationEb.exit.i ], [ %emmittedConflictOrSplit.4, %cond.end668 ], [ 0, %if.end12.us.i.i ]
-  %tobool1064 = trunc i8 %emmittedConflictOrSplit.63938 to i1
+  %tobool1064 = trunc nuw i8 %emmittedConflictOrSplit.63938 to i1
   br label %return
 
 return:                                           ; preds = %cond.end1063, %_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate19revertOutOfConflictEv.exit1187, %if.end58

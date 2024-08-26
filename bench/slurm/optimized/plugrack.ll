@@ -335,136 +335,142 @@ define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nocap
   %22 = getelementptr inbounds i8, ptr %21, i64 1
   %23 = tail call ptr @opendir(ptr noundef %1)
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %29, label %_so_file.exit.preheader
+  br i1 %24, label %29, label %.preheader
 
-_so_file.exit.preheader:                          ; preds = %12
+.preheader:                                       ; preds = %12
   %25 = tail call ptr @readdir(ptr noundef nonnull %23) #10
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %_so_file.exit._crit_edge, label %.lr.ph
+  br i1 %26, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_so_file.exit.preheader
+.lr.ph:                                           ; preds = %.preheader
   %27 = getelementptr inbounds i8, ptr %4, i64 24
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   br label %31
 
 29:                                               ; preds = %12
   %30 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef %1) #10
-  br label %88
+  br label %92
 
-31:                                               ; preds = %.lr.ph, %_so_file.exit.backedge
-  %32 = phi ptr [ %25, %.lr.ph ], [ %45, %_so_file.exit.backedge ]
+31:                                               ; preds = %.lr.ph, %.backedge
+  %32 = phi ptr [ %25, %.lr.ph ], [ %45, %.backedge ]
   %33 = getelementptr inbounds i8, ptr %32, i64 19
   %34 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %33) #10
   %35 = call i32 @xstrncmp(ptr noundef nonnull %33, ptr noundef nonnull @.str.24, i64 noundef 1) #10
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %_so_file.exit.backedge, label %37
+  br i1 %36, label %.backedge, label %37
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %3, align 8
   %39 = call i32 @stat(ptr noundef %38, ptr noundef nonnull %4) #10
   %40 = icmp slt i32 %39, 0
-  br i1 %40, label %_so_file.exit.backedge, label %41
+  br i1 %40, label %.backedge, label %41
 
 41:                                               ; preds = %37
   %42 = load i32, ptr %27, align 8
   %43 = and i32 %42, 61440
   %44 = icmp eq i32 %43, 32768
-  br i1 %44, label %.preheader.i, label %_so_file.exit.backedge
+  br i1 %44, label %47, label %.backedge
 
-_so_file.exit.backedge:                           ; preds = %.preheader.i, %79, %77, %31, %37, %41, %64, %69, %74
+.backedge:                                        ; preds = %.lr.ph.i._crit_edge, %83, %81, %47, %31, %37, %41, %68, %73, %78
   %45 = call ptr @readdir(ptr noundef nonnull %23) #10
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %_so_file.exit._crit_edge, label %31
+  br i1 %46, label %._crit_edge, label %31
 
-.preheader.i:                                     ; preds = %41, %61
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %61 ], [ 0, %41 ]
-  %47 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv.i
-  %48 = load i8, ptr %47, align 1
-  switch i8 %48, label %61 [
-    i8 0, label %_so_file.exit.backedge
-    i8 46, label %49
-  ]
+47:                                               ; preds = %41
+  %48 = load i8, ptr %33, align 1
+  %.not15.not.i = icmp eq i8 %48, 0
+  br i1 %.not15.not.i, label %.backedge, label %.lr.ph.i
 
-49:                                               ; preds = %.preheader.i
-  %50 = getelementptr inbounds i8, ptr %47, i64 1
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, 115
-  br i1 %52, label %53, label %61
+.lr.ph.i:                                         ; preds = %47, %.lr.ph.i._crit_edge
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i._crit_edge ], [ 0, %47 ]
+  %49 = phi i8 [ %65, %.lr.ph.i._crit_edge ], [ %48, %47 ]
+  %50 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv.i
+  %51 = icmp eq i8 %49, 46
+  br i1 %51, label %52, label %.lr.ph.i._crit_edge
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %47, i64 2
-  %55 = load i8, ptr %54, align 1
-  %56 = icmp eq i8 %55, 111
-  br i1 %56, label %57, label %61
+52:                                               ; preds = %.lr.ph.i
+  %53 = getelementptr inbounds i8, ptr %50, i64 1
+  %54 = load i8, ptr %53, align 1
+  %55 = icmp eq i8 %54, 115
+  br i1 %55, label %56, label %.lr.ph.i._crit_edge
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %47, i64 3
-  %59 = load i8, ptr %58, align 1
-  %60 = icmp eq i8 %59, 0
-  br i1 %60, label %62, label %61
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds i8, ptr %50, i64 2
+  %58 = load i8, ptr %57, align 1
+  %59 = icmp eq i8 %58, 111
+  br i1 %59, label %60, label %.lr.ph.i._crit_edge
 
-61:                                               ; preds = %57, %53, %49, %.preheader.i
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds i8, ptr %50, i64 3
+  %62 = load i8, ptr %61, align 1
+  %63 = icmp eq i8 %62, 0
+  br i1 %63, label %66, label %.lr.ph.i._crit_edge
+
+.lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %60, %56, %52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.preheader.i, !llvm.loop !9
+  %64 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv.next.i
+  %65 = load i8, ptr %64, align 1
+  %.not.not.i = icmp eq i8 %65, 0
+  br i1 %.not.not.i, label %.backedge, label %.lr.ph.i, !llvm.loop !9
 
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %28, align 8
-  %.not = icmp eq ptr %63, null
-  br i1 %.not, label %69, label %64
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %28, align 8
+  %.not = icmp eq ptr %67, null
+  br i1 %.not, label %73, label %68
 
-64:                                               ; preds = %62
-  %65 = call i32 @xstrncmp(ptr noundef nonnull %33, ptr noundef nonnull @.str.25, i64 noundef 3) #10
-  %66 = icmp eq i32 %65, 0
-  %spec.select.idx.i = select i1 %66, i64 3, i64 0
+68:                                               ; preds = %66
+  %69 = call i32 @xstrncmp(ptr noundef nonnull %33, ptr noundef nonnull @.str.25, i64 noundef 3) #10
+  %70 = icmp eq i32 %69, 0
+  %spec.select.idx.i = select i1 %70, i64 3, i64 0
   %spec.select.i = getelementptr inbounds i8, ptr %33, i64 %spec.select.idx.i
-  %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #11
-  %68 = call i32 @xstrncmp(ptr noundef nonnull %spec.select.i, ptr noundef nonnull %63, i64 noundef %67) #10
-  %.not.i = icmp eq i32 %68, 0
-  br i1 %.not.i, label %69, label %_so_file.exit.backedge
+  %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #11
+  %72 = call i32 @xstrncmp(ptr noundef nonnull %spec.select.i, ptr noundef nonnull %67, i64 noundef %71) #10
+  %.not.i = icmp eq i32 %72, 0
+  br i1 %.not.i, label %73, label %.backedge
 
-69:                                               ; preds = %64, %62
-  %70 = load ptr, ptr %3, align 8
-  %71 = call i32 @plugin_peek(ptr noundef %70, ptr noundef nonnull %5, i64 noundef 64) #10
-  %.not26 = icmp eq i32 %71, 0
-  br i1 %.not26, label %72, label %_so_file.exit.backedge
+73:                                               ; preds = %68, %66
+  %74 = load ptr, ptr %3, align 8
+  %75 = call i32 @plugin_peek(ptr noundef %74, ptr noundef nonnull %5, i64 noundef 64) #10
+  %.not26 = icmp eq i32 %75, 0
+  br i1 %.not26, label %76, label %.backedge
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %28, align 8
-  %.not27 = icmp eq ptr %73, null
-  br i1 %.not27, label %77, label %74
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %28, align 8
+  %.not27 = icmp eq ptr %77, null
+  br i1 %.not27, label %81, label %78
 
-74:                                               ; preds = %72
-  %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #11
-  %76 = call i32 @xstrncmp(ptr noundef nonnull %73, ptr noundef nonnull %5, i64 noundef %75) #10
-  %.not28 = icmp eq i32 %76, 0
-  br i1 %.not28, label %77, label %_so_file.exit.backedge
+78:                                               ; preds = %76
+  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #11
+  %80 = call i32 @xstrncmp(ptr noundef nonnull %77, ptr noundef nonnull %5, i64 noundef %79) #10
+  %.not28 = icmp eq i32 %80, 0
+  br i1 %.not28, label %81, label %.backedge
 
-77:                                               ; preds = %74, %72
-  %78 = load ptr, ptr %3, align 8
-  %.not.i29 = icmp eq ptr %78, null
-  br i1 %.not.i29, label %_so_file.exit.backedge, label %79
+81:                                               ; preds = %78, %76
+  %82 = load ptr, ptr %3, align 8
+  %.not.i29 = icmp eq ptr %82, null
+  br i1 %.not.i29, label %.backedge, label %83
 
-79:                                               ; preds = %77
-  %80 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 169, ptr noundef nonnull @__func__.plugrack_add_plugin_path) #10
-  %81 = call ptr @xstrdup(ptr noundef nonnull %5) #10
-  store ptr %81, ptr %80, align 8
-  %82 = call ptr @xstrdup(ptr noundef nonnull %78) #10
-  %83 = getelementptr inbounds i8, ptr %80, i64 8
-  store ptr %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %80, i64 16
-  store ptr null, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %80, i64 24
-  store i32 0, ptr %85, align 8
-  %86 = load ptr, ptr %0, align 8
-  call void @list_append(ptr noundef %86, ptr noundef nonnull %80) #10
-  br label %_so_file.exit.backedge
+83:                                               ; preds = %81
+  %84 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 169, ptr noundef nonnull @__func__.plugrack_add_plugin_path) #10
+  %85 = call ptr @xstrdup(ptr noundef nonnull %5) #10
+  store ptr %85, ptr %84, align 8
+  %86 = call ptr @xstrdup(ptr noundef nonnull %82) #10
+  %87 = getelementptr inbounds i8, ptr %84, i64 8
+  store ptr %86, ptr %87, align 8
+  %88 = getelementptr inbounds i8, ptr %84, i64 16
+  store ptr null, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %84, i64 24
+  store i32 0, ptr %89, align 8
+  %90 = load ptr, ptr %0, align 8
+  call void @list_append(ptr noundef %90, ptr noundef nonnull %84) #10
+  br label %.backedge
 
-_so_file.exit._crit_edge:                         ; preds = %_so_file.exit.backedge, %_so_file.exit.preheader
-  %87 = call i32 @closedir(ptr noundef nonnull %23)
-  br label %88
+._crit_edge:                                      ; preds = %.backedge, %.preheader
+  %91 = call i32 @closedir(ptr noundef nonnull %23)
+  br label %92
 
-88:                                               ; preds = %_so_file.exit._crit_edge, %29
-  %.0 = phi i32 [ -1, %29 ], [ 0, %_so_file.exit._crit_edge ]
+92:                                               ; preds = %._crit_edge, %29
+  %.0 = phi i32 [ -1, %29 ], [ 0, %._crit_edge ]
   call void @slurm_xfree(ptr noundef nonnull %3) #10
   ret i32 %.0
 }

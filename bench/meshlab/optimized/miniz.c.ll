@@ -17330,7 +17330,7 @@ mz_zip_array_ensure_capacity.exit885.thread:      ; preds = %566, %576
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_update_zip64_extension_block(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr noundef readonly %6) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_update_zip64_extension_block(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr noundef readonly %6) unnamed_addr #7 {
   %8 = alloca [64 x i8], align 16
   %9 = add nuw nsw i32 %3, 64
   %10 = zext nneg i32 %9 to i64
@@ -17510,11 +17510,11 @@ mz_zip_array_ensure_capacity.exit:                ; preds = %14
   store i8 %119, ptr %33, align 1
   %120 = add i64 %111, %114
   %121 = icmp ugt i64 %120, %110
-  br i1 %121, label %122, label %..critedge255_crit_edge
+  br i1 %121, label %122, label %..critedge256_crit_edge
 
-..critedge255_crit_edge:                          ; preds = %109
+..critedge256_crit_edge:                          ; preds = %109
   %.pre8 = load ptr, ptr %0, align 8
-  br label %.critedge255
+  br label %.critedge256
 
 122:                                              ; preds = %109
   %spec.select.i = call i64 @llvm.umax.i64(i64 %110, i64 1)
@@ -17537,15 +17537,15 @@ mz_zip_array_ensure_capacity.exit:                ; preds = %14
   %133 = zext i32 %132 to i64
   %134 = call ptr %127(ptr noundef %129, ptr noundef %130, i64 noundef %133, i64 noundef %.1.i) #30
   %135 = icmp eq ptr %134, null
-  br i1 %135, label %.loopexit.sink.split, label %mz_zip_array_ensure_capacity.exit260
+  br i1 %135, label %.loopexit.sink.split, label %mz_zip_array_ensure_capacity.exit261
 
-mz_zip_array_ensure_capacity.exit260:             ; preds = %.loopexit.i
+mz_zip_array_ensure_capacity.exit261:             ; preds = %.loopexit.i
   store ptr %134, ptr %0, align 8
   store i64 %.1.i, ptr %11, align 8
-  br label %.critedge255
+  br label %.critedge256
 
-.critedge255:                                     ; preds = %..critedge255_crit_edge, %mz_zip_array_ensure_capacity.exit260
-  %136 = phi ptr [ %.pre8, %..critedge255_crit_edge ], [ %134, %mz_zip_array_ensure_capacity.exit260 ]
+.critedge256:                                     ; preds = %..critedge256_crit_edge, %mz_zip_array_ensure_capacity.exit261
+  %136 = phi ptr [ %.pre8, %..critedge256_crit_edge ], [ %134, %mz_zip_array_ensure_capacity.exit261 ]
   store i64 %120, ptr %26, align 8
   %137 = getelementptr inbounds i8, ptr %0, i64 24
   %138 = load i32, ptr %137, align 8
@@ -17556,95 +17556,93 @@ mz_zip_array_ensure_capacity.exit260:             ; preds = %.loopexit.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %141, ptr nonnull align 16 %8, i64 %142, i1 false)
   br label %143
 
-143:                                              ; preds = %.critedge255, %.critedge
-  %144 = icmp ne ptr %2, null
-  %145 = icmp ne i32 %3, 0
-  %or.cond7 = and i1 %144, %145
-  br i1 %or.cond7, label %.preheader, label %.loopexit
+143:                                              ; preds = %.critedge256, %.critedge
+  %.not245 = icmp eq i32 %3, 0
+  br i1 %.not245, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %143
-  %146 = getelementptr inbounds i8, ptr %1, i64 56
-  %147 = getelementptr inbounds i8, ptr %1, i64 64
-  %148 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %149
+  %144 = getelementptr inbounds i8, ptr %1, i64 56
+  %145 = getelementptr inbounds i8, ptr %1, i64 64
+  %146 = getelementptr inbounds i8, ptr %0, i64 24
+  br label %147
 
-149:                                              ; preds = %.preheader, %._crit_edge
-  %.0219 = phi i32 [ %182, %._crit_edge ], [ %3, %.preheader ]
-  %.0218 = phi ptr [ %181, %._crit_edge ], [ %2, %.preheader ]
-  %150 = icmp ult i32 %.0219, 4
-  br i1 %150, label %.loopexit.sink.split, label %151
+147:                                              ; preds = %.preheader, %._crit_edge
+  %.0219 = phi i32 [ %180, %._crit_edge ], [ %3, %.preheader ]
+  %.0218 = phi ptr [ %179, %._crit_edge ], [ %2, %.preheader ]
+  %148 = icmp ult i32 %.0219, 4
+  br i1 %148, label %.loopexit.sink.split, label %149
 
-151:                                              ; preds = %149
-  %152 = getelementptr inbounds i8, ptr %.0218, i64 2
-  %153 = load i16, ptr %152, align 2
-  %154 = zext i16 %153 to i32
-  %155 = add nuw nsw i32 %154, 4
-  %156 = icmp ugt i32 %155, %.0219
-  br i1 %156, label %.loopexit.sink.split, label %157
+149:                                              ; preds = %147
+  %150 = getelementptr inbounds i8, ptr %.0218, i64 2
+  %151 = load i16, ptr %150, align 2
+  %152 = zext i16 %151 to i32
+  %153 = add nuw nsw i32 %152, 4
+  %154 = icmp ugt i32 %153, %.0219
+  br i1 %154, label %.loopexit.sink.split, label %155
 
-157:                                              ; preds = %151
-  %158 = load i16, ptr %.0218, align 2
-  %.not245 = icmp eq i16 %158, 1
-  %.pre10 = zext nneg i32 %155 to i64
-  br i1 %.not245, label %._crit_edge, label %159
+155:                                              ; preds = %149
+  %156 = load i16, ptr %.0218, align 2
+  %.not246 = icmp eq i16 %156, 1
+  %.pre10 = zext nneg i32 %153 to i64
+  br i1 %.not246, label %._crit_edge, label %157
 
-159:                                              ; preds = %157
-  %160 = load i64, ptr %26, align 8
-  %161 = add i64 %160, %.pre10
-  %162 = load i64, ptr %11, align 8
-  %163 = icmp ugt i64 %161, %162
-  br i1 %163, label %164, label %..critedge257_crit_edge
+157:                                              ; preds = %155
+  %158 = load i64, ptr %26, align 8
+  %159 = add i64 %158, %.pre10
+  %160 = load i64, ptr %11, align 8
+  %161 = icmp ugt i64 %159, %160
+  br i1 %161, label %162, label %..critedge258_crit_edge
 
-..critedge257_crit_edge:                          ; preds = %159
+..critedge258_crit_edge:                          ; preds = %157
   %.pre9 = load ptr, ptr %0, align 8
-  br label %.critedge257
+  br label %.critedge258
 
-164:                                              ; preds = %159
-  %spec.select.i263 = call i64 @llvm.umax.i64(i64 %162, i64 1)
-  br label %165
+162:                                              ; preds = %157
+  %spec.select.i264 = call i64 @llvm.umax.i64(i64 %160, i64 1)
+  br label %163
 
-165:                                              ; preds = %165, %164
-  %.1.i264 = phi i64 [ %spec.select.i263, %164 ], [ %167, %165 ]
-  %166 = icmp ult i64 %.1.i264, %161
-  %167 = shl i64 %.1.i264, 1
-  br i1 %166, label %165, label %.loopexit.i265
+163:                                              ; preds = %163, %162
+  %.1.i265 = phi i64 [ %spec.select.i264, %162 ], [ %165, %163 ]
+  %164 = icmp ult i64 %.1.i265, %159
+  %165 = shl i64 %.1.i265, 1
+  br i1 %164, label %163, label %.loopexit.i266
 
-.loopexit.i265:                                   ; preds = %165
-  %168 = load ptr, ptr %146, align 8
-  %169 = load ptr, ptr %147, align 8
-  %170 = load ptr, ptr %0, align 8
-  %171 = load i32, ptr %148, align 8
-  %172 = zext i32 %171 to i64
-  %173 = call ptr %168(ptr noundef %169, ptr noundef %170, i64 noundef %172, i64 noundef %.1.i264) #30
-  %174 = icmp eq ptr %173, null
-  br i1 %174, label %.loopexit.sink.split, label %mz_zip_array_ensure_capacity.exit266
+.loopexit.i266:                                   ; preds = %163
+  %166 = load ptr, ptr %144, align 8
+  %167 = load ptr, ptr %145, align 8
+  %168 = load ptr, ptr %0, align 8
+  %169 = load i32, ptr %146, align 8
+  %170 = zext i32 %169 to i64
+  %171 = call ptr %166(ptr noundef %167, ptr noundef %168, i64 noundef %170, i64 noundef %.1.i265) #30
+  %172 = icmp eq ptr %171, null
+  br i1 %172, label %.loopexit.sink.split, label %mz_zip_array_ensure_capacity.exit267
 
-mz_zip_array_ensure_capacity.exit266:             ; preds = %.loopexit.i265
-  store ptr %173, ptr %0, align 8
-  store i64 %.1.i264, ptr %11, align 8
-  br label %.critedge257
+mz_zip_array_ensure_capacity.exit267:             ; preds = %.loopexit.i266
+  store ptr %171, ptr %0, align 8
+  store i64 %.1.i265, ptr %11, align 8
+  br label %.critedge258
 
-.critedge257:                                     ; preds = %..critedge257_crit_edge, %mz_zip_array_ensure_capacity.exit266
-  %175 = phi ptr [ %.pre9, %..critedge257_crit_edge ], [ %173, %mz_zip_array_ensure_capacity.exit266 ]
-  store i64 %161, ptr %26, align 8
-  %176 = load i32, ptr %148, align 8
-  %177 = zext i32 %176 to i64
-  %178 = mul i64 %160, %177
-  %179 = getelementptr inbounds i8, ptr %175, i64 %178
-  %180 = mul nuw nsw i64 %177, %.pre10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %179, ptr nonnull align 1 %.0218, i64 %180, i1 false)
+.critedge258:                                     ; preds = %..critedge258_crit_edge, %mz_zip_array_ensure_capacity.exit267
+  %173 = phi ptr [ %.pre9, %..critedge258_crit_edge ], [ %171, %mz_zip_array_ensure_capacity.exit267 ]
+  store i64 %159, ptr %26, align 8
+  %174 = load i32, ptr %146, align 8
+  %175 = zext i32 %174 to i64
+  %176 = mul i64 %158, %175
+  %177 = getelementptr inbounds i8, ptr %173, i64 %176
+  %178 = mul nuw nsw i64 %175, %.pre10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %177, ptr nonnull align 1 %.0218, i64 %178, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %157, %.critedge257
-  %181 = getelementptr inbounds i8, ptr %.0218, i64 %.pre10
-  %182 = sub i32 %.0219, %155
-  %.not249 = icmp eq i32 %182, 0
-  br i1 %.not249, label %.loopexit, label %149
+._crit_edge:                                      ; preds = %155, %.critedge258
+  %179 = getelementptr inbounds i8, ptr %.0218, i64 %.pre10
+  %180 = sub i32 %.0219, %153
+  %.not250 = icmp eq i32 %180, 0
+  br i1 %.not250, label %.loopexit, label %147
 
-.loopexit.sink.split:                             ; preds = %.loopexit.i265, %151, %149, %.loopexit.i, %14
-  %.sink = phi i32 [ 16, %14 ], [ 16, %.loopexit.i ], [ 9, %149 ], [ 9, %151 ], [ 16, %.loopexit.i265 ]
-  %183 = getelementptr inbounds i8, ptr %1, i64 28
-  store i32 %.sink, ptr %183, align 4
+.loopexit.sink.split:                             ; preds = %.loopexit.i266, %149, %147, %.loopexit.i, %14
+  %.sink = phi i32 [ 16, %14 ], [ 16, %.loopexit.i ], [ 9, %147 ], [ 9, %149 ], [ 16, %.loopexit.i266 ]
+  %181 = getelementptr inbounds i8, ptr %1, i64 28
+  store i32 %.sink, ptr %181, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %143

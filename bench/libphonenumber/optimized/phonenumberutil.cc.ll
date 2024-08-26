@@ -16833,13 +16833,13 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4i18n12phonenumbers11
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil16IsPossibleNumberERKNS0_11PhoneNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 {
-  %3 = tail call noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef 11)
+  %3 = tail call noundef range(i32 0, 6) i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef 11)
   %4 = icmp ult i32 %3, 2
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil26IsPossibleNumberWithReasonERKNS0_11PhoneNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 0, 6) i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil26IsPossibleNumberWithReasonERKNS0_11PhoneNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 {
   %3 = tail call noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 11)
   ret i32 %3
 }
@@ -16852,7 +16852,7 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil23I
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 6) i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
@@ -16950,7 +16950,7 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %_ZNK4i18n12phonenumbers15PhoneNumberUtil5ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PNS0_11PhoneNumberE.exit
-  %8 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %4, i32 noundef 11)
+  %8 = invoke noundef range(i32 0, 6) i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %4, i32 noundef 11)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil16IsPossibleNumberERKNS0_11PhoneNumberE.exit unwind label %10
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil16IsPossibleNumberERKNS0_11PhoneNumberE.exit: ; preds = %7
@@ -17444,7 +17444,7 @@ _ZNK4i18n12phonenumbers15PhoneNumberUtil13IsValidNumberERKNS0_11PhoneNumberE.exi
   %18 = or i32 %17, 8
   store i32 %18, ptr %13, align 8
   store i64 %16, ptr %14, align 8
-  %19 = invoke noundef i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, i32 noundef 11)
+  %19 = invoke noundef range(i32 0, 6) i32 @_ZNK4i18n12phonenumbers15PhoneNumberUtil33IsPossibleNumberForTypeWithReasonERKNS0_11PhoneNumberENS1_15PhoneNumberTypeE(ptr noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, i32 noundef 11)
           to label %_ZNK4i18n12phonenumbers15PhoneNumberUtil26IsPossibleNumberWithReasonERKNS0_11PhoneNumberE.exit unwind label %22
 
 _ZNK4i18n12phonenumbers15PhoneNumberUtil26IsPossibleNumberWithReasonERKNS0_11PhoneNumberE.exit: ; preds = %15

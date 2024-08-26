@@ -12195,8 +12195,8 @@ define internal noundef zeroext i1 @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20
 
 57:                                               ; preds = %32, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61"
   %.03890 = phi ptr [ %20, %32 ], [ %.03989, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61" ]
-  %.03989 = phi ptr [ %30, %32 ], [ %spec.select86, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61" ]
-  %.sroa.0.088 = phi ptr [ %33, %32 ], [ %.sroa.0.4, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61" ]
+  %.03989 = phi ptr [ %30, %32 ], [ %.sroa.0.088, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61" ]
+  %.sroa.0.088 = phi ptr [ %33, %32 ], [ %spec.select, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %.03890, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
@@ -12211,26 +12211,23 @@ define internal noundef zeroext i1 @"_ZN68_$LT$just..list..List$LT$T$C$I$GT$$u20
   %58 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br i1 %58, label %63, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61"
+  br i1 %58, label %61, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit61": ; preds = %57
-  %59 = icmp eq ptr %.sroa.0.088, null
-  %60 = icmp ne ptr %.sroa.0.088, %.val55
-  %spec.select.idx = zext i1 %60 to i64
+  %59 = icmp ne ptr %.sroa.0.088, %.val55
+  %spec.select.idx = zext i1 %59 to i64
   %spec.select = getelementptr inbounds i8, ptr %.sroa.0.088, i64 %spec.select.idx
-  %spec.select86 = select i1 %60, ptr %.sroa.0.088, ptr null
-  %.sroa.0.4 = select i1 %59, ptr null, ptr %spec.select
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %61 = icmp eq ptr %spec.select86, null
-  %62 = select i1 %59, i1 true, i1 %61
-  br i1 %62, label %48, label %57
+  %60 = icmp ne ptr %.sroa.0.088, null
+  %.not93 = and i1 %60, %59
+  br i1 %.not93, label %57, label %48
 
-63:                                               ; preds = %57
+61:                                               ; preds = %57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit57.thread"
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit57.thread": ; preds = %27, %39, %63, %48
-  %.5 = phi i1 [ %47, %39 ], [ %56, %48 ], [ true, %63 ], [ false, %27 ]
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit57.thread": ; preds = %27, %39, %61, %48
+  %.5 = phi i1 [ %47, %39 ], [ %56, %48 ], [ true, %61 ], [ false, %27 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5b13d2e443675c30E.exit"
 

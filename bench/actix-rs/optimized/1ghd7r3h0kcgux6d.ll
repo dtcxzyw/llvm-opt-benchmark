@@ -10817,7 +10817,7 @@ define internal fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal
   %.val25 = phi ptr [ %29, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$i32$GT$$GT$17haa415f5cd7ed9376E.exit" ], [ %.val, %16 ]
   store i64 %.1, ptr %4, align 8
   %35 = icmp ugt i64 %.1, %.val26
-  br i1 %35, label %36, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0954a30d4fff06b5E.exit.preheader"
+  br i1 %35, label %36, label %.lr.ph.preheader
 
 36:                                               ; preds = %34
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %.1, i64 noundef %.val26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.120) #21, !noalias !958
@@ -10826,18 +10826,18 @@ define internal fastcc { ptr, i64 } @_ZN6brotli3enc6encode20GetHashTableInternal
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit": ; preds = %11
   store i64 %.1, ptr %4, align 8
   %37 = icmp eq i64 %.1, 0
-  br i1 %37, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0954a30d4fff06b5E.exit.thread", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0954a30d4fff06b5E.exit.preheader"
+  br i1 %37, label %._crit_edge, label %.lr.ph.preheader
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0954a30d4fff06b5E.exit.preheader": ; preds = %34, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit"
+.lr.ph.preheader:                                 ; preds = %34, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit"
   %.sroa.4.0415 = phi i64 [ 1024, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit" ], [ %.val26, %34 ]
   %.sroa.0.0513 = phi ptr [ %0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit" ], [ %.val25, %34 ]
   %38 = shl i64 %.1, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %.sroa.0.0513, i8 0, i64 %38, i1 false)
-  br label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0954a30d4fff06b5E.exit.thread"
+  br label %._crit_edge
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0954a30d4fff06b5E.exit.thread": ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0954a30d4fff06b5E.exit.preheader", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit"
-  %.sroa.4.0416 = phi i64 [ %.sroa.4.0415, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0954a30d4fff06b5E.exit.preheader" ], [ 1024, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit" ]
-  %.sroa.0.0514 = phi ptr [ %.sroa.0.0513, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0954a30d4fff06b5E.exit.preheader" ], [ %0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit" ]
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit"
+  %.sroa.4.0416 = phi i64 [ %.sroa.4.0415, %.lr.ph.preheader ], [ 1024, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit" ]
+  %.sroa.0.0514 = phi ptr [ %.sroa.0.0513, %.lr.ph.preheader ], [ %0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0eae92c626cdc926E.exit" ]
   %39 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0514, 0
   %40 = insertvalue { ptr, i64 } %39, i64 %.sroa.4.0416, 1
   ret { ptr, i64 } %40

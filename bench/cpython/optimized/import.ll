@@ -4151,9 +4151,9 @@ if.end.i27:                                       ; preds = %if.end25, %for.inc.
   %entry1.09.i = phi ptr [ %incdec.ptr.i30, %for.inc.i29 ], [ %25, %if.end25 ]
   %call.i28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %27) #21
   %cmp4.i = icmp eq i32 %call.i28, 0
-  br i1 %cmp4.i, label %if.then5.i, label %for.inc.i29
+  br i1 %cmp4.i, label %if.then7.i, label %for.inc.i29
 
-if.then5.i:                                       ; preds = %if.end.i27
+if.then7.i:                                       ; preds = %if.end.i27
   %orig.i = getelementptr inbounds i8, ptr %entry1.09.i, i64 8
   %28 = load ptr, ptr %orig.i, align 8
   store ptr %28, ptr %origname, align 8
@@ -4165,8 +4165,8 @@ for.inc.i29:                                      ; preds = %if.end.i27
   %cmp.not.i = icmp eq ptr %29, null
   br i1 %cmp.not.i, label %resolve_module_alias.exit, label %if.end.i27
 
-resolve_module_alias.exit:                        ; preds = %for.inc.i29, %if.end25, %if.then5.i
-  %cmp6.i = phi i8 [ 1, %if.then5.i ], [ 0, %if.end25 ], [ 0, %for.inc.i29 ]
+resolve_module_alias.exit:                        ; preds = %for.inc.i29, %if.end25, %if.then7.i
+  %cmp6.i = phi i8 [ 1, %if.then7.i ], [ 0, %if.end25 ], [ 0, %for.inc.i29 ]
   %is_alias = getelementptr inbounds i8, ptr %info, i64 25
   store i8 %cmp6.i, ptr %is_alias, align 1
   br label %if.end29

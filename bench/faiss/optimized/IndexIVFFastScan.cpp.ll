@@ -850,7 +850,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEC
   %153 = load ptr, ptr %8, align 8
   %154 = getelementptr inbounds i64, ptr %153, i64 %152
   %155 = load i64, ptr %154, align 8
-  %156 = add nsw i64 %.091185, 1
+  %156 = add nuw nsw i64 %.091185, 1
   %smax196 = call i64 @llvm.smax.i64(i64 %1, i64 %156)
   %157 = add nsw i64 %smax196, -1
   br label %158
@@ -861,7 +861,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEC
   br i1 %exitcond197.not, label %.critedge, label %159
 
 159:                                              ; preds = %158
-  %.089 = add nsw i64 %.089.in, 1
+  %.089 = add nuw nsw i64 %.089.in, 1
   %160 = getelementptr inbounds i64, ptr %123, i64 %.089
   %161 = load i64, ptr %160, align 8
   %162 = getelementptr inbounds i64, ptr %153, i64 %161
@@ -931,7 +931,7 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i121: ; preds = %168
           to label %187 unwind label %.loopexit.split-lp
 
 187:                                              ; preds = %182
-  %188 = add i64 %.089.lcssa, %.091.neg186
+  %188 = add nsw i64 %.089.lcssa, %.091.neg186
   %189 = add i64 %188, %186
   %190 = load ptr, ptr %103, align 8
   %191 = getelementptr inbounds i8, ptr %190, i64 120

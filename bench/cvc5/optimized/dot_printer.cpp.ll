@@ -3040,20 +3040,19 @@ if.then42:                                        ; preds = %if.end38
 if.then45:                                        ; preds = %if.then42
   %d_subgraphsStr = getelementptr inbounds i8, ptr %this, i64 568
   %conv = zext i8 %call43 to i64
-  %sub = add nuw nsw i64 %conv, 4294967295
-  %conv46 = and i64 %sub, 4294967295
   %26 = load ptr, ptr %d_subgraphsStr, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %26, i64 %conv46
-  %27 = load i64, ptr %d_ruleID, align 8
-  %call49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 noundef %27)
+  %27 = getelementptr %"class.std::__cxx11::basic_ostringstream", ptr %26, i64 %conv
+  %add.ptr.i = getelementptr i8, ptr %27, i64 -376
+  %28 = load i64, ptr %d_ruleID, align 8
+  %call49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 noundef %28)
   %call50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call49, ptr noundef nonnull @.str.30)
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then42, %if.then42, %if.then45, %if.end38
   %proofNodeType.0 = phi i8 [ %call43, %if.then45 ], [ %call43, %if.then42 ], [ 6, %if.end38 ], [ %call43, %if.then42 ]
   call void @_ZN4cvc58internal5proof10DotPrinter18printProofNodeInfoERSoPKNS0_9ProofNodeE(ptr noundef nonnull align 8 dereferenceable(592) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %pn)
-  %28 = load i64, ptr %d_ruleID, align 8
-  %inc = add i64 %28, 1
+  %29 = load i64, ptr %d_ruleID, align 8
+  %inc = add i64 %29, 1
   store i64 %inc, ptr %d_ruleID, align 8
   %call54 = call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %pn)
   %cmp.i74 = icmp eq i32 %call54, 1
@@ -3062,23 +3061,23 @@ if.end52:                                         ; preds = %if.then42, %if.then
   br i1 %or.cond1, label %if.then58, label %if.else
 
 if.then58:                                        ; preds = %if.end52
-  %29 = getelementptr inbounds i8, ptr %thisScopeLet, i64 8
-  store i32 0, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %thisScopeLet, i64 8
+  store i32 0, ptr %30, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %thisScopeLet, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %thisScopeLet, i64 24
-  store ptr %29, ptr %_M_left.i.i.i.i.i, align 8
+  store ptr %30, ptr %_M_left.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %thisScopeLet, i64 32
-  store ptr %29, ptr %_M_right.i.i.i.i.i, align 8
+  store ptr %30, ptr %_M_right.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %thisScopeLet, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   %call59 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(65) %pn)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then58
-  %30 = load ptr, ptr %call59, align 8
-  %31 = load ptr, ptr %30, align 8
-  %call63 = invoke noundef i64 @_ZN4cvc58internal5proof10DotPrinter13printInternalERSoPKNS0_9ProofNodeERSt3mapImmSt4lessImESaISt4pairIKmmEEESF_RSt13unordered_mapIS6_bSt4hashIS6_ESt8equal_toIS6_ESaISA_IKS6_bEEERSt6vectorImSaImEENS1_20ProofNodeClusterTypeE(ptr noundef nonnull align 8 dereferenceable(592) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(48) %pfLetClosed, ptr noundef nonnull align 8 dereferenceable(48) %thisScopeLet, ptr noundef nonnull align 8 dereferenceable(56) %cfaMap, ptr noundef nonnull align 8 dereferenceable(24) %ancestorHashs, i8 noundef zeroext %proofNodeType.0)
+  %31 = load ptr, ptr %call59, align 8
+  %32 = load ptr, ptr %31, align 8
+  %call63 = invoke noundef i64 @_ZN4cvc58internal5proof10DotPrinter13printInternalERSoPKNS0_9ProofNodeERSt3mapImmSt4lessImESaISt4pairIKmmEEESF_RSt13unordered_mapIS6_bSt4hashIS6_ESt8equal_toIS6_ESaISA_IKS6_bEEERSt6vectorImSaImEENS1_20ProofNodeClusterTypeE(ptr noundef nonnull align 8 dereferenceable(592) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(48) %pfLetClosed, ptr noundef nonnull align 8 dereferenceable(48) %thisScopeLet, ptr noundef nonnull align 8 dereferenceable(56) %cfaMap, ptr noundef nonnull align 8 dereferenceable(24) %ancestorHashs, i8 noundef zeroext %proofNodeType.0)
           to label %invoke.cont62 unwind label %lpad
 
 invoke.cont62:                                    ; preds = %invoke.cont
@@ -3107,43 +3106,43 @@ invoke.cont72:                                    ; preds = %invoke.cont70
 
 invoke.cont74:                                    ; preds = %invoke.cont72
   %proof76 = getelementptr inbounds i8, ptr %call75, i64 312
-  %32 = load ptr, ptr %proof76, align 8
-  %printDotAsDAG77 = getelementptr inbounds i8, ptr %32, i64 21
-  %33 = load i8, ptr %printDotAsDAG77, align 1
-  %tobool78 = trunc i8 %33 to i1
+  %33 = load ptr, ptr %proof76, align 8
+  %printDotAsDAG77 = getelementptr inbounds i8, ptr %33, i64 21
+  %34 = load i8, ptr %printDotAsDAG77, align 1
+  %tobool78 = trunc i8 %34 to i1
   br i1 %tobool78, label %if.then79, label %if.end80
 
 if.then79:                                        ; preds = %invoke.cont74
   %_M_finish.i76 = getelementptr inbounds i8, ptr %ancestorHashs, i64 8
-  %34 = load ptr, ptr %_M_finish.i76, align 8
-  %incdec.ptr.i77 = getelementptr inbounds i8, ptr %34, i64 -8
+  %35 = load ptr, ptr %_M_finish.i76, align 8
+  %incdec.ptr.i77 = getelementptr inbounds i8, ptr %35, i64 -8
   store ptr %incdec.ptr.i77, ptr %_M_finish.i76, align 8
   br label %if.end80
 
 lpad:                                             ; preds = %invoke.cont72, %invoke.cont70, %invoke.cont68, %invoke.cont66, %invoke.cont64, %invoke.cont62, %invoke.cont, %if.then58
-  %35 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %thisScopeLet) #19
-  resume { ptr, i32 } %35
+  resume { ptr, i32 } %36
 
 if.end80:                                         ; preds = %if.then79, %invoke.cont74
-  %36 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %thisScopeLet, ptr noundef %36)
+  %37 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %thisScopeLet, ptr noundef %37)
           to label %land.lhs.true105 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.end80
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #21
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #21
   unreachable
 
 if.else:                                          ; preds = %if.end52
   %call81 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(65) %pn)
-  %39 = load ptr, ptr %call81, align 8
+  %40 = load ptr, ptr %call81, align 8
   %_M_finish.i79 = getelementptr inbounds i8, ptr %call81, i64 8
-  %40 = load ptr, ptr %_M_finish.i79, align 8
-  %cmp.i80.not104 = icmp eq ptr %39, %40
+  %41 = load ptr, ptr %_M_finish.i79, align 8
+  %cmp.i80.not104 = icmp eq ptr %40, %41
   br i1 %cmp.i80.not104, label %if.end103, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.else
@@ -3151,9 +3150,9 @@ for.body.lr.ph:                                   ; preds = %if.else
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin3.sroa.0.0105 = phi ptr [ %39, %for.body.lr.ph ], [ %incdec.ptr.i83, %for.inc ]
-  %41 = load ptr, ptr %__begin3.sroa.0.0105, align 8
-  %call90 = call noundef i64 @_ZN4cvc58internal5proof10DotPrinter13printInternalERSoPKNS0_9ProofNodeERSt3mapImmSt4lessImESaISt4pairIKmmEEESF_RSt13unordered_mapIS6_bSt4hashIS6_ESt8equal_toIS6_ESaISA_IKS6_bEEERSt6vectorImSaImEENS1_20ProofNodeClusterTypeE(ptr noundef nonnull align 8 dereferenceable(592) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %41, ptr noundef nonnull align 8 dereferenceable(48) %pfLetClosed, ptr noundef nonnull align 8 dereferenceable(48) %pfLetOpen, ptr noundef nonnull align 8 dereferenceable(56) %cfaMap, ptr noundef nonnull align 8 dereferenceable(24) %ancestorHashs, i8 noundef zeroext %proofNodeType.0)
+  %__begin3.sroa.0.0105 = phi ptr [ %40, %for.body.lr.ph ], [ %incdec.ptr.i83, %for.inc ]
+  %42 = load ptr, ptr %__begin3.sroa.0.0105, align 8
+  %call90 = call noundef i64 @_ZN4cvc58internal5proof10DotPrinter13printInternalERSoPKNS0_9ProofNodeERSt3mapImmSt4lessImESaISt4pairIKmmEEESF_RSt13unordered_mapIS6_bSt4hashIS6_ESt8equal_toIS6_ESaISA_IKS6_bEEERSt6vectorImSaImEENS1_20ProofNodeClusterTypeE(ptr noundef nonnull align 8 dereferenceable(592) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %42, ptr noundef nonnull align 8 dereferenceable(48) %pfLetClosed, ptr noundef nonnull align 8 dereferenceable(48) %pfLetOpen, ptr noundef nonnull align 8 dereferenceable(56) %cfaMap, ptr noundef nonnull align 8 dereferenceable(24) %ancestorHashs, i8 noundef zeroext %proofNodeType.0)
   %call91 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.31)
   %call92 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call91, i64 noundef %call90)
   %call93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call92, ptr noundef nonnull @.str.32)
@@ -3161,21 +3160,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call95 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call94, ptr noundef nonnull @.str.33)
   %call96 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %proof97 = getelementptr inbounds i8, ptr %call96, i64 312
-  %42 = load ptr, ptr %proof97, align 8
-  %printDotAsDAG98 = getelementptr inbounds i8, ptr %42, i64 21
-  %43 = load i8, ptr %printDotAsDAG98, align 1
-  %tobool99 = trunc i8 %43 to i1
+  %43 = load ptr, ptr %proof97, align 8
+  %printDotAsDAG98 = getelementptr inbounds i8, ptr %43, i64 21
+  %44 = load i8, ptr %printDotAsDAG98, align 1
+  %tobool99 = trunc i8 %44 to i1
   br i1 %tobool99, label %if.then100, label %for.inc
 
 if.then100:                                       ; preds = %for.body
-  %44 = load ptr, ptr %_M_finish.i81, align 8
-  %incdec.ptr.i82 = getelementptr inbounds i8, ptr %44, i64 -8
+  %45 = load ptr, ptr %_M_finish.i81, align 8
+  %incdec.ptr.i82 = getelementptr inbounds i8, ptr %45, i64 -8
   store ptr %incdec.ptr.i82, ptr %_M_finish.i81, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then100
   %incdec.ptr.i83 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0105, i64 16
-  %cmp.i80.not = icmp eq ptr %incdec.ptr.i83, %40
+  %cmp.i80.not = icmp eq ptr %incdec.ptr.i83, %41
   br i1 %cmp.i80.not, label %if.end103, label %for.body
 
 if.end103:                                        ; preds = %for.inc, %if.else
@@ -3184,16 +3183,16 @@ if.end103:                                        ; preds = %for.inc, %if.else
 land.lhs.true105:                                 ; preds = %if.end80, %if.end103
   %call106 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %proof107 = getelementptr inbounds i8, ptr %call106, i64 312
-  %45 = load ptr, ptr %proof107, align 8
-  %printDotClusters108 = getelementptr inbounds i8, ptr %45, i64 10
-  %46 = load i8, ptr %printDotClusters108, align 2
-  %tobool109 = trunc i8 %46 to i1
+  %46 = load ptr, ptr %proof107, align 8
+  %printDotClusters108 = getelementptr inbounds i8, ptr %46, i64 10
+  %47 = load i8, ptr %printDotClusters108, align 2
+  %tobool109 = trunc i8 %47 to i1
   br i1 %tobool109, label %if.then110, label %return
 
 if.then110:                                       ; preds = %land.lhs.true105
   %_M_finish.i85 = getelementptr inbounds i8, ptr %this, i64 552
-  %47 = load ptr, ptr %_M_finish.i85, align 8
-  %incdec.ptr.i86 = getelementptr inbounds i8, ptr %47, i64 -8
+  %48 = load ptr, ptr %_M_finish.i85, align 8
+  %incdec.ptr.i86 = getelementptr inbounds i8, ptr %48, i64 -8
   store ptr %incdec.ptr.i86, ptr %_M_finish.i85, align 8
   br label %return
 

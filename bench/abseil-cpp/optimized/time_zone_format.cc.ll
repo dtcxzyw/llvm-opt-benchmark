@@ -4752,21 +4752,17 @@ if.end60:                                         ; preds = %if.end60.sink.split
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_115ParseSubSecondsEPKcPNSt6chrono8durationIlSt5ratioILl1ELl1000000000000000EEEE(ptr noundef readonly %dp, ptr nocapture noundef writeonly %subseconds) unnamed_addr #4 {
 entry:
-  %cmp.not = icmp eq ptr %dp, null
-  br i1 %cmp.not, label %if.end13, label %while.cond.preheader
-
-while.cond.preheader:                             ; preds = %entry
   %0 = load i8, ptr %dp, align 1
   %conv12 = sext i8 %0 to i32
   %memchr13 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv12, i64 11)
   %tobool.not14 = icmp eq ptr %memchr13, null
   br i1 %tobool.not14, label %if.end13, label %while.body
 
-while.body:                                       ; preds = %while.cond.preheader, %if.end8
-  %memchr18 = phi ptr [ %memchr, %if.end8 ], [ %memchr13, %while.cond.preheader ]
-  %dp.addr.117 = phi ptr [ %incdec.ptr, %if.end8 ], [ %dp, %while.cond.preheader ]
-  %exp.016 = phi i64 [ %exp.1, %if.end8 ], [ 0, %while.cond.preheader ]
-  %v.015 = phi i64 [ %v.1, %if.end8 ], [ 0, %while.cond.preheader ]
+while.body:                                       ; preds = %entry, %if.end8
+  %memchr18 = phi ptr [ %memchr, %if.end8 ], [ %memchr13, %entry ]
+  %dp.addr.117 = phi ptr [ %incdec.ptr, %if.end8 ], [ %dp, %entry ]
+  %exp.016 = phi i64 [ %exp.1, %if.end8 ], [ 0, %entry ]
+  %v.015 = phi i64 [ %v.1, %if.end8 ], [ 0, %entry ]
   %sub.ptr.lhs.cast = ptrtoint ptr %memchr18 to i64
   %1 = trunc i64 %sub.ptr.lhs.cast to i32
   %conv1 = sub i32 %1, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
@@ -4809,8 +4805,8 @@ if.then10:                                        ; preds = %if.end8, %while.end
   store i64 %mul11, ptr %subseconds, align 8
   br label %if.end13
 
-if.end13:                                         ; preds = %while.cond.preheader, %while.end, %if.then10, %entry
-  %dp.addr.0 = phi ptr [ %dp.addr.1.lcssa.ph34, %if.then10 ], [ null, %entry ], [ null, %while.end ], [ null, %while.cond.preheader ]
+if.end13:                                         ; preds = %entry, %while.end, %if.then10
+  %dp.addr.0 = phi ptr [ %dp.addr.1.lcssa.ph34, %if.then10 ], [ null, %while.end ], [ null, %entry ]
   ret ptr %dp.addr.0
 }
 

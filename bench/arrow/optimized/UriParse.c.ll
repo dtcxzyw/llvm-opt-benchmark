@@ -3786,21 +3786,21 @@ if.end.i.i:                                       ; preds = %if.end8.i
 sw.bb.i.i:                                        ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 1
   %cmp.not1.i.i.i = icmp ult ptr %add.ptr.i.i, %afterLast
-  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %if.end4.i.i
+  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %uriParsePortA.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i, %sw.bb.i.i.i
   %first.tr2.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i, %sw.bb.i.i ]
   %7 = load i8, ptr %first.tr2.i.i.i, align 1
   %.off.i.i.i = add i8 %7, -48
   %switch.i.i.i = icmp ult i8 %.off.i.i.i, 10
-  br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end4.i.i
+  br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %uriParsePortA.exit.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i.i, i64 1
   %exitcond.not.i.i.i = icmp eq ptr %add.ptr.i.i.i, %afterLast
-  br i1 %exitcond.not.i.i.i, label %if.end4.i.i, label %if.end.i.i.i
+  br i1 %exitcond.not.i.i.i, label %uriParsePortA.exit.i.i, label %if.end.i.i.i
 
-if.end4.i.i:                                      ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i
+uriParsePortA.exit.i.i:                           ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i
   %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ]
   %8 = load ptr, ptr %state, align 8
   %portText.i.i = getelementptr inbounds i8, ptr %8, i64 80
@@ -3906,13 +3906,13 @@ if.end.i22.i:                                     ; preds = %if.end.i22.i.backed
 sw.bb.i25.i:                                      ; preds = %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i
   %call.i.i = tail call fastcc ptr @uriParsePctSubUnresA(ptr noundef %state, ptr noundef nonnull %first.tr53.i.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
   %cmp1.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp1.i.i, label %return, label %if.end4.i26.i
+  br i1 %cmp1.i.i, label %return, label %if.end4.i.i
 
-if.end4.i26.i:                                    ; preds = %sw.bb.i25.i
+if.end4.i.i:                                      ; preds = %sw.bb.i25.i
   %cmp.not.i.i.i = icmp ult ptr %call.i.i, %afterLast
   br i1 %cmp.not.i.i.i, label %if.end2.i.i.i, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %if.end4.i26.i
+if.then.i.i.i:                                    ; preds = %if.end4.i.i
   %12 = load ptr, ptr %state, align 8
   %userInfo.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %userInfo.i.i.i, align 8
@@ -3933,9 +3933,9 @@ if.then.i.i.i:                                    ; preds = %if.end4.i26.i
   %hostData11.i.i.i = getelementptr inbounds i8, ptr %18, i64 48
   %19 = load ptr, ptr %hostData11.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %19, null
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %if.end.i.i27.i
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %if.end.i.i26.i
 
-if.end.i.i27.i:                                   ; preds = %if.then.i.i.i
+if.end.i.i26.i:                                   ; preds = %if.then.i.i.i
   %hostText17.i.i.i = getelementptr inbounds i8, ptr %18, i64 32
   %20 = load ptr, ptr %hostText17.i.i.i, align 8
   %afterLast21.i.i.i = getelementptr inbounds i8, ptr %18, i64 40
@@ -3944,7 +3944,7 @@ if.end.i.i27.i:                                   ; preds = %if.then.i.i.i
   %tobool.not.i40.i.i = icmp eq i32 %call22.i.i.i, 0
   br i1 %tobool.not.i40.i.i, label %uriParseAuthorityA.exit, label %if.then23.i.i.i
 
-if.then23.i.i.i:                                  ; preds = %if.end.i.i27.i
+if.then23.i.i.i:                                  ; preds = %if.end.i.i26.i
   %free.i.i.i = getelementptr inbounds i8, ptr %memory, i64 32
   %22 = load ptr, ptr %free.i.i.i, align 8
   %23 = load ptr, ptr %state, align 8
@@ -3964,7 +3964,7 @@ if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
   store i32 3, ptr %errorCode.i38.i.i, align 8
   br label %return
 
-if.end2.i.i.i:                                    ; preds = %if.end4.i26.i
+if.end2.i.i.i:                                    ; preds = %if.end4.i.i
   %26 = load i8, ptr %call.i.i, align 1
   switch i8 %26, label %sw.default.i.i.i [
     i8 33, label %if.end.i22.i.backedge
@@ -4107,8 +4107,8 @@ sw.default.i:                                     ; preds = %if.end.i
   store ptr %33, ptr %afterLast23.i, align 8
   br label %if.end4
 
-uriParseAuthorityA.exit:                          ; preds = %if.then.i, %if.end8.i, %if.end4.i.i, %if.end.i.i27.i, %if.then23.i.i.i, %sw.bb6.i.i, %sw.bb12.i.i
-  %retval.0.i = phi ptr [ %afterLast, %if.then.i ], [ %retval.0.i.i.i, %if.end4.i.i ], [ %afterLast, %if.end8.i ], [ %call20.i.i, %sw.bb12.i.i ], [ %call11.i.i, %sw.bb6.i.i ], [ %afterLast, %if.then23.i.i.i ], [ %afterLast, %if.end.i.i27.i ]
+uriParseAuthorityA.exit:                          ; preds = %if.then.i, %if.end8.i, %uriParsePortA.exit.i.i, %if.end.i.i26.i, %if.then23.i.i.i, %sw.bb6.i.i, %sw.bb12.i.i
+  %retval.0.i = phi ptr [ %afterLast, %if.then.i ], [ %retval.0.i.i.i, %uriParsePortA.exit.i.i ], [ %afterLast, %if.end8.i ], [ %call20.i.i, %sw.bb12.i.i ], [ %call11.i.i, %sw.bb6.i.i ], [ %afterLast, %if.then23.i.i.i ], [ %afterLast, %if.end.i.i26.i ]
   %cmp1 = icmp eq ptr %retval.0.i, null
   br i1 %cmp1, label %return, label %if.end4
 
@@ -5213,7 +5213,7 @@ sw.bb:                                            ; preds = %if.end3, %if.end3, 
 if.end.i:                                         ; preds = %sw.bb, %sw.bb.i
   %first.tr2.i = phi ptr [ %add.ptr.i, %sw.bb.i ], [ %add.ptr4, %sw.bb ]
   %3 = load i8, ptr %first.tr2.i, align 1
-  switch i8 %3, label %if.end8 [
+  switch i8 %3, label %uriParseHexZeroA.exit [
     i8 48, label %sw.bb.i
     i8 49, label %sw.bb.i
     i8 50, label %sw.bb.i
@@ -5243,11 +5243,11 @@ sw.bb.i:                                          ; preds = %if.end.i, %if.end.i
   %exitcond.not.i = icmp eq ptr %add.ptr.i, %afterLast
   br i1 %exitcond.not.i, label %if.then11, label %if.end.i
 
-if.end8:                                          ; preds = %if.end.i
+uriParseHexZeroA.exit:                            ; preds = %if.end.i
   %cmp9.not = icmp ult ptr %first.tr2.i, %afterLast
   br i1 %cmp9.not, label %if.end12, label %if.then11
 
-if.then11:                                        ; preds = %sw.bb.i, %sw.bb, %if.end8
+if.then11:                                        ; preds = %sw.bb.i, %sw.bb, %uriParseHexZeroA.exit
   %4 = load ptr, ptr %state, align 8
   %call.i39 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %4, ptr noundef %memory)
   %errorPos1.i40 = getelementptr inbounds i8, ptr %state, i64 16
@@ -5256,7 +5256,7 @@ if.then11:                                        ; preds = %sw.bb.i, %sw.bb, %i
   store i32 1, ptr %errorCode.i41, align 8
   br label %return
 
-if.end12:                                         ; preds = %if.end8
+if.end12:                                         ; preds = %uriParseHexZeroA.exit
   %cmp14.not = icmp eq i8 %3, 46
   %5 = load ptr, ptr %state, align 8
   br i1 %cmp14.not, label %if.end17, label %if.then16
@@ -5868,21 +5868,21 @@ if.end.i:                                         ; preds = %if.end5
 sw.bb.i:                                          ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 1
   %cmp.not1.i.i = icmp ult ptr %add.ptr.i, %afterLast
-  br i1 %cmp.not1.i.i, label %if.end.i.i, label %if.end4.i
+  br i1 %cmp.not1.i.i, label %if.end.i.i, label %uriParsePortA.exit.i
 
 if.end.i.i:                                       ; preds = %sw.bb.i, %sw.bb.i.i
   %first.tr2.i.i = phi ptr [ %add.ptr.i.i, %sw.bb.i.i ], [ %add.ptr.i, %sw.bb.i ]
   %4 = load i8, ptr %first.tr2.i.i, align 1
   %.off.i.i = add i8 %4, -48
   %switch.i.i = icmp ult i8 %.off.i.i, 10
-  br i1 %switch.i.i, label %sw.bb.i.i, label %if.end4.i
+  br i1 %switch.i.i, label %sw.bb.i.i, label %uriParsePortA.exit.i
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i, i64 1
   %exitcond.not.i.i = icmp eq ptr %add.ptr.i.i, %afterLast
-  br i1 %exitcond.not.i.i, label %if.end4.i, label %if.end.i.i
+  br i1 %exitcond.not.i.i, label %uriParsePortA.exit.i, label %if.end.i.i
 
-if.end4.i:                                        ; preds = %sw.bb.i.i, %if.end.i.i, %sw.bb.i
+uriParsePortA.exit.i:                             ; preds = %sw.bb.i.i, %if.end.i.i, %sw.bb.i
   %retval.0.i.i = phi ptr [ %afterLast, %sw.bb.i ], [ %first.tr2.i.i, %if.end.i.i ], [ %afterLast, %sw.bb.i.i ]
   %5 = load ptr, ptr %state, align 8
   %portText.i = getelementptr inbounds i8, ptr %5, i64 80
@@ -6051,21 +6051,21 @@ if.end.i27.i:                                     ; preds = %sw.default.i
 sw.bb.i.i20:                                      ; preds = %if.end.i27.i
   %add.ptr.i.i21 = getelementptr inbounds i8, ptr %first.tr.i, i64 1
   %cmp.not1.i.i.i = icmp ult ptr %add.ptr.i.i21, %afterLast
-  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %if.end4.i.i
+  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %uriParsePortA.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i20, %sw.bb.i.i.i
   %first.tr2.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i21, %sw.bb.i.i20 ]
   %21 = load i8, ptr %first.tr2.i.i.i, align 1
   %.off.i.i.i = add i8 %21, -48
   %switch.i.i.i = icmp ult i8 %.off.i.i.i, 10
-  br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end4.i.i
+  br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %uriParsePortA.exit.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i.i, i64 1
   %exitcond.not.i.i.i = icmp eq ptr %add.ptr.i.i.i, %afterLast
-  br i1 %exitcond.not.i.i.i, label %if.end4.i.i, label %if.end.i.i.i
+  br i1 %exitcond.not.i.i.i, label %uriParsePortA.exit.i.i, label %if.end.i.i.i
 
-if.end4.i.i:                                      ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i20
+uriParsePortA.exit.i.i:                           ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i20
   %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i20 ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ]
   %22 = load ptr, ptr %state, align 8
   %portText.i.i = getelementptr inbounds i8, ptr %22, i64 80
@@ -6075,8 +6075,8 @@ if.end4.i.i:                                      ; preds = %sw.bb.i.i.i, %if.en
   store ptr %retval.0.i.i.i, ptr %afterLast9.i.i, align 8
   br label %return
 
-return:                                           ; preds = %sw.bb.i19, %if.end4.i.i, %if.end.i27.i, %if.then11.i, %if.then1.i, %if.then15.i.i, %if.end.i.i17, %if.end4.i, %if.end.i, %if.end5, %sw.bb, %if.then
-  %retval.0 = phi ptr [ %afterLast, %if.then ], [ null, %sw.bb ], [ %retval.0.i.i, %if.end4.i ], [ %afterLast, %if.end5 ], [ %call, %if.end.i ], [ null, %if.then1.i ], [ null, %if.then11.i ], [ %retval.0.i.i.i, %if.end4.i.i ], [ %first.tr.i, %if.end.i27.i ], [ %afterLast, %if.then15.i.i ], [ %afterLast, %if.end.i.i17 ], [ null, %sw.bb.i19 ]
+return:                                           ; preds = %sw.bb.i19, %uriParsePortA.exit.i.i, %if.end.i27.i, %if.then11.i, %if.then1.i, %if.then15.i.i, %if.end.i.i17, %uriParsePortA.exit.i, %if.end.i, %if.end5, %sw.bb, %if.then
+  %retval.0 = phi ptr [ %afterLast, %if.then ], [ null, %sw.bb ], [ %retval.0.i.i, %uriParsePortA.exit.i ], [ %afterLast, %if.end5 ], [ %call, %if.end.i ], [ null, %if.then1.i ], [ null, %if.then11.i ], [ %retval.0.i.i.i, %uriParsePortA.exit.i.i ], [ %first.tr.i, %if.end.i27.i ], [ %afterLast, %if.then15.i.i ], [ %afterLast, %if.end.i.i17 ], [ null, %sw.bb.i19 ]
   ret ptr %retval.0
 }
 
@@ -6978,21 +6978,21 @@ if.end.i.i:                                       ; preds = %if.end7.i
 sw.bb.i.i:                                        ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 4
   %cmp.not1.i.i.i = icmp ult ptr %add.ptr.i.i, %afterLast
-  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
+  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %uriParsePortW.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i, %sw.bb.i.i.i
   %first.tr2.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i, %sw.bb.i.i ]
   %7 = load i32, ptr %first.tr2.i.i.i, align 4
   %.off.i.i.i = add i32 %7, -48
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 10
-  br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end3.i.i
+  br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %uriParsePortW.exit.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i.i, i64 4
   %cmp.not.i.i.i = icmp ult ptr %add.ptr.i.i.i, %afterLast
-  br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
+  br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %uriParsePortW.exit.i.i
 
-if.end3.i.i:                                      ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i
+uriParsePortW.exit.i.i:                           ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i
   %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ]
   %8 = load ptr, ptr %state, align 8
   %portText.i.i = getelementptr inbounds i8, ptr %8, i64 80
@@ -7098,13 +7098,13 @@ if.end.i22.i:                                     ; preds = %if.end.i22.i.backed
 sw.bb.i25.i:                                      ; preds = %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i
   %call.i.i = tail call fastcc ptr @uriParsePctSubUnresW(ptr noundef %state, ptr noundef nonnull %first.tr53.i.i, ptr noundef nonnull %afterLast, ptr noundef %memory)
   %cmp1.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp1.i.i, label %return, label %if.end3.i26.i
+  br i1 %cmp1.i.i, label %return, label %if.end3.i.i
 
-if.end3.i26.i:                                    ; preds = %sw.bb.i25.i
-  %cmp.not.i.i27.i = icmp ult ptr %call.i.i, %afterLast
-  br i1 %cmp.not.i.i27.i, label %if.end2.i.i.i, label %if.then.i.i.i
+if.end3.i.i:                                      ; preds = %sw.bb.i25.i
+  %cmp.not.i.i26.i = icmp ult ptr %call.i.i, %afterLast
+  br i1 %cmp.not.i.i26.i, label %if.end2.i.i.i, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %if.end3.i26.i
+if.then.i.i.i:                                    ; preds = %if.end3.i.i
   %12 = load ptr, ptr %state, align 8
   %userInfo.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %userInfo.i.i.i, align 8
@@ -7125,9 +7125,9 @@ if.then.i.i.i:                                    ; preds = %if.end3.i26.i
   %hostData11.i.i.i = getelementptr inbounds i8, ptr %18, i64 48
   %19 = load ptr, ptr %hostData11.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %19, null
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %if.end.i.i28.i
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %if.end.i.i27.i
 
-if.end.i.i28.i:                                   ; preds = %if.then.i.i.i
+if.end.i.i27.i:                                   ; preds = %if.then.i.i.i
   %hostText17.i.i.i = getelementptr inbounds i8, ptr %18, i64 32
   %20 = load ptr, ptr %hostText17.i.i.i, align 8
   %afterLast21.i.i.i = getelementptr inbounds i8, ptr %18, i64 40
@@ -7136,7 +7136,7 @@ if.end.i.i28.i:                                   ; preds = %if.then.i.i.i
   %tobool.not.i40.i.i = icmp eq i32 %call22.i.i.i, 0
   br i1 %tobool.not.i40.i.i, label %uriParseAuthorityW.exit, label %if.then23.i.i.i
 
-if.then23.i.i.i:                                  ; preds = %if.end.i.i28.i
+if.then23.i.i.i:                                  ; preds = %if.end.i.i27.i
   %free.i.i.i = getelementptr inbounds i8, ptr %memory, i64 32
   %22 = load ptr, ptr %free.i.i.i, align 8
   %23 = load ptr, ptr %state, align 8
@@ -7156,7 +7156,7 @@ if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
   store i32 3, ptr %errorCode.i38.i.i, align 8
   br label %return
 
-if.end2.i.i.i:                                    ; preds = %if.end3.i26.i
+if.end2.i.i.i:                                    ; preds = %if.end3.i.i
   %26 = load i32, ptr %call.i.i, align 4
   switch i32 %26, label %sw.default.i.i.i [
     i32 33, label %if.end.i22.i.backedge
@@ -7299,8 +7299,8 @@ sw.default.i:                                     ; preds = %if.end.i
   store ptr %33, ptr %afterLast22.i, align 8
   br label %if.end3
 
-uriParseAuthorityW.exit:                          ; preds = %if.then.i, %if.end7.i, %if.end3.i.i, %if.end.i.i28.i, %if.then23.i.i.i, %sw.bb5.i.i, %sw.bb11.i.i
-  %retval.0.i = phi ptr [ %afterLast, %if.then.i ], [ %retval.0.i.i.i, %if.end3.i.i ], [ %afterLast, %if.end7.i ], [ %call19.i.i, %sw.bb11.i.i ], [ %call10.i.i, %sw.bb5.i.i ], [ %afterLast, %if.then23.i.i.i ], [ %afterLast, %if.end.i.i28.i ]
+uriParseAuthorityW.exit:                          ; preds = %if.then.i, %if.end7.i, %uriParsePortW.exit.i.i, %if.end.i.i27.i, %if.then23.i.i.i, %sw.bb5.i.i, %sw.bb11.i.i
+  %retval.0.i = phi ptr [ %afterLast, %if.then.i ], [ %retval.0.i.i.i, %uriParsePortW.exit.i.i ], [ %afterLast, %if.end7.i ], [ %call19.i.i, %sw.bb11.i.i ], [ %call10.i.i, %sw.bb5.i.i ], [ %afterLast, %if.then23.i.i.i ], [ %afterLast, %if.end.i.i27.i ]
   %cmp1 = icmp eq ptr %retval.0.i, null
   br i1 %cmp1, label %return, label %if.end3
 
@@ -8405,7 +8405,7 @@ sw.bb:                                            ; preds = %if.end3, %if.end3, 
 if.end.i:                                         ; preds = %sw.bb, %sw.bb.i
   %first.tr2.i = phi ptr [ %add.ptr.i, %sw.bb.i ], [ %add.ptr4, %sw.bb ]
   %3 = load i32, ptr %first.tr2.i, align 4
-  switch i32 %3, label %if.end7 [
+  switch i32 %3, label %uriParseHexZeroW.exit [
     i32 48, label %sw.bb.i
     i32 49, label %sw.bb.i
     i32 50, label %sw.bb.i
@@ -8435,11 +8435,11 @@ sw.bb.i:                                          ; preds = %if.end.i, %if.end.i
   %cmp.not.i = icmp ult ptr %add.ptr.i, %afterLast
   br i1 %cmp.not.i, label %if.end.i, label %if.then9
 
-if.end7:                                          ; preds = %if.end.i
+uriParseHexZeroW.exit:                            ; preds = %if.end.i
   %cmp8.not = icmp ult ptr %first.tr2.i, %afterLast
   br i1 %cmp8.not, label %if.end10, label %if.then9
 
-if.then9:                                         ; preds = %sw.bb.i, %sw.bb, %if.end7
+if.then9:                                         ; preds = %sw.bb.i, %sw.bb, %uriParseHexZeroW.exit
   %4 = load ptr, ptr %state, align 8
   %call.i39 = tail call i32 @uriFreeUriMembersMmW(ptr noundef %4, ptr noundef %memory)
   %errorPos1.i40 = getelementptr inbounds i8, ptr %state, i64 16
@@ -8448,7 +8448,7 @@ if.then9:                                         ; preds = %sw.bb.i, %sw.bb, %i
   store i32 1, ptr %errorCode.i41, align 8
   br label %return
 
-if.end10:                                         ; preds = %if.end7
+if.end10:                                         ; preds = %uriParseHexZeroW.exit
   %cmp11.not = icmp eq i32 %3, 46
   %5 = load ptr, ptr %state, align 8
   br i1 %cmp11.not, label %if.end13, label %if.then12
@@ -9051,21 +9051,21 @@ if.end.i:                                         ; preds = %if.end4
 sw.bb.i:                                          ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 4
   %cmp.not1.i.i = icmp ult ptr %add.ptr.i, %afterLast
-  br i1 %cmp.not1.i.i, label %if.end.i.i, label %if.end3.i
+  br i1 %cmp.not1.i.i, label %if.end.i.i, label %uriParsePortW.exit.i
 
 if.end.i.i:                                       ; preds = %sw.bb.i, %sw.bb.i.i
   %first.tr2.i.i = phi ptr [ %add.ptr.i.i, %sw.bb.i.i ], [ %add.ptr.i, %sw.bb.i ]
   %4 = load i32, ptr %first.tr2.i.i, align 4
   %.off.i.i = add i32 %4, -48
   %switch.i.i = icmp ult i32 %.off.i.i, 10
-  br i1 %switch.i.i, label %sw.bb.i.i, label %if.end3.i
+  br i1 %switch.i.i, label %sw.bb.i.i, label %uriParsePortW.exit.i
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i, i64 4
   %cmp.not.i.i = icmp ult ptr %add.ptr.i.i, %afterLast
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end3.i
+  br i1 %cmp.not.i.i, label %if.end.i.i, label %uriParsePortW.exit.i
 
-if.end3.i:                                        ; preds = %sw.bb.i.i, %if.end.i.i, %sw.bb.i
+uriParsePortW.exit.i:                             ; preds = %sw.bb.i.i, %if.end.i.i, %sw.bb.i
   %retval.0.i.i = phi ptr [ %afterLast, %sw.bb.i ], [ %first.tr2.i.i, %if.end.i.i ], [ %afterLast, %sw.bb.i.i ]
   %5 = load ptr, ptr %state, align 8
   %portText.i = getelementptr inbounds i8, ptr %5, i64 80
@@ -9234,21 +9234,21 @@ if.end.i27.i:                                     ; preds = %sw.default.i
 sw.bb.i.i20:                                      ; preds = %if.end.i27.i
   %add.ptr.i.i21 = getelementptr inbounds i8, ptr %first.tr.i, i64 4
   %cmp.not1.i.i.i = icmp ult ptr %add.ptr.i.i21, %afterLast
-  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
+  br i1 %cmp.not1.i.i.i, label %if.end.i.i.i, label %uriParsePortW.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i20, %sw.bb.i.i.i
   %first.tr2.i.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb.i.i.i ], [ %add.ptr.i.i21, %sw.bb.i.i20 ]
   %21 = load i32, ptr %first.tr2.i.i.i, align 4
   %.off.i.i.i = add i32 %21, -48
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 10
-  br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %if.end3.i.i
+  br i1 %switch.i.i.i, label %sw.bb.i.i.i, label %uriParsePortW.exit.i.i
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first.tr2.i.i.i, i64 4
   %cmp.not.i.i.i = icmp ult ptr %add.ptr.i.i.i, %afterLast
-  br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.end3.i.i
+  br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %uriParsePortW.exit.i.i
 
-if.end3.i.i:                                      ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i20
+uriParsePortW.exit.i.i:                           ; preds = %sw.bb.i.i.i, %if.end.i.i.i, %sw.bb.i.i20
   %retval.0.i.i.i = phi ptr [ %afterLast, %sw.bb.i.i20 ], [ %afterLast, %sw.bb.i.i.i ], [ %first.tr2.i.i.i, %if.end.i.i.i ]
   %22 = load ptr, ptr %state, align 8
   %portText.i.i = getelementptr inbounds i8, ptr %22, i64 80
@@ -9258,8 +9258,8 @@ if.end3.i.i:                                      ; preds = %sw.bb.i.i.i, %if.en
   store ptr %retval.0.i.i.i, ptr %afterLast8.i.i, align 8
   br label %return
 
-return:                                           ; preds = %sw.bb.i19, %if.end3.i.i, %if.end.i27.i, %if.then10.i, %if.then1.i, %if.then15.i.i, %if.end.i.i17, %if.end3.i, %if.end.i, %if.end4, %sw.bb, %if.then
-  %retval.0 = phi ptr [ %afterLast, %if.then ], [ null, %sw.bb ], [ %retval.0.i.i, %if.end3.i ], [ %afterLast, %if.end4 ], [ %call, %if.end.i ], [ null, %if.then1.i ], [ null, %if.then10.i ], [ %retval.0.i.i.i, %if.end3.i.i ], [ %first.tr.i, %if.end.i27.i ], [ %afterLast, %if.then15.i.i ], [ %afterLast, %if.end.i.i17 ], [ null, %sw.bb.i19 ]
+return:                                           ; preds = %sw.bb.i19, %uriParsePortW.exit.i.i, %if.end.i27.i, %if.then10.i, %if.then1.i, %if.then15.i.i, %if.end.i.i17, %uriParsePortW.exit.i, %if.end.i, %if.end4, %sw.bb, %if.then
+  %retval.0 = phi ptr [ %afterLast, %if.then ], [ null, %sw.bb ], [ %retval.0.i.i, %uriParsePortW.exit.i ], [ %afterLast, %if.end4 ], [ %call, %if.end.i ], [ null, %if.then1.i ], [ null, %if.then10.i ], [ %retval.0.i.i.i, %uriParsePortW.exit.i.i ], [ %first.tr.i, %if.end.i27.i ], [ %afterLast, %if.then15.i.i ], [ %afterLast, %if.end.i.i17 ], [ null, %sw.bb.i19 ]
   ret ptr %retval.0
 }
 

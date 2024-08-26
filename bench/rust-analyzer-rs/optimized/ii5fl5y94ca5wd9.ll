@@ -25035,36 +25035,34 @@ define hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hfe93e499dfe9ebc4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h197698ff2fd40b23E"(ptr noundef nonnull %0, ptr noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %0, %1
-  br i1 %5, label %.loopexit, label %6
+  %4 = icmp eq ptr %0, %1
+  br i1 %4, label %.loopexit, label %5
 
-6:                                                ; preds = %3
-  %7 = ptrtoint ptr %1 to i64
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub nuw i64 %7, %8
-  %10 = lshr exact i64 %9, 2
-  %11 = load ptr, ptr %2, align 8, !alias.scope !5858, !nonnull !4, !align !121, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !alias.scope !5858, !nonnull !4, !align !121, !noundef !4
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
-  %15 = load ptr, ptr %14, align 8, !alias.scope !5858, !nonnull !4, !align !174, !noundef !4
-  br label %16
+5:                                                ; preds = %3
+  %6 = ptrtoint ptr %1 to i64
+  %7 = ptrtoint ptr %0 to i64
+  %8 = sub nuw i64 %6, %7
+  %9 = lshr exact i64 %8, 2
+  %10 = load ptr, ptr %2, align 8, !alias.scope !5858, !nonnull !4, !align !121, !noundef !4
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !alias.scope !5858, !nonnull !4, !align !121, !noundef !4
+  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = load ptr, ptr %13, align 8, !alias.scope !5858, !nonnull !4, !align !174, !noundef !4
+  br label %15
 
-16:                                               ; preds = %16, %6
-  %.0 = phi i64 [ 0, %6 ], [ %18, %16 ]
-  %17 = getelementptr inbounds i32, ptr %0, i64 %.0
-  %.val = load i32, ptr %17, align 4, !noundef !4
+15:                                               ; preds = %15, %5
+  %.0 = phi i64 [ 0, %5 ], [ %17, %15 ]
+  %16 = getelementptr inbounds i32, ptr %0, i64 %.0
+  %.val = load i32, ptr %16, align 4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5865)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5866)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5867)
-  tail call void @_ZN7hir_def4body5scope19compute_expr_scopes17hf5405239b5b978e6E(i32 noundef %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %11, ptr noalias noundef nonnull align 8 dereferenceable(72) %13, ptr noalias noundef nonnull align 4 dereferenceable(4) %15), !noalias !5858
-  %18 = add nuw i64 %.0, 1
-  %19 = icmp eq i64 %18, %10
-  br i1 %19, label %.loopexit, label %16
+  tail call void @_ZN7hir_def4body5scope19compute_expr_scopes17hf5405239b5b978e6E(i32 noundef %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %10, ptr noalias noundef nonnull align 8 dereferenceable(72) %12, ptr noalias noundef nonnull align 4 dereferenceable(4) %14), !noalias !5858
+  %17 = add nuw i64 %.0, 1
+  %18 = icmp eq i64 %17, %9
+  br i1 %18, label %.loopexit, label %15
 
-.loopexit:                                        ; preds = %16, %3
+.loopexit:                                        ; preds = %15, %3
   ret void
 }
 

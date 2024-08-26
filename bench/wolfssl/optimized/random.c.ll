@@ -740,7 +740,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -209, 1) i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef %output, i32 noundef %sz) local_unnamed_addr #0 {
+define range(i32 -209, 1) i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef writeonly %output, i32 noundef %sz) local_unnamed_addr #0 {
 entry:
   %check.i = alloca [128 x i8], align 16
   %newSeed = alloca [36 x i8], align 16
@@ -850,7 +850,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @Hash_DRBG_Generate(ptr noundef %drbg, ptr noundef writeonly %out, i32 noundef %outSz) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @Hash_DRBG_Generate(ptr noundef %drbg, ptr nocapture noundef writeonly %out, i32 noundef %outSz) unnamed_addr #0 {
 entry:
   %data.i = alloca [55 x i8], align 16
   %digest.i = alloca [32 x i8], align 16
@@ -907,10 +907,8 @@ if.end17.i:                                       ; preds = %if.end11.i
   br i1 %cmp19.i, label %if.then20.i, label %for.cond.preheader.i.i
 
 if.then20.i:                                      ; preds = %if.end17.i
-  %cmp21.i = icmp ne ptr %out.addr.07.i, null
-  %cmp22.i = icmp ne i32 %outSz.addr.06.i, 0
-  %or.cond.i = select i1 %cmp21.i, i1 %cmp22.i, i1 false
-  br i1 %or.cond.i, label %if.then23.i, label %for.inc.i
+  %cmp22.not.i = icmp eq i32 %outSz.addr.06.i, 0
+  br i1 %cmp22.not.i, label %for.inc.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.then20.i
   %cmp24.i = icmp ugt i32 %outSz.addr.06.i, 31
@@ -935,7 +933,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
 
 if.else.i:                                        ; preds = %if.then23.i
   %conv.i = zext nneg i32 %outSz.addr.06.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %out.addr.07.i, ptr nonnull align 16 %digest.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.07.i, ptr nonnull align 16 %digest.i, i64 %conv.i, i1 false)
   br label %for.inc.i
 
 for.inc.loopexit.i:                               ; preds = %for.body.i.i
@@ -944,7 +942,7 @@ for.inc.loopexit.i:                               ; preds = %for.body.i.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.loopexit.i, %if.else.i, %if.then20.i
-  %outSz.addr.1.i = phi i32 [ 0, %if.else.i ], [ %outSz.addr.06.i, %if.then20.i ], [ %sub.i, %for.inc.loopexit.i ]
+  %outSz.addr.1.i = phi i32 [ 0, %if.else.i ], [ 0, %if.then20.i ], [ %sub.i, %for.inc.loopexit.i ]
   %out.addr.1.i = phi ptr [ %out.addr.07.i, %if.else.i ], [ %out.addr.07.i, %if.then20.i ], [ %add.ptr.i, %for.inc.loopexit.i ]
   %inc.i = add nuw nsw i32 %i.08.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %add.i
@@ -1277,7 +1275,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 1) i32 @wc_RNG_HealthTest_ex(i32 noundef %reseed, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %seedA, i32 noundef %seedASz, ptr noundef %seedB, i32 noundef %seedBSz, ptr noundef %output, i32 noundef %outputSz, ptr noundef %heap, i32 %devId) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_RNG_HealthTest_ex(i32 noundef %reseed, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %seedA, i32 noundef %seedASz, ptr noundef %seedB, i32 noundef %seedBSz, ptr noundef writeonly %output, i32 noundef %outputSz, ptr noundef %heap, i32 %devId) local_unnamed_addr #0 {
 entry:
   %newV.i = alloca [55 x i8], align 16
   %drbg_var = alloca %struct.DRBG_internal, align 8

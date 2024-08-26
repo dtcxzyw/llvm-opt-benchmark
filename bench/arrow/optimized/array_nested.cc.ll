@@ -8548,7 +8548,7 @@ while.cond21.preheader.split.us.i:                ; preds = %while.cond21.prehea
   %offset.i82.us.i = getelementptr inbounds i8, ptr %40, i64 32
   %41 = load i64, ptr %offset.i82.us.i, align 8
   %42 = load ptr, ptr %raw_value_offsets_.i89.i, align 8, !noalias !115
-  %43 = add nsw i64 %valid_begin.0225.i, 1
+  %43 = add nuw nsw i64 %valid_begin.0225.i, 1
   %smax.i = call i64 @llvm.smax.i64(i64 %1, i64 %43)
   %invariant.gep.i = getelementptr i32, ptr %42, i64 %41
   br label %land.rhs.us.i
@@ -8576,7 +8576,7 @@ lor.rhs.us.i:                                     ; preds = %land.rhs.us.i
   br i1 %cmp28.us.i, label %while.body29.us.i, label %while.end.i
 
 while.body29.us.i:                                ; preds = %lor.rhs.us.i, %land.rhs.us.i
-  %inc.us.i = add nsw i64 %valid_end.0223.us.i, 1
+  %inc.us.i = add nuw nsw i64 %valid_end.0223.us.i, 1
   %cmp22.us.i = icmp slt i64 %inc.us.i, %1
   br i1 %cmp22.us.i, label %land.rhs.us.i, label %while.end.i, !llvm.loop !118
 
@@ -8660,7 +8660,7 @@ lor.rhs.i:                                        ; preds = %invoke.cont24.i, %c
   br i1 %cmp28.i, label %while.body29.i, label %while.end.i
 
 while.body29.i:                                   ; preds = %lor.rhs.i, %invoke.cont24.i, %call24.i.noexc.i, %call16.i.noexc.i, %call9.i.noexc.i, %if.then.i.i
-  %inc.i = add nsw i64 %valid_end.0223.i, 1
+  %inc.i = add nuw nsw i64 %valid_end.0223.i, 1
   %cmp22.i = icmp slt i64 %inc.i, %1
   br i1 %cmp22.i, label %land.rhsthread-pre-split.i, label %while.end.i, !llvm.loop !119
 
@@ -8806,7 +8806,7 @@ lpad41.i:                                         ; preds = %if.else.i.i.i
   br label %ehcleanup.i
 
 if.end43.i:                                       ; preds = %if.end8.sink.split.i.i.i.i124.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i121.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111.i, %invoke.cont42.i, %while.end.i
-  %add.i = add nsw i64 %.us-phi.i, 1
+  %add.i = add nuw nsw i64 %.us-phi.i, 1
   %cmp20.i = icmp slt i64 %add.i, %1
   br i1 %cmp20.i, label %while.cond21.preheader.i, label %while.end44.loopexit.i, !llvm.loop !121
 
@@ -16184,7 +16184,7 @@ while.cond20.preheader.split.us.i:                ; preds = %while.cond20.prehea
   %offset.i82.us.i = getelementptr inbounds i8, ptr %40, i64 32
   %41 = load i64, ptr %offset.i82.us.i, align 8
   %42 = load ptr, ptr %raw_value_offsets_.i89.i, align 8, !noalias !232
-  %43 = add nsw i64 %valid_begin.0225.i, 1
+  %43 = add nuw nsw i64 %valid_begin.0225.i, 1
   %smax.i = call i64 @llvm.smax.i64(i64 %1, i64 %43)
   %invariant.gep.i = getelementptr i64, ptr %42, i64 %41
   br label %land.rhs.us.i
@@ -16212,7 +16212,7 @@ lor.rhs.us.i:                                     ; preds = %land.rhs.us.i
   br i1 %cmp27.us.i, label %while.body28.us.i, label %while.end.i
 
 while.body28.us.i:                                ; preds = %lor.rhs.us.i, %land.rhs.us.i
-  %inc.us.i = add nsw i64 %valid_end.0223.us.i, 1
+  %inc.us.i = add nuw nsw i64 %valid_end.0223.us.i, 1
   %cmp21.us.i = icmp slt i64 %inc.us.i, %1
   br i1 %cmp21.us.i, label %land.rhs.us.i, label %while.end.i, !llvm.loop !235
 
@@ -16296,7 +16296,7 @@ lor.rhs.i:                                        ; preds = %invoke.cont23.i, %c
   br i1 %cmp27.i, label %while.body28.i, label %while.end.i
 
 while.body28.i:                                   ; preds = %lor.rhs.i, %invoke.cont23.i, %call24.i.noexc.i, %call16.i.noexc.i, %call9.i.noexc.i, %if.then.i.i
-  %inc.i = add nsw i64 %valid_end.0223.i, 1
+  %inc.i = add nuw nsw i64 %valid_end.0223.i, 1
   %cmp21.i = icmp slt i64 %inc.i, %1
   br i1 %cmp21.i, label %land.rhsthread-pre-split.i, label %while.end.i, !llvm.loop !236
 
@@ -16440,7 +16440,7 @@ lpad38.i:                                         ; preds = %if.else.i.i.i
   br label %ehcleanup.i
 
 if.end40.i:                                       ; preds = %if.end8.sink.split.i.i.i.i124.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i121.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i111.i, %invoke.cont39.i, %while.end.i
-  %add.i = add nsw i64 %.us-phi.i, 1
+  %add.i = add nuw nsw i64 %.us-phi.i, 1
   %cmp19.i = icmp slt i64 %add.i, %1
   br i1 %cmp19.i, label %while.cond20.preheader.i, label %while.end41.loopexit.i, !llvm.loop !237
 

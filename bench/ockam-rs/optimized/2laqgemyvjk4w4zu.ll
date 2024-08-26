@@ -1965,38 +1965,34 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %28 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %25, i64 %.sroa.11.0.i.i.i
   br label %29
 
-29:                                               ; preds = %35, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h409e1dbd42c23432E.exit.i"
-  %.sroa.10.0.i.i = phi ptr [ %28, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h409e1dbd42c23432E.exit.i" ], [ %.sroa.10.1.i.i, %35 ]
-  %.sroa.8.0.i.i = phi ptr [ %25, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h409e1dbd42c23432E.exit.i" ], [ %.sroa.8.1.i.i, %35 ]
-  %.sroa.6.0.i.i = phi ptr [ %27, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h409e1dbd42c23432E.exit.i" ], [ %.sroa.6.1.i.i, %35 ]
-  %.sroa.0.0.i.i = phi ptr [ %26, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h409e1dbd42c23432E.exit.i" ], [ %36, %35 ]
-  %30 = icmp ne ptr %.sroa.6.0.i.i, null
-  call void @llvm.assume(i1 %30)
-  %31 = icmp eq ptr %.sroa.0.0.i.i, %.sroa.6.0.i.i
-  br i1 %31, label %32, label %35
+29:                                               ; preds = %33, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h409e1dbd42c23432E.exit.i"
+  %.sroa.10.0.i.i = phi ptr [ %28, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h409e1dbd42c23432E.exit.i" ], [ %.sroa.10.1.i.i, %33 ]
+  %.sroa.8.0.i.i = phi ptr [ %25, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h409e1dbd42c23432E.exit.i" ], [ %.sroa.8.1.i.i, %33 ]
+  %.sroa.6.0.i.i = phi ptr [ %27, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h409e1dbd42c23432E.exit.i" ], [ %.sroa.6.1.i.i, %33 ]
+  %.sroa.0.0.i.i = phi ptr [ %26, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h409e1dbd42c23432E.exit.i" ], [ %34, %33 ]
+  %30 = icmp eq ptr %.sroa.0.0.i.i, %.sroa.6.0.i.i
+  br i1 %30, label %31, label %33
 
-32:                                               ; preds = %29
-  %33 = icmp ne ptr %.sroa.8.0.i.i, null
-  call void @llvm.assume(i1 %33)
-  %34 = icmp eq ptr %.sroa.8.0.i.i, %.sroa.10.0.i.i
-  br i1 %34, label %"_ZN89_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h947ff6a85ec3b560E.exit", label %35
+31:                                               ; preds = %29
+  %32 = icmp eq ptr %.sroa.8.0.i.i, %.sroa.10.0.i.i
+  br i1 %32, label %"_ZN89_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h947ff6a85ec3b560E.exit", label %33
 
-35:                                               ; preds = %32, %29
-  %.sroa.10.1.i.i = phi ptr [ %.sroa.6.0.i.i, %32 ], [ %.sroa.10.0.i.i, %29 ]
-  %.sroa.8.1.i.i = phi ptr [ %.sroa.6.0.i.i, %32 ], [ %.sroa.8.0.i.i, %29 ]
-  %.sroa.6.1.i.i = phi ptr [ %.sroa.10.0.i.i, %32 ], [ %.sroa.6.0.i.i, %29 ]
-  %.sink6.i.i.i = phi ptr [ %.sroa.8.0.i.i, %32 ], [ %.sroa.0.0.i.i, %29 ]
-  %36 = getelementptr inbounds i8, ptr %.sink6.i.i.i, i64 32
+33:                                               ; preds = %31, %29
+  %.sroa.10.1.i.i = phi ptr [ %.sroa.6.0.i.i, %31 ], [ %.sroa.10.0.i.i, %29 ]
+  %.sroa.8.1.i.i = phi ptr [ %.sroa.6.0.i.i, %31 ], [ %.sroa.8.0.i.i, %29 ]
+  %.sroa.6.1.i.i = phi ptr [ %.sroa.10.0.i.i, %31 ], [ %.sroa.6.0.i.i, %29 ]
+  %.sink6.i.i.i = phi ptr [ %.sroa.8.0.i.i, %31 ], [ %.sroa.0.0.i.i, %29 ]
+  %34 = getelementptr inbounds i8, ptr %.sink6.i.i.i, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !608
   store ptr %.sink6.i.i.i, ptr %3, align 8, !noalias !608
-  %37 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h49f50a17945b1c4cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7e176beb17d48736771cb3db34f36bf5.16.llvm.2123743330159991533), !noalias !612
+  %35 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h49f50a17945b1c4cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7e176beb17d48736771cb3db34f36bf5.16.llvm.2123743330159991533), !noalias !612
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !608
   br label %29
 
-"_ZN89_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h947ff6a85ec3b560E.exit": ; preds = %32
-  %38 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h3405a2df33b657c7E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !586
+"_ZN89_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h947ff6a85ec3b560E.exit": ; preds = %31
+  %36 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h3405a2df33b657c7E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !586
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !589
-  ret i1 %38
+  ret i1 %36
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -7323,27 +7323,25 @@ _ZN5ropey4tree13node_children12NodeChildren9nodes_mut17h1d9d40aadd47c1ebE.exit: 
   %.sroa.013.0.i.lcssa.i = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4a6aaf2b2c2be032E.llvm.1041312438752767756.exit.i.i" ], [ %.sroa.013.0.i13.i, %.lr.ph.i ], [ %21, %19 ]
   %.sroa.015.0.i.lcssa.i = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4a6aaf2b2c2be032E.llvm.1041312438752767756.exit.i.i" ], [ %.sroa.015.0.i14.i, %.lr.ph.i ], [ %17, %19 ]
   %23 = icmp ult i64 %.sroa.013.0.i.lcssa.i, %8
-  br i1 %23, label %28, label %35, !prof !40
+  br i1 %23, label %27, label %34, !prof !40
 
-24:                                               ; preds = %2, %28
-  %.sroa.3.0 = phi i64 [ %34, %28 ], [ %1, %2 ]
-  %.sroa.0.0 = phi ptr [ %33, %28 ], [ %4, %2 ]
-  %25 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %25)
-  %26 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %27 = insertvalue { ptr, i64 } %26, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %27
+24:                                               ; preds = %2, %27
+  %.sroa.3.0 = phi i64 [ %33, %27 ], [ %1, %2 ]
+  %.sroa.0.0 = phi ptr [ %32, %27 ], [ %4, %2 ]
+  %25 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %26 = insertvalue { ptr, i64 } %25, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %26
 
-28:                                               ; preds = %_ZN5ropey4tree13node_children12NodeChildren9nodes_mut17h1d9d40aadd47c1ebE.exit
-  %29 = getelementptr inbounds [0 x ptr], ptr %4, i64 0, i64 %.sroa.013.0.i.lcssa.i
-  %30 = tail call noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E.llvm.15236414416081531888"(ptr noalias noundef nonnull align 8 dereferenceable(8) %29)
-  %31 = sub i64 %1, %.sroa.015.0.i.lcssa.i
-  %32 = tail call fastcc { ptr, i64 } @_ZN5ropey4tree4node4Node21get_chunk_at_byte_mut17h425b1a43a64cea92E(ptr noalias noundef nonnull align 8 dereferenceable(1008) %30, i64 noundef %31)
-  %33 = extractvalue { ptr, i64 } %32, 0
-  %34 = extractvalue { ptr, i64 } %32, 1
+27:                                               ; preds = %_ZN5ropey4tree13node_children12NodeChildren9nodes_mut17h1d9d40aadd47c1ebE.exit
+  %28 = getelementptr inbounds [0 x ptr], ptr %4, i64 0, i64 %.sroa.013.0.i.lcssa.i
+  %29 = tail call noundef align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h4b2c8c9d5667e931E.llvm.15236414416081531888"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28)
+  %30 = sub i64 %1, %.sroa.015.0.i.lcssa.i
+  %31 = tail call fastcc { ptr, i64 } @_ZN5ropey4tree4node4Node21get_chunk_at_byte_mut17h425b1a43a64cea92E(ptr noalias noundef nonnull align 8 dereferenceable(1008) %29, i64 noundef %30)
+  %32 = extractvalue { ptr, i64 } %31, 0
+  %33 = extractvalue { ptr, i64 } %31, 1
   br label %24
 
-35:                                               ; preds = %_ZN5ropey4tree13node_children12NodeChildren9nodes_mut17h1d9d40aadd47c1ebE.exit
+34:                                               ; preds = %_ZN5ropey4tree13node_children12NodeChildren9nodes_mut17h1d9d40aadd47c1ebE.exit
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.013.0.i.lcssa.i, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.779e77bcbf80b3a9592adcbf249981c3.147) #25
   unreachable
 }
