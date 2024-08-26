@@ -13996,7 +13996,7 @@ linux/msg.ll 314348021
 linux/msg_ring.ll 97254481
 linux/msgutil.ll 69776586
 linux/mshyperv.ll 77066576
-linux/msi.ll 88170558
+linux/msi.ll 88082345
 linux/msr-smp.ll 96551827
 linux/msr.ll 104304052
 linux/msync.ll 89340065
