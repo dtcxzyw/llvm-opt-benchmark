@@ -1294,7 +1294,7 @@ abseil-cpp/str_split_test.cc.ll 31649349318
 abseil-cpp/strerror.cc.ll 76702551
 abseil-cpp/strerror_test.cc.ll 1265063322
 abseil-cpp/string_constant_test.cc.ll 252200319
-abseil-cpp/string_view_test.cc.ll 7593429421
+abseil-cpp/string_view_test.cc.ll 7583342221
 abseil-cpp/strip_test.cc.ll 1356383873
 abseil-cpp/stripping_test.cc.ll 1567699134
 abseil-cpp/structured_test.cc.ll 887302525
@@ -8010,7 +8010,7 @@ graphviz/gvrender_pango.c.ll 147621611
 graphviz/gvtextlayout.c.ll 38780943
 graphviz/gvtextlayout_pango.c.ll 228826316
 graphviz/gvtool_tred.c.ll 58104300
-graphviz/gvusershape.c.ll 591634232
+graphviz/gvusershape.c.ll 584921129
 graphviz/gxl2gv.c.ll 395745405
 graphviz/heap.c.ll 89385408
 graphviz/hedges.c.ll 130573605
@@ -30304,7 +30304,7 @@ ruby/memory_view.ll 345332128
 ruby/miniinit.ll 156354518
 ruby/monitor.ll 106415079
 ruby/newline.ll 46199068
-ruby/nextafter.ll 53866688
+ruby/nextafter.ll 53812821
 ruby/node.ll 210933830
 ruby/node_dump.ll 950102859
 ruby/nonblock.ll 58776713
