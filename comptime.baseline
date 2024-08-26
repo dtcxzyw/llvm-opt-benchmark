@@ -18248,7 +18248,7 @@ ockam-rs/fvcfhm3saxk0gr8.ll 1518694782
 ockam-rs/g35wyrewxj969kp.ll 2186132240
 ockam-rs/gotvfwvqrrp4xgl.ll 36498400835
 ockam-rs/h4di1rbusc24odc.ll 38925058
-ockam-rs/hkewlz9gxnrmgs0.ll 2381399977
+ockam-rs/hkewlz9gxnrmgs0.ll 2379017689
 ockam-rs/i22eb1mfvlgesy1.ll 3774721145
 ockam-rs/k0ppdcycoefrusz.ll 1156787230
 ockam-rs/lcclztcuaxx9mqt.ll 71338413954
@@ -27665,7 +27665,7 @@ postgres/utf8_and_euc_tw.ll 295409118
 postgres/utf8_and_gb18030.ll 720464423
 postgres/utf8_and_gbk.ll 291683000
 postgres/utf8_and_iso8859.ll 93011071
-postgres/utf8_and_iso8859_1.ll 73915620
+postgres/utf8_and_iso8859_1.ll 73841685
 postgres/utf8_and_johab.ll 299192157
 postgres/utf8_and_sjis.ll 177734150
 postgres/utf8_and_sjis2004.ll 252488981
