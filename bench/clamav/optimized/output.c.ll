@@ -240,117 +240,111 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
   %83 = getelementptr inbounds i8, ptr %.066, i64 %82
   store i8 0, ptr %83, align 1
   %84 = icmp slt i32 %81, 0
-  br i1 %84, label %85, label %88
+  br i1 %84, label %85, label %87
 
 85:                                               ; preds = %80
   %86 = icmp ugt i64 %.060, 512
-  br i1 %86, label %87, label %136
+  br i1 %86, label %.sink.split, label %132
 
-87:                                               ; preds = %85
-  call void @free(ptr noundef %.056) #17
-  br label %136
+87:                                               ; preds = %80
+  %88 = zext nneg i32 %81 to i64
+  %.not83 = icmp ugt i64 %.060, %88
+  %89 = trunc i64 %82 to i32
+  %spec.select = select i1 %.not83, i32 %81, i32 %89
+  %90 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mdprintf_mutex) #17
+  %91 = icmp sgt i32 %spec.select, 0
+  br i1 %91, label %.lr.ph99, label %.critedge._crit_edge
 
-88:                                               ; preds = %80
-  %89 = zext nneg i32 %81 to i64
-  %.not83 = icmp ugt i64 %.060, %89
-  %90 = trunc i64 %82 to i32
-  %spec.select = select i1 %.not83, i32 %81, i32 %90
-  %91 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mdprintf_mutex) #17
-  %92 = icmp sgt i32 %spec.select, 0
-  br i1 %92, label %.lr.ph99, label %.critedge._crit_edge
+.lr.ph99:                                         ; preds = %87
+  %92 = zext nneg i32 %spec.select to i64
+  %93 = getelementptr inbounds i8, ptr %5, i64 8
+  %94 = srem i32 %0, 64
+  %95 = zext nneg i32 %94 to i64
+  %96 = shl nuw i64 1, %95
+  %97 = sdiv i32 %0, 64
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %98
+  %100 = add nsw i32 %0, 1
+  br label %101
 
-.lr.ph99:                                         ; preds = %88
-  %93 = zext nneg i32 %spec.select to i64
-  %94 = getelementptr inbounds i8, ptr %5, i64 8
-  %95 = srem i32 %0, 64
-  %96 = zext nneg i32 %95 to i64
-  %97 = shl nuw i64 1, %96
-  %98 = sdiv i32 %0, 64
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %99
-  %101 = add nsw i32 %0, 1
-  br label %102
+101:                                              ; preds = %.lr.ph99, %127
+  %.06397 = phi i32 [ %spec.select, %.lr.ph99 ], [ %.164, %127 ]
+  %.16796 = phi ptr [ %.066, %.lr.ph99 ], [ %.268, %127 ]
+  %102 = call i64 @send(i32 noundef %0, ptr noundef %.16796, i64 noundef %92, i32 noundef 0) #17
+  %103 = trunc i64 %102 to i32
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %105, label %123
 
-102:                                              ; preds = %.lr.ph99, %128
-  %.06397 = phi i32 [ %spec.select, %.lr.ph99 ], [ %.164, %128 ]
-  %.16796 = phi ptr [ %.066, %.lr.ph99 ], [ %.268, %128 ]
-  %103 = call i64 @send(i32 noundef %0, ptr noundef %.16796, i64 noundef %93, i32 noundef 0) #17
-  %104 = trunc i64 %103 to i32
-  %105 = icmp slt i32 %104, 0
-  br i1 %105, label %106, label %124
+105:                                              ; preds = %101
+  %106 = tail call ptr @__errno_location() #18
+  %107 = load i32, ptr %106, align 4
+  %.not84 = icmp eq i32 %107, 11
+  br i1 %.not84, label %108, label %.critedge._crit_edge
 
-106:                                              ; preds = %102
-  %107 = tail call ptr @__errno_location() #18
-  %108 = load i32, ptr %107, align 4
-  %.not84 = icmp eq i32 %108, 11
-  br i1 %.not84, label %109, label %.critedge._crit_edge.loopexit
-
-109:                                              ; preds = %106
-  %110 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mdprintf_mutex) #17
+108:                                              ; preds = %105
+  %109 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mdprintf_mutex) #17
   store i64 0, ptr %5, align 8
-  %111 = load i16, ptr @mprintf_send_timeout, align 2
-  %112 = sext i16 %111 to i64
-  %113 = mul nsw i64 %112, 1000
-  store i64 %113, ptr %94, align 8
-  br label %114
+  %110 = load i16, ptr @mprintf_send_timeout, align 2
+  %111 = sext i16 %110 to i64
+  %112 = mul nsw i64 %111, 1000
+  store i64 %112, ptr %93, align 8
+  br label %113
 
-114:                                              ; preds = %119, %109
+113:                                              ; preds = %118, %108
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
-  %115 = load i64, ptr %100, align 8
-  %116 = or i64 %115, %97
-  store i64 %116, ptr %100, align 8
-  %117 = call i32 @select(i32 noundef %101, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %5) #17
-  %118 = icmp slt i32 %117, 0
-  br i1 %118, label %119, label %.critedge
+  %114 = load i64, ptr %99, align 8
+  %115 = or i64 %114, %96
+  store i64 %115, ptr %99, align 8
+  %116 = call i32 @select(i32 noundef %100, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %5) #17
+  %117 = icmp slt i32 %116, 0
+  br i1 %117, label %118, label %.critedge
 
-119:                                              ; preds = %114
-  %120 = load i32, ptr %107, align 4
-  %121 = icmp eq i32 %120, 4
-  br i1 %121, label %114, label %.critedge.thread
+118:                                              ; preds = %113
+  %119 = load i32, ptr %106, align 4
+  %120 = icmp eq i32 %119, 4
+  br i1 %120, label %113, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %119
+.critedge.thread:                                 ; preds = %118
+  %121 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mdprintf_mutex) #17
+  br label %127
+
+.critedge:                                        ; preds = %113
   %122 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mdprintf_mutex) #17
-  br label %128
+  %.not85 = icmp eq i32 %116, 0
+  br i1 %.not85, label %.critedge._crit_edge, label %127
 
-.critedge:                                        ; preds = %114
-  %123 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mdprintf_mutex) #17
-  %.not85 = icmp eq i32 %117, 0
-  br i1 %.not85, label %.critedge._crit_edge.loopexit, label %128
+123:                                              ; preds = %101
+  %124 = sub nsw i32 %.06397, %103
+  %125 = and i64 %102, 2147483647
+  %126 = getelementptr inbounds i8, ptr %.16796, i64 %125
+  br label %127
 
-124:                                              ; preds = %102
-  %125 = sub nsw i32 %.06397, %104
-  %126 = and i64 %103, 2147483647
-  %127 = getelementptr inbounds i8, ptr %.16796, i64 %126
-  br label %128
+127:                                              ; preds = %.critedge.thread, %.critedge, %123
+  %.268 = phi ptr [ %.16796, %.critedge ], [ %126, %123 ], [ %.16796, %.critedge.thread ]
+  %.164 = phi i32 [ %.06397, %.critedge ], [ %124, %123 ], [ %.06397, %.critedge.thread ]
+  %.2 = phi i32 [ %116, %.critedge ], [ %103, %123 ], [ %116, %.critedge.thread ]
+  %128 = icmp sgt i32 %.164, 0
+  br i1 %128, label %101, label %.critedge._crit_edge.loopexit
 
-128:                                              ; preds = %.critedge.thread, %.critedge, %124
-  %.268 = phi ptr [ %.16796, %.critedge ], [ %127, %124 ], [ %.16796, %.critedge.thread ]
-  %.164 = phi i32 [ %.06397, %.critedge ], [ %125, %124 ], [ %.06397, %.critedge.thread ]
-  %.2 = phi i32 [ %117, %.critedge ], [ %104, %124 ], [ %117, %.critedge.thread ]
-  %129 = icmp sgt i32 %.164, 0
-  br i1 %129, label %102, label %.critedge._crit_edge.loopexit
-
-.critedge._crit_edge.loopexit:                    ; preds = %.critedge, %106, %128
-  %.162.ph = phi i32 [ %.2, %128 ], [ %104, %106 ], [ -1, %.critedge ]
-  %130 = icmp sgt i32 %.162.ph, -1
+.critedge._crit_edge.loopexit:                    ; preds = %127
+  %.2.fr = freeze i32 %.2
+  %129 = icmp sgt i32 %.2.fr, -1
+  %spec.select112 = select i1 %129, i32 %spec.select, i32 -1
   br label %.critedge._crit_edge
 
-.critedge._crit_edge:                             ; preds = %.critedge._crit_edge.loopexit, %88
-  %.162 = phi i1 [ true, %88 ], [ %130, %.critedge._crit_edge.loopexit ]
-  %131 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mdprintf_mutex) #17
-  %132 = icmp ugt i64 %.060, 512
-  br i1 %132, label %133, label %134
+.critedge._crit_edge:                             ; preds = %.critedge, %105, %.critedge._crit_edge.loopexit, %87
+  %.162 = phi i32 [ %spec.select, %87 ], [ %spec.select112, %.critedge._crit_edge.loopexit ], [ -1, %105 ], [ -1, %.critedge ]
+  %130 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mdprintf_mutex) #17
+  %131 = icmp ugt i64 %.060, 512
+  br i1 %131, label %.sink.split, label %132
 
-133:                                              ; preds = %.critedge._crit_edge
+.sink.split:                                      ; preds = %.critedge._crit_edge, %85
+  %.0.ph = phi i32 [ %81, %85 ], [ %.162, %.critedge._crit_edge ]
   call void @free(ptr noundef %.056) #17
-  br label %134
+  br label %132
 
-134:                                              ; preds = %133, %.critedge._crit_edge
-  %135 = select i1 %.162, i32 %spec.select, i32 -1
-  br label %136
-
-136:                                              ; preds = %85, %87, %134
-  %.0 = phi i32 [ %135, %134 ], [ %81, %87 ], [ %81, %85 ]
+132:                                              ; preds = %.sink.split, %.critedge._crit_edge, %85
+  %.0 = phi i32 [ %81, %85 ], [ %.162, %.critedge._crit_edge ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

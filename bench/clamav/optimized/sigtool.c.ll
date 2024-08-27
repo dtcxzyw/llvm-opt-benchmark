@@ -1632,7 +1632,7 @@ define internal fastcc range(i32 -1, 1) i32 @fuzzy_img(ptr nocapture noundef rea
   br label %75
 
 75:                                               ; preds = %56, %52, %48, %41
-  %.not10 = phi i1 [ false, %52 ], [ true, %56 ], [ false, %48 ], [ false, %41 ]
+  %.not10 = phi i32 [ -1, %52 ], [ %.117, %56 ], [ -1, %48 ], [ -1, %41 ]
   call void @free(ptr noundef nonnull %34) #25
   %.pre.i = load ptr, ptr %2, align 8
   %.not26.i = icmp eq ptr %.pre.i, null
@@ -1648,28 +1648,18 @@ fuzzy_img_file.exit.thread:                       ; preds = %21
   %79 = load i32, ptr %78, align 4
   %80 = call ptr @cli_strerror(i32 noundef %79, ptr noundef nonnull %5, i64 noundef 128) #25
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.125, ptr noundef %77, ptr noundef %80) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %8)
   br label %83
 
 fuzzy_img_file.exit.thread13:                     ; preds = %27, %36
   %81 = call i32 @close(i32 noundef %23) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %8)
   br label %83
 
 fuzzy_img_file.exit:                              ; preds = %75, %76
   %82 = call i32 @close(i32 noundef %23) #25
+  br label %83
+
+83:                                               ; preds = %fuzzy_img_file.exit, %fuzzy_img_file.exit.thread13, %fuzzy_img_file.exit.thread
+  %84 = phi i32 [ -1, %fuzzy_img_file.exit.thread ], [ -1, %fuzzy_img_file.exit.thread13 ], [ %.not10, %fuzzy_img_file.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
@@ -1677,11 +1667,6 @@ fuzzy_img_file.exit:                              ; preds = %75, %76
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %8)
-  %spec.select = select i1 %.not10, i32 %.117, i32 -1
-  br label %83
-
-83:                                               ; preds = %fuzzy_img_file.exit, %fuzzy_img_file.exit.thread13, %fuzzy_img_file.exit.thread
-  %84 = phi i32 [ -1, %fuzzy_img_file.exit.thread ], [ -1, %fuzzy_img_file.exit.thread13 ], [ %spec.select, %fuzzy_img_file.exit ]
   %85 = add i64 %.018, 1
   %86 = load ptr, ptr %9, align 8
   %87 = getelementptr inbounds ptr, ptr %86, i64 %85

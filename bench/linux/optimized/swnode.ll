@@ -2509,13 +2509,13 @@ define internal ptr @software_node_graph_get_next_endpoint(ptr noundef %0, ptr n
   %49 = getelementptr i8, ptr %0, i64 112
   %50 = load volatile ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %49
-  br i1 %51, label %.thread22.thread.thread, label %.preheader31
+  br i1 %51, label %.thread22.thread, label %.preheader31
 
 .preheader31:                                     ; preds = %48, %55
   %52 = phi ptr [ %53, %55 ], [ %49, %48 ]
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, %49
-  br i1 %54, label %.thread22.thread, label %55
+  br i1 %54, label %.thread22..thread22.thread_crit_edge, label %55
 
 55:                                               ; preds = %.preheader31
   %56 = getelementptr i8, ptr %53, i64 -160
@@ -2529,25 +2529,22 @@ define internal ptr @software_node_graph_get_next_endpoint(ptr noundef %0, ptr n
   %62 = tail call ptr @kobject_get(ptr noundef %61) #12
   %63 = getelementptr i8, ptr %53, i64 -96
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %.thread22.thread, label %70
+  br i1 %64, label %.thread22..thread22.thread_crit_edge, label %70
 
-.thread22.thread:                                 ; preds = %.preheader31, %60
+.thread22..thread22.thread_crit_edge:             ; preds = %.preheader31, %60
   %.pre = load ptr, ptr %7, align 8
-  %.pre.fr = freeze ptr %.pre
-  %65 = icmp eq ptr %.pre.fr, @software_node_ops
-  br i1 %65, label %.thread22.thread.thread, label %66
+  %65 = icmp eq ptr %.pre, @software_node_ops
+  %66 = select i1 %65, ptr %10, ptr null
+  br label %.thread22.thread
 
-.thread22.thread.thread:                          ; preds = %48, %.thread22.thread
-  br label %66
-
-66:                                               ; preds = %.thread22.thread, %.thread22.thread.thread
-  %67 = phi ptr [ %10, %.thread22.thread.thread ], [ null, %.thread22.thread ]
+.thread22.thread:                                 ; preds = %48, %.thread22..thread22.thread_crit_edge
+  %67 = phi ptr [ %66, %.thread22..thread22.thread_crit_edge ], [ %10, %48 ]
   %68 = tail call ptr @kobject_get(ptr noundef %67) #12
   %69 = getelementptr inbounds i8, ptr %67, i64 64
   br label %70
 
-70:                                               ; preds = %66, %60
-  %71 = phi ptr [ %63, %60 ], [ %69, %66 ]
+70:                                               ; preds = %.thread22.thread, %60
+  %71 = phi ptr [ %63, %60 ], [ %69, %.thread22.thread ]
   %72 = tail call fastcc ptr @swnode_graph_find_next_port(ptr noundef %71, ptr noundef null)
   br label %.thread20
 

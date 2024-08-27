@@ -4942,7 +4942,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br i1 %.not6.i.i, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5081a2587234d887E.llvm.15125219604780613101.exit", label %4
 
 "_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h5081a2587234d887E.llvm.15125219604780613101.exit": ; preds = %33, %4, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hacc957f285e50f62E.llvm.15125219604780613101.exit.i"
-  %.not28 = phi i1 [ false, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hacc957f285e50f62E.llvm.15125219604780613101.exit.i" ], [ true, %4 ], [ true, %33 ]
+  %.not28 = phi i64 [ %.sroa.18.0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hacc957f285e50f62E.llvm.15125219604780613101.exit.i" ], [ 0, %4 ], [ 0, %33 ]
   %.sroa.4.226 = phi ptr [ %.sroa.4.1, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hacc957f285e50f62E.llvm.15125219604780613101.exit.i" ], [ %3, %4 ], [ %35, %33 ]
   %.sroa.18.124 = phi i64 [ %47, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hacc957f285e50f62E.llvm.15125219604780613101.exit.i" ], [ %.sroa.18.0, %4 ], [ %.sroa.18.0, %33 ]
   %48 = phi i64 [ %47, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hacc957f285e50f62E.llvm.15125219604780613101.exit.i" ], [ 0, %4 ], [ 0, %33 ]
@@ -5030,9 +5030,8 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
 
 .loopexit:                                        ; preds = %49, %84, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h66eb22df16fc1ddeE.llvm.15125219604780613101.exit"
   %95 = phi i64 [ %94, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h66eb22df16fc1ddeE.llvm.15125219604780613101.exit" ], [ %48, %84 ], [ %48, %49 ]
-  %.0 = select i1 %.not28, i64 0, i64 %.sroa.18.0
-  %96 = getelementptr inbounds i8, ptr %0, i64 %.0
-  %97 = sub i64 %95, %.0
+  %96 = getelementptr inbounds i8, ptr %0, i64 %.not28
+  %97 = sub i64 %95, %.not28
   %98 = insertvalue { ptr, i64 } poison, ptr %96, 0
   %99 = insertvalue { ptr, i64 } %98, i64 %97, 1
   ret { ptr, i64 } %99
@@ -5113,7 +5112,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   br i1 %.not6.i.i, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17he1fab07073d0d459E.llvm.15125219604780613101.exit", label %4
 
 "_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17he1fab07073d0d459E.llvm.15125219604780613101.exit": ; preds = %33, %4, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1e3c62aa0ceed472E.llvm.15125219604780613101.exit.i"
-  %.not28 = phi i1 [ false, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1e3c62aa0ceed472E.llvm.15125219604780613101.exit.i" ], [ true, %4 ], [ true, %33 ]
+  %.not28 = phi i64 [ %.sroa.18.0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1e3c62aa0ceed472E.llvm.15125219604780613101.exit.i" ], [ 0, %4 ], [ 0, %33 ]
   %.sroa.4.226 = phi ptr [ %.sroa.4.1, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1e3c62aa0ceed472E.llvm.15125219604780613101.exit.i" ], [ %3, %4 ], [ %35, %33 ]
   %.sroa.18.124 = phi i64 [ %47, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1e3c62aa0ceed472E.llvm.15125219604780613101.exit.i" ], [ %.sroa.18.0, %4 ], [ %.sroa.18.0, %33 ]
   %48 = phi i64 [ %47, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1e3c62aa0ceed472E.llvm.15125219604780613101.exit.i" ], [ 0, %4 ], [ 0, %33 ]
@@ -5201,9 +5200,8 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
 
 .loopexit:                                        ; preds = %49, %84, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h18a2213c6f083aacE.llvm.15125219604780613101.exit"
   %95 = phi i64 [ %94, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h18a2213c6f083aacE.llvm.15125219604780613101.exit" ], [ %48, %84 ], [ %48, %49 ]
-  %.0 = select i1 %.not28, i64 0, i64 %.sroa.18.0
-  %96 = getelementptr inbounds i8, ptr %0, i64 %.0
-  %97 = sub i64 %95, %.0
+  %96 = getelementptr inbounds i8, ptr %0, i64 %.not28
+  %97 = sub i64 %95, %.not28
   %98 = insertvalue { ptr, i64 } poison, ptr %96, 0
   %99 = insertvalue { ptr, i64 } %98, i64 %97, 1
   ret { ptr, i64 } %99

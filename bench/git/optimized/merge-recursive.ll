@@ -3012,7 +3012,7 @@ is_valid.exit.i320.i:                             ; preds = %if.end.i.i.i.i.i318
 
 .thread.i.i:                                      ; preds = %if.else97.i, %510, %is_valid.exit.i320.i
   %511 = phi ptr [ %branch2.i296.i, %is_valid.exit.i320.i ], [ %branch1.i115, %510 ], [ %branch2.i296.i, %if.else97.i ]
-  %land.ext.i1830.i.i = phi i1 [ true, %is_valid.exit.i320.i ], [ false, %510 ], [ true, %if.else97.i ]
+  %land.ext.i1830.i.i = phi ptr [ %arrayidx5.i, %is_valid.exit.i320.i ], [ %arrayidx3.i, %510 ], [ %arrayidx5.i, %if.else97.i ]
   %512 = phi ptr [ %branch1.i115, %is_valid.exit.i320.i ], [ %branch2.i296.i, %510 ], [ %branch1.i115, %if.else97.i ]
   %delete_branch.0.i.i = load ptr, ptr %512, align 8
   %modify_branch.0.i.i = load ptr, ptr %511, align 8
@@ -3033,8 +3033,7 @@ if.end3.i7.i.i:                                   ; preds = %_.exit.i326.i
 handle_modify_delete.exit.i:                      ; preds = %if.end3.i7.i.i, %_.exit.i326.i, %.thread.i.i
   %retval.0.i13.i.i = phi ptr [ %call.i.i327.i, %if.end3.i7.i.i ], [ %call.i.i327.i, %_.exit.i326.i ], [ @.str.110, %.thread.i.i ]
   %retval.0.i9.i.i = phi ptr [ %call.i8.i.i, %if.end3.i7.i.i ], [ @.str.111, %_.exit.i326.i ], [ @.str.111, %.thread.i.i ]
-  %changed.0.i.i = select i1 %land.ext.i1830.i.i, ptr %arrayidx5.i, ptr %arrayidx3.i
-  %call5.i.i = call fastcc i32 @handle_change_delete(ptr noundef nonnull %opt, ptr noundef %244, ptr noundef null, ptr noundef nonnull %arrayidx.i106, ptr noundef nonnull %changed.0.i.i, ptr noundef %modify_branch.0.i.i, ptr noundef %delete_branch.0.i.i, ptr noundef %retval.0.i13.i.i, ptr noundef %retval.0.i9.i.i)
+  %call5.i.i = call fastcc i32 @handle_change_delete(ptr noundef nonnull %opt, ptr noundef %244, ptr noundef null, ptr noundef nonnull %arrayidx.i106, ptr noundef nonnull %land.ext.i1830.i.i, ptr noundef %modify_branch.0.i.i, ptr noundef %delete_branch.0.i.i, ptr noundef %retval.0.i13.i.i, ptr noundef %retval.0.i9.i.i)
   %tobool99.not.i = icmp ne i32 %call5.i.i, 0
   %spec.select141.i = sext i1 %tobool99.not.i to i32
   br label %process_entry.exit

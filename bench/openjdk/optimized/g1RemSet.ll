@@ -3823,7 +3823,7 @@ _ZNK12G1HeapRegion11block_startEPKvPP12HeapWordImpl.exit: ; preds = %33
   %42 = lshr i64 %41, 3
   %43 = tail call noundef ptr @_ZN12G1HeapRegion39oops_on_memregion_iterate_in_unparsableI17G1ScanCardClosureEEPP12HeapWordImpl9MemRegionS4_PT_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %1, i64 %42, ptr noundef %.0.i.i, ptr noundef %3)
   %.not = icmp ult ptr %43, %5
-  br i1 %.not, label %.preheader, label %159
+  br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %37, %_ZNK12G1HeapRegion11block_startEPKvPP12HeapWordImpl.exit
   %.1.ph = phi ptr [ %43, %37 ], [ %.0.i.i, %_ZNK12G1HeapRegion11block_startEPKvPP12HeapWordImpl.exit ]
@@ -4005,16 +4005,12 @@ _ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_9MemRegion.exit: ; preds = %14
   br label %156
 
 156:                                              ; preds = %_ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_9MemRegion.exit, %_ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_.exit
-  %.031 = phi i1 [ false, %_ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_.exit ], [ true, %_ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_9MemRegion.exit ]
+  %.031 = phi ptr [ %100, %_ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_.exit ], [ %5, %_ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_9MemRegion.exit ]
   %.not39 = icmp ult ptr %100, %5
-  br i1 %.not39, label %44, label %157, !llvm.loop !32
+  br i1 %.not39, label %44, label %.loopexit, !llvm.loop !32
 
-157:                                              ; preds = %156
-  %158 = select i1 %.031, ptr %5, ptr %100
-  br label %159
-
-159:                                              ; preds = %37, %157
-  %.0 = phi ptr [ %158, %157 ], [ %43, %37 ]
+.loopexit:                                        ; preds = %156, %37
+  %.0 = phi ptr [ %43, %37 ], [ %.031, %156 ]
   ret ptr %.0
 }
 
@@ -4105,7 +4101,7 @@ _ZNK10MarkBitMap20get_next_marked_addrEPKP12HeapWordImplPS1_.exit: ; preds = %34
   %59 = shl i64 %.0.i.i.i, %28
   %60 = getelementptr inbounds ptr, ptr %24, i64 %59
   %61 = icmp eq ptr %60, %6
-  br i1 %61, label %.loopexit, label %62
+  br i1 %61, label %175, label %62
 
 62:                                               ; preds = %_ZNK10MarkBitMap20get_next_marked_addrEPKP12HeapWordImplPS1_.exit
   %63 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -4282,16 +4278,12 @@ _ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_9MemRegion.exit: ; preds = %15
   br label %174
 
 174:                                              ; preds = %_ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_9MemRegion.exit, %_ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_.exit
-  %.025 = phi i1 [ false, %_ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_.exit ], [ true, %_ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_9MemRegion.exit ]
+  %.025 = phi ptr [ %118, %_ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_.exit ], [ %6, %_ZN7oopDesc11oop_iterateI17G1ScanCardClosureEEvPT_9MemRegion.exit ]
   %.not31 = icmp ult ptr %118, %6
   br i1 %.not31, label %14, label %175, !llvm.loop !34
 
-175:                                              ; preds = %174
-  %176 = select i1 %.025, ptr %6, ptr %118
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %_ZNK10MarkBitMap20get_next_marked_addrEPKP12HeapWordImplPS1_.exit, %175
-  %.0 = phi ptr [ %176, %175 ], [ %6, %_ZNK10MarkBitMap20get_next_marked_addrEPKP12HeapWordImplPS1_.exit ]
+175:                                              ; preds = %174, %_ZNK10MarkBitMap20get_next_marked_addrEPKP12HeapWordImplPS1_.exit
+  %.0 = phi ptr [ %6, %_ZNK10MarkBitMap20get_next_marked_addrEPKP12HeapWordImplPS1_.exit ], [ %.025, %174 ]
   ret ptr %.0
 }
 
@@ -26943,7 +26935,7 @@ _ZNK12G1HeapRegion11block_startEPKvPP12HeapWordImpl.exit: ; preds = %33
   %42 = lshr i64 %41, 3
   %43 = tail call noundef ptr @_ZN12G1HeapRegion39oops_on_memregion_iterate_in_unparsableI28G1ConcurrentRefineOopClosureEEPP12HeapWordImpl9MemRegionS4_PT_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %1, i64 %42, ptr noundef %.0.i.i, ptr noundef %3)
   %.not = icmp ult ptr %43, %5
-  br i1 %.not, label %.preheader, label %159
+  br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %37, %_ZNK12G1HeapRegion11block_startEPKvPP12HeapWordImpl.exit
   %.1.ph = phi ptr [ %43, %37 ], [ %.0.i.i, %_ZNK12G1HeapRegion11block_startEPKvPP12HeapWordImpl.exit ]
@@ -27125,16 +27117,12 @@ _ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit: ; 
   br label %156
 
 156:                                              ; preds = %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_.exit
-  %.031 = phi i1 [ false, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_.exit ], [ true, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit ]
+  %.031 = phi ptr [ %100, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_.exit ], [ %5, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit ]
   %.not39 = icmp ult ptr %100, %5
-  br i1 %.not39, label %44, label %157, !llvm.loop !158
+  br i1 %.not39, label %44, label %.loopexit, !llvm.loop !158
 
-157:                                              ; preds = %156
-  %158 = select i1 %.031, ptr %5, ptr %100
-  br label %159
-
-159:                                              ; preds = %37, %157
-  %.0 = phi ptr [ %158, %157 ], [ %43, %37 ]
+.loopexit:                                        ; preds = %156, %37
+  %.0 = phi ptr [ %43, %37 ], [ %.031, %156 ]
   ret ptr %.0
 }
 
@@ -27225,7 +27213,7 @@ _ZNK10MarkBitMap20get_next_marked_addrEPKP12HeapWordImplPS1_.exit: ; preds = %34
   %59 = shl i64 %.0.i.i.i, %28
   %60 = getelementptr inbounds ptr, ptr %24, i64 %59
   %61 = icmp eq ptr %60, %6
-  br i1 %61, label %.loopexit, label %62
+  br i1 %61, label %175, label %62
 
 62:                                               ; preds = %_ZNK10MarkBitMap20get_next_marked_addrEPKP12HeapWordImplPS1_.exit
   %63 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -27402,16 +27390,12 @@ _ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit: ; 
   br label %174
 
 174:                                              ; preds = %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_.exit
-  %.025 = phi i1 [ false, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_.exit ], [ true, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit ]
+  %.025 = phi ptr [ %118, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_.exit ], [ %6, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit ]
   %.not31 = icmp ult ptr %118, %6
   br i1 %.not31, label %14, label %175, !llvm.loop !159
 
-175:                                              ; preds = %174
-  %176 = select i1 %.025, ptr %6, ptr %118
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %_ZNK10MarkBitMap20get_next_marked_addrEPKP12HeapWordImplPS1_.exit, %175
-  %.0 = phi ptr [ %176, %175 ], [ %6, %_ZNK10MarkBitMap20get_next_marked_addrEPKP12HeapWordImplPS1_.exit ]
+175:                                              ; preds = %174, %_ZNK10MarkBitMap20get_next_marked_addrEPKP12HeapWordImplPS1_.exit
+  %.0 = phi ptr [ %6, %_ZNK10MarkBitMap20get_next_marked_addrEPKP12HeapWordImplPS1_.exit ], [ %.025, %174 ]
   ret ptr %.0
 }
 

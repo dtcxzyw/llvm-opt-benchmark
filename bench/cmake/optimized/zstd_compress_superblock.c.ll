@@ -86,8 +86,8 @@ define dso_local i64 @ZSTD_compressSuperBlock(ptr noundef %0, ptr noundef %1, i6
   br label %.outer.i
 
 .outer.i:                                         ; preds = %368, %23
-  %.0148.ph.i = phi i32 [ %spec.select.i, %368 ], [ %48, %23 ]
-  %.0146.ph.i = phi i32 [ %spec.select163.i, %368 ], [ 1, %23 ]
+  %.0148.ph.i = phi i32 [ %.not156.i, %368 ], [ %48, %23 ]
+  %.0146.ph.i = phi i32 [ %.not157.i, %368 ], [ 1, %23 ]
   %.0137.ph.i = phi ptr [ %373, %368 ], [ %43, %23 ]
   %.0135.ph.i = phi ptr [ %372, %368 ], [ %41, %23 ]
   %.0133.ph.i = phi ptr [ %371, %368 ], [ %39, %23 ]
@@ -148,13 +148,13 @@ define dso_local i64 @ZSTD_compressSuperBlock(ptr noundef %0, ptr noundef %1, i6
   %.sroa.0.0.insert.ext.i.i = zext nneg i32 %.sroa.0.0.i.i to i64
   %102 = add i64 %.0139.i, %.sroa.0.0.insert.ext.i.i
   %103 = add i64 %.0142.i, 1
-  %spec.select273.i = select i1 %cond.fr.i, i64 %70, i64 %102
+  %spec.select.i = select i1 %cond.fr.i, i64 %70, i64 %102
   br label %.thread223.i
 
 .thread223.i:                                     ; preds = %101, %82
   %.1143231.i = phi i64 [ %.0142.i, %82 ], [ %103, %101 ]
   %.0145228.i = phi i1 [ true, %82 ], [ %cond.fr.i, %101 ]
-  %104 = phi i64 [ %70, %82 ], [ %spec.select273.i, %101 ]
+  %104 = phi i64 [ %70, %82 ], [ %spec.select.i, %101 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 255, ptr %10, align 4
   %105 = load i32, ptr %12, align 8
@@ -579,7 +579,7 @@ default.unreachable:                              ; preds = %261
   br label %ZSTD_compressSubBlock_literal.exit.i.i
 
 ZSTD_compressSubBlock_literal.exit.i.i:           ; preds = %286, %259, %250, %230, %228
-  %.not156.i = phi i1 [ true, %228 ], [ true, %259 ], [ false, %286 ], [ true, %250 ], [ true, %230 ]
+  %.not156.i = phi i32 [ %.0148.ph.i, %228 ], [ %.0148.ph.i, %259 ], [ 0, %286 ], [ 0, %250 ], [ %.0148.ph.i, %230 ]
   %.0.i.i165.i = phi i64 [ %229, %228 ], [ %260, %259 ], [ %288, %286 ], [ %251, %250 ], [ %231, %230 ]
   %289 = icmp ult i64 %.0.i.i165.i, -119
   br i1 %289, label %290, label %ZSTD_compressSubBlock_multi.exit
@@ -697,7 +697,7 @@ ZSTD_compressSubBlock_sequences.exit.thread.i.i:  ; preds = %ZSTD_compressSubBlo
   br i1 %355, label %.thread200.i, label %ZSTD_compressSubBlock.exit.i
 
 ZSTD_compressSubBlock.exit.i:                     ; preds = %ZSTD_compressSubBlock_sequences.exit.thread.i.i, %315
-  %.not157.i = phi i1 [ true, %315 ], [ false, %ZSTD_compressSubBlock_sequences.exit.thread.i.i ]
+  %.not157.i = phi i32 [ %.0146.ph.i, %315 ], [ 0, %ZSTD_compressSubBlock_sequences.exit.thread.i.i ]
   %.0.i526069.i.i = phi i64 [ 1, %315 ], [ %353, %ZSTD_compressSubBlock_sequences.exit.thread.i.i ]
   %356 = getelementptr inbounds i8, ptr %293, i64 %.0.i526069.i.i
   %357 = ptrtoint ptr %356 to i64
@@ -726,8 +726,6 @@ ZSTD_compressSubBlock.exit.i:                     ; preds = %ZSTD_compressSubBlo
   %371 = getelementptr inbounds i8, ptr %.0133.ph.i, i64 %.1143231.i
   %372 = getelementptr inbounds i8, ptr %.0135.ph.i, i64 %.1143231.i
   %373 = getelementptr inbounds i8, ptr %.0137.ph.i, i64 %.1143231.i
-  %spec.select.i = select i1 %.not156.i, i32 %.0148.ph.i, i32 0
-  %spec.select163.i = select i1 %.not157.i, i32 %.0146.ph.i, i32 0
   br i1 %.0145228.i, label %.loopexit.i, label %.outer.i, !llvm.loop !8
 
 .thread200.i:                                     ; preds = %366, %ZSTD_compressSubBlock_sequences.exit.thread.i.i, %347, %342, %290, %244, %ZSTD_estimateSubBlockSize.exit.thread.i, %ZSTD_estimateSubBlockSize_symbolType.exit55.i.i.i
@@ -737,8 +735,8 @@ ZSTD_compressSubBlock.exit.i:                     ; preds = %ZSTD_compressSubBlo
   %.1237.i = phi ptr [ %.0125.ph.i, %.thread200.i ], [ %217, %368 ]
   %.1130236.i = phi ptr [ %.0129.ph.i, %.thread200.i ], [ %369, %368 ]
   %.1132235.i = phi ptr [ %.0131.ph.i, %.thread200.i ], [ %356, %368 ]
-  %.1147234.i = phi i32 [ %.0146.ph.i, %.thread200.i ], [ %spec.select163.i, %368 ]
-  %.2150233.i = phi i32 [ %.0148.ph.i, %.thread200.i ], [ %spec.select.i, %368 ]
+  %.1147234.i = phi i32 [ %.0146.ph.i, %.thread200.i ], [ %.not157.i, %368 ]
+  %.2150233.i = phi i32 [ %.0148.ph.i, %.thread200.i ], [ %.not156.i, %368 ]
   %.not158.i = icmp eq i32 %.2150233.i, 0
   br i1 %.not158.i, label %375, label %374
 

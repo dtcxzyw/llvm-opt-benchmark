@@ -1165,7 +1165,7 @@ get_enum_name_val.exit.thread:                    ; preds = %160, %156, %get_enu
   br label %172
 
 172:                                              ; preds = %get_enum_name_val.exit.thread, %170, %166, %171
-  %.not148 = phi i1 [ true, %get_enum_name_val.exit.thread ], [ true, %166 ], [ false, %170 ], [ true, %171 ]
+  %.not148 = phi i32 [ %.2108, %get_enum_name_val.exit.thread ], [ %.2108, %166 ], [ 1, %170 ], [ %.2108, %171 ]
   %.1103 = phi i32 [ 0, %get_enum_name_val.exit.thread ], [ 0, %166 ], [ 1, %170 ], [ 0, %171 ]
   %.2 = phi i32 [ %.199, %get_enum_name_val.exit.thread ], [ %.199, %166 ], [ 4, %170 ], [ %.199, %171 ]
   %173 = getelementptr inbounds i8, ptr %.1, i64 8
@@ -1283,11 +1283,10 @@ get_enum_name_val.exit.thread:                    ; preds = %160, %156, %get_enu
   store i8 %.0109, ptr %213, align 8
   %214 = getelementptr inbounds i8, ptr %.1, i64 16
   store i32 %108, ptr %214, align 8
-  %215 = select i1 %.not148, i32 %.2108, i32 1
-  %216 = getelementptr inbounds i8, ptr %.1, i64 20
-  store i32 %215, ptr %216, align 4
-  %217 = getelementptr inbounds i8, ptr %.1, i64 28
-  store i32 %.0100, ptr %217, align 4
+  %215 = getelementptr inbounds i8, ptr %.1, i64 20
+  store i32 %.not148, ptr %215, align 4
+  %216 = getelementptr inbounds i8, ptr %.1, i64 28
+  store i32 %.0100, ptr %216, align 4
   br label %.backedge
 
 fgetline.exit:                                    ; preds = %148, %190, %43, %.backedge, %196, %33, %16

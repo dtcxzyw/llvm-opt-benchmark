@@ -6113,8 +6113,9 @@ if.then3587:                                      ; preds = %land.lhs.true3582
   br label %sub_01910
 
 sub_01910:                                        ; preds = %if.end3578, %land.lhs.true3582, %if.then3587
-  %cmp3628 = phi i1 [ true, %if.then3587 ], [ false, %land.lhs.true3582 ], [ false, %if.end3578 ]
+  %cmp3628 = phi ptr [ @.str.106, %if.then3587 ], [ %805, %land.lhs.true3582 ], [ %805, %if.end3578 ]
   %tobool3643.not = phi i1 [ false, %if.then3587 ], [ true, %land.lhs.true3582 ], [ true, %if.end3578 ]
+  %cmp3668 = phi i1 [ true, %if.then3587 ], [ false, %land.lhs.true3582 ], [ false, %if.end3578 ]
   %811 = load i8, ptr %805, align 1
   %812 = zext i8 %811 to i32
   %813 = add nsw i32 %812, -100
@@ -6173,9 +6174,8 @@ lor.lhs.false3616:                                ; preds = %lor.lhs.false3612
 
 if.end3636:                                       ; preds = %if.end3590.tail
   %call3627 = call ptr @app_get0_libctx() #15
-  %cond3633 = select i1 %cmp3628, ptr @.str.106, ptr %805
   %call3634 = call ptr @app_get0_propq() #15
-  %call3635 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %call3627, ptr noundef nonnull %cond3633, ptr noundef %call3634) #15
+  %call3635 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %call3627, ptr noundef %cmp3628, ptr noundef %call3634) #15
   %tobool3637.not = icmp eq ptr %call3635, null
   br i1 %tobool3637.not, label %if.end3801.thread, label %lor.lhs.false3638
 
@@ -6212,7 +6212,7 @@ lor.lhs.false3663:                                ; preds = %if.end3657
   br i1 %cmp3665, label %if.end3801.thread, label %lor.lhs.false3667
 
 lor.lhs.false3667:                                ; preds = %lor.lhs.false3663
-  br i1 %cmp3628, label %land.lhs.true3670, label %lor.lhs.false3674
+  br i1 %cmp3668, label %land.lhs.true3670, label %lor.lhs.false3674
 
 land.lhs.true3670:                                ; preds = %lor.lhs.false3667
   %call3671 = call i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef nonnull %call3660, i32 noundef 1) #15
@@ -6251,7 +6251,7 @@ lor.lhs.false3701:                                ; preds = %if.end3694
   br i1 %cmp3703, label %if.end3801.thread, label %lor.lhs.false3705
 
 lor.lhs.false3705:                                ; preds = %lor.lhs.false3701
-  br i1 %cmp3628, label %land.lhs.true3708, label %if.end3714
+  br i1 %cmp3668, label %land.lhs.true3708, label %if.end3714
 
 land.lhs.true3708:                                ; preds = %lor.lhs.false3705
   %call3709 = call i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef nonnull %call3698, i32 noundef 1) #15

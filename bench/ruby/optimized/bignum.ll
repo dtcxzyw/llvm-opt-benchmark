@@ -27924,7 +27924,7 @@ bary_zero_p.exit.i:                               ; preds = %.preheader.i.i, %97
 
 bary_zero_p.exit.thread.i:                        ; preds = %103, %bary_zero_p.exit.i, %91
   %.151.i = phi i64 [ %104, %bary_zero_p.exit.i ], [ %94, %91 ], [ %94, %103 ]
-  %.not59.i = phi i1 [ false, %bary_zero_p.exit.i ], [ false, %91 ], [ true, %103 ]
+  %.not59.i = phi ptr [ %.0.i.i, %bary_zero_p.exit.i ], [ %.0.i.i, %91 ], [ null, %103 ]
   %105 = ashr exact i32 %70, 1
   %106 = shl i64 %.0.i45, 5
   %107 = and i64 %106, 32
@@ -27967,8 +27967,7 @@ estimate_initial_sqrt.exit:                       ; preds = %121, %.lr.ph.prehea
   %128 = trunc nuw i64 %127 to i32
   %129 = getelementptr i8, ptr %125, i64 4
   store i32 %128, ptr %129, align 4
-  %.not75 = icmp eq ptr %.0.i.i, null
-  %.not = select i1 %.not59.i, i1 true, i1 %.not75
+  %.not = icmp eq ptr %.not59.i, null
   br i1 %.not, label %bary_cmp.exit.thread, label %130
 
 130:                                              ; preds = %estimate_initial_sqrt.exit
@@ -28043,7 +28042,7 @@ BIGNUM_LEN.exit53:                                ; preds = %156, %161
   %.0.i52 = phi i64 [ %164, %161 ], [ %160, %156 ]
   %165 = icmp ugt i64 %.0.i45, 20
   %invariant.gep.i = getelementptr i8, ptr %.0.i4970, i64 -4
-  %invariant.gep40.i = getelementptr i8, ptr %.0.i.i, i64 -4
+  %invariant.gep40.i = getelementptr i8, ptr %.not59.i, i64 -4
   %.not3442.i = icmp ult i64 %18, 2
   %166 = getelementptr inbounds i8, ptr %134, i64 16
   br label %BIGNUM_LEN.exit63
@@ -28053,11 +28052,11 @@ BIGNUM_LEN.exit63:                                ; preds = %BIGNUM_LEN.exit63.b
   br i1 %165, label %167, label %168
 
 167:                                              ; preds = %BIGNUM_LEN.exit63
-  call fastcc void @bary_divmod_gmp(ptr noundef %.0.i4970, i64 noundef %.039, ptr noundef null, i64 noundef 0, ptr noundef %.0.i66, i64 noundef %.0.i45, ptr noundef %.0.i.i, i64 noundef %19)
+  call fastcc void @bary_divmod_gmp(ptr noundef %.0.i4970, i64 noundef %.039, ptr noundef null, i64 noundef 0, ptr noundef %.0.i66, i64 noundef %.0.i45, ptr noundef nonnull %.not59.i, i64 noundef %19)
   br label %bary_divmod_branch.exit
 
 168:                                              ; preds = %BIGNUM_LEN.exit63
-  call fastcc void @bary_divmod_normal(ptr noundef %.0.i4970, i64 noundef %.039, ptr noundef null, i64 noundef 0, ptr noundef %.0.i66, i64 noundef %.0.i45, ptr noundef %.0.i.i, i64 noundef %19)
+  call fastcc void @bary_divmod_normal(ptr noundef %.0.i4970, i64 noundef %.039, ptr noundef null, i64 noundef 0, ptr noundef %.0.i66, i64 noundef %.0.i45, ptr noundef nonnull %.not59.i, i64 noundef %19)
   br label %bary_divmod_branch.exit
 
 bary_divmod_branch.exit:                          ; preds = %167, %168
@@ -28107,7 +28106,7 @@ bary_divmod_branch.exit:                          ; preds = %167, %168
 
 .lr.ph49.i:                                       ; preds = %.preheader.i
   %180 = getelementptr i32, ptr %.0.i4970, i64 %.033.lcssa.i
-  %181 = getelementptr i32, ptr %.0.i.i, i64 %.031.lcssa.i
+  %181 = getelementptr i32, ptr %.not59.i, i64 %.031.lcssa.i
   br label %182
 
 182:                                              ; preds = %188, %.lr.ph49.i
@@ -28135,7 +28134,7 @@ bary_divmod_branch.exit:                          ; preds = %167, %168
   %193 = getelementptr i32, ptr %.0.i4970, i64 %.033.lcssa.i
   %194 = getelementptr i32, ptr %193, i64 %192
   %195 = load i32, ptr %194, align 4
-  %196 = getelementptr i32, ptr %.0.i.i, i64 %.031.lcssa.i
+  %196 = getelementptr i32, ptr %.not59.i, i64 %.031.lcssa.i
   %197 = getelementptr i32, ptr %196, i64 %192
   %198 = load i32, ptr %197, align 4
   %199 = icmp ult i32 %195, %198
@@ -28145,19 +28144,19 @@ bary_cmp.exit:                                    ; preds = %191, %.critedge2.i
   br i1 %.not36.i, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %bary_cmp.exit, %202
-  %.183 = phi i64 [ %203, %202 ], [ %.039, %bary_cmp.exit ]
-  %gep = getelementptr i32, ptr %invariant.gep.i, i64 %.183
+  %.182 = phi i64 [ %203, %202 ], [ %.039, %bary_cmp.exit ]
+  %gep = getelementptr i32, ptr %invariant.gep.i, i64 %.182
   %200 = load i32, ptr %gep, align 4
   %201 = icmp eq i32 %200, 0
   br i1 %201, label %202, label %.critedge
 
 202:                                              ; preds = %.lr.ph
-  %203 = add i64 %.183, -1
+  %203 = add i64 %.182, -1
   %.not43 = icmp eq i64 %203, 0
   br i1 %.not43, label %.critedge, label %.lr.ph, !llvm.loop !206
 
 .critedge:                                        ; preds = %202, %.lr.ph, %bary_cmp.exit
-  %.1.lcssa = phi i64 [ 0, %bary_cmp.exit ], [ %.183, %.lr.ph ], [ 0, %202 ]
+  %.1.lcssa = phi i64 [ 0, %bary_cmp.exit ], [ %.182, %.lr.ph ], [ 0, %202 ]
   %204 = icmp ugt i64 %19, %.1.lcssa
   br i1 %204, label %205, label %206
 
@@ -28166,9 +28165,9 @@ bary_cmp.exit:                                    ; preds = %191, %.critedge2.i
 
 206:                                              ; preds = %205, %.critedge
   %.064.i.i = phi i64 [ %.1.lcssa, %205 ], [ %19, %.critedge ]
-  %.063.i.i = phi ptr [ %.0.i.i, %205 ], [ %.0.i4970, %.critedge ]
+  %.063.i.i = phi ptr [ %.not59.i, %205 ], [ %.0.i4970, %.critedge ]
   %.062.i.i = phi i64 [ %19, %205 ], [ %.1.lcssa, %.critedge ]
-  %.061.i.i = phi ptr [ %.0.i4970, %205 ], [ %.0.i.i, %.critedge ]
+  %.061.i.i = phi ptr [ %.0.i4970, %205 ], [ %.not59.i, %.critedge ]
   %.not95.i.i = icmp eq i64 %.064.i.i, 0
   br i1 %.not95.i.i, label %.preheader72.i.i, label %.lr.ph.i.i
 
@@ -28189,7 +28188,7 @@ bary_cmp.exit:                                    ; preds = %191, %.critedge2.i
   %214 = add nuw nsw i64 %.05878.i.i, %210
   %215 = add nuw nsw i64 %214, %213
   %216 = trunc i64 %215 to i32
-  %217 = getelementptr i32, ptr %.0.i.i, i64 %.05779.i.i
+  %217 = getelementptr i32, ptr %.not59.i, i64 %.05779.i.i
   store i32 %216, ptr %217, align 4
   %218 = lshr i64 %215, 32
   %219 = add nuw nsw i64 %.05779.i.i, 1
@@ -28218,7 +28217,7 @@ bary_cmp.exit:                                    ; preds = %191, %.critedge2.i
   %226 = zext i32 %225 to i64
   %227 = add nuw nsw i64 %226, 1
   %228 = trunc i64 %227 to i32
-  %229 = getelementptr i32, ptr %.0.i.i, i64 %.182.i.i
+  %229 = getelementptr i32, ptr %.not59.i, i64 %.182.i.i
   store i32 %228, ptr %229, align 4
   %230 = lshr i64 %227, 32
   %231 = add i64 %.182.i.i, 1
@@ -28231,7 +28230,7 @@ bary_cmp.exit:                                    ; preds = %191, %.critedge2.i
   br i1 %.26086.i.i, label %.loopexit71.i.i, label %232
 
 232:                                              ; preds = %.lr.ph88.i.i
-  %233 = getelementptr i32, ptr %.0.i.i, i64 %.387.i.i
+  %233 = getelementptr i32, ptr %.not59.i, i64 %.387.i.i
   store i32 1, ptr %233, align 4
   %234 = add i64 %.387.i.i, 1
   %exitcond104.not.i.i = icmp eq i64 %234, %19
@@ -28245,7 +28244,7 @@ bary_cmp.exit:                                    ; preds = %191, %.critedge2.i
 
 .loopexit71.i.i:                                  ; preds = %.lr.ph83.i.i, %.lr.ph88.i.i
   %.2.i.i = phi i64 [ %.387.i.i, %.lr.ph88.i.i ], [ %.182.i.i, %.lr.ph83.i.i ]
-  %237 = icmp eq ptr %.063.i.i, %.0.i.i
+  %237 = icmp eq ptr %.063.i.i, %.not59.i
   %238 = icmp eq i64 %.062.i.i, %19
   %or.cond.i.i = and i1 %237, %238
   br i1 %or.cond.i.i, label %bary_add.exit, label %.preheader69.i.i
@@ -28261,7 +28260,7 @@ bary_cmp.exit:                                    ; preds = %191, %.critedge2.i
 
 bary_add.exit.thread:                             ; preds = %.preheader.i.i56
   %241 = shl i64 %.4.lcssa.i.i, 2
-  %scevgep.i.i = getelementptr i8, ptr %.0.i.i, i64 %241
+  %scevgep.i.i = getelementptr i8, ptr %.not59.i, i64 %241
   %242 = sub nuw i64 %19, %.4.lcssa.i.i
   %243 = shl i64 %242, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i, i8 0, i64 %243, i1 false)
@@ -28271,7 +28270,7 @@ bary_add.exit.thread:                             ; preds = %.preheader.i.i56
   %.490.i.i = phi i64 [ %247, %.lr.ph91.i.i ], [ %.2.i.i, %.preheader69.i.i ]
   %244 = getelementptr i32, ptr %.063.i.i, i64 %.490.i.i
   %245 = load i32, ptr %244, align 4
-  %246 = getelementptr i32, ptr %.0.i.i, i64 %.490.i.i
+  %246 = getelementptr i32, ptr %.not59.i, i64 %.490.i.i
   store i32 %245, ptr %246, align 4
   %247 = add nuw i64 %.490.i.i, 1
   %exitcond106.not.i.i = icmp eq i64 %247, %.062.i.i
@@ -28291,7 +28290,7 @@ bary_add.exit:                                    ; preds = %._crit_edge.i.i, %.
   %.014.i = shl nuw i64 %.014.in16.i, 32
   %248 = xor i64 %.017.i, -1
   %249 = add i64 %19, %248
-  %250 = getelementptr i32, ptr %.0.i.i, i64 %249
+  %250 = getelementptr i32, ptr %.not59.i, i64 %249
   %251 = load i32, ptr %250, align 4
   %252 = zext i32 %251 to i64
   %253 = or disjoint i64 %.014.i, %252

@@ -10210,7 +10210,7 @@ for.body:                                         ; preds = %for.body.backedge, 
   br i1 %cmp.i41.not276, label %for.cond, label %for.body47
 
 for.body47:                                       ; preds = %for.body, %for.inc
-  %res.0278 = phi i1 [ %frombool, %for.inc ], [ false, %for.body ]
+  %res.0278 = phi i1 [ %res.1, %for.inc ], [ false, %for.body ]
   %__begin2.sroa.0.0277 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %24, %for.body ]
   %26 = load ptr, ptr %__begin2.sroa.0.0277, align 8
   %obj.i.i.i42 = getelementptr inbounds i8, ptr %26, i64 32
@@ -11219,7 +11219,7 @@ _ZNSt6vectorIP6aiNodeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_i
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %_ZNSt6vectorIP6aiNodeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, %if.then.i.i.i52, %for.end57.i, %invoke.cont31.i
-  %got.0.lcssa206.i = phi i1 [ true, %_ZNSt6vectorIP6aiNodeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i ], [ true, %if.then.i.i.i52 ], [ false, %for.end57.i ], [ false, %invoke.cont31.i ]
+  %got.0.lcssa206.i = phi i1 [ true, %_ZNSt6vectorIP6aiNodeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i ], [ true, %if.then.i.i.i52 ], [ %res.0278, %for.end57.i ], [ %res.0278, %invoke.cont31.i ]
   %230 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %meshes.i, ptr noundef %230)
           to label %_ZNSt3setIjSt4lessIjESaIjEED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -11306,11 +11306,14 @@ if.then.i.i.i61:                                  ; preds = %lpad21.body
 
 if.else:                                          ; preds = %invoke.cont49
   %call62 = invoke noundef zeroext i1 @_ZN6Assimp3IFC25ProcessRepresentationItemERKNS0_10Schema_2x321IfcRepresentationItemEjRSt3setIjSt4lessIjESaIjEERNS0_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(9) %29, i32 noundef %call3, ptr noundef nonnull align 8 dereferenceable(48) %meshes, ptr noundef nonnull align 8 dereferenceable(392) %conv)
-          to label %for.inc unwind label %lpad21.loopexit
+          to label %invoke.cont61 unwind label %lpad21.loopexit
 
-for.inc:                                          ; preds = %if.else, %invoke.cont58
-  %got.0.lcssa206.i.sink = phi i1 [ %got.0.lcssa206.i, %invoke.cont58 ], [ %call62, %if.else ]
-  %frombool = select i1 %got.0.lcssa206.i.sink, i1 true, i1 %res.0278
+invoke.cont61:                                    ; preds = %if.else
+  %frombool66 = select i1 %call62, i1 true, i1 %res.0278
+  br label %for.inc
+
+for.inc:                                          ; preds = %invoke.cont58, %invoke.cont61
+  %res.1 = phi i1 [ %got.0.lcssa206.i, %invoke.cont58 ], [ %frombool66, %invoke.cont61 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0277, i64 8
   %cmp.i41.not = icmp eq ptr %incdec.ptr.i, %25
   br i1 %cmp.i41.not, label %for.end, label %for.body47
@@ -11318,7 +11321,7 @@ for.inc:                                          ; preds = %if.else, %invoke.co
 for.end:                                          ; preds = %for.inc
   %incdec.ptr.i62 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0280, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i62, %__first.addr.0.i.i.i.i.i
-  %or.cond = select i1 %frombool, i1 true, i1 %cmp.i.not
+  %or.cond = select i1 %res.1, i1 true, i1 %cmp.i.not
   br i1 %or.cond, label %for.end74, label %for.body.backedge
 
 for.end74:                                        ; preds = %for.cond, %for.end, %invoke.cont22, %invoke.cont34
