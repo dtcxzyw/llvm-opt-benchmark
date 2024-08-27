@@ -8211,17 +8211,20 @@ land.rhs.i578:                                    ; preds = %while.body.i582, %f
   %arrayidx.i580 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv.i579
   %114 = load ptr, ptr %arrayidx.i580, align 8
   %tobool.not.i581 = icmp eq ptr %114, null
-  br i1 %tobool.not.i581, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit587, label %while.body.i582
+  br i1 %tobool.not.i581, label %while.end.split.loop.exit6.i586, label %while.body.i582
 
 while.body.i582:                                  ; preds = %land.rhs.i578
   %indvars.iv.next.i583 = add nuw nsw i64 %indvars.iv.i579, 1
   %exitcond.not.i584 = icmp eq i64 %indvars.iv.next.i583, 8
   br i1 %exitcond.not.i584, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit587, label %land.rhs.i578, !llvm.loop !61
 
-_ZNK6aiMesh16GetNumUVChannelsEv.exit587:          ; preds = %while.body.i582, %land.rhs.i578
-  %n.0.lcssa.i585 = phi i64 [ %indvars.iv.i579, %land.rhs.i578 ], [ 8, %while.body.i582 ]
-  %115 = and i64 %n.0.lcssa.i585, 4294967295
-  %cmp131 = icmp ult i64 %indvars.iv1078, %115
+while.end.split.loop.exit6.i586:                  ; preds = %land.rhs.i578
+  %115 = and i64 %indvars.iv.i579, 4294967295
+  br label %_ZNK6aiMesh16GetNumUVChannelsEv.exit587
+
+_ZNK6aiMesh16GetNumUVChannelsEv.exit587:          ; preds = %while.body.i582, %while.end.split.loop.exit6.i586
+  %n.0.lcssa.i585 = phi i64 [ %115, %while.end.split.loop.exit6.i586 ], [ 8, %while.body.i582 ]
+  %cmp131 = icmp ult i64 %indvars.iv1078, %n.0.lcssa.i585
   br i1 %cmp131, label %for.body132, label %for.end137
 
 for.body132:                                      ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit587
@@ -8324,17 +8327,20 @@ land.rhs.i637:                                    ; preds = %while.body.i641, %f
   %arrayidx.i639 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv.i638
   %125 = load ptr, ptr %arrayidx.i639, align 8
   %tobool.not.i640 = icmp eq ptr %125, null
-  br i1 %tobool.not.i640, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit646, label %while.body.i641
+  br i1 %tobool.not.i640, label %while.end.split.loop.exit6.i645, label %while.body.i641
 
 while.body.i641:                                  ; preds = %land.rhs.i637
   %indvars.iv.next.i642 = add nuw nsw i64 %indvars.iv.i638, 1
   %exitcond.not.i643 = icmp eq i64 %indvars.iv.next.i642, 8
   br i1 %exitcond.not.i643, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit646, label %land.rhs.i637, !llvm.loop !61
 
-_ZNK6aiMesh16GetNumUVChannelsEv.exit646:          ; preds = %while.body.i641, %land.rhs.i637
-  %n.0.lcssa.i644 = phi i64 [ %indvars.iv.i638, %land.rhs.i637 ], [ 8, %while.body.i641 ]
-  %126 = and i64 %n.0.lcssa.i644, 4294967295
-  %cmp149 = icmp ult i64 %indvars.iv1084, %126
+while.end.split.loop.exit6.i645:                  ; preds = %land.rhs.i637
+  %126 = and i64 %indvars.iv.i638, 4294967295
+  br label %_ZNK6aiMesh16GetNumUVChannelsEv.exit646
+
+_ZNK6aiMesh16GetNumUVChannelsEv.exit646:          ; preds = %while.body.i641, %while.end.split.loop.exit6.i645
+  %n.0.lcssa.i644 = phi i64 [ %126, %while.end.split.loop.exit6.i645 ], [ 8, %while.body.i641 ]
+  %cmp149 = icmp ult i64 %indvars.iv1084, %n.0.lcssa.i644
   br i1 %cmp149, label %for.body150, label %for.end179
 
 for.body150:                                      ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit646
@@ -8548,17 +8554,20 @@ land.rhs.i744:                                    ; preds = %while.body.i748, %f
   %arrayidx.i746 = getelementptr inbounds [8 x ptr], ptr %mColors.i, i64 0, i64 %indvars.iv.i745
   %148 = load ptr, ptr %arrayidx.i746, align 8
   %tobool.not.i747 = icmp eq ptr %148, null
-  br i1 %tobool.not.i747, label %_ZNK6aiMesh19GetNumColorChannelsEv.exit753, label %while.body.i748
+  br i1 %tobool.not.i747, label %while.end.split.loop.exit6.i752, label %while.body.i748
 
 while.body.i748:                                  ; preds = %land.rhs.i744
   %indvars.iv.next.i749 = add nuw nsw i64 %indvars.iv.i745, 1
   %exitcond.not.i750 = icmp eq i64 %indvars.iv.next.i749, 8
   br i1 %exitcond.not.i750, label %_ZNK6aiMesh19GetNumColorChannelsEv.exit753, label %land.rhs.i744, !llvm.loop !66
 
-_ZNK6aiMesh19GetNumColorChannelsEv.exit753:       ; preds = %while.body.i748, %land.rhs.i744
-  %n.0.lcssa.i751 = phi i64 [ %indvars.iv.i745, %land.rhs.i744 ], [ 8, %while.body.i748 ]
-  %149 = and i64 %n.0.lcssa.i751, 4294967295
-  %cmp195 = icmp ult i64 %indvars.iv1090, %149
+while.end.split.loop.exit6.i752:                  ; preds = %land.rhs.i744
+  %149 = and i64 %indvars.iv.i745, 4294967295
+  br label %_ZNK6aiMesh19GetNumColorChannelsEv.exit753
+
+_ZNK6aiMesh19GetNumColorChannelsEv.exit753:       ; preds = %while.body.i748, %while.end.split.loop.exit6.i752
+  %n.0.lcssa.i751 = phi i64 [ %149, %while.end.split.loop.exit6.i752 ], [ 8, %while.body.i748 ]
+  %cmp195 = icmp ult i64 %indvars.iv1090, %n.0.lcssa.i751
   br i1 %cmp195, label %for.body196, label %for.end226
 
 for.body196:                                      ; preds = %_ZNK6aiMesh19GetNumColorChannelsEv.exit753

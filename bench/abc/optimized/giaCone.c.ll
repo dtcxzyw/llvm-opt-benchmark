@@ -2056,34 +2056,33 @@ Vec_WrdStart.exit:                                ; preds = %19, %23
   br i1 %107, label %.lr.ph131, label %.critedge4, !llvm.loop !20
 
 .critedge4:                                       ; preds = %81, %.lr.ph131
-  %.167.lcssa = phi i32 [ %spec.select, %81 ], [ %.167128, %.lr.ph131 ]
-  %.0.lcssa = phi i32 [ %spec.select84, %81 ], [ %.0129, %.lr.ph131 ]
-  br i1 %.not75, label %109, label %.thread
+  %.167.lcssa.ph = phi i32 [ %spec.select, %81 ], [ %.167128, %.lr.ph131 ]
+  %.0.lcssa.ph = phi i32 [ %spec.select84, %81 ], [ %.0129, %.lr.ph131 ]
+  %108 = icmp eq i32 %.167.lcssa.ph, 0
+  br i1 %.not75, label %110, label %.thread
 
 .critedge4.thread:                                ; preds = %.critedge2
-  br i1 %.not75, label %.thread171, label %.thread.thread
+  br i1 %.not75, label %.thread170, label %.thread.thread
 
 .thread.thread:                                   ; preds = %.critedge4.thread
-  %108 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef 0)
+  %109 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef 0)
   br label %.loopexit
 
-109:                                              ; preds = %.critedge4
-  %.not76 = icmp eq i32 %.167.lcssa, 0
-  br i1 %.not76, label %.thread171, label %.preheader.backedge
+110:                                              ; preds = %.critedge4
+  br i1 %108, label %.thread170, label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %109, %.thread
+.preheader.backedge:                              ; preds = %110, %.thread
   br label %.preheader, !llvm.loop !21
 
 .thread:                                          ; preds = %.critedge4
-  %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0.lcssa)
-  %.not76164 = icmp eq i32 %.167.lcssa, 0
-  br i1 %.not76164, label %.loopexit, label %.preheader.backedge
+  %111 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0.lcssa.ph)
+  br i1 %108, label %.loopexit, label %.preheader.backedge
 
 .loopexit:                                        ; preds = %.thread, %.thread.thread
   %putchar = tail call i32 @putchar(i32 10)
-  br label %.thread171
+  br label %.thread170
 
-.thread171:                                       ; preds = %109, %.critedge4.thread, %.loopexit
+.thread170:                                       ; preds = %110, %.critedge4.thread, %.loopexit
   ret ptr %21
 }
 

@@ -271,17 +271,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 ._crit_edge.loopexit:                             ; preds = %129
   %.pre = load i32, ptr %2, align 4
+  %132 = fmul double %130, 0x10000000000001
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %100
-  %132 = phi double [ %130, %._crit_edge.loopexit ], [ 1.000000e+00, %100 ]
-  %133 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %104, %100 ]
-  %134 = load i32, ptr %11, align 4
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i32, ptr %35, i64 %135
-  store i32 %133, ptr %136, align 4
-  %137 = fmul double %132, 0x10000000000001
-  store double %137, ptr %32, align 8
+  %133 = phi double [ %132, %._crit_edge.loopexit ], [ 0x10000000000001, %100 ]
+  %134 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %104, %100 ]
+  %135 = load i32, ptr %11, align 4
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr inbounds i32, ptr %35, i64 %136
+  store i32 %134, ptr %137, align 4
+  store double %133, ptr %32, align 8
   %138 = icmp eq i32 %.1603710, 3
   %139 = load double, ptr %8, align 8
   br i1 %138, label %140, label %246
@@ -344,13 +344,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %171 = sitofp i32 %155 to double
   %172 = fneg double %170
   %173 = tail call double @llvm.fmuladd.f64(double %172, double %171, double %164)
-  %174 = fneg double %137
+  %174 = fneg double %133
   %175 = tail call double @llvm.fmuladd.f64(double %174, double 4.000000e+00, double %173)
   %176 = tail call double @llvm.fmuladd.f64(double %170, double %171, double %161)
-  %177 = tail call double @llvm.fmuladd.f64(double %137, double 2.000000e+00, double %176)
-  %178 = fadd double %137, %168
+  %177 = tail call double @llvm.fmuladd.f64(double %133, double 2.000000e+00, double %176)
+  %178 = fadd double %133, %168
   %179 = tail call double @log(double noundef %178) #4
-  %180 = tail call double @log(double noundef %137) #4
+  %180 = tail call double @log(double noundef %133) #4
   %181 = fsub double %179, %180
   %182 = fdiv double %181, 0x3FE62E42FEFA39EF
   %183 = fptosi double %182 to i32
@@ -941,13 +941,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.2607 = phi double [ %499, %502 ], [ %.1606814, %497 ], [ %.1606814, %.lr.ph816 ]
   %indvars.iv.next894 = add nuw nsw i64 %indvars.iv893, 1
   %exitcond897.not = icmp eq i64 %indvars.iv.next894, %wide.trip.count896
-  br i1 %exitcond897.not, label %._crit_edge817, label %.lr.ph816, !llvm.loop !13
+  br i1 %exitcond897.not, label %._crit_edge817.loopexit, label %.lr.ph816, !llvm.loop !13
 
-._crit_edge817:                                   ; preds = %504, %.preheader732
-  %.0634.lcssa = phi i32 [ 0, %.preheader732 ], [ %.1635, %504 ]
-  %.1606.lcssa = phi double [ %.0605821, %.preheader732 ], [ %.2607, %504 ]
-  %505 = sext i32 %.0634.lcssa to i64
-  %506 = getelementptr inbounds i32, ptr %36, i64 %505
+._crit_edge817.loopexit:                          ; preds = %504
+  %505 = sext i32 %.1635 to i64
+  br label %._crit_edge817
+
+._crit_edge817:                                   ; preds = %._crit_edge817.loopexit, %.preheader732
+  %.0634.lcssa = phi i64 [ 0, %.preheader732 ], [ %505, %._crit_edge817.loopexit ]
+  %.1606.lcssa = phi double [ %.0605821, %.preheader732 ], [ %.2607, %._crit_edge817.loopexit ]
+  %506 = getelementptr inbounds i32, ptr %36, i64 %.0634.lcssa
   store i32 0, ptr %506, align 4
   %507 = add nuw i32 %.0609820, 1
   %exitcond898.not = icmp eq i32 %.0609820, %.0599
@@ -994,13 +997,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.5 = phi double [ %514, %517 ], [ %.4825, %512 ], [ %.4825, %.lr.ph827 ]
   %indvars.iv.next900 = add nuw nsw i64 %indvars.iv899, 1
   %exitcond903.not = icmp eq i64 %indvars.iv.next900, %wide.trip.count902
-  br i1 %exitcond903.not, label %._crit_edge828, label %.lr.ph827, !llvm.loop !15
+  br i1 %exitcond903.not, label %._crit_edge828.loopexit, label %.lr.ph827, !llvm.loop !15
 
-._crit_edge828:                                   ; preds = %519, %.preheader
-  %.2636.lcssa = phi i32 [ 0, %.preheader ], [ %.3637, %519 ]
-  %.4.lcssa = phi double [ %.3608832, %.preheader ], [ %.5, %519 ]
-  %520 = sext i32 %.2636.lcssa to i64
-  %521 = getelementptr inbounds i32, ptr %36, i64 %520
+._crit_edge828.loopexit:                          ; preds = %519
+  %520 = sext i32 %.3637 to i64
+  br label %._crit_edge828
+
+._crit_edge828:                                   ; preds = %._crit_edge828.loopexit, %.preheader
+  %.2636.lcssa = phi i64 [ 0, %.preheader ], [ %520, %._crit_edge828.loopexit ]
+  %.4.lcssa = phi double [ %.3608832, %.preheader ], [ %.5, %._crit_edge828.loopexit ]
+  %521 = getelementptr inbounds i32, ptr %36, i64 %.2636.lcssa
   store i32 0, ptr %521, align 4
   %522 = add nuw i32 %.1610831, 1
   %exitcond904.not = icmp eq i32 %.1610831, %.0596

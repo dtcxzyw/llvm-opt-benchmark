@@ -1260,18 +1260,27 @@ if.end20:                                         ; preds = %if.end8
   %_use_signaler = getelementptr inbounds i8, ptr %this, i64 41
   %_signaler = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i13 = icmp eq i64 %timeout_, 0
+  br label %while.body.outer
+
+while.body.outer:                                 ; preds = %if.then7.i, %if.end20
+  %first_pass.0.ph = phi i1 [ false, %if.then7.i ], [ true, %if.end20 ]
+  %end.0.ph = phi i64 [ %add.i, %if.then7.i ], [ 0, %if.end20 ]
+  %now.0.ph = phi i64 [ %call.i, %if.then7.i ], [ 0, %if.end20 ]
+  br label %while.body.outer31
+
+while.body.outer31:                               ; preds = %while.body.outer, %if.end8.i
+  %first_pass.0.ph32 = phi i1 [ %first_pass.0.ph, %while.body.outer ], [ false, %if.end8.i ]
+  %now.0.ph33 = phi i64 [ %now.0.ph, %while.body.outer ], [ %call.i, %if.end8.i ]
+  %sub = sub i64 %end.0.ph, %now.0.ph33
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 2147483647)
+  %conv28 = trunc nuw nsw i64 %.sroa.speculated to i32
   br label %while.body
 
-while.body:                                       ; preds = %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit, %if.end20
-  %first_pass.0 = phi i1 [ true, %if.end20 ], [ false, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit ]
-  %end.0 = phi i64 [ 0, %if.end20 ], [ %end.1, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit ]
-  %now.0 = phi i64 [ 0, %if.end20 ], [ %now.1, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit ]
+while.body:                                       ; preds = %if.end.i, %while.body.outer31
+  %first_pass.0 = phi i1 [ %first_pass.0.ph32, %while.body.outer31 ], [ false, %if.end.i ]
   %brmerge = or i1 %cmp, %first_pass.0
   %not.tobool21 = xor i1 %first_pass.0, true
   %.mux = sext i1 %not.tobool21 to i32
-  %sub = sub i64 %end.0, %now.0
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 2147483647)
-  %conv28 = trunc nuw nsw i64 %.sroa.speculated to i32
   %timeout.0 = select i1 %brmerge, i32 %.mux, i32 %conv28
   %5 = load ptr, ptr %_pollfds, align 8
   %6 = load i32, ptr %_pollset_size, align 4
@@ -1357,7 +1366,7 @@ if.end62:                                         ; preds = %if.end55
   br i1 %cmp.i13, label %while.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end62
-  br i1 %cmp, label %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit, label %if.end5.i
+  br i1 %cmp, label %while.body, label %if.end5.i, !llvm.loop !13
 
 if.end5.i:                                        ; preds = %if.end.i
   %call.i = call noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 dereferenceable(16) %clock)
@@ -1365,21 +1374,13 @@ if.end5.i:                                        ; preds = %if.end.i
 
 if.then7.i:                                       ; preds = %if.end5.i
   %add.i = add i64 %call.i, %timeout_
-  br label %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit
+  br label %while.body.outer, !llvm.loop !13
 
 if.end8.i:                                        ; preds = %if.end5.i
-  %cmp9.not.i = icmp ult i64 %call.i, %end.0
-  %..i = zext i1 %cmp9.not.i to i32
-  br label %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit
+  %cmp9.not.i.not = icmp ult i64 %call.i, %end.0.ph
+  br i1 %cmp9.not.i.not, label %while.body.outer31, label %while.end, !llvm.loop !13
 
-_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit: ; preds = %if.end.i, %if.then7.i, %if.end8.i
-  %end.1 = phi i64 [ %add.i, %if.then7.i ], [ %end.0, %if.end8.i ], [ %end.0, %if.end.i ]
-  %now.1 = phi i64 [ %call.i, %if.then7.i ], [ %call.i, %if.end8.i ], [ %now.0, %if.end.i ]
-  %retval.0.i = phi i32 [ 1, %if.then7.i ], [ %..i, %if.end8.i ], [ 1, %if.end.i ]
-  %cmp64 = icmp eq i32 %retval.0.i, 0
-  br i1 %cmp64, label %while.end, label %while.body, !llvm.loop !13
-
-while.end:                                        ; preds = %if.end62, %_ZN3zmq15socket_poller_t14adjust_timeoutERNS_7clock_tElRmS3_Rb.exit
+while.end:                                        ; preds = %if.end8.i, %if.end62
   %call67 = tail call ptr @__errno_location() #24
   store i32 11, ptr %call67, align 4
   br label %return

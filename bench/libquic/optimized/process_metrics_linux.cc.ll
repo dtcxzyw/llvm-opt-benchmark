@@ -1383,30 +1383,27 @@ for.body.tail:                                    ; preds = %for.body
   %gep20.sroa.gep = getelementptr inbounds i8, ptr %gep20, i64 1
   %retval.0.i12.sroa.sel = select i1 %tobool.not.i8, ptr inttoptr (i64 1 to ptr), ptr %gep20.sroa.gep
   %14 = load i8, ptr %retval.0.i12.sroa.sel, align 1
-  %cmp.not = icmp eq i8 %14, 0
-  br i1 %cmp.not, label %for.cond, label %sub_117, !llvm.loop !14
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %for.cond, label %sub_117, !llvm.loop !14
 
 sub_117:                                          ; preds = %for.body.tail
   %gep20.sroa.gep23 = getelementptr inbounds i8, ptr %gep20, i64 1
   %retval.0.i12.sroa.sel24 = select i1 %tobool.not.i8, ptr inttoptr (i64 1 to ptr), ptr %gep20.sroa.gep23
-  %15 = load i8, ptr %retval.0.i12.sroa.sel24, align 1
-  %16 = zext i8 %15 to i32
-  %17 = add nsw i32 %16, -46
-  %.not22 = icmp eq i32 %17, 0
+  %16 = load i8, ptr %retval.0.i12.sroa.sel24, align 1
+  %.not22 = icmp eq i8 %16, 46
   br i1 %.not22, label %sub_2, label %land.lhs.true.tail
 
 sub_2:                                            ; preds = %sub_117
   %gep20.sroa.gep25 = getelementptr inbounds i8, ptr %gep20, i64 2
   %retval.0.i12.sroa.sel26 = select i1 %tobool.not.i8, ptr inttoptr (i64 2 to ptr), ptr %gep20.sroa.gep25
-  %18 = load i8, ptr %retval.0.i12.sroa.sel26, align 1
-  %19 = zext i8 %18 to i32
+  %17 = load i8, ptr %retval.0.i12.sroa.sel26, align 1
+  %18 = icmp ne i8 %17, 0
+  %19 = zext i1 %18 to i32
   br label %land.lhs.true.tail
 
 land.lhs.true.tail:                               ; preds = %for.body, %sub_117, %sub_2
-  %20 = phi i32 [ %17, %sub_117 ], [ %19, %sub_2 ], [ 1, %for.body ]
-  %cmp16.not = icmp ne i32 %20, 0
-  %inc = zext i1 %cmp16.not to i32
-  %spec.select = add nuw nsw i32 %total_count.0.ph, %inc
+  %cmp16.not = phi i32 [ 1, %sub_117 ], [ %19, %sub_2 ], [ 1, %for.body ]
+  %spec.select = add nuw nsw i32 %cmp16.not, %total_count.0.ph
   br label %for.cond.outer, !llvm.loop !14
 
 cleanup:                                          ; preds = %if.end6.i, %if.end6.i
@@ -1426,8 +1423,8 @@ invoke.cont.i:                                    ; preds = %do.body.i
 
 land.lhs.true.i:                                  ; preds = %invoke.cont.i
   %call4.i = tail call ptr @__errno_location() #23
-  %21 = load i32, ptr %call4.i, align 4
-  %cmp5.i = icmp eq i32 %21, 4
+  %20 = load i32, ptr %call4.i, align 4
+  %cmp5.i = icmp eq i32 %20, 4
   br i1 %cmp5.i, label %_ZN4base14DirReaderLinuxD2Ev.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %land.lhs.true.i, %invoke.cont.i
@@ -1435,10 +1432,10 @@ if.then7.i:                                       ; preds = %land.lhs.true.i, %i
           to label %_ZN4base14DirReaderLinuxD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then7.i, %do.body.i
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #24
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #24
   unreachable
 
 _ZN4base14DirReaderLinuxD2Ev.exit:                ; preds = %invoke.cont6, %cleanup, %invoke.cont.i, %land.lhs.true.i, %if.then7.i

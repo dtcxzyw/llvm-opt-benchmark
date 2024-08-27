@@ -2528,11 +2528,12 @@ if.else.i:                                        ; preds = %if.then.i
 if.then25.i:                                      ; preds = %if.else.i
   call void @qemu_chr_be_event(ptr noundef %call.i, i32 noundef 0) #10
   %.pre = load i32, ptr %do_telnetopt, align 8
-  br label %if.end90.sink.split.i
+  %9 = add i32 %.pre, 1
+  br label %if.end90.i
 
 if.else28.i:                                      ; preds = %if.else.i
-  %9 = load i8, ptr %is_tn3270.i, align 2
-  %tobool.i = trunc i8 %9 to i1
+  %10 = load i8, ptr %is_tn3270.i, align 2
+  %tobool.i = trunc i8 %10 to i1
   br i1 %tobool.i, label %land.lhs.true30.i, label %if.end90.i
 
 land.lhs.true30.i:                                ; preds = %if.else28.i
@@ -2552,26 +2553,20 @@ if.then51.i:                                      ; preds = %land.lhs.true47.i
   %idxprom53.i = sext i32 %j.061.i to i64
   %arrayidx54.i = getelementptr i8, ptr %buf, i64 %idxprom53.i
   store i8 -1, ptr %arrayidx54.i, align 1
-  %10 = load i8, ptr %arrayidx.i, align 1
+  %11 = load i8, ptr %arrayidx.i, align 1
   %inc57.i = add i32 %j.061.i, 2
   %idxprom58.i = sext i32 %inc52.i to i64
   %arrayidx59.i = getelementptr i8, ptr %buf, i64 %idxprom58.i
-  store i8 %10, ptr %arrayidx59.i, align 1
-  br label %if.end90.sink.split.i
+  store i8 %11, ptr %arrayidx59.i, align 1
+  br label %if.end90.i
 
 land.lhs.true78.i:                                ; preds = %land.lhs.true30.i, %land.lhs.true30.i
   %spec.select63.i = select i1 %cmp5.i, i32 3, i32 %.pr20
   br label %if.end90.i
 
-if.end90.sink.split.i:                            ; preds = %if.then51.i, %if.then25.i
-  %11 = phi i32 [ 2, %if.then51.i ], [ %.pre, %if.then25.i ]
-  %j.2.ph.i = phi i32 [ %inc57.i, %if.then51.i ], [ %j.061.i, %if.then25.i ]
-  %inc27.i = add i32 %11, 1
-  br label %if.end90.i
-
-if.end90.i:                                       ; preds = %if.end90.sink.split.i, %land.lhs.true78.i, %land.lhs.true47.i, %land.lhs.true30.i, %if.else28.i
-  %12 = phi i32 [ %.pr20, %if.else28.i ], [ %.pr20, %land.lhs.true30.i ], [ %.pr20, %land.lhs.true47.i ], [ %spec.select63.i, %land.lhs.true78.i ], [ %inc27.i, %if.end90.sink.split.i ]
-  %j.2.i = phi i32 [ %j.061.i, %if.else28.i ], [ %j.061.i, %land.lhs.true30.i ], [ %j.061.i, %land.lhs.true47.i ], [ %j.061.i, %land.lhs.true78.i ], [ %j.2.ph.i, %if.end90.sink.split.i ]
+if.end90.i:                                       ; preds = %if.then25.i, %if.then51.i, %land.lhs.true78.i, %land.lhs.true47.i, %land.lhs.true30.i, %if.else28.i
+  %12 = phi i32 [ %.pr20, %if.else28.i ], [ %.pr20, %land.lhs.true30.i ], [ %.pr20, %land.lhs.true47.i ], [ %spec.select63.i, %land.lhs.true78.i ], [ 3, %if.then51.i ], [ %9, %if.then25.i ]
+  %j.2.i = phi i32 [ %j.061.i, %if.else28.i ], [ %j.061.i, %land.lhs.true30.i ], [ %j.061.i, %land.lhs.true47.i ], [ %j.061.i, %land.lhs.true78.i ], [ %inc57.i, %if.then51.i ], [ %j.061.i, %if.then25.i ]
   %.fr.i = freeze i32 %12
   %inc89.i = add i32 %.fr.i, 1
   %cmp92.i = icmp sgt i32 %inc89.i, 3

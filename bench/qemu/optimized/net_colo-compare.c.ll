@@ -295,7 +295,7 @@ for.cond:                                         ; preds = %for.body
   %next21 = getelementptr inbounds i8, ptr %tmp.081, i64 209496
   %tmp.0 = load ptr, ptr %next21, align 8
   %tobool.not = icmp eq ptr %tmp.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %tobool.not, label %if.end24, label %for.body, !llvm.loop !9
 
 for.body:                                         ; preds = %entry, %for.cond
   %tmp.081 = phi ptr [ %tmp.0, %for.cond ], [ %tmp.079, %entry ]
@@ -314,23 +314,19 @@ if.then4:                                         ; preds = %do.body2
   %tql_prev8 = getelementptr inbounds i8, ptr %2, i64 209504
   store ptr %3, ptr %tql_prev8, align 8
   %.pre = load ptr, ptr %next, align 8
-  br label %if.end
+  br label %for.end
 
 if.else:                                          ; preds = %do.body2
   store ptr %3, ptr getelementptr inbounds (i8, ptr @net_compares, i64 8), align 8
-  br label %if.end
+  br label %for.end
 
-if.end:                                           ; preds = %if.else, %if.then4
+for.end:                                          ; preds = %if.then4, %if.else
   %4 = phi ptr [ null, %if.else ], [ %.pre, %if.then4 ]
   store ptr %4, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   %.pre91 = load ptr, ptr @net_compares, align 8
-  br label %for.end
-
-for.end:                                          ; preds = %for.cond, %if.end
-  %5 = phi ptr [ %.pre91, %if.end ], [ %tmp.079, %for.cond ]
-  %cmp22 = icmp eq ptr %5, null
-  br i1 %cmp22, label %if.then23, label %if.end24
+  %5 = icmp eq ptr %.pre91, null
+  br i1 %5, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %entry, %for.end
   store i1 false, ptr @colo_compare_active, align 1
@@ -338,7 +334,7 @@ if.then23:                                        ; preds = %entry, %for.end
   tail call void @qemu_cond_destroy(ptr noundef nonnull @event_complete_cond) #16
   br label %if.end24
 
-if.end24:                                         ; preds = %if.then23, %for.end
+if.end24:                                         ; preds = %for.cond, %if.then23, %for.end
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @colo_compare_mutex, ptr noundef nonnull @.str, i32 noundef 1428) #16
   %chr_pri_in = getelementptr inbounds i8, ptr %call.i, i64 72
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr_pri_in, i1 noundef zeroext false) #16
@@ -451,8 +447,8 @@ if.end60:                                         ; preds = %while.body35, %whil
 if.end60.thread:                                  ; preds = %while.cond33.preheader
   %18 = atomicrmw sub ptr @global_aio_wait, i32 1 seq_cst, align 4
   %19 = load ptr, ptr %notify_dev, align 8
-  %tobool68.not93 = icmp eq ptr %19, null
-  br i1 %tobool68.not93, label %if.end117, label %if.then69.thread
+  %tobool68.not95 = icmp eq ptr %19, null
+  br i1 %tobool68.not95, label %if.end117, label %if.then69.thread
 
 if.then69.thread:                                 ; preds = %if.end60.thread
   %20 = atomicrmw add ptr @global_aio_wait, i32 1 seq_cst, align 4

@@ -202,8 +202,8 @@ BlockSplitIteratorNext.exit72:                    ; preds = %for.body6, %if.then
   %34 = load i8, ptr %arrayidx15, align 1
   %or37 = or i8 %34, %33
   %conv17 = zext i8 %or37 to i64
-  %.idx = mul nuw nsw i64 %literal_it.sroa.5.2, 66560
-  %35 = getelementptr i8, ptr %literal_histograms, i64 %.idx
+  %.idx119 = mul nuw nsw i64 %literal_it.sroa.5.2, 66560
+  %35 = getelementptr i8, ptr %literal_histograms, i64 %.idx119
   %arrayidx18 = getelementptr %struct.HistogramLiteral, ptr %35, i64 %conv17
   %and = and i64 %pos.191, %mask
   %arrayidx19 = getelementptr inbounds i8, ptr %ringbuffer, i64 %and
@@ -272,7 +272,6 @@ BlockSplitIteratorNext.exit86:                    ; preds = %if.then37, %if.then
   %dist_it.sroa.5.2 = phi i64 [ %conv.i81, %if.then.i76 ], [ %dist_it.sroa.5.0113, %if.then37 ]
   %48 = phi i64 [ %conv5.i85, %if.then.i76 ], [ %dist_it.sroa.7.0112, %if.then37 ]
   %dec.i75 = add i64 %48, -1
-  %shl40 = shl nuw nsw i64 %dist_it.sroa.5.2, 2
   %conv.i = zext i16 %43 to i32
   %shr.i = lshr i32 %conv.i, 6
   %and.i64 = and i32 %conv.i, 7
@@ -281,11 +280,13 @@ BlockSplitIteratorNext.exit86:                    ; preds = %if.then37, %if.then
   %or.cond1 = or i1 %cmp4.i, %cmp7.i
   %cmp10.i = icmp eq i32 %shr.i, 7
   %or.cond2 = or i1 %cmp10.i, %or.cond1
-  %49 = tail call i32 @llvm.umin.i32(i32 %and.i64, i32 3)
-  %50 = zext nneg i32 %49 to i64
-  %conv42 = select i1 %or.cond2, i64 %50, i64 3
-  %add43 = or disjoint i64 %shl40, %conv42
-  %arrayidx44 = getelementptr inbounds %struct.HistogramDistance, ptr %copy_dist_histograms, i64 %add43
+  %cmp12.i = icmp ult i32 %and.i64, 3
+  %or.cond3 = and i1 %cmp12.i, %or.cond2
+  %49 = zext nneg i32 %and.i64 to i64
+  %retval.i.0 = select i1 %or.cond3, i64 %49, i64 3
+  %.idx = mul nuw nsw i64 %dist_it.sroa.5.2, 8768
+  %50 = getelementptr i8, ptr %copy_dist_histograms, i64 %.idx
+  %arrayidx44 = getelementptr %struct.HistogramDistance, ptr %50, i64 %retval.i.0
   %dist_prefix_ = getelementptr inbounds i8, ptr %arrayidx, i64 14
   %51 = load i16, ptr %dist_prefix_, align 2
   %52 = and i16 %51, 1023
@@ -314,11 +315,7 @@ for.end52:                                        ; preds = %for.inc50, %InitBlo
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #1
-
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -4828,14 +4828,14 @@ if.then97:                                        ; preds = %if.end93
   br i1 %cmp100, label %if.then101, label %if.end105
 
 if.then101:                                       ; preds = %if.then97
-  %81 = load float, ptr %78, align 4
+  %81 = load i32, ptr %78, align 4
   %.sroa_idx2004 = getelementptr inbounds i8, ptr %78, i64 4
-  %82 = load float, ptr %.sroa_idx2004, align 4
+  %82 = load i32, ptr %.sroa_idx2004, align 4
   br label %if.end105
 
 if.end105:                                        ; preds = %if.then97, %if.then101
-  %add_sc.sroa.0.0 = phi float [ %81, %if.then101 ], [ 1.000000e+00, %if.then97 ]
-  %add_sc.sroa.5.0 = phi float [ %82, %if.then101 ], [ 1.000000e+00, %if.then97 ]
+  %add_sc.sroa.0.0 = phi i32 [ %81, %if.then101 ], [ 1065353216, %if.then97 ]
+  %add_sc.sroa.5.0 = phi i32 [ %82, %if.then101 ], [ 1065353216, %if.then97 ]
   %cmp.i570 = icmp ugt i64 %sub.ptr.div.i556, 1152921504606846975
   br i1 %cmp.i570, label %if.then.i.i.i632.invoke, label %if.end.i571
 
@@ -4909,9 +4909,9 @@ for.body115:                                      ; preds = %invoke.cont107, %fo
   br i1 %cmp.not.i602, label %if.else.i606, label %if.then.i603
 
 if.then.i603:                                     ; preds = %for.body115
-  store float %add_sc.sroa.0.0, ptr %86, align 4
+  store i32 %add_sc.sroa.0.0, ptr %86, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %86, i64 4
-  store float %add_sc.sroa.5.0, ptr %.sroa_idx, align 4
+  store i32 %add_sc.sroa.5.0, ptr %.sroa_idx, align 4
   %88 = load ptr, ptr %_M_finish.i547, align 8
   %incdec.ptr.i604 = getelementptr inbounds i8, ptr %88, i64 8
   store ptr %incdec.ptr.i604, ptr %_M_finish.i547, align 8
@@ -4951,9 +4951,9 @@ cond.true.i.i.i618:                               ; preds = %_ZNKSt6vectorI10aiV
 _ZNSt12_Vector_baseI10aiVector2tIfESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i618, %_ZNKSt6vectorI10aiVector2tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i611
   %cond.i10.i.i620 = phi ptr [ null, %_ZNKSt6vectorI10aiVector2tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i611 ], [ %call5.i.i.i.i.i635, %cond.true.i.i.i618 ]
   %add.ptr.i.i621 = getelementptr inbounds %class.aiVector2t, ptr %cond.i10.i.i620, i64 %sub.ptr.div.i.i.i.i612
-  store float %add_sc.sroa.0.0, ptr %add.ptr.i.i621, align 4
+  store i32 %add_sc.sroa.0.0, ptr %add.ptr.i.i621, align 4
   %add.ptr.i.i621.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i621, i64 4
-  store float %add_sc.sroa.5.0, ptr %add.ptr.i.i621.sroa_idx, align 4
+  store i32 %add_sc.sroa.5.0, ptr %add.ptr.i.i621.sroa_idx, align 4
   %cmp.not5.i.i.i.i.i622 = icmp eq ptr %89, %86
   br i1 %cmp.not5.i.i.i.i.i622, label %_ZNSt6vectorI10aiVector2tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i, label %for.body.i.i.i.i.i623
 
@@ -5472,22 +5472,22 @@ for.body.i740:                                    ; preds = %if.then3.i, %_ZNK10
   br i1 %or.cond.i743, label %for.end.thread.i, label %_ZNK10aiVector3tIfE5EqualERKS0_f.exit.i
 
 for.end.thread.i:                                 ; preds = %for.body.i740
-  %retval.sroa.0.0.vec.insert.i100.le74.i = insertelement <2 x float> poison, float %171, i64 0
-  %retval.sroa.0.4.vec.insert.i101.le75.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i100.le74.i, float %173, i64 1
+  %retval.sroa.0.0.vec.insert.i100.le76.i = insertelement <2 x float> poison, float %171, i64 0
+  %retval.sroa.0.4.vec.insert.i101.le77.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i100.le76.i, float %173, i64 1
   br label %if.end85.i
 
 _ZNK10aiVector3tIfE5EqualERKS0_f.exit.i:          ; preds = %for.body.i740
   %178 = call noundef float @llvm.fabs.f32(float %175)
-  %cmp10.i.i = fcmp ole float %178, 0x3EB0C6F7A0000000
+  %cmp10.i.i = fcmp ugt float %178, 0x3EB0C6F7A0000000
   %inc.i744 = add i64 %next_point.063.i, 1
-  %cmp17.i = icmp ule i64 %inc.i744, %sub.i713
-  %.not.not.i = and i1 %cmp17.i, %cmp10.i.i
-  br i1 %.not.not.i, label %for.body.i740, label %for.end.i, !llvm.loop !40
+  %cmp17.i = icmp ugt i64 %inc.i744, %sub.i713
+  %.not.i = or i1 %cmp17.i, %cmp10.i.i
+  br i1 %.not.i, label %for.end.i, label %for.body.i740, !llvm.loop !40
 
 for.end.i:                                        ; preds = %_ZNK10aiVector3tIfE5EqualERKS0_f.exit.i
   %retval.sroa.0.0.vec.insert.i100.le.i = insertelement <2 x float> poison, float %171, i64 0
   %retval.sroa.0.4.vec.insert.i101.le.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i100.le.i, float %173, i64 1
-  br i1 %cmp10.i.i, label %if.then39.i, label %if.end85.i
+  br i1 %cmp10.i.i, label %if.end85.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %for.end.i
   br label %if.end85.i
@@ -5596,7 +5596,7 @@ if.then81.i:                                      ; preds = %if.else65.i
   br label %if.end85.i
 
 if.end85.i:                                       ; preds = %if.then81.i, %if.else65.i, %if.then61.i, %if.then45.i, %if.then43.i, %if.then39.i, %for.end.i, %for.end.thread.i, %if.then4.i, %invoke.cont158
-  %tvec.sroa.0.1.i730 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i64.i, %if.then4.i ], [ %retval.sroa.0.4.vec.insert.i101.le.i, %for.end.i ], [ zeroinitializer, %if.then39.i ], [ %vecZ.sroa.0.02112, %if.then61.i ], [ %vecZ.sroa.0.02112, %if.then81.i ], [ zeroinitializer, %invoke.cont158 ], [ %vecZ.sroa.0.02112, %if.then43.i ], [ %retval.sroa.0.4.vec.insert.i143.i, %if.then45.i ], [ %retval.sroa.0.4.vec.insert.i193.i, %if.else65.i ], [ %retval.sroa.0.4.vec.insert.i101.le75.i, %for.end.thread.i ]
+  %tvec.sroa.0.1.i730 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i64.i, %if.then4.i ], [ %retval.sroa.0.4.vec.insert.i101.le.i, %for.end.i ], [ zeroinitializer, %if.then39.i ], [ %vecZ.sroa.0.02112, %if.then61.i ], [ %vecZ.sroa.0.02112, %if.then81.i ], [ zeroinitializer, %invoke.cont158 ], [ %vecZ.sroa.0.02112, %if.then43.i ], [ %retval.sroa.0.4.vec.insert.i143.i, %if.then45.i ], [ %retval.sroa.0.4.vec.insert.i193.i, %if.else65.i ], [ %retval.sroa.0.4.vec.insert.i101.le77.i, %for.end.thread.i ]
   %tvec.sroa.29.1.i = phi float [ %160, %if.then4.i ], [ %175, %for.end.i ], [ 1.000000e+00, %if.then39.i ], [ %vecZ.sroa.7.02113, %if.then61.i ], [ %vecZ.sroa.7.02113, %if.then81.i ], [ 1.000000e+00, %invoke.cont158 ], [ %vecZ.sroa.7.02113, %if.then43.i ], [ %193, %if.then45.i ], [ %212, %if.else65.i ], [ %175, %for.end.thread.i ]
   %tvec.sroa.0.0.vec.extract12.i = extractelement <2 x float> %tvec.sroa.0.1.i730, i64 0
   %pVecZ_Prev.sroa.0.0.vec.extract.i = extractelement <2 x float> %vecZ.sroa.0.02112, i64 0
@@ -10273,9 +10273,9 @@ while.cond:                                       ; preds = %while.cond, %entry
 while.end:                                        ; preds = %while.cond
   %cmp = icmp eq i8 %0, 45
   %cmp3 = icmp eq i8 %0, 43
-  %spec.select = or i1 %cmp3, %cmp
-  %idx.ext = zext i1 %spec.select to i64
-  %add.ptr = getelementptr inbounds i8, ptr %s.0, i64 %idx.ext
+  %narrow = or i1 %cmp3, %cmp
+  %spec.select = zext i1 %narrow to i64
+  %add.ptr = getelementptr inbounds i8, ptr %s.0, i64 %spec.select
   %3 = load i8, ptr %add.ptr, align 1
   %cmp9 = icmp eq i8 %3, 48
   br i1 %cmp9, label %land.lhs.true, label %while.cond42.preheader

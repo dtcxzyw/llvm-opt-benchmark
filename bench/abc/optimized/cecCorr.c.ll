@@ -4730,8 +4730,8 @@ define noundef i32 @Cec_ManLSCorrAnalyzeDependence(ptr nocapture noundef readonl
   br i1 %82, label %.lr.ph129, label %.critedge4, !llvm.loop !50
 
 .critedge4:                                       ; preds = %.critedge2, %.lr.ph129
-  %.0.lcssa = phi i32 [ %80, %.critedge2 ], [ %.0127, %.lr.ph129 ]
-  %83 = icmp eq i32 %.0.lcssa, 0
+  %.0.lcssa.ph = phi i32 [ %80, %.critedge2 ], [ %.0127, %.lr.ph129 ]
+  %83 = icmp eq i32 %.0.lcssa.ph, 0
   br i1 %83, label %.critedge4.thread, label %84
 
 84:                                               ; preds = %.critedge4

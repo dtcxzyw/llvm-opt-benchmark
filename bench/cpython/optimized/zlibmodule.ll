@@ -592,23 +592,24 @@ if.end.i:                                         ; preds = %if.end4.i.i.i
 do.body.preheader.i:                              ; preds = %if.end.i
   %avail_in.i.i = getelementptr inbounds i8, ptr %zst.i, i64 8
   %.pr.pre.i = load i32, ptr %avail_out.i, align 8
+  %12 = icmp eq i32 %.pr.pre.i, 0
   br label %do.body.i
 
 sw.bb3.i:                                         ; preds = %if.end.i
-  %12 = load ptr, ptr @PyExc_MemoryError, align 8
-  call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.11) #6
+  %13 = load ptr, ptr @PyExc_MemoryError, align 8
+  call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.11) #6
   br label %error.i
 
 sw.bb4.i:                                         ; preds = %if.end.i
   %ZlibError.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  %13 = load ptr, ptr %ZlibError.i, align 8
-  call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.12) #6
+  %14 = load ptr, ptr %ZlibError.i, align 8
+  call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.12) #6
   br label %error.i
 
 sw.default.i:                                     ; preds = %if.end.i
   %call5.i = call i32 @deflateEnd(ptr noundef nonnull %zst.i) #6
-  %14 = getelementptr inbounds i8, ptr %zst.i, i64 48
-  %zst.val.i = load ptr, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %zst.i, i64 48
+  %zst.val.i = load ptr, ptr %15, align 8
   %cmp.not.i.i = icmp eq i32 %call2.i, -6
   %zmsg.0.i.i = select i1 %cmp.not.i.i, ptr @.str.15, ptr %zst.val.i
   %cmp5.i.i = icmp eq ptr %zmsg.0.i.i, null
@@ -625,19 +626,19 @@ sw.bb8.i.i:                                       ; preds = %if.then6.i.i
 
 if.then11.i.i:                                    ; preds = %if.then6.i.i
   %ZlibError.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  %15 = load ptr, ptr %ZlibError.i.i, align 8
-  %call.i14.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.19, i32 noundef %call2.i, ptr noundef nonnull @.str.13) #6
+  %16 = load ptr, ptr %ZlibError.i.i, align 8
+  %call.i14.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.19, i32 noundef %call2.i, ptr noundef nonnull @.str.13) #6
   br label %error.i
 
 if.else.i.i:                                      ; preds = %sw.bb8.i.i, %if.then6.i.i, %sw.default.i
   %zmsg.1.ph.i.i = phi ptr [ %zmsg.0.i.i, %sw.default.i ], [ @.str.18, %sw.bb8.i.i ], [ @.str.16, %if.then6.i.i ]
   %ZlibError12.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  %16 = load ptr, ptr %ZlibError12.i.i, align 8
-  %call13.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.20, i32 noundef %call2.i, ptr noundef nonnull @.str.13, ptr noundef nonnull %zmsg.1.ph.i.i) #6
+  %17 = load ptr, ptr %ZlibError12.i.i, align 8
+  %call13.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.20, i32 noundef %call2.i, ptr noundef nonnull @.str.13, ptr noundef nonnull %zmsg.1.ph.i.i) #6
   br label %error.i
 
 do.body.i:                                        ; preds = %do.cond27.i, %do.body.preheader.i
-  %.pr.i = phi i32 [ %20, %do.cond27.i ], [ %.pr.pre.i, %do.body.preheader.i ]
+  %.pr.i = phi i1 [ false, %do.cond27.i ], [ %12, %do.body.preheader.i ]
   %ibuflen.0.i = phi i64 [ %sub.i.i, %do.cond27.i ], [ %8, %do.body.preheader.i ]
   %spec.select4.i.i = call i64 @llvm.umin.i64(i64 %ibuflen.0.i, i64 4294967295)
   %spec.select.i.i = trunc nuw i64 %spec.select4.i.i to i32
@@ -645,14 +646,9 @@ do.body.i:                                        ; preds = %do.cond27.i, %do.bo
   %sub.i.i = sub i64 %ibuflen.0.i, %spec.select4.i.i
   %cmp6.i = icmp eq i64 %sub.i.i, 0
   %cond.i = select i1 %cmp6.i, i32 4, i32 0
-  br label %do.body7.i
+  br i1 %.pr.i, label %if.then10.i, label %if.end18.i
 
-do.body7.i:                                       ; preds = %do.cond.i, %do.body.i
-  %17 = phi i32 [ 0, %do.cond.i ], [ %.pr.i, %do.body.i ]
-  %cmp9.i = icmp eq i32 %17, 0
-  br i1 %cmp9.i, label %if.then10.i, label %if.end18.i
-
-if.then10.i:                                      ; preds = %do.body7.i
+if.then10.i:                                      ; preds = %do.cond.i, %do.body.i
   %call.i16.i = call fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull %buffer.i, ptr noundef nonnull %next_out.i, i64 noundef 0)
   %conv1.i.i = trunc i64 %call.i16.i to i32
   store i32 %conv1.i.i, ptr %avail_out.i, align 8
@@ -663,7 +659,7 @@ if.then15.i:                                      ; preds = %if.then10.i
   %call16.i = call i32 @deflateEnd(ptr noundef nonnull %zst.i) #6
   br label %error.i
 
-if.end18.i:                                       ; preds = %if.then10.i, %do.body7.i
+if.end18.i:                                       ; preds = %if.then10.i, %do.body.i
   %call19.i = call ptr @PyEval_SaveThread() #6
   %call20.i = call i32 @deflate(ptr noundef nonnull %zst.i, i32 noundef %cond.i) #6
   call void @PyEval_RestoreThread(ptr noundef %call19.i) #6
@@ -684,7 +680,7 @@ if.then22.i:                                      ; preds = %if.end18.i
 do.cond.i:                                        ; preds = %if.end18.i
   %20 = load i32, ptr %avail_out.i, align 8
   %cmp26.i = icmp eq i32 %20, 0
-  br i1 %cmp26.i, label %do.body7.i, label %do.cond27.i, !llvm.loop !6
+  br i1 %cmp26.i, label %if.then10.i, label %do.cond27.i, !llvm.loop !6
 
 do.cond27.i:                                      ; preds = %do.cond.i
   br i1 %cmp6.i, label %do.end29.i, label %do.body.i, !llvm.loop !7
@@ -1331,17 +1327,18 @@ do.body.preheader.i:                              ; preds = %if.end7.i
   %add.ptr.i.i = getelementptr i8, ptr %ob_sval.i.i.i.i, i64 %cond.i.i
   %sub.i.i = sub nsw i64 %spec.store.select.i, %cond.i.i
   %.pr.pre.i = load i32, ptr %avail_out.i, align 8
+  %16 = icmp eq i32 %.pr.pre.i, 0
   br label %do.body.i
 
 sw.bb9.i:                                         ; preds = %if.end7.i
-  %16 = load ptr, ptr @PyExc_MemoryError, align 8
-  call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull @.str.35) #6
+  %17 = load ptr, ptr @PyExc_MemoryError, align 8
+  call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.35) #6
   br label %error.i
 
 sw.default.i:                                     ; preds = %if.end7.i
   %call10.i = call i32 @inflateEnd(ptr noundef nonnull %zst.i) #6
-  %17 = getelementptr inbounds i8, ptr %zst.i, i64 48
-  %zst.val18.i = load ptr, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %zst.i, i64 48
+  %zst.val18.i = load ptr, ptr %18, align 8
   %cmp.not.i.i = icmp eq i32 %call8.i, -6
   %zmsg.0.i.i = select i1 %cmp.not.i.i, ptr @.str.15, ptr %zst.val18.i
   %cmp5.i.i = icmp eq ptr %zmsg.0.i.i, null
@@ -1362,19 +1359,19 @@ sw.bb8.i.i:                                       ; preds = %if.then6.i.i
 
 if.then11.i.i:                                    ; preds = %if.then6.i.i
   %ZlibError.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  %18 = load ptr, ptr %ZlibError.i.i, align 8
-  %call.i19.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.19, i32 noundef %call8.i, ptr noundef nonnull @.str.36) #6
+  %19 = load ptr, ptr %ZlibError.i.i, align 8
+  %call.i19.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.19, i32 noundef %call8.i, ptr noundef nonnull @.str.36) #6
   br label %error.i
 
 if.else.i.i:                                      ; preds = %sw.bb8.i.i, %sw.bb7.i.i, %if.then6.i.i, %sw.default.i
   %zmsg.1.ph.i.i = phi ptr [ %zmsg.0.i.i, %sw.default.i ], [ @.str.17, %sw.bb7.i.i ], [ @.str.18, %sw.bb8.i.i ], [ @.str.16, %if.then6.i.i ]
   %ZlibError12.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  %19 = load ptr, ptr %ZlibError12.i.i, align 8
-  %call13.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.20, i32 noundef %call8.i, ptr noundef nonnull @.str.36, ptr noundef nonnull %zmsg.1.ph.i.i) #6
+  %20 = load ptr, ptr %ZlibError12.i.i, align 8
+  %call13.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.20, i32 noundef %call8.i, ptr noundef nonnull @.str.36, ptr noundef nonnull %zmsg.1.ph.i.i) #6
   br label %error.i
 
 do.body.i:                                        ; preds = %do.cond34.i, %do.body.preheader.i
-  %.pr.i = phi i32 [ %25, %do.cond34.i ], [ %.pr.pre.i, %do.body.preheader.i ]
+  %.pr.i = phi i1 [ false, %do.cond34.i ], [ %16, %do.body.preheader.i ]
   %ibuflen.0.i = phi i64 [ %sub.i20.i, %do.cond34.i ], [ %15, %do.body.preheader.i ]
   %window.sroa.5.0.i = phi ptr [ %window.sroa.5.2.i, %do.cond34.i ], [ %add.ptr.i.i, %do.body.preheader.i ]
   %window.sroa.0.0.i = phi i64 [ %window.sroa.0.2.i, %do.cond34.i ], [ %sub.i.i, %do.body.preheader.i ]
@@ -1387,10 +1384,9 @@ do.body.i:                                        ; preds = %do.cond34.i, %do.bo
   br label %do.body12.i
 
 do.body12.i:                                      ; preds = %do.cond.i, %do.body.i
-  %20 = phi i32 [ 0, %do.cond.i ], [ %.pr.i, %do.body.i ]
+  %cmp14.i = phi i1 [ true, %do.cond.i ], [ %.pr.i, %do.body.i ]
   %window.sroa.5.1.i = phi ptr [ %window.sroa.5.2.i, %do.cond.i ], [ %window.sroa.5.0.i, %do.body.i ]
   %window.sroa.0.1.i = phi i64 [ %window.sroa.0.2.i, %do.cond.i ], [ %window.sroa.0.0.i, %do.body.i ]
-  %cmp14.i = icmp eq i32 %20, 0
   br i1 %cmp14.i, label %if.end.i.i, label %if.end23.i
 
 if.end.i.i:                                       ; preds = %do.body12.i

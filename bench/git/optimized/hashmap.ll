@@ -414,41 +414,43 @@ return:                                           ; preds = %while.body.i, %entr
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @hashmap_get_next(ptr nocapture noundef readonly %map, ptr noundef %entry1) local_unnamed_addr #2 {
 entry:
-  %hash.i = getelementptr inbounds i8, ptr %entry1, i64 8
   %cmpfn.i = getelementptr inbounds i8, ptr %map, i64 8
+  %e.07 = load ptr, ptr %entry1, align 8
+  %tobool.not8 = icmp eq ptr %e.07, null
+  %cmp.i9 = icmp eq ptr %entry1, %e.07
+  %or.cond10 = or i1 %tobool.not8, %cmp.i9
+  br i1 %or.cond10, label %return, label %lor.rhs.i.lr.ph
+
+lor.rhs.i.lr.ph:                                  ; preds = %entry
+  %hash.i = getelementptr inbounds i8, ptr %entry1, i64 8
   %cmpfn_data.i = getelementptr inbounds i8, ptr %map, i64 16
-  br label %for.cond
+  br label %lor.rhs.i
 
-for.cond:                                         ; preds = %entry_equals.exit, %entry
-  %e.0.in = phi ptr [ %entry1, %entry ], [ %e.0, %entry_equals.exit ]
-  %e.0 = load ptr, ptr %e.0.in, align 8
-  %tobool.not = icmp eq ptr %e.0, null
-  %cmp.i = icmp eq ptr %entry1, %e.0
-  %or.cond = or i1 %tobool.not, %cmp.i
-  br i1 %or.cond, label %return, label %lor.rhs.i
-
-lor.rhs.i:                                        ; preds = %for.cond
+lor.rhs.i:                                        ; preds = %lor.rhs.i.lr.ph, %for.cond.backedge
+  %e.011 = phi ptr [ %e.07, %lor.rhs.i.lr.ph ], [ %e.0, %for.cond.backedge ]
   %0 = load i32, ptr %hash.i, align 8
-  %hash1.i = getelementptr inbounds i8, ptr %e.0, i64 8
+  %hash1.i = getelementptr inbounds i8, ptr %e.011, i64 8
   %1 = load i32, ptr %hash1.i, align 8
   %cmp2.i = icmp eq i32 %0, %1
-  br i1 %cmp2.i, label %land.rhs.i, label %entry_equals.exit
+  br i1 %cmp2.i, label %land.rhs.i, label %for.cond.backedge
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
   %2 = load ptr, ptr %cmpfn.i, align 8
   %3 = load ptr, ptr %cmpfn_data.i, align 8
-  %call.i = tail call i32 %2(ptr noundef %3, ptr noundef nonnull %entry1, ptr noundef nonnull %e.0, ptr noundef null) #14
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  %4 = zext i1 %tobool.not.i to i32
-  br label %entry_equals.exit
+  %call.i = tail call i32 %2(ptr noundef %3, ptr noundef nonnull %entry1, ptr noundef nonnull %e.011, ptr noundef null) #14
+  %tobool.not.i.not = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i.not, label %return, label %for.cond.backedge
 
-entry_equals.exit:                                ; preds = %lor.rhs.i, %land.rhs.i
-  %lor.ext.i = phi i32 [ 0, %lor.rhs.i ], [ %4, %land.rhs.i ]
-  %tobool2.not = icmp eq i32 %lor.ext.i, 0
-  br i1 %tobool2.not, label %for.cond, label %return, !llvm.loop !14
+for.cond.backedge:                                ; preds = %land.rhs.i, %lor.rhs.i
+  %e.0 = load ptr, ptr %e.011, align 8
+  %tobool.not = icmp eq ptr %e.0, null
+  %cmp.i = icmp eq ptr %entry1, %e.0
+  %or.cond = or i1 %tobool.not, %cmp.i
+  br i1 %or.cond, label %return, label %lor.rhs.i, !llvm.loop !14
 
-return:                                           ; preds = %for.cond, %entry_equals.exit
-  ret ptr %e.0
+return:                                           ; preds = %land.rhs.i, %for.cond.backedge, %entry
+  %e.0.lcssa = phi ptr [ %e.07, %entry ], [ %e.0, %for.cond.backedge ], [ %e.011, %land.rhs.i ]
+  ret ptr %e.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

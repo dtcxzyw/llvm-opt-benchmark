@@ -231,14 +231,14 @@ Vec_WecStart.exit.i:                              ; preds = %42, %Abc_Clock.exit
 
 94:                                               ; preds = %92
   store i32 %77, ptr %89, align 4
+  %95 = icmp eq i32 %.05676.us.i.i.i, 100
+  %96 = sext i1 %95 to i32
   br label %.thread.us.i.i.i
 
 .thread.us.i.i.i:                                 ; preds = %99, %94
-  %.05668.us.i.i.i = phi i32 [ %.05676.us.i.i.i, %94 ], [ 100, %99 ]
-  %95 = icmp eq i32 %.05668.us.i.i.i, 100
-  %96 = sext i1 %95 to i32
+  %.05668.us.i.i.i = phi i32 [ %96, %94 ], [ -1, %99 ]
   %spec.select.us.i.i.i = add i32 %.05777.us.i.i.i, 1
-  %97 = add i32 %spec.select.us.i.i.i, %96
+  %97 = add i32 %spec.select.us.i.i.i, %.05668.us.i.i.i
   %98 = icmp slt i32 %97, %5
   br i1 %98, label %.lr.ph.split.us.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !8
 
@@ -286,8 +286,8 @@ Vec_WecStart.exit.i:                              ; preds = %42, %Abc_Clock.exit
   %119 = add i32 %117, 1
   br label %120
 
-120:                                              ; preds = %136, %.lr.ph.split.i.i.i
-  %.05676.i.i.i = phi i32 [ 0, %.lr.ph.split.i.i.i ], [ %137, %136 ]
+120:                                              ; preds = %138, %.lr.ph.split.i.i.i
+  %.05676.i.i.i = phi i32 [ 0, %.lr.ph.split.i.i.i ], [ %139, %138 ]
   %121 = call i32 @rand() #16
   %122 = srem i32 %121, %118
   %123 = add i32 %119, %122
@@ -297,7 +297,7 @@ Vec_WecStart.exit.i:                              ; preds = %42, %Abc_Clock.exit
 125:                                              ; preds = %132
   %126 = add nsw i32 %.175.i.i.i, -1
   %.not95.i.i.i = icmp eq i32 %.175.i.i.i, 0
-  br i1 %.not95.i.i.i, label %136, label %127, !llvm.loop !7
+  br i1 %.not95.i.i.i, label %138, label %127, !llvm.loop !7
 
 127:                                              ; preds = %125, %120
   %.175.i.i.i = phi i32 [ 2, %120 ], [ %126, %125 ]
@@ -305,7 +305,7 @@ Vec_WecStart.exit.i:                              ; preds = %42, %Abc_Clock.exit
   %129 = getelementptr inbounds [3 x i32], ptr %16, i64 %124, i64 %128
   %130 = load i32, ptr %129, align 4
   %131 = icmp eq i32 %130, %117
-  br i1 %131, label %136, label %132
+  br i1 %131, label %138, label %132
 
 132:                                              ; preds = %127
   %133 = icmp eq i32 %130, 0
@@ -314,19 +314,19 @@ Vec_WecStart.exit.i:                              ; preds = %42, %Abc_Clock.exit
 134:                                              ; preds = %132
   store i32 %117, ptr %129, align 4
   %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %117, i32 noundef %123)
+  %136 = icmp eq i32 %.05676.i.i.i, 100
+  %137 = sext i1 %136 to i32
   br label %.thread.i.i.i
 
-136:                                              ; preds = %127, %125
-  %137 = add nuw nsw i32 %.05676.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %137, 100
+138:                                              ; preds = %127, %125
+  %139 = add nuw nsw i32 %.05676.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i32 %139, 100
   br i1 %exitcond.not.i.i.i, label %.thread.i.i.i, label %120, !llvm.loop !9
 
-.thread.i.i.i:                                    ; preds = %136, %134
-  %.05668.i.i.i = phi i32 [ %.05676.i.i.i, %134 ], [ 100, %136 ]
-  %138 = icmp eq i32 %.05668.i.i.i, 100
-  %139 = sext i1 %138 to i32
+.thread.i.i.i:                                    ; preds = %138, %134
+  %.05668.i.i.i = phi i32 [ %137, %134 ], [ -1, %138 ]
   %spec.select.i.i.i = add i32 %.05777.i.i.i, 1
-  %140 = add i32 %spec.select.i.i.i, %139
+  %140 = add i32 %spec.select.i.i.i, %.05668.i.i.i
   %141 = icmp slt i32 %140, %5
   br i1 %141, label %.lr.ph.split.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !8
 
@@ -4234,17 +4234,17 @@ Vec_WecPush.exit.i.i:                             ; preds = %127, %Vec_IntGrow.e
   %138 = trunc i64 %indvars.iv64.i.i to i32
   %139 = xor i32 %138, -1
   %140 = add i32 %62, %139
+  %141 = sext i32 %140 to i64
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %137, %61
-  %141 = phi i32 [ %140, %137 ], [ 0, %61 ]
-  %142 = sub nsw i64 %indvars.iv67.i.i, %indvars.iv64.i.i
-  %143 = sext i32 %141 to i64
-  %144 = icmp sgt i64 %142, %143
+  %142 = phi i64 [ %141, %137 ], [ 0, %61 ]
+  %143 = sub nsw i64 %indvars.iv67.i.i, %indvars.iv64.i.i
+  %144 = icmp slt i64 %142, %143
   br i1 %144, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.thread.i.i, %Vec_WecPush.exit55.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %Vec_WecPush.exit55.i.i ], [ %143, %.thread.i.i ]
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %Vec_WecPush.exit55.i.i ], [ %142, %.thread.i.i ]
   %145 = load ptr, ptr %48, align 8
   %146 = load i32, ptr %51, align 8
   %147 = shl nsw i32 %146, 1
@@ -4373,7 +4373,7 @@ Vec_WecPush.exit55.i.i:                           ; preds = %201, %Vec_IntGrow.e
   %210 = getelementptr inbounds [32 x [6 x [32 x i32]]], ptr %53, i64 0, i64 %indvars.iv67.i.i, i64 %indvars.iv64.i.i, i64 %indvars.iv.i.i
   store i32 %208, ptr %210, align 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %211 = icmp slt i64 %indvars.iv.next.i.i, %142
+  %211 = icmp slt i64 %indvars.iv.next.i.i, %143
   br i1 %211, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !84
 
 .loopexit.i.i:                                    ; preds = %Vec_WecPush.exit55.i.i, %.thread.i.i, %Vec_WecPush.exit.i.i
@@ -4731,9 +4731,9 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %264, %Ex
   br i1 %354, label %.preheader114.i, label %._crit_edge139.i, !llvm.loop !93
 
 ._crit_edge139.i:                                 ; preds = %._crit_edge137.i, %._crit_edge131.i
-  %355 = phi i32 [ %351, %._crit_edge137.i ], [ %320, %._crit_edge131.i ]
-  %.not98.i = icmp eq i32 %355, 2
-  br i1 %.not98.i, label %.preheader115.i, label %._crit_edge139.thread.i
+  %.ph.i = phi i32 [ %351, %._crit_edge137.i ], [ %320, %._crit_edge131.i ]
+  %355 = icmp eq i32 %.ph.i, 2
+  br i1 %355, label %.preheader115.i, label %._crit_edge139.thread.i
 
 .preheader115.i:                                  ; preds = %._crit_edge139.i
   %356 = shl i32 %288, 1

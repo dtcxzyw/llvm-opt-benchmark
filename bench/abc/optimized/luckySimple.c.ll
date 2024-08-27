@@ -724,32 +724,32 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %67 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv235
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %74, label %70
+  br i1 %69, label %75, label %70
 
 70:                                               ; preds = %._crit_edge248
   %71 = getelementptr inbounds i8, ptr %66, i64 36
   %72 = load i32, ptr %71, align 4
   %73 = sub nsw i32 %72, %68
-  br label %74
+  %74 = sext i32 %73 to i64
+  br label %75
 
-74:                                               ; preds = %._crit_edge248, %70
-  %75 = phi i32 [ %73, %70 ], [ 0, %._crit_edge248 ]
-  %76 = getelementptr inbounds i32, ptr %12, i64 %61
-  %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %66, i64 24
-  %79 = load ptr, ptr %78, align 8
-  %80 = sext i32 %75 to i64
-  %81 = getelementptr inbounds i32, ptr %79, i64 %80
+75:                                               ; preds = %._crit_edge248, %70
+  %76 = phi i64 [ %74, %70 ], [ 0, %._crit_edge248 ]
+  %77 = getelementptr inbounds i32, ptr %12, i64 %61
+  %78 = load i32, ptr %77, align 4
+  %79 = getelementptr inbounds i8, ptr %66, i64 24
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i32, ptr %80, i64 %76
   %82 = load i32, ptr %81, align 4
-  %83 = add nsw i32 %82, %77
+  %83 = add nsw i32 %82, %78
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %6, i32 noundef %83) #11
   br i1 %.not, label %98, label %84
 
-84:                                               ; preds = %74
-  %85 = load ptr, ptr %78, align 8
-  %86 = getelementptr inbounds i32, ptr %85, i64 %80
+84:                                               ; preds = %75
+  %85 = load ptr, ptr %79, align 8
+  %86 = getelementptr inbounds i32, ptr %85, i64 %76
   %87 = load i32, ptr %86, align 4
-  %88 = add nsw i32 %87, %77
+  %88 = add nsw i32 %87, %78
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %1, i32 noundef %6, i32 noundef %88) #11
   %89 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %6) #11
   %90 = icmp slt i32 %89, 1
@@ -769,7 +769,7 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %97 = icmp slt i32 %96, 1
   br i1 %97, label %minWord3.exit.sink.split, label %minWord3.exit
 
-98:                                               ; preds = %74
+98:                                               ; preds = %75
   %99 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %2, i32 noundef %6) #11
   %100 = icmp slt i32 %99, 1
   br i1 %100, label %minWord3.exit.sink.split, label %minWord3.exit

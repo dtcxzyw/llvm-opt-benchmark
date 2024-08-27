@@ -11000,12 +11000,11 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body21
   %16 = load ptr, ptr %ref.tmp22, align 8, !noalias !295
   store ptr %16, ptr %agg.result, align 8, !alias.scope !295
   store ptr null, ptr %ref.tmp22, align 8, !noalias !295
-  %cmp.i55 = icmp ne ptr %16, null
-  %. = zext i1 %cmp.i55 to i32
+  %cmp.i55.not = icmp eq ptr %16, null
   br label %cleanup39
 
 cleanup39:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit, %if.then17, %_ZN5arrow6StatusC2ERKS0_.exit, %if.then12
-  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then12 ], [ 1, %_ZN5arrow6StatusC2ERKS0_.exit ], [ 1, %if.then17 ], [ %., %_ZN5arrow6StatusD2Ev.exit ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %if.then12 ], [ false, %_ZN5arrow6StatusC2ERKS0_.exit ], [ false, %if.then17 ], [ %cmp.i55.not, %_ZN5arrow6StatusD2Ev.exit ]
   %17 = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i, label %_ZN5arrow6ResultIlED2Ev.exit, label %delete.notnull.i.i.i
@@ -11092,8 +11091,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i:         ; preds = %if.end8.sink.split.
   br label %_ZN5arrow6ResultIlED2Ev.exit
 
 _ZN5arrow6ResultIlED2Ev.exit:                     ; preds = %cleanup39, %_ZN5arrow6Status11DeleteStateEv.exit.i.i
-  %switch.not.not = icmp eq i32 %cleanup.dest.slot.0, 0
-  br i1 %switch.not.not, label %_ZN5arrow6ResultIlED2Ev.exit.if.end42_crit_edge, label %return
+  br i1 %cleanup.dest.slot.0, label %_ZN5arrow6ResultIlED2Ev.exit.if.end42_crit_edge, label %return
 
 _ZN5arrow6ResultIlED2Ev.exit.if.end42_crit_edge:  ; preds = %_ZN5arrow6ResultIlED2Ev.exit
   %.pre = load ptr, ptr %impl_.i, align 8
@@ -11206,12 +11204,11 @@ _ZN5arrow6StatusD2Ev.exit161:                     ; preds = %do.body76
   %45 = load ptr, ptr %ref.tmp78, align 8, !noalias !298
   store ptr %45, ptr %agg.result, align 8, !alias.scope !298
   store ptr null, ptr %ref.tmp78, align 8, !noalias !298
-  %cmp.i162 = icmp ne ptr %45, null
-  %.47 = zext i1 %cmp.i162 to i32
+  %cmp.i162.not = icmp eq ptr %45, null
   br label %cleanup104
 
 cleanup104:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit161, %if.then73, %_ZN5arrow6StatusC2ERKS0_.exit118
-  %cleanup.dest.slot.2 = phi i32 [ 1, %_ZN5arrow6StatusC2ERKS0_.exit118 ], [ 1, %if.then73 ], [ %.47, %_ZN5arrow6StatusD2Ev.exit161 ]
+  %cleanup.dest.slot.2 = phi i1 [ false, %_ZN5arrow6StatusC2ERKS0_.exit118 ], [ false, %if.then73 ], [ %cmp.i162.not, %_ZN5arrow6StatusD2Ev.exit161 ]
   %46 = load ptr, ptr %ref.tmp46, align 8
   %cmp.not.i.i199 = icmp eq ptr %46, null
   br i1 %cmp.not.i.i199, label %_ZN5arrow6ResultIlED2Ev.exit234, label %delete.notnull.i.i.i200
@@ -11298,8 +11295,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i213:      ; preds = %if.end8.sink.split.
   br label %_ZN5arrow6ResultIlED2Ev.exit234
 
 _ZN5arrow6ResultIlED2Ev.exit234:                  ; preds = %cleanup104, %_ZN5arrow6Status11DeleteStateEv.exit.i.i213
-  %switch48.not.not = icmp eq i32 %cleanup.dest.slot.2, 0
-  br i1 %switch48.not.not, label %_ZN5arrow6ResultIlED2Ev.exit234.if.end108_crit_edge, label %return
+  br i1 %cleanup.dest.slot.2, label %_ZN5arrow6ResultIlED2Ev.exit234.if.end108_crit_edge, label %return
 
 _ZN5arrow6ResultIlED2Ev.exit234.if.end108_crit_edge: ; preds = %_ZN5arrow6ResultIlED2Ev.exit234
   %.pre421 = load ptr, ptr %impl_.i, align 8

@@ -1565,7 +1565,7 @@ while.body.lr.ph.lr.ph:                           ; preds = %invoke.cont41, %if.
 while.body:                                       ; preds = %while.body.backedge, %while.body.lr.ph.lr.ph
   %input_args.val45723 = phi ptr [ %incdec.ptr.i.i.i, %while.body.lr.ph.lr.ph ], [ %input_args.val45723.be, %while.body.backedge ]
   %input_args.val44722 = phi ptr [ %call5.i.i.i.i.i.i52, %while.body.lr.ph.lr.ph ], [ %input_args.val44722.be, %while.body.backedge ]
-  %success.0721 = phi i8 [ 1, %while.body.lr.ph.lr.ph ], [ %success.0721.be, %while.body.backedge ]
+  %success.0721 = phi i1 [ true, %while.body.lr.ph.lr.ph ], [ %success.0721.be, %while.body.backedge ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %flagfiles.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %flags_list.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %flags_list37.i)
@@ -1830,7 +1830,7 @@ if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   %74 = load i8, ptr %arrayidx.i15.i.i.i, align 1
   %75 = and i8 %74, 8
   %cmp.i16.not.i.i.i = icmp eq i8 %75, 0
-  br i1 %cmp.i16.not.i.i.i, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit1002, label %if.end7.i.i.i.i.i.i
+  br i1 %cmp.i16.not.i.i.i, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit999, label %if.end7.i.i.i.i.i.i
 
 if.end7.i.i.i.i.i.i:                              ; preds = %if.end3.i.i.i.i.i.i
   %incdec.ptr8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i.i.i, i64 3
@@ -1840,7 +1840,7 @@ if.end7.i.i.i.i.i.i:                              ; preds = %if.end3.i.i.i.i.i.i
   %77 = load i8, ptr %arrayidx.i12.i.i.i, align 1
   %78 = and i8 %77, 8
   %cmp.i13.not.i.i.i = icmp eq i8 %78, 0
-  br i1 %cmp.i13.not.i.i.i, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit1004, label %if.end11.i.i.i.i.i.i
+  br i1 %cmp.i13.not.i.i.i, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit1001, label %if.end11.i.i.i.i.i.i
 
 if.end11.i.i.i.i.i.i:                             ; preds = %if.end7.i.i.i.i.i.i
   %incdec.ptr12.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i.i.i, i64 4
@@ -1906,16 +1906,16 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit: ; pr
   %incdec.ptr.i.i.i.i.i.i83.le = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i.i.i, i64 1
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit1002: ; preds = %if.end3.i.i.i.i.i.i
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit999: ; preds = %if.end3.i.i.i.i.i.i
   %incdec.ptr4.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i.i.i, i64 2
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit1004: ; preds = %if.end7.i.i.i.i.i.i
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit1001: ; preds = %if.end7.i.i.i.i.i.i
   %incdec.ptr8.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.055.i.i.i.i.i.i, i64 3
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i: ; preds = %for.body.i.i.i.i.i.i82, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit1002, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit1004, %sw.default.i.i.i.i.i.i, %sw.bb25.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i28.i.i, %sw.default.i.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i, %sw.bb25.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i83.le, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.i.i.le, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit1002 ], [ %incdec.ptr8.i.i.i.i.i.i.le, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit1004 ], [ %__first.addr.055.i.i.i.i.i.i, %for.body.i.i.i.i.i.i82 ]
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i: ; preds = %for.body.i.i.i.i.i.i82, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit999, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit1001, %sw.default.i.i.i.i.i.i, %sw.bb25.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i
+  %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i28.i.i, %sw.default.i.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %sw.bb20.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i, %sw.bb25.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i83.le, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.i.i.i.le, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit999 ], [ %incdec.ptr8.i.i.i.i.i.i.le, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.i.i.i.loopexit.split.loop.exit1001 ], [ %__first.addr.055.i.i.i.i.i.i, %for.body.i.i.i.i.i.i82 ]
   %sub.ptr.lhs.cast.i.i20.i = ptrtoint ptr %retval.0.i.i.i.i.i.i to i64
   %sub.ptr.sub.i.i21.i = sub i64 %sub.ptr.lhs.cast.i.i20.i, %sub.ptr.rhs.cast.i.i.i.i30.i.i
   %cmp.i.i.i31.i.i = icmp ugt i64 %sub.ptr.sub.i.i21.i, %64
@@ -2532,9 +2532,7 @@ invoke.cont46:                                    ; preds = %if.end48.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %flagfiles.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %flags_list.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %flags_list37.i)
-  %tobool4925 = icmp ne i8 %success.0721, 0
-  %tobool49 = select i1 %success.2.in.i, i1 %tobool4925, i1 false
-  %frombool = zext i1 %tobool49 to i8
+  %tobool49 = select i1 %success.2.in.i, i1 %success.0721, i1 false
   %input_args.val42 = load ptr, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i88 = getelementptr inbounds i8, ptr %input_args.val42, i64 -32
   %next_arg_.i89 = getelementptr inbounds i8, ptr %input_args.val42, i64 -8
@@ -2585,7 +2583,7 @@ while.cond.backedge:                              ; preds = %_ZNSt6vectorIPcSaIS
 while.body.backedge:                              ; preds = %while.cond.backedge, %while.cond.outer.backedge
   %input_args.val45723.be = phi ptr [ %input_args.val45, %while.cond.backedge ], [ %input_args.val45719, %while.cond.outer.backedge ]
   %input_args.val44722.be = phi ptr [ %input_args.val44, %while.cond.backedge ], [ %input_args.val44718, %while.cond.outer.backedge ]
-  %success.0721.be = phi i8 [ %frombool, %while.cond.backedge ], [ %success.0.ph.be, %while.cond.outer.backedge ]
+  %success.0721.be = phi i1 [ %tobool49, %while.cond.backedge ], [ %success.0.ph.be.in, %while.cond.outer.backedge ]
   br label %while.body, !llvm.loop !64
 
 if.end56:                                         ; preds = %invoke.cont46
@@ -2920,7 +2918,7 @@ invoke.cont158:                                   ; preds = %if.then155
   br i1 %call159, label %while.cond.outer.backedge, label %if.end161
 
 while.cond.outer.backedge:                        ; preds = %invoke.cont158, %if.end161, %cleanup
-  %success.0.ph.be = phi i8 [ %success.2, %cleanup ], [ %frombool, %if.end161 ], [ %frombool, %invoke.cont158 ]
+  %success.0.ph.be.in = phi i1 [ %success.2.shrunk, %cleanup ], [ %tobool49, %if.end161 ], [ %tobool49, %invoke.cont158 ]
   %input_args.val44718 = load ptr, ptr %input_args, align 8
   %input_args.val45719 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i720 = icmp eq ptr %input_args.val44718, %input_args.val45719
@@ -3393,14 +3391,13 @@ _ZNSt6vectorIPKN4absl15CommandLineFlagESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9_
 
 cleanup:                                          ; preds = %_ZNSt6vectorIPKN4absl15CommandLineFlagESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i219, %if.end189, %invoke.cont186
   %success.2.shrunk = phi i1 [ %tobool179, %invoke.cont186 ], [ false, %if.end189 ], [ %tobool179, %if.then.i219 ], [ %tobool179, %_ZNSt6vectorIPKN4absl15CommandLineFlagESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
-  %success.2 = zext i1 %success.2.shrunk to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error) #23
   br label %while.cond.outer.backedge
 
 while.end:                                        ; preds = %while.cond.outer.backedge, %while.cond.backedge, %do.end146
   %input_args.val47 = phi ptr [ %input_args.val42, %do.end146 ], [ %input_args.val45719, %while.cond.outer.backedge ], [ %input_args.val45, %while.cond.backedge ]
   %input_args.val46 = phi ptr [ %input_args.val, %do.end146 ], [ %input_args.val44718, %while.cond.outer.backedge ], [ %input_args.val45, %while.cond.backedge ]
-  %success.1 = phi i8 [ %frombool, %do.end146 ], [ %success.0.ph.be, %while.cond.outer.backedge ], [ %frombool, %while.cond.backedge ]
+  %success.1 = phi i1 [ %tobool49, %do.end146 ], [ %success.0.ph.be.in, %while.cond.outer.backedge ], [ %tobool49, %while.cond.backedge ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp3.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp9.i249)
   %221 = load ptr, ptr %flagfile_value, align 8
@@ -4005,8 +4002,7 @@ for.end239:                                       ; preds = %for.end239.loopexit
   store ptr %284, ptr %filtered, align 8
   store ptr %283, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %285, ptr %_M_end_of_storage.i.i336, align 8
-  %tobool240 = trunc nuw i8 %success.1 to i1
-  br i1 %tobool240, label %if.end247, label %if.then241
+  br i1 %success.1, label %if.end247, label %if.then241
 
 if.then241:                                       ; preds = %for.end239
   %call244 = invoke { i64, ptr } @_ZN4absl19ProgramUsageMessageEv()

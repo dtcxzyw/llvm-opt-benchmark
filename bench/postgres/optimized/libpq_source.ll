@@ -223,11 +223,11 @@ define internal void @libpq_traverse_files(ptr nocapture noundef readonly %0, pt
   tail call void @exit(i32 noundef 1) #10
   unreachable
 
-.lr.ph:                                           ; preds = %.preheader, %32
-  %.02732 = phi i32 [ %33, %32 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %29
+  %.02732 = phi i32 [ %30, %29 ], [ 0, %.preheader ]
   %14 = tail call i32 @PQgetisnull(ptr noundef %5, i32 noundef %.02732, i32 noundef 1) #9
   %.not30 = icmp eq i32 %14, 0
-  br i1 %.not30, label %sub_0, label %32
+  br i1 %.not30, label %sub_0, label %29
 
 sub_0:                                            ; preds = %.lr.ph
   %15 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 0) #9
@@ -235,46 +235,43 @@ sub_0:                                            ; preds = %.lr.ph
   %17 = tail call i64 @atol(ptr nocapture noundef %16) #11
   %18 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 2) #9
   %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  %21 = add nsw i32 %20, -116
-  %.not33 = icmp eq i32 %21, 0
+  %.not33 = icmp eq i8 %19, 116
   br i1 %.not33, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %22 = getelementptr inbounds i8, ptr %18, i64 1
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
+  %20 = getelementptr inbounds i8, ptr %18, i64 1
+  %21 = load i8, ptr %20, align 1
+  %22 = icmp eq i8 %21, 0
+  %23 = select i1 %22, i32 2, i32 1
   br label %.tail
 
 .tail:                                            ; preds = %sub_0, %sub_1
-  %25 = phi i32 [ %21, %sub_0 ], [ %24, %sub_1 ]
-  %26 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 3) #9
-  %27 = load i8, ptr %26, align 1
-  switch i8 %27, label %28 [
-    i8 0, label %29
-    i8 47, label %31
+  %. = phi i32 [ 1, %sub_0 ], [ %23, %sub_1 ]
+  %24 = tail call ptr @PQgetvalue(ptr noundef %5, i32 noundef %.02732, i32 noundef 3) #9
+  %25 = load i8, ptr %24, align 1
+  switch i8 %25, label %26 [
+    i8 0, label %27
+    i8 47, label %28
   ]
 
-28:                                               ; preds = %.tail
-  br label %31
+26:                                               ; preds = %.tail
+  br label %28
 
-29:                                               ; preds = %.tail
-  %30 = icmp eq i32 %25, 0
-  %. = select i1 %30, i32 2, i32 1
-  br label %31
+27:                                               ; preds = %.tail
+  br label %28
 
-31:                                               ; preds = %29, %.tail, %28
-  %.0 = phi i32 [ 2, %28 ], [ 3, %.tail ], [ %., %29 ]
-  tail call void %1(ptr noundef %15, i32 noundef %.0, i64 noundef %17, ptr noundef nonnull %26) #9
-  br label %32
+28:                                               ; preds = %27, %.tail, %26
+  %.0 = phi i32 [ 2, %26 ], [ 3, %.tail ], [ %., %27 ]
+  tail call void %1(ptr noundef %15, i32 noundef %.0, i64 noundef %17, ptr noundef nonnull %24) #9
+  br label %29
 
-32:                                               ; preds = %.lr.ph, %31
-  %33 = add nuw nsw i32 %.02732, 1
-  %34 = tail call i32 @PQntuples(ptr noundef %5) #9
-  %35 = icmp slt i32 %33, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+29:                                               ; preds = %.lr.ph, %28
+  %30 = add nuw nsw i32 %.02732, 1
+  %31 = tail call i32 @PQntuples(ptr noundef %5) #9
+  %32 = icmp slt i32 %30, %31
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %32, %.preheader
+._crit_edge:                                      ; preds = %29, %.preheader
   tail call void @PQclear(ptr noundef %5) #9
   ret void
 }

@@ -2129,34 +2129,37 @@ _Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.e
   %.2 = phi i64 [ %56, %54 ], [ %.052175, %58 ], [ %.052175, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i83 ]
   %63 = add i64 %.2, 1
   %64 = icmp ult i64 %63, %47
-  br i1 %64, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, label %.loopexit143, !llvm.loop !12
+  br i1 %64, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, label %.loopexit143.loopexit, !llvm.loop !12
 
-.loopexit143:                                     ; preds = %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit, %61
-  %.161 = phi i64 [ 0, %61 ], [ %.262, %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ]
-  %.153 = phi i64 [ %62, %61 ], [ %63, %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit ]
+.loopexit143.loopexit:                            ; preds = %_Z18cmHasLiteralPrefixILm2EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.exit
+  %65 = icmp eq i64 %.262, 0
+  br label %.loopexit143
+
+.loopexit143:                                     ; preds = %.loopexit143.loopexit, %61
+  %.161 = phi i1 [ true, %61 ], [ %65, %.loopexit143.loopexit ]
+  %.153 = phi i64 [ %62, %61 ], [ %63, %.loopexit143.loopexit ]
   %.sroa.speculated.i86 = call i64 @llvm.umin.i64(i64 %47, i64 %.153)
-  %65 = icmp ugt i64 %.153, %47
-  br i1 %65, label %.invoke, label %69
+  %66 = icmp ugt i64 %.153, %47
+  br i1 %66, label %.invoke, label %70
 
 .loopexit143.thread:                              ; preds = %46
   %.not244 = icmp eq i64 %47, 2
   br i1 %.not244, label %.thread, label %.invoke
 
 .thread:                                          ; preds = %.loopexit143.thread
-  %66 = getelementptr inbounds i8, ptr %48, i64 2
-  %67 = trunc nuw i8 %.0 to i1
-  %68 = select i1 %67, ptr %6, ptr %7
+  %67 = getelementptr inbounds i8, ptr %48, i64 2
+  %68 = trunc nuw i8 %.0 to i1
+  %69 = select i1 %68, ptr %6, ptr %7
   br label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99.thread
 
-69:                                               ; preds = %.loopexit143
-  %70 = sub nuw i64 %47, %.153
-  %71 = getelementptr inbounds i8, ptr %48, i64 %.153
-  %72 = trunc nuw i8 %.0 to i1
-  %73 = select i1 %72, ptr %6, ptr %7
-  %74 = icmp eq i64 %.161, 0
-  br i1 %74, label %75, label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99.thread
+70:                                               ; preds = %.loopexit143
+  %71 = sub nuw i64 %47, %.153
+  %72 = getelementptr inbounds i8, ptr %48, i64 %.153
+  %73 = trunc nuw i8 %.0 to i1
+  %74 = select i1 %73, ptr %6, ptr %7
+  br i1 %.161, label %75, label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99.thread
 
-75:                                               ; preds = %69
+75:                                               ; preds = %70
   %76 = load atomic i8, ptr @_ZGVZN12_GLOBAL__N_124EvaluateSplitConfigGenexESt17basic_string_viewIcSt11char_traitsIcEERK21cmGeneratorExpressionP16cmLocalGeneratorbRKNSt7__cxx1112basic_stringIcS2_SaIcEEESE_PK17cmGeneratorTargetPSt3setI2BTISt4pairISC_bEESt4lessISM_ESaISM_EEE14COMMAND_CONFIG acquire, align 8
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %78, label %81, !prof !13
@@ -2238,13 +2241,13 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99: ; preds = %
   %101 = add i64 %.sroa.speculated.i86, %100
   br label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99.thread
 
-_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99.thread: ; preds = %.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95, %91, %98, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99, %69
-  %102 = phi ptr [ %71, %91 ], [ %71, %98 ], [ %71, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99 ], [ %71, %69 ], [ %71, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95 ], [ %66, %.thread ]
-  %103 = phi i64 [ %70, %91 ], [ %70, %98 ], [ %70, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99 ], [ %70, %69 ], [ %70, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95 ], [ 0, %.thread ]
-  %.sroa.12.0 = phi ptr [ %92, %91 ], [ %99, %98 ], [ %48, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99 ], [ %48, %69 ], [ %48, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95 ], [ %48, %.thread ]
-  %.sroa.0111.0 = phi i64 [ %94, %91 ], [ %101, %98 ], [ %.sroa.speculated.i86, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99 ], [ %.sroa.speculated.i86, %69 ], [ %.sroa.speculated.i86, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95 ], [ 2, %.thread ]
-  %.063 = phi ptr [ %7, %91 ], [ %6, %98 ], [ %73, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99 ], [ %73, %69 ], [ %73, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95 ], [ %68, %.thread ]
-  %.1 = phi i8 [ 0, %91 ], [ 1, %98 ], [ %.0, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99 ], [ %.0, %69 ], [ %.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95 ], [ %.0, %.thread ]
+_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99.thread: ; preds = %.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95, %91, %98, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99, %70
+  %102 = phi ptr [ %72, %91 ], [ %72, %98 ], [ %72, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99 ], [ %72, %70 ], [ %72, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95 ], [ %67, %.thread ]
+  %103 = phi i64 [ %71, %91 ], [ %71, %98 ], [ %71, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99 ], [ %71, %70 ], [ %71, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95 ], [ 0, %.thread ]
+  %.sroa.12.0 = phi ptr [ %92, %91 ], [ %99, %98 ], [ %48, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99 ], [ %48, %70 ], [ %48, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95 ], [ %48, %.thread ]
+  %.sroa.0111.0 = phi i64 [ %94, %91 ], [ %101, %98 ], [ %.sroa.speculated.i86, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99 ], [ %.sroa.speculated.i86, %70 ], [ %.sroa.speculated.i86, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95 ], [ 2, %.thread ]
+  %.063 = phi ptr [ %7, %91 ], [ %6, %98 ], [ %74, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99 ], [ %74, %70 ], [ %74, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95 ], [ %69, %.thread ]
+  %.1 = phi i8 [ 0, %91 ], [ 1, %98 ], [ %.0, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit99 ], [ %.0, %70 ], [ %.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i95 ], [ %.0, %.thread ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   %104 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.0111.0, ptr %.sroa.12.0) #21

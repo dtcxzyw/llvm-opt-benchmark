@@ -42,7 +42,6 @@ if.end7:                                          ; preds = %if.else, %entry
   %bbio = getelementptr inbounds i8, ptr %ssl, i64 32
   %cmp10.not = icmp eq ptr %cb.0, null
   %init_buf = getelementptr inbounds i8, ptr %ssl, i64 56
-  %cmp294 = icmp ne ptr %cb.0, null
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end7
@@ -213,12 +212,12 @@ lor.lhs.false10.i:                                ; preds = %lor.lhs.false.i
 
 if.then14.i:                                      ; preds = %lor.lhs.false10.i, %lor.lhs.false.i, %if.end5.i
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 137, ptr noundef nonnull @.str, i32 noundef 535) #4
-  br label %dtls1_get_hello_verify.exit.thread170
+  br label %dtls1_get_hello_verify.exit.thread169
 
 if.end15.i:                                       ; preds = %lor.lhs.false10.i
   %call16.i = call i64 @CBS_len(ptr noundef nonnull %cookie.i) #4
   %cmp17.i = icmp ugt i64 %call16.i, 256
-  br i1 %cmp17.i, label %dtls1_get_hello_verify.exit.thread170, label %if.end20.i
+  br i1 %cmp17.i, label %dtls1_get_hello_verify.exit.thread169, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end15.i
   %19 = load ptr, ptr %d1.i, align 8
@@ -234,7 +233,7 @@ if.end20.i:                                       ; preds = %if.end15.i
   store i32 1, ptr %21, align 8
   br label %dtls1_get_hello_verify.exit.thread
 
-dtls1_get_hello_verify.exit.thread170:            ; preds = %if.end15.i, %if.then14.i
+dtls1_get_hello_verify.exit.thread169:            ; preds = %if.end15.i, %if.then14.i
   %al.0.i = phi i32 [ 50, %if.then14.i ], [ 47, %if.end15.i ]
   %call29.i = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef %al.0.i) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ok.i)
@@ -317,13 +316,12 @@ if.end89:                                         ; preds = %if.then85
   %bf.load92 = load i8, ptr %certificate_status_expected, align 8
   %bf.clear93 = and i8 %bf.load92, 1
   %tobool95.not = icmp eq i8 %bf.clear93, 0
-  %.174 = select i1 %tobool95.not, i32 4354, i32 4592
+  %.173 = select i1 %tobool95.not, i32 4354, i32 4592
   br label %if.end103
 
 if.end103:                                        ; preds = %sw.bb80, %if.end89
-  %.sink173 = phi i32 [ %.174, %if.end89 ], [ 4416, %sw.bb80 ]
-  %skip.2 = phi i32 [ 0, %if.end89 ], [ 1, %sw.bb80 ]
-  store i32 %.sink173, ptr %state8, align 4
+  %.sink172 = phi i32 [ %.173, %if.end89 ], [ 4416, %sw.bb80 ]
+  store i32 %.sink172, ptr %state8, align 4
   store i32 0, ptr %init_num270, align 8
   br label %sw.epilog
 
@@ -532,8 +530,8 @@ if.end259:                                        ; preds = %sw.bb255
   %bf.load261 = load i8, ptr %hit260, align 1
   %bf.clear262 = and i8 %bf.load261, 1
   %tobool264.not = icmp eq i8 %bf.clear262, 0
-  %.167 = select i1 %tobool264.not, i32 3, i32 4512
-  store i32 %.167, ptr %state8, align 4
+  %.166 = select i1 %tobool264.not, i32 3, i32 4512
+  store i32 %.166, ptr %state8, align 4
   store i32 0, ptr %init_num270, align 8
   br label %sw.epilog
 
@@ -583,18 +581,18 @@ sw.default:                                       ; preds = %for.cond
   br label %end
 
 sw.epilog:                                        ; preds = %if.end188, %if.end38, %if.then41, %if.end276, %if.end259, %if.end253, %if.end242, %if.end235, %if.end229, %if.end174, %if.end159, %if.end152, %if.end130, %if.end123, %if.end116, %if.end109, %if.end103, %if.end78, %if.end59, %if.end24
-  %skip.1 = phi i32 [ 0, %if.end276 ], [ 0, %if.end259 ], [ 0, %if.end253 ], [ 0, %if.end242 ], [ 0, %if.end235 ], [ 0, %if.end229 ], [ 0, %if.end188 ], [ 0, %if.end174 ], [ 0, %if.end159 ], [ 0, %if.end152 ], [ 0, %if.end130 ], [ 0, %if.end123 ], [ 0, %if.end116 ], [ 0, %if.end109 ], [ %skip.2, %if.end103 ], [ 0, %if.end78 ], [ 0, %if.end59 ], [ 0, %if.then41 ], [ 0, %if.end38 ], [ 0, %if.end24 ]
+  %skip.1 = phi i1 [ false, %if.end276 ], [ false, %if.end259 ], [ false, %if.end253 ], [ false, %if.end242 ], [ false, %if.end235 ], [ false, %if.end229 ], [ false, %if.end188 ], [ false, %if.end174 ], [ false, %if.end159 ], [ false, %if.end152 ], [ false, %if.end130 ], [ false, %if.end123 ], [ false, %if.end116 ], [ false, %if.end109 ], [ %tobool84.not, %if.end103 ], [ false, %if.end78 ], [ false, %if.end59 ], [ false, %if.then41 ], [ false, %if.end38 ], [ false, %if.end24 ]
   %46 = load ptr, ptr %s3277, align 8
   %reuse_message = getelementptr inbounds i8, ptr %46, i64 452
   %47 = load i32, ptr %reuse_message, align 4
-  %48 = or i32 %47, %skip.1
-  %or.cond.not166 = icmp eq i32 %48, 0
-  %or.cond1 = and i1 %cmp294, %or.cond.not166
-  br i1 %or.cond1, label %land.lhs.true295, label %for.cond.backedge
+  %tobool291 = icmp ne i32 %47, 0
+  %or.cond = or i1 %skip.1, %tobool291
+  %or.cond1.not = or i1 %cmp10.not, %or.cond
+  br i1 %or.cond1.not, label %for.cond.backedge, label %land.lhs.true295
 
 land.lhs.true295:                                 ; preds = %sw.epilog
-  %49 = load i32, ptr %state8, align 4
-  %cmp297.not = icmp eq i32 %49, %3
+  %48 = load i32, ptr %state8, align 4
+  %cmp297.not = icmp eq i32 %48, %3
   br i1 %cmp297.not, label %for.cond.backedge, label %if.then298
 
 for.cond.backedge:                                ; preds = %land.lhs.true295, %if.then298, %sw.epilog
@@ -603,12 +601,12 @@ for.cond.backedge:                                ; preds = %land.lhs.true295, %
 if.then298:                                       ; preds = %land.lhs.true295
   store i32 %3, ptr %state8, align 4
   call void %cb.0(ptr noundef nonnull %ssl, i32 noundef 4097, i32 noundef 1) #4
-  store i32 %49, ptr %state8, align 4
+  store i32 %48, ptr %state8, align 4
   br label %for.cond.backedge
 
-end:                                              ; preds = %if.end249, %if.end188, %if.end20, %if.then14, %lor.lhs.false, %sw.bb255, %sw.bb245, %sw.bb238, %sw.bb231, %if.end202, %if.end184, %sw.bb170, %sw.bb155, %sw.bb148, %sw.bb126, %sw.bb119, %sw.bb112, %sw.bb105, %if.then85, %sw.bb61, %dtls1_get_hello_verify.exit, %sw.bb26, %dtls1_get_hello_verify.exit.thread170, %sw.default, %if.end286, %if.then275
-  %ret.0 = phi i32 [ -1, %sw.default ], [ 1, %if.end286 ], [ -1, %if.then275 ], [ -1, %dtls1_get_hello_verify.exit.thread170 ], [ -1, %if.end249 ], [ -1, %if.end188 ], [ -1, %if.end20 ], [ -1, %if.then14 ], [ -1, %lor.lhs.false ], [ %call27, %sw.bb26 ], [ %conv.i, %dtls1_get_hello_verify.exit ], [ %call62, %sw.bb61 ], [ %call86, %if.then85 ], [ %call106, %sw.bb105 ], [ %call113, %sw.bb112 ], [ %call120, %sw.bb119 ], [ %call127, %sw.bb126 ], [ %call149, %sw.bb148 ], [ %call156, %sw.bb155 ], [ %call171, %sw.bb170 ], [ %call185, %if.end184 ], [ %call203, %if.end202 ], [ %call232, %sw.bb231 ], [ %call239, %sw.bb238 ], [ %call246, %sw.bb245 ], [ %call256, %sw.bb255 ]
-  %buf.2 = phi ptr [ null, %sw.default ], [ null, %if.end286 ], [ null, %if.then275 ], [ null, %dtls1_get_hello_verify.exit.thread170 ], [ null, %if.end249 ], [ null, %if.end188 ], [ null, %if.end20 ], [ null, %if.then14 ], [ %call, %lor.lhs.false ], [ null, %sw.bb26 ], [ null, %dtls1_get_hello_verify.exit ], [ null, %sw.bb61 ], [ null, %if.then85 ], [ null, %sw.bb105 ], [ null, %sw.bb112 ], [ null, %sw.bb119 ], [ null, %sw.bb126 ], [ null, %sw.bb148 ], [ null, %sw.bb155 ], [ null, %sw.bb170 ], [ null, %if.end184 ], [ null, %if.end202 ], [ null, %sw.bb231 ], [ null, %sw.bb238 ], [ null, %sw.bb245 ], [ null, %sw.bb255 ]
+end:                                              ; preds = %if.end249, %if.end188, %if.end20, %if.then14, %lor.lhs.false, %sw.bb255, %sw.bb245, %sw.bb238, %sw.bb231, %if.end202, %if.end184, %sw.bb170, %sw.bb155, %sw.bb148, %sw.bb126, %sw.bb119, %sw.bb112, %sw.bb105, %if.then85, %sw.bb61, %dtls1_get_hello_verify.exit, %sw.bb26, %dtls1_get_hello_verify.exit.thread169, %sw.default, %if.end286, %if.then275
+  %ret.0 = phi i32 [ -1, %sw.default ], [ 1, %if.end286 ], [ -1, %if.then275 ], [ -1, %dtls1_get_hello_verify.exit.thread169 ], [ -1, %if.end249 ], [ -1, %if.end188 ], [ -1, %if.end20 ], [ -1, %if.then14 ], [ -1, %lor.lhs.false ], [ %call27, %sw.bb26 ], [ %conv.i, %dtls1_get_hello_verify.exit ], [ %call62, %sw.bb61 ], [ %call86, %if.then85 ], [ %call106, %sw.bb105 ], [ %call113, %sw.bb112 ], [ %call120, %sw.bb119 ], [ %call127, %sw.bb126 ], [ %call149, %sw.bb148 ], [ %call156, %sw.bb155 ], [ %call171, %sw.bb170 ], [ %call185, %if.end184 ], [ %call203, %if.end202 ], [ %call232, %sw.bb231 ], [ %call239, %sw.bb238 ], [ %call246, %sw.bb245 ], [ %call256, %sw.bb255 ]
+  %buf.2 = phi ptr [ null, %sw.default ], [ null, %if.end286 ], [ null, %if.then275 ], [ null, %dtls1_get_hello_verify.exit.thread169 ], [ null, %if.end249 ], [ null, %if.end188 ], [ null, %if.end20 ], [ null, %if.then14 ], [ %call, %lor.lhs.false ], [ null, %sw.bb26 ], [ null, %dtls1_get_hello_verify.exit ], [ null, %sw.bb61 ], [ null, %if.then85 ], [ null, %sw.bb105 ], [ null, %sw.bb112 ], [ null, %sw.bb119 ], [ null, %sw.bb126 ], [ null, %sw.bb148 ], [ null, %sw.bb155 ], [ null, %sw.bb170 ], [ null, %if.end184 ], [ null, %if.end202 ], [ null, %sw.bb231 ], [ null, %sw.bb238 ], [ null, %sw.bb245 ], [ null, %sw.bb255 ]
   call void @BUF_MEM_free(ptr noundef %buf.2) #4
   br i1 %cmp10.not, label %if.end306, label %if.then305
 

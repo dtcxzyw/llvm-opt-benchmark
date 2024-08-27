@@ -55,51 +55,42 @@ define dso_local void @ResetUnloggedRelations(i32 noundef %0) local_unnamed_addr
   br i1 %.not15, label %._crit_edge, label %sub_0
 
 sub_0:                                            ; preds = %8, %.backedge
-  %14 = phi ptr [ %31, %.backedge ], [ %13, %8 ]
+  %14 = phi ptr [ %25, %.backedge ], [ %13, %8 ]
   %15 = getelementptr inbounds i8, ptr %14, i64 19
   %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  %18 = add nsw i32 %17, -46
-  %.not16 = icmp eq i32 %18, 0
-  br i1 %.not16, label %.tail, label %.tail11
+  %.not16 = icmp eq i8 %16, 46
+  br i1 %.not16, label %.tail, label %.tail11.thread
 
 .tail:                                            ; preds = %sub_0
-  %19 = getelementptr inbounds i8, ptr %14, i64 20
-  %20 = load i8, ptr %19, align 1
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %.backedge, label %sub_113
+  %17 = getelementptr inbounds i8, ptr %14, i64 20
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %.backedge, label %sub_113
 
 sub_113:                                          ; preds = %.tail
-  %22 = getelementptr inbounds i8, ptr %14, i64 20
+  %20 = getelementptr inbounds i8, ptr %14, i64 20
+  %21 = load i8, ptr %20, align 1
+  %.not18 = icmp eq i8 %21, 46
+  br i1 %.not18, label %.tail11, label %.tail11.thread
+
+.tail11:                                          ; preds = %sub_113
+  %22 = getelementptr inbounds i8, ptr %14, i64 21
   %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = add nsw i32 %24, -46
-  %.not18 = icmp eq i32 %25, 0
-  br i1 %.not18, label %sub_2, label %.tail11
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %.backedge, label %.tail11.thread
 
-sub_2:                                            ; preds = %sub_113
-  %26 = getelementptr inbounds i8, ptr %14, i64 21
-  %27 = load i8, ptr %26, align 1
-  %28 = zext i8 %27 to i32
-  br label %.tail11
-
-.tail11:                                          ; preds = %sub_0, %sub_113, %sub_2
-  %29 = phi i32 [ %25, %sub_113 ], [ %28, %sub_2 ], [ %18, %sub_0 ]
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.backedge, label %32
-
-.backedge:                                        ; preds = %.tail, %.tail11, %32
-  %31 = call ptr @ReadDir(ptr noundef %12, ptr noundef nonnull @.str.3) #9
-  %.not = icmp eq ptr %31, null
+.backedge:                                        ; preds = %.tail, %.tail11, %.tail11.thread
+  %25 = call ptr @ReadDir(ptr noundef %12, ptr noundef nonnull @.str.3) #9
+  %.not = icmp eq ptr %25, null
   br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !5
 
-32:                                               ; preds = %.tail11
-  %33 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1050, ptr noundef nonnull @.str.6, ptr noundef nonnull %15, ptr noundef nonnull @.str.7) #9
+.tail11.thread:                                   ; preds = %sub_0, %sub_113, %.tail11
+  %26 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1050, ptr noundef nonnull @.str.6, ptr noundef nonnull %15, ptr noundef nonnull @.str.7) #9
   call fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef nonnull %2, i32 noundef %0)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %8
-  %34 = call i32 @FreeDir(ptr noundef %12) #9
+  %27 = call i32 @FreeDir(ptr noundef %12) #9
   store ptr %11, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %10) #9
   ret void

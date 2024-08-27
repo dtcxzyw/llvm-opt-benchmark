@@ -1056,8 +1056,8 @@ define internal fastcc void @acpi_irq_penalty_update(ptr noundef %0, i32 noundef
   %5 = icmp eq i32 %1, 0
   br label %6
 
-6:                                                ; preds = %22, %2
-  %7 = phi i32 [ 0, %2 ], [ %25, %22 ]
+6:                                                ; preds = %21, %2
+  %7 = phi i32 [ 0, %2 ], [ %23, %21 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
   store i32 0, ptr %4, align 4, !annotation !13
   %8 = call i32 @get_option(ptr noundef nonnull %3, ptr noundef nonnull %4) #14
@@ -1071,7 +1071,7 @@ define internal fastcc void @acpi_irq_penalty_update(ptr noundef %0, i32 noundef
 10:                                               ; preds = %6
   %11 = load i32, ptr %4, align 4
   %12 = icmp ugt i32 %11, 15
-  br i1 %12, label %22, label %13
+  br i1 %12, label %21, label %13
 
 13:                                               ; preds = %10
   %.pre = zext nneg i32 %11 to i64
@@ -1087,20 +1087,18 @@ define internal fastcc void @acpi_irq_penalty_update(ptr noundef %0, i32 noundef
   %18 = phi i32 [ %17, %14 ], [ 0, %13 ]
   %19 = getelementptr [16 x i32], ptr @acpi_isa_irq_penalty, i64 0, i64 %.pre
   store i32 %18, ptr %19, align 4
-  %20 = icmp eq i32 %8, 2
-  %21 = select i1 %20, i32 0, i32 2
-  br label %22
+  %20 = icmp ne i32 %8, 2
+  br label %21
 
-22:                                               ; preds = %._crit_edge, %10
-  %23 = phi i32 [ 4, %10 ], [ %21, %._crit_edge ]
+21:                                               ; preds = %._crit_edge, %10
+  %22 = phi i1 [ false, %10 ], [ %20, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
-  %24 = icmp eq i32 %23, 2
-  %25 = add nuw nsw i32 %7, 1
-  %26 = icmp eq i32 %25, 16
-  %27 = select i1 %24, i1 true, i1 %26
-  br i1 %27, label %.loopexit, label %6, !llvm.loop !15
+  %23 = add nuw nsw i32 %7, 1
+  %24 = icmp eq i32 %23, 16
+  %25 = select i1 %22, i1 true, i1 %24
+  br i1 %25, label %.loopexit, label %6, !llvm.loop !15
 
-.loopexit:                                        ; preds = %22, %.thread
+.loopexit:                                        ; preds = %21, %.thread
   ret void
 }
 

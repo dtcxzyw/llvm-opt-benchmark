@@ -274,14 +274,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit
   %.pre = load ptr, ptr %24, align 8
   %.pre355 = load ptr, ptr %80, align 8
+  %82 = ptrtoint ptr %.sroa.8.1 to i64
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre355
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %82, %.lr.ph.i.i.i.i ], [ %.pre, %._crit_edge ]
+  %.05.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i ], [ %.pre, %._crit_edge ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #18
-  %82 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %82, %.pre355
+  %83 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %83, %.pre355
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
@@ -290,19 +291,18 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %78, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
   %.sroa.0192.0.lcssa363 = phi ptr [ %.sroa.0192.2, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %.sroa.0192.2, %._crit_edge ], [ null, %78 ]
-  %.sroa.8.0.lcssa362 = phi ptr [ %.sroa.8.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %.sroa.8.1, %._crit_edge ], [ null, %78 ]
-  %83 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %._crit_edge ], [ %79, %78 ]
-  %.not.i.i.i138 = icmp eq ptr %83, null
-  br i1 %.not.i.i.i138, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %84
+  %.sroa.8.0.lcssa362 = phi i64 [ %82, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %82, %._crit_edge ], [ 0, %78 ]
+  %84 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %._crit_edge ], [ %79, %78 ]
+  %.not.i.i.i138 = icmp eq ptr %84, null
+  br i1 %.not.i.i.i138, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %85
 
-84:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %83) #20
+85:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %84) #20
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %84
-  %85 = ptrtoint ptr %.sroa.8.0.lcssa362 to i64
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %85
   %86 = ptrtoint ptr %.sroa.0192.0.lcssa363 to i64
-  %87 = sub i64 %85, %86
+  %87 = sub i64 %.sroa.8.0.lcssa362, %86
   %88 = lshr i64 %87, 2
   %89 = trunc i64 %88 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
@@ -982,18 +982,21 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit173:       ; preds = %_ZL13gmx_snew_implI
 337:                                              ; preds = %328
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
   %exitcond334.not = icmp eq i64 %indvars.iv.next331, %wide.trip.count333
-  br i1 %exitcond334.not, label %._crit_edge278, label %323, !llvm.loop !14
+  br i1 %exitcond334.not, label %._crit_edge278.loopexit, label %323, !llvm.loop !14
 
-._crit_edge278:                                   ; preds = %337, %314
-  %.0123.lcssa = phi float [ 0.000000e+00, %314 ], [ %336, %337 ]
-  %338 = fpext float %.0123.lcssa to double
+._crit_edge278.loopexit:                          ; preds = %337
+  %338 = fpext float %336 to double
   %339 = fmul double %338, 0x36A2F5C2D95FF07B
   %340 = fptrunc double %339 to float
-  %341 = load float, ptr @_ZZ10gmx_nmtrajiPPcE4temp, align 4
-  %342 = fpext float %341 to double
-  %343 = fmul double %342, 0x3B20B0E6D55E647C
-  %344 = fpext float %340 to double
-  %345 = fdiv double %343, %344
+  %341 = fpext float %340 to double
+  br label %._crit_edge278
+
+._crit_edge278:                                   ; preds = %._crit_edge278.loopexit, %314
+  %.0123.lcssa = phi double [ 0.000000e+00, %314 ], [ %341, %._crit_edge278.loopexit ]
+  %342 = load float, ptr @_ZZ10gmx_nmtrajiPPcE4temp, align 4
+  %343 = fpext float %342 to double
+  %344 = fmul double %343, 0x3B20B0E6D55E647C
+  %345 = fdiv double %344, %.0123.lcssa
   %346 = call double @sqrt(double noundef %345) #18
   %347 = fptrunc double %346 to float
   br label %350

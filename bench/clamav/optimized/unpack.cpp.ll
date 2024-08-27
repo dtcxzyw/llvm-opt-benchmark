@@ -9938,7 +9938,7 @@ define noundef zeroext i1 @_ZN6Unpack10ReadVMCodeEv(ptr noundef nonnull align 8 
   br i1 %42, label %_ZN5ArrayIhED2Ev.exit24, label %.thread
 
 .thread:                                          ; preds = %1, %22, %33
-  %.pre37 = phi i32 [ %41, %33 ], [ %18, %1 ], [ %32, %22 ]
+  %.pre36 = phi i32 [ %41, %33 ], [ %18, %1 ], [ %32, %22 ]
   %.01629 = phi i32 [ %40, %33 ], [ %21, %1 ], [ %31, %22 ]
   %43 = tail call i32 @llvm.umax.i32(i32 %.01629, i32 32)
   %..i.i = zext nneg i32 %43 to i64
@@ -9952,17 +9952,17 @@ define noundef zeroext i1 @_ZN6Unpack10ReadVMCodeEv(ptr noundef nonnull align 8 
   br label %_ZN5ArrayIhEC2Em.exit
 
 _ZN5ArrayIhEC2Em.exit:                            ; preds = %.thread, %45
-  %.pre = phi i32 [ %.pre37, %.thread ], [ %.pre.pre, %45 ]
+  %.pre = phi i32 [ %.pre36, %.thread ], [ %.pre.pre, %45 ]
   %46 = getelementptr inbounds i8, ptr %0, i64 176
   %47 = getelementptr inbounds i8, ptr %0, i64 180
   %48 = add nsw i32 %.01629, -1
   %49 = zext nneg i32 %48 to i64
   %wide.trip.count = zext nneg i32 %.01629 to i64
-  %.pre34 = load i32, ptr %46, align 8
+  %.pre33 = load i32, ptr %46, align 8
   br label %50
 
 50:                                               ; preds = %_ZN5ArrayIhEC2Em.exit, %85
-  %51 = phi i32 [ %.pre34, %_ZN5ArrayIhEC2Em.exit ], [ %87, %85 ]
+  %51 = phi i32 [ %.pre33, %_ZN5ArrayIhEC2Em.exit ], [ %87, %85 ]
   %52 = phi i32 [ %.pre, %_ZN5ArrayIhEC2Em.exit ], [ %101, %85 ]
   %indvars.iv = phi i64 [ 0, %_ZN5ArrayIhEC2Em.exit ], [ %indvars.iv.next, %85 ]
   %53 = add nsw i32 %51, -1
@@ -10020,21 +10020,21 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %.thread, %45
   %78 = phi i32 [ %76, %75 ], [ %.pre.i, %.noexc ]
   %79 = add nsw i32 %78, -30
   store i32 %79, ptr %47, align 4
-  %80 = icmp ne i32 %73, -1
+  %80 = icmp eq i32 %73, -1
   br label %_ZN6Unpack12UnpReadBuf30Ev.exit
 
 _ZN6Unpack12UnpReadBuf30Ev.exit:                  ; preds = %77, %54
   %81 = phi i32 [ %78, %77 ], [ %51, %54 ]
-  %.0.i = phi i1 [ %80, %77 ], [ false, %54 ]
-  %82 = icmp uge i64 %indvars.iv, %49
-  %or.cond.not = or i1 %82, %.0.i
-  br i1 %or.cond.not, label %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge, label %.loopexit31
+  %.0.i = phi i1 [ %80, %77 ], [ true, %54 ]
+  %82 = icmp ult i64 %indvars.iv, %49
+  %or.cond = and i1 %82, %.0.i
+  br i1 %or.cond, label %.loopexit30, label %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge
 
 _ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge:       ; preds = %_ZN6Unpack12UnpReadBuf30Ev.exit
-  %.pre35 = load i32, ptr %2, align 8
+  %.pre34 = load i32, ptr %2, align 8
   br label %85
 
-.thread38:                                        ; preds = %103
+.thread37:                                        ; preds = %103
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %84
@@ -10044,17 +10044,17 @@ _ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge:       ; preds = %_ZN6Unpack12UnpRead
           cleanup
   br i1 %44, label %_ZN5ArrayIhED2Ev.exit, label %84
 
-84:                                               ; preds = %.thread38, %83
-  %lpad.phi40 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.thread38 ], [ %lpad.loopexit, %83 ]
+84:                                               ; preds = %.thread37, %83
+  %lpad.phi39 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.thread37 ], [ %lpad.loopexit, %83 ]
   tail call void @free(ptr noundef nonnull %malloc.i) #22
   br label %_ZN5ArrayIhED2Ev.exit
 
 _ZN5ArrayIhED2Ev.exit:                            ; preds = %83, %84
-  %lpad.phi41 = phi { ptr, i32 } [ %lpad.loopexit, %83 ], [ %lpad.phi40, %84 ]
-  resume { ptr, i32 } %lpad.phi41
+  %lpad.phi40 = phi { ptr, i32 } [ %lpad.loopexit, %83 ], [ %lpad.phi39, %84 ]
+  resume { ptr, i32 } %lpad.phi40
 
 85:                                               ; preds = %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge, %50
-  %86 = phi i32 [ %52, %50 ], [ %.pre35, %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge ]
+  %86 = phi i32 [ %52, %50 ], [ %.pre34, %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge ]
   %87 = phi i32 [ %51, %50 ], [ %81, %_ZN6Unpack12UnpReadBuf30Ev.exit._crit_edge ]
   %88 = load ptr, ptr %3, align 8
   %89 = sext i32 %86 to i64
@@ -10080,18 +10080,18 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %83, %84
 
 103:                                              ; preds = %85
   %104 = invoke noundef zeroext i1 @_ZN6Unpack9AddVMCodeEjPhj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %15, ptr noundef nonnull %malloc.i, i32 noundef %.01629)
-          to label %.loopexit31.thread unwind label %.thread38
+          to label %.loopexit30.thread unwind label %.thread37
 
-.loopexit31:                                      ; preds = %_ZN6Unpack12UnpReadBuf30Ev.exit
-  br i1 %44, label %_ZN5ArrayIhED2Ev.exit24, label %.loopexit31.thread
+.loopexit30:                                      ; preds = %_ZN6Unpack12UnpReadBuf30Ev.exit
+  br i1 %44, label %_ZN5ArrayIhED2Ev.exit24, label %.loopexit30.thread
 
-.loopexit31.thread:                               ; preds = %103, %.loopexit31
-  %.143 = phi i1 [ false, %.loopexit31 ], [ %104, %103 ]
+.loopexit30.thread:                               ; preds = %103, %.loopexit30
+  %.142 = phi i1 [ false, %.loopexit30 ], [ %104, %103 ]
   tail call void @free(ptr noundef nonnull %malloc.i) #22
   br label %_ZN5ArrayIhED2Ev.exit24
 
-_ZN5ArrayIhED2Ev.exit24:                          ; preds = %.loopexit31.thread, %.loopexit31, %33
-  %.0 = phi i1 [ false, %33 ], [ false, %.loopexit31 ], [ %.143, %.loopexit31.thread ]
+_ZN5ArrayIhED2Ev.exit24:                          ; preds = %.loopexit30.thread, %.loopexit30, %33
+  %.0 = phi i1 [ false, %33 ], [ false, %.loopexit30 ], [ %.142, %.loopexit30.thread ]
   ret i1 %.0
 }
 

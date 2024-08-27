@@ -3843,12 +3843,12 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %57
   store i32 %108, ptr %42, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 48
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %109 = getelementptr inbounds i8, ptr %9, i64 48
-  %110 = icmp sgt i32 %.pre, 1
-  br i1 %110, label %111, label %145
+  %109 = icmp sgt i32 %.pre, 1
+  %110 = getelementptr inbounds i8, ptr %9, i64 48
+  br i1 %109, label %111, label %145
 
 111:                                              ; preds = %.thread185, %99
-  %112 = phi ptr [ %98, %.thread185 ], [ %109, %99 ]
+  %112 = phi ptr [ %98, %.thread185 ], [ %110, %99 ]
   %113 = getelementptr inbounds i8, ptr %9, i64 24
   %114 = load ptr, ptr %113, align 8
   invoke void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef 4, ptr noundef nonnull %42, ptr noundef %114)
@@ -3918,7 +3918,7 @@ _Z9nblock_bcIiEvP10tmpi_comm_mPT_.exit:           ; preds = %_ZNSt6vectorIiSaIiE
           to label %145 unwind label %89
 
 145:                                              ; preds = %_Z9nblock_bcIiEvP10tmpi_comm_mPT_.exit, %138, %141, %99
-  %146 = phi ptr [ %112, %_Z9nblock_bcIiEvP10tmpi_comm_mPT_.exit ], [ %112, %138 ], [ %112, %141 ], [ %109, %99 ]
+  %146 = phi ptr [ %112, %_Z9nblock_bcIiEvP10tmpi_comm_mPT_.exit ], [ %112, %138 ], [ %112, %141 ], [ %110, %99 ]
   %147 = getelementptr inbounds i8, ptr %0, i64 264
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds i8, ptr %0, i64 272
@@ -3957,19 +3957,22 @@ _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIlSa
   %162 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i, i64 8
   %163 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i, -1
   %164 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %164, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEEC2IN9__gnu_cxx17__normal_iteratorIPiS_IiSaIiEEEEvEET_S9_RKS0_.exit, !llvm.loop !84
+  br i1 %164, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEEC2IN9__gnu_cxx17__normal_iteratorIPiS_IiSaIiEEEEvEET_S9_RKS0_.exit.loopexit, !llvm.loop !84
 
 _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %156, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i
   %165 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZNSt6vectorIlSaIlEEC2IN9__gnu_cxx17__normal_iteratorIPiS_IiSaIiEEEEvEET_S9_RKS0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.0168.0 = phi ptr [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %158, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %.08.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %162, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %166 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i.i.i.i.i to i64
+_ZNSt6vectorIlSaIlEEC2IN9__gnu_cxx17__normal_iteratorIPiS_IiSaIiEEEEvEET_S9_RKS0_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
+  %166 = ptrtoint ptr %162 to i64
+  br label %_ZNSt6vectorIlSaIlEEC2IN9__gnu_cxx17__normal_iteratorIPiS_IiSaIiEEEEvEET_S9_RKS0_.exit
+
+_ZNSt6vectorIlSaIlEEC2IN9__gnu_cxx17__normal_iteratorIPiS_IiSaIiEEEEvEET_S9_RKS0_.exit: ; preds = %_ZNSt6vectorIlSaIlEEC2IN9__gnu_cxx17__normal_iteratorIPiS_IiSaIiEEEEvEET_S9_RKS0_.exit.loopexit, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %.sroa.0168.0 = phi ptr [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %158, %_ZNSt6vectorIlSaIlEEC2IN9__gnu_cxx17__normal_iteratorIPiS_IiSaIiEEEEvEET_S9_RKS0_.exit.loopexit ]
+  %.08.lcssa.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %166, %_ZNSt6vectorIlSaIlEEC2IN9__gnu_cxx17__normal_iteratorIPiS_IiSaIiEEEEvEET_S9_RKS0_.exit.loopexit ]
   %167 = ptrtoint ptr %.sroa.0168.0 to i64
-  %168 = sub i64 %166, %167
+  %168 = sub i64 %.08.lcssa.i.i.i.i.i.i.i.i.i.i, %167
   %169 = getelementptr inbounds i8, ptr %.sroa.0168.0, i64 %168
   %170 = invoke ptr @_ZN3gmx19LocalAtomSetManager3addENS_8ArrayRefIKlEE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr %.sroa.0168.0, ptr %169)
           to label %171 unwind label %215

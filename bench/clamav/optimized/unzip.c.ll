@@ -1084,8 +1084,8 @@ define internal fastcc i32 @zdecrypt(ptr nocapture noundef readonly %0, i32 noun
   %52 = and i64 %48, 4294967295
   %53 = call i64 @crc32(i64 noundef %52, ptr noundef nonnull %11, i32 noundef 1) #12
   %54 = trunc i64 %53 to i32
-  %55 = xor i32 %54, -1
-  %56 = and i32 %55, 255
+  %55 = and i32 %54, 255
+  %56 = xor i32 %55, 255
   %57 = add i32 %56, %.sroa.7.0
   %58 = mul i32 %57, 134775813
   %59 = add i32 %58, 1
@@ -1109,33 +1109,32 @@ zinitkey.exit.loopexit:                           ; preds = %46
 zinitkey.exit:                                    ; preds = %zinitkey.exit.loopexit, %40
   %.sroa.14.1 = phi i32 [ 878082192, %40 ], [ %68, %zinitkey.exit.loopexit ]
   %.sroa.7.1 = phi i32 [ 591751049, %40 ], [ %59, %zinitkey.exit.loopexit ]
-  %.sroa.0.1 = phi i32 [ 305419896, %40 ], [ %55, %zinitkey.exit.loopexit ]
+  %69 = phi i64 [ 3989547399, %40 ], [ %53, %zinitkey.exit.loopexit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %12, ptr noundef nonnull align 1 dereferenceable(12) %0, i64 12, i1 false)
-  br label %69
+  br label %70
 
-69:                                               ; preds = %zinitkey.exit, %69
-  %indvars.iv = phi i64 [ 0, %zinitkey.exit ], [ %indvars.iv.next, %69 ]
-  %.sroa.0.221 = phi i32 [ %.sroa.0.1, %zinitkey.exit ], [ %83, %69 ]
-  %.sroa.7.220 = phi i32 [ %.sroa.7.1, %zinitkey.exit ], [ %87, %69 ]
-  %.sroa.14.219 = phi i32 [ %.sroa.14.1, %zinitkey.exit ], [ %94, %69 ]
-  %70 = and i32 %.sroa.14.219, 65533
-  %71 = or i32 %.sroa.14.219, 2
-  %72 = xor i32 %70, 3
-  %73 = mul i32 %72, %71
-  %74 = lshr i32 %73, 8
-  %75 = trunc i32 %74 to i8
-  %76 = getelementptr inbounds [12 x i8], ptr %12, i64 0, i64 %indvars.iv
-  %77 = load i8, ptr %76, align 1
-  %78 = xor i8 %77, %75
-  store i8 %78, ptr %76, align 1
+70:                                               ; preds = %zinitkey.exit, %70
+  %indvars.iv = phi i64 [ 0, %zinitkey.exit ], [ %indvars.iv.next, %70 ]
+  %.sroa.0.221 = phi i64 [ %69, %zinitkey.exit ], [ %81, %70 ]
+  %.sroa.7.220 = phi i32 [ %.sroa.7.1, %zinitkey.exit ], [ %87, %70 ]
+  %.sroa.14.219 = phi i32 [ %.sroa.14.1, %zinitkey.exit ], [ %94, %70 ]
+  %71 = and i32 %.sroa.14.219, 65533
+  %72 = or i32 %.sroa.14.219, 2
+  %73 = xor i32 %71, 3
+  %74 = mul i32 %73, %72
+  %75 = lshr i32 %74, 8
+  %76 = trunc i32 %75 to i8
+  %77 = getelementptr inbounds [12 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %78 = load i8, ptr %77, align 1
+  %79 = xor i8 %78, %76
+  store i8 %79, ptr %77, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  store i8 %78, ptr %10, align 1
-  %79 = xor i32 %.sroa.0.221, -1
-  %80 = zext i32 %79 to i64
+  store i8 %79, ptr %10, align 1
+  %80 = and i64 %.sroa.0.221, 4294967295
   %81 = call i64 @crc32(i64 noundef %80, ptr noundef nonnull %10, i32 noundef 1) #12
   %82 = trunc i64 %81 to i32
-  %83 = xor i32 %82, -1
-  %84 = and i32 %83, 255
+  %83 = and i32 %82, 255
+  %84 = xor i32 %83, 255
   %85 = add i32 %84, %.sroa.7.220
   %86 = mul i32 %85, 134775813
   %87 = add i32 %86, 1
@@ -1150,9 +1149,9 @@ zinitkey.exit:                                    ; preds = %zinitkey.exit.loope
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %95, label %69
+  br i1 %exitcond.not, label %95, label %70
 
-95:                                               ; preds = %69
+95:                                               ; preds = %70
   %96 = load i16, ptr %34, align 1
   %97 = zext i16 %96 to i32
   %98 = icmp ugt i16 %96, 20

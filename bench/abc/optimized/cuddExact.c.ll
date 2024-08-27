@@ -456,13 +456,13 @@ getMatrix.exit272:                                ; preds = %128, %.preheader.i2
   %exitcond.not.i280 = icmp eq i64 %indvars.iv.next.i279, %wide.trip.count.i277
   br i1 %exitcond.not.i280, label %.preheader.i273, label %213, !llvm.loop !12
 
-226:                                              ; preds = %241, %.lr.ph56.i
-  %indvars.iv61.i = phi i64 [ %.lcssa462, %.lr.ph56.i ], [ %indvars.iv.next62.i, %241 ]
-  %.04454.i = phi i32 [ 0, %.lr.ph56.i ], [ %244, %241 ]
+226:                                              ; preds = %242, %.lr.ph56.i
+  %indvars.iv61.i = phi i64 [ %.lcssa462, %.lr.ph56.i ], [ %indvars.iv.next62.i, %242 ]
+  %.04454.i = phi i32 [ 0, %.lr.ph56.i ], [ %244, %242 ]
   %227 = getelementptr inbounds %struct.DdSubtable, ptr %212, i64 %indvars.iv61.i, i32 3
   %228 = load i32, ptr %227, align 8
   %229 = icmp ugt i32 %228, 1
-  br i1 %229, label %241, label %230
+  br i1 %229, label %242, label %230
 
 230:                                              ; preds = %226
   %231 = load ptr, ptr %186, align 8
@@ -475,19 +475,19 @@ getMatrix.exit272:                                ; preds = %128, %.preheader.i2
   %238 = getelementptr inbounds i8, ptr %237, i64 4
   %239 = load i32, ptr %238, align 4
   %240 = icmp ugt i32 %239, 1
-  br label %241
+  %241 = zext i1 %240 to i32
+  br label %242
 
-241:                                              ; preds = %230, %226
-  %242 = phi i1 [ true, %226 ], [ %240, %230 ]
-  %243 = zext i1 %242 to i32
-  %244 = add nuw nsw i32 %.04454.i, %243
+242:                                              ; preds = %230, %226
+  %243 = phi i32 [ 1, %226 ], [ %241, %230 ]
+  %244 = add nuw nsw i32 %243, %.04454.i
   %indvars.iv.next62.i = add nsw i64 %indvars.iv61.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next62.i to i32
   %exitcond64.not.i = icmp eq i32 %198, %lftr.wideiv.i
   br i1 %exitcond64.not.i, label %._crit_edge.i274, label %226, !llvm.loop !13
 
-._crit_edge.i274:                                 ; preds = %241, %.preheader.i273
-  %.044.lcssa.i = phi i32 [ 0, %.preheader.i273 ], [ %244, %241 ]
+._crit_edge.i274:                                 ; preds = %242, %.preheader.i273
+  %.044.lcssa.i = phi i32 [ 0, %.preheader.i273 ], [ %244, %242 ]
   %245 = load i32, ptr %56, align 8
   %246 = icmp slt i32 %199, %245
   br i1 %246, label %247, label %computeLB.exit

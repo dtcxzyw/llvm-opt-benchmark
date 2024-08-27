@@ -2267,12 +2267,15 @@ pushFontInfo.exit:                                ; preds = %35, %33, %25, %4
   %53 = load ptr, ptr %.066.i77, align 8
   %54 = add i16 %.063.i79, 1
   %.not.i62 = icmp eq ptr %53, null
-  br i1 %.not.i62, label %._crit_edge81, label %.lr.ph80
+  br i1 %.not.i62, label %._crit_edge81.loopexit, label %.lr.ph80
 
-._crit_edge81:                                    ; preds = %52, %pushFontInfo.exit
-  %.064.i.lcssa = phi i64 [ 0, %pushFontInfo.exit ], [ %.165.i.lcssa, %52 ]
-  %55 = add i64 %.064.i.lcssa, 1
-  %56 = tail call fastcc ptr @gv_calloc(i64 noundef %55, i64 noundef 8)
+._crit_edge81.loopexit:                           ; preds = %52
+  %55 = add i64 %.165.i.lcssa, 1
+  br label %._crit_edge81
+
+._crit_edge81:                                    ; preds = %._crit_edge81.loopexit, %pushFontInfo.exit
+  %.064.i.lcssa = phi i64 [ 1, %pushFontInfo.exit ], [ %55, %._crit_edge81.loopexit ]
+  %56 = tail call fastcc ptr @gv_calloc(i64 noundef %.064.i.lcssa, i64 noundef 8)
   store ptr %56, ptr %37, align 8
   %57 = tail call ptr @dtflatten(ptr noundef %38) #22
   %.not79.i100 = icmp eq ptr %57, null
@@ -2577,23 +2580,26 @@ size_html_cell.exit:                              ; preds = %size_html_cell.exit
   %191 = zext i16 %188 to i32
   %192 = add nsw i32 %.039.i83, %191
   %193 = icmp slt i32 %190, %192
-  br i1 %193, label %.preheader.i, label %findCol.exit
+  br i1 %193, label %.preheader.i, label %findCol.exit.loopexit
 
-findCol.exit:                                     ; preds = %._crit_edge.i, %.preheader35.i.findCol.exit_crit_edge
-  %.039.i72134 = phi i32 [ %.039.i72135, %.preheader35.i.findCol.exit_crit_edge ], [ %.039.i83, %._crit_edge.i ]
-  %194 = phi i16 [ %.pre131, %.preheader35.i.findCol.exit_crit_edge ], [ %187, %._crit_edge.i ]
-  %195 = phi i16 [ 0, %.preheader35.i.findCol.exit_crit_edge ], [ %188, %._crit_edge.i ]
-  %196 = trunc i32 %.039.i72134 to i16
-  %197 = getelementptr inbounds i8, ptr %71, i64 110
-  store i16 %.1.i106, ptr %197, align 2
-  %198 = getelementptr inbounds i8, ptr %71, i64 108
-  store i16 %196, ptr %198, align 4
-  %199 = zext i16 %195 to i32
-  %200 = add i32 %.039.i72134, %199
+findCol.exit.loopexit:                            ; preds = %._crit_edge.i
+  %194 = zext i16 %188 to i32
+  br label %findCol.exit
+
+findCol.exit:                                     ; preds = %.preheader35.i.findCol.exit_crit_edge, %findCol.exit.loopexit
+  %.039.i72134 = phi i32 [ %.039.i83, %findCol.exit.loopexit ], [ %.039.i72135, %.preheader35.i.findCol.exit_crit_edge ]
+  %195 = phi i16 [ %187, %findCol.exit.loopexit ], [ %.pre131, %.preheader35.i.findCol.exit_crit_edge ]
+  %196 = phi i32 [ %194, %findCol.exit.loopexit ], [ 0, %.preheader35.i.findCol.exit_crit_edge ]
+  %197 = trunc i32 %.039.i72134 to i16
+  %198 = getelementptr inbounds i8, ptr %71, i64 110
+  store i16 %.1.i106, ptr %198, align 2
+  %199 = getelementptr inbounds i8, ptr %71, i64 108
+  store i16 %197, ptr %199, align 4
+  %200 = add i32 %.039.i72134, %196
   %201 = and i32 %200, 65535
   %202 = zext nneg i32 %201 to i64
   %203 = tail call i64 @llvm.umax.i64(i64 %.171.i90, i64 %202)
-  %204 = zext i16 %194 to i32
+  %204 = zext i16 %195 to i32
   %205 = add nuw nsw i32 %204, %68
   %206 = zext nneg i32 %205 to i64
   %..173.i = tail call i64 @llvm.umax.i64(i64 %.173.i89, i64 %206)

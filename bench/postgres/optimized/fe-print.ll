@@ -97,20 +97,23 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %29 = load ptr, ptr %28, align 8
   %.not244 = icmp eq ptr %29, null
   %30 = add i32 %.0218312, 1
-  br i1 %.not244, label %.lr.ph319.preheader, label %.lr.ph.split
+  br i1 %.not244, label %.critedge.loopexit, label %.lr.ph.split
 
-.lr.ph319.preheader:                              ; preds = %.lr.ph.split, %.preheader309
-  %.0218.lcssa = phi i32 [ 0, %.preheader309 ], [ %.0218312, %.lr.ph.split ]
-  %31 = sext i32 %.0218.lcssa to i64
+.critedge.loopexit:                               ; preds = %.lr.ph.split
+  %31 = sext i32 %.0218312 to i64
+  br label %.lr.ph319.preheader
+
+.lr.ph319.preheader:                              ; preds = %.preheader309, %.critedge.loopexit
+  %.0218.lcssa = phi i64 [ 0, %.preheader309 ], [ %31, %.critedge.loopexit ]
   %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph319
 
-.lr.ph319:                                        ; preds = %.lr.ph319.preheader, %46
-  %indvars.iv = phi i64 [ 0, %.lr.ph319.preheader ], [ %indvars.iv.next, %46 ]
-  %.0217317 = phi i32 [ 0, %.lr.ph319.preheader ], [ %51, %46 ]
-  %.0219316 = phi i32 [ 0, %.lr.ph319.preheader ], [ %spec.select, %46 ]
-  %32 = icmp slt i64 %indvars.iv, %31
+.lr.ph319:                                        ; preds = %.lr.ph319.preheader, %47
+  %indvars.iv = phi i64 [ 0, %.lr.ph319.preheader ], [ %indvars.iv.next, %47 ]
+  %.0217317 = phi i32 [ 0, %.lr.ph319.preheader ], [ %51, %47 ]
+  %.0219316 = phi i32 [ 0, %.lr.ph319.preheader ], [ %spec.select, %47 ]
+  %32 = icmp slt i64 %indvars.iv, %.0218.lcssa
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %.lr.ph319
@@ -132,16 +135,16 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %42 = getelementptr ptr, ptr %16, i64 %indvars.iv
   store ptr %41, ptr %42, align 8
   %.not292 = icmp eq ptr %41, null
-  br i1 %.not292, label %46, label %43
+  br i1 %.not292, label %47, label %43
 
 43:                                               ; preds = %.thread, %39
   %44 = phi ptr [ %36, %.thread ], [ %41, %39 ]
   %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #14
-  br label %46
+  %46 = trunc i64 %45 to i32
+  br label %47
 
-46:                                               ; preds = %39, %43
-  %47 = phi i64 [ %45, %43 ], [ 0, %39 ]
-  %48 = trunc i64 %47 to i32
+47:                                               ; preds = %39, %43
+  %48 = phi i32 [ %46, %43 ], [ 0, %39 ]
   %49 = getelementptr i32, ptr %18, i64 %indvars.iv
   store i32 %48, ptr %49, align 4
   %50 = add i32 %48, %13
@@ -151,7 +154,7 @@ define void @PQprint(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph319, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %46
+._crit_edge:                                      ; preds = %47
   %52 = load ptr, ptr %10, align 8
   %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #14
   %54 = trunc i64 %53 to i32
@@ -654,10 +657,10 @@ do_field.exit:                                    ; preds = %237
   %.not271 = icmp eq i8 %287, 0
   %288 = getelementptr inbounds i8, ptr %2, i64 3
   %289 = load i8, ptr %288, align 1
+  %.not272 = icmp eq i8 %289, 0
   br i1 %.not271, label %290, label %292
 
 290:                                              ; preds = %285
-  %.not272 = icmp eq i8 %289, 0
   br i1 %.not272, label %.loopexit, label %.thread372
 
 .thread372:                                       ; preds = %290
@@ -666,8 +669,7 @@ do_field.exit:                                    ; preds = %237
 
 292:                                              ; preds = %285
   %293 = getelementptr inbounds i8, ptr %2, i64 3
-  %.not273 = icmp eq i8 %289, 0
-  br i1 %.not273, label %310, label %294
+  br i1 %.not272, label %310, label %294
 
 294:                                              ; preds = %.thread372, %292
   %295 = phi ptr [ %291, %.thread372 ], [ %293, %292 ]
@@ -987,8 +989,8 @@ define internal fastcc noundef ptr @do_header(ptr noundef %0, ptr nocapture noun
   %23 = add i32 %22, 1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.089.lcssa = phi i32 [ 1, %.preheader ], [ %23, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit
+  %.089.lcssa = phi i32 [ %23, %._crit_edge.loopexit ], [ 1, %.preheader ]
   %24 = getelementptr inbounds i8, ptr %1, i64 2
   %.not96 = icmp eq i8 %13, 0
   %25 = shl i32 %6, 1

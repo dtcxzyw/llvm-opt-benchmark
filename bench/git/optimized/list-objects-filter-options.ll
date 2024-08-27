@@ -380,7 +380,7 @@ cleanup.thread:                                   ; preds = %if.end3.i, %if.then
   br label %if.then15
 
 for.body:                                         ; preds = %for.body.lr.ph, %parse_combine_subfilter.exit
-  %2 = phi ptr [ %0, %for.body.lr.ph ], [ %20, %parse_combine_subfilter.exit ]
+  %2 = phi ptr [ %0, %for.body.lr.ph ], [ %21, %parse_combine_subfilter.exit ]
   %sub.039 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %parse_combine_subfilter.exit ]
   %add = add i64 %sub.039, 1
   %arrayidx5 = getelementptr inbounds ptr, ptr %call1.i, i64 %add
@@ -494,23 +494,22 @@ lor.rhs.i:                                        ; preds = %if.end.i, %do.end.i
   %19 = load ptr, ptr %sub.i, align 8
   %arrayidx29.i = getelementptr inbounds %struct.list_objects_filter_options, ptr %19, i64 %6
   %call30.i = tail call i32 @gently_parse_list_objects_filter(ptr noundef %arrayidx29.i, ptr noundef %call26.i, ptr noundef %errbuf)
+  %20 = icmp eq i32 %call30.i, 0
   br label %parse_combine_subfilter.exit
 
 parse_combine_subfilter.exit:                     ; preds = %has_reserved_character.exit, %lor.rhs.i
-  %lor.ext.i = phi i32 [ 1, %has_reserved_character.exit ], [ %call30.i, %lor.rhs.i ]
+  %lor.ext.i = phi i1 [ false, %has_reserved_character.exit ], [ %20, %lor.rhs.i ]
   tail call void @free(ptr noundef %call26.i) #14
-  %20 = load ptr, ptr %arrayidx5, align 8
-  %tobool3 = icmp ne ptr %20, null
-  %tobool4.not = icmp eq i32 %lor.ext.i, 0
-  %21 = select i1 %tobool3, i1 %tobool4.not, i1 false
-  br i1 %21, label %for.body, label %cleanup, !llvm.loop !8
+  %21 = load ptr, ptr %arrayidx5, align 8
+  %tobool3 = icmp ne ptr %21, null
+  %22 = select i1 %tobool3, i1 %lor.ext.i, i1 false
+  br i1 %22, label %for.body, label %cleanup, !llvm.loop !8
 
 cleanup:                                          ; preds = %parse_combine_subfilter.exit
   %choice = getelementptr inbounds i8, ptr %filter_options, i64 24
   store i32 6, ptr %choice, align 8
   tail call void @strbuf_list_free(ptr noundef nonnull %call1.i) #14
-  %tobool14.not = icmp eq i32 %lor.ext.i, 0
-  br i1 %tobool14.not, label %if.end16, label %if.then15
+  br i1 %lor.ext.i, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %cleanup.thread, %cleanup
   tail call void @list_objects_filter_release(ptr noundef %filter_options)

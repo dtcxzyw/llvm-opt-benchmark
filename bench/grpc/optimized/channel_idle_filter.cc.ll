@@ -7691,11 +7691,11 @@ tail0.i.i.i.i.i.i:                                ; preds = %sw.bb.i.i.i.i.i.i, 
 while.body.i.i.preheader:                         ; preds = %"_ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS1_6TrySeqINS_5SleepEJZZNS_17ChannelIdleFilter14StartIdleTimerEvENK3$_0clEvEUlvE_EEEvEEJS9_EEEvPT_DpOT0_.exit.i.i", %do.end7
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i
-  %28 = phi i8 [ %115, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i ], [ undef, %while.body.i.i.preheader ]
-  %29 = phi i64 [ %109, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i ], [ undef, %while.body.i.i.preheader ]
-  %30 = phi i64 [ %110, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i ], [ undef, %while.body.i.i.preheader ]
-  %31 = phi i64 [ %114, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i ], [ undef, %while.body.i.i.preheader ]
+while.body.i.i:                                   ; preds = %while.body.i.i.backedge, %while.body.i.i.preheader
+  %28 = phi i8 [ undef, %while.body.i.i.preheader ], [ %.be, %while.body.i.i.backedge ]
+  %29 = phi i64 [ undef, %while.body.i.i.preheader ], [ %109, %while.body.i.i.backedge ]
+  %30 = phi i64 [ undef, %while.body.i.i.preheader ], [ %110, %while.body.i.i.backedge ]
+  %31 = phi i64 [ undef, %while.body.i.i.preheader ], [ %114, %while.body.i.i.backedge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !214)
   %32 = load i8, ptr %state.i.i.i.i.i.i, align 8, !noalias !217
   %cond.i.i.i.i.i = icmp eq i8 %32, 0
@@ -7827,7 +7827,7 @@ terminate.lpad.i4.i.i.i.i:                        ; preds = %if.then.i.i3.i.i.i.
 
 _ZN4absl12lts_202308028StatusOrISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit.i.i: ; preds = %if.then.i.i3.i.i.i.i, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i5.i.thread.i
   %44 = phi i8 [ %.sink.i, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %28, %if.then.i.i3.i.i.i.i ], [ %28, %if.else.i.i5.i.thread.i ]
-  %cmp.i.i.i.i.i.i.i.i = phi i1 [ true, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ false, %if.then.i.i3.i.i.i.i ], [ false, %if.else.i.i5.i.thread.i ]
+  %cmp.i.i.i.i.i.i.i.not.i = phi i1 [ false, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ true, %if.then.i.i3.i.i.i.i ], [ true, %if.else.i.i5.i.thread.i ]
   %45 = phi i8 [ %.sink63.i, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ 1, %if.then.i.i3.i.i.i.i ], [ 1, %if.else.i.i5.i.thread.i ]
   %cmp.not.i.i69.i.i = phi i1 [ %cmp.not.i.i7080.i.i, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ true, %if.then.i.i3.i.i.i.i ], [ true, %if.else.i.i5.i.thread.i ]
   %46 = phi i64 [ %39, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %34, %if.then.i.i3.i.i.i.i ], [ %34, %if.else.i.i5.i.thread.i ]
@@ -8349,22 +8349,23 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i
 if.then.i29.i.i:                                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i, %cleanup.i.i
   %114 = phi i64 [ %110, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %110, %sw.bb2.i.i.i.i.i.i.i.i.i.i.i ], [ %111, %cleanup.i.i ]
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i10.i.i.i, align 8, !noalias !193
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i.i, label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i
-
-_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i.i: ; preds = %if.then.i29.i.i
   %cond.i = icmp eq i8 %44, -1
-  br i1 %cond.i, label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %or.cond.i = select i1 %cmp.i.i.i.i.i.i.i.not.i, i1 true, i1 %cond.i
+  br i1 %or.cond.i, label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i.i
+_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i29.i.i
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !193
-  br label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i
+  br i1 %cmp.i.i8.i, label %while.body.i.i.backedge, label %if.then10
 
-_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i: ; preds = %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i.i, %if.then.i29.i.i
-  %115 = phi i8 [ -1, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ -1, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i.i ], [ %44, %if.then.i29.i.i ]
-  br i1 %cmp.i.i8.i, label %while.body.i.i, label %if.then10
+_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i: ; preds = %if.then.i29.i.i
+  br i1 %cmp.i.i8.i, label %while.body.i.i.backedge, label %if.then10
+
+while.body.i.i.backedge:                          ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.be = phi i8 [ %44, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i ], [ -1, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  br label %while.body.i.i
 
 common.resume:                                    ; preds = %lpad, %ehcleanup24.i.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup24.i.i ], [ %116, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i.i, %ehcleanup24.i.i ], [ %115, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 ehcleanup24.i.i:                                  ; preds = %lpad13.i.i, %lpad7.i.i
@@ -8372,7 +8373,7 @@ ehcleanup24.i.i:                                  ; preds = %lpad13.i.i, %lpad7.
   call void @_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %promise_result.i.i) #26, !noalias !193
   br label %common.resume
 
-if.then10:                                        ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i
+if.then10:                                        ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit.i.i, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i.i), !noalias !190
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %promise_result.i.i), !noalias !190
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lc.i.i), !noalias !190
@@ -8384,7 +8385,7 @@ if.then10:                                        ; preds = %_ZN9grpc_core4PollI
           to label %if.then.i unwind label %lpad
 
 lpad:                                             ; preds = %sw.bb15, %if.then10
-  %116 = landingpad { ptr, i32 }
+  %115 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %r) #26
   br label %common.resume
@@ -8397,9 +8398,9 @@ if.end12:                                         ; preds = %sw.bb.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i), !noalias !190
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp11.i.i), !noalias !190
   store i8 0, ptr %r, align 8, !alias.scope !269
-  %117 = load i8, ptr %action_during_run_.i, align 4
+  %116 = load i8, ptr %action_during_run_.i, align 4
   store i8 0, ptr %action_during_run_.i, align 4
-  switch i8 %117, label %while.body [
+  switch i8 %116, label %while.body [
     i8 0, label %return
     i8 2, label %sw.bb15
   ]
@@ -8409,17 +8410,17 @@ sw.bb15:                                          ; preds = %if.end12
           to label %return.sink.split unwind label %lpad
 
 if.then.i:                                        ; preds = %if.then10
-  %118 = load i64, ptr %10, align 8, !noalias !274
+  %117 = load i64, ptr %10, align 8, !noalias !274
   store i64 54, ptr %10, align 8, !noalias !274
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %sw.bb15, %if.then.i
-  %.sink = phi i64 [ %118, %if.then.i ], [ 4, %sw.bb15 ]
+  %.sink = phi i64 [ %117, %if.then.i ], [ 4, %sw.bb15 ]
   store i64 %.sink, ptr %agg.result, align 8
   br label %return
 
 return:                                           ; preds = %if.end12, %return.sink.split
-  %storemerge = phi i8 [ 1, %return.sink.split ], [ %117, %if.end12 ]
+  %storemerge = phi i8 [ 1, %return.sink.split ], [ %116, %if.end12 ]
   %_M_engaged.i.i.i.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %storemerge, ptr %_M_engaged.i.i.i.i.i6, align 8
   ret void

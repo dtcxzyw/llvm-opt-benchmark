@@ -5851,7 +5851,7 @@ trace_nbd_negotiate_handle_info_requests.exit.i:  ; preds = %if.else.i.i87.i, %i
 
 while.body.i:                                     ; preds = %trace_nbd_negotiate_handle_info_requests.exit.i, %sw.epilog.i
   %sendname.0175.i = phi i1 [ %sendname.1.i, %sw.epilog.i ], [ false, %trace_nbd_negotiate_handle_info_requests.exit.i ]
-  %blocksize.0174.i = phi i8 [ %blocksize.1.i, %sw.epilog.i ], [ 0, %trace_nbd_negotiate_handle_info_requests.exit.i ]
+  %blocksize.0174.i = phi i1 [ %blocksize.1.i, %sw.epilog.i ], [ false, %trace_nbd_negotiate_handle_info_requests.exit.i ]
   %98 = load i32, ptr %optlen, align 4
   %cmp.i94.i = icmp ult i32 %98, 2
   br i1 %cmp.i94.i, label %nbd_opt_read.exit106.i, label %if.end.i95.i
@@ -5923,7 +5923,7 @@ sw.bb15.i:                                        ; preds = %trace_nbd_negotiate
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb15.i, %sw.bb.i, %trace_nbd_negotiate_handle_info_request.exit.i
-  %blocksize.1.i = phi i8 [ %blocksize.0174.i, %trace_nbd_negotiate_handle_info_request.exit.i ], [ 1, %sw.bb15.i ], [ %blocksize.0174.i, %sw.bb.i ]
+  %blocksize.1.i = phi i1 [ %blocksize.0174.i, %trace_nbd_negotiate_handle_info_request.exit.i ], [ true, %sw.bb15.i ], [ %blocksize.0174.i, %sw.bb.i ]
   %sendname.1.i = phi i1 [ %sendname.0175.i, %trace_nbd_negotiate_handle_info_request.exit.i ], [ %sendname.0175.i, %sw.bb15.i ], [ true, %sw.bb.i ]
   %110 = load i16, ptr %requests.i, align 2
   %dec.i = add i16 %110, -1
@@ -5932,7 +5932,7 @@ sw.epilog.i:                                      ; preds = %sw.bb15.i, %sw.bb.i
   br i1 %tobool.not.i187, label %while.end.i, label %while.body.i, !llvm.loop !28
 
 while.end.i:                                      ; preds = %sw.epilog.i, %trace_nbd_negotiate_handle_info_requests.exit.i
-  %blocksize.0.lcssa.i = phi i8 [ 0, %trace_nbd_negotiate_handle_info_requests.exit.i ], [ %blocksize.1.i, %sw.epilog.i ]
+  %blocksize.0.lcssa.i = phi i1 [ false, %trace_nbd_negotiate_handle_info_requests.exit.i ], [ %blocksize.1.i, %sw.epilog.i ]
   %sendname.0.lcssa.i = phi i1 [ false, %trace_nbd_negotiate_handle_info_requests.exit.i ], [ %sendname.1.i, %sw.epilog.i ]
   %111 = load i32, ptr %optlen, align 4
   %tobool16.not.i188 = icmp eq i32 %111, 0
@@ -6023,17 +6023,14 @@ if.end45.i:                                       ; preds = %if.then39.i
 if.end53.i:                                       ; preds = %if.end45.i, %if.end37.i
   %117 = load i32, ptr %opt, align 8
   %cmp55.i = icmp eq i32 %117, 6
-  br i1 %cmp55.i, label %if.end63.i, label %lor.lhs.false.i
+  %brmerge.i = select i1 %cmp55.i, i1 true, i1 %blocksize.0.lcssa.i
+  br i1 %brmerge.i, label %if.end63.i, label %if.end63.thread.i
 
-lor.lhs.false.i:                                  ; preds = %if.end53.i
-  %tobool57.i = trunc nuw i8 %blocksize.0.lcssa.i to i1
-  br i1 %tobool57.i, label %if.end63.i, label %if.end63.thread.i
-
-if.end63.thread.i:                                ; preds = %lor.lhs.false.i
+if.end63.thread.i:                                ; preds = %if.end53.i
   store i32 1, ptr %sizes.i, align 4
   br label %if.end69.i
 
-if.end63.i:                                       ; preds = %lor.lhs.false.i, %if.end53.i
+if.end63.i:                                       ; preds = %if.end53.i
   %blk.i = getelementptr inbounds i8, ptr %exp.06.i.i, i64 32
   %118 = load ptr, ptr %blk.i, align 8
   %call60.i = call i32 @blk_get_request_alignment(ptr noundef %118) #20
@@ -6137,14 +6134,11 @@ if.end120.i:                                      ; preds = %if.then116.i, %lor.
 
 if.end130.i:                                      ; preds = %if.end120.i
   %140 = load i32, ptr %opt, align 8
-  %cmp132.i = icmp eq i32 %140, 6
-  br i1 %cmp132.i, label %land.lhs.true134.i, label %if.end144.i
+  %cmp132.i = icmp ne i32 %140, 6
+  %brmerge179.i = select i1 %cmp132.i, i1 true, i1 %blocksize.0.lcssa.i
+  br i1 %brmerge179.i, label %if.end144.i, label %land.lhs.true136.i
 
-land.lhs.true134.i:                               ; preds = %if.end130.i
-  %tobool135.i = trunc nuw i8 %blocksize.0.lcssa.i to i1
-  br i1 %tobool135.i, label %if.end144.i, label %land.lhs.true136.i
-
-land.lhs.true136.i:                               ; preds = %land.lhs.true134.i
+land.lhs.true136.i:                               ; preds = %if.end130.i
   %141 = load ptr, ptr %blk75.i, align 8
   %call139.i = call i32 @blk_get_request_alignment(ptr noundef %141) #20
   %cmp140.i = icmp ugt i32 %call139.i, 1
@@ -6154,7 +6148,7 @@ if.then142.i:                                     ; preds = %land.lhs.true136.i
   %call143.i = call i32 (ptr, i32, ptr, ptr, ...) @nbd_negotiate_send_rep_err(ptr noundef nonnull %client, i32 noundef -2147483640, ptr noundef %errp, ptr noundef nonnull @.str.171)
   br label %nbd_negotiate_handle_info.exit.thread
 
-if.end144.i:                                      ; preds = %land.lhs.true136.i, %land.lhs.true134.i, %if.end130.i
+if.end144.i:                                      ; preds = %land.lhs.true136.i, %if.end130.i
   %call.i149.i = call fastcc range(i32 -5, 1) i32 @nbd_negotiate_send_rep_len(ptr noundef nonnull readonly %client, i32 noundef 1, i32 noundef 0, ptr noundef %errp)
   %cmp146.i = icmp slt i32 %call.i149.i, 0
   br i1 %cmp146.i, label %nbd_negotiate_handle_info.exit.thread, label %if.end149.i

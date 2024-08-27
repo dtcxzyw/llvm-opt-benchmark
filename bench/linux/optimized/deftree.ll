@@ -2014,7 +2014,7 @@ define internal fastcc void @build_tree(ptr noundef %0, ptr nocapture noundef %1
   %197 = getelementptr %struct.ct_data_s, ptr %4, i64 %196
   %198 = load i16, ptr %197, align 2
   %199 = icmp ult i16 %193, %198
-  br i1 %199, label %.loopexit52, label %200
+  br i1 %199, label %.loopexit52.loopexit, label %200
 
 200:                                              ; preds = %191
   %201 = icmp eq i16 %193, %198
@@ -2025,7 +2025,7 @@ define internal fastcc void @build_tree(ptr noundef %0, ptr nocapture noundef %1
   %204 = getelementptr [573 x i8], ptr %80, i64 0, i64 %196
   %205 = load i8, ptr %204, align 1
   %206 = icmp ugt i8 %203, %205
-  br i1 %206, label %207, label %.loopexit52
+  br i1 %206, label %207, label %.loopexit52.loopexit
 
 207:                                              ; preds = %202, %200
   %208 = sext i32 %165 to i64
@@ -2034,11 +2034,15 @@ define internal fastcc void @build_tree(ptr noundef %0, ptr nocapture noundef %1
   %210 = shl i32 %192, 1
   %211 = load i32, ptr %10, align 4
   %212 = icmp sgt i32 %210, %211
-  br i1 %212, label %.loopexit52, label %162, !llvm.loop !32
+  br i1 %212, label %.loopexit52.loopexit, label %162, !llvm.loop !32
 
-.loopexit52:                                      ; preds = %207, %202, %191, %149
-  %213 = phi i32 [ 1, %149 ], [ %165, %191 ], [ %165, %202 ], [ %192, %207 ]
-  %214 = sext i32 %213 to i64
+.loopexit52.loopexit:                             ; preds = %191, %202, %207
+  %.ph66 = phi i32 [ %192, %207 ], [ %165, %202 ], [ %165, %191 ]
+  %213 = sext i32 %.ph66 to i64
+  br label %.loopexit52
+
+.loopexit52:                                      ; preds = %.loopexit52.loopexit, %149
+  %214 = phi i64 [ 1, %149 ], [ %213, %.loopexit52.loopexit ]
   %215 = getelementptr [573 x i32], ptr %78, i64 0, i64 %214
   store i32 %156, ptr %215, align 4
   %216 = load i32, ptr %79, align 4
@@ -2136,7 +2140,7 @@ define internal fastcc void @build_tree(ptr noundef %0, ptr nocapture noundef %1
   %281 = getelementptr %struct.ct_data_s, ptr %4, i64 %280
   %282 = load i16, ptr %281, align 2
   %283 = icmp ult i16 %277, %282
-  br i1 %283, label %.loopexit51, label %284
+  br i1 %283, label %.loopexit51.loopexit, label %284
 
 284:                                              ; preds = %275
   %285 = icmp eq i16 %277, %282
@@ -2147,7 +2151,7 @@ define internal fastcc void @build_tree(ptr noundef %0, ptr nocapture noundef %1
   %288 = getelementptr [573 x i8], ptr %80, i64 0, i64 %280
   %289 = load i8, ptr %288, align 1
   %290 = icmp ugt i8 %287, %289
-  br i1 %290, label %291, label %.loopexit51
+  br i1 %290, label %291, label %.loopexit51.loopexit
 
 291:                                              ; preds = %286, %284
   %292 = sext i32 %249 to i64
@@ -2156,11 +2160,15 @@ define internal fastcc void @build_tree(ptr noundef %0, ptr nocapture noundef %1
   %294 = shl i32 %276, 1
   %295 = load i32, ptr %10, align 4
   %296 = icmp sgt i32 %294, %295
-  br i1 %296, label %.loopexit51, label %.preheader, !llvm.loop !32
+  br i1 %296, label %.loopexit51.loopexit, label %.preheader, !llvm.loop !32
 
-.loopexit51:                                      ; preds = %291, %286, %275, %.loopexit52
-  %297 = phi i32 [ 1, %.loopexit52 ], [ %249, %275 ], [ %249, %286 ], [ %276, %291 ]
-  %298 = sext i32 %297 to i64
+.loopexit51.loopexit:                             ; preds = %275, %286, %291
+  %.ph = phi i32 [ %276, %291 ], [ %249, %286 ], [ %249, %275 ]
+  %297 = sext i32 %.ph to i64
+  br label %.loopexit51
+
+.loopexit51:                                      ; preds = %.loopexit51.loopexit, %.loopexit52
+  %298 = phi i64 [ 1, %.loopexit52 ], [ %297, %.loopexit51.loopexit ]
   %299 = getelementptr [573 x i32], ptr %78, i64 0, i64 %298
   store i32 %151, ptr %299, align 4
   %300 = load i32, ptr %10, align 4
@@ -2315,9 +2323,9 @@ define internal fastcc void @build_tree(ptr noundef %0, ptr nocapture noundef %1
 
 411:                                              ; preds = %400
   %412 = icmp eq i32 %317, 0
-  br i1 %412, label %.thread49, label %.preheader92
+  br i1 %412, label %.thread49, label %.preheader91
 
-.preheader92:                                     ; preds = %411, %.loopexit50
+.preheader91:                                     ; preds = %411, %.loopexit50
   %413 = phi i32 [ %451, %.loopexit50 ], [ %317, %411 ]
   %414 = phi i32 [ %450, %.loopexit50 ], [ 573, %411 ]
   %415 = sext i32 %413 to i64
@@ -2327,7 +2335,7 @@ define internal fastcc void @build_tree(ptr noundef %0, ptr nocapture noundef %1
   %419 = icmp eq i16 %417, 0
   br i1 %419, label %.loopexit50, label %420
 
-420:                                              ; preds = %.preheader92
+420:                                              ; preds = %.preheader91
   %421 = zext i16 %417 to i32
   br label %422
 
@@ -2371,11 +2379,11 @@ define internal fastcc void @build_tree(ptr noundef %0, ptr nocapture noundef %1
   %449 = icmp eq i32 %448, 0
   br i1 %449, label %.loopexit50, label %422, !llvm.loop !38
 
-.loopexit50:                                      ; preds = %447, %.preheader92
-  %450 = phi i32 [ %414, %.preheader92 ], [ %427, %447 ]
+.loopexit50:                                      ; preds = %447, %.preheader91
+  %450 = phi i32 [ %414, %.preheader91 ], [ %427, %447 ]
   %451 = add i32 %413, -1
   %452 = icmp eq i32 %451, 0
-  br i1 %452, label %.thread49, label %.preheader92, !llvm.loop !39
+  br i1 %452, label %.thread49, label %.preheader91, !llvm.loop !39
 
 .thread49:                                        ; preds = %.loopexit50, %302, %411, %386
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9

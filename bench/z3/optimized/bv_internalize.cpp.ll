@@ -10800,14 +10800,14 @@ do.body.i.i.i.preheader:                          ; preds = %for.body55
   %bf.shl.i.i.i.i77 = shl i32 %bf.load.i.i.i.i.i, 24
   %bf.ashr.i.i.i.i78 = ashr exact i32 %bf.shl.i.i.i.i77, 24
   %cmp.i.i.i4779 = icmp eq i32 %25, %bf.ashr.i.i.i.i78
-  br i1 %cmp.i.i.i4779, label %_ZNK3euf5enode10get_th_varEi.exit.i, label %if.end5.i.i.i
+  br i1 %cmp.i.i.i4779, label %_ZN2bv6solver7get_varEPN3euf5enodeE.exit, label %if.end5.i.i.i
 
 do.body.i.i.ithread-pre-split:                    ; preds = %if.end5.i.i.i
   %bf.load.i.i.i.i46.pr = load i32, ptr %26, align 8
   %bf.shl.i.i.i.i = shl i32 %bf.load.i.i.i.i46.pr, 24
   %bf.ashr.i.i.i.i = ashr exact i32 %bf.shl.i.i.i.i, 24
   %cmp.i.i.i47 = icmp eq i32 %25, %bf.ashr.i.i.i.i
-  br i1 %cmp.i.i.i47, label %_ZNK3euf5enode10get_th_varEi.exit.i, label %if.end5.i.i.i
+  br i1 %cmp.i.i.i47, label %do.body.i.i.i._ZNK3euf5enode10get_th_varEi.exit.i_crit_edge, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %do.body.i.i.i.preheader, %do.body.i.i.ithread-pre-split
   %l.0.i.i.i80 = phi ptr [ %26, %do.body.i.i.ithread-pre-split ], [ %m_th_vars.i.i, %do.body.i.i.i.preheader ]
@@ -10816,18 +10816,17 @@ if.end5.i.i.i:                                    ; preds = %do.body.i.i.i.prehe
   %tobool.not.i.i.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i, label %if.then.i, label %do.body.i.i.ithread-pre-split, !llvm.loop !6
 
-_ZNK3euf5enode10get_th_varEi.exit.i:              ; preds = %do.body.i.i.ithread-pre-split, %do.body.i.i.i.preheader
-  %bf.load.i.i.i.i46.lcssa = phi i32 [ %bf.load.i.i.i.i.i, %do.body.i.i.i.preheader ], [ %bf.load.i.i.i.i46.pr, %do.body.i.i.ithread-pre-split ]
-  %cmp.i48 = icmp ugt i32 %bf.load.i.i.i.i46.lcssa, -257
-  br i1 %cmp.i48, label %if.then.i, label %_ZN2bv6solver7get_varEPN3euf5enodeE.exit
+do.body.i.i.i._ZNK3euf5enode10get_th_varEi.exit.i_crit_edge: ; preds = %do.body.i.i.ithread-pre-split
+  %27 = icmp ugt i32 %bf.load.i.i.i.i46.pr, -257
+  br i1 %27, label %if.then.i, label %_ZN2bv6solver7get_varEPN3euf5enodeE.exit
 
-if.then.i:                                        ; preds = %if.end5.i.i.i, %_ZNK3euf5enode10get_th_varEi.exit.i, %for.body55
+if.then.i:                                        ; preds = %if.end5.i.i.i, %do.body.i.i.i._ZNK3euf5enode10get_th_varEi.exit.i_crit_edge, %for.body55
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 512
-  %27 = load ptr, ptr %vfn.i, align 8
-  %call3.i = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull %call57)
-  %28 = load ptr, ptr %call57, align 8
-  %call.i.i = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %28)
+  %28 = load ptr, ptr %vfn.i, align 8
+  %call3.i = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull %call57)
+  %29 = load ptr, ptr %call57, align 8
+  %call.i.i = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %29)
   %call2.i.i = tail call noundef zeroext i1 @_ZNK14bv_recognizers10is_bv_sortEPK4sort(ptr noundef nonnull align 4 dereferenceable(4) %bv.i, ptr noundef %call.i.i)
   br i1 %call2.i.i, label %if.then6.i, label %_ZN2bv6solver7get_varEPN3euf5enodeE.exit
 
@@ -10835,7 +10834,7 @@ if.then6.i:                                       ; preds = %if.then.i
   tail call void @_ZN2bv6solver7mk_bitsEi(ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %call3.i)
   br label %_ZN2bv6solver7get_varEPN3euf5enodeE.exit
 
-_ZN2bv6solver7get_varEPN3euf5enodeE.exit:         ; preds = %_ZNK3euf5enode10get_th_varEi.exit.i, %if.then.i, %if.then6.i
+_ZN2bv6solver7get_varEPN3euf5enodeE.exit:         ; preds = %do.body.i.i.i.preheader, %do.body.i.i.i._ZNK3euf5enode10get_th_varEi.exit.i_crit_edge, %if.then.i, %if.then6.i
   %incdec.ptr60 = getelementptr inbounds i8, ptr %__begin149.057, i64 8
   %cmp54.not = icmp eq ptr %incdec.ptr60, %add.ptr.i44
   br i1 %cmp54.not, label %for.end61, label %for.body55

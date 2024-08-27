@@ -1110,11 +1110,9 @@ set_sort_order.exit.thread.i:                     ; preds = %236, %233
 
 ._crit_edge230.i:                                 ; preds = %309
   %.mux.i = select i1 %.0.lcssa.i, ptr %6, ptr null
-  %not..0.lcssa.i = xor i1 %.0.lcssa.i, true
-  %.pre.mux.i = select i1 %not..0.lcssa.i, i1 true, i1 %.099.lcssa.i
   %310 = getelementptr inbounds i8, ptr %12, i64 904
   %311 = load i64, ptr %310, align 8
-  %312 = select i1 %.pre.mux.i, ptr %8, ptr null
+  %312 = select i1 %.099.lcssa.i, ptr %8, ptr null
   %313 = call i64 @h5tools_get_fapl(i64 noundef %311, ptr noundef %.mux.i, ptr noundef %312) #15
   %314 = icmp slt i64 %313, 0
   br i1 %314, label %315, label %316
@@ -1147,11 +1145,9 @@ set_sort_order.exit.thread.i:                     ; preds = %236, %233
 
 ._crit_edge229.i:                                 ; preds = %323
   %.mux238.i = select i1 %.0103.lcssa.i, ptr %7, ptr null
-  %not..0103.lcssa.i = xor i1 %.0103.lcssa.i, true
-  %.pre231.mux.i = select i1 %not..0103.lcssa.i, i1 true, i1 %.0101.lcssa.i
   %324 = getelementptr inbounds i8, ptr %12, i64 912
   %325 = load i64, ptr %324, align 8
-  %326 = select i1 %.pre231.mux.i, ptr %9, ptr null
+  %326 = select i1 %.0101.lcssa.i, ptr %9, ptr null
   %327 = call i64 @h5tools_get_fapl(i64 noundef %325, ptr noundef %.mux238.i, ptr noundef %326) #15
   %328 = icmp slt i64 %327, 0
   br i1 %328, label %329, label %330

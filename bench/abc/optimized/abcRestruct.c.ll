@@ -2138,7 +2138,7 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntGrow.exit.i.
   br i1 %70, label %.lr.ph.split.us, label %.critedge, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %Abc_NodeEdgeDsdPushOrdered.exit
-  %71 = phi ptr [ %99, %Abc_NodeEdgeDsdPushOrdered.exit ], [ %30, %.lr.ph ]
+  %71 = phi ptr [ %100, %Abc_NodeEdgeDsdPushOrdered.exit ], [ %30, %.lr.ph ]
   %72 = phi i32 [ %80, %Abc_NodeEdgeDsdPushOrdered.exit ], [ 0, %.lr.ph ]
   %.0371578 = phi i32 [ %102, %Abc_NodeEdgeDsdPushOrdered.exit ], [ 0, %.lr.ph ]
   %73 = tail call ptr @Dsd_NodeReadDec(ptr noundef %11, i32 noundef %.0371578) #19
@@ -2196,7 +2196,7 @@ Vec_IntFree.exit:                                 ; preds = %.split.us, %78
   %94 = load i32, ptr %93, align 8
   %95 = and i32 %94, 16383
   %.not.i477 = icmp ugt i32 %92, %95
-  br i1 %.not.i477, label %Abc_NodeEdgeDsdPushOrdered.exit, label %96
+  br i1 %.not.i477, label %._crit_edge.loopexit.split.loop.exit.i, label %96
 
 96:                                               ; preds = %84
   %97 = getelementptr inbounds i32, ptr %71, i64 %indvars.iv.i
@@ -2204,12 +2204,15 @@ Vec_IntFree.exit:                                 ; preds = %.split.us, %78
   %98 = icmp ugt i64 %indvars.iv.i, 1
   br i1 %98, label %84, label %Abc_NodeEdgeDsdPushOrdered.exit, !llvm.loop !19
 
-Abc_NodeEdgeDsdPushOrdered.exit:                  ; preds = %96, %84, %79
-  %.0.in.lcssa.i = phi i64 [ 0, %79 ], [ 0, %96 ], [ %indvars.iv.i, %84 ]
-  %99 = load ptr, ptr %31, align 8
-  %sext = shl i64 %.0.in.lcssa.i, 32
-  %100 = ashr exact i64 %sext, 30
-  %101 = getelementptr inbounds i8, ptr %99, i64 %100
+._crit_edge.loopexit.split.loop.exit.i:           ; preds = %84
+  %sext = shl i64 %indvars.iv.i, 32
+  %99 = ashr exact i64 %sext, 32
+  br label %Abc_NodeEdgeDsdPushOrdered.exit
+
+Abc_NodeEdgeDsdPushOrdered.exit:                  ; preds = %96, %79, %._crit_edge.loopexit.split.loop.exit.i
+  %.0.in.lcssa.i = phi i64 [ 0, %79 ], [ %99, %._crit_edge.loopexit.split.loop.exit.i ], [ 0, %96 ]
+  %100 = load ptr, ptr %31, align 8
+  %101 = getelementptr inbounds i32, ptr %100, i64 %.0.in.lcssa.i
   store i32 %75, ptr %101, align 4
   %102 = add nuw nsw i32 %.0371578, 1
   %103 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %11) #19
@@ -2486,7 +2489,7 @@ Abc_NodeEdgeDsdPushOrdered.exit487.thread:        ; preds = %235
   %252 = load i32, ptr %251, align 8
   %253 = and i32 %252, 16383
   %.not.i485 = icmp ugt i32 %250, %253
-  br i1 %.not.i485, label %Abc_NodeEdgeDsdPushOrdered.exit487, label %254
+  br i1 %.not.i485, label %._crit_edge.loopexit.split.loop.exit.i486, label %254
 
 254:                                              ; preds = %242
   %255 = getelementptr inbounds i32, ptr %.pre600, i64 %indvars.iv.i482
@@ -2494,11 +2497,14 @@ Abc_NodeEdgeDsdPushOrdered.exit487.thread:        ; preds = %235
   %256 = icmp ugt i64 %indvars.iv.i482, 1
   br i1 %256, label %242, label %Abc_NodeEdgeDsdPushOrdered.exit487, !llvm.loop !19
 
-Abc_NodeEdgeDsdPushOrdered.exit487:               ; preds = %254, %242
-  %.0.in.lcssa.i480 = phi i64 [ %indvars.iv.i482, %242 ], [ 0, %254 ]
-  %sext634 = shl i64 %.0.in.lcssa.i480, 32
-  %257 = ashr exact i64 %sext634, 30
-  %258 = getelementptr inbounds i8, ptr %.pre600, i64 %257
+._crit_edge.loopexit.split.loop.exit.i486:        ; preds = %242
+  %sext634 = shl i64 %indvars.iv.i482, 32
+  %257 = ashr exact i64 %sext634, 32
+  br label %Abc_NodeEdgeDsdPushOrdered.exit487
+
+Abc_NodeEdgeDsdPushOrdered.exit487:               ; preds = %254, %._crit_edge.loopexit.split.loop.exit.i486
+  %.0.in.lcssa.i480 = phi i64 [ %257, %._crit_edge.loopexit.split.loop.exit.i486 ], [ 0, %254 ]
+  %258 = getelementptr inbounds i32, ptr %.pre600, i64 %.0.in.lcssa.i480
   store i32 %198, ptr %258, align 4
   br label %115, !llvm.loop !21
 
@@ -3184,7 +3190,7 @@ Abc_NodeEdgeDsdPushOrdered.exit519.thread:        ; preds = %627
   %644 = load i32, ptr %643, align 8
   %645 = and i32 %644, 16383
   %.not.i517 = icmp ugt i32 %642, %645
-  br i1 %.not.i517, label %Abc_NodeEdgeDsdPushOrdered.exit519, label %646
+  br i1 %.not.i517, label %._crit_edge.loopexit.split.loop.exit.i518, label %646
 
 646:                                              ; preds = %634
   %647 = getelementptr inbounds i32, ptr %.pre598, i64 %indvars.iv.i514
@@ -3192,11 +3198,14 @@ Abc_NodeEdgeDsdPushOrdered.exit519.thread:        ; preds = %627
   %648 = icmp ugt i64 %indvars.iv.i514, 1
   br i1 %648, label %634, label %Abc_NodeEdgeDsdPushOrdered.exit519, !llvm.loop !19
 
-Abc_NodeEdgeDsdPushOrdered.exit519:               ; preds = %646, %634
-  %.0.in.lcssa.i512 = phi i64 [ %indvars.iv.i514, %634 ], [ 0, %646 ]
-  %sext633 = shl i64 %.0.in.lcssa.i512, 32
-  %649 = ashr exact i64 %sext633, 30
-  %650 = getelementptr inbounds i8, ptr %.pre598, i64 %649
+._crit_edge.loopexit.split.loop.exit.i518:        ; preds = %634
+  %sext633 = shl i64 %indvars.iv.i514, 32
+  %649 = ashr exact i64 %sext633, 32
+  br label %Abc_NodeEdgeDsdPushOrdered.exit519
+
+Abc_NodeEdgeDsdPushOrdered.exit519:               ; preds = %646, %._crit_edge.loopexit.split.loop.exit.i518
+  %.0.in.lcssa.i512 = phi i64 [ %649, %._crit_edge.loopexit.split.loop.exit.i518 ], [ 0, %646 ]
+  %650 = getelementptr inbounds i32, ptr %.pre598, i64 %.0.in.lcssa.i512
   store i32 %.sroa.033.0.i, ptr %650, align 4
   br label %267, !llvm.loop !22
 

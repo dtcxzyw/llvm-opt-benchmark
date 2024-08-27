@@ -271,17 +271,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 ._crit_edge.loopexit:                             ; preds = %129
   %.pre = load i32, ptr %2, align 4
+  %132 = fmul float %130, 0x3810000020000000
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %100
-  %132 = phi float [ %130, %._crit_edge.loopexit ], [ 1.000000e+00, %100 ]
-  %133 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %104, %100 ]
-  %134 = load i32, ptr %11, align 4
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i32, ptr %35, i64 %135
-  store i32 %133, ptr %136, align 4
-  %137 = fmul float %132, 0x3810000020000000
-  store float %137, ptr %32, align 4
+  %133 = phi float [ %132, %._crit_edge.loopexit ], [ 0x3810000020000000, %100 ]
+  %134 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %104, %100 ]
+  %135 = load i32, ptr %11, align 4
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr inbounds i32, ptr %35, i64 %136
+  store i32 %134, ptr %137, align 4
+  store float %133, ptr %32, align 4
   %138 = icmp eq i32 %.1603707, 3
   %139 = load float, ptr %8, align 4
   br i1 %138, label %140, label %253
@@ -346,7 +346,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %173 = sitofp i32 %155 to double
   %174 = fneg double %172
   %175 = tail call double @llvm.fmuladd.f64(double %174, double %173, double %169)
-  %176 = fpext float %137 to double
+  %176 = fpext float %133 to double
   %177 = fneg double %176
   %178 = tail call double @llvm.fmuladd.f64(double %177, double 4.000000e+00, double %175)
   %179 = fptrunc double %178 to float
@@ -354,9 +354,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %181 = tail call double @llvm.fmuladd.f64(double %172, double %173, double %180)
   %182 = tail call double @llvm.fmuladd.f64(double %176, double 2.000000e+00, double %181)
   %183 = fptrunc double %182 to float
-  %184 = fadd float %137, %168
+  %184 = fadd float %133, %168
   %185 = tail call noundef float @logf(float noundef %184) #4
-  %186 = tail call noundef float @logf(float noundef %137) #4
+  %186 = tail call noundef float @logf(float noundef %133) #4
   %187 = fsub float %185, %186
   %188 = fpext float %187 to double
   %189 = fdiv double %188, 0x3FE62E42FEFA39EF
@@ -955,13 +955,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.2607 = phi float [ %513, %516 ], [ %.1606811, %511 ], [ %.1606811, %.lr.ph813 ]
   %indvars.iv.next891 = add nuw nsw i64 %indvars.iv890, 1
   %exitcond894.not = icmp eq i64 %indvars.iv.next891, %wide.trip.count893
-  br i1 %exitcond894.not, label %._crit_edge814, label %.lr.ph813, !llvm.loop !13
+  br i1 %exitcond894.not, label %._crit_edge814.loopexit, label %.lr.ph813, !llvm.loop !13
 
-._crit_edge814:                                   ; preds = %518, %.preheader729
-  %.0634.lcssa = phi i32 [ 0, %.preheader729 ], [ %.1635, %518 ]
-  %.1606.lcssa = phi float [ %.0605818, %.preheader729 ], [ %.2607, %518 ]
-  %519 = sext i32 %.0634.lcssa to i64
-  %520 = getelementptr inbounds i32, ptr %36, i64 %519
+._crit_edge814.loopexit:                          ; preds = %518
+  %519 = sext i32 %.1635 to i64
+  br label %._crit_edge814
+
+._crit_edge814:                                   ; preds = %._crit_edge814.loopexit, %.preheader729
+  %.0634.lcssa = phi i64 [ 0, %.preheader729 ], [ %519, %._crit_edge814.loopexit ]
+  %.1606.lcssa = phi float [ %.0605818, %.preheader729 ], [ %.2607, %._crit_edge814.loopexit ]
+  %520 = getelementptr inbounds i32, ptr %36, i64 %.0634.lcssa
   store i32 0, ptr %520, align 4
   %521 = add nuw i32 %.0609817, 1
   %exitcond895.not = icmp eq i32 %.0609817, %.0599
@@ -1008,13 +1011,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.5 = phi float [ %528, %531 ], [ %.4822, %526 ], [ %.4822, %.lr.ph824 ]
   %indvars.iv.next897 = add nuw nsw i64 %indvars.iv896, 1
   %exitcond900.not = icmp eq i64 %indvars.iv.next897, %wide.trip.count899
-  br i1 %exitcond900.not, label %._crit_edge825, label %.lr.ph824, !llvm.loop !15
+  br i1 %exitcond900.not, label %._crit_edge825.loopexit, label %.lr.ph824, !llvm.loop !15
 
-._crit_edge825:                                   ; preds = %533, %.preheader
-  %.2636.lcssa = phi i32 [ 0, %.preheader ], [ %.3637, %533 ]
-  %.4.lcssa = phi float [ %.3608829, %.preheader ], [ %.5, %533 ]
-  %534 = sext i32 %.2636.lcssa to i64
-  %535 = getelementptr inbounds i32, ptr %36, i64 %534
+._crit_edge825.loopexit:                          ; preds = %533
+  %534 = sext i32 %.3637 to i64
+  br label %._crit_edge825
+
+._crit_edge825:                                   ; preds = %._crit_edge825.loopexit, %.preheader
+  %.2636.lcssa = phi i64 [ 0, %.preheader ], [ %534, %._crit_edge825.loopexit ]
+  %.4.lcssa = phi float [ %.3608829, %.preheader ], [ %.5, %._crit_edge825.loopexit ]
+  %535 = getelementptr inbounds i32, ptr %36, i64 %.2636.lcssa
   store i32 0, ptr %535, align 4
   %536 = add nuw i32 %.1610828, 1
   %exitcond901.not = icmp eq i32 %.1610828, %.0596

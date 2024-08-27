@@ -1986,19 +1986,22 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %874 = trunc i32 %866 to i8
   %875 = sub i8 %.09281654, %874
   %.not1081 = icmp eq i8 %875, 0
-  br i1 %.not1081, label %._crit_edge1661, label %.lr.ph1660
+  br i1 %.not1081, label %._crit_edge1661.loopexit, label %.lr.ph1660
 
-._crit_edge1661:                                  ; preds = %865, %829
-  %.2963.lcssa = phi i32 [ 0, %829 ], [ %871, %865 ]
-  %.22903.lcssa = phi i32 [ %.20901, %829 ], [ %873, %865 ]
-  %.22870.lcssa = phi i32 [ %.20868, %829 ], [ %872, %865 ]
-  %.38831.lcssa = phi ptr [ %.34827, %829 ], [ %.39832, %865 ]
-  %.38.lcssa = phi ptr [ %.34, %829 ], [ %.39, %865 ]
-  %876 = getelementptr inbounds [27 x i8], ptr @length_base, i64 0, i64 %830
-  %877 = load i8, ptr %876, align 1
-  %878 = zext i8 %877 to i32
-  %879 = add i32 %.2963.lcssa, 5
-  %880 = add i32 %879, %878
+._crit_edge1661.loopexit:                         ; preds = %865
+  %876 = add i32 %871, 5
+  br label %._crit_edge1661
+
+._crit_edge1661:                                  ; preds = %._crit_edge1661.loopexit, %829
+  %.2963.lcssa = phi i32 [ 5, %829 ], [ %876, %._crit_edge1661.loopexit ]
+  %.22903.lcssa = phi i32 [ %.20901, %829 ], [ %873, %._crit_edge1661.loopexit ]
+  %.22870.lcssa = phi i32 [ %.20868, %829 ], [ %872, %._crit_edge1661.loopexit ]
+  %.38831.lcssa = phi ptr [ %.34827, %829 ], [ %.39832, %._crit_edge1661.loopexit ]
+  %.38.lcssa = phi ptr [ %.34, %829 ], [ %.39, %._crit_edge1661.loopexit ]
+  %877 = getelementptr inbounds [27 x i8], ptr @length_base, i64 0, i64 %830
+  %878 = load i8, ptr %877, align 1
+  %879 = zext i8 %878 to i32
+  %880 = add i32 %.2963.lcssa, %879
   %881 = sub nsw i32 %781, %780
   %882 = load ptr, ptr %74, align 8
   %883 = getelementptr inbounds i8, ptr %882, i64 2

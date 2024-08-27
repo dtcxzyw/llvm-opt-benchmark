@@ -606,25 +606,23 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
 
 113:                                              ; preds = %109
   %114 = tail call i32 @strncmp(ptr noundef nonnull %110, ptr noundef nonnull %108, i64 noundef %107) #6
-  %115 = icmp eq i32 %114, 0
+  %115 = icmp ne i32 %114, 0
   %116 = trunc nuw nsw i64 %indvars.iv259 to i32
-  %spec.select211 = select i1 %115, i32 %116, i32 %.0152231
-  %spec.select212 = zext i1 %115 to i32
+  %spec.select211 = select i1 %115, i32 %.0152231, i32 %116
   br label %117
 
 117:                                              ; preds = %113, %109
   %.1153 = phi i32 [ %.0152231, %109 ], [ %spec.select211, %113 ]
-  %.1 = phi i32 [ 0, %109 ], [ %spec.select212, %113 ]
+  %.1 = phi i1 [ true, %109 ], [ %115, %113 ]
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %118 = getelementptr inbounds %struct.option, ptr %3, i64 %indvars.iv.next260
   %119 = load ptr, ptr %118, align 8
   %120 = icmp ne ptr %119, null
-  %.not195 = icmp eq i32 %.1, 0
-  %121 = select i1 %120, i1 %.not195, i1 false
+  %121 = select i1 %120, i1 %.1, i1 false
   br i1 %121, label %109, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %117
-  br i1 %.not195, label %.preheader224, label %.thread215
+  br i1 %.1, label %.preheader224, label %.thread215
 
 .preheader224:                                    ; preds = %._crit_edge
   br i1 %.not253, label %._crit_edge240.thread, label %.lr.ph239

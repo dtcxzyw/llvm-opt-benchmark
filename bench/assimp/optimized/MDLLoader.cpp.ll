@@ -6533,10 +6533,14 @@ for.inc129:                                       ; preds = %if.end121
   %52 = load i32, ptr %mNumFaces.i, align 8
   %53 = zext i32 %52 to i64
   %cmp70 = icmp ult i64 %indvars.iv.next226, %53
-  br i1 %cmp70, label %for.body71, label %for.end131, !llvm.loop !57
+  br i1 %cmp70, label %for.body71, label %for.end131.loopexit, !llvm.loop !57
 
-for.end131:                                       ; preds = %for.inc129, %if.end67
-  %54 = phi i32 [ 0, %if.end67 ], [ %52, %for.inc129 ]
+for.end131.loopexit:                              ; preds = %for.inc129
+  %54 = icmp eq i32 %52, 0
+  br label %for.end131
+
+for.end131:                                       ; preds = %for.end131.loopexit, %if.end67
+  %cmp138201.not = phi i1 [ %54, %for.end131.loopexit ], [ true, %if.end67 ]
   %55 = load ptr, ptr %aiBones, align 8
   %56 = load ptr, ptr %_M_finish.i.i89, align 8
   %cmp.i.i90 = icmp eq ptr %55, %56
@@ -6561,7 +6565,6 @@ _ZNSt12_Vector_baseISt6vectorIjSaIjEESaIS2_EE13_M_deallocateEPS2_m.exit29.i: ; p
 _ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit:    ; preds = %if.then133, %_ZNSt12_Vector_baseISt6vectorIjSaIjEESaIS2_EE13_M_deallocateEPS2_m.exit29.i
   %57 = phi ptr [ %add.ptr37.i, %_ZNSt12_Vector_baseISt6vectorIjSaIjEESaIS2_EE13_M_deallocateEPS2_m.exit29.i ], [ null, %if.then133 ]
   %.pr.i = phi ptr [ %call5.i.i.i.i151, %_ZNSt12_Vector_baseISt6vectorIjSaIjEESaIS2_EE13_M_deallocateEPS2_m.exit29.i ], [ null, %if.then133 ]
-  %cmp138201.not = icmp eq i32 %54, 0
   br i1 %cmp138201.not, label %for.end177, label %for.body139
 
 for.body139:                                      ; preds = %_ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit, %for.inc175

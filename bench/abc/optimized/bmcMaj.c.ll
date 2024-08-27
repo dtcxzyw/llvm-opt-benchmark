@@ -5234,17 +5234,17 @@ Vec_WecPush.exit.i.i:                             ; preds = %132, %Vec_IntGrow.e
   %143 = trunc i64 %indvars.iv64.i.i to i32
   %144 = xor i32 %143, -1
   %145 = add i32 %67, %144
+  %146 = sext i32 %145 to i64
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %142, %66
-  %146 = phi i32 [ %145, %142 ], [ 0, %66 ]
-  %147 = sub nsw i64 %indvars.iv67.i.i, %indvars.iv64.i.i
-  %148 = sext i32 %146 to i64
-  %149 = icmp sgt i64 %147, %148
+  %147 = phi i64 [ %146, %142 ], [ 0, %66 ]
+  %148 = sub nsw i64 %indvars.iv67.i.i, %indvars.iv64.i.i
+  %149 = icmp slt i64 %147, %148
   br i1 %149, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.thread.i.i, %Vec_WecPush.exit55.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %Vec_WecPush.exit55.i.i ], [ %148, %.thread.i.i ]
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %Vec_WecPush.exit55.i.i ], [ %147, %.thread.i.i ]
   %150 = load ptr, ptr %53, align 8
   %151 = load i32, ptr %56, align 8
   %152 = shl nsw i32 %151, 1
@@ -5373,7 +5373,7 @@ Vec_WecPush.exit55.i.i:                           ; preds = %206, %Vec_IntGrow.e
   %215 = getelementptr inbounds [64 x [6 x [64 x i32]]], ptr %58, i64 0, i64 %indvars.iv67.i.i, i64 %indvars.iv64.i.i, i64 %indvars.iv.i.i
   store i32 %213, ptr %215, align 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %216 = icmp slt i64 %indvars.iv.next.i.i, %147
+  %216 = icmp slt i64 %indvars.iv.next.i.i, %148
   br i1 %216, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !91
 
 .loopexit.i.i:                                    ; preds = %Vec_WecPush.exit55.i.i, %.thread.i.i, %Vec_WecPush.exit.i.i
@@ -12892,8 +12892,8 @@ Mini_AigStartSupport.exit:                        ; preds = %.lr.ph.i, %3
   %40 = icmp ne i32 %36, 0
   %or.cond5.us = select i1 %39, i1 %40, i1 false
   %41 = icmp ne i32 %38, 0
-  %spec.select.us = select i1 %or.cond5.us, i1 %41, i1 false
-  %42 = zext i1 %spec.select.us to i32
+  %narrow.us = select i1 %or.cond5.us, i1 %41, i1 false
+  %42 = zext i1 %narrow.us to i32
   %43 = getelementptr inbounds [64 x i32], ptr %4, i64 0, i64 %indvars.iv183
   store i32 %42, ptr %43, align 4
   %44 = load i32, ptr %7, align 4
@@ -16519,8 +16519,8 @@ Mini_AigStartSupport.exit:                        ; preds = %.lr.ph.i, %2
   %73 = icmp ne i32 %69, 0
   %or.cond = select i1 %72, i1 %73, i1 false
   %74 = icmp ne i32 %71, 0
-  %spec.select = select i1 %or.cond, i1 %74, i1 false
-  %75 = zext i1 %spec.select to i32
+  %narrow = select i1 %or.cond, i1 %74, i1 false
+  %75 = zext i1 %narrow to i32
   %76 = getelementptr inbounds [64 x i32], ptr %3, i64 0, i64 %indvars.iv101
   store i32 %75, ptr %76, align 4
   %77 = icmp eq i32 %67, 0
@@ -22732,11 +22732,11 @@ Mini_AigStartSupport.exit:                        ; preds = %.lr.ph.i, %3
   br label %98
 
 32:                                               ; preds = %.lr.ph, %Mini_AigOr.exit
-  %indvars.iv98 = phi i64 [ %26, %.lr.ph ], [ %indvars.iv.next99, %Mini_AigOr.exit ]
+  %indvars.iv97 = phi i64 [ %26, %.lr.ph ], [ %indvars.iv.next98, %Mini_AigOr.exit ]
   %33 = phi i32 [ %6, %.lr.ph ], [ %93, %Mini_AigOr.exit ]
   store i32 0, ptr %.sroa.0, align 8
   store i32 0, ptr %.sroa.4, align 4
-  %34 = trunc nsw i64 %indvars.iv98 to i32
+  %34 = trunc nsw i64 %indvars.iv97 to i32
   %35 = sub nsw i32 %34, %33
   %36 = mul nsw i32 %35, 3
   %.val66 = load ptr, ptr %23, align 8
@@ -22752,9 +22752,9 @@ Mini_AigStartSupport.exit:                        ; preds = %.lr.ph.i, %3
   %46 = icmp ne i32 %42, 0
   %or.cond = select i1 %45, i1 %46, i1 false
   %47 = icmp ne i32 %44, 0
-  %spec.select = select i1 %or.cond, i1 %47, i1 false
-  %48 = zext i1 %spec.select to i32
-  %49 = getelementptr inbounds [64 x i32], ptr %4, i64 0, i64 %indvars.iv98
+  %narrow = select i1 %or.cond, i1 %47, i1 false
+  %48 = zext i1 %narrow to i32
+  %49 = getelementptr inbounds [64 x i32], ptr %4, i64 0, i64 %indvars.iv97
   store i32 %48, ptr %49, align 4
   %50 = load i32, ptr %7, align 4
   %51 = icmp sgt i32 %50, 0
@@ -22770,14 +22770,14 @@ Mini_AigStartSupport.exit:                        ; preds = %.lr.ph.i, %3
 
 .lr.ph.i67.us:                                    ; preds = %32, %Exa6_ManFindFanin.exit.loopexit.us
   %.not62.us = phi i1 [ false, %Exa6_ManFindFanin.exit.loopexit.us ], [ true, %32 ]
-  %indvars.iv95.sroa.phi = phi ptr [ %.sroa.4, %Exa6_ManFindFanin.exit.loopexit.us ], [ %.sroa.0, %32 ]
-  %indvars.iv95 = phi i64 [ 0, %Exa6_ManFindFanin.exit.loopexit.us ], [ 1, %32 ]
+  %indvars.iv94.sroa.phi = phi ptr [ %.sroa.4, %Exa6_ManFindFanin.exit.loopexit.us ], [ %.sroa.0, %32 ]
+  %indvars.iv94 = phi i64 [ 0, %Exa6_ManFindFanin.exit.loopexit.us ], [ 1, %32 ]
   br label %55
 
 55:                                               ; preds = %63, %.lr.ph.i67.us
   %indvars.iv.i69.us = phi i64 [ 0, %.lr.ph.i67.us ], [ %indvars.iv.next.i70.us, %63 ]
   %.022.i.us = phi i32 [ -1, %.lr.ph.i67.us ], [ %.1.i.us, %63 ]
-  %56 = getelementptr inbounds [64 x [2 x [64 x i32]]], ptr %24, i64 0, i64 %indvars.iv98, i64 %indvars.iv95, i64 %indvars.iv.i69.us
+  %56 = getelementptr inbounds [64 x [2 x [64 x i32]]], ptr %24, i64 0, i64 %indvars.iv97, i64 %indvars.iv94, i64 %indvars.iv.i69.us
   %57 = load i32, ptr %56, align 4
   %.not.i.us = icmp eq i32 %57, 0
   br i1 %.not.i.us, label %63, label %58
@@ -22798,15 +22798,15 @@ Mini_AigStartSupport.exit:                        ; preds = %.lr.ph.i, %3
   br i1 %exitcond.not.i71.us, label %Exa6_ManFindFanin.exit.loopexit.us, label %55, !llvm.loop !349
 
 Exa6_ManFindFanin.exit.loopexit.us:               ; preds = %63
-  %spec.select91 = select i1 %.not62.us, i1 %54, i1 %53
-  %64 = zext i1 %spec.select91 to i32
+  %spec.select = select i1 %.not62.us, i1 %54, i1 %53
+  %64 = zext i1 %spec.select to i32
   %65 = sext i32 %.1.i.us to i64
   %66 = getelementptr inbounds [64 x i32], ptr %4, i64 0, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = xor i32 %67, %64
   %69 = shl nsw i32 %.1.i.us, 1
   %70 = add nsw i32 %68, %69
-  store i32 %70, ptr %indvars.iv95.sroa.phi, align 4
+  store i32 %70, ptr %indvars.iv94.sroa.phi, align 4
   br i1 %.not62.us, label %.lr.ph.i67.us, label %.split87.us, !llvm.loop !353
 
 .split:                                           ; preds = %32
@@ -22868,16 +22868,16 @@ Exa6_ManFindFanin.exit.loopexit.us:               ; preds = %63
   br label %Mini_AigOr.exit
 
 Mini_AigOr.exit:                                  ; preds = %92, %91, %88, %87, %84, %83
-  %indvars.iv.next99 = add nsw i64 %indvars.iv98, 1
+  %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
   %93 = load i32, ptr %5, align 8
   %94 = load i32, ptr %19, align 4
   %95 = add nsw i32 %94, %93
   %96 = sext i32 %95 to i64
-  %97 = icmp slt i64 %indvars.iv.next99, %96
+  %97 = icmp slt i64 %indvars.iv.next98, %96
   br i1 %97, label %32, label %.preheader.loopexit, !llvm.loop !354
 
 98:                                               ; preds = %.lr.ph90, %Exa6_ManFindFanin.exit84
-  %indvars.iv101 = phi i64 [ %31, %.lr.ph90 ], [ %indvars.iv.next102, %Exa6_ManFindFanin.exit84 ]
+  %indvars.iv100 = phi i64 [ %31, %.lr.ph90 ], [ %indvars.iv.next101, %Exa6_ManFindFanin.exit84 ]
   %99 = phi i32 [ %27, %.lr.ph90 ], [ %115, %Exa6_ManFindFanin.exit84 ]
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %.lr.ph.i73, label %Exa6_ManFindFanin.exit84
@@ -22889,7 +22889,7 @@ Mini_AigOr.exit:                                  ; preds = %92, %91, %88, %87, 
 101:                                              ; preds = %109, %.lr.ph.i73
   %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.i73 ], [ %indvars.iv.next.i82, %109 ]
   %.022.i76 = phi i32 [ -1, %.lr.ph.i73 ], [ %.1.i81, %109 ]
-  %102 = getelementptr inbounds [64 x [2 x [64 x i32]]], ptr %29, i64 0, i64 %indvars.iv101, i64 0, i64 %indvars.iv.i75
+  %102 = getelementptr inbounds [64 x [2 x [64 x i32]]], ptr %29, i64 0, i64 %indvars.iv100, i64 0, i64 %indvars.iv.i75
   %103 = load i32, ptr %102, align 4
   %.not.i77 = icmp eq i32 %103, 0
   br i1 %.not.i77, label %109, label %104
@@ -22918,10 +22918,10 @@ Exa6_ManFindFanin.exit84:                         ; preds = %109, %98
   %113 = shl nsw i32 %.0.lcssa.i72, 1
   %114 = add nsw i32 %113, %112
   tail call fastcc void @Mini_AigPush(ptr noundef nonnull %9, i32 noundef %114, i32 noundef 2147483647)
-  %indvars.iv.next102 = add nsw i64 %indvars.iv101, 1
+  %indvars.iv.next101 = add nsw i64 %indvars.iv100, 1
   %115 = load i32, ptr %7, align 4
   %116 = sext i32 %115 to i64
-  %117 = icmp slt i64 %indvars.iv.next102, %116
+  %117 = icmp slt i64 %indvars.iv.next101, %116
   br i1 %117, label %98, label %._crit_edge, !llvm.loop !355
 
 ._crit_edge:                                      ; preds = %Exa6_ManFindFanin.exit84, %.preheader

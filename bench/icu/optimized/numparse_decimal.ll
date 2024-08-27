@@ -636,7 +636,7 @@ if.end56.thread:                                  ; preds = %if.then48
 
 if.end51:                                         ; preds = %invoke.cont45
   %tobool52 = trunc nuw i8 %maybeMore.3343 to i1
-  br i1 %tobool52, label %lor.end, label %lor.rhs
+  br i1 %tobool52, label %for.inc, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end51
   %call54 = invoke noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
@@ -644,15 +644,11 @@ lor.rhs:                                          ; preds = %if.end51
 
 invoke.cont53:                                    ; preds = %lor.rhs
   %cmp55 = icmp eq i32 %call44, %call54
-  br label %lor.end
-
-lor.end:                                          ; preds = %invoke.cont53, %if.end51
-  %7 = phi i1 [ true, %if.end51 ], [ %cmp55, %invoke.cont53 ]
-  %frombool = zext i1 %7 to i8
+  %7 = zext i1 %cmp55 to i8
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %lor.end
-  %maybeMore.4 = phi i8 [ %maybeMore.3343, %for.body ], [ %frombool, %lor.end ]
+for.inc:                                          ; preds = %if.end51, %invoke.cont53, %for.body
+  %maybeMore.4 = phi i8 [ %maybeMore.3343, %for.body ], [ 1, %if.end51 ], [ %7, %invoke.cont53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %if.end74, label %for.body, !llvm.loop !6
@@ -710,11 +706,11 @@ lor.rhs88:                                        ; preds = %invoke.cont85
 
 invoke.cont89:                                    ; preds = %lor.rhs88
   %cmp91 = icmp eq i32 %call86, %call90
+  %14 = zext i1 %cmp91 to i8
   br label %invoke.cont95
 
 invoke.cont95:                                    ; preds = %invoke.cont85, %invoke.cont89
-  %14 = phi i1 [ true, %invoke.cont85 ], [ %cmp91, %invoke.cont89 ]
-  %frombool93 = zext i1 %14 to i8
+  %frombool93 = phi i8 [ 1, %invoke.cont85 ], [ %14, %invoke.cont89 ]
   %15 = load i16, ptr %fUnion.i119, align 8
   %cmp.i.i123 = icmp slt i16 %15, 0
   %16 = ashr i16 %15, 5
@@ -750,11 +746,11 @@ lor.rhs112:                                       ; preds = %invoke.cont109
 
 invoke.cont113:                                   ; preds = %lor.rhs112
   %cmp115 = icmp eq i32 %call110, %call114
+  %19 = zext i1 %cmp115 to i8
   br label %invoke.cont118
 
 invoke.cont118:                                   ; preds = %invoke.cont109, %invoke.cont113
-  %19 = phi i1 [ true, %invoke.cont109 ], [ %cmp115, %invoke.cont113 ]
-  %frombool117 = zext i1 %19 to i8
+  %frombool117 = phi i8 [ 1, %invoke.cont109 ], [ %19, %invoke.cont113 ]
   %20 = load i16, ptr %fUnion2.i, align 8
   %cmp.i.i130 = icmp slt i16 %20, 0
   %21 = ashr i16 %20, 5
@@ -799,11 +795,11 @@ lor.rhs143:                                       ; preds = %invoke.cont140
 
 invoke.cont144:                                   ; preds = %lor.rhs143
   %cmp146 = icmp eq i32 %call141, %call145
+  %27 = zext i1 %cmp146 to i8
   br label %invoke.cont150
 
 invoke.cont150:                                   ; preds = %invoke.cont140, %invoke.cont144
-  %27 = phi i1 [ true, %invoke.cont140 ], [ %cmp146, %invoke.cont144 ]
-  %frombool148 = zext i1 %27 to i8
+  %frombool148 = phi i8 [ 1, %invoke.cont140 ], [ %27, %invoke.cont144 ]
   %28 = load i16, ptr %fUnion.i138, align 8
   %cmp.i.i142 = icmp slt i16 %28, 0
   %29 = ashr i16 %28, 5

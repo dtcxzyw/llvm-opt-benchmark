@@ -2328,14 +2328,14 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %wide.trip.count441 = zext nneg i32 %.val315500 to i64
   br label %59
 
-59:                                               ; preds = %.lr.ph387, %106
-  %indvars.iv438 = phi i64 [ 1, %.lr.ph387 ], [ %indvars.iv.next439, %106 ]
-  %.0241385 = phi i32 [ 0, %.lr.ph387 ], [ %.1242, %106 ]
-  %.0244384 = phi i32 [ 0, %.lr.ph387 ], [ %107, %106 ]
+59:                                               ; preds = %.lr.ph387, %107
+  %indvars.iv438 = phi i64 [ 1, %.lr.ph387 ], [ %indvars.iv.next439, %107 ]
+  %.0241385 = phi i32 [ 0, %.lr.ph387 ], [ %.1242, %107 ]
+  %.0244384 = phi i32 [ 0, %.lr.ph387 ], [ %.3247, %107 ]
   %60 = getelementptr inbounds i32, ptr %.val317.val, i64 %indvars.iv438
   %61 = load i32, ptr %60, align 4
   %.not368 = icmp eq i32 %61, 0
-  br i1 %.not368, label %106, label %.preheader375
+  br i1 %.not368, label %107, label %.preheader375
 
 .preheader375:                                    ; preds = %59
   %62 = sext i32 %61 to i64
@@ -2408,21 +2408,21 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %103 = lshr i32 %101, 16
   %104 = add i32 %103, %.0241385
   %105 = add i32 %104, %102
-  br label %106
+  %106 = freeze i32 %.1245.lcssa
+  br label %107
 
-106:                                              ; preds = %.critedge, %59
-  %.3247 = phi i32 [ %.1245.lcssa, %.critedge ], [ %.0244384, %59 ]
+107:                                              ; preds = %.critedge, %59
+  %.3247 = phi i32 [ %106, %.critedge ], [ %.0244384, %59 ]
   %.1242 = phi i32 [ %105, %.critedge ], [ %.0241385, %59 ]
-  %107 = freeze i32 %.3247
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %exitcond442.not = icmp eq i64 %indvars.iv.next439, %wide.trip.count441
   br i1 %exitcond442.not, label %._crit_edge388, label %59, !llvm.loop !38
 
-._crit_edge388:                                   ; preds = %106, %.thread498
-  %108 = phi ptr [ %34, %.thread498 ], [ %36, %106 ]
-  %109 = phi ptr [ %32, %.thread498 ], [ %37, %106 ]
-  %.0244.lcssa = phi i32 [ 0, %.thread498 ], [ %107, %106 ]
-  %.0241.lcssa = phi i32 [ 0, %.thread498 ], [ %.1242, %106 ]
+._crit_edge388:                                   ; preds = %107, %.thread498
+  %108 = phi ptr [ %34, %.thread498 ], [ %36, %107 ]
+  %109 = phi ptr [ %32, %.thread498 ], [ %37, %107 ]
+  %.0244.lcssa = phi i32 [ 0, %.thread498 ], [ %.3247, %107 ]
+  %.0241.lcssa = phi i32 [ 0, %.thread498 ], [ %.1242, %107 ]
   %110 = tail call i32 @Gia_ManLutFaninCount(ptr noundef %0) #13
   %.not264 = icmp eq i32 %.0244.lcssa, 0
   %111 = sitofp i32 %.0241.lcssa to double

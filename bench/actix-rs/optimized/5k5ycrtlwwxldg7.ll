@@ -8273,9 +8273,9 @@ define hidden void @"_ZN97_$LT$actix_web..resource..Resource$LT$T$GT$$u20$as$u20
   %73 = getelementptr inbounds i8, ptr %72, i64 16
   %74 = load i64, ptr %73, align 8, !noundef !9
   %75 = icmp eq i64 %74, 0
-  br i1 %75, label %81, label %86
+  br i1 %75, label %81, label %87
 
-76:                                               ; preds = %86
+76:                                               ; preds = %87
   %77 = landingpad { ptr, i32 }
           cleanup
   %78 = load i64, ptr %12, align 8, !range !162, !alias.scope !1274, !noundef !9
@@ -8291,41 +8291,41 @@ define hidden void @"_ZN97_$LT$actix_web..resource..Resource$LT$T$GT$$u20$as$u20
   %82 = getelementptr inbounds i8, ptr %72, i64 24
   %83 = load i64, ptr %82, align 8, !range !162, !alias.scope !1277, !noundef !9
   %84 = icmp eq i64 %83, -9223372036854775808
-  br i1 %84, label %91, label %85
+  br i1 %84, label %92, label %85
 
 85:                                               ; preds = %81
   invoke void @"_ZN4core3ptr57drop_in_place$LT$actix_web..resource..ResourceFactory$GT$17hccdc4e33ae435062E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %82)
-          to label %._crit_edge unwind label %87
+          to label %._crit_edge unwind label %88
 
 ._crit_edge:                                      ; preds = %85
   %.pre = load i64, ptr %73, align 8, !noalias !1280
-  br label %91
+  %86 = add i64 %.pre, 1
+  br label %92
 
-86:                                               ; preds = %65
+87:                                               ; preds = %65
   invoke void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.80c6f4cf418dd24648bccdf694554fd7.92) #39
           to label %162 unwind label %76
 
-87:                                               ; preds = %85
-  %88 = landingpad { ptr, i32 }
+88:                                               ; preds = %85
+  %89 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %82, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
-  %89 = load i64, ptr %73, align 8, !noalias !1287, !noundef !9
-  %90 = add i64 %89, 1
-  store i64 %90, ptr %73, align 8, !noalias !1287
+  %90 = load i64, ptr %73, align 8, !noalias !1287, !noundef !9
+  %91 = add i64 %90, 1
+  store i64 %91, ptr %73, align 8, !noalias !1287
   br label %.thread84
 
-91:                                               ; preds = %._crit_edge, %81
-  %92 = phi i64 [ %.pre, %._crit_edge ], [ -1, %81 ]
+92:                                               ; preds = %._crit_edge, %81
+  %93 = phi i64 [ %86, %._crit_edge ], [ 0, %81 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %82, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
-  %93 = add i64 %92, 1
   store i64 %93, ptr %73, align 8, !noalias !1280
   %94 = getelementptr inbounds i8, ptr %0, i64 136
   %.sroa.01.0.copyload = load ptr, ptr %94, align 8
   %95 = icmp eq ptr %.sroa.01.0.copyload, null
   br i1 %95, label %108, label %96
 
-96:                                               ; preds = %91
+96:                                               ; preds = %92
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 144
   %.sroa.4.0..sroa_idx59 = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1294
@@ -8367,8 +8367,8 @@ define hidden void @"_ZN97_$LT$actix_web..resource..Resource$LT$T$GT$$u20$as$u20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !1294
   br label %108
 
-108:                                              ; preds = %107, %91
-  %.0 = phi ptr [ %100, %107 ], [ null, %91 ]
+108:                                              ; preds = %107, %92
+  %.0 = phi ptr [ %100, %107 ], [ null, %92 ]
   %109 = getelementptr inbounds i8, ptr %0, i64 104
   %110 = load ptr, ptr %109, align 8, !nonnull !9, !noundef !9
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %11)
@@ -8526,13 +8526,13 @@ define hidden void @"_ZN97_$LT$actix_web..resource..Resource$LT$T$GT$$u20$as$u20
   %.pn37.pn.pn = phi { ptr, i32 } [ %.pn37.pn71108, %178 ], [ %.pn35, %141 ]
   resume { ptr, i32 } %.pn37.pn.pn
 
-162:                                              ; preds = %86
+162:                                              ; preds = %87
   unreachable
 
-.thread84:                                        ; preds = %76, %80, %87, %103, %.thread90
-  %.pn3783 = phi { ptr, i32 } [ %64, %.thread90 ], [ %104, %103 ], [ %88, %87 ], [ %77, %80 ], [ %77, %76 ]
-  %.282 = phi i1 [ true, %.thread90 ], [ false, %103 ], [ false, %87 ], [ false, %80 ], [ false, %76 ]
-  %.23379 = phi i1 [ true, %.thread90 ], [ false, %103 ], [ true, %87 ], [ true, %80 ], [ true, %76 ]
+.thread84:                                        ; preds = %76, %80, %88, %103, %.thread90
+  %.pn3783 = phi { ptr, i32 } [ %64, %.thread90 ], [ %104, %103 ], [ %89, %88 ], [ %77, %80 ], [ %77, %76 ]
+  %.282 = phi i1 [ true, %.thread90 ], [ false, %103 ], [ false, %88 ], [ false, %80 ], [ false, %76 ]
+  %.23379 = phi i1 [ true, %.thread90 ], [ false, %103 ], [ true, %88 ], [ true, %80 ], [ true, %76 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..ResourceDef$GT$17h74b01eda1e495ad6E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %16) #36
           to label %.thread98 unwind label %159
 

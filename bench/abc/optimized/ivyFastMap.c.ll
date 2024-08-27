@@ -1481,18 +1481,19 @@ define internal fastcc void @Ivy_FastMapRequired(ptr nocapture noundef readonly 
   %119 = load i16, ptr %103, align 2
   %120 = sext i16 %119 to i32
   %121 = add nsw i32 %120, -1
-  %. = tail call i32 @llvm.smin.i32(i32 %121, i32 %118)
-  %122 = trunc i32 %. to i16
-  store i16 %122, ptr %116, align 2
-  %123 = getelementptr inbounds i8, ptr %115, i64 4
-  %124 = load i32, ptr %123, align 4
-  %125 = add nsw i32 %124, 1
-  store i32 %125, ptr %123, align 4
+  %122 = icmp sgt i32 %121, %118
+  %123 = trunc i32 %121 to i16
+  %124 = select i1 %122, i16 %117, i16 %123
+  store i16 %124, ptr %116, align 2
+  %125 = getelementptr inbounds i8, ptr %115, i64 4
+  %126 = load i32, ptr %125, align 4
+  %127 = add nsw i32 %126, 1
+  store i32 %127, ptr %125, align 4
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %126 = load i8, ptr %99, align 4
-  %127 = sext i8 %126 to i64
-  %128 = icmp slt i64 %indvars.iv.next154, %127
-  br i1 %128, label %104, label %._crit_edge.loopexit, !llvm.loop !17
+  %128 = load i8, ptr %99, align 4
+  %129 = sext i8 %128 to i64
+  %130 = icmp slt i64 %indvars.iv.next154, %129
+  br i1 %130, label %104, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %104
   %.val.pre = load i32, ptr %89, align 4
@@ -1501,9 +1502,9 @@ define internal fastcc void @Ivy_FastMapRequired(ptr nocapture noundef readonly 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %92
   %.val = phi i32 [ %.val.pre, %._crit_edge.loopexit ], [ %.val162, %92 ]
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %129 = sext i32 %.val to i64
-  %130 = icmp slt i64 %indvars.iv.next157, %129
-  br i1 %130, label %92, label %.critedge8.loopexit, !llvm.loop !18
+  %131 = sext i32 %.val to i64
+  %132 = icmp slt i64 %indvars.iv.next157, %131
+  br i1 %132, label %92, label %.critedge8.loopexit, !llvm.loop !18
 
 .critedge14:                                      ; preds = %.critedge8.loopexit, %.critedge4
   ret void
@@ -4452,8 +4453,8 @@ define void @Ivy_FastMapNodeRecover4(ptr noundef %0, ptr nocapture noundef %1, i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %17, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %17
-  %27 = trunc i32 %.0..i to i16
-  %28 = add i16 %27, 1
+  %27 = trunc nuw nsw i32 %.0..i to i16
+  %28 = add nuw i16 %27, 1
   br label %Ivy_FastMapNodeDelay.exit
 
 Ivy_FastMapNodeDelay.exit:                        ; preds = %5, %._crit_edge.loopexit.i

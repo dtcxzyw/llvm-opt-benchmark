@@ -1001,8 +1001,8 @@ entry:
   %1 = load i32, ptr %pctx, align 8
   %cmp = icmp eq i32 %1, 0
   %spec.select = select i1 %cmp, i32 -1, i32 %1
-  %cmp2.not24 = icmp eq ptr %params, null
-  br i1 %cmp2.not24, label %return, label %land.rhs.lr.ph
+  %cmp2.not28 = icmp eq ptr %params, null
+  br i1 %cmp2.not28, label %return, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
   %keytype2 = getelementptr inbounds i8, ptr %tmpl, i64 8
@@ -1017,18 +1017,18 @@ land.rhs.lr.ph:                                   ; preds = %entry
   %allocated_buf.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %2 = getelementptr inbounds i8, ptr %tmpl, i64 16
   %3 = load ptr, ptr %params, align 8
-  %cmp3.not28 = icmp eq ptr %3, null
-  br i1 %cmp3.not28, label %return, label %for.body
+  %cmp3.not32 = icmp eq ptr %3, null
+  br i1 %cmp3.not32, label %return, label %for.body
 
 land.rhs:                                         ; preds = %cleanup_translation_ctx.exit
-  %incdec.ptr = getelementptr inbounds i8, ptr %params.addr.02529, i64 40
+  %incdec.ptr = getelementptr inbounds i8, ptr %params.addr.02933, i64 40
   %4 = load ptr, ptr %incdec.ptr, align 8
   %cmp3.not = icmp eq ptr %4, null
   br i1 %cmp3.not, label %return, label %for.body
 
 for.body:                                         ; preds = %land.rhs.lr.ph, %land.rhs
   %5 = phi ptr [ %4, %land.rhs ], [ %3, %land.rhs.lr.ph ]
-  %params.addr.02529 = phi ptr [ %incdec.ptr, %land.rhs ], [ %params, %land.rhs.lr.ph ]
+  %params.addr.02933 = phi ptr [ %incdec.ptr, %land.rhs ], [ %params, %land.rhs.lr.ph ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %ctx, i8 0, i64 144, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 48, i1 false)
   store i32 %action_type, ptr %tmpl, align 8
@@ -1055,7 +1055,7 @@ if.then:                                          ; preds = %for.body
 if.end13:                                         ; preds = %if.then, %for.body
   %fixup.0 = phi ptr [ %spec.select23, %if.then ], [ @default_fixup_args, %for.body ]
   store ptr %pctx, ptr %ctx, align 8
-  store ptr %params.addr.02529, ptr %params15, align 8
+  store ptr %params.addr.02933, ptr %params15, align 8
   %call16 = call i32 %fixup.0(i32 noundef 7, ptr noundef %call.i, ptr noundef nonnull %ctx) #8
   %cmp17 = icmp sgt i32 %call16, 0
   %9 = load i32, ptr %action_type12, align 8
@@ -1073,31 +1073,36 @@ if.then20:                                        ; preds = %if.end13
 if.end23:                                         ; preds = %if.then20, %if.end13
   %ret.0 = phi i32 [ %call22, %if.then20 ], [ %call16, %if.end13 ]
   %cmp24 = icmp sgt i32 %ret.0, 0
-  br i1 %cmp24, label %if.then25, label %if.end29
+  br i1 %cmp24, label %if.then25, label %if.then32.critedge
 
 if.then25:                                        ; preds = %if.end23
   store i32 %ret.0, ptr %p1, align 4
   %call27 = call i32 %fixup.0(i32 noundef 8, ptr noundef %call.i, ptr noundef nonnull %ctx) #8
   %13 = load i32, ptr %p1, align 4
-  br label %if.end29
-
-if.end29:                                         ; preds = %if.then25, %if.end23
-  %ret.1 = phi i32 [ %13, %if.then25 ], [ %ret.0, %if.end23 ]
-  %14 = load ptr, ptr %allocated_buf.i, align 8
-  %cmp.not.i = icmp eq ptr %14, null
+  %14 = icmp slt i32 %13, 1
+  %15 = load ptr, ptr %allocated_buf.i, align 8
+  %cmp.not.i = icmp eq ptr %15, null
   br i1 %cmp.not.i, label %cleanup_translation_ctx.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %if.end29
-  call void @CRYPTO_free(ptr noundef nonnull %14, ptr noundef nonnull @.str, i32 noundef 713) #8
+if.then.i:                                        ; preds = %if.then25
+  call void @CRYPTO_free(ptr noundef nonnull %15, ptr noundef nonnull @.str, i32 noundef 713) #8
   br label %cleanup_translation_ctx.exit
 
-cleanup_translation_ctx.exit:                     ; preds = %if.end29, %if.then.i
+cleanup_translation_ctx.exit:                     ; preds = %if.then25, %if.then.i
   store ptr null, ptr %allocated_buf.i, align 8
-  %cmp31 = icmp slt i32 %ret.1, 1
-  br i1 %cmp31, label %return, label %land.rhs
+  br i1 %14, label %return, label %land.rhs
 
-return:                                           ; preds = %land.rhs, %cleanup_translation_ctx.exit, %land.rhs.lr.ph, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 1, %land.rhs.lr.ph ], [ 0, %cleanup_translation_ctx.exit ], [ 1, %land.rhs ]
+if.then32.critedge:                               ; preds = %if.end23
+  %16 = load ptr, ptr %allocated_buf.i, align 8
+  %cmp.not.i25 = icmp eq ptr %16, null
+  br i1 %cmp.not.i25, label %return, label %if.then.i26
+
+if.then.i26:                                      ; preds = %if.then32.critedge
+  call void @CRYPTO_free(ptr noundef nonnull %16, ptr noundef nonnull @.str, i32 noundef 713) #8
+  br label %return
+
+return:                                           ; preds = %land.rhs, %cleanup_translation_ctx.exit, %land.rhs.lr.ph, %if.then.i26, %if.then32.critedge, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.then32.critedge ], [ 0, %if.then.i26 ], [ 1, %land.rhs.lr.ph ], [ 0, %cleanup_translation_ctx.exit ], [ 1, %land.rhs ]
   ret i32 %retval.0
 }
 

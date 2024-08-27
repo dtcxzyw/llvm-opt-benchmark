@@ -1140,15 +1140,18 @@ define noundef ptr @cuddInitTable(i32 noundef %0, i32 noundef %1, i32 noundef %2
   %120 = load i32, ptr %90, align 8
   %121 = sext i32 %120 to i64
   %122 = icmp slt i64 %indvars.iv.next, %121
-  br i1 %122, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %122, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader566
-  %.lcssa = phi i32 [ -2147483648, %.preheader566 ], [ %120, %.lr.ph ]
-  %123 = getelementptr inbounds i8, ptr %5, i64 428
-  store i32 0, ptr %123, align 4
-  %124 = add nsw i32 %.lcssa, -1
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %123 = add nsw i32 %120, -1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader566
+  %.lcssa = phi i32 [ 2147483647, %.preheader566 ], [ %123, %._crit_edge.loopexit ]
+  %124 = getelementptr inbounds i8, ptr %5, i64 428
+  store i32 0, ptr %124, align 4
   %125 = getelementptr inbounds i8, ptr %5, i64 432
-  store i32 %124, ptr %125, align 8
+  store i32 %.lcssa, ptr %125, align 8
   %.not602 = icmp eq i32 %0, 0
   br i1 %.not602, label %.preheader564, label %.lr.ph575
 

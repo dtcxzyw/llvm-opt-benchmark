@@ -840,18 +840,18 @@ define void @AddCubesToStartingCover(ptr nocapture noundef readonly %0) local_un
   %.neg.i.i = sdiv i32 %.val.i, -2
   %77 = add i32 %.0.lcssa.i, %.neg.i.i
   %78 = mul i32 %.val.i, 12
-  %79 = add i32 %78, -28
+  %79 = add i32 %78, 65508
   %80 = icmp sgt i32 %77, 0
   %81 = shl nuw nsw i32 %77, 1
   %82 = select i1 %80, i32 %81, i32 0
-  %83 = add nsw i32 %79, %82
+  %83 = add i32 %79, %82
+  %84 = trunc i32 %83 to i16
   br label %ComputeQCost.exit
 
 ComputeQCost.exit:                                ; preds = %.critedge.i, %66, %67, %68, %70, %72, %74, %75, %76
-  %.0.i.i = phi i32 [ 2, %67 ], [ 18, %75 ], [ %83, %76 ], [ 1, %.critedge.i ], [ 1, %66 ], [ 5, %68 ], [ 6, %70 ], [ 14, %72 ], [ 16, %74 ]
-  %84 = trunc i32 %.0.i.i to i16
+  %.0.i.i = phi i16 [ 2, %67 ], [ 18, %75 ], [ %84, %76 ], [ 1, %.critedge.i ], [ 1, %66 ], [ 5, %68 ], [ 6, %70 ], [ 14, %72 ], [ 16, %74 ]
   %85 = getelementptr inbounds i8, ptr %36, i64 6
-  store i16 %84, ptr %85, align 2
+  store i16 %.0.i.i, ptr %85, align 2
   %86 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 48), align 8
   %87 = add nsw i32 %86, 1
   store i32 %87, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 48), align 8

@@ -95,8 +95,6 @@ $_ZTV22EmptyAlignmentSolution = comdat any
 
 @UseSubwordForMaxVector = external local_unnamed_addr global i8, align 1
 @LoopMaxUnroll = external local_unnamed_addr global i64, align 8
-@.str.9 = private unnamed_addr constant [58 x i8] c"found dependency between nodes at distance greater than 1\00", align 1
-@.str.11 = private unnamed_addr constant [55 x i8] c"rejected by AlignVector (strict alignment requirement)\00", align 1
 @UseVectorCmov = external local_unnamed_addr global i8, align 1
 @SuperWordLoopUnrollAnalysis = external local_unnamed_addr global i8, align 1
 @.str.16 = private unnamed_addr constant [26 x i8] c"encontered unhandled node\00", align 1
@@ -129,7 +127,6 @@ $_ZTV22EmptyAlignmentSolution = comdat any
 @_ZTV8AndINode = external unnamed_addr constant { [33 x ptr] }, align 8
 @_ZTV8MinINode = external unnamed_addr constant { [31 x ptr] }, align 8
 @_ZTV8MaxINode = external unnamed_addr constant { [31 x ptr] }, align 8
-@.str.28 = private unnamed_addr constant [10 x i8] c"unchanged\00", align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 @_ZN9SuperWordC1ERK13VLoopAnalyzer = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN9SuperWordC2ERK13VLoopAnalyzer
@@ -3365,13 +3362,13 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i: ; preds = %.lr.ph.i.i
 "_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.exit.i.i.i": ; preds = %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i, %.lr.ph.i.i
   %32 = getelementptr inbounds i8, ptr %.val.val.i.i.i, i64 304
   %33 = tail call noundef zeroext i1 @_ZNK20VLoopDependencyGraph20mutually_independentEPK9Node_List(ptr noundef nonnull align 8 dereferenceable(88) %32, ptr noundef nonnull readonly %15)
-  %spec.select.i = select i1 %33, { i64, ptr } { i64 0, ptr @.str.28 }, { i64, ptr } { i64 1, ptr @.str.9 }
+  %not. = xor i1 %33, true
+  %34 = zext i1 %not. to i64
   br label %"_ZZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_ENKUlPK9Node_ListE_clES8_.exit.i.i"
 
 "_ZZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_ENKUlPK9Node_ListE_clES8_.exit.i.i": ; preds = %"_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.exit.i.i.i", %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i
-  %.pn.i.i.i = phi { i64, ptr } [ { i64 0, ptr @.str.28 }, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i ], [ %spec.select.i, %"_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.exit.i.i.i" ]
-  %34 = extractvalue { i64, ptr } %.pn.i.i.i, 0
-  call void @_ZN7PackSet10split_packEPKcP9Node_List9SplitTask(ptr dead_on_unwind nonnull writable sret(%class.SplitStatus) align 8 %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr nonnull poison, ptr noundef nonnull %15, i64 %34, ptr poison)
+  %.pn.i.i.i = phi i64 [ 0, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i ], [ %34, %"_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.exit.i.i.i" ]
+  call void @_ZN7PackSet10split_packEPKcP9Node_List9SplitTask(ptr dead_on_unwind nonnull writable sret(%class.SplitStatus) align 8 %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr nonnull poison, ptr noundef nonnull %15, i64 %.pn.i.i.i, ptr poison)
   %35 = load i32, ptr %2, align 8
   %36 = icmp ne i32 %35, 0
   %37 = or i1 %.07.i.i, %36
@@ -3727,14 +3724,13 @@ _ZN9SuperWord23pack_alignment_solutionEPK9Node_List.exit.i.i: ; preds = %110, %_
   %135 = load ptr, ptr %134, align 8
   %136 = call noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(8) %133) #12
   %spec.select = select i1 %136, ptr %.123, ptr %133
-  %spec.select37 = select i1 %136, { i64, ptr } { i64 1, ptr @.str.11 }, { i64, ptr } { i64 0, ptr @.str.28 }
+  %137 = zext i1 %136 to i64
   br label %"_ZZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_ENKUlPK9Node_ListE_clES8_.exit.i.i"
 
 "_ZZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_ENKUlPK9Node_ListE_clES8_.exit.i.i": ; preds = %_ZN9SuperWord23pack_alignment_solutionEPK9Node_List.exit.i.i, %.lr.ph.i.i
   %.224 = phi ptr [ %.123, %.lr.ph.i.i ], [ %spec.select, %_ZN9SuperWord23pack_alignment_solutionEPK9Node_List.exit.i.i ]
-  %.pn.i.i.i = phi { i64, ptr } [ { i64 0, ptr @.str.28 }, %.lr.ph.i.i ], [ %spec.select37, %_ZN9SuperWord23pack_alignment_solutionEPK9Node_List.exit.i.i ]
-  %137 = extractvalue { i64, ptr } %.pn.i.i.i, 0
-  call void @_ZN7PackSet10split_packEPKcP9Node_List9SplitTask(ptr dead_on_unwind nonnull writable sret(%class.SplitStatus) align 8 %3, ptr noundef nonnull align 8 dereferenceable(64) %20, ptr nonnull poison, ptr noundef nonnull %45, i64 %137, ptr poison)
+  %.pn.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %137, %_ZN9SuperWord23pack_alignment_solutionEPK9Node_List.exit.i.i ]
+  call void @_ZN7PackSet10split_packEPKcP9Node_List9SplitTask(ptr dead_on_unwind nonnull writable sret(%class.SplitStatus) align 8 %3, ptr noundef nonnull align 8 dereferenceable(64) %20, ptr nonnull poison, ptr noundef nonnull %45, i64 %.pn.i.i.i, ptr poison)
   %138 = load i32, ptr %3, align 8
   %139 = icmp ne i32 %138, 0
   %140 = or i1 %.07.i.i, %139

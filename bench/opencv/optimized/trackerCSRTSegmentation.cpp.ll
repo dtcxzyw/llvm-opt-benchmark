@@ -408,19 +408,22 @@ _ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc81
   %113 = add nsw i32 %112, %.06899
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
-  br i1 %exitcond135.not, label %._crit_edge102, label %101, !llvm.loop !9
+  br i1 %exitcond135.not, label %._crit_edge102.loopexit, label %101, !llvm.loop !9
 
-._crit_edge102:                                   ; preds = %101, %.preheader
-  %.068.lcssa = phi i32 [ 0, %.preheader ], [ %113, %101 ]
-  %114 = getelementptr inbounds double, ptr %97, i64 %indvars.iv136
-  %115 = load double, ptr %114, align 8
-  %116 = sext i32 %.068.lcssa to i64
+._crit_edge102.loopexit:                          ; preds = %101
+  %114 = sext i32 %113 to i64
+  br label %._crit_edge102
+
+._crit_edge102:                                   ; preds = %._crit_edge102.loopexit, %.preheader
+  %.068.lcssa = phi i64 [ 0, %.preheader ], [ %114, %._crit_edge102.loopexit ]
+  %115 = getelementptr inbounds double, ptr %97, i64 %indvars.iv136
+  %116 = load double, ptr %115, align 8
   %117 = load ptr, ptr %68, align 8
-  %118 = getelementptr inbounds double, ptr %117, i64 %116
+  %118 = getelementptr inbounds double, ptr %117, i64 %.068.lcssa
   %119 = load double, ptr %118, align 8
-  %120 = fadd double %115, %119
+  %120 = fadd double %116, %119
   store double %120, ptr %118, align 8
-  %121 = load double, ptr %114, align 8
+  %121 = load double, ptr %115, align 8
   %122 = fadd double %.1104, %121
   %indvars.iv.next137 = add nsw i64 %indvars.iv136, 1
   %lftr.wideiv139 = trunc i64 %indvars.iv.next137 to i32
@@ -557,11 +560,14 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge64.
   %or.cond48.us = or i1 %.not46.us, %or.cond47.us
   br i1 %or.cond48.us, label %.preheader.us, label %44
 
-._crit_edge.us:                                   ; preds = %45, %.preheader.us
-  %.039.lcssa.us = phi i32 [ 0, %.preheader.us ], [ %57, %45 ]
-  %38 = sext i32 %.039.lcssa.us to i64
+._crit_edge.us.loopexit:                          ; preds = %45
+  %38 = sext i32 %57 to i64
+  br label %._crit_edge.us
+
+._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit, %.preheader.us
+  %.039.lcssa.us = phi i64 [ 0, %.preheader.us ], [ %38, %._crit_edge.us.loopexit ]
   %39 = load ptr, ptr %18, align 8
-  %40 = getelementptr inbounds double, ptr %39, i64 %38
+  %40 = getelementptr inbounds double, ptr %39, i64 %.039.lcssa.us
   %41 = load double, ptr %40, align 8
   %42 = fadd double %41, 1.000000e+00
   store double %42, ptr %40, align 8
@@ -591,7 +597,7 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge64.
   %57 = add nsw i32 %56, %.03958.us
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
-  br i1 %exitcond92.not, label %._crit_edge.us, label %45, !llvm.loop !15
+  br i1 %exitcond92.not, label %._crit_edge.us.loopexit, label %45, !llvm.loop !15
 
 58:                                               ; preds = %.lr.ph.us, %58
   %indvars.iv82 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next83, %58 ]
@@ -809,13 +815,16 @@ _ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc33
   %64 = add nsw i32 %63, %.02941
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %._crit_edge, label %52, !llvm.loop !19
+  br i1 %exitcond55.not, label %._crit_edge.loopexit, label %52, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %52, %.preheader
-  %.029.lcssa = phi i32 [ 0, %.preheader ], [ %64, %52 ]
-  %65 = sext i32 %.029.lcssa to i64
+._crit_edge.loopexit:                             ; preds = %52
+  %65 = sext i32 %64 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.029.lcssa = phi i64 [ 0, %.preheader ], [ %65, %._crit_edge.loopexit ]
   %66 = load ptr, ptr %18, align 8
-  %67 = getelementptr inbounds double, ptr %66, i64 %65
+  %67 = getelementptr inbounds double, ptr %66, i64 %.029.lcssa
   %68 = load double, ptr %67, align 8
   %69 = getelementptr inbounds double, ptr %24, i64 %indvars.iv56
   store double %68, ptr %69, align 8

@@ -1605,6 +1605,7 @@ define dso_local noundef zeroext i1 @_ZN4Json6Reader10readObjectERNS0_5TokenE(pt
   switch i32 %49, label %.loopexit50 [
     i32 12, label %50
     i32 2, label %54
+    i32 5, label %.loopexit50.loopexit69
   ]
 
 50:                                               ; preds = %.preheader
@@ -1650,15 +1651,18 @@ define dso_local noundef zeroext i1 @_ZN4Json6Reader10readObjectERNS0_5TokenE(pt
   %55 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #41
   br i1 %55, label %.loopexit47, label %.loopexit50
 
-.loopexit50:                                      ; preds = %.preheader, %54
-  %56 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str)
-          to label %57 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+.loopexit50.loopexit69:                           ; preds = %.preheader
+  br label %.loopexit50
 
-57:                                               ; preds = %.loopexit50
-  %58 = icmp eq i32 %49, 5
-  br i1 %58, label %59, label %201
+.loopexit50:                                      ; preds = %.preheader, %.loopexit50.loopexit69, %54
+  %56 = phi i1 [ false, %54 ], [ true, %.loopexit50.loopexit69 ], [ false, %.preheader ]
+  %57 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str)
+          to label %58 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-59:                                               ; preds = %57
+58:                                               ; preds = %.loopexit50
+  br i1 %56, label %59, label %201
+
+59:                                               ; preds = %58
   %60 = invoke noundef zeroext i1 @_ZN4Json6Reader12decodeStringERNS0_5TokenERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(267) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %61 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1946,7 +1950,7 @@ _ZN4Json6Reader16recoverFromErrorENS0_9TokenTypeE.exit41: ; preds = %164
   %200 = invoke noundef zeroext i1 @_ZN4Json6Reader9readTokenERNS0_5TokenE(ptr noundef nonnull align 8 dereferenceable(267) %0, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %197 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !40
 
-201:                                              ; preds = %57
+201:                                              ; preds = %58
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #41
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %16)
           to label %202 unwind label %205

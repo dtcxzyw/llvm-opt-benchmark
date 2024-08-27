@@ -3691,7 +3691,7 @@ if.end6:                                          ; preds = %if.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %3 = load ptr, ptr %prop, align 8, !noalias !37
   %tobool.not.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i, label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit.thread80, label %if.then.i
+  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end6
   store ptr %3, ptr %propGP, align 8, !alias.scope !37
@@ -3706,7 +3706,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !37
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.i.not.i.i.i.i.i, label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit, label %if.then.i.i.i.i.i.i
+  br i1 %tobool.i.not.i.i.i.i.i, label %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   %6 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !37
@@ -3714,17 +3714,17 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !37
   br label %if.end13
 
-_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit.thread80: ; preds = %if.end6
+if.end.i:                                         ; preds = %if.end6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %propGP, i8 0, i64 16, i1 false), !alias.scope !37
   br label %if.then8
 
-_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit: ; preds = %if.then.i.i.i.i
+_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split: ; preds = %if.then.i.i.i.i
   %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !37
   %.pr.pre = load ptr, ptr %propGP, align 8
-  %cmp.i.not = icmp eq ptr %.pr.pre, null
-  br i1 %cmp.i.not, label %if.then8, label %if.end13
+  %8 = icmp eq ptr %.pr.pre, null
+  br i1 %8, label %if.then8, label %if.end13
 
-if.then8:                                         ; preds = %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit.thread80, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit
+if.then8:                                         ; preds = %if.end.i, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split
   %exception9 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception9, ptr noundef nonnull @.str.5)
           to label %invoke.cont11 unwind label %lpad10
@@ -3734,18 +3734,18 @@ invoke.cont11:                                    ; preds = %if.then8
           to label %unreachable unwind label %lpad12
 
 lpad10:                                           ; preds = %if.then8
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception9) #14
   br label %ehcleanup
 
 lpad12:                                           ; preds = %invoke.cont11
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-if.end13:                                         ; preds = %if.then.i, %if.then.i.i.i.i.i.i, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit
-  %10 = phi ptr [ %.pr.pre, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exit ], [ %3, %if.then.i.i.i.i.i.i ], [ %3, %if.then.i ]
+if.end13:                                         ; preds = %if.then.i, %if.then.i.i.i.i.i.i, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split
+  %.pr80 = phi ptr [ %.pr.pre, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split ], [ %3, %if.then.i.i.i.i.i.i ], [ %3, %if.then.i ]
   %11 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val = load ptr, ptr %11, align 8, !noalias !40
   %12 = getelementptr inbounds i8, ptr %this, i64 16
@@ -3780,13 +3780,12 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i, %dynamic_cast.end.i.i.i, %if.end13
-  %18 = phi ptr [ %10, %if.then.i.i.i ], [ %.pre, %if.else.i.i.i.i.i.i.i.i ], [ %10, %if.then.i.i.i.i.i.i.i.i ], [ %10, %dynamic_cast.end.i.i.i ], [ %10, %if.end13 ]
+  %18 = phi ptr [ %.pr80, %if.then.i.i.i ], [ %.pre, %if.else.i.i.i.i.i.i.i.i ], [ %.pr80, %if.then.i.i.i.i.i.i.i.i ], [ %.pr80, %dynamic_cast.end.i.i.i ], [ %.pr80, %if.end13 ]
   %ref.tmp.sroa.0.0 = phi ptr [ %14, %if.then.i.i.i ], [ %14, %if.else.i.i.i.i.i.i.i.i ], [ %14, %if.then.i.i.i.i.i.i.i.i ], [ null, %dynamic_cast.end.i.i.i ], [ null, %if.end13 ]
   %ref.tmp.sroa.3.0 = phi ptr [ null, %if.then.i.i.i ], [ %this.val4, %if.else.i.i.i.i.i.i.i.i ], [ %this.val4, %if.then.i.i.i.i.i.i.i.i ], [ null, %dynamic_cast.end.i.i.i ], [ null, %if.end13 ]
   store ptr %18, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %propGP, i64 8
-  %19 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %19 = load ptr, ptr %_M_refcount.i.i.i, align 8
   store ptr %19, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEEC2ERKS2_.exit, label %if.then.i.i.i6
@@ -3954,7 +3953,7 @@ if.end8.sink.split.i.i.i.i37:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev20GradingPrimaryOpDataEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i34, %if.end8.sink.split.i.i.i.i37
-  %44 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %44 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i47 = icmp eq ptr %44, null
   br i1 %cmp.not.i.i.i47, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit77, label %if.then.i.i.i48
 
@@ -4030,7 +4029,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2E
   ret void
 
 ehcleanup:                                        ; preds = %lpad12, %lpad10
-  %.pn = phi { ptr, i32 } [ %9, %lpad12 ], [ %8, %lpad10 ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad12 ], [ %9, %lpad10 ]
   call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %propGP) #14
   br label %eh.resume
 

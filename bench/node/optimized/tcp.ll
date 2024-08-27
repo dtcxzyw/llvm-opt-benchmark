@@ -347,46 +347,44 @@ entry:
   %ifa = alloca ptr, align 8
   %call = call i32 @getifaddrs(ptr noundef nonnull %ifa) #7
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %for.cond, label %return
+  br i1 %tobool.not, label %for.cond.preheader, label %return
 
-for.cond:                                         ; preds = %entry, %uv__is_ipv6_link_local.exit
-  %p.0.in = phi ptr [ %p.0, %uv__is_ipv6_link_local.exit ], [ %ifa, %entry ]
-  %p.0 = load ptr, ptr %p.0.in, align 8
-  %cmp.not = icmp eq ptr %p.0, null
-  br i1 %cmp.not, label %if.end8, label %for.body
+for.cond.preheader:                               ; preds = %entry
+  %p.05 = load ptr, ptr %ifa, align 8
+  %cmp.not6 = icmp eq ptr %p.05, null
+  br i1 %cmp.not6, label %if.end8, label %for.body
 
-for.body:                                         ; preds = %for.cond
-  %ifa_addr = getelementptr inbounds i8, ptr %p.0, i64 24
+for.body:                                         ; preds = %for.cond.preheader, %for.cond.backedge
+  %p.07 = phi ptr [ %p.0, %for.cond.backedge ], [ %p.05, %for.cond.preheader ]
+  %ifa_addr = getelementptr inbounds i8, ptr %p.07, i64 24
   %0 = load ptr, ptr %ifa_addr, align 8
   %1 = load i16, ptr %0, align 2
   %cmp.not.i = icmp eq i16 %1, 10
-  br i1 %cmp.not.i, label %if.end.i, label %uv__is_ipv6_link_local.exit
+  br i1 %cmp.not.i, label %if.end.i, label %for.cond.backedge
 
 if.end.i:                                         ; preds = %for.body
   %sin6_addr.i = getelementptr inbounds i8, ptr %0, i64 8
   %b.sroa.0.0.copyload.i = load i8, ptr %sin6_addr.i, align 4
   %b.sroa.2.0.sin6_addr.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 9
   %b.sroa.2.0.copyload.i = load i8, ptr %b.sroa.2.0.sin6_addr.sroa_idx.i, align 1
-  %cmp3.i = icmp eq i8 %b.sroa.0.0.copyload.i, -2
-  %cmp7.i = icmp eq i8 %b.sroa.2.0.copyload.i, -128
-  %2 = select i1 %cmp3.i, i1 %cmp7.i, i1 false
-  %land.ext.i = zext i1 %2 to i32
-  br label %uv__is_ipv6_link_local.exit
+  %cmp3.i = icmp ne i8 %b.sroa.0.0.copyload.i, -2
+  %cmp7.i = icmp ne i8 %b.sroa.2.0.copyload.i, -128
+  %.not = select i1 %cmp3.i, i1 true, i1 %cmp7.i
+  br i1 %.not, label %for.cond.backedge, label %if.then6
 
-uv__is_ipv6_link_local.exit:                      ; preds = %for.body, %if.end.i
-  %retval.0.i = phi i32 [ %land.ext.i, %if.end.i ], [ 0, %for.body ]
-  %tobool2.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool2.not, label %for.cond, label %if.then6
+for.cond.backedge:                                ; preds = %if.end.i, %for.body
+  %p.0 = load ptr, ptr %p.07, align 8
+  %cmp.not = icmp eq ptr %p.0, null
+  br i1 %cmp.not, label %if.end8, label %for.body
 
-if.then6:                                         ; preds = %uv__is_ipv6_link_local.exit
+if.then6:                                         ; preds = %if.end.i
   %sin6_scope_id = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = load i32, ptr %sin6_scope_id, align 4
+  %2 = load i32, ptr %sin6_scope_id, align 4
   br label %if.end8
 
-if.end8:                                          ; preds = %for.cond, %if.then6
-  %rv.0 = phi i32 [ %3, %if.then6 ], [ 0, %for.cond ]
-  %4 = load ptr, ptr %ifa, align 8
-  call void @freeifaddrs(ptr noundef %4) #7
+if.end8:                                          ; preds = %for.cond.backedge, %for.cond.preheader, %if.then6
+  %rv.0 = phi i32 [ %2, %if.then6 ], [ 0, %for.cond.preheader ], [ 0, %for.cond.backedge ]
+  call void @freeifaddrs(ptr noundef %p.05) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end8

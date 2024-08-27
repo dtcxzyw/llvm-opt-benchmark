@@ -4512,13 +4512,13 @@ _ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc.exit1482: ; preds = %364
 
 2091:                                             ; preds = %2089
   %2092 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %7, ptr %.014871541, ptr nonnull %.01443.ptr1548, i32 %2090)
-  switch i32 %2092, label %2102 [
+  switch i32 %2092, label %2103 [
     i32 0, label %2093
     i32 -1, label %2094
   ]
 
 2093:                                             ; preds = %2091
-  br label %2102
+  br label %2103
 
 2094:                                             ; preds = %2091
   %.not1472 = icmp eq ptr %.014871541, %6
@@ -4532,24 +4532,24 @@ _ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc.exit1482: ; preds = %364
   %2097 = load i64, ptr %7, align 8
   %2098 = call noalias ptr @malloc(i64 noundef %2097) #14
   %.not1473 = icmp eq ptr %2098, null
-  br i1 %.not1473, label %2101, label %2099
+  br i1 %.not1473, label %2102, label %2099
 
 2099:                                             ; preds = %2096
   %2100 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %7, ptr nonnull %2098, ptr nonnull %.01443.ptr1548, i32 %2090)
-  br label %2102
+  %2101 = icmp eq i32 %2100, -2
+  br label %2103
 
-2101:                                             ; preds = %2096
+2102:                                             ; preds = %2096
   store i64 128, ptr %7, align 8
-  br label %2102
+  br label %2103
 
-2102:                                             ; preds = %2091, %2101, %2099, %2093
-  %.51492 = phi ptr [ %.014871541, %2091 ], [ %6, %2101 ], [ %2098, %2099 ], [ %.014871541, %2093 ]
-  %.01421 = phi ptr [ @.str.2, %2091 ], [ @.str.2, %2101 ], [ %2098, %2099 ], [ %.014871541, %2093 ]
-  %.0 = phi i32 [ -2, %2091 ], [ -2, %2101 ], [ %2100, %2099 ], [ 0, %2093 ]
-  %2103 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(248) %2103, ptr noundef %.01421)
-  %2104 = icmp eq i32 %.0, -2
-  br i1 %2104, label %2131, label %.thread
+2103:                                             ; preds = %2091, %2102, %2099, %2093
+  %.51492 = phi ptr [ %.014871541, %2091 ], [ %6, %2102 ], [ %2098, %2099 ], [ %.014871541, %2093 ]
+  %.01421 = phi ptr [ @.str.2, %2091 ], [ @.str.2, %2102 ], [ %2098, %2099 ], [ %.014871541, %2093 ]
+  %.0 = phi i1 [ true, %2091 ], [ true, %2102 ], [ %2101, %2099 ], [ false, %2093 ]
+  %2104 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(248) %2104, ptr noundef %.01421)
+  br i1 %.0, label %2131, label %.thread
 
 2105:                                             ; preds = %2089
   %2106 = icmp slt i32 %.3, 1
@@ -4559,9 +4559,9 @@ _ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc.exit1482: ; preds = %364
   %2108 = icmp eq i32 %.3, 0
   br i1 %2108, label %.thread1512, label %.thread
 
-.thread:                                          ; preds = %2089, %2102, %2105, %26, %2107
-  %.31490 = phi ptr [ %.014871541, %2107 ], [ %.014871541, %26 ], [ %.014871541, %2105 ], [ %.51492, %2102 ], [ %.014871541, %2089 ]
-  %.6 = phi i32 [ %.3, %2107 ], [ 257, %26 ], [ -2, %2105 ], [ %.3, %2102 ], [ %.3, %2089 ]
+.thread:                                          ; preds = %2089, %2103, %2105, %26, %2107
+  %.31490 = phi ptr [ %.014871541, %2107 ], [ %.014871541, %26 ], [ %.014871541, %2105 ], [ %.51492, %2103 ], [ %.014871541, %2089 ]
+  %.6 = phi i32 [ %.3, %2107 ], [ 257, %26 ], [ -2, %2105 ], [ %.3, %2103 ], [ %.3, %2089 ]
   br label %2109
 
 2109:                                             ; preds = %2124, %.thread
@@ -4606,8 +4606,8 @@ _ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc.exit1482: ; preds = %364
   store i64 %2130, ptr %2129, align 8
   br label %10
 
-2131:                                             ; preds = %2102, %10
-  %.21489 = phi ptr [ %.51492, %2102 ], [ %.11488, %10 ]
+2131:                                             ; preds = %2103, %10
+  %.21489 = phi ptr [ %.51492, %2103 ], [ %.11488, %10 ]
   %2132 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(248) %2132, ptr noundef nonnull @.str.5)
   br label %.thread1512
@@ -4730,7 +4730,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
 
 .lr.ph.i.i:                                       ; preds = %33, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %17, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %33 ]
-  %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.fr.i, %33 ]
+  %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %33 ]
   %20 = add nsw i64 %indvars.iv.i.i, %18
   %21 = getelementptr inbounds [2216 x i16], ptr @_ZL7yycheck, i64 0, i64 %20
   %22 = load i16, ptr %21, align 2
@@ -4746,7 +4746,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
   br i1 %28, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6, label %29
 
 29:                                               ; preds = %27
-  %30 = add nsw i32 %.14.i.i, 1
+  %30 = add i32 %.14.i.i, 1
   %31 = sext i32 %.14.i.i to i64
   %32 = getelementptr inbounds i32, ptr %4, i64 %31
   store i32 %23, ptr %32, align 4
@@ -4754,13 +4754,12 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
 
 33:                                               ; preds = %29, %.lr.ph.i.i
   %.2.i.i = phi i32 [ %30, %29 ], [ %.14.i.i, %.lr.ph.i.i ]
-  %.2.i.fr.i = freeze i32 %.2.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %19
   br i1 %exitcond.not.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
 ._crit_edge.i.i:                                  ; preds = %33
-  switch i32 %.2.i.fr.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit [
+  switch i32 %.2.i.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit [
     i32 0, label %.thread.i.i
     i32 -2, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8
   ]
@@ -4770,8 +4769,8 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
   br label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit: ; preds = %._crit_edge.i.i
-  %34 = add nsw i32 %.2.i.fr.i, 1
-  switch i32 %.2.i.fr.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6 [
+  %34 = add nsw i32 %.2.i.i, 1
+  switch i32 %.2.i.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6 [
     i32 -3, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8
     i32 4, label %38
     i32 3, label %37
@@ -4943,7 +4942,7 @@ _ZL9yytnamerrPcPKc.exit58:                        ; preds = %65, %.preheader, %.
   br label %.preheader, !llvm.loop !10
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: ; preds = %_ZL9yytnamerrPcPKc.exit, %.preheader, %._crit_edge.i.i, %62, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit
-  %.038 = phi i32 [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %62 ], [ %.2.i.fr.i, %._crit_edge.i.i ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
+  %.038 = phi i32 [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %62 ], [ %.2.i.i, %._crit_edge.i.i ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
   ret i32 %.038
 }
 

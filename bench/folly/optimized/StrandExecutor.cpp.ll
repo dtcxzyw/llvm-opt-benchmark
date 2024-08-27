@@ -9051,7 +9051,7 @@ _ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6at
   %and.i222 = and i64 %62, -4
   %63 = inttoptr i64 %and.i222 to ptr
   %cmp55.not = icmp eq ptr %61, %63
-  %.161 = select i1 %cmp55.not, i32 0, i32 4
+  %not.cmp55.not = xor i1 %cmp55.not, true
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE5Entry8peekItemEv.exit, %if.then.cleanup_crit_edge
@@ -9060,7 +9060,7 @@ cleanup:                                          ; preds = %_ZN5folly14Unbounde
   %64 = phi i64 [ %.pre, %if.then.cleanup_crit_edge ], [ %62, %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE5Entry8peekItemEv.exit ]
   %pendingCount.2 = phi i64 [ %queueSize.0271, %if.then.cleanup_crit_edge ], [ %pendingCount.1, %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE5Entry8peekItemEv.exit ]
   %cond153 = phi i1 [ false, %if.then.cleanup_crit_edge ], [ %cmp55.not, %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE5Entry8peekItemEv.exit ]
-  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then.cleanup_crit_edge ], [ %.161, %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE5Entry8peekItemEv.exit ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %if.then.cleanup_crit_edge ], [ %not.cmp55.not, %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE5Entry8peekItemEv.exit ]
   %queueSize.2 = phi i64 [ 0, %if.then.cleanup_crit_edge ], [ %queueSize.1, %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE5Entry8peekItemEv.exit ]
   %tobool.not.i.i.i225 = icmp eq i64 %and.i.i.i.i224.pre-phi, 0
   br i1 %tobool.not.i.i.i225, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit.i229, label %if.then.i.i.i226
@@ -9092,8 +9092,7 @@ _ZN5folly13StrandContext9QueueItemD2Ev.exit237:   ; preds = %if.end.i.i.i232, %_
   br i1 %cond153, label %for.cond, label %cleanup60
 
 cleanup60:                                        ; preds = %_ZN5folly13StrandContext9QueueItemD2Ev.exit237
-  %cond = icmp eq i32 %cleanup.dest.slot.0, 4
-  br i1 %cond, label %while.end115, label %cleanup147
+  br i1 %cleanup.dest.slot.0, label %while.end115, label %cleanup147
 
 while.end115:                                     ; preds = %for.cond, %cleanup60
   %67 = load ptr, ptr %thisPtr, align 8, !tbaa !23

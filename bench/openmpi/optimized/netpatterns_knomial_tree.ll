@@ -73,16 +73,20 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
 26:                                               ; preds = %.lr.ph551
   %indvars.iv.next701 = add nuw nsw i64 %indvars.iv700, 1
   %exitcond704.not = icmp eq i64 %indvars.iv.next701, %17
-  br i1 %exitcond704.not, label %.critedge, label %.lr.ph551, !llvm.loop !7
+  br i1 %exitcond704.not, label %.critedge.loopexit, label %.lr.ph551, !llvm.loop !7
 
 .critedge.loopexit.split.loop.exit869:            ; preds = %.lr.ph551
   %27 = trunc nuw nsw i64 %indvars.iv700 to i32
+  br label %.critedge.loopexit
+
+.critedge.loopexit:                               ; preds = %26, %.critedge.loopexit.split.loop.exit869
+  %.0451.lcssa.ph = phi i32 [ %27, %.critedge.loopexit.split.loop.exit869 ], [ %.0441.lcssa, %26 ]
+  %28 = zext nneg i32 %.0451.lcssa.ph to i64
   br label %.critedge
 
-.critedge:                                        ; preds = %26, %.critedge.loopexit.split.loop.exit869, %.preheader534
-  %.0451.lcssa = phi i32 [ 0, %.preheader534 ], [ %27, %.critedge.loopexit.split.loop.exit869 ], [ %.0441.lcssa, %26 ]
-  %28 = zext nneg i32 %.0451.lcssa to i64
-  %29 = getelementptr i32, ptr %18, i64 %28
+.critedge:                                        ; preds = %.critedge.loopexit, %.preheader534
+  %.0451.lcssa = phi i64 [ 0, %.preheader534 ], [ %28, %.critedge.loopexit ]
+  %29 = getelementptr i32, ptr %18, i64 %.0451.lcssa
   %30 = getelementptr i8, ptr %29, i64 -4
   %31 = load i32, ptr %30, align 4
   %32 = mul nsw i32 %31, %.1454

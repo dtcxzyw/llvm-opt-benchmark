@@ -1047,14 +1047,17 @@ clause_read.exit:                                 ; preds = %94, %95
   %.1.i = add nuw nsw i32 %.016.i, %161
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %sat_clause_compute_lbd.exit, label %150, !llvm.loop !9
+  br i1 %exitcond.not.i, label %sat_clause_compute_lbd.exit.loopexit, label %150, !llvm.loop !9
 
-sat_clause_compute_lbd.exit:                      ; preds = %150, %148
-  %.0.lcssa.i = phi i32 [ 0, %148 ], [ %.1.i, %150 ]
-  %162 = shl i32 %.0.lcssa.i, 3
+sat_clause_compute_lbd.exit.loopexit:             ; preds = %150
+  %162 = shl i32 %.1.i, 3
   %163 = and i32 %162, 2040
+  br label %sat_clause_compute_lbd.exit
+
+sat_clause_compute_lbd.exit:                      ; preds = %sat_clause_compute_lbd.exit.loopexit, %148
+  %.0.lcssa.i = phi i32 [ 0, %148 ], [ %163, %sat_clause_compute_lbd.exit.loopexit ]
   %164 = and i32 %146, -2041
-  %165 = or disjoint i32 %163, %164
+  %165 = or disjoint i32 %.0.lcssa.i, %164
   store i32 %165, ptr %103, align 4
   %.pre = load i32, ptr %.088135, align 4
   br label %166
@@ -5839,15 +5842,15 @@ veci_push.exit67:                                 ; preds = %768, %786
   store i32 %825, ptr %52, align 8
   %.pre.i64 = load i32, ptr %53, align 4
   %.pre146 = sext i32 %.pre.i64 to i64
+  %840 = add nsw i32 %.pre.i64, 1
   br label %veci_push.exit
 
 veci_push.exit:                                   ; preds = %817, %839
   %.pre-phi = phi i64 [ %794, %817 ], [ %.pre146, %839 ]
-  %840 = phi ptr [ %792, %817 ], [ %.pre141, %839 ]
-  %841 = phi i32 [ %793, %817 ], [ %.pre.i64, %839 ]
-  %842 = add nsw i32 %841, 1
+  %841 = phi ptr [ %792, %817 ], [ %.pre141, %839 ]
+  %842 = phi i32 [ %.val6383.i.i.i, %817 ], [ %840, %839 ]
   store i32 %842, ptr %53, align 4
-  %843 = getelementptr inbounds i32, ptr %840, i64 %.pre-phi
+  %843 = getelementptr inbounds i32, ptr %841, i64 %.pre-phi
   store i32 %803, ptr %843, align 4
   %844 = load ptr, ptr %40, align 8
   %845 = getelementptr inbounds i8, ptr %844, i64 %804

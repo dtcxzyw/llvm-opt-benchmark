@@ -478,17 +478,16 @@ _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i: ; preds = %_
   %rem.i.i.i.i = and i64 %cond.i.i, 63
   %shl.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i
   %and.i.i.i.i = and i64 %88, %shl.i.i.i.i
-  %tobool.i.i.i.i = icmp ne i64 %and.i.i.i.i, 0
+  %tobool.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
   br label %invoke.cont53.i
 
 invoke.cont53.i:                                  ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit161.i
-  %retval.0.i163.i = phi i1 [ %tobool.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i ], [ true, %_ZNK6duckdb15SelectionVector9get_indexEm.exit161.i ]
+  %retval.0.i163.i = phi i1 [ %tobool.i.i.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i ], [ false, %_ZNK6duckdb15SelectionVector9get_indexEm.exit161.i ]
   %89 = load ptr, ptr %validity.i149.i, align 8, !tbaa !24
   %tobool.not.i164.i = icmp eq ptr %89, null
   br i1 %tobool.not.i164.i, label %invoke.cont56.thread.i, label %invoke.cont56.i
 
 invoke.cont56.thread.i:                           ; preds = %invoke.cont53.i
-  %lnot247.i = xor i1 %retval.0.i163.i, true
   %.pre.i = load ptr, ptr %validity.i153.i, align 8, !tbaa !24
   br label %_ZN6duckdb10TernaryAnd9OperationEbbbbRb.exit183.i
 
@@ -500,8 +499,7 @@ invoke.cont56.i:                                  ; preds = %invoke.cont53.i
   %shl.i.i.i169.i = shl nuw i64 1, %rem.i.i.i168.i
   %and.i.i.i170.i = and i64 %90, %shl.i.i.i169.i
   %tobool.i.i.i171.not.i = icmp eq i64 %and.i.i.i170.i, 0
-  %lnot.i = xor i1 %retval.0.i163.i, true
-  %brmerge.demorgan.i174.i = and i1 %tobool.i.i.i171.not.i, %lnot.i
+  %brmerge.demorgan.i174.i = and i1 %retval.0.i163.i, %tobool.i.i.i171.not.i
   %.pre286.i = load ptr, ptr %validity.i153.i, align 8, !tbaa !24
   br i1 %brmerge.demorgan.i174.i, label %_ZN6duckdb10TernaryAnd9OperationEbbbbRb.exit183.thread.i, label %_ZN6duckdb10TernaryAnd9OperationEbbbbRb.exit183.i
 
@@ -512,15 +510,14 @@ _ZN6duckdb10TernaryAnd9OperationEbbbbRb.exit183.thread.i: ; preds = %invoke.cont
 _ZN6duckdb10TernaryAnd9OperationEbbbbRb.exit183.i: ; preds = %invoke.cont56.i, %invoke.cont56.thread.i
   %91 = phi ptr [ %.pre.i, %invoke.cont56.thread.i ], [ %.pre286.i, %invoke.cont56.i ]
   %lnot58252.i = phi i1 [ false, %invoke.cont56.thread.i ], [ %tobool.i.i.i171.not.i, %invoke.cont56.i ]
-  %lnot251.i = phi i1 [ %lnot247.i, %invoke.cont56.thread.i ], [ %lnot.i, %invoke.cont56.i ]
   %arrayidx59253.i = getelementptr inbounds i8, ptr %16, i64 %i.0261.i
-  %brmerge.i176.i = or i1 %lnot58252.i, %lnot251.i
-  %right.mux.i177.i = select i1 %lnot251.i, i1 %cmp50.i, i1 %cmp47.i
+  %brmerge.i176.i = or i1 %retval.0.i163.i, %lnot58252.i
+  %right.mux.i177.i = select i1 %retval.0.i163.i, i1 %cmp50.i, i1 %cmp47.i
   %92 = or i1 %cmp50.i, %lnot58252.i
   %frombool1.mux.v.i178.i = and i1 %cmp47.i, %92
-  %frombool19.sink.v.i179.i = select i1 %lnot251.i, i1 %cmp50.i, i1 %frombool1.mux.v.i178.i
+  %frombool19.sink.v.i179.i = select i1 %retval.0.i163.i, i1 %cmp50.i, i1 %frombool1.mux.v.i178.i
   %frombool19.sink.i180.i = zext i1 %frombool19.sink.v.i179.i to i8
-  %retval.0.ph.i181.i = and i1 %brmerge.i176.i, %right.mux.i177.i
+  %retval.0.ph.i181.i = and i1 %right.mux.i177.i, %brmerge.i176.i
   store i8 %frombool19.sink.i180.i, ptr %arrayidx59253.i, align 1, !tbaa !26
   %tobool.not.i.i184.i = icmp eq ptr %91, null
   br i1 %retval.0.ph.i181.i, label %if.else.i185.i, label %if.then.i.i

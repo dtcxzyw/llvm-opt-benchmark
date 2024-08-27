@@ -1245,17 +1245,17 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
 
 ._crit_edge125.loopexit:                          ; preds = %.lr.ph124
   %.pre160 = load ptr, ptr %0, align 8
+  %120 = sext i32 %118 to i64
   br label %._crit_edge125
 
 ._crit_edge125:                                   ; preds = %.preheader113, %._crit_edge125.loopexit, %.preheader
-  %120 = phi ptr [ %88, %.preheader ], [ %.pre160, %._crit_edge125.loopexit ], [ %88, %.preheader113 ]
-  %.088.lcssa = phi i32 [ -1, %.preheader ], [ %118, %._crit_edge125.loopexit ], [ -1, %.preheader113 ]
-  %121 = getelementptr inbounds i8, ptr %120, i64 72
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr i8, ptr %122, i64 8
-  %.val102 = load ptr, ptr %123, align 8
-  %124 = sext i32 %.088.lcssa to i64
-  %125 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val102, i64 %124
+  %121 = phi ptr [ %88, %.preheader ], [ %.pre160, %._crit_edge125.loopexit ], [ %88, %.preheader113 ]
+  %.088.lcssa = phi i64 [ -1, %.preheader ], [ %120, %._crit_edge125.loopexit ], [ -1, %.preheader113 ]
+  %122 = getelementptr inbounds i8, ptr %121, i64 72
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr i8, ptr %123, i64 8
+  %.val102 = load ptr, ptr %124, align 8
+  %125 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val102, i64 %.088.lcssa
   %126 = getelementptr i8, ptr %125, i64 4
   %.val104127 = load i32, ptr %126, align 4
   %127 = icmp sgt i32 %.val104127, 1

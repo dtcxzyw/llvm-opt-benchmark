@@ -2344,39 +2344,38 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 while.body.preheader.i:                           ; preds = %for.body
   %3 = trunc nuw nsw i32 %rem.i.i to i16
+  %.cmp = icmp ult i32 %rem.i.i, 5
+  %.v = select i1 %.cmp, i16 1, i16 -5
+  %4 = add nsw i16 %.v, %3
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
-  %ret.0.in6.i = phi i16 [ %3, %while.body.preheader.i ], [ 3, %while.body.i ]
-  %rem.lhs.trunc.i = add nsw i16 %ret.0.in6.i, 1
-  %rem3.i.urem = add nsw i16 %ret.0.in6.i, -5
-  %rem3.i.cmp = icmp ult i16 %rem.lhs.trunc.i, 6
-  %rem3.i = select i1 %rem3.i.cmp, i16 %rem.lhs.trunc.i, i16 %rem3.i.urem
-  %switch = icmp eq i16 %rem3.i, 3
+  %ret.0.in6.i = phi i16 [ %4, %while.body.preheader.i ], [ 4, %while.body.i ]
+  %switch = icmp eq i16 %ret.0.in6.i, 3
   br i1 %switch, label %while.body.i, label %_ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit.loopexit, !llvm.loop !14
 
 _ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit.loopexit: ; preds = %while.body.i
-  %ret.0.i.le = trunc nuw nsw i16 %rem3.i to i8
+  %ret.0.i.le = trunc nuw nsw i16 %ret.0.in6.i to i8
   br label %_ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit
 
 _ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit: ; preds = %_ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit.loopexit, %for.body
   %ret.0.lcssa.i = phi i8 [ %ret.04.i, %for.body ], [ %ret.0.i.le, %_ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit.loopexit ]
-  %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %5 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i = icmp eq ptr %4, %5
+  %5 = load ptr, ptr %_M_finish.i.i, align 8
+  %6 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit
-  store i8 %ret.0.lcssa.i, ptr %4, align 1
-  %6 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 1
+  store i8 %ret.0.lcssa.i, ptr %5, align 1
+  %7 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 1
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
 
 if.else.i:                                        ; preds = %_ZN7rocksdb4test21RandomCompressionTypeEPNS_6RandomE.exit
-  %7 = load ptr, ptr %types, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
+  %8 = load ptr, ptr %types, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i3 = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775807
   br i1 %cmp.i.i.i3, label %if.then.i.i.i, label %_ZNKSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -2389,8 +2388,8 @@ _ZNKSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.sub.i.i.i.i, i64 1)
   %add.i.i.i4 = add i64 %.sroa.speculated.i.i.i, %sub.ptr.sub.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i4, %sub.ptr.sub.i.i.i.i
-  %8 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i4, i64 9223372036854775807)
-  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 9223372036854775807, i64 %8
+  %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i4, i64 9223372036854775807)
+  %cond.i.i.i = select i1 %cmp7.i.i.i, i64 9223372036854775807, i64 %9
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN7rocksdb15CompressionTypeESaIS1_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
@@ -2406,16 +2405,16 @@ _ZNSt12_Vector_baseIN7rocksdb15CompressionTypeESaIS1_EE11_M_allocateEm.exit.i.i:
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN7rocksdb15CompressionTypeESaIS1_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %cond.i10.i.i, ptr align 1 %7, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %cond.i10.i.i, ptr align 1 %8, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
 _ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIN7rocksdb15CompressionTypeESaIS1_EE11_M_allocateEm.exit.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
-  %tobool.not.i.i.i = icmp eq ptr %7, null
+  %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28
   br label %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i

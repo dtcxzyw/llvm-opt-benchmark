@@ -9243,13 +9243,13 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiNSt7__cxx1112basic_stringIcSt
   %33 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 noundef %.050) #30
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 9
-  br i1 %35, label %.critedge2, label %.critedge
+  br i1 %35, label %.critedge2, label %.critedge.loopexit
 
 .critedge2:                                       ; preds = %.lr.ph, %32
   %36 = add nuw i64 %.050, 1
   %37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #30
   %38 = icmp ult i64 %36, %37
-  br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !69
+  br i1 %38, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !69
 
 39:                                               ; preds = %2
   %40 = landingpad { ptr, i32 }
@@ -9281,29 +9281,33 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiNSt7__cxx1112basic_stringIcSt
   call void @_ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #30
   br label %122
 
-.critedge:                                        ; preds = %32, %.critedge2, %.lr.ph70
-  %.0.lcssa = phi i64 [ 0, %.lr.ph70 ], [ %36, %.critedge2 ], [ %.050, %32 ]
-  %41 = load ptr, ptr %7, align 8
-  %42 = load ptr, ptr %3, align 8
-  %43 = ptrtoint ptr %41 to i64
+.critedge.loopexit:                               ; preds = %.critedge2, %32
+  %.0.lcssa.ph = phi i64 [ %.050, %32 ], [ %36, %.critedge2 ]
+  %41 = trunc i64 %.0.lcssa.ph to i32
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph70
+  %.0.lcssa = phi i32 [ 0, %.lr.ph70 ], [ %41, %.critedge.loopexit ]
+  %42 = load ptr, ptr %7, align 8
+  %43 = load ptr, ptr %3, align 8
   %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = sdiv exact i64 %45, 40
-  %47 = icmp ult i64 %.03468, %46
-  br i1 %47, label %.lr.ph64, label %.critedge4
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = sdiv exact i64 %46, 40
+  %48 = icmp ult i64 %.03468, %47
+  br i1 %48, label %.lr.ph64, label %.critedge4
 
 .lr.ph64:                                         ; preds = %.critedge
-  %48 = trunc i64 %.03369 to i32
-  %49 = add i32 %48, 1
-  %50 = trunc i64 %.0.lcssa to i32
+  %49 = trunc i64 %.03369 to i32
+  %50 = add i32 %49, 1
   br label %51
 
 51:                                               ; preds = %.lr.ph64, %.critedge6
-  %52 = phi ptr [ %42, %.lr.ph64 ], [ %94, %.critedge6 ]
+  %52 = phi ptr [ %43, %.lr.ph64 ], [ %94, %.critedge6 ]
   %.163 = phi i64 [ %.03468, %.lr.ph64 ], [ %.2.lcssa, %.critedge6 ]
   %53 = getelementptr inbounds %"struct.std::pair.89", ptr %52, i64 %.163
   %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %54, %49
+  %55 = icmp eq i32 %54, %50
   br i1 %55, label %56, label %.critedge4
 
 56:                                               ; preds = %51
@@ -9311,7 +9315,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiNSt7__cxx1112basic_stringIcSt
   %58 = load ptr, ptr %3, align 8
   %59 = getelementptr inbounds %"struct.std::pair.89", ptr %58, i64 %.163, i32 1
   %60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %59) #30
-  invoke void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.116, i32 noundef %50, ptr noundef %57, ptr noundef %60)
+  invoke void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.116, i32 noundef %.0.lcssa, ptr noundef %57, ptr noundef %60)
           to label %_ZSteqIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbRKSt4pairIT_T0_ESB_.exit.preheader unwind label %.loopexit
 
 _ZSteqIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbRKSt4pairIT_T0_ESB_.exit.preheader: ; preds = %56

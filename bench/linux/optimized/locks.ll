@@ -6035,7 +6035,7 @@ define dso_local i32 @locks_lock_inode_wait(ptr noundef %0, ptr noundef %1) #1 a
 .lr.ph16:                                         ; preds = %19, %25
   %23 = phi i64 [ %26, %25 ], [ %20, %19 ]
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %.thread8
+  br i1 %24, label %25, label %.thread8.loopexit
 
 25:                                               ; preds = %.lr.ph16
   call void @schedule() #15
@@ -6048,10 +6048,13 @@ define dso_local i32 @locks_lock_inode_wait(ptr noundef %0, ptr noundef %1) #1 a
   call void @finish_wait(ptr noundef %11, ptr noundef nonnull %4) #15
   br label %.thread8
 
-.thread8:                                         ; preds = %.lr.ph16, %._crit_edge17
-  %29 = phi i64 [ 0, %._crit_edge17 ], [ %23, %.lr.ph16 ]
+.thread8.loopexit:                                ; preds = %.lr.ph16
+  %29 = trunc i64 %23 to i32
+  br label %.thread8
+
+.thread8:                                         ; preds = %.thread8.loopexit, %._crit_edge17
+  %30 = phi i32 [ 0, %._crit_edge17 ], [ %29, %.thread8.loopexit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #15
-  %30 = trunc i64 %29 to i32
   br label %31
 
 31:                                               ; preds = %.thread8, %15
@@ -6088,7 +6091,7 @@ define dso_local i32 @locks_lock_inode_wait(ptr noundef %0, ptr noundef %1) #1 a
 .lr.ph:                                           ; preds = %45, %51
   %49 = phi i64 [ %52, %51 ], [ %46, %45 ]
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %51, label %.thread10
+  br i1 %50, label %51, label %.thread10.loopexit
 
 51:                                               ; preds = %.lr.ph
   call void @schedule() #15
@@ -6101,10 +6104,13 @@ define dso_local i32 @locks_lock_inode_wait(ptr noundef %0, ptr noundef %1) #1 a
   call void @finish_wait(ptr noundef %37, ptr noundef nonnull %3) #15
   br label %.thread10
 
-.thread10:                                        ; preds = %.lr.ph, %._crit_edge
-  %55 = phi i64 [ 0, %._crit_edge ], [ %49, %.lr.ph ]
+.thread10.loopexit:                               ; preds = %.lr.ph
+  %55 = trunc i64 %49 to i32
+  br label %.thread10
+
+.thread10:                                        ; preds = %.thread10.loopexit, %._crit_edge
+  %56 = phi i32 [ 0, %._crit_edge ], [ %55, %.thread10.loopexit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
-  %56 = trunc i64 %55 to i32
   br label %57
 
 57:                                               ; preds = %.thread10, %41
@@ -6946,7 +6952,7 @@ define internal fastcc i32 @do_lock_file_wait(ptr noundef %0, i32 noundef %1, pt
 .lr.ph:                                           ; preds = %37, %43
   %41 = phi i64 [ %44, %43 ], [ %38, %37 ]
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %.thread6
+  br i1 %42, label %43, label %.thread6.loopexit
 
 43:                                               ; preds = %.lr.ph
   call void @schedule() #15
@@ -6959,10 +6965,13 @@ define internal fastcc i32 @do_lock_file_wait(ptr noundef %0, i32 noundef %1, pt
   call void @finish_wait(ptr noundef %15, ptr noundef nonnull %4) #15
   br label %.thread6
 
-.thread6:                                         ; preds = %.lr.ph, %._crit_edge
-  %47 = phi i64 [ 0, %._crit_edge ], [ %41, %.lr.ph ]
+.thread6.loopexit:                                ; preds = %.lr.ph
+  %47 = trunc i64 %41 to i32
+  br label %.thread6
+
+.thread6:                                         ; preds = %.thread6.loopexit, %._crit_edge
+  %48 = phi i32 [ 0, %._crit_edge ], [ %47, %.thread6.loopexit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #15
-  %48 = trunc i64 %47 to i32
   br label %49
 
 49:                                               ; preds = %.thread6, %33

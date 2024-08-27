@@ -1605,17 +1605,17 @@ define noalias noundef ptr @Gia_PolynGetResult(ptr nocapture noundef %0, ptr noc
   br i1 %36, label %13, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %34
-  %37 = add nuw nsw i32 %.171, 1
-  %38 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %37 = shl nsw i32 %.1, 1
+  %38 = add nuw nsw i32 %.171, 1
+  %39 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %or.cond.i.i = icmp ult i32 %.171, 7
-  %spec.select = select i1 %or.cond.i.i, i32 8, i32 %37
-  %39 = shl nsw i32 %.1, 1
+  %spec.select = select i1 %or.cond.i.i, i32 8, i32 %38
   br label %Vec_WecStart.exit
 
 Vec_WecStart.exit:                                ; preds = %.critedge, %.critedge.thread
-  %40 = phi ptr [ %6, %.critedge.thread ], [ %38, %.critedge ]
-  %41 = phi i32 [ 1, %.critedge.thread ], [ %37, %.critedge ]
-  %.0.lcssa182 = phi i32 [ 0, %.critedge.thread ], [ %39, %.critedge ]
+  %40 = phi ptr [ %6, %.critedge.thread ], [ %39, %.critedge ]
+  %41 = phi i32 [ 1, %.critedge.thread ], [ %38, %.critedge ]
+  %.0.lcssa182 = phi i32 [ 0, %.critedge.thread ], [ %37, %.critedge ]
   %.val86148180 = phi i32 [ %.val87143, %.critedge.thread ], [ %.val87, %.critedge ]
   %42 = phi i32 [ 8, %.critedge.thread ], [ %spec.select, %.critedge ]
   store i32 %42, ptr %40, align 8
@@ -6364,7 +6364,7 @@ Vec_IntAlloc.exit95:                              ; preds = %Vec_IntAlloc.exit91
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val79, i64 %65
   %.not68 = icmp eq ptr %.val79, null
-  br i1 %.not68, label %.critedge, label %67, !llvm.loop !67
+  br i1 %.not68, label %.critedge.loopexit.loopexit, label %67, !llvm.loop !67
 
 67:                                               ; preds = %.lr.ph152, %61
   %68 = phi ptr [ %60, %.lr.ph152 ], [ %66, %61 ]
@@ -6393,13 +6393,16 @@ Vec_IntAlloc.exit95:                              ; preds = %Vec_IntAlloc.exit91
   %.val = load i32, ptr %76, align 4
   %77 = sext i32 %.val to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %61, label %.critedge, !llvm.loop !67
+  br i1 %78, label %61, label %.critedge.loopexit.loopexit, !llvm.loop !67
 
-.critedge:                                        ; preds = %74, %61, %.lr.ph, %50
-  %.0.lcssa = phi i32 [ -1, %50 ], [ -1, %.lr.ph ], [ %.1, %61 ], [ %.1, %74 ]
-  %.val.lcssa = phi i32 [ %.val127, %50 ], [ %.val127, %.lr.ph ], [ %.val, %61 ], [ %.val, %74 ]
-  %79 = xor i32 %.0.lcssa, -1
-  %80 = add i32 %.val.lcssa, %79
+.critedge.loopexit.loopexit:                      ; preds = %74, %61
+  %79 = xor i32 %.1, -1
+  br label %.critedge
+
+.critedge:                                        ; preds = %.lr.ph, %.critedge.loopexit.loopexit, %50
+  %.0.lcssa = phi i32 [ 0, %50 ], [ 0, %.lr.ph ], [ %79, %.critedge.loopexit.loopexit ]
+  %.val.lcssa = phi i32 [ %.val127, %50 ], [ %.val127, %.lr.ph ], [ %.val, %.critedge.loopexit.loopexit ]
+  %80 = add i32 %.val.lcssa, %.0.lcssa
   %81 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %80)
   br label %82
 

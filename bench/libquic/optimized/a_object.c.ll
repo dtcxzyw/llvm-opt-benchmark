@@ -210,6 +210,7 @@ for.end:                                          ; preds = %if.end80, %if.end34
   %l.0.lcssa.ph = phi i64 [ %l.1, %if.end80 ], [ %l.0136, %if.end34 ], [ %l.0136, %if.end34 ]
   %bl.2.lcssa.ph = phi ptr [ %bl.384, %if.end80 ], [ %bl.2137, %if.end34 ], [ %bl.2137, %if.end34 ]
   %num.addr.3.ph = phi i32 [ 0, %if.end80 ], [ %dec35, %if.end34 ], [ %dec35, %if.end34 ]
+  %6 = icmp eq i32 %use_bn.0.lcssa.ph, 0
   %cmp81 = icmp eq i32 %len.0166, 0
   br i1 %cmp81, label %if.then83, label %if.end104
 
@@ -223,8 +224,7 @@ if.then89:                                        ; preds = %if.then83
   br label %err
 
 if.end90:                                         ; preds = %if.then83
-  %tobool91.not = icmp eq i32 %use_bn.0.lcssa.ph, 0
-  br i1 %tobool91.not, label %if.end104.thread, label %if.then92
+  br i1 %6, label %if.end104.thread, label %if.then92
 
 if.then92:                                        ; preds = %if.end90
   %call95 = call i32 @BN_add_word(ptr noundef %bl.2.lcssa.ph, i64 noundef %conv94) #8
@@ -236,8 +236,7 @@ if.end104.thread:                                 ; preds = %if.end90
   br label %for.cond129.preheader
 
 if.end104:                                        ; preds = %for.end
-  %tobool105.not = icmp eq i32 %use_bn.0.lcssa.ph, 0
-  br i1 %tobool105.not, label %for.cond129.preheader, label %if.then106
+  br i1 %6, label %for.cond129.preheader, label %if.then106
 
 for.cond129.preheader:                            ; preds = %if.end104.thread, %if.end104
   %l.3.ph = phi i64 [ %l.0.lcssa.ph, %if.end104 ], [ %add102, %if.end104.thread ]
@@ -297,15 +296,15 @@ for.cond129:                                      ; preds = %for.cond129.prehead
   br i1 %cmp136, label %if.end141.loopexit, label %for.cond129
 
 if.end141.loopexit:                               ; preds = %for.cond129
-  %6 = trunc nuw nsw i64 %indvars.iv.next204 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.next204 to i32
   br label %if.end141
 
 if.end141.loopexit175:                            ; preds = %while.body
-  %7 = trunc nuw i64 %indvars.iv.next to i32
+  %8 = trunc nuw i64 %indvars.iv.next to i32
   br label %if.end141
 
 if.end141:                                        ; preds = %if.end141.loopexit175, %if.end141.loopexit, %if.end123
-  %i.1 = phi i32 [ 0, %if.end123 ], [ %6, %if.end141.loopexit ], [ %7, %if.end141.loopexit175 ]
+  %i.1 = phi i32 [ 0, %if.end123 ], [ %7, %if.end141.loopexit ], [ %8, %if.end141.loopexit175 ]
   %tmp.3 = phi ptr [ %tmp.2, %if.end123 ], [ %tmp.1168, %if.end141.loopexit ], [ %tmp.2, %if.end141.loopexit175 ]
   %tmpsize.2 = phi i32 [ %tmpsize.1, %if.end123 ], [ %tmpsize.0169, %if.end141.loopexit ], [ %tmpsize.1, %if.end141.loopexit175 ]
   %add168 = add nsw i32 %i.1, %len.0166
@@ -320,8 +319,8 @@ while.cond150.preheader:                          ; preds = %if.then144
   br i1 %cmp152160, label %while.body154.preheader, label %while.end162
 
 while.body154.preheader:                          ; preds = %while.cond150.preheader
-  %8 = sext i32 %len.0166 to i64
-  %9 = zext nneg i32 %i.1 to i64
+  %9 = sext i32 %len.0166 to i64
+  %10 = zext nneg i32 %i.1 to i64
   br label %while.body154
 
 if.then148:                                       ; preds = %if.then144
@@ -329,12 +328,12 @@ if.then148:                                       ; preds = %if.then144
   br label %err
 
 while.body154:                                    ; preds = %while.body154.preheader, %while.body154
-  %indvars.iv208 = phi i64 [ %9, %while.body154.preheader ], [ %indvars.iv.next209, %while.body154 ]
-  %indvars.iv206 = phi i64 [ %8, %while.body154.preheader ], [ %indvars.iv.next207, %while.body154 ]
+  %indvars.iv208 = phi i64 [ %10, %while.body154.preheader ], [ %indvars.iv.next209, %while.body154 ]
+  %indvars.iv206 = phi i64 [ %9, %while.body154.preheader ], [ %indvars.iv.next207, %while.body154 ]
   %indvars.iv.next209 = add nsw i64 %indvars.iv208, -1
   %arrayidx156 = getelementptr inbounds i8, ptr %tmp.3, i64 %indvars.iv.next209
-  %10 = load i8, ptr %arrayidx156, align 1
-  %or = or i8 %10, -128
+  %11 = load i8, ptr %arrayidx156, align 1
+  %or = or i8 %11, -128
   %indvars.iv.next207 = add nsw i64 %indvars.iv206, 1
   %arrayidx161 = getelementptr inbounds i8, ptr %out, i64 %indvars.iv206
   store i8 %or, ptr %arrayidx161, align 1
@@ -342,16 +341,16 @@ while.body154:                                    ; preds = %while.body154.prehe
   br i1 %cmp152, label %while.body154, label %while.end162.loopexit, !llvm.loop !9
 
 while.end162.loopexit:                            ; preds = %while.body154
-  %11 = trunc nsw i64 %indvars.iv.next207 to i32
+  %12 = trunc nsw i64 %indvars.iv.next207 to i32
   br label %while.end162
 
 while.end162:                                     ; preds = %while.end162.loopexit, %while.cond150.preheader
-  %len.1.lcssa = phi i32 [ %len.0166, %while.cond150.preheader ], [ %11, %while.end162.loopexit ]
-  %12 = load i8, ptr %tmp.3, align 1
+  %len.1.lcssa = phi i32 [ %len.0166, %while.cond150.preheader ], [ %12, %while.end162.loopexit ]
+  %13 = load i8, ptr %tmp.3, align 1
   %inc164 = add nsw i32 %len.1.lcssa, 1
   %idxprom165 = sext i32 %len.1.lcssa to i64
   %arrayidx166 = getelementptr inbounds i8, ptr %out, i64 %idxprom165
-  store i8 %12, ptr %arrayidx166, align 1
+  store i8 %13, ptr %arrayidx166, align 1
   br label %if.end169
 
 if.end169:                                        ; preds = %if.end141, %while.end162

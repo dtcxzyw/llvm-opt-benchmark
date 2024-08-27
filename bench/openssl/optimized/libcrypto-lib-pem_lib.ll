@@ -257,8 +257,12 @@ entry:
   %tobool.not.i = icmp eq i32 %and.i, 0
   br label %do.body
 
-do.body:                                          ; preds = %check_pem.exit, %entry
-  %0 = phi ptr [ %7, %check_pem.exit ], [ null, %entry ]
+do.body.critedge:                                 ; preds = %if.end94.i, %land.lhs.true97.i, %if.end11.i, %if.end.i.i, %if.end8.i.i, %ossl_pem_check_suffix.exit.i, %if.then14.i, %land.lhs.true.i, %if.end8.i48.i, %if.end.i38.i, %if.then23.i, %ossl_pem_check_suffix.exit56.i, %if.then28.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i)
+  br label %do.body.backedge
+
+do.body:                                          ; preds = %do.body.backedge, %entry
+  %0 = phi ptr [ null, %entry ], [ %7, %do.body.backedge ]
   br i1 %tobool.not.i, label %if.else.i20, label %if.then.i19
 
 if.then.i19:                                      ; preds = %do.body
@@ -323,7 +327,7 @@ if.end11.i:                                       ; preds = %if.end7.i
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #9
   %conv.i.i = trunc i64 %call.i.i to i32
   %cmp.not.i.i = icmp sgt i32 %conv.i.i, 12
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %check_pem.exit
+  br i1 %cmp.not.i.i, label %if.end.i.i, label %do.body.critedge
 
 if.end.i.i:                                       ; preds = %if.end11.i
   %sext.i.i = and i64 %call.i.i, 2147483647
@@ -331,13 +335,13 @@ if.end.i.i:                                       ; preds = %if.end11.i
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -11
   %call6.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr5.i.i, ptr noundef nonnull readonly dereferenceable(12) @.str.22) #9
   %tobool.not.i.i = icmp eq i32 %call6.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end8.i.i, label %check_pem.exit
+  br i1 %tobool.not.i.i, label %if.end8.i.i, label %do.body.critedge
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -12
   %8 = load i8, ptr %incdec.ptr.i.i, align 1
   %cmp10.not.i.i = icmp eq i8 %8, 32
-  br i1 %cmp10.not.i.i, label %ossl_pem_check_suffix.exit.i, label %check_pem.exit
+  br i1 %cmp10.not.i.i, label %ossl_pem_check_suffix.exit.i, label %do.body.critedge
 
 ossl_pem_check_suffix.exit.i:                     ; preds = %if.end8.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %incdec.ptr.i.i to i64
@@ -345,18 +349,18 @@ ossl_pem_check_suffix.exit.i:                     ; preds = %if.end8.i.i
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv14.i.i = trunc i64 %sub.ptr.sub.i.i to i32
   %cmp13.i = icmp sgt i32 %conv14.i.i, 0
-  br i1 %cmp13.i, label %if.then14.i, label %check_pem.exit
+  br i1 %cmp13.i, label %if.then14.i, label %do.body.critedge
 
 if.then14.i:                                      ; preds = %ossl_pem_check_suffix.exit.i
   %call15.i = call ptr @EVP_PKEY_asn1_find_str(ptr noundef null, ptr noundef nonnull %7, i32 noundef %conv14.i.i) #10
   %tobool.not.i24 = icmp eq ptr %call15.i, null
-  br i1 %tobool.not.i24, label %check_pem.exit, label %land.lhs.true.i
+  br i1 %tobool.not.i24, label %do.body.critedge, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then14.i
   %old_priv_decode.i = getelementptr inbounds i8, ptr %call15.i, i64 184
   %9 = load ptr, ptr %old_priv_decode.i, align 8
   %tobool16.not.i = icmp eq ptr %9, null
-  br i1 %tobool16.not.i, label %check_pem.exit, label %check_pem.exit.thread
+  br i1 %tobool16.not.i, label %do.body.critedge, label %check_pem.exit.thread
 
 if.end20.i:                                       ; preds = %if.end.i
   %call21.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(11) @.str.23) #9
@@ -367,7 +371,7 @@ if.then23.i:                                      ; preds = %if.end20.i
   %call.i31.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #9
   %conv.i32.i = trunc i64 %call.i31.i to i32
   %cmp.not.i36.i = icmp sgt i32 %conv.i32.i, 11
-  br i1 %cmp.not.i36.i, label %if.end.i38.i, label %check_pem.exit
+  br i1 %cmp.not.i36.i, label %if.end.i38.i, label %do.body.critedge
 
 if.end.i38.i:                                     ; preds = %if.then23.i
   %sext.i39.i = and i64 %call.i31.i, 2147483647
@@ -375,13 +379,13 @@ if.end.i38.i:                                     ; preds = %if.then23.i
   %add.ptr5.i45.i = getelementptr inbounds i8, ptr %add.ptr.i41.i, i64 -10
   %call6.i46.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr5.i45.i, ptr noundef nonnull readonly dereferenceable(11) @.str.23) #9
   %tobool.not.i47.i = icmp eq i32 %call6.i46.i, 0
-  br i1 %tobool.not.i47.i, label %if.end8.i48.i, label %check_pem.exit
+  br i1 %tobool.not.i47.i, label %if.end8.i48.i, label %do.body.critedge
 
 if.end8.i48.i:                                    ; preds = %if.end.i38.i
   %incdec.ptr.i49.i = getelementptr inbounds i8, ptr %add.ptr.i41.i, i64 -11
   %10 = load i8, ptr %incdec.ptr.i49.i, align 1
   %cmp10.not.i50.i = icmp eq i8 %10, 32
-  br i1 %cmp10.not.i50.i, label %ossl_pem_check_suffix.exit56.i, label %check_pem.exit
+  br i1 %cmp10.not.i50.i, label %ossl_pem_check_suffix.exit56.i, label %do.body.critedge
 
 ossl_pem_check_suffix.exit56.i:                   ; preds = %if.end8.i48.i
   %sub.ptr.lhs.cast.i52.i = ptrtoint ptr %incdec.ptr.i49.i to i64
@@ -389,21 +393,24 @@ ossl_pem_check_suffix.exit56.i:                   ; preds = %if.end8.i48.i
   %sub.ptr.sub.i54.i = sub i64 %sub.ptr.lhs.cast.i52.i, %sub.ptr.rhs.cast.i53.i
   %conv14.i55.i = trunc i64 %sub.ptr.sub.i54.i to i32
   %cmp27.i = icmp sgt i32 %conv14.i55.i, 0
-  br i1 %cmp27.i, label %if.then28.i, label %check_pem.exit
+  br i1 %cmp27.i, label %if.then28.i, label %do.body.critedge
 
 if.then28.i:                                      ; preds = %ossl_pem_check_suffix.exit56.i
   %call29.i = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %e.i, ptr noundef nonnull %7, i32 noundef %conv14.i55.i) #10
   %tobool30.not.i = icmp eq ptr %call29.i, null
-  br i1 %tobool30.not.i, label %check_pem.exit, label %if.then31.i
+  br i1 %tobool30.not.i, label %do.body.critedge, label %if.then31.i
 
 if.then31.i:                                      ; preds = %if.then28.i
   %param_decode.i = getelementptr inbounds i8, ptr %call29.i, i64 112
   %11 = load ptr, ptr %param_decode.i, align 8
-  %tobool32.not.i = icmp ne ptr %11, null
-  %..i = zext i1 %tobool32.not.i to i32
+  %tobool32.not.i.not = icmp eq ptr %11, null
   %12 = load ptr, ptr %e.i, align 8
   %call35.i = call i32 @ENGINE_finish(ptr noundef %12) #10
-  br label %check_pem.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i)
+  br i1 %tobool32.not.i.not, label %do.body.backedge, label %do.end
+
+do.body.backedge:                                 ; preds = %if.then31.i, %do.body.critedge
+  br label %do.body, !llvm.loop !6
 
 if.end38.i:                                       ; preds = %if.end20.i
   %call39.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(20) @.str.24) #9
@@ -482,24 +489,18 @@ land.lhs.true90.i:                                ; preds = %if.end87.i
 if.end94.i:                                       ; preds = %land.lhs.true90.i, %if.end87.i
   %call95.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(6) @.str.31) #9
   %cmp96.i = icmp eq i32 %call95.i, 0
-  br i1 %cmp96.i, label %land.lhs.true97.i, label %check_pem.exit
+  br i1 %cmp96.i, label %land.lhs.true97.i, label %do.body.critedge
 
 land.lhs.true97.i:                                ; preds = %if.end94.i
   %call98.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(4) @.str.33) #9
   %cmp99.i = icmp eq i32 %call98.i, 0
-  br i1 %cmp99.i, label %check_pem.exit.thread, label %check_pem.exit
+  br i1 %cmp99.i, label %check_pem.exit.thread, label %do.body.critedge
 
 check_pem.exit.thread:                            ; preds = %do.cond, %if.then3.i, %if.end7.i, %land.lhs.true.i, %land.lhs.true41.i, %land.lhs.true48.i, %land.lhs.true55.i, %land.lhs.true62.i, %land.lhs.true69.i, %land.lhs.true76.i, %land.lhs.true83.i, %land.lhs.true90.i, %land.lhs.true97.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i)
   br label %do.end
 
-check_pem.exit:                                   ; preds = %if.end94.i, %land.lhs.true97.i, %if.end11.i, %if.end.i.i, %if.end8.i.i, %ossl_pem_check_suffix.exit.i, %if.then14.i, %land.lhs.true.i, %if.then23.i, %if.end.i38.i, %if.end8.i48.i, %ossl_pem_check_suffix.exit56.i, %if.then28.i, %if.then31.i
-  %retval.0.i23 = phi i32 [ %..i, %if.then31.i ], [ 0, %if.then28.i ], [ 0, %ossl_pem_check_suffix.exit56.i ], [ 0, %if.then23.i ], [ 0, %if.end.i38.i ], [ 0, %if.end8.i48.i ], [ 0, %land.lhs.true.i ], [ 0, %if.then14.i ], [ 0, %ossl_pem_check_suffix.exit.i ], [ 0, %if.end8.i.i ], [ 0, %if.end.i.i ], [ 0, %if.end11.i ], [ 0, %land.lhs.true97.i ], [ 0, %if.end94.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i)
-  %tobool6.not = icmp eq i32 %retval.0.i23, 0
-  br i1 %tobool6.not, label %do.body, label %do.end, !llvm.loop !6
-
-do.end:                                           ; preds = %check_pem.exit, %check_pem.exit.thread
+do.end:                                           ; preds = %if.then31.i, %check_pem.exit.thread
   %13 = load ptr, ptr %header, align 8
   %call7 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %13, ptr noundef nonnull %cipher)
   %tobool8.not = icmp eq i32 %call7, 0

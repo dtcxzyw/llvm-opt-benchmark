@@ -899,11 +899,11 @@ define noalias noundef ptr @Iso_ManCreate(ptr noundef %0) local_unnamed_addr #0 
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds i8, ptr %37, i64 36
   %39 = load i32, ptr %38, align 4
+  %40 = sext i32 %39 to i64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %32, %34
-  %40 = phi i32 [ %39, %34 ], [ -1, %32 ]
-  %41 = sext i32 %40 to i64
+  %41 = phi i64 [ %40, %34 ], [ -1, %32 ]
   %42 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %21, i64 %41, i32 1
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds i8, ptr %22, i64 4
@@ -934,11 +934,11 @@ Aig_ObjFaninId0.exit:                             ; preds = %32, %34
   %61 = inttoptr i64 %60 to ptr
   %62 = getelementptr inbounds i8, ptr %61, i64 36
   %63 = load i32, ptr %62, align 4
+  %64 = sext i32 %63 to i64
   br label %Aig_ObjFaninId1.exit
 
 Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit, %58
-  %64 = phi i32 [ %63, %58 ], [ -1, %Aig_ObjFaninId0.exit ]
-  %65 = sext i32 %64 to i64
+  %65 = phi i64 [ %64, %58 ], [ -1, %Aig_ObjFaninId0.exit ]
   %66 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %21, i64 %65, i32 1
   %67 = load i32, ptr %66, align 4
   %68 = add i32 %67, %56
@@ -1020,11 +1020,11 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %111 = inttoptr i64 %110 to ptr
   %112 = getelementptr inbounds i8, ptr %111, i64 36
   %113 = load i32, ptr %112, align 4
+  %114 = sext i32 %113 to i64
   br label %Aig_ObjFaninId0.exit180
 
 Aig_ObjFaninId0.exit180:                          ; preds = %106, %108
-  %114 = phi i32 [ %113, %108 ], [ -1, %106 ]
-  %115 = sext i32 %114 to i64
+  %115 = phi i64 [ %114, %108 ], [ -1, %106 ]
   %116 = getelementptr inbounds i8, ptr %102, i64 8
   %117 = load i32, ptr %116, align 4
   %118 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %101, i64 %115, i32 2
@@ -1057,11 +1057,11 @@ Aig_ObjFaninId0.exit180:                          ; preds = %106, %108
   %137 = inttoptr i64 %136 to ptr
   %138 = getelementptr inbounds i8, ptr %137, i64 36
   %139 = load i32, ptr %138, align 4
+  %140 = sext i32 %139 to i64
   br label %Aig_ObjFaninId1.exit182
 
 Aig_ObjFaninId1.exit182:                          ; preds = %Aig_ObjFaninId0.exit180, %134
-  %140 = phi i32 [ %139, %134 ], [ -1, %Aig_ObjFaninId0.exit180 ]
-  %141 = sext i32 %140 to i64
+  %141 = phi i64 [ %140, %134 ], [ -1, %Aig_ObjFaninId0.exit180 ]
   %142 = load i32, ptr %116, align 4
   %143 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %101, i64 %141, i32 2
   %144 = load i32, ptr %143, align 4
@@ -1090,11 +1090,11 @@ Aig_ObjFaninId1.exit182:                          ; preds = %Aig_ObjFaninId0.exi
   %156 = inttoptr i64 %155 to ptr
   %157 = getelementptr inbounds i8, ptr %156, i64 36
   %158 = load i32, ptr %157, align 4
+  %159 = sext i32 %158 to i64
   br label %Aig_ObjFaninId0.exit184
 
 Aig_ObjFaninId0.exit184:                          ; preds = %151, %153
-  %159 = phi i32 [ %158, %153 ], [ -1, %151 ]
-  %160 = sext i32 %159 to i64
+  %160 = phi i64 [ %159, %153 ], [ -1, %151 ]
   %161 = getelementptr inbounds i8, ptr %102, i64 8
   %162 = load i32, ptr %161, align 4
   %163 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %101, i64 %160, i32 2
@@ -1203,13 +1203,13 @@ Aig_ObjFaninId0.exit192:                          ; preds = %Iso_ManObj.exit
   %219 = load i32, ptr %218, align 4
   %.not.i193 = icmp ne i32 %219, 0
   tail call void @llvm.assume(i1 %.not.i193)
+  %220 = sext i32 %219 to i64
   br label %Aig_ObjFaninId0.exit192.thread
 
 Aig_ObjFaninId0.exit192.thread:                   ; preds = %Aig_ObjFaninId0.exit192, %Iso_ManObj.exit
-  %220 = phi i32 [ %219, %Aig_ObjFaninId0.exit192 ], [ -1, %Iso_ManObj.exit ]
-  %221 = load ptr, ptr %90, align 8
-  %222 = sext i32 %220 to i64
-  %223 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %221, i64 %222
+  %221 = phi i64 [ %220, %Aig_ObjFaninId0.exit192 ], [ -1, %Iso_ManObj.exit ]
+  %222 = load ptr, ptr %90, align 8
+  %223 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %222, i64 %221
   %224 = getelementptr inbounds i8, ptr %223, i64 4
   %225 = load i32, ptr %224, align 4
   %226 = getelementptr inbounds i8, ptr %214, i64 4
@@ -1413,11 +1413,11 @@ define void @Iso_ManAssignAdjacency(ptr nocapture noundef readonly %0) local_unn
   %34 = inttoptr i64 %33 to ptr
   %35 = getelementptr inbounds i8, ptr %34, i64 36
   %36 = load i32, ptr %35, align 4
+  %37 = sext i32 %36 to i64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %28, %31
-  %37 = phi i32 [ %36, %31 ], [ -1, %28 ]
-  %38 = sext i32 %37 to i64
+  %38 = phi i64 [ %37, %31 ], [ -1, %28 ]
   %39 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %29, i64 %38
   %40 = getelementptr inbounds i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
@@ -1457,11 +1457,11 @@ Aig_ObjFaninId0.exit:                             ; preds = %28, %31
   %62 = inttoptr i64 %61 to ptr
   %63 = getelementptr inbounds i8, ptr %62, i64 36
   %64 = load i32, ptr %63, align 4
+  %65 = sext i32 %64 to i64
   br label %Aig_ObjFaninId1.exit
 
 Aig_ObjFaninId1.exit:                             ; preds = %55, %59
-  %65 = phi i32 [ %64, %59 ], [ -1, %55 ]
-  %66 = sext i32 %65 to i64
+  %66 = phi i64 [ %65, %59 ], [ -1, %55 ]
   %67 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %57, i64 %66
   %68 = getelementptr inbounds i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
@@ -1556,11 +1556,11 @@ Aig_ObjFaninId1.exit:                             ; preds = %55, %59
   %117 = inttoptr i64 %116 to ptr
   %118 = getelementptr inbounds i8, ptr %117, i64 36
   %119 = load i32, ptr %118, align 4
+  %120 = sext i32 %119 to i64
   br label %Aig_ObjFaninId0.exit212
 
 Aig_ObjFaninId0.exit212:                          ; preds = %112, %114
-  %120 = phi i32 [ %119, %114 ], [ -1, %112 ]
-  %121 = sext i32 %120 to i64
+  %121 = phi i64 [ %120, %114 ], [ -1, %112 ]
   %122 = getelementptr inbounds i8, ptr %108, i64 8
   %123 = load i32, ptr %122, align 4
   %124 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %107, i64 %121, i32 2
@@ -1601,11 +1601,11 @@ Aig_ObjFaninId0.exit212:                          ; preds = %112, %114
   %146 = inttoptr i64 %145 to ptr
   %147 = getelementptr inbounds i8, ptr %146, i64 36
   %148 = load i32, ptr %147, align 4
+  %149 = sext i32 %148 to i64
   br label %Aig_ObjFaninId1.exit214
 
 Aig_ObjFaninId1.exit214:                          ; preds = %140, %143
-  %149 = phi i32 [ %148, %143 ], [ -1, %140 ]
-  %150 = sext i32 %149 to i64
+  %150 = phi i64 [ %149, %143 ], [ -1, %140 ]
   %151 = load i32, ptr %122, align 4
   %152 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %141, i64 %150, i32 2
   %153 = load i32, ptr %152, align 4
@@ -1631,11 +1631,11 @@ Aig_ObjFaninId1.exit214:                          ; preds = %140, %143
   %162 = inttoptr i64 %161 to ptr
   %163 = getelementptr inbounds i8, ptr %162, i64 36
   %164 = load i32, ptr %163, align 4
+  %165 = sext i32 %164 to i64
   br label %Aig_ObjFaninId0.exit216
 
 Aig_ObjFaninId0.exit216:                          ; preds = %157, %159
-  %165 = phi i32 [ %164, %159 ], [ -1, %157 ]
-  %166 = sext i32 %165 to i64
+  %166 = phi i64 [ %165, %159 ], [ -1, %157 ]
   %167 = getelementptr inbounds i8, ptr %108, i64 8
   %168 = load i32, ptr %167, align 4
   %169 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %107, i64 %166, i32 2
@@ -1734,13 +1734,13 @@ Aig_ObjFaninId0.exit224:                          ; preds = %Iso_ManObj.exit
   %221 = load i32, ptr %220, align 4
   %.not.i225 = icmp ne i32 %221, 0
   tail call void @llvm.assume(i1 %.not.i225)
+  %222 = sext i32 %221 to i64
   br label %Aig_ObjFaninId0.exit224.thread
 
 Aig_ObjFaninId0.exit224.thread:                   ; preds = %Aig_ObjFaninId0.exit224, %Iso_ManObj.exit
-  %222 = phi i32 [ %221, %Aig_ObjFaninId0.exit224 ], [ -1, %Iso_ManObj.exit ]
-  %223 = load ptr, ptr %94, align 8
-  %224 = sext i32 %222 to i64
-  %225 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %223, i64 %224
+  %223 = phi i64 [ %222, %Aig_ObjFaninId0.exit224 ], [ -1, %Iso_ManObj.exit ]
+  %224 = load ptr, ptr %94, align 8
+  %225 = getelementptr inbounds %struct.Iso_Obj_t_, ptr %224, i64 %223
   %226 = getelementptr inbounds i8, ptr %225, i64 4
   %227 = load i32, ptr %226, align 4
   %228 = getelementptr inbounds i8, ptr %216, i64 4

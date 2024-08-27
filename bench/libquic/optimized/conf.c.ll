@@ -1125,7 +1125,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %lstart.0 = phi ptr [ %add.ptr46, %if.end41 ], [ %list, %for.cond.preheader ]
   %2 = load i8, ptr %lstart.0, align 1
   %tobool2.not21 = icmp eq i8 %2, 0
-  br i1 %tobool2.not21, label %if.end6.loopexit, label %land.rhs.lr.ph
+  br i1 %tobool2.not21, label %if.end6.loopexit.thread, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %for.cond
   %call = tail call ptr @__ctype_b_loc() #14
@@ -1148,15 +1148,19 @@ while.body:                                       ; preds = %land.rhs
   %tobool2.not = icmp eq i8 %7, 0
   br i1 %tobool2.not, label %if.end6.loopexit, label %land.rhs, !llvm.loop !14
 
-if.end6.loopexit:                                 ; preds = %land.rhs, %while.body, %for.cond
-  %tobool11.not = phi i1 [ true, %for.cond ], [ %tobool5.not, %while.body ], [ %tobool5.not, %land.rhs ]
-  %lstart.2.lcssa = phi ptr [ %lstart.0, %for.cond ], [ %lstart.222, %land.rhs ], [ %incdec.ptr, %while.body ]
+if.end6.loopexit:                                 ; preds = %land.rhs, %while.body
+  %lstart.2.lcssa = phi ptr [ %lstart.222, %land.rhs ], [ %incdec.ptr, %while.body ]
   %call8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %lstart.2.lcssa, i32 noundef %conv7) #13
   %cmp9 = icmp eq ptr %call8, %lstart.2.lcssa
-  %or.cond = or i1 %cmp9, %tobool11.not
-  br i1 %or.cond, label %if.then12, label %if.else
+  %brmerge = or i1 %cmp9, %tobool5.not
+  br i1 %brmerge, label %if.then12, label %if.else
 
-if.then12:                                        ; preds = %if.end6.loopexit
+if.end6.loopexit.thread:                          ; preds = %for.cond
+  %call829 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %lstart.0, i32 noundef %conv7) #13
+  br label %if.then12
+
+if.then12:                                        ; preds = %if.end6.loopexit, %if.end6.loopexit.thread
+  %call835 = phi ptr [ %call8, %if.end6.loopexit ], [ %call829, %if.end6.loopexit.thread ]
   %call13 = tail call i32 %list_cb(ptr noundef null, i32 noundef 0, ptr noundef %arg) #12
   br label %if.end37
 
@@ -1196,13 +1200,14 @@ if.end34.loopexit:                                ; preds = %while.cond23
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end34.loopexit, %if.then12
+  %call833 = phi ptr [ %call835, %if.then12 ], [ %call8, %if.end34.loopexit ]
   %ret.0 = phi i32 [ %call13, %if.then12 ], [ %call36, %if.end34.loopexit ]
   %cmp38 = icmp slt i32 %ret.0, 1
   br i1 %cmp38, label %return, label %if.end41
 
 if.end41:                                         ; preds = %if.end37
-  %cmp42 = icmp eq ptr %call8, null
-  %add.ptr46 = getelementptr inbounds i8, ptr %call8, i64 1
+  %cmp42 = icmp eq ptr %call833, null
+  %add.ptr46 = getelementptr inbounds i8, ptr %call833, i64 1
   br i1 %cmp42, label %return, label %for.cond
 
 return:                                           ; preds = %if.end37, %if.end41, %if.end41.us, %if.end37.us, %if.then

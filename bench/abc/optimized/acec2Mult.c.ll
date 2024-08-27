@@ -1658,13 +1658,16 @@ Sdb_CutGetSign.exit.us:                           ; preds = %763, %757
   %786 = add nuw nsw i32 %.09.i.us, %785
   %indvars.iv.next.i127.us = add nuw nsw i64 %indvars.iv.i126.us, 1
   %exitcond.not.i128.us = icmp eq i64 %indvars.iv.next.i127.us, %wide.trip.count.i125.us
-  br i1 %exitcond.not.i128.us, label %Sdb_CutTreeLeaves.exit.us, label %778, !llvm.loop !27
+  br i1 %exitcond.not.i128.us, label %Sdb_CutTreeLeaves.exit.us.loopexit, label %778, !llvm.loop !27
 
-Sdb_CutTreeLeaves.exit.us:                        ; preds = %778, %770
-  %.0.lcssa.i.us = phi i32 [ 0, %770 ], [ %786, %778 ]
-  %787 = and i32 %.0.lcssa.i.us, 268435455
+Sdb_CutTreeLeaves.exit.us.loopexit:               ; preds = %778
+  %787 = and i32 %786, 268435455
+  br label %Sdb_CutTreeLeaves.exit.us
+
+Sdb_CutTreeLeaves.exit.us:                        ; preds = %Sdb_CutTreeLeaves.exit.us.loopexit, %770
+  %.0.lcssa.i.us = phi i32 [ 0, %770 ], [ %787, %Sdb_CutTreeLeaves.exit.us.loopexit ]
   %788 = and i32 %773, -268435456
-  %789 = or disjoint i32 %787, %788
+  %789 = or disjoint i32 %.0.lcssa.i.us, %788
   store i32 %789, ptr %772, align 4
   %790 = icmp eq i32 %.1277.us, 0
   br i1 %790, label %Sdb_CutSetAddCut.exit.us, label %791
@@ -2344,13 +2347,16 @@ Sdb_CutGetSign.exit:                              ; preds = %40
   %57 = add nuw nsw i32 %.09.i, %56
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i
-  br i1 %exitcond.not.i39, label %Sdb_CutTreeLeaves.exit, label %49, !llvm.loop !27
+  br i1 %exitcond.not.i39, label %Sdb_CutTreeLeaves.exit.loopexit, label %49, !llvm.loop !27
 
-Sdb_CutTreeLeaves.exit:                           ; preds = %49, %Sdb_CutGetSign.exit.thread
-  %.0.lcssa.i = phi i32 [ 0, %Sdb_CutGetSign.exit.thread ], [ %57, %49 ]
-  %58 = and i32 %.0.lcssa.i, 268435455
+Sdb_CutTreeLeaves.exit.loopexit:                  ; preds = %49
+  %58 = and i32 %57, 268435455
+  br label %Sdb_CutTreeLeaves.exit
+
+Sdb_CutTreeLeaves.exit:                           ; preds = %Sdb_CutTreeLeaves.exit.loopexit, %Sdb_CutGetSign.exit.thread
+  %.0.lcssa.i = phi i32 [ 0, %Sdb_CutGetSign.exit.thread ], [ %58, %Sdb_CutTreeLeaves.exit.loopexit ]
   %59 = and i32 %32, -268435456
-  %60 = or disjoint i32 %58, %59
+  %60 = or disjoint i32 %.0.lcssa.i, %59
   store i32 %60, ptr %18, align 4
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %61 = load i32, ptr %.03046, align 4

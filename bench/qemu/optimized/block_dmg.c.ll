@@ -834,7 +834,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0109 = phi i32 [ %12, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.0109 = phi i32 [ %12, %for.body.lr.ph ], [ %i.1, %for.inc ]
   %chunk_count.0108 = phi i32 [ %div, %for.body.lr.ph ], [ %chunk_count.1, %for.inc ]
   %offset.0106 = phi i64 [ 204, %for.body.lr.ph ], [ %offset.1, %for.inc ]
   %arrayidx.i83 = getelementptr i8, ptr %buffer, i64 %offset.0106
@@ -882,7 +882,6 @@ sw.default:                                       ; preds = %for.body
 
 sw.epilog:                                        ; preds = %for.body, %for.body, %sw.default, %sw.bb35, %sw.bb
   %dec = add i32 %chunk_count.0108, -1
-  %dec48 = add i32 %i.0109, -1
   br label %for.inc
 
 if.end50:                                         ; preds = %for.body, %for.body, %for.body, %for.body, %sw.bb3.i, %dmg_is_known_block_type.exit
@@ -954,7 +953,7 @@ if.end109:                                        ; preds = %if.end85
   %42 = load ptr, ptr %types, align 8
   %arrayidx.i88 = getelementptr i32, ptr %42, i64 %idxprom
   %43 = load i32, ptr %arrayidx.i88, align 4
-  switch i32 %43, label %for.inc [
+  switch i32 %43, label %update_max_chunk_size.exit [
     i32 -2147483643, label %sw.epilog.i
     i32 -2147483642, label %sw.epilog.i
     i32 -2147483641, label %sw.epilog.i
@@ -984,20 +983,23 @@ if.end.i:                                         ; preds = %if.then.i, %sw.epil
   %uncompressed_sectors.015.i = trunc i64 %uncompressed_sectors.015.in.i to i32
   %47 = load i32, ptr %max_sectors_per_chunk, align 4
   %cmp13.i = icmp ult i32 %47, %uncompressed_sectors.015.i
-  br i1 %cmp13.i, label %if.then15.i, label %for.inc
+  br i1 %cmp13.i, label %if.then15.i, label %update_max_chunk_size.exit
 
 if.then15.i:                                      ; preds = %if.end.i
   store i32 %uncompressed_sectors.015.i, ptr %max_sectors_per_chunk, align 4
+  br label %update_max_chunk_size.exit
+
+update_max_chunk_size.exit:                       ; preds = %if.end109, %if.end.i, %if.then15.i
+  %48 = add nuw i32 %i.0109, 1
   br label %for.inc
 
-for.inc:                                          ; preds = %if.then15.i, %if.end.i, %if.end109, %sw.epilog
-  %chunk_count.1 = phi i32 [ %dec, %sw.epilog ], [ %chunk_count.0108, %if.end109 ], [ %chunk_count.0108, %if.end.i ], [ %chunk_count.0108, %if.then15.i ]
-  %i.1 = phi i32 [ %dec48, %sw.epilog ], [ %i.0109, %if.end109 ], [ %i.0109, %if.end.i ], [ %i.0109, %if.then15.i ]
+for.inc:                                          ; preds = %update_max_chunk_size.exit, %sw.epilog
+  %chunk_count.1 = phi i32 [ %chunk_count.0108, %update_max_chunk_size.exit ], [ %dec, %sw.epilog ]
+  %i.1 = phi i32 [ %48, %update_max_chunk_size.exit ], [ %i.0109, %sw.epilog ]
   %offset.1 = add i64 %offset.0106, 40
-  %inc = add i32 %i.1, 1
-  %48 = load i32, ptr %n_chunks, align 8
-  %add21 = add i32 %48, %chunk_count.1
-  %cmp22 = icmp ult i32 %inc, %add21
+  %49 = load i32, ptr %n_chunks, align 8
+  %add21 = add i32 %49, %chunk_count.1
+  %cmp22 = icmp ult i32 %i.1, %add21
   br i1 %cmp22, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %if.end

@@ -2313,8 +2313,8 @@ define hidden void @_ZNK17interpretedVFrame10set_localsEP20StackValueCollection(
   %wide.trip.count = zext i16 %23 to i64
   br label %25
 
-25:                                               ; preds = %.lr.ph, %45
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
+25:                                               ; preds = %.lr.ph, %_ZNK6HandleclEv.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK6HandleclEv.exit ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull readonly align 8 dereferenceable(56) %24, i64 56, i1 false)
   %26 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2327,7 +2327,7 @@ define hidden void @_ZNK17interpretedVFrame10set_localsEP20StackValueCollection(
   %32 = load ptr, ptr %31, align 8
   %33 = load i8, ptr %32, align 8
   %34 = icmp eq i8 %33, 12
-  br i1 %34, label %35, label %42
+  br i1 %34, label %35, label %41
 
 35:                                               ; preds = %25
   %36 = getelementptr inbounds i8, ptr %32, i64 16
@@ -2337,26 +2337,22 @@ define hidden void @_ZNK17interpretedVFrame10set_localsEP20StackValueCollection(
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %.sroa.0.0.copyload.i, align 8
+  %40 = ptrtoint ptr %39 to i64
   br label %_ZNK6HandleclEv.exit
 
-_ZNK6HandleclEv.exit:                             ; preds = %35, %38
-  %40 = phi ptr [ %39, %38 ], [ null, %35 ]
-  %41 = ptrtoint ptr %40 to i64
-  br label %45
+41:                                               ; preds = %25
+  %42 = getelementptr inbounds i8, ptr %32, i64 8
+  %43 = load i64, ptr %42, align 8
+  br label %_ZNK6HandleclEv.exit
 
-42:                                               ; preds = %25
-  %43 = getelementptr inbounds i8, ptr %32, i64 8
-  %44 = load i64, ptr %43, align 8
-  br label %45
-
-45:                                               ; preds = %_ZNK6HandleclEv.exit, %42
-  %storemerge = phi i64 [ %44, %42 ], [ %41, %_ZNK6HandleclEv.exit ]
+_ZNK6HandleclEv.exit:                             ; preds = %38, %35, %41
+  %storemerge = phi i64 [ %43, %41 ], [ %40, %38 ], [ 0, %35 ]
   store i64 %storemerge, ptr %27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !33
 
-.loopexit:                                        ; preds = %45, %9, %2, %5
+.loopexit:                                        ; preds = %_ZNK6HandleclEv.exit, %9, %2, %5
   ret void
 }
 

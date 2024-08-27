@@ -6634,30 +6634,27 @@ define internal fastcc ptr @create_unique_plan(ptr noundef %0, ptr nocapture nou
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %17, i64 4
   %20 = load i32, ptr %19, align 4
+  %21 = add i32 %20, 1
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %12, %18
-  %21 = phi i32 [ %20, %18 ], [ 0, %12 ]
-  %22 = getelementptr inbounds i8, ptr %16, i64 4
+  %22 = phi i32 [ %21, %18 ], [ 1, %12 ]
+  %23 = getelementptr inbounds i8, ptr %16, i64 4
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = load i32, ptr %22, align 4
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph182.preheader, label %._crit_edge.thread
+  %24 = getelementptr inbounds i8, ptr %16, i64 16
+  %25 = load i32, ptr %23, align 4
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %.lr.ph182, label %._crit_edge.thread
 
-.lr.ph182.preheader:                              ; preds = %.lr.ph
-  %26 = add i32 %21, 1
-  br label %.lr.ph182
-
-.lr.ph182:                                        ; preds = %.lr.ph182.preheader, %36
-  %indvars.iv = phi i64 [ 0, %.lr.ph182.preheader ], [ %indvars.iv.next, %36 ]
-  %.0116164180 = phi i1 [ false, %.lr.ph182.preheader ], [ %.1117, %36 ]
-  %.0114165179 = phi i32 [ %26, %.lr.ph182.preheader ], [ %.1115, %36 ]
-  %.0113166178 = phi ptr [ %17, %.lr.ph182.preheader ], [ %.1, %36 ]
-  %27 = load ptr, ptr %23, align 8
+.lr.ph182:                                        ; preds = %.lr.ph, %36
+  %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph ]
+  %.0116164180 = phi i1 [ %.1117, %36 ], [ false, %.lr.ph ]
+  %.0114165179 = phi i32 [ %.1115, %36 ], [ %22, %.lr.ph ]
+  %.0113166178 = phi ptr [ %.1, %36 ], [ %17, %.lr.ph ]
+  %27 = load ptr, ptr %24, align 8
   %28 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @tlist_member(ptr noundef %29, ptr noundef %.0113166178) #12
@@ -6676,7 +6673,7 @@ list_length.exit:                                 ; preds = %12, %18
   %.1115 = phi i32 [ %.0114165179, %.lr.ph182 ], [ %35, %31 ]
   %.1 = phi ptr [ %.0113166178, %.lr.ph182 ], [ %34, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = load i32, ptr %22, align 4
+  %37 = load i32, ptr %23, align 4
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
   br i1 %39, label %.lr.ph182, label %._crit_edge
@@ -6789,7 +6786,7 @@ change_plan_targetlist.exit:                      ; preds = %.change_plan_target
   br i1 %.not, label %list_length.exit142, label %87
 
 87:                                               ; preds = %change_plan_targetlist.exit
-  %88 = load i32, ptr %22, align 4
+  %88 = load i32, ptr %23, align 4
   br label %list_length.exit142
 
 list_length.exit142:                              ; preds = %change_plan_targetlist.exit, %87
@@ -6803,7 +6800,7 @@ list_length.exit142:                              ; preds = %change_plan_targetl
 
 .lr.ph188:                                        ; preds = %list_length.exit142
   %95 = getelementptr inbounds i8, ptr %16, i64 16
-  %96 = load i32, ptr %22, align 4
+  %96 = load i32, ptr %23, align 4
   %97 = icmp sgt i32 %96, 0
   br i1 %97, label %.lr.ph193, label %._crit_edge189
 
@@ -6834,7 +6831,7 @@ list_length.exit142:                              ; preds = %change_plan_targetl
   %111 = getelementptr i32, ptr %94, i64 %indvars.iv235
   store i32 %110, ptr %111, align 4
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
-  %112 = load i32, ptr %22, align 4
+  %112 = load i32, ptr %23, align 4
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next236, %113
   br i1 %114, label %.lr.ph193, label %._crit_edge189
@@ -9727,12 +9724,12 @@ is_projection_capable_plan.exit.thread:           ; preds = %86, %is_projection_
 118:                                              ; preds = %is_projection_capable_plan.exit.thread
   %119 = getelementptr inbounds i8, ptr %.2101, i64 4
   %120 = load i32, ptr %119, align 4
+  %121 = trunc i32 %120 to i16
+  %122 = add i16 %121, 1
   br label %list_length.exit125
 
 list_length.exit125:                              ; preds = %is_projection_capable_plan.exit.thread, %118
-  %121 = phi i32 [ %120, %118 ], [ 0, %is_projection_capable_plan.exit.thread ]
-  %122 = trunc i32 %121 to i16
-  %123 = add i16 %122, 1
+  %123 = phi i16 [ %122, %118 ], [ 1, %is_projection_capable_plan.exit.thread ]
   %124 = tail call ptr @makeTargetEntry(ptr noundef %117, i16 noundef signext %123, ptr noundef null, i1 noundef zeroext true) #12
   %125 = tail call ptr @lappend(ptr noundef %.2101, ptr noundef %124) #12
   %126 = getelementptr inbounds i8, ptr %.2, i64 48

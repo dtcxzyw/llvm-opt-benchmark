@@ -2374,7 +2374,7 @@ for.end31.i:                                      ; preds = %if.end.i, %for.body
 do.body.preheader:                                ; preds = %for.end31.i, %for.body.i
   br label %do.body
 
-do.body:                                          ; preds = %do.body.preheader, %do.cond78
+do.body:                                          ; preds = %do.body.preheader, %do.body.backedge
   invoke void @_ZN5arrow7compute10SwissTable19map_new_keys_helperEPKjPjPtPbS4_S4_PNS_4util15TempVectorStackERKSt8functionIFviPKtS3_S4_S5_PvEERKSA_IFNS_6StatusEiSC_SD_EESD_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %hashes, ptr noundef nonnull %num_ids.addr, ptr noundef nonnull %ids, ptr noundef nonnull %out_of_capacity, ptr noundef %group_ids, ptr noundef %2, ptr noundef %temp_stack, ptr noundef nonnull align 8 dereferenceable(32) %equal_impl, ptr noundef nonnull align 8 dereferenceable(32) %append_impl, ptr noundef %callback_ctx)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
@@ -2433,18 +2433,17 @@ for.body67:                                       ; preds = %for.body67.preheade
   store i32 %mul, ptr %arrayidx73, align 4
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %do.cond78, label %for.body67, !llvm.loop !45
+  br i1 %exitcond153.not, label %do.body.backedge, label %for.body67, !llvm.loop !45
 
 do.cond78thread-pre-split:                        ; preds = %_ZN5arrow6StatusD2Ev.exit59
   %.pr = load i32, ptr %num_ids.addr, align 4
-  br label %do.cond78
+  %30 = icmp eq i32 %.pr, 0
+  br i1 %30, label %do.end80, label %do.body.backedge
 
-do.cond78:                                        ; preds = %for.body67, %do.cond78thread-pre-split
-  %30 = phi i32 [ %.pr, %do.cond78thread-pre-split ], [ 1, %for.body67 ]
-  %cmp79.not = icmp eq i32 %30, 0
-  br i1 %cmp79.not, label %do.end80, label %do.body, !llvm.loop !46
+do.body.backedge:                                 ; preds = %for.body67, %do.cond78thread-pre-split
+  br label %do.body, !llvm.loop !46
 
-do.end80:                                         ; preds = %for.cond65.preheader, %do.cond78
+do.end80:                                         ; preds = %for.cond65.preheader, %do.cond78thread-pre-split
   store ptr null, ptr %agg.result, align 8, !alias.scope !47
   br label %cleanup82
 

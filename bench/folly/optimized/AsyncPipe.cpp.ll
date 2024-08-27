@@ -612,8 +612,7 @@ if.else113:                                       ; preds = %if.then105
 if.end117:                                        ; preds = %if.else113, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit199
   %ioBuf.sroa.0.1 = phi ptr [ null, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit199 ], [ %ioBuf.sroa.0.0, %if.else113 ]
   %54 = load i64, ptr %buflen, align 8, !tbaa !39
-  %cmp118 = icmp ult i64 %call103, %54
-  %. = zext i1 %cmp118 to i32
+  %cmp118 = icmp uge i64 %call103, %54
   br label %cleanup146
 
 if.else121:                                       ; preds = %invoke.cont102
@@ -727,7 +726,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit241.thread: ; p
 
 cleanup146:                                       ; preds = %invoke.cont140, %invoke.cont138, %land.lhs.true, %if.end117
   %ioBuf.sroa.0.2 = phi ptr [ %ioBuf.sroa.0.1, %if.end117 ], [ %ioBuf.sroa.0.0, %land.lhs.true ], [ %ioBuf.sroa.0.0, %invoke.cont138 ], [ %ioBuf.sroa.0.0, %invoke.cont140 ]
-  %cleanup.dest.slot.1 = phi i32 [ %., %if.end117 ], [ 1, %land.lhs.true ], [ 1, %invoke.cont138 ], [ 1, %invoke.cont140 ]
+  %cleanup.dest.slot.1 = phi i1 [ %cmp118, %if.end117 ], [ false, %land.lhs.true ], [ false, %invoke.cont138 ], [ false, %invoke.cont140 ]
   %cmp.not.i239 = icmp eq ptr %ioBuf.sroa.0.2, null
   br i1 %cmp.not.i239, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit241, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i240
 
@@ -739,8 +738,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i240: ; preds = %cleanup146
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit241: ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i240, %cleanup146
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf) #21
-  %cond155 = icmp eq i32 %cleanup.dest.slot.1, 0
-  br i1 %cond155, label %while.cond, label %if.then.i, !llvm.loop !57
+  br i1 %cleanup.dest.slot.1, label %while.cond, label %if.then.i, !llvm.loop !57
 
 if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit241, %while.cond, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit241.thread
   %66 = load i32, ptr %guardCount_.i, align 8, !tbaa !7

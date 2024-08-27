@@ -5704,25 +5704,25 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr nocapture 
   %14 = getelementptr i8, ptr %12, i64 %13
   %15 = zext i16 %2 to i64
   tail call void @iowrite16_rep(ptr noundef %14, ptr noundef %3, i64 noundef %15) #7
-  br label %102
+  br label %101
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 84
   %18 = load i16, ptr %17, align 4
   %19 = icmp ugt i16 %18, %1
-  br i1 %19, label %20, label %102
+  br i1 %19, label %20, label %101
 
 20:                                               ; preds = %16
   %21 = zext i16 %1 to i32
   %narrow = sub nuw i16 %18, %1
   %22 = add i16 %2, -1
   %.not = icmp ult i16 %22, %narrow
-  br i1 %.not, label %23, label %102
+  br i1 %.not, label %23, label %101
 
 23:                                               ; preds = %20
   %24 = tail call fastcc i32 @e1000_acquire_eeprom(ptr noundef %0), !range !9
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %102
+  br i1 %25, label %26, label %101
 
 26:                                               ; preds = %23
   %27 = load i32, ptr %5, align 4
@@ -5795,7 +5795,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr nocapture 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
-  %68 = phi i16 [ %99, %.loopexit ], [ 0, %.lr.ph.preheader ]
+  %68 = phi i16 [ %98, %.loopexit ], [ 0, %.lr.ph.preheader ]
   %69 = tail call fastcc i32 @e1000_spi_eeprom_ready(ptr noundef %0), !range !9
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %.thread7
@@ -5822,7 +5822,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr nocapture 
 83:                                               ; preds = %86, %71
   %84 = phi i64 [ %90, %86 ], [ %82, %71 ]
   %85 = icmp eq i64 %84, %67
-  br i1 %85, label %.loopexit, label %86
+  br i1 %85, label %.thread7, label %86
 
 86:                                               ; preds = %83
   %87 = getelementptr i16, ptr %3, i64 %84
@@ -5837,32 +5837,28 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr nocapture 
   %95 = zext i16 %94 to i32
   %96 = urem i32 %93, %95
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %83
+  br i1 %97, label %.loopexit, label %83
 
-98:                                               ; preds = %86
+.loopexit:                                        ; preds = %86
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
-  br label %.loopexit
+  %98 = trunc i64 %90 to i16
+  %99 = icmp ugt i16 %2, %98
+  br i1 %99, label %.lr.ph, label %.thread7
 
-.loopexit:                                        ; preds = %83, %98
-  %.in = phi i64 [ %90, %98 ], [ %67, %83 ]
-  %99 = trunc i64 %.in to i16
-  %100 = icmp ugt i16 %2, %99
-  br i1 %100, label %.lr.ph, label %.thread7
-
-.thread7:                                         ; preds = %.loopexit, %.lr.ph
-  %.ph = phi i32 [ 0, %.loopexit ], [ -1, %.lr.ph ]
+.thread7:                                         ; preds = %.loopexit, %.lr.ph, %83
+  %.ph = phi i32 [ 0, %83 ], [ -1, %.lr.ph ], [ 0, %.loopexit ]
   tail call void @msleep(i32 noundef 10) #7
   br label %.thread
 
 .thread:                                          ; preds = %52, %.thread7, %59
-  %101 = phi i32 [ %.ph, %.thread7 ], [ 0, %59 ], [ -1, %52 ]
+  %100 = phi i32 [ %.ph, %.thread7 ], [ 0, %59 ], [ -1, %52 ]
   tail call fastcc void @e1000_release_eeprom(ptr noundef %0)
-  br label %102
+  br label %101
 
-102:                                              ; preds = %.thread, %23, %20, %16, %9
-  %103 = phi i32 [ 0, %9 ], [ %101, %.thread ], [ -1, %20 ], [ -1, %16 ], [ -1, %23 ]
+101:                                              ; preds = %.thread, %23, %20, %16, %9
+  %102 = phi i32 [ 0, %9 ], [ %100, %.thread ], [ -1, %20 ], [ -1, %16 ], [ -1, %23 ]
   tail call void @mutex_unlock(ptr noundef nonnull @e1000_eeprom_lock) #7
-  ret i32 %103
+  ret i32 %102
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

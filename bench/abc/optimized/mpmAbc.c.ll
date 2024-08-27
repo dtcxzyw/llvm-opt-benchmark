@@ -693,7 +693,7 @@ Mig_ObjIsCi.exit:                                 ; preds = %Mig_ObjIsTerm.exit.
   %71 = icmp ult i32 %70, -2
   br i1 %71, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %Vec_PtrPush.exit, %Mig_ObjIsTerm.exit.i, %Mig_ObjIsCi.exit
+.lr.ph.preheader:                                 ; preds = %Mig_ObjIsCi.exit, %Vec_PtrPush.exit, %Mig_ObjIsTerm.exit.i
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Mig_ObjSibl.exit

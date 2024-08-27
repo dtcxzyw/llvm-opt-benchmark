@@ -2095,27 +2095,27 @@ define noalias noundef ptr @Extra_bddSpaceExorGates(ptr noundef %0, ptr noundef 
   br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %30 = load ptr, ptr %15, align 8
-  %31 = icmp eq ptr %19, %30
-  %or.cond = or i1 %.not4750, %31
+  %30 = sext i32 %spec.select to i64
+  %31 = load ptr, ptr %15, align 8
+  %32 = icmp eq ptr %19, %31
+  %or.cond = or i1 %.not4750, %32
   br i1 %or.cond, label %Extra_zddLitCountComb.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
-  %.012.i = phi i32 [ %32, %.lr.ph.i ], [ 0, %._crit_edge ]
-  %.0711.i = phi ptr [ %34, %.lr.ph.i ], [ %19, %._crit_edge ]
-  %32 = add nuw nsw i32 %.012.i, 1
-  %33 = getelementptr inbounds i8, ptr %.0711.i, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %.not.i = icmp eq ptr %34, %21
+  %.012.i = phi i32 [ %33, %.lr.ph.i ], [ 0, %._crit_edge ]
+  %.0711.i = phi ptr [ %35, %.lr.ph.i ], [ %19, %._crit_edge ]
+  %33 = add nuw nsw i32 %.012.i, 1
+  %34 = getelementptr inbounds i8, ptr %.0711.i, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %.not.i = icmp eq ptr %35, %21
   br i1 %.not.i, label %Extra_zddLitCountComb.exit, label %.lr.ph.i, !llvm.loop !17
 
 Extra_zddLitCountComb.exit:                       ; preds = %.lr.ph.i
   %.not49 = icmp eq i32 %.012.i, 0
-  br i1 %.not49, label %Extra_zddLitCountComb.exit.thread, label %35
+  br i1 %.not49, label %Extra_zddLitCountComb.exit.thread, label %36
 
-35:                                               ; preds = %Extra_zddLitCountComb.exit
-  %36 = sext i32 %spec.select to i64
-  %37 = getelementptr inbounds ptr, ptr %calloc, i64 %36
+36:                                               ; preds = %Extra_zddLitCountComb.exit
+  %37 = getelementptr inbounds ptr, ptr %calloc, i64 %30
   store ptr %19, ptr %37, align 8
   br label %38
 
@@ -2124,8 +2124,8 @@ Extra_zddLitCountComb.exit.thread:                ; preds = %18, %._crit_edge, %
   %.pre = load ptr, ptr %15, align 8
   br label %38
 
-38:                                               ; preds = %Extra_zddLitCountComb.exit.thread, %35
-  %39 = phi ptr [ %.pre, %Extra_zddLitCountComb.exit.thread ], [ %30, %35 ]
+38:                                               ; preds = %Extra_zddLitCountComb.exit.thread, %36
+  %39 = phi ptr [ %.pre, %Extra_zddLitCountComb.exit.thread ], [ %31, %36 ]
   %.not = icmp eq ptr %20, %39
   br i1 %.not, label %._crit_edge58, label %18, !llvm.loop !19
 
