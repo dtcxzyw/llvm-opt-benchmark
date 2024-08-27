@@ -1299,7 +1299,7 @@ define internal fastcc i32 @cbuf_writer(ptr nocapture noundef %0, i32 noundef %1
 cbuf_grow.exit:                                   ; preds = %17, %52
   %53 = phi i32 [ %.pre.i, %52 ], [ %30, %17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %54 = sub i32 %53, %10
+  %54 = sub nsw i32 %53, %10
   br label %55
 
 55:                                               ; preds = %cbuf_grow.exit, %13, %5
@@ -3049,7 +3049,7 @@ define internal fastcc i32 @cbuf_copier(ptr nocapture noundef readonly %0, ptr n
 cbuf_grow.exit:                                   ; preds = %20, %55
   %56 = phi i32 [ %.pre.i, %55 ], [ %33, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %57 = sub i32 %56, %13
+  %57 = sub nsw i32 %56, %13
   br label %58
 
 58:                                               ; preds = %cbuf_grow.exit, %16, %9
@@ -3120,38 +3120,38 @@ cbuf_grow.exit:                                   ; preds = %20, %55
   %90 = getelementptr inbounds i8, ptr %0, i64 52
   %91 = getelementptr inbounds i8, ptr %1, i64 80
   %92 = getelementptr inbounds i8, ptr %0, i64 80
-  %.pre137 = load i32, ptr %90, align 4
+  %.pre136 = load i32, ptr %90, align 4
   br label %93
 
 93:                                               ; preds = %.lr.ph, %93
   %94 = phi i32 [ %75, %.lr.ph ], [ %111, %93 ]
-  %95 = phi i32 [ %.pre137, %.lr.ph ], [ %107, %93 ]
-  %.0135 = phi i32 [ %79, %.lr.ph ], [ %113, %93 ]
-  %.1134 = phi i32 [ %.0101, %.lr.ph ], [ %109, %93 ]
-  %.0103133 = phi i32 [ %.0105, %.lr.ph ], [ %114, %93 ]
-  %reass.sub = sub i32 %95, %.1134
+  %95 = phi i32 [ %.pre136, %.lr.ph ], [ %107, %93 ]
+  %.0134 = phi i32 [ %79, %.lr.ph ], [ %113, %93 ]
+  %.1133 = phi i32 [ %.0101, %.lr.ph ], [ %109, %93 ]
+  %.0103132 = phi i32 [ %.0105, %.lr.ph ], [ %114, %93 ]
+  %reass.sub = sub i32 %95, %.1133
   %96 = add i32 %reass.sub, 1
-  %reass.sub136 = sub i32 %94, %.0135
-  %97 = add i32 %reass.sub136, 1
+  %reass.sub135 = sub i32 %94, %.0134
+  %97 = add i32 %reass.sub135, 1
   %.124 = call i32 @llvm.smin.i32(i32 %96, i32 %97)
-  %98 = call i32 @llvm.smin.i32(i32 %.124, i32 %.0103133)
+  %98 = call i32 @llvm.smin.i32(i32 %.124, i32 %.0103132)
   %99 = load ptr, ptr %91, align 8
-  %100 = sext i32 %.0135 to i64
+  %100 = sext i32 %.0134 to i64
   %101 = getelementptr inbounds i8, ptr %99, i64 %100
   %102 = load ptr, ptr %92, align 8
-  %103 = sext i32 %.1134 to i64
+  %103 = sext i32 %.1133 to i64
   %104 = getelementptr inbounds i8, ptr %102, i64 %103
   %105 = sext i32 %98 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %101, ptr align 1 %104, i64 %105, i1 false)
-  %106 = add nsw i32 %98, %.1134
+  %106 = add nsw i32 %98, %.1133
   %107 = load i32, ptr %90, align 4
   %108 = add nsw i32 %107, 1
   %109 = srem i32 %106, %108
-  %110 = add nsw i32 %98, %.0135
+  %110 = add nsw i32 %98, %.0134
   %111 = load i32, ptr %10, align 4
   %112 = add nsw i32 %111, 1
   %113 = srem i32 %110, %112
-  %114 = sub nsw i32 %.0103133, %98
+  %114 = sub nsw i32 %.0103132, %98
   %115 = icmp sgt i32 %114, 0
   br i1 %115, label %93, label %._crit_edge, !llvm.loop !16
 

@@ -6291,12 +6291,12 @@ dissect_openflow_action_header_v5.exit.i:         ; preds = %96, %.lr.ph113.i
   %134 = load i32, ptr @hf_openflow_v5_table_feature_prop_experimenter_exp_type, align 4
   %135 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %134, ptr noundef %0, i32 noundef %133, i32 noundef 4, i32 noundef 0) #4
   %136 = add nsw i32 %.057, 12
-  %137 = sub i32 %57, %136
+  %137 = add nsw i32 %56, -12
   %138 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %45, ptr noundef %1, ptr noundef nonnull @ei_openflow_v5_table_feature_prop_undecoded, ptr noundef %0, i32 noundef %136, i32 noundef %137, ptr noundef nonnull @.str.1412) #4
   br label %.loopexit.i
 
 139:                                              ; preds = %.lr.ph
-  %140 = sub i32 %57, %55
+  %140 = add nsw i32 %56, -4
   %141 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %45, ptr noundef %1, ptr noundef nonnull @ei_openflow_v5_table_feature_prop_undecoded, ptr noundef %0, i32 noundef %55, i32 noundef %140, ptr noundef nonnull @.str.1413) #4
   br label %.loopexit.i
 

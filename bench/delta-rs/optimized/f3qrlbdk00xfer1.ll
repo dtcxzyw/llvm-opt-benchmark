@@ -2273,8 +2273,8 @@ define hidden void @_ZN3std2io19default_read_to_end17heae8e6f6be413cabE(ptr noal
 
 105:                                              ; preds = %90
   %106 = load i64, ptr %34, align 8, !noundef !5
-  %107 = load i64, ptr %1, align 8, !alias.scope !387, !noalias !389, !noundef !5
   %.neg27.i = sub i64 %88, %106
+  %107 = load i64, ptr %1, align 8, !alias.scope !387, !noalias !389, !noundef !5
   %108 = add i64 %.neg27.i, %107
   store i64 %108, ptr %1, align 8, !alias.scope !387, !noalias !389
   br label %thread-pre-split

@@ -859,8 +859,8 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %15 = load ptr, ptr %3, align 8
   store ptr %15, ptr %11, align 8
-  %.not39.i = icmp eq ptr %15, %4
-  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not38.i = icmp eq ptr %15, %4
+  br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14
   %16 = getelementptr inbounds i8, ptr %5, i64 64
@@ -868,7 +868,7 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
 
 17:                                               ; preds = %32, %.lr.ph.i
   %18 = phi ptr [ %15, %.lr.ph.i ], [ %33, %32 ]
-  %.03140.i = phi ptr [ %15, %.lr.ph.i ], [ %.1.i, %32 ]
+  %.03139.i = phi ptr [ %15, %.lr.ph.i ], [ %.1.i, %32 ]
   %19 = call i32 @lxb_encoding_decode_utf_8_single(ptr noundef nonnull %16, ptr noundef nonnull %11, ptr noundef %4) #11
   %20 = icmp ugt i32 %19, 1114111
   %.pre.i = load ptr, ptr %11, align 8
@@ -877,11 +877,10 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
 21:                                               ; preds = %17
   %22 = ptrtoint ptr %.pre.i to i64
   %23 = ptrtoint ptr %18 to i64
-  %.neg.i = sub i64 %23, %22
-  %24 = ptrtoint ptr %.03140.i to i64
+  %24 = ptrtoint ptr %.03139.i to i64
   %25 = sub i64 %22, %24
-  %26 = add i64 %.neg.i, %25
-  %27 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %26, ptr noundef %.03140.i, i64 noundef %25, ptr noundef %6, ptr noundef %7)
+  %26 = sub i64 %23, %24
+  %27 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %26, ptr noundef %.03139.i, i64 noundef %25, ptr noundef %6, ptr noundef %7)
   br i1 %27, label %28, label %.loopexit.i
 
 28:                                               ; preds = %21
@@ -894,7 +893,7 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
 
 32:                                               ; preds = %30, %17
   %33 = phi ptr [ %31, %30 ], [ %.pre.i, %17 ]
-  %.1.i = phi ptr [ %31, %30 ], [ %.03140.i, %17 ]
+  %.1.i = phi ptr [ %31, %30 ], [ %.03139.i, %17 ]
   %.not.i = icmp eq ptr %33, %4
   br i1 %.not.i, label %._crit_edge.i, label %17
 

@@ -7138,7 +7138,7 @@ dissect_usb_interface_descriptor.exit.i:          ; preds = %358, %switch.lookup
   br i1 %446, label %447, label %dissect_usb_endpoint_companion_descriptor.exit.i
 
 447:                                              ; preds = %438
-  %448 = sub i32 %445, %442
+  %448 = add nsw i32 %444, -6
   %449 = call ptr @proto_tree_add_expert(ptr noundef %411, ptr noundef %0, ptr noundef nonnull @ei_usb_undecoded, ptr noundef %2, i32 noundef %442, i32 noundef %448) #11
   br label %dissect_usb_endpoint_companion_descriptor.exit.i
 

@@ -5550,7 +5550,7 @@ decode_udvm_literal_operand.exit2746:             ; preds = %2248, %2259, %2270
   br label %2287
 
 2287:                                             ; preds = %2282, %2281
-  %2288 = sub i32 %2278, %2272
+  %2288 = sub i32 %.124033405, %.023933406
   %2289 = add i32 %2288, %2279
   %.not3426 = icmp eq i16 %.sink36.i2743, 0
   br i1 %.not3426, label %._crit_edge3309, label %.lr.ph3308

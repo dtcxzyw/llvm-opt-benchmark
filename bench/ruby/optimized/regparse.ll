@@ -12069,7 +12069,7 @@ define internal fastcc i32 @add_code_range_to_buf0(ptr nocapture noundef %0, ptr
   %154 = sub i32 %153, %111
   %155 = zext i32 %154 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %149, ptr align 1 %151, i64 %155, i1 false)
-  %.neg = sub i32 %113, %111
+  %.neg = sub i32 %112, %110
   %156 = load i32, ptr %152, align 8
   %157 = add i32 %.neg, %156
   store i32 %157, ptr %152, align 8

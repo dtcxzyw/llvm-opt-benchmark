@@ -175422,7 +175422,7 @@ define linkonce_odr ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5e
 14:                                               ; preds = %3
   %15 = ptrtoint ptr %2 to i64
   %16 = sub i64 %15, %5
-  %17 = add i64 %7, %16
+  %17 = sub i64 %15, %6
   %18 = icmp ne i64 %9, %17
   %19 = icmp ne ptr %2, %1
   %or.cond.i = and i1 %19, %18

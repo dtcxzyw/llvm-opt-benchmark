@@ -73827,7 +73827,7 @@ common.resume:                                    ; preds = %.body, %73
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit131", %469, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit120", %445, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit", %422, %418, %283, %219, %214, %162, %157, %92, %_ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.14059259217783387920.exit, %212, %"_ZN102_$LT$meilisearch..analytics..segment_analytics..SearchAggregator$u20$as$u20$core..default..Default$GT$7default17h5af09d50801a61bfE.exit"
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit131", %470, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit120", %446, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit", %423, %419, %283, %219, %214, %162, %157, %92, %_ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.14059259217783387920.exit, %212, %"_ZN102_$LT$meilisearch..analytics..segment_analytics..SearchAggregator$u20$as$u20$core..default..Default$GT$7default17h5af09d50801a61bfE.exit"
   %lpad.loopexit.split-lp170 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -74469,7 +74469,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hc5c7cc6e52df33b8E.exit.i
   %299 = getelementptr inbounds i8, ptr %1, i64 136
   %300 = load i64, ptr %299, align 8, !range !95, !noundef !9
   %301 = icmp eq i64 %300, -9223372036854775808
-  br i1 %301, label %391, label %302
+  br i1 %301, label %392, label %302
 
 302:                                              ; preds = %298
   %303 = getelementptr inbounds i8, ptr %1, i64 144
@@ -74479,93 +74479,93 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hc5c7cc6e52df33b8E.exit.i
   %307 = getelementptr inbounds i8, ptr %304, i64 %306
   br label %308
 
-308:                                              ; preds = %389, %302
-  %309 = phi i64 [ 0, %302 ], [ %385, %389 ]
-  %.lcssa.sink.i.i.i.i22.i = phi ptr [ %304, %302 ], [ %.lcssa.sink.i.i.i.i19.i, %389 ]
-  %.lcssa17.i = phi i64 [ 0, %302 ], [ %.lcssa15.i, %389 ]
-  %310 = phi i1 [ false, %302 ], [ %386, %389 ]
-  %.sroa.0.0.i = phi i64 [ 0, %302 ], [ %390, %389 ]
+308:                                              ; preds = %390, %302
+  %309 = phi i64 [ 0, %302 ], [ %386, %390 ]
+  %.lcssa.sink.i.i.i.i22.i = phi ptr [ %304, %302 ], [ %.lcssa.sink.i.i.i.i19.i, %390 ]
+  %.lcssa17.i = phi i64 [ 0, %302 ], [ %.lcssa15.i, %390 ]
+  %310 = phi i1 [ false, %302 ], [ %387, %390 ]
+  %.sroa.0.0.i = phi i64 [ 0, %302 ], [ %391, %390 ]
   br label %311
 
 311:                                              ; preds = %select.unfold.i.i.i, %308
-  %312 = phi i64 [ %385, %select.unfold.i.i.i ], [ %309, %308 ]
+  %312 = phi i64 [ %386, %select.unfold.i.i.i ], [ %309, %308 ]
   %.lcssa.sink.i.i.i.i21.i = phi ptr [ %.lcssa.sink.i.i.i.i19.i, %select.unfold.i.i.i ], [ %.lcssa.sink.i.i.i.i22.i, %308 ]
   %.lcssa16.i = phi i64 [ %.lcssa15.i, %select.unfold.i.i.i ], [ %.lcssa17.i, %308 ]
-  %313 = phi i1 [ %386, %select.unfold.i.i.i ], [ %310, %308 ]
-  %314 = phi i64 [ %387, %select.unfold.i.i.i ], [ %309, %308 ]
+  %313 = phi i1 [ %387, %select.unfold.i.i.i ], [ %310, %308 ]
+  %314 = phi i64 [ %388, %select.unfold.i.i.i ], [ %309, %308 ]
   %.lcssa.sink.i.i20.i.i.i = phi ptr [ %.lcssa.sink.i.i18.i.i.i, %select.unfold.i.i.i ], [ %.lcssa.sink.i.i.i.i22.i, %308 ]
   %.pre.i.i.i16.i.i.i = phi i64 [ %.pre.i.i.i15.i.i.i, %select.unfold.i.i.i ], [ %.lcssa17.i, %308 ]
-  %315 = phi i1 [ %388, %select.unfold.i.i.i ], [ %310, %308 ]
+  %315 = phi i1 [ %389, %select.unfold.i.i.i ], [ %310, %308 ]
   br i1 %315, label %_ZN4core4iter6traits8iterator8Iterator4fold17h060ca7d4922bdfc8E.exit, label %316
 
 316:                                              ; preds = %311
   %317 = icmp eq ptr %.lcssa.sink.i.i20.i.i.i, %307
   br i1 %317, label %select.unfold.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %316, %383
-  %318 = phi i64 [ %360, %383 ], [ %312, %316 ]
-  %319 = phi i64 [ %360, %383 ], [ %314, %316 ]
-  %320 = phi ptr [ %.sink16.i.i.i.i.i.i.i, %383 ], [ %.lcssa.sink.i.i20.i.i.i, %316 ]
-  %.pn.i.i.i.i.i.i = ptrtoint ptr %320 to i64
-  %321 = getelementptr inbounds i8, ptr %320, i64 1
-  %322 = load i8, ptr %320, align 1, !noalias !13567, !noundef !9
-  %323 = icmp sgt i8 %322, -1
-  br i1 %323, label %334, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit12.i.i.i.i.i.i.i.i.i.i"
+.lr.ph.i.i.i.i.i.i:                               ; preds = %316, %384
+  %318 = phi i64 [ %361, %384 ], [ %312, %316 ]
+  %319 = phi i64 [ %361, %384 ], [ %314, %316 ]
+  %320 = phi ptr [ %.sink15.i.i.i.i.i.i.i, %384 ], [ %.lcssa.sink.i.i20.i.i.i, %316 ]
+  %321 = ptrtoint ptr %320 to i64
+  %322 = getelementptr inbounds i8, ptr %320, i64 1
+  %323 = load i8, ptr %320, align 1, !noalias !13567, !noundef !9
+  %324 = icmp sgt i8 %323, -1
+  br i1 %324, label %335, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit12.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit12.i.i.i.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
-  %324 = and i8 %322, 31
-  %325 = zext nneg i8 %324 to i32
-  %326 = icmp ne ptr %321, %307
-  call void @llvm.assume(i1 %326)
-  %327 = getelementptr inbounds i8, ptr %320, i64 2
-  %328 = load i8, ptr %321, align 1, !noalias !13567, !noundef !9
-  %329 = shl nuw nsw i32 %325, 6
-  %330 = and i8 %328, 63
-  %331 = zext nneg i8 %330 to i32
-  %332 = or disjoint i32 %329, %331
-  %333 = icmp ugt i8 %322, -33
-  br i1 %333, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i.i.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i"
+  %325 = and i8 %323, 31
+  %326 = zext nneg i8 %325 to i32
+  %327 = icmp ne ptr %322, %307
+  call void @llvm.assume(i1 %327)
+  %328 = getelementptr inbounds i8, ptr %320, i64 2
+  %329 = load i8, ptr %322, align 1, !noalias !13567, !noundef !9
+  %330 = shl nuw nsw i32 %326, 6
+  %331 = and i8 %329, 63
+  %332 = zext nneg i8 %331 to i32
+  %333 = or disjoint i32 %330, %332
+  %334 = icmp ugt i8 %323, -33
+  br i1 %334, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i.i.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i"
 
-334:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %335 = zext nneg i8 %322 to i32
-  br label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i"
+335:                                              ; preds = %.lr.ph.i.i.i.i.i.i
+  %336 = zext nneg i8 %323 to i32
+  br label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit12.i.i.i.i.i.i.i.i.i.i"
-  %336 = icmp ne ptr %327, %307
-  call void @llvm.assume(i1 %336)
-  %337 = getelementptr inbounds i8, ptr %320, i64 3
-  %338 = load i8, ptr %327, align 1, !noalias !13567, !noundef !9
-  %339 = shl nuw nsw i32 %331, 6
-  %340 = and i8 %338, 63
-  %341 = zext nneg i8 %340 to i32
-  %342 = or disjoint i32 %339, %341
-  %343 = shl nuw nsw i32 %325, 12
-  %344 = or disjoint i32 %342, %343
-  %345 = icmp ugt i8 %322, -17
-  br i1 %345, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i"
+  %337 = icmp ne ptr %328, %307
+  call void @llvm.assume(i1 %337)
+  %338 = getelementptr inbounds i8, ptr %320, i64 3
+  %339 = load i8, ptr %328, align 1, !noalias !13567, !noundef !9
+  %340 = shl nuw nsw i32 %332, 6
+  %341 = and i8 %339, 63
+  %342 = zext nneg i8 %341 to i32
+  %343 = or disjoint i32 %340, %342
+  %344 = shl nuw nsw i32 %326, 12
+  %345 = or disjoint i32 %343, %344
+  %346 = icmp ugt i8 %323, -17
+  br i1 %346, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i.i.i.i.i.i.i"
-  %346 = icmp ne ptr %337, %307
-  call void @llvm.assume(i1 %346)
-  %347 = getelementptr inbounds i8, ptr %320, i64 4
-  %348 = load i8, ptr %337, align 1, !noalias !13567, !noundef !9
-  %349 = shl nuw nsw i32 %325, 18
-  %350 = and i32 %349, 1835008
-  %351 = shl nuw nsw i32 %342, 6
-  %352 = and i8 %348, 63
-  %353 = zext nneg i8 %352 to i32
-  %354 = or disjoint i32 %351, %353
-  %355 = or disjoint i32 %354, %350
-  %356 = icmp eq i32 %355, 1114112
-  br i1 %356, label %select.unfold.i.i.i, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i"
+  %347 = icmp ne ptr %338, %307
+  call void @llvm.assume(i1 %347)
+  %348 = getelementptr inbounds i8, ptr %320, i64 4
+  %349 = load i8, ptr %338, align 1, !noalias !13567, !noundef !9
+  %350 = shl nuw nsw i32 %326, 18
+  %351 = and i32 %350, 1835008
+  %352 = shl nuw nsw i32 %343, 6
+  %353 = and i8 %349, 63
+  %354 = zext nneg i8 %353 to i32
+  %355 = or disjoint i32 %352, %354
+  %356 = or disjoint i32 %355, %351
+  %357 = icmp eq i32 %356, 1114112
+  br i1 %357, label %select.unfold.i.i.i, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i"
 
-"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i.i.i.i.i.i.i", %334, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit12.i.i.i.i.i.i.i.i.i.i"
-  %.sink16.i.i.i.i.i.i.i = phi ptr [ %327, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit12.i.i.i.i.i.i.i.i.i.i" ], [ %337, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i.i.i.i.i.i.i" ], [ %321, %334 ], [ %347, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ]
-  %357 = phi i32 [ %332, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit12.i.i.i.i.i.i.i.i.i.i" ], [ %344, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i.i.i.i.i.i.i" ], [ %335, %334 ], [ %355, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ]
-  %358 = ptrtoint ptr %.sink16.i.i.i.i.i.i.i to i64
-  %359 = sub i64 %358, %.pn.i.i.i.i.i.i
-  %360 = add i64 %359, %319
-  switch i32 %357, label %361 [
+"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i.i.i.i.i.i.i", %335, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit12.i.i.i.i.i.i.i.i.i.i"
+  %.sink15.i.i.i.i.i.i.i = phi ptr [ %328, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit12.i.i.i.i.i.i.i.i.i.i" ], [ %338, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i.i.i.i.i.i.i" ], [ %322, %335 ], [ %348, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ]
+  %358 = phi i32 [ %333, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit12.i.i.i.i.i.i.i.i.i.i" ], [ %345, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i.i.i.i.i.i.i" ], [ %336, %335 ], [ %356, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ]
+  %359 = ptrtoint ptr %.sink15.i.i.i.i.i.i.i to i64
+  %360 = sub i64 %359, %321
+  %361 = add i64 %360, %319
+  switch i32 %358, label %362 [
     i32 32, label %select.unfold.i.i.i
     i32 13, label %select.unfold.i.i.i
     i32 12, label %select.unfold.i.i.i
@@ -74574,124 +74574,124 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hc5c7cc6e52df33b8E.exit.i
     i32 9, label %select.unfold.i.i.i
   ]
 
-361:                                              ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i"
-  %362 = icmp ugt i32 %357, 127
-  br i1 %362, label %363, label %383
+362:                                              ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i"
+  %363 = icmp ugt i32 %358, 127
+  br i1 %363, label %364, label %384
 
-363:                                              ; preds = %361
-  %364 = lshr i32 %357, 8
-  switch i32 %364, label %383 [
-    i32 0, label %371
-    i32 22, label %365
-    i32 32, label %376
-    i32 48, label %368
+364:                                              ; preds = %362
+  %365 = lshr i32 %358, 8
+  switch i32 %365, label %384 [
+    i32 0, label %372
+    i32 22, label %366
+    i32 32, label %377
+    i32 48, label %369
   ]
 
-365:                                              ; preds = %363
-  %366 = icmp eq i32 %357, 5760
-  %367 = zext i1 %366 to i8
+366:                                              ; preds = %364
+  %367 = icmp eq i32 %358, 5760
+  %368 = zext i1 %367 to i8
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i"
 
-368:                                              ; preds = %363
-  %369 = icmp eq i32 %357, 12288
-  %370 = zext i1 %369 to i8
+369:                                              ; preds = %364
+  %370 = icmp eq i32 %358, 12288
+  %371 = zext i1 %370 to i8
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i"
 
-371:                                              ; preds = %363
-  %372 = and i32 %357, 255
-  %373 = zext nneg i32 %372 to i64
-  %374 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hd32aef47201b90bfE, i64 0, i64 %373
-  %375 = load i8, ptr %374, align 1, !noalias !13590, !noundef !9
+372:                                              ; preds = %364
+  %373 = and i32 %358, 255
+  %374 = zext nneg i32 %373 to i64
+  %375 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hd32aef47201b90bfE, i64 0, i64 %374
+  %376 = load i8, ptr %375, align 1, !noalias !13590, !noundef !9
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i"
 
-376:                                              ; preds = %363
-  %377 = and i32 %357, 255
-  %378 = zext nneg i32 %377 to i64
-  %379 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hd32aef47201b90bfE, i64 0, i64 %378
-  %380 = load i8, ptr %379, align 1, !noalias !13590, !noundef !9
-  %381 = lshr i8 %380, 1
+377:                                              ; preds = %364
+  %378 = and i32 %358, 255
+  %379 = zext nneg i32 %378 to i64
+  %380 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17hd32aef47201b90bfE, i64 0, i64 %379
+  %381 = load i8, ptr %380, align 1, !noalias !13590, !noundef !9
+  %382 = lshr i8 %381, 1
   br label %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i"
 
-"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i": ; preds = %376, %371, %368, %365
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %370, %368 ], [ %381, %376 ], [ %367, %365 ], [ %375, %371 ]
-  %382 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i to i1
-  br i1 %382, label %select.unfold.i.i.i, label %383
+"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i": ; preds = %377, %372, %369, %366
+  %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ %371, %369 ], [ %382, %377 ], [ %368, %366 ], [ %376, %372 ]
+  %383 = trunc i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i to i1
+  br i1 %383, label %select.unfold.i.i.i, label %384
 
-383:                                              ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i", %363, %361
-  %384 = icmp eq ptr %.sink16.i.i.i.i.i.i.i, %307
-  br i1 %384, label %select.unfold.i.i.i, label %.lr.ph.i.i.i.i.i.i
+384:                                              ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i", %364, %362
+  %385 = icmp eq ptr %.sink15.i.i.i.i.i.i.i, %307
+  br i1 %385, label %select.unfold.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-select.unfold.i.i.i:                              ; preds = %383, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i", %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i", %316
-  %385 = phi i64 [ %312, %316 ], [ %360, %383 ], [ %318, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
-  %.lcssa.sink.i.i.i.i19.i = phi ptr [ %.lcssa.sink.i.i.i.i21.i, %316 ], [ %.sink16.i.i.i.i.i.i.i, %383 ], [ %347, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
-  %.lcssa15.i = phi i64 [ %.lcssa16.i, %316 ], [ %.lcssa16.i, %383 ], [ %.lcssa16.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
-  %386 = phi i1 [ true, %316 ], [ true, %383 ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %313, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %313, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %313, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %313, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %313, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %313, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %313, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
-  %387 = phi i64 [ %314, %316 ], [ %360, %383 ], [ %319, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
-  %.lcssa.sink.i.i18.i.i.i = phi ptr [ %.lcssa.sink.i.i20.i.i.i, %316 ], [ %.sink16.i.i.i.i.i.i.i, %383 ], [ %347, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %.sink16.i.i.i.i.i.i.i, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
-  %.pre.i.i.i15.i.i.i = phi i64 [ %.pre.i.i.i16.i.i.i, %316 ], [ %.pre.i.i.i16.i.i.i, %383 ], [ %.pre.i.i.i16.i.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %360, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
-  %388 = phi i1 [ true, %316 ], [ true, %383 ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ false, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ false, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ false, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ false, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ false, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ false, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ false, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
-  %.pn23.i.i.i = phi i64 [ %306, %316 ], [ %306, %383 ], [ %306, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %319, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %319, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %319, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %319, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %319, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %319, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread12.i.i.i.i.i.i.i" ], [ %319, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
+select.unfold.i.i.i:                              ; preds = %384, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i", %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i", %316
+  %386 = phi i64 [ %312, %316 ], [ %361, %384 ], [ %318, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
+  %.lcssa.sink.i.i.i.i19.i = phi ptr [ %.lcssa.sink.i.i.i.i21.i, %316 ], [ %.sink15.i.i.i.i.i.i.i, %384 ], [ %348, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
+  %.lcssa15.i = phi i64 [ %.lcssa16.i, %316 ], [ %.lcssa16.i, %384 ], [ %.lcssa16.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
+  %387 = phi i1 [ true, %316 ], [ true, %384 ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %313, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %313, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %313, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %313, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %313, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %313, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %313, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
+  %388 = phi i64 [ %314, %316 ], [ %361, %384 ], [ %319, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
+  %.lcssa.sink.i.i18.i.i.i = phi ptr [ %.lcssa.sink.i.i20.i.i.i, %316 ], [ %.sink15.i.i.i.i.i.i.i, %384 ], [ %348, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %.sink15.i.i.i.i.i.i.i, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
+  %.pre.i.i.i15.i.i.i = phi i64 [ %.pre.i.i.i16.i.i.i, %316 ], [ %.pre.i.i.i16.i.i.i, %384 ], [ %.pre.i.i.i16.i.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %361, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
+  %389 = phi i1 [ true, %316 ], [ true, %384 ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ false, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ false, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ false, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ false, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ false, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ false, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ false, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
+  %.pn23.i.i.i = phi i64 [ %306, %316 ], [ %306, %384 ], [ %306, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i" ], [ %319, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %319, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %319, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %319, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %319, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %319, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i" ], [ %319, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hdec69b81f8c39934E.exit.i.i.i.i.i.i.i" ]
   %.not.i.i.i.i = icmp eq i64 %.pn23.i.i.i, %.pre.i.i.i16.i.i.i
-  br i1 %.not.i.i.i.i, label %311, label %389
+  br i1 %.not.i.i.i.i, label %311, label %390
 
-389:                                              ; preds = %select.unfold.i.i.i
-  %390 = add i64 %.sroa.0.0.i, 1
+390:                                              ; preds = %select.unfold.i.i.i
+  %391 = add i64 %.sroa.0.0.i, 1
   br label %308
 
-391:                                              ; preds = %298, %_ZN4core4iter6traits8iterator8Iterator4fold17h060ca7d4922bdfc8E.exit
-  %392 = getelementptr inbounds i8, ptr %1, i64 160
-  %393 = load i64, ptr %392, align 8, !range !95, !noundef !9
-  %394 = icmp eq i64 %393, -9223372036854775808
-  br i1 %394, label %400, label %396
+392:                                              ; preds = %298, %_ZN4core4iter6traits8iterator8Iterator4fold17h060ca7d4922bdfc8E.exit
+  %393 = getelementptr inbounds i8, ptr %1, i64 160
+  %394 = load i64, ptr %393, align 8, !range !95, !noundef !9
+  %395 = icmp eq i64 %394, -9223372036854775808
+  br i1 %395, label %401, label %397
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h060ca7d4922bdfc8E.exit: ; preds = %311
-  %395 = getelementptr inbounds i8, ptr %43, i64 256
-  store i64 %.sroa.0.0.i, ptr %395, align 8
-  br label %391
+  %396 = getelementptr inbounds i8, ptr %43, i64 256
+  store i64 %.sroa.0.0.i, ptr %396, align 8
+  br label %392
 
-396:                                              ; preds = %391
-  %397 = getelementptr inbounds i8, ptr %1, i64 176
-  %398 = load i64, ptr %397, align 8, !noundef !9
-  %399 = getelementptr inbounds i8, ptr %43, i64 264
-  store i64 %398, ptr %399, align 8
-  br label %400
+397:                                              ; preds = %392
+  %398 = getelementptr inbounds i8, ptr %1, i64 176
+  %399 = load i64, ptr %398, align 8, !noundef !9
+  %400 = getelementptr inbounds i8, ptr %43, i64 264
+  store i64 %399, ptr %400, align 8
+  br label %401
 
-400:                                              ; preds = %396, %391
-  %401 = load i64, ptr %1, align 8, !range !1311, !noundef !9
-  %trunc.i98 = trunc nuw i64 %401 to i1
-  %402 = getelementptr inbounds i8, ptr %1, i64 16
-  %403 = load i64, ptr %402, align 8, !range !1311
-  %404 = trunc nuw i64 %403 to i1
-  %.sroa.01.0.i = select i1 %trunc.i98, i1 true, i1 %404
-  br i1 %.sroa.01.0.i, label %410, label %405
+401:                                              ; preds = %397, %392
+  %402 = load i64, ptr %1, align 8, !range !1311, !noundef !9
+  %trunc.i98 = trunc nuw i64 %402 to i1
+  %403 = getelementptr inbounds i8, ptr %1, i64 16
+  %404 = load i64, ptr %403, align 8, !range !1311
+  %405 = trunc nuw i64 %404 to i1
+  %.sroa.01.0.i = select i1 %trunc.i98, i1 true, i1 %405
+  br i1 %.sroa.01.0.i, label %411, label %406
 
-405:                                              ; preds = %400
-  %406 = getelementptr inbounds i8, ptr %1, i64 392
-  %407 = load i64, ptr %406, align 8, !noundef !9
-  %408 = getelementptr inbounds i8, ptr %1, i64 384
-  %409 = load i64, ptr %408, align 8, !noundef !9
-  br label %418
+406:                                              ; preds = %401
+  %407 = getelementptr inbounds i8, ptr %1, i64 392
+  %408 = load i64, ptr %407, align 8, !noundef !9
+  %409 = getelementptr inbounds i8, ptr %1, i64 384
+  %410 = load i64, ptr %409, align 8, !noundef !9
+  br label %419
 
-410:                                              ; preds = %400
-  %411 = getelementptr inbounds i8, ptr %1, i64 24
-  %412 = load i64, ptr %411, align 8
-  %.sroa.038.0 = select i1 %404, i64 %412, i64 20
-  %413 = getelementptr inbounds i8, ptr %1, i64 8
-  %414 = load i64, ptr %413, align 8
-  %415 = call i64 @llvm.usub.sat.i64(i64 %414, i64 1)
-  %416 = select i1 %trunc.i98, i64 %415, i64 0
-  %417 = mul i64 %416, %.sroa.038.0
-  br label %418
+411:                                              ; preds = %401
+  %412 = getelementptr inbounds i8, ptr %1, i64 24
+  %413 = load i64, ptr %412, align 8
+  %.sroa.038.0 = select i1 %405, i64 %413, i64 20
+  %414 = getelementptr inbounds i8, ptr %1, i64 8
+  %415 = load i64, ptr %414, align 8
+  %416 = call i64 @llvm.usub.sat.i64(i64 %415, i64 1)
+  %417 = select i1 %trunc.i98, i64 %416, i64 0
+  %418 = mul i64 %417, %.sroa.038.0
+  br label %419
 
-418:                                              ; preds = %410, %405
-  %.sink190 = phi i64 [ %.sroa.038.0, %410 ], [ %407, %405 ]
-  %.sink189 = phi i64 [ %417, %410 ], [ %409, %405 ]
-  %.sink = phi i64 [ 1, %410 ], [ 0, %405 ]
+419:                                              ; preds = %411, %406
+  %.sink190 = phi i64 [ %.sroa.038.0, %411 ], [ %408, %406 ]
+  %.sink189 = phi i64 [ %418, %411 ], [ %410, %406 ]
+  %.sink = phi i64 [ 1, %411 ], [ 0, %406 ]
   store i64 %.sink190, ptr %90, align 8
-  %419 = getelementptr inbounds i8, ptr %43, i64 280
-  store i64 %.sink189, ptr %419, align 8
-  %420 = getelementptr inbounds i8, ptr %43, i64 288
-  store i64 %.sink, ptr %420, align 8
+  %420 = getelementptr inbounds i8, ptr %43, i64 280
+  store i64 %.sink189, ptr %420, align 8
+  %421 = getelementptr inbounds i8, ptr %43, i64 288
+  store i64 %.sink, ptr %421, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   store ptr %44, ptr %34, align 8
   %.sroa.444.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 8
@@ -74709,13 +74709,13 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h060ca7d4922bdfc8E.exit: ; preds = 
   invoke void @_ZN5alloc3fmt6format12format_inner17h77a68f64fb1f586eE(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %35, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11)
           to label %_ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.14059259217783387920.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.14059259217783387920.exit: ; preds = %418
+_ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.14059259217783387920.exit: ; preds = %419
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !13591
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
-  %421 = invoke { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd7ca59416c763d46E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %89, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %35, i64 noundef 1)
-          to label %422 unwind label %.loopexit.split-lp.loopexit.split-lp
+  %422 = invoke { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd7ca59416c763d46E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %89, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %35, i64 noundef 1)
+          to label %423 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-422:                                              ; preds = %_ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.14059259217783387920.exit
+423:                                              ; preds = %_ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.14059259217783387920.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33)
   call void @llvm.experimental.noalias.scope.decl(metadata !13603)
   call void @llvm.experimental.noalias.scope.decl(metadata !13606)
@@ -74723,61 +74723,61 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.14059259217783387920.exit: ; preds
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hd5b757c40969fdd0E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %10, i64 noundef 4, i1 noundef zeroext false)
           to label %.noexc106 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc106:                                        ; preds = %422
-  %423 = load i64, ptr %10, align 8, !range !1311, !noalias !13609, !noundef !9
-  %trunc.i.i.i105 = trunc nuw i64 %423 to i1
-  %424 = getelementptr inbounds i8, ptr %10, i64 8
-  %425 = load i64, ptr %424, align 8, !range !95, !noalias !13609, !noundef !9
-  %426 = getelementptr inbounds i8, ptr %10, i64 16
-  br i1 %trunc.i.i.i105, label %.invoke, label %427
+.noexc106:                                        ; preds = %423
+  %424 = load i64, ptr %10, align 8, !range !1311, !noalias !13609, !noundef !9
+  %trunc.i.i.i105 = trunc nuw i64 %424 to i1
+  %425 = getelementptr inbounds i8, ptr %10, i64 8
+  %426 = load i64, ptr %425, align 8, !range !95, !noalias !13609, !noundef !9
+  %427 = getelementptr inbounds i8, ptr %10, i64 16
+  br i1 %trunc.i.i.i105, label %.invoke, label %428
 
-427:                                              ; preds = %.noexc106
-  %428 = load ptr, ptr %426, align 8, !noalias !13609, !nonnull !9, !noundef !9
+428:                                              ; preds = %.noexc106
+  %429 = load ptr, ptr %427, align 8, !noalias !13609, !nonnull !9, !noundef !9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !13609
-  store i32 1047356732, ptr %428, align 1, !noalias !13613
-  store i64 %425, ptr %33, align 8, !alias.scope !13614
+  store i32 1047356732, ptr %429, align 1, !noalias !13613
+  store i64 %426, ptr %33, align 8, !alias.scope !13614
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %33, i64 8
-  store ptr %428, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !13614
+  store ptr %429, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !13614
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %33, i64 16
   store i64 4, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !13614
-  %429 = getelementptr inbounds i8, ptr %1, i64 80
-  %430 = load i64, ptr %429, align 8, !alias.scope !13615, !noundef !9
-  %.not.i108 = icmp eq i64 %430, 4
-  br i1 %.not.i108, label %431, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit"
+  %430 = getelementptr inbounds i8, ptr %1, i64 80
+  %431 = load i64, ptr %430, align 8, !alias.scope !13615, !noundef !9
+  %.not.i108 = icmp eq i64 %431, 4
+  br i1 %.not.i108, label %432, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit"
 
-431:                                              ; preds = %427
-  %432 = getelementptr inbounds i8, ptr %1, i64 72
-  %433 = load ptr, ptr %432, align 8, !alias.scope !13615, !nonnull !9, !noundef !9
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %433, ptr noundef nonnull readonly dereferenceable(4) %428, i64 4), !alias.scope !13618
-  %434 = icmp ne i32 %bcmp.i, 0
-  %435 = zext i1 %434 to i8
+432:                                              ; preds = %428
+  %433 = getelementptr inbounds i8, ptr %1, i64 72
+  %434 = load ptr, ptr %433, align 8, !alias.scope !13615, !nonnull !9, !noundef !9
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %434, ptr noundef nonnull readonly dereferenceable(4) %429, i64 4), !alias.scope !13618
+  %435 = icmp ne i32 %bcmp.i, 0
+  %436 = zext i1 %435 to i8
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit": ; preds = %431, %427
-  %.sroa.0.0.i109 = phi i8 [ %435, %431 ], [ 1, %427 ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit": ; preds = %432, %428
+  %.sroa.0.0.i109 = phi i8 [ %436, %432 ], [ 1, %428 ]
   store i8 %.sroa.0.0.i109, ptr %91, align 2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !13622
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %33)
           to label %.noexc110 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc110:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit"
-  %436 = getelementptr inbounds i8, ptr %9, i64 8
-  %437 = load i64, ptr %436, align 8, !range !95, !noalias !13622, !noundef !9
-  %438 = icmp eq i64 %437, 0
-  br i1 %438, label %445, label %439
+  %437 = getelementptr inbounds i8, ptr %9, i64 8
+  %438 = load i64, ptr %437, align 8, !range !95, !noalias !13622, !noundef !9
+  %439 = icmp eq i64 %438, 0
+  br i1 %439, label %446, label %440
 
-439:                                              ; preds = %.noexc110
-  %440 = getelementptr inbounds i8, ptr %9, i64 16
-  %441 = load i64, ptr %440, align 8, !noalias !13622, !noundef !9
-  %442 = icmp eq i64 %441, 0
-  br i1 %442, label %445, label %443
+440:                                              ; preds = %.noexc110
+  %441 = getelementptr inbounds i8, ptr %9, i64 16
+  %442 = load i64, ptr %441, align 8, !noalias !13622, !noundef !9
+  %443 = icmp eq i64 %442, 0
+  br i1 %443, label %446, label %444
 
-443:                                              ; preds = %439
-  %444 = load ptr, ptr %9, align 8, !noalias !13622, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %444, i64 noundef %441, i64 noundef %437) #44
-  br label %445
+444:                                              ; preds = %440
+  %445 = load ptr, ptr %9, align 8, !noalias !13622, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %445, i64 noundef %442, i64 noundef %438) #44
+  br label %446
 
-445:                                              ; preds = %443, %439, %.noexc110
+446:                                              ; preds = %444, %440, %.noexc110
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !13622
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32)
@@ -74787,62 +74787,62 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.14059259217783387920.exit: ; preds
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hd5b757c40969fdd0E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %8, i64 noundef 5, i1 noundef zeroext false)
           to label %.noexc115 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc115:                                        ; preds = %445
-  %446 = load i64, ptr %8, align 8, !range !1311, !noalias !13637, !noundef !9
-  %trunc.i.i.i112 = trunc nuw i64 %446 to i1
-  %447 = getelementptr inbounds i8, ptr %8, i64 8
-  %448 = load i64, ptr %447, align 8, !range !95, !noalias !13637, !noundef !9
-  %449 = getelementptr inbounds i8, ptr %8, i64 16
-  br i1 %trunc.i.i.i112, label %.invoke, label %450
+.noexc115:                                        ; preds = %446
+  %447 = load i64, ptr %8, align 8, !range !1311, !noalias !13637, !noundef !9
+  %trunc.i.i.i112 = trunc nuw i64 %447 to i1
+  %448 = getelementptr inbounds i8, ptr %8, i64 8
+  %449 = load i64, ptr %448, align 8, !range !95, !noalias !13637, !noundef !9
+  %450 = getelementptr inbounds i8, ptr %8, i64 16
+  br i1 %trunc.i.i.i112, label %.invoke, label %451
 
-450:                                              ; preds = %.noexc115
-  %451 = load ptr, ptr %449, align 8, !noalias !13637, !nonnull !9, !noundef !9
+451:                                              ; preds = %.noexc115
+  %452 = load ptr, ptr %450, align 8, !noalias !13637, !nonnull !9, !noundef !9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !13637
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %451, ptr noundef nonnull readonly align 1 dereferenceable(5) @anon.4274f88979834c3c083b31457f2e0a9e.1344, i64 5, i1 false), !noalias !13641
-  store i64 %448, ptr %32, align 8, !alias.scope !13642
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %452, ptr noundef nonnull readonly align 1 dereferenceable(5) @anon.4274f88979834c3c083b31457f2e0a9e.1344, i64 5, i1 false), !noalias !13641
+  store i64 %449, ptr %32, align 8, !alias.scope !13642
   %.sroa.4.0..sroa_idx.i.i113 = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %451, ptr %.sroa.4.0..sroa_idx.i.i113, align 8, !alias.scope !13642
+  store ptr %452, ptr %.sroa.4.0..sroa_idx.i.i113, align 8, !alias.scope !13642
   %.sroa.5.0..sroa_idx.i.i114 = getelementptr inbounds i8, ptr %32, i64 16
   store i64 5, ptr %.sroa.5.0..sroa_idx.i.i114, align 8, !alias.scope !13642
-  %452 = getelementptr inbounds i8, ptr %1, i64 104
-  %453 = load i64, ptr %452, align 8, !alias.scope !13643, !noundef !9
-  %.not.i117 = icmp eq i64 %453, 5
-  br i1 %.not.i117, label %454, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit120"
+  %453 = getelementptr inbounds i8, ptr %1, i64 104
+  %454 = load i64, ptr %453, align 8, !alias.scope !13643, !noundef !9
+  %.not.i117 = icmp eq i64 %454, 5
+  br i1 %.not.i117, label %455, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit120"
 
-454:                                              ; preds = %450
-  %455 = getelementptr inbounds i8, ptr %1, i64 96
-  %456 = load ptr, ptr %455, align 8, !alias.scope !13643, !nonnull !9, !noundef !9
-  %bcmp.i119 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %456, ptr noundef nonnull readonly dereferenceable(5) %451, i64 5), !alias.scope !13646
-  %457 = icmp ne i32 %bcmp.i119, 0
-  %458 = zext i1 %457 to i8
+455:                                              ; preds = %451
+  %456 = getelementptr inbounds i8, ptr %1, i64 96
+  %457 = load ptr, ptr %456, align 8, !alias.scope !13643, !nonnull !9, !noundef !9
+  %bcmp.i119 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %457, ptr noundef nonnull readonly dereferenceable(5) %452, i64 5), !alias.scope !13646
+  %458 = icmp ne i32 %bcmp.i119, 0
+  %459 = zext i1 %458 to i8
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit120"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit120": ; preds = %454, %450
-  %.sroa.0.0.i118 = phi i8 [ %458, %454 ], [ 1, %450 ]
-  %459 = getelementptr inbounds i8, ptr %43, i64 343
-  store i8 %.sroa.0.0.i118, ptr %459, align 1
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit120": ; preds = %455, %451
+  %.sroa.0.0.i118 = phi i8 [ %459, %455 ], [ 1, %451 ]
+  %460 = getelementptr inbounds i8, ptr %43, i64 343
+  store i8 %.sroa.0.0.i118, ptr %460, align 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !13650
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %32)
           to label %.noexc121 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc121:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit120"
-  %460 = getelementptr inbounds i8, ptr %7, i64 8
-  %461 = load i64, ptr %460, align 8, !range !95, !noalias !13650, !noundef !9
-  %462 = icmp eq i64 %461, 0
-  br i1 %462, label %469, label %463
+  %461 = getelementptr inbounds i8, ptr %7, i64 8
+  %462 = load i64, ptr %461, align 8, !range !95, !noalias !13650, !noundef !9
+  %463 = icmp eq i64 %462, 0
+  br i1 %463, label %470, label %464
 
-463:                                              ; preds = %.noexc121
-  %464 = getelementptr inbounds i8, ptr %7, i64 16
-  %465 = load i64, ptr %464, align 8, !noalias !13650, !noundef !9
-  %466 = icmp eq i64 %465, 0
-  br i1 %466, label %469, label %467
+464:                                              ; preds = %.noexc121
+  %465 = getelementptr inbounds i8, ptr %7, i64 16
+  %466 = load i64, ptr %465, align 8, !noalias !13650, !noundef !9
+  %467 = icmp eq i64 %466, 0
+  br i1 %467, label %470, label %468
 
-467:                                              ; preds = %463
-  %468 = load ptr, ptr %7, align 8, !noalias !13650, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %468, i64 noundef %465, i64 noundef %461) #44
-  br label %469
+468:                                              ; preds = %464
+  %469 = load ptr, ptr %7, align 8, !noalias !13650, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %469, i64 noundef %466, i64 noundef %462) #44
+  br label %470
 
-469:                                              ; preds = %467, %463, %.noexc121
+470:                                              ; preds = %468, %464, %.noexc121
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !13650
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
@@ -74852,114 +74852,114 @@ _ZN5alloc3fmt6format17h7fed6a266585da9dE.llvm.14059259217783387920.exit: ; preds
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hd5b757c40969fdd0E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, i64 noundef 3, i1 noundef zeroext false)
           to label %.noexc126 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc126:                                        ; preds = %469
-  %470 = load i64, ptr %6, align 8, !range !1311, !noalias !13665, !noundef !9
-  %trunc.i.i.i123 = trunc nuw i64 %470 to i1
-  %471 = getelementptr inbounds i8, ptr %6, i64 8
-  %472 = load i64, ptr %471, align 8, !range !95, !noalias !13665, !noundef !9
-  %473 = getelementptr inbounds i8, ptr %6, i64 16
-  br i1 %trunc.i.i.i123, label %.invoke, label %476
+.noexc126:                                        ; preds = %470
+  %471 = load i64, ptr %6, align 8, !range !1311, !noalias !13665, !noundef !9
+  %trunc.i.i.i123 = trunc nuw i64 %471 to i1
+  %472 = getelementptr inbounds i8, ptr %6, i64 8
+  %473 = load i64, ptr %472, align 8, !range !95, !noalias !13665, !noundef !9
+  %474 = getelementptr inbounds i8, ptr %6, i64 16
+  br i1 %trunc.i.i.i123, label %.invoke, label %477
 
 .invoke:                                          ; preds = %.noexc126, %.noexc115, %.noexc106, %.noexc81, %.noexc75, %.noexc63, %.noexc58
-  %.sink199 = phi ptr [ %161, %.noexc58 ], [ %166, %.noexc63 ], [ %218, %.noexc75 ], [ %223, %.noexc81 ], [ %426, %.noexc106 ], [ %449, %.noexc115 ], [ %473, %.noexc126 ]
-  %474 = phi i64 [ %160, %.noexc58 ], [ %165, %.noexc63 ], [ %217, %.noexc75 ], [ %222, %.noexc81 ], [ %425, %.noexc106 ], [ %448, %.noexc115 ], [ %472, %.noexc126 ]
-  %475 = load i64, ptr %.sink199, align 8, !noalias !9
-  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %474, i64 %475) #56
+  %.sink199 = phi ptr [ %161, %.noexc58 ], [ %166, %.noexc63 ], [ %218, %.noexc75 ], [ %223, %.noexc81 ], [ %427, %.noexc106 ], [ %450, %.noexc115 ], [ %474, %.noexc126 ]
+  %475 = phi i64 [ %160, %.noexc58 ], [ %165, %.noexc63 ], [ %217, %.noexc75 ], [ %222, %.noexc81 ], [ %426, %.noexc106 ], [ %449, %.noexc115 ], [ %473, %.noexc126 ]
+  %476 = load i64, ptr %.sink199, align 8, !noalias !9
+  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %475, i64 %476) #56
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-476:                                              ; preds = %.noexc126
-  %477 = load ptr, ptr %473, align 8, !noalias !13665, !nonnull !9, !noundef !9
+477:                                              ; preds = %.noexc126
+  %478 = load ptr, ptr %474, align 8, !noalias !13665, !nonnull !9, !noundef !9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !13665
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %477, ptr noundef nonnull readonly align 1 dereferenceable(3) @anon.4274f88979834c3c083b31457f2e0a9e.742, i64 3, i1 false), !noalias !13669
-  store i64 %472, ptr %31, align 8, !alias.scope !13670
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %478, ptr noundef nonnull readonly align 1 dereferenceable(3) @anon.4274f88979834c3c083b31457f2e0a9e.742, i64 3, i1 false), !noalias !13669
+  store i64 %473, ptr %31, align 8, !alias.scope !13670
   %.sroa.4.0..sroa_idx.i.i124 = getelementptr inbounds i8, ptr %31, i64 8
-  store ptr %477, ptr %.sroa.4.0..sroa_idx.i.i124, align 8, !alias.scope !13670
+  store ptr %478, ptr %.sroa.4.0..sroa_idx.i.i124, align 8, !alias.scope !13670
   %.sroa.5.0..sroa_idx.i.i125 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 3, ptr %.sroa.5.0..sroa_idx.i.i125, align 8, !alias.scope !13670
-  %478 = getelementptr inbounds i8, ptr %1, i64 128
-  %479 = load i64, ptr %478, align 8, !alias.scope !13671, !noundef !9
-  %.not.i128 = icmp eq i64 %479, 3
-  br i1 %.not.i128, label %480, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit131"
+  %479 = getelementptr inbounds i8, ptr %1, i64 128
+  %480 = load i64, ptr %479, align 8, !alias.scope !13671, !noundef !9
+  %.not.i128 = icmp eq i64 %480, 3
+  br i1 %.not.i128, label %481, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit131"
 
-480:                                              ; preds = %476
-  %481 = getelementptr inbounds i8, ptr %1, i64 120
-  %482 = load ptr, ptr %481, align 8, !alias.scope !13671, !nonnull !9, !noundef !9
-  %bcmp.i130 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %482, ptr noundef nonnull readonly dereferenceable(3) %477, i64 3), !alias.scope !13674
-  %483 = icmp ne i32 %bcmp.i130, 0
-  %484 = zext i1 %483 to i8
+481:                                              ; preds = %477
+  %482 = getelementptr inbounds i8, ptr %1, i64 120
+  %483 = load ptr, ptr %482, align 8, !alias.scope !13671, !nonnull !9, !noundef !9
+  %bcmp.i130 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %483, ptr noundef nonnull readonly dereferenceable(3) %478, i64 3), !alias.scope !13674
+  %484 = icmp ne i32 %bcmp.i130, 0
+  %485 = zext i1 %484 to i8
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit131"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit131": ; preds = %480, %476
-  %.sroa.0.0.i129 = phi i8 [ %484, %480 ], [ 1, %476 ]
-  %485 = getelementptr inbounds i8, ptr %43, i64 344
-  store i8 %.sroa.0.0.i129, ptr %485, align 8
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit131": ; preds = %481, %477
+  %.sroa.0.0.i129 = phi i8 [ %485, %481 ], [ 1, %477 ]
+  %486 = getelementptr inbounds i8, ptr %43, i64 344
+  store i8 %.sroa.0.0.i129, ptr %486, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !13678
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0aaf48f80649e9ddE.llvm.4616129397091597767"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %31)
           to label %.noexc132 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc132:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit131"
-  %486 = getelementptr inbounds i8, ptr %5, i64 8
-  %487 = load i64, ptr %486, align 8, !range !95, !noalias !13678, !noundef !9
-  %488 = icmp eq i64 %487, 0
-  br i1 %488, label %495, label %489
+  %487 = getelementptr inbounds i8, ptr %5, i64 8
+  %488 = load i64, ptr %487, align 8, !range !95, !noalias !13678, !noundef !9
+  %489 = icmp eq i64 %488, 0
+  br i1 %489, label %496, label %490
 
-489:                                              ; preds = %.noexc132
-  %490 = getelementptr inbounds i8, ptr %5, i64 16
-  %491 = load i64, ptr %490, align 8, !noalias !13678, !noundef !9
-  %492 = icmp eq i64 %491, 0
-  br i1 %492, label %495, label %493
+490:                                              ; preds = %.noexc132
+  %491 = getelementptr inbounds i8, ptr %5, i64 16
+  %492 = load i64, ptr %491, align 8, !noalias !13678, !noundef !9
+  %493 = icmp eq i64 %492, 0
+  br i1 %493, label %496, label %494
 
-493:                                              ; preds = %489
-  %494 = load ptr, ptr %5, align 8, !noalias !13678, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %494, i64 noundef %491, i64 noundef %487) #44
-  br label %495
+494:                                              ; preds = %490
+  %495 = load ptr, ptr %5, align 8, !noalias !13678, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %495, i64 noundef %492, i64 noundef %488) #44
+  br label %496
 
-495:                                              ; preds = %.noexc132, %489, %493
+496:                                              ; preds = %.noexc132, %490, %494
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !13678
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
-  %496 = getelementptr inbounds i8, ptr %1, i64 400
-  %497 = load i64, ptr %496, align 8, !noundef !9
-  %498 = getelementptr inbounds i8, ptr %43, i64 346
-  %499 = icmp ne i64 %497, 10
-  %500 = zext i1 %499 to i8
-  store i8 %500, ptr %498, align 2
-  %501 = getelementptr inbounds i8, ptr %1, i64 456
-  %502 = load i8, ptr %501, align 8, !range !34, !noundef !9
-  %503 = getelementptr inbounds i8, ptr %43, i64 345
-  store i8 %502, ptr %503, align 1
-  %504 = getelementptr inbounds i8, ptr %1, i64 457
-  %505 = load i8, ptr %504, align 1, !range !34, !noundef !9
-  %506 = getelementptr inbounds i8, ptr %43, i64 347
-  store i8 %505, ptr %506, align 1
-  %507 = getelementptr inbounds i8, ptr %1, i64 458
-  %508 = load i8, ptr %507, align 2, !range !34, !noundef !9
-  %509 = getelementptr inbounds i8, ptr %43, i64 348
-  store i8 %508, ptr %509, align 4
-  %510 = getelementptr inbounds i8, ptr %1, i64 280
-  %511 = load i64, ptr %510, align 8, !range !10, !noundef !9
-  %512 = icmp eq i64 %511, -9223372036854775807
-  br i1 %512, label %513, label %514
+  %497 = getelementptr inbounds i8, ptr %1, i64 400
+  %498 = load i64, ptr %497, align 8, !noundef !9
+  %499 = getelementptr inbounds i8, ptr %43, i64 346
+  %500 = icmp ne i64 %498, 10
+  %501 = zext i1 %500 to i8
+  store i8 %501, ptr %499, align 2
+  %502 = getelementptr inbounds i8, ptr %1, i64 456
+  %503 = load i8, ptr %502, align 8, !range !34, !noundef !9
+  %504 = getelementptr inbounds i8, ptr %43, i64 345
+  store i8 %503, ptr %504, align 1
+  %505 = getelementptr inbounds i8, ptr %1, i64 457
+  %506 = load i8, ptr %505, align 1, !range !34, !noundef !9
+  %507 = getelementptr inbounds i8, ptr %43, i64 347
+  store i8 %506, ptr %507, align 1
+  %508 = getelementptr inbounds i8, ptr %1, i64 458
+  %509 = load i8, ptr %508, align 2, !range !34, !noundef !9
+  %510 = getelementptr inbounds i8, ptr %43, i64 348
+  store i8 %509, ptr %510, align 4
+  %511 = getelementptr inbounds i8, ptr %1, i64 280
+  %512 = load i64, ptr %511, align 8, !range !10, !noundef !9
+  %513 = icmp eq i64 %512, -9223372036854775807
+  br i1 %513, label %514, label %515
 
-513:                                              ; preds = %495, %514
+514:                                              ; preds = %496, %515
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %43, i64 352, i1 false)
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   ret void
 
-514:                                              ; preds = %495
-  %515 = getelementptr inbounds i8, ptr %1, i64 304
-  %516 = load float, ptr %515, align 8, !noundef !9
-  %517 = fcmp une float %516, 5.000000e-01
-  %518 = zext i1 %517 to i8
-  store i8 %518, ptr %86, align 1
-  %519 = icmp ne i64 %511, -9223372036854775808
-  %520 = zext i1 %519 to i8
-  store i8 %520, ptr %87, align 4
+515:                                              ; preds = %496
+  %516 = getelementptr inbounds i8, ptr %1, i64 304
+  %517 = load float, ptr %516, align 8, !noundef !9
+  %518 = fcmp une float %517, 5.000000e-01
+  %519 = zext i1 %518 to i8
+  store i8 %519, ptr %86, align 1
+  %520 = icmp ne i64 %512, -9223372036854775808
+  %521 = zext i1 %520 to i8
+  store i8 %521, ptr %87, align 4
   store i8 1, ptr %88, align 1
-  br label %513
+  br label %514
 }
 
 ; Function Attrs: nonlazybind uwtable

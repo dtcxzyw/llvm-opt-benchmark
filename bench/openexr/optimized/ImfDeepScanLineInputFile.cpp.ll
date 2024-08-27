@@ -6940,8 +6940,7 @@ entry:
   %linesInBuffer = getelementptr inbounds i8, ptr %0, i64 360
   %2 = load i32, ptr %linesInBuffer, align 8
   %3 = srem i32 %sub, %2
-  %mul = sub i32 %.fr, %3
-  %add = add i32 %mul, %sub
+  %add = sub i32 %y, %3
   ret i32 %add
 }
 
@@ -6957,10 +6956,9 @@ entry:
   %linesInBuffer.i = getelementptr inbounds i8, ptr %0, i64 360
   %2 = load i32, ptr %linesInBuffer.i, align 8
   %3 = srem i32 %sub.i, %2
-  %mul.i = add i32 %.fr.i, -1
-  %add.i = add i32 %mul.i, %2
-  %add = sub i32 %add.i, %3
-  %sub = add i32 %add, %sub.i
+  %add.i = add i32 %y, -1
+  %add = add i32 %add.i, %2
+  %sub = sub i32 %add, %3
   %maxY = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load i32, ptr %maxY, align 4
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %4, i32 %sub)

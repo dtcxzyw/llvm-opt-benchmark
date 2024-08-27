@@ -1168,8 +1168,7 @@ H5VM_log2_gen.exit:                               ; preds = %255, %262, %268
   br label %370
 
 370:                                              ; preds = %.sink.split, %363, %351
-  %.neg = add i64 %312, %2
-  %371 = sub i64 %.neg, %313
+  %371 = sub i64 %2, %309
   store i64 %371, ptr %311, align 8
   br label %379
 

@@ -1462,8 +1462,8 @@ define hidden noundef ptr @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io.
 
 35:                                               ; preds = %14
   %36 = load i64, ptr %10, align 8, !noundef !5
-  %37 = load i64, ptr %0, align 8, !noundef !5
   %.neg27 = sub i64 %11, %36
+  %37 = load i64, ptr %0, align 8, !noundef !5
   %38 = add i64 %.neg27, %37
   store i64 %38, ptr %0, align 8
   br label %13

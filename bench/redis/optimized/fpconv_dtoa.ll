@@ -351,7 +351,6 @@ grisu2.exit:                                      ; preds = %lor.rhs.i.i.i, %whi
   %reass.sub = sub i32 %dec37.i.i.pn, %mul11.i.i
   %K.0 = add i32 %reass.sub, 348
   %add.i = add nsw i32 %K.0, %retval.0.i.i
-  %sub30.i = sub i32 0, %add.i
   %cmp.i11 = icmp slt i32 %add.i, 1
   %sub3.i = sub nsw i32 1, %add.i
   %sub.i12 = add nsw i32 %add.i, -1
@@ -384,6 +383,7 @@ if.then18.i:                                      ; preds = %land.lhs.true13.i
   br i1 %cmp.i11, label %if.then29.i, label %if.else.i15
 
 if.then29.i:                                      ; preds = %if.then18.i
+  %sub30.i = sub nsw i32 0, %add.i
   store i8 48, ptr %add.ptr, align 1
   %arrayidx31.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 46, ptr %arrayidx31.i, align 1
@@ -394,8 +394,7 @@ if.then29.i:                                      ; preds = %if.then18.i
   %add.ptr36.i = getelementptr inbounds i8, ptr %add.ptr35.i, i64 2
   %conv37.i = sext i32 %retval.0.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr36.i, ptr nonnull readonly align 16 %digits, i64 %conv37.i, i1 false)
-  %add38.i = add nsw i32 %retval.0.i.i, 2
-  %add39.i = sub i32 %add38.i, %add.i
+  %add39.i = sub nuw i32 -346, %reass.sub
   br label %return
 
 if.else.i15:                                      ; preds = %if.then18.i

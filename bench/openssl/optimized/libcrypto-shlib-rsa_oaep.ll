@@ -469,43 +469,40 @@ for.body98:                                       ; preds = %if.end89, %for.body
   %indvars.iv.next199 = add nsw i64 %indvars.iv198, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next199 to i32
   %exitcond201.not = icmp eq i32 %sub14, %lftr.wideiv
-  br i1 %exitcond201.not, label %for.end114.loopexit, label %for.body98, !llvm.loop !12
+  br i1 %exitcond201.not, label %for.end114, label %for.body98, !llvm.loop !12
 
-for.end114.loopexit:                              ; preds = %for.body98
-  %11 = xor i32 %or.i.i, -1
-  br label %for.end114
-
-for.end114:                                       ; preds = %for.end114.loopexit, %if.end89
-  %one_index.0.lcssa = phi i32 [ -1, %if.end89 ], [ %11, %for.end114.loopexit ]
-  %good.1.lcssa = phi i32 [ %and94, %if.end89 ], [ %and111, %for.end114.loopexit ]
-  %found_one_byte.0.lcssa = phi i32 [ 0, %if.end89 ], [ %or, %for.end114.loopexit ]
-  %sub117 = add i32 %sub14, %one_index.0.lcssa
+for.end114:                                       ; preds = %for.body98, %if.end89
+  %one_index.0.lcssa = phi i32 [ 0, %if.end89 ], [ %or.i.i, %for.body98 ]
+  %good.1.lcssa = phi i32 [ %and94, %if.end89 ], [ %and111, %for.body98 ]
+  %found_one_byte.0.lcssa = phi i32 [ 0, %if.end89 ], [ %or, %for.body98 ]
+  %add116.neg = xor i32 %one_index.0.lcssa, -1
+  %sub117 = add i32 %sub14, %add116.neg
   %xor.i.i = xor i32 %sub117, %tlen
   %sub.i.i128 = sub i32 %tlen, %sub117
   %xor1.i.i = xor i32 %sub.i.i128, %sub117
   %or.i.i129 = or i32 %xor1.i.i, %xor.i.i
   %xor2.i.i = xor i32 %or.i.i129, %tlen
   %isnotneg.i.inv = icmp slt i32 %xor2.i.i, 0
-  %12 = select i1 %isnotneg.i.inv, i32 0, i32 %found_one_byte.0.lcssa
-  %and119 = and i32 %12, %good.1.lcssa
+  %11 = select i1 %isnotneg.i.inv, i32 0, i32 %found_one_byte.0.lcssa
+  %and119 = and i32 %11, %good.1.lcssa
   %sub121 = add i32 %sub14, %0
   %sub.i132 = sub i32 %sub121, %tlen
-  %13 = sub i32 %call4, %sub14
-  %xor2.i = and i32 %sub.i132, %13
+  %12 = sub i32 %call4, %sub14
+  %xor2.i = and i32 %sub.i132, %12
   %shr.neg.i.i133 = ashr i32 %xor2.i, 31
-  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i133) #6, !srcloc !11
-  %and.i.i134 = and i32 %14, %sub121
+  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i133) #6, !srcloc !11
+  %and.i.i134 = and i32 %13, %sub121
   %not.i.i135 = xor i32 %shr.neg.i.i133, -1
-  %15 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i135) #6, !srcloc !11
-  %and2.i.i136 = and i32 %15, %tlen
+  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i135) #6, !srcloc !11
+  %and2.i.i136 = and i32 %14, %tlen
   %or.i.i137 = or i32 %and2.i.i136, %and.i.i134
   %cmp129187 = icmp sgt i32 %sub121, 1
   br i1 %cmp129187, label %for.body131.lr.ph, label %for.cond158.preheader
 
 for.body131.lr.ph:                                ; preds = %for.end114
-  %sub134 = sub nsw i32 %sub121, %sub117
+  %sub134 = sub i32 %one_index.0.lcssa, %call4
   %i.4184 = add nsw i32 %call4, 1
-  %16 = sext i32 %i.4184 to i64
+  %15 = sext i32 %i.4184 to i64
   br label %for.body131
 
 for.cond158.preheader:                            ; preds = %for.inc156, %for.end114
@@ -514,7 +511,7 @@ for.cond158.preheader:                            ; preds = %for.inc156, %for.en
 
 for.body161.lr.ph:                                ; preds = %for.cond158.preheader
   %invariant.gep = getelementptr i8, ptr %call15, i64 1
-  %17 = and i32 %and119, 255
+  %16 = and i32 %and119, 255
   %wide.trip.count210 = zext nneg i32 %or.i.i137 to i64
   %invariant.gep215 = getelementptr i8, ptr %invariant.gep, i64 %idx.ext42
   br label %for.body161
@@ -530,29 +527,29 @@ for.body143.lr.ph:                                ; preds = %for.body131
   %notsub = add i32 %and135, -1
   %isneg166.inv = icmp slt i32 %notsub, 0
   %conv.i = select i1 %isneg166.inv, i32 0, i32 255
-  %18 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i) #6, !srcloc !11
+  %17 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i) #6, !srcloc !11
   %not.i.i144 = xor i32 %conv.i, -1
-  %19 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i144) #6, !srcloc !11
-  %20 = sext i32 %msg_index.0188 to i64
-  %21 = sext i32 %sub140 to i64
-  %invariant.gep213 = getelementptr i8, ptr %call15, i64 %20
+  %18 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i144) #6, !srcloc !11
+  %19 = sext i32 %msg_index.0188 to i64
+  %20 = sext i32 %sub140 to i64
+  %invariant.gep213 = getelementptr i8, ptr %call15, i64 %19
   br label %for.body143
 
 for.body143:                                      ; preds = %for.body143.lr.ph, %for.body143
-  %indvars.iv202 = phi i64 [ %16, %for.body143.lr.ph ], [ %indvars.iv.next203, %for.body143 ]
+  %indvars.iv202 = phi i64 [ %15, %for.body143.lr.ph ], [ %indvars.iv.next203, %for.body143 ]
   %gep214 = getelementptr i8, ptr %invariant.gep213, i64 %indvars.iv202
-  %22 = load i8, ptr %gep214, align 1
+  %21 = load i8, ptr %gep214, align 1
   %arrayidx149 = getelementptr inbounds i8, ptr %call15, i64 %indvars.iv202
-  %23 = load i8, ptr %arrayidx149, align 1
-  %conv1.i = zext i8 %22 to i32
-  %conv2.i = zext i8 %23 to i32
-  %and.i.i143 = and i32 %18, %conv1.i
-  %and2.i.i145 = and i32 %19, %conv2.i
+  %22 = load i8, ptr %arrayidx149, align 1
+  %conv1.i = zext i8 %21 to i32
+  %conv2.i = zext i8 %22 to i32
+  %and.i.i143 = and i32 %17, %conv1.i
+  %and2.i.i145 = and i32 %18, %conv2.i
   %or.i.i146 = or i32 %and2.i.i145, %and.i.i143
   %conv3.i = trunc nuw i32 %or.i.i146 to i8
   store i8 %conv3.i, ptr %arrayidx149, align 1
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, 1
-  %cmp141 = icmp slt i64 %indvars.iv.next203, %21
+  %cmp141 = icmp slt i64 %indvars.iv.next203, %20
   br i1 %cmp141, label %for.body143, label %for.inc156, !llvm.loop !13
 
 for.inc156:                                       ; preds = %for.body143, %for.body131
@@ -562,22 +559,22 @@ for.inc156:                                       ; preds = %for.body143, %for.b
 
 for.body161:                                      ; preds = %for.body161.lr.ph, %for.body161
   %indvars.iv206 = phi i64 [ 0, %for.body161.lr.ph ], [ %indvars.iv.next207, %for.body161 ]
-  %24 = trunc nuw nsw i64 %indvars.iv206 to i32
-  %sub.i148 = sub i32 %24, %sub117
+  %23 = trunc nuw nsw i64 %indvars.iv206 to i32
+  %sub.i148 = sub i32 %23, %sub117
   %or.i150 = or i32 %sub.i148, %sub117
   %isneg = icmp slt i32 %or.i150, 0
   %gep216 = getelementptr i8, ptr %invariant.gep215, i64 %indvars.iv206
-  %25 = load i8, ptr %gep216, align 1
+  %24 = load i8, ptr %gep216, align 1
   %arrayidx170 = getelementptr inbounds i8, ptr %to, i64 %indvars.iv206
-  %26 = load i8, ptr %arrayidx170, align 1
-  %conv.i153 = select i1 %isneg, i32 %17, i32 0
-  %conv1.i154 = zext i8 %25 to i32
-  %conv2.i155 = zext i8 %26 to i32
-  %27 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i153) #6, !srcloc !11
-  %and.i.i156 = and i32 %27, %conv1.i154
+  %25 = load i8, ptr %arrayidx170, align 1
+  %conv.i153 = select i1 %isneg, i32 %16, i32 0
+  %conv1.i154 = zext i8 %24 to i32
+  %conv2.i155 = zext i8 %25 to i32
+  %26 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i153) #6, !srcloc !11
+  %and.i.i156 = and i32 %26, %conv1.i154
   %not.i.i157 = xor i32 %conv.i153, -1
-  %28 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i157) #6, !srcloc !11
-  %and2.i.i158 = and i32 %28, %conv2.i155
+  %27 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i157) #6, !srcloc !11
+  %and2.i.i158 = and i32 %27, %conv2.i155
   %or.i.i159 = or i32 %and2.i.i158, %and.i.i156
   %conv3.i160 = trunc nuw i32 %or.i.i159 to i8
   store i8 %conv3.i160, ptr %arrayidx170, align 1
@@ -600,11 +597,11 @@ cleanup:                                          ; preds = %if.end13, %for.end8
   call void @OPENSSL_cleanse(ptr noundef nonnull %seed, i64 noundef 64) #5
   call void @CRYPTO_clear_free(ptr noundef %call15, i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 313) #5
   call void @CRYPTO_clear_free(ptr noundef %em.0, i64 noundef %.pre212, ptr noundef nonnull @.str, i32 noundef 314) #5
-  %29 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %good.0) #6, !srcloc !11
-  %and.i.i161 = and i32 %29, %mlen.0
+  %28 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %good.0) #6, !srcloc !11
+  %and.i.i161 = and i32 %28, %mlen.0
   %not.i.i162 = xor i32 %good.0, -1
-  %30 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i162) #6, !srcloc !11
-  %or.i.i164 = or i32 %30, %and.i.i161
+  %29 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i162) #6, !srcloc !11
+  %or.i.i164 = or i32 %29, %and.i.i161
   br label %return
 
 return:                                           ; preds = %if.end, %cleanup, %if.then12

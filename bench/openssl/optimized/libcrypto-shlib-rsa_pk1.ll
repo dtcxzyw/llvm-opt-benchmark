@@ -371,7 +371,7 @@ for.end40:                                        ; preds = %for.body31, %for.en
   br i1 %cmp52141, label %for.body54.lr.ph, label %for.cond79.preheader
 
 for.body54.lr.ph:                                 ; preds = %for.end40
-  %sub56 = sub nsw i32 %sub46, %sub43
+  %sub56 = add i32 %zero_index.0.lcssa, -10
   br label %for.body54
 
 for.cond79.preheader:                             ; preds = %for.inc77, %for.end40

@@ -2809,7 +2809,7 @@ bbuf_init.exit.i:                                 ; preds = %9
   %99 = sub i32 %98, %63
   %100 = zext i32 %99 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %94, ptr nonnull align 1 %96, i64 %100, i1 false)
-  %.neg = sub i32 %65, %63
+  %.neg = sub i32 %64, %62
   %101 = load i32, ptr %97, align 8
   %102 = add i32 %.neg, %101
   store i32 %102, ptr %97, align 8

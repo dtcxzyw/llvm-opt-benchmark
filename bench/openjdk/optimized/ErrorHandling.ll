@@ -785,8 +785,8 @@ _ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx111
   %140 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #7
   %141 = getelementptr inbounds i8, ptr %140, i64 %137
   %142 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %141, i64 noundef %139)
-  %143 = add i64 %137, -1
-  %144 = add i64 %143, %139
+  %143 = xor i64 %136, -1
+  %144 = add i64 %138, %143
   br label %145
 
 145:                                              ; preds = %_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_.exit, %134

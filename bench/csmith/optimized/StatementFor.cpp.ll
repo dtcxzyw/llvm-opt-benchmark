@@ -169,7 +169,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
           cleanup
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
-.loopexit.split-lp238:                            ; preds = %63, %65, %66, %125, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit119.thread, %229, %233, %246, %248, %264, %282, %287, %290, %294, %295, %298, %299, %316, %336, %339, %373, %399, %406, %411, %46, %130, %.noexc120, %133, %135, %137, %.noexc124, %142, %149, %151, %157, %159, %.noexc130, %164, %174, %176, %179, %.noexc137, %188, %192, %203, %219, %221, %223, %.thread.i134, %226, %thread-pre-split52.i
+.loopexit.split-lp238:                            ; preds = %63, %65, %66, %125, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit119.thread, %228, %232, %245, %247, %263, %281, %286, %289, %293, %294, %297, %298, %315, %335, %338, %372, %398, %405, %410, %46, %130, %.noexc120, %133, %135, %137, %.noexc124, %142, %149, %151, %157, %159, %.noexc130, %164, %174, %176, %179, %.noexc137, %188, %192, %202, %218, %220, %222, %.thread.i134, %225, %thread-pre-split52.i
   %lpad.loopexit.split-lp240 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
@@ -587,7 +587,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit119.thread: ; preds = %67, %_ZNSt6vecto
 .noexc139:                                        ; preds = %188
   %190 = load i32, ptr @_ZN5Error8r_error_E, align 4
   %.not44.i = icmp eq i32 %190, 0
-  br i1 %189, label %191, label %213
+  br i1 %189, label %191, label %212
 
 191:                                              ; preds = %.noexc139
   br i1 %.not44.i, label %192, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
@@ -600,530 +600,529 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit119.thread: ; preds = %67, %_ZNSt6vecto
   %194 = icmp eq i32 %183, 5
   %195 = icmp sgt i32 %193, 1
   %or.cond.i = and i1 %194, %195
-  br i1 %or.cond.i, label %.thread, label %201
+  br i1 %or.cond.i, label %.thread, label %200
 
 .thread:                                          ; preds = %.noexc140
   %196 = sub i32 %182, %180
   %197 = srem i32 %196, %193
-  %198 = sub i32 %180, %197
-  %199 = add i32 %198, %196
-  %.not45.i218 = icmp slt i32 %199, %180
-  %200 = select i1 %.not45.i218, i32 5, i32 4
-  br label %203
+  %198 = sub i32 %182, %197
+  %.not45.i218 = icmp slt i32 %198, %180
+  %199 = select i1 %.not45.i218, i32 5, i32 4
+  br label %202
 
-201:                                              ; preds = %.noexc140
+200:                                              ; preds = %.noexc140
   %.not45.i = icmp slt i32 %182, %180
-  %202 = select i1 %.not45.i, i32 5, i32 4
+  %201 = select i1 %.not45.i, i32 5, i32 4
   %spec.select = call i32 @llvm.umax.i32(i32 %193, i32 1)
-  br label %203
+  br label %202
 
-203:                                              ; preds = %201, %.thread
-  %204 = phi i32 [ %200, %.thread ], [ %202, %201 ]
-  %.2211219 = phi i32 [ %199, %.thread ], [ %182, %201 ]
-  %.2207 = phi i32 [ %193, %.thread ], [ %spec.select, %201 ]
-  %205 = invoke noundef zeroext i1 @_ZN9CGOptions14fast_executionEv()
+202:                                              ; preds = %200, %.thread
+  %203 = phi i32 [ %199, %.thread ], [ %201, %200 ]
+  %.2211219 = phi i32 [ %198, %.thread ], [ %182, %200 ]
+  %.2207 = phi i32 [ %193, %.thread ], [ %spec.select, %200 ]
+  %204 = invoke noundef zeroext i1 @_ZN9CGOptions14fast_executionEv()
           to label %.noexc141 unwind label %.loopexit.split-lp238
 
-.noexc141:                                        ; preds = %203
-  br i1 %205, label %206, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
+.noexc141:                                        ; preds = %202
+  br i1 %204, label %205, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
-206:                                              ; preds = %.noexc141
-  %207 = sub nsw i32 %.2211219, %180
-  %208 = srem i32 %207, %.2207
-  %209 = icmp eq i32 %208, 0
+205:                                              ; preds = %.noexc141
+  %206 = sub nsw i32 %.2211219, %180
+  %207 = srem i32 %206, %.2207
+  %208 = icmp eq i32 %207, 0
   %.off.i = add i32 %186, -7
   %switch.i = icmp ult i32 %.off.i, 2
-  %or.cond = select i1 %209, i1 %switch.i, i1 false
-  br i1 %or.cond, label %210, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
+  %or.cond = select i1 %208, i1 %switch.i, i1 false
+  br i1 %or.cond, label %209, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
-210:                                              ; preds = %206
-  %211 = icmp eq i32 %204, 4
-  %.v.i = select i1 %211, i32 1, i32 -1
-  %212 = add nsw i32 %.v.i, %.2211219
+209:                                              ; preds = %205
+  %210 = icmp eq i32 %203, 4
+  %.v.i = select i1 %210, i32 1, i32 -1
+  %211 = add nsw i32 %.v.i, %.2211219
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
-213:                                              ; preds = %.noexc139
-  br i1 %.not44.i, label %214, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
+212:                                              ; preds = %.noexc139
+  br i1 %.not44.i, label %213, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
 
-214:                                              ; preds = %213
-  %215 = icmp slt i32 %182, %180
-  br i1 %215, label %219, label %216
+213:                                              ; preds = %212
+  %214 = icmp slt i32 %182, %180
+  br i1 %214, label %218, label %215
 
-216:                                              ; preds = %214
-  %217 = icmp eq i32 %182, %180
-  %218 = icmp eq i32 %183, 3
-  %or.cond47.i = and i1 %217, %218
-  br i1 %or.cond47.i, label %219, label %221
+215:                                              ; preds = %213
+  %216 = icmp eq i32 %182, %180
+  %217 = icmp eq i32 %183, 3
+  %or.cond47.i = and i1 %216, %217
+  br i1 %or.cond47.i, label %218, label %220
 
-219:                                              ; preds = %216, %214
-  %220 = invoke noundef zeroext i1 @_Z17pure_rnd_flipcoinjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef 50, ptr noundef null, ptr noundef null)
+218:                                              ; preds = %215, %213
+  %219 = invoke noundef zeroext i1 @_Z17pure_rnd_flipcoinjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef 50, ptr noundef null, ptr noundef null)
           to label %._crit_edge.i unwind label %.loopexit.split-lp238
 
-221:                                              ; preds = %216
-  %222 = invoke noundef zeroext i1 @_Z17pure_rnd_flipcoinjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef 50, ptr noundef null, ptr noundef null)
+220:                                              ; preds = %215
+  %221 = invoke noundef zeroext i1 @_Z17pure_rnd_flipcoinjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef 50, ptr noundef null, ptr noundef null)
           to label %.noexc143 unwind label %.loopexit.split-lp238
 
-.noexc143:                                        ; preds = %221
-  br i1 %222, label %223, label %.thread.i134
+.noexc143:                                        ; preds = %220
+  br i1 %221, label %222, label %.thread.i134
 
-223:                                              ; preds = %.noexc143
-  %224 = invoke noundef zeroext i1 @_ZN9CGOptions17pre_incr_operatorEv()
+222:                                              ; preds = %.noexc143
+  %223 = invoke noundef zeroext i1 @_ZN9CGOptions17pre_incr_operatorEv()
           to label %.noexc144 unwind label %.loopexit.split-lp238
 
-.noexc144:                                        ; preds = %223
-  br i1 %224, label %thread-pre-split52.i.thread, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
+.noexc144:                                        ; preds = %222
+  br i1 %223, label %thread-pre-split52.i.thread, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
 .thread.i134:                                     ; preds = %.noexc143
-  %225 = invoke noundef zeroext i1 @_ZN9CGOptions18post_incr_operatorEv()
+  %224 = invoke noundef zeroext i1 @_ZN9CGOptions18post_incr_operatorEv()
           to label %.noexc145 unwind label %.loopexit.split-lp238
 
 .noexc145:                                        ; preds = %.thread.i134
-  br i1 %225, label %thread-pre-split52.i.thread, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
+  br i1 %224, label %thread-pre-split52.i.thread, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
-._crit_edge.i:                                    ; preds = %219
-  br i1 %220, label %226, label %thread-pre-split52.i
+._crit_edge.i:                                    ; preds = %218
+  br i1 %219, label %225, label %thread-pre-split52.i
 
-226:                                              ; preds = %._crit_edge.i
-  %227 = invoke noundef zeroext i1 @_ZN9CGOptions17pre_decr_operatorEv()
+225:                                              ; preds = %._crit_edge.i
+  %226 = invoke noundef zeroext i1 @_ZN9CGOptions17pre_decr_operatorEv()
           to label %.noexc146 unwind label %.loopexit.split-lp238
 
-.noexc146:                                        ; preds = %226
-  br i1 %227, label %thread-pre-split52.i.thread, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
+.noexc146:                                        ; preds = %225
+  br i1 %226, label %thread-pre-split52.i.thread, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
 thread-pre-split52.i.thread:                      ; preds = %.noexc146, %.noexc144, %.noexc145
   %.2221224.ph = phi i32 [ 12, %.noexc146 ], [ 11, %.noexc144 ], [ 13, %.noexc145 ]
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
 thread-pre-split52.i:                             ; preds = %._crit_edge.i
-  %228 = invoke noundef zeroext i1 @_ZN9CGOptions18post_decr_operatorEv()
+  %227 = invoke noundef zeroext i1 @_ZN9CGOptions18post_decr_operatorEv()
           to label %.noexc147 unwind label %.loopexit.split-lp238
 
 .noexc147:                                        ; preds = %thread-pre-split52.i
-  %spec.select236 = select i1 %228, i32 14, i32 5
+  %spec.select236 = select i1 %227, i32 14, i32 5
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
 
-_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit: ; preds = %.noexc147, %210, %206, %.noexc141, %.noexc144, %.noexc145, %.noexc146, %thread-pre-split52.i.thread, %167
-  %.0213.ph = phi i32 [ %180, %210 ], [ %180, %206 ], [ %180, %.noexc141 ], [ %180, %.noexc144 ], [ %180, %.noexc145 ], [ %180, %.noexc146 ], [ %180, %thread-pre-split52.i.thread ], [ %.1214, %167 ], [ %180, %.noexc147 ]
-  %.0209.ph = phi i32 [ %212, %210 ], [ %.2211219, %206 ], [ %.2211219, %.noexc141 ], [ %182, %.noexc144 ], [ %182, %.noexc145 ], [ %182, %.noexc146 ], [ %182, %thread-pre-split52.i.thread ], [ %.1210, %167 ], [ %182, %.noexc147 ]
-  %.0205.ph = phi i32 [ %.2207, %210 ], [ %.2207, %206 ], [ %.2207, %.noexc141 ], [ 1, %.noexc144 ], [ 1, %.noexc145 ], [ 1, %.noexc146 ], [ 1, %thread-pre-split52.i.thread ], [ %.1206, %167 ], [ 1, %.noexc147 ]
-  %.0203.ph = phi i32 [ %186, %210 ], [ %186, %206 ], [ %186, %.noexc141 ], [ %186, %.noexc144 ], [ %186, %.noexc145 ], [ %186, %.noexc146 ], [ %186, %thread-pre-split52.i.thread ], [ %.1204, %167 ], [ %186, %.noexc147 ]
-  %.0202.ph = phi i32 [ %204, %210 ], [ %204, %206 ], [ %204, %.noexc141 ], [ 4, %.noexc144 ], [ 4, %.noexc145 ], [ 5, %.noexc146 ], [ %.2221224.ph, %thread-pre-split52.i.thread ], [ %.1, %167 ], [ %spec.select236, %.noexc147 ]
+_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit: ; preds = %.noexc147, %209, %205, %.noexc141, %.noexc144, %.noexc145, %.noexc146, %thread-pre-split52.i.thread, %167
+  %.0213.ph = phi i32 [ %180, %209 ], [ %180, %205 ], [ %180, %.noexc141 ], [ %180, %.noexc144 ], [ %180, %.noexc145 ], [ %180, %.noexc146 ], [ %180, %thread-pre-split52.i.thread ], [ %.1214, %167 ], [ %180, %.noexc147 ]
+  %.0209.ph = phi i32 [ %211, %209 ], [ %.2211219, %205 ], [ %.2211219, %.noexc141 ], [ %182, %.noexc144 ], [ %182, %.noexc145 ], [ %182, %.noexc146 ], [ %182, %thread-pre-split52.i.thread ], [ %.1210, %167 ], [ %182, %.noexc147 ]
+  %.0205.ph = phi i32 [ %.2207, %209 ], [ %.2207, %205 ], [ %.2207, %.noexc141 ], [ 1, %.noexc144 ], [ 1, %.noexc145 ], [ 1, %.noexc146 ], [ 1, %thread-pre-split52.i.thread ], [ %.1206, %167 ], [ 1, %.noexc147 ]
+  %.0203.ph = phi i32 [ %186, %209 ], [ %186, %205 ], [ %186, %.noexc141 ], [ %186, %.noexc144 ], [ %186, %.noexc145 ], [ %186, %.noexc146 ], [ %186, %thread-pre-split52.i.thread ], [ %.1204, %167 ], [ %186, %.noexc147 ]
+  %.0202.ph = phi i32 [ %203, %209 ], [ %203, %205 ], [ %203, %.noexc141 ], [ 4, %.noexc144 ], [ 4, %.noexc145 ], [ 5, %.noexc146 ], [ %.2221224.ph, %thread-pre-split52.i.thread ], [ %.1, %167 ], [ %spec.select236, %.noexc147 ]
   %.pr229 = load i32, ptr @_ZN5Error8r_error_E, align 4
   %.not93 = icmp eq i32 %.pr229, 0
-  br i1 %.not93, label %229, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
+  br i1 %.not93, label %228, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
 
-229:                                              ; preds = %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
-  %230 = invoke noundef ptr @_ZN8Constant8make_intEi(i32 noundef %.0213.ph)
-          to label %231 unwind label %.loopexit.split-lp238
+228:                                              ; preds = %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit
+  %229 = invoke noundef ptr @_ZN8Constant8make_intEi(i32 noundef %.0213.ph)
+          to label %230 unwind label %.loopexit.split-lp238
 
-231:                                              ; preds = %229
-  %232 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not94 = icmp eq i32 %232, 0
-  br i1 %.not94, label %233, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
+230:                                              ; preds = %228
+  %231 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not94 = icmp eq i32 %231, 0
+  br i1 %.not94, label %232, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
 
-233:                                              ; preds = %231
-  %234 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
-          to label %235 unwind label %.loopexit.split-lp238
+232:                                              ; preds = %230
+  %233 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
+          to label %234 unwind label %.loopexit.split-lp238
 
-235:                                              ; preds = %233
-  invoke void @_ZN3LhsC1ERK8Variable(ptr noundef nonnull align 8 dereferenceable(41) %234, ptr noundef nonnull align 8 dereferenceable(200) %26)
-          to label %236 unwind label %244
+234:                                              ; preds = %232
+  invoke void @_ZN3LhsC1ERK8Variable(ptr noundef nonnull align 8 dereferenceable(41) %233, ptr noundef nonnull align 8 dereferenceable(200) %26)
+          to label %235 unwind label %243
 
-236:                                              ; preds = %235
-  %237 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not95 = icmp eq i32 %237, 0
-  br i1 %.not95, label %246, label %238
+235:                                              ; preds = %234
+  %236 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not95 = icmp eq i32 %236, 0
+  br i1 %.not95, label %245, label %237
 
-238:                                              ; preds = %236
-  %239 = icmp eq ptr %230, null
-  br i1 %239, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread, label %240
+237:                                              ; preds = %235
+  %238 = icmp eq ptr %229, null
+  br i1 %238, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread, label %239
 
-240:                                              ; preds = %238
-  %241 = load ptr, ptr %230, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 8
-  %243 = load ptr, ptr %242, align 8
-  call void %243(ptr noundef nonnull align 8 dereferenceable(64) %230) #21
+239:                                              ; preds = %237
+  %240 = load ptr, ptr %229, align 8
+  %241 = getelementptr inbounds i8, ptr %240, i64 8
+  %242 = load ptr, ptr %241, align 8
+  call void %242(ptr noundef nonnull align 8 dereferenceable(64) %229) #21
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
 
-244:                                              ; preds = %235
-  %245 = landingpad { ptr, i32 }
+243:                                              ; preds = %234
+  %244 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %234) #20
+  call void @_ZdlPv(ptr noundef nonnull %233) #20
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
-246:                                              ; preds = %236
-  %247 = invoke noundef i32 @_ZN15StatementAssign22compound_to_binary_opsE10eAssignOps(i32 noundef %.0202.ph)
-          to label %248 unwind label %.loopexit.split-lp238
+245:                                              ; preds = %235
+  %246 = invoke noundef i32 @_ZN15StatementAssign22compound_to_binary_opsE10eAssignOps(i32 noundef %.0202.ph)
+          to label %247 unwind label %.loopexit.split-lp238
 
-248:                                              ; preds = %246
-  %249 = getelementptr inbounds i8, ptr %26, i64 64
-  %250 = load ptr, ptr %249, align 8
-  %251 = invoke noundef ptr @_ZN11SafeOpFlags18make_random_binaryEPK4TypeS2_S2_10SafeOpKind10eBinaryOps(ptr noundef %250, ptr noundef %250, ptr noundef %250, i32 noundef 2, i32 noundef %247)
-          to label %252 unwind label %.loopexit.split-lp238
+247:                                              ; preds = %245
+  %248 = getelementptr inbounds i8, ptr %26, i64 64
+  %249 = load ptr, ptr %248, align 8
+  %250 = invoke noundef ptr @_ZN11SafeOpFlags18make_random_binaryEPK4TypeS2_S2_10SafeOpKind10eBinaryOps(ptr noundef %249, ptr noundef %249, ptr noundef %249, i32 noundef 2, i32 noundef %246)
+          to label %251 unwind label %.loopexit.split-lp238
 
-252:                                              ; preds = %248
-  %253 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not96 = icmp eq i32 %253, 0
-  br i1 %.not96, label %264, label %254
+251:                                              ; preds = %247
+  %252 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not96 = icmp eq i32 %252, 0
+  br i1 %.not96, label %263, label %253
 
-254:                                              ; preds = %252
-  %255 = icmp eq ptr %230, null
-  br i1 %255, label %260, label %256
+253:                                              ; preds = %251
+  %254 = icmp eq ptr %229, null
+  br i1 %254, label %259, label %255
 
-256:                                              ; preds = %254
-  %257 = load ptr, ptr %230, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 8
-  %259 = load ptr, ptr %258, align 8
-  call void %259(ptr noundef nonnull align 8 dereferenceable(64) %230) #21
-  br label %260
+255:                                              ; preds = %253
+  %256 = load ptr, ptr %229, align 8
+  %257 = getelementptr inbounds i8, ptr %256, i64 8
+  %258 = load ptr, ptr %257, align 8
+  call void %258(ptr noundef nonnull align 8 dereferenceable(64) %229) #21
+  br label %259
 
-260:                                              ; preds = %254, %256
-  %261 = load ptr, ptr %234, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 8
-  %263 = load ptr, ptr %262, align 8
-  call void %263(ptr noundef nonnull align 8 dereferenceable(41) %234) #21
+259:                                              ; preds = %253, %255
+  %260 = load ptr, ptr %233, align 8
+  %261 = getelementptr inbounds i8, ptr %260, i64 8
+  %262 = load ptr, ptr %261, align 8
+  call void %262(ptr noundef nonnull align 8 dereferenceable(41) %233) #21
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
 
-264:                                              ; preds = %252
-  %265 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #19
-          to label %266 unwind label %.loopexit.split-lp238
+263:                                              ; preds = %251
+  %264 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #19
+          to label %265 unwind label %.loopexit.split-lp238
 
-266:                                              ; preds = %264
-  %267 = invoke noundef ptr @_ZNK9CGContext17get_current_blockEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
-          to label %268 unwind label %280
+265:                                              ; preds = %263
+  %266 = invoke noundef ptr @_ZNK9CGContext17get_current_blockEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
+          to label %267 unwind label %279
 
-268:                                              ; preds = %266
-  invoke void @_ZN15StatementAssignC1EP5BlockRK3LhsRK10Expression10eAssignOpsPK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(136) %265, ptr noundef %267, ptr noundef nonnull align 8 dereferenceable(41) %234, ptr noundef nonnull align 8 dereferenceable(24) %230, i32 noundef 0, ptr noundef %251)
-          to label %269 unwind label %280
+267:                                              ; preds = %265
+  invoke void @_ZN15StatementAssignC1EP5BlockRK3LhsRK10Expression10eAssignOpsPK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(136) %264, ptr noundef %266, ptr noundef nonnull align 8 dereferenceable(41) %233, ptr noundef nonnull align 8 dereferenceable(24) %229, i32 noundef 0, ptr noundef %250)
+          to label %268 unwind label %279
 
-269:                                              ; preds = %268
-  store ptr %265, ptr %1, align 8
-  %270 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not97 = icmp eq i32 %270, 0
-  br i1 %.not97, label %282, label %271
+268:                                              ; preds = %267
+  store ptr %264, ptr %1, align 8
+  %269 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not97 = icmp eq i32 %269, 0
+  br i1 %.not97, label %281, label %270
 
-271:                                              ; preds = %269
-  %272 = load ptr, ptr %230, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 8
-  %274 = load ptr, ptr %273, align 8
-  call void %274(ptr noundef nonnull align 8 dereferenceable(64) %230) #21
-  %275 = load ptr, ptr %234, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 8
-  %277 = load ptr, ptr %276, align 8
-  call void %277(ptr noundef nonnull align 8 dereferenceable(41) %234) #21
-  %278 = icmp eq ptr %251, null
-  br i1 %278, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread, label %279
+270:                                              ; preds = %268
+  %271 = load ptr, ptr %229, align 8
+  %272 = getelementptr inbounds i8, ptr %271, i64 8
+  %273 = load ptr, ptr %272, align 8
+  call void %273(ptr noundef nonnull align 8 dereferenceable(64) %229) #21
+  %274 = load ptr, ptr %233, align 8
+  %275 = getelementptr inbounds i8, ptr %274, i64 8
+  %276 = load ptr, ptr %275, align 8
+  call void %276(ptr noundef nonnull align 8 dereferenceable(41) %233) #21
+  %277 = icmp eq ptr %250, null
+  br i1 %277, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread, label %278
 
-279:                                              ; preds = %271
-  call void @_ZN11SafeOpFlagsD1Ev(ptr noundef nonnull align 4 dereferenceable(8) %251) #21
-  call void @_ZdlPv(ptr noundef nonnull %251) #20
+278:                                              ; preds = %270
+  call void @_ZN11SafeOpFlagsD1Ev(ptr noundef nonnull align 4 dereferenceable(8) %250) #21
+  call void @_ZdlPv(ptr noundef nonnull %250) #20
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
 
-280:                                              ; preds = %268, %266
-  %281 = landingpad { ptr, i32 }
+279:                                              ; preds = %267, %265
+  %280 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %265) #20
+  call void @_ZdlPv(ptr noundef nonnull %264) #20
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
-282:                                              ; preds = %269
-  %283 = load ptr, ptr %265, align 8
-  %284 = getelementptr inbounds i8, ptr %283, i64 16
-  %285 = load ptr, ptr %284, align 8
-  %286 = invoke noundef zeroext i1 %285(ptr noundef nonnull align 8 dereferenceable(136) %265, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(216) %0)
-          to label %287 unwind label %.loopexit.split-lp238
+281:                                              ; preds = %268
+  %282 = load ptr, ptr %264, align 8
+  %283 = getelementptr inbounds i8, ptr %282, i64 16
+  %284 = load ptr, ptr %283, align 8
+  %285 = invoke noundef zeroext i1 %284(ptr noundef nonnull align 8 dereferenceable(136) %264, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(216) %0)
+          to label %286 unwind label %.loopexit.split-lp238
 
-287:                                              ; preds = %282
-  %288 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
-          to label %289 unwind label %.loopexit.split-lp238
+286:                                              ; preds = %281
+  %287 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
+          to label %288 unwind label %.loopexit.split-lp238
 
-289:                                              ; preds = %287
-  invoke void @_ZN18ExpressionVariableC1ERK8Variable(ptr noundef nonnull align 8 dereferenceable(40) %288, ptr noundef nonnull align 8 dereferenceable(200) %26)
-          to label %290 unwind label %314
+288:                                              ; preds = %286
+  invoke void @_ZN18ExpressionVariableC1ERK8Variable(ptr noundef nonnull align 8 dereferenceable(40) %287, ptr noundef nonnull align 8 dereferenceable(200) %26)
+          to label %289 unwind label %313
 
-290:                                              ; preds = %289
-  %291 = getelementptr inbounds i8, ptr %288, i64 24
-  %292 = load ptr, ptr %291, align 8
-  %293 = invoke noundef i32 @_ZNK18ExpressionVariable18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(40) %288)
+289:                                              ; preds = %288
+  %290 = getelementptr inbounds i8, ptr %287, i64 24
+  %291 = load ptr, ptr %290, align 8
+  %292 = invoke noundef i32 @_ZNK18ExpressionVariable18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(40) %287)
+          to label %293 unwind label %.loopexit.split-lp238
+
+293:                                              ; preds = %289
+  invoke void @_ZN10Bookkeeper22record_volatile_accessEPK8Variableib(ptr noundef %291, i32 noundef %292, i1 noundef zeroext false)
           to label %294 unwind label %.loopexit.split-lp238
 
-294:                                              ; preds = %290
-  invoke void @_ZN10Bookkeeper22record_volatile_accessEPK8Variableib(ptr noundef %292, i32 noundef %293, i1 noundef zeroext false)
-          to label %295 unwind label %.loopexit.split-lp238
+294:                                              ; preds = %293
+  %295 = load ptr, ptr %290, align 8
+  %296 = invoke noundef i32 @_ZNK18ExpressionVariable18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(40) %287)
+          to label %297 unwind label %.loopexit.split-lp238
 
-295:                                              ; preds = %294
-  %296 = load ptr, ptr %291, align 8
-  %297 = invoke noundef i32 @_ZNK18ExpressionVariable18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(40) %288)
+297:                                              ; preds = %294
+  invoke void @_ZN10Bookkeeper22record_volatile_accessEPK8Variableib(ptr noundef %295, i32 noundef %296, i1 noundef zeroext true)
           to label %298 unwind label %.loopexit.split-lp238
 
-298:                                              ; preds = %295
-  invoke void @_ZN10Bookkeeper22record_volatile_accessEPK8Variableib(ptr noundef %296, i32 noundef %297, i1 noundef zeroext true)
-          to label %299 unwind label %.loopexit.split-lp238
+298:                                              ; preds = %297
+  %299 = invoke noundef ptr @_ZN8Constant8make_intEi(i32 noundef %.0209.ph)
+          to label %300 unwind label %.loopexit.split-lp238
 
-299:                                              ; preds = %298
-  %300 = invoke noundef ptr @_ZN8Constant8make_intEi(i32 noundef %.0209.ph)
-          to label %301 unwind label %.loopexit.split-lp238
+300:                                              ; preds = %298
+  %301 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not98 = icmp eq i32 %301, 0
+  br i1 %.not98, label %315, label %302
 
-301:                                              ; preds = %299
-  %302 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not98 = icmp eq i32 %302, 0
-  br i1 %.not98, label %316, label %303
+302:                                              ; preds = %300
+  %303 = load ptr, ptr %1, align 8
+  %304 = icmp eq ptr %303, null
+  br i1 %304, label %309, label %305
 
-303:                                              ; preds = %301
-  %304 = load ptr, ptr %1, align 8
-  %305 = icmp eq ptr %304, null
-  br i1 %305, label %310, label %306
+305:                                              ; preds = %302
+  %306 = load ptr, ptr %303, align 8
+  %307 = getelementptr inbounds i8, ptr %306, i64 8
+  %308 = load ptr, ptr %307, align 8
+  call void %308(ptr noundef nonnull align 8 dereferenceable(136) %303) #21
+  br label %309
 
-306:                                              ; preds = %303
-  %307 = load ptr, ptr %304, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 8
-  %309 = load ptr, ptr %308, align 8
-  call void %309(ptr noundef nonnull align 8 dereferenceable(136) %304) #21
-  br label %310
-
-310:                                              ; preds = %303, %306
-  %311 = load ptr, ptr %288, align 8
-  %312 = getelementptr inbounds i8, ptr %311, i64 8
-  %313 = load ptr, ptr %312, align 8
-  call void %313(ptr noundef nonnull align 8 dereferenceable(40) %288) #21
+309:                                              ; preds = %302, %305
+  %310 = load ptr, ptr %287, align 8
+  %311 = getelementptr inbounds i8, ptr %310, i64 8
+  %312 = load ptr, ptr %311, align 8
+  call void %312(ptr noundef nonnull align 8 dereferenceable(40) %287) #21
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
 
-314:                                              ; preds = %289
-  %315 = landingpad { ptr, i32 }
+313:                                              ; preds = %288
+  %314 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %288) #20
+  call void @_ZdlPv(ptr noundef nonnull %287) #20
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
-316:                                              ; preds = %301
-  %317 = invoke noundef ptr @_ZN18FunctionInvocation11make_binaryER9CGContext10eBinaryOpsP10ExpressionS4_(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %.0203.ph, ptr noundef nonnull %288, ptr noundef %300)
-          to label %318 unwind label %.loopexit.split-lp238
+315:                                              ; preds = %300
+  %316 = invoke noundef ptr @_ZN18FunctionInvocation11make_binaryER9CGContext10eBinaryOpsP10ExpressionS4_(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %.0203.ph, ptr noundef nonnull %287, ptr noundef %299)
+          to label %317 unwind label %.loopexit.split-lp238
 
-318:                                              ; preds = %316
-  %319 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not99 = icmp eq i32 %319, 0
-  br i1 %.not99, label %336, label %320
+317:                                              ; preds = %315
+  %318 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not99 = icmp eq i32 %318, 0
+  br i1 %.not99, label %335, label %319
 
-320:                                              ; preds = %318
-  %321 = load ptr, ptr %1, align 8
-  %322 = icmp eq ptr %321, null
-  br i1 %322, label %327, label %323
+319:                                              ; preds = %317
+  %320 = load ptr, ptr %1, align 8
+  %321 = icmp eq ptr %320, null
+  br i1 %321, label %326, label %322
 
-323:                                              ; preds = %320
-  %324 = load ptr, ptr %321, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 8
-  %326 = load ptr, ptr %325, align 8
-  call void %326(ptr noundef nonnull align 8 dereferenceable(136) %321) #21
-  br label %327
+322:                                              ; preds = %319
+  %323 = load ptr, ptr %320, align 8
+  %324 = getelementptr inbounds i8, ptr %323, i64 8
+  %325 = load ptr, ptr %324, align 8
+  call void %325(ptr noundef nonnull align 8 dereferenceable(136) %320) #21
+  br label %326
 
-327:                                              ; preds = %320, %323
-  %328 = load ptr, ptr %288, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 8
-  %330 = load ptr, ptr %329, align 8
-  call void %330(ptr noundef nonnull align 8 dereferenceable(40) %288) #21
-  %331 = icmp eq ptr %300, null
-  br i1 %331, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread, label %332
+326:                                              ; preds = %319, %322
+  %327 = load ptr, ptr %287, align 8
+  %328 = getelementptr inbounds i8, ptr %327, i64 8
+  %329 = load ptr, ptr %328, align 8
+  call void %329(ptr noundef nonnull align 8 dereferenceable(40) %287) #21
+  %330 = icmp eq ptr %299, null
+  br i1 %330, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread, label %331
 
-332:                                              ; preds = %327
-  %333 = load ptr, ptr %300, align 8
-  %334 = getelementptr inbounds i8, ptr %333, i64 8
-  %335 = load ptr, ptr %334, align 8
-  call void %335(ptr noundef nonnull align 8 dereferenceable(64) %300) #21
+331:                                              ; preds = %326
+  %332 = load ptr, ptr %299, align 8
+  %333 = getelementptr inbounds i8, ptr %332, i64 8
+  %334 = load ptr, ptr %333, align 8
+  call void %334(ptr noundef nonnull align 8 dereferenceable(64) %299) #21
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
 
-336:                                              ; preds = %318
-  %337 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
-          to label %338 unwind label %.loopexit.split-lp238
+335:                                              ; preds = %317
+  %336 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
+          to label %337 unwind label %.loopexit.split-lp238
 
-338:                                              ; preds = %336
-  invoke void @_ZN17ExpressionFuncallC1ERK18FunctionInvocation(ptr noundef nonnull align 8 dereferenceable(32) %337, ptr noundef nonnull align 8 dereferenceable(56) %317)
-          to label %339 unwind label %348
+337:                                              ; preds = %335
+  invoke void @_ZN17ExpressionFuncallC1ERK18FunctionInvocation(ptr noundef nonnull align 8 dereferenceable(32) %336, ptr noundef nonnull align 8 dereferenceable(56) %316)
+          to label %338 unwind label %347
 
-339:                                              ; preds = %338
-  store ptr %337, ptr %2, align 8
-  %340 = load ptr, ptr %234, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 16
-  %342 = load ptr, ptr %341, align 8
-  %343 = invoke noundef ptr %342(ptr noundef nonnull align 8 dereferenceable(41) %234)
-          to label %344 unwind label %.loopexit.split-lp238
+338:                                              ; preds = %337
+  store ptr %336, ptr %2, align 8
+  %339 = load ptr, ptr %233, align 8
+  %340 = getelementptr inbounds i8, ptr %339, i64 16
+  %341 = load ptr, ptr %340, align 8
+  %342 = invoke noundef ptr %341(ptr noundef nonnull align 8 dereferenceable(41) %233)
+          to label %343 unwind label %.loopexit.split-lp238
 
-344:                                              ; preds = %339
-  %345 = icmp eq ptr %343, null
-  br i1 %345, label %350, label %346
+343:                                              ; preds = %338
+  %344 = icmp eq ptr %342, null
+  br i1 %344, label %349, label %345
 
-346:                                              ; preds = %344
-  %347 = call ptr @__dynamic_cast(ptr nonnull %343, ptr nonnull @_ZTI10Expression, ptr nonnull @_ZTI3Lhs, i64 0) #21
-  br label %350
+345:                                              ; preds = %343
+  %346 = call ptr @__dynamic_cast(ptr nonnull %342, ptr nonnull @_ZTI10Expression, ptr nonnull @_ZTI3Lhs, i64 0) #21
+  br label %349
 
-348:                                              ; preds = %338
-  %349 = landingpad { ptr, i32 }
+347:                                              ; preds = %337
+  %348 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %337) #20
+  call void @_ZdlPv(ptr noundef nonnull %336) #20
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
-350:                                              ; preds = %344, %346
-  %351 = phi ptr [ %347, %346 ], [ null, %344 ]
-  %352 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not100 = icmp eq i32 %352, 0
-  br i1 %.not100, label %373, label %353
+349:                                              ; preds = %343, %345
+  %350 = phi ptr [ %346, %345 ], [ null, %343 ]
+  %351 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not100 = icmp eq i32 %351, 0
+  br i1 %.not100, label %372, label %352
 
-353:                                              ; preds = %350
-  %354 = load ptr, ptr %1, align 8
-  %355 = icmp eq ptr %354, null
-  br i1 %355, label %360, label %356
+352:                                              ; preds = %349
+  %353 = load ptr, ptr %1, align 8
+  %354 = icmp eq ptr %353, null
+  br i1 %354, label %359, label %355
 
-356:                                              ; preds = %353
-  %357 = load ptr, ptr %354, align 8
-  %358 = getelementptr inbounds i8, ptr %357, i64 8
-  %359 = load ptr, ptr %358, align 8
-  call void %359(ptr noundef nonnull align 8 dereferenceable(136) %354) #21
-  br label %360
+355:                                              ; preds = %352
+  %356 = load ptr, ptr %353, align 8
+  %357 = getelementptr inbounds i8, ptr %356, i64 8
+  %358 = load ptr, ptr %357, align 8
+  call void %358(ptr noundef nonnull align 8 dereferenceable(136) %353) #21
+  br label %359
 
-360:                                              ; preds = %356, %353
-  %361 = load ptr, ptr %2, align 8
-  %362 = icmp eq ptr %361, null
-  br i1 %362, label %367, label %363
+359:                                              ; preds = %355, %352
+  %360 = load ptr, ptr %2, align 8
+  %361 = icmp eq ptr %360, null
+  br i1 %361, label %366, label %362
 
-363:                                              ; preds = %360
-  %364 = load ptr, ptr %361, align 8
-  %365 = getelementptr inbounds i8, ptr %364, i64 8
-  %366 = load ptr, ptr %365, align 8
-  call void %366(ptr noundef nonnull align 8 dereferenceable(24) %361) #21
-  br label %367
+362:                                              ; preds = %359
+  %363 = load ptr, ptr %360, align 8
+  %364 = getelementptr inbounds i8, ptr %363, i64 8
+  %365 = load ptr, ptr %364, align 8
+  call void %365(ptr noundef nonnull align 8 dereferenceable(24) %360) #21
+  br label %366
 
-367:                                              ; preds = %363, %360
-  %368 = icmp eq ptr %351, null
-  br i1 %368, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread, label %369
+366:                                              ; preds = %362, %359
+  %367 = icmp eq ptr %350, null
+  br i1 %367, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread, label %368
 
-369:                                              ; preds = %367
-  %370 = load ptr, ptr %351, align 8
-  %371 = getelementptr inbounds i8, ptr %370, i64 8
-  %372 = load ptr, ptr %371, align 8
-  call void %372(ptr noundef nonnull align 8 dereferenceable(41) %351) #21
+368:                                              ; preds = %366
+  %369 = load ptr, ptr %350, align 8
+  %370 = getelementptr inbounds i8, ptr %369, i64 8
+  %371 = load ptr, ptr %370, align 8
+  call void %371(ptr noundef nonnull align 8 dereferenceable(41) %350) #21
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
 
-373:                                              ; preds = %350
-  %374 = invoke noundef ptr @_ZN8Constant8make_intEi(i32 noundef %.0205.ph)
-          to label %375 unwind label %.loopexit.split-lp238
+372:                                              ; preds = %349
+  %373 = invoke noundef ptr @_ZN8Constant8make_intEi(i32 noundef %.0205.ph)
+          to label %374 unwind label %.loopexit.split-lp238
 
-375:                                              ; preds = %373
-  %376 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not101 = icmp eq i32 %376, 0
-  br i1 %.not101, label %397, label %377
+374:                                              ; preds = %372
+  %375 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not101 = icmp eq i32 %375, 0
+  br i1 %.not101, label %396, label %376
 
-377:                                              ; preds = %375
-  %378 = load ptr, ptr %1, align 8
-  %379 = icmp eq ptr %378, null
-  br i1 %379, label %384, label %380
+376:                                              ; preds = %374
+  %377 = load ptr, ptr %1, align 8
+  %378 = icmp eq ptr %377, null
+  br i1 %378, label %383, label %379
 
-380:                                              ; preds = %377
-  %381 = load ptr, ptr %378, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 8
-  %383 = load ptr, ptr %382, align 8
-  call void %383(ptr noundef nonnull align 8 dereferenceable(136) %378) #21
-  br label %384
+379:                                              ; preds = %376
+  %380 = load ptr, ptr %377, align 8
+  %381 = getelementptr inbounds i8, ptr %380, i64 8
+  %382 = load ptr, ptr %381, align 8
+  call void %382(ptr noundef nonnull align 8 dereferenceable(136) %377) #21
+  br label %383
 
-384:                                              ; preds = %380, %377
-  %385 = load ptr, ptr %2, align 8
-  %386 = icmp eq ptr %385, null
-  br i1 %386, label %391, label %387
+383:                                              ; preds = %379, %376
+  %384 = load ptr, ptr %2, align 8
+  %385 = icmp eq ptr %384, null
+  br i1 %385, label %390, label %386
 
-387:                                              ; preds = %384
-  %388 = load ptr, ptr %385, align 8
-  %389 = getelementptr inbounds i8, ptr %388, i64 8
-  %390 = load ptr, ptr %389, align 8
-  call void %390(ptr noundef nonnull align 8 dereferenceable(24) %385) #21
-  br label %391
+386:                                              ; preds = %383
+  %387 = load ptr, ptr %384, align 8
+  %388 = getelementptr inbounds i8, ptr %387, i64 8
+  %389 = load ptr, ptr %388, align 8
+  call void %389(ptr noundef nonnull align 8 dereferenceable(24) %384) #21
+  br label %390
 
-391:                                              ; preds = %387, %384
-  %392 = icmp eq ptr %351, null
-  br i1 %392, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread, label %393
+390:                                              ; preds = %386, %383
+  %391 = icmp eq ptr %350, null
+  br i1 %391, label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread, label %392
 
-393:                                              ; preds = %391
-  %394 = load ptr, ptr %351, align 8
-  %395 = getelementptr inbounds i8, ptr %394, i64 8
-  %396 = load ptr, ptr %395, align 8
-  call void %396(ptr noundef nonnull align 8 dereferenceable(41) %351) #21
+392:                                              ; preds = %390
+  %393 = load ptr, ptr %350, align 8
+  %394 = getelementptr inbounds i8, ptr %393, i64 8
+  %395 = load ptr, ptr %394, align 8
+  call void %395(ptr noundef nonnull align 8 dereferenceable(41) %350) #21
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
 
-397:                                              ; preds = %375
-  %398 = load i32, ptr %4, align 4
-  %.not102 = icmp eq i32 %398, -1
-  br i1 %.not102, label %406, label %399
+396:                                              ; preds = %374
+  %397 = load i32, ptr %4, align 4
+  %.not102 = icmp eq i32 %397, -1
+  br i1 %.not102, label %405, label %398
 
-399:                                              ; preds = %397
-  %400 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #19
-          to label %401 unwind label %.loopexit.split-lp238
+398:                                              ; preds = %396
+  %399 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #19
+          to label %400 unwind label %.loopexit.split-lp238
 
-401:                                              ; preds = %399
-  %402 = invoke noundef ptr @_ZNK9CGContext17get_current_blockEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
-          to label %403 unwind label %404
+400:                                              ; preds = %398
+  %401 = invoke noundef ptr @_ZNK9CGContext17get_current_blockEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
+          to label %402 unwind label %403
 
-403:                                              ; preds = %401
-  invoke void @_ZN15StatementAssignC1EP5BlockRK3LhsRK10Expression10eAssignOpsPK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(136) %400, ptr noundef %402, ptr noundef nonnull align 8 dereferenceable(41) %351, ptr noundef nonnull align 8 dereferenceable(24) %374, i32 noundef %.0202.ph, ptr noundef null)
-          to label %413 unwind label %404
+402:                                              ; preds = %400
+  invoke void @_ZN15StatementAssignC1EP5BlockRK3LhsRK10Expression10eAssignOpsPK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(136) %399, ptr noundef %401, ptr noundef nonnull align 8 dereferenceable(41) %350, ptr noundef nonnull align 8 dereferenceable(24) %373, i32 noundef %.0202.ph, ptr noundef null)
+          to label %412 unwind label %403
 
-404:                                              ; preds = %403, %401
-  %405 = landingpad { ptr, i32 }
+403:                                              ; preds = %402, %400
+  %404 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %400) #20
+  call void @_ZdlPv(ptr noundef nonnull %399) #20
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
-406:                                              ; preds = %397
-  %407 = load ptr, ptr %288, align 8
-  %408 = getelementptr inbounds i8, ptr %407, i64 24
-  %409 = load ptr, ptr %408, align 8
-  %410 = invoke noundef nonnull align 8 dereferenceable(136) ptr %409(ptr noundef nonnull align 8 dereferenceable(40) %288)
-          to label %411 unwind label %.loopexit.split-lp238
+405:                                              ; preds = %396
+  %406 = load ptr, ptr %287, align 8
+  %407 = getelementptr inbounds i8, ptr %406, i64 24
+  %408 = load ptr, ptr %407, align 8
+  %409 = invoke noundef nonnull align 8 dereferenceable(136) ptr %408(ptr noundef nonnull align 8 dereferenceable(40) %287)
+          to label %410 unwind label %.loopexit.split-lp238
 
-411:                                              ; preds = %406
-  %412 = invoke noundef ptr @_ZN15StatementAssign29make_possible_compound_assignER9CGContextPK4TypeRK3Lhs10eAssignOpsRK10Expression(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %410, ptr noundef nonnull align 8 dereferenceable(41) %351, i32 noundef %.0202.ph, ptr noundef nonnull align 8 dereferenceable(24) %374)
-          to label %413 unwind label %.loopexit.split-lp238
+410:                                              ; preds = %405
+  %411 = invoke noundef ptr @_ZN15StatementAssign29make_possible_compound_assignER9CGContextPK4TypeRK3Lhs10eAssignOpsRK10Expression(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %409, ptr noundef nonnull align 8 dereferenceable(41) %350, i32 noundef %.0202.ph, ptr noundef nonnull align 8 dereferenceable(24) %373)
+          to label %412 unwind label %.loopexit.split-lp238
 
-413:                                              ; preds = %411, %403
-  %storemerge = phi ptr [ %400, %403 ], [ %412, %411 ]
+412:                                              ; preds = %410, %402
+  %storemerge = phi ptr [ %399, %402 ], [ %411, %410 ]
   store ptr %storemerge, ptr %3, align 8
   br label %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
 
-_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread: ; preds = %27, %.noexc138, %191, %213, %391, %393, %367, %369, %327, %332, %271, %279, %238, %240, %231, %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit, %413, %310, %260
-  %.0 = phi ptr [ null, %260 ], [ null, %310 ], [ %26, %413 ], [ null, %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit ], [ null, %231 ], [ null, %240 ], [ null, %238 ], [ null, %279 ], [ null, %271 ], [ null, %332 ], [ null, %327 ], [ null, %369 ], [ null, %367 ], [ null, %393 ], [ null, %391 ], [ null, %213 ], [ null, %191 ], [ null, %.noexc138 ], [ null, %27 ]
-  %414 = load ptr, ptr %6, align 8
-  %.not.i.i.i148 = icmp eq ptr %414, null
-  br i1 %.not.i.i.i148, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit149, label %415
+_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread: ; preds = %27, %.noexc138, %191, %212, %390, %392, %366, %368, %326, %331, %270, %278, %237, %239, %230, %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit, %412, %309, %259
+  %.0 = phi ptr [ null, %259 ], [ null, %309 ], [ %26, %412 ], [ null, %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit ], [ null, %230 ], [ null, %239 ], [ null, %237 ], [ null, %278 ], [ null, %270 ], [ null, %331 ], [ null, %326 ], [ null, %368 ], [ null, %366 ], [ null, %392 ], [ null, %390 ], [ null, %212 ], [ null, %191 ], [ null, %.noexc138 ], [ null, %27 ]
+  %413 = load ptr, ptr %6, align 8
+  %.not.i.i.i148 = icmp eq ptr %413, null
+  br i1 %.not.i.i.i148, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit149, label %414
 
-415:                                              ; preds = %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
-  call void @_ZdlPv(ptr noundef nonnull %414) #20
+414:                                              ; preds = %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread
+  call void @_ZdlPv(ptr noundef nonnull %413) #20
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit149
 
-_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit149:     ; preds = %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread, %415
+_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit149:     ; preds = %_ZL24make_random_loop_controlRiS_S_R10eBinaryOpsR10eAssignOpsb.exit.thread, %414
   %.not.i.i.i150 = icmp eq ptr %21, null
-  br i1 %.not.i.i.i150, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, label %416
+  br i1 %.not.i.i.i150, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, label %415
 
-416:                                              ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit149
+415:                                              ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit149
   call void @_ZdlPv(ptr noundef nonnull %21) #20
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit149, %416
+_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit149, %415
   ret ptr %.0
 
-_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %.loopexit237, %.loopexit.split-lp238, %84, %82, %404, %348, %314, %280, %244
-  %.pn = phi { ptr, i32 } [ %405, %404 ], [ %349, %348 ], [ %315, %314 ], [ %281, %280 ], [ %245, %244 ], [ %lpad.phi, %82 ], [ %lpad.phi, %84 ], [ %lpad.loopexit239, %.loopexit237 ], [ %lpad.loopexit.split-lp240, %.loopexit.split-lp238 ]
-  %417 = load ptr, ptr %6, align 8
-  %.not.i.i.i151 = icmp eq ptr %417, null
-  br i1 %.not.i.i.i151, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit152, label %418
+_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %.loopexit237, %.loopexit.split-lp238, %84, %82, %403, %347, %313, %279, %243
+  %.pn = phi { ptr, i32 } [ %404, %403 ], [ %348, %347 ], [ %314, %313 ], [ %280, %279 ], [ %244, %243 ], [ %lpad.phi, %82 ], [ %lpad.phi, %84 ], [ %lpad.loopexit239, %.loopexit237 ], [ %lpad.loopexit.split-lp240, %.loopexit.split-lp238 ]
+  %416 = load ptr, ptr %6, align 8
+  %.not.i.i.i151 = icmp eq ptr %416, null
+  br i1 %.not.i.i.i151, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit152, label %417
 
-418:                                              ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %417) #20
+417:                                              ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %416) #20
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit152
 
-_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit152:     ; preds = %418, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit, %29
-  %.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %.pn, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit ], [ %.pn, %418 ]
+_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit152:     ; preds = %417, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit, %29
+  %.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %.pn, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit ], [ %.pn, %417 ]
   %.not.i.i.i153 = icmp eq ptr %21, null
-  br i1 %.not.i.i.i153, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit154, label %419
+  br i1 %.not.i.i.i153, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit154, label %418
 
-419:                                              ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit152
+418:                                              ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit152
   call void @_ZdlPv(ptr noundef nonnull %21) #20
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit154
 
-_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit154:         ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit152, %419
+_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit154:         ; preds = %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit152, %418
   resume { ptr, i32 } %.pn.pn
 }
 

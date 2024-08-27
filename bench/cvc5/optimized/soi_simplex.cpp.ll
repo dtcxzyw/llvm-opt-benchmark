@@ -2920,7 +2920,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %_ZN4cvc58internal8D
   store i32 %74, ptr %add.ptr.i118, align 4
   store i32 %73, ptr %add.ptr.i119, align 4
   %add62 = add i32 %cEnd, 1
-  %sub63 = sub i32 %conv34, %add62
+  %sub63 = add i32 %60, -1
   %div29 = lshr i32 %sub63, 1
   %add64 = add i32 %div29, %add62
   %cmp65 = icmp eq i32 %add64, %conv34

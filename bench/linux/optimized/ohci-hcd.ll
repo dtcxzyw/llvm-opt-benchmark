@@ -6202,7 +6202,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
 
 .thread:                                          ; preds = %120, %87, %89
   call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %16) #14
-  br label %380
+  br label %379
 
 121:                                              ; preds = %118, %3
   %122 = phi ptr [ %18, %3 ], [ %31, %118 ]
@@ -6223,7 +6223,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %126 = getelementptr inbounds i8, ptr %1, i64 128
   %127 = load i32, ptr %126, align 8
   %128 = icmp ugt i32 %127, 4096
-  br i1 %128, label %380, label %129
+  br i1 %128, label %379, label %129
 
 129:                                              ; preds = %._crit_edge, %125
   %130 = phi i32 [ %.pre, %._crit_edge ], [ %127, %125 ]
@@ -6338,7 +6338,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %212 = or i32 %2, 256
   %213 = call noalias align 8 ptr @__kmalloc(i64 noundef %211, i32 noundef %212) #17
   %214 = icmp eq ptr %213, null
-  br i1 %214, label %380, label %215
+  br i1 %214, label %379, label %215
 
 215:                                              ; preds = %.thread21
   %216 = getelementptr inbounds i8, ptr %213, i64 16
@@ -6404,7 +6404,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %250 = trunc i64 %227 to i16
   store i16 %250, ptr %219, align 8
   call fastcc void @urb_free_priv(ptr noundef %7, ptr noundef nonnull %213)
-  br label %380
+  br label %379
 
 .loopexit:                                        ; preds = %238, %215
   %251 = call i64 @_raw_spin_lock_irqsave(ptr noundef %7) #14
@@ -6412,18 +6412,18 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %253 = load i64, ptr %252, align 8
   %254 = and i64 %253, 1
   %255 = icmp eq i64 %254, 0
-  br i1 %255, label %377, label %256
+  br i1 %255, label %376, label %256
 
 256:                                              ; preds = %.loopexit
   %257 = getelementptr inbounds i8, ptr %0, i64 1504
   %258 = load i32, ptr %257, align 8
   %259 = icmp eq i32 %258, 2
-  br i1 %259, label %260, label %377
+  br i1 %259, label %260, label %376
 
 260:                                              ; preds = %256
   %261 = call i32 @usb_hcd_link_urb_to_ep(ptr noundef %0, ptr noundef %1) #14
   %262 = icmp eq i32 %261, 0
-  br i1 %262, label %263, label %377
+  br i1 %262, label %263, label %376
 
 263:                                              ; preds = %260
   %264 = getelementptr inbounds i8, ptr %122, i64 80
@@ -6438,7 +6438,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
 
 270:                                              ; preds = %267
   call void @usb_hcd_unlink_urb_from_ep(ptr noundef %0, ptr noundef %1) #14
-  br label %377
+  br label %376
 
 271:                                              ; preds = %267
   %272 = getelementptr inbounds i8, ptr %0, i64 1672
@@ -6484,7 +6484,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   store volatile ptr %295, ptr %296, align 8
   %300 = load i8, ptr %123, align 1
   %301 = icmp eq i8 %300, 0
-  br i1 %301, label %302, label %375
+  br i1 %301, label %302, label %374
 
 302:                                              ; preds = %294
   %303 = getelementptr inbounds i8, ptr %0, i64 624
@@ -6511,12 +6511,12 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %323 = add i16 %322, %317
   %324 = getelementptr inbounds i8, ptr %122, i64 88
   store i16 %323, ptr %324, align 8
-  br label %375
+  br label %374
 
 325:                                              ; preds = %263
   %326 = load i8, ptr %123, align 1
   %327 = icmp eq i8 %326, 0
-  br i1 %327, label %328, label %375
+  br i1 %327, label %328, label %374
 
 328:                                              ; preds = %325
   %329 = getelementptr inbounds i8, ptr %0, i64 624
@@ -6535,71 +6535,70 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %342 = mul i16 %338, %341
   %343 = sub i16 %340, %334
   %344 = icmp slt i16 %343, 0
-  br i1 %344, label %345, label %370, !prof !16
+  br i1 %344, label %345, label %369, !prof !16
 
 345:                                              ; preds = %328
   %346 = getelementptr inbounds i8, ptr %1, i64 92
   %347 = load i32, ptr %346, align 4
   %348 = and i32 %347, 2
   %349 = icmp eq i32 %348, 0
-  br i1 %349, label %356, label %350
+  br i1 %349, label %355, label %350
 
 350:                                              ; preds = %345
-  %351 = add i16 %338, %333
-  %352 = sub i16 %351, %340
-  %353 = sub i16 0, %338
-  %354 = and i16 %352, %353
-  %355 = add i16 %354, %340
-  br label %370
+  %351 = sub i16 %333, %336
+  %352 = sub i16 0, %338
+  %353 = and i16 %351, %352
+  %354 = add i16 %353, %340
+  br label %369
 
-356:                                              ; preds = %345
-  %357 = sub i16 %334, %340
-  %358 = zext i16 %357 to i32
-  %359 = add nsw i32 %339, -1
-  %360 = add nsw i32 %359, %358
-  %361 = sdiv i32 %360, %339
-  %362 = trunc i32 %361 to i16
-  %363 = getelementptr inbounds i8, ptr %213, i64 10
-  store i16 %362, ptr %363, align 2
-  %364 = and i32 %361, 65535
-  %365 = load i16, ptr %219, align 8
-  %366 = zext i16 %365 to i32
-  %367 = icmp ult i32 %364, %366
-  br i1 %367, label %370, label %368
+355:                                              ; preds = %345
+  %356 = sub i16 %334, %340
+  %357 = zext i16 %356 to i32
+  %358 = add nsw i32 %339, -1
+  %359 = add nsw i32 %358, %357
+  %360 = sdiv i32 %359, %339
+  %361 = trunc i32 %360 to i16
+  %362 = getelementptr inbounds i8, ptr %213, i64 10
+  store i16 %361, ptr %362, align 2
+  %363 = and i32 %360, 65535
+  %364 = load i16, ptr %219, align 8
+  %365 = zext i16 %364 to i32
+  %366 = icmp ult i32 %363, %365
+  br i1 %366, label %369, label %367
 
-368:                                              ; preds = %356
-  %369 = add i16 %362, 1
-  store i16 %369, ptr %363, align 2
-  br label %370
+367:                                              ; preds = %355
+  %368 = add i16 %361, 1
+  store i16 %368, ptr %362, align 2
+  br label %369
 
-370:                                              ; preds = %368, %356, %350, %328
-  %371 = phi i16 [ %355, %350 ], [ %340, %368 ], [ %340, %356 ], [ %340, %328 ]
-  %372 = zext i16 %371 to i32
-  %373 = getelementptr inbounds i8, ptr %1, i64 152
-  store i32 %372, ptr %373, align 8
-  %374 = add i16 %371, %342
-  store i16 %374, ptr %335, align 8
-  br label %375
+369:                                              ; preds = %367, %355, %350, %328
+  %370 = phi i16 [ %354, %350 ], [ %340, %367 ], [ %340, %355 ], [ %340, %328 ]
+  %371 = zext i16 %370 to i32
+  %372 = getelementptr inbounds i8, ptr %1, i64 152
+  store i32 %371, ptr %372, align 8
+  %373 = add i16 %370, %342
+  store i16 %373, ptr %335, align 8
+  br label %374
 
-375:                                              ; preds = %294, %302, %325, %370
-  %376 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %213, ptr %376, align 8
+374:                                              ; preds = %294, %302, %325, %369
+  %375 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %213, ptr %375, align 8
   call fastcc void @td_submit_urb(ptr noundef %7, ptr noundef %1)
-  br label %378
+  br label %377
 
-377:                                              ; preds = %260, %270, %.loopexit, %256
+376:                                              ; preds = %260, %270, %.loopexit, %256
   %.ph = phi i32 [ -19, %256 ], [ -19, %.loopexit ], [ %268, %270 ], [ %261, %260 ]
   call fastcc void @urb_free_priv(ptr noundef %7, ptr noundef nonnull %213)
-  br label %378
+  br label %377
 
-378:                                              ; preds = %375, %377
-  %379 = phi i32 [ %.ph, %377 ], [ 0, %375 ]
+377:                                              ; preds = %374, %376
+  %378 = phi i32 [ %.ph, %376 ], [ 0, %374 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %251) #14
-  br label %380
+  br label %379
 
-380:                                              ; preds = %.thread, %378, %246, %.thread21, %125
-  %381 = phi i32 [ -12, %246 ], [ %379, %378 ], [ -90, %125 ], [ -12, %.thread21 ], [ -12, %.thread ]
-  ret i32 %381
+379:                                              ; preds = %.thread, %377, %246, %.thread21, %125
+  %380 = phi i32 [ -12, %246 ], [ %378, %377 ], [ -90, %125 ], [ -12, %.thread21 ], [ -12, %.thread ]
+  ret i32 %380
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

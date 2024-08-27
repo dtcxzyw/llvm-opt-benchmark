@@ -1069,7 +1069,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
 
 59:                                               ; preds = %51
   %60 = and i32 %17, -8
-  %61 = sub i32 %23, %20
+  %61 = sub nsw i32 %23, %20
   %62 = getelementptr inbounds i8, ptr %30, i64 %35
   %63 = getelementptr inbounds i8, ptr %37, i64 %41
   %64 = icmp sgt i32 %2, 0

@@ -805,7 +805,7 @@ decode_many_ints_uint64.exit:                     ; preds = %.lr.ph126.i, %strea
   store i64 %.sroa.8.0.lcssa.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !5, !noalias !8
   store ptr %.sroa.14.0.lcssa.i, ptr %.sroa.14.0..sroa_idx.i, align 8, !alias.scope !5, !noalias !8
   %62 = sub i32 %1, %.047.lcssa.i
-  br label %111
+  br label %109
 
 63:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
@@ -813,8 +813,6 @@ decode_many_ints_uint64.exit:                     ; preds = %.lr.ph126.i, %strea
   %.sroa.0.0.copyload.i24 = load i64, ptr %0, align 8, !alias.scope !11, !noalias !14
   %.sroa.10.0.copyload.i = load i64, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
   %.sroa.16.0.copyload.i = load ptr, ptr %.sroa.14.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
-  %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.24.0.copyload.i = load ptr, ptr %.sroa.24.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %3, i8 0, i64 2048, i1 false), !alias.scope !14, !noalias !11
   %64 = tail call i32 @llvm.usub.sat.i32(i32 64, i32 %2)
   %65 = icmp ult i32 %64, 64
@@ -981,22 +979,19 @@ decode_many_ints_prec_uint64.exit:                ; preds = %.critedge.i, %63
   %.sroa.16.0.lcssa.i = phi ptr [ %.sroa.16.0.copyload.i, %63 ], [ %.sroa.16.3.i, %.critedge.i ]
   %.sroa.0.0.lcssa.i25 = phi i64 [ %.sroa.0.0.copyload.i24, %63 ], [ %.sroa.0.3.i36, %.critedge.i ]
   %105 = ptrtoint ptr %.sroa.16.0.copyload.i to i64
-  %106 = ptrtoint ptr %.sroa.24.0.copyload.i to i64
-  %.neg68.i = sub i64 %106, %105
   store i64 %.sroa.0.0.lcssa.i25, ptr %0, align 8, !alias.scope !11, !noalias !14
   store i64 %.sroa.10.0.lcssa.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
   store ptr %.sroa.16.0.lcssa.i, ptr %.sroa.14.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
-  %107 = ptrtoint ptr %.sroa.16.0.lcssa.i to i64
-  %108 = sub i64 %107, %106
-  %reass.add = add i64 %108, %.neg68.i
+  %106 = ptrtoint ptr %.sroa.16.0.lcssa.i to i64
+  %reass.add = sub i64 %106, %105
   %reass.mul = shl i64 %reass.add, 3
   %.neg.i = sub i64 %.sroa.0.0.copyload.i24, %.sroa.0.0.lcssa.i25
-  %109 = add i64 %.neg.i, %reass.mul
-  %110 = trunc i64 %109 to i32
-  br label %111
+  %107 = add i64 %.neg.i, %reass.mul
+  %108 = trunc i64 %107 to i32
+  br label %109
 
-111:                                              ; preds = %decode_many_ints_prec_uint64.exit, %decode_many_ints_uint64.exit
-  %.0 = phi i32 [ %62, %decode_many_ints_uint64.exit ], [ %110, %decode_many_ints_prec_uint64.exit ]
+109:                                              ; preds = %decode_many_ints_prec_uint64.exit, %decode_many_ints_uint64.exit
+  %.0 = phi i32 [ %62, %decode_many_ints_uint64.exit ], [ %108, %decode_many_ints_prec_uint64.exit ]
   ret i32 %.0
 }
 

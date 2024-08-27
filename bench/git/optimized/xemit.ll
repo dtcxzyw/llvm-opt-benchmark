@@ -751,7 +751,7 @@ if.end146:                                        ; preds = %while.body139, %is_
   br i1 %cmp147, label %if.then148, label %if.end162
 
 if.then148:                                       ; preds = %if.end146
-  %sub149 = sub i64 %add120, %add116
+  %sub149 = sub i64 %add100, %add83
   %add150 = add i64 %sub149, %fe1.1
   %97 = load i64, ptr %nrec23, align 8
   %add150. = call i64 @llvm.smin.i64(i64 %add150, i64 %97)

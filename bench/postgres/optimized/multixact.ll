@@ -1797,16 +1797,14 @@ define dso_local void @MultiXactShmemInit() local_unnamed_addr #0 {
 define internal zeroext i1 @MultiXactOffsetPagePrecedes(i64 noundef %0, i64 noundef %1) #3 {
   %.tr = trunc i64 %0 to i32
   %3 = shl i32 %.tr, 11
-  %4 = or disjoint i32 %3, 2
   %.tr8 = trunc i64 %1 to i32
-  %.neg11 = mul i32 %.tr8, -2048
-  %.neg9 = add i32 %.neg11, -2
-  %5 = add i32 %.neg9, %4
-  %.neg10 = add i32 %.neg11, -2049
-  %6 = add i32 %.neg10, %4
-  %7 = and i32 %5, %6
-  %8 = icmp slt i32 %7, 0
-  ret i1 %8
+  %4 = shl i32 %.tr8, 11
+  %5 = sub i32 %3, %4
+  %6 = add i32 %3, -2047
+  %7 = sub i32 %6, %4
+  %8 = and i32 %5, %7
+  %9 = icmp slt i32 %8, 0
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

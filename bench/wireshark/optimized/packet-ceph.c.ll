@@ -7233,7 +7233,7 @@ c_dissect_msg_mon_sub.exit:                       ; preds = %2321, %.lr.ph.i480,
   br i1 %2369, label %c_warn_unused.exit.i, label %2376
 
 c_warn_unused.exit.i:                             ; preds = %c_dissect_msg_mon_sub.exit
-  %2370 = sub nuw i32 %2368, %2367
+  %2370 = sub i32 %124, %.0
   %2371 = getelementptr inbounds i8, ptr %3, i64 40
   %2372 = load ptr, ptr %2371, align 8
   %2373 = icmp eq i32 %2370, 1

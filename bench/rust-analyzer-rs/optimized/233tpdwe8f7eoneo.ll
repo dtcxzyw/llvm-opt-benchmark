@@ -4341,8 +4341,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %55, label %59, label %53
 
 .sink.split.i.i.i:                                ; preds = %46, %.loopexit.i.i.i.i
-  %.sink.i.i.lcssa24.sink.i.i.i = phi ptr [ %47, %46 ], [ %.sink.i.i.i.i.i, %.loopexit.i.i.i.i ]
-  store ptr %.sink.i.i.lcssa24.sink.i.i.i, ptr %6, align 8, !alias.scope !1445, !noalias !1422
+  %.sink.i.i.lcssa22.sink.i.i.i = phi ptr [ %47, %46 ], [ %.sink.i.i.i.i.i, %.loopexit.i.i.i.i ]
+  store ptr %.sink.i.i.lcssa22.sink.i.i.i, ptr %6, align 8, !alias.scope !1445, !noalias !1422
   br label %56
 
 56:                                               ; preds = %.sink.split.i.i.i, %2

@@ -782,8 +782,8 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_block(ptr nocapture noundef
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 %13, ptr %14, align 8
   %15 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %6, i64 noundef 16, ptr noundef %2, ptr noundef %3)
-  %.not524527 = icmp eq i32 %15, 0
-  br i1 %.not524527, label %._crit_edge, label %.lr.ph.lr.ph
+  %.not522525 = icmp eq i32 %15, 0
+  br i1 %.not522525, label %._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %4
   %16 = getelementptr inbounds i8, ptr %0, i64 40
@@ -803,9 +803,9 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_block(ptr nocapture noundef
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %321
-  %.0223530 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.3, %321 ]
-  %.0224529 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.4, %321 ]
-  %.0231528 = phi i64 [ %1, %.lr.ph.lr.ph ], [ %77, %321 ]
+  %.0223528 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.3, %321 ]
+  %.0224527 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %.4, %321 ]
+  %.0231526 = phi i64 [ %1, %.lr.ph.lr.ph ], [ %77, %321 ]
   br label %34
 
 ._crit_edge:                                      ; preds = %321, %35, %4
@@ -820,20 +820,20 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_block(ptr nocapture noundef
   br label %blf_read_log_object_header2.exit.thread
 
 34:                                               ; preds = %.lr.ph, %35
-  %.1232525 = phi i64 [ %.0231528, %.lr.ph ], [ %36, %35 ]
+  %.1232523 = phi i64 [ %.0231526, %.lr.ph ], [ %36, %35 ]
   %lhsv = load i32, ptr %6, align 4
   %.not243 = icmp eq i32 %lhsv, 1245859660
   br i1 %.not243, label %38, label %35
 
 35:                                               ; preds = %34
-  %36 = add i64 %.1232525, 1
+  %36 = add i64 %.1232523, 1
   %37 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef %0, i64 noundef %36, ptr noundef nonnull %6, i64 noundef 16, ptr noundef %2, ptr noundef %3)
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %._crit_edge, label %34
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %16, align 8
-  store i64 %.1232525, ptr %39, align 8
+  store i64 %.1232523, ptr %39, align 8
   %40 = load i16, ptr %17, align 2
   switch i16 %40, label %67 [
     i16 1, label %41
@@ -853,7 +853,7 @@ blf_read_log_object_header.exit.thread:           ; preds = %41
   br label %blf_read_log_object_header2.exit.thread
 
 blf_read_log_object_header.exit:                  ; preds = %41
-  %45 = add i64 %.1232525, 16
+  %45 = add i64 %.1232523, 16
   %46 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %45, ptr noundef nonnull %7, i64 noundef 16, ptr noundef %2, ptr noundef %3)
   %.not246 = icmp eq i32 %46, 0
   br i1 %.not246, label %blf_read_log_object_header2.exit.thread.loopexit, label %47
@@ -874,7 +874,7 @@ blf_read_log_object_header.exit:                  ; preds = %41
   br label %blf_read_log_object_header2.exit.thread
 
 54:                                               ; preds = %49
-  %55 = add i64 %.1232525, 16
+  %55 = add i64 %.1232523, 16
   %56 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %55, ptr noundef nonnull %8, i64 noundef 24, ptr noundef %2, ptr noundef %3)
   %.not.i = icmp eq i32 %56, 0
   br i1 %.not.i, label %blf_read_log_object_header2.exit.thread.loopexit, label %57
@@ -896,7 +896,7 @@ blf_read_log_object_header3.exit.thread:          ; preds = %59
   br label %blf_read_log_object_header2.exit.thread
 
 blf_read_log_object_header3.exit:                 ; preds = %59
-  %63 = add i64 %.1232525, 16
+  %63 = add i64 %.1232523, 16
   %64 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly %0, i64 noundef %63, ptr noundef nonnull %9, i64 noundef 16, ptr noundef %2, ptr noundef %3)
   %.not244 = icmp eq i32 %64, 0
   br i1 %.not244, label %blf_read_log_object_header2.exit.thread.loopexit, label %65
@@ -923,16 +923,16 @@ blf_read_log_object_header3.exit:                 ; preds = %59
   %74 = zext i16 %71 to i32
   %75 = tail call i32 @llvm.umax.i32(i32 %73, i32 %74)
   %76 = zext i32 %75 to i64
-  %77 = add i64 %.1232525, %76
+  %77 = add i64 %.1232523, %76
   %78 = load ptr, ptr %16, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   store i64 %77, ptr %79, align 8
-  %80 = icmp ne i64 %.0223530, 0
+  %80 = icmp ne i64 %.0223528, 0
   %81 = load i32, ptr %27, align 4
   %82 = icmp ne i32 %81, 65
   %or.cond = and i1 %80, %82
-  %.1225 = select i1 %or.cond, i64 0, i64 %.0224529
-  %.1 = select i1 %82, i64 0, i64 %.0223530
+  %.1225 = select i1 %or.cond, i64 0, i64 %.0224527
+  %.1 = select i1 %82, i64 0, i64 %.0223528
   switch i32 %81, label %320 [
     i32 10, label %83
     i32 71, label %85
@@ -976,154 +976,154 @@ blf_read_log_object_header3.exit:                 ; preds = %59
 
 85:                                               ; preds = %70
   %86 = zext i16 %71 to i64
-  %87 = add i64 %.1232525, %86
+  %87 = add i64 %.1232523, %86
   %88 = zext i32 %73 to i64
-  %89 = tail call fastcc i32 @blf_read_ethernetframe(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %87, i64 noundef %88, i32 noundef %.0230, i64 noundef %.0229)
+  %89 = tail call fastcc i32 @blf_read_ethernetframe(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %87, i64 noundef %88, i32 noundef %.0230, i64 noundef %.0229)
   br label %blf_read_log_object_header2.exit.thread
 
 90:                                               ; preds = %70
   %91 = zext i16 %71 to i64
-  %92 = add i64 %.1232525, %91
+  %92 = add i64 %.1232523, %91
   %93 = zext i32 %73 to i64
-  %94 = tail call fastcc i32 @blf_read_ethernetframe_ext(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %92, i64 noundef %93, i32 noundef %.0230, i64 noundef %.0229)
+  %94 = tail call fastcc i32 @blf_read_ethernetframe_ext(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %92, i64 noundef %93, i32 noundef %.0230, i64 noundef %.0229)
   br label %blf_read_log_object_header2.exit.thread
 
 95:                                               ; preds = %70
   %96 = zext i16 %71 to i64
-  %97 = add i64 %.1232525, %96
+  %97 = add i64 %.1232523, %96
   %98 = zext i32 %73 to i64
-  %99 = tail call fastcc i32 @blf_read_wlanframe(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %97, i64 noundef %98, i32 noundef %.0230, i64 noundef %.0229)
+  %99 = tail call fastcc i32 @blf_read_wlanframe(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %97, i64 noundef %98, i32 noundef %.0230, i64 noundef %.0229)
   br label %blf_read_log_object_header2.exit.thread
 
 100:                                              ; preds = %70
   %101 = zext i16 %71 to i64
-  %102 = add i64 %.1232525, %101
+  %102 = add i64 %.1232523, %101
   %103 = zext i32 %73 to i64
-  %104 = tail call fastcc i32 @blf_read_canmessage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %102, i64 noundef %103, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 0)
+  %104 = tail call fastcc i32 @blf_read_canmessage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %102, i64 noundef %103, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 0)
   br label %blf_read_log_object_header2.exit.thread
 
 105:                                              ; preds = %70
   %106 = zext i16 %71 to i64
-  %107 = add i64 %.1232525, %106
+  %107 = add i64 %.1232523, %106
   %108 = zext i32 %73 to i64
-  %109 = tail call fastcc i32 @blf_read_canerror(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %107, i64 noundef %108, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 0)
+  %109 = tail call fastcc i32 @blf_read_canerror(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %107, i64 noundef %108, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 0)
   br label %blf_read_log_object_header2.exit.thread
 
 110:                                              ; preds = %70
   %111 = zext i16 %71 to i64
-  %112 = add i64 %.1232525, %111
+  %112 = add i64 %.1232523, %111
   %113 = zext i32 %73 to i64
-  %114 = tail call fastcc i32 @blf_read_canerror(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %112, i64 noundef %113, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 1)
+  %114 = tail call fastcc i32 @blf_read_canerror(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %112, i64 noundef %113, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 1)
   br label %blf_read_log_object_header2.exit.thread
 
 115:                                              ; preds = %70
   %116 = zext i16 %71 to i64
-  %117 = add i64 %.1232525, %116
+  %117 = add i64 %.1232523, %116
   %118 = zext i32 %73 to i64
-  %119 = tail call fastcc i32 @blf_read_canmessage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %117, i64 noundef %118, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 1)
+  %119 = tail call fastcc i32 @blf_read_canmessage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %117, i64 noundef %118, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 1)
   br label %blf_read_log_object_header2.exit.thread
 
 120:                                              ; preds = %70
   %121 = zext i16 %71 to i64
-  %122 = add i64 %.1232525, %121
+  %122 = add i64 %.1232523, %121
   %123 = zext i32 %73 to i64
-  %124 = tail call fastcc i32 @blf_read_canerrorext(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %122, i64 noundef %123, i32 noundef %.0230, i64 noundef %.0229)
+  %124 = tail call fastcc i32 @blf_read_canerrorext(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %122, i64 noundef %123, i32 noundef %.0230, i64 noundef %.0229)
   br label %blf_read_log_object_header2.exit.thread
 
 125:                                              ; preds = %70
   %126 = zext i16 %71 to i64
-  %127 = add i64 %.1232525, %126
+  %127 = add i64 %.1232523, %126
   %128 = zext i32 %73 to i64
-  %129 = tail call fastcc i32 @blf_read_canfdmessage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %127, i64 noundef %128, i32 noundef %.0230, i64 noundef %.0229)
+  %129 = tail call fastcc i32 @blf_read_canfdmessage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %127, i64 noundef %128, i32 noundef %.0230, i64 noundef %.0229)
   br label %blf_read_log_object_header2.exit.thread
 
 130:                                              ; preds = %70
   %131 = zext i16 %71 to i64
-  %132 = add i64 %.1232525, %131
+  %132 = add i64 %.1232523, %131
   %133 = zext i32 %73 to i64
-  %134 = tail call fastcc i32 @blf_read_canfdmessage64(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %132, i64 noundef %133, i32 noundef %.0230, i64 noundef %.0229)
+  %134 = tail call fastcc i32 @blf_read_canfdmessage64(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %132, i64 noundef %133, i32 noundef %.0230, i64 noundef %.0229)
   br label %blf_read_log_object_header2.exit.thread
 
 135:                                              ; preds = %70
   %136 = zext i16 %71 to i64
-  %137 = add i64 %.1232525, %136
+  %137 = add i64 %.1232523, %136
   %138 = zext i32 %73 to i64
-  %139 = tail call fastcc i32 @blf_read_canfderror64(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %137, i64 noundef %138, i32 noundef %.0230, i64 noundef %.0229)
+  %139 = tail call fastcc i32 @blf_read_canfderror64(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %137, i64 noundef %138, i32 noundef %.0230, i64 noundef %.0229)
   br label %blf_read_log_object_header2.exit.thread
 
 140:                                              ; preds = %70
   %141 = zext i16 %71 to i64
-  %142 = add i64 %.1232525, %141
+  %142 = add i64 %.1232523, %141
   %143 = zext i32 %73 to i64
-  %144 = tail call fastcc i32 @blf_read_flexraydata(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %142, i64 noundef %143, i32 noundef %.0230, i64 noundef %.0229)
+  %144 = tail call fastcc i32 @blf_read_flexraydata(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %142, i64 noundef %143, i32 noundef %.0230, i64 noundef %.0229)
   br label %blf_read_log_object_header2.exit.thread
 
 145:                                              ; preds = %70
   %146 = zext i16 %71 to i64
-  %147 = add i64 %.1232525, %146
+  %147 = add i64 %.1232523, %146
   %148 = zext i32 %73 to i64
-  %149 = tail call fastcc i32 @blf_read_flexraymessage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %147, i64 noundef %148, i32 noundef %.0230, i64 noundef %.0229)
+  %149 = tail call fastcc i32 @blf_read_flexraymessage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %147, i64 noundef %148, i32 noundef %.0230, i64 noundef %.0229)
   br label %blf_read_log_object_header2.exit.thread
 
 150:                                              ; preds = %70
   %151 = zext i16 %71 to i64
-  %152 = add i64 %.1232525, %151
+  %152 = add i64 %.1232523, %151
   %153 = zext i32 %73 to i64
-  %154 = tail call fastcc i32 @blf_read_flexrayrcvmessageex(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %152, i64 noundef %153, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 0)
+  %154 = tail call fastcc i32 @blf_read_flexrayrcvmessageex(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %152, i64 noundef %153, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 0)
   br label %blf_read_log_object_header2.exit.thread
 
 155:                                              ; preds = %70
   %156 = zext i16 %71 to i64
-  %157 = add i64 %.1232525, %156
+  %157 = add i64 %.1232523, %156
   %158 = zext i32 %73 to i64
-  %159 = tail call fastcc i32 @blf_read_flexrayrcvmessageex(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %157, i64 noundef %158, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 1)
+  %159 = tail call fastcc i32 @blf_read_flexrayrcvmessageex(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %157, i64 noundef %158, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 1)
   br label %blf_read_log_object_header2.exit.thread
 
 160:                                              ; preds = %70
   %161 = zext i16 %71 to i64
-  %162 = add i64 %.1232525, %161
+  %162 = add i64 %.1232523, %161
   %163 = zext i32 %73 to i64
-  %164 = tail call fastcc i32 @blf_read_linmessage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %162, i64 noundef %163, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 0)
+  %164 = tail call fastcc i32 @blf_read_linmessage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %162, i64 noundef %163, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 0)
   br label %blf_read_log_object_header2.exit.thread
 
 165:                                              ; preds = %70
   %166 = zext i16 %71 to i64
-  %167 = add i64 %.1232525, %166
+  %167 = add i64 %.1232523, %166
   %168 = zext i32 %73 to i64
-  %169 = tail call fastcc i32 @blf_read_linmessage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %167, i64 noundef %168, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 1)
+  %169 = tail call fastcc i32 @blf_read_linmessage(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %167, i64 noundef %168, i32 noundef %.0230, i64 noundef %.0229, i32 noundef 1)
   br label %blf_read_log_object_header2.exit.thread
 
 170:                                              ; preds = %70
   %171 = zext i16 %71 to i64
-  %172 = add i64 %.1232525, %171
+  %172 = add i64 %.1232523, %171
   %173 = zext i32 %73 to i64
-  %174 = tail call fastcc i32 @blf_read_linsenderror(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %172, i64 noundef %173, i32 noundef %.0230, i64 noundef %.0229)
+  %174 = tail call fastcc i32 @blf_read_linsenderror(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %172, i64 noundef %173, i32 noundef %.0230, i64 noundef %.0229)
   br label %blf_read_log_object_header2.exit.thread
 
 175:                                              ; preds = %70
   %176 = zext i16 %71 to i64
-  %177 = add i64 %.1232525, %176
+  %177 = add i64 %.1232523, %176
   %178 = zext i32 %73 to i64
-  %179 = tail call fastcc i32 @blf_read_linmessage2(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %177, i64 noundef %178, i32 noundef %.0230, i64 noundef %.0229, i16 noundef zeroext %72)
+  %179 = tail call fastcc i32 @blf_read_linmessage2(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %177, i64 noundef %178, i32 noundef %.0230, i64 noundef %.0229, i16 noundef zeroext %72)
   br label %blf_read_log_object_header2.exit.thread
 
 180:                                              ; preds = %70
   %181 = zext i16 %71 to i64
-  %182 = add i64 %.1232525, %181
+  %182 = add i64 %.1232523, %181
   %183 = zext i32 %73 to i64
-  %184 = tail call fastcc i32 @blf_read_lincrcerror2(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %182, i64 noundef %183, i32 noundef %.0230, i64 noundef %.0229, i16 noundef zeroext %72)
+  %184 = tail call fastcc i32 @blf_read_lincrcerror2(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %182, i64 noundef %183, i32 noundef %.0230, i64 noundef %.0229, i16 noundef zeroext %72)
   br label %blf_read_log_object_header2.exit.thread
 
 185:                                              ; preds = %70
   %186 = zext i16 %71 to i64
-  %187 = add i64 %.1232525, %186
+  %187 = add i64 %.1232523, %186
   %188 = zext i32 %73 to i64
-  %189 = tail call fastcc i32 @blf_read_linsenderror2(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %187, i64 noundef %188, i32 noundef %.0230, i64 noundef %.0229, i16 noundef zeroext %72)
+  %189 = tail call fastcc i32 @blf_read_linsenderror2(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %187, i64 noundef %188, i32 noundef %.0230, i64 noundef %.0229, i16 noundef zeroext %72)
   br label %blf_read_log_object_header2.exit.thread
 
 190:                                              ; preds = %70
   %191 = zext i16 %71 to i64
-  %192 = add i64 %.1232525, %191
+  %192 = add i64 %.1232523, %191
   %193 = zext i32 %73 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %194 = add nuw nsw i64 %191, 16
@@ -1151,11 +1151,11 @@ blf_read_log_object_header3.exit:                 ; preds = %59
   br label %.thread
 
 blf_read_bytes.exit.i:                            ; preds = %198
-  %204 = icmp ne i64 %.0223530, 0
+  %204 = icmp ne i64 %.0223528, 0
   %205 = load i32, ptr %5, align 4
   %206 = icmp ne i32 %205, 2
   %or.cond.i = select i1 %204, i1 %206, i1 false
-  %spec.store.select.i = select i1 %or.cond.i, i64 0, i64 %.0223530
+  %spec.store.select.i = select i1 %or.cond.i, i64 0, i64 %.0223528
   %207 = load i32, ptr %28, align 4
   %208 = zext i32 %207 to i64
   %209 = add nuw nsw i64 %208, 1
@@ -1355,8 +1355,8 @@ switch.lookup:                                    ; preds = %230
 
 .thread265:                                       ; preds = %251
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %.not247 = icmp eq i64 %.0223530, 0
-  %spec.select = select i1 %.not247, i64 %.1232525, i64 %.1225
+  %.not247 = icmp eq i64 %.0223528, 0
+  %spec.select = select i1 %.not247, i64 %.1232523, i64 %.1225
   %303 = load ptr, ptr %10, align 8
   %304 = getelementptr inbounds i8, ptr %303, i64 24
   %305 = load i64, ptr %304, align 8
@@ -1390,16 +1390,16 @@ switch.lookup:                                    ; preds = %230
 
 310:                                              ; preds = %70
   %311 = zext i16 %71 to i64
-  %312 = add i64 %.1232525, %311
+  %312 = add i64 %.1232523, %311
   %313 = zext i32 %73 to i64
-  %314 = tail call fastcc i32 @blf_read_ethernet_status(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %312, i64 noundef %313, i32 noundef %.0230, i64 noundef %.0229, i16 noundef zeroext %72)
+  %314 = tail call fastcc i32 @blf_read_ethernet_status(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %312, i64 noundef %313, i32 noundef %.0230, i64 noundef %.0229, i16 noundef zeroext %72)
   br label %blf_read_log_object_header2.exit.thread
 
 315:                                              ; preds = %70
   %316 = zext i16 %71 to i64
-  %317 = add i64 %.1232525, %316
+  %317 = add i64 %.1232523, %316
   %318 = zext i32 %73 to i64
-  %319 = tail call fastcc i32 @blf_read_ethernet_phystate(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232525, i64 noundef %317, i64 noundef %318, i32 noundef %.0230, i64 noundef %.0229)
+  %319 = tail call fastcc i32 @blf_read_ethernet_phystate(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i64 noundef %.1232523, i64 noundef %317, i64 noundef %318, i32 noundef %.0230, i64 noundef %.0229)
   br label %blf_read_log_object_header2.exit.thread
 
 320:                                              ; preds = %70
@@ -1415,8 +1415,8 @@ switch.lookup:                                    ; preds = %230
   %325 = getelementptr inbounds i8, ptr %322, i64 24
   store i64 %324, ptr %325, align 8
   %326 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %77, ptr noundef nonnull %6, i64 noundef 16, ptr noundef %2, ptr noundef %3)
-  %.not524 = icmp eq i32 %326, 0
-  br i1 %.not524, label %._crit_edge, label %.lr.ph
+  %.not522 = icmp eq i32 %326, 0
+  br i1 %.not522, label %._crit_edge, label %.lr.ph
 
 blf_read_log_object_header2.exit.thread.loopexit: ; preds = %blf_read_log_object_header.exit, %blf_read_log_object_header3.exit, %309, %54
   br label %blf_read_log_object_header2.exit.thread

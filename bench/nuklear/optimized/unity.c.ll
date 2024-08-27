@@ -8021,7 +8021,6 @@ if.end28:                                         ; preds = %if.end25
 if.end38:                                         ; preds = %if.end28
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.lhs.cast39 = ptrtoint ptr %call32 to i64
   %sub.ptr.sub41 = sub i64 %sub.ptr.lhs.cast39, %sub.ptr.lhs.cast
   %conv42 = trunc i64 %sub.ptr.sub41 to i32
@@ -8029,6 +8028,7 @@ if.end38:                                         ; preds = %if.end28
   br i1 %tobool1.i.not, label %return, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %if.end38
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sext = shl i64 %sub.ptr.sub, 32
   %conv.i = ashr exact i64 %sext, 32
   %allocated.i = getelementptr inbounds i8, ptr %s, i64 88
@@ -8037,7 +8037,7 @@ lor.lhs.false2.i:                                 ; preds = %if.end38
   br i1 %cmp.i, label %return, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false2.i
-  %add.i = add i64 %sub.ptr.sub41, %sub.ptr.sub
+  %add.i = sub i64 %sub.ptr.lhs.cast39, %sub.ptr.rhs.cast
   %sext30 = shl i64 %add.i, 32
   %conv5.i = ashr exact i64 %sext30, 32
   %cmp8.i = icmp ult i64 %2, %conv5.i

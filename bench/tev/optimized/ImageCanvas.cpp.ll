@@ -18720,7 +18720,7 @@ _ZN7nanoguimlIfLm3EEENS_5ArrayIT_XmiT0_Li1EEEERKNS_6MatrixIS2_XT0_EEERKS3_.exit8
   %143 = getelementptr inbounds i8, ptr %7, i64 1
   %144 = select i1 %.not.i.i.i, ptr %143, ptr %142
   %145 = tail call float @nvgTextBounds(ptr noundef %138, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %144, ptr noundef null, ptr noundef null)
-  %146 = sub nsw i32 %95, %70
+  %146 = sub nsw i32 %74, %47
   %147 = sitofp i32 %146 to float
   %148 = fsub float %147, %145
   %149 = fadd float %148, -5.000000e+00

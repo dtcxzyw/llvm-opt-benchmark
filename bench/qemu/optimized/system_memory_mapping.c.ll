@@ -689,8 +689,7 @@ if.end40:                                         ; preds = %if.end38, %if.end25
   br i1 %cmp45, label %if.then46, label %for.inc
 
 if.then46:                                        ; preds = %if.end40
-  %sub51.neg = add i64 %8, %add
-  %sub53 = sub i64 %sub51.neg, %add43
+  %sub53 = sub i64 %add, %9
   store i64 %sub53, ptr %length3, align 8
   br label %for.inc
 

@@ -510,7 +510,7 @@ dissect_dvb_ait_app_name_desc_body.exit:          ; preds = %.lr.ph.i68
 121:                                              ; preds = %83
   %122 = load i32, ptr @hf_dvb_ait_descr_trpt_sel_bytes, align 4
   %123 = add i32 %18, %10
-  %124 = sub i32 %123, %81
+  %124 = add nsw i32 %10, -3
   %125 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %122, ptr noundef %0, i32 noundef %81, i32 noundef %124, i32 noundef 0) #3
   br label %dissect_dvb_ait_trpt_proto_desc_body.exit
 

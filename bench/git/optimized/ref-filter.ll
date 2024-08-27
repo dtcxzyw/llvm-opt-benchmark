@@ -8618,8 +8618,7 @@ if.then.i:                                        ; preds = %for.body.i50
 
 if.end.i:                                         ; preds = %if.then.i, %for.body.i50
   %sub.ptr.lhs.cast.i = ptrtoint ptr %sp.019.i to i64
-  %sub.ptr.sub.neg.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast.i
-  %sub.i = add i64 %sub.ptr.sub.neg.i, %sub.ptr.sub
+  %sub.i = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
   %call.i51 = call ptr @memchr(ptr noundef %sp.019.i, i32 noundef 10, i64 noundef %sub.i) #23
   %tobool2.not.i = icmp eq ptr %call.i51, null
   %sub.ptr.lhs.cast3.i = ptrtoint ptr %call.i51 to i64

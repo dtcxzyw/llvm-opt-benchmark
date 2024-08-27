@@ -2274,16 +2274,14 @@ if.end12.i:                                       ; preds = %if.then18.i.i, %lor
 if.end13.i557:                                    ; preds = %if.end12.i, %if.end.i554
   %121 = phi i32 [ %.pre.i, %if.end12.i ], [ %116, %if.end.i554 ]
   %122 = load i32, ptr %startPosInBlock.i, align 8
-  %sub.neg.i.i = sub i32 %122, %conv276.i
-  %sub2.i.i = sub i32 %121, %122
-  %sub3.i.i = add i32 %sub2.i.i, %sub.neg.i.i
+  %sub3.i.i = sub i32 %121, %conv276.i
   %cmp.i14.i = icmp ugt i32 %122, %conv276.i
   br i1 %cmp.i14.i, label %ZSTD_optLdm_processMatchCandidate.exit, label %lor.lhs.false.i15.i
 
 lor.lhs.false.i15.i:                              ; preds = %if.end13.i557
   %cmp6.i.i = icmp ule i32 %121, %conv276.i
   %cmp8.i.i = icmp ult i32 %sub3.i.i, 3
-  %or.cond.i.i = select i1 %cmp6.i.i, i1 true, i1 %cmp8.i.i
+  %or.cond.i.i = or i1 %cmp6.i.i, %cmp8.i.i
   br i1 %or.cond.i.i, label %ZSTD_optLdm_processMatchCandidate.exit, label %if.end.i.i558
 
 if.end.i.i558:                                    ; preds = %lor.lhs.false.i15.i
@@ -4429,16 +4427,14 @@ if.end13:                                         ; preds = %if.end12, %if.end
   %7 = phi i32 [ %.pre, %if.end12 ], [ %2, %if.end ]
   %startPosInBlock.i = getelementptr inbounds i8, ptr %optLdm, i64 40
   %8 = load i32, ptr %startPosInBlock.i, align 8
-  %sub.neg.i = sub i32 %8, %currPosInBlock
-  %sub2.i = sub i32 %7, %8
-  %sub3.i = add i32 %sub2.i, %sub.neg.i
+  %sub3.i = sub i32 %7, %currPosInBlock
   %cmp.i14 = icmp ult i32 %currPosInBlock, %8
   br i1 %cmp.i14, label %return, label %lor.lhs.false.i15
 
 lor.lhs.false.i15:                                ; preds = %if.end13
   %cmp6.i = icmp uge i32 %currPosInBlock, %7
   %cmp8.i = icmp ult i32 %sub3.i, 3
-  %or.cond.i = select i1 %cmp6.i, i1 true, i1 %cmp8.i
+  %or.cond.i = or i1 %cmp6.i, %cmp8.i
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i15

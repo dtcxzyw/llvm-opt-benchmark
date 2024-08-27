@@ -3270,7 +3270,7 @@ lor.lhs.false.i:                                  ; preds = %if.then
   %ref.tmp.sroa.0.4.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
   %ref.tmp.sroa.0.4.extract.trunc = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift to i32
   %sub.i74.i = sub nsw i32 %ref.tmp.sroa.7.12.extract.trunc, %ref.tmp.sroa.0.4.extract.trunc
-  %sub.i77.i = sub nsw i32 %sub73, %sub68
+  %sub.i77.i = add i32 %add64, -1
   %cmp5.i = icmp slt i32 %sub.i74.i, %sub.i77.i
   br i1 %cmp5.i, label %_ZN3irr4core4rectIiE11constrainToERKS2_.exit, label %if.end.i
 
