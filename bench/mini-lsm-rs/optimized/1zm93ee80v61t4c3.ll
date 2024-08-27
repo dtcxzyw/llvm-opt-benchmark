@@ -6426,21 +6426,17 @@ common.resume:                                    ; preds = %64, %59
   %.0.sroa.speculated.i.i.i.i.i = select i1 %switch.i.i.i.i.i, ptr %238, ptr %.018.i.i.i
   %241 = add nuw i64 %.017.i.i.i, 1
   %242 = icmp eq i64 %241, %235
-  br i1 %242, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit, label %236
+  br i1 %242, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit.thread, label %236
 
-_ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit: ; preds = %236
-  %.not232 = icmp eq ptr %.0.sroa.speculated.i.i.i.i.i, null
-  br i1 %.not232, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit.thread223, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit.thread
-
-_ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit.thread223: ; preds = %222, %_ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit
+_ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit.thread223: ; preds = %222
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.5082cb1d3250e536ee13779ef6af89d0.36, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5082cb1d3250e536ee13779ef6af89d0.53) #26
           to label %243 unwind label %.loopexit.split-lp
 
 243:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit.thread223
   unreachable
 
-_ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit.thread: ; preds = %230, %_ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit
-  %.0.i.i222 = phi ptr [ %.0.sroa.speculated.i.i.i.i.i, %_ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit ], [ %226, %230 ]
+_ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit.thread: ; preds = %236, %230
+  %.0.i.i222 = phi ptr [ %226, %230 ], [ %.0.sroa.speculated.i.i.i.i.i, %236 ]
   %244 = load i64, ptr %.0.i.i222, align 8, !noundef !9
   store i64 %244, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30)

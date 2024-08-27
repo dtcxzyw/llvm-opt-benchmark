@@ -48234,13 +48234,13 @@ define internal noundef double @_ZNSt17_Function_handlerIFdRZ24test_submodule_ca
   %14 = load i64, ptr %13, align 8, !noalias !1513
   %15 = getelementptr inbounds i8, ptr %1, i64 %14
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind1126polymorphic_type_hook_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBasevE3getEPKS3_RPKSt9type_info.exit.thread.i.i.i.i.i.i.i.i.i.i, label %16
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i.i.i.i.i.i.i.i, label %16
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %12, i64 8
   %18 = load ptr, ptr %17, align 8, !noalias !1513
   %19 = icmp eq ptr %18, @_ZTSZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBase
-  br i1 %19, label %_ZN8pybind1126polymorphic_type_hook_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBasevE3getEPKS3_RPKSt9type_info.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i.i.i.i.i.i.i.i
+  br i1 %19, label %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %16
   %20 = load i8, ptr %18, align 1, !noalias !1513
@@ -48249,7 +48249,7 @@ _ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i.i.i.i.i.i.i.i: ; pred
   %22 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i
   %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(63) @_ZTSZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBase, ptr noundef nonnull dereferenceable(1) %22) #33, !noalias !1513
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %_ZN8pybind1126polymorphic_type_hook_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBasevE3getEPKS3_RPKSt9type_info.exit.thread.i.i.i.i.i.i.i.i.i.i, label %25
+  br i1 %24, label %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i.i.i.i.i.i.i.i, label %25
 
 25:                                               ; preds = %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i.i.i.i.i.i.i.i
   store ptr %12, ptr %4, align 8, !noalias !1513
@@ -48257,8 +48257,8 @@ _ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i.i.i.i.i.i.i.i: ; pred
           to label %.noexc.i.i.i unwind label %107
 
 .noexc.i.i.i:                                     ; preds = %25
-  %.not.i3.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i3.i.i.i.i.i.i.i.i.i.i, label %27, label %_ZN8pybind116detail16type_caster_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseE4castERKS4_NS_19return_value_policyENS_6handleE.exit.i.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %27, label %_ZN8pybind116detail16type_caster_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseE4castERKS4_NS_19return_value_policyENS_6handleE.exit.i.i.i.i.i.i.i
 
 27:                                               ; preds = %.noexc.i.i.i
   %28 = invoke noundef nonnull align 8 dereferenceable(472) ptr @_ZN8pybind116detail13get_internalsEv()
@@ -48270,19 +48270,19 @@ _ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i.i.i.i.i.i.i.i: ; pred
 
 .noexc6.i.i.i:                                    ; preds = %.noexc5.i.i.i
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind1126polymorphic_type_hook_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBasevE3getEPKS3_RPKSt9type_info.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc6.i.i.i
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8, !noalias !1513
   %.not2.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not2.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind1126polymorphic_type_hook_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBasevE3getEPKS3_RPKSt9type_info.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail16type_caster_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseE4castERKS4_NS_19return_value_policyENS_6handleE.exit.i.i.i.i.i.i.i
+  br i1 %.not2.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail16type_caster_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseE4castERKS4_NS_19return_value_policyENS_6handleE.exit.i.i.i.i.i.i.i
 
-_ZN8pybind1126polymorphic_type_hook_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBasevE3getEPKS3_RPKSt9type_info.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i.i.i.i.i.i.i.i, %.noexc6.i.i.i, %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i.i.i.i.i.i.i.i, %16, %2
+_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.i.i.i.i.i.i.i.i.i.i, %.noexc6.i.i.i, %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.i.i.i.i.i.i.i.i.i.i, %16, %2
   %32 = invoke { ptr, ptr } @_ZN8pybind116detail19type_caster_generic12src_and_typeEPKvRKSt9type_infoPS5_(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIZ24test_submodule_callbacksRN8pybind117module_EE12AbstractBase, ptr noundef %12)
           to label %.noexc7.i.i.i unwind label %107
 
-.noexc7.i.i.i:                                    ; preds = %_ZN8pybind1126polymorphic_type_hook_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBasevE3getEPKS3_RPKSt9type_info.exit.thread.i.i.i.i.i.i.i.i.i.i
+.noexc7.i.i.i:                                    ; preds = %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i.i.i.i.i.i.i.i
   %33 = extractvalue { ptr, ptr } %32, 0
   %34 = extractvalue { ptr, ptr } %32, 1
   br label %_ZN8pybind116detail16type_caster_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseE4castERKS4_NS_19return_value_policyENS_6handleE.exit.i.i.i.i.i.i.i
@@ -48297,19 +48297,19 @@ _ZN8pybind116detail16type_caster_baseIZ24test_submodule_callbacksRNS_7module_EE1
 .noexc8.i.i.i:                                    ; preds = %_ZN8pybind116detail16type_caster_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseE4castERKS4_NS_19return_value_policyENS_6handleE.exit.i.i.i.i.i.i.i
   %.fr.i.i.i.i.i.i.i = freeze ptr %35
   store ptr %.fr.i.i.i.i.i.i.i, ptr %5, align 8, !alias.scope !1514, !noalias !1513
-  %.not35.i.i.i.i.i.i.i = icmp eq ptr %.fr.i.i.i.i.i.i.i, null
-  br i1 %.not35.i.i.i.i.i.i.i, label %.split38.us.i.i.i.i.i.i.i, label %.split.i.i.i.i.i.i.i, !llvm.loop !1517
+  %.not36.i.i.i.i.i.i.i = icmp eq ptr %.fr.i.i.i.i.i.i.i, null
+  br i1 %.not36.i.i.i.i.i.i.i, label %.split39.us.i.i.i.i.i.i.i, label %.split.i.i.i.i.i.i.i, !llvm.loop !1517
 
-.split38.us.i.i.i.i.i.i.i:                        ; preds = %.noexc8.i.i.i
+.split39.us.i.i.i.i.i.i.i:                        ; preds = %.noexc8.i.i.i
   %36 = call ptr @__cxa_allocate_exception(i64 16) #33, !noalias !1513
   invoke void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i64 noundef 0)
           to label %37 unwind label %.thread.i.i.i.i.i.i.i, !noalias !1513
 
-37:                                               ; preds = %.split38.us.i.i.i.i.i.i.i
+37:                                               ; preds = %.split39.us.i.i.i.i.i.i.i
   invoke void @_ZN8pybind1137cast_error_unable_to_convert_call_argERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.pybind11::cast_error") align 8 %36, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %39 unwind label %.thread33.i.i.i.i.i.i.i, !noalias !1513
+          to label %39 unwind label %.thread34.i.i.i.i.i.i.i, !noalias !1513
 
-.thread33.i.i.i.i.i.i.i:                          ; preds = %37
+.thread34.i.i.i.i.i.i.i:                          ; preds = %37
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #33, !noalias !1513
@@ -48319,7 +48319,7 @@ _ZN8pybind116detail16type_caster_baseIZ24test_submodule_callbacksRNS_7module_EE1
   invoke void @__cxa_throw(ptr %36, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #37
           to label %51 unwind label %41, !noalias !1513
 
-.thread.i.i.i.i.i.i.i:                            ; preds = %.split38.us.i.i.i.i.i.i.i
+.thread.i.i.i.i.i.i.i:                            ; preds = %.split39.us.i.i.i.i.i.i.i
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %43
@@ -48330,8 +48330,8 @@ _ZN8pybind116detail16type_caster_baseIZ24test_submodule_callbacksRNS_7module_EE1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #33, !noalias !1513
   br label %.body.i.i.i.i.i.i.i
 
-43:                                               ; preds = %.thread.i.i.i.i.i.i.i, %.thread33.i.i.i.i.i.i.i
-  %.pn32.i.i.i.i.i.i.i = phi { ptr, i32 } [ %40, %.thread.i.i.i.i.i.i.i ], [ %38, %.thread33.i.i.i.i.i.i.i ]
+43:                                               ; preds = %.thread.i.i.i.i.i.i.i, %.thread34.i.i.i.i.i.i.i
+  %.pn33.i.i.i.i.i.i.i = phi { ptr, i32 } [ %40, %.thread.i.i.i.i.i.i.i ], [ %38, %.thread34.i.i.i.i.i.i.i ]
   call void @__cxa_free_exception(ptr %36) #33, !noalias !1513
   br label %.body.i.i.i.i.i.i.i
 
@@ -48363,7 +48363,7 @@ _ZN8pybind116detail16type_caster_baseIZ24test_submodule_callbacksRNS_7module_EE1
   br label %.body.i.i.i.i.i.i.i
 
 .body.i.i.i.i.i.i.i:                              ; preds = %49, %47, %43, %41
-  %.pn.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn32.i.i.i.i.i.i.i, %43 ], [ %42, %41 ], [ %50, %49 ], [ %48, %47 ]
+  %.pn.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn33.i.i.i.i.i.i.i, %43 ], [ %42, %41 ], [ %50, %49 ], [ %48, %47 ]
   call void @_ZNSt5arrayIN8pybind116objectELm1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #33, !noalias !1503
   br label %.body.i.i.i
 
@@ -48531,7 +48531,7 @@ _ZN8pybind1118gil_scoped_acquire7dec_refEv.exit.i.i.i.i: ; preds = %_ZN8pybind11
   call void @__clang_call_terminate(ptr %106) #34
   unreachable
 
-107:                                              ; preds = %_ZN8pybind116detail16type_caster_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseE4castERKS4_NS_19return_value_policyENS_6handleE.exit.i.i.i.i.i.i.i, %_ZN8pybind1126polymorphic_type_hook_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBasevE3getEPKS3_RPKSt9type_info.exit.thread.i.i.i.i.i.i.i.i.i.i, %.noexc5.i.i.i, %27, %25
+107:                                              ; preds = %_ZN8pybind116detail16type_caster_baseIZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseE4castERKS4_NS_19return_value_policyENS_6handleE.exit.i.i.i.i.i.i.i, %_ZN8pybind116detail9same_typeERKSt9type_infoS3_.exit.thread.i.i.i.i.i.i.i.i.i.i, %.noexc5.i.i.i, %27, %25
   %108 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i

@@ -27412,215 +27412,211 @@ define internal fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef %0, i32 nou
   %8 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   store ptr null, ptr %8, align 8
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %_translate_step_to_global_device_index.exit, label %9
+  %9 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %9, 0
+  br i1 %.not, label %_translate_step_to_global_device_index.exit, label %.lr.ph65
 
-9:                                                ; preds = %5
-  %10 = load i8, ptr %0, align 1
-  %.not46 = icmp eq i8 %10, 0
-  br i1 %.not46, label %_translate_step_to_global_device_index.exit, label %.lr.ph66
-
-.lr.ph66:                                         ; preds = %9
-  %11 = tail call i64 @bit_size(ptr noundef %2) #25
-  %12 = trunc i64 %11 to i32
+.lr.ph65:                                         ; preds = %5
+  %10 = tail call i64 @bit_size(ptr noundef %2) #25
+  %11 = trunc i64 %10 to i32
   %not. = xor i1 %3, true
-  %13 = zext i1 %not. to i32
-  %14 = add nsw i32 %12, -1
-  %15 = shl nsw i32 -1, %12
-  %16 = xor i32 %15, -1
-  %17 = select i1 %3, i32 %14, i32 %16
-  %sext = shl i64 %11, 32
-  %18 = ashr exact i64 %sext, 32
-  %19 = icmp sgt i32 %12, 0
-  %wide.trip.count = and i64 %11, 2147483647
-  br label %20
+  %12 = zext i1 %not. to i32
+  %13 = add nsw i32 %11, -1
+  %14 = shl nsw i32 -1, %11
+  %15 = xor i32 %14, -1
+  %16 = select i1 %3, i32 %13, i32 %15
+  %sext = shl i64 %10, 32
+  %17 = ashr exact i64 %sext, 32
+  %18 = icmp sgt i32 %11, 0
+  %wide.trip.count = and i64 %10, 2147483647
+  br label %19
 
-20:                                               ; preds = %.lr.ph66, %.loopexit
-  %21 = phi ptr [ null, %.lr.ph66 ], [ %52, %.loopexit ]
-  %.03965 = phi i32 [ 0, %.lr.ph66 ], [ %.159, %.loopexit ]
-  %22 = call ptr @xstrdup(ptr noundef nonnull %0) #25
-  store ptr %22, ptr %7, align 8
-  %23 = call ptr @strtok(ptr noundef %22, ptr noundef nonnull @.str.316) #25
-  %24 = load ptr, ptr %7, align 8
-  %25 = call ptr @strtok_r(ptr noundef %24, ptr noundef nonnull @.str.7, ptr noundef nonnull %8) #25
-  %.not4760 = icmp eq ptr %25, null
-  br i1 %.not4760, label %.loopexit, label %.lr.ph
+19:                                               ; preds = %.lr.ph65, %.loopexit
+  %20 = phi ptr [ null, %.lr.ph65 ], [ %51, %.loopexit ]
+  %.03964 = phi i32 [ 0, %.lr.ph65 ], [ %.158, %.loopexit ]
+  %21 = call ptr @xstrdup(ptr noundef nonnull %0) #25
+  store ptr %21, ptr %7, align 8
+  %22 = call ptr @strtok(ptr noundef %21, ptr noundef nonnull @.str.316) #25
+  %23 = load ptr, ptr %7, align 8
+  %24 = call ptr @strtok_r(ptr noundef %23, ptr noundef nonnull @.str.7, ptr noundef nonnull %8) #25
+  %.not4659 = icmp eq ptr %24, null
+  br i1 %.not4659, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %20, %50
-  %.03762 = phi ptr [ %51, %50 ], [ %25, %20 ]
-  %.161 = phi i32 [ %33, %50 ], [ %.03965, %20 ]
-  %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03762, i32 noundef 42) #28
-  %.not48 = icmp eq ptr %26, null
-  br i1 %.not48, label %.thread, label %27
+.lr.ph:                                           ; preds = %19, %49
+  %.03761 = phi ptr [ %50, %49 ], [ %24, %19 ]
+  %.160 = phi i32 [ %32, %49 ], [ %.03964, %19 ]
+  %25 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03761, i32 noundef 42) #28
+  %.not47 = icmp eq ptr %25, null
+  br i1 %.not47, label %.thread, label %26
 
-27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %26, i64 1
-  %29 = call i32 @atoi(ptr nocapture noundef nonnull %28) #28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %.thread
+26:                                               ; preds = %.lr.ph
+  %27 = getelementptr inbounds i8, ptr %25, i64 1
+  %28 = call i32 @atoi(ptr nocapture noundef nonnull %27) #28
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %.thread
 
-31:                                               ; preds = %27
-  %32 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.329) #25
+30:                                               ; preds = %26
+  %31 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.329) #25
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %31, %27
-  %.141 = phi i32 [ 1, %31 ], [ %29, %27 ], [ 1, %.lr.ph ]
-  %.not49 = icmp sge i32 %1, %.161
-  %33 = add nsw i32 %.141, %.161
-  %.not50.not = icmp slt i32 %1, %33
-  %or.cond = select i1 %.not49, i1 %.not50.not, i1 false
-  br i1 %or.cond, label %34, label %50
+.thread:                                          ; preds = %.lr.ph, %30, %26
+  %.141 = phi i32 [ 1, %30 ], [ %28, %26 ], [ 1, %.lr.ph ]
+  %.not48 = icmp sge i32 %1, %.160
+  %32 = add nsw i32 %.141, %.160
+  %.not49.not = icmp slt i32 %1, %32
+  %or.cond = select i1 %.not48, i1 %.not49.not, i1 false
+  br i1 %or.cond, label %33, label %49
 
-34:                                               ; preds = %.thread
-  %35 = call i64 @strtol(ptr nocapture noundef nonnull %.03762, ptr noundef null, i32 noundef 0) #25
-  %36 = trunc i64 %35 to i32
-  %37 = call ptr @bit_alloc(i64 noundef %18) #25
-  store ptr %37, ptr %6, align 8
-  %38 = icmp slt i32 %36, %13
-  %39 = icmp slt i32 %17, %36
-  %or.cond52 = select i1 %38, i1 true, i1 %39
-  br i1 %or.cond52, label %40, label %42
+33:                                               ; preds = %.thread
+  %34 = call i64 @strtol(ptr nocapture noundef nonnull %.03761, ptr noundef null, i32 noundef 0) #25
+  %35 = trunc i64 %34 to i32
+  %36 = call ptr @bit_alloc(i64 noundef %17) #25
+  store ptr %36, ptr %6, align 8
+  %37 = icmp slt i32 %35, %12
+  %38 = icmp slt i32 %16, %35
+  %or.cond51 = select i1 %37, i1 true, i1 %38
+  br i1 %or.cond51, label %39, label %41
 
-40:                                               ; preds = %34
-  %41 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.330) #25
+39:                                               ; preds = %33
+  %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.330) #25
   call void @slurm_xfree(ptr noundef nonnull %7) #25
-  br label %.loopexit56
+  br label %.loopexit55
 
-42:                                               ; preds = %34
-  br i1 %3, label %43, label %.preheader
+41:                                               ; preds = %33
+  br i1 %3, label %42, label %.preheader
 
-.preheader:                                       ; preds = %42
-  br i1 %19, label %.lr.ph64, label %.loopexit
+.preheader:                                       ; preds = %41
+  br i1 %18, label %.lr.ph63, label %.loopexit
 
-43:                                               ; preds = %42
-  %44 = and i64 %35, 4294967295
-  call void @bit_set(ptr noundef %37, i64 noundef %44) #25
+42:                                               ; preds = %41
+  %43 = and i64 %34, 4294967295
+  call void @bit_set(ptr noundef %36, i64 noundef %43) #25
   br label %.loopexit
 
-.lr.ph64:                                         ; preds = %.preheader, %49
-  %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %.preheader ]
-  %45 = trunc nuw nsw i64 %indvars.iv to i32
-  %46 = shl nuw i32 1, %45
-  %47 = and i32 %46, %36
-  %.not51 = icmp eq i32 %47, 0
-  br i1 %.not51, label %49, label %48
+.lr.ph63:                                         ; preds = %.preheader, %48
+  %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.preheader ]
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
+  %45 = shl nuw i32 1, %44
+  %46 = and i32 %45, %35
+  %.not50 = icmp eq i32 %46, 0
+  br i1 %.not50, label %48, label %47
 
-48:                                               ; preds = %.lr.ph64
-  call void @bit_set(ptr noundef %37, i64 noundef %indvars.iv) #25
-  br label %49
+47:                                               ; preds = %.lr.ph63
+  call void @bit_set(ptr noundef %36, i64 noundef %indvars.iv) #25
+  br label %48
 
-49:                                               ; preds = %.lr.ph64, %48
+48:                                               ; preds = %.lr.ph63, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph64, !llvm.loop !257
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph63, !llvm.loop !257
 
-50:                                               ; preds = %.thread
-  %51 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %8) #25
-  %.not47 = icmp eq ptr %51, null
-  br i1 %.not47, label %.loopexit, label %.lr.ph, !llvm.loop !258
+49:                                               ; preds = %.thread
+  %50 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %8) #25
+  %.not46 = icmp eq ptr %50, null
+  br i1 %.not46, label %.loopexit, label %.lr.ph, !llvm.loop !258
 
-.loopexit:                                        ; preds = %50, %49, %20, %.preheader, %43
-  %52 = phi ptr [ %37, %43 ], [ %37, %.preheader ], [ %21, %20 ], [ %37, %49 ], [ %21, %50 ]
-  %53 = phi ptr [ %37, %43 ], [ %37, %.preheader ], [ null, %20 ], [ %37, %49 ], [ null, %50 ]
-  %.159 = phi i32 [ %.161, %43 ], [ %.161, %.preheader ], [ %.03965, %20 ], [ %.161, %49 ], [ %33, %50 ]
+.loopexit:                                        ; preds = %49, %48, %19, %.preheader, %42
+  %51 = phi ptr [ %36, %42 ], [ %36, %.preheader ], [ %20, %19 ], [ %36, %48 ], [ %20, %49 ]
+  %52 = phi ptr [ %36, %42 ], [ %36, %.preheader ], [ null, %19 ], [ %36, %48 ], [ null, %49 ]
+  %.158 = phi i32 [ %.160, %42 ], [ %.160, %.preheader ], [ %.03964, %19 ], [ %.160, %48 ], [ %32, %49 ]
   call void @slurm_xfree(ptr noundef nonnull %7) #25
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %20, label %.loopexit56, !llvm.loop !259
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %19, label %.loopexit55, !llvm.loop !259
 
-.loopexit56:                                      ; preds = %.loopexit, %40
-  %55 = phi ptr [ %37, %40 ], [ %52, %.loopexit ]
+.loopexit55:                                      ; preds = %.loopexit, %39
+  %54 = phi ptr [ %36, %39 ], [ %51, %.loopexit ]
   %.b7.i = load i1, ptr @dev_index_mode_set, align 1
-  br i1 %.b7.i, label %gres_use_local_device_index.exit, label %56
+  br i1 %.b7.i, label %gres_use_local_device_index.exit, label %55
 
-56:                                               ; preds = %.loopexit56
+55:                                               ; preds = %.loopexit55
   store i1 true, ptr @dev_index_mode_set, align 1
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1416), align 8
-  %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %gres_use_local_device_index.exit, label %58
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1416), align 8
+  %.not.i = icmp eq ptr %56, null
+  br i1 %.not.i, label %gres_use_local_device_index.exit, label %57
 
-58:                                               ; preds = %56
-  %59 = call ptr @xstrstr(ptr noundef nonnull %57, ptr noundef nonnull @.str) #25
-  %.not9.not.i = icmp eq ptr %59, null
-  br i1 %.not9.not.i, label %gres_use_local_device_index.exit, label %60
+57:                                               ; preds = %55
+  %58 = call ptr @xstrstr(ptr noundef nonnull %56, ptr noundef nonnull @.str) #25
+  %.not9.not.i = icmp eq ptr %58, null
+  br i1 %.not9.not.i, label %gres_use_local_device_index.exit, label %59
 
-60:                                               ; preds = %58
-  %61 = call i32 @cgroup_conf_init() #25
-  %62 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), align 8
-  %63 = trunc i8 %62 to i1
-  br i1 %63, label %gres_use_local_device_index.exit.thread, label %gres_use_local_device_index.exit
+59:                                               ; preds = %57
+  %60 = call i32 @cgroup_conf_init() #25
+  %61 = load i8, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 64), align 8
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %gres_use_local_device_index.exit.thread, label %gres_use_local_device_index.exit
 
-gres_use_local_device_index.exit.thread:          ; preds = %60
+gres_use_local_device_index.exit.thread:          ; preds = %59
   store i1 true, ptr @use_local_index, align 1
-  br label %64
+  br label %63
 
-gres_use_local_device_index.exit:                 ; preds = %.loopexit56, %56, %58, %60
+gres_use_local_device_index.exit:                 ; preds = %.loopexit55, %55, %57, %59
   %.01.i.pr = load i1, ptr @use_local_index, align 1
-  br i1 %.01.i.pr, label %64, label %82
+  br i1 %.01.i.pr, label %63, label %81
 
-64:                                               ; preds = %gres_use_local_device_index.exit.thread, %gres_use_local_device_index.exit
-  br i1 %4, label %65, label %80
+63:                                               ; preds = %gres_use_local_device_index.exit.thread, %gres_use_local_device_index.exit
+  br i1 %4, label %64, label %79
 
-65:                                               ; preds = %64
-  %66 = call i64 @bit_size(ptr noundef %2) #25
-  %67 = call ptr @bit_alloc(i64 noundef %66) #25
-  %68 = call i64 @bit_fls(ptr noundef %2) #25
-  %69 = and i64 %68, 2147483648
-  %.not20.not.i = icmp eq i64 %69, 0
+64:                                               ; preds = %63
+  %65 = call i64 @bit_size(ptr noundef %2) #25
+  %66 = call ptr @bit_alloc(i64 noundef %65) #25
+  %67 = call i64 @bit_fls(ptr noundef %2) #25
+  %68 = and i64 %67, 2147483648
+  %.not20.not.i = icmp eq i64 %68, 0
   br i1 %.not20.not.i, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %65
-  %70 = add nuw nsw i64 %68, 1
-  %wide.trip.count.i = and i64 %70, 4294967295
+.lr.ph.preheader.i:                               ; preds = %64
+  %69 = add nuw nsw i64 %67, 1
+  %wide.trip.count.i = and i64 %69, 4294967295
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %78, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %78 ]
-  %.022.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %78 ]
-  %71 = call i32 @bit_test(ptr noundef %2, i64 noundef %indvars.iv.i) #25
-  %.not18.i = icmp eq i32 %71, 0
-  br i1 %.not18.i, label %78, label %72
+.lr.ph.i:                                         ; preds = %77, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %77 ]
+  %.022.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %77 ]
+  %70 = call i32 @bit_test(ptr noundef %2, i64 noundef %indvars.iv.i) #25
+  %.not18.i = icmp eq i32 %70, 0
+  br i1 %.not18.i, label %77, label %71
 
-72:                                               ; preds = %.lr.ph.i
-  %73 = sext i32 %.022.i to i64
-  %74 = call i32 @bit_test(ptr noundef %55, i64 noundef %73) #25
-  %.not19.i = icmp eq i32 %74, 0
-  br i1 %.not19.i, label %76, label %75
+71:                                               ; preds = %.lr.ph.i
+  %72 = sext i32 %.022.i to i64
+  %73 = call i32 @bit_test(ptr noundef %54, i64 noundef %72) #25
+  %.not19.i = icmp eq i32 %73, 0
+  br i1 %.not19.i, label %75, label %74
 
-75:                                               ; preds = %72
-  call void @bit_set(ptr noundef %67, i64 noundef %indvars.iv.i) #25
-  br label %76
+74:                                               ; preds = %71
+  call void @bit_set(ptr noundef %66, i64 noundef %indvars.iv.i) #25
+  br label %75
 
-76:                                               ; preds = %75, %72
-  %77 = add nsw i32 %.022.i, 1
-  br label %78
+75:                                               ; preds = %74, %71
+  %76 = add nsw i32 %.022.i, 1
+  br label %77
 
-78:                                               ; preds = %76, %.lr.ph.i
-  %.1.i = phi i32 [ %77, %76 ], [ %.022.i, %.lr.ph.i ]
+77:                                               ; preds = %75, %.lr.ph.i
+  %.1.i = phi i32 [ %76, %75 ], [ %.022.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !260
 
-._crit_edge.i:                                    ; preds = %78, %65
-  %.not17.i = icmp eq ptr %55, null
-  br i1 %.not17.i, label %_translate_step_to_global_device_index.exit, label %79
+._crit_edge.i:                                    ; preds = %77, %64
+  %.not17.i = icmp eq ptr %54, null
+  br i1 %.not17.i, label %_translate_step_to_global_device_index.exit, label %78
 
-79:                                               ; preds = %._crit_edge.i
+78:                                               ; preds = %._crit_edge.i
   call void @slurm_bit_free(ptr noundef nonnull %6) #25
   br label %_translate_step_to_global_device_index.exit
 
-80:                                               ; preds = %64
-  call void @bit_and(ptr noundef %55, ptr noundef %2) #25
-  %81 = load ptr, ptr %6, align 8
-  call void @bit_consolidate(ptr noundef %81) #25
+79:                                               ; preds = %63
+  call void @bit_and(ptr noundef %54, ptr noundef %2) #25
+  %80 = load ptr, ptr %6, align 8
+  call void @bit_consolidate(ptr noundef %80) #25
   br label %_translate_step_to_global_device_index.exit
 
-82:                                               ; preds = %gres_use_local_device_index.exit
-  call void @bit_and(ptr noundef %55, ptr noundef %2) #25
+81:                                               ; preds = %gres_use_local_device_index.exit
+  call void @bit_and(ptr noundef %54, ptr noundef %2) #25
   %.pre = load ptr, ptr %6, align 8
   br label %_translate_step_to_global_device_index.exit
 
-_translate_step_to_global_device_index.exit:      ; preds = %79, %._crit_edge.i, %82, %80, %5, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ %81, %80 ], [ %.pre, %82 ], [ %67, %._crit_edge.i ], [ %67, %79 ]
+_translate_step_to_global_device_index.exit:      ; preds = %78, %._crit_edge.i, %81, %79, %5
+  %.0 = phi ptr [ null, %5 ], [ %80, %79 ], [ %.pre, %81 ], [ %66, %._crit_edge.i ], [ %66, %78 ]
   ret ptr %.0
 }
 

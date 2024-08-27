@@ -8204,7 +8204,7 @@ _ZN6Unpack17SafePPMDecodeCharEv.exit146:          ; preds = %183
   br label %.backedge
 
 187:                                              ; preds = %168, %165
-  %188 = trunc nuw i32 %162 to i8
+  %188 = trunc i32 %162 to i8
   %189 = load ptr, ptr %85, align 8
   %190 = load i64, ptr %61, align 8
   %191 = add i64 %190, 1

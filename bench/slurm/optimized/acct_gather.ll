@@ -806,20 +806,20 @@ define i32 @acct_gather_parse_freq(i32 noundef %0, ptr noundef %1) local_unnamed
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %48, label %8
+  br i1 %.not, label %49, label %8
 
 8:                                                ; preds = %2
-  switch i32 %0, label %47 [
+  switch i32 %0, label %48 [
     i32 0, label %9
-    i32 1, label %_get_int.exit
-    i32 2, label %31
-    i32 3, label %39
+    i32 1, label %17
+    i32 2, label %32
+    i32 3, label %40
   ]
 
 9:                                                ; preds = %8
   %10 = tail call ptr @xstrcasestr(ptr noundef nonnull %1, ptr noundef nonnull @.str.14) #9
   %.not25 = icmp eq ptr %10, null
-  br i1 %.not25, label %48, label %11
+  br i1 %.not25, label %49, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %10, i64 7
@@ -829,79 +829,79 @@ define i32 @acct_gather_parse_freq(i32 noundef %0, ptr noundef %1) local_unnamed
   %14 = load ptr, ptr %7, align 8
   %15 = icmp eq ptr %12, %14
   %16 = trunc i64 %13 to i32
-  %spec.select.i = select i1 %15, i32 -1, i32 %16
+  %.0.i = select i1 %15, i32 -1, i32 %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %48
+  br label %49
 
-_get_int.exit:                                    ; preds = %8
+17:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  %17 = call i64 @strtol(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 10) #9
-  %18 = load ptr, ptr %6, align 8
-  %19 = icmp eq ptr %1, %18
-  %20 = trunc i64 %17 to i32
+  %18 = call i64 @strtol(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 10) #9
+  %19 = load ptr, ptr %6, align 8
+  %20 = icmp eq ptr %1, %19
+  %21 = trunc i64 %18 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %21 = icmp eq i32 %20, -1
-  %22 = select i1 %19, i1 true, i1 %21
-  br i1 %22, label %23, label %48
+  %22 = icmp eq i32 %21, -1
+  %23 = select i1 %20, i1 true, i1 %22
+  br i1 %23, label %24, label %49
 
-23:                                               ; preds = %_get_int.exit
-  %24 = tail call ptr @xstrcasestr(ptr noundef nonnull %1, ptr noundef nonnull @.str.15) #9
-  %.not24 = icmp eq ptr %24, null
-  br i1 %.not24, label %48, label %25
+24:                                               ; preds = %17
+  %25 = tail call ptr @xstrcasestr(ptr noundef nonnull %1, ptr noundef nonnull @.str.15) #9
+  %.not24 = icmp eq ptr %25, null
+  br i1 %.not24, label %49, label %26
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %24, i64 5
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds i8, ptr %25, i64 5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  %27 = call i64 @strtol(ptr noundef nonnull %26, ptr noundef nonnull %5, i32 noundef 10) #9
-  %28 = load ptr, ptr %5, align 8
-  %29 = icmp eq ptr %26, %28
-  %30 = trunc i64 %27 to i32
-  %spec.select.i28 = select i1 %29, i32 -1, i32 %30
+  %28 = call i64 @strtol(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 10) #9
+  %29 = load ptr, ptr %5, align 8
+  %30 = icmp eq ptr %27, %29
+  %31 = trunc i64 %28 to i32
+  %.0.i27 = select i1 %30, i32 -1, i32 %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %48
+  br label %49
 
-31:                                               ; preds = %8
-  %32 = tail call ptr @xstrcasestr(ptr noundef nonnull %1, ptr noundef nonnull @.str.16) #9
-  %.not23 = icmp eq ptr %32, null
-  br i1 %.not23, label %48, label %33
+32:                                               ; preds = %8
+  %33 = tail call ptr @xstrcasestr(ptr noundef nonnull %1, ptr noundef nonnull @.str.16) #9
+  %.not23 = icmp eq ptr %33, null
+  br i1 %.not23, label %49, label %34
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %32, i64 11
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds i8, ptr %33, i64 11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %35 = call i64 @strtol(ptr noundef nonnull %34, ptr noundef nonnull %4, i32 noundef 10) #9
-  %36 = load ptr, ptr %4, align 8
-  %37 = icmp eq ptr %34, %36
-  %38 = trunc i64 %35 to i32
-  %spec.select.i31 = select i1 %37, i32 -1, i32 %38
+  %36 = call i64 @strtol(ptr noundef nonnull %35, ptr noundef nonnull %4, i32 noundef 10) #9
+  %37 = load ptr, ptr %4, align 8
+  %38 = icmp eq ptr %35, %37
+  %39 = trunc i64 %36 to i32
+  %.0.i28 = select i1 %38, i32 -1, i32 %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %48
+  br label %49
 
-39:                                               ; preds = %8
-  %40 = tail call ptr @xstrcasestr(ptr noundef nonnull %1, ptr noundef nonnull @.str.17) #9
-  %.not22 = icmp eq ptr %40, null
-  br i1 %.not22, label %48, label %41
+40:                                               ; preds = %8
+  %41 = tail call ptr @xstrcasestr(ptr noundef nonnull %1, ptr noundef nonnull @.str.17) #9
+  %.not22 = icmp eq ptr %41, null
+  br i1 %.not22, label %49, label %42
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds i8, ptr %41, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %43 = call i64 @strtol(ptr noundef nonnull %42, ptr noundef nonnull %3, i32 noundef 10) #9
-  %44 = load ptr, ptr %3, align 8
-  %45 = icmp eq ptr %42, %44
-  %46 = trunc i64 %43 to i32
-  %spec.select.i34 = select i1 %45, i32 -1, i32 %46
+  %44 = call i64 @strtol(ptr noundef nonnull %43, ptr noundef nonnull %3, i32 noundef 10) #9
+  %45 = load ptr, ptr %3, align 8
+  %46 = icmp eq ptr %43, %45
+  %47 = trunc i64 %44 to i32
+  %.0.i29 = select i1 %46, i32 -1, i32 %47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %48
+  br label %49
 
-47:                                               ; preds = %8
+48:                                               ; preds = %8
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.18, i32 noundef %0) #10
   unreachable
 
-48:                                               ; preds = %11, %9, %25, %23, %_get_int.exit, %33, %31, %41, %39, %2
-  %.015 = phi i32 [ -1, %2 ], [ %spec.select.i34, %41 ], [ -1, %39 ], [ %spec.select.i31, %33 ], [ -1, %31 ], [ %spec.select.i28, %25 ], [ -1, %23 ], [ %20, %_get_int.exit ], [ %spec.select.i, %11 ], [ -1, %9 ]
+49:                                               ; preds = %11, %9, %26, %24, %17, %34, %32, %42, %40, %2
+  %.015 = phi i32 [ -1, %2 ], [ %.0.i29, %42 ], [ -1, %40 ], [ %.0.i28, %34 ], [ -1, %32 ], [ %.0.i27, %26 ], [ -1, %24 ], [ %21, %17 ], [ %.0.i, %11 ], [ -1, %9 ]
   ret i32 %.015
 }
 

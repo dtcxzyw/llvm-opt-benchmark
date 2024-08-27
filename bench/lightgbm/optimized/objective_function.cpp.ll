@@ -26101,7 +26101,7 @@ define linkonce_odr void @_ZN8LightGBM18CrossEntropyLambda4InitERKNS_8MetadataEi
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.0 = phi float [ %storemerge11.i, %.lr.ph.preheader.i ], [ %storemerge48.i, %.lr.ph.i ]
+  %.0 = phi float [ %storemerge11.i, %.lr.ph.preheader.i ], [ %storemerge46.i, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %40, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.11015.i = phi float [ %.09.i, %.lr.ph.preheader.i ], [ %.sroa.speculated.i, %.lr.ph.i ]
   %42 = getelementptr float, ptr %27, i64 %indvars.iv.i
@@ -26114,13 +26114,13 @@ define linkonce_odr void @_ZN8LightGBM18CrossEntropyLambda4InitERKNS_8MetadataEi
   %47 = fcmp olt float %.23.i, %.11015.i
   %.sroa.speculated.i = select i1 %47, float %.23.i, float %.11015.i
   %48 = fcmp olt float %.0, %.24.i
-  %storemerge48.i = select i1 %48, float %.24.i, float %.0
+  %storemerge46.i = select i1 %48, float %.24.i, float %.0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %49 = icmp ult i64 %indvars.iv.next.i, %41
   br i1 %49, label %.lr.ph.i, label %_ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit, !llvm.loop !198
 
 _ZN8LightGBM6CommonL15ObtainMinMaxSumIffEEvPKT_iPS2_S5_PT0_.exit: ; preds = %.lr.ph.i, %38
-  %.0..0..i = phi float [ %storemerge11.i, %38 ], [ %storemerge48.i, %.lr.ph.i ]
+  %.0..0..i = phi float [ %storemerge11.i, %38 ], [ %storemerge46.i, %.lr.ph.i ]
   %.110.lcssa.i = phi float [ %.09.i, %38 ], [ %.sroa.speculated.i, %.lr.ph.i ]
   store float %.110.lcssa.i, ptr %30, align 8
   store float %.0..0..i, ptr %31, align 4

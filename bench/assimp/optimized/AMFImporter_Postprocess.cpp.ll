@@ -1311,7 +1311,7 @@ _ZNSt6vectorIhSaIhEE2atEm.exit.i268:              ; preds = %for.body.i257
   br i1 %cmp.i274, label %for.body.i257, label %invoke.cont213, !llvm.loop !16
 
 invoke.cont213:                                   ; preds = %_ZNSt6vectorIhSaIhEE2atEm.exit.i268, %invoke.cont212
-  %sub214 = add i64 %step.3, -1
+  %sub214 = add nsw i64 %step.3, -1
   %call.i277 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %a) #24
   %cmp5.i279 = icmp uge i64 %sub214, %tex_size.3
   %or.cond382.not = select i1 %call.i277, i1 true, i1 %cmp5.i279

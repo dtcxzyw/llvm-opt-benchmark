@@ -76404,75 +76404,73 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17haad3a3084c614e00E"(ptr noundef nonnull %0, ptr noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = icmp eq ptr %0, %1
-  br i1 %5, label %.loopexit, label %6
+  %4 = icmp eq ptr %0, %1
+  br i1 %4, label %.loopexit, label %5
 
-6:                                                ; preds = %3
-  %7 = ptrtoint ptr %1 to i64
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub nuw i64 %7, %8
-  %10 = udiv exact i64 %9, 40
-  %11 = load ptr, ptr %2, align 8, !nonnull !26, !align !564
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
-  %14 = load ptr, ptr %13, align 8, !nonnull !26, !align !75
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
-  %16 = load ptr, ptr %15, align 8, !nonnull !26, !align !55
-  %17 = getelementptr inbounds i8, ptr %16, i64 1296
-  br label %18
+5:                                                ; preds = %3
+  %6 = ptrtoint ptr %1 to i64
+  %7 = ptrtoint ptr %0 to i64
+  %8 = sub nuw i64 %6, %7
+  %9 = udiv exact i64 %8, 40
+  %10 = load ptr, ptr %2, align 8, !nonnull !26, !align !564
+  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = load ptr, ptr %12, align 8, !nonnull !26, !align !75
+  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = load ptr, ptr %14, align 8, !nonnull !26, !align !55
+  %16 = getelementptr inbounds i8, ptr %15, i64 1296
+  br label %17
 
-18:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit", %6
-  %.017 = phi i64 [ 0, %6 ], [ %42, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit" ]
-  %.016 = phi i64 [ 0, %6 ], [ %43, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit" ]
-  %19 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %0, i64 %.016
-  %.val = load i64, ptr %19, align 8, !range !1746, !alias.scope !14997, !noalias !15000, !noundef !26
-  %20 = icmp eq i64 %.val, 2
-  br i1 %20, label %21, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit"
+17:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit", %5
+  %.017 = phi i64 [ 0, %5 ], [ %41, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit" ]
+  %.016 = phi i64 [ 0, %5 ], [ %42, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit" ]
+  %18 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %0, i64 %.016
+  %.val = load i64, ptr %18, align 8, !range !1746, !alias.scope !14997, !noalias !15000, !noundef !26
+  %19 = icmp eq i64 %.val, 2
+  br i1 %19, label %20, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit"
 
-21:                                               ; preds = %18
-  %22 = getelementptr i8, ptr %19, i64 16
-  %.val21 = load i32, ptr %22, align 8
-  %23 = load i32, ptr %11, align 4, !range !14955, !noalias !15004, !noundef !26
-  %24 = load i32, ptr %12, align 4, !noalias !15004
-  %25 = tail call noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %.val21), !range !81, !noalias !15012
-  %26 = load ptr, ptr %17, align 8, !invariant.load !26, !noalias !15004, !nonnull !26
-  %27 = tail call { ptr, ptr } %26(ptr noundef nonnull align 1 %14), !noalias !15004
+20:                                               ; preds = %17
+  %21 = getelementptr i8, ptr %18, i64 16
+  %.val21 = load i32, ptr %21, align 8
+  %22 = load i32, ptr %10, align 4, !range !14955, !noalias !15004, !noundef !26
+  %23 = load i32, ptr %11, align 4, !noalias !15004
+  %24 = tail call noundef range(i32 1, 0) i32 @"_ZN63_$LT$hir_def..TraitId$u20$as$u20$salsa..interned..InternKey$GT$14from_intern_id17h71566bb7ee124f7dE"(i32 noundef %.val21), !range !81, !noalias !15012
+  %25 = load ptr, ptr %16, align 8, !invariant.load !26, !noalias !15004, !nonnull !26
+  %26 = tail call { ptr, ptr } %25(ptr noundef nonnull align 1 %13), !noalias !15004
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15015)
-  %switch.i.i.i.i = icmp eq i32 %23, 0
-  br i1 %switch.i.i.i.i, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit", label %28
+  %switch.i.i.i.i = icmp eq i32 %22, 0
+  br i1 %switch.i.i.i.i, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit", label %27
 
-28:                                               ; preds = %21
-  %29 = extractvalue { ptr, ptr } %27, 1
-  %30 = extractvalue { ptr, ptr } %27, 0
-  %31 = getelementptr inbounds i8, ptr %29, i64 1184
-  %32 = load ptr, ptr %31, align 8, !invariant.load !26, !alias.scope !15015, !nonnull !26
-  %33 = tail call { i32, i32 } %32(ptr noundef nonnull align 1 %30, i32 noundef %24, i8 noundef 0), !noalias !15015
-  %34 = extractvalue { i32, i32 } %33, 0
-  %35 = icmp eq i32 %34, 9
-  br i1 %35, label %39, label %36
+27:                                               ; preds = %20
+  %28 = extractvalue { ptr, ptr } %26, 1
+  %29 = extractvalue { ptr, ptr } %26, 0
+  %30 = getelementptr inbounds i8, ptr %28, i64 1184
+  %31 = load ptr, ptr %30, align 8, !invariant.load !26, !alias.scope !15015, !nonnull !26
+  %32 = tail call { i32, i32 } %31(ptr noundef nonnull align 1 %29, i32 noundef %23, i8 noundef 0), !noalias !15015
+  %33 = extractvalue { i32, i32 } %32, 0
+  %34 = icmp eq i32 %33, 9
+  br i1 %34, label %38, label %35
 
-36:                                               ; preds = %28
-  %37 = extractvalue { i32, i32 } %33, 1
-  %38 = tail call noundef i32 @_ZN7hir_def9lang_item14LangItemTarget8as_trait17hcf0eb5e49f1b417aE(i32 noundef %34, i32 noundef %37), !noalias !15018
-  br label %39
+35:                                               ; preds = %27
+  %36 = extractvalue { i32, i32 } %32, 1
+  %37 = tail call noundef i32 @_ZN7hir_def9lang_item14LangItemTarget8as_trait17hcf0eb5e49f1b417aE(i32 noundef %33, i32 noundef %36), !noalias !15018
+  br label %38
 
-39:                                               ; preds = %36, %28
-  %.0.i.i.i.i = phi i32 [ %38, %36 ], [ 0, %28 ]
-  %40 = icmp eq i32 %25, %.0.i.i.i.i
-  %41 = zext i1 %40 to i64
+38:                                               ; preds = %35, %27
+  %.0.i.i.i.i = phi i32 [ %37, %35 ], [ 0, %27 ]
+  %39 = icmp eq i32 %24, %.0.i.i.i.i
+  %40 = zext i1 %39 to i64
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit": ; preds = %18, %21, %39
-  %.0.i.i.i = phi i64 [ 0, %18 ], [ 0, %21 ], [ %41, %39 ]
-  %42 = add i64 %.0.i.i.i, %.017
-  %43 = add nuw i64 %.016, 1
-  %44 = icmp eq i64 %43, %10
-  br i1 %44, label %.loopexit, label %18
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit": ; preds = %17, %20, %38
+  %.0.i.i.i = phi i64 [ 0, %17 ], [ 0, %20 ], [ %40, %38 ]
+  %41 = add i64 %.0.i.i.i, %.017
+  %42 = add nuw i64 %.016, 1
+  %43 = icmp eq i64 %42, %9
+  br i1 %43, label %.loopexit, label %17
 
 .loopexit:                                        ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit", %3
-  %.0 = phi i64 [ 0, %3 ], [ %42, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit" ]
+  %.0 = phi i64 [ 0, %3 ], [ %41, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a0aec208565e33eE.exit" ]
   ret i64 %.0
 }
 

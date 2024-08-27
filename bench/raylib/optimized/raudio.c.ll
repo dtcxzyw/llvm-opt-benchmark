@@ -39846,151 +39846,151 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %365 = mul i32 %364, %361
   %366 = zext i32 %365 to i64
   %367 = mul i64 %3, %366
-  %.not265.i = icmp eq i64 %367, 0
-  br i1 %.not265.i, label %._crit_edge.i79, label %.preheader
+  %.not264.i = icmp eq i64 %367, 0
+  br i1 %.not264.i, label %._crit_edge.i79, label %.lr.ph.i75
 
-.preheader:                                       ; preds = %358, %.preheader
-  %.0267.i = phi ptr [ %369, %.preheader ], [ %1, %358 ]
-  %.0218266.i = phi i64 [ %368, %.preheader ], [ %367, %358 ]
-  %spec.store.select.i76 = tail call i64 @llvm.umin.i64(i64 %.0218266.i, i64 4294967295)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0267.i, i8 0, i64 %spec.store.select.i76, i1 false)
-  %368 = sub i64 %.0218266.i, %spec.store.select.i76
-  %369 = getelementptr inbounds i8, ptr %.0267.i, i64 %spec.store.select.i76
+.lr.ph.i75:                                       ; preds = %358, %.lr.ph.i75
+  %.0266.i = phi ptr [ %369, %.lr.ph.i75 ], [ %1, %358 ]
+  %.0218265.i = phi i64 [ %368, %.lr.ph.i75 ], [ %367, %358 ]
+  %spec.store.select.i76 = tail call i64 @llvm.umin.i64(i64 %.0218265.i, i64 4294967295)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0266.i, i8 0, i64 %spec.store.select.i76, i1 false)
+  %368 = sub i64 %.0218265.i, %spec.store.select.i76
+  %369 = getelementptr inbounds i8, ptr %.0266.i, i64 %spec.store.select.i76
   %.not.i77 = icmp eq i64 %368, 0
-  br i1 %.not.i77, label %._crit_edge.loopexit.i, label %.preheader
+  br i1 %.not.i77, label %._crit_edge.loopexit.i, label %.lr.ph.i75
 
-._crit_edge.loopexit.i:                           ; preds = %.preheader
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i75
   %.pre.i78 = load i32, ptr %0, align 8
   br label %._crit_edge.i79
 
 ._crit_edge.i79:                                  ; preds = %._crit_edge.loopexit.i, %358
   %370 = phi i32 [ %.pre.i78, %._crit_edge.loopexit.i ], [ %359, %358 ]
   switch i32 %370, label %ma_channel_converter_process_pcm_frames__passthrough.exit [
-    i32 1, label %.preheader248.i
-    i32 2, label %.preheader251.i
-    i32 3, label %.preheader255.i
-    i32 4, label %.preheader259.i
-    i32 5, label %.preheader263.i
+    i32 1, label %.preheader247.i
+    i32 2, label %.preheader250.i
+    i32 3, label %.preheader254.i
+    i32 4, label %.preheader258.i
+    i32 5, label %.preheader262.i
   ]
 
-.preheader263.i:                                  ; preds = %._crit_edge.i79
-  %.not298.i = icmp eq i64 %3, 0
-  br i1 %.not298.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader262.lr.ph.i
+.preheader262.i:                                  ; preds = %._crit_edge.i79
+  %.not297.i = icmp eq i64 %3, 0
+  br i1 %.not297.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader261.lr.ph.i
 
-.preheader262.lr.ph.i:                            ; preds = %.preheader263.i
+.preheader261.lr.ph.i:                            ; preds = %.preheader262.i
   %371 = getelementptr inbounds i8, ptr %0, i64 4
   %372 = getelementptr inbounds i8, ptr %0, i64 48
   %373 = load i32, ptr %371, align 4
-  %.not299.i = icmp eq i32 %373, 0
-  br i1 %.not299.i, label %.preheader262.us.i, label %.preheader262.i
+  %.not298.i = icmp eq i32 %373, 0
+  br i1 %.not298.i, label %.preheader261.us.i, label %.preheader261.i
 
-.preheader262.us.i:                               ; preds = %.preheader262.lr.ph.i, %.preheader262.us.i
-  %.4273.us.i = phi i32 [ %374, %.preheader262.us.i ], [ 0, %.preheader262.lr.ph.i ]
-  %374 = add i32 %.4273.us.i, 1
+.preheader261.us.i:                               ; preds = %.preheader261.lr.ph.i, %.preheader261.us.i
+  %.4272.us.i = phi i32 [ %374, %.preheader261.us.i ], [ 0, %.preheader261.lr.ph.i ]
+  %374 = add i32 %.4272.us.i, 1
   %375 = zext i32 %374 to i64
   %376 = icmp ugt i64 %3, %375
-  br i1 %376, label %.preheader262.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
+  br i1 %376, label %.preheader261.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
 
-.preheader259.i:                                  ; preds = %._crit_edge.i79
-  %.not303.i = icmp eq i64 %3, 0
-  br i1 %.not303.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader258.lr.ph.i
+.preheader258.i:                                  ; preds = %._crit_edge.i79
+  %.not302.i = icmp eq i64 %3, 0
+  br i1 %.not302.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader257.lr.ph.i
 
-.preheader258.lr.ph.i:                            ; preds = %.preheader259.i
+.preheader257.lr.ph.i:                            ; preds = %.preheader258.i
   %377 = getelementptr inbounds i8, ptr %0, i64 4
   %378 = getelementptr inbounds i8, ptr %0, i64 48
   %379 = load i32, ptr %377, align 4
-  %.not304.i = icmp eq i32 %379, 0
-  br i1 %.not304.i, label %.preheader258.us.i, label %.preheader258.i
+  %.not303.i = icmp eq i32 %379, 0
+  br i1 %.not303.i, label %.preheader257.us.i, label %.preheader257.i
 
-.preheader258.us.i:                               ; preds = %.preheader258.lr.ph.i, %.preheader258.us.i
-  %.3279.us.i = phi i32 [ %380, %.preheader258.us.i ], [ 0, %.preheader258.lr.ph.i ]
-  %380 = add i32 %.3279.us.i, 1
+.preheader257.us.i:                               ; preds = %.preheader257.lr.ph.i, %.preheader257.us.i
+  %.3278.us.i = phi i32 [ %380, %.preheader257.us.i ], [ 0, %.preheader257.lr.ph.i ]
+  %380 = add i32 %.3278.us.i, 1
   %381 = zext i32 %380 to i64
   %382 = icmp ugt i64 %3, %381
-  br i1 %382, label %.preheader258.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
+  br i1 %382, label %.preheader257.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
 
-.preheader255.i:                                  ; preds = %._crit_edge.i79
-  %.not308.i = icmp eq i64 %3, 0
-  br i1 %.not308.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader254.lr.ph.i
+.preheader254.i:                                  ; preds = %._crit_edge.i79
+  %.not307.i = icmp eq i64 %3, 0
+  br i1 %.not307.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader253.lr.ph.i
 
-.preheader254.lr.ph.i:                            ; preds = %.preheader255.i
+.preheader253.lr.ph.i:                            ; preds = %.preheader254.i
   %383 = getelementptr inbounds i8, ptr %0, i64 4
   %384 = getelementptr inbounds i8, ptr %0, i64 48
   %385 = load i32, ptr %383, align 4
-  %.not309.i = icmp eq i32 %385, 0
-  br i1 %.not309.i, label %.preheader254.us.i, label %.preheader254.i
+  %.not308.i = icmp eq i32 %385, 0
+  br i1 %.not308.i, label %.preheader253.us.i, label %.preheader253.i
 
-.preheader254.us.i:                               ; preds = %.preheader254.lr.ph.i, %.preheader254.us.i
-  %.2285.us.i = phi i32 [ %386, %.preheader254.us.i ], [ 0, %.preheader254.lr.ph.i ]
-  %386 = add i32 %.2285.us.i, 1
+.preheader253.us.i:                               ; preds = %.preheader253.lr.ph.i, %.preheader253.us.i
+  %.2284.us.i = phi i32 [ %386, %.preheader253.us.i ], [ 0, %.preheader253.lr.ph.i ]
+  %386 = add i32 %.2284.us.i, 1
   %387 = zext i32 %386 to i64
   %388 = icmp ugt i64 %3, %387
-  br i1 %388, label %.preheader254.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
+  br i1 %388, label %.preheader253.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
 
-.preheader251.i:                                  ; preds = %._crit_edge.i79
-  %.not313.i = icmp eq i64 %3, 0
-  br i1 %.not313.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader250.lr.ph.i
+.preheader250.i:                                  ; preds = %._crit_edge.i79
+  %.not312.i = icmp eq i64 %3, 0
+  br i1 %.not312.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader249.lr.ph.i
 
-.preheader250.lr.ph.i:                            ; preds = %.preheader251.i
+.preheader249.lr.ph.i:                            ; preds = %.preheader250.i
   %389 = getelementptr inbounds i8, ptr %0, i64 4
   %390 = getelementptr inbounds i8, ptr %0, i64 48
   %391 = load i32, ptr %389, align 4
-  %.not314.i = icmp eq i32 %391, 0
-  br i1 %.not314.i, label %.preheader250.us.i, label %.preheader250.i
+  %.not313.i = icmp eq i32 %391, 0
+  br i1 %.not313.i, label %.preheader249.us.i, label %.preheader249.i
 
-.preheader250.us.i:                               ; preds = %.preheader250.lr.ph.i, %.preheader250.us.i
-  %.1291.us.i = phi i32 [ %392, %.preheader250.us.i ], [ 0, %.preheader250.lr.ph.i ]
-  %392 = add i32 %.1291.us.i, 1
+.preheader249.us.i:                               ; preds = %.preheader249.lr.ph.i, %.preheader249.us.i
+  %.1290.us.i = phi i32 [ %392, %.preheader249.us.i ], [ 0, %.preheader249.lr.ph.i ]
+  %392 = add i32 %.1290.us.i, 1
   %393 = zext i32 %392 to i64
   %394 = icmp ugt i64 %3, %393
-  br i1 %394, label %.preheader250.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
+  br i1 %394, label %.preheader249.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
 
-.preheader248.i:                                  ; preds = %._crit_edge.i79
-  %.not318.i = icmp eq i64 %3, 0
-  br i1 %.not318.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader247.lr.ph.i
+.preheader247.i:                                  ; preds = %._crit_edge.i79
+  %.not317.i = icmp eq i64 %3, 0
+  br i1 %.not317.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, label %.preheader246.lr.ph.i
 
-.preheader247.lr.ph.i:                            ; preds = %.preheader248.i
+.preheader246.lr.ph.i:                            ; preds = %.preheader247.i
   %395 = getelementptr inbounds i8, ptr %0, i64 4
   %396 = getelementptr inbounds i8, ptr %0, i64 48
   %397 = load i32, ptr %395, align 4
-  %.not319.i = icmp eq i32 %397, 0
-  br i1 %.not319.i, label %.preheader247.us.i, label %.preheader247.i
+  %.not318.i = icmp eq i32 %397, 0
+  br i1 %.not318.i, label %.preheader246.us.i, label %.preheader246.i
 
-.preheader247.us.i:                               ; preds = %.preheader247.lr.ph.i, %.preheader247.us.i
-  %.0220297.us.i = phi i32 [ %398, %.preheader247.us.i ], [ 0, %.preheader247.lr.ph.i ]
-  %398 = add i32 %.0220297.us.i, 1
+.preheader246.us.i:                               ; preds = %.preheader246.lr.ph.i, %.preheader246.us.i
+  %.0220296.us.i = phi i32 [ %398, %.preheader246.us.i ], [ 0, %.preheader246.lr.ph.i ]
+  %398 = add i32 %.0220296.us.i, 1
   %399 = zext i32 %398 to i64
   %400 = icmp ugt i64 %3, %399
-  br i1 %400, label %.preheader247.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
+  br i1 %400, label %.preheader246.us.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit
 
-.preheader247.i:                                  ; preds = %.preheader247.lr.ph.i, %._crit_edge296.i
-  %401 = phi i32 [ %442, %._crit_edge296.i ], [ %397, %.preheader247.lr.ph.i ]
-  %402 = phi i32 [ %443, %._crit_edge296.i ], [ %397, %.preheader247.lr.ph.i ]
-  %.0220297.i = phi i32 [ %444, %._crit_edge296.i ], [ 0, %.preheader247.lr.ph.i ]
-  %.not320.i = icmp eq i32 %402, 0
-  br i1 %.not320.i, label %._crit_edge296.i, label %.preheader.lr.ph.i82
+.preheader246.i:                                  ; preds = %.preheader246.lr.ph.i, %._crit_edge295.i
+  %401 = phi i32 [ %442, %._crit_edge295.i ], [ %397, %.preheader246.lr.ph.i ]
+  %402 = phi i32 [ %443, %._crit_edge295.i ], [ %397, %.preheader246.lr.ph.i ]
+  %.0220296.i = phi i32 [ %444, %._crit_edge295.i ], [ 0, %.preheader246.lr.ph.i ]
+  %.not319.i = icmp eq i32 %402, 0
+  br i1 %.not319.i, label %._crit_edge295.i, label %.preheader.lr.ph.i82
 
-.preheader.lr.ph.i82:                             ; preds = %.preheader247.i
+.preheader.lr.ph.i82:                             ; preds = %.preheader246.i
   %403 = load i32, ptr %360, align 8
-  %.not321.i = icmp eq i32 %403, 0
-  br i1 %.not321.i, label %._crit_edge296.i, label %.preheader.i83
+  %.not320.i = icmp eq i32 %403, 0
+  br i1 %.not320.i, label %._crit_edge295.i, label %.preheader.i83
 
-.preheader.i83:                                   ; preds = %.preheader.lr.ph.i82, %._crit_edge294.i
-  %404 = phi i32 [ %438, %._crit_edge294.i ], [ %401, %.preheader.lr.ph.i82 ]
-  %405 = phi i32 [ %439, %._crit_edge294.i ], [ %403, %.preheader.lr.ph.i82 ]
-  %indvars.iv362.i = phi i64 [ %indvars.iv.next363.i, %._crit_edge294.i ], [ 0, %.preheader.lr.ph.i82 ]
-  %.not322.i = icmp eq i32 %405, 0
-  br i1 %.not322.i, label %._crit_edge294.i, label %.lr.ph293.i
+.preheader.i83:                                   ; preds = %.preheader.lr.ph.i82, %._crit_edge293.i
+  %404 = phi i32 [ %438, %._crit_edge293.i ], [ %401, %.preheader.lr.ph.i82 ]
+  %405 = phi i32 [ %439, %._crit_edge293.i ], [ %403, %.preheader.lr.ph.i82 ]
+  %indvars.iv361.i = phi i64 [ %indvars.iv.next362.i, %._crit_edge293.i ], [ 0, %.preheader.lr.ph.i82 ]
+  %.not321.i = icmp eq i32 %405, 0
+  br i1 %.not321.i, label %._crit_edge293.i, label %.lr.ph292.i
 
-.lr.ph293.i:                                      ; preds = %.preheader.i83
-  %406 = trunc nuw i64 %indvars.iv362.i to i32
+.lr.ph292.i:                                      ; preds = %.preheader.i83
+  %406 = trunc nuw i64 %indvars.iv361.i to i32
   br label %407
 
-407:                                              ; preds = %407, %.lr.ph293.i
-  %indvars.iv359.i = phi i64 [ 0, %.lr.ph293.i ], [ %indvars.iv.next360.i, %407 ]
-  %408 = phi i32 [ %405, %.lr.ph293.i ], [ %435, %407 ]
-  %409 = mul i32 %408, %.0220297.i
-  %410 = trunc nuw i64 %indvars.iv359.i to i32
+407:                                              ; preds = %407, %.lr.ph292.i
+  %indvars.iv358.i = phi i64 [ 0, %.lr.ph292.i ], [ %indvars.iv.next359.i, %407 ]
+  %408 = phi i32 [ %405, %.lr.ph292.i ], [ %435, %407 ]
+  %409 = mul i32 %408, %.0220296.i
+  %410 = trunc nuw i64 %indvars.iv358.i to i32
   %411 = add i32 %409, %410
   %412 = zext i32 %411 to i64
   %413 = getelementptr inbounds i8, ptr %1, i64 %412
@@ -39998,7 +39998,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %415 = zext i8 %414 to i32
   %416 = add nsw i32 %415, -128
   %417 = load i32, ptr %395, align 4
-  %418 = mul i32 %417, %.0220297.i
+  %418 = mul i32 %417, %.0220296.i
   %419 = add i32 %418, %406
   %420 = zext i32 %419 to i64
   %421 = getelementptr inbounds i8, ptr %2, i64 %420
@@ -40006,88 +40006,88 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %423 = zext i8 %422 to i32
   %424 = add nsw i32 %423, -128
   %425 = load ptr, ptr %396, align 8
-  %426 = getelementptr inbounds ptr, ptr %425, i64 %indvars.iv362.i
+  %426 = getelementptr inbounds ptr, ptr %425, i64 %indvars.iv361.i
   %427 = load ptr, ptr %426, align 8
-  %428 = getelementptr inbounds i32, ptr %427, i64 %indvars.iv359.i
+  %428 = getelementptr inbounds i32, ptr %427, i64 %indvars.iv358.i
   %429 = load i32, ptr %428, align 4
   %430 = mul nsw i32 %429, %424
   %431 = ashr i32 %430, 12
   %432 = add nsw i32 %416, %431
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %432, i32 127)
-  %spec.select245.i = tail call i32 @llvm.smax.i32(i32 %spec.select.i, i32 -128)
-  %433 = trunc nsw i32 %spec.select245.i to i8
+  %spec.select244.i = tail call i32 @llvm.smax.i32(i32 %spec.select.i, i32 -128)
+  %433 = trunc nsw i32 %spec.select244.i to i8
   %434 = xor i8 %433, -128
   store i8 %434, ptr %413, align 1
-  %indvars.iv.next360.i = add nuw nsw i64 %indvars.iv359.i, 1
+  %indvars.iv.next359.i = add nuw nsw i64 %indvars.iv358.i, 1
   %435 = load i32, ptr %360, align 8
   %436 = zext i32 %435 to i64
-  %437 = icmp ult i64 %indvars.iv.next360.i, %436
-  br i1 %437, label %407, label %._crit_edge294.loopexit.i
+  %437 = icmp ult i64 %indvars.iv.next359.i, %436
+  br i1 %437, label %407, label %._crit_edge293.loopexit.i
 
-._crit_edge294.loopexit.i:                        ; preds = %407
-  %.pre369.i = load i32, ptr %395, align 4
-  br label %._crit_edge294.i
+._crit_edge293.loopexit.i:                        ; preds = %407
+  %.pre368.i = load i32, ptr %395, align 4
+  br label %._crit_edge293.i
 
-._crit_edge294.i:                                 ; preds = %._crit_edge294.loopexit.i, %.preheader.i83
-  %438 = phi i32 [ %.pre369.i, %._crit_edge294.loopexit.i ], [ %404, %.preheader.i83 ]
-  %439 = phi i32 [ %435, %._crit_edge294.loopexit.i ], [ 0, %.preheader.i83 ]
-  %indvars.iv.next363.i = add nuw nsw i64 %indvars.iv362.i, 1
+._crit_edge293.i:                                 ; preds = %._crit_edge293.loopexit.i, %.preheader.i83
+  %438 = phi i32 [ %.pre368.i, %._crit_edge293.loopexit.i ], [ %404, %.preheader.i83 ]
+  %439 = phi i32 [ %435, %._crit_edge293.loopexit.i ], [ 0, %.preheader.i83 ]
+  %indvars.iv.next362.i = add nuw nsw i64 %indvars.iv361.i, 1
   %440 = zext i32 %438 to i64
-  %441 = icmp ult i64 %indvars.iv.next363.i, %440
-  br i1 %441, label %.preheader.i83, label %._crit_edge296.i, !llvm.loop !174
+  %441 = icmp ult i64 %indvars.iv.next362.i, %440
+  br i1 %441, label %.preheader.i83, label %._crit_edge295.i, !llvm.loop !174
 
-._crit_edge296.i:                                 ; preds = %._crit_edge294.i, %.preheader.lr.ph.i82, %.preheader247.i
-  %442 = phi i32 [ %401, %.preheader247.i ], [ %401, %.preheader.lr.ph.i82 ], [ %438, %._crit_edge294.i ]
-  %443 = phi i32 [ 0, %.preheader247.i ], [ %402, %.preheader.lr.ph.i82 ], [ %438, %._crit_edge294.i ]
-  %444 = add i32 %.0220297.i, 1
+._crit_edge295.i:                                 ; preds = %._crit_edge293.i, %.preheader.lr.ph.i82, %.preheader246.i
+  %442 = phi i32 [ %401, %.preheader246.i ], [ %401, %.preheader.lr.ph.i82 ], [ %438, %._crit_edge293.i ]
+  %443 = phi i32 [ 0, %.preheader246.i ], [ %402, %.preheader.lr.ph.i82 ], [ %438, %._crit_edge293.i ]
+  %444 = add i32 %.0220296.i, 1
   %445 = zext i32 %444 to i64
   %446 = icmp ugt i64 %3, %445
-  br i1 %446, label %.preheader247.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !175
+  br i1 %446, label %.preheader246.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !175
 
-.preheader250.i:                                  ; preds = %.preheader250.lr.ph.i, %._crit_edge290.i
-  %447 = phi i32 [ %487, %._crit_edge290.i ], [ %391, %.preheader250.lr.ph.i ]
-  %448 = phi i32 [ %488, %._crit_edge290.i ], [ %391, %.preheader250.lr.ph.i ]
-  %.1291.i = phi i32 [ %489, %._crit_edge290.i ], [ 0, %.preheader250.lr.ph.i ]
-  %.not315.i = icmp eq i32 %448, 0
-  br i1 %.not315.i, label %._crit_edge290.i, label %.preheader249.lr.ph.i
+.preheader249.i:                                  ; preds = %.preheader249.lr.ph.i, %._crit_edge289.i
+  %447 = phi i32 [ %487, %._crit_edge289.i ], [ %391, %.preheader249.lr.ph.i ]
+  %448 = phi i32 [ %488, %._crit_edge289.i ], [ %391, %.preheader249.lr.ph.i ]
+  %.1290.i = phi i32 [ %489, %._crit_edge289.i ], [ 0, %.preheader249.lr.ph.i ]
+  %.not314.i = icmp eq i32 %448, 0
+  br i1 %.not314.i, label %._crit_edge289.i, label %.preheader248.lr.ph.i
 
-.preheader249.lr.ph.i:                            ; preds = %.preheader250.i
+.preheader248.lr.ph.i:                            ; preds = %.preheader249.i
   %449 = load i32, ptr %360, align 8
-  %.not316.i = icmp eq i32 %449, 0
-  br i1 %.not316.i, label %._crit_edge290.i, label %.preheader249.i
+  %.not315.i = icmp eq i32 %449, 0
+  br i1 %.not315.i, label %._crit_edge289.i, label %.preheader248.i
 
-.preheader249.i:                                  ; preds = %.preheader249.lr.ph.i, %._crit_edge288.i
-  %450 = phi i32 [ %483, %._crit_edge288.i ], [ %447, %.preheader249.lr.ph.i ]
-  %451 = phi i32 [ %484, %._crit_edge288.i ], [ %449, %.preheader249.lr.ph.i ]
-  %indvars.iv356.i = phi i64 [ %indvars.iv.next357.i, %._crit_edge288.i ], [ 0, %.preheader249.lr.ph.i ]
-  %.not317.i = icmp eq i32 %451, 0
-  br i1 %.not317.i, label %._crit_edge288.i, label %.lr.ph287.i
+.preheader248.i:                                  ; preds = %.preheader248.lr.ph.i, %._crit_edge287.i
+  %450 = phi i32 [ %483, %._crit_edge287.i ], [ %447, %.preheader248.lr.ph.i ]
+  %451 = phi i32 [ %484, %._crit_edge287.i ], [ %449, %.preheader248.lr.ph.i ]
+  %indvars.iv355.i = phi i64 [ %indvars.iv.next356.i, %._crit_edge287.i ], [ 0, %.preheader248.lr.ph.i ]
+  %.not316.i = icmp eq i32 %451, 0
+  br i1 %.not316.i, label %._crit_edge287.i, label %.lr.ph286.i
 
-.lr.ph287.i:                                      ; preds = %.preheader249.i
-  %452 = trunc nuw i64 %indvars.iv356.i to i32
+.lr.ph286.i:                                      ; preds = %.preheader248.i
+  %452 = trunc nuw i64 %indvars.iv355.i to i32
   br label %453
 
-453:                                              ; preds = %453, %.lr.ph287.i
-  %indvars.iv353.i = phi i64 [ 0, %.lr.ph287.i ], [ %indvars.iv.next354.i, %453 ]
-  %454 = phi i32 [ %451, %.lr.ph287.i ], [ %480, %453 ]
-  %455 = mul i32 %454, %.1291.i
-  %456 = trunc nuw i64 %indvars.iv353.i to i32
+453:                                              ; preds = %453, %.lr.ph286.i
+  %indvars.iv352.i = phi i64 [ 0, %.lr.ph286.i ], [ %indvars.iv.next353.i, %453 ]
+  %454 = phi i32 [ %451, %.lr.ph286.i ], [ %480, %453 ]
+  %455 = mul i32 %454, %.1290.i
+  %456 = trunc nuw i64 %indvars.iv352.i to i32
   %457 = add i32 %455, %456
   %458 = zext i32 %457 to i64
   %459 = getelementptr inbounds i16, ptr %1, i64 %458
   %460 = load i16, ptr %459, align 2
   %461 = sext i16 %460 to i32
   %462 = load i32, ptr %389, align 4
-  %463 = mul i32 %462, %.1291.i
+  %463 = mul i32 %462, %.1290.i
   %464 = add i32 %463, %452
   %465 = zext i32 %464 to i64
   %466 = getelementptr inbounds i16, ptr %2, i64 %465
   %467 = load i16, ptr %466, align 2
   %468 = sext i16 %467 to i32
   %469 = load ptr, ptr %390, align 8
-  %470 = getelementptr inbounds ptr, ptr %469, i64 %indvars.iv356.i
+  %470 = getelementptr inbounds ptr, ptr %469, i64 %indvars.iv355.i
   %471 = load ptr, ptr %470, align 8
-  %472 = getelementptr inbounds i32, ptr %471, i64 %indvars.iv353.i
+  %472 = getelementptr inbounds i32, ptr %471, i64 %indvars.iv352.i
   %473 = load i32, ptr %472, align 4
   %474 = mul nsw i32 %473, %468
   %475 = ashr i32 %474, 12
@@ -40096,60 +40096,60 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %478 = tail call i32 @llvm.smax.i32(i32 %477, i32 -32768)
   %479 = trunc nsw i32 %478 to i16
   store i16 %479, ptr %459, align 2
-  %indvars.iv.next354.i = add nuw nsw i64 %indvars.iv353.i, 1
+  %indvars.iv.next353.i = add nuw nsw i64 %indvars.iv352.i, 1
   %480 = load i32, ptr %360, align 8
   %481 = zext i32 %480 to i64
-  %482 = icmp ult i64 %indvars.iv.next354.i, %481
-  br i1 %482, label %453, label %._crit_edge288.loopexit.i
+  %482 = icmp ult i64 %indvars.iv.next353.i, %481
+  br i1 %482, label %453, label %._crit_edge287.loopexit.i
 
-._crit_edge288.loopexit.i:                        ; preds = %453
-  %.pre368.i = load i32, ptr %389, align 4
-  br label %._crit_edge288.i
+._crit_edge287.loopexit.i:                        ; preds = %453
+  %.pre367.i = load i32, ptr %389, align 4
+  br label %._crit_edge287.i
 
-._crit_edge288.i:                                 ; preds = %._crit_edge288.loopexit.i, %.preheader249.i
-  %483 = phi i32 [ %.pre368.i, %._crit_edge288.loopexit.i ], [ %450, %.preheader249.i ]
-  %484 = phi i32 [ %480, %._crit_edge288.loopexit.i ], [ 0, %.preheader249.i ]
-  %indvars.iv.next357.i = add nuw nsw i64 %indvars.iv356.i, 1
+._crit_edge287.i:                                 ; preds = %._crit_edge287.loopexit.i, %.preheader248.i
+  %483 = phi i32 [ %.pre367.i, %._crit_edge287.loopexit.i ], [ %450, %.preheader248.i ]
+  %484 = phi i32 [ %480, %._crit_edge287.loopexit.i ], [ 0, %.preheader248.i ]
+  %indvars.iv.next356.i = add nuw nsw i64 %indvars.iv355.i, 1
   %485 = zext i32 %483 to i64
-  %486 = icmp ult i64 %indvars.iv.next357.i, %485
-  br i1 %486, label %.preheader249.i, label %._crit_edge290.i, !llvm.loop !176
+  %486 = icmp ult i64 %indvars.iv.next356.i, %485
+  br i1 %486, label %.preheader248.i, label %._crit_edge289.i, !llvm.loop !176
 
-._crit_edge290.i:                                 ; preds = %._crit_edge288.i, %.preheader249.lr.ph.i, %.preheader250.i
-  %487 = phi i32 [ %447, %.preheader250.i ], [ %447, %.preheader249.lr.ph.i ], [ %483, %._crit_edge288.i ]
-  %488 = phi i32 [ 0, %.preheader250.i ], [ %448, %.preheader249.lr.ph.i ], [ %483, %._crit_edge288.i ]
-  %489 = add i32 %.1291.i, 1
+._crit_edge289.i:                                 ; preds = %._crit_edge287.i, %.preheader248.lr.ph.i, %.preheader249.i
+  %487 = phi i32 [ %447, %.preheader249.i ], [ %447, %.preheader248.lr.ph.i ], [ %483, %._crit_edge287.i ]
+  %488 = phi i32 [ 0, %.preheader249.i ], [ %448, %.preheader248.lr.ph.i ], [ %483, %._crit_edge287.i ]
+  %489 = add i32 %.1290.i, 1
   %490 = zext i32 %489 to i64
   %491 = icmp ugt i64 %3, %490
-  br i1 %491, label %.preheader250.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !177
+  br i1 %491, label %.preheader249.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !177
 
-.preheader254.i:                                  ; preds = %.preheader254.lr.ph.i, %._crit_edge284.i
-  %492 = phi i32 [ %552, %._crit_edge284.i ], [ %385, %.preheader254.lr.ph.i ]
-  %493 = phi i32 [ %553, %._crit_edge284.i ], [ %385, %.preheader254.lr.ph.i ]
-  %.2285.i = phi i32 [ %554, %._crit_edge284.i ], [ 0, %.preheader254.lr.ph.i ]
-  %.not310.i = icmp eq i32 %493, 0
-  br i1 %.not310.i, label %._crit_edge284.i, label %.preheader253.lr.ph.i
+.preheader253.i:                                  ; preds = %.preheader253.lr.ph.i, %._crit_edge283.i
+  %492 = phi i32 [ %552, %._crit_edge283.i ], [ %385, %.preheader253.lr.ph.i ]
+  %493 = phi i32 [ %553, %._crit_edge283.i ], [ %385, %.preheader253.lr.ph.i ]
+  %.2284.i = phi i32 [ %554, %._crit_edge283.i ], [ 0, %.preheader253.lr.ph.i ]
+  %.not309.i = icmp eq i32 %493, 0
+  br i1 %.not309.i, label %._crit_edge283.i, label %.preheader252.lr.ph.i
 
-.preheader253.lr.ph.i:                            ; preds = %.preheader254.i
+.preheader252.lr.ph.i:                            ; preds = %.preheader253.i
   %494 = load i32, ptr %360, align 8
-  %.not311.i = icmp eq i32 %494, 0
-  br i1 %.not311.i, label %._crit_edge284.i, label %.preheader253.i
+  %.not310.i = icmp eq i32 %494, 0
+  br i1 %.not310.i, label %._crit_edge283.i, label %.preheader252.i
 
-.preheader253.i:                                  ; preds = %.preheader253.lr.ph.i, %._crit_edge282.i
-  %495 = phi i32 [ %548, %._crit_edge282.i ], [ %492, %.preheader253.lr.ph.i ]
-  %496 = phi i32 [ %549, %._crit_edge282.i ], [ %494, %.preheader253.lr.ph.i ]
-  %indvars.iv350.i = phi i64 [ %indvars.iv.next351.i, %._crit_edge282.i ], [ 0, %.preheader253.lr.ph.i ]
-  %.not312.i = icmp eq i32 %496, 0
-  br i1 %.not312.i, label %._crit_edge282.i, label %.lr.ph281.i
+.preheader252.i:                                  ; preds = %.preheader252.lr.ph.i, %._crit_edge281.i
+  %495 = phi i32 [ %548, %._crit_edge281.i ], [ %492, %.preheader252.lr.ph.i ]
+  %496 = phi i32 [ %549, %._crit_edge281.i ], [ %494, %.preheader252.lr.ph.i ]
+  %indvars.iv349.i = phi i64 [ %indvars.iv.next350.i, %._crit_edge281.i ], [ 0, %.preheader252.lr.ph.i ]
+  %.not311.i = icmp eq i32 %496, 0
+  br i1 %.not311.i, label %._crit_edge281.i, label %.lr.ph280.i
 
-.lr.ph281.i:                                      ; preds = %.preheader253.i
-  %497 = trunc nuw i64 %indvars.iv350.i to i32
+.lr.ph280.i:                                      ; preds = %.preheader252.i
+  %497 = trunc nuw i64 %indvars.iv349.i to i32
   br label %498
 
-498:                                              ; preds = %498, %.lr.ph281.i
-  %indvars.iv347.i = phi i64 [ 0, %.lr.ph281.i ], [ %indvars.iv.next348.i, %498 ]
-  %499 = phi i32 [ %496, %.lr.ph281.i ], [ %545, %498 ]
-  %500 = mul i32 %499, %.2285.i
-  %501 = trunc nuw i64 %indvars.iv347.i to i32
+498:                                              ; preds = %498, %.lr.ph280.i
+  %indvars.iv346.i = phi i64 [ 0, %.lr.ph280.i ], [ %indvars.iv.next347.i, %498 ]
+  %499 = phi i32 [ %496, %.lr.ph280.i ], [ %545, %498 ]
+  %500 = mul i32 %499, %.2284.i
+  %501 = trunc nuw i64 %indvars.iv346.i to i32
   %502 = add i32 %500, %501
   %503 = mul i32 %502, 3
   %504 = zext i32 %503 to i64
@@ -40165,7 +40165,7 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %514 = or disjoint i64 %513, %508
   %515 = ashr exact i64 %514, 40
   %516 = load i32, ptr %383, align 4
-  %517 = mul i32 %516, %.2285.i
+  %517 = mul i32 %516, %.2284.i
   %518 = add i32 %517, %497
   %519 = mul i32 %518, 3
   %520 = zext i32 %519 to i64
@@ -40180,94 +40180,94 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %529 = or disjoint i64 %528, %524
   %530 = ashr exact i64 %529, 40
   %531 = load ptr, ptr %384, align 8
-  %532 = getelementptr inbounds ptr, ptr %531, i64 %indvars.iv350.i
+  %532 = getelementptr inbounds ptr, ptr %531, i64 %indvars.iv349.i
   %533 = load ptr, ptr %532, align 8
-  %534 = getelementptr inbounds i32, ptr %533, i64 %indvars.iv347.i
+  %534 = getelementptr inbounds i32, ptr %533, i64 %indvars.iv346.i
   %535 = load i32, ptr %534, align 4
   %536 = sext i32 %535 to i64
   %537 = mul nsw i64 %530, %536
   %538 = ashr i64 %537, 12
   %539 = add nsw i64 %538, %515
-  %spec.select243.i = tail call i64 @llvm.smin.i64(i64 %539, i64 8388607)
-  %spec.select246.i = tail call i64 @llvm.smax.i64(i64 %spec.select243.i, i64 -8388608)
-  %540 = trunc i64 %spec.select246.i to i8
+  %spec.select242.i = tail call i64 @llvm.smin.i64(i64 %539, i64 8388607)
+  %spec.select245.i = tail call i64 @llvm.smax.i64(i64 %spec.select242.i, i64 -8388608)
+  %540 = trunc i64 %spec.select245.i to i8
   store i8 %540, ptr %505, align 1
-  %541 = lshr i64 %spec.select246.i, 8
+  %541 = lshr i64 %spec.select245.i, 8
   %542 = trunc i64 %541 to i8
   store i8 %542, ptr %509, align 1
-  %543 = lshr i64 %spec.select246.i, 16
+  %543 = lshr i64 %spec.select245.i, 16
   %544 = trunc i64 %543 to i8
   store i8 %544, ptr %510, align 1
-  %indvars.iv.next348.i = add nuw nsw i64 %indvars.iv347.i, 1
+  %indvars.iv.next347.i = add nuw nsw i64 %indvars.iv346.i, 1
   %545 = load i32, ptr %360, align 8
   %546 = zext i32 %545 to i64
-  %547 = icmp ult i64 %indvars.iv.next348.i, %546
-  br i1 %547, label %498, label %._crit_edge282.loopexit.i
+  %547 = icmp ult i64 %indvars.iv.next347.i, %546
+  br i1 %547, label %498, label %._crit_edge281.loopexit.i
 
-._crit_edge282.loopexit.i:                        ; preds = %498
-  %.pre367.i = load i32, ptr %383, align 4
-  br label %._crit_edge282.i
+._crit_edge281.loopexit.i:                        ; preds = %498
+  %.pre366.i = load i32, ptr %383, align 4
+  br label %._crit_edge281.i
 
-._crit_edge282.i:                                 ; preds = %._crit_edge282.loopexit.i, %.preheader253.i
-  %548 = phi i32 [ %.pre367.i, %._crit_edge282.loopexit.i ], [ %495, %.preheader253.i ]
-  %549 = phi i32 [ %545, %._crit_edge282.loopexit.i ], [ 0, %.preheader253.i ]
-  %indvars.iv.next351.i = add nuw nsw i64 %indvars.iv350.i, 1
+._crit_edge281.i:                                 ; preds = %._crit_edge281.loopexit.i, %.preheader252.i
+  %548 = phi i32 [ %.pre366.i, %._crit_edge281.loopexit.i ], [ %495, %.preheader252.i ]
+  %549 = phi i32 [ %545, %._crit_edge281.loopexit.i ], [ 0, %.preheader252.i ]
+  %indvars.iv.next350.i = add nuw nsw i64 %indvars.iv349.i, 1
   %550 = zext i32 %548 to i64
-  %551 = icmp ult i64 %indvars.iv.next351.i, %550
-  br i1 %551, label %.preheader253.i, label %._crit_edge284.i, !llvm.loop !178
+  %551 = icmp ult i64 %indvars.iv.next350.i, %550
+  br i1 %551, label %.preheader252.i, label %._crit_edge283.i, !llvm.loop !178
 
-._crit_edge284.i:                                 ; preds = %._crit_edge282.i, %.preheader253.lr.ph.i, %.preheader254.i
-  %552 = phi i32 [ %492, %.preheader254.i ], [ %492, %.preheader253.lr.ph.i ], [ %548, %._crit_edge282.i ]
-  %553 = phi i32 [ 0, %.preheader254.i ], [ %493, %.preheader253.lr.ph.i ], [ %548, %._crit_edge282.i ]
-  %554 = add i32 %.2285.i, 1
+._crit_edge283.i:                                 ; preds = %._crit_edge281.i, %.preheader252.lr.ph.i, %.preheader253.i
+  %552 = phi i32 [ %492, %.preheader253.i ], [ %492, %.preheader252.lr.ph.i ], [ %548, %._crit_edge281.i ]
+  %553 = phi i32 [ 0, %.preheader253.i ], [ %493, %.preheader252.lr.ph.i ], [ %548, %._crit_edge281.i ]
+  %554 = add i32 %.2284.i, 1
   %555 = zext i32 %554 to i64
   %556 = icmp ugt i64 %3, %555
-  br i1 %556, label %.preheader254.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !179
+  br i1 %556, label %.preheader253.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !179
 
-.preheader258.i:                                  ; preds = %.preheader258.lr.ph.i, %._crit_edge278.i
-  %557 = phi i32 [ %598, %._crit_edge278.i ], [ %379, %.preheader258.lr.ph.i ]
-  %558 = phi i32 [ %599, %._crit_edge278.i ], [ %379, %.preheader258.lr.ph.i ]
-  %.3279.i = phi i32 [ %600, %._crit_edge278.i ], [ 0, %.preheader258.lr.ph.i ]
-  %.not305.i = icmp eq i32 %558, 0
-  br i1 %.not305.i, label %._crit_edge278.i, label %.preheader257.lr.ph.i
+.preheader257.i:                                  ; preds = %.preheader257.lr.ph.i, %._crit_edge277.i
+  %557 = phi i32 [ %598, %._crit_edge277.i ], [ %379, %.preheader257.lr.ph.i ]
+  %558 = phi i32 [ %599, %._crit_edge277.i ], [ %379, %.preheader257.lr.ph.i ]
+  %.3278.i = phi i32 [ %600, %._crit_edge277.i ], [ 0, %.preheader257.lr.ph.i ]
+  %.not304.i = icmp eq i32 %558, 0
+  br i1 %.not304.i, label %._crit_edge277.i, label %.preheader256.lr.ph.i
 
-.preheader257.lr.ph.i:                            ; preds = %.preheader258.i
+.preheader256.lr.ph.i:                            ; preds = %.preheader257.i
   %559 = load i32, ptr %360, align 8
-  %.not306.i = icmp eq i32 %559, 0
-  br i1 %.not306.i, label %._crit_edge278.i, label %.preheader257.i
+  %.not305.i = icmp eq i32 %559, 0
+  br i1 %.not305.i, label %._crit_edge277.i, label %.preheader256.i
 
-.preheader257.i:                                  ; preds = %.preheader257.lr.ph.i, %._crit_edge276.i
-  %560 = phi i32 [ %594, %._crit_edge276.i ], [ %557, %.preheader257.lr.ph.i ]
-  %561 = phi i32 [ %595, %._crit_edge276.i ], [ %559, %.preheader257.lr.ph.i ]
-  %indvars.iv344.i = phi i64 [ %indvars.iv.next345.i, %._crit_edge276.i ], [ 0, %.preheader257.lr.ph.i ]
-  %.not307.i = icmp eq i32 %561, 0
-  br i1 %.not307.i, label %._crit_edge276.i, label %.lr.ph275.i
+.preheader256.i:                                  ; preds = %.preheader256.lr.ph.i, %._crit_edge275.i
+  %560 = phi i32 [ %594, %._crit_edge275.i ], [ %557, %.preheader256.lr.ph.i ]
+  %561 = phi i32 [ %595, %._crit_edge275.i ], [ %559, %.preheader256.lr.ph.i ]
+  %indvars.iv343.i = phi i64 [ %indvars.iv.next344.i, %._crit_edge275.i ], [ 0, %.preheader256.lr.ph.i ]
+  %.not306.i = icmp eq i32 %561, 0
+  br i1 %.not306.i, label %._crit_edge275.i, label %.lr.ph274.i
 
-.lr.ph275.i:                                      ; preds = %.preheader257.i
-  %562 = trunc nuw i64 %indvars.iv344.i to i32
+.lr.ph274.i:                                      ; preds = %.preheader256.i
+  %562 = trunc nuw i64 %indvars.iv343.i to i32
   br label %563
 
-563:                                              ; preds = %563, %.lr.ph275.i
-  %indvars.iv341.i = phi i64 [ 0, %.lr.ph275.i ], [ %indvars.iv.next342.i, %563 ]
-  %564 = phi i32 [ %561, %.lr.ph275.i ], [ %591, %563 ]
-  %565 = mul i32 %564, %.3279.i
-  %566 = trunc nuw i64 %indvars.iv341.i to i32
+563:                                              ; preds = %563, %.lr.ph274.i
+  %indvars.iv340.i = phi i64 [ 0, %.lr.ph274.i ], [ %indvars.iv.next341.i, %563 ]
+  %564 = phi i32 [ %561, %.lr.ph274.i ], [ %591, %563 ]
+  %565 = mul i32 %564, %.3278.i
+  %566 = trunc nuw i64 %indvars.iv340.i to i32
   %567 = add i32 %565, %566
   %568 = zext i32 %567 to i64
   %569 = getelementptr inbounds i32, ptr %1, i64 %568
   %570 = load i32, ptr %569, align 4
   %571 = sext i32 %570 to i64
   %572 = load i32, ptr %377, align 4
-  %573 = mul i32 %572, %.3279.i
+  %573 = mul i32 %572, %.3278.i
   %574 = add i32 %573, %562
   %575 = zext i32 %574 to i64
   %576 = getelementptr inbounds i32, ptr %2, i64 %575
   %577 = load i32, ptr %576, align 4
   %578 = sext i32 %577 to i64
   %579 = load ptr, ptr %378, align 8
-  %580 = getelementptr inbounds ptr, ptr %579, i64 %indvars.iv344.i
+  %580 = getelementptr inbounds ptr, ptr %579, i64 %indvars.iv343.i
   %581 = load ptr, ptr %580, align 8
-  %582 = getelementptr inbounds i32, ptr %581, i64 %indvars.iv341.i
+  %582 = getelementptr inbounds i32, ptr %581, i64 %indvars.iv340.i
   %583 = load i32, ptr %582, align 4
   %584 = sext i32 %583 to i64
   %585 = mul nsw i64 %584, %578
@@ -40277,70 +40277,70 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %589 = tail call i64 @llvm.smax.i64(i64 %588, i64 -2147483648)
   %590 = trunc nsw i64 %589 to i32
   store i32 %590, ptr %569, align 4
-  %indvars.iv.next342.i = add nuw nsw i64 %indvars.iv341.i, 1
+  %indvars.iv.next341.i = add nuw nsw i64 %indvars.iv340.i, 1
   %591 = load i32, ptr %360, align 8
   %592 = zext i32 %591 to i64
-  %593 = icmp ult i64 %indvars.iv.next342.i, %592
-  br i1 %593, label %563, label %._crit_edge276.loopexit.i
+  %593 = icmp ult i64 %indvars.iv.next341.i, %592
+  br i1 %593, label %563, label %._crit_edge275.loopexit.i
 
-._crit_edge276.loopexit.i:                        ; preds = %563
-  %.pre366.i = load i32, ptr %377, align 4
-  br label %._crit_edge276.i
+._crit_edge275.loopexit.i:                        ; preds = %563
+  %.pre365.i = load i32, ptr %377, align 4
+  br label %._crit_edge275.i
 
-._crit_edge276.i:                                 ; preds = %._crit_edge276.loopexit.i, %.preheader257.i
-  %594 = phi i32 [ %.pre366.i, %._crit_edge276.loopexit.i ], [ %560, %.preheader257.i ]
-  %595 = phi i32 [ %591, %._crit_edge276.loopexit.i ], [ 0, %.preheader257.i ]
-  %indvars.iv.next345.i = add nuw nsw i64 %indvars.iv344.i, 1
+._crit_edge275.i:                                 ; preds = %._crit_edge275.loopexit.i, %.preheader256.i
+  %594 = phi i32 [ %.pre365.i, %._crit_edge275.loopexit.i ], [ %560, %.preheader256.i ]
+  %595 = phi i32 [ %591, %._crit_edge275.loopexit.i ], [ 0, %.preheader256.i ]
+  %indvars.iv.next344.i = add nuw nsw i64 %indvars.iv343.i, 1
   %596 = zext i32 %594 to i64
-  %597 = icmp ult i64 %indvars.iv.next345.i, %596
-  br i1 %597, label %.preheader257.i, label %._crit_edge278.i, !llvm.loop !180
+  %597 = icmp ult i64 %indvars.iv.next344.i, %596
+  br i1 %597, label %.preheader256.i, label %._crit_edge277.i, !llvm.loop !180
 
-._crit_edge278.i:                                 ; preds = %._crit_edge276.i, %.preheader257.lr.ph.i, %.preheader258.i
-  %598 = phi i32 [ %557, %.preheader258.i ], [ %557, %.preheader257.lr.ph.i ], [ %594, %._crit_edge276.i ]
-  %599 = phi i32 [ 0, %.preheader258.i ], [ %558, %.preheader257.lr.ph.i ], [ %594, %._crit_edge276.i ]
-  %600 = add i32 %.3279.i, 1
+._crit_edge277.i:                                 ; preds = %._crit_edge275.i, %.preheader256.lr.ph.i, %.preheader257.i
+  %598 = phi i32 [ %557, %.preheader257.i ], [ %557, %.preheader256.lr.ph.i ], [ %594, %._crit_edge275.i ]
+  %599 = phi i32 [ 0, %.preheader257.i ], [ %558, %.preheader256.lr.ph.i ], [ %594, %._crit_edge275.i ]
+  %600 = add i32 %.3278.i, 1
   %601 = zext i32 %600 to i64
   %602 = icmp ugt i64 %3, %601
-  br i1 %602, label %.preheader258.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !181
+  br i1 %602, label %.preheader257.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !181
 
-.preheader262.i:                                  ; preds = %.preheader262.lr.ph.i, %._crit_edge272.i
-  %603 = phi i32 [ %636, %._crit_edge272.i ], [ %373, %.preheader262.lr.ph.i ]
-  %604 = phi i32 [ %637, %._crit_edge272.i ], [ %373, %.preheader262.lr.ph.i ]
-  %.4273.i = phi i32 [ %638, %._crit_edge272.i ], [ 0, %.preheader262.lr.ph.i ]
-  %.not300.i = icmp eq i32 %604, 0
-  br i1 %.not300.i, label %._crit_edge272.i, label %.preheader261.lr.ph.i
+.preheader261.i:                                  ; preds = %.preheader261.lr.ph.i, %._crit_edge271.i
+  %603 = phi i32 [ %636, %._crit_edge271.i ], [ %373, %.preheader261.lr.ph.i ]
+  %604 = phi i32 [ %637, %._crit_edge271.i ], [ %373, %.preheader261.lr.ph.i ]
+  %.4272.i = phi i32 [ %638, %._crit_edge271.i ], [ 0, %.preheader261.lr.ph.i ]
+  %.not299.i = icmp eq i32 %604, 0
+  br i1 %.not299.i, label %._crit_edge271.i, label %.preheader260.lr.ph.i
 
-.preheader261.lr.ph.i:                            ; preds = %.preheader262.i
+.preheader260.lr.ph.i:                            ; preds = %.preheader261.i
   %605 = load i32, ptr %360, align 8
-  %.not301.i = icmp eq i32 %605, 0
-  br i1 %.not301.i, label %._crit_edge272.i, label %.preheader261.i
+  %.not300.i = icmp eq i32 %605, 0
+  br i1 %.not300.i, label %._crit_edge271.i, label %.preheader260.i
 
-.preheader261.i:                                  ; preds = %.preheader261.lr.ph.i, %._crit_edge270.i
-  %606 = phi i32 [ %632, %._crit_edge270.i ], [ %603, %.preheader261.lr.ph.i ]
-  %607 = phi i32 [ %633, %._crit_edge270.i ], [ %605, %.preheader261.lr.ph.i ]
-  %indvars.iv338.i = phi i64 [ %indvars.iv.next339.i, %._crit_edge270.i ], [ 0, %.preheader261.lr.ph.i ]
-  %.not302.i = icmp eq i32 %607, 0
-  br i1 %.not302.i, label %._crit_edge270.i, label %.lr.ph269.i
+.preheader260.i:                                  ; preds = %.preheader260.lr.ph.i, %._crit_edge269.i
+  %606 = phi i32 [ %632, %._crit_edge269.i ], [ %603, %.preheader260.lr.ph.i ]
+  %607 = phi i32 [ %633, %._crit_edge269.i ], [ %605, %.preheader260.lr.ph.i ]
+  %indvars.iv337.i = phi i64 [ %indvars.iv.next338.i, %._crit_edge269.i ], [ 0, %.preheader260.lr.ph.i ]
+  %.not301.i = icmp eq i32 %607, 0
+  br i1 %.not301.i, label %._crit_edge269.i, label %.lr.ph268.i
 
-.lr.ph269.i:                                      ; preds = %.preheader261.i
-  %608 = trunc nuw i64 %indvars.iv338.i to i32
+.lr.ph268.i:                                      ; preds = %.preheader260.i
+  %608 = trunc nuw i64 %indvars.iv337.i to i32
   br label %609
 
-609:                                              ; preds = %609, %.lr.ph269.i
-  %indvars.iv.i80 = phi i64 [ 0, %.lr.ph269.i ], [ %indvars.iv.next.i81, %609 ]
-  %610 = phi i32 [ %607, %.lr.ph269.i ], [ %629, %609 ]
+609:                                              ; preds = %609, %.lr.ph268.i
+  %indvars.iv.i80 = phi i64 [ 0, %.lr.ph268.i ], [ %indvars.iv.next.i81, %609 ]
+  %610 = phi i32 [ %607, %.lr.ph268.i ], [ %629, %609 ]
   %611 = load i32, ptr %371, align 4
-  %612 = mul i32 %611, %.4273.i
+  %612 = mul i32 %611, %.4272.i
   %613 = add i32 %612, %608
   %614 = zext i32 %613 to i64
   %615 = getelementptr inbounds float, ptr %2, i64 %614
   %616 = load float, ptr %615, align 4
   %617 = load ptr, ptr %372, align 8
-  %618 = getelementptr inbounds ptr, ptr %617, i64 %indvars.iv338.i
+  %618 = getelementptr inbounds ptr, ptr %617, i64 %indvars.iv337.i
   %619 = load ptr, ptr %618, align 8
   %620 = getelementptr inbounds float, ptr %619, i64 %indvars.iv.i80
   %621 = load float, ptr %620, align 4
-  %622 = mul i32 %610, %.4273.i
+  %622 = mul i32 %610, %.4272.i
   %623 = trunc nuw i64 %indvars.iv.i80 to i32
   %624 = add i32 %622, %623
   %625 = zext i32 %624 to i64
@@ -40352,30 +40352,30 @@ define hidden noundef i32 @ma_channel_converter_process_pcm_frames(ptr noundef r
   %629 = load i32, ptr %360, align 8
   %630 = zext i32 %629 to i64
   %631 = icmp ult i64 %indvars.iv.next.i81, %630
-  br i1 %631, label %609, label %._crit_edge270.loopexit.i
+  br i1 %631, label %609, label %._crit_edge269.loopexit.i
 
-._crit_edge270.loopexit.i:                        ; preds = %609
-  %.pre365.i = load i32, ptr %371, align 4
-  br label %._crit_edge270.i
+._crit_edge269.loopexit.i:                        ; preds = %609
+  %.pre364.i = load i32, ptr %371, align 4
+  br label %._crit_edge269.i
 
-._crit_edge270.i:                                 ; preds = %._crit_edge270.loopexit.i, %.preheader261.i
-  %632 = phi i32 [ %.pre365.i, %._crit_edge270.loopexit.i ], [ %606, %.preheader261.i ]
-  %633 = phi i32 [ %629, %._crit_edge270.loopexit.i ], [ 0, %.preheader261.i ]
-  %indvars.iv.next339.i = add nuw nsw i64 %indvars.iv338.i, 1
+._crit_edge269.i:                                 ; preds = %._crit_edge269.loopexit.i, %.preheader260.i
+  %632 = phi i32 [ %.pre364.i, %._crit_edge269.loopexit.i ], [ %606, %.preheader260.i ]
+  %633 = phi i32 [ %629, %._crit_edge269.loopexit.i ], [ 0, %.preheader260.i ]
+  %indvars.iv.next338.i = add nuw nsw i64 %indvars.iv337.i, 1
   %634 = zext i32 %632 to i64
-  %635 = icmp ult i64 %indvars.iv.next339.i, %634
-  br i1 %635, label %.preheader261.i, label %._crit_edge272.i, !llvm.loop !182
+  %635 = icmp ult i64 %indvars.iv.next338.i, %634
+  br i1 %635, label %.preheader260.i, label %._crit_edge271.i, !llvm.loop !182
 
-._crit_edge272.i:                                 ; preds = %._crit_edge270.i, %.preheader261.lr.ph.i, %.preheader262.i
-  %636 = phi i32 [ %603, %.preheader262.i ], [ %603, %.preheader261.lr.ph.i ], [ %632, %._crit_edge270.i ]
-  %637 = phi i32 [ 0, %.preheader262.i ], [ %604, %.preheader261.lr.ph.i ], [ %632, %._crit_edge270.i ]
-  %638 = add i32 %.4273.i, 1
+._crit_edge271.i:                                 ; preds = %._crit_edge269.i, %.preheader260.lr.ph.i, %.preheader261.i
+  %636 = phi i32 [ %603, %.preheader261.i ], [ %603, %.preheader260.lr.ph.i ], [ %632, %._crit_edge269.i ]
+  %637 = phi i32 [ 0, %.preheader261.i ], [ %604, %.preheader260.lr.ph.i ], [ %632, %._crit_edge269.i ]
+  %638 = add i32 %.4272.i, 1
   %639 = zext i32 %638 to i64
   %640 = icmp ugt i64 %3, %639
-  br i1 %640, label %.preheader262.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !183
+  br i1 %640, label %.preheader261.i, label %ma_channel_converter_process_pcm_frames__passthrough.exit, !llvm.loop !183
 
-ma_channel_converter_process_pcm_frames__passthrough.exit: ; preds = %._crit_edge.us.i88.i.i, %._crit_edge.us.i75.i.i, %._crit_edge.us.i63.i.i, %._crit_edge.us.i55.i.i, %._crit_edge.us.i.i.i, %._crit_edge.i57, %.lr.ph136.i, %._crit_edge139.i, %._crit_edge143.i63, %._crit_edge147.i, %.lr.ph150.i, %._crit_edge153.i, %._crit_edge.i, %._crit_edge143.i, %._crit_edge150.i, %._crit_edge157.i, %._crit_edge164.i, %.lr.ph.i, %._crit_edge272.i, %.preheader262.us.i, %._crit_edge278.i, %.preheader258.us.i, %._crit_edge284.i, %.preheader254.us.i, %._crit_edge290.i, %.preheader250.us.i, %._crit_edge296.i, %.preheader247.us.i, %.lr.ph, %9, %.preheader248.i, %.preheader251.i, %.preheader255.i, %.preheader259.i, %.preheader263.i, %._crit_edge.i79, %341, %324, %278, %261, %244, %242, %233, %.preheader128.i59, %.preheader131.i52, %.preheader117.i, %.preheader120.i66, %.preheader.lr.ph.i71, %.preheader116.i, %.preheader122.lr.ph.i, %.preheader123.i, %.preheader125.lr.ph.i, %.preheader126.i, %129, %.preheader120.i, %.preheader122.i, %.preheader125.i, %.preheader128.i, %.preheader131.i, %35, %24, %4
-  %.045 = phi i32 [ -2, %4 ], [ 0, %24 ], [ -3, %35 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader125.i ], [ 0, %.preheader128.i ], [ 0, %.preheader131.i ], [ -3, %129 ], [ 0, %.preheader116.i ], [ 0, %.preheader117.i ], [ 0, %.preheader120.i66 ], [ 0, %.preheader123.i ], [ 0, %.preheader126.i ], [ 0, %.preheader128.i59 ], [ 0, %.preheader131.i52 ], [ 0, %.preheader125.lr.ph.i ], [ 0, %.preheader122.lr.ph.i ], [ 0, %.preheader.lr.ph.i71 ], [ -2, %233 ], [ -2, %242 ], [ 0, %244 ], [ 0, %261 ], [ 0, %278 ], [ 0, %324 ], [ 0, %341 ], [ -3, %._crit_edge.i79 ], [ 0, %.preheader248.i ], [ 0, %.preheader251.i ], [ 0, %.preheader255.i ], [ 0, %.preheader259.i ], [ 0, %.preheader263.i ], [ 0, %9 ], [ 0, %.lr.ph ], [ 0, %.preheader247.us.i ], [ 0, %._crit_edge296.i ], [ 0, %.preheader250.us.i ], [ 0, %._crit_edge290.i ], [ 0, %.preheader254.us.i ], [ 0, %._crit_edge284.i ], [ 0, %.preheader258.us.i ], [ 0, %._crit_edge278.i ], [ 0, %.preheader262.us.i ], [ 0, %._crit_edge272.i ], [ 0, %.lr.ph.i ], [ 0, %._crit_edge164.i ], [ 0, %._crit_edge157.i ], [ 0, %._crit_edge150.i ], [ 0, %._crit_edge143.i ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge153.i ], [ 0, %.lr.ph150.i ], [ 0, %._crit_edge147.i ], [ 0, %._crit_edge143.i63 ], [ 0, %._crit_edge139.i ], [ 0, %.lr.ph136.i ], [ 0, %._crit_edge.i57 ], [ 0, %._crit_edge.us.i.i.i ], [ 0, %._crit_edge.us.i55.i.i ], [ 0, %._crit_edge.us.i63.i.i ], [ 0, %._crit_edge.us.i75.i.i ], [ 0, %._crit_edge.us.i88.i.i ]
+ma_channel_converter_process_pcm_frames__passthrough.exit: ; preds = %._crit_edge.us.i88.i.i, %._crit_edge.us.i75.i.i, %._crit_edge.us.i63.i.i, %._crit_edge.us.i55.i.i, %._crit_edge.us.i.i.i, %._crit_edge.i57, %.lr.ph136.i, %._crit_edge139.i, %._crit_edge143.i63, %._crit_edge147.i, %.lr.ph150.i, %._crit_edge153.i, %._crit_edge.i, %._crit_edge143.i, %._crit_edge150.i, %._crit_edge157.i, %._crit_edge164.i, %.lr.ph.i, %._crit_edge271.i, %.preheader261.us.i, %._crit_edge277.i, %.preheader257.us.i, %._crit_edge283.i, %.preheader253.us.i, %._crit_edge289.i, %.preheader249.us.i, %._crit_edge295.i, %.preheader246.us.i, %.lr.ph, %9, %.preheader247.i, %.preheader250.i, %.preheader254.i, %.preheader258.i, %.preheader262.i, %._crit_edge.i79, %341, %324, %278, %261, %244, %242, %233, %.preheader128.i59, %.preheader131.i52, %.preheader117.i, %.preheader120.i66, %.preheader.lr.ph.i71, %.preheader116.i, %.preheader122.lr.ph.i, %.preheader123.i, %.preheader125.lr.ph.i, %.preheader126.i, %129, %.preheader120.i, %.preheader122.i, %.preheader125.i, %.preheader128.i, %.preheader131.i, %35, %24, %4
+  %.045 = phi i32 [ -2, %4 ], [ 0, %24 ], [ -3, %35 ], [ 0, %.preheader120.i ], [ 0, %.preheader122.i ], [ 0, %.preheader125.i ], [ 0, %.preheader128.i ], [ 0, %.preheader131.i ], [ -3, %129 ], [ 0, %.preheader116.i ], [ 0, %.preheader117.i ], [ 0, %.preheader120.i66 ], [ 0, %.preheader123.i ], [ 0, %.preheader126.i ], [ 0, %.preheader128.i59 ], [ 0, %.preheader131.i52 ], [ 0, %.preheader125.lr.ph.i ], [ 0, %.preheader122.lr.ph.i ], [ 0, %.preheader.lr.ph.i71 ], [ -2, %233 ], [ -2, %242 ], [ 0, %244 ], [ 0, %261 ], [ 0, %278 ], [ 0, %324 ], [ 0, %341 ], [ -3, %._crit_edge.i79 ], [ 0, %.preheader247.i ], [ 0, %.preheader250.i ], [ 0, %.preheader254.i ], [ 0, %.preheader258.i ], [ 0, %.preheader262.i ], [ 0, %9 ], [ 0, %.lr.ph ], [ 0, %.preheader246.us.i ], [ 0, %._crit_edge295.i ], [ 0, %.preheader249.us.i ], [ 0, %._crit_edge289.i ], [ 0, %.preheader253.us.i ], [ 0, %._crit_edge283.i ], [ 0, %.preheader257.us.i ], [ 0, %._crit_edge277.i ], [ 0, %.preheader261.us.i ], [ 0, %._crit_edge271.i ], [ 0, %.lr.ph.i ], [ 0, %._crit_edge164.i ], [ 0, %._crit_edge157.i ], [ 0, %._crit_edge150.i ], [ 0, %._crit_edge143.i ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge153.i ], [ 0, %.lr.ph150.i ], [ 0, %._crit_edge147.i ], [ 0, %._crit_edge143.i63 ], [ 0, %._crit_edge139.i ], [ 0, %.lr.ph136.i ], [ 0, %._crit_edge.i57 ], [ 0, %._crit_edge.us.i.i.i ], [ 0, %._crit_edge.us.i55.i.i ], [ 0, %._crit_edge.us.i63.i.i ], [ 0, %._crit_edge.us.i75.i.i ], [ 0, %._crit_edge.us.i88.i.i ]
   ret i32 %.045
 }
 

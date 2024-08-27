@@ -2472,12 +2472,12 @@ define internal void @finalize() #0 {
   br i1 %2, label %pmix_pointer_array_get_item.exit.preheader, label %._crit_edge
 
 pmix_pointer_array_get_item.exit.preheader:       ; preds = %0
-  %.pre23 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v21_component, i64 384), align 8
+  %.pre22 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v21_component, i64 384), align 8
   br label %pmix_pointer_array_get_item.exit
 
 pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_get_item.exit.preheader, %35
   %3 = phi i32 [ %1, %pmix_pointer_array_get_item.exit.preheader ], [ %36, %35 ]
-  %4 = phi ptr [ %.pre23, %pmix_pointer_array_get_item.exit.preheader ], [ %37, %35 ]
+  %4 = phi ptr [ %.pre22, %pmix_pointer_array_get_item.exit.preheader ], [ %37, %35 ]
   %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit.preheader ], [ %indvars.iv.next, %35 ]
   %5 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
@@ -2542,11 +2542,11 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %18
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = tail call i32 @pmix_pointer_array_set_item(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v21_component, i64 232), i32 noundef %33, ptr noundef null) #14
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v21_component, i64 384), align 8
-  %.pre24 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v21_component, i64 360), align 8
+  %.pre23 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v21_component, i64 360), align 8
   br label %35
 
 35:                                               ; preds = %pmix_pointer_array_get_item.exit, %32
-  %36 = phi i32 [ %3, %pmix_pointer_array_get_item.exit ], [ %.pre24, %32 ]
+  %36 = phi i32 [ %3, %pmix_pointer_array_get_item.exit ], [ %.pre23, %32 ]
   %37 = phi ptr [ %4, %pmix_pointer_array_get_item.exit ], [ %.pre, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = sext i32 %36 to i64

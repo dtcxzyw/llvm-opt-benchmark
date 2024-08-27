@@ -2585,7 +2585,7 @@ invoke.cont1277:                                  ; preds = %land.lhs.true1275
   br i1 %call1278, label %if.end1304, label %if.then1279
 
 if.then1279:                                      ; preds = %invoke.cont1277
-  %tobool1280 = trunc nuw i8 %setModelUnsound.11 to i1
+  %tobool1280 = trunc i8 %setModelUnsound.11 to i1
   br i1 %tobool1280, label %cond.end1296, label %if.end1299
 
 cond.end1296:                                     ; preds = %if.then1279

@@ -1324,8 +1324,8 @@ switch.early.test:                                ; preds = %226
   store i32 %79, ptr %119, align 8
   store i32 %120, ptr %121, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %122, ptr noundef nonnull align 16 dereferenceable(32) %9, i64 32, i1 false)
-  %.not42.i = icmp eq i32 %269, 0
-  %276 = select i1 %.not42.i, i32 4, i32 0
+  %.not.i323 = icmp eq i32 %269, 0
+  %276 = select i1 %.not.i323, i32 4, i32 0
   br label %277
 
 277:                                              ; preds = %277, %270
@@ -1381,8 +1381,8 @@ _ZL19icvTraceContour_32sPiiS_i.exit.thread:       ; preds = %302
 306:                                              ; preds = %302
   %307 = icmp eq ptr %303, %273
   %308 = icmp eq ptr %.137.i, %291
-  %or.cond47.i = and i1 %308, %307
-  br i1 %or.cond47.i, label %_ZL19icvTraceContour_32sPiiS_i.exit, label %309
+  %or.cond43.i = and i1 %308, %307
+  br i1 %or.cond43.i, label %_ZL19icvTraceContour_32sPiiS_i.exit, label %309
 
 309:                                              ; preds = %306
   %310 = and i32 %304, 7
@@ -2035,14 +2035,14 @@ _ZL15icvFetchContourPai7CvPointP5CvSeqi.exit:     ; preds = %.loopexit.i334, %55
   %600 = getelementptr inbounds i32, ptr %574, i64 %599
   %601 = load i32, ptr %600, align 4
   %602 = and i32 %601, 1073741823
-  %.not108.i = icmp eq i32 %602, %582
-  %.not109.i = icmp eq i32 %595, %592
-  %or.cond116.i = select i1 %.not108.i, i1 true, i1 %.not109.i
-  br i1 %or.cond116.i, label %.critedge.i, label %593, !llvm.loop !19
+  %.not.i339 = icmp eq i32 %602, %582
+  %.not106.i = icmp eq i32 %595, %592
+  %or.cond113.i = select i1 %.not.i339, i1 true, i1 %.not106.i
+  br i1 %or.cond113.i, label %.critedge.i, label %593, !llvm.loop !19
 
 .critedge.i:                                      ; preds = %593
   %603 = getelementptr inbounds i32, ptr %574, i64 %599
-  br i1 %.not109.i, label %604, label %614
+  br i1 %.not106.i, label %604, label %614
 
 604:                                              ; preds = %.critedge.i
   store i32 %584, ptr %574, align 4
@@ -2052,16 +2052,16 @@ _ZL15icvFetchContourPai7CvPointP5CvSeqi.exit:     ; preds = %.loopexit.i334, %55
 606:                                              ; preds = %604
   %607 = load ptr, ptr %154, align 8
   %608 = load ptr, ptr %155, align 8
-  %.not113.i = icmp ult ptr %607, %608
-  br i1 %.not113.i, label %610, label %609
+  %.not110.i = icmp ult ptr %607, %608
+  br i1 %.not110.i, label %610, label %609
 
 609:                                              ; preds = %606
   call void @cvCreateSeqBlock(ptr noundef nonnull %5)
-  %.pre178.i = load ptr, ptr %154, align 8
+  %.pre175.i = load ptr, ptr %154, align 8
   br label %610
 
 610:                                              ; preds = %609, %606
-  %611 = phi ptr [ %.pre178.i, %609 ], [ %607, %606 ]
+  %611 = phi ptr [ %.pre175.i, %609 ], [ %607, %606 ]
   store i32 %576, ptr %611, align 1
   %.sroa.11.0..sroa_idx82.i = getelementptr inbounds i8, ptr %611, i64 4
   store i32 %578, ptr %.sroa.11.0..sroa_idx82.i, align 1
@@ -2127,18 +2127,18 @@ _ZL15icvFetchContourPai7CvPointP5CvSeqi.exit:     ; preds = %.loopexit.i334, %55
   %641 = trunc nuw nsw i32 %633 to i8
   %642 = load ptr, ptr %154, align 8
   %643 = load ptr, ptr %155, align 8
-  %.not111.i = icmp ult ptr %642, %643
-  br i1 %.not111.i, label %645, label %644
+  %.not108.i = icmp ult ptr %642, %643
+  br i1 %.not108.i, label %645, label %644
 
 644:                                              ; preds = %640
   call void @cvCreateSeqBlock(ptr noundef nonnull %5)
-  %.pre177.i = load ptr, ptr %154, align 8
+  %.pre174.i = load ptr, ptr %154, align 8
   br label %645
 
 645:                                              ; preds = %644, %640
-  %646 = phi ptr [ %.pre177.i, %644 ], [ %642, %640 ]
+  %646 = phi ptr [ %.pre174.i, %644 ], [ %642, %640 ]
   store i8 %641, ptr %646, align 1
-  br label %.sink.split186.i
+  br label %.sink.split183.i
 
 647:                                              ; preds = %639
   %648 = icmp ne i32 %633, %.096.i
@@ -2148,8 +2148,8 @@ _ZL15icvFetchContourPai7CvPointP5CvSeqi.exit:     ; preds = %.loopexit.i334, %55
 649:                                              ; preds = %647
   %650 = load ptr, ptr %154, align 8
   %651 = load ptr, ptr %155, align 8
-  %.not110.i = icmp ult ptr %650, %651
-  br i1 %.not110.i, label %653, label %652
+  %.not107.i = icmp ult ptr %650, %651
+  br i1 %.not107.i, label %653, label %652
 
 652:                                              ; preds = %649
   call void @cvCreateSeqBlock(ptr noundef nonnull %5)
@@ -2161,18 +2161,18 @@ _ZL15icvFetchContourPai7CvPointP5CvSeqi.exit:     ; preds = %.loopexit.i334, %55
   store i32 %.sroa.074.0.i, ptr %654, align 1
   %.sroa.11.0..sroa_idx84.i = getelementptr inbounds i8, ptr %654, i64 4
   store i32 %.sroa.11.0.i, ptr %.sroa.11.0..sroa_idx84.i, align 1
-  br label %.sink.split186.i
+  br label %.sink.split183.i
 
-.sink.split186.i:                                 ; preds = %653, %645
-  %.sink189.i = phi i64 [ 8, %653 ], [ 1, %645 ]
+.sink.split183.i:                                 ; preds = %653, %645
+  %.sink186.i = phi i64 [ 8, %653 ], [ 1, %645 ]
   %655 = load ptr, ptr %154, align 8
-  %656 = getelementptr inbounds i8, ptr %655, i64 %.sink189.i
+  %656 = getelementptr inbounds i8, ptr %655, i64 %.sink186.i
   store ptr %656, ptr %154, align 8
   br label %657
 
-657:                                              ; preds = %.sink.split186.i, %647
-  %.not112.i = icmp eq i32 %633, %.096.i
-  br i1 %.not112.i, label %668, label %658
+657:                                              ; preds = %.sink.split183.i, %647
+  %.not109.i = icmp eq i32 %633, %.096.i
+  br i1 %.not109.i, label %668, label %658
 
 658:                                              ; preds = %657
   %659 = icmp slt i32 %.sroa.074.0.i, %.sroa.0.sroa.0.1.i
@@ -2214,8 +2214,8 @@ _ZL15icvFetchContourPai7CvPointP5CvSeqi.exit:     ; preds = %.loopexit.i334, %55
   %.sroa.11.2.i = phi i64 [ %.sroa.11.1.i, %657 ], [ %.sroa.11.12.insert.insert.i, %667 ], [ %.sroa.11.3.i, %665 ], [ %.sroa.11.3.i, %663 ]
   %669 = icmp eq ptr %630, %574
   %670 = icmp eq ptr %.095.i, %603
-  %or.cond117.i = and i1 %670, %669
-  br i1 %or.cond117.i, label %.loopexit.loopexit.i, label %671
+  %or.cond114.i = and i1 %670, %669
+  br i1 %or.cond114.i, label %.loopexit.loopexit.i, label %671
 
 671:                                              ; preds = %668
   %672 = and i64 %indvars.iv.next.i341, 7
@@ -2230,43 +2230,43 @@ _ZL15icvFetchContourPai7CvPointP5CvSeqi.exit:     ; preds = %.loopexit.i334, %55
   br label %617, !llvm.loop !21
 
 .loopexit.loopexit.i:                             ; preds = %668
-  %.pre179.i = trunc i64 %.sroa.11.2.i to i32
-  %.pre180.i = lshr i64 %.sroa.11.2.i, 32
-  %.pre181.i = trunc nuw i64 %.pre180.i to i32
+  %.pre176.i = trunc i64 %.sroa.11.2.i to i32
+  %.pre177.i = lshr i64 %.sroa.11.2.i, 32
+  %.pre178.i = trunc nuw i64 %.pre177.i to i32
   br label %.loopexit.i343
 
 .loopexit.i343:                                   ; preds = %.loopexit.loopexit.i, %610, %604
-  %.sroa.11.12.extract.trunc141.pre-phi.i = phi i32 [ %.pre181.i, %.loopexit.loopexit.i ], [ %578, %604 ], [ %578, %610 ]
-  %.sroa.11.8.extract.trunc130.pre-phi.i = phi i32 [ %.pre179.i, %.loopexit.loopexit.i ], [ %576, %604 ], [ %576, %610 ]
+  %.sroa.11.12.extract.trunc138.pre-phi.i = phi i32 [ %.pre178.i, %.loopexit.loopexit.i ], [ %578, %604 ], [ %578, %610 ]
+  %.sroa.11.8.extract.trunc127.pre-phi.i = phi i32 [ %.pre176.i, %.loopexit.loopexit.i ], [ %576, %604 ], [ %576, %610 ]
   %.sroa.0.sroa.0.0.i = phi i32 [ %.sroa.0.sroa.0.2.i, %.loopexit.loopexit.i ], [ %576, %604 ], [ %576, %610 ]
   %.sroa.0.sroa.7.0.i = phi i32 [ %.sroa.0.sroa.7.2.i, %.loopexit.loopexit.i ], [ %578, %604 ], [ %578, %610 ]
-  %reass.sub.i = add i32 %.sroa.11.8.extract.trunc130.pre-phi.i, 1
+  %reass.sub.i = add i32 %.sroa.11.8.extract.trunc127.pre-phi.i, 1
   %681 = sub i32 %reass.sub.i, %.sroa.0.sroa.0.0.i
-  %.sroa.11.8.insert.ext132.i = zext i32 %681 to i64
-  %reass.sub172.i = add i32 %.sroa.11.12.extract.trunc141.pre-phi.i, 1
-  %682 = sub i32 %reass.sub172.i, %.sroa.0.sroa.7.0.i
-  %.sroa.11.12.insert.ext143.i = zext i32 %682 to i64
-  %.sroa.11.12.insert.shift144.i = shl nuw i64 %.sroa.11.12.insert.ext143.i, 32
-  %.sroa.11.12.insert.insert146.i = or disjoint i64 %.sroa.11.12.insert.shift144.i, %.sroa.11.8.insert.ext132.i
+  %.sroa.11.8.insert.ext129.i = zext i32 %681 to i64
+  %reass.sub169.i = add i32 %.sroa.11.12.extract.trunc138.pre-phi.i, 1
+  %682 = sub i32 %reass.sub169.i, %.sroa.0.sroa.7.0.i
+  %.sroa.11.12.insert.ext140.i = zext i32 %682 to i64
+  %.sroa.11.12.insert.shift141.i = shl nuw i64 %.sroa.11.12.insert.ext140.i, 32
+  %.sroa.11.12.insert.insert143.i = or disjoint i64 %.sroa.11.12.insert.shift141.i, %.sroa.11.8.insert.ext129.i
   %683 = call ptr @cvEndWriteSeq(ptr noundef nonnull %5)
-  %.not114.i = icmp eq i32 %579, 0
+  %.not111.i = icmp eq i32 %579, 0
   %.pre598 = zext i32 %.sroa.0.sroa.7.0.i to i64
   %.pre599 = shl nuw i64 %.pre598, 32
   %.pre600 = zext i32 %.sroa.0.sroa.0.0.i to i64
   %.pre601 = or disjoint i64 %.pre599, %.pre600
-  br i1 %.not114.i, label %_ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit, label %684
+  br i1 %.not111.i, label %_ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit, label %684
 
 684:                                              ; preds = %.loopexit.i343
   %685 = getelementptr inbounds i8, ptr %397, i64 96
   store i64 %.pre601, ptr %685, align 8
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %397, i64 104
-  store i64 %.sroa.11.12.insert.insert146.i, ptr %.sroa.25.0..sroa_idx.i, align 8
+  store i64 %.sroa.11.12.insert.insert143.i, ptr %.sroa.25.0..sroa_idx.i, align 8
   br label %_ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit
 
 _ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit: ; preds = %.loopexit.i343, %684
   store i64 %.pre601, ptr %580, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %556, i64 40
-  store i64 %.sroa.11.12.insert.insert146.i, ptr %.sroa.2.0..sroa_idx.i, align 4
+  store i64 %.sroa.11.12.insert.insert143.i, ptr %.sroa.2.0..sroa_idx.i, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   br label %806
@@ -2287,10 +2287,10 @@ _ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit: ; preds = %.loopexit
   %698 = add nsw i32 %697, %389
   %699 = load i32, ptr %144, align 4
   %700 = add nsw i32 %699, %.0246525
-  %.sroa.2.0.insert.ext.i348 = zext i32 %700 to i64
-  %.sroa.2.0.insert.shift.i349 = shl nuw i64 %.sroa.2.0.insert.ext.i348, 32
-  %.sroa.0.0.insert.ext.i350 = zext i32 %698 to i64
-  %.sroa.0.0.insert.insert.i351 = or disjoint i64 %.sroa.2.0.insert.shift.i349, %.sroa.0.0.insert.ext.i350
+  %.sroa.2.0.insert.ext.i347 = zext i32 %700 to i64
+  %.sroa.2.0.insert.shift.i348 = shl nuw i64 %.sroa.2.0.insert.ext.i347, 32
+  %.sroa.0.0.insert.ext.i349 = zext i32 %698 to i64
+  %.sroa.0.0.insert.insert.i350 = or disjoint i64 %.sroa.2.0.insert.shift.i348, %.sroa.0.0.insert.ext.i349
   %701 = load i32, ptr %145, align 8
   %702 = getelementptr inbounds i8, ptr %556, i64 32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
@@ -2340,7 +2340,7 @@ _ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit: ; preds = %.loopexit
 723:                                              ; preds = %711
   %724 = getelementptr inbounds i8, ptr %696, i64 %717
   %725 = icmp eq i32 %713, %710
-  br i1 %725, label %726, label %.preheader.lr.ph.i352
+  br i1 %725, label %726, label %.preheader.lr.ph.i351
 
 726:                                              ; preds = %723
   %727 = trunc i32 %.1266512 to i8
@@ -2370,41 +2370,41 @@ _ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit: ; preds = %.loopexit
   store ptr %737, ptr %164, align 8
   br label %.loopexit.i367
 
-.preheader.lr.ph.i352:                            ; preds = %723
+.preheader.lr.ph.i351:                            ; preds = %723
   %738 = xor i32 %713, 4
   %739 = trunc i32 %.1266512 to i8
   %740 = or i8 %739, -128
   %741 = icmp eq i32 %701, 1
-  br label %.preheader.i353
+  br label %.preheader.i352
 
-.preheader.i353:                                  ; preds = %792, %.preheader.lr.ph.i352
-  %.sroa.11.0161.i = phi i32 [ %700, %.preheader.lr.ph.i352 ], [ %797, %792 ]
-  %.sroa.049.0159.i = phi i32 [ %698, %.preheader.lr.ph.i352 ], [ %799, %792 ]
-  %.0158.i = phi ptr [ %696, %.preheader.lr.ph.i352 ], [ %752, %792 ]
-  %.067157.i = phi i32 [ %738, %.preheader.lr.ph.i352 ], [ %754, %792 ]
-  %.sroa.0.sroa.0.1156.i = phi i32 [ %698, %.preheader.lr.ph.i352 ], [ %.sroa.0.sroa.0.2.i365, %792 ]
-  %.1144155.i = phi i32 [ %713, %.preheader.lr.ph.i352 ], [ %800, %792 ]
-  %.sroa.11.1154.i = phi i64 [ %.sroa.0.0.insert.insert.i351, %.preheader.lr.ph.i352 ], [ %.sroa.11.2.i364, %792 ]
-  %.sroa.0.sroa.7.1153.i = phi i32 [ %700, %.preheader.lr.ph.i352 ], [ %.sroa.0.sroa.7.2.i363, %792 ]
+.preheader.i352:                                  ; preds = %792, %.preheader.lr.ph.i351
+  %.sroa.11.0161.i = phi i32 [ %700, %.preheader.lr.ph.i351 ], [ %797, %792 ]
+  %.sroa.049.0159.i = phi i32 [ %698, %.preheader.lr.ph.i351 ], [ %799, %792 ]
+  %.0158.i = phi ptr [ %696, %.preheader.lr.ph.i351 ], [ %752, %792 ]
+  %.067157.i = phi i32 [ %738, %.preheader.lr.ph.i351 ], [ %754, %792 ]
+  %.sroa.0.sroa.0.1156.i = phi i32 [ %698, %.preheader.lr.ph.i351 ], [ %.sroa.0.sroa.0.2.i364, %792 ]
+  %.1144155.i = phi i32 [ %713, %.preheader.lr.ph.i351 ], [ %800, %792 ]
+  %.sroa.11.1154.i = phi i64 [ %.sroa.0.0.insert.insert.i350, %.preheader.lr.ph.i351 ], [ %.sroa.11.2.i363, %792 ]
+  %.sroa.0.sroa.7.1153.i = phi i32 [ %700, %.preheader.lr.ph.i351 ], [ %.sroa.0.sroa.7.2.i362, %792 ]
   %742 = zext nneg i32 %.1144155.i to i64
   br label %743
 
-743:                                              ; preds = %743, %.preheader.i353
-  %indvars.iv.i354 = phi i64 [ %742, %.preheader.i353 ], [ %indvars.iv.next.i355, %743 ]
-  %indvars.iv.next.i355 = add nuw nsw i64 %indvars.iv.i354, 1
-  %744 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %indvars.iv.next.i355
+743:                                              ; preds = %743, %.preheader.i352
+  %indvars.iv.i353 = phi i64 [ %742, %.preheader.i352 ], [ %indvars.iv.next.i354, %743 ]
+  %indvars.iv.next.i354 = add nuw nsw i64 %indvars.iv.i353, 1
+  %744 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %indvars.iv.next.i354
   %745 = load i32, ptr %744, align 4
   %746 = sext i32 %745 to i64
   %747 = getelementptr inbounds i8, ptr %.0158.i, i64 %746
   %748 = load i8, ptr %747, align 1
   %749 = icmp eq i8 %748, 0
-  %750 = icmp ult i64 %indvars.iv.i354, 14
-  %or.cond3.i356 = and i1 %750, %749
-  br i1 %or.cond3.i356, label %743, label %751, !llvm.loop !23
+  %750 = icmp ult i64 %indvars.iv.i353, 14
+  %or.cond3.i355 = and i1 %750, %749
+  br i1 %or.cond3.i355, label %743, label %751, !llvm.loop !23
 
 751:                                              ; preds = %743
   %752 = getelementptr inbounds i8, ptr %.0158.i, i64 %746
-  %753 = trunc nsw i64 %indvars.iv.next.i355 to i32
+  %753 = trunc nsw i64 %indvars.iv.next.i354 to i32
   %754 = and i32 %753, 7
   %755 = add nsw i32 %754, -1
   %756 = icmp ult i32 %755, %.1144155.i
@@ -2442,8 +2442,8 @@ _ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit: ; preds = %.loopexit
 
 768:                                              ; preds = %760
   %769 = icmp ne i32 %754, %.067157.i
-  %or.cond.i357 = or i1 %741, %769
-  br i1 %or.cond.i357, label %770, label %778
+  %or.cond.i356 = or i1 %741, %769
+  br i1 %or.cond.i356, label %770, label %778
 
 770:                                              ; preds = %768
   %771 = load ptr, ptr %164, align 8
@@ -2479,8 +2479,8 @@ _ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit: ; preds = %.loopexit
   br i1 %780, label %784, label %781
 
 781:                                              ; preds = %779
-  %.sroa.11.8.extract.trunc.i358 = trunc i64 %.sroa.11.1154.i to i32
-  %782 = icmp sgt i32 %.sroa.049.0159.i, %.sroa.11.8.extract.trunc.i358
+  %.sroa.11.8.extract.trunc.i357 = trunc i64 %.sroa.11.1154.i to i32
+  %782 = icmp sgt i32 %.sroa.049.0159.i, %.sroa.11.8.extract.trunc.i357
   br i1 %782, label %783, label %784
 
 783:                                              ; preds = %781
@@ -2490,35 +2490,35 @@ _ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit: ; preds = %.loopexit
   br label %784
 
 784:                                              ; preds = %783, %781, %779
-  %.sroa.11.3.i359 = phi i64 [ %.sroa.11.8.insert.insert.i383, %783 ], [ %.sroa.11.1154.i, %781 ], [ %.sroa.11.1154.i, %779 ]
-  %.sroa.0.sroa.0.3.i360 = phi i32 [ %.sroa.0.sroa.0.1156.i, %783 ], [ %.sroa.0.sroa.0.1156.i, %781 ], [ %.sroa.049.0159.i, %779 ]
+  %.sroa.11.3.i358 = phi i64 [ %.sroa.11.8.insert.insert.i383, %783 ], [ %.sroa.11.1154.i, %781 ], [ %.sroa.11.1154.i, %779 ]
+  %.sroa.0.sroa.0.3.i359 = phi i32 [ %.sroa.0.sroa.0.1156.i, %783 ], [ %.sroa.0.sroa.0.1156.i, %781 ], [ %.sroa.049.0159.i, %779 ]
   %785 = icmp slt i32 %.sroa.11.0161.i, %.sroa.0.sroa.7.1153.i
   br i1 %785, label %789, label %786
 
 786:                                              ; preds = %784
-  %.sroa.11.12.extract.shift.i361 = lshr i64 %.sroa.11.3.i359, 32
-  %.sroa.11.12.extract.trunc.i362 = trunc nuw i64 %.sroa.11.12.extract.shift.i361 to i32
-  %787 = icmp sgt i32 %.sroa.11.0161.i, %.sroa.11.12.extract.trunc.i362
+  %.sroa.11.12.extract.shift.i360 = lshr i64 %.sroa.11.3.i358, 32
+  %.sroa.11.12.extract.trunc.i361 = trunc nuw i64 %.sroa.11.12.extract.shift.i360 to i32
+  %787 = icmp sgt i32 %.sroa.11.0161.i, %.sroa.11.12.extract.trunc.i361
   br i1 %787, label %788, label %789
 
 788:                                              ; preds = %786
   %.sroa.11.12.insert.ext.i377 = zext i32 %.sroa.11.0161.i to i64
   %.sroa.11.12.insert.shift.i378 = shl nuw i64 %.sroa.11.12.insert.ext.i377, 32
-  %.sroa.11.12.insert.mask.i379 = and i64 %.sroa.11.3.i359, 4294967295
+  %.sroa.11.12.insert.mask.i379 = and i64 %.sroa.11.3.i358, 4294967295
   %.sroa.11.12.insert.insert.i380 = or disjoint i64 %.sroa.11.12.insert.mask.i379, %.sroa.11.12.insert.shift.i378
   br label %789
 
 789:                                              ; preds = %788, %786, %784, %778
-  %.sroa.0.sroa.7.2.i363 = phi i32 [ %.sroa.0.sroa.7.1153.i, %778 ], [ %.sroa.0.sroa.7.1153.i, %788 ], [ %.sroa.0.sroa.7.1153.i, %786 ], [ %.sroa.11.0161.i, %784 ]
-  %.sroa.11.2.i364 = phi i64 [ %.sroa.11.1154.i, %778 ], [ %.sroa.11.12.insert.insert.i380, %788 ], [ %.sroa.11.3.i359, %786 ], [ %.sroa.11.3.i359, %784 ]
-  %.sroa.0.sroa.0.2.i365 = phi i32 [ %.sroa.0.sroa.0.1156.i, %778 ], [ %.sroa.0.sroa.0.3.i360, %788 ], [ %.sroa.0.sroa.0.3.i360, %786 ], [ %.sroa.0.sroa.0.3.i360, %784 ]
+  %.sroa.0.sroa.7.2.i362 = phi i32 [ %.sroa.0.sroa.7.1153.i, %778 ], [ %.sroa.0.sroa.7.1153.i, %788 ], [ %.sroa.0.sroa.7.1153.i, %786 ], [ %.sroa.11.0161.i, %784 ]
+  %.sroa.11.2.i363 = phi i64 [ %.sroa.11.1154.i, %778 ], [ %.sroa.11.12.insert.insert.i380, %788 ], [ %.sroa.11.3.i358, %786 ], [ %.sroa.11.3.i358, %784 ]
+  %.sroa.0.sroa.0.2.i364 = phi i32 [ %.sroa.0.sroa.0.1156.i, %778 ], [ %.sroa.0.sroa.0.3.i359, %788 ], [ %.sroa.0.sroa.0.3.i359, %786 ], [ %.sroa.0.sroa.0.3.i359, %784 ]
   %790 = icmp eq ptr %752, %696
   %791 = icmp eq ptr %.0158.i, %724
   %or.cond83.i = and i1 %791, %790
-  br i1 %or.cond83.i, label %.loopexit.loopexit.i366, label %792
+  br i1 %or.cond83.i, label %.loopexit.loopexit.i365, label %792
 
 792:                                              ; preds = %789
-  %793 = and i64 %indvars.iv.next.i355, 7
+  %793 = and i64 %indvars.iv.next.i354, 7
   %794 = getelementptr inbounds [8 x %struct.CvPoint], ptr @_ZL13icvCodeDeltas, i64 0, i64 %793
   %795 = getelementptr inbounds i8, ptr %794, i64 4
   %796 = load i32, ptr %795, align 4
@@ -2526,19 +2526,19 @@ _ZL21icvFetchContourEx_32sPii7CvPointP5CvSeqiP6CvRect.exit: ; preds = %.loopexit
   %798 = load i32, ptr %794, align 8
   %799 = add nsw i32 %798, %.sroa.049.0159.i
   %800 = xor i32 %754, 4
-  br label %.preheader.i353
+  br label %.preheader.i352
 
-.loopexit.loopexit.i366:                          ; preds = %789
-  %.pre172.i = trunc i64 %.sroa.11.2.i364 to i32
-  %.pre173.i = lshr i64 %.sroa.11.2.i364, 32
-  %.pre174.i = trunc nuw i64 %.pre173.i to i32
+.loopexit.loopexit.i365:                          ; preds = %789
+  %.pre172.i = trunc i64 %.sroa.11.2.i363 to i32
+  %.pre173.i = lshr i64 %.sroa.11.2.i363, 32
+  %.pre174.i366 = trunc nuw i64 %.pre173.i to i32
   br label %.loopexit.i367
 
-.loopexit.i367:                                   ; preds = %.loopexit.loopexit.i366, %734, %726
-  %.sroa.11.12.extract.trunc119.pre-phi.i = phi i32 [ %.pre174.i, %.loopexit.loopexit.i366 ], [ %700, %726 ], [ %700, %734 ]
-  %.sroa.11.8.extract.trunc108.pre-phi.i = phi i32 [ %.pre172.i, %.loopexit.loopexit.i366 ], [ %698, %726 ], [ %698, %734 ]
-  %.sroa.0.sroa.7.0.i368 = phi i32 [ %.sroa.0.sroa.7.2.i363, %.loopexit.loopexit.i366 ], [ %700, %726 ], [ %700, %734 ]
-  %.sroa.0.sroa.0.0.i369 = phi i32 [ %.sroa.0.sroa.0.2.i365, %.loopexit.loopexit.i366 ], [ %698, %726 ], [ %698, %734 ]
+.loopexit.i367:                                   ; preds = %.loopexit.loopexit.i365, %734, %726
+  %.sroa.11.12.extract.trunc119.pre-phi.i = phi i32 [ %.pre174.i366, %.loopexit.loopexit.i365 ], [ %700, %726 ], [ %700, %734 ]
+  %.sroa.11.8.extract.trunc108.pre-phi.i = phi i32 [ %.pre172.i, %.loopexit.loopexit.i365 ], [ %698, %726 ], [ %698, %734 ]
+  %.sroa.0.sroa.7.0.i368 = phi i32 [ %.sroa.0.sroa.7.2.i362, %.loopexit.loopexit.i365 ], [ %700, %726 ], [ %700, %734 ]
+  %.sroa.0.sroa.0.0.i369 = phi i32 [ %.sroa.0.sroa.0.2.i364, %.loopexit.loopexit.i365 ], [ %698, %726 ], [ %698, %734 ]
   %reass.sub.i370 = add i32 %.sroa.11.8.extract.trunc108.pre-phi.i, 1
   %801 = sub i32 %reass.sub.i370, %.sroa.0.sroa.0.0.i369
   %.sroa.11.8.insert.ext110.i = zext i32 %801 to i64

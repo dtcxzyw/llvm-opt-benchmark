@@ -2114,23 +2114,23 @@ if.end.i28:                                       ; preds = %sw.bb21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %ethhdr_rewrite.i.i, ptr noundef nonnull align 2 dereferenceable(14) %34, i64 14, i1 false)
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %src_mac.i, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
   %tobool4.not.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %tobool4.not.i.i, label %if.end.i.i, label %if.then5.i.i
+  br i1 %tobool4.not.i.i, label %land.lhs.true8.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i28
   %h_source.i.i = getelementptr inbounds i8, ptr %fc, i64 26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %h_source.i.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %src_mac.i, i64 6, i1 false)
-  br label %if.end.i.i
+  br label %land.lhs.true8.i.i
 
-if.end.i.i:                                       ; preds = %if.then5.i.i, %if.end.i28
+land.lhs.true8.i.i:                               ; preds = %if.then5.i.i, %if.end.i28
   %bcmp19.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %dst_mac.i, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
   %tobool10.not.i.i = icmp eq i32 %bcmp19.i.i, 0
   br i1 %tobool10.not.i.i, label %if.end14.i.i, label %if.then11.i.i
 
-if.then11.i.i:                                    ; preds = %if.end.i.i
+if.then11.i.i:                                    ; preds = %land.lhs.true8.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %ethhdr_rewrite.i.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %dst_mac.i, i64 6, i1 false)
   br label %if.end14.i.i
 
-if.end14.i.i:                                     ; preds = %if.then11.i.i, %if.end.i.i
+if.end14.i.i:                                     ; preds = %if.then11.i.i, %land.lhs.true8.i.i
   %iov.i.i30 = getelementptr inbounds i8, ptr %fc, i64 8
   %35 = load ptr, ptr %iov.i.i30, align 8
   store ptr %ethhdr_rewrite.i.i, ptr %35, align 8
@@ -2291,23 +2291,23 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %ethhdr_rewrite.i, ptr noundef nonnull align 2 dereferenceable(14) %5, i64 14, i1 false)
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %src_mac, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
   %tobool4.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %tobool4.not.i, label %if.end.i, label %if.then5.i
+  br i1 %tobool4.not.i, label %land.lhs.true8.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end
   %h_source.i = getelementptr inbounds i8, ptr %fc, i64 26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %h_source.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %src_mac, i64 6, i1 false)
-  br label %if.end.i
+  br label %land.lhs.true8.i
 
-if.end.i:                                         ; preds = %if.then5.i, %if.end
+land.lhs.true8.i:                                 ; preds = %if.then5.i, %if.end
   %bcmp19.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %dst_mac, ptr noundef nonnull dereferenceable(6) @zero_mac, i64 6)
   %tobool10.not.i = icmp eq i32 %bcmp19.i, 0
   br i1 %tobool10.not.i, label %if.end14.i, label %if.then11.i
 
-if.then11.i:                                      ; preds = %if.end.i
+if.then11.i:                                      ; preds = %land.lhs.true8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %ethhdr_rewrite.i, ptr noundef nonnull readonly align 1 dereferenceable(6) %dst_mac, i64 6, i1 false)
   br label %if.end14.i
 
-if.end14.i:                                       ; preds = %if.then11.i, %if.end.i
+if.end14.i:                                       ; preds = %if.then11.i, %land.lhs.true8.i
   %iov.i = getelementptr inbounds i8, ptr %fc, i64 8
   %6 = load ptr, ptr %iov.i, align 8
   store ptr %ethhdr_rewrite.i, ptr %6, align 8

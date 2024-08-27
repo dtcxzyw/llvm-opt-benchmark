@@ -1897,7 +1897,7 @@ define internal fastcc ptr @_generate_pattern(ptr noundef readonly %0, ptr nocap
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %80, label %.preheader
+  br i1 %.not, label %82, label %.preheader
 
 .preheader:                                       ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 368
@@ -1915,30 +1915,30 @@ define internal fastcc ptr @_generate_pattern(ptr noundef readonly %0, ptr nocap
   br label %20
 
 20:                                               ; preds = %.preheader, %_pattern_argv.exit
-  %.0 = phi ptr [ %77, %_pattern_argv.exit ], [ %0, %.preheader ]
+  %.0 = phi ptr [ %79, %_pattern_argv.exit ], [ %0, %.preheader ]
   %21 = load i8, ptr %.0, align 1
-  switch i8 %21, label %75 [
-    i8 0, label %78
+  switch i8 %21, label %77 [
+    i8 0, label %80
     i8 37, label %22
   ]
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %.0, i64 1
   %24 = load i8, ptr %23, align 1
-  switch i8 %24, label %73 [
+  switch i8 %24, label %75 [
     i8 37, label %25
     i8 64, label %26
-    i8 98, label %41
-    i8 101, label %43
-    i8 106, label %45
-    i8 109, label %47
-    i8 110, label %54
-    i8 112, label %56
-    i8 114, label %64
-    i8 115, label %66
-    i8 116, label %68
-    i8 117, label %69
-    i8 85, label %71
+    i8 98, label %43
+    i8 101, label %45
+    i8 106, label %47
+    i8 109, label %49
+    i8 110, label %56
+    i8 112, label %58
+    i8 114, label %66
+    i8 115, label %68
+    i8 116, label %70
+    i8 117, label %71
+    i8 85, label %73
   ]
 
 25:                                               ; preds = %22
@@ -1946,155 +1946,155 @@ define internal fastcc ptr @_generate_pattern(ptr noundef readonly %0, ptr nocap
   br label %_pattern_argv.exit
 
 26:                                               ; preds = %22
-  br i1 %.not34, label %40, label %.lr.ph.i.preheader
+  br i1 %.not34, label %42, label %27
 
-.lr.ph.i.preheader:                               ; preds = %26
-  %27 = load ptr, ptr %3, align 8
-  %.not23.i35 = icmp eq ptr %27, null
-  br i1 %.not23.i35, label %_pattern_argv.exit, label %.lr.ph
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %3, align 8
+  %.not25.i = icmp eq ptr %28, null
+  br i1 %.not25.i, label %_pattern_argv.exit, label %.lr.ph.i
 
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.02127.i36 = phi ptr [ %38, %.lr.ph.i ], [ %3, %.lr.ph.i.preheader ]
-  %.not24.i = icmp eq ptr %.02127.i36, %3
-  br i1 %.not24.i, label %29, label %28
+.lr.ph.i:                                         ; preds = %27, %39
+  %.02126.i = phi ptr [ %40, %39 ], [ %3, %27 ]
+  %.not23.i = icmp eq ptr %.02126.i, %3
+  br i1 %.not23.i, label %30, label %29
 
-28:                                               ; preds = %.lr.ph
+29:                                               ; preds = %.lr.ph.i
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.31) #9
-  br label %29
+  br label %30
 
-29:                                               ; preds = %28, %.lr.ph
+30:                                               ; preds = %29, %.lr.ph.i
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.32) #9
-  %30 = load ptr, ptr %.02127.i36, align 8
-  br label %31
+  %31 = load ptr, ptr %.02126.i, align 8
+  br label %32
 
-31:                                               ; preds = %34, %29
-  %.0.i = phi ptr [ %30, %29 ], [ %37, %34 ]
-  %32 = load i8, ptr %.0.i, align 1
-  switch i8 %32, label %34 [
-    i8 0, label %.lr.ph.i
-    i8 39, label %33
+32:                                               ; preds = %35, %30
+  %.0.i = phi ptr [ %31, %30 ], [ %38, %35 ]
+  %33 = load i8, ptr %.0.i, align 1
+  switch i8 %33, label %35 [
+    i8 0, label %39
+    i8 39, label %34
   ]
 
-33:                                               ; preds = %31
+34:                                               ; preds = %32
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.33) #9
   %.pre.i = load i8, ptr %.0.i, align 1
-  br label %34
+  br label %35
 
-34:                                               ; preds = %33, %31
-  %35 = phi i8 [ %32, %31 ], [ %.pre.i, %33 ]
-  %36 = sext i8 %35 to i32
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.30, i32 noundef %36) #9
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  br label %31, !llvm.loop !18
+35:                                               ; preds = %34, %32
+  %36 = phi i8 [ %33, %32 ], [ %.pre.i, %34 ]
+  %37 = sext i8 %36 to i32
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.30, i32 noundef %37) #9
+  %38 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  br label %32, !llvm.loop !18
 
-.lr.ph.i:                                         ; preds = %31
+39:                                               ; preds = %32
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.32) #9
-  %38 = getelementptr inbounds i8, ptr %.02127.i36, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %.not23.i = icmp eq ptr %39, null
-  br i1 %.not23.i, label %_pattern_argv.exit, label %.lr.ph
+  %40 = getelementptr inbounds i8, ptr %.02126.i, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %_pattern_argv.exit, label %.lr.ph.i, !llvm.loop !19
 
-40:                                               ; preds = %26
+42:                                               ; preds = %26
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.26) #9
   br label %_pattern_argv.exit
 
-41:                                               ; preds = %22
-  %42 = load ptr, ptr %19, align 8
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef %42) #9
-  br label %_pattern_argv.exit
-
 43:                                               ; preds = %22
-  %44 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.13, ptr noundef %44, ptr noundef nonnull @.str.14) #9
+  %44 = load ptr, ptr %19, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef %44) #9
   br label %_pattern_argv.exit
 
 45:                                               ; preds = %22
-  %46 = load i32, ptr %18, align 8
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.27, i32 noundef %46) #9
+  %46 = load ptr, ptr %17, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.13, ptr noundef %46, ptr noundef nonnull @.str.14) #9
   br label %_pattern_argv.exit
 
 47:                                               ; preds = %22
-  %48 = load ptr, ptr %17, align 8
-  %.not33 = icmp eq ptr %48, null
-  br i1 %.not33, label %50, label %49
-
-49:                                               ; preds = %47
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef nonnull %48) #9
+  %48 = load i32, ptr %18, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.27, i32 noundef %48) #9
   br label %_pattern_argv.exit
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr @conf, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 4360
-  %53 = load ptr, ptr %52, align 8
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef %53) #9
+49:                                               ; preds = %22
+  %50 = load ptr, ptr %17, align 8
+  %.not33 = icmp eq ptr %50, null
+  br i1 %.not33, label %52, label %51
+
+51:                                               ; preds = %49
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef nonnull %50) #9
   br label %_pattern_argv.exit
 
-54:                                               ; preds = %22
-  %55 = load ptr, ptr %16, align 8
+52:                                               ; preds = %49
+  %53 = load ptr, ptr @conf, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 4360
+  %55 = load ptr, ptr %54, align 8
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef %55) #9
   br label %_pattern_argv.exit
 
 56:                                               ; preds = %22
-  br i1 %13, label %57, label %63
-
-57:                                               ; preds = %56
-  %58 = load ptr, ptr %14, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %15
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 64
-  %62 = load i32, ptr %61, align 8
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.27, i32 noundef %62) #9
+  %57 = load ptr, ptr %16, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef %57) #9
   br label %_pattern_argv.exit
 
-63:                                               ; preds = %56
+58:                                               ; preds = %22
+  br i1 %13, label %59, label %65
+
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %14, align 8
+  %61 = getelementptr inbounds ptr, ptr %60, i64 %15
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 64
+  %64 = load i32, ptr %63, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.27, i32 noundef %64) #9
+  br label %_pattern_argv.exit
+
+65:                                               ; preds = %58
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.27, i32 noundef -1) #9
   br label %_pattern_argv.exit
 
-64:                                               ; preds = %22
-  %65 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef %65) #9
-  br label %_pattern_argv.exit
-
 66:                                               ; preds = %22
-  %67 = load i32, ptr %11, align 8
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.27, i32 noundef %67) #9
+  %67 = load ptr, ptr %12, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef %67) #9
   br label %_pattern_argv.exit
 
 68:                                               ; preds = %22
+  %69 = load i32, ptr %11, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.27, i32 noundef %69) #9
+  br label %_pattern_argv.exit
+
+70:                                               ; preds = %22
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.28, i32 noundef %2) #9
   br label %_pattern_argv.exit
 
-69:                                               ; preds = %22
-  %70 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef %70) #9
-  br label %_pattern_argv.exit
-
 71:                                               ; preds = %22
-  %72 = load i32, ptr %9, align 8
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.27, i32 noundef %72) #9
+  %72 = load ptr, ptr %10, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.24, ptr noundef %72) #9
   br label %_pattern_argv.exit
 
 73:                                               ; preds = %22
-  %74 = sext i8 %24 to i32
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__._generate_pattern, i32 noundef %74) #10
-  unreachable
-
-75:                                               ; preds = %20
-  %76 = sext i8 %21 to i32
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.30, i32 noundef %76) #9
+  %74 = load i32, ptr %9, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.27, i32 noundef %74) #9
   br label %_pattern_argv.exit
 
-_pattern_argv.exit:                               ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %75, %57, %63, %49, %50, %40, %71, %69, %68, %66, %64, %54, %45, %43, %41, %25
-  %.1 = phi ptr [ %23, %71 ], [ %23, %69 ], [ %23, %68 ], [ %23, %66 ], [ %23, %64 ], [ %23, %57 ], [ %23, %63 ], [ %23, %54 ], [ %23, %49 ], [ %23, %50 ], [ %23, %45 ], [ %23, %43 ], [ %23, %41 ], [ %23, %40 ], [ %23, %25 ], [ %.0, %75 ], [ %23, %.lr.ph.i.preheader ], [ %23, %.lr.ph.i ]
-  %77 = getelementptr inbounds i8, ptr %.1, i64 1
-  br label %20, !llvm.loop !19
+75:                                               ; preds = %22
+  %76 = sext i8 %24 to i32
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__._generate_pattern, i32 noundef %76) #10
+  unreachable
 
-78:                                               ; preds = %20
-  %79 = load ptr, ptr %5, align 8
-  br label %80
+77:                                               ; preds = %20
+  %78 = sext i8 %21 to i32
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.30, i32 noundef %78) #9
+  br label %_pattern_argv.exit
 
-80:                                               ; preds = %4, %78
-  %.025 = phi ptr [ %79, %78 ], [ null, %4 ]
+_pattern_argv.exit:                               ; preds = %39, %27, %77, %59, %65, %51, %52, %42, %73, %71, %70, %68, %66, %56, %47, %45, %43, %25
+  %.1 = phi ptr [ %23, %73 ], [ %23, %71 ], [ %23, %70 ], [ %23, %68 ], [ %23, %66 ], [ %23, %59 ], [ %23, %65 ], [ %23, %56 ], [ %23, %51 ], [ %23, %52 ], [ %23, %47 ], [ %23, %45 ], [ %23, %43 ], [ %23, %42 ], [ %23, %25 ], [ %.0, %77 ], [ %23, %27 ], [ %23, %39 ]
+  %79 = getelementptr inbounds i8, ptr %.1, i64 1
+  br label %20, !llvm.loop !20
+
+80:                                               ; preds = %20
+  %81 = load ptr, ptr %5, align 8
+  br label %82
+
+82:                                               ; preds = %4, %80
+  %.025 = phi ptr [ %81, %80 ], [ null, %4 ]
   ret ptr %.025
 }
 
@@ -2545,7 +2545,7 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
   %.1 = select i1 %54, i32 1000000, i32 %55
   %56 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %56, 10
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %27, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %27, !llvm.loop !21
 
 .loopexit.loopexit:                               ; preds = %52, %34, %33, %43
   %.pre = load ptr, ptr %1, align 8
@@ -2663,3 +2663,4 @@ attributes #12 = { nounwind willreturn memory(none) }
 !18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}

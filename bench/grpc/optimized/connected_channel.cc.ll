@@ -6958,10 +6958,6 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplINS_14promise_detail6TrySeqINS_15for_each_detail7ForEachINS_12PipeReceiverISt10unique_ptrINS_7MessageENS0_13PooledDeleterEEEEZNS_12_GLOBAL__N_122ConnectedChannelStream12SendMessagesEPSD_E3$_0EEJZNSE_21MakeClientCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS9_I19grpc_metadata_batchSB_EEESL_EEE3$_3EEEZNSE_21MakeClientCallPromiseESK_SL_SS_E3$_4EEEEvPT_"(ptr noundef %p) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %isnull = icmp eq ptr %p, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
   %started_.i = getelementptr inbounds i8, ptr %p, i64 128
   %0 = load i8, ptr %started_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -6970,7 +6966,7 @@ delete.notnull:                                   ; preds = %entry
   %2 = load i8, ptr %state.i.i.i.i1.i, align 8
   br i1 %tobool.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %delete.notnull
+if.then.i:                                        ; preds = %entry
   switch i8 %2, label %tail0.i.i.i.i.i [
     i8 0, label %sw.bb.i.i.i.i.i
     i8 1, label %sw.bb2.i.i.i.i.i
@@ -7016,7 +7012,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %7) #27
   unreachable
 
-if.else.i:                                        ; preds = %delete.notnull
+if.else.i:                                        ; preds = %entry
   switch i8 %2, label %tail0.i.i.i.i10.i [
     i8 0, label %sw.bb.i.i.i.i9.i
     i8 1, label %sw.bb2.i.i.i.i2.i
@@ -7071,9 +7067,6 @@ if.end.sink.split.i:                              ; preds = %if.then.i.i.i.i.i.i
 "_ZN9grpc_core5Party15ParticipantImplINS_14promise_detail6TrySeqINS_15for_each_detail7ForEachINS_12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEZNS_12_GLOBAL__N_122ConnectedChannelStream12SendMessagesEPSC_E3$_0EEJZNSD_21MakeClientCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS7_I19grpc_metadata_batchSA_EEESK_EEE3$_3EEEZNSD_21MakeClientCallPromiseESJ_SK_SR_E3$_4ED2Ev.exit": ; preds = %sw.bb2.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %tail0.i.i.i.i.i, %if.then.i.i.i.i2.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %sw.bb2.i.i.i.i2.i, %if.then.i.i.i.i.i.i.i.i4.i, %tail0.i.i.i.i10.i, %if.then.i.i.i.i2.i.i.i.i14.i, %if.then.i.i.i.i.i.i.i.i.i.i17.i, %if.end.sink.split.i
   tail call void @_ZN9grpc_core5Party11ParticipantD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %p) #26
   tail call void @_ZdlPv(ptr noundef nonnull %p) #29
-  br label %delete.end
-
-delete.end:                                       ; preds = %"_ZN9grpc_core5Party15ParticipantImplINS_14promise_detail6TrySeqINS_15for_each_detail7ForEachINS_12PipeReceiverISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEZNS_12_GLOBAL__N_122ConnectedChannelStream12SendMessagesEPSC_E3$_0EEJZNSD_21MakeClientCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS7_I19grpc_metadata_batchSA_EEESK_EEE3$_3EEEZNSD_21MakeClientCallPromiseESJ_SK_SR_E3$_4ED2Ev.exit", %entry
   ret void
 }
 
@@ -11632,10 +11625,6 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplINS_14promise_detail6TrySeqIZNS_12BatchBuilder5Batch8RefUntilINS4_3MapIZNS_5LatchIN4absl12lts_202308026StatusEE4WaitEvEUlvE_ZNS6_22ReceiveInitialMetadataENS6_6TargetEEUlSD_E_EEEEDaT_EUlvE_JZNS_12_GLOBAL__N_121MakeClientCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_13PooledDeleterEEEESO_EEE3$_0EEEZNSL_21MakeClientCallPromiseESN_SO_SX_E3$_5EEEEvPSJ_"(ptr noundef %p) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %isnull = icmp eq ptr %p, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
   %started_.i = getelementptr inbounds i8, ptr %p, i64 80
   %0 = load i8, ptr %started_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -11644,7 +11633,7 @@ delete.notnull:                                   ; preds = %entry
   %2 = load i8, ptr %state.i.i.i.i1.i, align 8
   br i1 %tobool.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %delete.notnull
+if.then.i:                                        ; preds = %entry
   switch i8 %2, label %"_ZN9grpc_core5Party15ParticipantImplINS_14promise_detail6TrySeqIZNS_12BatchBuilder5Batch8RefUntilINS2_3MapIZNS_5LatchIN4absl12lts_202308026StatusEE4WaitEvEUlvE_ZNS4_22ReceiveInitialMetadataENS4_6TargetEEUlSB_E_EEEEDaT_EUlvE_JZNS_12_GLOBAL__N_121MakeClientCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEESM_EEE3$_0EEEZNSJ_21MakeClientCallPromiseESL_SM_SW_E3$_5ED2Ev.exit" [
     i8 0, label %sw.bb.i.i.i.i.i
     i8 1, label %sw.bb2.i.i.i.i.i
@@ -11672,7 +11661,7 @@ sw.bb2.i.i.i.i.i:                                 ; preds = %if.then.i
   tail call void @_ZN9grpc_core11pipe_detail4PushISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
   br label %"_ZN9grpc_core5Party15ParticipantImplINS_14promise_detail6TrySeqIZNS_12BatchBuilder5Batch8RefUntilINS2_3MapIZNS_5LatchIN4absl12lts_202308026StatusEE4WaitEvEUlvE_ZNS4_22ReceiveInitialMetadataENS4_6TargetEEUlSB_E_EEEEDaT_EUlvE_JZNS_12_GLOBAL__N_121MakeClientCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEESM_EEE3$_0EEEZNSJ_21MakeClientCallPromiseESL_SM_SW_E3$_5ED2Ev.exit"
 
-if.else.i:                                        ; preds = %delete.notnull
+if.else.i:                                        ; preds = %entry
   switch i8 %2, label %"_ZN9grpc_core5Party15ParticipantImplINS_14promise_detail6TrySeqIZNS_12BatchBuilder5Batch8RefUntilINS2_3MapIZNS_5LatchIN4absl12lts_202308026StatusEE4WaitEvEUlvE_ZNS4_22ReceiveInitialMetadataENS4_6TargetEEUlSB_E_EEEEDaT_EUlvE_JZNS_12_GLOBAL__N_121MakeClientCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEESM_EEE3$_0EEEZNSJ_21MakeClientCallPromiseESL_SM_SW_E3$_5ED2Ev.exit" [
     i8 0, label %sw.bb.i.i.i.i3.i
     i8 1, label %sw.bb2.i.i.i.i2.i
@@ -11703,9 +11692,6 @@ sw.bb2.i.i.i.i2.i:                                ; preds = %if.else.i
 "_ZN9grpc_core5Party15ParticipantImplINS_14promise_detail6TrySeqIZNS_12BatchBuilder5Batch8RefUntilINS2_3MapIZNS_5LatchIN4absl12lts_202308026StatusEE4WaitEvEUlvE_ZNS4_22ReceiveInitialMetadataENS4_6TargetEEUlSB_E_EEEEDaT_EUlvE_JZNS_12_GLOBAL__N_121MakeClientCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEESM_EEE3$_0EEEZNSJ_21MakeClientCallPromiseESL_SM_SW_E3$_5ED2Ev.exit": ; preds = %if.then.i, %sw.bb.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %sw.bb2.i.i.i.i.i, %if.else.i, %sw.bb.i.i.i.i3.i, %if.then.i.i.i.i.i.i.i.i5.i, %if.then.i.i.i.i.i.i.i.i.i9.i, %sw.bb2.i.i.i.i2.i
   tail call void @_ZN9grpc_core5Party11ParticipantD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %p) #26
   tail call void @_ZdlPv(ptr noundef nonnull %p) #29
-  br label %delete.end
-
-delete.end:                                       ; preds = %"_ZN9grpc_core5Party15ParticipantImplINS_14promise_detail6TrySeqIZNS_12BatchBuilder5Batch8RefUntilINS2_3MapIZNS_5LatchIN4absl12lts_202308026StatusEE4WaitEvEUlvE_ZNS4_22ReceiveInitialMetadataENS4_6TargetEEUlSB_E_EEEEDaT_EUlvE_JZNS_12_GLOBAL__N_121MakeClientCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEESM_EEE3$_0EEEZNSJ_21MakeClientCallPromiseESL_SM_SW_E3$_5ED2Ev.exit", %entry
   ret void
 }
 
@@ -25160,10 +25146,6 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplINS_14promise_detail4RaceIJNS4_3MapIZNS_25ExternallyObservableLatchIvE4WaitEvEUlvE_ZNS_12_GLOBAL__N_121MakeServerCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_13PooledDeleterEEEESD_EEE3$_6EENS6_INS4_4LoopIZNSA_22ConnectedChannelStream12RecvMessagesEPNS_10PipeSenderISG_INS_7MessageESI_EEEbE3$_0EEZNSA_21MakeServerCallPromiseESC_SD_SM_E3$_7EEEEEZNSA_21MakeServerCallPromiseESC_SD_SM_E3$_8EEEEvPT_"(ptr noundef %p) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %isnull = icmp eq ptr %p, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
   %started_.i = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i8, ptr %started_.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -25173,7 +25155,7 @@ delete.notnull:                                   ; preds = %entry
   %tobool.i.i.i.i.i.i.i3.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %delete.notnull
+if.then.i:                                        ; preds = %entry
   br i1 %tobool.i.i.i.i.i.i.i3.i, label %if.then.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i
@@ -25205,7 +25187,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %6) #27
   unreachable
 
-if.else.i:                                        ; preds = %delete.notnull
+if.else.i:                                        ; preds = %entry
   br i1 %tobool.i.i.i.i.i.i.i3.i, label %if.then.i.i.i.i.i.i.i12.i, label %if.end.i.i.i.i.i.i.i4.i
 
 if.then.i.i.i.i.i.i.i12.i:                        ; preds = %if.else.i
@@ -25240,9 +25222,6 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i11.i:           ; preds = %if.then.i.i.i.i.i.i
 "_ZN9grpc_core5Party15ParticipantImplINS_14promise_detail4RaceIJNS2_3MapIZNS_25ExternallyObservableLatchIvE4WaitEvEUlvE_ZNS_12_GLOBAL__N_121MakeServerCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEESB_EEE3$_6EENS4_INS2_4LoopIZNS8_22ConnectedChannelStream12RecvMessagesEPNS_10PipeSenderISE_INS_7MessageESH_EEEbE3$_0EEZNS8_21MakeServerCallPromiseESA_SB_SL_E3$_7EEEEEZNS8_21MakeServerCallPromiseESA_SB_SL_E3$_8ED2Ev.exit": ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i4.i, %if.then.i.i.i.i.i.i.i.i.i.i7.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i10.i
   tail call void @_ZN9grpc_core5Party11ParticipantD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %p) #26
   tail call void @_ZdlPv(ptr noundef nonnull %p) #29
-  br label %delete.end
-
-delete.end:                                       ; preds = %"_ZN9grpc_core5Party15ParticipantImplINS_14promise_detail4RaceIJNS2_3MapIZNS_25ExternallyObservableLatchIvE4WaitEvEUlvE_ZNS_12_GLOBAL__N_121MakeServerCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEESB_EEE3$_6EENS4_INS2_4LoopIZNS8_22ConnectedChannelStream12RecvMessagesEPNS_10PipeSenderISE_INS_7MessageESH_EEEbE3$_0EEZNS8_21MakeServerCallPromiseESA_SB_SL_E3$_7EEEEEZNS8_21MakeServerCallPromiseESA_SB_SL_E3$_8ED2Ev.exit", %entry
   ret void
 }
 

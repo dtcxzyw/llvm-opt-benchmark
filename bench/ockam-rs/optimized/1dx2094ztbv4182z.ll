@@ -3102,9 +3102,9 @@ define hidden void @"_ZN192_$LT$ockam_transport_ble..router.._..$LT$impl$u20$ser
   br label %71
 
 69:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd40e3daaa6085962E.exit.i.i.i.i.i", %38, %.lr.ph.i.i._crit_edge.i.i.i.i, %16
-  %.sroa.3.0.i.i11.ph = phi ptr [ %35, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd40e3daaa6085962E.exit.i.i.i.i.i" ], [ %40, %38 ], [ %.lcssa.i.i.i.i, %.lr.ph.i.i._crit_edge.i.i.i.i ], [ %17, %16 ]
+  %.0.i.i.i.i.i.ph = phi ptr [ %17, %16 ], [ %.lcssa.i.i.i.i, %.lr.ph.i.i._crit_edge.i.i.i.i ], [ %40, %38 ], [ %35, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd40e3daaa6085962E.exit.i.i.i.i.i" ]
   %70 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.3.0.i.i11.ph, ptr %70, align 8
+  store ptr %.0.i.i.i.i.i.ph, ptr %70, align 8
   store ptr null, ptr %0, align 8
   br label %71
 

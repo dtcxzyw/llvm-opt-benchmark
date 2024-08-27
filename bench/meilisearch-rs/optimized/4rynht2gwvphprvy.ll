@@ -22559,12 +22559,12 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h32852852daf0bf99E.
 
 "_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17hb0f29833fdc7b110E.exit.thread95": ; preds = %66
   %75 = extractvalue { ptr, i64 } %71, 0
-  %76 = icmp ne ptr %75, null
-  tail call void @llvm.assume(i1 %76)
-  %77 = getelementptr inbounds i8, ptr %75, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
-  %78 = sub nuw i64 %72, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
-  %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.sroa.speculated.i, i64 %78)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %77, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i.i, i1 false), !alias.scope !4841, !noalias !4845
+  %76 = getelementptr inbounds i8, ptr %75, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
+  %77 = sub nuw i64 %72, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
+  %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.sroa.speculated.i, i64 %77)
+  %78 = icmp ne ptr %75, null
+  tail call void @llvm.assume(i1 %78)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %76, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i.i, i1 false), !alias.scope !4841, !noalias !4845
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.09.0, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i.i)
   %79 = load i64, ptr %67, align 8, !alias.scope !4850, !noalias !4834, !noundef !12
   %80 = add i64 %79, %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i.i
@@ -22600,12 +22600,12 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h32852852daf0bf99E.
 "_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17hb0f29833fdc7b110E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf6cd4cd05ffd15eeE.exit42.i"
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %.sroa.09.0)
   %92 = extractvalue { ptr, i64 } %88, 0
-  %93 = icmp ne ptr %92, null
-  tail call void @llvm.assume(i1 %93)
-  %94 = getelementptr inbounds i8, ptr %92, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i47.i
-  %95 = sub nuw i64 %89, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i47.i
-  %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i49.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %95)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %94, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i49.i, i1 false), !alias.scope !4872, !noalias !4876
+  %93 = getelementptr inbounds i8, ptr %92, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i47.i
+  %94 = sub nuw i64 %89, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i47.i
+  %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i49.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %94)
+  %95 = icmp ne ptr %92, null
+  tail call void @llvm.assume(i1 %95)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %93, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i49.i, i1 false), !alias.scope !4872, !noalias !4876
   %96 = load i64, ptr %84, align 8, !alias.scope !4881, !noalias !4865, !noundef !12
   %97 = add i64 %96, %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i49.i
   store i64 %97, ptr %84, align 8, !alias.scope !4881, !noalias !4865
@@ -23788,12 +23788,12 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h97580df8a44b4189E.
 
 "_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h44404cf99327f09cE.exit.thread95": ; preds = %66
   %75 = extractvalue { ptr, i64 } %71, 0
-  %76 = icmp ne ptr %75, null
-  tail call void @llvm.assume(i1 %76)
-  %77 = getelementptr inbounds i8, ptr %75, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i
-  %78 = sub nuw i64 %72, %.sroa.0.0.sroa.speculated.i.i.i.i.i
-  %.sroa.0.0.sroa.speculated.i.i15.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.sroa.speculated.i, i64 %78)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %77, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i, i1 false), !alias.scope !4991, !noalias !4995
+  %76 = getelementptr inbounds i8, ptr %75, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i
+  %77 = sub nuw i64 %72, %.sroa.0.0.sroa.speculated.i.i.i.i.i
+  %.sroa.0.0.sroa.speculated.i.i15.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.sroa.speculated.i, i64 %77)
+  %78 = icmp ne ptr %75, null
+  tail call void @llvm.assume(i1 %78)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %76, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i, i1 false), !alias.scope !4991, !noalias !4995
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.09.0, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i)
   %79 = load i64, ptr %67, align 8, !alias.scope !5000, !noalias !4984, !noundef !12
   %80 = add i64 %79, %.sroa.0.0.sroa.speculated.i.i15.i.i.i
@@ -23827,12 +23827,12 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h97580df8a44b4189E.
 "_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h44404cf99327f09cE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf6cd4cd05ffd15eeE.exit42.i"
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %.sroa.09.0)
   %92 = extractvalue { ptr, i64 } %88, 0
-  %93 = icmp ne ptr %92, null
-  tail call void @llvm.assume(i1 %93)
-  %94 = getelementptr inbounds i8, ptr %92, i64 %.sroa.0.0.sroa.speculated.i.i.i.i45.i
-  %95 = sub nuw i64 %89, %.sroa.0.0.sroa.speculated.i.i.i.i45.i
-  %.sroa.0.0.sroa.speculated.i.i15.i.i47.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %95)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %94, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i47.i, i1 false), !alias.scope !5016, !noalias !5020
+  %93 = getelementptr inbounds i8, ptr %92, i64 %.sroa.0.0.sroa.speculated.i.i.i.i45.i
+  %94 = sub nuw i64 %89, %.sroa.0.0.sroa.speculated.i.i.i.i45.i
+  %.sroa.0.0.sroa.speculated.i.i15.i.i47.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %94)
+  %95 = icmp ne ptr %92, null
+  tail call void @llvm.assume(i1 %95)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %93, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i47.i, i1 false), !alias.scope !5016, !noalias !5020
   %96 = load i64, ptr %84, align 8, !alias.scope !5025, !noalias !5009, !noundef !12
   %97 = add i64 %96, %.sroa.0.0.sroa.speculated.i.i15.i.i47.i
   store i64 %97, ptr %84, align 8, !alias.scope !5025, !noalias !5009
@@ -24071,12 +24071,12 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17hbaee1dfc2e851864E.
 
 "_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h76e80d87d32533bdE.exit.thread95": ; preds = %66
   %75 = extractvalue { ptr, i64 } %71, 0
-  %76 = icmp ne ptr %75, null
-  tail call void @llvm.assume(i1 %76)
-  %77 = getelementptr inbounds i8, ptr %75, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
-  %78 = sub nuw i64 %72, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
-  %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.sroa.speculated.i, i64 %78)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %77, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i, i1 false), !alias.scope !5052, !noalias !5056
+  %76 = getelementptr inbounds i8, ptr %75, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
+  %77 = sub nuw i64 %72, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
+  %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.sroa.speculated.i, i64 %77)
+  %78 = icmp ne ptr %75, null
+  tail call void @llvm.assume(i1 %78)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %76, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i, i1 false), !alias.scope !5052, !noalias !5056
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.09.0, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i)
   %79 = load i64, ptr %67, align 8, !alias.scope !5061, !noalias !5045, !noundef !12
   %80 = add i64 %79, %.sroa.0.0.sroa.speculated.i.i15.i.i.i.i
@@ -24111,12 +24111,12 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17hbaee1dfc2e851864E.
 "_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h76e80d87d32533bdE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf6cd4cd05ffd15eeE.exit42.i"
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %.sroa.09.0)
   %92 = extractvalue { ptr, i64 } %88, 0
-  %93 = icmp ne ptr %92, null
-  tail call void @llvm.assume(i1 %93)
-  %94 = getelementptr inbounds i8, ptr %92, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i46.i
-  %95 = sub nuw i64 %89, %.sroa.0.0.sroa.speculated.i.i.i.i.i46.i
-  %.sroa.0.0.sroa.speculated.i.i15.i.i.i48.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %95)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %94, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i48.i, i1 false), !alias.scope !5080, !noalias !5084
+  %93 = getelementptr inbounds i8, ptr %92, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i46.i
+  %94 = sub nuw i64 %89, %.sroa.0.0.sroa.speculated.i.i.i.i.i46.i
+  %.sroa.0.0.sroa.speculated.i.i15.i.i.i48.i = tail call noundef i64 @llvm.umin.i64(i64 %63, i64 %94)
+  %95 = icmp ne ptr %92, null
+  tail call void @llvm.assume(i1 %95)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull readonly align 1 %93, i64 %.sroa.0.0.sroa.speculated.i.i15.i.i.i48.i, i1 false), !alias.scope !5080, !noalias !5084
   %96 = load i64, ptr %84, align 8, !alias.scope !5089, !noalias !5073, !noundef !12
   %97 = add i64 %96, %.sroa.0.0.sroa.speculated.i.i15.i.i.i48.i
   store i64 %97, ptr %84, align 8, !alias.scope !5089, !noalias !5073

@@ -29871,16 +29871,12 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_16PromiseBasedCall16StartSendMessageERK7grpc_opRKNS4_10CompletionEPNS_10PipeSenderISt10unique_ptrINS_7MessageENS0_13PooledDeleterEEEERNS2_11BulkSpawnerEE3$_0ZNS4_16StartSendMessageES7_SA_SH_SJ_E3$_1EEEEvPT_"(ptr noundef %p) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %isnull = icmp eq ptr %p, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
   %started_.i = getelementptr inbounds i8, ptr %p, i64 73
   %0 = load i8, ptr %started_.i, align 1
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %delete.notnull
+if.then.i:                                        ; preds = %entry
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 56
   %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -29911,7 +29907,7 @@ _ZN9grpc_core7MessageD2Ev.exit.i.i.i.i.i.i:       ; preds = %delete.notnull.i.i.
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   br label %if.end.i
 
-if.else.i:                                        ; preds = %delete.notnull
+if.else.i:                                        ; preds = %entry
   %6 = getelementptr inbounds i8, ptr %p, i64 32
   tail call void @_ZN9grpc_core11pipe_detail4PushISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #30
   br label %if.end.i
@@ -29939,9 +29935,6 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 "_ZN9grpc_core5Party15ParticipantImplIZNS_16PromiseBasedCall16StartSendMessageERK7grpc_opRKNS2_10CompletionEPNS_10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEERNS0_11BulkSpawnerEE3$_0ZNS2_16StartSendMessageES5_S8_SG_SI_E3$_1ED2Ev.exit": ; preds = %if.end.i
   tail call void @_ZN9grpc_core5Party11ParticipantD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %p) #30
   tail call void @_ZdlPv(ptr noundef nonnull %p) #33
-  br label %delete.end
-
-delete.end:                                       ; preds = %"_ZN9grpc_core5Party15ParticipantImplIZNS_16PromiseBasedCall16StartSendMessageERK7grpc_opRKNS2_10CompletionEPNS_10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEERNS0_11BulkSpawnerEE3$_0ZNS2_16StartSendMessageES5_S8_SG_SI_E3$_1ED2Ev.exit", %entry
   ret void
 }
 
@@ -30924,16 +30917,12 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS0_13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS2_11BulkSpawnerEE3$_1ZNS4_12StartPromiseES8_SC_SE_E3$_2EEEEvPT_"(ptr noundef %p) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %isnull = icmp eq ptr %p, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
   %started_.i = getelementptr inbounds i8, ptr %p, i64 104
   %0 = load i8, ptr %started_.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %delete.notnull
+if.then.i:                                        ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %p, i64 56
   %2 = load ptr, ptr %1, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %2, null
@@ -30999,7 +30988,7 @@ delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i2.i.i.i.i
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   br label %"_ZN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS0_11BulkSpawnerEE3$_1ZNS2_12StartPromiseES7_SB_SD_E3$_2ED2Ev.exit"
 
-if.else.i:                                        ; preds = %delete.notnull
+if.else.i:                                        ; preds = %entry
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 48
   %14 = load ptr, ptr %next_.i.i.i.i, align 16
   %destroy.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
@@ -31018,9 +31007,6 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.else.i
 "_ZN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS0_11BulkSpawnerEE3$_1ZNS2_12StartPromiseES7_SB_SD_E3$_2ED2Ev.exit": ; preds = %"_ZN9grpc_core8DestructINS_14promise_detail18OncePromiseFactoryIvZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS_5Party11BulkSpawnerEE3$_1EEEEvPT_.exit.i", %if.else.i
   tail call void @_ZN9grpc_core5Party11ParticipantD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %p) #30
   tail call void @_ZdlPv(ptr noundef nonnull %p) #33
-  br label %delete.end
-
-delete.end:                                       ; preds = %"_ZN9grpc_core5Party15ParticipantImplIZNS_22ClientPromiseBasedCall12StartPromiseESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERKNS_16PromiseBasedCall10CompletionERNS0_11BulkSpawnerEE3$_1ZNS2_12StartPromiseES7_SB_SD_E3$_2ED2Ev.exit", %entry
   ret void
 }
 
@@ -39889,16 +39875,12 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit:  ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN9grpc_core5Arena12DeletePooledINS_5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_0ZNS4_11CommitBatchES7_mSB_E3$_1EEEEvPT_"(ptr noundef %p) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %isnull = icmp eq ptr %p, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %entry
   %started_.i = getelementptr inbounds i8, ptr %p, i64 73
   %0 = load i8, ptr %started_.i, align 1
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %delete.notnull
+if.then.i:                                        ; preds = %entry
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 48
   %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -39919,7 +39901,7 @@ delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i
   store ptr null, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   br label %if.end.i
 
-if.else.i:                                        ; preds = %delete.notnull
+if.else.i:                                        ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %p, i64 32
   tail call void @_ZN9grpc_core11pipe_detail4PushISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
   br label %if.end.i
@@ -39947,9 +39929,6 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 "_ZN9grpc_core5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_0ZNS2_11CommitBatchES5_mS9_E3$_1ED2Ev.exit": ; preds = %if.end.i
   tail call void @_ZN9grpc_core5Party11ParticipantD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %p) #30
   tail call void @_ZdlPv(ptr noundef nonnull %p) #33
-  br label %delete.end
-
-delete.end:                                       ; preds = %"_ZN9grpc_core5Party15ParticipantImplIZNS_22ServerPromiseBasedCall11CommitBatchEPK7grpc_opmRKNS_16PromiseBasedCall10CompletionEE3$_0ZNS2_11CommitBatchES5_mS9_E3$_1ED2Ev.exit", %entry
   ret void
 }
 

@@ -1672,7 +1672,7 @@ if.then77:                                        ; preds = %for.body
   %10 = call double @llvm.fmuladd.f64(double %mul83, double %sub.i, double %9)
   %mul90 = fmul double %8, %8
   %11 = call double @llvm.fmuladd.f64(double %mul90, double %sub.i58, double %10)
-  %idxprom93 = zext nneg i32 %total.164 to i64
+  %idxprom93 = sext i32 %total.164 to i64
   %arrayidx94 = getelementptr inbounds double, ptr %x, i64 %idxprom93
   store double %11, ptr %arrayidx94, align 8
   %conv = sitofp i32 %nextDY.163 to double
@@ -1682,7 +1682,7 @@ if.then77:                                        ; preds = %for.body
   br i1 %cmp101, label %for.inc, label %if.then102
 
 if.then102:                                       ; preds = %if.then77
-  %inc103 = add nuw nsw i32 %total.164, 1
+  %inc103 = add nsw i32 %total.164, 1
   %arrayidx105 = getelementptr inbounds i32, ptr %dy, i64 %idxprom93
   store i32 %nextDY.163, ptr %arrayidx105, align 4
   %sub106 = sub nsw i32 0, %nextDY.163

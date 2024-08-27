@@ -3659,28 +3659,28 @@ define internal fastcc void @get_host(ptr noundef %0, i32 noundef %1, ptr nocapt
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %0, i64 7
-  %.not105 = icmp eq i32 %1, 0
-  br i1 %.not105, label %.preheader, label %.loopexit.thread
+  %.not104 = icmp eq i32 %1, 0
+  br i1 %.not104, label %.preheader, label %.loopexit.thread
 
 .preheader:                                       ; preds = %.critedge, %21, %15, %12, %23
-  %.15991 = phi ptr [ %24, %23 ], [ %0, %12 ], [ %spec.select, %15 ], [ %0, %.critedge ], [ %22, %21 ]
-  %25 = tail call i64 @strcspn(ptr noundef nonnull %.15991, ptr noundef nonnull @.str.16) #17
-  %26 = getelementptr inbounds i8, ptr %.15991, i64 %25
-  %27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.15991, i32 noundef 64) #17
+  %.15990 = phi ptr [ %24, %23 ], [ %0, %12 ], [ %spec.select, %15 ], [ %0, %.critedge ], [ %22, %21 ]
+  %25 = tail call i64 @strcspn(ptr noundef nonnull %.15990, ptr noundef nonnull @.str.16) #17
+  %26 = getelementptr inbounds i8, ptr %.15990, i64 %25
+  %27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.15990, i32 noundef 64) #17
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %.not725 = icmp ne i64 %25, 0
   %29 = icmp ugt ptr %27, %26
-  %or.cond776 = select i1 %.not725, i1 %29, i1 false
-  br i1 %or.cond776, label %.loopexit, label %.lr.ph7
+  %or.cond766 = select i1 %.not725, i1 %29, i1 false
+  br i1 %or.cond766, label %.loopexit, label %.lr.ph7
 
 .lr.ph:                                           ; preds = %.thread
   %.not72 = icmp ne i64 %80, 0
   %30 = icmp ugt ptr %82, %81
-  %or.cond77 = select i1 %.not72, i1 %30, i1 false
-  br i1 %or.cond77, label %.loopexit, label %.lr.ph7
+  %or.cond76 = select i1 %.not72, i1 %30, i1 false
+  br i1 %or.cond76, label %.loopexit, label %.lr.ph7
 
 .lr.ph7:                                          ; preds = %.lr.ph.preheader, %.lr.ph
   %31 = phi ptr [ %82, %.lr.ph ], [ %27, %.lr.ph.preheader ]
@@ -3763,7 +3763,7 @@ tld_hash.exit.i:                                  ; preds = %38, %37
   %81 = getelementptr inbounds i8, ptr %79, i64 %80
   %82 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %79, i32 noundef 64) #17
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %.loopexit.thread97, label %.lr.ph
+  br i1 %83, label %.loopexit.thread96, label %.lr.ph
 
 .loopexit.thread:                                 ; preds = %23
   %84 = load i32, ptr %2, align 4
@@ -3772,25 +3772,25 @@ tld_hash.exit.i:                                  ; preds = %38, %37
   br label %86
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %.preheader
-  %.3 = phi ptr [ %.15991, %.preheader ], [ %.15991, %.lr.ph.preheader ], [ %79, %.lr.ph ]
+  %.3 = phi ptr [ %.15990, %.preheader ], [ %.15990, %.lr.ph.preheader ], [ %79, %.lr.ph ]
   %.1 = phi ptr [ %26, %.preheader ], [ %26, %.lr.ph.preheader ], [ %81, %.lr.ph ]
   %.not75 = icmp eq ptr %.1, null
-  br i1 %.not75, label %86, label %.loopexit.thread97
+  br i1 %.not75, label %86, label %.loopexit.thread96
 
 86:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.396 = phi ptr [ %24, %.loopexit.thread ], [ %.3, %.loopexit ]
-  %87 = tail call i64 @strcspn(ptr noundef nonnull %.396, ptr noundef nonnull @.str.16) #17
-  %88 = getelementptr inbounds i8, ptr %.396, i64 %87
-  br label %.loopexit.thread97
+  %.395 = phi ptr [ %24, %.loopexit.thread ], [ %.3, %.loopexit ]
+  %87 = tail call i64 @strcspn(ptr noundef nonnull %.395, ptr noundef nonnull @.str.16) #17
+  %88 = getelementptr inbounds i8, ptr %.395, i64 %87
+  br label %.loopexit.thread96
 
-.loopexit.thread97:                               ; preds = %.thread, %86, %.loopexit
-  %.395 = phi ptr [ %.3, %.loopexit ], [ %.396, %86 ], [ %79, %.thread ]
+.loopexit.thread96:                               ; preds = %.thread, %86, %.loopexit
+  %.394 = phi ptr [ %.3, %.loopexit ], [ %.395, %86 ], [ %79, %.thread ]
   %.2 = phi ptr [ %.1, %.loopexit ], [ %88, %86 ], [ %81, %.thread ]
-  store ptr %.395, ptr %3, align 8
+  store ptr %.394, ptr %3, align 8
   store ptr %.2, ptr %4, align 8
   br label %89
 
-89:                                               ; preds = %.loopexit.thread97, %6
+89:                                               ; preds = %.loopexit.thread96, %6
   ret void
 }
 

@@ -1898,7 +1898,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   %11 = getelementptr i8, ptr %10, i64 16
   %.val = load i64, ptr %11, align 8
   %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %109, label %12
+  br i1 %.not.i.i, label %108, label %12
 
 12:                                               ; preds = %4
   %13 = add i64 %3, -1
@@ -1912,7 +1912,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   %.not.i = icmp ult i64 %18, %19
   %.not1.i = icmp ult i64 %20, %19
   %or.cond = or i1 %.not.i, %.not1.i
-  br i1 %or.cond, label %109, label %21
+  br i1 %or.cond, label %108, label %21
 
 21:                                               ; preds = %12
   %22 = trunc i64 %13 to i8
@@ -1948,7 +1948,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   %31 = getelementptr inbounds i8, ptr %2, i64 8
   %32 = load i64, ptr %31, align 8, !noundef !4
   %.not128 = icmp ult i64 %30, %32
-  br i1 %.not128, label %33, label %109
+  br i1 %.not128, label %33, label %108
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr %2, align 8, !alias.scope !308, !nonnull !4, !align !34
@@ -1957,7 +1957,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   store i64 %36, ptr %29, align 8, !alias.scope !308
   %37 = load i8, ptr %35, align 1, !noalias !308, !noundef !4
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %109
+  br i1 %38, label %39, label %108
 
 39:                                               ; preds = %._crit_edge, %33
   %40 = phi i64 [ %.pre132, %._crit_edge ], [ %32, %33 ]
@@ -1968,7 +1968,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   %45 = extractvalue { i64, i1 } %43, 1
   %46 = icmp ugt i64 %44, %40
   %or.cond.i = select i1 %45, i1 true, i1 %46
-  br i1 %or.cond.i, label %109, label %47
+  br i1 %or.cond.i, label %108, label %47
 
 47:                                               ; preds = %39
   %48 = load ptr, ptr %2, align 8, !nonnull !4, !align !34, !noundef !4
@@ -1980,7 +1980,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   %53 = extractvalue { i64, i1 } %51, 1
   %54 = icmp ugt i64 %52, %40
   %or.cond.i70 = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond.i70, label %109, label %55
+  br i1 %or.cond.i70, label %108, label %55
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds i8, ptr %48, i64 %44
@@ -1988,7 +1988,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   store i64 %52, ptr %42, align 8, !alias.scope !311
   tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
   %.not129 = icmp ult i64 %52, %40
-  br i1 %.not129, label %58, label %109
+  br i1 %.not129, label %58, label %108
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %48, i64 %52
@@ -1996,7 +1996,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   store i64 %60, ptr %42, align 8, !alias.scope !314
   %61 = load i8, ptr %59, align 1, !noalias !314, !noundef !4
   %62 = icmp eq i8 %61, -68
-  br i1 %62, label %63, label %109
+  br i1 %62, label %63, label %108
 
 63:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8)
@@ -2083,7 +2083,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   %96 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !noundef !4
   %97 = sub i64 %20, %96
   %98 = icmp ugt i64 %96, %20
-  br i1 %98, label %108, label %99
+  br i1 %98, label %107, label %99
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds i8, ptr %8, i64 %97
@@ -2094,19 +2094,17 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   %103 = getelementptr inbounds i8, ptr %102, i64 16
   %104 = load i64, ptr %103, align 8, !noundef !4
   %105 = call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.6801758991666044160"(i64 noundef 0, i64 noundef %104, ptr noalias noundef nonnull readonly align 1 %101, i64 noundef 64, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.530c81c04d65135741421c4dd2531efc.19)
-  %.fca.0.extract34 = extractvalue { ptr, i64 } %105, 0
   %.fca.1.extract35 = extractvalue { ptr, i64 } %105, 1
-  %106 = icmp ne ptr %.fca.0.extract34, null
-  call void @llvm.assume(i1 %106)
   %.not.i77 = icmp eq i64 %57, %.fca.1.extract35
   br i1 %.not.i77, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit": ; preds = %99
+  %.fca.0.extract34 = extractvalue { ptr, i64 } %105, 0
   %bcmp.i = call i32 @bcmp(ptr nonnull readonly %56, ptr nonnull readonly %.fca.0.extract34, i64 %57), !alias.scope !328
-  %107 = icmp eq i32 %bcmp.i, 0
-  br i1 %107, label %.sink.split.sink.split, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit.thread"
+  %106 = icmp eq i32 %bcmp.i, 0
+  br i1 %106, label %.sink.split.sink.split, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit.thread"
 
-108:                                              ; preds = %95
+107:                                              ; preds = %95
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %97, i64 noundef %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.530c81c04d65135741421c4dd2531efc.59) #22
   unreachable
 
@@ -2121,9 +2119,9 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
 .sink.split:                                      ; preds = %85, %.sink.split.sink.split, %90, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.6801758991666044160.exit"
   %.1.ph = phi i1 [ true, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.6801758991666044160.exit" ], [ true, %90 ], [ %.1.ph.ph, %.sink.split.sink.split ], [ true, %85 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8)
-  br label %109
+  br label %108
 
-109:                                              ; preds = %.sink.split, %4, %12, %33, %47, %39, %58, %28, %55
+108:                                              ; preds = %.sink.split, %4, %12, %33, %47, %39, %58, %28, %55
   %.1 = phi i1 [ true, %55 ], [ true, %28 ], [ true, %58 ], [ true, %39 ], [ true, %47 ], [ true, %33 ], [ true, %12 ], [ true, %4 ], [ %.1.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   ret i1 %.1

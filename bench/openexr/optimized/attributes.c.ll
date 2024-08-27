@@ -574,7 +574,7 @@ if.then17:                                        ; preds = %if.end15
   %idx.ext = sext i32 %5 to i64
   %add.ptr = getelementptr inbounds ptr, ptr %4, i64 %idx.ext
   %cmp1931 = icmp sgt i32 %5, 0
-  br i1 %cmp1931, label %while.body, label %while.end
+  br i1 %cmp1931, label %while.body, label %land.lhs.true
 
 while.body:                                       ; preds = %if.then17, %if.end28
   %count.033 = phi i32 [ %count.1, %if.end28 ], [ %5, %if.then17 ]
@@ -600,14 +600,14 @@ if.end28:                                         ; preds = %while.body
   %first.1 = select i1 %cmp29, ptr %incdec.ptr, ptr %first.032
   %count.1 = select i1 %cmp29, i32 %sub, i32 %div29
   %cmp19 = icmp sgt i32 %count.1, 0
-  br i1 %cmp19, label %while.body, label %while.end, !llvm.loop !10
+  br i1 %cmp19, label %while.body, label %land.lhs.true, !llvm.loop !10
 
-while.end:                                        ; preds = %if.end28, %if.then17
+land.lhs.true:                                    ; preds = %if.end28, %if.then17
   %first.0.lcssa = phi ptr [ %4, %if.then17 ], [ %first.1, %if.end28 ]
   %cmp34 = icmp ult ptr %first.0.lcssa, %add.ptr
   br i1 %cmp34, label %land.lhs.true36, label %return
 
-land.lhs.true36:                                  ; preds = %while.end
+land.lhs.true36:                                  ; preds = %land.lhs.true
   %8 = load ptr, ptr %first.0.lcssa, align 8
   %9 = load ptr, ptr %8, align 8
   %call38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %name) #7
@@ -618,8 +618,8 @@ if.then41:                                        ; preds = %land.lhs.true36
   store ptr %8, ptr %out, align 8
   br label %return
 
-return:                                           ; preds = %if.end15, %land.lhs.true36, %while.end, %entry, %if.then41, %if.then27, %if.then12, %if.then7, %if.then2
-  %retval.0 = phi i32 [ %call9, %if.then7 ], [ 0, %if.then27 ], [ 0, %if.then41 ], [ %call14, %if.then12 ], [ %call, %if.then2 ], [ 2, %entry ], [ 15, %while.end ], [ 15, %land.lhs.true36 ], [ 15, %if.end15 ]
+return:                                           ; preds = %if.end15, %land.lhs.true36, %land.lhs.true, %entry, %if.then41, %if.then27, %if.then12, %if.then7, %if.then2
+  %retval.0 = phi i32 [ %call9, %if.then7 ], [ 0, %if.then27 ], [ 0, %if.then41 ], [ %call14, %if.then12 ], [ %call, %if.then2 ], [ 2, %entry ], [ 15, %land.lhs.true ], [ 15, %land.lhs.true36 ], [ 15, %if.end15 ]
   ret i32 %retval.0
 }
 
@@ -856,7 +856,7 @@ if.then17.i:                                      ; preds = %if.end15.i
   %idx.ext.i = sext i32 %7 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %6, i64 %idx.ext.i
   %cmp1931.i = icmp sgt i32 %7, 0
-  br i1 %cmp1931.i, label %while.body.i, label %while.end.i
+  br i1 %cmp1931.i, label %while.body.i, label %land.lhs.true.i
 
 while.body.i:                                     ; preds = %if.then17.i, %if.end28.i
   %count.033.i = phi i32 [ %count.1.i, %if.end28.i ], [ %7, %if.then17.i ]
@@ -878,14 +878,14 @@ if.end28.i:                                       ; preds = %while.body.i
   %first.1.i = select i1 %cmp29.i, ptr %incdec.ptr.i, ptr %first.032.i
   %count.1.i = select i1 %cmp29.i, i32 %sub.i, i32 %div29.i
   %cmp19.i = icmp sgt i32 %count.1.i, 0
-  br i1 %cmp19.i, label %while.body.i, label %while.end.i, !llvm.loop !10
+  br i1 %cmp19.i, label %while.body.i, label %land.lhs.true.i, !llvm.loop !10
 
-while.end.i:                                      ; preds = %if.end28.i, %if.then17.i
+land.lhs.true.i:                                  ; preds = %if.end28.i, %if.then17.i
   %first.0.lcssa.i = phi ptr [ %6, %if.then17.i ], [ %first.1.i, %if.end28.i ]
   %cmp34.i = icmp ult ptr %first.0.lcssa.i, %add.ptr.i
   br i1 %cmp34.i, label %land.lhs.true36.i, label %return
 
-land.lhs.true36.i:                                ; preds = %while.end.i
+land.lhs.true36.i:                                ; preds = %land.lhs.true.i
   %10 = load ptr, ptr %first.0.lcssa.i, align 8
   %11 = load ptr, ptr %10, align 8
   %call38.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %name) #7
@@ -910,8 +910,8 @@ if.end37:                                         ; preds = %if.then29
   store ptr %nattr.0, ptr %attr, align 8
   br label %return
 
-return:                                           ; preds = %if.end15.i, %land.lhs.true36.i, %while.end.i, %if.end25, %if.end37, %if.then34, %if.then22, %if.then10, %if.then6, %if.then2, %if.then
-  %retval.0 = phi i32 [ %call7, %if.then6 ], [ %call24, %if.then22 ], [ %call36, %if.then34 ], [ -1, %if.end37 ], [ %call12, %if.then10 ], [ %call4, %if.then2 ], [ %call, %if.then ], [ 0, %if.end25 ], [ 0, %while.end.i ], [ 0, %land.lhs.true36.i ], [ 0, %if.end15.i ]
+return:                                           ; preds = %if.end15.i, %land.lhs.true36.i, %land.lhs.true.i, %if.end25, %if.end37, %if.then34, %if.then22, %if.then10, %if.then6, %if.then2, %if.then
+  %retval.0 = phi i32 [ %call7, %if.then6 ], [ %call24, %if.then22 ], [ %call36, %if.then34 ], [ -1, %if.end37 ], [ %call12, %if.then10 ], [ %call4, %if.then2 ], [ %call, %if.then ], [ 0, %if.end25 ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true36.i ], [ 0, %if.end15.i ]
   ret i32 %retval.0
 }
 
@@ -1476,7 +1476,7 @@ if.then17.i:                                      ; preds = %if.end10.i
   %idx.ext.i = sext i32 %5 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %4, i64 %idx.ext.i
   %cmp1931.i = icmp sgt i32 %5, 0
-  br i1 %cmp1931.i, label %while.body.i, label %while.end.i
+  br i1 %cmp1931.i, label %while.body.i, label %land.lhs.true.i
 
 while.body.i:                                     ; preds = %if.then17.i, %if.end28.i
   %count.033.i = phi i32 [ %count.1.i, %if.end28.i ], [ %5, %if.then17.i ]
@@ -1498,14 +1498,14 @@ if.end28.i:                                       ; preds = %while.body.i
   %first.1.i = select i1 %cmp29.i, ptr %incdec.ptr.i, ptr %first.032.i
   %count.1.i = select i1 %cmp29.i, i32 %sub.i, i32 %div29.i
   %cmp19.i = icmp sgt i32 %count.1.i, 0
-  br i1 %cmp19.i, label %while.body.i, label %while.end.i, !llvm.loop !10
+  br i1 %cmp19.i, label %while.body.i, label %land.lhs.true.i, !llvm.loop !10
 
-while.end.i:                                      ; preds = %if.end28.i, %if.then17.i
+land.lhs.true.i:                                  ; preds = %if.end28.i, %if.then17.i
   %first.0.lcssa.i = phi ptr [ %4, %if.then17.i ], [ %first.1.i, %if.end28.i ]
   %cmp34.i = icmp ult ptr %first.0.lcssa.i, %add.ptr.i
   br i1 %cmp34.i, label %land.lhs.true36.i, label %if.end6
 
-land.lhs.true36.i:                                ; preds = %while.end.i
+land.lhs.true36.i:                                ; preds = %land.lhs.true.i
   %8 = load ptr, ptr %first.0.lcssa.i, align 8
   %9 = load ptr, ptr %8, align 8
   %call38.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %1) #7
@@ -1536,7 +1536,7 @@ if.then2:                                         ; preds = %while.body.i, %land
   store ptr %19, ptr %destroy_unpacked_func_ptr5, align 8
   br label %if.end6
 
-if.end6:                                          ; preds = %if.then7.i, %if.end10.i, %land.lhs.true36.i, %while.end.i, %if.then, %if.then2, %entry
+if.end6:                                          ; preds = %if.then7.i, %if.end10.i, %land.lhs.true36.i, %land.lhs.true.i, %if.then, %if.then2, %entry
   ret void
 }
 

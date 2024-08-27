@@ -1990,9 +1990,9 @@ while.body:                                       ; preds = %do.end, %if.end32
   %connection = getelementptr inbounds i8, ptr %server.0, i64 8
   %5 = load ptr, ptr %connection, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i, label %disconnect_and_free_connection.exit, label %if.end.i.i
+  br i1 %tobool.not.i, label %disconnect_and_free_connection.exit, label %if.end.i
 
-if.end.i.i:                                       ; preds = %while.body
+if.end.i:                                         ; preds = %while.body
   %state.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %state.i.i, align 8
   %awaiting_packet_size.i.i = getelementptr inbounds i8, ptr %5, i64 12
@@ -2001,12 +2001,12 @@ if.end.i.i:                                       ; preds = %while.body
   %tobool1.not.i.i = icmp eq ptr %6, null
   br i1 %tobool1.not.i.i, label %evdns_tcp_disconnect.exit.i, label %if.then2.i.i
 
-if.then2.i.i:                                     ; preds = %if.end.i.i
+if.then2.i.i:                                     ; preds = %if.end.i
   tail call void @bufferevent_free(ptr noundef nonnull %6) #18
   store ptr null, ptr %5, align 8
   br label %evdns_tcp_disconnect.exit.i
 
-evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.end.i.i
+evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.end.i
   tail call void @event_mm_free_(ptr noundef nonnull %5) #18
   br label %disconnect_and_free_connection.exit
 
@@ -6959,9 +6959,9 @@ if.end12.i:                                       ; preds = %if.then9.i, %if.end
   %connection.i = getelementptr inbounds i8, ptr %server.0, i64 8
   %48 = load ptr, ptr %connection.i, align 8
   %tobool.not.i.i = icmp eq ptr %48, null
-  br i1 %tobool.not.i.i, label %evdns_nameserver_free.exit, label %if.end.i.i.i
+  br i1 %tobool.not.i.i, label %evdns_nameserver_free.exit, label %if.end.i.i
 
-if.end.i.i.i:                                     ; preds = %if.end12.i
+if.end.i.i:                                       ; preds = %if.end12.i
   %state.i.i.i = getelementptr inbounds i8, ptr %48, i64 8
   store i32 0, ptr %state.i.i.i, align 8
   %awaiting_packet_size.i.i.i = getelementptr inbounds i8, ptr %48, i64 12
@@ -6970,12 +6970,12 @@ if.end.i.i.i:                                     ; preds = %if.end12.i
   %tobool1.not.i.i.i = icmp eq ptr %49, null
   br i1 %tobool1.not.i.i.i, label %evdns_tcp_disconnect.exit.i.i, label %if.then2.i.i.i
 
-if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
+if.then2.i.i.i:                                   ; preds = %if.end.i.i
   tail call void @bufferevent_free(ptr noundef nonnull %49) #18
   store ptr null, ptr %48, align 8
   br label %evdns_tcp_disconnect.exit.i.i
 
-evdns_tcp_disconnect.exit.i.i:                    ; preds = %if.then2.i.i.i, %if.end.i.i.i
+evdns_tcp_disconnect.exit.i.i:                    ; preds = %if.then2.i.i.i, %if.end.i.i
   tail call void @event_mm_free_(ptr noundef nonnull %48) #18
   br label %evdns_nameserver_free.exit
 
@@ -9129,30 +9129,30 @@ land.lhs.true.i.i:                                ; preds = %if.then16
   %7 = load i32, ptr %state.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %7, 0
   %.pr.i.i = load ptr, ptr %5, align 8
-  br i1 %cmp.not.i.i, label %if.end.i.i.i.i, label %land.lhs.true1.i.i
+  br i1 %cmp.not.i.i, label %if.end.i.i.i, label %land.lhs.true1.i.i
 
 land.lhs.true1.i.i:                               ; preds = %land.lhs.true.i.i
   %cmp2.not.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %cmp2.not.i.i, label %if.end.i.i.thread.i.i, label %if.end8.i
+  br i1 %cmp2.not.i.i, label %if.end.i.thread.i.i, label %if.end8.i
 
-if.end.i.i.thread.i.i:                            ; preds = %land.lhs.true1.i.i
+if.end.i.thread.i.i:                              ; preds = %land.lhs.true1.i.i
   store i32 0, ptr %state.i.i, align 8
-  %awaiting_packet_size.i.i18.i.i = getelementptr inbounds i8, ptr %5, i64 12
-  store i16 0, ptr %awaiting_packet_size.i.i18.i.i, align 4
+  %awaiting_packet_size.i.i19.i.i = getelementptr inbounds i8, ptr %5, i64 12
+  store i16 0, ptr %awaiting_packet_size.i.i19.i.i, align 4
   br label %evdns_tcp_disconnect.exit.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i
+if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   %awaiting_packet_size.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i16 0, ptr %awaiting_packet_size.i.i.i.i, align 4
   %tobool1.not.i.i.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %tobool1.not.i.i.i.i, label %evdns_tcp_disconnect.exit.i.i.i, label %if.then2.i.i.i.i
 
-if.then2.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
+if.then2.i.i.i.i:                                 ; preds = %if.end.i.i.i
   tail call void @bufferevent_free(ptr noundef nonnull %.pr.i.i) #18
   store ptr null, ptr %5, align 8
   br label %evdns_tcp_disconnect.exit.i.i.i
 
-evdns_tcp_disconnect.exit.i.i.i:                  ; preds = %if.then2.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i.thread.i.i
+evdns_tcp_disconnect.exit.i.i.i:                  ; preds = %if.then2.i.i.i.i, %if.end.i.i.i, %if.end.i.thread.i.i
   tail call void @event_mm_free_(ptr noundef nonnull %5) #18
   %.pre.i.i = load ptr, ptr %base.i.i, align 8
   br label %disconnect_and_free_connection.exit.i.i
@@ -9163,14 +9163,14 @@ disconnect_and_free_connection.exit.i.i:          ; preds = %evdns_tcp_disconnec
   %9 = load ptr, ptr %event_base.i.i, align 8
   %call.i.i = tail call ptr @bufferevent_socket_new(ptr noundef %9, i32 noundef -1, i32 noundef 1) #18
   %tobool.not.i16.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i16.i.i, label %evdns_request_transmit_through_tcp.exit.thread, label %if.end.i.i.i
+  br i1 %tobool.not.i16.i.i, label %evdns_request_transmit_through_tcp.exit.thread, label %if.end.i17.i.i
 
-if.end.i.i.i:                                     ; preds = %disconnect_and_free_connection.exit.i.i
+if.end.i17.i.i:                                   ; preds = %disconnect_and_free_connection.exit.i.i
   %call.i.i.i = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 16) #18
   %tobool1.not.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool1.not.i.i.i, label %evdns_request_transmit_through_tcp.exit.thread, label %if.end7.i.i
 
-if.end7.i.i:                                      ; preds = %if.end.i.i.i
+if.end7.i.i:                                      ; preds = %if.end.i17.i.i
   %10 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 0, ptr %10, align 8
   store ptr %call.i.i, ptr %call.i.i.i, align 8
@@ -9193,11 +9193,11 @@ if.end18.i.i:                                     ; preds = %do.end.i.i
   store i32 1, ptr %10, align 8
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.42, ptr noundef nonnull %call.i.i.i)
   %.pre.i = load ptr, ptr %connection.i.i, align 8
-  %.pre22.i = load ptr, ptr %.pre.i, align 8
+  %.pre21.i = load ptr, ptr %.pre.i, align 8
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end18.i.i, %land.lhs.true1.i.i
-  %14 = phi ptr [ %.pre22.i, %if.end18.i.i ], [ %.pr.i.i, %land.lhs.true1.i.i ]
+  %14 = phi ptr [ %.pre21.i, %if.end18.i.i ], [ %.pr.i.i, %land.lhs.true1.i.i ]
   %15 = phi ptr [ %.pre.i, %if.end18.i.i ], [ %5, %land.lhs.true1.i.i ]
   tail call void @bufferevent_setcb(ptr noundef %14, ptr noundef nonnull @client_tcp_read_packet_cb, ptr noundef null, ptr noundef nonnull @client_tcp_event_cb, ptr noundef nonnull %0) #18
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %req, ptr noundef nonnull %15)
@@ -9238,23 +9238,23 @@ fail.i:                                           ; preds = %if.end26.i, %if.end
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef nonnull @.str.41, ptr noundef nonnull %req, ptr noundef nonnull %15)
   %23 = load ptr, ptr %connection.i.i, align 8
   %tobool.not.i17.i = icmp eq ptr %23, null
-  br i1 %tobool.not.i17.i, label %disconnect_and_free_connection.exit.i, label %if.end.i.i18.i
+  br i1 %tobool.not.i17.i, label %disconnect_and_free_connection.exit.i, label %if.end.i.i
 
-if.end.i.i18.i:                                   ; preds = %fail.i
+if.end.i.i:                                       ; preds = %fail.i
   %state.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   store i32 0, ptr %state.i.i.i, align 8
   %awaiting_packet_size.i.i.i = getelementptr inbounds i8, ptr %23, i64 12
   store i16 0, ptr %awaiting_packet_size.i.i.i, align 4
   %24 = load ptr, ptr %23, align 8
-  %tobool1.not.i.i19.i = icmp eq ptr %24, null
-  br i1 %tobool1.not.i.i19.i, label %evdns_tcp_disconnect.exit.i.i, label %if.then2.i.i.i
+  %tobool1.not.i.i18.i = icmp eq ptr %24, null
+  br i1 %tobool1.not.i.i18.i, label %evdns_tcp_disconnect.exit.i.i, label %if.then2.i.i.i
 
-if.then2.i.i.i:                                   ; preds = %if.end.i.i18.i
+if.then2.i.i.i:                                   ; preds = %if.end.i.i
   call void @bufferevent_free(ptr noundef nonnull %24) #18
   store ptr null, ptr %23, align 8
   br label %evdns_tcp_disconnect.exit.i.i
 
-evdns_tcp_disconnect.exit.i.i:                    ; preds = %if.then2.i.i.i, %if.end.i.i18.i
+evdns_tcp_disconnect.exit.i.i:                    ; preds = %if.then2.i.i.i, %if.end.i.i
   call void @event_mm_free_(ptr noundef nonnull %23) #18
   br label %disconnect_and_free_connection.exit.i
 
@@ -9262,7 +9262,7 @@ disconnect_and_free_connection.exit.i:            ; preds = %evdns_tcp_disconnec
   store ptr null, ptr %connection.i.i, align 8
   br label %evdns_request_transmit_through_tcp.exit.thread
 
-evdns_request_transmit_through_tcp.exit.thread:   ; preds = %disconnect_and_free_connection.exit.i, %if.end26.i, %if.end.i.i.i, %disconnect_and_free_connection.exit.i.i
+evdns_request_transmit_through_tcp.exit.thread:   ; preds = %disconnect_and_free_connection.exit.i, %if.end26.i, %if.end.i17.i.i, %disconnect_and_free_connection.exit.i.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %packet_size.i)
   br label %sw.default
 
@@ -9420,9 +9420,9 @@ if.end20.lr.ph:                                   ; preds = %do.end4
 if.then7:                                         ; preds = %if.end23, %do.end4
   %4 = load ptr, ptr %connection, align 8
   %tobool.not.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i, label %disconnect_and_free_connection.exit, label %if.end.i.i
+  br i1 %tobool.not.i, label %disconnect_and_free_connection.exit, label %if.end.i
 
-if.end.i.i:                                       ; preds = %if.then7
+if.end.i:                                         ; preds = %if.then7
   %state.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store i32 0, ptr %state.i.i, align 8
   %awaiting_packet_size.i.i = getelementptr inbounds i8, ptr %4, i64 12
@@ -9431,12 +9431,12 @@ if.end.i.i:                                       ; preds = %if.then7
   %tobool1.not.i.i = icmp eq ptr %5, null
   br i1 %tobool1.not.i.i, label %evdns_tcp_disconnect.exit.i, label %if.then2.i.i
 
-if.then2.i.i:                                     ; preds = %if.end.i.i
+if.then2.i.i:                                     ; preds = %if.end.i
   tail call void @bufferevent_free(ptr noundef nonnull %5) #18
   store ptr null, ptr %4, align 8
   br label %evdns_tcp_disconnect.exit.i
 
-evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.end.i.i
+evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.end.i
   tail call void @event_mm_free_(ptr noundef nonnull %4) #18
   br label %disconnect_and_free_connection.exit
 
@@ -9514,9 +9514,9 @@ do.end6:                                          ; preds = %entry, %if.then
 if.then9:                                         ; preds = %do.end6
   %4 = load ptr, ptr %connection, align 8
   %tobool.not.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i, label %disconnect_and_free_connection.exit, label %if.end.i.i
+  br i1 %tobool.not.i, label %disconnect_and_free_connection.exit, label %if.end.i
 
-if.end.i.i:                                       ; preds = %if.then9
+if.end.i:                                         ; preds = %if.then9
   %state.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store i32 0, ptr %state.i.i, align 8
   %awaiting_packet_size.i.i = getelementptr inbounds i8, ptr %4, i64 12
@@ -9525,12 +9525,12 @@ if.end.i.i:                                       ; preds = %if.then9
   %tobool1.not.i.i = icmp eq ptr %5, null
   br i1 %tobool1.not.i.i, label %evdns_tcp_disconnect.exit.i, label %if.then2.i.i
 
-if.then2.i.i:                                     ; preds = %if.end.i.i
+if.then2.i.i:                                     ; preds = %if.end.i
   tail call void @bufferevent_free(ptr noundef nonnull %5) #18
   store ptr null, ptr %4, align 8
   br label %evdns_tcp_disconnect.exit.i
 
-evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.end.i.i
+evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.end.i
   tail call void @event_mm_free_(ptr noundef nonnull %4) #18
   br label %disconnect_and_free_connection.exit
 
@@ -9546,9 +9546,9 @@ if.else:                                          ; preds = %do.end6
 if.then15:                                        ; preds = %if.else
   %6 = load ptr, ptr %connection, align 8
   %tobool.not.i17 = icmp eq ptr %6, null
-  br i1 %tobool.not.i17, label %disconnect_and_free_connection.exit24, label %if.end.i.i18
+  br i1 %tobool.not.i17, label %disconnect_and_free_connection.exit24, label %if.end.i18
 
-if.end.i.i18:                                     ; preds = %if.then15
+if.end.i18:                                       ; preds = %if.then15
   %state.i.i19 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %state.i.i19, align 8
   %awaiting_packet_size.i.i20 = getelementptr inbounds i8, ptr %6, i64 12
@@ -9557,12 +9557,12 @@ if.end.i.i18:                                     ; preds = %if.then15
   %tobool1.not.i.i21 = icmp eq ptr %7, null
   br i1 %tobool1.not.i.i21, label %evdns_tcp_disconnect.exit.i23, label %if.then2.i.i22
 
-if.then2.i.i22:                                   ; preds = %if.end.i.i18
+if.then2.i.i22:                                   ; preds = %if.end.i18
   tail call void @bufferevent_free(ptr noundef nonnull %7) #18
   store ptr null, ptr %6, align 8
   br label %evdns_tcp_disconnect.exit.i23
 
-evdns_tcp_disconnect.exit.i23:                    ; preds = %if.then2.i.i22, %if.end.i.i18
+evdns_tcp_disconnect.exit.i23:                    ; preds = %if.then2.i.i22, %if.end.i18
   tail call void @event_mm_free_(ptr noundef nonnull %6) #18
   br label %disconnect_and_free_connection.exit24
 
@@ -11222,9 +11222,9 @@ if.end12:                                         ; preds = %if.then11, %if.end7
   %connection = getelementptr inbounds i8, ptr %ns, i64 8
   %3 = load ptr, ptr %connection, align 8
   %tobool14.not = icmp eq ptr %3, null
-  br i1 %tobool14.not, label %if.else, label %if.end.i.i
+  br i1 %tobool14.not, label %if.else, label %if.end.i
 
-if.end.i.i:                                       ; preds = %if.end12
+if.end.i:                                         ; preds = %if.end12
   %state.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %state.i.i, align 8
   %awaiting_packet_size.i.i = getelementptr inbounds i8, ptr %3, i64 12
@@ -11233,12 +11233,12 @@ if.end.i.i:                                       ; preds = %if.end12
   %tobool1.not.i.i = icmp eq ptr %4, null
   br i1 %tobool1.not.i.i, label %disconnect_and_free_connection.exit, label %if.then2.i.i
 
-if.then2.i.i:                                     ; preds = %if.end.i.i
+if.then2.i.i:                                     ; preds = %if.end.i
   call void @bufferevent_free(ptr noundef nonnull %4) #18
   store ptr null, ptr %3, align 8
   br label %disconnect_and_free_connection.exit
 
-disconnect_and_free_connection.exit:              ; preds = %if.end.i.i, %if.then2.i.i
+disconnect_and_free_connection.exit:              ; preds = %if.end.i, %if.then2.i.i
   call void @event_mm_free_(ptr noundef nonnull %3) #18
   store ptr null, ptr %connection, align 8
   br label %if.end60
@@ -11325,8 +11325,8 @@ if.end68:                                         ; preds = %if.then64, %if.end6
 for.cond.preheader:                               ; preds = %if.end68
   %n_req_heads = getelementptr inbounds i8, ptr %0, i64 24
   %17 = load i32, ptr %n_req_heads, align 8
-  %cmp7352 = icmp sgt i32 %17, 0
-  br i1 %cmp7352, label %for.body.lr.ph, label %for.end
+  %cmp7353 = icmp sgt i32 %17, 0
+  br i1 %cmp7353, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %server_head.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -11369,16 +11369,16 @@ for.cond.i:                                       ; preds = %if.end7.i, %if.end2
   %state.i = getelementptr inbounds i8, ptr %25, i64 424
   %26 = load i8, ptr %state.i, align 8
   %tobool15.not.i = icmp eq i8 %26, 0
-  br i1 %tobool15.not.i, label %if.end21.i, label %nameserver_pick.exit.thread47
+  br i1 %tobool15.not.i, label %if.end21.i, label %nameserver_pick.exit.thread48
 
 if.end21.i:                                       ; preds = %for.cond.i
   %next23.i = getelementptr inbounds i8, ptr %25, i64 280
   %27 = load ptr, ptr %next23.i, align 8
   store ptr %27, ptr %server_head.i, align 8
   %cmp.i = icmp eq ptr %27, %23
-  br i1 %cmp.i, label %nameserver_pick.exit.thread47, label %for.cond.i
+  br i1 %cmp.i, label %nameserver_pick.exit.thread48, label %for.cond.i
 
-nameserver_pick.exit.thread47:                    ; preds = %if.end21.i, %for.cond.i
+nameserver_pick.exit.thread48:                    ; preds = %if.end21.i, %for.cond.i
   %retval.0.ph.i.ph = phi ptr [ %25, %for.cond.i ], [ %27, %if.end21.i ]
   %.sink.i.ph.in = getelementptr inbounds i8, ptr %retval.0.ph.i.ph, i64 280
   %.sink.i.ph = load ptr, ptr %.sink.i.ph.in, align 8
@@ -11392,10 +11392,10 @@ nameserver_pick.exit:                             ; preds = %if.end7.i
   %tobool.not.i44 = icmp eq ptr %28, null
   br i1 %tobool.not.i44, label %if.end86, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %nameserver_pick.exit.thread47, %nameserver_pick.exit
-  %retval.0.ph.i51 = phi ptr [ %retval.0.ph.i.ph, %nameserver_pick.exit.thread47 ], [ %28, %nameserver_pick.exit ]
+land.lhs.true.i:                                  ; preds = %nameserver_pick.exit.thread48, %nameserver_pick.exit
+  %retval.0.ph.i52 = phi ptr [ %retval.0.ph.i.ph, %nameserver_pick.exit.thread48 ], [ %28, %nameserver_pick.exit ]
   %29 = load ptr, ptr %ns81, align 8
-  %cmp.not.i = icmp eq ptr %29, %retval.0.ph.i51
+  %cmp.not.i = icmp eq ptr %29, %retval.0.ph.i52
   br i1 %cmp.not.i, label %if.end86, label %do.end.i
 
 do.end.i:                                         ; preds = %land.lhs.true.i
@@ -11403,11 +11403,11 @@ do.end.i:                                         ; preds = %land.lhs.true.i
   %30 = load i32, ptr %requests_inflight.i, align 8
   %dec.i = add nsw i32 %30, -1
   store i32 %dec.i, ptr %requests_inflight.i, align 8
-  %requests_inflight3.i = getelementptr inbounds i8, ptr %retval.0.ph.i51, i64 440
+  %requests_inflight3.i = getelementptr inbounds i8, ptr %retval.0.ph.i52, i64 440
   %31 = load i32, ptr %requests_inflight3.i, align 8
   %inc.i = add nsw i32 %31, 1
   store i32 %inc.i, ptr %requests_inflight3.i, align 8
-  store ptr %retval.0.ph.i51, ptr %ns81, align 8
+  store ptr %retval.0.ph.i52, ptr %ns81, align 8
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then84, %do.end.i, %land.lhs.true.i, %nameserver_pick.exit, %land.lhs.true80, %do.body77
@@ -11513,9 +11513,9 @@ if.then11:                                        ; preds = %if.else
   %connection = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %connection, align 8
   %tobool.not.i = icmp eq ptr %20, null
-  br i1 %tobool.not.i, label %disconnect_and_free_connection.exit, label %if.end.i.i
+  br i1 %tobool.not.i, label %disconnect_and_free_connection.exit, label %if.end.i
 
-if.end.i.i:                                       ; preds = %if.then11
+if.end.i:                                         ; preds = %if.then11
   %state.i.i = getelementptr inbounds i8, ptr %20, i64 8
   store i32 0, ptr %state.i.i, align 8
   %awaiting_packet_size.i.i = getelementptr inbounds i8, ptr %20, i64 12
@@ -11524,12 +11524,12 @@ if.end.i.i:                                       ; preds = %if.then11
   %tobool1.not.i.i = icmp eq ptr %21, null
   br i1 %tobool1.not.i.i, label %evdns_tcp_disconnect.exit.i, label %if.then2.i.i
 
-if.then2.i.i:                                     ; preds = %if.end.i.i
+if.then2.i.i:                                     ; preds = %if.end.i
   tail call void @bufferevent_free(ptr noundef nonnull %21) #18
   store ptr null, ptr %20, align 8
   br label %evdns_tcp_disconnect.exit.i
 
-evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.end.i.i
+evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.end.i
   tail call void @event_mm_free_(ptr noundef nonnull %20) #18
   %.pre = load ptr, ptr %ns12, align 8
   br label %disconnect_and_free_connection.exit
@@ -11663,16 +11663,16 @@ for.cond.i:                                       ; preds = %if.end7.i, %if.end2
   %state.i = getelementptr inbounds i8, ptr %51, i64 424
   %52 = load i8, ptr %state.i, align 8
   %tobool15.not.i = icmp eq i8 %52, 0
-  br i1 %tobool15.not.i, label %if.end21.i, label %nameserver_pick.exit.thread42
+  br i1 %tobool15.not.i, label %if.end21.i, label %nameserver_pick.exit.thread43
 
 if.end21.i:                                       ; preds = %for.cond.i
   %next23.i = getelementptr inbounds i8, ptr %51, i64 280
   %53 = load ptr, ptr %next23.i, align 8
   store ptr %53, ptr %server_head.i, align 8
   %cmp.i36 = icmp eq ptr %53, %49
-  br i1 %cmp.i36, label %nameserver_pick.exit.thread42, label %for.cond.i
+  br i1 %cmp.i36, label %nameserver_pick.exit.thread43, label %for.cond.i
 
-nameserver_pick.exit.thread42:                    ; preds = %if.end21.i, %for.cond.i
+nameserver_pick.exit.thread43:                    ; preds = %if.end21.i, %for.cond.i
   %retval.0.ph.i.ph = phi ptr [ %51, %for.cond.i ], [ %53, %if.end21.i ]
   %.sink.i.ph.in = getelementptr inbounds i8, ptr %retval.0.ph.i.ph, i64 280
   %.sink.i.ph = load ptr, ptr %.sink.i.ph.in, align 8
@@ -11686,11 +11686,11 @@ nameserver_pick.exit:                             ; preds = %if.end7.i
   %tobool.not.i38 = icmp eq ptr %54, null
   br i1 %tobool.not.i38, label %request_swap_ns.exit, label %land.lhs.true.i39
 
-land.lhs.true.i39:                                ; preds = %nameserver_pick.exit.thread42, %nameserver_pick.exit
-  %retval.0.ph.i46 = phi ptr [ %retval.0.ph.i.ph, %nameserver_pick.exit.thread42 ], [ %54, %nameserver_pick.exit ]
+land.lhs.true.i39:                                ; preds = %nameserver_pick.exit.thread43, %nameserver_pick.exit
+  %retval.0.ph.i47 = phi ptr [ %retval.0.ph.i.ph, %nameserver_pick.exit.thread43 ], [ %54, %nameserver_pick.exit ]
   %ns1.i = getelementptr inbounds i8, ptr %arg, i64 24
   %55 = load ptr, ptr %ns1.i, align 8
-  %cmp.not.i = icmp eq ptr %55, %retval.0.ph.i46
+  %cmp.not.i = icmp eq ptr %55, %retval.0.ph.i47
   br i1 %cmp.not.i, label %request_swap_ns.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %land.lhs.true.i39
@@ -11698,11 +11698,11 @@ do.end.i:                                         ; preds = %land.lhs.true.i39
   %56 = load i32, ptr %requests_inflight.i, align 8
   %dec.i = add nsw i32 %56, -1
   store i32 %dec.i, ptr %requests_inflight.i, align 8
-  %requests_inflight3.i = getelementptr inbounds i8, ptr %retval.0.ph.i46, i64 440
+  %requests_inflight3.i = getelementptr inbounds i8, ptr %retval.0.ph.i47, i64 440
   %57 = load i32, ptr %requests_inflight3.i, align 8
   %inc.i = add nsw i32 %57, 1
   store i32 %inc.i, ptr %requests_inflight3.i, align 8
-  store ptr %retval.0.ph.i46, ptr %ns1.i, align 8
+  store ptr %retval.0.ph.i47, ptr %ns1.i, align 8
   br label %request_swap_ns.exit
 
 request_swap_ns.exit:                             ; preds = %if.else16, %nameserver_pick.exit, %land.lhs.true.i39, %do.end.i

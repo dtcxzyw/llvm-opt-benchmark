@@ -136,7 +136,7 @@ os_pages_unmap.exit.i.i:                          ; preds = %if.then.i.i.i, %if.
 
 if.end.i14.i:                                     ; preds = %os_pages_unmap.exit.i.i, %if.end3.i
   %cmp2.not.i.i = icmp eq i64 %sub.i, %8
-  br i1 %cmp2.not.i.i, label %return, label %if.then3.i.i, !llvm.loop !4
+  br i1 %cmp2.not.i.i, label %return, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i14.i
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %size
@@ -160,7 +160,7 @@ if.then6.i15.i.i:                                 ; preds = %if.then.i11.i.i
 
 os_pages_unmap.exit16.i.i:                        ; preds = %if.then.i11.i.i, %if.then3.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i8.i.i)
-  br label %return, !llvm.loop !4
+  br label %return
 
 return:                                           ; preds = %os_pages_unmap.exit16.i.i, %if.end.i14.i, %if.end.i.i, %if.end.i.i, %os_pages_unmap.exit, %do.end5, %entry
   %retval.0 = phi ptr [ %call, %entry ], [ %call, %do.end5 ], [ null, %os_pages_unmap.exit ], [ %add.ptr.i.i, %if.end.i14.i ], [ %add.ptr.i.i, %os_pages_unmap.exit16.i.i ], [ null, %if.end.i.i ], [ null, %if.end.i.i ]
@@ -626,7 +626,7 @@ malloc_read_fd.exit.thread9.i:                    ; preds = %if.else.i.i
 if.end3.i.i14:                                    ; preds = %if.else.i.i
   %add.i.i = add nuw i64 %call.i.i.i13, %bytes_read.0.i.i
   %cmp4.i.i = icmp ult i64 %add.i.i, 24
-  br i1 %cmp4.i.i, label %do.body.i.i12, label %malloc_read_fd.exit.i, !llvm.loop !6
+  br i1 %cmp4.i.i, label %do.body.i.i12, label %malloc_read_fd.exit.i, !llvm.loop !4
 
 malloc_read_fd.exit.i:                            ; preds = %if.end3.i.i14
   %call3.i15 = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i10) #8
@@ -780,4 +780,3 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}

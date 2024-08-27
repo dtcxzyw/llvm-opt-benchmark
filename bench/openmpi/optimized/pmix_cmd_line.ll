@@ -1024,29 +1024,29 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %26
   %46 = getelementptr inbounds i8, ptr %45, i64 48
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
-  %.not6.i22 = icmp eq ptr %48, null
-  br i1 %.not6.i22, label %pmix_obj_run_destructors.exit26, label %.lr.ph.i23
+  %.not6.i21 = icmp eq ptr %48, null
+  br i1 %.not6.i21, label %pmix_obj_run_destructors.exit25, label %.lr.ph.i22
 
-.lr.ph.i23:                                       ; preds = %._crit_edge, %.lr.ph.i23
-  %49 = phi ptr [ %51, %.lr.ph.i23 ], [ %48, %._crit_edge ]
-  %.07.i24 = phi ptr [ %50, %.lr.ph.i23 ], [ %47, %._crit_edge ]
+.lr.ph.i22:                                       ; preds = %._crit_edge, %.lr.ph.i22
+  %49 = phi ptr [ %51, %.lr.ph.i22 ], [ %48, %._crit_edge ]
+  %.07.i23 = phi ptr [ %50, %.lr.ph.i22 ], [ %47, %._crit_edge ]
   tail call void %49(ptr noundef nonnull %43) #12
-  %50 = getelementptr inbounds i8, ptr %.07.i24, i64 8
+  %50 = getelementptr inbounds i8, ptr %.07.i23, i64 8
   %51 = load ptr, ptr %50, align 8
-  %.not.i25 = icmp eq ptr %51, null
-  br i1 %.not.i25, label %pmix_obj_run_destructors.exit26, label %.lr.ph.i23, !llvm.loop !11
+  %.not.i24 = icmp eq ptr %51, null
+  br i1 %.not.i24, label %pmix_obj_run_destructors.exit25, label %.lr.ph.i22, !llvm.loop !11
 
-pmix_obj_run_destructors.exit26:                  ; preds = %.lr.ph.i23, %._crit_edge
+pmix_obj_run_destructors.exit25:                  ; preds = %.lr.ph.i22, %._crit_edge
   %52 = getelementptr inbounds i8, ptr %0, i64 392
   %53 = load ptr, ptr %52, align 8
   %.not19 = icmp eq ptr %53, null
   br i1 %.not19, label %55, label %54
 
-54:                                               ; preds = %pmix_obj_run_destructors.exit26
+54:                                               ; preds = %pmix_obj_run_destructors.exit25
   tail call void @PMIx_Argv_free(ptr noundef nonnull %53) #12
   br label %55
 
-55:                                               ; preds = %54, %pmix_obj_run_destructors.exit26
+55:                                               ; preds = %54, %pmix_obj_run_destructors.exit25
   ret void
 }
 

@@ -29273,7 +29273,7 @@ declare void @_ZN10colvardeps19remove_all_childrenEv(ptr noundef nonnull align 8
 declare void @_ZN12colvarmodule14config_changedEv(ptr noundef nonnull align 8 dereferenceable(616)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6colvar4calcEv(ptr noundef nonnull align 8 dereferenceable(4624) %0) local_unnamed_addr #2 align 2 {
+define noundef range(i32 0, 16) i32 @_ZN6colvar4calcEv(ptr noundef nonnull align 8 dereferenceable(4624) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 368
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
@@ -29757,7 +29757,7 @@ _ZN6colvar20calc_cvc_total_forceEim.exit72:       ; preds = %_ZN6colvar18calc_cv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6colvar16collect_cvc_dataEv(ptr noundef nonnull align 8 dereferenceable(4624) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 8) i32 @_ZN6colvar16collect_cvc_dataEv(ptr noundef nonnull align 8 dereferenceable(4624) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %3 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %4 = load i64, ptr @_ZN12colvarmodule2itE, align 8

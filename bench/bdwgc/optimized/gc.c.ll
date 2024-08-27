@@ -41709,138 +41709,138 @@ define internal fastcc range(i32 0, 2) i32 @GC_collect_or_expand(i64 noundef %0,
   store i64 %39, ptr @last_fo_entries, align 8
   %40 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 88), align 8
   store i64 %40, ptr @last_bytes_finalized, align 8
-  br label %103
+  br label %104
 
 41:                                               ; preds = %33, %26, %3
-  %.035 = phi i1 [ false, %3 ], [ true, %33 ], [ false, %26 ]
-  %42 = load i64, ptr @GC_arrays, align 8
-  %43 = load i64, ptr @GC_heapsize_at_forced_unmap, align 8
-  %44 = sub i64 %42, %43
-  %45 = load i64, ptr @GC_free_space_divisor, align 8
-  %46 = shl i64 %45, 12
-  %47 = udiv i64 %44, %46
-  %48 = add i64 %47, %0
-  %49 = icmp ugt i64 %48, 2048
-  br i1 %49, label %50, label %58
+  %42 = phi i1 [ false, %3 ], [ true, %33 ], [ false, %26 ]
+  %43 = load i64, ptr @GC_arrays, align 8
+  %44 = load i64, ptr @GC_heapsize_at_forced_unmap, align 8
+  %45 = sub i64 %43, %44
+  %46 = load i64, ptr @GC_free_space_divisor, align 8
+  %47 = shl i64 %46, 12
+  %48 = udiv i64 %45, %47
+  %49 = add i64 %48, %0
+  %50 = icmp ugt i64 %49, 2048
+  br i1 %50, label %51, label %59
 
-50:                                               ; preds = %41
-  %51 = and i32 %1, 1
-  %.not53 = icmp eq i32 %51, 0
-  br i1 %.not53, label %52, label %56
+51:                                               ; preds = %41
+  %52 = and i32 %1, 1
+  %.not53 = icmp eq i32 %52, 0
+  br i1 %.not53, label %53, label %57
 
-52:                                               ; preds = %50
-  %53 = load i64, ptr @GC_black_list_spacing, align 8
-  %54 = lshr i64 %53, 11
-  %55 = and i64 %54, 9007199254740990
-  %spec.select59 = call i64 @llvm.umin.i64(i64 %55, i64 %0)
-  br label %56
+53:                                               ; preds = %51
+  %54 = load i64, ptr @GC_black_list_spacing, align 8
+  %55 = lshr i64 %54, 11
+  %56 = and i64 %55, 9007199254740990
+  %spec.select59 = call i64 @llvm.umin.i64(i64 %56, i64 %0)
+  br label %57
 
-56:                                               ; preds = %52, %50
-  %.033 = phi i64 [ 4, %50 ], [ %spec.select59, %52 ]
-  %57 = add i64 %.033, %0
-  %. = call i64 @llvm.umax.i64(i64 %57, i64 2048)
+57:                                               ; preds = %53, %51
+  %.033 = phi i64 [ 4, %51 ], [ %spec.select59, %53 ]
+  %58 = add i64 %.033, %0
+  %. = call i64 @llvm.umax.i64(i64 %58, i64 2048)
   %spec.store.select = call i64 @llvm.umin.i64(i64 %., i64 4503599627370495)
-  br label %59
+  br label %60
 
-58:                                               ; preds = %41
-  %spec.store.select6 = call i64 @llvm.umax.i64(i64 %48, i64 16)
-  br label %59
+59:                                               ; preds = %41
+  %spec.store.select6 = call i64 @llvm.umax.i64(i64 %49, i64 16)
+  br label %60
 
-59:                                               ; preds = %58, %56
-  %.1 = phi i64 [ %spec.store.select, %56 ], [ %spec.store.select6, %58 ]
-  %60 = load i64, ptr @GC_max_heapsize, align 8
-  %61 = icmp ugt i64 %60, %42
-  br i1 %61, label %62, label %68
+60:                                               ; preds = %59, %57
+  %.1 = phi i64 [ %spec.store.select, %57 ], [ %spec.store.select6, %59 ]
+  %61 = load i64, ptr @GC_max_heapsize, align 8
+  %62 = icmp ugt i64 %61, %43
+  br i1 %62, label %63, label %69
 
-62:                                               ; preds = %59
-  %63 = sub nuw i64 %60, %42
-  %64 = lshr i64 %63, 12
-  %65 = icmp ugt i64 %.1, %64
-  br i1 %65, label %66, label %68
+63:                                               ; preds = %60
+  %64 = sub nuw i64 %61, %43
+  %65 = lshr i64 %64, 12
+  %66 = icmp ugt i64 %.1, %65
+  br i1 %66, label %67, label %69
 
-66:                                               ; preds = %62
-  %67 = call i64 @llvm.umax.i64(i64 %64, i64 %0)
-  br label %68
+67:                                               ; preds = %63
+  %68 = call i64 @llvm.umax.i64(i64 %65, i64 %0)
+  br label %69
 
-68:                                               ; preds = %62, %66, %59
-  %.2 = phi i64 [ %67, %66 ], [ %.1, %62 ], [ %.1, %59 ]
-  %69 = load i32, ptr @GC_unmap_threshold, align 4
-  %70 = icmp ugt i32 %69, 1
-  br i1 %70, label %71, label %72
+69:                                               ; preds = %63, %67, %60
+  %.2 = phi i64 [ %68, %67 ], [ %.1, %63 ], [ %.1, %60 ]
+  %70 = load i32, ptr @GC_unmap_threshold, align 4
+  %71 = icmp ugt i32 %70, 1
+  br i1 %71, label %72, label %73
 
-71:                                               ; preds = %68
+72:                                               ; preds = %69
   call fastcc void @GC_unmap_old(i32 noundef 0)
-  br label %72
+  br label %73
 
-72:                                               ; preds = %71, %68
-  %73 = call fastcc i32 @GC_expand_hp_inner(i64 noundef %.2)
-  %.not54 = icmp eq i32 %73, 0
-  br i1 %.not54, label %74, label %99
+73:                                               ; preds = %72, %69
+  %74 = call fastcc i32 @GC_expand_hp_inner(i64 noundef %.2)
+  %.not54 = icmp eq i32 %74, 0
+  br i1 %.not54, label %75, label %100
 
-74:                                               ; preds = %72
-  %75 = icmp eq i64 %.2, %0
-  br i1 %75, label %78, label %76
+75:                                               ; preds = %73
+  %76 = icmp eq i64 %.2, %0
+  br i1 %76, label %79, label %77
 
-76:                                               ; preds = %74
-  %77 = call fastcc i32 @GC_expand_hp_inner(i64 noundef %0)
-  %.not55 = icmp eq i32 %77, 0
-  br i1 %.not55, label %78, label %99
+77:                                               ; preds = %75
+  %78 = call fastcc i32 @GC_expand_hp_inner(i64 noundef %0)
+  %.not55 = icmp eq i32 %78, 0
+  br i1 %.not55, label %79, label %100
 
-78:                                               ; preds = %76, %74
-  br i1 %.035, label %79, label %81
+79:                                               ; preds = %77, %75
+  br i1 %42, label %80, label %82
 
-79:                                               ; preds = %78
-  %80 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
-  br label %103
+80:                                               ; preds = %79
+  %81 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
+  br label %104
 
-81:                                               ; preds = %78
-  %82 = load i32, ptr @GC_fail_count, align 4
-  %83 = add i32 %82, 1
-  store i32 %83, ptr @GC_fail_count, align 4
-  %84 = zext i32 %82 to i64
-  %85 = load i64, ptr @GC_max_retries, align 8
-  %86 = icmp ugt i64 %85, %84
-  br i1 %86, label %87, label %90
+82:                                               ; preds = %79
+  %83 = load i32, ptr @GC_fail_count, align 4
+  %84 = add i32 %83, 1
+  store i32 %84, ptr @GC_fail_count, align 4
+  %85 = zext i32 %83 to i64
+  %86 = load i64, ptr @GC_max_retries, align 8
+  %87 = icmp ugt i64 %86, %85
+  br i1 %87, label %88, label %91
 
-87:                                               ; preds = %81
-  %88 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %88(ptr noundef nonnull @.str.207, i64 noundef 0) #41
-  %89 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
-  br label %103
+88:                                               ; preds = %82
+  %89 = load ptr, ptr @GC_current_warn_proc, align 8
+  call void %89(ptr noundef nonnull @.str.207, i64 noundef 0) #41
+  %90 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
+  br label %104
 
-90:                                               ; preds = %81
-  %91 = load i64, ptr @GC_arrays, align 8
-  %92 = icmp ugt i64 %91, 5242880
-  %93 = load ptr, ptr @GC_current_warn_proc, align 8
-  %94 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 224), align 8
-  %95 = sub i64 %91, %94
-  br i1 %92, label %96, label %98
+91:                                               ; preds = %82
+  %92 = load i64, ptr @GC_arrays, align 8
+  %93 = icmp ugt i64 %92, 5242880
+  %94 = load ptr, ptr @GC_current_warn_proc, align 8
+  %95 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 224), align 8
+  %96 = sub i64 %92, %95
+  br i1 %93, label %97, label %99
 
-96:                                               ; preds = %90
-  %97 = lshr i64 %95, 20
-  call void %93(ptr noundef nonnull @.str.208, i64 noundef %97) #41
-  br label %103
+97:                                               ; preds = %91
+  %98 = lshr i64 %96, 20
+  call void %94(ptr noundef nonnull @.str.208, i64 noundef %98) #41
+  br label %104
 
-98:                                               ; preds = %90
-  call void %93(ptr noundef nonnull @.str.209, i64 noundef %95) #41
-  br label %103
+99:                                               ; preds = %91
+  call void %94(ptr noundef nonnull @.str.209, i64 noundef %96) #41
+  br label %104
 
-99:                                               ; preds = %76, %72
-  %100 = load i32, ptr @GC_fail_count, align 4
-  %.not56 = icmp eq i32 %100, 0
-  %101 = load i32, ptr @GC_print_stats, align 4
-  %.not57 = icmp eq i32 %101, 0
+100:                                              ; preds = %77, %73
+  %101 = load i32, ptr @GC_fail_count, align 4
+  %.not56 = icmp eq i32 %101, 0
+  %102 = load i32, ptr @GC_print_stats, align 4
+  %.not57 = icmp eq i32 %102, 0
   %or.cond60 = select i1 %.not56, i1 true, i1 %.not57
-  br i1 %or.cond60, label %103, label %102
+  br i1 %or.cond60, label %104, label %103
 
-102:                                              ; preds = %99
+103:                                              ; preds = %100
   call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.210)
-  br label %103
+  br label %104
 
-103:                                              ; preds = %99, %102, %79, %87, %98, %96, %38
-  %.0 = phi i32 [ 1, %38 ], [ 0, %96 ], [ 0, %98 ], [ 1, %87 ], [ 1, %79 ], [ 1, %102 ], [ 1, %99 ]
-  %104 = load i32, ptr %4, align 4
-  %105 = call i32 @pthread_setcancelstate(i32 noundef %104, ptr noundef null) #41
+104:                                              ; preds = %100, %103, %80, %88, %99, %97, %38
+  %.0 = phi i32 [ 1, %38 ], [ 0, %97 ], [ 0, %99 ], [ 1, %88 ], [ 1, %80 ], [ 1, %103 ], [ 1, %100 ]
+  %105 = load i32, ptr %4, align 4
+  %106 = call i32 @pthread_setcancelstate(i32 noundef %105, ptr noundef null) #41
   ret i32 %.0
 }
 

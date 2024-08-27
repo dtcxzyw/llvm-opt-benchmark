@@ -41872,7 +41872,7 @@ _ZN4core4iter8adapters11try_process17h5db063fcba74f2f6E.exit.i.i.i.i.i.i.i.i.i.i
   br label %423
 
 .loopexit36.i.i.i.i.i.i.i.i.i.i:                  ; preds = %.backedge.i.i.i.i.i.i.i.i.i.i.i
-  %.pre.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.424.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !10361, !nonnull !11, !noundef !11
+  %.pre.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.424.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !10361
   %.pre46.i.i.i.i.i.i.i.i.i.i = load i64, ptr %98, align 8, !noalias !10361
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53), !noalias !10361
   %309 = icmp eq i64 %.pre46.i.i.i.i.i.i.i.i.i.i, 0

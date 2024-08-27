@@ -2846,9 +2846,10 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 _ZN6icu_755units6Factor10multiplyByERKS1_.exit:   ; preds = %for.body.i
   %offset.i16 = getelementptr inbounds i8, ptr %sourceToBase, i64 16
   %4 = load double, ptr %offset.i16, align 8
-  %cmp = icmp eq i32 %unitsState, 1
-  %constantExponents.i21 = getelementptr inbounds i8, ptr %targetToBase, i64 28
-  br i1 %cmp, label %if.then, label %if.then2
+  switch i32 %unitsState, label %if.else3 [
+    i32 1, label %if.then
+    i32 0, label %if.then2
+  ]
 
 if.then:                                          ; preds = %_ZN6icu_755units6Factor10multiplyByERKS1_.exit
   %factorDen.i17 = getelementptr inbounds i8, ptr %targetToBase, i64 8
@@ -2858,6 +2859,7 @@ if.then:                                          ; preds = %_ZN6icu_755units6Fa
   %6 = load double, ptr %targetToBase, align 8
   %mul4.i20 = fmul double %1, %6
   store double %mul4.i20, ptr %factorDen.i, align 8
+  %constantExponents.i21 = getelementptr inbounds i8, ptr %targetToBase, i64 28
   br label %for.body.i23
 
 for.body.i23:                                     ; preds = %for.body.i23, %if.then
@@ -2880,11 +2882,12 @@ if.then2:                                         ; preds = %_ZN6icu_755units6Fa
   %10 = load double, ptr %factorDen.i33, align 8
   %mul4.i35 = fmul double %1, %10
   store double %mul4.i35, ptr %factorDen.i, align 8
+  %constantExponents.i36 = getelementptr inbounds i8, ptr %targetToBase, i64 28
   br label %for.body.i38
 
 for.body.i38:                                     ; preds = %for.body.i38, %if.then2
   %indvars.iv.i39 = phi i64 [ 0, %if.then2 ], [ %indvars.iv.next.i43, %for.body.i38 ]
-  %arrayidx.i40 = getelementptr inbounds [15 x i32], ptr %constantExponents.i21, i64 0, i64 %indvars.iv.i39
+  %arrayidx.i40 = getelementptr inbounds [15 x i32], ptr %constantExponents.i36, i64 0, i64 %indvars.iv.i39
   %11 = load i32, ptr %arrayidx.i40, align 4
   %arrayidx7.i41 = getelementptr inbounds [15 x i32], ptr %scevgep.i, i64 0, i64 %indvars.iv.i39
   %12 = load i32, ptr %arrayidx7.i41, align 4
@@ -2893,6 +2896,10 @@ for.body.i38:                                     ; preds = %for.body.i38, %if.t
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 15
   br i1 %exitcond.not.i44, label %if.end4, label %for.body.i38, !llvm.loop !4
+
+if.else3:                                         ; preds = %_ZN6icu_755units6Factor10multiplyByERKS1_.exit
+  store i32 65804, ptr %status, align 4
+  br label %return
 
 if.end4:                                          ; preds = %for.body.i38, %for.body.i23
   %13 = phi double [ %6, %for.body.i23 ], [ %9, %for.body.i38 ]
@@ -3005,6 +3012,9 @@ if.end17:                                         ; preds = %land.lhs.true, %_ZN
   %reciprocal = getelementptr inbounds i8, ptr %conversionRate, i64 360
   %frombool = zext i1 %cmp18 to i8
   store i8 %frombool, ptr %reciprocal, align 8
+  br label %return
+
+return:                                           ; preds = %if.end17, %if.else3
   ret void
 }
 

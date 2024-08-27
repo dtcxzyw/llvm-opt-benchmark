@@ -4677,56 +4677,52 @@ _ZN10ockam_core4bare29write_variable_length_integer17he1bc22900535e385E.exit: ; 
   br label %43
 
 43:                                               ; preds = %_ZN10ockam_core7routing7address7Address13manual_encode17h22722d644aa9c91cE.llvm.14247421389134134460.exit, %_ZN10ockam_core4bare29write_variable_length_integer17he1bc22900535e385E.exit
-  %.sroa.03.0 = phi ptr [ %34, %_ZN10ockam_core4bare29write_variable_length_integer17he1bc22900535e385E.exit ], [ %49, %_ZN10ockam_core7routing7address7Address13manual_encode17h22722d644aa9c91cE.llvm.14247421389134134460.exit ]
+  %.sroa.03.0 = phi ptr [ %34, %_ZN10ockam_core4bare29write_variable_length_integer17he1bc22900535e385E.exit ], [ %47, %_ZN10ockam_core7routing7address7Address13manual_encode17h22722d644aa9c91cE.llvm.14247421389134134460.exit ]
   %.sroa.64.0 = phi ptr [ %41, %_ZN10ockam_core4bare29write_variable_length_integer17he1bc22900535e385E.exit ], [ %.sroa.64.115, %_ZN10ockam_core7routing7address7Address13manual_encode17h22722d644aa9c91cE.llvm.14247421389134134460.exit ]
   %.sroa.9.0 = phi ptr [ %38, %_ZN10ockam_core4bare29write_variable_length_integer17he1bc22900535e385E.exit ], [ %.sroa.9.116, %_ZN10ockam_core7routing7address7Address13manual_encode17h22722d644aa9c91cE.llvm.14247421389134134460.exit ]
   %.sroa.12.0 = phi ptr [ %42, %_ZN10ockam_core4bare29write_variable_length_integer17he1bc22900535e385E.exit ], [ %.sroa.12.117, %_ZN10ockam_core7routing7address7Address13manual_encode17h22722d644aa9c91cE.llvm.14247421389134134460.exit ]
-  %44 = icmp ne ptr %.sroa.64.0, null
-  tail call void @llvm.assume(i1 %44)
-  %45 = icmp eq ptr %.sroa.03.0, %.sroa.64.0
-  br i1 %45, label %46, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread10"
+  %44 = icmp eq ptr %.sroa.03.0, %.sroa.64.0
+  br i1 %44, label %45, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread10"
 
-46:                                               ; preds = %43
-  %47 = icmp eq ptr %.sroa.9.0, %.sroa.12.0
-  %48 = icmp eq ptr %.sroa.9.0, null
-  %or.cond = or i1 %48, %47
-  br i1 %or.cond, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread10"
+45:                                               ; preds = %43
+  %46 = icmp eq ptr %.sroa.9.0, %.sroa.12.0
+  br i1 %46, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread10"
 
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread": ; preds = %46
+"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread": ; preds = %45
   ret void
 
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread10": ; preds = %43, %46
-  %.sink6.i18 = phi ptr [ %.sroa.9.0, %46 ], [ %.sroa.03.0, %43 ]
-  %.sroa.12.117 = phi ptr [ %.sroa.03.0, %46 ], [ %.sroa.12.0, %43 ]
-  %.sroa.9.116 = phi ptr [ %.sroa.03.0, %46 ], [ %.sroa.9.0, %43 ]
-  %.sroa.64.115 = phi ptr [ %.sroa.12.0, %46 ], [ %.sroa.64.0, %43 ]
-  %49 = getelementptr inbounds i8, ptr %.sink6.i18, i64 32
+"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread10": ; preds = %43, %45
+  %.sink6.i18 = phi ptr [ %.sroa.9.0, %45 ], [ %.sroa.03.0, %43 ]
+  %.sroa.12.117 = phi ptr [ %.sroa.03.0, %45 ], [ %.sroa.12.0, %43 ]
+  %.sroa.9.116 = phi ptr [ %.sroa.03.0, %45 ], [ %.sroa.9.0, %43 ]
+  %.sroa.64.115 = phi ptr [ %.sroa.12.0, %45 ], [ %.sroa.64.0, %43 ]
+  %47 = getelementptr inbounds i8, ptr %.sink6.i18, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !747)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !750)
-  %50 = getelementptr inbounds i8, ptr %.sink6.i18, i64 24
-  %51 = load i8, ptr %50, align 8, !alias.scope !747, !noalias !750, !noundef !4
-  %52 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !752, !noalias !747, !noundef !4
-  %53 = load i64, ptr %10, align 8, !alias.scope !752, !noalias !747, !noundef !4
-  %54 = icmp eq i64 %52, %53
-  br i1 %54, label %55, label %_ZN10ockam_core7routing7address7Address13manual_encode17h22722d644aa9c91cE.llvm.14247421389134134460.exit
+  %48 = getelementptr inbounds i8, ptr %.sink6.i18, i64 24
+  %49 = load i8, ptr %48, align 8, !alias.scope !747, !noalias !750, !noundef !4
+  %50 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !752, !noalias !747, !noundef !4
+  %51 = load i64, ptr %10, align 8, !alias.scope !752, !noalias !747, !noundef !4
+  %52 = icmp eq i64 %50, %51
+  br i1 %52, label %53, label %_ZN10ockam_core7routing7address7Address13manual_encode17h22722d644aa9c91cE.llvm.14247421389134134460.exit
 
-55:                                               ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread10"
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h60b778d77ed22b4bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %52), !noalias !747
+53:                                               ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread10"
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h60b778d77ed22b4bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %50), !noalias !747
   %.pre.i.i2 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !752, !noalias !747
   br label %_ZN10ockam_core7routing7address7Address13manual_encode17h22722d644aa9c91cE.llvm.14247421389134134460.exit
 
-_ZN10ockam_core7routing7address7Address13manual_encode17h22722d644aa9c91cE.llvm.14247421389134134460.exit: ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread10", %55
-  %56 = phi i64 [ %.pre.i.i2, %55 ], [ %52, %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread10" ]
-  %57 = load ptr, ptr %1, align 8, !alias.scope !752, !noalias !747, !nonnull !4, !noundef !4
-  %58 = getelementptr inbounds i8, ptr %57, i64 %56
-  store i8 %51, ptr %58, align 1, !noalias !747
-  %59 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !752, !noalias !747, !noundef !4
-  %60 = add i64 %59, 1
-  store i64 %60, ptr %.phi.trans.insert.i, align 8, !alias.scope !752, !noalias !747
-  %61 = load ptr, ptr %.sink6.i18, align 8, !alias.scope !747, !noalias !750, !nonnull !4, !noundef !4
-  %62 = getelementptr inbounds i8, ptr %.sink6.i18, i64 16
-  %63 = load i64, ptr %62, align 8, !alias.scope !747, !noalias !750, !noundef !4
-  tail call void @_ZN10ockam_core4bare11write_slice17hfa36de7cc835a13eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %61, i64 noundef %63), !noalias !747
+_ZN10ockam_core7routing7address7Address13manual_encode17h22722d644aa9c91cE.llvm.14247421389134134460.exit: ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread10", %53
+  %54 = phi i64 [ %.pre.i.i2, %53 ], [ %50, %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread10" ]
+  %55 = load ptr, ptr %1, align 8, !alias.scope !752, !noalias !747, !nonnull !4, !noundef !4
+  %56 = getelementptr inbounds i8, ptr %55, i64 %54
+  store i8 %49, ptr %56, align 1, !noalias !747
+  %57 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !752, !noalias !747, !noundef !4
+  %58 = add i64 %57, 1
+  store i64 %58, ptr %.phi.trans.insert.i, align 8, !alias.scope !752, !noalias !747
+  %59 = load ptr, ptr %.sink6.i18, align 8, !alias.scope !747, !noalias !750, !nonnull !4, !noundef !4
+  %60 = getelementptr inbounds i8, ptr %.sink6.i18, i64 16
+  %61 = load i64, ptr %60, align 8, !alias.scope !747, !noalias !750, !noundef !4
+  tail call void @_ZN10ockam_core4bare11write_slice17hfa36de7cc835a13eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %59, i64 noundef %61), !noalias !747
   br label %43
 }
 
@@ -4761,47 +4757,43 @@ _ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit: ; preds 
   br label %18
 
 18:                                               ; preds = %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit, %_ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit
-  %.sroa.04.0 = phi ptr [ %9, %_ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit ], [ %30, %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit ]
+  %.sroa.04.0 = phi ptr [ %9, %_ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit ], [ %28, %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit ]
   %.sroa.65.0 = phi ptr [ %16, %_ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit ], [ %.sroa.65.116, %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit ]
   %.sroa.9.0 = phi ptr [ %13, %_ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit ], [ %.sroa.9.117, %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit ]
   %.sroa.12.0 = phi ptr [ %17, %_ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit ], [ %.sroa.12.118, %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit ]
-  %.0 = phi i64 [ %7, %_ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit ], [ %33, %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit ]
-  %19 = icmp ne ptr %.sroa.65.0, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = icmp eq ptr %.sroa.04.0, %.sroa.65.0
-  br i1 %20, label %21, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread11"
+  %.0 = phi i64 [ %7, %_ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E.exit ], [ %31, %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit ]
+  %19 = icmp eq ptr %.sroa.04.0, %.sroa.65.0
+  br i1 %19, label %20, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread11"
 
-21:                                               ; preds = %18
-  %22 = icmp eq ptr %.sroa.9.0, %.sroa.12.0
-  %23 = icmp eq ptr %.sroa.9.0, null
-  %or.cond = or i1 %23, %22
-  br i1 %or.cond, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread11"
+20:                                               ; preds = %18
+  %21 = icmp eq ptr %.sroa.9.0, %.sroa.12.0
+  br i1 %21, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread11"
 
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread": ; preds = %21
+"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread": ; preds = %20
   ret i64 %.0
 
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread11": ; preds = %18, %21
-  %.sink6.i19 = phi ptr [ %.sroa.9.0, %21 ], [ %.sroa.04.0, %18 ]
-  %.sroa.12.118 = phi ptr [ %.sroa.04.0, %21 ], [ %.sroa.12.0, %18 ]
-  %.sroa.9.117 = phi ptr [ %.sroa.04.0, %21 ], [ %.sroa.9.0, %18 ]
-  %.sroa.65.116 = phi ptr [ %.sroa.12.0, %21 ], [ %.sroa.65.0, %18 ]
-  %24 = getelementptr inbounds i8, ptr %.sink6.i19, i64 16
-  %25 = load i64, ptr %24, align 8, !alias.scope !760, !noundef !4
-  br label %26
+"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread11": ; preds = %18, %20
+  %.sink6.i19 = phi ptr [ %.sroa.9.0, %20 ], [ %.sroa.04.0, %18 ]
+  %.sroa.12.118 = phi ptr [ %.sroa.04.0, %20 ], [ %.sroa.12.0, %18 ]
+  %.sroa.9.117 = phi ptr [ %.sroa.04.0, %20 ], [ %.sroa.9.0, %18 ]
+  %.sroa.65.116 = phi ptr [ %.sroa.12.0, %20 ], [ %.sroa.65.0, %18 ]
+  %22 = getelementptr inbounds i8, ptr %.sink6.i19, i64 16
+  %23 = load i64, ptr %22, align 8, !alias.scope !760, !noundef !4
+  br label %24
 
-26:                                               ; preds = %26, %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread11"
-  %.04.i.i.i = phi i64 [ 0, %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread11" ], [ %28, %26 ]
-  %.0.i.i.i = phi i64 [ %25, %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread11" ], [ %27, %26 ]
-  %27 = lshr i64 %.0.i.i.i, 7
-  %28 = add nuw nsw i64 %.04.i.i.i, 1
-  %29 = icmp ult i64 %.0.i.i.i, 128
-  br i1 %29, label %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit, label %26
+24:                                               ; preds = %24, %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread11"
+  %.04.i.i.i = phi i64 [ 0, %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread11" ], [ %26, %24 ]
+  %.0.i.i.i = phi i64 [ %23, %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h541d662c3c3c6f08E.llvm.14247421389134134460.exit.thread11" ], [ %25, %24 ]
+  %25 = lshr i64 %.0.i.i.i, 7
+  %26 = add nuw nsw i64 %.04.i.i.i, 1
+  %27 = icmp ult i64 %.0.i.i.i, 128
+  br i1 %27, label %_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit, label %24
 
-_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit: ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.sink6.i19, i64 32
-  %31 = add i64 %.0, 1
-  %32 = add i64 %31, %25
-  %33 = add i64 %32, %28
+_ZN10ockam_core7routing7address7Address12encoded_size17h4606c9619191ec63E.llvm.14247421389134134460.exit: ; preds = %24
+  %28 = getelementptr inbounds i8, ptr %.sink6.i19, i64 32
+  %29 = add i64 %.0, 1
+  %30 = add i64 %29, %23
+  %31 = add i64 %30, %26
   br label %18
 }
 

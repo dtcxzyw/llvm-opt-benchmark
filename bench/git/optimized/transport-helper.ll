@@ -2829,8 +2829,8 @@ lor.lhs.false:                                    ; preds = %if.then9.i.i, %if.e
 sub_1:                                            ; preds = %lor.lhs.false
   %12 = getelementptr inbounds i8, ptr %10, i64 1
   %13 = load i8, ptr %12, align 1
-  %.not83 = icmp eq i8 %13, 107
-  br i1 %.not83, label %sub_2, label %if.then10
+  %.not82 = icmp eq i8 %13, 107
+  br i1 %.not82, label %sub_2, label %if.then10
 
 sub_2:                                            ; preds = %sub_1
   %14 = getelementptr inbounds i8, ptr %10, i64 2
@@ -3020,14 +3020,14 @@ if.end83:                                         ; preds = %if.end60, %if.then7
   br i1 %tobool58.not, label %if.end100, label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end83, %if.end8.i
-  %call1.i52.pn = phi ptr [ %call1.i52, %if.end8.i ], [ %call57, %if.end83 ]
-  %attrs.addr.0.i = getelementptr inbounds i8, ptr %call1.i52.pn, i64 1
-  %call1.i52 = call ptr @strchrnul(ptr noundef nonnull %attrs.addr.0.i, i32 noundef 32) #20
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %call1.i52 to i64
+  %call57.pn = phi ptr [ %call1.i51, %if.end8.i ], [ %call57, %if.end83 ]
+  %attrs.addr.0.i = getelementptr inbounds i8, ptr %call57.pn, i64 1
+  %call1.i51 = call ptr @strchrnul(ptr noundef nonnull %attrs.addr.0.i, i32 noundef 32) #20
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %call1.i51 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %attrs.addr.0.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i53 = icmp eq i64 %sub.ptr.sub.i, 9
-  br i1 %cmp.i53, label %land.lhs.true.i, label %if.end8.i
+  %cmp.i52 = icmp eq i64 %sub.ptr.sub.i, 9
+  br i1 %cmp.i52, label %land.lhs.true.i, label %if.end8.i
 
 land.lhs.true.i:                                  ; preds = %for.cond.i
   %call5.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %attrs.addr.0.i, ptr noundef nonnull dereferenceable(10) @.str.77, i64 noundef 9) #20
@@ -3035,7 +3035,7 @@ land.lhs.true.i:                                  ; preds = %for.cond.i
   br i1 %tobool6.not.i, label %if.then89, label %if.end8.i
 
 if.end8.i:                                        ; preds = %land.lhs.true.i, %for.cond.i
-  %36 = load i8, ptr %call1.i52, align 1
+  %36 = load i8, ptr %call1.i51, align 1
   %tobool9.not.i = icmp eq i8 %36, 0
   br i1 %tobool9.not.i, label %if.end100, label %for.cond.i
 
@@ -3074,19 +3074,19 @@ if.then102:                                       ; preds = %while.end
 
 if.end104:                                        ; preds = %if.then102, %while.end
   call void @strbuf_release(ptr noundef nonnull %buf) #18
-  %ret.0.ret.0.posn.080 = load ptr, ptr %ret, align 8
-  %tobool105.not81 = icmp eq ptr %ret.0.ret.0.posn.080, null
-  br i1 %tobool105.not81, label %for.end, label %for.body
+  %ret.0.ret.0.posn.079 = load ptr, ptr %ret, align 8
+  %tobool105.not80 = icmp eq ptr %ret.0.ret.0.posn.079, null
+  br i1 %tobool105.not80, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end104, %for.body
-  %posn.082 = phi ptr [ %posn.0, %for.body ], [ %ret.0.ret.0.posn.080, %if.end104 ]
-  %call106 = call i32 @resolve_remote_symref(ptr noundef nonnull %posn.082, ptr noundef nonnull %ret.0.ret.0.posn.080) #18
-  %posn.0 = load ptr, ptr %posn.082, align 8
+  %posn.081 = phi ptr [ %posn.0, %for.body ], [ %ret.0.ret.0.posn.079, %if.end104 ]
+  %call106 = call i32 @resolve_remote_symref(ptr noundef nonnull %posn.081, ptr noundef nonnull %ret.0.ret.0.posn.079) #18
+  %posn.0 = load ptr, ptr %posn.081, align 8
   %tobool105.not = icmp eq ptr %posn.0, null
   br i1 %tobool105.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %if.end104
-  ret ptr %ret.0.ret.0.posn.080
+  ret ptr %ret.0.ret.0.posn.079
 }
 
 ; Function Attrs: nounwind uwtable

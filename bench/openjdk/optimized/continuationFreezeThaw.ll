@@ -1284,7 +1284,7 @@ define hidden noundef zeroext i1 @_ZN10FreezeBase21freeze_fast_new_chunkEP17stac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN10FreezeBase11freeze_slowEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase11freeze_slowEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.HandleMark, align 8
   %3 = alloca %class.frame, align 8
   %4 = alloca %class.frame, align 8
@@ -1450,7 +1450,7 @@ _ZN10FreezeBase33freeze_start_frame_safepoint_stubE5frame.exit: ; preds = %_ZN19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN10FreezeBase14recurse_freezeER5frameS1_ibb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase14recurse_freezeER5frameS1_ibb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = tail call noundef zeroext i1 @_ZN10FreezeBase14stack_overflowEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   br i1 %7, label %_ZN18ContinuationHelper5Frame7is_stubEP8CodeBlob.exit.thread, label %8
 
@@ -2116,7 +2116,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase29recurse_fr
 _ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit: ; preds = %45, %47
   %.0.i = phi i32 [ %46, %45 ], [ %48, %47 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  %49 = icmp sgt i32 %.0.i, 1
+  %49 = icmp ugt i32 %.0.i, 1
   br i1 %49, label %152, label %50
 
 50:                                               ; preds = %_ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit
@@ -2407,7 +2407,7 @@ _ZN18ContinuationHelper5Frame12frame_methodERK5frame.exit: ; preds = %39, %_ZNK5
 _ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper16InterpretedFrameEEE13freeze_resultRK5frameRS4_ii.exit: ; preds = %63, %65
   %.0.i = phi i32 [ %64, %63 ], [ %72, %65 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  %73 = icmp sgt i32 %.0.i, 1
+  %73 = icmp ugt i32 %.0.i, 1
   br i1 %73, label %171, label %74
 
 74:                                               ; preds = %_ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper16InterpretedFrameEEE13freeze_resultRK5frameRS4_ii.exit

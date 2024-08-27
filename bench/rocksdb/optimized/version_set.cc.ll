@@ -42436,18 +42436,14 @@ lpad:                                             ; preds = %if.then11, %if.end,
 if.end:                                           ; preds = %if.then5, %invoke.cont
   %5 = load ptr, ptr %manifest_file_iter_, align 8
   %call10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %invoke.cont9 unwind label %lpad
+          to label %if.then11 unwind label %lpad
 
-invoke.cont9:                                     ; preds = %if.end
-  %tobool.not = icmp eq ptr %number, null
-  br i1 %tobool.not, label %if.end23, label %if.then11
-
-if.then11:                                        ; preds = %invoke.cont9
+if.then11:                                        ; preds = %if.end
   %6 = load ptr, ptr %manifest_file_iter_, align 8
-  %call15 = invoke noundef zeroext i1 @_ZN7rocksdb13ParseFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmPNS_8FileTypeEPNS_11WalFileTypeE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %number, ptr noundef nonnull %type, ptr noundef null)
+  %call15 = invoke noundef zeroext i1 @_ZN7rocksdb13ParseFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmPNS_8FileTypeEPNS_11WalFileTypeE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %number, ptr noundef nonnull %type, ptr noundef null)
           to label %if.end23 unwind label %lpad
 
-if.end23:                                         ; preds = %invoke.cont9, %if.then11
+if.end23:                                         ; preds = %if.then11
   %7 = load ptr, ptr %manifest_file_iter_, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %incdec.ptr.i, ptr %manifest_file_iter_, align 8

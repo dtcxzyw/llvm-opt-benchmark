@@ -2704,7 +2704,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: nounwind uwtable
 define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %218, label %5
+  br i1 %4, label %206, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 280
@@ -2742,297 +2742,273 @@ define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i
   %30 = phi i32 [ %18, %16 ], [ %27, %21 ]
   %31 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 2) #15
   %32 = icmp eq i32 %31, 2
-  br i1 %32, label %42, label %33
+  br i1 %32, label %40, label %33
 
 33:                                               ; preds = %28
-  %34 = icmp eq ptr %29, null
-  br i1 %34, label %218, label %35
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #18
+  %35 = trunc i64 %34 to i32
+  %36 = add i32 %35, 1
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds i8, ptr %29, i64 %37
+  %39 = add i32 %36, %30
+  br label %40
 
-35:                                               ; preds = %33
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #18
-  %37 = trunc i64 %36 to i32
-  %38 = add i32 %37, 1
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %29, i64 %39
-  %41 = add i32 %38, %30
-  br label %42
+40:                                               ; preds = %33, %28
+  %41 = phi ptr [ %29, %28 ], [ %38, %33 ]
+  %42 = phi i32 [ %30, %28 ], [ %39, %33 ]
+  %43 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 3) #15
+  %44 = icmp eq i32 %43, 2
+  br i1 %44, label %52, label %45
 
-42:                                               ; preds = %35, %28
-  %43 = phi ptr [ %29, %28 ], [ %40, %35 ]
-  %44 = phi i32 [ %30, %28 ], [ %41, %35 ]
-  %45 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 3) #15
-  %46 = icmp eq i32 %45, 2
-  br i1 %46, label %56, label %47
+45:                                               ; preds = %40
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #18
+  %47 = trunc i64 %46 to i32
+  %48 = add i32 %47, 1
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds i8, ptr %41, i64 %49
+  %51 = add i32 %48, %42
+  br label %52
 
-47:                                               ; preds = %42
-  %48 = icmp eq ptr %43, null
-  br i1 %48, label %218, label %49
+52:                                               ; preds = %45, %40
+  %53 = phi ptr [ %41, %40 ], [ %50, %45 ]
+  %54 = phi i32 [ %42, %40 ], [ %51, %45 ]
+  %55 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 4) #15
+  %56 = icmp eq i32 %55, 2
+  br i1 %56, label %64, label %57
 
-49:                                               ; preds = %47
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #18
-  %51 = trunc i64 %50 to i32
-  %52 = add i32 %51, 1
-  %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %43, i64 %53
-  %55 = add i32 %52, %44
-  br label %56
+57:                                               ; preds = %52
+  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #18
+  %59 = trunc i64 %58 to i32
+  %60 = add i32 %59, 1
+  %61 = zext i32 %60 to i64
+  %62 = getelementptr inbounds i8, ptr %53, i64 %61
+  %63 = add i32 %60, %54
+  br label %64
 
-56:                                               ; preds = %49, %42
-  %57 = phi ptr [ %43, %42 ], [ %54, %49 ]
-  %58 = phi i32 [ %44, %42 ], [ %55, %49 ]
-  %59 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 4) #15
-  %60 = icmp eq i32 %59, 2
-  br i1 %60, label %70, label %61
+64:                                               ; preds = %57, %52
+  %65 = phi ptr [ %53, %52 ], [ %62, %57 ]
+  %66 = phi i32 [ %54, %52 ], [ %63, %57 ]
+  %67 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 5) #15
+  %68 = icmp eq i32 %67, 2
+  br i1 %68, label %76, label %69
 
-61:                                               ; preds = %56
-  %62 = icmp eq ptr %57, null
-  br i1 %62, label %218, label %63
+69:                                               ; preds = %64
+  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #18
+  %71 = trunc i64 %70 to i32
+  %72 = add i32 %71, 1
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds i8, ptr %65, i64 %73
+  %75 = add i32 %72, %66
+  br label %76
 
-63:                                               ; preds = %61
-  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #18
-  %65 = trunc i64 %64 to i32
-  %66 = add i32 %65, 1
-  %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %57, i64 %67
-  %69 = add i32 %66, %58
-  br label %70
+76:                                               ; preds = %69, %64
+  %77 = phi ptr [ %65, %64 ], [ %74, %69 ]
+  %78 = phi i32 [ %66, %64 ], [ %75, %69 ]
+  %79 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 6) #15
+  %80 = icmp eq i32 %79, 2
+  br i1 %80, label %88, label %81
 
-70:                                               ; preds = %63, %56
-  %71 = phi ptr [ %57, %56 ], [ %68, %63 ]
-  %72 = phi i32 [ %58, %56 ], [ %69, %63 ]
-  %73 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 5) #15
-  %74 = icmp eq i32 %73, 2
-  br i1 %74, label %84, label %75
+81:                                               ; preds = %76
+  %82 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #18
+  %83 = trunc i64 %82 to i32
+  %84 = add i32 %83, 1
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr inbounds i8, ptr %77, i64 %85
+  %87 = add i32 %84, %78
+  br label %88
 
-75:                                               ; preds = %70
-  %76 = icmp eq ptr %71, null
-  br i1 %76, label %218, label %77
+88:                                               ; preds = %81, %76
+  %89 = phi ptr [ %77, %76 ], [ %86, %81 ]
+  %90 = phi i32 [ %78, %76 ], [ %87, %81 ]
+  %91 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 7) #15
+  %92 = icmp eq i32 %91, 2
+  br i1 %92, label %98, label %93
 
-77:                                               ; preds = %75
-  %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #18
-  %79 = trunc i64 %78 to i32
-  %80 = add i32 %79, 1
-  %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %71, i64 %81
-  %83 = add i32 %80, %72
-  br label %84
-
-84:                                               ; preds = %77, %70
-  %85 = phi ptr [ %71, %70 ], [ %82, %77 ]
-  %86 = phi i32 [ %72, %70 ], [ %83, %77 ]
-  %87 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 6) #15
-  %88 = icmp eq i32 %87, 2
-  br i1 %88, label %98, label %89
-
-89:                                               ; preds = %84
-  %90 = icmp eq ptr %85, null
-  br i1 %90, label %218, label %91
-
-91:                                               ; preds = %89
-  %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #18
-  %93 = trunc i64 %92 to i32
-  %94 = add i32 %93, 1
-  %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds i8, ptr %85, i64 %95
-  %97 = add i32 %94, %86
+93:                                               ; preds = %88
+  %94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #18
+  %95 = trunc i64 %94 to i32
+  %96 = add i32 %90, 1
+  %97 = add i32 %96, %95
   br label %98
 
-98:                                               ; preds = %91, %84
-  %99 = phi ptr [ %85, %84 ], [ %96, %91 ]
-  %100 = phi i32 [ %86, %84 ], [ %97, %91 ]
-  %101 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 7) #15
-  %102 = icmp eq i32 %101, 2
-  br i1 %102, label %110, label %103
+98:                                               ; preds = %93, %88
+  %99 = phi i32 [ %90, %88 ], [ %97, %93 ]
+  %100 = icmp eq i32 %99, %2
+  br i1 %100, label %101, label %206
 
-103:                                              ; preds = %98
-  %104 = icmp eq ptr %99, null
-  br i1 %104, label %218, label %105
+101:                                              ; preds = %98
+  %102 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 0) #15
+  %103 = icmp eq i32 %102, 2
+  br i1 %103, label %111, label %104
 
-105:                                              ; preds = %103
-  %106 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #18
-  %107 = trunc i64 %106 to i32
-  %108 = add i32 %100, 1
-  %109 = add i32 %108, %107
-  br label %110
+104:                                              ; preds = %101
+  %105 = load i8, ptr %1, align 1, !tbaa !37
+  %106 = icmp eq i8 %105, 0
+  br i1 %106, label %111, label %107
 
-110:                                              ; preds = %105, %98
-  %111 = phi i32 [ %100, %98 ], [ %109, %105 ]
-  %112 = icmp eq i32 %111, %2
-  br i1 %112, label %113, label %218
+107:                                              ; preds = %104
+  %108 = tail call ptr @dt_metadata_get_key(i32 noundef 0) #15
+  %109 = tail call ptr @g_list_append(ptr noundef null, ptr noundef %108) #15
+  %110 = tail call ptr @g_list_append(ptr noundef %109, ptr noundef nonnull %1) #15
+  br label %111
 
-113:                                              ; preds = %110
-  %114 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 0) #15
-  %115 = icmp eq i32 %114, 2
-  br i1 %115, label %123, label %116
+111:                                              ; preds = %107, %104, %101
+  %112 = phi ptr [ null, %101 ], [ null, %104 ], [ %110, %107 ]
+  %113 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 1) #15
+  %114 = icmp eq i32 %113, 2
+  br i1 %114, label %122, label %115
 
-116:                                              ; preds = %113
-  %117 = load i8, ptr %1, align 1, !tbaa !37
-  %118 = icmp eq i8 %117, 0
-  br i1 %118, label %123, label %119
+115:                                              ; preds = %111
+  %116 = load i8, ptr %17, align 1, !tbaa !37
+  %117 = icmp eq i8 %116, 0
+  br i1 %117, label %122, label %118
 
-119:                                              ; preds = %116
-  %120 = tail call ptr @dt_metadata_get_key(i32 noundef 0) #15
-  %121 = tail call ptr @g_list_append(ptr noundef null, ptr noundef %120) #15
-  %122 = tail call ptr @g_list_append(ptr noundef %121, ptr noundef nonnull %1) #15
-  br label %123
+118:                                              ; preds = %115
+  %119 = tail call ptr @dt_metadata_get_key(i32 noundef 1) #15
+  %120 = tail call ptr @g_list_append(ptr noundef %112, ptr noundef %119) #15
+  %121 = tail call ptr @g_list_append(ptr noundef %120, ptr noundef nonnull %17) #15
+  br label %122
 
-123:                                              ; preds = %119, %116, %113
-  %124 = phi ptr [ null, %113 ], [ null, %116 ], [ %122, %119 ]
-  %125 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 1) #15
-  %126 = icmp eq i32 %125, 2
-  br i1 %126, label %134, label %127
+122:                                              ; preds = %118, %115, %111
+  %123 = phi ptr [ %112, %111 ], [ %112, %115 ], [ %121, %118 ]
+  %124 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 2) #15
+  %125 = icmp eq i32 %124, 2
+  br i1 %125, label %133, label %126
 
-127:                                              ; preds = %123
-  %128 = load i8, ptr %17, align 1, !tbaa !37
-  %129 = icmp eq i8 %128, 0
-  br i1 %129, label %134, label %130
+126:                                              ; preds = %122
+  %127 = load i8, ptr %29, align 1, !tbaa !37
+  %128 = icmp eq i8 %127, 0
+  br i1 %128, label %133, label %129
 
-130:                                              ; preds = %127
-  %131 = tail call ptr @dt_metadata_get_key(i32 noundef 1) #15
-  %132 = tail call ptr @g_list_append(ptr noundef %124, ptr noundef %131) #15
-  %133 = tail call ptr @g_list_append(ptr noundef %132, ptr noundef nonnull %17) #15
-  br label %134
+129:                                              ; preds = %126
+  %130 = tail call ptr @dt_metadata_get_key(i32 noundef 2) #15
+  %131 = tail call ptr @g_list_append(ptr noundef %123, ptr noundef %130) #15
+  %132 = tail call ptr @g_list_append(ptr noundef %131, ptr noundef nonnull %29) #15
+  br label %133
 
-134:                                              ; preds = %130, %127, %123
-  %135 = phi ptr [ %124, %123 ], [ %124, %127 ], [ %133, %130 ]
-  %136 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 2) #15
-  %137 = icmp eq i32 %136, 2
-  br i1 %137, label %145, label %138
+133:                                              ; preds = %129, %126, %122
+  %134 = phi ptr [ %123, %122 ], [ %123, %126 ], [ %132, %129 ]
+  %135 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 3) #15
+  %136 = icmp eq i32 %135, 2
+  br i1 %136, label %144, label %137
 
-138:                                              ; preds = %134
-  %139 = load i8, ptr %29, align 1, !tbaa !37
-  %140 = icmp eq i8 %139, 0
-  br i1 %140, label %145, label %141
+137:                                              ; preds = %133
+  %138 = load i8, ptr %41, align 1, !tbaa !37
+  %139 = icmp eq i8 %138, 0
+  br i1 %139, label %144, label %140
 
-141:                                              ; preds = %138
-  %142 = tail call ptr @dt_metadata_get_key(i32 noundef 2) #15
-  %143 = tail call ptr @g_list_append(ptr noundef %135, ptr noundef %142) #15
-  %144 = tail call ptr @g_list_append(ptr noundef %143, ptr noundef nonnull %29) #15
-  br label %145
+140:                                              ; preds = %137
+  %141 = tail call ptr @dt_metadata_get_key(i32 noundef 3) #15
+  %142 = tail call ptr @g_list_append(ptr noundef %134, ptr noundef %141) #15
+  %143 = tail call ptr @g_list_append(ptr noundef %142, ptr noundef nonnull %41) #15
+  br label %144
 
-145:                                              ; preds = %141, %138, %134
-  %146 = phi ptr [ %135, %134 ], [ %135, %138 ], [ %144, %141 ]
-  %147 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 3) #15
-  %148 = icmp eq i32 %147, 2
-  br i1 %148, label %156, label %149
+144:                                              ; preds = %140, %137, %133
+  %145 = phi ptr [ %134, %133 ], [ %134, %137 ], [ %143, %140 ]
+  %146 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 4) #15
+  %147 = icmp eq i32 %146, 2
+  br i1 %147, label %155, label %148
 
-149:                                              ; preds = %145
-  %150 = load i8, ptr %43, align 1, !tbaa !37
-  %151 = icmp eq i8 %150, 0
-  br i1 %151, label %156, label %152
+148:                                              ; preds = %144
+  %149 = load i8, ptr %53, align 1, !tbaa !37
+  %150 = icmp eq i8 %149, 0
+  br i1 %150, label %155, label %151
 
-152:                                              ; preds = %149
-  %153 = tail call ptr @dt_metadata_get_key(i32 noundef 3) #15
-  %154 = tail call ptr @g_list_append(ptr noundef %146, ptr noundef %153) #15
-  %155 = tail call ptr @g_list_append(ptr noundef %154, ptr noundef nonnull %43) #15
-  br label %156
+151:                                              ; preds = %148
+  %152 = tail call ptr @dt_metadata_get_key(i32 noundef 4) #15
+  %153 = tail call ptr @g_list_append(ptr noundef %145, ptr noundef %152) #15
+  %154 = tail call ptr @g_list_append(ptr noundef %153, ptr noundef nonnull %53) #15
+  br label %155
 
-156:                                              ; preds = %152, %149, %145
-  %157 = phi ptr [ %146, %145 ], [ %146, %149 ], [ %155, %152 ]
-  %158 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 4) #15
-  %159 = icmp eq i32 %158, 2
-  br i1 %159, label %167, label %160
+155:                                              ; preds = %151, %148, %144
+  %156 = phi ptr [ %145, %144 ], [ %145, %148 ], [ %154, %151 ]
+  %157 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 5) #15
+  %158 = icmp eq i32 %157, 2
+  br i1 %158, label %166, label %159
 
-160:                                              ; preds = %156
-  %161 = load i8, ptr %57, align 1, !tbaa !37
-  %162 = icmp eq i8 %161, 0
-  br i1 %162, label %167, label %163
+159:                                              ; preds = %155
+  %160 = load i8, ptr %65, align 1, !tbaa !37
+  %161 = icmp eq i8 %160, 0
+  br i1 %161, label %166, label %162
 
-163:                                              ; preds = %160
-  %164 = tail call ptr @dt_metadata_get_key(i32 noundef 4) #15
-  %165 = tail call ptr @g_list_append(ptr noundef %157, ptr noundef %164) #15
-  %166 = tail call ptr @g_list_append(ptr noundef %165, ptr noundef nonnull %57) #15
-  br label %167
+162:                                              ; preds = %159
+  %163 = tail call ptr @dt_metadata_get_key(i32 noundef 5) #15
+  %164 = tail call ptr @g_list_append(ptr noundef %156, ptr noundef %163) #15
+  %165 = tail call ptr @g_list_append(ptr noundef %164, ptr noundef nonnull %65) #15
+  br label %166
 
-167:                                              ; preds = %163, %160, %156
-  %168 = phi ptr [ %157, %156 ], [ %157, %160 ], [ %166, %163 ]
-  %169 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 5) #15
-  %170 = icmp eq i32 %169, 2
-  br i1 %170, label %178, label %171
+166:                                              ; preds = %162, %159, %155
+  %167 = phi ptr [ %156, %155 ], [ %156, %159 ], [ %165, %162 ]
+  %168 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 6) #15
+  %169 = icmp eq i32 %168, 2
+  br i1 %169, label %177, label %170
 
-171:                                              ; preds = %167
-  %172 = load i8, ptr %71, align 1, !tbaa !37
-  %173 = icmp eq i8 %172, 0
-  br i1 %173, label %178, label %174
+170:                                              ; preds = %166
+  %171 = load i8, ptr %77, align 1, !tbaa !37
+  %172 = icmp eq i8 %171, 0
+  br i1 %172, label %177, label %173
 
-174:                                              ; preds = %171
-  %175 = tail call ptr @dt_metadata_get_key(i32 noundef 5) #15
-  %176 = tail call ptr @g_list_append(ptr noundef %168, ptr noundef %175) #15
-  %177 = tail call ptr @g_list_append(ptr noundef %176, ptr noundef nonnull %71) #15
-  br label %178
+173:                                              ; preds = %170
+  %174 = tail call ptr @dt_metadata_get_key(i32 noundef 6) #15
+  %175 = tail call ptr @g_list_append(ptr noundef %167, ptr noundef %174) #15
+  %176 = tail call ptr @g_list_append(ptr noundef %175, ptr noundef nonnull %77) #15
+  br label %177
 
-178:                                              ; preds = %174, %171, %167
-  %179 = phi ptr [ %168, %167 ], [ %168, %171 ], [ %177, %174 ]
-  %180 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 6) #15
-  %181 = icmp eq i32 %180, 2
-  br i1 %181, label %189, label %182
+177:                                              ; preds = %173, %170, %166
+  %178 = phi ptr [ %167, %166 ], [ %167, %170 ], [ %176, %173 ]
+  %179 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 7) #15
+  %180 = icmp eq i32 %179, 2
+  br i1 %180, label %188, label %181
 
-182:                                              ; preds = %178
-  %183 = load i8, ptr %85, align 1, !tbaa !37
-  %184 = icmp eq i8 %183, 0
-  br i1 %184, label %189, label %185
+181:                                              ; preds = %177
+  %182 = load i8, ptr %89, align 1, !tbaa !37
+  %183 = icmp eq i8 %182, 0
+  br i1 %183, label %188, label %184
 
-185:                                              ; preds = %182
-  %186 = tail call ptr @dt_metadata_get_key(i32 noundef 6) #15
-  %187 = tail call ptr @g_list_append(ptr noundef %179, ptr noundef %186) #15
-  %188 = tail call ptr @g_list_append(ptr noundef %187, ptr noundef nonnull %85) #15
-  br label %189
+184:                                              ; preds = %181
+  %185 = tail call ptr @dt_metadata_get_key(i32 noundef 7) #15
+  %186 = tail call ptr @g_list_append(ptr noundef %178, ptr noundef %185) #15
+  %187 = tail call ptr @g_list_append(ptr noundef %186, ptr noundef nonnull %89) #15
+  br label %188
 
-189:                                              ; preds = %185, %182, %178
-  %190 = phi ptr [ %179, %178 ], [ %179, %182 ], [ %188, %185 ]
-  %191 = tail call i32 @dt_metadata_get_type_by_display_order(i32 noundef 7) #15
-  %192 = icmp eq i32 %191, 2
-  br i1 %192, label %200, label %193
+188:                                              ; preds = %184, %181, %177
+  %189 = phi ptr [ %178, %177 ], [ %178, %181 ], [ %187, %184 ]
+  %190 = tail call ptr @dt_act_on_get_images(i32 noundef 0, i32 noundef 1, i32 noundef 0) #15
+  tail call void @dt_metadata_set_list(ptr noundef %190, ptr noundef %189, i32 noundef 1) #15
+  tail call void @g_list_free(ptr noundef %189) #15
+  %191 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !38
+  %192 = and i32 %191, 1
+  %193 = icmp ne i32 %192, 0
+  %194 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3124), align 4
+  %195 = icmp ne i32 %194, 0
+  %196 = select i1 %193, i1 %195, i1 false
+  br i1 %196, label %197, label %202
 
-193:                                              ; preds = %189
-  %194 = load i8, ptr %99, align 1, !tbaa !37
-  %195 = icmp eq i8 %194, 0
-  br i1 %195, label %200, label %196
+197:                                              ; preds = %188
+  %198 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
+  %199 = and i32 %198, 1048576
+  %200 = icmp eq i32 %199, 0
+  br i1 %200, label %202, label %201
 
-196:                                              ; preds = %193
-  %197 = tail call ptr @dt_metadata_get_key(i32 noundef 7) #15
-  %198 = tail call ptr @g_list_append(ptr noundef %190, ptr noundef %197) #15
-  %199 = tail call ptr @g_list_append(ptr noundef %198, ptr noundef nonnull %99) #15
-  br label %200
-
-200:                                              ; preds = %196, %193, %189
-  %201 = phi ptr [ %190, %189 ], [ %190, %193 ], [ %199, %196 ]
-  %202 = tail call ptr @dt_act_on_get_images(i32 noundef 0, i32 noundef 1, i32 noundef 0) #15
-  tail call void @dt_metadata_set_list(ptr noundef %202, ptr noundef %201, i32 noundef 1) #15
-  tail call void @g_list_free(ptr noundef %201) #15
-  %203 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !38
-  %204 = and i32 %203, 1
-  %205 = icmp ne i32 %204, 0
-  %206 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3124), align 4
-  %207 = icmp ne i32 %206, 0
-  %208 = select i1 %205, i1 %207, i1 false
-  br i1 %208, label %209, label %214
-
-209:                                              ; preds = %200
-  %210 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !20
-  %211 = and i32 %210, 1048576
-  %212 = icmp eq i32 %211, 0
-  br i1 %212, label %214, label %213
-
-213:                                              ; preds = %209
+201:                                              ; preds = %197
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.3, i32 noundef 947, ptr noundef nonnull @__FUNCTION__.set_params, ptr noundef nonnull @.str.27) #15
-  br label %214
+  br label %202
 
-214:                                              ; preds = %213, %209, %200
-  %215 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !39
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %215, i32 noundef 0) #15
-  tail call void @dt_image_synch_xmps(ptr noundef %202) #15
-  tail call void @g_list_free(ptr noundef %202) #15
-  %216 = getelementptr inbounds i8, ptr %7, i64 344
-  %217 = load ptr, ptr %216, align 8, !tbaa !13
-  tail call void @g_list_free(ptr noundef %217) #15
-  store ptr null, ptr %216, align 8, !tbaa !13
+202:                                              ; preds = %201, %197, %188
+  %203 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !39
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %203, i32 noundef 0) #15
+  tail call void @dt_image_synch_xmps(ptr noundef %190) #15
+  tail call void @g_list_free(ptr noundef %190) #15
+  %204 = getelementptr inbounds i8, ptr %7, i64 344
+  %205 = load ptr, ptr %204, align 8, !tbaa !13
+  tail call void @g_list_free(ptr noundef %205) #15
+  store ptr null, ptr %204, align 8, !tbaa !13
   tail call void @dt_lib_gui_queue_update(ptr noundef nonnull %0) #15
-  br label %218
+  br label %206
 
-218:                                              ; preds = %214, %110, %103, %89, %75, %61, %47, %33, %3
-  %219 = phi i32 [ 1, %3 ], [ 0, %214 ], [ 1, %110 ], [ 1, %103 ], [ 1, %89 ], [ 1, %75 ], [ 1, %61 ], [ 1, %47 ], [ 1, %33 ]
-  ret i32 %219
+206:                                              ; preds = %202, %98, %3
+  %207 = phi i32 [ 1, %3 ], [ 0, %202 ], [ 1, %98 ]
+  ret i32 %207
 }
 
 declare ptr @dt_metadata_get_key(i32 noundef) local_unnamed_addr #4

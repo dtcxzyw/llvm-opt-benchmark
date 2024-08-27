@@ -13069,7 +13069,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %for.b
   %conv4.pn.i.i = phi i64 [ %conv4.i.i, %if.then.i.i ], [ 1, %for.body.i.i ]
   %conv3.pn.i.i = phi i64 [ %conv3.i.i, %if.then.i.i ], [ 1, %for.body.i.i ]
   %output_length.1.i.i = add i64 %conv3.pn.i.i, %output_length.016.i.i
-  %i.1.i.i = add i64 %conv4.pn.i.i, %i.015.i.i
+  %i.1.i.i = add nsw i64 %conv4.pn.i.i, %i.015.i.i
   %cmp.i.i52 = icmp ult i64 %i.1.i.i, %conv.i
   br i1 %cmp.i.i52, label %for.body.i.i, label %_ZN6duckdb8LowerFun11LowerLengthEPKcm.exit, !llvm.loop !8
 
@@ -13166,7 +13166,7 @@ if.end.i.i82:                                     ; preds = %call2.i.i79.noexc, 
   %conv4.pn.i.i83 = phi i64 [ %conv4.i.i81, %call2.i.i79.noexc ], [ 1, %for.body.i.i71 ]
   %conv3.pn.i.i84 = phi i64 [ %conv3.i.i80, %call2.i.i79.noexc ], [ 1, %for.body.i.i71 ]
   %output_length.1.i.i85 = add i64 %conv3.pn.i.i84, %output_length.016.i.i72
-  %i.1.i.i86 = add i64 %conv4.pn.i.i83, %i.015.i.i73
+  %i.1.i.i86 = add nsw i64 %conv4.pn.i.i83, %i.015.i.i73
   %cmp.i.i87 = icmp ult i64 %i.1.i.i86, %conv.i51
   br i1 %cmp.i.i87, label %for.body.i.i71, label %invoke.cont7, !llvm.loop !8
 

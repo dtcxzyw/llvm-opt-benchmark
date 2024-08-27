@@ -18181,7 +18181,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN11upolynomial7manager21eval_sign_at_plus_infEjPK3mpz(ptr nocapture noundef nonnull readnone align 8 dereferenceable(312) %this, i32 noundef %sz, ptr nocapture noundef readonly %p) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZN11upolynomial7manager21eval_sign_at_plus_infEjPK3mpz(ptr nocapture noundef nonnull readnone align 8 dereferenceable(312) %this, i32 noundef %sz, ptr nocapture noundef readonly %p) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq i32 %sz, 0
   br i1 %cmp, label %return, label %if.end

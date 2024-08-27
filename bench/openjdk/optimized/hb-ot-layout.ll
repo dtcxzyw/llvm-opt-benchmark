@@ -13027,12 +13027,12 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %20, %13, %2
   %40 = getelementptr inbounds i8, ptr %1, i64 64
   br label %41
 
-41:                                               ; preds = %.lr.ph87, %169
-  %42 = phi i32 [ 0, %.lr.ph87 ], [ %180, %169 ]
-  %.086 = phi i1 [ false, %.lr.ph87 ], [ %.1, %169 ]
-  %.04885 = phi i1 [ false, %.lr.ph87 ], [ %.149, %169 ]
-  %.05183 = phi ptr [ %34, %.lr.ph87 ], [ %178, %169 ]
-  %.05282 = phi i32 [ 0, %.lr.ph87 ], [ %181, %169 ]
+41:                                               ; preds = %.lr.ph87, %168
+  %42 = phi i32 [ 0, %.lr.ph87 ], [ %179, %168 ]
+  %.086 = phi i1 [ false, %.lr.ph87 ], [ %.1, %168 ]
+  %.04885 = phi i1 [ false, %.lr.ph87 ], [ %.149, %168 ]
+  %.05183 = phi ptr [ %34, %.lr.ph87 ], [ %177, %168 ]
+  %.05282 = phi i32 [ 0, %.lr.ph87 ], [ %180, %168 ]
   %43 = getelementptr inbounds i8, ptr %.05183, i64 5
   %44 = load i8, ptr %43, align 1
   %45 = load ptr, ptr %7, align 8
@@ -13043,14 +13043,14 @@ _ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %20, %13, %2
   %50 = icmp ne i8 %49, 0
   %51 = icmp ne i32 %48, 4
   %.not = xor i1 %50, %51
-  br i1 %.not, label %52, label %169
+  br i1 %.not, label %52, label %168
 
 52:                                               ; preds = %41
   %53 = and i32 %47, -3
   %54 = icmp eq i32 %53, 5
   %55 = load ptr, ptr %35, align 8
   %56 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %45, ptr noundef %55, ptr noundef nonnull @.str.6, i32 noundef %42)
-  br i1 %56, label %57, label %169
+  br i1 %56, label %57, label %168
 
 57:                                               ; preds = %52
   br i1 %.04885, label %.loopexit, label %58
@@ -13160,177 +13160,175 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i,
   br i1 %97, label %.lr.ph.i10.i.i, label %_ZN11hb_buffer_t7reverseEv.exit, !llvm.loop !78
 
 _ZN11hb_buffer_t7reverseEv.exit:                  ; preds = %.lr.ph.i10.i.i, %89, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i, %.loopexit
-  %98 = icmp uge i32 %.05282, %36
-  %99 = load ptr, ptr %37, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 16
-  %101 = load ptr, ptr %100, align 8
-  store ptr %101, ptr %38, align 8
-  %102 = getelementptr inbounds i8, ptr %99, i64 24
-  %103 = load i32, ptr %102, align 8
-  %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds i8, ptr %101, i64 %104
-  store ptr %105, ptr %39, align 8
-  store i32 %103, ptr %40, align 8
-  %.not.i.i76 = icmp eq ptr %.05183, null
-  %.not.i.i = or i1 %98, %.not.i.i76
-  br i1 %.not.i.i, label %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit, label %106
+  %.not92 = icmp ult i32 %.05282, %36
+  %98 = load ptr, ptr %37, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 16
+  %100 = load ptr, ptr %99, align 8
+  store ptr %100, ptr %38, align 8
+  %101 = getelementptr inbounds i8, ptr %98, i64 24
+  %102 = load i32, ptr %101, align 8
+  %103 = zext i32 %102 to i64
+  %104 = getelementptr inbounds i8, ptr %100, i64 %103
+  store ptr %104, ptr %39, align 8
+  store i32 %102, ptr %40, align 8
+  br i1 %.not92, label %105, label %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
 
-106:                                              ; preds = %_ZN11hb_buffer_t7reverseEv.exit
-  %107 = icmp uge ptr %.05183, %101
-  %.not9.i.i = icmp ugt ptr %105, %.05183
-  %or.cond.i.i = select i1 %107, i1 %.not9.i.i, i1 false
-  br i1 %or.cond.i.i, label %109, label %108
+105:                                              ; preds = %_ZN11hb_buffer_t7reverseEv.exit
+  %106 = icmp uge ptr %.05183, %100
+  %.not9.i.i = icmp ugt ptr %104, %.05183
+  %or.cond.i.i = select i1 %106, i1 %.not9.i.i, i1 false
+  br i1 %or.cond.i.i, label %108, label %107
 
-108:                                              ; preds = %106
+107:                                              ; preds = %105
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %38, i8 0, i64 20, i1 false)
   br label %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
 
-109:                                              ; preds = %106
+108:                                              ; preds = %105
   store ptr %.05183, ptr %38, align 8
-  %110 = ptrtoint ptr %105 to i64
-  %111 = ptrtoint ptr %.05183 to i64
-  %112 = sub i64 %110, %111
-  %113 = getelementptr inbounds i8, ptr %.05183, i64 2
-  %114 = load i8, ptr %113, align 1
-  %115 = zext i8 %114 to i64
-  %116 = shl nuw nsw i64 %115, 8
-  %117 = getelementptr inbounds i8, ptr %.05183, i64 3
-  %118 = load i8, ptr %117, align 1
-  %119 = zext i8 %118 to i64
-  %120 = or disjoint i64 %116, %119
-  %..i.i.i = tail call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %112, i64 %120)
-  %121 = getelementptr inbounds i8, ptr %.05183, i64 %..i.i.i
-  store ptr %121, ptr %39, align 8
-  %122 = trunc nuw nsw i64 %..i.i.i to i32
-  store i32 %122, ptr %40, align 8
+  %109 = ptrtoint ptr %104 to i64
+  %110 = ptrtoint ptr %.05183 to i64
+  %111 = sub i64 %109, %110
+  %112 = getelementptr inbounds i8, ptr %.05183, i64 2
+  %113 = load i8, ptr %112, align 1
+  %114 = zext i8 %113 to i64
+  %115 = shl nuw nsw i64 %114, 8
+  %116 = getelementptr inbounds i8, ptr %.05183, i64 3
+  %117 = load i8, ptr %116, align 1
+  %118 = zext i8 %117 to i64
+  %119 = or disjoint i64 %115, %118
+  %..i.i.i = tail call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %111, i64 %119)
+  %120 = getelementptr inbounds i8, ptr %.05183, i64 %..i.i.i
+  store ptr %120, ptr %39, align 8
+  %121 = trunc nuw nsw i64 %..i.i.i to i32
+  store i32 %121, ptr %40, align 8
   br label %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
 
-_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit: ; preds = %_ZN11hb_buffer_t7reverseEv.exit, %108, %109
-  %123 = invoke noundef zeroext i1 @_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8dispatchIN3AAT22hb_aat_apply_context_tEJEEENT_8return_tEPS6_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.05183, ptr noundef nonnull %1)
-          to label %124 unwind label %156
+_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit: ; preds = %_ZN11hb_buffer_t7reverseEv.exit, %107, %108
+  %122 = invoke noundef zeroext i1 @_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8dispatchIN3AAT22hb_aat_apply_context_tEJEEENT_8return_tEPS6_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %.05183, ptr noundef nonnull %1)
+          to label %123 unwind label %155
 
-124:                                              ; preds = %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
-  %125 = or i1 %.086, %123
-  %126 = load ptr, ptr %37, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 16
-  %128 = load ptr, ptr %127, align 8
-  store ptr %128, ptr %38, align 8
-  %129 = getelementptr inbounds i8, ptr %126, i64 24
-  %130 = load i32, ptr %129, align 8
-  %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds i8, ptr %128, i64 %131
-  store ptr %132, ptr %39, align 8
-  store i32 %130, ptr %40, align 8
-  br i1 %54, label %133, label %_ZN11hb_buffer_t7reverseEv.exit73
+123:                                              ; preds = %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
+  %124 = or i1 %.086, %122
+  %125 = load ptr, ptr %37, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 16
+  %127 = load ptr, ptr %126, align 8
+  store ptr %127, ptr %38, align 8
+  %128 = getelementptr inbounds i8, ptr %125, i64 24
+  %129 = load i32, ptr %128, align 8
+  %130 = zext i32 %129 to i64
+  %131 = getelementptr inbounds i8, ptr %127, i64 %130
+  store ptr %131, ptr %39, align 8
+  store i32 %129, ptr %40, align 8
+  br i1 %54, label %132, label %_ZN11hb_buffer_t7reverseEv.exit73
 
-133:                                              ; preds = %124
-  %134 = load ptr, ptr %7, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 88
-  %136 = load i32, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %134, i64 104
-  %138 = load ptr, ptr %137, align 8
-  %or.cond.i.i.i55 = icmp ugt i32 %136, 1
+132:                                              ; preds = %123
+  %133 = load ptr, ptr %7, align 8
+  %134 = getelementptr inbounds i8, ptr %133, i64 88
+  %135 = load i32, ptr %134, align 8
+  %136 = getelementptr inbounds i8, ptr %133, i64 104
+  %137 = load ptr, ptr %136, align 8
+  %or.cond.i.i.i55 = icmp ugt i32 %135, 1
   br i1 %or.cond.i.i.i55, label %.lr.ph.preheader.i.i.i66, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i56
 
-.lr.ph.preheader.i.i.i66:                         ; preds = %133
-  %.016.i.i.i67 = add i32 %136, -1
-  %139 = zext i32 %.016.i.i.i67 to i64
+.lr.ph.preheader.i.i.i66:                         ; preds = %132
+  %.016.i.i.i67 = add i32 %135, -1
+  %138 = zext i32 %.016.i.i.i67 to i64
   br label %.lr.ph.i.i.i68
 
 .lr.ph.i.i.i68:                                   ; preds = %.lr.ph.i.i.i68, %.lr.ph.preheader.i.i.i66
   %indvars.iv19.i.i.i69 = phi i64 [ 0, %.lr.ph.preheader.i.i.i66 ], [ %indvars.iv.next20.i.i.i71, %.lr.ph.i.i.i68 ]
-  %indvars.iv.i.i.i70 = phi i64 [ %139, %.lr.ph.preheader.i.i.i66 ], [ %indvars.iv.next.i.i.i72, %.lr.ph.i.i.i68 ]
-  %140 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %138, i64 %indvars.iv.i.i.i70
-  %141 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %138, i64 %indvars.iv19.i.i.i69
+  %indvars.iv.i.i.i70 = phi i64 [ %138, %.lr.ph.preheader.i.i.i66 ], [ %indvars.iv.next.i.i.i72, %.lr.ph.i.i.i68 ]
+  %139 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %137, i64 %indvars.iv.i.i.i70
+  %140 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %137, i64 %indvars.iv19.i.i.i69
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %140, i64 20, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %140, ptr noundef nonnull align 4 dereferenceable(20) %141, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %141, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %139, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %139, ptr noundef nonnull align 4 dereferenceable(20) %140, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %140, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   %indvars.iv.next20.i.i.i71 = add nuw nsw i64 %indvars.iv19.i.i.i69, 1
   %indvars.iv.next.i.i.i72 = add nsw i64 %indvars.iv.i.i.i70, -1
-  %142 = and i64 %indvars.iv.next.i.i.i72, 4294967295
-  %143 = icmp ult i64 %indvars.iv.next20.i.i.i71, %142
-  br i1 %143, label %.lr.ph.i.i.i68, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i56, !llvm.loop !77
+  %141 = and i64 %indvars.iv.next.i.i.i72, 4294967295
+  %142 = icmp ult i64 %indvars.iv.next20.i.i.i71, %141
+  br i1 %142, label %.lr.ph.i.i.i68, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i56, !llvm.loop !77
 
-_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i56: ; preds = %.lr.ph.i.i.i68, %133
-  %144 = getelementptr inbounds i8, ptr %134, i64 83
-  %145 = load i8, ptr %144, align 1
-  %146 = trunc i8 %145 to i1
-  br i1 %146, label %147, label %_ZN11hb_buffer_t7reverseEv.exit73
+_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i56: ; preds = %.lr.ph.i.i.i68, %132
+  %143 = getelementptr inbounds i8, ptr %133, i64 83
+  %144 = load i8, ptr %143, align 1
+  %145 = trunc i8 %144 to i1
+  br i1 %145, label %146, label %_ZN11hb_buffer_t7reverseEv.exit73
 
-147:                                              ; preds = %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i56
-  %148 = getelementptr inbounds i8, ptr %134, i64 120
-  %149 = load ptr, ptr %148, align 8
-  %150 = load i32, ptr %135, align 8
-  %.sroa.speculated.i5.i.i57 = tail call i32 @llvm.umin.i32(i32 %136, i32 %150)
+146:                                              ; preds = %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i56
+  %147 = getelementptr inbounds i8, ptr %133, i64 120
+  %148 = load ptr, ptr %147, align 8
+  %149 = load i32, ptr %134, align 8
+  %.sroa.speculated.i5.i.i57 = tail call i32 @llvm.umin.i32(i32 %135, i32 %149)
   %or.cond.i7.i.i58 = icmp ugt i32 %.sroa.speculated.i5.i.i57, 1
   br i1 %or.cond.i7.i.i58, label %.lr.ph.preheader.i8.i.i59, label %_ZN11hb_buffer_t7reverseEv.exit73
 
-.lr.ph.preheader.i8.i.i59:                        ; preds = %147
+.lr.ph.preheader.i8.i.i59:                        ; preds = %146
   %.016.i6.i.i60 = add i32 %.sroa.speculated.i5.i.i57, -1
-  %151 = zext i32 %.016.i6.i.i60 to i64
+  %150 = zext i32 %.016.i6.i.i60 to i64
   br label %.lr.ph.i10.i.i61
 
 .lr.ph.i10.i.i61:                                 ; preds = %.lr.ph.i10.i.i61, %.lr.ph.preheader.i8.i.i59
   %indvars.iv19.i11.i.i62 = phi i64 [ 0, %.lr.ph.preheader.i8.i.i59 ], [ %indvars.iv.next20.i13.i.i64, %.lr.ph.i10.i.i61 ]
-  %indvars.iv.i12.i.i63 = phi i64 [ %151, %.lr.ph.preheader.i8.i.i59 ], [ %indvars.iv.next.i14.i.i65, %.lr.ph.i10.i.i61 ]
-  %152 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %149, i64 %indvars.iv.i12.i.i63
-  %153 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %149, i64 %indvars.iv19.i11.i.i62
+  %indvars.iv.i12.i.i63 = phi i64 [ %150, %.lr.ph.preheader.i8.i.i59 ], [ %indvars.iv.next.i14.i.i65, %.lr.ph.i10.i.i61 ]
+  %151 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %148, i64 %indvars.iv.i12.i.i63
+  %152 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %148, i64 %indvars.iv19.i11.i.i62
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %152, i64 20, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %152, ptr noundef nonnull align 4 dereferenceable(20) %153, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %153, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %151, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %151, ptr noundef nonnull align 4 dereferenceable(20) %152, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %152, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
   %indvars.iv.next20.i13.i.i64 = add nuw nsw i64 %indvars.iv19.i11.i.i62, 1
   %indvars.iv.next.i14.i.i65 = add nsw i64 %indvars.iv.i12.i.i63, -1
-  %154 = and i64 %indvars.iv.next.i14.i.i65, 4294967295
-  %155 = icmp ult i64 %indvars.iv.next20.i13.i.i64, %154
-  br i1 %155, label %.lr.ph.i10.i.i61, label %_ZN11hb_buffer_t7reverseEv.exit73, !llvm.loop !78
+  %153 = and i64 %indvars.iv.next.i14.i.i65, 4294967295
+  %154 = icmp ult i64 %indvars.iv.next20.i13.i.i64, %153
+  br i1 %154, label %.lr.ph.i10.i.i61, label %_ZN11hb_buffer_t7reverseEv.exit73, !llvm.loop !78
 
-156:                                              ; preds = %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
-  %157 = landingpad { ptr, i32 }
+155:                                              ; preds = %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
+  %156 = landingpad { ptr, i32 }
           cleanup
-  %158 = load ptr, ptr %37, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 16
-  %160 = load ptr, ptr %159, align 8
-  store ptr %160, ptr %38, align 8
-  %161 = getelementptr inbounds i8, ptr %158, i64 24
-  %162 = load i32, ptr %161, align 8
-  %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds i8, ptr %160, i64 %163
-  store ptr %164, ptr %39, align 8
-  store i32 %162, ptr %40, align 8
-  resume { ptr, i32 } %157
+  %157 = load ptr, ptr %37, align 8
+  %158 = getelementptr inbounds i8, ptr %157, i64 16
+  %159 = load ptr, ptr %158, align 8
+  store ptr %159, ptr %38, align 8
+  %160 = getelementptr inbounds i8, ptr %157, i64 24
+  %161 = load i32, ptr %160, align 8
+  %162 = zext i32 %161 to i64
+  %163 = getelementptr inbounds i8, ptr %159, i64 %162
+  store ptr %163, ptr %39, align 8
+  store i32 %161, ptr %40, align 8
+  resume { ptr, i32 } %156
 
-_ZN11hb_buffer_t7reverseEv.exit73:                ; preds = %.lr.ph.i10.i.i61, %147, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i56, %124
-  %165 = load ptr, ptr %7, align 8
-  %166 = load ptr, ptr %35, align 8
-  %167 = load i32, ptr %25, align 4
-  %168 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %165, ptr noundef %166, ptr noundef nonnull @.str.7, i32 noundef %167)
-  br label %169
+_ZN11hb_buffer_t7reverseEv.exit73:                ; preds = %.lr.ph.i10.i.i61, %146, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i56, %123
+  %164 = load ptr, ptr %7, align 8
+  %165 = load ptr, ptr %35, align 8
+  %166 = load i32, ptr %25, align 4
+  %167 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %164, ptr noundef %165, ptr noundef nonnull @.str.7, i32 noundef %166)
+  br label %168
 
-169:                                              ; preds = %52, %41, %_ZN11hb_buffer_t7reverseEv.exit73
+168:                                              ; preds = %52, %41, %_ZN11hb_buffer_t7reverseEv.exit73
   %.149 = phi i1 [ %.04885, %41 ], [ %.2, %_ZN11hb_buffer_t7reverseEv.exit73 ], [ %.04885, %52 ]
-  %.1 = phi i1 [ %.086, %41 ], [ %125, %_ZN11hb_buffer_t7reverseEv.exit73 ], [ %.086, %52 ]
-  %170 = getelementptr inbounds i8, ptr %.05183, i64 2
-  %171 = load i8, ptr %170, align 1
-  %172 = zext i8 %171 to i64
-  %173 = shl nuw nsw i64 %172, 8
-  %174 = getelementptr inbounds i8, ptr %.05183, i64 3
-  %175 = load i8, ptr %174, align 1
-  %176 = zext i8 %175 to i64
-  %177 = or disjoint i64 %173, %176
-  %178 = getelementptr inbounds i8, ptr %.05183, i64 %177
-  %179 = load i32, ptr %25, align 4
-  %180 = add i32 %179, 1
-  store i32 %180, ptr %25, align 4
-  %181 = add nuw nsw i32 %.05282, 1
-  %exitcond91.not = icmp eq i32 %181, %33
+  %.1 = phi i1 [ %.086, %41 ], [ %124, %_ZN11hb_buffer_t7reverseEv.exit73 ], [ %.086, %52 ]
+  %169 = getelementptr inbounds i8, ptr %.05183, i64 2
+  %170 = load i8, ptr %169, align 1
+  %171 = zext i8 %170 to i64
+  %172 = shl nuw nsw i64 %171, 8
+  %173 = getelementptr inbounds i8, ptr %.05183, i64 3
+  %174 = load i8, ptr %173, align 1
+  %175 = zext i8 %174 to i64
+  %176 = or disjoint i64 %172, %175
+  %177 = getelementptr inbounds i8, ptr %.05183, i64 %176
+  %178 = load i32, ptr %25, align 4
+  %179 = add i32 %178, 1
+  store i32 %179, ptr %25, align 4
+  %180 = add nuw nsw i32 %.05282, 1
+  %exitcond91.not = icmp eq i32 %180, %33
   br i1 %exitcond91.not, label %._crit_edge, label %41, !llvm.loop !79
 
-._crit_edge:                                      ; preds = %169, %_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit
-  %.0.lcssa = phi i1 [ false, %_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit ], [ %.1, %169 ]
+._crit_edge:                                      ; preds = %168, %_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit
+  %.0.lcssa = phi i1 [ false, %_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit ], [ %.1, %168 ]
   ret i1 %.0.lcssa
 }
 
@@ -77945,11 +77943,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT9KerxTableIN2OT6KernOTEE8
   %26 = getelementptr inbounds i8, ptr %1, i64 28
   br label %43
 
-27:                                               ; preds = %104, %_ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeItLj2EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i.i.i, %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit
-  %28 = load i8, ptr %84, align 1
+27:                                               ; preds = %103, %_ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeItLj2EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i.i.i, %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit
+  %28 = load i8, ptr %83, align 1
   %29 = zext i8 %28 to i64
   %30 = shl nuw nsw i64 %29, 8
-  %31 = load i8, ptr %88, align 1
+  %31 = load i8, ptr %87, align 1
   %32 = zext i8 %31 to i64
   %33 = or disjoint i64 %30, %32
   %34 = getelementptr inbounds i8, ptr %.01940, i64 %33
@@ -77981,161 +77979,159 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT9KerxTableIN2OT6KernOTEE8
   br i1 %.not34, label %51, label %.loopexit
 
 51:                                               ; preds = %43
-  %52 = icmp uge i32 %.02139, %23
-  %53 = load ptr, ptr %24, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %4, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 24
-  %57 = load i32, ptr %56, align 8
-  %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %55, i64 %58
-  store ptr %59, ptr %25, align 8
-  store i32 %57, ptr %9, align 8
-  %.not.i.i35 = icmp eq ptr %.01940, null
-  %.not.i.i = or i1 %52, %.not.i.i35
-  br i1 %.not.i.i, label %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit, label %60
+  %.not46 = icmp ult i32 %.02139, %23
+  %52 = load ptr, ptr %24, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %4, align 8
+  %55 = getelementptr inbounds i8, ptr %52, i64 24
+  %56 = load i32, ptr %55, align 8
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds i8, ptr %54, i64 %57
+  store ptr %58, ptr %25, align 8
+  store i32 %56, ptr %9, align 8
+  br i1 %.not46, label %59, label %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
 
-60:                                               ; preds = %51
-  %61 = icmp uge ptr %.01940, %55
-  %.not9.i.i = icmp ugt ptr %59, %.01940
-  %or.cond.i.i = select i1 %61, i1 %.not9.i.i, i1 false
-  br i1 %or.cond.i.i, label %63, label %62
+59:                                               ; preds = %51
+  %60 = icmp uge ptr %.01940, %54
+  %.not9.i.i = icmp ugt ptr %58, %.01940
+  %or.cond.i.i = select i1 %60, i1 %.not9.i.i, i1 false
+  br i1 %or.cond.i.i, label %62, label %61
 
-62:                                               ; preds = %60
+61:                                               ; preds = %59
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   br label %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
 
-63:                                               ; preds = %60
+62:                                               ; preds = %59
   store ptr %.01940, ptr %4, align 8
-  %64 = ptrtoint ptr %59 to i64
-  %65 = ptrtoint ptr %.01940 to i64
-  %66 = sub i64 %64, %65
-  %67 = getelementptr inbounds i8, ptr %.01940, i64 2
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i64
-  %70 = shl nuw nsw i64 %69, 8
-  %71 = getelementptr inbounds i8, ptr %.01940, i64 3
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i64
-  %74 = or disjoint i64 %70, %73
-  %..i.i.i = tail call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %66, i64 %74)
-  %75 = getelementptr inbounds i8, ptr %.01940, i64 %..i.i.i
-  store ptr %75, ptr %25, align 8
-  %76 = trunc nuw nsw i64 %..i.i.i to i32
-  store i32 %76, ptr %9, align 8
+  %63 = ptrtoint ptr %58 to i64
+  %64 = ptrtoint ptr %.01940 to i64
+  %65 = sub i64 %63, %64
+  %66 = getelementptr inbounds i8, ptr %.01940, i64 2
+  %67 = load i8, ptr %66, align 1
+  %68 = zext i8 %67 to i64
+  %69 = shl nuw nsw i64 %68, 8
+  %70 = getelementptr inbounds i8, ptr %.01940, i64 3
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i64
+  %73 = or disjoint i64 %69, %72
+  %..i.i.i = tail call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %65, i64 %73)
+  %74 = getelementptr inbounds i8, ptr %.01940, i64 %..i.i.i
+  store ptr %74, ptr %25, align 8
+  %75 = trunc nuw nsw i64 %..i.i.i to i32
+  store i32 %75, ptr %9, align 8
   br label %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
 
-_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit: ; preds = %51, %62, %63
-  %77 = phi ptr [ %59, %51 ], [ null, %62 ], [ %75, %63 ]
-  %78 = phi i32 [ %57, %51 ], [ 0, %62 ], [ %76, %63 ]
-  %79 = phi ptr [ %55, %51 ], [ null, %62 ], [ %.01940, %63 ]
-  %80 = ptrtoint ptr %79 to i64
-  %81 = sub i64 %47, %80
-  %82 = zext i32 %78 to i64
-  %.not20.i = icmp ugt i64 %81, %82
-  br i1 %.not20.i, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %83
+_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit: ; preds = %51, %61, %62
+  %76 = phi ptr [ %58, %51 ], [ null, %61 ], [ %74, %62 ]
+  %77 = phi i32 [ %56, %51 ], [ 0, %61 ], [ %75, %62 ]
+  %78 = phi ptr [ %54, %51 ], [ null, %61 ], [ %.01940, %62 ]
+  %79 = ptrtoint ptr %78 to i64
+  %80 = sub i64 %47, %79
+  %81 = zext i32 %77 to i64
+  %.not20.i = icmp ugt i64 %80, %81
+  br i1 %.not20.i, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %82
 
-83:                                               ; preds = %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
-  %84 = getelementptr inbounds i8, ptr %.01940, i64 2
-  %85 = load i8, ptr %84, align 1
-  %86 = zext i8 %85 to i32
-  %87 = shl nuw nsw i32 %86, 8
-  %88 = getelementptr inbounds i8, ptr %.01940, i64 3
-  %89 = load i8, ptr %88, align 1
-  %90 = zext i8 %89 to i32
-  %91 = or disjoint i32 %87, %90
-  %92 = icmp ult i32 %91, 6
-  br i1 %92, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %93
+82:                                               ; preds = %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
+  %83 = getelementptr inbounds i8, ptr %.01940, i64 2
+  %84 = load i8, ptr %83, align 1
+  %85 = zext i8 %84 to i32
+  %86 = shl nuw nsw i32 %85, 8
+  %87 = getelementptr inbounds i8, ptr %.01940, i64 3
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = or disjoint i32 %86, %89
+  %91 = icmp ult i32 %90, 6
+  br i1 %91, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %92
 
-93:                                               ; preds = %83
-  %94 = ptrtoint ptr %.01940 to i64
-  %95 = sub i64 %94, %80
-  %.not.i = icmp ugt i64 %95, %82
-  br i1 %.not.i, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %96
+92:                                               ; preds = %82
+  %93 = ptrtoint ptr %.01940 to i64
+  %94 = sub i64 %93, %79
+  %.not.i = icmp ugt i64 %94, %81
+  br i1 %.not.i, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %95
 
-96:                                               ; preds = %93
-  %97 = ptrtoint ptr %77 to i64
-  %98 = sub i64 %97, %94
-  %99 = trunc i64 %98 to i32
-  %.not18.i = icmp ugt i32 %91, %99
-  br i1 %.not18.i, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %100
+95:                                               ; preds = %92
+  %96 = ptrtoint ptr %76 to i64
+  %97 = sub i64 %96, %93
+  %98 = trunc i64 %97 to i32
+  %.not18.i = icmp ugt i32 %90, %98
+  br i1 %.not18.i, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %99
 
-100:                                              ; preds = %96
-  %101 = load i32, ptr %26, align 4
-  %102 = sub i32 %101, %91
-  store i32 %102, ptr %26, align 4
-  %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %104, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread
+99:                                               ; preds = %95
+  %100 = load i32, ptr %26, align 4
+  %101 = sub i32 %100, %90
+  store i32 %101, ptr %26, align 4
+  %102 = icmp sgt i32 %101, 0
+  br i1 %102, label %103, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread
 
-104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %.01940, i64 4
-  %106 = load i8, ptr %105, align 1
-  switch i8 %106, label %27 [
-    i8 0, label %107
-    i8 2, label %124
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds i8, ptr %.01940, i64 4
+  %105 = load i8, ptr %104, align 1
+  switch i8 %105, label %27 [
+    i8 0, label %106
+    i8 2, label %123
   ]
 
-107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %.01940, i64 14
-  %109 = ptrtoint ptr %108 to i64
-  %110 = sub i64 %109, %80
-  %.not.i.i.i.i.i.i = icmp ugt i64 %110, %82
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %111
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds i8, ptr %.01940, i64 14
+  %108 = ptrtoint ptr %107 to i64
+  %109 = sub i64 %108, %79
+  %.not.i.i.i.i.i.i = icmp ugt i64 %109, %81
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %110
 
-111:                                              ; preds = %107
-  %112 = load i8, ptr %46, align 1
-  %113 = zext i8 %112 to i32
-  %114 = shl nuw nsw i32 %113, 8
-  %115 = getelementptr inbounds i8, ptr %.01940, i64 7
-  %116 = load i8, ptr %115, align 1
-  %117 = zext i8 %116 to i32
-  %118 = or disjoint i32 %114, %117
-  %119 = mul nuw nsw i32 %118, 6
-  %120 = sub i64 %97, %109
-  %121 = trunc i64 %120 to i32
-  %.not20.i.i.i.i.i.i = icmp ugt i32 %119, %121
+110:                                              ; preds = %106
+  %111 = load i8, ptr %46, align 1
+  %112 = zext i8 %111 to i32
+  %113 = shl nuw nsw i32 %112, 8
+  %114 = getelementptr inbounds i8, ptr %.01940, i64 7
+  %115 = load i8, ptr %114, align 1
+  %116 = zext i8 %115 to i32
+  %117 = or disjoint i32 %113, %116
+  %118 = mul nuw nsw i32 %117, 6
+  %119 = sub i64 %96, %108
+  %120 = trunc i64 %119 to i32
+  %.not20.i.i.i.i.i.i = icmp ugt i32 %118, %120
   br i1 %.not20.i.i.i.i.i.i, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %_ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeItLj2EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i.i.i
 
-_ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeItLj2EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i.i.i: ; preds = %111
-  %122 = sub nsw i32 %102, %119
-  store i32 %122, ptr %26, align 4
-  %123 = icmp sgt i32 %122, 0
-  br i1 %123, label %27, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread
+_ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeItLj2EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i.i.i: ; preds = %110
+  %121 = sub nsw i32 %101, %118
+  store i32 %121, ptr %26, align 4
+  %122 = icmp sgt i32 %121, 0
+  br i1 %122, label %27, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread
 
-124:                                              ; preds = %104
-  %125 = invoke noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat2IN2OT20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(14) %.01940, ptr noundef nonnull %1)
-          to label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit unwind label %126
+123:                                              ; preds = %103
+  %124 = invoke noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat2IN2OT20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(14) %.01940, ptr noundef nonnull %1)
+          to label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit unwind label %125
 
-_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %124
-  br i1 %125, label %27, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread
+_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %123
+  br i1 %124, label %27, label %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread
 
-126:                                              ; preds = %124
-  %127 = landingpad { ptr, i32 }
+125:                                              ; preds = %123
+  %126 = landingpad { ptr, i32 }
           cleanup
-  %128 = load ptr, ptr %24, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 16
-  %130 = load ptr, ptr %129, align 8
-  store ptr %130, ptr %4, align 8
-  %131 = getelementptr inbounds i8, ptr %128, i64 24
-  %132 = load i32, ptr %131, align 8
-  %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds i8, ptr %130, i64 %133
-  store ptr %134, ptr %25, align 8
-  store i32 %132, ptr %9, align 8
-  resume { ptr, i32 } %127
+  %127 = load ptr, ptr %24, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 16
+  %129 = load ptr, ptr %128, align 8
+  store ptr %129, ptr %4, align 8
+  %130 = getelementptr inbounds i8, ptr %127, i64 24
+  %131 = load i32, ptr %130, align 8
+  %132 = zext i32 %131 to i64
+  %133 = getelementptr inbounds i8, ptr %129, i64 %132
+  store ptr %133, ptr %25, align 8
+  store i32 %131, ptr %9, align 8
+  resume { ptr, i32 } %126
 
-_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread: ; preds = %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit, %_ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeItLj2EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i.i.i, %100, %83, %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit, %93, %96, %107, %111
-  %135 = load ptr, ptr %24, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 16
-  %137 = load ptr, ptr %136, align 8
-  store ptr %137, ptr %4, align 8
-  %138 = getelementptr inbounds i8, ptr %135, i64 24
-  %139 = load i32, ptr %138, align 8
-  %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds i8, ptr %137, i64 %140
-  store ptr %141, ptr %25, align 8
-  store i32 %139, ptr %9, align 8
+_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread: ; preds = %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit, %_ZNK2OT7ArrayOfIN3AAT8KernPairENS_15BinSearchHeaderINS_7IntTypeItLj2EEEEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i.i.i, %99, %82, %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_20KernOTSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit, %92, %95, %106, %110
+  %134 = load ptr, ptr %24, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 16
+  %136 = load ptr, ptr %135, align 8
+  store ptr %136, ptr %4, align 8
+  %137 = getelementptr inbounds i8, ptr %134, i64 24
+  %138 = load i32, ptr %137, align 8
+  %139 = zext i32 %138 to i64
+  %140 = getelementptr inbounds i8, ptr %136, i64 %139
+  store ptr %140, ptr %25, align 8
+  store i32 %138, ptr %9, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %43, %27, %_ZNK2OT12KernSubTableINS_20KernOTSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, %15, %2
@@ -78664,7 +78660,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT9KerxTableIN2OT7KernAATEE
   br i1 %.not33, label %80, label %.loopexit
 
 80:                                               ; preds = %72
-  %.not48 = icmp ult i32 %.02136, %44
+  %.not43 = icmp ult i32 %.02136, %44
   %81 = load ptr, ptr %45, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
@@ -78675,7 +78671,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT9KerxTableIN2OT7KernAATEE
   %87 = getelementptr inbounds i8, ptr %83, i64 %86
   store ptr %87, ptr %46, align 8
   store i32 %85, ptr %9, align 8
-  br i1 %.not48, label %88, label %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_21KernAATSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
+  br i1 %.not43, label %88, label %_ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_21KernAATSubTableHeaderEEEEEP21hb_sanitize_context_tRKT_.exit
 
 88:                                               ; preds = %80
   %89 = icmp uge ptr %.01937, %83
@@ -78755,8 +78751,8 @@ _ZN25hb_sanitize_with_object_tC2IPKN2OT12KernSubTableINS1_21KernAATSubTableHeade
   %143 = sub i64 %142, %140
   %144 = trunc i64 %143 to i32
   %.not18.i = icmp ugt i32 %137, %144
-  %or.cond47 = select i1 %.not.i, i1 true, i1 %.not18.i
-  br i1 %or.cond47, label %_ZNK2OT12KernSubTableINS_21KernAATSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %145
+  %or.cond48 = select i1 %.not.i, i1 true, i1 %.not18.i
+  br i1 %or.cond48, label %_ZNK2OT12KernSubTableINS_21KernAATSubTableHeaderEE8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %145
 
 145:                                              ; preds = %139
   %146 = load i32, ptr %47, align 4

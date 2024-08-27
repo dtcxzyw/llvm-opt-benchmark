@@ -357,7 +357,7 @@ define hidden noundef align 8 ptr @_ZN10serde_bare2de10from_slice17hd71fb9df9465
 
 15:                                               ; preds = %13
   %16 = icmp eq ptr %12, null
-  br i1 %16, label %.thread.i.i.i, label %17
+  br i1 %16, label %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i.i.i, label %17
 
 17:                                               ; preds = %15
   %.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %12 to i64
@@ -372,13 +372,13 @@ define hidden noundef align 8 ptr @_ZN10serde_bare2de10from_slice17hd71fb9df9465
 
 _ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i: ; preds = %2
   %.not.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i, label %.thread.i.i.i, label %"_ZN19ockam_transport_uds7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$11deserialize17h3a9a6d2f551de5eeE.llvm.15328536302644105373.exit"
+  br i1 %.not.i.i.i, label %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i.i.i, label %"_ZN19ockam_transport_uds7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$11deserialize17h3a9a6d2f551de5eeE.llvm.15328536302644105373.exit"
 
-.thread.i.i.i:                                    ; preds = %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i, %15
+_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i.i.i: ; preds = %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i, %15
   br label %"_ZN19ockam_transport_uds7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$11deserialize17h3a9a6d2f551de5eeE.llvm.15328536302644105373.exit"
 
-"_ZN19ockam_transport_uds7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$11deserialize17h3a9a6d2f551de5eeE.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i", %17, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i, %.thread.i.i.i
-  %.1.i.i.i = phi ptr [ null, %.thread.i.i.i ], [ %12, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i ], [ %20, %17 ], [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i" ]
+"_ZN19ockam_transport_uds7workers6sender1_107_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$11deserialize17h3a9a6d2f551de5eeE.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i", %17, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i.i.i
+  %.1.i.i.i = phi ptr [ null, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i.i.i ], [ %12, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i.i ], [ %20, %17 ], [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret ptr %.1.i.i.i
 }
@@ -6890,7 +6890,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
 
 13:                                               ; preds = %11
   %14 = icmp eq ptr %10, null
-  br i1 %14, label %.thread.i, label %15
+  br i1 %14, label %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i, label %15
 
 15:                                               ; preds = %13
   %.cast.i.i.i.i.i.i = ptrtoint ptr %10 to i64
@@ -6905,13 +6905,13 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
 
 _ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i: ; preds = %5
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %.thread.i, label %"_ZN210_$LT$ockam_transport_uds..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd050ba90f528a078E.llvm.15328536302644105373.exit"
+  br i1 %.not.i, label %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i, label %"_ZN210_$LT$ockam_transport_uds..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd050ba90f528a078E.llvm.15328536302644105373.exit"
 
-.thread.i:                                        ; preds = %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i, %13
+_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i: ; preds = %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i, %13
   br label %"_ZN210_$LT$ockam_transport_uds..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd050ba90f528a078E.llvm.15328536302644105373.exit"
 
-"_ZN210_$LT$ockam_transport_uds..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd050ba90f528a078E.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i", %15, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i, %.thread.i
-  %.1.i = phi ptr [ null, %.thread.i ], [ %10, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i ], [ %18, %15 ], [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i" ]
+"_ZN210_$LT$ockam_transport_uds..workers..sender.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_uds..workers..sender..UdsSendWorkerMsg$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd050ba90f528a078E.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i", %15, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i
+  %.1.i = phi ptr [ null, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i ], [ %10, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i ], [ %18, %15 ], [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i" ]
   ret ptr %.1.i
 }
 
@@ -8854,7 +8854,7 @@ define hidden noundef align 8 ptr @"_ZN19ockam_transport_uds7workers6sender1_107
 
 9:                                                ; preds = %7
   %10 = icmp eq ptr %6, null
-  br i1 %10, label %.thread.i.i, label %11
+  br i1 %10, label %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i.i, label %11
 
 11:                                               ; preds = %9
   %.cast.i.i.i.i.i.i.i = ptrtoint ptr %6 to i64
@@ -8869,13 +8869,13 @@ define hidden noundef align 8 ptr @"_ZN19ockam_transport_uds7workers6sender1_107
 
 _ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i: ; preds = %1
   %.not.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i, label %.thread.i.i, label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h10e1de5c7e05b90eE.llvm.15328536302644105373.exit"
+  br i1 %.not.i.i, label %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i.i, label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h10e1de5c7e05b90eE.llvm.15328536302644105373.exit"
 
-.thread.i.i:                                      ; preds = %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i, %9
+_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i.i: ; preds = %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i, %9
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h10e1de5c7e05b90eE.llvm.15328536302644105373.exit"
 
-"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h10e1de5c7e05b90eE.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i", %11, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i, %.thread.i.i
-  %.1.i.i = phi ptr [ null, %.thread.i.i ], [ %6, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i ], [ %14, %11 ], [ %8, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i" ]
+"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h10e1de5c7e05b90eE.llvm.15328536302644105373.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i", %11, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i.i
+  %.1.i.i = phi ptr [ null, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18.i.i ], [ %6, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.i.i ], [ %14, %11 ], [ %8, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i.i.i" ]
   ret ptr %.1.i.i
 }
 
@@ -8898,11 +8898,11 @@ define hidden noundef align 8 ptr @"_ZN210_$LT$ockam_transport_uds..workers..sen
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i": ; preds = %7
   %8 = tail call noundef nonnull align 8 ptr @"_ZN61_$LT$serde_bare..error..Error$u20$as$u20$serde..de..Error$GT$6custom17hee41412d5f24028bE"(ptr noalias noundef nonnull readonly align 1 @anon.33daa8398ade7879db166a44c16fb5f5.50, i64 noundef 50), !noalias !2283
-  br label %.thread32
+  br label %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread
 
 9:                                                ; preds = %7
   %10 = icmp eq ptr %6, null
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18, label %11
 
 11:                                               ; preds = %9
   %.cast.i.i.i.i.i = ptrtoint ptr %6 to i64
@@ -8913,17 +8913,17 @@ define hidden noundef align 8 ptr @"_ZN210_$LT$ockam_transport_uds..workers..sen
   store i8 1, ptr %2, align 8, !noalias !2272
   %14 = call noundef nonnull align 8 ptr @_ZN5serde2de5Error13invalid_value17h6190f6c8049a8564E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 @anon.33daa8398ade7879db166a44c16fb5f5.82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33daa8398ade7879db166a44c16fb5f5.18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2272
-  br label %.thread32
+  br label %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread
 
 _ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit: ; preds = %1
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.thread, label %.thread32
+  br i1 %.not, label %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18, label %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread
 
-.thread:                                          ; preds = %9, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit
-  br label %.thread32
+_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18: ; preds = %9, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit
+  br label %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread
 
-.thread32:                                        ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i", %11, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit, %.thread
-  %.1 = phi ptr [ null, %.thread ], [ %6, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit ], [ %14, %11 ], [ %8, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i" ]
+_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread: ; preds = %11, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i", %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18
+  %.1 = phi ptr [ null, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit.thread18 ], [ %6, %_ZN5serde2de10EnumAccess7variant17h39ce24d40c4ae772E.exit ], [ %14, %11 ], [ %8, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h363d4d0fd8987810E.exit.i.i.i.i.i" ]
   ret ptr %.1
 }
 

@@ -14977,7 +14977,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3154507502308090425.ex
 158:                                              ; preds = %149
   %159 = extractvalue { i32, i32 } %137, 1
   %.sroa.4241.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 4, ptr %.sroa.4241.0..sroa_idx, align 4
+  store i32 %150, ptr %.sroa.4241.0..sroa_idx, align 4
   %.sroa.5242.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %159, ptr %.sroa.5242.0..sroa_idx, align 4
   br label %152
@@ -37506,7 +37506,7 @@ _ZN3hir9semantics13SemanticsImpl6to_def17h1c83ff2219f323e1E.exit: ; preds = %3
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %50
 
-default.unreachable:                              ; preds = %81
+default.unreachable85:                            ; preds = %81
   unreachable
 
 43:                                               ; preds = %_ZN3hir9semantics13SemanticsImpl6to_def17h1c83ff2219f323e1E.exit
@@ -37617,7 +37617,7 @@ default.unreachable:                              ; preds = %81
   %84 = load i32, ptr %82, align 4, !range !954, !noalias !8414, !noundef !7
   %85 = getelementptr inbounds i8, ptr %82, i64 4
   %86 = load i32, ptr %85, align 4, !noalias !8414, !noundef !7
-  switch i32 %84, label %default.unreachable [
+  switch i32 %84, label %default.unreachable85 [
     i32 2, label %128
     i32 0, label %124
     i32 1, label %126

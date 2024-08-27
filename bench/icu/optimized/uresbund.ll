@@ -5515,15 +5515,11 @@ declare ptr @res_getIntVectorNoTrace_75(ptr noundef, i32 noundef, ptr noundef) l
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %dataEntry, i32 noundef %r, ptr noundef %key, i32 noundef %idx, ptr noundef %validLocaleDataEntry, ptr noundef %containerResPath, i32 noundef %recursionDepth, ptr noundef %resB, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca [256 x i8], align 16
-  %cmp = icmp eq ptr %status, null
-  br i1 %cmp, label %return, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %return
 
-if.end:                                           ; preds = %lor.lhs.false
+if.end:                                           ; preds = %entry
   %cmp1 = icmp eq ptr %validLocaleDataEntry, null
   br i1 %cmp1, label %if.then2, label %if.end3
 
@@ -5827,10 +5823,52 @@ _ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit106: ; preds = %i
   %arrayidx = getelementptr i8, ptr %30, i64 -1
   %31 = load i8, ptr %arrayidx, align 1
   %cmp45.not = icmp eq i8 %31, 47
-  br i1 %cmp45.not, label %if.end63, label %if.then46
+  br i1 %cmp45.not, label %if.end63, label %if.end.i110
 
-if.then46:                                        ; preds = %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit106
-  tail call fastcc void @_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode(ptr noundef nonnull %resB.addr.0, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef nonnull %status)
+if.end.i110:                                      ; preds = %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit106
+  %add.i111 = add nsw i32 %28, 1
+  store i32 %add.i111, ptr %fResPathLen.i78, align 8
+  %cmp7.i112 = icmp sgt i32 %28, 61
+  br i1 %cmp7.i112, label %if.then8.i117, label %if.end36.i113
+
+if.then8.i117:                                    ; preds = %if.end.i110
+  %add6.i118 = add nuw nsw i32 %28, 2
+  %fResBuf10.i119 = getelementptr inbounds i8, ptr %resB.addr.0, i64 40
+  %cmp12.i120 = icmp eq ptr %27, %fResBuf10.i119
+  %conv.i121 = zext nneg i32 %add6.i118 to i64
+  br i1 %cmp12.i120, label %if.then13.i127, label %if.else.i122
+
+if.then13.i127:                                   ; preds = %if.then8.i117
+  %call.i128 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i121) #22
+  store ptr %call.i128, ptr %fResPath33, align 8
+  %cmp18.i129 = icmp eq ptr %call.i128, null
+  br i1 %cmp18.i129, label %if.then19.i132, label %if.end20.i130
+
+if.then19.i132:                                   ; preds = %if.then13.i127
+  store i32 7, ptr %status, align 4
+  br label %if.end63
+
+if.end20.i130:                                    ; preds = %if.then13.i127
+  %call24.i131 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call.i128, ptr noundef nonnull dereferenceable(1) %fResBuf10.i119) #21
+  br label %if.end36.i113
+
+if.else.i122:                                     ; preds = %if.then8.i117
+  %call30.i123 = tail call ptr @uprv_realloc_75(ptr noundef nonnull %27, i64 noundef %conv.i121) #24
+  %cmp31.i124 = icmp eq ptr %call30.i123, null
+  br i1 %cmp31.i124, label %if.then32.i126, label %if.end33.i125
+
+if.then32.i126:                                   ; preds = %if.else.i122
+  store i32 7, ptr %status, align 4
+  br label %if.end63
+
+if.end33.i125:                                    ; preds = %if.else.i122
+  store ptr %call30.i123, ptr %fResPath33, align 8
+  br label %if.end36.i113
+
+if.end36.i113:                                    ; preds = %if.end33.i125, %if.end20.i130, %if.end.i110
+  %32 = phi ptr [ %call.i128, %if.end20.i130 ], [ %call30.i123, %if.end33.i125 ], [ %27, %if.end.i110 ]
+  %add.ptr.i115 = getelementptr inbounds i8, ptr %32, i64 %29
+  store i16 47, ptr %add.ptr.i115, align 1
   br label %if.end63
 
 if.else48:                                        ; preds = %if.end37
@@ -5839,35 +5877,95 @@ if.else48:                                        ; preds = %if.end37
 
 if.then50:                                        ; preds = %if.else48
   %call51 = call i32 @T_CString_integerToString_75(ptr noundef nonnull %buf, i32 noundef %idx, i32 noundef 10)
-  call fastcc void @_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode(ptr noundef nonnull %resB.addr.0, ptr noundef nonnull %buf, i32 noundef %call51, ptr noundef nonnull %status)
-  %32 = load ptr, ptr %fResPath33, align 8
-  %fResPathLen54 = getelementptr inbounds i8, ptr %resB.addr.0, i64 104
-  %33 = load i32, ptr %fResPathLen54, align 8
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr i8, ptr %32, i64 %34
-  %arrayidx57 = getelementptr i8, ptr %35, i64 -1
-  %36 = load i8, ptr %arrayidx57, align 1
-  %cmp59.not = icmp eq i8 %36, 47
+  %fResPathLen.i136 = getelementptr inbounds i8, ptr %resB.addr.0, i64 104
+  %33 = load i32, ptr %fResPathLen.i136, align 8
+  %34 = load ptr, ptr %fResPath33, align 8
+  %cmp.i138 = icmp eq ptr %34, null
+  br i1 %cmp.i138, label %if.then.i162, label %if.end.i139
+
+if.then.i162:                                     ; preds = %if.then50
+  %fResBuf.i163 = getelementptr inbounds i8, ptr %resB.addr.0, i64 40
+  store ptr %fResBuf.i163, ptr %fResPath33, align 8
+  store i8 0, ptr %fResBuf.i163, align 1
+  br label %if.end.i139
+
+if.end.i139:                                      ; preds = %if.then.i162, %if.then50
+  %35 = phi ptr [ %fResBuf.i163, %if.then.i162 ], [ %34, %if.then50 ]
+  %36 = phi i32 [ 0, %if.then.i162 ], [ %33, %if.then50 ]
+  %add.i140 = add nsw i32 %36, %call51
+  store i32 %add.i140, ptr %fResPathLen.i136, align 8
+  %cmp7.i141 = icmp sgt i32 %add.i140, 62
+  br i1 %cmp7.i141, label %if.then8.i146, label %if.end36.i142
+
+if.then8.i146:                                    ; preds = %if.end.i139
+  %add6.i147 = add nuw nsw i32 %add.i140, 1
+  %fResBuf10.i148 = getelementptr inbounds i8, ptr %resB.addr.0, i64 40
+  %cmp12.i149 = icmp eq ptr %35, %fResBuf10.i148
+  %conv.i150 = zext nneg i32 %add6.i147 to i64
+  br i1 %cmp12.i149, label %if.then13.i156, label %if.else.i151
+
+if.then13.i156:                                   ; preds = %if.then8.i146
+  %call.i157 = call noalias ptr @uprv_malloc_75(i64 noundef %conv.i150) #22
+  store ptr %call.i157, ptr %fResPath33, align 8
+  %cmp18.i158 = icmp eq ptr %call.i157, null
+  br i1 %cmp18.i158, label %if.then19.i161, label %if.end20.i159
+
+if.then19.i161:                                   ; preds = %if.then13.i156
+  store i32 7, ptr %status, align 4
+  br label %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit164
+
+if.end20.i159:                                    ; preds = %if.then13.i156
+  %call24.i160 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call.i157, ptr noundef nonnull dereferenceable(1) %fResBuf10.i148) #21
+  br label %if.end36.i142
+
+if.else.i151:                                     ; preds = %if.then8.i146
+  %call30.i152 = call ptr @uprv_realloc_75(ptr noundef nonnull %35, i64 noundef %conv.i150) #24
+  %cmp31.i153 = icmp eq ptr %call30.i152, null
+  br i1 %cmp31.i153, label %if.then32.i155, label %if.end33.i154
+
+if.then32.i155:                                   ; preds = %if.else.i151
+  store i32 7, ptr %status, align 4
+  br label %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit164
+
+if.end33.i154:                                    ; preds = %if.else.i151
+  store ptr %call30.i152, ptr %fResPath33, align 8
+  br label %if.end36.i142
+
+if.end36.i142:                                    ; preds = %if.end33.i154, %if.end20.i159, %if.end.i139
+  %37 = phi ptr [ %call.i157, %if.end20.i159 ], [ %call30.i152, %if.end33.i154 ], [ %35, %if.end.i139 ]
+  %idx.ext.i143 = sext i32 %33 to i64
+  %add.ptr.i144 = getelementptr inbounds i8, ptr %37, i64 %idx.ext.i143
+  %call38.i145 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i144, ptr noundef nonnull readonly dereferenceable(1) %buf) #21
+  br label %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit164
+
+_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit164: ; preds = %if.then19.i161, %if.then32.i155, %if.end36.i142
+  %38 = load ptr, ptr %fResPath33, align 8
+  %39 = load i32, ptr %fResPathLen.i136, align 8
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr i8, ptr %38, i64 %40
+  %arrayidx57 = getelementptr i8, ptr %41, i64 -1
+  %42 = load i8, ptr %arrayidx57, align 1
+  %cmp59.not = icmp eq i8 %42, 47
   br i1 %cmp59.not, label %if.end63, label %if.then60
 
-if.then60:                                        ; preds = %if.then50
+if.then60:                                        ; preds = %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit164
   call fastcc void @_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode(ptr noundef nonnull %resB.addr.0, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef nonnull %status)
   br label %if.end63
 
-if.end63:                                         ; preds = %if.else48, %if.then60, %if.then50, %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit106, %if.then46
+if.end63:                                         ; preds = %if.end36.i113, %if.then32.i126, %if.then19.i132, %if.else48, %if.then60, %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit164, %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit106
   %fResBuf = getelementptr inbounds i8, ptr %resB.addr.0, i64 40
-  %37 = load ptr, ptr %fResPath33, align 8
-  %cmp66 = icmp eq ptr %fResBuf, %37
+  %43 = load ptr, ptr %fResPath33, align 8
+  %cmp66 = icmp eq ptr %fResBuf, %43
   br i1 %cmp66, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end63
   %fResPathLen67 = getelementptr inbounds i8, ptr %resB.addr.0, i64 104
-  %38 = load i32, ptr %fResPathLen67, align 8
-  %39 = sext i32 %38 to i64
+  %44 = load i32, ptr %fResPathLen67, align 8
+  %45 = sext i32 %44 to i64
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end63, %cond.true
-  %cond = phi i64 [ %39, %cond.true ], [ 0, %if.end63 ]
+  %cond = phi i64 [ %45, %cond.true ], [ 0, %if.end63 ]
   %add.ptr = getelementptr inbounds i8, ptr %fResBuf, i64 %cond
   %sub71 = sub nsw i64 64, %cond
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 0, i64 %sub71, i1 false)
@@ -5875,15 +5973,15 @@ cond.end:                                         ; preds = %if.end63, %cond.tru
   store ptr null, ptr %fVersion72, align 8
   %fRes = getelementptr inbounds i8, ptr %resB.addr.0, i64 108
   store i32 %r, ptr %fRes, align 4
-  %40 = load ptr, ptr %fData31, align 8
-  %fData2.i = getelementptr inbounds i8, ptr %40, i64 40
+  %46 = load ptr, ptr %fData31, align 8
+  %fData2.i = getelementptr inbounds i8, ptr %46, i64 40
   %call75 = call i32 @res_countArrayItems_75(ptr noundef nonnull %fData2.i, i32 noundef %r)
   %fSize = getelementptr inbounds i8, ptr %resB.addr.0, i64 128
   store i32 %call75, ptr %fSize, align 8
   br label %return
 
-return:                                           ; preds = %entry, %lor.lhs.false, %cond.end, %if.then15, %if.end8, %if.then7, %if.then2
-  %retval.0 = phi ptr [ null, %if.then2 ], [ %resB, %if.then7 ], [ %call9, %if.end8 ], [ null, %if.then15 ], [ %resB.addr.0, %cond.end ], [ %resB, %lor.lhs.false ], [ %resB, %entry ]
+return:                                           ; preds = %entry, %cond.end, %if.then15, %if.end8, %if.then7, %if.then2
+  %retval.0 = phi ptr [ null, %if.then2 ], [ %resB, %if.then7 ], [ %call9, %if.end8 ], [ null, %if.then15 ], [ %resB.addr.0, %cond.end ], [ %resB, %entry ]
   ret ptr %retval.0
 }
 

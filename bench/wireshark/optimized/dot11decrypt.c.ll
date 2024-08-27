@@ -1976,16 +1976,16 @@ default.unreachable:                              ; preds = %._crit_edge.i
   %..i.i = select i1 %56, ptr %53, ptr %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %8, ptr noundef nonnull align 1 dereferenceable(6) %..i.i, i64 6, i1 false)
   %57 = icmp slt i32 %55, 0
-  %..i28.i = select i1 %57, ptr %53, ptr %54
+  %..i26.i = select i1 %57, ptr %53, ptr %54
   br label %Dot11DecryptGetStaAddress.exit.i
 
 Dot11DecryptGetStaAddress.exit.i:                 ; preds = %52, %49, %46, %._crit_edge.i.thread
-  %.0.i29.i = phi ptr [ %51, %49 ], [ %48, %46 ], [ %..i28.i, %52 ], [ %spec.select.i.i, %._crit_edge.i.thread ]
+  %.0.i27.i = phi ptr [ %51, %49 ], [ %48, %46 ], [ %..i26.i, %52 ], [ %spec.select.i.i, %._crit_edge.i.thread ]
   %58 = getelementptr inbounds i8, ptr %8, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %58, ptr noundef nonnull align 1 dereferenceable(6) %.0.i29.i, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %58, ptr noundef nonnull align 1 dereferenceable(6) %.0.i27.i, i64 6, i1 false)
   br label %Dot11DecryptGetSaAddress.exit
 
-Dot11DecryptGetSaAddress.exit:                    ; preds = %Dot11DecryptGetStaAddress.exit.i, %41, %40
+Dot11DecryptGetSaAddress.exit:                    ; preds = %40, %41, %Dot11DecryptGetStaAddress.exit.i
   %59 = and i8 %28, 64
   %60 = icmp eq i8 %59, 0
   br i1 %60, label %Dot11DecryptGetNbrOfTkKeys.exit.thread, label %61
@@ -2010,8 +2010,8 @@ Dot11DecryptGetSaAddress.exit:                    ; preds = %Dot11DecryptGetStaA
   %72 = getelementptr inbounds i8, ptr %1, i64 4
   %73 = load i8, ptr %72, align 1
   %74 = and i8 %73, 1
-  %.not50 = icmp eq i8 %74, 0
-  br i1 %.not50, label %77, label %75
+  %.not49 = icmp eq i8 %74, 0
+  br i1 %.not49, label %77, label %75
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds i8, ptr %8, i64 6
@@ -2021,20 +2021,20 @@ Dot11DecryptGetSaAddress.exit:                    ; preds = %Dot11DecryptGetStaA
 77:                                               ; preds = %75, %71
   %.val = load ptr, ptr %0, align 8
   %78 = call ptr @g_hash_table_lookup(ptr noundef %.val, ptr noundef nonnull %8) #14
-  %.not51 = icmp eq ptr %78, null
-  br i1 %.not51, label %.thread, label %79
+  %.not50 = icmp eq ptr %78, null
+  br i1 %.not50, label %.thread, label %79
 
 79:                                               ; preds = %77
   %80 = call fastcc i32 @Dot11DecryptRsnaMng(ptr noundef nonnull %4, i32 noundef %2, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %78)
-  %.not52 = icmp eq i32 %80, 0
-  br i1 %.not52, label %Dot11DecryptGetNbrOfTkKeys.exit.thread, label %.thread
+  %.not51 = icmp eq i32 %80, 0
+  br i1 %.not51, label %Dot11DecryptGetNbrOfTkKeys.exit.thread, label %.thread
 
 .thread:                                          ; preds = %77, %79
-  %.062 = phi i32 [ %80, %79 ], [ 3, %77 ]
+  %.061 = phi i32 [ %80, %79 ], [ 3, %77 ]
   %81 = getelementptr inbounds i8, ptr %0, i64 27656
   %82 = load i64, ptr %81, align 8
-  %.not.i53 = icmp eq i64 %82, 0
-  br i1 %.not.i53, label %Dot11DecryptGetNbrOfTkKeys.exit.thread, label %.lr.ph.i
+  %.not.i52 = icmp eq i64 %82, 0
+  br i1 %.not.i52, label %Dot11DecryptGetNbrOfTkKeys.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread
   %83 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2061,7 +2061,7 @@ Dot11DecryptGetNbrOfTkKeys.exit:                  ; preds = %84
   br label %Dot11DecryptGetNbrOfTkKeys.exit.thread
 
 Dot11DecryptGetNbrOfTkKeys.exit.thread:           ; preds = %.thread, %79, %Dot11DecryptGetNbrOfTkKeys.exit, %91, %Dot11DecryptGetSaAddress.exit, %21, %18, %15, %69, %14
-  %.041 = phi i32 [ 3, %14 ], [ %70, %69 ], [ 3, %15 ], [ 2, %18 ], [ 1, %21 ], [ 5, %Dot11DecryptGetSaAddress.exit ], [ %92, %91 ], [ %.062, %Dot11DecryptGetNbrOfTkKeys.exit ], [ 0, %79 ], [ %.062, %.thread ]
+  %.041 = phi i32 [ 3, %14 ], [ %70, %69 ], [ 3, %15 ], [ 2, %18 ], [ 1, %21 ], [ 5, %Dot11DecryptGetSaAddress.exit ], [ %92, %91 ], [ %.061, %Dot11DecryptGetNbrOfTkKeys.exit ], [ 0, %79 ], [ %.061, %.thread ]
   ret i32 %.041
 }
 

@@ -528,12 +528,12 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noun
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %44, label %9
+  br i1 %.not, label %45, label %9
 
 9:                                                ; preds = %6
   %10 = load i8, ptr %0, align 1
   %.not24 = icmp eq i8 %10, 0
-  br i1 %.not24, label %44, label %11
+  br i1 %.not24, label %45, label %11
 
 11:                                               ; preds = %9
   %12 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %0) #8
@@ -542,8 +542,8 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noun
   %.not2533 = icmp eq ptr %13, null
   br i1 %.not2533, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %11, %42
-  %.034 = phi ptr [ %43, %42 ], [ %13, %11 ]
+.lr.ph:                                           ; preds = %11, %43
+  %.034 = phi ptr [ %44, %43 ], [ %13, %11 ]
   %14 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.034, i32 noundef 61) #9
   %.not26 = icmp eq ptr %14, null
   br i1 %.not26, label %31, label %15
@@ -559,32 +559,32 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noun
   %19 = call fastcc i32 @_xlate_freq_code(ptr noundef nonnull %16)
   store i32 %19, ptr %3, align 4
   %.not31 = icmp eq i32 %19, 0
-  br i1 %.not31, label %20, label %42
+  br i1 %.not31, label %20, label %43
 
 20:                                               ; preds = %18
   %21 = call i64 @strtoul(ptr nocapture noundef nonnull readonly %16, ptr noundef null, i32 noundef 10) #8
   %22 = trunc i64 %21 to i32
   store i32 %22, ptr %4, align 4
   %.not32 = icmp eq i32 %22, 0
-  br i1 %.not32, label %23, label %42
+  br i1 %.not32, label %23, label %43
 
 23:                                               ; preds = %20
   %24 = call i32 @slurm_get_log_level() #8
   %25 = icmp sgt i32 %24, 4
-  br i1 %25, label %26, label %42
+  br i1 %25, label %26, label %43
 
 26:                                               ; preds = %23
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._parse_gpu_freq2, ptr noundef nonnull %.034) #8
-  br label %42
+  br label %43
 
 27:                                               ; preds = %15
   %28 = call i32 @slurm_get_log_level() #8
   %29 = icmp sgt i32 %28, 4
-  br i1 %29, label %30, label %42
+  br i1 %29, label %30, label %43
 
 30:                                               ; preds = %27
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.29, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._parse_gpu_freq2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._parse_gpu_freq2, ptr noundef nonnull %.034) #8
-  br label %42
+  br label %43
 
 31:                                               ; preds = %.lr.ph
   %32 = call i32 @slurm_xstrcasecmp(ptr noundef nonnull %.034, ptr noundef nonnull @.str.30) #8
@@ -593,40 +593,40 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noun
 
 33:                                               ; preds = %31
   store i8 1, ptr %5, align 1
-  br label %42
+  br label %43
 
 34:                                               ; preds = %31
   %35 = call fastcc i32 @_xlate_freq_code(ptr noundef nonnull %.034)
   store i32 %35, ptr %1, align 4
   %.not28 = icmp eq i32 %35, 0
-  br i1 %.not28, label %_xlate_freq_value.exit, label %42
+  br i1 %.not28, label %36, label %43
 
-_xlate_freq_value.exit:                           ; preds = %34
-  %36 = call i64 @strtoul(ptr nocapture noundef nonnull readonly %.034, ptr noundef null, i32 noundef 10) #8
-  %37 = trunc i64 %36 to i32
-  store i32 %37, ptr %2, align 4
-  %.not29 = icmp eq i32 %37, 0
-  br i1 %.not29, label %38, label %42
+36:                                               ; preds = %34
+  %37 = call i64 @strtoul(ptr nocapture noundef nonnull readonly %.034, ptr noundef null, i32 noundef 10) #8
+  %38 = trunc i64 %37 to i32
+  store i32 %38, ptr %2, align 4
+  %.not29 = icmp eq i32 %38, 0
+  br i1 %.not29, label %39, label %43
 
-38:                                               ; preds = %_xlate_freq_value.exit
-  %39 = call i32 @slurm_get_log_level() #8
-  %40 = icmp sgt i32 %39, 4
-  br i1 %40, label %41, label %42
+39:                                               ; preds = %36
+  %40 = call i32 @slurm_get_log_level() #8
+  %41 = icmp sgt i32 %40, 4
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.31, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._parse_gpu_freq2, ptr noundef nonnull %.034) #8
-  br label %42
+  br label %43
 
-42:                                               ; preds = %33, %38, %41, %_xlate_freq_value.exit, %34, %23, %26, %20, %18, %30, %27
-  %43 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.26, ptr noundef nonnull %8) #8
-  %.not25 = icmp eq ptr %43, null
+43:                                               ; preds = %33, %39, %42, %36, %34, %23, %26, %20, %18, %30, %27
+  %44 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.26, ptr noundef nonnull %8) #8
+  %.not25 = icmp eq ptr %44, null
   br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %42, %11
+._crit_edge:                                      ; preds = %43, %11
   call void @slurm_xfree(ptr noundef nonnull %7) #8
-  br label %44
+  br label %45
 
-44:                                               ; preds = %6, %9, %._crit_edge
+45:                                               ; preds = %6, %9, %._crit_edge
   ret void
 }
 
@@ -652,48 +652,44 @@ declare i32 @slurm_xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -4, 1) i32 @_xlate_freq_code(ptr noundef %0) unnamed_addr #0 {
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %17, label %2
+  %2 = load i8, ptr %0, align 1
+  %.not = icmp eq i8 %2, 0
+  %3 = add i8 %2, -48
+  %or.cond = icmp ult i8 %3, 10
+  %or.cond16 = or i1 %.not, %or.cond
+  br i1 %or.cond16, label %16, label %4
 
-2:                                                ; preds = %1
-  %3 = load i8, ptr %0, align 1
-  %.not12 = icmp eq i8 %3, 0
-  %4 = add i8 %3, -48
-  %or.cond = icmp ult i8 %4, 10
-  %or.cond17 = or i1 %.not12, %or.cond
-  br i1 %or.cond17, label %17, label %5
+4:                                                ; preds = %1
+  %5 = tail call i32 @slurm_xstrcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str) #8
+  %.not12 = icmp eq i32 %5, 0
+  br i1 %.not12, label %16, label %6
 
-5:                                                ; preds = %2
-  %6 = tail call i32 @slurm_xstrcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str) #8
-  %.not13 = icmp eq i32 %6, 0
-  br i1 %.not13, label %17, label %7
+6:                                                ; preds = %4
+  %7 = tail call i32 @slurm_xstrcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #8
+  %.not13 = icmp eq i32 %7, 0
+  br i1 %.not13, label %16, label %8
 
-7:                                                ; preds = %5
-  %8 = tail call i32 @slurm_xstrcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #8
-  %.not14 = icmp eq i32 %8, 0
-  br i1 %.not14, label %17, label %9
+8:                                                ; preds = %6
+  %9 = tail call i32 @slurm_xstrcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #8
+  %.not14 = icmp eq i32 %9, 0
+  br i1 %.not14, label %16, label %10
 
-9:                                                ; preds = %7
-  %10 = tail call i32 @slurm_xstrcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #8
-  %.not15 = icmp eq i32 %10, 0
-  br i1 %.not15, label %17, label %11
+10:                                               ; preds = %8
+  %11 = tail call i32 @slurm_xstrcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #8
+  %.not15 = icmp eq i32 %11, 0
+  br i1 %.not15, label %16, label %12
 
-11:                                               ; preds = %9
-  %12 = tail call i32 @slurm_xstrcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #8
-  %.not16 = icmp eq i32 %12, 0
-  br i1 %.not16, label %17, label %13
+12:                                               ; preds = %10
+  %13 = tail call i32 @slurm_get_log_level() #8
+  %14 = icmp sgt i32 %13, 4
+  br i1 %14, label %15, label %16
 
-13:                                               ; preds = %11
-  %14 = tail call i32 @slurm_get_log_level() #8
-  %15 = icmp sgt i32 %14, 4
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %13
+15:                                               ; preds = %12
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._xlate_freq_code, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._xlate_freq_code, ptr noundef nonnull %0) #8
-  br label %17
+  br label %16
 
-17:                                               ; preds = %13, %16, %11, %9, %7, %5, %1, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %1 ], [ -1, %5 ], [ -2, %7 ], [ -3, %9 ], [ -4, %11 ], [ 0, %16 ], [ 0, %13 ]
+16:                                               ; preds = %12, %15, %10, %8, %6, %4, %1
+  %.0 = phi i32 [ 0, %1 ], [ -1, %4 ], [ -2, %6 ], [ -3, %8 ], [ -4, %10 ], [ 0, %15 ], [ 0, %12 ]
   ret i32 %.0
 }
 

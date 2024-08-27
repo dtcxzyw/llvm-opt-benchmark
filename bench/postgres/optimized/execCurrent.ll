@@ -168,7 +168,7 @@ fetch_cursor_param_value.exit:                    ; preds = %34
   %81 = getelementptr inbounds i8, ptr %74, i64 48
   %82 = load ptr, ptr %81, align 8
   %.not72 = icmp eq ptr %82, null
-  br i1 %.not72, label %123, label %.preheader
+  br i1 %.not72, label %122, label %.preheader
 
 .preheader:                                       ; preds = %80
   %83 = getelementptr inbounds i8, ptr %74, i64 32
@@ -251,89 +251,89 @@ fetch_cursor_param_value.exit:                    ; preds = %34
   unreachable
 
 118:                                              ; preds = %110
-  %119 = getelementptr inbounds i8, ptr %.1, i64 42
-  %120 = load i16, ptr %119, align 2
-  %.not77 = icmp eq i16 %120, 0
-  br i1 %.not77, label %163, label %121
+  %119 = getelementptr i8, ptr %.1, i64 42
+  %.val76 = load i16, ptr %119, align 2
+  %.not77 = icmp eq i16 %.val76, 0
+  br i1 %.not77, label %162, label %120
 
-121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %.1, i64 38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %122, i64 6, i1 false)
-  br label %163
+120:                                              ; preds = %118
+  %121 = getelementptr inbounds i8, ptr %.1, i64 38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %121, i64 6, i1 false)
+  br label %162
 
-123:                                              ; preds = %80
+122:                                              ; preds = %80
   store i8 0, ptr %6, align 1
-  %124 = getelementptr inbounds i8, ptr %70, i64 88
-  %125 = load ptr, ptr %124, align 8
-  %126 = call fastcc ptr @search_plan_tree(ptr noundef %125, i32 noundef %2, ptr noundef nonnull %6)
-  %.not73 = icmp eq ptr %126, null
-  br i1 %.not73, label %127, label %131
+  %123 = getelementptr inbounds i8, ptr %70, i64 88
+  %124 = load ptr, ptr %123, align 8
+  %125 = call fastcc ptr @search_plan_tree(ptr noundef %124, i32 noundef %2, ptr noundef nonnull %6)
+  %.not73 = icmp eq ptr %125, null
+  br i1 %.not73, label %126, label %130
 
-127:                                              ; preds = %123
-  %128 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %128)
-  %129 = call i32 @errcode(i32 noundef 258) #7
-  %130 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %.059, ptr noundef nonnull %50) #7
+126:                                              ; preds = %122
+  %127 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %127)
+  %128 = call i32 @errcode(i32 noundef 258) #7
+  %129 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %.059, ptr noundef nonnull %50) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 170, ptr noundef nonnull @__func__.execCurrentOf) #7
   unreachable
 
-131:                                              ; preds = %123
-  %132 = getelementptr inbounds i8, ptr %56, i64 200
-  %133 = load i8, ptr %132, align 8
-  %134 = trunc i8 %133 to i1
-  br i1 %134, label %139, label %135
+130:                                              ; preds = %122
+  %131 = getelementptr inbounds i8, ptr %56, i64 200
+  %132 = load i8, ptr %131, align 8
+  %133 = trunc i8 %132 to i1
+  br i1 %133, label %138, label %134
 
-135:                                              ; preds = %131
-  %136 = getelementptr inbounds i8, ptr %56, i64 201
-  %137 = load i8, ptr %136, align 1
-  %138 = trunc i8 %137 to i1
-  br i1 %138, label %139, label %143
+134:                                              ; preds = %130
+  %135 = getelementptr inbounds i8, ptr %56, i64 201
+  %136 = load i8, ptr %135, align 1
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %138, label %142
 
-139:                                              ; preds = %135, %131
-  %140 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %140)
-  %141 = call i32 @errcode(i32 noundef 258) #7
-  %142 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %.059) #7
+138:                                              ; preds = %134, %130
+  %139 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %139)
+  %140 = call i32 @errcode(i32 noundef 258) #7
+  %141 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %.059) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.execCurrentOf) #7
   unreachable
 
-143:                                              ; preds = %135
-  %144 = getelementptr inbounds i8, ptr %126, i64 216
-  %145 = load ptr, ptr %144, align 8
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %163, label %147
+142:                                              ; preds = %134
+  %143 = getelementptr inbounds i8, ptr %125, i64 216
+  %144 = load ptr, ptr %143, align 8
+  %145 = icmp eq ptr %144, null
+  br i1 %145, label %162, label %146
 
-147:                                              ; preds = %143
-  %148 = getelementptr inbounds i8, ptr %145, i64 4
-  %149 = load i16, ptr %148, align 4
-  %150 = and i16 %149, 2
-  %.not74 = icmp eq i16 %150, 0
-  br i1 %.not74, label %151, label %163
+146:                                              ; preds = %142
+  %147 = getelementptr inbounds i8, ptr %144, i64 4
+  %148 = load i16, ptr %147, align 4
+  %149 = and i16 %148, 2
+  %.not74 = icmp eq i16 %149, 0
+  br i1 %.not74, label %150, label %162
 
-151:                                              ; preds = %147
-  %152 = load i8, ptr %6, align 1
-  %153 = trunc i8 %152 to i1
-  br i1 %153, label %163, label %154
+150:                                              ; preds = %146
+  %151 = load i8, ptr %6, align 1
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %162, label %153
 
-154:                                              ; preds = %151
-  %155 = load i32, ptr %126, align 4
-  %156 = icmp eq i32 %155, 390
-  br i1 %156, label %157, label %161
+153:                                              ; preds = %150
+  %154 = load i32, ptr %125, align 4
+  %155 = icmp eq i32 %154, 390
+  br i1 %155, label %156, label %160
 
-157:                                              ; preds = %154
-  %158 = getelementptr inbounds i8, ptr %126, i64 296
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 8 dereferenceable(6) %160, i64 6, i1 false)
-  br label %163
+156:                                              ; preds = %153
+  %157 = getelementptr inbounds i8, ptr %125, i64 296
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 8 dereferenceable(6) %159, i64 6, i1 false)
+  br label %162
 
-161:                                              ; preds = %154
-  %162 = getelementptr inbounds i8, ptr %145, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %162, i64 6, i1 false)
-  br label %163
+160:                                              ; preds = %153
+  %161 = getelementptr inbounds i8, ptr %144, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %161, i64 6, i1 false)
+  br label %162
 
-163:                                              ; preds = %157, %161, %143, %147, %151, %118, %121
-  %.0 = phi i1 [ true, %121 ], [ false, %118 ], [ false, %151 ], [ false, %147 ], [ false, %143 ], [ true, %161 ], [ true, %157 ]
+162:                                              ; preds = %156, %160, %142, %146, %150, %118, %120
+  %.0 = phi i1 [ true, %120 ], [ false, %118 ], [ false, %150 ], [ false, %146 ], [ false, %142 ], [ true, %160 ], [ true, %156 ]
   ret i1 %.0
 }
 

@@ -5734,10 +5734,10 @@ if.then19:                                        ; preds = %if.end
   %add4.i.i = add i32 %add22, -1
   %sub5.i.i = add i32 %add4.i.i, %spec.select.i.i
   %div.i.i = sdiv i32 %sub5.i.i, 7
-  %sub6.i.i = sub nuw nsw i32 7, %spec.select.i.i
+  %sub6.i.i = sub nsw i32 7, %spec.select.i.i
   %10 = load i8, ptr %fMinimalDaysInFirstWeek.i, align 4
   %conv.i.i = zext i8 %10 to i32
-  %cmp8.not.i.i = icmp uge i32 %sub6.i.i, %conv.i.i
+  %cmp8.not.i.i = icmp sge i32 %sub6.i.i, %conv.i.i
   %inc.i.i = zext i1 %cmp8.not.i.i to i32
   %weekNo.0.i.i = add nsw i32 %div.i.i, %inc.i.i
   br label %if.end48
@@ -5798,8 +5798,8 @@ if.end48:                                         ; preds = %if.else.if.end48_cr
   %add4.i.i33 = add i32 %12, -1
   %sub5.i.i34 = add i32 %spec.select.i.i32, %add4.i.i33
   %div.i.i35 = sdiv i32 %sub5.i.i34, 7
-  %sub6.i.i36 = sub nuw nsw i32 7, %spec.select.i.i32
-  %cmp8.not.i.i39 = icmp uge i32 %sub6.i.i36, %conv.i.i38.pre-phi
+  %sub6.i.i36 = sub nsw i32 7, %spec.select.i.i32
+  %cmp8.not.i.i39 = icmp sge i32 %sub6.i.i36, %conv.i.i38.pre-phi
   %inc.i.i40 = zext i1 %cmp8.not.i.i39 to i32
   %weekNo.0.i.i41 = add nsw i32 %div.i.i35, %inc.i.i40
   %arrayidx57 = getelementptr inbounds i8, ptr %this, i64 28
@@ -5880,11 +5880,11 @@ entry:
   %add4 = add i32 %desiredDay, -1
   %sub5 = add i32 %add4, %spec.select
   %div = sdiv i32 %sub5, 7
-  %sub6 = sub nuw nsw i32 7, %spec.select
+  %sub6 = sub nsw i32 7, %spec.select
   %fMinimalDaysInFirstWeek.i = getelementptr inbounds i8, ptr %this, i64 268
   %3 = load i8, ptr %fMinimalDaysInFirstWeek.i, align 4
   %conv = zext i8 %3 to i32
-  %cmp8.not = icmp uge i32 %sub6, %conv
+  %cmp8.not = icmp sge i32 %sub6, %conv
   %inc = zext i1 %cmp8.not to i32
   %weekNo.0 = add nsw i32 %div, %inc
   ret i32 %weekNo.0

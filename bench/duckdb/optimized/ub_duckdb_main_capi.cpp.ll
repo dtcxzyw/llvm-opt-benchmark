@@ -10616,7 +10616,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb11LogicalType7DECIMALEii(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, i32 noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @duckdb_get_type_id(ptr noundef readonly %type) local_unnamed_addr #8 {
+define noundef range(i32 0, 30) i32 @duckdb_get_type_id(ptr noundef readonly %type) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %type, null
   br i1 %tobool.not, label %return, label %if.end

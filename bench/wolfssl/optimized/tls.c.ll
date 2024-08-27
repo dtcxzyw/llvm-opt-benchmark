@@ -470,7 +470,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @wolfSSL_GetHmacType(ptr noundef readonly %ssl) local_unnamed_addr #6 {
+define range(i32 -173, 8) i32 @wolfSSL_GetHmacType(ptr noundef readonly %ssl) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %if.end

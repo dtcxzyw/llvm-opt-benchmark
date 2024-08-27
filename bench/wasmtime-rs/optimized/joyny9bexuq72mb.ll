@@ -29746,8 +29746,8 @@ define void @_ZN8wasmtime7runtime2gc7enabled7rooting11GcRootIndex16try_clone_gc_
   br i1 %trunc.i.i.i.i, label %52, label %42
 
 42:                                               ; preds = %"_ZN13wasmtime_slab13Slab$LT$T$GT$3get17h9a0e86eaf938497eE.exit.i.i.i", %24
-  %.sroa.3.0.i23.ph = phi ptr [ %41, %"_ZN13wasmtime_slab13Slab$LT$T$GT$3get17h9a0e86eaf938497eE.exit.i.i.i" ], [ %27, %24 ]
-  %43 = tail call noundef i32 @_ZN16wasmtime_runtime2gc6gc_ref7VMGcRef14unchecked_copy17h3a5e860d68f511b7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.sroa.3.0.i23.ph), !range !12933
+  %.sroa.3.0.i.ph = phi ptr [ %27, %24 ], [ %41, %"_ZN13wasmtime_slab13Slab$LT$T$GT$3get17h9a0e86eaf938497eE.exit.i.i.i" ]
+  %43 = tail call noundef i32 @_ZN16wasmtime_runtime2gc6gc_ref7VMGcRef14unchecked_copy17h3a5e860d68f511b7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.sroa.3.0.i.ph), !range !12933
   store i32 %43, ptr %6, align 4
   %44 = getelementptr inbounds i8, ptr %.val, i64 680
   %45 = load i64, ptr %44, align 8, !range !17, !noundef !16

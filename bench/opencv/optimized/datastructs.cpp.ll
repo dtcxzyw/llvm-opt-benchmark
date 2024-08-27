@@ -13884,18 +13884,18 @@ common.resume:                                    ; preds = %127, %129, %14, %16
 49:                                               ; preds = %39, %36, %35
   %.296 = phi ptr [ %.195, %36 ], [ %.190, %39 ], [ %.195, %35 ]
   %.2 = phi ptr [ %.1, %36 ], [ %41, %39 ], [ %.1, %35 ]
-  %.not109148 = icmp eq ptr %.2, null
-  br i1 %.not109148, label %._crit_edge, label %.lr.ph
+  %.not109147 = icmp eq ptr %.2, null
+  br i1 %.not109147, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49, %92
-  %.3149 = phi ptr [ %99, %92 ], [ %.2, %49 ]
-  %50 = getelementptr inbounds i8, ptr %.3149, i64 24
+  %.3148 = phi ptr [ %99, %92 ], [ %.2, %49 ]
+  %50 = getelementptr inbounds i8, ptr %.3148, i64 24
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %.296, %51
   %53 = zext i1 %52 to i64
   %54 = getelementptr inbounds [2 x ptr], ptr %50, i64 0, i64 %53
   %55 = load ptr, ptr %54, align 8
-  %56 = load i32, ptr %.3149, align 8
+  %56 = load i32, ptr %.3148, align 8
   %57 = and i32 %56, 1073741824
   %.not110 = icmp eq i32 %57, 0
   br i1 %.not110, label %58, label %92
@@ -13911,7 +13911,7 @@ common.resume:                                    ; preds = %127, %129, %14, %16
 
 62:                                               ; preds = %58
   %63 = or disjoint i32 %56, 1073741824
-  store i32 %63, ptr %.3149, align 8
+  store i32 %63, ptr %.3148, align 8
   %64 = load i32, ptr %55, align 8
   %65 = and i32 %64, 1073741824
   %.not113 = icmp eq i32 %65, 0
@@ -13919,7 +13919,7 @@ common.resume:                                    ; preds = %127, %129, %14, %16
 
 66:                                               ; preds = %62
   store ptr %.296, ptr %5, align 8
-  store ptr %.3149, ptr %26, align 8
+  store ptr %.3148, ptr %26, align 8
   %67 = load i32, ptr %.296, align 8
   %68 = or i32 %67, 536870912
   store i32 %68, ptr %.296, align 8
@@ -13933,7 +13933,7 @@ common.resume:                                    ; preds = %127, %129, %14, %16
 73:                                               ; preds = %66
   store ptr %.296, ptr %0, align 8
   store ptr %55, ptr %19, align 8
-  store ptr %.3149, ptr %22, align 8
+  store ptr %.3148, ptr %22, align 8
   br label %196
 
 74:                                               ; preds = %62
@@ -13950,7 +13950,7 @@ common.resume:                                    ; preds = %127, %129, %14, %16
   %80 = select i1 %.not121, i32 16, i32 8
   %81 = select i1 %.not120, i32 %80, i32 4
   %82 = and i32 %63, -268435457
-  store i32 %82, ptr %.3149, align 8
+  store i32 %82, ptr %.3148, align 8
   %83 = load i32, ptr %24, align 4
   %84 = and i32 %83, %81
   %.not122 = icmp eq i32 %84, 0
@@ -13959,7 +13959,7 @@ common.resume:                                    ; preds = %127, %129, %14, %16
 85:                                               ; preds = %77
   store ptr %.296, ptr %0, align 8
   store ptr %55, ptr %19, align 8
-  store ptr %.3149, ptr %22, align 8
+  store ptr %.3148, ptr %22, align 8
   br label %196
 
 86:                                               ; preds = %58
@@ -13970,12 +13970,12 @@ common.resume:                                    ; preds = %127, %129, %14, %16
 
 90:                                               ; preds = %86
   %91 = or i32 %56, 268435456
-  store i32 %91, ptr %.3149, align 8
+  store i32 %91, ptr %.3148, align 8
   br label %92
 
 92:                                               ; preds = %74, %77, %90, %86, %.lr.ph
-  %93 = getelementptr inbounds i8, ptr %.3149, i64 8
-  %94 = getelementptr inbounds i8, ptr %.3149, i64 32
+  %93 = getelementptr inbounds i8, ptr %.3148, i64 8
+  %94 = getelementptr inbounds i8, ptr %.3148, i64 32
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, %.296
   %97 = zext i1 %96 to i64
@@ -14031,8 +14031,8 @@ common.resume:                                    ; preds = %127, %129, %14, %16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %.not129 = icmp eq ptr %123, null
-  br i1 %.not129, label %124, label %131
+  %.not.i = icmp eq ptr %123, null
+  br i1 %.not.i, label %124, label %131
 
 124:                                              ; preds = %.thread124
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
@@ -14066,8 +14066,8 @@ common.resume:                                    ; preds = %127, %129, %14, %16
   br i1 %136, label %_ZL18icvSeqFindNextElemP5CvSeqiiiPi.exit.thread, label %137
 
 137:                                              ; preds = %131
-  %.not.i = icmp ult i32 %122, %135
-  br i1 %.not.i, label %140, label %138
+  %.not49.i = icmp ult i32 %122, %135
+  br i1 %.not49.i, label %140, label %138
 
 138:                                              ; preds = %137
   %139 = urem i32 %122, %135
@@ -14116,8 +14116,8 @@ common.resume:                                    ; preds = %127, %129, %14, %16
   br label %cvStartReadSeq.exit.i
 
 cvStartReadSeq.exit.i:                            ; preds = %162, %143
-  %.not49.i = icmp eq i32 %.038.i, 0
-  br i1 %.not49.i, label %164, label %163
+  %.not50.i = icmp eq i32 %.038.i, 0
+  br i1 %.not50.i, label %164, label %163
 
 163:                                              ; preds = %cvStartReadSeq.exit.i
   call void @cvSetSeqReaderPos(ptr noundef nonnull %2, i32 noundef %.038.i, i32 noundef 0)
@@ -14128,8 +14128,8 @@ cvStartReadSeq.exit.i:                            ; preds = %162, %143
   br i1 %165, label %.lr.ph.i, label %_ZL18icvSeqFindNextElemP5CvSeqiiiPi.exit.thread
 
 .lr.ph.i:                                         ; preds = %164
-  %.promoted55.i = load ptr, ptr %29, align 8
-  %.promoted54.i = load ptr, ptr %31, align 8
+  %.promoted56.i = load ptr, ptr %29, align 8
+  %.promoted55.i = load ptr, ptr %31, align 8
   %.promoted.i = load ptr, ptr %32, align 8
   %166 = sext i32 %133 to i64
   %.pre.i.i = load ptr, ptr %28, align 8
@@ -14137,10 +14137,10 @@ cvStartReadSeq.exit.i:                            ; preds = %162, %143
   br label %168
 
 168:                                              ; preds = %187, %.lr.ph.i
-  %.13956.i = phi i32 [ 0, %.lr.ph.i ], [ %191, %187 ]
+  %.13957.i = phi i32 [ 0, %.lr.ph.i ], [ %191, %187 ]
   %169 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %190, %187 ]
-  %170 = phi ptr [ %.promoted54.i, %.lr.ph.i ], [ %189, %187 ]
-  %171 = phi ptr [ %.promoted55.i, %.lr.ph.i ], [ %188, %187 ]
+  %170 = phi ptr [ %.promoted55.i, %.lr.ph.i ], [ %189, %187 ]
+  %171 = phi ptr [ %.promoted56.i, %.lr.ph.i ], [ %188, %187 ]
   %172 = load i32, ptr %169, align 4
   %173 = icmp ult i32 %172, 1073741824
   br i1 %173, label %_ZL18icvSeqFindNextElemP5CvSeqiiiPi.exit, label %174
@@ -14148,8 +14148,8 @@ cvStartReadSeq.exit.i:                            ; preds = %162, %143
 174:                                              ; preds = %168
   %175 = getelementptr inbounds i8, ptr %169, i64 %166
   store ptr %175, ptr %32, align 8
-  %.not50.i = icmp ult ptr %175, %170
-  br i1 %.not50.i, label %187, label %176
+  %.not51.i = icmp ult ptr %175, %170
+  br i1 %.not51.i, label %187, label %176
 
 176:                                              ; preds = %174
   %177 = getelementptr inbounds i8, ptr %171, i64 8
@@ -14172,7 +14172,7 @@ cvStartReadSeq.exit.i:                            ; preds = %162, %143
   %188 = phi ptr [ %171, %174 ], [ %178, %176 ]
   %189 = phi ptr [ %170, %174 ], [ %186, %176 ]
   %190 = phi ptr [ %175, %174 ], [ %180, %176 ]
-  %191 = add nuw nsw i32 %.13956.i, 1
+  %191 = add nuw nsw i32 %.13957.i, 1
   %exitcond.not.i = icmp eq i32 %191, %135
   br i1 %exitcond.not.i, label %_ZL18icvSeqFindNextElemP5CvSeqiiiPi.exit.thread, label %168, !llvm.loop !76
 
@@ -14183,7 +14183,7 @@ _ZL18icvSeqFindNextElemP5CvSeqiiiPi.exit.thread:  ; preds = %131, %164, %187
   br label %196
 
 _ZL18icvSeqFindNextElemP5CvSeqiiiPi.exit:         ; preds = %168
-  store i32 %.13956.i, ptr %27, align 4
+  store i32 %.13957.i, ptr %27, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
@@ -14199,7 +14199,7 @@ _ZL18icvSeqFindNextElemP5CvSeqiiiPi.exit:         ; preds = %168
 .backedge:                                        ; preds = %192, %66, %107
   %.195.be = phi ptr [ %.5, %192 ], [ %108, %107 ], [ %.296, %66 ]
   %.190.be = phi ptr [ %.5, %192 ], [ null, %107 ], [ %55, %66 ]
-  %.1.be = phi ptr [ null, %192 ], [ %111, %107 ], [ %.3149, %66 ]
+  %.1.be = phi ptr [ null, %192 ], [ %111, %107 ], [ %.3148, %66 ]
   br label %35, !llvm.loop !77
 
 195:                                              ; preds = %192

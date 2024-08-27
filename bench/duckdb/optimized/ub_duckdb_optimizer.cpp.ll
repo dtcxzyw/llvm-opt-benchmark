@@ -24098,7 +24098,7 @@ _ZN6duckdb6vectorINS_14FilterCombiner26ExpressionValueInformationELb1EE3getILb1E
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 3, 2) i32 @_ZN6duckdb14FilterCombiner9AddFilterENS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull %expr) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN6duckdb14FilterCombiner9AddFilterENS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull %expr) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNK6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %expr)
   %call2 = tail call noundef i32 @_ZN6duckdb14FilterCombiner9AddFilterERNS_10ExpressionE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull align 8 dereferenceable(80) %call)
@@ -24133,7 +24133,7 @@ cleanup:                                          ; preds = %if.else.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6duckdb14FilterCombiner9AddFilterERNS_10ExpressionE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull align 8 dereferenceable(80) %expr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN6duckdb14FilterCombiner9AddFilterERNS_10ExpressionE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull align 8 dereferenceable(80) %expr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.duckdb::unique_ptr", align 8
   %agg.tmp5.i = alloca %"class.duckdb::unique_ptr", align 8

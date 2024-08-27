@@ -639,7 +639,7 @@ define hidden noundef zeroext i1 @_ZN4JSON5validEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 256) i32 @_ZN4JSON13skip_to_tokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 -1, -2147483648) i32 @_ZN4JSON13skip_to_tokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %.pre = load ptr, ptr %2, align 8
   br label %_ZN4JSON4nextEv.exit

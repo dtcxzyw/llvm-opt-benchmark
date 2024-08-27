@@ -1535,13 +1535,13 @@ _ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit: ; preds = %land.rhs.i, %whi
   br i1 %cmp4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit
+  %3 = getelementptr i8, ptr %2, i64 16
+  %.val = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %type.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  %m_buffer.i = getelementptr inbounds i8, ptr %2, i64 16
-  %3 = load ptr, ptr %m_buffer.i, align 8
-  %cmp3.i = icmp eq ptr %3, null
+  %cmp3.i = icmp eq ptr %.val, null
   br i1 %cmp3.i, label %_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.exit.thread, label %if.end.i
 
 _ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.exit.thread: ; preds = %if.then5
@@ -1567,9 +1567,9 @@ lpad.i.i:                                         ; preds = %if.end.i.i
   br label %lpad.body.i
 
 if.end.i.i:                                       ; preds = %call.i.noexc.i
-  %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #26
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %call.i.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %type.i, ptr noundef nonnull %3, ptr noundef nonnull %add.ptr.i.i)
+  %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #26
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %.val, i64 %call.i.i.i
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %type.i, ptr noundef nonnull %.val, ptr noundef nonnull %add.ptr.i.i)
           to label %invoke.cont.i unwind label %lpad.i.i
 
 invoke.cont.i:                                    ; preds = %if.end.i.i

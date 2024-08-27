@@ -40825,19 +40825,19 @@ sw.default:                                       ; preds = %if.end6
   %conv.i63 = zext i32 %mul.i.i62 to i64
   %mul.i64 = mul i64 %frameCount, %conv.i63
   %cmp.i.not189.i = icmp eq i64 %mul.i64, 0
-  br i1 %cmp.i.not189.i, label %ma_zero_memory_64.exit.i, label %ma_zero_memory_default.exit.i.i
+  br i1 %cmp.i.not189.i, label %ma_zero_memory_64.exit.i, label %while.body.i.i65
 
-ma_zero_memory_default.exit.i.i:                  ; preds = %sw.default, %ma_zero_memory_default.exit.i.i
-  %dst.addr.i.0191.i = phi ptr [ %add.ptr.i.i68, %ma_zero_memory_default.exit.i.i ], [ %pFramesOut, %sw.default ]
-  %sizeInBytes.addr.i.0190.i = phi i64 [ %sub.i.i67, %ma_zero_memory_default.exit.i.i ], [ %mul.i64, %sw.default ]
+while.body.i.i65:                                 ; preds = %sw.default, %while.body.i.i65
+  %dst.addr.i.0191.i = phi ptr [ %add.ptr.i.i68, %while.body.i.i65 ], [ %pFramesOut, %sw.default ]
+  %sizeInBytes.addr.i.0190.i = phi i64 [ %sub.i.i67, %while.body.i.i65 ], [ %mul.i64, %sw.default ]
   %spec.store.select.i66 = tail call i64 @llvm.umin.i64(i64 %sizeInBytes.addr.i.0190.i, i64 4294967295)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %dst.addr.i.0191.i, i8 0, i64 %spec.store.select.i66, i1 false)
   %sub.i.i67 = sub i64 %sizeInBytes.addr.i.0190.i, %spec.store.select.i66
   %add.ptr.i.i68 = getelementptr inbounds i8, ptr %dst.addr.i.0191.i, i64 %spec.store.select.i66
   %cmp.i.not.i69 = icmp eq i64 %sub.i.i67, 0
-  br i1 %cmp.i.not.i69, label %ma_zero_memory_64.exit.loopexit.i, label %ma_zero_memory_default.exit.i.i, !llvm.loop !40
+  br i1 %cmp.i.not.i69, label %ma_zero_memory_64.exit.loopexit.i, label %while.body.i.i65, !llvm.loop !40
 
-ma_zero_memory_64.exit.loopexit.i:                ; preds = %ma_zero_memory_default.exit.i.i
+ma_zero_memory_64.exit.loopexit.i:                ; preds = %while.body.i.i65
   %.pre.i70 = load i32, ptr %pConverter, align 8
   br label %ma_zero_memory_64.exit.i
 

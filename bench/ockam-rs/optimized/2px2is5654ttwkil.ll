@@ -20063,7 +20063,7 @@ define hidden noundef zeroext i1 @"_ZN5flume17Hook$LT$T$C$S$GT$8is_empty17hc120d
   %.fca.0.extract = extractvalue { ptr, i8 } %2, 0
   %5 = icmp ne ptr %.fca.0.extract, null
   tail call void @llvm.assume(i1 %5)
-  %6 = trunc i8 %.fca.1.extract to i1
+  %6 = trunc nuw i8 %.fca.1.extract to i1
   %7 = getelementptr inbounds i8, ptr %.fca.0.extract, i64 64
   %8 = load i64, ptr %7, align 8, !range !747, !noundef !4
   br i1 %6, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.thread.i.i.i, label %9

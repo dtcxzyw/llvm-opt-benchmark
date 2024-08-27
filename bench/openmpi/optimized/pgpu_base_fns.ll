@@ -646,14 +646,14 @@ define void @pmix_pgpu_base_deregister_nspace(ptr noundef %0) local_unnamed_addr
 
 9:                                                ; preds = %8, %3, %1
   %10 = icmp eq ptr %0, null
-  %.038 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pgpu_globals, i64 512), align 8
-  %.not39 = icmp eq ptr %.038, getelementptr inbounds (i8, ptr @pmix_pgpu_globals, i64 392)
-  %or.cond45 = select i1 %10, i1 true, i1 %.not39
-  br i1 %or.cond45, label %.thread, label %.lr.ph
+  %.037 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pgpu_globals, i64 512), align 8
+  %.not38 = icmp eq ptr %.037, getelementptr inbounds (i8, ptr @pmix_pgpu_globals, i64 392)
+  %or.cond44 = select i1 %10, i1 true, i1 %.not38
+  br i1 %or.cond44, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %16
-  %.040 = phi ptr [ %.0, %16 ], [ %.038, %9 ]
-  %11 = getelementptr inbounds i8, ptr %.040, i64 144
+  %.039 = phi ptr [ %.0, %16 ], [ %.037, %9 ]
+  %11 = getelementptr inbounds i8, ptr %.039, i64 144
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 144
   %14 = load ptr, ptr %13, align 8
@@ -661,16 +661,16 @@ define void @pmix_pgpu_base_deregister_nspace(ptr noundef %0) local_unnamed_addr
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %.040, i64 120
+  %17 = getelementptr inbounds i8, ptr %.039, i64 120
   %.0 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @pmix_pgpu_globals, i64 392)
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !15
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %.040, i64 144
-  %20 = getelementptr inbounds i8, ptr %.040, i64 120
+  %19 = getelementptr inbounds i8, ptr %.039, i64 144
+  %20 = getelementptr inbounds i8, ptr %.039, i64 120
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %.040, i64 128
+  %22 = getelementptr inbounds i8, ptr %.039, i64 128
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 120
   store volatile ptr %21, ptr %24, align 8
@@ -680,32 +680,32 @@ define void @pmix_pgpu_base_deregister_nspace(ptr noundef %0) local_unnamed_addr
   %27 = load volatile i64, ptr getelementptr inbounds (i8, ptr @pmix_pgpu_globals, i64 536), align 8
   %28 = add i64 %27, -1
   store volatile i64 %28, ptr getelementptr inbounds (i8, ptr @pmix_pgpu_globals, i64 536), align 8
-  %.02741 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pgpu_globals, i64 240), align 8
-  %.not3242 = icmp eq ptr %.02741, getelementptr inbounds (i8, ptr @pmix_pgpu_globals, i64 120)
-  br i1 %.not3242, label %._crit_edge, label %.lr.ph44
+  %.02740 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pgpu_globals, i64 240), align 8
+  %.not3241 = icmp eq ptr %.02740, getelementptr inbounds (i8, ptr @pmix_pgpu_globals, i64 120)
+  br i1 %.not3241, label %._crit_edge, label %.lr.ph43
 
-.lr.ph44:                                         ; preds = %18, %35
-  %.02743 = phi ptr [ %.027, %35 ], [ %.02741, %18 ]
-  %29 = getelementptr inbounds i8, ptr %.02743, i64 152
+.lr.ph43:                                         ; preds = %18, %35
+  %.02742 = phi ptr [ %.027, %35 ], [ %.02740, %18 ]
+  %29 = getelementptr inbounds i8, ptr %.02742, i64 152
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 64
   %32 = load ptr, ptr %31, align 8
   %.not34 = icmp eq ptr %32, null
   br i1 %.not34, label %35, label %33
 
-33:                                               ; preds = %.lr.ph44
+33:                                               ; preds = %.lr.ph43
   %34 = load ptr, ptr %19, align 8
   tail call void %32(ptr noundef %34) #11
   br label %35
 
-35:                                               ; preds = %.lr.ph44, %33
-  %36 = getelementptr inbounds i8, ptr %.02743, i64 120
+35:                                               ; preds = %.lr.ph43, %33
+  %36 = getelementptr inbounds i8, ptr %.02742, i64 120
   %.027 = load ptr, ptr %36, align 8
   %.not32 = icmp eq ptr %.027, getelementptr inbounds (i8, ptr @pmix_pgpu_globals, i64 120)
-  br i1 %.not32, label %._crit_edge, label %.lr.ph44, !llvm.loop !16
+  br i1 %.not32, label %._crit_edge, label %.lr.ph43, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %35, %18
-  %37 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %.040) #11
+  %37 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %.039) #11
   %38 = icmp eq i32 %37, 35
   br i1 %38, label %39, label %41
 
@@ -717,16 +717,16 @@ define void @pmix_pgpu_base_deregister_nspace(ptr noundef %0) local_unnamed_addr
   unreachable
 
 41:                                               ; preds = %._crit_edge
-  %42 = getelementptr inbounds i8, ptr %.040, i64 48
+  %42 = getelementptr inbounds i8, ptr %.039, i64 48
   %43 = load i32, ptr %42, align 8
   %44 = add nsw i32 %43, -1
   store i32 %44, ptr %42, align 8
-  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.040) #11
+  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.039) #11
   %46 = icmp eq i32 %44, 0
   br i1 %46, label %47, label %.thread
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %.040, i64 40
+  %48 = getelementptr inbounds i8, ptr %.039, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 48
   %51 = load ptr, ptr %50, align 8
@@ -737,25 +737,25 @@ define void @pmix_pgpu_base_deregister_nspace(ptr noundef %0) local_unnamed_addr
 .lr.ph.i:                                         ; preds = %47, %.lr.ph.i
   %53 = phi ptr [ %55, %.lr.ph.i ], [ %52, %47 ]
   %.07.i = phi ptr [ %54, %.lr.ph.i ], [ %51, %47 ]
-  tail call void %53(ptr noundef %.040) #11
+  tail call void %53(ptr noundef %.039) #11
   %54 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !17
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %47
-  %56 = getelementptr inbounds i8, ptr %.040, i64 96
+  %56 = getelementptr inbounds i8, ptr %.039, i64 96
   %57 = load ptr, ptr %56, align 8
   %.not33 = icmp eq ptr %57, null
   br i1 %.not33, label %60, label %58
 
 58:                                               ; preds = %pmix_obj_run_destructors.exit
-  %59 = getelementptr inbounds i8, ptr %.040, i64 56
-  tail call void %57(ptr noundef nonnull %59, ptr noundef nonnull %.040) #11
+  %59 = getelementptr inbounds i8, ptr %.039, i64 56
+  tail call void %57(ptr noundef nonnull %59, ptr noundef nonnull %.039) #11
   br label %.thread
 
 60:                                               ; preds = %pmix_obj_run_destructors.exit
-  tail call void @free(ptr noundef nonnull %.040) #11
+  tail call void @free(ptr noundef nonnull %.039) #11
   br label %.thread
 
 .thread:                                          ; preds = %16, %58, %60, %41, %9

@@ -24515,7 +24515,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT9KerxTableINS_4kerxEE8san
   br i1 %.not31, label %79, label %.loopexit
 
 79:                                               ; preds = %71
-  %.not48 = icmp ult i32 %.02136, %43
+  %.not43 = icmp ult i32 %.02136, %43
   %80 = load ptr, ptr %44, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
@@ -24526,7 +24526,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT9KerxTableINS_4kerxEE8san
   %86 = getelementptr inbounds i8, ptr %82, i64 %85
   store ptr %86, ptr %45, align 8
   store i32 %84, ptr %9, align 8
-  br i1 %.not48, label %87, label %_ZN25hb_sanitize_with_object_tC2IPKN3AAT12KerxSubTableEEEP21hb_sanitize_context_tRKT_.exit
+  br i1 %.not43, label %87, label %_ZN25hb_sanitize_with_object_tC2IPKN3AAT12KerxSubTableEEEP21hb_sanitize_context_tRKT_.exit
 
 87:                                               ; preds = %79
   %88 = icmp uge ptr %.01937, %82
@@ -24606,8 +24606,8 @@ _ZN25hb_sanitize_with_object_tC2IPKN3AAT12KerxSubTableEEEP21hb_sanitize_context_
   %142 = sub i64 %141, %139
   %143 = trunc i64 %142 to i32
   %.not18.i = icmp ugt i32 %136, %143
-  %or.cond47 = select i1 %.not.i, i1 true, i1 %.not18.i
-  br i1 %or.cond47, label %_ZNK3AAT12KerxSubTable8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %144
+  %or.cond48 = select i1 %.not.i, i1 true, i1 %.not18.i
+  br i1 %or.cond48, label %_ZNK3AAT12KerxSubTable8sanitizeEP21hb_sanitize_context_t.exit.thread.thread, label %144
 
 144:                                              ; preds = %138
   %145 = load i32, ptr %46, align 4

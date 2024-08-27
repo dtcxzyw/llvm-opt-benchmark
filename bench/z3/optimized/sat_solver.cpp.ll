@@ -23985,7 +23985,7 @@ if.end:                                           ; preds = %_ZN4heapIN9var_queu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN3sat6solver12basic_searchEv(ptr noundef nonnull align 8 dereferenceable(4408) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN3sat6solver12basic_searchEv(ptr noundef nonnull align 8 dereferenceable(4408) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_inconsistent.i = getelementptr inbounds i8, ptr %this, i64 3336
   %m_trail.i = getelementptr inbounds i8, ptr %this, i64 3928

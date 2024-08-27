@@ -2549,7 +2549,7 @@ define dso_local noundef zeroext i1 @_ZNK4Type24signed_overflow_possibleEv(ptr n
 
 8:                                                ; preds = %switch.hole_check, %4
   %9 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   %11 = tail call noundef i32 @_ZN9CGOptions8int_sizeEv()
   %12 = icmp sle i32 %11, %10
   br label %_ZNK4Type9is_signedEv.exit
@@ -2589,7 +2589,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK4Type11SizeInBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4Type11SizeInBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #4 align 2 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %.loopexit [
     i32 0, label %8
@@ -2639,7 +2639,7 @@ define dso_local noundef i64 @_ZNK4Type11SizeInBytesEv(ptr nocapture noundef non
   %25 = getelementptr inbounds ptr, ptr %13, i64 %.02334
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull align 8 dereferenceable(136) %26)
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   br label %29
 
 29:                                               ; preds = %24, %18
@@ -2677,19 +2677,19 @@ define dso_local noundef i64 @_ZNK4Type11SizeInBytesEv(ptr nocapture noundef non
   %.not = icmp eq ptr %48, %49
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader27, %56
-  %50 = phi ptr [ %60, %56 ], [ %49, %.preheader27 ]
-  %.02031 = phi i32 [ %57, %56 ], [ 0, %.preheader27 ]
-  %.12430 = phi i64 [ %58, %56 ], [ 0, %.preheader27 ]
+.lr.ph:                                           ; preds = %.preheader27, %55
+  %50 = phi ptr [ %60, %55 ], [ %49, %.preheader27 ]
+  %.02031 = phi i32 [ %57, %55 ], [ 0, %.preheader27 ]
+  %.12430 = phi i64 [ %58, %55 ], [ 0, %.preheader27 ]
   %51 = getelementptr inbounds ptr, ptr %50, i64 %.12430
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull align 8 dereferenceable(136) %52)
-  %54 = trunc i64 %53 to i32
-  %55 = icmp eq i32 %54, 65535
-  br i1 %55, label %.loopexit, label %56
+  %54 = icmp eq i64 %53, 65535
+  br i1 %54, label %.loopexit, label %55
 
-56:                                               ; preds = %.lr.ph
-  %57 = add i32 %.02031, %54
+55:                                               ; preds = %.lr.ph
+  %56 = trunc nuw i64 %53 to i32
+  %57 = add i32 %.02031, %56
   %58 = add nuw i64 %.12430, 1
   %59 = load ptr, ptr %47, align 8
   %60 = load ptr, ptr %46, align 8
@@ -2710,8 +2710,8 @@ switch.lookup:                                    ; preds = %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %56, %29, %31, %switch.lookup, %8, %.preheader27, %.preheader, %66, %1, %44, %40
-  %.0.shrunk = phi i32 [ 65535, %40 ], [ 65535, %44 ], [ 0, %8 ], [ 0, %1 ], [ 0, %66 ], [ 0, %.preheader ], [ 0, %.preheader27 ], [ %switch.load, %switch.lookup ], [ 65535, %29 ], [ %spec.select, %31 ], [ 65535, %.lr.ph ], [ %57, %56 ]
+.loopexit:                                        ; preds = %.lr.ph, %55, %29, %31, %switch.lookup, %8, %.preheader27, %.preheader, %66, %1, %44, %40
+  %.0.shrunk = phi i32 [ 65535, %40 ], [ 65535, %44 ], [ 0, %8 ], [ 0, %1 ], [ 0, %66 ], [ 0, %.preheader ], [ 0, %.preheader27 ], [ %switch.load, %switch.lookup ], [ 65535, %29 ], [ %spec.select, %31 ], [ 65535, %.lr.ph ], [ %57, %55 ]
   %.0 = zext i32 %.0.shrunk to i64
   ret i64 %.0
 }
@@ -9782,14 +9782,14 @@ define dso_local void @_ZNK4Type6OutputERSo(ptr nocapture noundef nonnull readon
 11:                                               ; preds = %4
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.33)
   %13 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %14 = shl i64 %13, 3
+  %14 = shl nuw nsw i64 %13, 3
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %14)
   br label %common.ret13
 
 16:                                               ; preds = %4
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.34)
   %18 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %19 = shl i64 %18, 3
+  %19 = shl nuw nsw i64 %18, 3
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef %19)
   br label %common.ret13
 
@@ -9800,7 +9800,7 @@ _ZNK4Type9is_signedEv.exit:                       ; preds = %4, %4, %4, %4, %4, 
   %22 = phi ptr [ @.str.35, %21 ], [ @.str.36, %4 ], [ @.str.36, %4 ], [ @.str.36, %4 ], [ @.str.36, %4 ], [ @.str.36, %4 ]
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %22)
   %24 = tail call noundef i64 @_ZNK4Type11SizeInBytesEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %25 = shl i64 %24, 3
+  %25 = shl nuw nsw i64 %24, 3
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %25)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.37)
   br label %common.ret13

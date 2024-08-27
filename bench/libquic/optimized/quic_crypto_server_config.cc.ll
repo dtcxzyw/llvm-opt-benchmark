@@ -10355,7 +10355,7 @@ ehcleanup:                                        ; preds = %lpad11, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 20) i32 @_ZNK3net22QuicCryptoServerConfig27ValidateSourceAddressTokensERKNS_19SourceAddressTokensERKNS_9IPAddressENS_12QuicWallTimeEPNS_23CachedNetworkParametersE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(405) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %source_address_tokens, ptr noundef nonnull align 8 dereferenceable(24) %ip, i64 %now.coerce, ptr noundef %cached_network_params) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK3net22QuicCryptoServerConfig27ValidateSourceAddressTokensERKNS_19SourceAddressTokensERKNS_9IPAddressENS_12QuicWallTimeEPNS_23CachedNetworkParametersE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(405) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %source_address_tokens, ptr noundef nonnull align 8 dereferenceable(24) %ip, i64 %now.coerce, ptr noundef %cached_network_params) local_unnamed_addr #0 align 2 {
 entry:
   %rep_.i.i = getelementptr inbounds i8, ptr %source_address_tokens, i64 48
   %0 = load ptr, ptr %rep_.i.i, align 8
