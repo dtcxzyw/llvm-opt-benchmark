@@ -140,7 +140,7 @@ abc/acecCover.c.ll 248768855
 abc/acecFadds.c.ll 1384536962
 abc/acecMult.c.ll 595230718
 abc/acecNorm.c.ll 445085311
-abc/acecOrder.c.ll 282096707
+abc/acecOrder.c.ll 282380934
 abc/acecPa.c.ll 263369672
 abc/acecPo.c.ll 1486745060
 abc/acecPolyn.c.ll 883674229
@@ -956,7 +956,7 @@ abc/sswAig.c.ll 256093229
 abc/sswBmc.c.ll 240047156
 abc/sswClass.c.ll 612730226
 abc/sswCnf.c.ll 259392366
-abc/sswConstr.c.ll 689912405
+abc/sswConstr.c.ll 690613503
 abc/sswCore.c.ll 239983628
 abc/sswDyn.c.ll 386080476
 abc/sswFilter.c.ll 450320062
@@ -13568,7 +13568,7 @@ linux/idma32.ll 81195873
 linux/idr.ll 205710101
 linux/idt.ll 77559481
 linux/if.ll 133110986
-linux/iface.ll 692960370
+linux/iface.ll 693657076
 linux/igmp.ll 1030661882
 linux/inat.ll 75847283
 linux/indirect.ll 471056346
@@ -14959,7 +14959,7 @@ lua/lcorolib.ll 75130083
 lua/ldblib.ll 165612138
 lua/ldebug.ll 536524461
 lua/ldo.ll 441655320
-lua/ldump.ll 346081120
+lua/ldump.ll 346436744
 lua/lgc.ll 1134742640
 lua/liolib.ll 268432784
 lua/llex.ll 552074681
