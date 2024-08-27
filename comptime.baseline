@@ -23139,7 +23139,7 @@ openmpi/libmpi_c_profile_la-ineighbor_alltoallv.ll 130398249
 openmpi/libmpi_c_profile_la-ineighbor_alltoallw.ll 132614349
 openmpi/libmpi_c_profile_la-info_c2f.ll 37644348
 openmpi/libmpi_c_profile_la-info_create.ll 41121296
-openmpi/libmpi_c_profile_la-info_create_env.ll 63415922
+openmpi/libmpi_c_profile_la-info_create_env.ll 63479533
 openmpi/libmpi_c_profile_la-info_delete.ll 68431850
 openmpi/libmpi_c_profile_la-info_dup.ll 65927492
 openmpi/libmpi_c_profile_la-info_f2c.ll 46427891
@@ -26873,7 +26873,7 @@ postgres/equalfuncs.ll 2067036460
 postgres/equivclass.ll 1050131752
 postgres/error.ll 73886513
 postgres/euc2004_sjis2004.ll 200842874
-postgres/euc_cn_and_mic.ll 87201389
+postgres/euc_cn_and_mic.ll 87288735
 postgres/euc_jp_and_sjis.ll 430236073
 postgres/euc_kr_and_mic.ll 82886426
 postgres/euc_tw_and_big5.ll 218112168
