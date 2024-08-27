@@ -10574,7 +10574,7 @@ hyperscan/scratch_op.cpp.ll 1540182645
 hyperscan/serialize.cpp.ll 2633392283
 hyperscan/sheng.c.ll 1656498212
 hyperscan/shengcompile.cpp.ll 3508962206
-hyperscan/shortcut_literal.cpp.ll 346955219
+hyperscan/shortcut_literal.cpp.ll 346608152
 hyperscan/shufti.c.ll 141173379
 hyperscan/shufticompile.cpp.ll 1118342865
 hyperscan/simplegrep.c.ll 61988737
